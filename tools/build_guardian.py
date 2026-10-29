@@ -467,8 +467,13 @@ VANGUARD = tree(
              source="CoA: 'Valiant Defender raises your max Energy'."),
         node(V, "iron_guardian", "Iron Guardian",
              "Increases your total health by 2% per rank.",
-             0, 3, 5, {"max_health_pct": 2.0},
-             source="CoA: 'Iron Guardian scales max HP'."),
+             0, 3, 5, {"max_health_pct": 0.02},
+             source="CoA: 'Iron Guardian scales max HP'. NOTE max_health_pct "
+                    "is a FRACTION - health * (1.0 + value) - not percent "
+                    "points like armor_pct. Shipped at 2.0 (+200% a rank), "
+                    "which gave this spec 26,700 health and 99,156 effective "
+                    "HP against the next tank's 2,987. tools/validate_class.py "
+                    "now fails a value an order of magnitude off convention."),
 
         node(V, "shield_training", "Shield Training",
              "Increases your chance to block by 2% per rank.",
@@ -478,7 +483,7 @@ VANGUARD = tree(
         node(V, "recuperation", "Recuperation",
              "Increases the Armor of your shield by 8% per rank, and hardens "
              "you against the blows it catches.",
-             1, 1, 3, {"shield_armor_pct": 8.0, "physical_damage_taken_pct": -0.01},
+             1, 1, 3, {"shield_armor_pct": 0.08, "physical_damage_taken_pct": -0.01},
              connect=["fine_plating"],
              source="CoA: 'Recuperation refunds Energy whenever you take or "
                     "block a physical hit'. The Energy refund has no engine "
@@ -500,7 +505,7 @@ VANGUARD = tree(
         node(V, "iron_barrier", "Iron Barrier",
              "Your blocks absorb an additional 8% of the damage dealt to you, "
              "per rank.",
-             2, 0, 3, {"block_bonus_reduction": 0.08}, connect=["shield_training"],
+             2, 0, 3, {"block_bonus_reduction": 0.05}, connect=["shield_training"],
              source="CoA: 'Iron Barrier gives your blocks a chance to "
                     "critically block for double'. block_bonus_reduction is "
                     "the engine's existing critical-block hook, read in "
@@ -516,7 +521,7 @@ VANGUARD = tree(
         node(V, "resilient", "Resilient",
              "Increases your total health by 2% and reduces the chance you are "
              "critically hit by 1% per rank.",
-             2, 2, 3, {"max_health_pct": 2.0, "crit_taken_reduction": 1.0},
+             2, 2, 3, {"max_health_pct": 0.02, "crit_taken_reduction": 1.0},
              connect=["defensive_stance"],
              source="CoA: 'Resilient bumps max HP on blocks under Raise "
                     "Shield'. Doubles as the tree's crit-immunity path, which "
@@ -597,7 +602,7 @@ VANGUARD = tree(
 
         node(V, "shield_mastery", "Shield Mastery",
              "Increases the damage absorbed by your blocks by 10% per rank.",
-             5, 0, 3, {"block_value_pct": 0.10}, connect=["one_man_army"],
+             5, 0, 3, {"block_value_pct": 0.06}, connect=["one_man_army"],
              total_slots=3,
              source="Block VALUE, the other half of the two-stat block system "
                     "(chance rolls, value absorbs)."),
@@ -782,7 +787,7 @@ INSPIRATION = tree(
         node(I, "anthem_of_the_vanguard", "Anthem of the Vanguard",
              "For a few turns nobody in earshot misses, falters, or falls "
              "behind.",
-             6, 0, 1, {"attack_power_pct": 10.0, "haste": 10.0},
+             6, 0, 1, {"attack_power_pct": 8.0, "haste": 3.0},
              node_type="active",
              connect=["song_of_the_fallen", "perfect_pitch", "second_wind"],
              total_slots=1,
@@ -838,7 +843,7 @@ GLADIATOR = tree(
                     "its damage stat and its mitigation stat."),
         node(G, "bulwark_rush", "Bulwark Rush",
              "Increases the damage absorbed by your blocks by 10% per rank.",
-             1, 1, 3, {"block_value_pct": 0.10}, connect=["shield_combat"],
+             1, 1, 3, {"block_value_pct": 0.06}, connect=["shield_combat"],
              source="CoA names Bulwark Rush with the block-scaling talents."),
         node(G, "battle_hardened", "Battle Hardened",
              "Reduces damage you take by 2% per rank.",
@@ -945,7 +950,7 @@ GLADIATOR = tree(
 
         node(G, "champion_of_the_arena", "Champion of the Arena",
              "The crowd has already decided how this ends.",
-             6, 0, 1, {"physical_damage": 0.15, "crit_chance_physical": 10.0},
+             6, 0, 1, {"physical_damage": 0.15, "crit_chance_physical": 4.0},
              node_type="active",
              connect=["heroic_fury", "last_man_standing", "shield_of_the_arena"],
              total_slots=1,

@@ -72,10 +72,10 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "max_health_pct": 2.0
+        "max_health_pct": 0.02
       },
       "connected_to": [],
-      "_source": "CoA: 'Iron Guardian scales max HP'."
+      "_source": "CoA: 'Iron Guardian scales max HP'. NOTE max_health_pct is a FRACTION - health * (1.0 + value) - not percent points like armor_pct. Shipped at 2.0 (+200% a rank), which gave this spec 26,700 health and 99,156 effective HP against the next tank's 2,987. tools/validate_class.py now fails a value an order of magnitude off convention."
     },
     {
       "talent_id": "guardian_vanguard_shield_training",
@@ -106,7 +106,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "shield_armor_pct": 8.0,
+        "shield_armor_pct": 0.08,
         "physical_damage_taken_pct": -0.01
       },
       "connected_to": [
@@ -162,7 +162,7 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "block_bonus_reduction": 0.08
+        "block_bonus_reduction": 0.05
       },
       "connected_to": [
         "guardian_vanguard_shield_training"
@@ -199,7 +199,7 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "max_health_pct": 2.0,
+        "max_health_pct": 0.02,
         "crit_taken_reduction": 1.0
       },
       "connected_to": [
@@ -393,7 +393,7 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "block_value_pct": 0.1
+        "block_value_pct": 0.06
       },
       "connected_to": [
         "guardian_vanguard_one_man_army"

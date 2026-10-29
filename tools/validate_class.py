@@ -35,6 +35,7 @@ import argparse
 import json
 import re
 import sys
+import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -105,6 +106,79 @@ def live_effect_types(literals):
         for ability in doc.get("abilities", []):
             authored.add(ability.get("effect_type"))
     return {e for e in authored if e and e in literals}
+
+
+def effect_key_conventions(exclude_slug=None):
+    """Per-key value distribution across every authored tree.
+
+    THE CHECK THIS TOOL WAS MISSING. Key liveness is not enough: a live key
+    with a value in the wrong convention is worse than a dead one, because
+    it works and it is wrong. Conventions in this codebase differ PER KEY
+    with no naming rule to tell you which is which -
+
+        max_health_pct      FRACTION   0.02  means +2%   (health * (1 + v))
+        armor_pct           PERCENT    2.0   means +2%
+        damage_taken_pct    FRACTION  -0.02  means -2%
+        block               PERCENT    3.0   means +3 percentage points
+
+    - so "_pct" tells you nothing. Guardian shipped with max_health_pct at
+    2.0 instead of 0.02, i.e. +200% health per rank. Iron Guardian and
+    Resilient together gave +1600%, the spec reached 26,700 health and
+    99,156 effective HP against the next tank's 2,987, and survived 177
+    turns against 4 to 10. The validator passed it with 0 errors and 0
+    warnings, because every key was live and every structure was correct.
+    The balance sim caught it.
+
+    So: compare each value against what the SHIPPED trees already use for
+    that key. This is empirical rather than a hand-maintained table, for the
+    same reason liveness is - a second copy of the conventions would drift.
+    """
+    ref = defaultdict(list)
+    for path in (ROOT / "data/talents").glob("*.json"):
+        if exclude_slug and path.stem.startswith(exclude_slug + "_"):
+            continue
+        try:
+            doc = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        for node in doc.get("nodes", []):
+            for key, value in (node.get("effects") or {}).items():
+                if isinstance(value, (int, float)) and key != "unlock_ability":
+                    ref[key].append(abs(value))
+    return ref
+
+
+#: How far out of the shipped range a value has to be before it is an error
+#: rather than a note. 8x is deliberately loose: a capstone legitimately
+#: hits several times a per-rank talent's value, and the failure this is
+#: hunting is an order-of-magnitude convention slip (100x, 114x), not a
+#: designer choosing a big number on purpose.
+MAGNITUDE_FACTOR = 8
+
+
+def check_magnitudes(slug, report, conventions):
+    """Flag talent values an order of magnitude off the shipped convention."""
+    prefix = slug.replace("-", "_")
+    for path in sorted(ROOT.glob(f"data/talents/{prefix}_*.json")):
+        doc = json.loads(path.read_text())
+        for node in doc.get("nodes", []):
+            for key, value in (node.get("effects") or {}).items():
+                if not isinstance(value, (int, float)) or key == "unlock_ability":
+                    continue
+                seen = conventions.get(key)
+                if not seen:
+                    continue            # no precedent: nothing to compare to
+                median = statistics.median(seen)
+                if not median:
+                    continue
+                ratio = abs(value) / median
+                if ratio >= MAGNITUDE_FACTOR or ratio <= 1 / MAGNITUDE_FACTOR:
+                    direction = "TOO BIG" if ratio >= 1 else "too small"
+                    report.error(
+                        f"{path.stem}/{node.get('name')}: {key}={value} is "
+                        f"{max(ratio, 1/ratio):.0f}x {direction} - every other tree "
+                        f"uses {min(seen)} to {max(seen)} (median {median}). "
+                        f"Check whether this key wants a FRACTION or PERCENT POINTS.")
 
 
 def proc_payload_keys():
@@ -571,6 +645,7 @@ def validate(slug, live_keys, effect_types, global_ids, payload_keys, audit):
     validate_talents(slug, report, live_keys, abilities, global_ids,
                      payload_keys, audit)
     validate_wiring(slug, report, abilities)
+    check_magnitudes(slug, report, effect_key_conventions(exclude_slug=slug))
     validate_live(slug, report)
     return report
 
