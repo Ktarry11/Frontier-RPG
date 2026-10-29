@@ -20,7 +20,15 @@ STAT_CONVERSION_TARGETS = {
     "ranged_ap": "ranged_attack_power",
     "spell_power": "spell_power", "spell_damage": "spell_power",
     "healing_power": "healing_power",
-    "armor": "armor", "block_value": "block", "block": "block",
+    # block_value/block both target block_value, NOT "block". There was no
+    # attribute named "block" after block was split into block_chance (a %,
+    # shield-gated) and block_value (flat absorbed) on 2026-10-28, so these
+    # two targets wrote a phantom attribute that nothing read and
+    # Sun Cleric Seraphim's Clarity of the Heavens ("+3%/rank block value
+    # from Intellect", 5 ranks) silently did nothing. A conversion target
+    # has to name a real attribute: getattr returns 0 for a missing one and
+    # setattr happily invents it, so the whole pairing fails silently.
+    "armor": "armor", "block_value": "block_value", "block": "block_value",
     "parry": "parry", "dodge": "dodge", "haste": "haste",
     "crit_chance": "crit_chance_physical", "crit": "crit_chance_physical",
     "crit_chance_spell": "crit_chance_spell",
@@ -32,6 +40,25 @@ STAT_CONVERSION_SOURCES = frozenset({
     "strength", "agility", "intellect", "spirit", "stamina",
     "ap", "attack_power", "spell_power", "weapon", "str_int",
 })
+
+
+def _main_hand_average_damage(equipment):
+    """Average damage of the equipped main hand, or 0 while unarmed.
+
+    The "weapon" stat-conversion source. Deliberately the AVERAGE rather
+    than a roll: a conversion feeds a persistent derived stat recomputed on
+    every equip and talent change, so rolling here would make healing power
+    jitter between recalculations.
+    """
+    try:
+        weapon = equipment.get_main_hand_weapon()
+    except Exception:
+        return 0
+    if not weapon:
+        return 0
+    low = getattr(weapon, "weapon_damage_min", 0) or 0
+    high = getattr(weapon, "weapon_damage_max", 0) or 0
+    return (low + high) / 2.0
 
 
 class Character(StatusEffectMixin):
@@ -1304,8 +1331,14 @@ class Character(StatusEffectMixin):
             "stamina": eff_stamina,
             "ap": self.attack_power, "attack_power": self.attack_power,
             "spell_power": self.spell_power,
-            "weapon": self.equipment.get_weapon_damage() if hasattr(
-                self.equipment, "get_weapon_damage") else 0,
+            # "weapon": average main-hand weapon damage. Equipment has no
+            # get_weapon_damage method - it never did - so the old hasattr
+            # guard meant this source resolved to 0 for every character and
+            # Cultist Heretic's Void Power ("+2%/rank healing power from
+            # main-hand weapon damage", 5 ranks) converted nothing. Read off
+            # the equipped item's own min/max instead, which is what the
+            # talent's wording means, and stays 0 while unarmed.
+            "weapon": _main_hand_average_damage(self.equipment),
             # str_int: the sum, for Cultist's "Strength and Intellect" nodes
             "str_int": eff_strength + eff_intellect,
         }

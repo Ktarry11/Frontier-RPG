@@ -43,52 +43,53 @@ sys.path.insert(0, str(ROOT))
 
 # ---------------------------------------------------------------- vocabularies
 
-def _engine_sources():
-    """Every non-tool Python source in the game, as (relpath, text)."""
-    out = []
-    for path in sorted(ROOT.rglob("*.py")):
-        rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith("tools/") or "__pycache__" in rel:
-            continue
-        try:
-            out.append((rel, path.read_text(encoding="utf-8", errors="ignore")))
-        except OSError:
-            pass
-    return out
+def live_talent_effect_keys():
+    """Delegate to tools/audit_talents.py - do NOT reimplement this.
+
+    This function used to be a hand-rolled scan, and writing it was a
+    lesson. tools/audit_talents.py already answers "is this effect key
+    live?" and answers it better, because it knows the families the engine
+    builds at RUNTIME, which no scan of literals can see:
+
+      <target>_from_<source>_pct   stat conversions, resolved against the
+                                   shared STAT_CONVERSION_TARGETS/SOURCES
+                                   maps that live in character.py precisely
+                                   so two tools cannot drift
+      <school>_spell_damage etc    assembled as f"{school}_spell_damage"
+      scale_talent_key keys        looked up by name at proc time
+      *_max resource caps          and a short named-live set
+
+    Reimplementing it reported 60 errors against 17 shipped, working
+    classes - every stat conversion, every school damage key, static_max,
+    exposed_flesh_rage_pct - and every one of those was a FALSE DEAD. The
+    audit tool's own docstring says a previous false verdict destroyed a
+    working talent. One source of truth, imported, not copied.
+    """
+    sys.path.insert(0, str(ROOT / "tools"))
+    import audit_talents
+    live = audit_talents.live_effect_keys() | audit_talents.scale_talent_keys()
+    return live, audit_talents
+
+
+def key_is_live(key, live, audit):
+    """True if the engine can read `key` - literal, or a runtime family."""
+    if key in live:
+        return True
+    if audit._is_live_stat_conversion(key):
+        return True
+    if audit._is_live_school_key(key):
+        return True
+    if key in audit._NAMED_LIVE:
+        return True
+    if audit.SCALE_RE.match(key) if hasattr(audit, "SCALE_RE") else False:
+        return True
+    return False
 
 
 def engine_string_literals():
-    """Every quoted string literal in engine source.
-
-    DELIBERATELY blunt. The first version of this tool matched the specific
-    call shapes that read a talent effect - get_talent_effect("k"),
-    _talent(c, "k"), bonuses.get("k") - and it was WRONG in the direction
-    that matters. abilities.py reads crit_damage_spell as
-
-        self._talent(caster, "crit_damage_physical"
-                             if school == "physical" else "crit_damage_spell")
-
-    where the key sits inside a conditional, so no call-shape pattern sees
-    it. The tool duly reported five live talents as dead. A false "dead"
-    sends an author to rewrite a working talent; that is worse than letting
-    an unused key through, so presence as a literal anywhere in engine code
-    is the bar. Keys matched here are POSSIBLY live; keys absent are
-    definitely dead, because nothing can read a string the source never
-    mentions.
-    """
-    literals = set()
-    for _rel, text in _engine_sources():
-        literals.update(re.findall(r'[\'"]([a-z][a-z0-9_]{2,})[\'"]', text))
-    return literals
-
-
-def resist_pct_allowed(key):
-    """fire_resist_pct, fire_nature_resist_pct, poison_disease_resist_pct ...
-
-    Character._resist_pct_keys yields these by name-splitting, so no literal
-    exists in the source for a scan to find.
-    """
-    return bool(re.fullmatch(r"(?:[a-z]+_)+resist_pct", key))
+    """Kept as a thin alias so call sites read clearly."""
+    live, _audit = live_talent_effect_keys()
+    return live
 
 
 def live_effect_types(literals):
@@ -263,8 +264,20 @@ def validate_abilities(slug, report, effect_types, global_ids):
             if rank.get("rank") != index:
                 report.warn(f"{aid} rank {index}: rank field is {rank.get('rank')}")
             level = rank.get("level_req", 0)
-            if not 1 <= level <= 60:
-                report.error(f"{aid} rank {index}: level_req {level} outside 1-60")
+            # A rank above the level cap is unreachable but harmless, and
+            # several shipped abilities carry WoW's own TBC/WotLK rank levels
+            # (Paladin's Hammer of Wrath rank 3 at 72) which become real if
+            # the cap ever rises. Worth saying, not worth failing. A FIRST
+            # rank above the cap is different: that ability can never be
+            # learned at all.
+            if level < 1:
+                report.error(f"{aid} rank {index}: level_req {level} below 1")
+            elif level > 60 and index == 1:
+                report.error(f"{aid}: first rank unlocks at level {level}, above "
+                             f"the level cap - this ability is unlearnable")
+            elif level > 60:
+                report.warn(f"{aid} rank {index}: level_req {level} is above the "
+                            f"level 60 cap, so this rank never unlocks")
             if level < last_level:
                 report.error(f"{aid} rank {index}: level_req {level} goes "
                              f"backwards from {last_level}")
@@ -299,7 +312,8 @@ def validate_abilities(slug, report, effect_types, global_ids):
 
 # ---------------------------------------------------------------------- talents
 
-def validate_talents(slug, report, live_keys, abilities, global_ids, payload_keys):
+def validate_talents(slug, report, live_keys, abilities, global_ids,
+                     payload_keys, audit):
     prefix = slug.replace("-", "_")
     trees = sorted(ROOT.glob(f"data/talents/{prefix}_*.json"))
     if not trees:
@@ -379,7 +393,7 @@ def validate_talents(slug, report, live_keys, abilities, global_ids, payload_key
                             report.error(f"{tag}/{nid}: unlock_ability {target!r} "
                                          f"is not a real ability_id")
                     continue
-                if key in live_keys or resist_pct_allowed(key):
+                if key_is_live(key, live_keys, audit):
                     continue
                 report.error(f"{tag}/{nid}: effect key {key!r} is read by NOTHING "
                              f"in the engine - this talent would do nothing")
@@ -551,10 +565,11 @@ def validate_live(slug, report):
 
 # -------------------------------------------------------------------------- cli
 
-def validate(slug, live_keys, effect_types, global_ids, payload_keys):
+def validate(slug, live_keys, effect_types, global_ids, payload_keys, audit):
     report = Report(f"{class_display_name(slug)}  ({slug})")
     abilities = validate_abilities(slug, report, effect_types, global_ids)
-    validate_talents(slug, report, live_keys, abilities, global_ids, payload_keys)
+    validate_talents(slug, report, live_keys, abilities, global_ids,
+                     payload_keys, audit)
     validate_wiring(slug, report, abilities)
     validate_live(slug, report)
     return report
@@ -567,7 +582,7 @@ def main():
                         help="every class with an ability file")
     args = parser.parse_args()
 
-    live_keys = engine_string_literals()
+    live_keys, audit = live_talent_effect_keys()
     effect_types = live_effect_types(live_keys)
     global_ids = all_ability_ids()
     payload_keys = proc_payload_keys()
@@ -577,13 +592,14 @@ def main():
         slugs = sorted(p.stem for p in (ROOT / "data/abilities").glob("*.json")
                        if not p.stem.startswith("_") and p.stem != "asher_unique")
 
-    print(f"derived from engine source: {len(live_keys)} string literals, "
-          f"{len(effect_types)} effect_types, {len(payload_keys)} proc payload keys")
+    print(f"liveness via tools/audit_talents.py: {len(live_keys)} keys; "
+          f"{len(effect_types)} effect_types, {len(payload_keys)} proc payloads")
 
     failures = 0
     summary = []
     for slug in slugs:
-        report = validate(slug, live_keys, effect_types, global_ids, payload_keys)
+        report = validate(slug, live_keys, effect_types, global_ids,
+                          payload_keys, audit)
         count = report.dump()
         failures += count
         summary.append((slug, count, len(report.warnings)))
