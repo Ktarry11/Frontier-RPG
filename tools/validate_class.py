@@ -142,9 +142,19 @@ def effect_key_conventions(exclude_slug=None):
         except (OSError, ValueError):
             continue
         for node in doc.get("nodes", []):
+            points = node.get("max_points", 1) or 1
             for key, value in (node.get("effects") or {}).items():
                 if isinstance(value, (int, float)) and key != "unlock_ability":
-                    ref[key].append(abs(value))
+                    # TOTAL contribution at full ranks, not the per-rank
+                    # value. A 1-point node legitimately carries several
+                    # times a 5-rank node's per-rank number - CoA's Bulwark
+                    # is a single point of "+25% block value", which is the
+                    # same total as a 5-rank node at 0.05 and was flagged as
+                    # "8x too big" against per-rank values. Totals still
+                    # catch an order-of-magnitude slip: Guardian's
+                    # max_health_pct 2.0 over 5 ranks is 10.0 against a
+                    # shipped 0.1, which is 100x either way.
+                    ref[key].append(abs(value) * points)
     return ref
 
 
@@ -162,6 +172,7 @@ def check_magnitudes(slug, report, conventions):
     for path in sorted(ROOT.glob(f"data/talents/{prefix}_*.json")):
         doc = json.loads(path.read_text())
         for node in doc.get("nodes", []):
+            points = node.get("max_points", 1) or 1
             for key, value in (node.get("effects") or {}).items():
                 if not isinstance(value, (int, float)) or key == "unlock_ability":
                     continue
@@ -171,14 +182,16 @@ def check_magnitudes(slug, report, conventions):
                 median = statistics.median(seen)
                 if not median:
                     continue
-                ratio = abs(value) / median
+                ratio = abs(value) * points / median
                 if ratio >= MAGNITUDE_FACTOR or ratio <= 1 / MAGNITUDE_FACTOR:
                     direction = "TOO BIG" if ratio >= 1 else "too small"
                     report.error(
-                        f"{path.stem}/{node.get('name')}: {key}={value} is "
-                        f"{max(ratio, 1/ratio):.0f}x {direction} - every other tree "
-                        f"uses {min(seen)} to {max(seen)} (median {median}). "
-                        f"Check whether this key wants a FRACTION or PERCENT POINTS.")
+                        f"{path.stem}/{node.get('name')}: {key}={value} over "
+                        f"{points} rank(s) totals {abs(value) * points:g}, "
+                        f"{max(ratio, 1/ratio):.0f}x {direction} - every other "
+                        f"tree totals {min(seen):g} to {max(seen):g} (median "
+                        f"{median:g}). Check whether this key wants a FRACTION "
+                        f"or PERCENT POINTS.")
 
 
 def proc_payload_keys():

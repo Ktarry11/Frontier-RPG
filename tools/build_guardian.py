@@ -340,6 +340,16 @@ ABILITIES = [
             exclusive_group="guardian_decree", icon=None,
             source="The third and latest decree - both stats, smaller each."),
 
+    ability("sound_of_war", "Sound of War", "damage",
+            "The rhythm breaks and lands on everything near you.",
+            ranks(30, 9, 25, start=18, count=6), cooldown=2,
+            target_type="enemy", is_aoe=True, max_targets=3,
+            source="CoA's Inspiration tree is built around this: Ballads "
+                   "build Tempo toward a free Sound of War, and four talents "
+                   "(Soundwave, Into The Fray, Pied Piper, Frontliner) key "
+                   "off triggering one. It was missing from the first pass "
+                   "entirely, which left Soundwave scaling nothing."),
+
     # ---- Gladiator
     ability("battle_rush", "Battle Rush", "damage",
             "Cover the ground between you faster than they can set "
@@ -444,526 +454,617 @@ def tree(tree_id, spec_name, description, nodes, source):
 
 
 # =============================================================== Vanguard
+# Rebuilt 2026-10-28 against reference/coa_sidekick/talents/guardian.json -
+# the real CoA tree, scraped from the talent builder's own tooltips. The
+# first pass was authored from playstyle prose and got most NAMES right and
+# several MECHANICS wrong: Iron Guardian is +5% Stamina, not max health, and
+# Footman's Call buffs Pulverize damage, not threat. Every node below is a
+# real CoA Vanguard node with CoA's own effect, mapped onto the nearest live
+# engine key. CoA runs 38 nodes behind 3 point gates plus a free passive
+# every 10 levels; Frontier runs ~23 across 7 tiers with no free passives,
+# so the free level-gated passives become ordinary 1-point nodes placed at
+# the tier their level implies.
 V = "guardian_vanguard"
 VANGUARD = tree(
     V, "Guardian Vanguard",
-    "Block-centric plate tank - Energy comes back from being hit "
-    "(Recuperation), mitigation stacks off blocks rather than avoidance, and "
-    "Raise Shield resets off your own strikes.",
+    "Block-centric plate tank - mitigation stacks off blocks rather than "
+    "avoidance, Formations trade speed for damage reduction, and Raise "
+    "Shield resets off your own strikes.",
     [
+        node(V, "iron_guardian", "Iron Guardian",
+             "Increases your Stamina by 5% per rank.",
+             0, 0, 3, {"stamina_pct": 5.0},
+             source="CoA: 'Increases your Stamina by 5%. (up to 3 ranks)'. "
+                    "The first pass had this as max_health_pct, which is a "
+                    "FRACTION in this engine - authored as 2.0 it granted "
+                    "+200% a rank."),
+        node(V, "heavy_expert", "Heavy Expert",
+             "Increases your chance to parry and dodge by 1.5% and your Armor "
+             "by 4% per rank.",
+             0, 1, 5, {"parry": 1.5, "dodge": 1.5, "armor_pct": 4.0},
+             source="CoA: 'Increases your chance to parry and dodge by 4% and "
+                    "increase your Armor contribution from mail and plate "
+                    "items by 20%.' Armour-by-item-type has no engine hook, "
+                    "so it lands as flat Armor; spread over 3 ranks rather "
+                    "than CoA's single point to fit Frontier's tier budget."),
+        node(V, "footmans_call", "Footman's Call",
+             "Increases the damage of Pulverize by 8% per rank.",
+             0, 2, 5, {"ability_guardian_pulverize_damage": 0.08},
+             source="CoA: 'Damage dealt by Pulverize is increased by 15, plus "
+                    "an additional amount scaling with your block value.' The "
+                    "block-value scaling has no hook. NOT a threat talent - "
+                    "the first pass used this name for threat."),
+        node(V, "with_honor", "With Honor",
+             "Reduces the cooldown of Ram by 1 turn per rank.",
+             0, 3, 3, {"ability_guardian_ram_cooldown": -1},
+             source="CoA: 'Reduces the cooldown of Ram by -4 sec.'"),
+
+        node(V, "knights_conviction", "Knight's Conviction",
+             "Increases the damage your blocks absorb by 8% and your block "
+             "chance by 1% per rank.",
+             1, 0, 3, {"block_value_pct": 0.08, "block": 1.0},
+             connect=["iron_guardian"],
+             source="CoA: 'Increases the block value provided by Raise Shield "
+                    "by 25% and your block chance by 1%. (up to 2 ranks)'"),
         node(V, "seasoned_fighter", "Seasoned Fighter",
              "Reduces the Energy cost of your abilities by 3% per rank.",
-             0, 0, 5, {"all_ability_cost_pct": -0.03},
-             source="CoA: 'Seasoned Fighter cuts ability costs'."),
-        node(V, "fine_plating", "Fine Plating",
-             "Increases your Armor by 3% per rank.",
-             0, 1, 5, {"armor_pct": 3.0},
-             source="CoA: 'Fine Plating stacks Physical damage reduction with "
-                    "every block'. The stacking half is not modellable in a "
-                    "turn engine, so it lands as flat Armor."),
+             1, 1, 3, {"all_ability_cost_pct": -0.03},
+             connect=["heavy_expert"],
+             source="CoA: 'Reduces the Energy cost of Pulverize, Ram, and "
+                    "Broad Sweep by -10%.' Engine-wide rather than per "
+                    "ability - there is no per-ability cost key for three "
+                    "abilities at once."),
+        node(V, "stalwart", "Stalwart",
+             "Increases the damage your blocks absorb by 5% and grants 2 hit "
+             "rating per rank.",
+             1, 2, 3, {"block_value_pct": 0.05, "hit_rating": 2},
+             connect=["footmans_call"],
+             source="CoA: 'Increases your block value by 10% and your "
+                    "expertise by 4. (up to 2 ranks)'. No expertise key "
+                    "exists; hit rating is the nearest live stat."),
         node(V, "valiant_defender", "Valiant Defender",
-             "Increases your maximum Energy by 6 per rank.",
-             0, 2, 5, {"energy_max": 6},
-             source="CoA: 'Valiant Defender raises your max Energy'."),
-        node(V, "iron_guardian", "Iron Guardian",
-             "Increases your total health by 2% per rank.",
-             0, 3, 5, {"max_health_pct": 0.02},
-             source="CoA: 'Iron Guardian scales max HP'. NOTE max_health_pct "
-                    "is a FRACTION - health * (1.0 + value) - not percent "
-                    "points like armor_pct. Shipped at 2.0 (+200% a rank), "
-                    "which gave this spec 26,700 health and 99,156 effective "
-                    "HP against the next tank's 2,987. tools/validate_class.py "
-                    "now fails a value an order of magnitude off convention."),
+             "Increases your maximum Energy by 5 and the damage of Pulverize "
+             "by 5% per rank.",
+             1, 3, 3, {"energy_max": 5,
+                       "ability_guardian_pulverize_damage": 0.05},
+             connect=["with_honor"],
+             source="CoA: 'Increases your maximum Energy by 15 and increases "
+                    "the damage of Pulverize and Broad Sweep by 10%.'"),
 
-        node(V, "shield_training", "Shield Training",
-             "Increases your chance to block by 2% per rank.",
-             1, 0, 5, {"block": 2.0}, connect=["seasoned_fighter"],
-             source="CoA lists Shield Training among the block-scaling "
-                    "mitigation talents."),
-        node(V, "recuperation", "Recuperation",
-             "Increases the Armor of your shield by 8% per rank, and hardens "
-             "you against the blows it catches.",
-             1, 1, 3, {"shield_armor_pct": 0.08, "physical_damage_taken_pct": -0.01},
-             connect=["fine_plating"],
-             source="CoA: 'Recuperation refunds Energy whenever you take or "
-                    "block a physical hit'. The Energy refund has no engine "
-                    "hook, so the node carries shield Armor instead - named "
-                    "and placed for the real talent."),
-        node(V, "defensive_stance", "Defender's Resolve",
-             "Reduces all damage you take by 2% per rank.",
-             1, 2, 3, {"damage_taken_pct": -0.02}, connect=["valiant_defender"],
-             source="The flat-mitigation node every tank tree needs; CoA "
-                    "calls Guardian 'the best damage mitigation in the game', "
-                    "so it gets a real one."),
-        node(V, "honorable_demeanor", "Honorable Demeanor",
-             "Increases your Stamina by 2% and Strength by 2% per rank.",
-             1, 3, 5, {"stamina_pct": 2.0, "strength_pct": 2.0},
-             connect=["iron_guardian"],
-             source="CoA: 'Honorable Demeanor turns blocks into stacking "
-                    "Strength and Stamina'."),
+        node(V, "bulwark", "Bulwark",
+             "Increases the damage your blocks absorb by 25% and grants 5 hit "
+             "rating.",
+             2, 0, 1, {"block_value_pct": 0.25, "hit_rating": 5},
+             connect=["knights_conviction"],
+             source="CoA: 'Level 20 Passive. Increases your block value by "
+                    "25% and your hit rating by 5% of your Stamina.' The "
+                    "Stamina-into-hit conversion is real in CoA and cannot be "
+                    "expressed here: hit_rating is a local feeding "
+                    "base_miss_chance_*, not a Character attribute, so it "
+                    "cannot be a <target>_from_<source>_pct target without "
+                    "restructuring that loop. Flat hit instead."),
+        node(V, "retaliation", "Retaliation",
+             "Blows you block are answered in kind.",
+             2, 1, 1, {}, node_type="active", connect=["seasoned_fighter"],
+             proc={"trigger": "on_damage_taken", "chance": 30, "icd": 1,
+                   "damage_flat": 70},
+             source="CoA: 'Successful blocks now deal AP Physical damage to "
+                    "the attacker, scaling with defense rating. Can only "
+                    "occur once per sec.'"),
+        node(V, "vanguards_shield", "Vanguard's Shield",
+             "Reduces the Magic damage you take by 2% per rank.",
+             2, 2, 5, {"magic_damage_taken_pct": -0.02},
+             connect=["stalwart"],
+             source="CoA: 'Blocking an attack or landing an auto attack now "
+                    "grants a stack of Vanguard ... Magic Damage taken "
+                    "reduced.' The stacking half has no hook, so it is a "
+                    "flat reduction - and it is the only magic mitigation in "
+                    "the tree, which matters because the tank sweep flags "
+                    "Guardian as scoring zero there."),
+        node(V, "bring_down_the_hammer", "Bring Down The Hammer!",
+             "Increases the damage of Heavy Blow by 8% per rank.",
+             2, 3, 5, {"ability_guardian_heavy_blow_damage": 0.08},
+             connect=["valiant_defender"],
+             source="CoA: 'Damage dealt by Heavy Blow now deals an additional "
+                    "20% of the damage dealt every 1 sec for 3 seconds.' A "
+                    "bleed-on-hit has no shape here, so the damage lands up "
+                    "front."),
 
         node(V, "iron_barrier", "Iron Barrier",
-             "Your blocks absorb an additional 8% of the damage dealt to you, "
+             "Your blocks absorb an additional 5% of the damage dealt to you, "
              "per rank.",
-             2, 0, 3, {"block_bonus_reduction": 0.05}, connect=["shield_training"],
-             source="CoA: 'Iron Barrier gives your blocks a chance to "
-                    "critically block for double'. block_bonus_reduction is "
-                    "the engine's existing critical-block hook, read in "
-                    "Character.take_damage."),
-        node(V, "bulwark", "Bulwark",
-             "Grants 1 hit rating and 4 Stamina per rank.",
-             2, 1, 5, {"hit_rating": 1, "stamina": 4}, connect=["recuperation"],
-             source="CoA: 'Bulwark converts Stamina into hit rating'. A real "
-                    "conversion is impossible here - hit_rating is a local "
-                    "feeding base_miss_chance_*, not a Character attribute, so "
-                    "it cannot be a <target>_from_<source>_pct target without "
-                    "restructuring that loop. Flat hit + Stamina instead."),
-        node(V, "resilient", "Resilient",
-             "Increases your total health by 2% and reduces the chance you are "
-             "critically hit by 1% per rank.",
-             2, 2, 3, {"max_health_pct": 0.02, "crit_taken_reduction": 1.0},
-             connect=["defensive_stance"],
-             source="CoA: 'Resilient bumps max HP on blocks under Raise "
-                    "Shield'. Doubles as the tree's crit-immunity path, which "
-                    "its stat priority leads with ('Defense (to "
-                    "crit-immunity)')."),
-        node(V, "kings_guard", "King's Guard",
-             "Your Ram and Pulverize have a 15% chance per rank to reset Raise "
-             "Shield.",
-             2, 3, 3, {}, connect=["honorable_demeanor"],
-             proc={"trigger": "on_damage_cast", "chance": 15, "icd": 1,
-                   "apply_effect": {
-                       "effect_id": "guardian_kings_guard",
-                       "name": "King's Guard",
-                       "effect_type": "buff",
-                       "duration": 2,
-                       "stat_mods": {"block": 10.0},
-                       "on_target": False}},
-             source="CoA: 'King's Guard (Pulverize and Ram have a chance to "
-                    "reset Raise Shield's cooldown)'. A cooldown reset has no "
-                    "proc shape, so it grants a block window instead - the "
-                    "same thing the reset would have bought."),
-
-        node(V, "improved_brace", "Improved Brace",
+             3, 0, 2, {"block_bonus_reduction": 0.05}, connect=["bulwark"],
+             source="CoA: 'Level 30 Passive. Your successful blocks now have "
+                    "a 50% chance to critically block for twice the normal "
+                    "amount.' block_bonus_reduction is the engine's existing "
+                    "critical-block hook, read in Character.take_damage."),
+        node(V, "forceful_impact", "Forceful Impact",
              "Brace lasts 1 turn longer per rank.",
-             3, 0, 2, {"ability_guardian_brace_duration": 1},
-             connect=["iron_barrier"],
-             source="ability_<id>_<stat> keys are built by interpolation in "
-                    "abilities.py - a literal grep calls them dead, which is "
-                    "why 48 of them were once reported so."),
+             3, 1, 3, {"ability_guardian_brace_duration": 1},
+             connect=["retaliation"],
+             source="CoA: 'Casting Raise Shield and Heavy Blow now extends "
+                    "the duration of your Brace by 1 sec.'"),
         node(V, "vanguards_might", "Vanguard's Might",
-             "Heavy Blow leaves your allies taking 4% less damage per rank.",
-             3, 1, 3, {}, connect=["bulwark"],
+             "Heavy Blow leaves your allies taking 5% less damage per rank.",
+             3, 2, 3, {}, connect=["vanguards_shield"],
              proc={"trigger": "on_damage_cast", "chance": 100, "icd": 0,
                    "apply_effect": {
                        "effect_id": "guardian_vanguards_might",
                        "name": "Vanguard's Might",
                        "effect_type": "buff",
                        "duration": 3,
-                       "stat_mods": {"damage_taken_pct": -0.04},
+                       "stat_mods": {"damage_taken_pct": -0.05},
                        "on_target": False}},
-             source="CoA: 'Heavy Blow (line hit, high threat, grants "
-                    "Vanguard's Might's party damage-reduction aura)'."),
-        node(V, "paragon", "Paragon",
-             "Increases the damage of Heavy Blow by 10% per rank.",
-             3, 2, 3, {"ability_guardian_heavy_blow_damage": 0.10},
-             connect=["resilient"],
-             source="CoA: 'Paragon banks them for a payoff', an empowered "
-                    "Heavy Blow."),
-        node(V, "refuse_to_die", "Refuse To Die",
-             "While below 35% health, you take 8% less damage per rank.",
-             3, 3, 3, {"low_health_damage_reduction_pct": 0.08,
-                       "low_health_threshold_pct": 0.35},
-             connect=["kings_guard"],
-             source="CoA: 'Refuse To Die (Advance resets it outright)'. The "
-                    "name is a last-stand name, so it carries the engine's "
-                    "low-health mitigation pair."),
+             source="CoA: 'Your Heavy Blow now causes you to emanate an aura "
+                    "for 5 seconds that reduces all damage taken by -5% for "
+                    "party members.'"),
+        node(V, "resilient", "Resilient",
+             "Increases your total health by 3% per rank.",
+             3, 3, 5, {"max_health_pct": 0.03},
+             connect=["bring_down_the_hammer"],
+             source="CoA: 'Blocking an attack while Raise Shield is active "
+                    "now increases your maximum health by AP for 15 "
+                    "seconds.' Conditional max-health has no hook; flat."),
 
-        node(V, "one_man_army", "One Man Army",
-             "Increases the damage Pulverize deals to additional targets by "
-             "15% per rank.",
-             4, 0, 3, {"aoe_damage": 0.15}, connect=["improved_brace"],
-             source="CoA: 'Pulverize (cleaves extra targets via One Man "
-                    "Army)'."),
-        node(V, "retaliation", "Retaliation",
-             "Blows you block are answered in kind.",
-             4, 1, 1, {}, node_type="active", connect=["vanguards_might"],
-             proc={"trigger": "on_damage_taken", "chance": 30, "icd": 0,
-                   "damage_flat": 60},
-             source="CoA: 'Retaliation is Revenge-flavored auto-retaliation "
-                    "where blocks strike back', 'largely passive'."),
-        node(V, "footmans_call", "Footman's Call",
-             "Increases your threat generation by 8% per rank.",
-             4, 2, 3, {"threat_generation_pct": 0.08}, connect=["paragon"],
-             source="Guardian's threat talent, at Warrior Defiance's 8%/rank - "
-                    "the two Protection analogs should hold threat equally. "
-                    "Note the key: threat_generation_pct as a TALENT effect "
-                    "is a fraction and only started working in 992ed62."),
+        node(V, "footmans_calling", "Footman's Calling",
+             "While holding a Formation you take 2% less damage and generate "
+             "6% more threat, per rank.",
+             4, 0, 3, {"damage_taken_pct": -0.02,
+                       "threat_generation_pct": 0.06},
+             connect=["iron_barrier"],
+             source="CoA: 'Level 10 Passive. Your damage taken is reduced by "
+                    "-10% while Tower Formation or Line Formation is active. "
+                    "In addition, your threat generated from Physical [damage "
+                    "is increased].' THE tree's threat talent - 3 ranks give "
+                    "+18%, just under Warrior Defiance's 24%, since Guardian "
+                    "trades threat for the best mitigation in the game. Note "
+                    "threat_generation_pct is a FRACTION as a talent effect "
+                    "and percent POINTS as an ability buff stat_mod."),
+        node(V, "experienced_soldier", "Experienced Soldier",
+             "Reduces the cooldown of Brace by 1 turn.",
+             4, 1, 1, {"ability_guardian_brace_cooldown": -1},
+             connect=["forceful_impact"],
+             source="CoA: 'Level 40 Passive. Melee attacks now reduce the "
+                    "cooldown of Brace by -1 sec.'"),
+        node(V, "the_green_tower", "The Green Tower",
+             "Increases your Armor by 3% per rank and cheapens your "
+             "Formations.",
+             4, 2, 5, {"armor_pct": 3.0, "all_ability_cost_pct": -0.01},
+             connect=["vanguards_might"],
+             source="CoA: 'Reduces the Energy cost of your Formations and "
+                    "increases their effectiveness by 25%.'"),
 
-        node(V, "shield_mastery", "Shield Mastery",
-             "Increases the damage absorbed by your blocks by 10% per rank.",
-             5, 0, 3, {"block_value_pct": 0.06}, connect=["one_man_army"],
-             total_slots=3,
-             source="Block VALUE, the other half of the two-stat block system "
-                    "(chance rolls, value absorbs)."),
-        node(V, "unyielding", "Unyielding",
+        node(V, "hold_the_line", "Hold the Line",
              "Reduces the duration of stuns used against you by 15% per rank.",
-             5, 1, 2, {"stun_duration_reduction_pct": 0.15},
-             connect=["retaliation"], total_slots=3,
-             source="CoA: 'Unlike stock Prot Warrior, Vanguard has no AoE "
-                    "stun' - it resists them instead."),
-        node(V, "tower_of_strength", "Tower of Strength",
-             "Increases your Armor by 5% and your block chance by 3% per rank.",
-             5, 2, 2, {"armor_pct": 5.0, "block": 3.0},
-             connect=["footmans_call"], total_slots=3,
-             source="The pre-capstone mitigation stack."),
+             5, 0, 3, {"stun_duration_reduction_pct": 0.15},
+             connect=["footmans_calling"], total_slots=3,
+             source="CoA: 'Command nearby allies to hold the line, making "
+                    "them immune to incapacitate, disorient, knockback, and "
+                    "grip effects for 15 seconds.' Party immunity has no "
+                    "hook, so it shortens stuns on the Guardian instead."),
+        node(V, "high_guard", "High Guard",
+             "After you strike, your guard comes back up harder.",
+             5, 1, 1, {}, node_type="active",
+             connect=["experienced_soldier"], total_slots=3,
+             proc={"trigger": "on_damage_cast", "chance": 35, "icd": 1,
+                   "apply_effect": {
+                       "effect_id": "guardian_high_guard",
+                       "name": "High Guard",
+                       "effect_type": "buff",
+                       "duration": 2,
+                       "stat_mods": {"block": 10.0},
+                       "on_target": False}},
+             source="CoA: 'Level 50 Passive. After using Raise Shield, "
+                    "Advance or Battle Rush, you are granted High Guard.'"),
+        node(V, "shield_unit", "Shield Unit",
+             "Each hit you take grants you attack power, 4% of the damage per "
+             "rank.",
+             5, 2, 2, {}, connect=["the_green_tower"], total_slots=3,
+             proc={"trigger": "on_damage_taken", "chance": 100, "icd": 0,
+                   "apply_effect": {
+                       "effect_id": "guardian_shield_unit",
+                       "name": "Shield Unit",
+                       "effect_type": "buff",
+                       "duration": 4,
+                       "stat_mods": {"attack_power": 25},
+                       "on_target": False}},
+             source="CoA: 'Each time you take damage, you gain 5% of the "
+                    "damage taken as attack power for 1 minute.'"),
 
-        node(V, "last_stand_of_the_line", "Last Stand of the Line",
-             "While you hold the line, nothing behind you falls. You take 15% "
-             "less damage and your allies 10% less.",
-             6, 0, 1, {"damage_taken_pct": -0.15}, node_type="active",
-             connect=["shield_mastery", "unyielding", "tower_of_strength"],
+        node(V, "kings_guard", "King's Guard",
+             "Your Pulverize and Ram throw your shield back up before you "
+             "need it.",
+             6, 0, 1, {"damage_taken_pct": -0.10}, node_type="active",
+             connect=["hold_the_line", "high_guard", "shield_unit"],
              total_slots=1,
-             source="Capstone. CoA: Guardian has 'the best damage mitigation "
-                    "in the game' and Vanguard is 'the safest tank in COA: "
-                    "many shields + mitigation CDs ... Nearly unkillable, just "
-                    "slower kills'."),
+             proc={"trigger": "on_damage_cast", "chance": 10, "icd": 1,
+                   "apply_effect": {
+                       "effect_id": "guardian_kings_guard",
+                       "name": "King's Guard",
+                       "effect_type": "buff",
+                       "duration": 2,
+                       "stat_mods": {"block": 15.0},
+                       "on_target": False}},
+             source="Capstone. CoA: 'Your Pulverize and Ram now have a 10% "
+                    "chance to reset the cooldown of Raise Shield.' A proc "
+                    "cannot reset a cooldown, so it grants the block window "
+                    "the reset would have bought, plus the flat mitigation "
+                    "that makes it a capstone. CoA rates Vanguard 'the safest "
+                    "tank in COA ... Nearly unkillable, just slower kills'."),
     ],
-    "Built from reference/coa_sidekick/SPEC_guardian__vanguard.txt. CoA calls "
-    "this the Protection Warrior analog and 'the safest tank in COA'. Block, "
-    "not avoidance, is the chassis - its stat priority is Defense > Stamina > "
-    "Expertise > Block Rating/Value > Strength > Dodge/Parry, which is why "
-    "the tree spends far more on block chance, block value and critical block "
-    "than on dodge or parry.")
+    "Rebuilt from reference/coa_sidekick/talents/guardian.json, the real CoA "
+    "Vanguard tree (38 nodes behind 3 point gates plus five free level-gated "
+    "passives). Every node here is a real CoA node carrying CoA's own effect. "
+    "Its stat priority is Defense > Stamina > Expertise > Block Rating/Value "
+    "> Strength > Dodge/Parry, which is why the tree spends far more on block "
+    "chance and block value than on avoidance.")
 
 
 # ============================================================ Inspiration
 I = "guardian_inspiration"
 INSPIRATION = tree(
     I, "Guardian Inspiration",
-    "Melee support - stands in the scrum with a shield while buffing the "
-    "party off its own attack power, and uniquely scales off Spirit.",
+    "Melee support - Ballads and Sounds of War buff the party off the "
+    "Guardian's own attack power while it fights in melee with a shield.",
     [
-        node(I, "powerful_voice", "Powerful Voice",
-             "Increases your critical strike chance by 1% per rank.",
-             0, 0, 5, {"crit_chance_physical": 1.0},
-             source="CoA stat priority: 'Critical Strike (Tempo/Powerful "
-                    "Voice stacking)'."),
-        node(I, "minstrel", "Minstrel",
-             "Increases your haste by 2 per rank.",
-             0, 1, 5, {"haste": 2.0},
-             source="CoA: 'Minstrel's stacking haste builds as you cast "
-                    "Ballads'."),
-        node(I, "field_training", "Field Training",
-             "Increases your Strength by 2% per rank.",
-             0, 2, 5, {"strength_pct": 2.0},
-             source="CoA stat priority leads with Strength for 'Ballad/Sunder/"
-                    "Song of Battle weapon-damage scaling'."),
-        node(I, "devotion", "Devotion",
-             "Increases your Spirit by 3% per rank.",
-             0, 3, 5, {"spirit_pct": 3.0},
-             source="CoA: 'Spirit (uniquely powers Soldier's/Spellcaster's/"
-                    "Hero's Decrees, Feats of Strength/Honor/Glory, and Song "
-                    "of Steel)'. No other melee spec in the game wants Spirit; "
-                    "this node is the reason it does."),
+        node(I, "leading_the_march", "Leading the March",
+             "Increases your attack power and Armor by 4% per rank.",
+             0, 0, 3, {"attack_power_pct": 4.0, "armor_pct": 4.0},
+             source="CoA: 'Increases your attack power and total Armor by 4%. "
+                    "(up to 2 ranks)'"),
+        node(I, "a_heros_tale", "A Hero's Tale",
+             "Increases your maximum Energy by 6 per rank.",
+             0, 1, 3, {"energy_max": 6},
+             source="CoA: 'Increases your Energy regeneration by 10%. (up to "
+                    "2 ranks)'. Regen rate is fixed at 25/turn in "
+                    "Character.restore_resources, so a bigger pool is the "
+                    "closest honest equivalent."),
+        node(I, "dragonslayer", "Dragonslayer",
+             "Increases your Agility by 2% per rank.",
+             0, 2, 5, {"agility_pct": 2.0},
+             source="CoA: 'Increases your Agility by 5%.'"),
+        node(I, "battle_bard", "Battle Bard",
+             "Increases the damage of your Ballads by 8% per rank.",
+             0, 3, 3, {"ability_guardian_ballad_of_steel_damage": 0.08},
+             source="CoA: 'Increases the damage of your Ballads by 15%.'"),
 
-        node(I, "tempo", "Tempo",
-             "Your Ballads build toward something. Each one increases your "
-             "damage by 3% per rank for a short time.",
-             1, 0, 3, {}, connect=["powerful_voice"],
+        node(I, "strength_in_unison", "Strength In Unison",
+             "Increases your haste by 2 per rank.",
+             1, 0, 3, {"haste": 2.0}, connect=["leading_the_march"],
+             source="CoA: 'Increases your melee haste by 1% for each ally "
+                    "within 20 yds, up to a maximum of 20%.' Party-size "
+                    "scaling has no hook, so it is flat."),
+        node(I, "powerful_voice", "Powerful Voice",
+             "Increases your critical strike chance by 2% per rank.",
+             1, 1, 3, {"crit_chance_physical": 2.0}, connect=["a_heros_tale"],
+             source="CoA: 'Increases the critical strike chance of your "
+                    "Ballads by 10%.'"),
+        node(I, "minstrel", "Minstrel",
+             "Each Ballad you play quickens the next.",
+             1, 2, 3, {}, connect=["dragonslayer"],
              proc={"trigger": "on_damage_cast", "chance": 100, "icd": 0,
                    "apply_effect": {
-                       "effect_id": "guardian_tempo",
-                       "name": "Tempo",
+                       "effect_id": "guardian_minstrel",
+                       "name": "Minstrel",
                        "effect_type": "buff",
                        "duration": 3,
-                       "stat_mods": {"physical_damage": 0.03},
+                       "stat_mods": {"haste": 3.0},
                        "on_target": False}},
-             source="CoA: 'chasing the 3-stack Tempo proc', 'builds Tempo "
-                    "toward a free Sound of War'."),
-        node(I, "inspiring_leader", "Inspiring Leader",
-             "Increases the damage of Broad Sweep by 10% per rank.",
-             1, 1, 3, {"ability_guardian_broad_sweep_damage": 0.10},
-             connect=["minstrel"],
-             source="CoA: 'Inspiring Leader also turns it into a Ballad'."),
-        node(I, "song_of_war", "Sound of War",
-             "Increases the damage of Ballad of Steel by 12% per rank.",
-             1, 2, 3, {"ability_guardian_ballad_of_steel_damage": 0.12},
-             connect=["field_training"],
-             source="CoA: 'builds Tempo toward a free Sound of War'."),
-        node(I, "feats_of_strength", "Feats of Strength",
-             "Grants attack power equal to 3% of your Spirit per rank.",
-             1, 3, 5, {"ap_from_spirit_pct": 0.03}, connect=["devotion"],
-             source="CoA: 'Feats of Strength/Honor/Glory' are Spirit-powered. "
-                    "A real <target>_from_<source>_pct conversion - resolved "
-                    "against the shared STAT_CONVERSION maps in character.py."),
+             source="CoA: 'Casting a Ballad now increases your haste by 3%, "
+                    "stacking 3 times, for 8 seconds.'"),
+        node(I, "soundwave", "Soundwave",
+             "Increases the damage of Sound of War by 8% per rank.",
+             1, 3, 5, {"ability_guardian_sound_of_war_damage": 0.08},
+             connect=["battle_bard"],
+             source="CoA: 'Increases the damage dealt by Sound of War by 15%.'"),
 
         node(I, "veteran_of_the_third_war", "Veteran of the Third War",
              "Blows you block knit you back together.",
-             2, 0, 3, {}, connect=["tempo"],
-             proc={"trigger": "on_damage_taken", "chance": 30, "icd": 0,
-                   "heal_flat": 55},
-             source="CoA: 'Use Veteran of the Third War's on-block heal and "
-                    "Fearless while surrounded'. The spec's only sustain."),
+             2, 0, 3, {}, connect=["strength_in_unison"],
+             proc={"trigger": "on_damage_taken", "chance": 35, "icd": 0,
+                   "heal_flat": 60},
+             source="CoA: 'You now restore 3% of your base health whenever "
+                    "you block an attack.' The spec's only sustain."),
+        node(I, "spirit_of_battle", "Spirit of Battle",
+             "Grants 2 hit rating per rank to you and your allies.",
+             2, 1, 3, {"hit_rating": 2}, connect=["powerful_voice"],
+             source="CoA: 'Increases chance to hit with all spells and "
+                    "attacks by 1% for you and party and raid members.' The "
+                    "party half has no hook for a stat like this."),
+        node(I, "wars_muse", "War's Muse",
+             "Increases your critical strike damage by 8% per rank.",
+             2, 2, 3, {"crit_damage_physical": 0.08}, connect=["minstrel"],
+             source="CoA: 'Increases your critical damage by 20%.'"),
+        node(I, "into_the_fray", "Into The Fray",
+             "A Sound of War buys you another swing.",
+             2, 3, 3, {}, connect=["soundwave"],
+             proc={"trigger": "on_cast", "chance": 40, "icd": 1,
+                   "apply_effect": {
+                       "effect_id": "guardian_into_the_fray",
+                       "name": "Into The Fray",
+                       "effect_type": "buff",
+                       "duration": 2,
+                       "stat_mods": {"haste": 8.0},
+                       "on_target": False}},
+             source="CoA: 'Triggering a Sound of War now grants you an "
+                    "additional auto attack on your next swing.' An extra "
+                    "swing has no shape in a turn engine; haste is the "
+                    "equivalent."),
+
         node(I, "stand_your_ground", "Stand Your Ground!",
-             "Your Standard of Valiance reduces allies' physical damage taken "
-             "by a further 3% per rank.",
-             2, 1, 3, {"physical_damage_taken_pct": -0.03},
-             connect=["inspiring_leader"],
-             source="CoA: 'Stand Your Ground! reduces allies' physical damage "
-                    "taken while they stand in it'."),
-        node(I, "broad_shoulders", "Broad Shoulders",
-             "Increases your Armor by 3% and Stamina by 2% per rank.",
-             2, 2, 3, {"armor_pct": 3.0, "stamina_pct": 2.0},
-             connect=["song_of_war"],
-             source="CoA: 'Inspiration is literally standing in melee with a "
-                    "shield and a block-rating stat' - it needs real armour "
-                    "to survive where it fights."),
-        node(I, "hero_of_the_people", "Hero of the People",
-             "Increases the healing you do by 4% per rank.",
-             2, 3, 3, {"healing_power_pct": 4.0}, connect=["feats_of_strength"],
-             source="Scales Veteran of the Third War and the class heals; CoA "
-                    "is explicit that this spec's 'primary value is buffing an "
-                    "ally's damage output rather than direct healing', so this "
-                    "is deliberately small."),
-
-        node(I, "shield_of_the_standard", "Shield of the Standard",
-             "Increases your chance to block by 3% per rank.",
-             3, 0, 3, {"block": 3.0}, connect=["veteran_of_the_third_war"],
-             source="The 'block-rating stat' CoA says this spec gears for."),
+             "Allies in your Standard of Valiance take 3% less physical "
+             "damage per rank.",
+             3, 0, 3, {"physical_damage_taken_pct": -0.03},
+             connect=["veteran_of_the_third_war"],
+             source="CoA: 'While standing in your Standard of Valiance, your "
+                    "allies' Physical damage taken is reduced by -10%.'"),
         node(I, "you_shall_not_fall", "You Shall Not Fall!",
-             "Reduces the duration of stuns against you and your allies by "
-             "15% per rank.",
-             3, 1, 2, {"stun_duration_reduction_pct": 0.15},
-             connect=["stand_your_ground"],
-             source="CoA: 'You Shall Not Fall! gives them stun and grip "
-                    "resistance'."),
-        node(I, "warsong", "Warsong",
-             "Increases your attack power by 3% per rank.",
-             3, 2, 3, {"attack_power_pct": 3.0}, connect=["broad_shoulders"],
-             source="Song of Steel and Inspiring Presence both scale off the "
-                    "Guardian's own attack power, so a point here buffs the "
-                    "whole party."),
-        node(I, "glory_of_the_fallen", "Feats of Glory",
-             "Grants healing power equal to 3% of your Spirit per rank.",
-             3, 3, 3, {"healing_power_from_spirit_pct": 0.03},
-             connect=["hero_of_the_people"],
-             source="The healing member of the Spirit-powered Feats trio."),
+             "Reduces the duration of stuns against you by 15% per rank.",
+             3, 1, 3, {"stun_duration_reduction_pct": 0.15},
+             connect=["spirit_of_battle"],
+             source="CoA: 'While standing in your Standard of Valiance, "
+                    "allies have a -20% increased chance to resist stun and "
+                    "grip effects.'"),
+        node(I, "knights_song", "Knight's Song",
+             "Your Ballads armour your allies, 3% per rank.",
+             3, 2, 5, {"armor_pct": 3.0}, connect=["wars_muse"],
+             source="CoA: 'Casting a Ballad now grants allies Knight's Song "
+                    "... increases the Armor of [allies].'"),
+        node(I, "fearless", "Fearless",
+             "Being surrounded stops registering. You take 2% less damage per "
+             "rank.",
+             3, 3, 3, {"damage_taken_pct": -0.02}, connect=["into_the_fray"],
+             source="CoA: 'Each nearby enemy within 10 yds now reduces your "
+                    "damage taken by 1%, up to a maximum of 10%.'"),
 
-        node(I, "champion_of_the_line", "Champion of the Line",
-             "Your party buffs last 1 turn longer per rank.",
-             4, 0, 2, {"ability_guardian_song_of_steel_duration": 1},
-             connect=["shield_of_the_standard"],
-             source="Uptime on the Augmentation half of the kit."),
-        node(I, "harrowing_refrain", "Harrowing Refrain",
+        node(I, "song_of_steel", "Song of Steel",
+             "Your allies fight to the measure you set. Attack power up 4% "
+             "per rank.",
+             4, 0, 3, {"attack_power_pct": 4.0},
+             connect=["stand_your_ground"],
+             source="CoA: 'Boost the morale of party and raid members, "
+                    "increasing their attack or spell power by 95 for 15 "
+                    "seconds.' This is the Ebon-Might half CoA's Augmentation "
+                    "Evoker comparison rests on."),
+        node(I, "dissonance", "Dissonance",
              "Increases all damage you deal by 2% per rank.",
              4, 1, 3, {"all_damage": 0.02}, connect=["you_shall_not_fall"],
-             source="CoA: 'Both keep personal DPS uptime while doing it'."),
-        node(I, "unbreakable_chorus", "Unbreakable Chorus",
-             "Reduces damage you take by 2% per rank.",
-             4, 2, 3, {"damage_taken_pct": -0.02}, connect=["warsong"],
-             source="Survival for a support that fights in melee range."),
+             source="CoA: 'Damage dealt by Sound of War now has a 25% chance "
+                    "to reduce enemies' resistances by 75 and increases their "
+                    "Magic damage taken.' Enemy-side resistance has no hook."),
+        node(I, "banner_of_conquest", "Banner of Conquest",
+             "Increases critical strike chance by 1% per rank for you and "
+             "your allies.",
+             4, 2, 3, {"crit_chance_physical": 1.0,
+                       "crit_chance_spell": 1.0},
+             connect=["knights_song"],
+             source="CoA: 'Attach a Banner of Conquest to your back, "
+                    "increasing the critical strike chance of party and raid "
+                    "members within 40 yds.'"),
 
-        node(I, "song_of_the_fallen", "Song of the Fallen",
-             "Increases the attack power your songs grant allies by 15% per "
-             "rank.",
-             5, 0, 2, {"attack_power_pct": 4.0},
-             connect=["champion_of_the_line"], total_slots=3,
-             source="The party-facing payoff node."),
-        node(I, "perfect_pitch", "Perfect Pitch",
-             "Increases your critical strike damage by 10% per rank.",
-             5, 1, 2, {"crit_damage_physical": 0.10},
-             connect=["harrowing_refrain"], total_slots=3,
-             source="Pairs with Powerful Voice and Tempo."),
-        node(I, "second_wind", "Second Wind",
-             "While below 35% health, you take 8% less damage per rank.",
-             5, 2, 2, {"low_health_damage_reduction_pct": 0.08,
-                       "low_health_threshold_pct": 0.35},
-             connect=["unbreakable_chorus"], total_slots=3,
-             source="CoA: 'Outside Voidborne you are thin' is the Godblade "
-                    "problem, and this spec has the same shape - thin when "
-                    "the buffs are down."),
+        node(I, "inspiring_presence", "Inspiring Presence",
+             "Standing where they can see you is worth more than anything you "
+             "could shout.",
+             5, 0, 3, {"attack_power_pct": 4.0}, connect=["song_of_steel"],
+             total_slots=3,
+             source="CoA: 'Emanate an aura around you for 15 seconds, causing "
+                    "allied players within 100 yds to deal 35% AP additional "
+                    "damage as Holy.'"),
+        node(I, "champions_presence", "Champion's Presence",
+             "Increases your haste by 3 per rank.",
+             5, 1, 3, {"haste": 3.0}, connect=["dissonance"], total_slots=3,
+             source="CoA: 'Enrage all nearby allies, increasing their haste "
+                    "by 30% for 20 seconds.'"),
+        node(I, "bards_manuscript", "Bard's Manuscript",
+             "Reduces the cooldown of Hero's March by 1 turn per rank.",
+             5, 2, 3, {"ability_guardian_heros_march_cooldown": -1},
+             connect=["banner_of_conquest"], total_slots=3,
+             source="CoA: 'Reduces the cooldown of Hero's March by -60 sec.'"),
 
-        node(I, "anthem_of_the_vanguard", "Anthem of the Vanguard",
+        node(I, "field_commander", "Field Commander",
              "For a few turns nobody in earshot misses, falters, or falls "
              "behind.",
-             6, 0, 1, {"attack_power_pct": 8.0, "haste": 3.0},
+             6, 0, 1, {"attack_power_pct": 8.0, "haste": 3.0,
+                       "crit_chance_physical": 2.0},
              node_type="active",
-             connect=["song_of_the_fallen", "perfect_pitch", "second_wind"],
+             connect=["inspiring_presence", "champions_presence",
+                      "bards_manuscript"],
              total_slots=1,
-             source="Capstone. The Ebon-Might-style group window CoA's "
-                    "Augmentation Evoker comparison points at."),
+             source="Capstone, a real CoA tier-6 Inspiration node. The "
+                    "group window its Augmentation Evoker comparison points "
+                    "at."),
     ],
-    "Built from reference/coa_sidekick/SPEC_guardian__inspiration.txt: "
-    "'Closest to Augmentation Evoker ... an Augmentation Evoker that decided "
-    "to also gear like a Protection Warrior.' The unusual thing about this "
-    "spec, and the reason for the Spirit nodes, is CoA's stat priority: Hit > "
-    "Expertise > Strength > SPIRIT > Crit > Haste > Stamina. Spirit "
-    "'uniquely powers' its Decrees, its Feats and Song of Steel.")
+    "Rebuilt from reference/coa_sidekick/talents/guardian.json. CoA: 'Closest "
+    "to Augmentation Evoker ... an Augmentation Evoker that decided to also "
+    "gear like a Protection Warrior.' NOTE the first pass spent four nodes on "
+    "Spirit, reading CoA's stat priority (Hit > Expertise > Strength > Spirit "
+    "> Crit) as a talent theme. The real tree has no Spirit nodes at all - "
+    "Spirit powers the Decrees and Feats from the CLASS tree, not this one - "
+    "so those are gone.")
 
 
 # ============================================================== Gladiator
 G = "guardian_gladiator"
 GLADIATOR = tree(
     G, "Guardian Gladiator",
-    "Offensive shield melee - block rating is a damage stat here, Strength "
-    "converts into it, and blocks feed Reprisal.",
+    "Offensive shield melee - Strength converts into block rating, blocks "
+    "feed Reprisal, and Centurion Strike changes with the weapon in hand.",
     [
-        node(G, "dirty_tactics", "Dirty Tactics",
-             "Increases your physical damage by 2% per rank.",
-             0, 0, 5, {"physical_damage": 0.02},
-             source="CoA: 'Armor Penetration (Dirty Tactics baseline +5%)'. "
-                    "No armour-penetration key exists, so it lands as flat "
-                    "physical damage - the same effect against a target with "
-                    "armour, without inventing a dead key."),
-        node(G, "shield_combat", "Shield Combat",
-             "Increases your chance to block by 2% per rank.",
-             0, 1, 5, {"block": 2.0},
-             source="CoA: 'Shield Block maps onto the spec's block-scaling "
-                    "mitigation (Shield Training, Shield Combat, Bulwark "
-                    "Rush)'."),
-        node(G, "gladiators_resolve", "Gladiator's Resolve",
-             "Increases your Stamina by 2% per rank.",
-             0, 2, 5, {"stamina_pct": 2.0},
-             source="A DPS spec on a tank chassis still has to live through "
-                    "the fight."),
-        node(G, "duty", "Duty",
-             "Grants attack power equal to 3% of your Agility per rank.",
-             0, 3, 5, {"ap_from_agility_pct": 0.03},
-             source="CoA: 'Agility (Duty converts Agility into bonus Attack "
-                    "Power)'. A real conversion key."),
+        node(G, "might", "Might",
+             "Increases your attack power by 5% per rank.",
+             0, 0, 3, {"attack_power_pct": 5.0},
+             source="CoA: 'Increases your attack power by 5%. (up to 2 "
+                    "ranks)'"),
+        node(G, "built_different", "Built Different",
+             "Increases your Strength and Stamina by 2% per rank.",
+             0, 1, 3, {"strength_pct": 2.0, "stamina_pct": 2.0},
+             source="CoA: 'Increases your Strength and Stamina by 4%.'"),
+        node(G, "sword_training", "Sword Training",
+             "While a sword is equipped, increases your haste by 3 per rank.",
+             0, 2, 5, {"haste": 3.0},
+             source="CoA: 'While a sword is equipped, your melee haste is "
+                    "increased by 10%. (up to 3 ranks)'. Weapon-type "
+                    "conditions have no hook, so it applies always - noted "
+                    "rather than renamed, because the whole weapon-training "
+                    "row is part of this spec's identity."),
+        node(G, "legionnaire", "Legionnaire",
+             "Increases your critical strike damage by 5% per rank.",
+             0, 3, 3, {"crit_damage_physical": 0.05},
+             source="CoA: 'Increases the critical damage of Centurion Strike "
+                    "and Reprisal by 10%. (up to 2 ranks)'"),
 
-        node(G, "one_true_champion", "One True Champion",
+        node(G, "shield_training", "Shield Training",
              "Grants block value equal to 3% of your Strength per rank.",
-             1, 0, 5, {"block_value_from_strength_pct": 0.03},
-             connect=["dirty_tactics"],
-             source="CoA: 'Strength (native Attack Power + Duty/One True "
-                    "Champion/Shield Training convert it into block rating)'. "
-                    "This is the spec's signature: Strength is simultaneously "
-                    "its damage stat and its mitigation stat."),
+             1, 0, 3, {"block_value_from_strength_pct": 0.03},
+             connect=["might"],
+             source="CoA: 'Level 20 Passive. Increases your block rating by "
+                    "10% of your Strength.' A REAL stat conversion through "
+                    "the shared STAT_CONVERSION maps, and the spec's "
+                    "signature: Strength is its damage stat and its "
+                    "mitigation stat at once."),
+        node(G, "tactical_combat", "Tactical Combat",
+             "Increases the damage your blocks absorb by 4% and your block "
+             "chance by 2% per rank.",
+             1, 1, 3, {"block_value_pct": 0.04, "block": 2.0},
+             connect=["built_different"],
+             source="CoA: 'Increases your block value by 8% and chance to "
+                    "block by 2%. (up to 2 ranks)'"),
+        node(G, "waste_no_movement", "Waste No Movement",
+             "Reduces the Energy cost of your abilities by 2% per rank.",
+             1, 2, 3, {"all_ability_cost_pct": -0.02},
+             connect=["sword_training"],
+             source="CoA: 'Reduces the Energy cost of Broad Sweep, Spear "
+                    "Throw, and Centurion Strike by -5.'"),
+        node(G, "upper_hand", "Upper Hand",
+             "Your swings sometimes land twice.",
+             1, 3, 3, {}, connect=["legionnaire"],
+             proc={"trigger": "on_weapon_swing", "chance": 20, "icd": 0,
+                   "damage_flat": 55},
+             source="CoA: 'Your melee auto attacks now have a 20% chance to "
+                    "strike 2 additional times.'"),
+
+        node(G, "crashing_force", "Crashing Force",
+             "Increases the damage of Reprisal by 8% per rank.",
+             2, 0, 3, {"ability_guardian_reprisal_damage": 0.08},
+             connect=["shield_training"],
+             source="CoA: 'Increases the damage of your Centurion Strike and "
+                    "Reprisal by 15%. (up to 2 ranks)'"),
+        node(G, "myrmidon", "Myrmidon",
+             "Increases the damage of Ram by 8% per rank.",
+             2, 1, 3, {"ability_guardian_ram_damage": 0.08},
+             connect=["tactical_combat"],
+             source="CoA: 'Increases the damage of Ram and Broad Sweep by "
+                    "25%.'"),
+        node(G, "double_duty", "Double Duty",
+             "Grants 2 hit rating per rank.",
+             2, 2, 3, {"hit_rating": 2}, connect=["waste_no_movement"],
+             source="CoA: 'Increases your hit chance by 5% and expertise by "
+                    "4.' No expertise key exists."),
+        node(G, "retiarius", "Retiarius",
+             "Increases your maximum Energy by 8 per rank.",
+             2, 3, 3, {"energy_max": 8}, connect=["upper_hand"],
+             source="CoA: 'Increases your maximum Energy by 25.'"),
+
+        node(G, "experienced_combatant", "Experienced Combatant",
+             "Grants attack power equal to 5% of your Strength per rank.",
+             3, 0, 3, {"ap_from_strength_pct": 0.05},
+             connect=["crashing_force"],
+             source="CoA: 'Level 30 Passive. Increases your attack power by "
+                    "20% of your Strength.' The second real conversion in "
+                    "this tree."),
+        node(G, "deadly_blow", "Deadly Blow",
+             "Increases your physical damage by 2% per rank.",
+             3, 1, 5, {"physical_damage": 0.02}, connect=["myrmidon"],
+             source="CoA: 'Your Centurion Strike and Broad Sweep now bleed an "
+                    "additional 15% of the damage dealt over 3 seconds.'"),
+        node(G, "champion", "Champion",
+             "Centurion Strike extends Raise Shield by 1 turn per rank.",
+             3, 2, 3, {"ability_guardian_raise_shield_duration": 1},
+             connect=["double_duty"],
+             source="CoA: 'Your Centurion Strike now extends the duration of "
+                    "Raise Shield on you by 3 sec.'"),
         node(G, "bulwark_rush", "Bulwark Rush",
-             "Increases the damage absorbed by your blocks by 10% per rank.",
-             1, 1, 3, {"block_value_pct": 0.06}, connect=["shield_combat"],
-             source="CoA names Bulwark Rush with the block-scaling talents."),
-        node(G, "battle_hardened", "Battle Hardened",
-             "Reduces damage you take by 2% per rank.",
-             1, 2, 3, {"damage_taken_pct": -0.02},
-             connect=["gladiators_resolve"],
-             source="CoA: 'a block-rating melee kit built around reactive "
-                    "mitigation, not passive sustain or HoTs'."),
-        node(G, "glory", "Glory",
-             "Your Ram builds toward a heavier strike, increasing your "
-             "physical damage by 3% per rank for a short time.",
-             1, 3, 3, {}, connect=["duty"],
-             proc={"trigger": "on_damage_cast", "chance": 100, "icd": 1,
+             "Charging in puts your shield where it needs to be.",
+             3, 3, 3, {}, connect=["retiarius"],
+             proc={"trigger": "on_cast", "chance": 100, "icd": 2,
                    "apply_effect": {
-                       "effect_id": "guardian_glory",
-                       "name": "Glory",
+                       "effect_id": "guardian_bulwark_rush",
+                       "name": "Bulwark Rush",
                        "effect_type": "buff",
-                       "duration": 3,
-                       "stat_mods": {"physical_damage": 0.03},
+                       "duration": 2,
+                       "stat_mods": {"block": 12.0},
                        "on_target": False}},
-             source="CoA: 'banking Glory off Ram toward the increased hit'."),
+             source="CoA: 'Casting Battle Rush increases your block rating by "
+                    "25% of Strength for 6 seconds.'"),
 
-        node(G, "improved_reprisal", "Improved Reprisal",
-             "Increases the damage of Reprisal by 12% per rank.",
-             2, 0, 3, {"ability_guardian_reprisal_damage": 0.12},
-             connect=["one_true_champion"],
-             source="Reprisal is the spec's block-fed filler, so it is the "
-                    "right damage node."),
-        node(G, "mortal_spear", "Mortal Spear",
-             "Increases the damage of Spear Throw by 12% per rank.",
-             2, 1, 3, {"ability_guardian_spear_throw_damage": 0.12},
-             connect=["bulwark_rush"],
-             source="CoA: Spear Throw is 'Mortal Strike's anti-heal identity "
-                    "transplanted onto a shield-tank frame'."),
-        node(G, "arena_veteran", "Arena Veteran",
-             "Increases your critical strike chance by 1% per rank.",
-             2, 2, 5, {"crit_chance_physical": 1.0}, connect=["battle_hardened"],
-             source="CoA: 'Arms Warrior burst identity is layered strongly on "
-                    "top'."),
-        node(G, "favor", "Favor",
+        node(G, "shield_combat", "Shield Combat",
+             "Increases your attack power by 3% per rank.",
+             4, 0, 3, {"attack_power_pct": 3.0},
+             connect=["experienced_combatant"],
+             source="CoA: 'Level 40 Passive. Casting Ram and Pulverize now "
+                    "increases your attack power based on your block rating "
+                    "for 6 seconds.' Block-rating-into-AP is not a conversion "
+                    "the engine offers in that direction."),
+        node(G, "clinch_brawler", "Clinch Brawler",
+             "Increases your critical strike chance by 2% per rank.",
+             4, 1, 3, {"crit_chance_physical": 2.0}, connect=["deadly_blow"],
+             source="CoA: 'Centurion Strike is now guaranteed to critically "
+                    "strike against enemies affected by Net Throw.' A "
+                    "guaranteed crit against a debuffed target has no hook."),
+        node(G, "momentum", "Momentum",
              "Increases your haste by 2 per rank.",
-             2, 3, 5, {"haste": 2.0}, connect=["glory"],
-             source="CoA: 'once Glory or Favor peaks' - the spec's second "
-                    "building resource."),
+             4, 2, 3, {"haste": 2.0}, connect=["champion"],
+             source="CoA: 'Melee damage dealt now reduces the cooldown of "
+                    "your Chivalry by -2 sec.'"),
 
-        node(G, "iron_will", "Iron Will",
-             "Reduces the duration of stuns used against you by 15% per rank.",
-             3, 0, 2, {"stun_duration_reduction_pct": 0.15},
-             connect=["improved_reprisal"],
-             source="A PvP-leaning spec (CoA rates it Arena B) needs stun "
-                    "resistance."),
-        node(G, "net_fighter", "Net Fighter",
-             "Increases all damage you deal by 2% per rank.",
-             3, 1, 3, {"all_damage": 0.02}, connect=["mortal_spear"],
-             source="Net Throw into a kill window is the spec's PvP opener."),
-        node(G, "centurion", "Centurion",
-             "Increases the damage of Centurion Strike by 12% per rank.",
-             3, 2, 3, {"ability_guardian_centurion_strike_damage": 0.12},
-             connect=["arena_veteran"],
-             source="CoA: 'Centurion Strike (bigger hit, weapon-dependent "
-                    "bonus, extends Raise Shield)'."),
-        node(G, "ruthless", "Ruthless",
-             "Increases your critical strike damage by 10% per rank.",
-             3, 3, 3, {"crit_damage_physical": 0.10}, connect=["favor"],
-             source="The burst half of the Arms layer."),
+        node(G, "favor", "Favor",
+             "Crits and kills stack in your favour.",
+             5, 0, 3, {}, connect=["shield_combat"], total_slots=3,
+             proc={"trigger": "on_crit", "chance": 100, "icd": 1,
+                   "apply_effect": {
+                       "effect_id": "guardian_favor",
+                       "name": "Favor",
+                       "effect_type": "buff",
+                       "duration": 4,
+                       "stat_mods": {"physical_damage": 0.04},
+                       "on_target": False}},
+             source="CoA: 'Level 50 Passive. Critical strikes and killing "
+                    "blows now grant you Favor for 1 minute, stacking 20 "
+                    "times.'"),
+        node(G, "one_handed_mastery", "One-Handed Mastery",
+             "Increases all damage you deal by 3% per rank.",
+             5, 1, 3, {"all_damage": 0.03}, connect=["clinch_brawler"],
+             total_slots=3,
+             source="CoA: 'Increases your damage dealt by 10% while a "
+                    "one-handed weapon is equipped.'"),
+        node(G, "calculated_strike", "Calculated Strike",
+             "Increases your physical damage by 3% per rank.",
+             5, 2, 3, {"physical_damage": 0.03}, connect=["momentum"],
+             total_slots=3,
+             source="CoA: 'Your Reprisal, Broad Sweep, and Spear Throw now "
+                    "deal an additional 2% Weapon Damage for each Energy "
+                    "point you have upon [casting].' Scaling off current "
+                    "Energy has no hook."),
 
-        node(G, "shield_slammer", "Shield Slammer",
-             "Increases the damage of Ram by 10% per rank.",
-             4, 0, 3, {"ability_guardian_ram_damage": 0.10},
-             connect=["iron_will"],
-             source="CoA: 'Shield Slam/Revenge map onto Ram/Pulverize/Broad "
-                    "Sweep'."),
-        node(G, "glorious_victory", "Glorious Victory",
-             "Your critical strikes knit you back together.",
-             4, 1, 3, {}, connect=["net_fighter"],
-             proc={"trigger": "on_crit", "chance": 40, "icd": 1,
-                   "heal_flat": 70},
-             source="CoA: 'Final Verdict's execute-range self-heal' and "
-                    "'Lionheart's emergency heal' are the only sustain, so "
-                    "this is the tree's one sustain node - conditional, like "
-                    "CoA's."),
-        node(G, "unrelenting", "Unrelenting",
-             "Increases your threat generation by 4% per rank, and your "
-             "attack power by 3%.",
-             4, 2, 3, {"threat_generation_pct": 0.04, "attack_power_pct": 3.0},
-             connect=["centurion"],
-             source="CoA calls Gladiator 'a DPS-Prot hybrid' that can hold "
-                    "aggro when it has to - half the Vanguard's threat."),
-
-        node(G, "heroic_fury", "Heroic Fury",
-             "Increases your attack power by 4% per rank.",
-             5, 0, 2, {"attack_power_pct": 4.0}, connect=["shield_slammer"],
-             total_slots=3),
-        node(G, "last_man_standing", "Last Man Standing",
-             "While below 35% health, you deal 8% more damage per rank.",
-             5, 1, 2, {"low_health_damage_reduction_pct": 0.05,
-                       "low_health_threshold_pct": 0.35,
-                       "physical_damage": 0.08},
-             connect=["glorious_victory"], total_slots=3,
-             source="The arena finish: it gets more dangerous as it drops."),
-        node(G, "shield_of_the_arena", "Shield of the Arena",
-             "Increases your Armor by 5% and block chance by 3% per rank.",
-             5, 2, 2, {"armor_pct": 5.0, "block": 3.0},
-             connect=["unrelenting"], total_slots=3),
-
-        node(G, "champion_of_the_arena", "Champion of the Arena",
+        node(G, "heroism", "Heroism",
              "The crowd has already decided how this ends.",
              6, 0, 1, {"physical_damage": 0.15, "crit_chance_physical": 4.0},
              node_type="active",
-             connect=["heroic_fury", "last_man_standing", "shield_of_the_arena"],
+             connect=["favor", "one_handed_mastery", "calculated_strike"],
              total_slots=1,
-             source="Capstone. CoA: 'Weak sustained single-target DPS on "
-                    "patchwork fights - high throughput ceiling', so the "
-                    "payoff is a burst window rather than passive damage."),
+             source="Capstone, a real CoA tier-6 Gladiator node: 'Whenever "
+                    "you reach 3 stacks of Glory or 20 stacks of Favor, your "
+                    "next 2 Pulverizes or Broad Sweeps within 10 seconds are "
+                    "[free].' CoA rates the spec 'Weak sustained single-target "
+                    "DPS ... high throughput ceiling', so the payoff is a "
+                    "burst window."),
     ],
-    "Built from reference/coa_sidekick/SPEC_guardian__gladiator.txt: 'retail "
+    "Rebuilt from reference/coa_sidekick/talents/guardian.json. CoA: 'retail "
     "Protection Warrior played in an offensive/PvP posture, a DPS-Prot "
-    "hybrid'. The tree leans on the one thing that makes this spec unlike "
-    "every other melee DPS - its stat priority puts Strength and block "
-    "rating together, because 'Duty/One True Champion/Shield Training convert "
-    "[Strength] into block rating'. Block is an offensive stat here.")
+    "hybrid'. Two real stat conversions carry it - Shield Training turning "
+    "Strength into block value and Experienced Combatant turning Strength "
+    "into attack power - which is why its stat priority puts Strength and "
+    "block rating together. Block is an offensive stat for this spec alone.")
 
 
 def main():

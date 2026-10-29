@@ -1175,6 +1175,59 @@
       "exclusive_group": "guardian_decree"
     },
     {
+      "ability_id": "guardian_sound_of_war",
+      "name": "Sound of War",
+      "resource_type": "energy",
+      "cooldown": 2,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "The rhythm breaks and lands on everything near you.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 25,
+          "effect_value": 30
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 25,
+          "effect_value": 39
+        },
+        {
+          "rank": 3,
+          "level_req": 34,
+          "cost": 25,
+          "effect_value": 48
+        },
+        {
+          "rank": 4,
+          "level_req": 42,
+          "cost": 25,
+          "effect_value": 57
+        },
+        {
+          "rank": 5,
+          "level_req": 50,
+          "cost": 25,
+          "effect_value": 66
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 25,
+          "effect_value": 75
+        }
+      ],
+      "icon_id": "ability_melee",
+      "_source": "CoA's Inspiration tree is built around this: Ballads build Tempo toward a free Sound of War, and four talents (Soundwave, Into The Fray, Pied Piper, Frontliner) key off triggering one. It was missing from the first pass entirely, which left Soundwave scaling nothing.",
+      "target_type": "enemy",
+      "is_aoe": true,
+      "max_targets": 3
+    },
+    {
       "ability_id": "guardian_battle_rush",
       "name": "Battle Rush",
       "resource_type": "energy",

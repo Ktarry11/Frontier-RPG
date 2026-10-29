@@ -1,8 +1,8 @@
 {
   "spec_name": "Guardian Gladiator",
   "tree_id": "guardian_gladiator",
-  "description": "Offensive shield melee - block rating is a damage stat here, Strength converts into it, and blocks feed Reprisal.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_guardian__gladiator.txt: 'retail Protection Warrior played in an offensive/PvP posture, a DPS-Prot hybrid'. The tree leans on the one thing that makes this spec unlike every other melee DPS - its stat priority puts Strength and block rating together, because 'Duty/One True Champion/Shield Training convert [Strength] into block rating'. Block is an offensive stat here.",
+  "description": "Offensive shield melee - Strength converts into block rating, blocks feed Reprisal, and Centurion Strike changes with the weapon in hand.",
+  "_source_note": "Rebuilt from reference/coa_sidekick/talents/guardian.json. CoA: 'retail Protection Warrior played in an offensive/PvP posture, a DPS-Prot hybrid'. Two real stat conversions carry it - Shield Training turning Strength into block value and Experienced Combatant turning Strength into attack power - which is why its stat priority puts Strength and block rating together. Block is an offensive stat for this spec alone.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,41 +14,42 @@
   },
   "nodes": [
     {
-      "talent_id": "guardian_gladiator_dirty_tactics",
-      "name": "Dirty Tactics",
-      "description": "Increases your physical damage by 2% per rank.",
+      "talent_id": "guardian_gladiator_might",
+      "name": "Might",
+      "description": "Increases your attack power by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "physical_damage": 0.02
+        "attack_power_pct": 5.0
       },
       "connected_to": [],
-      "_source": "CoA: 'Armor Penetration (Dirty Tactics baseline +5%)'. No armour-penetration key exists, so it lands as flat physical damage - the same effect against a target with armour, without inventing a dead key."
+      "_source": "CoA: 'Increases your attack power by 5%. (up to 2 ranks)'"
     },
     {
-      "talent_id": "guardian_gladiator_shield_combat",
-      "name": "Shield Combat",
-      "description": "Increases your chance to block by 2% per rank.",
+      "talent_id": "guardian_gladiator_built_different",
+      "name": "Built Different",
+      "description": "Increases your Strength and Stamina by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "block": 2.0
+        "strength_pct": 2.0,
+        "stamina_pct": 2.0
       },
       "connected_to": [],
-      "_source": "CoA: 'Shield Block maps onto the spec's block-scaling mitigation (Shield Training, Shield Combat, Bulwark Rush)'."
+      "_source": "CoA: 'Increases your Strength and Stamina by 4%.'"
     },
     {
-      "talent_id": "guardian_gladiator_gladiators_resolve",
-      "name": "Gladiator's Resolve",
-      "description": "Increases your Stamina by 2% per rank.",
+      "talent_id": "guardian_gladiator_sword_training",
+      "name": "Sword Training",
+      "description": "While a sword is equipped, increases your haste by 3 per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -56,34 +57,34 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 2.0
+        "haste": 3.0
       },
       "connected_to": [],
-      "_source": "A DPS spec on a tank chassis still has to live through the fight."
+      "_source": "CoA: 'While a sword is equipped, your melee haste is increased by 10%. (up to 3 ranks)'. Weapon-type conditions have no hook, so it applies always - noted rather than renamed, because the whole weapon-training row is part of this spec's identity."
     },
     {
-      "talent_id": "guardian_gladiator_duty",
-      "name": "Duty",
-      "description": "Grants attack power equal to 3% of your Agility per rank.",
+      "talent_id": "guardian_gladiator_legionnaire",
+      "name": "Legionnaire",
+      "description": "Increases your critical strike damage by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ap_from_agility_pct": 0.03
+        "crit_damage_physical": 0.05
       },
       "connected_to": [],
-      "_source": "CoA: 'Agility (Duty converts Agility into bonus Attack Power)'. A real conversion key."
+      "_source": "CoA: 'Increases the critical damage of Centurion Strike and Reprisal by 10%. (up to 2 ranks)'"
     },
     {
-      "talent_id": "guardian_gladiator_one_true_champion",
-      "name": "One True Champion",
+      "talent_id": "guardian_gladiator_shield_training",
+      "name": "Shield Training",
       "description": "Grants block value equal to 3% of your Strength per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
@@ -91,338 +92,350 @@
         "block_value_from_strength_pct": 0.03
       },
       "connected_to": [
-        "guardian_gladiator_dirty_tactics"
+        "guardian_gladiator_might"
       ],
-      "_source": "CoA: 'Strength (native Attack Power + Duty/One True Champion/Shield Training convert it into block rating)'. This is the spec's signature: Strength is simultaneously its damage stat and its mitigation stat."
+      "_source": "CoA: 'Level 20 Passive. Increases your block rating by 10% of your Strength.' A REAL stat conversion through the shared STAT_CONVERSION maps, and the spec's signature: Strength is its damage stat and its mitigation stat at once."
+    },
+    {
+      "talent_id": "guardian_gladiator_tactical_combat",
+      "name": "Tactical Combat",
+      "description": "Increases the damage your blocks absorb by 4% and your block chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "block_value_pct": 0.04,
+        "block": 2.0
+      },
+      "connected_to": [
+        "guardian_gladiator_built_different"
+      ],
+      "_source": "CoA: 'Increases your block value by 8% and chance to block by 2%. (up to 2 ranks)'"
+    },
+    {
+      "talent_id": "guardian_gladiator_waste_no_movement",
+      "name": "Waste No Movement",
+      "description": "Reduces the Energy cost of your abilities by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "all_ability_cost_pct": -0.02
+      },
+      "connected_to": [
+        "guardian_gladiator_sword_training"
+      ],
+      "_source": "CoA: 'Reduces the Energy cost of Broad Sweep, Spear Throw, and Centurion Strike by -5.'"
+    },
+    {
+      "talent_id": "guardian_gladiator_upper_hand",
+      "name": "Upper Hand",
+      "description": "Your swings sometimes land twice.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "guardian_gladiator_legionnaire"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 20,
+        "icd": 0,
+        "damage_flat": 55
+      },
+      "_source": "CoA: 'Your melee auto attacks now have a 20% chance to strike 2 additional times.'"
+    },
+    {
+      "talent_id": "guardian_gladiator_crashing_force",
+      "name": "Crashing Force",
+      "description": "Increases the damage of Reprisal by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_guardian_reprisal_damage": 0.08
+      },
+      "connected_to": [
+        "guardian_gladiator_shield_training"
+      ],
+      "_source": "CoA: 'Increases the damage of your Centurion Strike and Reprisal by 15%. (up to 2 ranks)'"
+    },
+    {
+      "talent_id": "guardian_gladiator_myrmidon",
+      "name": "Myrmidon",
+      "description": "Increases the damage of Ram by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_guardian_ram_damage": 0.08
+      },
+      "connected_to": [
+        "guardian_gladiator_tactical_combat"
+      ],
+      "_source": "CoA: 'Increases the damage of Ram and Broad Sweep by 25%.'"
+    },
+    {
+      "talent_id": "guardian_gladiator_double_duty",
+      "name": "Double Duty",
+      "description": "Grants 2 hit rating per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "hit_rating": 2
+      },
+      "connected_to": [
+        "guardian_gladiator_waste_no_movement"
+      ],
+      "_source": "CoA: 'Increases your hit chance by 5% and expertise by 4.' No expertise key exists."
+    },
+    {
+      "talent_id": "guardian_gladiator_retiarius",
+      "name": "Retiarius",
+      "description": "Increases your maximum Energy by 8 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "energy_max": 8
+      },
+      "connected_to": [
+        "guardian_gladiator_upper_hand"
+      ],
+      "_source": "CoA: 'Increases your maximum Energy by 25.'"
+    },
+    {
+      "talent_id": "guardian_gladiator_experienced_combatant",
+      "name": "Experienced Combatant",
+      "description": "Grants attack power equal to 5% of your Strength per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ap_from_strength_pct": 0.05
+      },
+      "connected_to": [
+        "guardian_gladiator_crashing_force"
+      ],
+      "_source": "CoA: 'Level 30 Passive. Increases your attack power by 20% of your Strength.' The second real conversion in this tree."
+    },
+    {
+      "talent_id": "guardian_gladiator_deadly_blow",
+      "name": "Deadly Blow",
+      "description": "Increases your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "guardian_gladiator_myrmidon"
+      ],
+      "_source": "CoA: 'Your Centurion Strike and Broad Sweep now bleed an additional 15% of the damage dealt over 3 seconds.'"
+    },
+    {
+      "talent_id": "guardian_gladiator_champion",
+      "name": "Champion",
+      "description": "Centurion Strike extends Raise Shield by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_guardian_raise_shield_duration": 1
+      },
+      "connected_to": [
+        "guardian_gladiator_double_duty"
+      ],
+      "_source": "CoA: 'Your Centurion Strike now extends the duration of Raise Shield on you by 3 sec.'"
     },
     {
       "talent_id": "guardian_gladiator_bulwark_rush",
       "name": "Bulwark Rush",
-      "description": "Increases the damage absorbed by your blocks by 10% per rank.",
+      "description": "Charging in puts your shield where it needs to be.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "block_value_pct": 0.06
-      },
-      "connected_to": [
-        "guardian_gladiator_shield_combat"
-      ],
-      "_source": "CoA names Bulwark Rush with the block-scaling talents."
-    },
-    {
-      "talent_id": "guardian_gladiator_battle_hardened",
-      "name": "Battle Hardened",
-      "description": "Reduces damage you take by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "guardian_gladiator_gladiators_resolve"
-      ],
-      "_source": "CoA: 'a block-rating melee kit built around reactive mitigation, not passive sustain or HoTs'."
-    },
-    {
-      "talent_id": "guardian_gladiator_glory",
-      "name": "Glory",
-      "description": "Your Ram builds toward a heavier strike, increasing your physical damage by 3% per rank for a short time.",
-      "node_type": "passive",
-      "tier": 1,
+      "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": -4,
+      "hex_y": 0,
       "effects": {},
       "connected_to": [
-        "guardian_gladiator_duty"
+        "guardian_gladiator_retiarius"
       ],
       "proc": {
-        "trigger": "on_damage_cast",
+        "trigger": "on_cast",
         "chance": 100,
-        "icd": 1,
+        "icd": 2,
         "apply_effect": {
-          "effect_id": "guardian_glory",
-          "name": "Glory",
+          "effect_id": "guardian_bulwark_rush",
+          "name": "Bulwark Rush",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 2,
           "stat_mods": {
-            "physical_damage": 0.03
+            "block": 12.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'banking Glory off Ram toward the increased hit'."
+      "_source": "CoA: 'Casting Battle Rush increases your block rating by 25% of Strength for 6 seconds.'"
     },
     {
-      "talent_id": "guardian_gladiator_improved_reprisal",
-      "name": "Improved Reprisal",
-      "description": "Increases the damage of Reprisal by 12% per rank.",
+      "talent_id": "guardian_gladiator_shield_combat",
+      "name": "Shield Combat",
+      "description": "Increases your attack power by 3% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -2,
+      "hex_y": 2,
       "effects": {
-        "ability_guardian_reprisal_damage": 0.12
+        "attack_power_pct": 3.0
       },
       "connected_to": [
-        "guardian_gladiator_one_true_champion"
+        "guardian_gladiator_experienced_combatant"
       ],
-      "_source": "Reprisal is the spec's block-fed filler, so it is the right damage node."
+      "_source": "CoA: 'Level 40 Passive. Casting Ram and Pulverize now increases your attack power based on your block rating for 6 seconds.' Block-rating-into-AP is not a conversion the engine offers in that direction."
     },
     {
-      "talent_id": "guardian_gladiator_mortal_spear",
-      "name": "Mortal Spear",
-      "description": "Increases the damage of Spear Throw by 12% per rank.",
+      "talent_id": "guardian_gladiator_clinch_brawler",
+      "name": "Clinch Brawler",
+      "description": "Increases your critical strike chance by 2% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -2,
+      "hex_y": 2,
       "effects": {
-        "ability_guardian_spear_throw_damage": 0.12
+        "crit_chance_physical": 2.0
       },
       "connected_to": [
-        "guardian_gladiator_bulwark_rush"
+        "guardian_gladiator_deadly_blow"
       ],
-      "_source": "CoA: Spear Throw is 'Mortal Strike's anti-heal identity transplanted onto a shield-tank frame'."
+      "_source": "CoA: 'Centurion Strike is now guaranteed to critically strike against enemies affected by Net Throw.' A guaranteed crit against a debuffed target has no hook."
     },
     {
-      "talent_id": "guardian_gladiator_arena_veteran",
-      "name": "Arena Veteran",
-      "description": "Increases your critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "guardian_gladiator_battle_hardened"
-      ],
-      "_source": "CoA: 'Arms Warrior burst identity is layered strongly on top'."
-    },
-    {
-      "talent_id": "guardian_gladiator_favor",
-      "name": "Favor",
+      "talent_id": "guardian_gladiator_momentum",
+      "name": "Momentum",
       "description": "Increases your haste by 2 per rank.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": 1,
+      "hex_y": 2,
       "effects": {
         "haste": 2.0
       },
       "connected_to": [
-        "guardian_gladiator_glory"
+        "guardian_gladiator_champion"
       ],
-      "_source": "CoA: 'once Glory or Favor peaks' - the spec's second building resource."
+      "_source": "CoA: 'Melee damage dealt now reduces the cooldown of your Chivalry by -2 sec.'"
     },
     {
-      "talent_id": "guardian_gladiator_iron_will",
-      "name": "Iron Will",
-      "description": "Reduces the duration of stuns used against you by 15% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "stun_duration_reduction_pct": 0.15
-      },
-      "connected_to": [
-        "guardian_gladiator_improved_reprisal"
-      ],
-      "_source": "A PvP-leaning spec (CoA rates it Arena B) needs stun resistance."
-    },
-    {
-      "talent_id": "guardian_gladiator_net_fighter",
-      "name": "Net Fighter",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "guardian_gladiator_mortal_spear"
-      ],
-      "_source": "Net Throw into a kill window is the spec's PvP opener."
-    },
-    {
-      "talent_id": "guardian_gladiator_centurion",
-      "name": "Centurion",
-      "description": "Increases the damage of Centurion Strike by 12% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_guardian_centurion_strike_damage": 0.12
-      },
-      "connected_to": [
-        "guardian_gladiator_arena_veteran"
-      ],
-      "_source": "CoA: 'Centurion Strike (bigger hit, weapon-dependent bonus, extends Raise Shield)'."
-    },
-    {
-      "talent_id": "guardian_gladiator_ruthless",
-      "name": "Ruthless",
-      "description": "Increases your critical strike damage by 10% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "crit_damage_physical": 0.1
-      },
-      "connected_to": [
-        "guardian_gladiator_favor"
-      ],
-      "_source": "The burst half of the Arms layer."
-    },
-    {
-      "talent_id": "guardian_gladiator_shield_slammer",
-      "name": "Shield Slammer",
-      "description": "Increases the damage of Ram by 10% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {
-        "ability_guardian_ram_damage": 0.1
-      },
-      "connected_to": [
-        "guardian_gladiator_iron_will"
-      ],
-      "_source": "CoA: 'Shield Slam/Revenge map onto Ram/Pulverize/Broad Sweep'."
-    },
-    {
-      "talent_id": "guardian_gladiator_glorious_victory",
-      "name": "Glorious Victory",
-      "description": "Your critical strikes knit you back together.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "guardian_gladiator_net_fighter"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 40,
-        "icd": 1,
-        "heal_flat": 70
-      },
-      "_source": "CoA: 'Final Verdict's execute-range self-heal' and 'Lionheart's emergency heal' are the only sustain, so this is the tree's one sustain node - conditional, like CoA's."
-    },
-    {
-      "talent_id": "guardian_gladiator_unrelenting",
-      "name": "Unrelenting",
-      "description": "Increases your threat generation by 4% per rank, and your attack power by 3%.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "threat_generation_pct": 0.04,
-        "attack_power_pct": 3.0
-      },
-      "connected_to": [
-        "guardian_gladiator_centurion"
-      ],
-      "_source": "CoA calls Gladiator 'a DPS-Prot hybrid' that can hold aggro when it has to - half the Vanguard's threat."
-    },
-    {
-      "talent_id": "guardian_gladiator_heroic_fury",
-      "name": "Heroic Fury",
-      "description": "Increases your attack power by 4% per rank.",
+      "talent_id": "guardian_gladiator_favor",
+      "name": "Favor",
+      "description": "Crits and kills stack in your favour.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "attack_power_pct": 4.0
-      },
+      "effects": {},
       "connected_to": [
-        "guardian_gladiator_shield_slammer"
-      ]
+        "guardian_gladiator_shield_combat"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "guardian_favor",
+          "name": "Favor",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "physical_damage": 0.04
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Level 50 Passive. Critical strikes and killing blows now grant you Favor for 1 minute, stacking 20 times.'"
     },
     {
-      "talent_id": "guardian_gladiator_last_man_standing",
-      "name": "Last Man Standing",
-      "description": "While below 35% health, you deal 8% more damage per rank.",
+      "talent_id": "guardian_gladiator_one_handed_mastery",
+      "name": "One-Handed Mastery",
+      "description": "Increases all damage you deal by 3% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "low_health_damage_reduction_pct": 0.05,
-        "low_health_threshold_pct": 0.35,
-        "physical_damage": 0.08
+        "all_damage": 0.03
       },
       "connected_to": [
-        "guardian_gladiator_glorious_victory"
+        "guardian_gladiator_clinch_brawler"
       ],
-      "_source": "The arena finish: it gets more dangerous as it drops."
+      "_source": "CoA: 'Increases your damage dealt by 10% while a one-handed weapon is equipped.'"
     },
     {
-      "talent_id": "guardian_gladiator_shield_of_the_arena",
-      "name": "Shield of the Arena",
-      "description": "Increases your Armor by 5% and block chance by 3% per rank.",
+      "talent_id": "guardian_gladiator_calculated_strike",
+      "name": "Calculated Strike",
+      "description": "Increases your physical damage by 3% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "armor_pct": 5.0,
-        "block": 3.0
+        "physical_damage": 0.03
       },
       "connected_to": [
-        "guardian_gladiator_unrelenting"
-      ]
+        "guardian_gladiator_momentum"
+      ],
+      "_source": "CoA: 'Your Reprisal, Broad Sweep, and Spear Throw now deal an additional 2% Weapon Damage for each Energy point you have upon [casting].' Scaling off current Energy has no hook."
     },
     {
-      "talent_id": "guardian_gladiator_champion_of_the_arena",
-      "name": "Champion of the Arena",
+      "talent_id": "guardian_gladiator_heroism",
+      "name": "Heroism",
       "description": "The crowd has already decided how this ends.",
       "node_type": "active",
       "tier": 6,
@@ -435,11 +448,11 @@
         "crit_chance_physical": 4.0
       },
       "connected_to": [
-        "guardian_gladiator_heroic_fury",
-        "guardian_gladiator_last_man_standing",
-        "guardian_gladiator_shield_of_the_arena"
+        "guardian_gladiator_favor",
+        "guardian_gladiator_one_handed_mastery",
+        "guardian_gladiator_calculated_strike"
       ],
-      "_source": "Capstone. CoA: 'Weak sustained single-target DPS on patchwork fights - high throughput ceiling', so the payoff is a burst window rather than passive damage."
+      "_source": "Capstone, a real CoA tier-6 Gladiator node: 'Whenever you reach 3 stacks of Glory or 20 stacks of Favor, your next 2 Pulverizes or Broad Sweeps within 10 seconds are [free].' CoA rates the spec 'Weak sustained single-target DPS ... high throughput ceiling', so the payoff is a burst window."
     }
   ]
 }
