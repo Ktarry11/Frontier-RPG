@@ -148,7 +148,7 @@
     {
       "talent_id": "sun_cleric_seraphim_stand_against_darkness",
       "name": "Stand Against Darkness",
-      "description": "Reduces spell damage taken by 3% per rank.",
+      "description": "Reduces spell damage taken by 1% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -156,11 +156,12 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "spell_damage_taken_pct": -0.03
+        "spell_damage_taken_pct": -0.01
       },
       "connected_to": [
         "sun_cleric_seraphim_clarity_of_the_heavens"
-      ]
+      ],
+      "_source": " MAGNITUDE CUT 2026-10-29 (Kyle's call: \"bring Seraphim down to the field\"). Seraphim measured 40% magic reduction against a field of 0-14%, the next best being Protection Paladin at 14, and led three tank axes at once. The MECHANIC is correct and stays - CoA names Gleaming Armor and Stand Against Darkness as this spec's passive spell mitigation and calls it a block-and-mitigate chassis that wins on attrition - so only the numbers moved. These two talents were also byte-identical to each other at -0.03 per rank, 15% each, which is where most of the 40 came from. Now 5% each, and with Battle Priest's unchanged 10% the spec sits at 20%: still the magic tank by a clear margin over Paladin's 14, no longer by 3x."
     },
     {
       "talent_id": "sun_cleric_seraphim_scroll_of_hope",
@@ -517,7 +518,7 @@
     {
       "talent_id": "sun_cleric_seraphim_gleaming_armor",
       "name": "Gleaming Armor",
-      "description": "Reduces spell damage taken by 3% per rank, with an additional reduction above 80% health.",
+      "description": "Reduces spell damage taken by 1% per rank, with an additional reduction above 80% health.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -525,13 +526,13 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "spell_damage_taken_pct": -0.03
+        "spell_damage_taken_pct": -0.01
       },
       "connected_to": [
         "sun_cleric_seraphim_sol_invictus",
         "sun_cleric_seraphim_angelic_presence"
       ],
-      "_source": "CoA handoff doc: 'Reduces spell damage taken (extra above 80% health).'"
+      "_source": "CoA handoff doc: 'Reduces spell damage taken (extra above 80% health).' MAGNITUDE CUT 2026-10-29 (Kyle's call: \"bring Seraphim down to the field\"). Seraphim measured 40% magic reduction against a field of 0-14%, the next best being Protection Paladin at 14, and led three tank axes at once. The MECHANIC is correct and stays - CoA names Gleaming Armor and Stand Against Darkness as this spec's passive spell mitigation and calls it a block-and-mitigate chassis that wins on attrition - so only the numbers moved. These two talents were also byte-identical to each other at -0.03 per rank, 15% each, which is where most of the 40 came from. Now 5% each, and with Battle Priest's unchanged 10% the spec sits at 20%: still the magic tank by a clear margin over Paladin's 14, no longer by 3x."
     },
     {
       "talent_id": "sun_cleric_seraphim_sun_warriors_guidance",

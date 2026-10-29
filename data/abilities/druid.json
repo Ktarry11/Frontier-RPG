@@ -168,36 +168,37 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 35,
-          "effect_value": 46
+          "cost": 49,
+          "effect_value": 73
         },
         {
           "rank": 2,
           "level_req": 13,
-          "cost": 55,
-          "effect_value": 71
+          "cost": 77,
+          "effect_value": 113
         },
         {
           "rank": 3,
           "level_req": 25,
-          "cost": 75,
-          "effect_value": 95
+          "cost": 106,
+          "effect_value": 152
         },
         {
           "rank": 4,
           "level_req": 39,
-          "cost": 95,
-          "effect_value": 120
+          "cost": 134,
+          "effect_value": 192
         },
         {
           "rank": 5,
           "level_req": 53,
-          "cost": 115,
-          "effect_value": 144
+          "cost": 162,
+          "effect_value": 230
         }
       ],
       "target_type": "ally",
-      "icon_id": null
+      "icon_id": null,
+      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question."
     },
     {
       "ability_id": "druid_mark_of_the_wild",
@@ -427,7 +428,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect.",
+      "description": "Consumes an active Rejuvenation or Regrowth on the target, instantly healing them for the remainder of that effect.",
       "ranks": [
         {
           "rank": 1,
@@ -441,10 +442,11 @@
       "is_instant": true,
       "consumes_hot": true,
       "consumable_hot_ids": [
-        "druid_rejuvenation"
+        "druid_rejuvenation",
+        "druid_regrowth"
       ],
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Swiftmend talent in the Restoration tree. Consumes an active Rejuvenation on the target, instantly healing them for the remainder of that effect. Requires Rejuvenation to already be active on the target."
+      "_design_note": "Not learned from level alone - granted by the Swiftmend talent in the Restoration tree. Consumes an active Rejuvenation or Regrowth on the target, instantly healing them for the remainder of that effect. Requires one of those to already be active on the target. 29 Oct 2026: consumable_hot_ids listed only druid_rejuvenation, but the ability's own failure message in combat/abilities.py says \"requires an active Rejuvenation or Regrowth\" and the consumable_hot_ids docstring gives [\"druid_rejuvenation\", \"druid_regrowth\"] as its worked example for Swiftmend. The data was the odd one out, so Regrowth was added. effect_value 0 is correct and deliberate - the heal is tick_potency * remaining duration of whatever it eats, so it scales with the Rejuvenation and Regrowth buffs automatically and needs no value of its own."
     },
     {
       "ability_id": "druid_natures_swiftness",
@@ -929,48 +931,49 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 60,
-          "effect_value": 52
+          "cost": 63,
+          "effect_value": 89
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 70,
-          "effect_value": 61
+          "cost": 73,
+          "effect_value": 104
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 81,
-          "effect_value": 70
+          "cost": 85,
+          "effect_value": 120
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 94,
-          "effect_value": 82
+          "cost": 98,
+          "effect_value": 140
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 108,
-          "effect_value": 94
+          "cost": 113,
+          "effect_value": 161
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 122,
-          "effect_value": 105
+          "cost": 127,
+          "effect_value": 179
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 135,
-          "effect_value": 117
+          "cost": 141,
+          "effect_value": 200
         }
       ],
       "target_type": "ally",
-      "icon_id": null
+      "icon_id": null,
+      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question."
     },
     {
       "ability_id": "druid_thorns",

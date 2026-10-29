@@ -182,6 +182,17 @@ TANK_PHYSICAL = "beast_large"
 TICK = 0.05
 MAX_TICKS = 20000
 
+#: Healer turns in the measurement window. Replaced a `casts >= 30` cap on
+#: 29 Oct. Capping CASTS made the window a different length for every spec -
+#: a direct healer casting every turn stopped at turn 30, while a HoT spec
+#: that holds its turn while its HoTs roll needed 60+ turns to reach 30 casts
+#: and, once every heal it owns was already rolling, never got there at all:
+#: venomancer_vizier ran to MAX_TICKS and reported 0 healing/turn against 402
+#: healing/cast, which is the same healing divided by a denominator 20000
+#: long. A fixed turn budget gives every spec the same denominator, which is
+#: the only way the throughput column means anything across the table.
+TURN_BUDGET = 40
+
 
 def roles_of(spec):
     r = SPEC_ROLES[spec]
@@ -257,6 +268,20 @@ def build(spec, level, gen, dress, role=None):
         """Does this node do anything the role cares about? Druid Feral holds a bear tank and a cat
         rogue in one tree, so spending bottom-up gives a build that is neither."""
         if not wanted:
+            return True
+        # A NODE THAT GRANTS AN ABILITY IS ALWAYS RELEVANT. The keyword match
+        # below reads effect KEYS and the node name, and an unlock node's only
+        # effect key is "unlock_ability" - so Druid Restoration's Swiftmend
+        # (name "Swiftmend", effects {"unlock_ability": "druid_swiftmend"})
+        # matched none of "healing/heal/mana/spirit/intellect", sorted last in
+        # every tier, and never got bought on a 56-point budget. The spec was
+        # being measured without its signature button. This is not a Druid
+        # quirk: 325 nodes across 70 of the 97 trees unlock an ability this
+        # way, so the bias ran through the tank table too. A tree only ever
+        # unlocks abilities belonging to its own spec, so taking them is
+        # always right; and because the climb phase SORTS by relevance rather
+        # than excluding, this only stops them being deprioritised to never.
+        if "unlock_ability" in (node.effects or {}):
             return True
         keys = " ".join((node.effects or {})).lower() + " " + (node.name or "").lower()
         return any(w in keys for w in wanted)
@@ -621,8 +646,11 @@ def healer_axes(char, level, gen, dress, fights):
     heals = [a for a in learned
              if getattr(a, "effect_type", "") in ("heal", "hot", "damage_and_heal")]
     if not heals:
-        return {"healing/turn": 0, "healing/100 res": 0, "biggest heal": 0,
-                "turns of mana": 0, "heal abilities": 0}
+        # Keys must match the populated return exactly - `axes` is built from
+        # whichever row comes back first, so a short dict here silently drops
+        # an axis from the whole table.
+        return {"healing/turn": 0, "healing/cast": 0, "healing/100 res": 0,
+                "biggest heal": 0, "turns of mana": 0, "heal abilities": 0}
 
     patient = Character("Patient", "Warrior", level)
     dress(patient, gen, level)
@@ -635,6 +663,7 @@ def healer_axes(char, level, gen, dress, fights):
     heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
     patient.current_health = max(1, patient.health // 2)
     healed, spent_mana, biggest, casts = 0, 0, 0, 0
+    turns, dry_turn = 0, None
     previous = patient.current_health
 
     for _ in range(MAX_TICKS):
@@ -656,8 +685,30 @@ def healer_axes(char, level, gen, dress, fights):
         if actor is not char:
             engine.execute_monster_action() if actor is enemy else engine.execute_defend(actor)
             continue
+        turns += 1
         before_res = _resource_snapshot(char)
+        cast_this_turn = False
+        held_for_rolling = False
         for ability in heals:
+            # DO NOT RE-CAST A HOT THAT IS STILL ROLLING. status_effects.py
+            # line 30: "Re-applying an effect with the same effect_id
+            # REFRESHES it (duration resets)". The priority loop below casts
+            # the single highest-value castable heal EVERY turn at the same
+            # patient, so before this guard every HoT was re-applied one turn
+            # after it landed and threw away every remaining tick. Each cast
+            # was therefore credited with roughly ONE tick, and since a tick
+            # is effect_value/duration, the metric understated every
+            # heal-over-time spec by a factor of its duration and rewarded
+            # direct heals for free. That is why extending Rejuvenation from 4
+            # turns to 6 - which is strictly more healing per cast - made the
+            # numbers go DOWN, and why druid_restoration read 94 healing a
+            # turn while its three HoTs summed to 254. A player lets a HoT
+            # tick and spends the turn on the next target or a direct heal,
+            # which is what skipping does here.
+            if getattr(ability, "effect_type", "") == "hot" and \
+                    patient.has_status_effect(ability.ability_id):
+                held_for_rolling = True
+                continue
             # AIM EACH HEAL WHERE IT ACTUALLY WORKS. damage_and_heal is cast
             # at an ENEMY and heals allies off the damage dealt - it is the
             # whole mechanic of Cultist Heretic ("Discipline-style
@@ -673,19 +724,34 @@ def healer_axes(char, level, gen, dress, fights):
             if ok:
                 spent_mana += _resource_spend(before_res, _resource_snapshot(char))
                 casts += 1
+                cast_this_turn = True
                 break
-        else:
-            break                                              # nothing castable: out of resources
+        # A TURN THE HEALER COULD NOT SPEND IS STILL A TURN. The window is
+        # fixed (TURN_BUDGET) and runs to the end for every spec, so the
+        # denominator of healing/turn is identical across the table and the
+        # figures are directly comparable. Breaking out early - which this did
+        # when it ran dry - divided a short window's healing by a short
+        # denominator and flattered exactly the specs that could not sustain.
+        if not cast_this_turn and not held_for_rolling and dry_turn is None:
+            dry_turn = turns                                   # first turn it could not afford one
         gain = patient.current_health - previous
         if gain > 0:
             healed += gain
             biggest = max(biggest, gain)
         previous = patient.current_health
-        if casts >= 30:
+        if turns >= TURN_BUDGET:
             break
 
     return {
-        "healing/turn": healed / casts if casts else 0,
+        # PER TURN, not per cast. This read `healed / casts` until 29 Oct,
+        # which is healing per CAST under a "healing/turn" label. The two are
+        # the same number only for a spec that casts every turn, i.e. a direct
+        # healer; a HoT spec deliberately does not, so the old figure both
+        # mislabelled the axis and double-punished heal-over-time kits on top
+        # of the refresh bug fixed in the loop above. Throughput is what a
+        # healer is judged on and throughput is per turn.
+        "healing/turn": healed / turns if turns else 0,
+        "healing/cast": healed / casts if casts else 0,
         # Named per 100 RESOURCE, not per 100 mana - see RESOURCE_POOLS.
         #
         # Floored at 1 rather than special-cased to 0, because zero spend
@@ -698,7 +764,12 @@ def healer_axes(char, level, gen, dress, fights):
         # real finding, not an artefact.
         "healing/100 res": healed / max(1, spent_mana) * 100,
         "biggest heal": biggest,
-        "turns of mana": casts,
+        # Now literally what the label says: the turn on which the spec first
+        # could not afford a heal, or the whole window if it never ran dry.
+        # This used to be `casts`, which is a count of heals landed, not turns
+        # of mana - a cheap-spell spec and an expensive-spell spec that both
+        # emptied the pool scored the same.
+        "turns of mana": dry_turn if dry_turn is not None else turns,
         "heal abilities": len(heals),
     }
 
