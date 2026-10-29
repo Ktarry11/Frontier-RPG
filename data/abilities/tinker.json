@@ -29,8 +29,8 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shoot an enemy with scrap debris, dealing 100% Ranged Weapon Damage plus 3.",
-      "_source": "Real screenshot: 5 Mana, 1.88 sec cast, 35 yd range, Requires Guns. Drone Striker (CoA Demolition, 8 TE): 'Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.' Frontier has no Firepot Drone ability at all, so only the Scrap Shot half is buildable and only that half is built. scales_with_target_stacks_of is the read-only twin of consumes_target_stacks_of (combat/abilities.py _consume_target_stacks) - it counts the target's tinker_napalm stacks and leaves the debuff standing, which is required here because the rotation is built on maintaining Napalm. CAVEAT: this scaling lives on the ABILITY, so it applies whether or not the Drone Striker talent is spent - Frontier has no talent-effect key that can switch damage_per_stack_pct on. For that reason NO Drone Striker talent node was created: it would read as granting the scaling while granting nothing. Also not modelled, for lack of the abilities they name: CoA's Grenadier ('When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone') and War Crimes ('Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm'), the tree's two other Napalm-stack nodes.",
+      "description": "Fire a handful of salvage down the barrel and let the gun sort out the rest.",
+      "_source": "Real screenshot: 5 Mana, 1.88 sec cast, 35 yd range, Requires Guns. Drone Striker (CoA Demolition, 8 TE): 'Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.' Frontier has no Firepot Drone ability at all, so only the Scrap Shot half is buildable and only that half is built. scales_with_target_stacks_of is the read-only twin of consumes_target_stacks_of (combat/abilities.py _consume_target_stacks) - it counts the target's tinker_napalm stacks and leaves the debuff standing, which is required here because the rotation is built on maintaining Napalm. CAVEAT: this scaling lives on the ABILITY, so it applies whether or not the Drone Striker talent is spent - Frontier has no talent-effect key that can switch damage_per_stack_pct on. For that reason NO Drone Striker talent node was created: it would read as granting the scaling while granting nothing. Also not modelled, for lack of the abilities they name: CoA's Grenadier ('When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone') and War Crimes ('Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm'), the tree's two other Napalm-stack nodes.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Shoot an enemy with scrap debris, dealing 100% Ranged Weapon Damage plus 3.\"",
       "ranks": [
         {
           "rank": 1,
@@ -94,8 +94,8 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Build a Sentry Turret for 5 min that shoots bullets at enemies, dealing 4 Physical damage. Activate again to deconstruct your Sentry Turret. Can only have 1 Sentry Turret up at a time.",
-      "_source": "Real screenshot: 4 Mana, instant cast, 3 sec cooldown.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Mechanics: 'Clockwork Guardians AND the Sentry Turret add a Guldan-style board of extra summoned pressure', and 'the whole kit juggles mana, Scrap, and Sentry Turret uptime' - the turret runs alongside the permanent pet, it does not replace it.",
+      "description": "Bolt together a turret that picks its own targets and keeps firing while you work. Activate again to strip it back down for parts.",
+      "_source": "Real screenshot: 4 Mana, instant cast, 3 sec cooldown.  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Mechanics: 'Clockwork Guardians AND the Sentry Turret add a Guldan-style board of extra summoned pressure', and 'the whole kit juggles mana, Scrap, and Sentry Turret uptime' - the turret runs alongside the permanent pet, it does not replace it.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Build a Sentry Turret for 5 min that shoots bullets at enemies, dealing 4 Physical damage. Activate again to deconstruct your Sentry Turret. Can only have 1 Sentry Turret up at a time.\"",
       "ranks": [
         {
           "rank": 1,
@@ -118,8 +118,8 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Smash an enemy with your spanner, dealing 110% Weapon Damage plus 14. Guaranteed to critically strike against Mechanicals.",
-      "_source": "Real screenshot: 4 Mana, melee range, instant, 6 sec cooldown (compressed to 1 turn CD per project convention), Requires Melee Weapon.",
+      "description": "Bring the heavy end of the spanner around. Anything built rather than born comes apart under it.",
+      "_source": "Real screenshot: 4 Mana, melee range, instant, 6 sec cooldown (compressed to 1 turn CD per project convention), Requires Melee Weapon.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Smash an enemy with your spanner, dealing 110% Weapon Damage plus 14. Guaranteed to critically strike against Mechanicals.\"",
       "ranks": [
         {
           "rank": 1,
@@ -225,8 +225,8 @@
       "effect_type": "spell_dot",
       "duration": 1,
       "stat_mods": {},
-      "description": "Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.",
-      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence. Fixed during DPS niche audit (Oct 2026): had no target_type at all despite its own tooltip explicitly hitting 'the target and 4 enemies within 8 yds' - same dead-is_aoe-tagging pattern already fixed this session for Spider Bomb/Mechsuit: Combustion. Added target_type=enemy_aoe so the explosion actually hits multiple enemies.",
+      "description": "Tag an enemy with a charge that will not come off, then wait for the part everyone standing near them regrets.",
+      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence. Fixed during DPS niche audit (Oct 2026): had no target_type at all despite its own tooltip explicitly hitting 'the target and 4 enemies within 8 yds' - same dead-is_aoe-tagging pattern already fixed this session for Spider Bomb/Mechsuit: Combustion. Added target_type=enemy_aoe so the explosion actually hits multiple enemies.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.\"",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -304,8 +304,8 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Discombobulate an enemy, disorienting them for 4 sec. Damage dealt will end the effect.",
-      "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
+      "description": "A short, ugly noise at close range. They lose the thread entirely until something hits them hard enough to find it again.",
+      "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Discombobulate an enemy, disorienting them for 4 sec. Damage dealt will end the effect.\"",
       "ranks": [
         {
           "rank": 1,
@@ -329,8 +329,8 @@
         "armor_penetration_pct": 25,
         "spell_penetration": 20
       },
-      "description": "Add a Piercing Augmentation to your gun for 1 hour, causing an additional 3 Physical damage with each shot. Allows your attacks to ignore 25% of your target's armor and grants you 20 spell penetration.",
-      "_source": "Real screenshot: Requires Level 16. Demolition leveling sequence.",
+      "description": "Fit a piercing augment to the gun. Every shot bites a little deeper and finds the gaps in whatever armour is in the way.",
+      "_source": "Real screenshot: Requires Level 16. Demolition leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Add a Piercing Augmentation to your gun for 1 hour, causing an additional 3 Physical damage with each shot. Allows your attacks to ignore 25% of your target's armor and grants you 20 spell penetration.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -352,8 +352,8 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Lob a bomb at an enemy, dealing 67 Fire damage and reducing their armor by 5% for 15 sec, stacking 4 times.",
-      "_source": "Real screenshot: Requires Level 18, Bomb Toss (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by a Demolition talent node, not learned from level alone.",
+      "description": "Lob a charge underarm and let the blast chew the plating off whatever it lands against. The damage stacks the longer you keep it up.",
+      "_source": "Real screenshot: Requires Level 18, Bomb Toss (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by a Demolition talent node, not learned from level alone.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Lob a bomb at an enemy, dealing 67 Fire damage and reducing their armor by 5% for 15 sec, stacking 4 times.\"",
       "requires_talent": true,
       "ranks": [
         {
@@ -386,8 +386,8 @@
       "effect_type": "buff",
       "duration": 60,
       "stat_mods": {},
-      "description": "Add an Explosive Augmentation to your gun for 1 hour, causing your ranged attacks to explode on your target dealing 1 Fire damage to them and nearby enemies. Can only occur once per sec.",
-      "_source": "Real screenshot: Requires Level 22. Demolition leveling sequence.",
+      "description": "Fit an explosive augment to the gun. Shots come apart on impact and spray whatever is standing too close to the target.",
+      "_source": "Real screenshot: Requires Level 22. Demolition leveling sequence.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Add an Explosive Augmentation to your gun for 1 hour, causing your ranged attacks to explode on your target dealing 1 Fire damage to them and nearby enemies. Can only occur once per sec.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -460,8 +460,8 @@
       "stat_mods": {
         "ranged_ability_range": 5
       },
-      "description": "Add a Magic Augmentation to your gun for 1 hour, causing an additional 2 Magic damage with each shot. Increases the range of your ranged abilities by 5 yds.",
-      "_source": "Real screenshot: Requires Level 6. Invention leveling sequence.",
+      "description": "Fit a magic augment to the gun. The shots carry an edge that armour was never built to stop, and they reach further out.",
+      "_source": "Real screenshot: Requires Level 6. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Add a Magic Augmentation to your gun for 1 hour, causing an additional 2 Magic damage with each shot. Increases the range of your ranged abilities by 5 yds.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -527,8 +527,8 @@
       "stat_mods": {
         "armor": 220
       },
-      "description": "Throw down a shield beacon for 15 sec which projects a force field in a 10 yd radius, increasing the Armor of nearby allies by 220. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.",
-      "_source": "Real screenshot: Requires Level 14. Invention leveling sequence.",
+      "description": "Drop a beacon that throws a field over everyone standing near it, and keep a couple more on your belt.",
+      "_source": "Real screenshot: Requires Level 14. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw down a shield beacon for 15 sec which projects a force field in a 10 yd radius, increasing the Armor of nearby allies by 220. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -588,8 +588,8 @@
       "stat_mods": {
         "mp5": 10
       },
-      "description": "Empower an ally with a mana module, restoring 10 mana every 5 seconds for 30 min. Only one Module per Tinker can be active.",
-      "_source": "Real screenshot: Requires Level 16. Invention leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention same as other 1hr/30min Tinker buffs.",
+      "description": "Clip a module to an ally and let it trickle power back into them while it holds. One module to a Tinker - the second one just argues with the first.",
+      "_source": "Real screenshot: Requires Level 16. Invention leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention same as other 1hr/30min Tinker buffs.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Empower an ally with a mana module, restoring 10 mana every 5 seconds for 30 min. Only one Module per Tinker can be active.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -610,8 +610,8 @@
       "effect_type": "hot",
       "duration": 6,
       "stat_mods": {},
-      "description": "Send Nanobots to an ally, healing them for 600 over 1 min. Nanobot Reconstruction can only be sent to 1 target at a time and cannot be dispelled.",
-      "_source": "Real screenshot: Requires Level 16, Nanobot Reconstruction (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "description": "Send a swarm of nanobots into an ally to knit the damage shut from the inside. They go to one person at a time, and nothing short of switching them off gets them out.",
+      "_source": "Real screenshot: Requires Level 16, Nanobot Reconstruction (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Send Nanobots to an ally, healing them for 600 over 1 min. Nanobot Reconstruction can only be sent to 1 target at a time and cannot be dispelled.\"",
       "requires_talent": true,
       "target_type": "ally",
       "ranks": [
@@ -646,8 +646,8 @@
       "stat_mods": {
         "mp5": 13
       },
-      "description": "Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.",
-      "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.",
+      "description": "Send a swarm of nanobots into an ally to keep their reserves topped up. One target at a time, and they do not come off early.",
+      "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -703,8 +703,8 @@
         "crit_pct_vs_mechanical": 25,
         "magic_damage_taken_pct": -10
       },
-      "description": "Add an Aether Augmentation to your gun for 1 hour, causing an additional 1 Arcane damage with each shot. Increases your damage and critical strike chance against Mechanicals by 25% and reduces your Magic damage taken by 10%.",
-      "_source": "Real screenshot: Requires Level 22. Invention leveling sequence.",
+      "description": "Fit an aether augment to the gun. It reads machinery like a schematic and takes the sting out of incoming spellwork.",
+      "_source": "Real screenshot: Requires Level 22. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Add an Aether Augmentation to your gun for 1 hour, causing an additional 1 Arcane damage with each shot. Increases your damage and critical strike chance against Mechanicals by 25% and reduces your Magic damage taken by 10%.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -728,8 +728,8 @@
       "stat_mods": {
         "mp5": 30
       },
-      "description": "Throw down a replenishment beacon for 15 sec which projects a force field restoring 5 Rage, Energy, Focus, Runic Power and 5% base mana every 2.50 sec to allies. 3 Charges, 15 sec recharge.",
-      "_source": "Real screenshot: Requires Level 24. Invention leveling sequence.",
+      "description": "Drop a beacon that feeds reserves back to everyone near it, whatever kind of reserve they run on.",
+      "_source": "Real screenshot: Requires Level 24. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw down a replenishment beacon for 15 sec which projects a force field restoring 5 Rage, Energy, Focus, Runic Power and 5% base mana every 2.50 sec to allies. 3 Charges, 15 sec recharge.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -751,8 +751,8 @@
       "effect_type": "hot",
       "duration": 6,
       "stat_mods": {},
-      "description": "Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.",
-      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.  dispel_type was 'poison_disease_bleed', a single invented school string. The real DispelType members are NONE/MAGIC/CURSE/POISON/DISEASE, and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match, so this cleansed nothing. Now the list form - ['poison','disease'] - which the engine accepts and paladin_cleanse and primalist_soothing_touch already use. Bleed is dropped because this engine has no bleed dispel school.",
+      "description": "Underarm a med pack to an ally. It closes wounds and burns out whatever was in the blood on its way through.",
+      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.  dispel_type was 'poison_disease_bleed', a single invented school string. The real DispelType members are NONE/MAGIC/CURSE/POISON/DISEASE, and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match, so this cleansed nothing. Now the list form - ['poison','disease'] - which the engine accepts and paladin_cleanse and primalist_soothing_touch already use. Bleed is dropped because this engine has no bleed dispel school.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.\"",
       "requires_talent": true,
       "target_type": "ally",
       "ranks": [
@@ -850,8 +850,8 @@
       "effect_type": "buff",
       "duration": 60,
       "stat_mods": {},
-      "description": "Load Stim Rounds, causing Repair Shot to also heal the 2 lowest-HP party members for 30% of the amount healed.",
-      "_source": "Kyle, confirmed from real playtime as a Tinker healer (not in the leveling doc screenshots - doc author didn't play Invention healer far enough to record it). Real self-rank gate per Kyle's gated-abilities list, granted by an Invention talent node (tier 3).",
+      "description": "Load stim rounds, so a repair shot carries past its target and reaches whoever in the party is worst off.",
+      "_source": "Kyle, confirmed from real playtime as a Tinker healer (not in the leveling doc screenshots - doc author didn't play Invention healer far enough to record it). Real self-rank gate per Kyle's gated-abilities list, granted by an Invention talent node (tier 3).  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Load Stim Rounds, causing Repair Shot to also heal the 2 lowest-HP party members for 30% of the amount healed.\"",
       "requires_talent": true,
       "target_type": "self",
       "ranks": [
@@ -980,8 +980,8 @@
       "stat_mods": {
         "attack_power": 19
       },
-      "description": "Activates power module on an allied player, increasing attack power by 19 for 30 min. Only one Module per Tinker can be active.",
-      "_source": "Real screenshot: Requires Level 4. Mechanics leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention.",
+      "description": "Clip a module to an ally and let it drive their swing harder for a good long while. One module to a Tinker.",
+      "_source": "Real screenshot: Requires Level 4. Mechanics leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Activates power module on an allied player, increasing attack power by 19 for 30 min. Only one Module per Tinker can be active.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -1097,8 +1097,8 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 20 as Fire damage. 2 Charges, 8 sec recharge.",
-      "_source": "Real screenshot: Requires Level 18, Makeshift Dynamite (Rank 1) - real self-rank gate, Kyle-confirmed ('ANY MECH STUFF are gated', Makeshift Dynamite explicitly named too). Generates 10 Scrap - see Character.current_scrap, spent on Mechsuit Form (combat/status_effects.py real 'tinker_mechsuit_form' timed buff). Granted by a Mechanics talent node.",
+      "description": "Load a stick of dynamite into a gun, which is exactly as advisable as it sounds, and send it downrange.",
+      "_source": "Real screenshot: Requires Level 18, Makeshift Dynamite (Rank 1) - real self-rank gate, Kyle-confirmed ('ANY MECH STUFF are gated', Makeshift Dynamite explicitly named too). Generates 10 Scrap - see Character.current_scrap, spent on Mechsuit Form (combat/status_effects.py real 'tinker_mechsuit_form' timed buff). Granted by a Mechanics talent node.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 20 as Fire damage. 2 Charges, 8 sec recharge.\"",
       "requires_talent": true,
       "generates": {
         "resource": "scrap",
@@ -1135,8 +1135,8 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 39 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage. Shares a cooldown with other Mechsuit abilities.",
-      "_source": "Real screenshot: Requires Level 22, Mechsuit: Laser Beam (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node.",
+      "description": "Open up with the suit's beam and signal your construct in on the same target while the plating is still glowing.",
+      "_source": "Real screenshot: Requires Level 22, Mechsuit: Laser Beam (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 39 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage. Shares a cooldown with other Mechsuit abilities.\"",
       "requires_talent": true,
       "requires_form": [
         "mechsuit"
@@ -1238,8 +1238,8 @@
       "stat_mods": {
         "summon_damage_pct": 10
       },
-      "description": "Create the latest in turret technology, the Battle Turret X-13 for 30 sec that emanates an aura that increases the damage of your summons by 10%. Allies can enter the turret giving them access to unique abilities and the turret's health pool for the duration.",
-      "_source": "Real screenshot: Requires Level 40. Mechanics leveling sequence.",
+      "description": "Assemble the Battle Turret X-13. It pushes every construct you own harder, and an ally can climb inside and fight out of it.",
+      "_source": "Real screenshot: Requires Level 40. Mechanics leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Create the latest in turret technology, the Battle Turret X-13 for 30 sec that emanates an aura that increases the damage of your summons by 10%. Allies can enter the turret giving them access to unique abilities and the turret's health pool for the duration.\"",
       "ranks": [
         {
           "rank": 1,
@@ -1261,8 +1261,8 @@
         "magic_damage_taken_pct": -3,
         "healing_taken_pct": -3
       },
-      "description": "Augment a party member with the essence of arcane, decreasing damage taken from spells by up to 3% and healing spells by up to 3%. Lasts 5 min.",
-      "_source": "Real screenshot: Requires Level 46. Mechanics leveling sequence.",
+      "description": "Thread arcane bionics into a party member. Spellwork aimed at them lands softer, and the healing that reaches them lands harder.",
+      "_source": "Real screenshot: Requires Level 46. Mechanics leveling sequence.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Augment a party member with the essence of arcane, decreasing damage taken from spells by up to 3% and healing spells by up to 3%. Lasts 5 min.\"",
       "target_type": "party",
       "ranks": [
         {
@@ -1286,8 +1286,8 @@
         "magic_damage_taken_pct": 75,
         "healing_taken_pct": 80
       },
-      "description": "Amplifies magic used against the targeted party member, increasing damage taken from spells by up to 75 and healing spells by up to 80. Lasts 10 min.",
-      "_source": "Real screenshot: Requires Level 56. Mechanics leveling sequence.",
+      "description": "Thread crude bionics into an enemy and leave the wiring exposed. Every spell that touches them afterwards goes in deeper.",
+      "_source": "Real screenshot: Requires Level 56. Mechanics leveling sequence.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Amplifies magic used against the targeted party member, increasing damage taken from spells by up to 75 and healing spells by up to 80. Lasts 10 min.\"",
       "target_type": "ally",
       "ranks": [
         {
@@ -1311,8 +1311,8 @@
         "armor": 800,
         "haste": 15
       },
-      "description": "Don a powered Mechsuit for 15 sec: gain +10% damage dealt, +800 Armor, and +15% movement speed, and gain access to Mechsuit: Laser Beam and Mechsuit: Combustion.",
-      "_source": "Real screenshot-adjacent - the leveling doc doesn't show this activation ability directly, but Mechsuit: Laser Beam/Combustion both explicitly require an active Mechsuit state ('Shares a cooldown with other Mechsuit abilities'). Real CoA tooltip (earlier session): 'Activate your Mechsuit, draining 5 Scrap every sec... If you run out of Scrap while active, you are ejected.' Scrap-per-turn drain not yet wired (see _implementation_note) - modeled as a flat 15-turn duration for now. Granted by a Mechanics talent node (tier 3). Kyle: 'we can just make them form locked, likely easier' - this ability's real StatusEffect (effect_id = its own ability_id, \"tinker_mechsuit_form\") is exactly what Character.current_mechsuit checks for. SCRAP SINK - BLOCKED ON AN ENGINE CHANGE (Oct 2026). Scrap generation exists on Makeshift Dynamite ('Generates 10 Scrap') and nothing in the game can spend it, so the pool fills and sits there; three independent sources agree the sink is THIS ability. This entry's own CoA tooltip above: 'Activate your Mechsuit, draining 5 Scrap every sec... If you run out of Scrap while active, you are ejected.' The Sidekick Mechanics page: 'Periodically you dump Scrap into Build: Mechsuit, a self-transformation that drains Scrap over time', 'Scrap -> Mechsuit ~= Soul Shards -> Metamorphosis/Tyrant window', 'running Scrap to zero mid-transformation ejects you from the Mechsuit'. And entities/character.py's own comment on the pool: 'a secondary spend-to-transform currency gating entry into Mechsuit form', 'The sink belongs on Mechsuit form per the screenshot above.' The sink was NOT authored here because authoring it is a silent no-op: _ability_from_data resolves resource_type through _RESOURCE_BY_NAME, built from the ResourceType enum, which has no SCRAP member - so resource_type='scrap' falls back to ResourceType.MANA and the ability keeps costing Mana while the data claims otherwise. Verified live: set to 'scrap', the loaded Ability reported ResourceType.MANA, was castable at 0 Scrap, and spent none. The one-line engine change needed is SCRAP = 'scrap' in combat/abilities.py's ResourceType, plus CLASS_RESOURCES['Tinker'] = (MANA, SCRAP) for the UI bar and for validate_class to stop warning. Character.get_resource/spend_resource already handle 'scrap' generically, so nothing else is needed. Once that lands, set resource_type='scrap' and cost=30 on this rank (three Dynamite casts).  NOW COSTS SCRAP, which is the sink the resource never had. CoA's Mechanics page: 'Periodically you dump Scrap into Build: Mechsuit, a self-transformation that drains Scrap over time', 'Scrap -> Mechsuit = Soul Shards -> Metamorphosis', and 'running Scrap to zero mid-transformation ejects you from the Mechsuit'. Makeshift Dynamite generated 10 Scrap a cast and NOTHING in the game could spend it, so the pool filled and sat there. Needed ResourceType.SCRAP to exist first - before that, resource_type 'scrap' fell through _RESOURCE_BY_NAME to MANA, so the ability was castable at zero Scrap and spent none. The over-time drain and the eject-at-zero are not modelled; this is the entry cost only.",
+      "description": "Climb into the suit and seal it. You hit harder, you are far harder to hurt, and the suit's own weapons come online with you.",
+      "_source": "Real screenshot-adjacent - the leveling doc doesn't show this activation ability directly, but Mechsuit: Laser Beam/Combustion both explicitly require an active Mechsuit state ('Shares a cooldown with other Mechsuit abilities'). Real CoA tooltip (earlier session): 'Activate your Mechsuit, draining 5 Scrap every sec... If you run out of Scrap while active, you are ejected.' Scrap-per-turn drain not yet wired (see _implementation_note) - modeled as a flat 15-turn duration for now. Granted by a Mechanics talent node (tier 3). Kyle: 'we can just make them form locked, likely easier' - this ability's real StatusEffect (effect_id = its own ability_id, \"tinker_mechsuit_form\") is exactly what Character.current_mechsuit checks for. SCRAP SINK - BLOCKED ON AN ENGINE CHANGE (Oct 2026). Scrap generation exists on Makeshift Dynamite ('Generates 10 Scrap') and nothing in the game can spend it, so the pool fills and sits there; three independent sources agree the sink is THIS ability. This entry's own CoA tooltip above: 'Activate your Mechsuit, draining 5 Scrap every sec... If you run out of Scrap while active, you are ejected.' The Sidekick Mechanics page: 'Periodically you dump Scrap into Build: Mechsuit, a self-transformation that drains Scrap over time', 'Scrap -> Mechsuit ~= Soul Shards -> Metamorphosis/Tyrant window', 'running Scrap to zero mid-transformation ejects you from the Mechsuit'. And entities/character.py's own comment on the pool: 'a secondary spend-to-transform currency gating entry into Mechsuit form', 'The sink belongs on Mechsuit form per the screenshot above.' The sink was NOT authored here because authoring it is a silent no-op: _ability_from_data resolves resource_type through _RESOURCE_BY_NAME, built from the ResourceType enum, which has no SCRAP member - so resource_type='scrap' falls back to ResourceType.MANA and the ability keeps costing Mana while the data claims otherwise. Verified live: set to 'scrap', the loaded Ability reported ResourceType.MANA, was castable at 0 Scrap, and spent none. The one-line engine change needed is SCRAP = 'scrap' in combat/abilities.py's ResourceType, plus CLASS_RESOURCES['Tinker'] = (MANA, SCRAP) for the UI bar and for validate_class to stop warning. Character.get_resource/spend_resource already handle 'scrap' generically, so nothing else is needed. Once that lands, set resource_type='scrap' and cost=30 on this rank (three Dynamite casts).  NOW COSTS SCRAP, which is the sink the resource never had. CoA's Mechanics page: 'Periodically you dump Scrap into Build: Mechsuit, a self-transformation that drains Scrap over time', 'Scrap -> Mechsuit = Soul Shards -> Metamorphosis', and 'running Scrap to zero mid-transformation ejects you from the Mechsuit'. Makeshift Dynamite generated 10 Scrap a cast and NOTHING in the game could spend it, so the pool filled and sat there. Needed ResourceType.SCRAP to exist first - before that, resource_type 'scrap' fell through _RESOURCE_BY_NAME to MANA, so the ability was castable at zero Scrap and spent none. The over-time drain and the eject-at-zero are not modelled; this is the entry cost only.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Don a powered Mechsuit for 15 sec: gain +10% damage dealt, +800 Armor, and +15% movement speed, and gain access to Mechsuit: Laser Beam and Mechsuit: Combustion.\"",
       "_implementation_note": "Real Scrap-per-turn drain (5/turn, early-eject if it hits 0) is not yet wired into the combat tick loop - flagging rather than silently dropping. Needs a per-turn hook similar to tick_out_of_combat_regen that decrements current_scrap while this buff is active and force-expires it early if current_scrap reaches 0.",
       "requires_talent": true,
       "target_type": "self",
@@ -1335,8 +1335,8 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Throw down a healing beacon for 15 sec which projects a force field in a 10 yd radius, healing nearby allies for a moderate amount every few seconds. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.",
-      "_source": "Kyle's real correction: 'healing radiator is basically healing beacon, an ability we have' - rebuilt as the real 3rd member of Tinker's Beacon family (Shield Beacon/Replenishment Beacon/Healing Beacon), same shape and exclusive_group. Talent-granted by tinker_invention_healing_radiator (tier 1).",
+      "description": "Drop a radiator that bathes everyone near it in something that closes wounds, and keep a couple more on your belt.",
+      "_source": "Kyle's real correction: 'healing radiator is basically healing beacon, an ability we have' - rebuilt as the real 3rd member of Tinker's Beacon family (Shield Beacon/Replenishment Beacon/Healing Beacon), same shape and exclusive_group. Talent-granted by tinker_invention_healing_radiator (tier 1).  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Throw down a healing beacon for 15 sec which projects a force field in a 10 yd radius, healing nearby allies for a moderate amount every few seconds. 3 Charges, 15 sec recharge. Shares a cooldown with other Beacons.\"",
       "requires_talent": true,
       "target_type": "party",
       "ranks": [

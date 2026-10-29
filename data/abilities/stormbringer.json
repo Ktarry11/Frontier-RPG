@@ -29,8 +29,8 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shock an enemy with raw current, dealing Nature damage plus a lingering 1-turn DoT worth 10% of the hit.",
-      "_source": "Confirmed screenshot: 18 Mana, 35yd, 1.5s cast, Generates 20 Static, '17 Nature damage, plus an additional 20% of the initial damage over 1 sec.' Lvl 1. Extended to 8 ranks (was 5) per Kyle: starting abilities rank up much further, up to Rank 8-10, matching the treatment given to Venomancer's Venom Bolt/Serpent's Fang.",
+      "description": "Shock an enemy with raw current, and leave it crackling in them a moment longer.",
+      "_source": "Confirmed screenshot: 18 Mana, 35yd, 1.5s cast, Generates 20 Static, '17 Nature damage, plus an additional 20% of the initial damage over 1 sec.' Lvl 1. Extended to 8 ranks (was 5) per Kyle: starting abilities rank up much further, up to Rank 8-10, matching the treatment given to Venomancer's Venom Bolt/Serpent's Fang.  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Shock an enemy with raw current, dealing Nature damage plus a lingering 1-turn DoT worth 10% of the hit.\"",
       "applies_dot_pct": 0.1,
       "ranks": [
         {
@@ -397,8 +397,8 @@
         "armor": 60,
         "haste": 3
       },
-      "description": "Increases your Armor and spell haste. Lasts 30 min. Only 1 Aegis can be up at a time.",
-      "_source": "Confirmed screenshot: Lvl 4, 'Increases your Armor by 60 and increases your spell haste by 3%.' Part of the mutually-exclusive Aegis family (Whirlwind/Shocking/Tempest) - implemented via exclusive_group like Tinker's Rounds.",
+      "description": "Wrap yourself in turning air. It thickens what blows land on you and quickens what you cast. Only one Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 4, 'Increases your Armor by 60 and increases your spell haste by 3%.' Part of the mutually-exclusive Aegis family (Whirlwind/Shocking/Tempest) - implemented via exclusive_group like Tinker's Rounds.  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Increases your Armor and spell haste. Lasts 30 min. Only 1 Aegis can be up at a time.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -608,8 +608,8 @@
         "crit_chance_spell": 5,
         "crit_taken_reduction": 5
       },
-      "description": "Increases your chance to critically strike and reduces your chance to be critically struck. Lasts 30 min. Only 1 Aegis can be up at a time.",
-      "_source": "Confirmed screenshot: Lvl 26, exact numbers verbatim. Part of the mutually-exclusive Aegis family.",
+      "description": "Wrap yourself in standing charge. Your own strikes find the gaps more often, and theirs find yours less. Only one Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 26, exact numbers verbatim. Part of the mutually-exclusive Aegis family.  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Increases your chance to critically strike and reduces your chance to be critically struck. Lasts 30 min. Only 1 Aegis can be up at a time.\"",
       "target_type": "self",
       "ranks": [
         {
@@ -703,8 +703,8 @@
         "nature_resistance": 23,
         "frost_resistance": 23
       },
-      "description": "Increases your spell power based on your Intellect and increases your Nature and Frost Resistance. Lasts 30 min. Only 1 Aegis can be up at a time.",
-      "_source": "Confirmed screenshot: Lvl 44, 'increases your spell power by 10% of your Intellect and increases your Nature and Frost Resistance by 23.' Part of the mutually-exclusive Aegis family.",
+      "description": "Wrap yourself in gathering storm. It turns your learning into power and blunts nature and frost alike. Only one Aegis can be up at a time.",
+      "_source": "Confirmed screenshot: Lvl 44, 'increases your spell power by 10% of your Intellect and increases your Nature and Frost Resistance by 23.' Part of the mutually-exclusive Aegis family.  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Increases your spell power based on your Intellect and increases your Nature and Frost Resistance. Lasts 30 min. Only 1 Aegis can be up at a time.\"",
       "target_type": "self",
       "ranks": [
         {

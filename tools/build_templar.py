@@ -279,9 +279,8 @@ ABILITIES = [
     # ---- Librams. One at a time: exclusive_group is passed straight to the
     # StatusEffect, so applying a new Libram replaces the active one.
     ability("libram_of_consecration", "Libram of Consecration", "buff",
-            "Read the consecration aloud. Everything you do for the next 3 "
-            "turns lands with Holy force behind it, increasing your damage "
-            "by 10%.",
+            "Read the consecration aloud. Everything you do for the next "
+            "few turns lands with Holy force behind it.",
             one(14, 0), cooldown=6, duration=3,
             stat_mods={"damage_dealt_pct": 10.0}, target_type="self",
             buff_scope="combat", exclusive_group="templar_libram", icon=None,
@@ -292,9 +291,8 @@ ABILITIES = [
                    "talent lookups."),
     ability("libram_of_fervor", "Libram of Fervor", "buff",
             "Read the fervor aloud, and your training answers in a language "
-            "it does not usually speak. Grants spell power equal to 30% of "
-            "your Agility and attack power equal to 30% of your Intellect "
-            "for 3 turns.",
+            "it does not usually speak: your quickness feeds your spellwork "
+            "and your learning feeds your arm.",
             one(18, 0), cooldown=6, duration=3,
             stat_mods={"spell_power_from_agility_pct": 0.30,
                        "ap_from_intellect_pct": 0.30},
@@ -307,15 +305,14 @@ ABILITIES = [
                    "conversion loop in _recalculate_derived_stats reads the "
                    "shared bonus pool, so a buff can carry them."),
     ability("libram_of_zeal", "Libram of Zeal", "buff",
-            "Read the zeal aloud and stop pacing yourself. Increases your "
-            "haste by 20 for 3 turns.",
+            "Read the zeal aloud and stop pacing yourself.",
             one(22, 0), cooldown=6, duration=3, stat_mods={"haste": 20.0},
             target_type="self", buff_scope="combat",
             exclusive_group="templar_libram", icon=None,
             source="CoA Zealot: 'Libram of Zeal ... increasing your melee "
                    "haste by 20%'."),
     ability("libram_of_tenacity", "Libram of Tenacity", "buff",
-            "Read the tenacity aloud. Physical blows land 20% lighter for 3 "
+            "Read the tenacity aloud. Physical blows land lighter for a few "
             "turns.",
             one(26, 0), cooldown=10, duration=3,
             stat_mods={"physical_damage_taken_pct": -20.0},
@@ -372,8 +369,8 @@ ABILITIES = [
                    "Restraint cannot bind it - an instant heal leaves no "
                    "StatusEffect for exclusive_group to sit on."),
     ability("testament_of_hope", "Testament of Hope", "buff",
-            "Two of you walk out of the light. Blows meant for you land 20% "
-            "lighter for 3 turns.",
+            "Two of you walk out of the light. Blows meant for you land "
+            "lighter for a few turns.",
             one(38, 0), cooldown=14, duration=3,
             stat_mods={"damage_taken_pct": -0.20}, target_type="self",
             buff_scope="combat", exclusive_group="templar_testament",
@@ -493,7 +490,7 @@ ABILITIES = [
                    "stat_mods are percentage POINTS here, unlike a talent's "
                    "effects, which are fractions."),
     ability("barrier_of_light", "Barrier of Light", "buff",
-            "Put a wall of light around your allies. Healing reaches them 30% "
+            "Put a wall of light around your allies. Healing reaches them "
             "better through it.",
             one(30, 0), cooldown=10, duration=3,
             stat_mods={"healing_taken_pct": 30.0}, target_type="party",
@@ -592,8 +589,7 @@ ABILITIES = [
                    "exist, so the pin is a haste slow, the shipped "
                    "convention for a snare (Rogue's Crippling Poison, -30)."),
     ability("divine_charge", "Divine Charge", "buff",
-            "You and yours come up onto the light and move. Increases the "
-            "party's haste by 15 for 3 turns.",
+            "You and yours come up onto the light and move.",
             one(42, 0), cooldown=12, duration=3, stat_mods={"haste": 15.0},
             target_type="party", buff_scope="combat", icon=None,
             source="CoA Crusader: 'Divine Charge gives the party a mounted "
@@ -603,8 +599,8 @@ ABILITIES = [
                    "movement speed, so it is a party haste window. The "
                    "trample damage is dropped."),
     ability("testament_of_strength", "Testament of Strength", "buff",
-            "Swear the strength oath. For 3 turns Titanstrike needs no "
-            "wounded enemy, and everything you do hits 25% harder.",
+            "Swear the strength oath. For a few turns Titanstrike needs no "
+            "wounded enemy, and everything you do hits harder.",
             one(46, 0), cooldown=15, duration=3,
             stat_mods={"damage_dealt_pct": 25.0}, target_type="self",
             buff_scope="combat", exclusive_group="templar_testament",

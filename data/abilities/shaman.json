@@ -1125,7 +1125,7 @@
       },
       "damage_school": "frost",
       "exclusive_group": "shaman_imbue",
-      "description": "Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.",
+      "description": "Imbue your weapon with biting cold. Your hits land a heavy Frost strike often enough to matter, and drag at whatever they catch. The control imbue. Only one imbue can be active at a time.",
       "ranks": [
         {
           "rank": 1,
@@ -1184,7 +1184,8 @@
           "on_target": true
         }
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.\""
     },
     {
       "ability_id": "shaman_windfury_weapon",
@@ -1545,7 +1546,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "Reduces all damage taken by 30% and gives your melee attacks a chance to restore Mana, for a short time.",
+      "description": "Draw the spirits in close. Blows land softer, and your own swings give some of the strength back, for a short time.",
       "ranks": [
         {
           "rank": 1,
@@ -1580,7 +1581,8 @@
         }
       },
       "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Shamanistic Rage talent in the Enhancement tree. Reduces all damage taken by 30% and gives melee attacks a chance to restore mana, for a short time. Real stat reduction (uses the same damage_taken_pct key Earthen Guardian already uses) plus a real on-hit proc, matching Shamanistic Rage's actual WOTLK identity."
+      "_design_note": "Not learned from level alone - granted by the Shamanistic Rage talent in the Enhancement tree. Reduces all damage taken by 30% and gives melee attacks a chance to restore mana, for a short time. Real stat reduction (uses the same damage_taken_pct key Earthen Guardian already uses) plus a real on-hit proc, matching Shamanistic Rage's actual WOTLK identity.",
+      "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Reduces all damage taken by 30% and gives your melee attacks a chance to restore Mana, for a short time.\""
     },
     {
       "resource_type": "mana",

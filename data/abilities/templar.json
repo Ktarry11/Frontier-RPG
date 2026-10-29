@@ -613,7 +613,7 @@
       "stat_mods": {
         "damage_dealt_pct": 10.0
       },
-      "description": "Read the consecration aloud. Everything you do for the next 3 turns lands with Holy force behind it, increasing your damage by 10%.",
+      "description": "Read the consecration aloud. Everything you do for the next few turns lands with Holy force behind it.",
       "ranks": [
         {
           "rank": 1,
@@ -639,7 +639,7 @@
         "spell_power_from_agility_pct": 0.3,
         "ap_from_intellect_pct": 0.3
       },
-      "description": "Read the fervor aloud, and your training answers in a language it does not usually speak. Grants spell power equal to 30% of your Agility and attack power equal to 30% of your Intellect for 3 turns.",
+      "description": "Read the fervor aloud, and your training answers in a language it does not usually speak: your quickness feeds your spellwork and your learning feeds your arm.",
       "ranks": [
         {
           "rank": 1,
@@ -664,7 +664,7 @@
       "stat_mods": {
         "haste": 20.0
       },
-      "description": "Read the zeal aloud and stop pacing yourself. Increases your haste by 20 for 3 turns.",
+      "description": "Read the zeal aloud and stop pacing yourself.",
       "ranks": [
         {
           "rank": 1,
@@ -689,7 +689,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": -20.0
       },
-      "description": "Read the tenacity aloud. Physical blows land 20% lighter for 3 turns.",
+      "description": "Read the tenacity aloud. Physical blows land lighter for a few turns.",
       "ranks": [
         {
           "rank": 1,
@@ -799,11 +799,9 @@
       "name": "Testament of Will",
       "resource_type": "combo",
       "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1
-      },
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
       "description": "Break an ally free of whatever is holding them in place.",
       "ranks": [
         {
@@ -814,9 +812,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 seconds'. No immunity window exists; a movement dispel is the honest half.  REBUILT: was effect_type 'dispel' with dispel_type 'movement', which is NOT a DispelType member (NONE/MAGIC/CURSE/POISON/DISEASE), and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match - so this ability removed nothing, ever. There is no movement to impair in a turn engine; its one incapacitate mechanic is is_stun. Now a buff granting cc_immune, the live key Cultist's Voidborne and Dark Veil already use, and apply_status_effect now CLEARS existing is_stun debuffs when cc_immune lands - so this both breaks the ally free and keeps them free for the duration, which is what the description promises.",
+      "_source": "CoA class tree: 'Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 seconds'. No immunity window exists; a movement dispel is the honest half.",
       "target_type": "ally",
-      "buff_scope": "combat"
+      "dispel_type": "movement"
     },
     {
       "ability_id": "templar_testament_of_faith",
@@ -873,7 +871,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.2
       },
-      "description": "Two of you walk out of the light. Blows meant for you land 20% lighter for 3 turns.",
+      "description": "Two of you walk out of the light. Blows meant for you land lighter for a few turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1312,7 +1310,7 @@
       "stat_mods": {
         "healing_taken_pct": 30.0
       },
-      "description": "Put a wall of light around your allies. Healing reaches them 30% better through it.",
+      "description": "Put a wall of light around your allies. Healing reaches them better through it.",
       "ranks": [
         {
           "rank": 1,
@@ -1628,7 +1626,7 @@
       "stat_mods": {
         "haste": 15.0
       },
-      "description": "You and yours come up onto the light and move. Increases the party's haste by 15 for 3 turns.",
+      "description": "You and yours come up onto the light and move.",
       "ranks": [
         {
           "rank": 1,
@@ -1652,7 +1650,7 @@
       "stat_mods": {
         "damage_dealt_pct": 25.0
       },
-      "description": "Swear the strength oath. For 3 turns Titanstrike needs no wounded enemy, and everything you do hits 25% harder.",
+      "description": "Swear the strength oath. For a few turns Titanstrike needs no wounded enemy, and everything you do hits harder.",
       "ranks": [
         {
           "rank": 1,
