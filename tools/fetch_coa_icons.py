@@ -205,6 +205,40 @@ MAPPING.update({
 })
 
 
+#: CLASS CRESTS, which live somewhere else entirely:
+#: assets/ui/class_icons/<class>.png, read by the character creation
+#: screen. That directory holds exactly the original nine, so all 21 CoA
+#: classes show up blank on the one screen every new player sees first -
+#: the most visible single art gap in the game, and the cheapest to close.
+#: These are chosen to be distinguishable at 36px in a list of thirty, so
+#: they separate by SHAPE first: Felsworn, Knight of Xoroth and Cultist are
+#: all dark-and-horned by theme, and colour is the first thing that
+#: disappears at that size.
+CLASS_CRESTS: dict[str, str] = {
+    "necromancer": "spell_shadow_raisedead",
+    "pyromancer": "spell_fire_fireball02",
+    "cultist": "spell_shadow_evileye",
+    "starcaller": "spell_nature_starfall",
+    "sun_cleric": "spell_holy_divineillumination",
+    "tinker": "trade_engineering",
+    "runemaster": "inv_misc_rune_01",
+    "primalist": "spell_nature_spiritwolf",
+    "reaper": "spell_shadow_soulleech_3",
+    "venomancer": "ability_creature_poison_06",
+    "chronomancer": "spell_nature_timestop",
+    "bloodmage": "spell_shadow_lifedrain",
+    "guardian": "ability_warrior_shieldguard",
+    "stormbringer": "spell_nature_callstorm",
+    "felsworn": "spell_shadow_summonfelhunter",
+    "barbarian": "ability_warrior_rampage",
+    "witch_doctor": "inv_misc_idol_03",
+    "witch_hunter": "inv_weapon_crossbow_10",
+    "knight_of_xoroth": "spell_shadow_deathpact",
+    "templar": "spell_holy_crusaderaura",
+    "ranger": "ability_hunter_mastermarksman",
+}
+CREST_DIR = ROOT / "assets/ui/class_icons"
+
 # =====================================================================
 # Fetch / verify / install
 # =====================================================================
@@ -259,6 +293,29 @@ def fetch(icon_name, hue=0):
 def main(argv):
     dry = "--dry-run" in argv
     only = argv[argv.index("--class") + 1] if "--class" in argv else None
+
+    if "--crests" in argv:
+        seen, ok, bad = {}, 0, 0
+        CREST_DIR.mkdir(parents=True, exist_ok=True)
+        for cls, icon in sorted(CLASS_CRESTS.items()):
+            try:
+                data = fetch(icon)
+            except Exception as exc:                           # noqa: BLE001
+                bad += 1
+                print(f"    BAD  {cls:20} {icon:40} {str(exc)[:50]}")
+                continue
+            digest = hashlib.sha1(data).hexdigest()
+            if digest in seen:
+                print(f"    DUPE {cls:20} identical to {seen[digest]}")
+                bad += 1
+                continue
+            seen[digest] = cls
+            ok += 1
+            if not dry:
+                (CREST_DIR / f"{cls}.png").write_bytes(data)
+        print(f"{ok} crest(s) resolved, {bad} problem(s)"
+              f"{' (dry run, nothing written)' if dry else ''}")
+        return 1 if bad else 0
 
     dest = real_ids()
     items = sorted(MAPPING.items())
