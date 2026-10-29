@@ -740,6 +740,22 @@ class LootGenerator:
         "str_physical": {"strength"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
         "agi_physical": {"agility"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
         "int_caster": {"intellect"} | _CASTER_SECONDARY | _SHARED_SECONDARY,
+        # spi_healer WAS MISSING, and the failure mode was invisible rather
+        # than loud. It is a real template in data/items/stat_templates.json,
+        # but no entry here meant wanted_stats came back empty - so BELOW
+        # RESISTANCE_LEVEL it fell through to the "fails soft to the full
+        # suffix list" branch and rolled anything at all, and AT 46+ the only
+        # stats it wanted were the resistances unioned in just above, so its
+        # whole suffix pool was resistance suffixes and gear in that band
+        # rolled NO PRIMARY STATS. tools/audit_loot.py reported it as
+        # "templates whose whole suffix pool is resistance suffixes, so gear
+        # there rolls no primary stats at all: spi_healer at ilvl 51-60".
+        # Nothing maps to it today (class_stat_template_map uses the other
+        # five), so it is reachable only by an explicit caller - which is
+        # exactly the kind of latent trap worth closing before someone points
+        # a healer at it.
+        "spi_healer": ({"intellect", "spirit"} | _CASTER_SECONDARY
+                       | _SHARED_SECONDARY),
         "str_int_hybrid": ({"strength", "intellect"} | _PHYSICAL_SECONDARY
                            | _CASTER_SECONDARY | _SHARED_SECONDARY),
         "agi_int_hybrid": ({"agility", "intellect"} | _PHYSICAL_SECONDARY
@@ -788,6 +804,13 @@ class LootGenerator:
         "str_physical": _CASTER_ONLY,
         "agi_physical": _CASTER_ONLY,
         "int_caster": _PHYSICAL_ONLY,
+        # Same exclusion as int_caster, for the same reason: a healer has no
+        # use for attack power or parry rating. Without an entry here
+        # spi_healer banned nothing, so physical suffixes slipped in on the
+        # Stamina and Spirit overlap and its pool came out at 60 against
+        # int_caster's 38 from an identical stat set - the tell that the
+        # exclusion was missing rather than the stats being different.
+        "spi_healer": _PHYSICAL_ONLY,
         # A hybrid wants both sides, so it excludes neither.
         "str_int_hybrid": frozenset(),
         "agi_int_hybrid": frozenset(),
