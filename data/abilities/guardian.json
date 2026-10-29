@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack."
     },
     {
@@ -87,7 +87,7 @@
           "effect_value": 128
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Heavy Blow (line hit, high threat, grants Vanguard's Might's party damage-reduction aura)'. The cheap high-threat filler - Warrior's heroic_strike curve.",
       "target_type": "enemy"
     },
@@ -150,7 +150,7 @@
           "effect_value": 170
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Ram is Shield Slam'. Shield-gated single-target payoff, so it sits on a short cooldown.",
       "target_type": "enemy"
     },
@@ -219,7 +219,7 @@
           "effect_value": 106
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Pulverize as your Energy-dump filler ... cleaves on multi-mob pulls', Devastate analog.",
       "target_type": "enemy"
     },
@@ -264,7 +264,7 @@
           "effect_value": 70
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Advance is Charge', 'a forced 100%-speed gap-close'. Charge stuns, so is_stun.",
       "target_type": "enemy",
       "is_stun": true
@@ -489,7 +489,7 @@
           "effect_value": 122
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Hammer of Kings is an AoE slam that slows casting'. The pull opener.",
       "target_type": "enemy_aoe",
       "max_targets": 4
@@ -535,7 +535,7 @@
           "effect_value": 112
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Hammer of the Law is a line hit that silences, not a Shockwave stun' - explicitly NOT a stun, so no is_stun here even though the AoE opener tempts it.",
       "target_type": "enemy"
     },
@@ -631,7 +631,7 @@
           "effect_value": 290
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Save Final Verdict to finish an enemy below the execute threshold for the self-heal'. Shared by Vanguard and Gladiator.",
       "target_type": "enemy",
       "execute_threshold_pct": 25
@@ -741,7 +741,7 @@
           "effect_value": 86
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Broad Sweep as your energy-dump filler and cleave'.",
       "target_type": "enemy_aoe",
       "max_targets": 3
@@ -799,7 +799,7 @@
           "effect_value": 124
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'cast Ballads on cooldown (instant damage + builds Tempo toward a free Sound of War)'. Physical, not magical - the class blurb calls the Guardian 'non-magical'.",
       "target_type": "enemy"
     },
@@ -868,7 +868,7 @@
           "effect_value": 58
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Song of Battle for 3+ mobs, where damage ticks into an AoE stun finisher'.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -971,7 +971,7 @@
           "effect_value": 89
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Open packs with Cavalry Charge to close distance'.",
       "target_type": "enemy_aoe",
       "max_targets": 3
@@ -1219,7 +1219,7 @@
           "effect_value": 75
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA's Inspiration tree is built around this: Ballads build Tempo toward a free Sound of War, and four talents (Soundwave, Into The Fray, Pied Piper, Frontliner) key off triggering one. It was missing from the first pass entirely, which left Soundwave scaling nothing.",
       "target_type": "enemy_aoe",
       "max_targets": 3
@@ -1271,7 +1271,7 @@
           "effect_value": 109
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Open with Battle Rush (charge + stun)'.",
       "target_type": "enemy",
       "is_stun": true
@@ -1323,7 +1323,7 @@
           "effect_value": 118
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Spear Throw's healing-reduction debuff lets it punch through an enemy healer's output', 'Mortal Strike's anti-heal identity transplanted onto a shield-tank frame'. ranged_damage - it is thrown.",
       "target_type": "enemy"
     },
@@ -1397,7 +1397,7 @@
           "effect_value": 129
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Fill remaining energy with Reprisal (spend charges after a block)'. Revenge-flavoured.",
       "target_type": "enemy"
     },
@@ -1442,7 +1442,7 @@
           "effect_value": 134
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Centurion Strike (bigger hit, weapon-dependent bonus, extends Raise Shield)'.",
       "target_type": "enemy"
     },
@@ -1481,7 +1481,7 @@
           "effect_value": 45
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Glorious Arena drops a ring that punishes enemies clumped on a node or choke point'.",
       "target_type": "enemy_aoe",
       "max_targets": 5

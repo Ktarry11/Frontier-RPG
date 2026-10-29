@@ -105,7 +105,7 @@ def builds(amount):
 
 
 def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
-            duration=0, stat_mods=None, icon="ability_melee", source=None,
+            duration=0, stat_mods=None, icon=None, source=None,
             **extra):
     out = {
         "ability_id": f"felsworn_{aid}",

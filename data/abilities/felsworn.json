@@ -20,7 +20,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack."
     },
     {
@@ -88,7 +88,7 @@
           "effect_value": 128
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: the class-wide melee builder - Felwracked counts 'every 3rd Twin Slice or Fel Fireball', Twin Fury and Vengeance both key off it, and Tyrant lists it among the things that 'each add 1' Felfury. Rogue's sinister_strike curve, free, generating instead of costing.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -162,7 +162,7 @@
           "effect_value": 114
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Fel Fireball is your filler, generating 1 Felfury per cast and usable while moving'. is_instant for the while-moving half; the ranged builder all three specs share.",
       "target_type": "enemy",
       "damage_school": [
@@ -234,7 +234,7 @@
           "effect_value": 168
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: the spender every spec presses - 'Fel Fireball into Sargeron Smite on cooldown' for Infernal, Chaos Soldier and Nether Champion scale it for Slayer, and Tyrant lists it among the things Felfury is spent on.",
       "target_type": "enemy",
       "damage_school": "shadow"
@@ -286,7 +286,7 @@
           "effect_value": 93
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA names Sunder as a Felfury spender in all three specs (Tyrant: 'Carve, Sargeron Smite, Sunder and Inner Demon are all you have to spend it on'; Burning Rage and Shadow Magi both modify it). target_type enemy_aoe, not is_aoe - see the _implementation_note on this file's doc.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -336,7 +336,7 @@
           "effect_value": 76
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: the class-tree dash - Legion March extends its range, Doomstride refreshes a charge, Felguard and Felstrider ride on it, Reachwalker and Scars of the Past key off it. A gap-closer that builds.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -503,7 +503,7 @@
           "effect_value": 126
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA class tree: 'Burn an enemy's mana equal to 200% of your Stamina. Deals damage equal to the mana drained.' Monsters have no mana pool to drain in this engine, so only the damage half survives - the drain is flavour.",
       "target_type": "enemy",
       "damage_school": "shadow"
@@ -659,7 +659,7 @@
           "effect_value": 144
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Azzinoth's Assault on cooldown as your armor-shred spender (Azzinoth's Rage/Fel Blades; consumes 2 Felfury and seeds the loop)'.",
       "target_type": "enemy",
       "damage_school": "physical"
@@ -711,7 +711,7 @@
           "effect_value": 172
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Generates 2 Felfury. Unleash a devastating attack, dealing 145% Weapon Damage to your target with both weapons. Guaranteed to critically strike against enemies above 75% health.' The guaranteed crit has no flag; the base damage carries it instead.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -767,7 +767,7 @@
           "effect_value": 75
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'weave Glaiving and Felhoof Charge into the loop for reach and cleave' and 'Keep Glaiving in the rotation for off-hand damage and Felfury'.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -817,7 +817,7 @@
           "effect_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Generates 1 Felfury. Charge an enemy, dealing AP Physical damage', and 'Use Felhoof Charge to gap-close on casters and runners'. A charge lands them on their back, so is_stun.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -868,7 +868,7 @@
           "effect_value": 52
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Open pulls with Immolation Aura for its recurring Fire pulse on nearby enemies' - 'dealing fire AP Fire Damage to nearby enemies every 3 sec'.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -915,7 +915,7 @@
           "effect_value": 98
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Fury Unleashed is a Bladestorm analog: a spinning glaive channel that speeds you up and cleaves all nearby enemies with both weapons', 'Dump Fury Unleashed on 3+ mob pulls'. The movement-speed and CC-immunity riders have no hooks.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
@@ -956,7 +956,7 @@
           "effect_value": 220
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Move quickly from enemy to enemy, attacking them every 1 sec with both weapons until 6 assaults are made, generating 1 Felfury with each strike', 'its signature mobility-burst tool'. Six separate hops have no engine shape, so it is one heavy strike that still pays Felfury back.",
       "target_type": "enemy",
       "damage_school": "physical",
@@ -1065,7 +1065,7 @@
           "effect_value": 208
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Consumes 2 Felfury. Bring doom upon an enemy, dealing Shadowflame Damage to an enemy, piercing all absorption effects', 'your hardest-hitting nuke (it pierces all absorbs)'. Absorb-piercing has no flag; the damage is sized as the kit's single biggest hit instead.",
       "target_type": "enemy",
       "damage_school": [
@@ -1120,7 +1120,7 @@
           "effect_value": 93
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Consumes 2 Felfury. Blast an enemy and all enemies near them with fel magic', 'Felwrath's AoE Shadowflame and Infernal's fear-on-drop flip a clumped teamfight'. The Inner Demon 5+ target bonus has no conditional hook.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
@@ -1176,7 +1176,7 @@
           "effect_value": 73
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Generates 1 Felfury. Unleash fel magic on an enemy, dealing 114 Chaos damage over 18 seconds', 'keeping a Bane of Chaos rolling on the target (only one Bane at a time)'. One-Bane-at-a-time is natural here: a second cast refreshes the same effect_id rather than stacking.",
       "target_type": "enemy",
       "damage_school": "shadow",
@@ -1226,7 +1226,7 @@
           "effect_value": 58
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA, Fel Apprentice: 'While Inner Demon is active, your Fel Fireball will now unleash a Felstrike on your target. Felstrike: Burn an enemy for SP Shadowflame Damage over 6 seconds, stacking 3 times.' A real named ability, so it is castable here rather than existing only as a rider.",
       "target_type": "enemy",
       "damage_school": [
@@ -1269,7 +1269,7 @@
           "effect_value": 83
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Channel a beam of fel magic upon an enemy, slowing your target's movement speed by 60% for 5.5 seconds and dealing Shadowflame Damage at the end of the duration'. Authored as a spell_dot: the engine has no channel, and a DoT is the closest thing to damage spread over a beam. The snare is lost - Cripple remains the real slow.",
       "target_type": "enemy",
       "damage_school": "shadow"
@@ -1337,7 +1337,7 @@
           "effect_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Manafeed converts a target's burned mana into health for you, closer to a Drain Life than a real defensive', 'Manafeed is your only heal'. Monsters have no mana here, so the heal is unconditional rather than dead weight against a mana-less target - a deliberate divergence, because the alternative is a spec with no self-healing at all.",
       "target_type": "enemy",
       "damage_school": "shadow"
@@ -1420,7 +1420,7 @@
           "effect_value": 84
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Generates 1 Felfury. Erupt in a whirlwind of felfury, striking all enemies within 6 yds with both weapons', 'Keep AoE pressure up with Felrend against packs'. The tank's threat filler.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -1477,7 +1477,7 @@
           "effect_value": 152
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Consumes 2 Felfury. Charge up a powerful attack over 2.5 seconds. Upon ending the channel, slash in front of you, dealing increased Weapon Damage with both weapons based on how long you channel'. No channel exists here, so the charge-up is folded into the damage and the cooldown. The longer-channel-more-dodge rider (Battle Finesse) is lost with it.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
@@ -1603,7 +1603,7 @@
           "effect_value": 196
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Set your fiery gaze upon an enemy... causing them to combust, dealing AP Shadowflame Damage. Damaging an enemy in this way heals you for AP and generates 1 Felfury. Only usable on enemies below 35% health.' The 35% gate is a real engine field, execute_threshold_pct.",
       "target_type": "enemy",
       "damage_school": [
