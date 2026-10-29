@@ -100,6 +100,50 @@ def classes():
     return out
 
 
+def dps_spec_for(slug, srb):
+    """The damage spec this class should be judged as, or None if it has no tree.
+
+    EVERY NUMBER THIS TOOL PRODUCED BEFORE 29 OCT 2026 WAS MEASURED WITH ZERO
+    TALENT POINTS SPENT. main() built `Character("Sim", display, level)`,
+    dressed it and fought - at level 60 that is 51 unspent points, and the
+    tool had no mention of talents anywhere in it.
+
+    That is not a uniform handicap. It falls hardest on exactly two kinds of
+    class:
+
+      * 325 nodes across 70 of the 97 trees carry an "unlock_ability" effect,
+        so a talentless build is missing those abilities OUTRIGHT, not merely
+        running them unimproved. Chronomancer has 13 across its three trees.
+
+      * A hybrid's tree is what decides whether it is a healer or a damage
+        dealer at all. Measured bare, Shaman and Chronomancer are neither.
+
+    Those two came out worst in the game - Chronomancer an outlier at all
+    seven levels sampled (40% at 60 against a 95% median) and Shaman at five
+    of seven (35% at 40). Both read as slow killers (7.4 and 6.0 turns against
+    a ~5.0 median) with no mitigation story to explain it, which is the shape
+    of a kit with pieces missing rather than a kit that is weak.
+
+    Role comes from sim_role_balance.SPEC_ROLES, which is the one place the
+    spec-to-role mapping is maintained and has already been corrected against
+    reference/coa_sidekick. A spec can hold two roles (Primalist Grovekeeper
+    is melee_dps and healer); any damage role qualifies. Preferring the
+    FIRST matching spec in sorted order keeps the pick stable run to run -
+    an arbitrary-but-fixed choice, so the table is reproducible, and a class
+    is judged on one real damage build rather than an average of three.
+    """
+    dps_roles = ("melee_dps", "ranged_dps")
+    candidates = sorted(
+        s for s in srb.SPEC_ROLES
+        if s.startswith(slug + "_")
+        and any(r in dps_roles for r in srb.roles_of(s))
+    )
+    for spec in candidates:
+        role = next(r for r in srb.roles_of(spec) if r in dps_roles)
+        return spec, role
+    return None, None
+
+
 def dress(char, gen, level):
     """Equip a level-appropriate set. Returns how many pieces went on."""
     worn = 0
@@ -291,6 +335,14 @@ def main():
 
     from entities.character import Character
     from entities.loot_generator import LootGenerator
+    # Lazy, by path, for the same reason sim_role_balance loads this module
+    # that way: each tool is runnable on its own and neither may import the
+    # other at module scope without a cycle. Loading srb's module body does
+    # not run its main(), so this is safe in both directions.
+    import importlib.util as _ilu
+    _srb_spec = _ilu.spec_from_file_location("srb", ROOT / "tools/sim_role_balance.py")
+    srb = _ilu.module_from_spec(_srb_spec)
+    _srb_spec.loader.exec_module(srb)
     gen = LootGenerator()
     rng = random.Random(0)
 
@@ -314,8 +366,22 @@ def main():
         for level in levels:
             wins, turns, left, worn = 0, [], [], 0
             for i in range(args.fights):
-                char = Character("Sim", display, level)
-                worn = dress(char, gen, level)
+                spec, dps_role = dps_spec_for(slug, srb)
+                if spec is None:
+                    char = Character("Sim", display, level)
+                    worn = dress(char, gen, level)
+                    spent_pts = 0
+                else:
+                    # build() creates the character, dresses it with the
+                    # callable passed in, and invests up to the level's
+                    # talent budget. See dps_spec_for for why measuring
+                    # without this was wrong.
+                    char, spent_pts = srb.build(spec, level, gen, dress, role=dps_role)
+                    equipped = char.equipment.get_all_equipped()
+                    if hasattr(equipped, "items"):
+                        equipped = list(equipped.values())
+                    worn = sum(1 for it in equipped if it)
+                points_spent = spent_pts
                 won, t, hp = fight(char, ENEMY_MIX[i % len(ENEMY_MIX)], enemy_level(level, args.above), gen, rng)
                 wins += won
                 if won:
@@ -326,13 +392,15 @@ def main():
                 "turns": statistics.mean(turns) if turns else None,
                 "left": statistics.mean(left) if left else None,
                 "worn": worn,
+                "pts": points_spent,
             }
         results[slug] = (display, row)
         line = f"  {display:<14}"
         for level in levels:
             r = row[level]
             line += f"{r['win']*100:>4.0f}% "
-        print(line + f"   (gear {row[levels[-1]]['worn']}/{len(GEAR_SLOTS)})")
+        print(line + f"   (gear {row[levels[-1]]['worn']}/{len(GEAR_SLOTS)}, "
+                     f"{row[levels[-1]]['pts']} talent pts)")
 
     print("\n  " + " " * 14 + "".join(f"lv{l:<4}" for l in levels))
     print("\nTURNS TO KILL (won fights only)")
