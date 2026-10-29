@@ -67,9 +67,9 @@
       ]
     },
     {
-      "talent_id": "cultist_heretic_sanity",
-      "name": "Sanity",
-      "description": "Every heal you land steadies your mind, restoring 45 Mana.",
+      "talent_id": "cultist_heretic_as_the_prophecy_foretold",
+      "name": "As The Prophecy Foretold",
+      "description": "Your critical strikes steady your mind, restoring 55 Mana. No more than once per turn.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -80,14 +80,14 @@
       "connected_to": [
         "cultist_heretic_herald_of_the_depths"
       ],
-      "_source": "CoA handoff doc: 'Passively drains Insanity periodically.' Helps prevent Total Madness for a spec that generates Insanity as a side effect of healing.",
+      "_source": "WAS an invented node called 'Sanity': 45 Mana on EVERY heal cast, 100% chance, no internal cooldown, one point. No talent of that name exists anywhere in CoA's Cultist data, and the effect is a closed loop - the cast pays for itself - which is why Heretic measured ~3000x the healing-per-resource of every other healer in the game and never ran dry while Shaman Restoration runs out in 12 turns and Resto Druid in 7. Ritual of Awakening healed 2232 for a net 8 Mana.\n\nCoA funds this spec's mana from MELEE DAMAGE, not from healing, in two places: Sanity Tap (an ability - spend 20 Insanity for 20% of your MISSING mana, self-limiting and worth nothing at full mana) and this talent, 'Melee critical strikes now refresh a charge of Blade of the Empire and restore 3% of your base mana.' Gating the refund on crits with a one-turn cooldown ties sustain to melee uptime, which is the design.\n\nNOT FULLY FAITHFUL: grant_resource takes a flat amount with optional scale_talent_key scaling, so 'percentage of base mana' is not expressible - 55 is ~3% of a level 60 Cultist's base pool, so it is right at 60 and generous at low level. The Blade of the Empire charge refresh has no proc shape either.",
       "proc": {
-        "trigger": "on_heal_cast",
+        "trigger": "on_crit",
         "chance": 100,
-        "icd": 0,
+        "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 45
+          "amount": 55
         }
       }
     },
@@ -170,7 +170,7 @@
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "cultist_heretic_sanity"
+        "cultist_heretic_as_the_prophecy_foretold"
       ],
       "_source": "CoA handoff doc confirmed: 'Level 10 Passive. Reaching 100 Insanity no longer causes Total Madness. Teaches Herald of the Depths.' Also unlocks the active window that amplifies output and stretches HoTs/shields.",
       "proc": {

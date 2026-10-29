@@ -87,7 +87,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 4.0,
+        "stamina_pct": 2.0,
         "max_mana_pct": 0.02
       },
       "connected_to": [
@@ -153,7 +153,7 @@
     {
       "talent_id": "starcaller_moon_guard_nebula",
       "name": "Nebula",
-      "description": "Taking damage has a 20% chance per rank to wrap you in a nebula, granting 60 Armor and 4% Block for 2 turns.",
+      "description": "Blocking an attack wraps you in a nebula, granting 60 Armor and 4% block chance for 2 turns. 25% chance per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -166,8 +166,8 @@
       ],
       "_source": "CoA handoff doc confirmed as this spec's real Scattered-Star-off-tanking mechanic: 'Blocking applies Scattered Stars to the attacker.'",
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
+        "trigger": "on_block",
+        "chance": 25,
         "icd": 1,
         "apply_effect": {
           "effect_id": "starcaller_nebula",
@@ -268,7 +268,7 @@
     {
       "talent_id": "starcaller_moon_guard_guarded_by_the_moon",
       "name": "Guarded by the Moon",
-      "description": "Starburst and Starsweep guard you with moonlight, increasing Block chance by 6% for 3 turns.",
+      "description": "Starburst and Starsweep guard you with moonlight, increasing block chance by 6% for 3 turns and your threat generation by 20%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -376,7 +376,7 @@
     {
       "talent_id": "starcaller_moon_guard_starlight_duelist",
       "name": "Starlight Duelist",
-      "description": "Taking a hit has a 25% chance per rank to leave you duelling in starlight, increasing damage dealt by 8% for 2 turns.",
+      "description": "Turning a blow aside leaves you duelling in starlight, increasing damage dealt by 8% for 2 turns. 30% chance per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 4,
@@ -389,8 +389,8 @@
         "starcaller_moon_guard_blanket_of_stars"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 25,
+        "trigger": "on_block",
+        "chance": 30,
         "icd": 1,
         "apply_effect": {
           "effect_id": "starcaller_starlight_duelist",
@@ -427,7 +427,7 @@
     {
       "talent_id": "starcaller_moon_guard_dancing_in_the_moonlight",
       "name": "Dancing in the Moonlight",
-      "description": "Taking a hit has a 30% chance to let you dance aside, refunding 15 Energy. No more than once per turn.",
+      "description": "Parrying a blow lets you dance aside, refunding 15 Energy. No more than once per turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -441,8 +441,8 @@
       ],
       "_source": "CoA handoff doc confirmed: 'parrying refunds Energy + hits back (Dancing in the Moonlight).'",
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 30,
+        "trigger": "on_parry",
+        "chance": 100,
         "icd": 1,
         "grant_resource": {
           "resource": "energy",

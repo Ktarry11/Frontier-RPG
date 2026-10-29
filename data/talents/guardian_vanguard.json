@@ -176,7 +176,7 @@
     {
       "talent_id": "guardian_vanguard_retaliation",
       "name": "Retaliation",
-      "description": "Blows you block are answered in kind.",
+      "description": "Blows you turn aside on your shield are answered in kind.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
@@ -188,8 +188,8 @@
         "guardian_vanguard_seasoned_fighter"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 30,
+        "trigger": "on_block",
+        "chance": 100,
         "icd": 1,
         "damage_flat": 70
       },

@@ -131,7 +131,7 @@
     {
       "talent_id": "cultist_dreadnought_inner_darkness",
       "name": "Inner Darkness",
-      "description": "Every blow you absorb feeds the dark inside you, granting 8 Insanity.",
+      "description": "Every blow you turn on your shield feeds the dark inside you, granting 3 Insanity.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -144,19 +144,19 @@
       ],
       "_source": "CoA handoff doc confirmed as this spec's primary Insanity generator: 'Blocking generates Insanity.' The shield is the whole engine here.",
       "proc": {
-        "trigger": "on_damage_taken",
+        "trigger": "on_block",
         "chance": 100,
         "icd": 0,
         "grant_resource": {
           "resource": "insanity",
-          "amount": 8
+          "amount": 3
         }
       }
     },
     {
       "talent_id": "cultist_dreadnought_entropic_retaliation",
       "name": "Entropic Retaliation",
-      "description": "Being struck has a 10% chance per rank to grant Entropic Retaliation, increasing your physical critical strike chance by 5% for 4 turns.",
+      "description": "Blocking an attack sharpens you, increasing your physical critical strike chance by 5% for 4 turns. 20% chance per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -170,8 +170,8 @@
         "cultist_dreadnought_void_resilience"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
+        "trigger": "on_block",
+        "chance": 20,
         "icd": 0,
         "apply_effect": {
           "effect_id": "cultist_entropic_retaliation",
