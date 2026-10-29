@@ -755,7 +755,7 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 10,
+          "level_req": 6,
           "cost": 46,
           "effect_value": 66
         },
@@ -805,7 +805,8 @@
       "icon_id": null,
       "_source": "CoA: 'Your core spender is Chromatic Shard, a chaos bolt that pierces immunities and resistances.' No ability flag bypasses resistance - Monster.take_damage reduces by school resistance unconditionally - but the ATTACKER's spell_penetration is subtracted there, which is why the Time Means Nothing talent grants it instead of a vulnerability debuff. No cooldown: CoA has it getting FASTER as Anomaly Spikes land ('reduces the cast time of this ability by 10%, stacking 10 times') and the rotation says to 'dump Chromatic Shard' through the burst window, so Mana is what rations it, not a timer. It is the class's second spammable nuke - the shared kit otherwise has only Unmake, and a cloth caster with one filler loses fights a Mage with Fireball and Frostbolt wins.",
       "target_type": "enemy",
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
     },
     {
       "ability_id": "chronomancer_melt_reality",

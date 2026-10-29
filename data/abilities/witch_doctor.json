@@ -214,7 +214,7 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 8,
+          "level_req": 4,
           "cost": 30,
           "effect_value": 95
         },
@@ -252,7 +252,8 @@
       "icon_id": null,
       "_source": "CoA: 'Curse an enemy, dealing shadow damage and an additional 96 Shadow damage over 24 seconds.' The DoT all three specs keep rolling - warlock_corruption's curve.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_level_note": "Rank 1 moved from level 8 to 4, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
     },
     {
       "ability_id": "witch_doctor_healing_ward",
@@ -783,7 +784,7 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 10,
+          "level_req": 8,
           "cost": 36,
           "effect_value": 62
         },
@@ -827,7 +828,8 @@
       "icon_id": null,
       "_source": "CoA: 'Bad Juju on cooldown (main nuke ...)'. 'Hurl a bolt of dark magic at an enemy, dealing Spirit Shadow damage, scaling with your Spirit.' The spec's centrepiece.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_level_note": "Rank 1 moved from level 10 to 8, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
     },
     {
       "ability_id": "witch_doctor_hexfire",
