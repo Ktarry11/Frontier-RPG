@@ -1185,8 +1185,12 @@ class Character(StatusEffectMixin):
         # was missing was the floor, so a low-agility plate wearer with no dodge talent sat near
         # zero. Added before the agility term so it is a floor every class shares rather than
         # something only a talent or a gear suffix can buy.
-        self.dodge = (self.BASE_DODGE + eff_agility * 0.25 + bonuses.get("dodge", 0)
-                      + bonuses.get("dodge_rating", 0) + defense_bonus)
+        # Base-stat dodge is NOT diminished (see AVOIDANCE_DR_K); only what
+        # talents, gear suffixes and defense rating add on top of it.
+        self.dodge = (self.BASE_DODGE + eff_agility * 0.25
+                      + self._diminish(bonuses.get("dodge", 0)
+                                       + bonuses.get("dodge_rating", 0)
+                                       + defense_bonus))
         # spirit_guard_block_from_agility (Spirit Guard, Shaman Tank: "gain
         # Block Rating equal to 33%/66%/100% of your Agility per rank") -
         # an ADDITIONAL block source layered on top of the existing
@@ -1212,7 +1216,20 @@ class Character(StatusEffectMixin):
         avg_stat = (eff_agility + eff_strength) / 2
         # Parry previously ignored the bonus pool entirely, so gear and
         # talents rolling Parry did nothing. Now additive like Dodge.
-        self.parry = avg_stat * 0.2 + bonuses.get("parry", 0) + bonuses.get("parry_rating", 0) + defense_bonus
+        self.parry = avg_stat * 0.2 + self._diminish(
+            bonuses.get("parry", 0) + bonuses.get("parry_rating", 0) + defense_bonus)
+
+        # Joint ceiling on outright avoidance. Scaled proportionally rather
+        # than clipped one stat at a time, so a build that leaned on parry
+        # keeps leaning on parry instead of having whichever stat is checked
+        # second silently zeroed. Block is excluded - it reduces a hit by
+        # 30%, it does not erase it, and it has its own cap.
+        total_avoid = self.dodge + self.parry
+        if total_avoid > self.AVOIDANCE_COMBINED_CAP:
+            scale = self.AVOIDANCE_COMBINED_CAP / total_avoid
+            self.dodge *= scale
+            self.parry *= scale
+
         self.haste = (eff_intellect + eff_agility) * 0.1 + bonuses.get("haste", 0)
 
         # New real gear-suffix stats - see Character.__init__ for what
@@ -2029,6 +2046,54 @@ class Character(StatusEffectMixin):
     #: Block chance cannot exceed this. Dodge and parry avoid the hit outright, so an uncapped
     #: block chance on top of them left three tanks with no physical hit ever landing unreduced.
     BLOCK_CHANCE_CAP = 50.0
+
+    #: DIMINISHING RETURNS ON AVOIDANCE. Dodge and parry had none, which is a
+    #: systemic hole rather than a tuning question: every point from a talent
+    #: or a gear suffix was worth exactly as much as the first, so the way to
+    #: build any tank was to stack one stat until nothing could touch it.
+    #: Primalist Mountain King reached 28% dodge and 28% parry and survived
+    #: 692 turns in the role sim where its eight peers survived 6 to 16.
+    #:
+    #: Applied to the BONUS portion only - talents, gear, defense rating -
+    #: and never to the base-stat-derived part (BASE_DODGE plus the Agility
+    #: and Str/Agi terms). That matters: a Rogue already carries 24% dodge
+    #: and 14% parry naked at 60 from stats alone, so running the whole
+    #: number through a curve would quietly restate every class's baseline,
+    #: which is a balance pass Kyle has explicitly deferred ("we can fine
+    #: tune later too based on end game gear too"). Curving only what gets
+    #: ADDED leaves all 30 classes' unspecced avoidance exactly where it
+    #: was and changes only the thing that was broken - stacking.
+    #:
+    #: The curve is hyperbolic: effective = bonus / (1 + bonus / K). It is
+    #: near-linear while the bonus is small relative to K, so an early
+    #: talent still feels like it did something, and it flattens hard after
+    #: that. At K = 40: +5 gives 4.4, +15 gives 10.9, +30 gives 17.1,
+    #: +60 gives 24.0. Nothing is ever lost outright, which keeps a talent
+    #: from reading as literally worthless, but the tenth point in a row
+    #: buys a fraction of what the first did.
+    AVOIDANCE_DR_K = 40.0
+
+    #: Dodge and parry together cannot exceed this. The DR curve alone still
+    #: has an asymptote of K (40 each, 80 combined on top of base), and
+    #: dodge and parry both negate a hit outright, so without a joint
+    #: ceiling a stacked tank can still converge on never being hit. Block
+    #: is excluded because it only reduces a hit by 30% rather than erasing
+    #: it, and it already has its own cap above. 60% leaves two in five
+    #: attacks landing on even the most avoidance-stacked build, which is
+    #: roughly where a well-geared Classic tank sat.
+    AVOIDANCE_COMBINED_CAP = 60.0
+
+    @classmethod
+    def _diminish(cls, bonus):
+        """Hyperbolic DR for an avoidance bonus. See AVOIDANCE_DR_K.
+
+        Negative bonuses (a debuff) pass through untouched - diminishing a
+        penalty would turn a dodge-reduction debuff into a weaker debuff the
+        more it was applied, which is backwards.
+        """
+        if bonus <= 0:
+            return bonus
+        return bonus / (1.0 + bonus / cls.AVOIDANCE_DR_K)
 
     #: Armor/resistance curve: reduction = rating / (rating + BASE + PER_LEVEL * attacker_level).
     #:
