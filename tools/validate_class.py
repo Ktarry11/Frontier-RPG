@@ -317,6 +317,22 @@ def validate_abilities(slug, report, effect_types, global_ids):
     # slam", "energy-dump filler and cleave", "for 3+ mobs"), and each hit
     # exactly one enemy - Broad Sweep, declared max_targets 3, hit 1 of 4.
     # The flag made the data look correct, which is why it survived.
+    # execute_threshold_pct IS A PERCENT ON A 0-100 SCALE, not a fraction.
+    # Ability.use computes target_pct = current/max * 100 and refuses the
+    # cast above the threshold, so 0.35 demands a target below 0.35% health.
+    # Three abilities shipped that way - bloodmage_reave, felsworn_tyrants_
+    # gaze and guardian_final_verdict - and were REFUSED at every health
+    # value tested including 1%, i.e. dead buttons. Twelve others in the
+    # game correctly use 20/25/35/50.
+    for ability in abilities:
+        thr = ability.get("execute_threshold_pct")
+        if thr is not None and 0 < thr < 1:
+            report.error(
+                f"{ability.get('ability_id')}: execute_threshold_pct={thr} is a "
+                f"fraction, but the engine compares health on a 0-100 scale - "
+                f"this requires the target below {thr}% health and can never be "
+                f"cast. Use {thr * 100:g}.")
+
     for ability in abilities:
         if ability.get("is_aoe") and ability.get("target_type") != "enemy_aoe":
             report.error(

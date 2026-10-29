@@ -219,7 +219,7 @@ ABILITIES = [
             "Finish what you started, and take back some of what it cost "
             "you.",
             ranks(120, 34, 25, start=26, count=6), cooldown=3,
-            target_type="enemy", execute_threshold_pct=0.25,
+            target_type="enemy", execute_threshold_pct=25,
             source="CoA: 'Save Final Verdict to finish an enemy below the "
                    "execute threshold for the self-heal'. Shared by Vanguard "
                    "and Gladiator."),

@@ -1379,7 +1379,7 @@
       "icon_id": "ability_melee",
       "_source": "CoA: 'dealing 125% Weapon Damage plus 26. the enemy is bleeding, below 35% health, or you are behind them, deal 100% additional Shadow damage for each condition met.' Only the below-35% condition is expressible, as execute_threshold_pct; bleeding and positional have no hooks. CoA strips its Rage cost in form, which the engine cannot do conditionally, so it has a real cost.",
       "target_type": "enemy",
-      "execute_threshold_pct": 0.35
+      "execute_threshold_pct": 35
     },
     {
       "ability_id": "bloodmage_ravenous_strike",

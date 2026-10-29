@@ -521,7 +521,7 @@ ABILITIES = [
             "fire.",
             ranks(92, 26, 30, start=26, count=5), cooldown=5,
             target_type="enemy", damage_school=["shadow", "fire"],
-            execute_threshold_pct=0.35,
+            execute_threshold_pct=35,
             source="CoA: 'Set your fiery gaze upon an enemy... causing them "
                    "to combust, dealing AP Shadowflame Damage. Damaging an "
                    "enemy in this way heals you for AP and generates 1 "

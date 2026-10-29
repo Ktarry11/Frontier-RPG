@@ -486,7 +486,7 @@ ABILITIES = [
     ability("reave", "Reave", "damage",
             "Open them up along a line you have used before.",
             ranks(60, 16, 25, start=12, count=7), cooldown=2,
-            target_type="enemy", execute_threshold_pct=0.35,
+            target_type="enemy", execute_threshold_pct=35,
             icon="ability_melee",
             source="CoA: 'dealing 125% Weapon Damage plus 26. the enemy is "
                    "bleeding, below 35% health, or you are behind them, deal "
