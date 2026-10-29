@@ -65,8 +65,24 @@ SPEC_ROLES = {
     "priest_holy": "healer", "priest_discipline": "healer", "paladin_holy": "healer",
     "druid_restoration": "healer", "shaman_restoration": "healer",
     "starcaller_moon_priest": "healer", "sun_cleric_blessings": "healer",
-    "primalist_grovekeeper": "healer", "tinker_invention": "healer",
-    "venomancer_vizier": "healer", "cultist_heretic": "healer", "stormbringer_wind": "healer",
+    "tinker_invention": "healer",
+    "venomancer_vizier": "healer", "cultist_heretic": "healer",
+    # NOT healers, corrected 2026-10-28 against reference/coa_sidekick. I had
+    # classified both of these myself, from tree descriptions, and the real
+    # CoA pages disagree:
+    #   stormbringer_wind     "RANGED DPS / SUPPORT ... Closest to
+    #                         Augmentation Evoker" - it has one heal ability
+    #                         in the whole kit and read 0 healing per turn
+    #                         because it is not a healer, not because it is
+    #                         broken.
+    #   primalist_grovekeeper "SUPPORT ... Closest to Mistweaver Monk in
+    #                         Fistweaving mode" - it heals by punching
+    #                         things, which a static heal-the-patient
+    #                         measurement cannot see at all.
+    # Two of the five "broken healers" I was about to fix were specs sitting
+    # a test they were never meant to take.
+    "stormbringer_wind": "ranged_dps",
+    "primalist_grovekeeper": ("melee_dps", "healer"),
     # ---- melee damage
     "warrior_fury": "melee_dps", "warrior_arms": "melee_dps", "rogue_combat": "melee_dps",
     "rogue_assassination": "melee_dps", "rogue_subtlety": "melee_dps",
@@ -87,6 +103,14 @@ SPEC_ROLES = {
     "starcaller_sentinel": "ranged_dps", "stormbringer_maelstrom": "ranged_dps",
     "sun_cleric_piety": "ranged_dps", "tinker_demolition": "ranged_dps",
     "venomancer_venom": "ranged_dps",
+    # ---- Guardian, authored 2026-10-28. CoA: "a tanking-focused warrior
+    # class with the best damage mitigation in the game". Vanguard is the
+    # Protection Warrior analog; Inspiration is melee support ("an
+    # Augmentation Evoker that decided to also gear like a Protection
+    # Warrior"); Gladiator is Prot played offensively.
+    "guardian_vanguard": "tank",
+    "guardian_inspiration": "melee_dps",
+    "guardian_gladiator": "melee_dps",
 }
 
 #: THE FORM IS PART OF THE SPEC. A feral druid measured out of Bear Form has the armour of a
@@ -194,8 +218,80 @@ def build(spec, level, gen, dress, role=None):
     for form in ROLE_FORMS.get(role or "", []):
         if hasattr(char, "can_use_form") and char.can_use_form(form):
             char.shift_form(form)
+            # SHIFTING ZEROES THE RESOURCE POOL, and that is correct game
+            # behaviour - Character.shift_form sets current_mana/rage/energy
+            # to 0, matching WOTLK's "shifting resets your current resource".
+            # It is wrong for a MEASUREMENT though. The harness shifts and
+            # then immediately starts casting, so a healer in Tree of Life or
+            # Vizier Form began every measurement at 0 mana and could never
+            # cast a single spell: druid_restoration, primalist_grovekeeper,
+            # venomancer_vizier and stormbringer_wind all read 0 healing per
+            # turn, and cultist_heretic read 8. I nearly buffed four healers
+            # that were never broken.
+            #
+            # A real player shifts and then regenerates before or during the
+            # fight; what we want to know is steady-state capability, not the
+            # single tick after a shift. So top every pool back up.
             break
+    _fill_resources(char)
     return char, spent
+
+
+#: Every resource pool a spec might spend from. The efficiency axis sums
+#: across all of them because "healing per 100 mana" is the wrong question
+#: for a spec that does not spend mana: Cultist Heretic funds its
+#: damage-that-heals loop with INSANITY, so measuring only current_mana
+#: reported 0 healing per 100 mana - "score zero where every peer scores
+#: something" - for a spec whose efficiency is actually fine. Same trap
+#: would catch any Rage or Energy healer added later.
+RESOURCE_POOLS = (
+    "current_mana", "current_energy", "current_rage", "current_focus",
+    "current_insanity", "current_combo", "current_static", "current_runes",
+    "current_souls", "current_felfury", "current_deathfire",
+    "current_vitality", "current_solar_power", "current_life_force",
+    "current_archery_points",
+)
+
+
+def _resource_snapshot(char):
+    """Every resource pool's current value, for measuring spend per pool."""
+    return {pool: getattr(char, pool, 0) or 0 for pool in RESOURCE_POOLS}
+
+
+def _resource_spend(before, after):
+    """Total DECREASE across pools, counted per pool.
+
+    Per pool, and only decreases, because a builder/spender kit moves two
+    pools in opposite directions in a single cast. Summing the pools into
+    one number first - which is what the previous version of this did - let
+    Cultist Heretic's Insanity GENERATION cancel its Mana cost, so the net
+    came out at zero or positive and the spec read 0 healing per 100
+    resource for the second time, by a different mistake than the first.
+    """
+    return sum(max(0, before.get(k, 0) - after.get(k, 0))
+               for k in set(before) | set(after))
+
+
+def _fill_resources(char):
+    """Put every resource pool back to full before measuring.
+
+    Used after a form shift (which deliberately zeroes them) and before each
+    measured fight, so a spec is judged on what it can do rather than on
+    whatever the harness left in its pool.
+    """
+    if hasattr(char, "mana"):
+        char.current_mana = char.mana
+    if hasattr(char, "max_energy"):
+        char.current_energy = char.max_energy
+    for pool, cap in (("current_rage", 100), ("current_focus", 100),
+                      ("current_insanity", 100), ("current_combo", 100),
+                      ("current_static", 100), ("current_runes", 100),
+                      ("current_souls", 100), ("current_felfury", 100),
+                      ("current_deathfire", 100), ("current_vitality", 100),
+                      ("current_solar_power", 100), ("current_life_force", 100),
+                      ("current_archery_points", 100)):
+        if hasattr(char, pool):
+            setattr(char, pool, cap)
 
 
 def tank_axes(char, level, gen, dress, fights):
@@ -309,7 +405,7 @@ def healer_axes(char, level, gen, dress, fights):
     heals = [a for a in learned
              if getattr(a, "effect_type", "") in ("heal", "hot", "damage_and_heal")]
     if not heals:
-        return {"healing/turn": 0, "healing/100 mana": 0, "biggest heal": 0,
+        return {"healing/turn": 0, "healing/100 res": 0, "biggest heal": 0,
                 "turns of mana": 0, "heal abilities": 0}
 
     patient = Character("Patient", "Warrior", level)
@@ -344,11 +440,22 @@ def healer_axes(char, level, gen, dress, fights):
         if actor is not char:
             engine.execute_monster_action() if actor is enemy else engine.execute_defend(actor)
             continue
-        before_mana = getattr(char, "current_mana", 0)
+        before_res = _resource_snapshot(char)
         for ability in heals:
-            ok, _why = engine.execute_ability(char, ability.ability_id, patient)
+            # AIM EACH HEAL WHERE IT ACTUALLY WORKS. damage_and_heal is cast
+            # at an ENEMY and heals allies off the damage dealt - it is the
+            # whole mechanic of Cultist Heretic ("Discipline-style
+            # damage-that-heals loop - Malevolence and Gaze of C'Thun hit an
+            # enemy while healing allies") and of Sun Cleric and Venomancer
+            # Rot besides. Casting it at the patient simply FAILS, and a
+            # failed cast spends nothing, which is why Heretic read 7
+            # healing a turn, 0 healing per 100 mana, and 30 turns of mana
+            # it never actually used: almost every cast was rejected and I
+            # was reading the rejections as weak healing.
+            aim = enemy if getattr(ability, "effect_type", "") == "damage_and_heal" else patient
+            ok, _why = engine.execute_ability(char, ability.ability_id, aim)
             if ok:
-                spent_mana += max(0, before_mana - getattr(char, "current_mana", 0))
+                spent_mana += _resource_spend(before_res, _resource_snapshot(char))
                 casts += 1
                 break
         else:
@@ -363,7 +470,17 @@ def healer_axes(char, level, gen, dress, fights):
 
     return {
         "healing/turn": healed / casts if casts else 0,
-        "healing/100 mana": (healed / spent_mana * 100) if spent_mana else 0,
+        # Named per 100 RESOURCE, not per 100 mana - see RESOURCE_POOLS.
+        #
+        # Floored at 1 rather than special-cased to 0, because zero spend
+        # means INFINITE efficiency and reporting it as 0 ranked the best
+        # spec on this axis as the worst. Cultist Heretic really does spend
+        # nothing: its Sanity mechanic refunds 20-45 mana on every heal cast,
+        # which is as much as the heal costs, so net spend is zero or
+        # positive. Ritual of Awakening heals 2232 for a net 8 mana. A huge
+        # number here is the honest answer and the spread it triggers is a
+        # real finding, not an artefact.
+        "healing/100 res": healed / max(1, spent_mana) * 100,
         "biggest heal": biggest,
         "turns of mana": casts,
         "heal abilities": len(heals),
