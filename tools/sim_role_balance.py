@@ -438,8 +438,17 @@ def tank_axes(char, level, gen, dress, fights):
                 before = char.current_health
                 engine.execute_monster_action()
                 hit = before - char.current_health
-                if hit > 0:
-                    samples.append(hit)
+                # EVERY SWING COUNTS, INCLUDING THE ONES THAT DEALT NOTHING.
+                # This was `if hit > 0`, which dropped avoided swings from the
+                # sample entirely - so the mean below was damage per LANDED
+                # hit, not per turn, and "turns alive" (health / that) gave an
+                # avoidance tank no credit whatsoever for avoiding anything.
+                # Primalist Mountain King avoids roughly 70% of physical
+                # swings and every one of them was discarded, which
+                # systematically penalised exactly the specs these two axes
+                # were being used to judge. A turn in which the tank took zero
+                # damage is a turn it survived, so it belongs in the average.
+                samples.append(hit)
                 char.current_health = char.health
                 turns += 1
                 if turns >= 25:

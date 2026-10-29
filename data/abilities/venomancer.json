@@ -1223,10 +1223,10 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {
-        "damage_taken_pct": -45
+        "damage_taken_pct": -0.45
       },
       "description": "Harden your carapace, reducing damage taken. Decays over time. Requires Beetle Form.",
-      "_source": "Confirmed screenshot: Lvl 30, 3 min cooldown, 'reducing damage taken by 45%, decaying quickly over 10 sec and healing for 1% max health each time a stack is removed. Leaving Beetle Form cancels this effect.' Fortitude's real capstone defensive cooldown.",
+      "_source": "Confirmed screenshot: Lvl 30, 3 min cooldown, 'reducing damage taken by 45%, decaying quickly over 10 sec and healing for 1% max health each time a stack is removed. Leaving Beetle Form cancels this effect.' Fortitude's real capstone defensive cooldown. DAMAGE_TAKEN_PCT IN AN ABILITY'S stat_mods IS A FRACTION, NOT PERCENT POINTS. This was authored in points, so the engine read it as -4500% and floored every incoming hit at 1 damage for the buff's whole duration - a flat immunity, not a mitigation cooldown. Character.take_damage adds get_status_stat_mod('damage_taken_pct') UNDIVIDED, while the physical_/magic_ variants four lines away ARE divided by 100, so the convention is per-key with no naming rule. Verified: -0.10 takes a 1000 hit to 900, -10 takes it to 1. 41 of the game's 51 abilities carrying this key already use the fraction form (warrior_shield_wall -0.4, druid_barkskin -0.2).",
       "requires_form": "beetle",
       "target_type": "self",
       "ranks": [

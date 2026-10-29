@@ -381,10 +381,10 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "damage_taken_pct": -25
+        "damage_taken_pct": -0.25
       },
       "description": "Envelop yourself with celestial magic, reducing damage taken. Only 1 Aegis spell can be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 30, 'Drains 30% Maximum Mana. Reducing your damage taken by 25% for 10 sec.' Part of the mutually-exclusive Aegis family shared across specs.",
+      "_source": "Confirmed screenshot: Lvl 30, 'Drains 30% Maximum Mana. Reducing your damage taken by 25% for 10 sec.' Part of the mutually-exclusive Aegis family shared across specs. DAMAGE_TAKEN_PCT IN AN ABILITY'S stat_mods IS A FRACTION, NOT PERCENT POINTS. This was authored in points, so the engine read it as -2500% and floored every incoming hit at 1 damage for the buff's whole duration - a flat immunity, not a mitigation cooldown. Character.take_damage adds get_status_stat_mod('damage_taken_pct') UNDIVIDED, while the physical_/magic_ variants four lines away ARE divided by 100, so the convention is per-key with no naming rule. Verified: -0.10 takes a 1000 hit to 900, -10 takes it to 1. 41 of the game's 51 abilities carrying this key already use the fraction form (warrior_shield_wall -0.4, druid_barkskin -0.2).",
       "target_type": "self",
       "ranks": [
         {
@@ -1254,10 +1254,10 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "damage_taken_pct": -5
+        "damage_taken_pct": -0.05
       },
       "description": "Grant the party and raid a damage reduction buff. Does not stack with similar effects.",
-      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot. DAMAGE_TAKEN_PCT IN AN ABILITY'S stat_mods IS A FRACTION, NOT PERCENT POINTS. This was authored in points, so the engine read it as -500% and floored every incoming hit at 1 damage for the buff's whole duration - a flat immunity, not a mitigation cooldown. Character.take_damage adds get_status_stat_mod('damage_taken_pct') UNDIVIDED, while the physical_/magic_ variants four lines away ARE divided by 100, so the convention is per-key with no naming rule. Verified: -0.10 takes a 1000 hit to 900, -10 takes it to 1. 41 of the game's 51 abilities carrying this key already use the fraction form (warrior_shield_wall -0.4, druid_barkskin -0.2).",
       "target_type": "self",
       "ranks": [
         {

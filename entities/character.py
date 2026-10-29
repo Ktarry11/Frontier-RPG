@@ -219,16 +219,26 @@ class Character(StatusEffectMixin):
         # self.current_mechsuit assignment here on purpose, see that
         # property's docstring for why).
 
-        # Real Scrap resource (Tinker's Makeshift Dynamite "Generates 10
-        # Scrap" - confirmed via real screenshot). A simple stacking
-        # currency, same pattern as Insanity/Static (int, capped, no
-        # decay) rather than a full ResourceType-bar (Tinker's PRIMARY
-        # resource is Mana per the class's existing real data - Scrap is
-        # a secondary spend-to-transform currency, same shape as
-        # Stormbringer's Static or Cultist's Insanity, gating entry into
-        # Mechsuit form specifically rather than fueling every ability).
-        self.current_scrap = 0
-        self.max_scrap = 100
+        # Scrap (Tinker's Makeshift Dynamite "Generates 10 Scrap" -
+        # confirmed via real screenshot; a secondary spend-to-transform
+        # currency gating entry into Mechsuit form, not a pool that fuels
+        # every ability) does NOT get a dedicated attribute pair here. It
+        # is a dict-backed secondary resource like Insanity, Static and
+        # Deathfire, handled generically by _RESOURCE_ATTRS' fallthrough -
+        # get_resource("scrap"), gain_resource and spend_resource all work
+        # on it today, and SECONDARY_RESOURCE_MAX gives it the same 0-100
+        # ceiling the old max_scrap hardcoded.
+        #
+        # There used to be a self.current_scrap/self.max_scrap pair right
+        # here, read by NOTHING. Worse than dead: it silently diverged from
+        # the pool that actually works - after gaining 30 and spending 10,
+        # the dict read 20 while current_scrap still read 0 - so anyone
+        # reading this file would reasonably wire new code to the wrong
+        # one. Removed rather than kept in sync.
+        #
+        # Known gap, tracked separately: nothing in the game COSTS scrap,
+        # so the pool fills and cannot be spent. The sink belongs on
+        # Mechsuit form per the screenshot above.
 
         # Earthen Guardian toggle (Shaman Tank, see combat/guardian_stance.py).
         # PERSISTENT like current_form, not per-fight like current_stance -

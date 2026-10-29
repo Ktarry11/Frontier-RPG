@@ -261,7 +261,7 @@ class Ability:
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
                  consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
-                 cooldown_per_stack=0.0,
+                 cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
                  max_targets=None, force_proc_group=None, summon_pet_template=None):
         """
@@ -485,6 +485,10 @@ class Ability:
         #: Turns knocked off this ability's own cooldown per stack consumed.
         #: See the cooldown_per_stack block in use().
         self.cooldown_per_stack = cooldown_per_stack
+        #: Read-only twin of consumes_target_stacks_of: scale off the
+        #: target's stacks WITHOUT removing them. Pairs with
+        #: damage_per_stack_pct the same way.
+        self.scales_with_target_stacks_of = scales_with_target_stacks_of
         #: Per-cast scratch, same lifecycle as _last_crit: set at the top of
         #: every _apply_effect, read by _damage_multiplier.
         self._stack_bonus = 0.0
@@ -1241,6 +1245,40 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
+    def _stat_mod_scalar(self):
+        """How much of this ability's authored stat_mods to actually apply.
+
+        effect_value is a PERCENTAGE of the authored mods, so 100 means "as
+        written" - that is what the nine original classes use (74 of their
+        buff/debuff ranks are exactly 100, the rest scale a buff up by rank:
+        33, 56, 78, 100).
+
+        BUT effect_value 0 CANNOT MEAN "APPLY NOTHING". 113 buff and debuff
+        abilities across Bloodmage, Ranger, Guardian, Felsworn, Reaper, Witch
+        Hunter and Necromancer shipped with non-empty stat_mods and
+        effect_value 0 in every rank, so every one of them multiplied its own
+        mods by zero and did nothing at all. Guardian's Brace authored
+        {"block": 25.0} and applied {"block": 0} - block chance never moved.
+        Bloodmage's Blood Pact authored 15 dodge and 5 parry and granted
+        neither.
+
+        The cause is in the generators, not here: their `one()` helper is
+        documented "single-rank table, for cooldowns and stances that do not
+        scale" and defaults effect_value to 0. For an ability whose entire
+        effect IS its stat_mods, that reads as "no damage number", which is
+        true and also happens to zero the mods.
+
+        Fixed here rather than only in the generators because six of the
+        affected classes' data has no generator at all, and because an
+        ability that carries mods and applies none of them is never what
+        anyone meant - there is no ability in the game for which "apply 0% of
+        my own stat_mods" is the intent. A zero scalar with mods present is
+        read as "as written".
+        """
+        if self.effect_value or not (self.stat_mods or {}):
+            return (self.effect_value or 0) / 100.0
+        return 1.0
+
     def _consume_target_stacks(self, caster, target):
         """Eat consumes_target_stacks_of off the target(s); return the bonus.
 
@@ -1254,23 +1292,33 @@ class Ability:
         is carrying the effect. A cast with nothing to consume is NOT
         refunded - see the field's docstring in __init__.
         """
-        if not self.consumes_target_stacks_of:
+        wanted = self.consumes_target_stacks_of or self.scales_with_target_stacks_of
+        if not wanted:
             return 0.0
+        # Consuming removes the effect; scaling reads it and leaves it alone.
+        # Tinker's Drone Striker is the read-only case - CoA: "Firepot Drone
+        # and Scrap Shot now deal 2% increased damage for each stack of
+        # Napalm on the enemy" - where eating the stacks would break the very
+        # debuff the rotation is built on maintaining.
+        destructive = bool(self.consumes_target_stacks_of)
         victims = target if isinstance(target, list) else [target]
-        consumed = 0
+        counted = 0
         for victim in victims:
             if victim is None or not hasattr(victim, "_effects"):
                 continue
             for effect in list(victim._effects()):
-                if effect.effect_id != self.consumes_target_stacks_of:
+                if effect.effect_id != wanted:
                     continue
-                consumed += max(1, getattr(effect, "stacks", 1))
-                victim._effects().remove(effect)
-                if hasattr(victim, "_on_status_effects_changed"):
-                    victim._on_status_effects_changed()
+                counted += max(1, getattr(effect, "stacks", 1))
+                if destructive:
+                    victim._effects().remove(effect)
+                    if hasattr(victim, "_on_status_effects_changed"):
+                        victim._on_status_effects_changed()
                 break
-        self._last_stacks_consumed = consumed
-        return consumed * self.damage_per_stack_pct
+        # Only a consume reports stacks for the cooldown payload; a read-only
+        # scale must not also refund cooldown off stacks it did not spend.
+        self._last_stacks_consumed = counted if destructive else 0
+        return counted * self.damage_per_stack_pct
 
     def _damage_multiplier(self, caster, school, recipient=None):
         """Combined talent multiplier for this ability in a given school.
@@ -2550,8 +2598,9 @@ class Ability:
             # attack_power, ...) keep their existing int() scaling exactly
             # as before - only the _pct suffix changes behavior here.
             mods = {}
+            scalar = self._stat_mod_scalar()
             for k, v in (self.stat_mods or {}).items():
-                scaled = v * (self.effect_value / 100.0) * (1.0 + potency_bonus)
+                scaled = v * scalar * (1.0 + potency_bonus)
                 mods[k] = scaled if k.endswith("_pct") else int(scaled)
             recipients = self._recipients(caster, target)
             # "raid" buffs (Fortitude, Mark of the Wild, ...) run on the
@@ -2611,8 +2660,9 @@ class Ability:
                 # percentage-shaped debuff stat_mods must stay fractional,
                 # not get int()-truncated to 0.
                 mods = {}
+                scalar = self._stat_mod_scalar()
                 for k, v in (self.stat_mods or {}).items():
-                    scaled = v * (self.effect_value / 100.0)
+                    scaled = v * scalar
                     mods[k] = scaled if k.endswith("_pct") else int(scaled)
                 real_time = None if self.buff_scope == "combat" else _UNSET
                 for t in recipients:
@@ -3072,6 +3122,7 @@ def _ability_from_data(entry):
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),
         cooldown_per_stack=entry.get("cooldown_per_stack", 0.0),
+        scales_with_target_stacks_of=entry.get("scales_with_target_stacks_of"),
         duration_per_stack=entry.get("duration_per_stack", 0),
         max_targets=entry.get("max_targets"),
         force_proc_group=entry.get("force_proc_group"),

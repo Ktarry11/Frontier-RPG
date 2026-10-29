@@ -123,12 +123,49 @@ def build_tree(tree_id, spec_name, description, talents):
     }
 
 
-def write_tree(out_dir, tree_id, spec_name, description, talents):
-    """Build a tree and write it to <out_dir>/<tree_id>.json."""
+def write_tree(out_dir, tree_id, spec_name, description, talents, force=False):
+    """Build a tree and write it to <out_dir>/<tree_id>.json.
+
+    REFUSES TO DOWNGRADE A RICHER TREE. tools/talents_coa.py still holds a
+    stale September-2026 authoring shape for the three Stormbringer trees:
+    19 flat stat passives each, no procs, no hex coordinates, "Whirling
+    Maelstrom" as a Static-cost node, "Ride the Lightning" at tier 4. The
+    trees actually shipping are 23-27 nodes with procs, real CoA sourcing and
+    hex layout. Running tools/generate_talents.py would have silently
+    replaced the live trees with the stale ones - and it covers the nine
+    original classes plus Stormbringer, Tinker, Venomancer and Primalist, so
+    the blast radius was most of the game's talent data, not one class.
+
+    Rather than reconcile four authoring modules against data that has moved
+    well past them, this refuses any write that would lose content: fewer
+    nodes than the file already has, or dropping procs the file already
+    carries. A regenerate that genuinely should shrink a tree can pass
+    force=True and say so.
+
+    Returns (path, node_count) on write, or (None, 0) when it declined.
+    """
     tree = build_tree(tree_id, spec_name, description, talents)
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{tree_id}.json"
+
+    if path.exists() and not force:
+        try:
+            existing = json.loads(path.read_text())
+        except (OSError, ValueError):
+            existing = None
+        if isinstance(existing, dict):
+            old_nodes = existing.get("nodes") or existing.get("talents") or []
+            new_nodes = tree.get("nodes") or []
+            old_procs = sum(1 for n in old_nodes if n.get("proc"))
+            new_procs = sum(1 for n in new_nodes if n.get("proc"))
+            if len(new_nodes) < len(old_nodes) or new_procs < old_procs:
+                print(f"  REFUSED {tree_id}: on disk has {len(old_nodes)} nodes "
+                      f"/ {old_procs} procs, this would write {len(new_nodes)} "
+                      f"/ {new_procs}. The authoring module is behind the "
+                      f"shipped data - fix the module or pass force=True.")
+                return None, 0
+
     with open(path, "w") as f:
         json.dump(tree, f, indent=2)
     return path, len(tree["nodes"])
