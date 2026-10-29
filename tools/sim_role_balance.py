@@ -825,6 +825,21 @@ def healer_axes(char, level, gen, dress, fights):
         # number here is the honest answer and the spread it triggers is a
         # real finding, not an artefact.
         "healing/100 res": healed / max(1, spent_mana) * 100,
+        # An ATTACK-POWERED healer spends nothing net, and a ratio cannot say
+        # so. Primalist Grovekeeper is a fistweaver - Kyle, 29 Oct 2026:
+        # "Primalist healer attacks, yes. It's a weird Healer", and its
+        # sidekick page calls it "Mistweaver Monk in Fistweaving mode" - so it
+        # builds Rage by hitting things and spends Rage on heals, netting
+        # roughly zero. Divided by a denominator floored to 1 that came out as
+        # 1,165,000 healing per 100 resource, which then drove a "6264x
+        # spread" finding that said nothing about any spec. Cultist Heretic is
+        # the same shape through Sanity refunds, more mildly.
+        #
+        # Flagged rather than capped or zeroed: zeroing ranked the most
+        # efficient spec last (the mistake this axis's own docstring records),
+        # and capping invents a number. main() excludes a flagged spec from
+        # the spread and names it instead.
+        "_free_healing": spent_mana <= 0,
         "biggest heal": biggest,
         # Now literally what the label says: the turn on which the spec first
         # could not afford a heal, or the whole window if it never ran dry.
@@ -895,11 +910,21 @@ def main():
             worst_half = [a for a in axes if places[axes.index(a)] >= len(specs) / 2]
             if len(worst_half) == len(axes):
                 problems.append(f"{spec} is in the bottom half of every axis and best at nothing")
+    free = [s for s in specs if rows[s].get("_free_healing")]
+    for s_ in free:
+        problems.append(f"{s_} heals at no net resource cost (it attacks to "
+                        f"fund its heals), so its efficiency is unbounded - "
+                        f"excluded from the healing/100 res spread rather "
+                        f"than compared against specs that pay mana")
     for a in axes:
-        vals = [rows[s][a] for s in specs if rows[s][a] > 0]
+        # A spec that spends nothing has an unbounded ratio on the efficiency
+        # axis; including it makes the spread meaningless for everyone else.
+        skip = set(free) if a == "healing/100 res" else set()
+        vals = [rows[s][a] for s in specs if rows[s][a] > 0 and s not in skip]
         if len(vals) > 2 and min(vals) and max(vals) / min(vals) > 4:
+            ordered = [s for s in ranks[a] if s not in skip]
             problems.append(f"{a}: {max(vals)/min(vals):.1f}x spread between "
-                            f"{ranks[a][0]} and {ranks[a][-1]}")
+                            f"{ordered[0]} and {ordered[-1]}")
         zero = [s for s in specs if rows[s][a] == 0 and a not in LOWER_IS_BETTER]
         if zero and len(zero) < len(specs):
             problems.append(f"{a}: {', '.join(zero)} score zero where every peer scores something")
