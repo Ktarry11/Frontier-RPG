@@ -5839,6 +5839,12 @@ def create_all_zones():
     zones["Southern Stranglethorn"] = stvs.generate_zone()
     zones["Grom'gol"] = stvg.generate_gromgol()
     zones["Booty Bay"] = stvb.generate_booty_bay()
+    from tools import handbuilt_stranglethorn_caves as stvcav
+    from tools import handbuilt_gurbashi_arena as stvarena
+    zones["Rotvine Hollow"] = stvcav.generate_rotvine_hollow()
+    zones["Veilfall Cave"] = stvcav.generate_veilfall_cave()
+    zones["The Drowned Shrine"] = stvcav.generate_drowned_shrine()
+    zones["Gurbashi Arena"] = stvarena.generate_gurbashi_arena()
 
     # Drygulch Ravine is NOT run through generate_cave() - see that
     # function's own docstring note and generate_drygulch_ravine()'s

@@ -468,6 +468,14 @@ CAVE_TO_PARENT_ZONE = {
     # silver and the wood idea moves to the Underdark proper, which is a zone rather than a cave.
     "The Frostward Descent": "Eastern Hillsbrad",
     "The Hollow Geode": "The Crystalline Underdark",
+    # Stranglethorn's three caves, each under its own zone. All three inherit a parent table that stops
+    # at the existing tier-40 ladder, so nothing new enters the material ladder here - Southern
+    # Stranglethorn runs to 42 and still gathers exactly what the 38-40 band gathers. The Gurbashi
+    # Arena is deliberately absent: it is on the zone_classification.py Dungeon list, and dungeons
+    # never get nodes.
+    "Rotvine Hollow": "Northern Stranglethorn",
+    "Veilfall Cave": "Central Stranglethorn",
+    "The Drowned Shrine": "Southern Stranglethorn",
 }
 
 #: How much more ore-dense a cave's inherited pool is versus its parent
