@@ -2843,6 +2843,23 @@ class Character(StatusEffectMixin):
             "name": self.name,
             "class": self.char_class,
             "level": self.level,
+            # PETS WERE NEVER SAVED. active_pet was absent from this dict
+            # entirely, so every pet class lost its pet on save and reload -
+            # a Warlock summoned an Imp, saved, loaded, and had no Imp. It
+            # survived unnoticed because a pet is cheap to re-summon and the
+            # bug looks like "I forgot to summon".
+            #
+            # Only the template_id, display name and current health are
+            # stored; everything else about a Pet is derived from its
+            # template and its owner's level, and from_dict re-summons and
+            # re-syncs. Additional pets (Tinker, Necromancer) round-trip the
+            # same way.
+            "pets": [
+                {"template_id": pet.template_id, "name": pet.name,
+                 "current_health": getattr(pet, "current_health", None),
+                 "additional": i > 0}
+                for i, pet in enumerate(self.all_pets)
+            ],
             # Talent spend (save v4). Stored sparsely - only nodes with at
             # least one point are written, so the save stays small and adding
             # new talents to a tree later doesn't invalidate old saves.
@@ -2907,6 +2924,15 @@ class Character(StatusEffectMixin):
         from entities.item import Item
         from entities.consumable import Consumable
         char = cls(data["name"], data["class"], data["level"])
+        # Pets. Older saves have no "pets" key at all and simply come back
+        # petless, which is what they did before this existed.
+        for entry in data.get("pets") or []:
+            ok, pet = char.summon_pet(entry.get("template_id"),
+                                      name=entry.get("name"),
+                                      additional=entry.get("additional", False))
+            if ok and entry.get("current_health") is not None:
+                pet.current_health = min(pet.max_health,
+                                         max(1, int(entry["current_health"])))
         char.prestige_level = data.get("prestige_level", 0)
         char.prestige_points = data.get("prestige_points", 0)
         char.experience = data.get("experience", 0)
