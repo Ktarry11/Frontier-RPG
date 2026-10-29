@@ -370,6 +370,9 @@ def fight(char, enemy_template, level, gen, rng):
     #: them, and it stops a 2-turn buff being held up permanently.
     DEFENSIVE_EVERY = 4
     last_defensive = -DEFENSIVE_EVERY
+    #: Observed incoming damage, so the heal gate above can compare a heal
+    #: against what is actually landing rather than a guess.
+    damage_taken, enemy_turns = 0, 0
     for _ in range(MAX_TICKS):
         engine.update(TICK)
         if not engine.is_active:
@@ -378,13 +381,37 @@ def fight(char, enemy_template, level, gen, rng):
         if actor is None:
             continue
         if actor is not char:
+            _hp_before = char.current_health
             engine.execute_monster_action()
+            damage_taken += max(0, _hp_before - char.current_health)
+            enemy_turns += 1
             continue
 
         turns += 1
         acted = False
         hurt = char.health and char.current_health / char.health < 0.35
-        may_heal = hurt and heals and (turns - last_heal) >= HEAL_EVERY
+        # A HEAL THAT CANNOT OUTPACE THE DAMAGE IS WORSE THAN ATTACKING.
+        # Rationing alone was not enough. Shaman's Healing Wave restores ~56
+        # at level 10 while humanoid_warrior deals ~40 a turn, so amortised
+        # over its 3-turn gap the heal is worth 19 a turn against 40 incoming:
+        # it can never climb back over the 35% threshold, so it heals every
+        # third turn for the rest of the fight and loses a race it wins
+        # comfortably otherwise. Measured, Shaman went from 26% to 73% against
+        # that template with heals simply switched off - the loop was costing
+        # it the fight, which is the same fault the HEAL_EVERY note describes
+        # and only partly cured.
+        #
+        # So the heal has to pay for the turn it costs: it must cover what
+        # will land during its own cooldown. Below that it is pure tempo loss
+        # and a player would keep attacking. The exception is the turn you
+        # would otherwise die on, where any heal is worth it.
+        incoming = (damage_taken / max(1, enemy_turns)) if enemy_turns else 0
+        best_heal = max((getattr(a, "heal_value", 0) or 0
+                         for a in heals), default=0)
+        heal_pays = (best_heal >= incoming * HEAL_EVERY
+                     or char.current_health <= incoming)
+        may_heal = (hurt and heals and heal_pays
+                    and (turns - last_heal) >= HEAL_EVERY)
         order = (heals + attacks) if may_heal else attacks
         # DON'T REAPPLY A DOT THAT IS STILL TICKING. Sorting by total effect value puts damage-over-
         # time first, since its total is the sum of its ticks, so a naive loop re-casts Rend or
