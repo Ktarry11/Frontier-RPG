@@ -182,16 +182,45 @@ def build(spec, level, gen, dress, role=None):
         keys = " ".join((node.effects or {})).lower() + " " + (node.name or "").lower()
         return any(w in keys for w in wanted)
 
-    # Tiers gate on points already spent, so this walks up from the bottom - which is also how a
-    # player is forced to spend them - taking role-relevant nodes first on each tier.
-    for tier in range(0, tree.get_max_tier() + 1):
+    def put(node):
+        """Spend one point if allowed. Returns True if it landed."""
+        nonlocal spent
+        if spent >= budget:
+            return False
+        ok = node.can_spend_point(tree) if takes_tree else node.can_spend_point()
+        if not ok or not node.spend_point():
+            return False
+        spent += 1
+        return True
+
+    # CLIMB FIRST, THEN FILL. The previous version walked up from the bottom taking max_points on
+    # every role-relevant node, which is not how anyone builds and it silently truncated whole
+    # trees: Guardian Vanguard's tiers 0-2 hold 53 points, so a 56-point budget was exhausted by
+    # tier 3 and it never reached its threat talent OR its capstone. It read "threat +0%, best at
+    # nothing but effective HP" - a conclusion about the harness, not the spec. Any tree with fat
+    # lower tiers was being judged without its top half.
+    #
+    # A player spends the minimum needed to unlock the next tier, climbs to the capstone, then
+    # spends what is left broadening the build. So: phase one buys the cheapest path upward,
+    # preferring role-relevant nodes; phase two fills.
+    max_tier = tree.get_max_tier()
+    for tier in range(0, max_tier + 1):
+        needed = tree.tier_requirements.get(tier + 1, 0) if tier < max_tier else 0
         ordered = sorted(tree.get_nodes_in_tier(tier), key=lambda n: not relevant(n))
+        # enough to open the next tier, plus the capstone row itself
         for node in ordered:
-            while spent < budget:
-                ok = node.can_spend_point(tree) if takes_tree else node.can_spend_point()
-                if not ok or not node.spend_point():
+            while spent < budget and (spent < needed or tier == max_tier):
+                if not put(node):
                     break
-                spent += 1
+            if tier < max_tier and spent >= needed:
+                break
+
+    # Phase two: broaden, bottom up, role-relevant first - the points a real build has left over.
+    for tier in range(0, max_tier + 1):
+        for node in sorted(tree.get_nodes_in_tier(tier), key=lambda n: not relevant(n)):
+            while spent < budget:
+                if not put(node):
+                    break
     for sync in ("_sync_talent_procs", "_sync_talent_unlocked_abilities",
                  "_recalculate_derived_stats", "_refresh_ability_ranks"):
         if hasattr(char, sync):

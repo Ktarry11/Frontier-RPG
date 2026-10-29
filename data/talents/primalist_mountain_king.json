@@ -82,7 +82,7 @@
       "hex_x": 5,
       "hex_y": -6,
       "effects": {
-        "threat_generation_pct": 0.05
+        "threat_generation_pct": 0.02
       },
       "connected_to": [
         "primalist_mountain_king_mountain_fury"
@@ -116,7 +116,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "threat_generation_pct": 0.06
+        "threat_generation_pct": 0.02
       },
       "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_threat_pct - the real ability is primalist_quake, and this talent is even literally named 'Quake' already. Retargeted the ability_id, but left as a genuinely inert key: ability_<id>_threat_pct is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py). A real per-ability threat multiplier doesn't exist in this engine yet - CombatEngine only reads class-wide low_health_threat_pct/threat_generation_pct, not an ability-specific one. Harmless, does nothing, flagged rather than silently built.",
       "connected_to": [
@@ -310,7 +310,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "threat_generation_pct": 0.05
+        "threat_generation_pct": 0.02
       },
       "connected_to": [
         "primalist_mountain_king_terrasmash"
