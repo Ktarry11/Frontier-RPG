@@ -426,9 +426,9 @@
       }
     },
     {
-      "talent_id": "runemaster_engravement_swift_etching",
-      "name": "Swift Etching",
-      "description": "Hurricane has a 34% chance per rank to leave your runes wind-sharpened, increasing Haste by 15% and physical critical strike chance by 5% for 3 turns.",
+      "talent_id": "runemaster_engravement_sky_and_stone",
+      "name": "Sky and Stone",
+      "description": "Your weapon swings have a 10% chance per rank to set the air and earth runes on your weapon flaring together, increasing Haste by 10% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -439,21 +439,18 @@
       "connected_to": [
         "runemaster_engravement_leyline_disturbance"
       ],
+      "_source": "CoA Engravement tooltip, 8 TE gate: 'Damage dealt by Weapon Engraving: Air and Weapon Engraving: Earth now have a 10% chance to increase the melee attack speed of your next 10 attacks within 10 seconds by 10%.' Weapon Engravings are self-buff imbues in this build with no damage event of their own, so their damage is modelled on the weapon swing that carries them - the same convention Steam Conjurer in this tree already uses for 'Damage dealt by Weapon Engraving: Earth'. REPLACES a node that was named Swift Etching and filtered on runemaster_hurricane: Hurricane is granted only by the Riftblade tree's Hurricane node (character.py treats any unlock_ability target as talent-gated), so an Engravement build could never fire it - and CoA's Swift Etching is a Riftblade talent in the first place, where Frontier already has it.",
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
+        "trigger": "on_weapon_swing",
+        "chance": 10,
         "icd": 1,
-        "ability_filter": [
-          "runemaster_hurricane"
-        ],
         "apply_effect": {
-          "effect_id": "runemaster_swift_etching",
-          "name": "Wind-Sharpened Runes",
+          "effect_id": "runemaster_sky_and_stone",
+          "name": "Sky and Stone",
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "haste": 15,
-            "crit_chance_physical": 5
+            "haste": 10
           },
           "on_target": false
         }

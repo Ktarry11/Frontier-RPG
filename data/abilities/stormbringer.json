@@ -1,6 +1,6 @@
 {
   "class": "Stormbringer",
-  "_source_note": "Fully rebuilt (3rd pass, Sept 2026) from 36 real in-game tooltip screenshots pulled directly from Ascension by Kyle (StormmBringer.docx). This pass corrected several levels that earlier passes had wrong (Call of the Storm 4 not 6, Call of the Wind 14 not 6, Invigorating Surge 6 not 4, Razorwind 40 not 22) and added several class-wide abilities that were missing entirely: Stormbreaker, the 3-buff Aegis family (Whirlwind/Shocking/Tempest, mutually exclusive - one can be active at a time), and the 4-spell Pressure family (Barometric/Crushing/Atmospheric/Stabilizing, also mutually exclusive). IMPORTANT spec-lock correction: Aeroblast and Torrential Wrath are confirmed LIGHTNING-locked via their own 'Requires: ... Lightning (1)' tags, NOT Wind/Maelstrom as earlier passes assumed from name-vibes alone - ability names in this game do not reliably predict which spec they're locked to, the 'Requires' tag is the only trustworthy source.",
+  "_source_note": "Fully rebuilt (3rd pass, Sept 2026) from 36 real in-game tooltip screenshots pulled directly from Ascension by Kyle (StormmBringer.docx). This pass corrected several levels that earlier passes had wrong (Call of the Storm 4 not 6, Call of the Wind 14 not 6, Invigorating Surge 6 not 4, Razorwind 40 not 22) and added several class-wide abilities that were missing entirely: Stormbreaker, the 3-buff Aegis family (Whirlwind/Shocking/Tempest, mutually exclusive - one can be active at a time), and the 4-spell Pressure family (Barometric/Crushing/Atmospheric/Stabilizing, also mutually exclusive). IMPORTANT spec-lock correction: Aeroblast and Torrential Wrath are confirmed LIGHTNING-locked via their own 'Requires: ... Lightning (1)' tags, NOT Wind/Maelstrom as earlier passes assumed from name-vibes alone - ability names in this game do not reliably predict which spec they're locked to, the 'Requires' tag is the only trustworthy source. | Oct 2026 CoA-fidelity pass added five talent-granted abilities. Four are the Wind tree's missing ally payload (Clear Skies, Tailwind, Aerodynamics, Kiss of the Clouds), all named and costed from their own CoA tooltips; the fifth, Ride the Lightning, is the real effect of the Lightning tree's tier-6 node, which had been authored as a Volt damage/cost passive instead.",
   "abilities": [
     {
       "ability_id": "stormbringer_attack",
@@ -1216,6 +1216,142 @@
         }
       },
       "buff_scope": "combat"
+    },
+    {
+      "ability_id": "stormbringer_clear_skies",
+      "name": "Clear Skies",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 30,
+      "stat_mods": {
+        "hit_rating": 1
+      },
+      "description": "Calm the air around your party so their spells and attacks land more often. Does not stack with similar effects.",
+      "_source": "CoA Wind, free node at 'Requires 4 points in this tree (level 15)': \"Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.\" CoA's is a passive aura; a Frontier talent cannot reach an ally, so this is the cast that carries it. hit_rating is the one key that lifts both spell and physical hit (Character._recalculate_derived_stats subtracts it from both base miss chances), which is what \"all spells and attacks\" needs. Ranger's Battle Prowess is the shipped precedent for a party hit_rating buff. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 15,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "is_instant": true,
+      "buff_scope": "raid"
+    },
+    {
+      "ability_id": "stormbringer_tailwind",
+      "name": "Tailwind",
+      "resource_type": "static",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 5.0
+      },
+      "description": "Put the wind at your party's back, quickening everything they do.",
+      "_source": "CoA Wind, free node at 'Requires 11 points in this tree (level 30)': \"Depletes 20 Static. Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 seconds. Does not stack with similar effects.\" The 20-Static cost is kept verbatim. The self-damage half is dropped: stat_mods on a target_type party buff land on every recipient, so damage_dealt_pct here would buff the whole group, not the caster. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "stormbringer_aerodynamics",
+      "name": "Aerodynamics",
+      "resource_type": "static",
+      "cooldown": 6,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "attack_power": 40,
+        "spell_power": 40
+      },
+      "description": "Envelop the party in charged mist, lending them attack and spell power.",
+      "_source": "CoA Wind, free node at 'Requires 16 points in this tree (level 40)': \"Depletes 40 Static. Envelop party and raid members within 40 yds in magical mist, increasing their attack or spell power by 95 for 15 seconds. Does not stack with similar effects.\" The 40-Static cost is kept verbatim. The engine has no either/or stat branch per recipient, so both are granted at a reduced value rather than 95 of whichever suits. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
+      "target_type": "party",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "stormbringer_kiss_of_the_clouds",
+      "name": "Kiss of the Clouds",
+      "resource_type": "static",
+      "cooldown": 5,
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "pushback_reduction_pct": 100
+      },
+      "description": "Wrap the party in cloud. It soaks the hits that land first and keeps their casts from faltering under fire.",
+      "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The 40-Static cost is kept verbatim and the pushback immunity maps onto pushback_reduction_pct, which Stabilizing Pressure on this same class already uses. absorb_pct_max_health sizes the shield per recipient from their own health, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive, same key, same target_type) - CoA's Intellect scaling has nothing to hang on. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
+      "target_type": "party",
+      "absorb_pct_max_health": 0.1,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 45,
+          "cost": 40,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "is_instant": true,
+      "buff_scope": "combat"
+    },
+    {
+      "ability_id": "stormbringer_ride_the_lightning",
+      "name": "Ride the Lightning",
+      "resource_type": "static",
+      "cooldown": 4,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Become the bolt and cross the field. Everything in the line you take comes away burnt.",
+      "_source": "CoA Lightning, 'Requires 23 TE in this tree': \"Depletes 40 Static. Infuse yourself with lightning and blink forward a long distance, dealing SP Nature damage to all enemies in your path. Scales with modifiers to Discharge.\" The 40-Static cost and the Nature school are kept verbatim. There is no movement in this combat engine, so the blink is dropped and the damage along the path becomes an enemy_aoe hit. Rank values sit alongside Freewind, the class's other 2-rank late AoE, rather than being tuned - balance is deferred per Kyle.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 40,
+          "effect_value": 150
+        },
+        {
+          "rank": 2,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 195
+        }
+      ],
+      "icon_id": null,
+      "requires_talent": true,
+      "is_instant": true,
+      "damage_school": "nature"
     }
   ]
 }

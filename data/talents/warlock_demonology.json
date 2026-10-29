@@ -422,7 +422,7 @@
     {
       "talent_id": "warlock_demonology_decimation",
       "name": "Decimation",
-      "description": "Increases the damage of Shadow Bolt and Shadowburn by 7% per rank.",
+      "description": "Increases the damage of Shadow Bolt by 7% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -430,13 +430,13 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_warlock_shadow_bolt_damage": 0.07,
-        "ability_warlock_shadowburn_damage": 0.07
+        "ability_warlock_shadow_bolt_damage": 0.07
       },
       "connected_to": [
         "warlock_demonology_demonic_empowerment",
         "warlock_demonology_metamorphosis"
-      ]
+      ],
+      "_source": "Same cross-tree defect as Affliction's Shadow Embrace, in effects rather than in a proc, so the new validator check does not see it: this node carried ability_warlock_shadowburn_damage, and Shadowburn is unlocked only by warlock_destruction, so half of a Demonology talent's payout could never apply to anyone who specced Demonology. Dropped the dead half rather than inventing a second target - Shadowburn is Destruction-only in live WoW too, where Decimation never touched it."
     },
     {
       "talent_id": "warlock_demonology_demonic_brutality",

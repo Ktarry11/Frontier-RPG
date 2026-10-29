@@ -50,7 +50,7 @@
     {
       "talent_id": "runemaster_riftblade_swift_etching",
       "name": "Swift Etching",
-      "description": "Increases melee attack speed and critical strike chance by 1% per rank.",
+      "description": "Increases melee attack speed and critical strike chance by 1% per rank. Once Hurricane has finished striking, your runes stay sharp: Haste is increased by 15% and physical critical strike chance by 10% for 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -63,7 +63,27 @@
       },
       "connected_to": [
         "runemaster_riftblade_frost_blade"
-      ]
+      ],
+      "_source": "CoA Riftblade tooltip: 'After Hurricane ends, your melee attack speed is increased by 15% and critical strike chance by 10% for 10 seconds.' The sidekick solo rotation names it directly - 'Keep Hurricane rolling for its multi-strike and the Swift Etching haste/crit window after it ends' - so this is Riftblade's node and Riftblade's trigger. The node previously carried only the flat stat half, which is why a copy of the Hurricane window had been authored in the Engravement tree, where Hurricane is unobtainable. The flat half is kept so the node is never dead before Hurricane is taken, and the window is the real mechanic on top. Hurricane runs a 6-turn cooldown, so a 2-turn window is roughly CoA's uptime.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 2,
+        "ability_filter": [
+          "runemaster_hurricane"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_swift_etching",
+          "name": "Swift Etching",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 15,
+            "crit_chance_physical": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_augurs_shield_passive",
@@ -536,22 +556,39 @@
       "_source": "CoA handoff doc: 'Nearby Arcane damage; boosts target's Arcane damage taken.'"
     },
     {
-      "talent_id": "runemaster_riftblade_prismatic_knight",
-      "name": "Prismatic Knight",
-      "description": "Gain Armor from Intellect, reduce damage done, and gain a chance on parry to generate an Inscribed Rune and boost melee speed. Requires Two-Handed weapon.",
+      "talent_id": "runemaster_riftblade_elemental_inscription",
+      "name": "Elemental Inscription",
+      "description": "Every Smolder you land scrapes a turn off Primordial Fury's cooldown, and grants you 1 Rune.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 6,
-      "effects": {
-        "armor_from_intellect_pct": 0.15
-      },
+      "effects": {},
       "connected_to": [
-        "runemaster_riftblade_ley_power"
+        "runemaster_riftblade_ley_power",
+        "runemaster_riftblade_primordial_fury"
       ],
-      "_source": "CoA handoff doc: 'Armor from Intellect; reduces damage done; parry generates an Inscribed Rune + boosts melee speed. Requires Two-Handed weapon.' A real defensive stance-style capstone alongside Primordial Fury."
+      "_source": "CoA Riftblade tooltip, 23 TE - the tree's own top gate: 'Casting Smolder now reduces the cooldown of Primordial Fury by -10 sec and Zenith by -5 sec.' REPLACES Prismatic Knight, which has no counterpart anywhere in CoA's Runemaster data (class tree or any of the three spec trees) and contradicted the spec page's stated weakness that Riftblade has no passive mitigation. CoA's six 23-TE Riftblade nodes are Turbulence, Fracture, Genesis, Spellfire Runes, Waveforged and Elemental Inscription; the first four already sit lower in this tree and Waveforged keys off Runeshroud, which this engine does not model, so Elemental Inscription is the one real top-gate node that was both missing and expressible. The Zenith half is deliberately dropped: Zenith is granted only by the Engravement tree here, so naming it would rebuild the same cross-tree dead filter this pass removed. The Rune is the Frontier stand-in for the second cooldown it cut in CoA.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_smolder"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "runemaster_primordial_fury"
+          ],
+          "turns": 1
+        },
+        "grant_resource": {
+          "resource": "runes",
+          "amount": 1
+        }
+      }
     },
     {
       "talent_id": "runemaster_riftblade_frost_spectre_bonus",

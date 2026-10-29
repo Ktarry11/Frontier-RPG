@@ -47,12 +47,12 @@
       "connected_to": [
         "sun_cleric_piety_dawnsear"
       ],
-      "_source": "CoA handoff doc: 'Boosts Fire spell crit damage.'"
+      "_source": "CoA handoff doc: 'Boosts Fire spell crit damage.' Kept as the tree's single crit-damage node after 'Scalding Light' at tier 1 was found carrying the identical effect; that slot now holds Wrath of God. Crit damage is a real Piety mechanic in the sidekick data - Piety's level-40 free passive 'Pious' reads 'Increases your critical damage dealt by 150% and your critical strikes grant allies Replenishment' - but the NAME 'Cleanser of Sins' appears nowhere in CoA's sun-cleric trees and is Frontier's own."
     },
     {
-      "talent_id": "sun_cleric_piety_scalding_light",
-      "name": "Scalding Light",
-      "description": "Increases Fire spell critical strike damage by 4% per rank.",
+      "talent_id": "sun_cleric_piety_wrath_of_god",
+      "name": "Wrath of God",
+      "description": "Increases the critical strike chance of Dawnsear and Sunflare by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -60,12 +60,14 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "fire_crit_damage_pct": 0.04
+        "ability_sun_cleric_dawnsear_crit": 1.0,
+        "ability_sun_cleric_sunflare_crit": 1.0
       },
       "connected_to": [
         "sun_cleric_piety_grace_l",
         "sun_cleric_piety_dawnsear"
-      ]
+      ],
+      "_source": "Replaces 'Scalding Light', which carried the identical effect (fire_crit_damage_pct 0.04 x 5) to the tier-0 node below it, had no _source note, and does not exist in CoA - two nodes, ten points, one effect. Filled from a real CoA Piety node Frontier skipped. Sidekick tooltip, Piety 'Wrath of God' (1 TE, 2 ranks): 'Increases the critical strike chance of Sunflare and Dawnsear by 3% and reduces spell pushback suffered from damaging attacks by 50%. (up to 2 ranks)'. Frontier has no spell-pushback mechanic, so only the crit-chance half is modelled; spread over Frontier's 5 ranks at 1% each (5% at full, against CoA's 6% over 2) and kept on the Sunset/Fire branch where both named nukes live. Pairs with Cleanser of Sins below it: that node scales crit DAMAGE, this one crit CHANCE."
     },
     {
       "talent_id": "sun_cleric_piety_dawnsear",
@@ -81,7 +83,7 @@
         "unlock_ability": "sun_cleric_dawnsear"
       },
       "connected_to": [
-        "sun_cleric_piety_scalding_light",
+        "sun_cleric_piety_wrath_of_god",
         "sun_cleric_piety_sunrise_and_sunset"
       ],
       "_source": "CoA handoff doc confirmed: 'Fire damage nuke.' Piety's Sunset-side primary nuke, paired with Sunflare's Sunrise-side Holy version."
@@ -225,15 +227,15 @@
         "sun_cleric_piety_dawnsear",
         "sun_cleric_piety_grace_r"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 10 Passive. After Dawn, Holy casts grant Sunrise, Fire casts grant Sunset; entering one locks out the other until the next cycle.' Piety's real Eclipse-lock identity mechanic, sitting at the center of the tree since both branches key off it.",
+      "_source": "CoA tooltip confirmed: 'Level 10 Passive. After Dawn, Holy casts grant Sunrise, Fire casts grant Sunset; entering one locks out the other until the next cycle.' Piety's real Eclipse-lock identity mechanic, sitting at the center of the tree since both branches key off it. Filter corrected: it listed sun_cleric_justicars_wrath, which only the Seraphim tree unlocks, so a Piety cleric could never trigger Sunrise from it, and sun_cleric_dawnsear, which is Fire in Frontier and so belongs to Sunset by this spec's own school lock (it moved to Duality of Light). Sunrise now keys off the Holy casts a Piety cleric really makes: the sidekick's Piety page calls Sunflare a primary nuke ('Dawnsear and Sunflare are your primary nukes', with 'only Holy or only Fire benefits active at once'), and Glare and Sunslam are the class's other baseline Holy hits.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 0,
         "ability_filter": [
           "sun_cleric_sunflare",
-          "sun_cleric_dawnsear",
-          "sun_cleric_justicars_wrath"
+          "sun_cleric_glare",
+          "sun_cleric_sunslam"
         ],
         "apply_effect": {
           "effect_id": "sunrise",
@@ -263,15 +265,15 @@
       "connected_to": [
         "sun_cleric_piety_sunrise_and_sunset"
       ],
-      "_source": "CoA handoff doc confirmed: 'Sunset Holy damage grants Twin Flame; Sunrise Fire damage grants Sun Power. Only one active.' Rewards staying committed to whichever school Sunrise/Sunset locked you into.",
+      "_source": "CoA handoff doc confirmed: 'Sunset Holy damage grants Twin Flame; Sunrise Fire damage grants Sun Power. Only one active.' Rewards staying committed to whichever school Sunrise/Sunset locked you into. Filter squared up with the schools in data/abilities/sun_cleric.json while fixing Sunrise and Sunset above: Dawnsear is Fire and this spec's other primary nuke, so it grants Sunset; Sunslam is Holy, so it moved to the Sunrise half. Radiant Flame is Holyflame and stays here, where Purgation and the rest of the right-hand branch already feed off it.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 0,
         "ability_filter": [
+          "sun_cleric_dawnsear",
           "sun_cleric_rapture",
-          "sun_cleric_radiant_flame",
-          "sun_cleric_sunslam"
+          "sun_cleric_radiant_flame"
         ],
         "apply_effect": {
           "effect_id": "sunset",

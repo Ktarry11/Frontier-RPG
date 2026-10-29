@@ -2,7 +2,7 @@
   "spec_name": "Stormbringer Wind",
   "tree_id": "stormbringer_wind",
   "description": "Support and mobility - calls elemental allies and keeps the party moving and topped up.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 22 real Wind-tagged nodes, condensed and rebalanced to Mage Fire's essence budget. Air Elemental kept as a real summon per Kyle's confirmation pets/forms are coming to the project; stubbed with a simple summon effect for now, ready to extend once the pet system exists.",
+  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 22 real Wind-tagged nodes, condensed and rebalanced to Mage Fire's essence budget. Air Elemental kept as a real summon per Kyle's confirmation pets/forms are coming to the project; stubbed with a simple summon effect for now, ready to extend once the pet system exists. | Oct 2026 CoA-fidelity pass: the tree had no ally-reaching node at all, which contradicts the Sidekick page's entire reading of the spec (\"It stacks group buffs onto allies the way Ebon Might, Prescience and Blessing of the Bronze do\"). Four nodes now grant real party buffs - Clear Skies (hit), Tailwind (haste), Aerodynamics (attack/spell power) and Kiss of the Clouds (absorb) - matching the page's own opener: \"stack Tailwind, Aerodynamics and Clear Skies on your side, add Tempest's Call haste, then drop Kiss of the Clouds as a group shield to eat the opening burst.\" Talents have no ally-facing payload key in this engine (splash_heal and smart_heal are the only two proc keys that reach an ally, and both are heals, which this spec explicitly does not have), so each is a talent-granted target_type \"party\" buff ability instead.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -97,36 +97,27 @@
         "haste": 1.0
       },
       "connected_to": [
-        "stormbringer_wind_tailwind"
+        "stormbringer_wind_raging_zephyr"
       ]
     },
     {
       "talent_id": "stormbringer_wind_clear_skies",
       "name": "Clear Skies",
-      "description": "Your Discharge casts have a 25% chance per rank to restore 80 Mana.",
-      "node_type": "passive",
+      "description": "Learn Clear Skies, calming the air so the whole party's spells and attacks land more often.",
+      "node_type": "active",
       "tier": 1,
-      "max_points": 4,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "unlock_ability": "stormbringer_clear_skies"
+      },
       "connected_to": [
         "stormbringer_wind_comforting_winds",
         "stormbringer_wind_gift_of_air"
       ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 0,
-        "ability_filter": [
-          "stormbringer_discharge"
-        ],
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 80
-        }
-      }
+      "_source": "CoA Wind, free node at 'Requires 4 points in this tree (level 15)': \"Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.\" What was here before - a 25%-per-rank chance for Discharge to restore 80 Mana - has no CoA counterpart under this name or any other in the Stormbringer trees; it was invented. CoA's node is a passive aura and Frontier talents cannot reach an ally, so it is authored as a cast raid buff (target_type party), the same shape Ranger's Battle Prowess uses for its hit_rating party buff."
     },
     {
       "talent_id": "stormbringer_wind_nimbus",
@@ -146,8 +137,8 @@
       ]
     },
     {
-      "talent_id": "stormbringer_wind_tailwind",
-      "name": "Tailwind",
+      "talent_id": "stormbringer_wind_raging_zephyr",
+      "name": "Raging Zephyr",
       "description": "Learn Raging Zephyr, a gust of wind that reduces an enemy's accuracy.",
       "node_type": "active",
       "tier": 1,
@@ -161,7 +152,8 @@
       "connected_to": [
         "stormbringer_wind_master_airbender",
         "stormbringer_wind_windsurf"
-      ]
+      ],
+      "_source": "CoA Wind, 'Requires 23 TE in this tree': \"Transforms your Whirlpool into Raging Zephyr. Raging Zephyr - 3 Charges, 35 sec recharge. Summon a Raging Zephyr at the targeted location for 12 seconds. Every 4 sec, it will pull all enemies within 10 yds inside of it.\" This node is where Frontier grants the Raging Zephyr ability. It sits at tier 1 rather than CoA's 23-TE gate because the ability itself is learnable at level 17 and Air Current (tier 2) shortens its cooldown, so the grant has to come first. Renamed from 'Tailwind', which in CoA is a different node entirely (a party haste cast) and is now authored as such at tier 3."
     },
     {
       "talent_id": "stormbringer_wind_windsurf",
@@ -178,7 +170,7 @@
       },
       "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
-        "stormbringer_wind_tailwind",
+        "stormbringer_wind_raging_zephyr",
         "stormbringer_wind_unrelenting_winds"
       ]
     },
@@ -437,42 +429,44 @@
       },
       "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
-        "stormbringer_wind_tailwind"
+        "stormbringer_wind_raging_zephyr"
       ]
     },
     {
-      "talent_id": "stormbringer_wind_resonant_winds",
-      "name": "Resonant Winds",
-      "description": "Increases healing done by 3% per rank.",
-      "node_type": "passive",
+      "talent_id": "stormbringer_wind_aerodynamics",
+      "name": "Aerodynamics",
+      "description": "Learn Aerodynamics, wrapping the party in charged mist that lends them attack and spell power.",
+      "node_type": "active",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "healing_power_pct": 3.0
+        "unlock_ability": "stormbringer_aerodynamics"
       },
       "connected_to": [
         "stormbringer_wind_storm_clouds"
-      ]
+      ],
+      "_source": "CoA Wind, free node at 'Requires 16 points in this tree (level 40)': \"Depletes 40 Static. Envelop party and raid members within 40 yds in magical mist, increasing their attack or spell power by 95 for 15 seconds. Does not stack with similar effects.\" Replaces 'Resonant Winds' (+3% healing done per rank), which has no CoA counterpart and pointed the wrong way besides - the Sidekick spec page says of Wind, \"No ally heal anywhere in the kit.\" Frontier has no either/or stat branch, so both attack and spell power are granted at a reduced value."
     },
     {
-      "talent_id": "stormbringer_wind_gusting_focus",
-      "name": "Gusting Focus",
-      "description": "Increases spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
+      "talent_id": "stormbringer_wind_tailwind",
+      "name": "Tailwind",
+      "description": "Learn Tailwind, putting the wind at your party's back so everything they do comes quicker.",
+      "node_type": "active",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "crit_chance_spell": 1.0
+        "unlock_ability": "stormbringer_tailwind"
       },
       "connected_to": [
         "stormbringer_wind_unrelenting_winds"
-      ]
+      ],
+      "_source": "CoA Wind, free node at 'Requires 11 points in this tree (level 30)': \"Depletes 20 Static. Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 seconds. Does not stack with similar effects.\" Replaces 'Gusting Focus' (+1% spell crit per rank), which has no CoA counterpart - invented. The self-damage half of the CoA tooltip is dropped: an ability's stat_mods apply to every recipient of a party buff, so a damage_dealt_pct here would buff the whole group instead of only the caster."
     },
     {
       "talent_id": "stormbringer_wind_skybound",
@@ -492,21 +486,22 @@
       ]
     },
     {
-      "talent_id": "stormbringer_wind_cyclonic_ward",
-      "name": "Cyclonic Ward",
-      "description": "Reduces Nature damage taken by 3% per rank.",
-      "node_type": "passive",
+      "talent_id": "stormbringer_wind_kiss_of_the_clouds",
+      "name": "Kiss of the Clouds",
+      "description": "Learn Kiss of the Clouds, a shared cloud shield that soaks the opening hits and holds your allies' casts steady.",
+      "node_type": "active",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "nature_damage_taken_pct": -0.03
+        "unlock_ability": "stormbringer_kiss_of_the_clouds"
       },
       "connected_to": [
         "stormbringer_wind_lexicon_of_servitude"
-      ]
+      ],
+      "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The Sidekick page calls this the whole of the spec's sustain - \"Kiss of the Clouds' absorb and your peels are the whole answer to a focus train.\" Replaces 'Cyclonic Ward' (-3% Nature damage taken per rank), which has no CoA counterpart - invented. The absorb is sized by absorb_pct_max_health rather than Intellect, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive uses it the same way)."
     }
   ]
 }

@@ -1573,6 +1573,27 @@ class Ability:
         # it; this would double-apply. Duration floors at 1 turn, since most
         # of the twelve carry duration 0 - a stun flagged on an ability is an
         # intent to stun, and zero turns of stun is not one.
+        # HEAL-AND-CLEANSE HYBRIDS COULD NOT CLEANSE. The dispel only runs
+        # under effect_type "dispel", so an ability that heals AND cleanses -
+        # a standard WoW shape - silently did only the healing. Starcaller's
+        # Prayer of Elune ("heal up to several allies and dispel harmful magic
+        # from them") and Tinker's Med Pack ("healing for 354 over 6 sec and
+        # cleanses all bleed, poison and disease effects") both carried a
+        # dispel_type that nothing read.
+        #
+        # Excludes "debuff", where dispel_type means something different and
+        # correct: it tags the debuff being APPLIED as dispellable by the
+        # enemy, which the debuff branch already threads (Warlock's Curse of
+        # Weakness is a Curse others can remove, not an ability that removes
+        # Curses). Excludes "dispel" itself, which already does this.
+        if (self.dispel_type and target is not None
+                and self.effect_type in ("heal", "hot")):
+            for patient in self._recipients(caster, target):
+                if patient is not None and hasattr(patient, "dispel_effect"):
+                    for _ in range(max(1, self.dispel_count)):
+                        if not patient.dispel_effect(self.dispel_type):
+                            break
+
         if self.is_stun and self.effect_type != "debuff" and target is not None:
             from combat.status_effects import StatusEffect
             for victim in (target if isinstance(target, list) else [target]):

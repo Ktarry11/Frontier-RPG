@@ -753,7 +753,7 @@
       "duration": 6,
       "stat_mods": {},
       "description": "Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.",
-      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
+      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.  dispel_type was 'poison_disease_bleed', a single invented school string. The real DispelType members are NONE/MAGIC/CURSE/POISON/DISEASE, and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match, so this cleansed nothing. Now the list form - ['poison','disease'] - which the engine accepts and paladin_cleanse and primalist_soothing_touch already use. Bleed is dropped because this engine has no bleed dispel school.",
       "requires_talent": true,
       "target_type": "ally",
       "ranks": [
@@ -771,7 +771,10 @@
         }
       ],
       "icon_id": null,
-      "dispel_type": "poison_disease_bleed"
+      "dispel_type": [
+        "poison",
+        "disease"
+      ]
     },
     {
       "ability_id": "tinker_round_armor_pen",

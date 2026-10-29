@@ -33,8 +33,8 @@
     },
     {
       "talent_id": "primalist_mountain_king_resources_of_the_earth",
-      "name": "Resources of the Earth",
-      "description": "Increases Stamina by 3 per rank.",
+      "name": "Mountain Thane",
+      "description": "Increases your Stamina by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -42,11 +42,12 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "stamina": 3
+        "stamina_pct": 2.0
       },
       "connected_to": [
         "primalist_mountain_king_quake"
-      ]
+      ],
+      "_source": "Renamed and re-effected 2026-10-29. The slot held 'Resources of the Earth' granting a flat +3 Stamina a rank - fifteen Stamina at five points, which is nothing at level 60 - and CoA's node of that name is not a Stamina node at all: 'Resources of the Earth - Critical strikes now grant allies Replenishment. Replenishment: Restores 1% maximum mana every 5 sec to allies within 100 yds for 15 seconds.' A mana-battery node on a Rage tank, carrying a Stamina effect. Replaced with the real CoA Mountain King node that does what this slot was reaching for, 'Mountain Thane - Increases your Stamina by 5% and causes Earth's Rage to stack 1 additional time. (up to 2 ranks)'. Only the Stamina half is modelled; Frontier has no Earth's Rage stack mechanic. stamina_pct is PERCENT POINTS, so 2.0 a rank over Frontier's 5 ranks lands at +10%, matching CoA's 2 x 5%. WHY IT MATTERS: with the damage_taken_pct unit bug fixed, this spec read the LOWEST effective HP of all nine tanks and CoA rates it a solid B main tank whose Mountain Fury scales off Stamina - it had no Stamina scaling anywhere in the tree."
     },
     {
       "talent_id": "primalist_mountain_king_unyielding_form",
@@ -103,7 +104,7 @@
     {
       "talent_id": "primalist_mountain_king_quake",
       "name": "Quake",
-      "description": "Increases the threat you generate by 2% per rank.",
+      "description": "Learn Quake, stomping the ground to damage and slow nearby enemies. Each rank also increases its damage by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -111,9 +112,10 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "threat_generation_pct": 0.02
+        "unlock_ability": "primalist_quake",
+        "ability_primalist_quake_damage": 0.06
       },
-      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_threat_pct - the real ability is primalist_quake, and this talent is even literally named 'Quake' already. Retargeted the ability_id, but left as a genuinely inert key: ability_<id>_threat_pct is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py). A real per-ability threat multiplier doesn't exist in this engine yet - CombatEngine only reads class-wide low_health_threat_pct/threat_generation_pct, not an ability-specific one. Harmless, does nothing, flagged rather than silently built.",
+      "_source": "CoA sidekick, Mountain King tree: 'Quake - 2 Charges, 8 sec recharge. Stomp the ground, dealing Weapon Damage plus nature AP Nature damage to enemies within 8 yds and reduces their melee and ranged haste by 20% for 10 seconds.' Quake is Mountain King's OWN talent in CoA, not Geomancy's (Geomancy's ground AoE is the separate baseline Earthquake, which its Tectonic Resonance/Tectonic Power/Therazane's Blessing nodes modify), and six Mountain King nodes key off it - Blessed by the Earth, Raging Earth, Quakeformer, Earthmaker, Quaking Thane and Mountain Giant's Aftershock. The spec page agrees: 'Nearly every spec-defining tool lives in melee range: Rock Barrier, Quake, Mountain Fury, Mountain Hammer' and 'Keep Quake between attacks for AoE threat/damage and rage back per target.' Frontier merges CoA's Quake and Earthquake into one ability and unlocked it in Geomancy only, which left Mountain Giant and Mountain Avatar in this tree pointing at an ability a Mountain King could never learn, so the unlock is granted here as well (Geomancy keeps its own). This node was previously a third copy of the tree's +2% threat passive (Earthen Resolve and Terrasmash still carry that) under the name 'Quake'; the per-rank Quake damage replaces it so the tree keeps its 58 spendable points.",
       "connected_to": [
         "primalist_mountain_king_resources_of_the_earth"
       ]
@@ -203,7 +205,7 @@
     {
       "talent_id": "primalist_mountain_king_mountain_avatar",
       "name": "Mountain Avatar",
-      "description": "Damage dealt by Geode Barrage or Earthquake has a 5% chance to grant Earthen Avatar for 5 seconds: increases damage dealt, reduces damage taken by 15%, increases melee haste by 20%, and grants immunity to stuns, roots, and snares. Usable while stunned.",
+      "description": "Damage dealt by Geode Barrage or Quake has a 5% chance to grant Earthen Avatar for 5 seconds: increases damage dealt, reduces damage taken by 15%, increases melee haste by 20%, and grants immunity to stuns, roots, and snares. Usable while stunned.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

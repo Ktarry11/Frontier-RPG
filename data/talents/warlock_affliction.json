@@ -186,7 +186,7 @@
     {
       "talent_id": "warlock_affliction_shadow_embrace",
       "name": "Shadow Embrace",
-      "description": "Your Shadow Bolt, Shadowburn and Drain Life hits have an 8% chance per rank to wrap the target in Shadow Embrace, dealing 90 Shadow damage per turn for 3 turns.",
+      "description": "Your Shadow Bolt and Drain Life hits have an 8% chance per rank to wrap the target in Shadow Embrace, dealing 90 Shadow damage per turn for 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -198,13 +198,13 @@
         "warlock_affliction_improved_drain_soul",
         "warlock_affliction_fel_concentration"
       ],
+      "_source": "Warlock is one of the nine vanilla classes, so it has no CoA sidekick page - the reference here is live WoW, where Shadow Embrace is applied by the Affliction warlock's own casts (Shadow Bolt in the WotLK version, Corruption/Curse of Agony/Siphon Life in the TBC one) and never by Shadowburn, which is a Destruction talent in every version of the game. warlock_shadowburn was in this filter and is unlocked only by warlock_destruction, so a third of the proc was dead for an Affliction spec; removed, leaving the two direct-damage casts an Affliction warlock actually makes.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 8,
         "icd": 0,
         "ability_filter": [
           "warlock_shadow_bolt",
-          "warlock_shadowburn",
           "warlock_drain_life"
         ],
         "apply_effect": {

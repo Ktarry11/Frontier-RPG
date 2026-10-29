@@ -574,6 +574,29 @@ class StatusEffectMixin:
         """
         effects = self._effects()
 
+        # BECOMING IMMUNE TO CONTROL BREAKS CURRENT CONTROL. cc_immune only
+        # blocked INCOMING stuns (see the check below), so a buff granting it
+        # left an already-stunned character stunned - immune to the next stun
+        # while still sitting out the turns of the last one, which is not what
+        # any of these abilities say. Cultist's Voidborne and Dark Veil both
+        # read as breaking free, and three more - Guardian's Liberation,
+        # Ranger's Freedom and Templar's Testament of Will - are literally
+        # "whatever is holding your ally, it stops holding them" and
+        # "break an ally free of whatever is holding them in place".
+        #
+        # Those three were authored as effect_type "dispel" with
+        # dispel_type "movement", which is NOT a DispelType member (the real
+        # ones are NONE/MAGIC/CURSE/POISON/DISEASE), and
+        # remove_debuff_by_dispel_type treats an unmatched school as a
+        # guaranteed no-match - so all three removed nothing, ever. This
+        # engine has no movement to impair; its one incapacitate mechanic is
+        # is_stun, so breaking free means clearing that.
+        if (effect.effect_type == EffectType.BUFF
+                and (effect.stat_mods or {}).get("cc_immune", 0) > 0):
+            for existing in list(effects):
+                if getattr(existing, "is_stun", False):
+                    effects.remove(existing)
+
         # cc_immune (CoA's Voidborne "stun immune", Dark Veil "stun +
         # silence immune" - stun_immune/silence_immune were originally two
         # separate stat_mods keys, merged into this one during the stat-

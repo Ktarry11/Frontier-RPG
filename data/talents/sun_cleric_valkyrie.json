@@ -326,7 +326,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_its_always_sunny",
       "name": "It's Always Sunny",
-      "description": "Casting Dawn resets the cooldowns of Valkyr's Calling and Solar Nova.",
+      "description": "Casting Dawn resets the cooldown of Valkyr's Calling.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -337,7 +337,7 @@
       "connected_to": [
         "sun_cleric_valkyrie_pendant_of_the_sun"
       ],
-      "_source": "CoA handoff doc confirmed: 'Dawn activation reduces Radiance/Valkyr's Calling/Sunslam cooldowns.'",
+      "_source": "CoA sidekick, Valkyrie tree: \"It's Always Sunny - Activating Dawn now reduces the cooldowns of Radiance, Valkyr's Calling, and Sunslam by 10%.\" The tooltip names three abilities and this node reset two, one of which was sun_cleric_solar_nova - a Seraphim-only unlock the tooltip never mentions - so half the node was dead for a Valkyrie. Of the three the tooltip does name, only Valkyr's Calling can be expressed here: Radiance is a CoA class-tree ability with no Frontier counterpart, and Frontier's Sunslam has no cooldown to reduce (data/abilities/sun_cleric.json, cooldown 0, gated on Dawn being up instead). Left at the one real target rather than padded with an ability CoA does not put here.",
       "proc": {
         "trigger": "on_cast",
         "chance": 100,
@@ -347,8 +347,7 @@
         ],
         "reset_cooldown": {
           "abilities": [
-            "sun_cleric_valkyrs_calling",
-            "sun_cleric_solar_nova"
+            "sun_cleric_valkyrs_calling"
           ]
         }
       }

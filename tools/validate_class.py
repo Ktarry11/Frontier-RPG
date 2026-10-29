@@ -623,7 +623,22 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
         tag = path.stem
         for node in doc.get("nodes") or []:
             nid = node.get("talent_id", "<missing>")
-            for target in referenced_abilities(node.get("proc")):
+            refs = referenced_abilities(node.get("proc"))
+            # EFFECTS KEYS TOO, not just procs. ability_<id>_<suffix> in a
+            # node's effects names an ability exactly as a filter does, and a
+            # proc-only version of this check missed warlock_demonology/
+            # decimation, which carried ability_warlock_shadowburn_damage
+            # while Shadowburn is unlocked only in Destruction - so half that
+            # talent's payout could never apply to the spec it sits in.
+            for key in (node.get("effects") or {}):
+                if not key.startswith("ability_"):
+                    continue
+                body = key[len("ability_"):]
+                match = max((a for a in owner if body.startswith(a)),
+                            key=len, default=None)
+                if match:
+                    refs.add(match)
+            for target in sorted(refs):
                 owners = owner.get(target)
                 if owners and tag not in owners:
                     report.error(

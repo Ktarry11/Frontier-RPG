@@ -461,10 +461,10 @@
       "duration": 1,
       "stat_mods": {
         "stunned": 1,
-        "damage_taken_pct": 50
+        "damage_taken_pct": 0.5
       },
       "description": "Bring judgement upon all nearby enemies, incapacitating them. Damage dealt ends this effect early but increases their damage taken from your next hit.",
-      "_source": "Confirmed screenshot: Lvl 6, 'incapacitating them for 30 sec (8 sec vs players). Damage dealt will end this effect. Affected enemies take 50% increased damage from your next instance of damage.' Modeled as a stun for turn-based combat.",
+      "_source": "Confirmed screenshot: Lvl 6, 'incapacitating them for 30 sec (8 sec vs players). Damage dealt will end this effect. Affected enemies take 50% increased damage from your next instance of damage.' Modeled as a stun for turn-based combat.\n\nUNIT FIX 2026-10-29, found while tracing the identical bug on Primalist's Boon of the Turtle. This was 50, meaning +50 percentage points to a key that is NOT read in points: Character.take_damage does `taken_mult = 1.0 + get_talent_effect('damage_taken_pct')` then adds get_status_stat_mod('damage_taken_pct') with NO /100, unlike physical_damage_taken_pct a few lines below which IS divided. So 50 made taken_mult 51 and every enemy hit by this eight-second-cooldown AoE took FIFTY-ONE TIMES damage. Now 0.5, the 50% the screenshot states. The other stat_mods on this ability were already right and are untouched: damage_dealt_pct and healing_done_pct ARE points (combat/abilities.py divides the status-sourced value by 100).",
       "target_type": "enemy_aoe",
       "ranks": [
         {
@@ -971,12 +971,12 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "damage_taken_pct": -100,
+        "damage_taken_pct": -1.0,
         "damage_dealt_pct": -50,
         "healing_done_pct": -50
       },
       "description": "The Blessed ally becomes immune to all damage for a window, but their own damage and healing done is reduced. Only usable on the Blessed ally.",
-      "_source": "CoA handoff doc confirmed: 'Blessed ally immune to all damage for a window, but their own damage+healing reduced. Only on Blessed ally.'",
+      "_source": "CoA handoff doc confirmed: 'Blessed ally immune to all damage for a window, but their own damage+healing reduced. Only on Blessed ally.'\n\nUNIT FIX 2026-10-29: was -100. Immunity is the intended effect, so the behaviour was right by accident, but only because take_damage clamps - it adds get_status_stat_mod('damage_taken_pct') to taken_mult UNDIVIDED, so -100 drove the multiplier to -99 and relied on the floor to come back to zero. -1.0 is the value that actually means immune in this engine and does not depend on a clamp. damage_dealt_pct and healing_done_pct stay as points, which is correct for those two keys - the status-sourced value is divided by 100 in combat/abilities.py. Same convention trap that made Primalist Mountain King immortal.",
       "target_type": "ally",
       "ranks": [
         {

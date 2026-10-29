@@ -2,7 +2,7 @@
   "spec_name": "Runemaster Glyphic",
   "tree_id": "runemaster_glyphic",
   "description": "Arcane-caster-style burst mage - builds a Frost/Fire/Arcane Glyph chain off Elemental Burst and Primordial Blast, then detonates it with Glyphic Ruin or Thaumaturgy.",
-  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available. Real mechanic per the handoff: sequential glyph chain (cast while Frost Glyph active -> Flame Glyph; cast while Flame Glyph active -> Arcane Glyph), detonated via Glyphic Ruin (bigger hit) or Thaumaturgy (cheap instant). Glyphic Ruin and Thaumaturgy confirmed via screenshot; the glyph-chain-sequencing mechanic itself isn't dynamically modeled yet (Runes resource tracks a count, not which element is active) - see _implementation_note on the capstone.",
+  "_source_note": "Built from CoA handoff doc (real playstyle/rotation/ability names) + confirmed screenshot numbers where available. Real mechanic per the sidekick Glyphic page: a sequential glyph chain - 'casting grants Frost Glyph, casting again while Frost Glyph is up grants Flame Glyph, casting again while that's up grants Arcane Glyph' - detonated via Glyphic Ruin (bigger cast-time hit) or Thaumaturgy (cheap instant). The chain is now live as three talent nodes (Frost Glyph / Flame Glyph / Arcane Glyph), each stage a real StatusEffect with its own unleash payload; the 'while the previous glyph is up' condition is carried by nested procs, which is the only conditional the engine exposes to talent data. The RUNES resource still meters the spender side (Glyphic Ruin and Thaumaturgy each cost 1), which is separate from which element is armed.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -167,7 +167,8 @@
       },
       "connected_to": [
         "runemaster_glyphic_expert_elementalist",
-        "runemaster_glyphic_glyphic_ruin"
+        "runemaster_glyphic_glyphic_ruin",
+        "runemaster_glyphic_arcane_glyph"
       ]
     },
     {
@@ -296,7 +297,96 @@
         "runemaster_glyphic_eye_of_the_beholder",
         "runemaster_glyphic_manuscription"
       ],
-      "_source": "CoA handoff doc confirmed as the Glyphic burst capstone: 'Instantly grants all 3 Glyphs + overload: their next unleash gets a bonus effect.' The sequential Frost->Flame->Arcane glyph-chain mechanic this spec is built around isn't dynamically modeled in this engine yet (RUNES resource tracks a count, not which element is currently active) - flag for a real implementation pass before this spec is played seriously."
+      "_source": "CoA handoff doc confirmed as the Glyphic burst capstone: 'Instantly grants all 3 Glyphs + overload: their next unleash gets a bonus effect.' The glyph grant is now real: casting Glyphic Overload arms Frost, Flame and Arcane Glyph at once, so the next Glyphic Ruin or Thaumaturgy unleashes all three without walking the chain. The 'empowered unleash' half has no engine hook and is not modelled; the Runes the ability itself generates stand in for the tempo it buys.",
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 1,
+        "ability_filter": [
+          "runemaster_glyphic_overload"
+        ],
+        "apply_effect": [
+          {
+            "effect_id": "runemaster_frost_glyph",
+            "name": "Frost Glyph",
+            "effect_type": "buff",
+            "duration": 4,
+            "stat_mods": {},
+            "on_target": false,
+            "proc": {
+              "trigger": "on_damage_cast",
+              "chance": 100,
+              "icd": 1,
+              "ability_filter": [
+                "runemaster_glyphic_ruin",
+                "runemaster_thaumaturgy"
+              ],
+              "damage_flat": 40,
+              "school": "frost",
+              "apply_effect": {
+                "effect_id": "runemaster_frost_glyph_chill",
+                "name": "Frost Glyph",
+                "effect_type": "debuff",
+                "duration": 2,
+                "stat_mods": {
+                  "haste": -20
+                },
+                "on_target": true
+              }
+            }
+          },
+          {
+            "effect_id": "runemaster_flame_glyph",
+            "name": "Flame Glyph",
+            "effect_type": "buff",
+            "duration": 4,
+            "stat_mods": {},
+            "on_target": false,
+            "proc": {
+              "trigger": "on_damage_cast",
+              "chance": 100,
+              "icd": 1,
+              "ability_filter": [
+                "runemaster_glyphic_ruin",
+                "runemaster_thaumaturgy"
+              ],
+              "damage_flat": 35,
+              "school": "fire",
+              "apply_effect": {
+                "effect_id": "runemaster_flame_glyph_burn",
+                "name": "Flame Glyph",
+                "effect_type": "dot",
+                "duration": 3,
+                "potency": 18,
+                "damage_school": "fire",
+                "on_target": true
+              }
+            }
+          },
+          {
+            "effect_id": "runemaster_arcane_glyph",
+            "name": "Arcane Glyph",
+            "effect_type": "buff",
+            "duration": 4,
+            "stat_mods": {},
+            "on_target": false,
+            "proc": {
+              "trigger": "on_damage_cast",
+              "chance": 100,
+              "icd": 1,
+              "ability_filter": [
+                "runemaster_glyphic_ruin",
+                "runemaster_thaumaturgy"
+              ],
+              "splash_damage": {
+                "pct": 0.25,
+                "school": "arcane",
+                "max_targets": 3
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "talent_id": "runemaster_glyphic_devour_mana",
@@ -682,6 +772,219 @@
           "runemaster_primordial_blast"
         ],
         "cast_ability": "runemaster_frigid_blast"
+      }
+    },
+    {
+      "talent_id": "runemaster_glyphic_frost_glyph",
+      "name": "Frost Glyph",
+      "description": "Elemental Burst, Primordial Blast and Runic Obliteration etch a Frost Glyph onto you. Glyphic Ruin and Thaumaturgy unleash it, striking for Frost damage and chilling the target so it acts less often.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [
+        "runemaster_glyphic_flame_glyph"
+      ],
+      "_source": "CoA tooltip: 'Using Elemental Burst and Primordial Blast now grants you Frost Glyph. Frost Glyph Unleash: Deals 437 Frost Damage and slows movement speed by -30% for 4 seconds.' Stage one of the chain the whole spec is named for, which Frontier had no trace of - the tree held every glyph CONSUMER (Glyphic Ruin, Thaumaturgy, Unleashed Power, Scroll of Magic, Primordial Salvos, Arcane Student, Glyphic Overload) and nothing that granted a glyph. Movement slows do not exist in a turn engine (see ranger_archery's own note), so the slow half is a Haste penalty on the target: turn_meter.py drives turn speed off Haste, so that genuinely makes the target act less often rather than being a flavour line. Runic Obliteration is in the trigger list because its own CoA line is 'each missile grants a Glyph'. Numbers are Frontier's.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_elemental_burst",
+          "runemaster_primordial_blast",
+          "runemaster_runic_obliteration"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_frost_glyph",
+          "name": "Frost Glyph",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "trigger": "on_damage_cast",
+            "chance": 100,
+            "icd": 1,
+            "ability_filter": [
+              "runemaster_glyphic_ruin",
+              "runemaster_thaumaturgy"
+            ],
+            "damage_flat": 40,
+            "school": "frost",
+            "apply_effect": {
+              "effect_id": "runemaster_frost_glyph_chill",
+              "name": "Frost Glyph",
+              "effect_type": "debuff",
+              "duration": 2,
+              "stat_mods": {
+                "haste": -20
+              },
+              "on_target": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "runemaster_glyphic_flame_glyph",
+      "name": "Flame Glyph",
+      "description": "With a Frost Glyph already on you, your next Elemental Burst, Primordial Blast or Runic Obliteration adds a Flame Glyph. Unleashing it burns the target on the spot and leaves the burn smouldering.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "runemaster_glyphic_frost_glyph",
+        "runemaster_glyphic_arcane_glyph"
+      ],
+      "_source": "CoA tooltip: 'Using Elemental Burst or Primordial Blast while Frost Glyph is active now grants you a Flame Glyph. Flame Glyph Unleash: Deals Fire Damage and an additional Fire Damage over 6 seconds.' Stage two. A talent proc has no 'while effect X is active' gate - the engine's only conditional is a proc nested inside a buff, which is live only while that buff is - so this node hands out a chain-state buff alongside the glyph and the chain advances on the NEXT builder cast, which is what makes Flame land one cast after Frost instead of alongside it. Take this without Frost Glyph and you still only get Flame one cast in, so the sequence cannot be skipped.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_elemental_burst",
+          "runemaster_primordial_blast",
+          "runemaster_runic_obliteration"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_glyph_chain_flame",
+          "name": "Glyph Chain: Flame",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "trigger": "on_damage_cast",
+            "chance": 100,
+            "icd": 0,
+            "ability_filter": [
+              "runemaster_elemental_burst",
+              "runemaster_primordial_blast",
+              "runemaster_runic_obliteration"
+            ],
+            "apply_effect": {
+              "effect_id": "runemaster_flame_glyph",
+              "name": "Flame Glyph",
+              "effect_type": "buff",
+              "duration": 4,
+              "stat_mods": {},
+              "on_target": false,
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 100,
+                "icd": 1,
+                "ability_filter": [
+                  "runemaster_glyphic_ruin",
+                  "runemaster_thaumaturgy"
+                ],
+                "damage_flat": 35,
+                "school": "fire",
+                "apply_effect": {
+                  "effect_id": "runemaster_flame_glyph_burn",
+                  "name": "Flame Glyph",
+                  "effect_type": "dot",
+                  "duration": 3,
+                  "potency": 18,
+                  "damage_school": "fire",
+                  "on_target": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "runemaster_glyphic_arcane_glyph",
+      "name": "Arcane Glyph",
+      "description": "With a Flame Glyph already on you, another Elemental Burst, Primordial Blast or Runic Obliteration adds an Arcane Glyph. Unleashing it throws the blast outward onto everything crowded around your target.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -7,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "runemaster_glyphic_flame_glyph",
+        "runemaster_glyphic_frigid_blast"
+      ],
+      "_source": "CoA tooltip: 'Using Elemental Burst or Primordial Blast while Flame Glyph is active now grants you Arcane Glyph. Arcane Glyph Unleash: Deals Arcane Damage to up to N enemies near the primary target.' Stage three, and the reason the sidekick playstyle says you 'rarely want all three glyphs on a single target' - the Arcane unleash is a splash and is wasted on one enemy, which is also what Primordial Salvos in this tree is already built on. Two chain-state buffs deep rather than one, so Arcane cannot arrive before Flame. Splash is a share of the unleashing hit so it scales with Glyphic Ruin's rank instead of being a flat number.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "runemaster_elemental_burst",
+          "runemaster_primordial_blast",
+          "runemaster_runic_obliteration"
+        ],
+        "apply_effect": {
+          "effect_id": "runemaster_glyph_chain_arcane",
+          "name": "Glyph Chain: Arcane",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {},
+          "on_target": false,
+          "proc": {
+            "trigger": "on_damage_cast",
+            "chance": 100,
+            "icd": 0,
+            "ability_filter": [
+              "runemaster_elemental_burst",
+              "runemaster_primordial_blast",
+              "runemaster_runic_obliteration"
+            ],
+            "apply_effect": {
+              "effect_id": "runemaster_glyph_chain_arcane_held",
+              "name": "Glyph Chain: Arcane",
+              "effect_type": "buff",
+              "duration": 4,
+              "stat_mods": {},
+              "on_target": false,
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 100,
+                "icd": 0,
+                "ability_filter": [
+                  "runemaster_elemental_burst",
+                  "runemaster_primordial_blast",
+                  "runemaster_runic_obliteration"
+                ],
+                "apply_effect": {
+                  "effect_id": "runemaster_arcane_glyph",
+                  "name": "Arcane Glyph",
+                  "effect_type": "buff",
+                  "duration": 4,
+                  "stat_mods": {},
+                  "on_target": false,
+                  "proc": {
+                    "trigger": "on_damage_cast",
+                    "chance": 100,
+                    "icd": 1,
+                    "ability_filter": [
+                      "runemaster_glyphic_ruin",
+                      "runemaster_thaumaturgy"
+                    ],
+                    "splash_damage": {
+                      "pct": 0.25,
+                      "school": "arcane",
+                      "max_targets": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   ]

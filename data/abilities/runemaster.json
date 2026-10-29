@@ -1364,10 +1364,10 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "damage_taken_pct": -10
+        "damage_taken_pct": -0.1
       },
       "description": "Regenerate Mana and reduce damage taken for a duration.",
-      "_source": "CoA handoff doc: 'Regens % max mana; reduces damage taken.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Regens % max mana; reduces damage taken.' Real numbers not confirmed via a dedicated screenshot. damage_taken_pct in a status stat_mod is a FRACTION: character.py's take_damage adds get_status_stat_mod('damage_taken_pct') to taken_mult undivided, while physical_damage_taken_pct and magic_damage_taken_pct four lines below it in the same method are divided by 100. The convention is per key with no naming rule, so do not generalise from either one. This was -10, which is -1000%: it clamped every hit to 1 damage and made the buff a flat immunity instead of a mitigation cooldown.",
       "target_type": "self",
       "ranks": [
         {
@@ -2073,11 +2073,11 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "damage_taken_pct": -8,
+        "damage_taken_pct": -0.08,
         "max_mana_pct": 10
       },
       "description": "Reduces damage taken and increases maximum Mana. Only one Aspect active.",
-      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.' Real numbers not confirmed via a dedicated screenshot. damage_taken_pct in a status stat_mod is a FRACTION: character.py's take_damage adds get_status_stat_mod('damage_taken_pct') to taken_mult undivided, while physical_damage_taken_pct and magic_damage_taken_pct four lines below it in the same method are divided by 100. The convention is per key with no naming rule, so do not generalise from either one. This was -8, which is -800%: it clamped every hit to 1 damage and made a 30-turn stance a flat immunity.",
       "target_type": "self",
       "ranks": [
         {

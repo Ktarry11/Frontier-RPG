@@ -377,36 +377,36 @@
       "name": "Storm Ascendance",
       "description": "For 15 seconds, your spell critical strikes have a 25% chance to reset the cooldown of Electrocute and grant 20 Static.",
       "node_type": "passive",
-      "tier": 6,
+      "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
+      "hex_x": 2,
+      "hex_y": 4,
       "effects": {
         "unlock_ability": "stormbringer_storm_ascendance"
       },
       "connected_to": [
         "stormbringer_lightning_volt"
       ],
-      "_source": "Kyle: 'storm ascendance is actually a class talent but we can move it to lightning' - redistributed here as the Lightning capstone."
+      "_source": "Moved from tier 6 to tier 5. Storm Ascendance is not a Lightning capstone in CoA at all - it is a CLASS-tree node behind 'Requires 9 AE in this tree' (\"Transform into a storm elemental for 15 seconds, increasing your Magic damage dealt by 20% and reducing your Magic damage taken by -50%...\"), so every spec can reach it. What the Lightning tree gates near the top around it is Ascension, the free node at 'Requires 21 points in this tree (level 50)': \"Increases the duration of your Storm Ascendance by 10 sec\" - CoA's tier 5, which is where this now sits. Tier 6 is left to Ride the Lightning alone, so the tree narrows to a single capstone as the layout rule requires."
     },
     {
       "talent_id": "stormbringer_lightning_ride_the_lightning",
       "name": "Ride the Lightning",
-      "description": "Increases Volt damage by 8% per rank and reduces its Mana cost by 5% per rank.",
-      "node_type": "passive",
+      "description": "Learn Ride the Lightning, a bolt-borne dash that sears everything in the line you take.",
+      "node_type": "active",
       "tier": 6,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_stormbringer_volt_damage": 0.08,
-        "ability_stormbringer_volt_cost_pct": 0.05
+        "unlock_ability": "stormbringer_ride_the_lightning"
       },
       "connected_to": [
         "stormbringer_lightning_volt"
-      ]
+      ],
+      "_source": "CoA Lightning, 'Requires 23 TE in this tree': \"Depletes 40 Static. Infuse yourself with lightning and blink forward a long distance, dealing SP Nature damage to all enemies in your path. Scales with modifiers to Discharge.\" The tier is right - CoA really does gate this at the top of the Lightning tree, alongside Flux Arc, Electrical Charge, Lord of Lightning, Thunder Wave and Crackling Devastation - so the node stays at tier 6 and is now the tree's only capstone. The effect was wrong: it read +8% Volt damage and -5% Volt cost per rank, which is not this tooltip or any other CoA node's. It now grants the ability. There is no movement in this combat engine, so the blink is dropped and what remains is the damage it deals along the way, as an enemy_aoe Nature nuke costing 40 Static."
     },
     {
       "talent_id": "stormbringer_lightning_unbound_lightning",

@@ -1448,7 +1448,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Heal up to several allies and dispel harmful magic from them.",
-      "_source": "Confirmed screenshot: Lvl 30, Sentinel(1) tag, 'healing up to 12 allies within 40 yds for 173, and dispel 1 harmful magic effect from them.' Moon Priest's real party heal+cleanse (tag conflict noted but mechanic clearly belongs here per the handoff doc).",
+      "_source": "Confirmed screenshot: Lvl 30, Sentinel(1) tag, 'healing up to 12 allies within 40 yds for 173, and dispel 1 harmful magic effect from them.' Moon Priest's real party heal+cleanse (tag conflict noted but mechanic clearly belongs here per the handoff doc).  Its description says 'heal up to several allies and dispel harmful magic from them' and it carried NO dispel_type, which remove_debuff_by_dispel_type treats as a guaranteed no-match - an ability with no configured school finds nothing, full stop (see that method's docstring). So the dispel half never happened. Now 'magic', the school the description names.",
       "target_type": "party",
       "ranks": [
         {
@@ -1470,7 +1470,8 @@
           "effect_value": 245
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "dispel_type": "magic"
     },
     {
       "ability_id": "starcaller_aspect_of_the_goddess",

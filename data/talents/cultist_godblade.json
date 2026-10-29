@@ -176,7 +176,7 @@
     {
       "talent_id": "cultist_godblade_hysterical_momentum",
       "name": "Hysterical Momentum",
-      "description": "Spending Insanity has a 20% chance per rank to grant Hysterical Momentum, increasing your Haste by 5% for 3 turns and stacking up to 3 times.",
+      "description": "Damage dealt by Blade of the Empire has a 20% chance per rank to grant Hysterical Momentum, increasing your Haste by 5% for 3 turns and stacking up to 3 times.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -187,17 +187,13 @@
       "connected_to": [
         "cultist_godblade_maker_of_miseries"
       ],
+      "_source": "CoA sidekick, Godblade tree: 'Hysterical Momentum - Damage dealt by Blade of the Empire increases your melee haste by 3% for 8 seconds, stacking 3 times.' The filter here used to list six abilities including cultist_void_strikes, which only the Dreadnought tree unlocks, so the node was partly dead for a Godblade. Narrowed to the single ability the tooltip names - Blade of the Empire is baseline and is the tree's own spender (Voidforged Edge cuts its cooldown, Hand of N'Zoth refreshes its charges). Trigger moved from on_cast to on_damage_cast to match 'damage dealt by'. Frontier's own numbers (5%, 3 turns) kept.",
       "proc": {
-        "trigger": "on_cast",
+        "trigger": "on_damage_cast",
         "chance": 20,
         "icd": 0,
         "ability_filter": [
-          "cultist_wrath_of_the_black_empire",
-          "cultist_hammer_of_twilight",
-          "cultist_entropic_slam",
-          "cultist_eldritch_shock",
-          "cultist_void_strikes",
-          "cultist_rift"
+          "cultist_blade_of_the_empire"
         ],
         "apply_effect": {
           "effect_id": "cultist_hysterical_momentum",
@@ -456,7 +452,7 @@
     {
       "talent_id": "cultist_godblade_twilights_call",
       "name": "Twilight's Call",
-      "description": "A critical Obliteration Beam answers the call, returning 20 Insanity.",
+      "description": "A critical Hammer of Twilight answers the call, returning 20 Insanity.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -467,13 +463,13 @@
       "connected_to": [
         "cultist_godblade_touch_of_the_void"
       ],
-      "_source": "CoA handoff doc confirmed as a core rotation piece: 'Crits refund 20 via Twilight's Call.'",
+      "_source": "CoA sidekick, Godblade tree: 'Twilight's Call - Level 30 Passive. Critical strikes with Hammer of Twilight now refund 20 Insanity.' The 20 Insanity refund was right (the earlier handoff-doc note caught that much) but it was keyed to cultist_obliteration_beam, which only the Corruption tree unlocks, so the node could never fire for a Godblade. Retargeted to Hammer of Twilight, which the tooltip names and which is baseline; the tree already leans on it (Touch of the Void, Rift).",
       "proc": {
         "trigger": "on_crit",
         "chance": 100,
         "icd": 0,
         "ability_filter": [
-          "cultist_obliteration_beam"
+          "cultist_hammer_of_twilight"
         ],
         "grant_resource": {
           "resource": "insanity",

@@ -91,19 +91,40 @@
     {
       "talent_id": "stormbringer_maelstrom_conduit",
       "name": "Conduit",
-      "description": "Increases your maximum Static by 10 per rank.",
+      "description": "Your Frost spells leave the target conducting, taking more Magic damage with every layer.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "static_max": 10
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_maelstrom_kinetic_energy"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_torrential_wrath",
+          "stormbringer_stormflow",
+          "stormbringer_drown",
+          "stormbringer_deluge"
+        ],
+        "apply_effect": {
+          "effect_id": "conduit",
+          "name": "Conduit",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 4,
+          "stat_mods": {
+            "magic_damage_taken_pct": 4
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA Maelstrom, tier 0: \"Dealing Frost damage now has a 60% chance to increase the damage the target takes from Electrocute by 15% for 10 seconds, stacking up to 4 times.\" This node previously read \"Increases your maximum Static by 10 per rank\", duplicating Maelstrom Flow's effect; the pool stayed there and the CoA tooltip comes back here. ability_filter lists the spec's four Frost spells, which is how 'dealing Frost damage' is expressed per-cast. 20% per rank reaches CoA's 60% at 3 ranks, because proc chance is multiplied by points spent. There is no per-ability damage-taken key in the engine, so the amplification is magic_damage_taken_pct - the same key Stormcloud in this tree already uses - which covers Electrocute's Nature damage and is set well below CoA's 15% per stack to keep a four-stack debuff in line with Stormcloud's single 20%."
     },
     {
       "talent_id": "stormbringer_maelstrom_conductive",
@@ -312,7 +333,7 @@
       },
       "connected_to": [
         "stormbringer_maelstrom_stormcloud",
-        "stormbringer_maelstrom_whirling_maelstrom"
+        "stormbringer_maelstrom_spheres_of_power"
       ]
     },
     {
@@ -333,22 +354,31 @@
       ]
     },
     {
-      "talent_id": "stormbringer_maelstrom_whirling_maelstrom",
-      "name": "Whirling Maelstrom",
-      "description": "Increases the damage of Torrential Wrath by 25%.",
+      "talent_id": "stormbringer_maelstrom_spheres_of_power",
+      "name": "Spheres of Power",
+      "description": "Your direct damage sometimes spins off a charged sphere that bursts on your target and washes over the enemies beside it.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "ability_stormbringer_torrential_wrath_damage": 0.25
-      },
+      "effects": {},
       "connected_to": [
         "stormbringer_maelstrom_deluge"
       ],
-      "_source": "CoA tags this 'Specialization' (a keystone-style capstone), matching this tree's tier-6 payoff slot."
+      "_source": "CoA Maelstrom, 'Requires 23 TE in this tree': \"Your direct damage dealt now has a 25% chance to summon a Power Sphere that will move towards your target. Can only have 1 Power Sphere up at a time. Power Sphere will redirect its movement towards enemies you cast Stormflow on. Upon reaching the target, it deals Spellstorm Damage to them and enemies within 5 yds.\" Replaces 'Whirling Maelstrom' (+25% Torrential Wrath damage), which the previous pass placed here on a _source note claiming CoA tags it a capstone. It does not: CoA's Whirling Maelstrom is a free 'Level 20 Passive' behind 'Requires 6 points in this tree' - the second-lowest gate in the tree - reading \"Increases your spell haste by 20% of your Intellect.\" CoA's real 23-TE Maelstrom nodes are Spheres of Power, Electrified Waters, Shockingly Powerful, Stormfury, Binder of Storms and Stormcloud. The sphere's travel and single-instance rule have nothing to model them in this engine, so it is authored as the payout: the triggering hit lands extra damage on the target and the same share splashes to the enemies around it. Spellstorm is not a school here; arcane is the closest the engine carries, and it is what CoA's own Thunder Wave tooltip renders Spellstorm as.",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 0,
+        "bonus_pct": 0.25,
+        "splash_damage": {
+          "pct": 0.25,
+          "max_targets": 3,
+          "school": "arcane"
+        }
+      }
     },
     {
       "talent_id": "stormbringer_maelstrom_static_overload",
@@ -370,7 +400,7 @@
     {
       "talent_id": "stormbringer_maelstrom_maelstrom_flow",
       "name": "Maelstrom Flow",
-      "description": "Increases your maximum Static by 8 per rank.",
+      "description": "Increases your maximum Static by 10 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 4,
@@ -378,11 +408,12 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "static_max": 8
+        "static_max": 10
       },
       "connected_to": [
         "stormbringer_maelstrom_conduit"
-      ]
+      ],
+      "_source": "Now the tree's ONLY maximum-Static node. It shared that job with Conduit (+10 per rank over 3 ranks) - two differently named talents doing one thing, for a combined +62 to a 100-point pool. Conduit has a real CoA tooltip that is not this, so it took that back and the pool stayed here, at Conduit's per-rank value rather than the old 8. No CoA Stormbringer node in either the class tree or the three spec trees raises maximum Static, and there is no CoA node named Maelstrom Flow: this node is Frontier's own Static-economy design and is recorded as invented."
     },
     {
       "talent_id": "stormbringer_maelstrom_charged_current",
@@ -518,7 +549,7 @@
         "spell_damage": 0.02
       },
       "connected_to": [
-        "stormbringer_maelstrom_whirling_maelstrom"
+        "stormbringer_maelstrom_spheres_of_power"
       ]
     }
   ]

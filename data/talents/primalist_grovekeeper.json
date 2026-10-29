@@ -207,7 +207,7 @@
     {
       "talent_id": "primalist_grovekeeper_grove_training_capstone",
       "name": "Aftershock",
-      "description": "Damage or healing you do has a 10% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Quake.",
+      "description": "Damage or healing you do has a 10% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Stoneshard.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -218,7 +218,7 @@
       "connected_to": [
         "primalist_grovekeeper_ancient_of_lore"
       ],
-      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name.",
+      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name. CoA: 'All melee damage, or healing done, now has a 10% chance to grant you Aftershock for 15 seconds. Aftershock: Your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.' Both of those are BASELINE Primalist abilities in CoA - no talent in any of the four CoA spec trees grants Earthquake or Geode Barrage; Geomancy's Tectonic Resonance, Tectonic Power and Therazane's Blessing only modify Earthquake - which is why a Grovekeeper can use this at all. Frontier folds CoA's Earthquake and Mountain King's Quake into the single primalist_quake, and that one is talent-gated, so the Quake half of this reset was dead for anyone who actually specced Grovekeeper. Replaced with Stoneshard, the baseline earth nuke every Primalist spec can cast (cooldown 2) and the closest Frontier equivalent of CoA's baseline Earthquake. Geode Barrage stays because the tooltip names it, though Frontier gives it no cooldown of its own, so Stoneshard is the half that does the work.",
       "proc": {
         "trigger": "on_damage_or_heal_cast",
         "chance": 10,
@@ -226,7 +226,7 @@
         "reset_cooldown": {
           "abilities": [
             "primalist_geode_barrage",
-            "primalist_quake"
+            "primalist_stoneshard"
           ]
         }
       }

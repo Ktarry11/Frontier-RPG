@@ -1005,9 +1005,11 @@
       "name": "Liberation",
       "resource_type": "energy",
       "cooldown": 8,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
       "description": "Whatever is holding your ally, it stops holding them.",
       "ranks": [
         {
@@ -1018,9 +1020,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.",
+      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.  REBUILT: was effect_type 'dispel' with dispel_type 'movement', which is NOT a DispelType member (NONE/MAGIC/CURSE/POISON/DISEASE), and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match - so this ability removed nothing, ever. There is no movement to impair in a turn engine; its one incapacitate mechanic is is_stun. Now a buff granting cc_immune, the live key Cultist's Voidborne and Dark Veil already use, and apply_status_effect now CLEARS existing is_stun debuffs when cc_immune lands - so this both breaks the ally free and keeps them free for the duration, which is what the description promises.",
       "target_type": "ally",
-      "dispel_type": "movement"
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_harrowing_melody",
