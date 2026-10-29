@@ -254,13 +254,10 @@
       "ability_id": "paladin_hammer_of_justice",
       "name": "Hammer of Justice",
       "resource_type": "mana",
-      "cooldown": 4,
+      "cooldown": 5,
       "effect_type": "debuff",
       "duration": 2,
-      "stat_mods": {
-        "haste": -25,
-        "attack_power": -30
-      },
+      "stat_mods": {},
       "description": "Stuns the target with a hammer of Light for 2 turns.",
       "ranks": [
         {
@@ -283,7 +280,9 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "is_stun": true,
+      "_source": "  DID NOT STUN. Its description is 'Stuns the target with a hammer of Light for 2 turns' and it carried no is_stun - just haste -25 and attack_power -30 standing in for the stun, so the player read 'stuns' and got a slow. The stun mechanic is live end to end (StatusEffect.is_stun -> StatusEffectMixin.is_stunned -> turn_meter skips the turn) and Paladin already has two real stuns in Repentance (2 turns / 5 cd) and Turn Evil (2/6). Matched to Repentance's 5-turn cooldown, up from 4, because a 2-turn hard stun on a 4-turn cooldown is half the fight. The haste/AP stand-in is removed - a stunned target cannot act at all, so debuffing its haste for the same two turns is dead weight."
     },
     {
       "ability_id": "paladin_divine_shield",

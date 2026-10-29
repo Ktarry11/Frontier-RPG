@@ -114,7 +114,8 @@ class MonsterAbility:
     def __init__(self, name, kind="damage", amount=0, cooldown=0,
                  mana_cost=0, school="physical", duration=0,
                  stat_mods=None, self_only=False, is_aoe=False,
-                 rider=None, hp_below=None, lifesteal=0.0):
+                 rider=None, hp_below=None, lifesteal=0.0,
+                 dispel_type=None):
         if kind not in self.KINDS:
             raise ValueError(f"{name}: unknown ability kind '{kind}'")
         self.name = name
@@ -126,6 +127,17 @@ class MonsterAbility:
         self.school = school
         self.duration = duration
         self.stat_mods = stat_mods or {}
+        # DISPEL SCHOOL - the thing that makes a cleanse worth casting. This
+        # did not exist on MonsterAbility, so NO monster debuff or DoT in the
+        # game was dispellable: a sweep found 0 monster effects carrying a
+        # dispel_type against 525 debuff/dot monster abilities. Meanwhile 14
+        # player abilities across 14 classes exist purely to remove them -
+        # Paladin's Cleanse, Priest's Dispel Magic and Abolish Disease,
+        # Primalist's Soothing Touch, Tinker's Med Pack and so on - and every
+        # one of them had literally nothing to act on in PvE.
+        # None stays the default, matching StatusEffect: most plain combat
+        # debuffs are not dispellable, and a physical bleed never is.
+        self.dispel_type = dispel_type
         self.self_only = self_only
         # True for abilities that hit every living member of the opposing
         # side at once (Cleave, Whirlwind, Tail Sweep, Frost Nova, breath
@@ -202,6 +214,7 @@ class MonsterAbility:
                 effect_type=EffectType.BUFF if is_buff else EffectType.DEBUFF,
                 duration=rider.get("duration", 3),
                 stat_mods=dict(rider.get("stat_mods") or {}),
+                dispel_type=(None if is_buff else rider.get("dispel_type")),
                 source_name=caster.name, real_time_seconds=None)
             out.append(r.apply_status_effect(effect))
         return out
@@ -287,6 +300,7 @@ class MonsterAbility:
                     effect_id=self.effect_id, name=self.name,
                     effect_type=EffectType.DOT, duration=self.duration,
                     potency=amount, damage_school=self.school,
+                    dispel_type=self.dispel_type,
                     source_name=caster.name)
                 msgs.append(t.apply_status_effect(effect))
             if self.is_aoe and len(targets) > 1:
@@ -307,6 +321,7 @@ class MonsterAbility:
                 effect_type=(EffectType.BUFF if self.self_only
                              else EffectType.DEBUFF),
                 duration=self.duration, stat_mods=dict(self.stat_mods),
+                dispel_type=(None if self.self_only else self.dispel_type),
                 source_name=caster.name,
                 # Monster buffs are COMBAT effects, so they must expire in turns.
                 # The StatusEffect default gives buffs a 30-minute real-time
@@ -442,6 +457,7 @@ class Monster(StatusEffectMixin):
                 rider=entry.get("rider"),
                 hp_below=entry.get("hp_below"),
                 lifesteal=entry.get("lifesteal", 0.0),
+                dispel_type=entry.get("dispel_type"),
             ))
 
         # Combat state

@@ -739,7 +739,7 @@
         "movement_speed_floor_pct": 80
       },
       "description": "Absorb damage, scaling with Intellect and Stamina, and protect your movement speed from falling too low.",
-      "_source": "Confirmed screenshot: Lvl 20, 'Absorbs 395 damage, scaling with Intellect and Stamina. Protects movement speed from going below 80% of normal speed. Lasts 20 sec. Depletes all Insanity upon expiration.'",
+      "_source": "Confirmed screenshot: Lvl 20, 'Absorbs 395 damage, scaling with Intellect and Stamina. Protects movement speed from going below 80% of normal speed. Lasts 20 sec. Depletes all Insanity upon expiration.'  ABSORBED NOTHING. Its description promises absorption and it carried no absorb at all. The engine has supported them the whole time - StatusEffect.absorb soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction - and 22 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Sized against this class's own peers (Eldritch Bastion 0.35, Void Shield 0.18).",
       "target_type": "self",
       "ranks": [
         {
@@ -750,7 +750,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.25
     },
     {
       "ability_id": "cultist_twilight_shieldtoss",
@@ -912,7 +913,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Devour a harmful magic effect on a friendly target, dispelling it and healing yourself.",
-      "_source": "Confirmed screenshot: Lvl 26, 'dispelling it and healing you for 174.' Real dispel-and-self-heal.",
+      "_source": "Confirmed screenshot: Lvl 26, 'dispelling it and healing you for 174.' Real dispel-and-self-heal.  Its description says it dispels and it carried NO dispel_type, which remove_debuff_by_dispel_type treats as a GUARANTEED no-match - an ability with no configured school finds nothing, full stop. The heal half worked and the dispel half never happened. The engine also only ran dispels under effect_type 'dispel', so a heal-and-cleanse hybrid could not cleanse until that rider was added in combat/abilities.py.",
       "target_type": "ally",
       "ranks": [
         {
@@ -934,7 +935,8 @@
           "effect_value": 252
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "dispel_type": "magic"
     },
     {
       "ability_id": "cultist_tentacle_of_yoggsaron",
@@ -1870,7 +1872,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Dispel a curse from an ally and heal yourself.",
-      "_source": "CoA handoff doc: 'Dispels curses from an ally, heals you.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Dispels curses from an ally, heals you.' Real numbers not confirmed via a dedicated screenshot.  Its description says it dispels and it carried NO dispel_type, which remove_debuff_by_dispel_type treats as a GUARANTEED no-match - an ability with no configured school finds nothing, full stop. The heal half worked and the dispel half never happened. The engine also only ran dispels under effect_type 'dispel', so a heal-and-cleanse hybrid could not cleanse until that rider was added in combat/abilities.py.",
       "target_type": "ally",
       "ranks": [
         {
@@ -1922,7 +1924,8 @@
           "effect_value": 245
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "dispel_type": "curse"
     },
     {
       "ability_id": "cultist_greater_void_blessing",
@@ -2089,7 +2092,7 @@
         "cc_immune": 2
       },
       "description": "Channel a stacking shield on you and a target ally, granting stun and silence immunity while channeling.",
-      "_source": "CoA handoff doc confirmed: 'Channeled shield: you+target absorb damage (stacking, periodic); at end, shield holds + you teleport to them. Grants immunity while channeling.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc confirmed: 'Channeled shield: you+target absorb damage (stacking, periodic); at end, shield holds + you teleport to them. Grants immunity while channeling.' Real numbers not confirmed via a dedicated screenshot.  ABSORBED NOTHING. Its description promises absorption and it carried no absorb at all. The engine has supported them the whole time - StatusEffect.absorb soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction - and 22 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Sized against this class's own peers (Eldritch Bastion 0.35, Void Shield 0.18).",
       "target_type": "ally",
       "ranks": [
         {
@@ -2100,7 +2103,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.15
     },
     {
       "ability_id": "cultist_void_embrace",
@@ -2346,7 +2350,7 @@
         "magic_damage_taken_pct": -20
       },
       "description": "An absorb shield that reduces Magic damage taken while active.",
-      "_source": "CoA handoff doc: 'Absorb shield; reduces Magic damage taken while active.' Real numbers not confirmed via a dedicated screenshot.",
+      "_source": "CoA handoff doc: 'Absorb shield; reduces Magic damage taken while active.' Real numbers not confirmed via a dedicated screenshot.  ABSORBED NOTHING. Its description promises absorption and it carried no absorb at all. The engine has supported them the whole time - StatusEffect.absorb soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction - and 22 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Sized against this class's own peers (Eldritch Bastion 0.35, Void Shield 0.18).",
       "target_type": "self",
       "ranks": [
         {
@@ -2357,7 +2361,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.12
     },
     {
       "ability_id": "cultist_eldritch_force",

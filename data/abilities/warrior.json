@@ -410,7 +410,8 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage to the target. Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only."
+      "_design_note": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage AND stuns. The note here used to read 'Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only'. That was true when written and is not now: is_stun exists and is live. It is a damage ability with duration 0, and is_stun was only threaded in _apply_effect's debuff branch, so the flag alone did nothing on a damage ability - combat/abilities.py's use() now applies a stun rider for exactly this case, flooring at 1 turn. Matches warrior_pummel (1 turn).",
+      "is_stun": true
     },
     {
       "ability_id": "warrior_shockwave",
