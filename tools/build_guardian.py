@@ -169,11 +169,21 @@ ABILITIES = [
             "Hold formation with your allies, every shield covering the one "
             "beside it.",
             one(36, 20), duration=0,
-            stat_mods={"physical_damage_taken_pct": -0.10},
+            stat_mods={"physical_damage_taken_pct": -10},
             target_type="self", buff_scope="party",
             exclusive_group="guardian_formation", icon=None,
             source="CoA: 'Formation cuts damage 10%', and Formations are "
-                   "mutually exclusive - same exclusive_group as Tower."),
+                   "mutually exclusive - same exclusive_group as Tower.  "
+                   "UNIT FIXED: physical_damage_taken_pct in an ability's "
+                   "stat_mods is in PERCENT POINTS (Character.take_damage "
+                   "divides the physical_/magic_ variants by 100), so -0.1 "
+                   "meant -0.1% and did essentially nothing. The bare "
+                   "damage_taken_pct key sits four lines away in the same "
+                   "method and IS a fraction - the convention is per-key with "
+                   "no naming rule. Verified by applying the key and taking a "
+                   "1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. "
+                   "Caught by the unit check added to "
+                   "tools/validate_class.py, which flags both directions."),
 
     ability("challenging_cry", "Challenging Cry", "buff",
             "Roar a challenge that every enemy in earshot takes personally.",
@@ -271,13 +281,27 @@ ABILITIES = [
             "Drive your standard into the ground. Nobody standing in its "
             "shadow gives up ground easily.",
             one(34, 35), cooldown=12, duration=4,
-            stat_mods={"physical_damage_taken_pct": -0.12,
+            stat_mods={"physical_damage_taken_pct": -12,
                        "stun_duration_reduction_pct": 0.3},
             target_type="self", buff_scope="party", icon=None,
             source="CoA: 'Plant Standard of Valiance at the point or "
                    "chokepoint (Stand Your Ground! reduces allies' physical "
                    "damage taken while they stand in it, You Shall Not Fall! "
-                   "gives them stun and grip resistance)'."),
+                   "gives them stun and grip resistance)'.  UNIT FIXED: "
+                   "physical_damage_taken_pct in an ability's stat_mods is in "
+                   "PERCENT POINTS (Character.take_damage divides the "
+                   "physical_/magic_ variants by 100), so -0.12 meant -0.12% "
+                   "and did essentially nothing. The bare damage_taken_pct "
+                   "key sits four lines away in the same method and IS a "
+                   "fraction - the convention is per-key with no naming rule. "
+                   "Verified by applying the key and taking a 1000-damage "
+                   "hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the "
+                   "unit check added to tools/validate_class.py, which flags "
+                   "both directions. NOTE the sibling key is NOT affected: "
+                   "stun_duration_reduction_pct 0.3 is a fraction and is "
+                   "correct, as is the Stand Your Ground! TALENT node's own "
+                   "-0.03 - the same key read as a talent effect IS a "
+                   "fraction."),
     ability("cavalry_charge", "Cavalry Charge", "damage",
             "Hit the pack at a run and scatter it.",
             ranks(34, 11, 25, start=20, count=6), cooldown=6,
@@ -308,10 +332,22 @@ ABILITIES = [
     ability("heros_march", "Hero's March", "buff",
             "You set off and the line comes with you.",
             one(44, 25), cooldown=10, duration=3,
-            stat_mods={"haste": 8.0, "physical_damage_taken_pct": -0.05},
+            stat_mods={"haste": 8.0, "physical_damage_taken_pct": -5},
             target_type="self", buff_scope="party", icon=None,
             source="CoA lists Hero's March with Liberation and Harrowing "
-                   "Melody as the Voice of an Angel reset targets."),
+                   "Melody as the Voice of an Angel reset targets.  UNIT "
+                   "FIXED: physical_damage_taken_pct in an ability's "
+                   "stat_mods is in PERCENT POINTS (Character.take_damage "
+                   "divides the physical_/magic_ variants by 100), so -0.05 "
+                   "meant -0.05% and did essentially nothing. The bare "
+                   "damage_taken_pct key sits four lines away in the same "
+                   "method and IS a fraction - the convention is per-key with "
+                   "no naming rule. Verified by applying the key and taking a "
+                   "1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. "
+                   "Caught by the unit check added to "
+                   "tools/validate_class.py, which flags both directions. The "
+                   "haste 8.0 beside it was already right - haste is points "
+                   "too."),
     ability("voice_of_an_angel", "Voice of an Angel", "reset_cooldowns",
             "You reach for a note you have no business hitting, and it comes.",
             one(50, 40), cooldown=20, target_type="self", icon=None,
@@ -334,7 +370,15 @@ ABILITIES = [
     ability("heros_decree", "Hero's Decree", "buff",
             "The one you save for when it has already gone wrong.",
             one(46, 30), duration=0,
-            stat_mods={"max_health_pct": 8.0, "crit_chance_physical": 2.0,
+            # max_health_pct IS A FRACTION. This was 8.0, i.e. +800% health,
+            # and it was invisible until the effect_value-0 fix made this buff
+            # apply at all - Guardian Vanguard then read 26,571 effective HP
+            # and survived 577 turns against peers at 6-23. Verified: 0.08
+            # takes 532 health to 574, 8.0 takes it to 4,788. Note the talent
+            # node below uses 0.03 for the same key, correctly - the talent
+            # and status channels agree on THIS key, unlike
+            # physical_damage_taken_pct above.
+            stat_mods={"max_health_pct": 0.08, "crit_chance_physical": 2.0,
                        "crit_chance_spell": 2.0},
             target_type="self", buff_scope="party",
             exclusive_group="guardian_decree", icon=None,

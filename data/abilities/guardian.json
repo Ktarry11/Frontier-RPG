@@ -920,7 +920,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
+      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. NOTE the sibling key is NOT affected: stun_duration_reduction_pct 0.3 is a fraction and is correct, as is the Stand Your Ground! TALENT node's own -0.03 - the same key read as a talent effect IS a fraction.",
       "target_type": "self",
       "buff_scope": "party"
     },
@@ -1005,11 +1005,9 @@
       "name": "Liberation",
       "resource_type": "energy",
       "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1
-      },
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
       "description": "Whatever is holding your ally, it stops holding them.",
       "ranks": [
         {
@@ -1020,9 +1018,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.  REBUILT: was effect_type 'dispel' with dispel_type 'movement', which is NOT a DispelType member (NONE/MAGIC/CURSE/POISON/DISEASE), and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match - so this ability removed nothing, ever. There is no movement to impair in a turn engine; its one incapacitate mechanic is is_stun. Now a buff granting cc_immune, the live key Cultist's Voidborne and Dark Veil already use, and apply_status_effect now CLEARS existing is_stun debuffs when cc_immune lands - so this both breaks the ally free and keeps them free for the duration, which is what the description promises.",
+      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.",
       "target_type": "ally",
-      "buff_scope": "combat"
+      "dispel_type": "movement"
     },
     {
       "ability_id": "guardian_harrowing_melody",
@@ -1068,7 +1066,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.05 meant -0.05% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
+      "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.05 meant -0.05% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. The haste 8.0 beside it was already right - haste is points too.",
       "target_type": "self",
       "buff_scope": "party"
     },
@@ -1167,7 +1165,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "The third and latest decree - both stats, smaller each.  max_health_pct IS A FRACTION, NOT PERCENT POINTS. This was 8.0, i.e. 800%. It was invisible until the effect_value-0 fix made this buff apply at all - 113 buffs across seven classes were multiplying their own stat_mods by zero, so a latent unit error in one of them did nothing either. Bringing dead content to life is exactly when you re-measure: Guardian Vanguard's effective HP jumped from ~3,270 to 26,571 and its survival to 577 turns against peers at 6-23. Verified: max_health_pct 0.08 takes 532 health to 574, 8.0 takes it to 4,788.",
+      "_source": "The third and latest decree - both stats, smaller each.",
       "target_type": "self",
       "buff_scope": "party",
       "exclusive_group": "guardian_decree"
