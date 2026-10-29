@@ -3,13 +3,39 @@ Pet template data. Each entry defines a summonable/tameable pet family's
 base stats and starting Ability set (see entities/pet.py for how these get
 turned into a live Pet instance).
 
-Starting roster kept small on purpose - Wolf (Hunter's best-in-class
-Ferocity pet per real WOTLK guides, chosen for its actually-unique family
-ability rather than an arbitrary pick) and Imp (every Warlock's first,
-signature demon). More families are a straightforward copy-paste of this
-same shape once the acquisition flows (taming UI, demon-summon UI) exist
-to actually offer a choice - no point authoring a dozen pets nobody can
-reach yet.
+The roster started small on purpose - Wolf (Hunter's best-in-class Ferocity
+pet per real WOTLK guides, chosen for its actually-unique family ability
+rather than an arbitrary pick) and Imp (every Warlock's first, signature
+demon) - on the reasoning that more families were a straightforward
+copy-paste of this same shape once the acquisition flows (taming UI,
+demon-summon UI) existed to offer a real choice.
+
+That reasoning held for the two classes with a taming/summon SCREEN and
+broke badly for everyone else. Abilities that summon a pet by being CAST do
+not wait for an acquisition flow, and by Oct 2026 there were 28 of them
+across 13 classes still pointing at a 14-template roster, so 14 summons
+handed the player something with the wrong name, the wrong school and the
+wrong kit: Raise: Ghoul produced a pet named "Wolf", Raise: Banshee
+produced "Succubus", and once multi-pet support landed a Necromancer stood
+four of those borrowed pets on the field at once. The roster is now one
+template per summon (see SUMMON_THEME_SOURCE below for the fix and for the
+four engine limits every template is authored around).
+
+TWO SEPARATE THINGS CALLED "A PET TEMPLATE" LIVE HERE, and the difference
+matters when adding one:
+  - Templates reachable through ui/screens/pet_screen.py, which maps only
+    the classes Hunter -> "hunter", Warlock -> "warlock" and Primalist ->
+    "primalist". Only a template whose pet_type is one of those three is
+    ever offered as a choice on that screen.
+  - Templates that exist only so get_pet_template can find them, summoned
+    by casting an ability (every Tinker construct, Stormbringer's Air
+    Elemental, the Cultist, Necromancer, Reaper, Felsworn, Knight of
+    Xoroth, Witch Hunter, Barbarian and Ranger summons). These carry their
+    own class's slug as pet_type precisely so they do NOT surface on that
+    screen for the wrong class.
+A template's level_req is checked by Character.summon_pet separately from
+its summon ability's own level_req, so the two always have to move
+together.
 """
 
 SENTRY_SOURCE = (
@@ -1833,9 +1859,16 @@ def get_pet_template(template_id):
 
 
 def pets_for_class(pet_type, level):
-    """Every pet template this pet_type ("hunter" or "warlock") can
-    currently acquire at this level, in level order. Used by the summon/
-    tame selection UI so it only ever offers real, reachable choices."""
+    """Every pet template this pet_type can currently acquire at this
+    level, in level order. Used by the summon/tame selection UI so it only
+    ever offers real, reachable choices.
+
+    In practice pet_type is only ever "hunter", "warlock" or "primalist"
+    here, because ui/screens/pet_screen.py is the sole caller and those are
+    the only three values its _pet_type_for_class maps a class to. Every
+    other pet_type in PET_TEMPLATES belongs to a cast-summoned pet that
+    never goes through a selection screen at all - see this module's
+    docstring."""
     matches = [
         (tid, t) for tid, t in PET_TEMPLATES.items()
         if t["pet_type"] == pet_type and level >= t.get("level_req", 1)

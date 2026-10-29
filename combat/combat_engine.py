@@ -493,7 +493,21 @@ class CombatEngine:
         # (Oct 2026) while building ZIGGI-6K - every ally-targeting pet
         # ability was missing its real target list until now, not just
         # this one spec's.
-        if getattr(chosen_ability, "is_aoe", False):
+        # PET AoE WAS NOT EXPRESSIBLE AT ALL, and this line is why it looked
+        # like it was. A pet uses a player-schema Ability, and Ability did not
+        # accept is_aoe - only MonsterAbility has it - so this getattr always
+        # returned False no matter what the template authored. Authoring
+        # target_type "enemy_aoe" instead was strictly WORSE: this branch
+        # still passed a single target, so _hostile_recipients saw one enemy
+        # while AOE_DAMAGE_MULTIPLIER was applied anyway, i.e. a single-target
+        # hit at 60% damage.
+        #
+        # Ability now accepts is_aoe, so a pet AoE needs BOTH: is_aoe to get
+        # the full enemy list here, and target_type "enemy_aoe" so
+        # _hostile_recipients spreads it. Player abilities are unaffected -
+        # execute_ability never reads is_aoe and never did.
+        if getattr(chosen_ability, "is_aoe", False) and (
+                chosen_ability.target_type == "enemy_aoe"):
             success, message = chosen_ability.use(pet, self.living_enemies(),
                                                   party=self.living_allies(), engine=self)
         else:

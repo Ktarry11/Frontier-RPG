@@ -280,7 +280,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
-                 consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
+                 is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
                  max_targets=None, force_proc_group=None, summon_pet_template=None,
@@ -341,6 +341,12 @@ class Ability:
         # Tinker's companion pets were ALL stubbed as plain self-buffs with
         # no way to actually call it from a cast (Kyle, Oct 2026: "We need
         # the pet system up and running"). None for every other ability.
+        #: Read ONLY by CombatEngine.execute_pet_action, to hand a pet's AoE
+        #: the full enemy list. A player ability's AoE comes from target_type
+        #: "enemy_aoe" instead and execute_ability never looks at this - see
+        #: the validator check that errors when a PLAYER ability sets it.
+        #: Accepting it here is what makes pet AoE expressible at all.
+        self.is_aoe = bool(is_aoe)
         self.summon_pet_template = summon_pet_template
         #: True for a summon that coexists with the caster's primary pet
         #: rather than replacing it. See the summon_pet branch below.
@@ -3219,6 +3225,7 @@ def _ability_from_data(entry):
         duration_per_stack=entry.get("duration_per_stack", 0),
         max_targets=entry.get("max_targets"),
         force_proc_group=entry.get("force_proc_group"),
+        is_aoe=entry.get("is_aoe", False),
         summon_pet_template=entry.get("summon_pet_template"),
         additional_pet=entry.get("additional_pet", False),
         requires_form=_normalize_requires_form(entry.get("requires_form")),
