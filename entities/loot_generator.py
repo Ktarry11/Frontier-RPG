@@ -65,6 +65,12 @@ WEAPON_NAME_NOUNS = {
     "wand": ["Wand", "Rod"],
     "totem": ["Totem", "Fetish"],
     "tome": ["Tome", "Grimoire", "Codex"],
+    # Relics, added 29 Oct 2026. tools/validate_content.py already checks that
+    # every weapon type has an entry here, which is why the five ranged types
+    # below were caught; libram and idol would have fallen through to the
+    # generic "Weapon" noun the same way ("Well-Made Weapon of the Seer").
+    "libram": ["Libram", "Tract", "Psalter"],
+    "idol": ["Idol", "Talisman", "Carving"],
     "shield": ["Shield", "Bulwark", "Aegis"],
     # The five ranged/polearm types were defined in data/items/weapon_types.json
     # but never given nouns here, so every one of them fell through to the
@@ -380,8 +386,16 @@ class LootGenerator:
             armor_value = int(item_level * 1.2 * rarity_data["stat_budget_multiplier"])
             # Block value scales similarly to armor - higher ilvl/rarity = better block
             block_value = int(item_level * 1.5 * rarity_data["stat_budget_multiplier"])
-        elif weapon_type in ("totem", "tome"):
-            # Totems and tomes are passive stat sticks (per design doc Section 2/3) - no auto-attack damage
+        elif weapon_data.get("relic") or weapon_data.get("non_weapon"):
+            # Relics (Totem/Libram/Idol) and held-in-off-hand items (Tome) are
+            # passive stat sticks - no auto-attack damage.
+            #
+            # This was a hardcoded `weapon_type in ("totem", "tome")`, which
+            # is a trap rather than a rule: adding libram and idol as relics
+            # on 29 Oct 2026 silently gave them 67-91 weapon damage at ilvl
+            # 50, because they were not in the tuple. Keyed on the type's own
+            # relic/non_weapon flags now, so any relic added later is a stat
+            # stick without anyone having to remember this line exists.
             pass
         else:
             # Melee weapons and wands: roll a damage range around a DPS

@@ -143,7 +143,8 @@
         "Shaman"
       ],
       "icon_id": "rarity_common",
-      "damage_tier": "ranged"
+      "damage_tier": "ranged",
+      "relic": true
     },
     "shield": {
       "display_name": "Shield",
@@ -208,7 +209,38 @@
       ],
       "budget_multiplier": 0.75,
       "base_attack_speed": 0.0,
-      "icon_id": "rarity_common"
+      "icon_id": "rarity_common",
+      "non_weapon": true
+    },
+    "libram": {
+      "display_name": "Libram",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "int_caster",
+        "str_int_hybrid",
+        "agi_int_hybrid",
+        "spi_healer"
+      ],
+      "budget_multiplier": 0.4,
+      "base_attack_speed": 0.0,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged",
+      "relic": true
+    },
+    "idol": {
+      "display_name": "Idol",
+      "hand": "ranged",
+      "valid_stat_templates": [
+        "int_caster",
+        "str_int_hybrid",
+        "agi_int_hybrid",
+        "spi_healer"
+      ],
+      "budget_multiplier": 0.4,
+      "base_attack_speed": 0.0,
+      "icon_id": "rarity_common",
+      "damage_tier": "ranged",
+      "relic": true
     }
   },
   "class_weapon_map": {
@@ -238,7 +270,8 @@
       "mace_2h",
       "polearm",
       "shield",
-      "tome"
+      "tome",
+      "libram"
     ],
     "Hunter": [
       "sword_1h",
@@ -305,7 +338,8 @@
       "fist_weapon",
       "staff",
       "polearm",
-      "tome"
+      "tome",
+      "idol"
     ],
     "Necromancer": [
       "sword_1h",
@@ -418,7 +452,8 @@
       "polearm",
       "staff",
       "shield",
-      "tome"
+      "tome",
+      "libram"
     ],
     "Bloodmage": [
       "sword_1h",
@@ -554,7 +589,8 @@
       "staff",
       "fist_weapon",
       "shield",
-      "tome"
+      "tome",
+      "libram"
     ]
   },
   "damage_tiers": {

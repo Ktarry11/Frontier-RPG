@@ -194,6 +194,15 @@ def can_wear_weapon_type(char_class, weapon_type):
     """
     if weapon_type in (None, ""):
         return True
+    # A NON-WEAPON CARRIES NO PROFICIENCY. Kyle, 29 Oct 2026: "Tome is just
+    # offhand right? It's not a 'weapon' think of actual wow." Right - a tome
+    # is a Held In Off-hand item, and in WoW those have no class restriction
+    # at all; any class can hold one, it is simply useless to a melee. The
+    # class_weapon_map entry for a non-weapon is kept as a loot-TARGETING
+    # hint (who it should drop for) and does not gate equipping.
+    types = _load_weapon_types().get("weapon_types", {})
+    if types.get(weapon_type, {}).get("non_weapon"):
+        return True
     class_map = _load_class_weapon_map()
     if char_class not in class_map:
         return True
