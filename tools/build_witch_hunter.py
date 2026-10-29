@@ -241,9 +241,20 @@ ABILITIES = [
             "You step sideways out of the spellwork and it closes over empty "
             "air.",
             one(26, 0), cooldown=12, duration=1,
-            stat_mods={"magic_damage_taken_pct": -0.5, "cc_immune": 1},
+            stat_mods={"magic_damage_taken_pct": -50, "cc_immune": 1},
             target_type="self",
-            source="CoA: 'Enter a powerful stealth mode for 3 seconds, "
+            source="UNIT FIXED 2026-10-29: magic_damage_taken_pct was "
+                   "authored -0.5 as though it were a fraction, delivering "
+                   "-0.5% magic mitigation on an ability whose entire point "
+                   "is immunity to harmful magic. In an ABILITY's stat_mods "
+                   "this key is PERCENT POINTS - Character.take_damage "
+                   "divides the physical_/magic_ variants by 100, while the "
+                   "bare damage_taken_pct key four lines away in the same "
+                   "method is added undivided and IS a fraction. The "
+                   "convention is per-key with no naming rule. The fix was "
+                   "made in the emitted JSON earlier the same day and not "
+                   "ported here, so re-running this script silently restored "
+                   "the broken value.  CoA: 'Enter a powerful stealth mode for 3 seconds, "
                    "granting immunity to all harmful magic effects... Usable "
                    "while stunned or feared.' cc_immune is the engine's real "
                    "crowd-control immunity flag (StatusEffectMixin reads it "
@@ -276,14 +287,24 @@ ABILITIES = [
     ability("slayers_mark", "Slayer's Mark", "debuff",
             "You name them out loud. Everything after that is easier.",
             one(34, 20), cooldown=6, duration=3,
-            stat_mods={"physical_damage_taken_pct": 0.08}, target_type="enemy",
+            stat_mods={"physical_damage_taken_pct": 8}, target_type="enemy",
             source="CoA: 'Mark an enemy, increasing the attack power of all "
                    "attackers against that target by 150 and your critical "
                    "strike chance against them by 3%.' A debuff's stat_mods "
                    "land on the ENEMY here, so the attacker-side wording is "
                    "turned round into the defender-side key that means the "
                    "same thing - physical_damage_taken_pct on the marked "
-                   "target, read from status effects in Character.take_damage."),
+                   "target, read from status effects in "
+                   "Character.take_damage.  UNIT FIXED 2026-10-29: this was "
+                   "authored 0.08 as though the key were a fraction, so the "
+                   "mark increased damage taken by 0.08% - a debuff that did "
+                   "nothing. In an ABILITY's stat_mods this key is PERCENT "
+                   "POINTS (take_damage divides the physical_/magic_ "
+                   "variants by 100; the bare damage_taken_pct beside them "
+                   "is undivided and IS a fraction). The fix was made in the "
+                   "emitted JSON earlier the same day and not ported here, "
+                   "so re-running this script silently restored the broken "
+                   "value."),
     ability("inquisitors_trap", "Inquisitor's Trap", "debuff",
             "Laid where they will walk, and it goes off badly for everyone "
             "standing near it.",
@@ -556,27 +577,42 @@ ABILITIES = [
             "One note, and something comes out of the dark that answers to "
             "you.",
             one(1, 0, 100), target_type="self", is_instant=True,
-            summon_pet_template="wolf",
+            summon_pet_template="shadowhound",
             source="CoA: 'Summons a permanent Shadowhound companion to aid you "
-                   "in combat.' Modelled on Hunter's Tame Beast - the only "
-                   "effect_type that actually calls Character.summon_pet is "
-                   "summon_pet with a template that already exists in "
-                   "combat/pet_templates.py. 'wolf' is the shipped hound-shaped "
-                   "template (melee beast, Energy, base_attack 22). "
+                   "in combat. Your Shadowhound receives 25% of healing done "
+                   "to you.' NOW A REAL SHADOWHOUND. This pointed at 'wolf' "
+                   "and summoned a pet named Wolf - the most defensible of "
+                   "the mismatches fixed in Oct 2026, since a houndmaster's "
+                   "hound really is wolf-shaped, but CoA names the creature "
+                   "so it gets its own template. Built deliberately CLOSE to "
+                   "the wolf it replaced (130 health against 140, comparable "
+                   "damage) because that mapping was never a power problem, "
+                   "only a naming one. The healing redirect has no hook - a "
+                   "pet cannot reach its owner, which is the same gap the "
+                   "Wolf's own Furious Howl is approximated around. "
                    "effect_type 'summon' summons NOTHING - four Tinker "
                    "abilities shipped that way and were silently empty for "
                    "months."),
     ability("unleash_the_hounds", "Unleash the Hounds", "summon_pet",
             "Let the rest of them off the chain.",
             one(20, 25), cooldown=8, target_type="self",
-            summon_pet_template="raptor",
+            summon_pet_template="lesser_shadowhound", additional_pet=True,
             source="CoA: 'Summon 1 Lesser Shadow Hound to aid you in combat for "
-                   "20 seconds', with Kennel Master adding more. The engine "
-                   "keeps ONE active pet, so a second summon replaces the "
-                   "first rather than standing beside it - the 'temporary "
-                   "lesser hounds' half of CoA's hound stack cannot be built. "
-                   "'raptor' is the other existing melee-beast template, so "
-                   "this is a faster, sharper hound rather than a second wolf."),
+                   "20 seconds', with Kennel Master adding more. NOW A REAL "
+                   "LESSER SHADOWHOUND: this pointed at 'raptor' and summoned "
+                   "the Primalist's tameable beast on a Witch Hunter. The "
+                   "template is authored LESSER, as CoA says - plainly weaker "
+                   "than this class's own permanent Shadowhound in every "
+                   "stat. FIXED 2026-10-29, and the fix was in two places: "
+                   "Character.EXTRA_PET_CAP had no Witch Hunter entry, so "
+                   "max_extra_pets was 0 and Character.summon_pet ignored "
+                   "additional=True entirely - this level-20 button REPLACED "
+                   "the level-1 permanent Shadowhound with the weaker one, a "
+                   "button that downgraded you. The cap now carries "
+                   "'Witch Hunter': 2, so additional_pet=True here is live "
+                   "data and both hounds field at once. CoA reads as a board "
+                   "anyway (Houndmaster's Call and Rampaging Hounds both say "
+                   "'Hounds', plural)."),
     ability("quickdraw", "Quickdraw", "ranged_damage",
             "The shot you take before you have decided to take it.",
             ranks(48, 14, 0, start=14, count=6), cooldown=2,

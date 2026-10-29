@@ -878,10 +878,16 @@ class Character(StatusEffectMixin):
         self.active_pet = pet
         return True, self.active_pet
 
-    #: How many pets a class may field BEYOND active_pet. Only the two specs
-    #: CoA describes as fielding a board get any; everyone else stays at 0,
-    #: so nothing changes for 28 classes.
-    EXTRA_PET_CAP = {"Tinker": 2, "Necromancer": 3}
+    #: How many pets a class may field BEYOND active_pet. Only the specs CoA
+    #: describes as fielding a board get any; everyone else stays at 0, so
+    #: nothing changes for the remaining 27 classes.
+    #:
+    #: Witch Hunter was added after the fact and it fixes a button that
+    #: DOWNGRADED you: Unleash the Hounds at level 20 was replacing the
+    #: level-1 permanent Shadowhound with a weaker Lesser Shadowhound, so
+    #: pressing it made you worse. CoA reads as a pack either way -
+    #: Houndmaster's Call and Rampaging Hounds both say "Hounds", plural.
+    EXTRA_PET_CAP = {"Tinker": 2, "Necromancer": 3, "Witch Hunter": 2}
 
     @property
     def max_extra_pets(self):
