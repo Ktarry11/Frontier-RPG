@@ -1452,6 +1452,56 @@
         }
       ],
       "icon_id": null
+    },
+    {
+      "ability_id": "primalist_rock_barrier",
+      "name": "Rock Barrier",
+      "resource_type": "rage",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "armor_pct": 30,
+        "physical_damage_taken_pct": -8
+      },
+      "description": "Pull stone up around yourself, hardening your hide against the next few blows.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 20,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "absorb_pct_max_health": 0.06,
+      "_source": "Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names. CoA: a reactive charge-based armour shield, referenced by Earthmother's Protection, Fury of the Earthmother, Earthenforged Barrier, Rock Solid and Primal Guardian. Charges have no engine shape, so it is a short buff carrying armour, physical mitigation and a real absorb."
+    },
+    {
+      "ability_id": "primalist_earthen_avatar",
+      "name": "Earthen Avatar",
+      "resource_type": "rage",
+      "cooldown": 12,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "all_damage": 15,
+        "damage_taken_pct": -15,
+        "haste": 20
+      },
+      "description": "Take the shape of the earth itself: slower to fall, quicker to strike, and harder to move.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 30,
+          "effect_value": 100
+        }
+      ],
+      "icon_id": null,
+      "_source": "Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names. CoA: 'increasing your damage dealt and reducing your damage taken by 15%, and increasing your attack speed by 20% for 20 seconds. Immune to stuns, roots, and snares. Usable while stunned.' CoA calls it 'your big cooldown'. The immunity clause has no hook; Unyielding in the same tree already shortens stuns."
     }
   ]
 }

@@ -326,21 +326,22 @@
       ]
     },
     {
-      "talent_id": "primalist_mountain_king_stone_ward",
-      "name": "Stone Ward",
-      "description": "Reduces Nature damage taken by 3% per rank.",
-      "node_type": "passive",
+      "talent_id": "primalist_mountain_king_rock_barrier",
+      "name": "Rock Barrier",
+      "description": "Learn Rock Barrier, pulling stone around you against the next few blows.",
+      "node_type": "active",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "nature_damage_taken_pct": -0.03
+        "unlock_ability": "primalist_rock_barrier"
       },
       "connected_to": [
         "primalist_mountain_king_mountain_hammer_mastery"
-      ]
+      ],
+      "_source": "Was 'Stone Ward', invented (Nature damage taken). Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names."
     },
     {
       "talent_id": "primalist_mountain_king_titans_grip_primalist",
@@ -360,33 +361,22 @@
       ]
     },
     {
-      "talent_id": "primalist_mountain_king_mountains_wrath",
-      "name": "Mountain's Wrath",
-      "description": "Your critical strikes have a 15% chance per rank to call the hammers, dealing 90 Holy damage.",
-      "node_type": "passive",
+      "talent_id": "primalist_mountain_king_earthen_avatar",
+      "name": "Earthen Avatar",
+      "description": "Learn Earthen Avatar, your great cooldown of stone and fury.",
+      "node_type": "active",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "unlock_ability": "primalist_earthen_avatar"
+      },
       "connected_to": [
         "primalist_mountain_king_earth_destroyer"
       ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "mountains_wrath",
-          "name": "Mountain's Wrath",
-          "effect_type": "dot",
-          "duration": 1,
-          "potency": 90,
-          "damage_school": "holy",
-          "on_target": true
-        }
-      }
+      "_source": "Was 'Mountain's Wrath', invented - and it called down HOLY damage on a Nature and Physical earth spec. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names."
     },
     {
       "talent_id": "primalist_mountain_king_unmovable_object",
