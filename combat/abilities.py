@@ -2870,12 +2870,28 @@ class Ability:
             # max still goes off) - only a full zero refunds.
             if not target:
                 return f"{caster.name} casts {self.name}!"
+            # A PARTY-WIDE DISPEL GETS A LIST, like every other friendly
+            # effect, and this branch was the one place that did not expect
+            # one. Every other friendly branch normalises through
+            # _recipients; this one called target.dispel_effect() straight
+            # off the argument, so a dispel authored target_type "party"
+            # raised AttributeError: 'list' object has no attribute
+            # 'dispel_effect' and took the whole cast down with it.
+            # Runemaster's Resonance Rune is the one shipped ability in
+            # that shape - a crash, not a quiet no-op, and reachable by any
+            # Runemaster who trains it.
+            recipients = self._recipients(caster, target)
             removed_names = []
-            for _ in range(self.dispel_count):
-                removed = target.dispel_effect(self.dispel_type)
-                if removed is None:
-                    break
-                removed_names.append(removed.name)
+            for recipient in recipients:
+                if not hasattr(recipient, "dispel_effect"):
+                    continue
+                for _ in range(self.dispel_count):
+                    removed = recipient.dispel_effect(self.dispel_type)
+                    if removed is None:
+                        break
+                    removed_names.append(removed.name)
+            target_label = getattr(target, "name", None) or ", ".join(
+                getattr(r, "name", "?") for r in recipients)
             if not removed_names:
                 self._refund_failed_cast(caster, cost=cost)
                 dispel_label = (self.dispel_type or "effect")
@@ -2883,8 +2899,9 @@ class Ability:
                     dispel_label = "/".join(d.capitalize() for d in dispel_label if d)
                 else:
                     dispel_label = dispel_label.capitalize()
-                return f"{target.name} has no {dispel_label} effect to remove!"
-            return f"{caster.name} dispels {', '.join(removed_names)} from {target.name}!"
+                return f"{target_label} has no {dispel_label} effect to remove!"
+            return (f"{caster.name} dispels {', '.join(removed_names)} "
+                    f"from {target_label}!")
 
         elif self.effect_type == "revive":
             # Battle-resurrection-style ability: brings a DEAD ally back to

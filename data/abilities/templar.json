@@ -799,22 +799,24 @@
       "name": "Testament of Will",
       "resource_type": "combo",
       "cooldown": 8,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
       "description": "Break an ally free of whatever is holding them in place.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 28,
           "cost": 0,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 seconds'. No immunity window exists; a movement dispel is the honest half.",
+      "_source": "CoA class tree: 'Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 seconds'. REMOVED NOTHING, EVER, UNTIL 2026-10-29. The old note here said 'no immunity window exists; a movement dispel is the honest half' - but the dispel half was not honest, it was inert: dispel_type 'movement' is not a DispelType (the real members are NONE/MAGIC/CURSE/POISON/DISEASE) and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match, so every cast logged 'has no Movement effect to remove!'. An immunity window DOES exist now - cc_immune - and it is the better match anyway, because CoA's own wording is immunity rather than removal. apply_status_effect also clears active stuns when cc_immune lands, so this breaks them free AND keeps them free, which is the whole tooltip.",
       "target_type": "ally",
-      "dispel_type": "movement"
+      "buff_scope": "combat"
     },
     {
       "ability_id": "templar_testament_of_faith",

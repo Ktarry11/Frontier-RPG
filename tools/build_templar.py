@@ -349,14 +349,26 @@ ABILITIES = [
                    "stat_mods never reach get_status_stat_mod, which is where "
                    "damage_taken_pct is read, so it would have been silently "
                    "inert. The heal is the half worth keeping."),
-    ability("testament_of_will", "Testament of Will", "dispel",
+    ability("testament_of_will", "Testament of Will", "buff",
             "Break an ally free of whatever is holding them in place.",
-            one(28, 0, 0), cooldown=8, target_type="ally",
-            dispel_type="movement", icon=None,
+            one(28, 0, 100), cooldown=8, duration=2, target_type="ally",
+            stat_mods={"cc_immune": 1}, buff_scope="combat", icon=None,
             source="CoA class tree: 'Break an ally free of worldly "
                    "constraints, making them immune to all movement "
-                   "impairing effects for 10 seconds'. No immunity window "
-                   "exists; a movement dispel is the honest half."),
+                   "impairing effects for 10 seconds'. REMOVED NOTHING, "
+                   "EVER, UNTIL 2026-10-29. The old note here said 'no "
+                   "immunity window exists; a movement dispel is the honest "
+                   "half' - but the dispel half was not honest, it was "
+                   "inert: dispel_type 'movement' is not a DispelType (the "
+                   "real members are NONE/MAGIC/CURSE/POISON/DISEASE) and "
+                   "remove_debuff_by_dispel_type treats an unmatched school "
+                   "as a guaranteed no-match, so every cast logged 'has no "
+                   "Movement effect to remove!'. An immunity window DOES "
+                   "exist now - cc_immune - and it is the better match "
+                   "anyway, because CoA's own wording is immunity rather "
+                   "than removal. apply_status_effect also clears active "
+                   "stuns when cc_immune lands, so this breaks them free "
+                   "AND keeps them free, which is the whole tooltip."),
     ability("testament_of_faith", "Testament of Faith", "heal",
             "A prayer you only get to make once in a while, and it works.",
             ranks(300, 95, 0, start=34, count=5), cooldown=10,

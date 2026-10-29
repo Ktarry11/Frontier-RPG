@@ -314,13 +314,27 @@ ABILITIES = [
             stat_mods={"haste": 15.0}, target_type="self", buff_scope="party",
             icon=None,
             source="CoA: 'Pop Champion's Presence for a haste burst window'."),
-    ability("liberation", "Liberation", "dispel",
+    ability("liberation", "Liberation", "buff",
             "Whatever is holding your ally, it stops holding them.",
-            one(22, 20), cooldown=8, target_type="ally",
-            dispel_type="movement", icon=None,
+            one(22, 20, 100), cooldown=8, duration=2, target_type="ally",
+            stat_mods={"cc_immune": 1}, buff_scope="combat", icon=None,
             source="CoA: 'Liberation / Cavalry Charge / Song of Battle's stun "
                    "= Landslide root / Wing Buffet / Time Stop', and "
-                   "'Hallucination sheds movement-impairing effects'."),
+                   "'Hallucination sheds movement-impairing effects'. "
+                   "REMOVED NOTHING, EVER, UNTIL 2026-10-29: this was "
+                   "effect_type 'dispel' with dispel_type 'movement', and "
+                   "'movement' is not a DispelType - the real members are "
+                   "NONE/MAGIC/CURSE/POISON/DISEASE - so "
+                   "remove_debuff_by_dispel_type took its guaranteed "
+                   "no-match path and the cast logged 'has no Movement "
+                   "effect to remove!' against a target visibly carrying "
+                   "four dispellable debuffs. Now a cc_immune buff, which "
+                   "is the shape the engine actually supports and the same "
+                   "one Ranger's Freedom and Cultist's Dark Veil already "
+                   "use; since apply_status_effect now also clears active "
+                   "stuns when cc_immune lands, this both frees the ally "
+                   "and keeps them free, which is closer to CoA than the "
+                   "dispel ever was."),
     ability("harrowing_melody", "Harrowing Melody", "debuff",
             "A sour, grinding refrain that gets into the enemy's head and "
             "stays there.",

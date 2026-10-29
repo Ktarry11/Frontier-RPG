@@ -980,7 +980,7 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {
-        "physical_damage": 0.03
+        "damage_dealt_pct": 3.0
       },
       "description": "Sheathes the target in thorns, increasing the damage they deal.",
       "ranks": [
@@ -1037,7 +1037,7 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Real WOTLK Thorns causes enemies who melee the target to take Nature damage - no reflect-damage-on-being-hit mechanic exists, so this is approximated as a flat physical-damage buff on the target instead."
+      "_design_note": "Real WOTLK Thorns makes enemies who melee the target take Nature damage. This engine has no reflect-damage-on-being-hit mechanic at all, so Thorns has always been an approximation. DEAD UNTIL 2026-10-29, in two ways at once: the stat_mod was {'physical_damage': 0.03}, and (a) 'physical_damage' is not a stat key anything in entities/ or combat/ reads, and (b) the buff branch int()s every non-_pct key, so 0.03 truncated to 0 - the buff landed carrying {'physical_damage': 0}. Two independent reasons for it to do nothing, which is why neither was noticed. Now damage_dealt_pct 3.0, a key the engine really reads (Ability._damage_multiplier) in PERCENT POINTS, so the +3% the old value was evidently reaching for actually applies. STILL AN APPROXIMATION: a real Thorns wants a reflect mechanic, which is Kyle's call and a bigger change than this."
     },
     {
       "ability_id": "druid_barkskin",

@@ -574,6 +574,15 @@ class StatusEffectMixin:
         """
         effects = self._effects()
 
+        # MARK IT AS LANDING THIS TURN, so the end-of-turn tick that
+        # immediately follows a non-instant cast does not expire it before
+        # anything can read it. See the BUFF/DEBUFF branch of
+        # tick_status_effects for the eighteen abilities this was silently
+        # killing. Set here rather than in StatusEffect.__init__ because
+        # landing on a combatant is the moment that matters - an effect
+        # built and held for later should not carry the grace turn.
+        effect.applied_this_turn = True
+
         # BECOMING IMMUNE TO CONTROL BREAKS CURRENT CONTROL. cc_immune only
         # blocked INCOMING stuns (see the check below), so a buff granting it
         # left an already-stunned character stunned - immune to the next stun
@@ -894,6 +903,40 @@ class StatusEffectMixin:
             elif effect.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
                 if effect.real_time_seconds is not None:
                     continue  # "raid" scope - only tick_seconds() touches this
+                # DON'T TICK A BUFF ON THE TURN IT WAS CAST. Eighteen
+                # abilities across six classes did nothing whatsoever
+                # because of this, and all of them looked fine in the data.
+                #
+                # CombatEngine.execute_ability ends the actor's turn after
+                # any non-instant cast, and _end_turn calls this method on
+                # that same actor. So a duration-1 combat-scope self-buff
+                # was applied and then decremented to 0 by the very turn
+                # end that its own cast triggered - it was gone before the
+                # player could take another action, and before anything
+                # could read it. Cast directly through Ability.use the buff
+                # is there with its stat_mods live; cast through the engine
+                # the effect list is empty one line later.
+                #
+                # That hit every one of Runemaster's five Palm Sigils (its
+                # whole school-choosing mechanic), Starcaller's Lunar
+                # Eclipse, Sun Cleric's Dawn, Stormbringer's Charge and
+                # Cultist's Satiate among others - and these are precisely
+                # the abilities authored to empower the NEXT cast, so
+                # expiring at the end of the casting turn makes them
+                # literally inert. Their _source notes say so outright:
+                # "the real mechanic empowers the next 'Lunar Phase' spell
+                # cast ... modeled as a short self-buff window instead".
+                # The window was one turn and the turn was already over.
+                #
+                # Scoped to BUFF and DEBUFF deliberately. DoT and HoT above
+                # are SUPPOSED to resolve on the turn they land - this
+                # method's own docstring says "damage/healing is applied
+                # BEFORE the duration decrements, so an N-turn effect ticks
+                # exactly N times" - so skipping their first tick would
+                # quietly change every DoT in the game.
+                if getattr(effect, "applied_this_turn", False):
+                    effect.applied_this_turn = False
+                    continue
                 effect.duration -= 1
                 if effect.is_expired():
                     self._effects().remove(effect)

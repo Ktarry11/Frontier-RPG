@@ -1005,22 +1005,24 @@
       "name": "Liberation",
       "resource_type": "energy",
       "cooldown": 8,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
+      "effect_type": "buff",
+      "duration": 2,
+      "stat_mods": {
+        "cc_immune": 1
+      },
       "description": "Whatever is holding your ally, it stops holding them.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'.",
+      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'. REMOVED NOTHING, EVER, UNTIL 2026-10-29: this was effect_type 'dispel' with dispel_type 'movement', and 'movement' is not a DispelType - the real members are NONE/MAGIC/CURSE/POISON/DISEASE - so remove_debuff_by_dispel_type took its guaranteed no-match path and the cast logged 'has no Movement effect to remove!' against a target visibly carrying four dispellable debuffs. Now a cc_immune buff, which is the shape the engine actually supports and the same one Ranger's Freedom and Cultist's Dark Veil already use; since apply_status_effect now also clears active stuns when cc_immune lands, this both frees the ally and keeps them free, which is closer to CoA than the dispel ever was.",
       "target_type": "ally",
-      "dispel_type": "movement"
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_harrowing_melody",
