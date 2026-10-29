@@ -175,6 +175,66 @@ ROLE_EFFECTS = {
 }
 
 
+def precast_stances(char, engine):
+    """Put one stance per exclusive group up before measuring, out of combat.
+
+    THE TANK AND HEALER SIMS HAD NO STANCE HANDLING AT ALL. Neither
+    tank_axes nor healer_axes ever cast a setup buff, so every spec was
+    measured with its always-on toggle switched off: a Protection Warrior
+    with no stance, a Protection Paladin with no Seal, a Resto Shaman with no
+    weapon imbue, a Chronomancer healer with no Aeon, a Druid that never
+    shifted. For a tank that is not a rounding error - a defensive stance or
+    presence is a core slice of its mitigation, which is the exact axis
+    tank_axes exists to measure.
+
+    The class sim learned this the hard way on 29 Oct: casting these INSIDE
+    the fight charged a turn per exclusive group, which taxed the classes
+    with the richest stance systems hardest. They are pre-pull buffs with
+    60-turn durations, so they go up before measurement starts and cost
+    nothing - and resources are topped back up afterwards, since a pre-pull
+    buff is paid for out of combat.
+
+    One per exclusive_group, not one in total: a class can hold a Seal and a
+    Presence and an Aspect at the same time, and they are different groups.
+    """
+    learned = char.get_learned_abilities()
+    needed_forms = set()
+    for a in learned:
+        rf = getattr(a, "requires_form", None)
+        if rf:
+            needed_forms.update(rf if isinstance(rf, (list, tuple)) else [rf])
+    setup = [a for a in learned
+             if getattr(a, "effect_type", "") == "buff"
+             and getattr(a, "target_type", None) in (None, "self")
+             and (getattr(a, "exclusive_group", None)
+                  or getattr(a, "shapeshift_form_id", None) in needed_forms)]
+    for _pass in range(len(setup)):
+        up = set()
+        mine = {getattr(fx, "effect_id", None) for fx in getattr(char, "active_effects", [])}
+        names = {getattr(fx, "name", None) for fx in getattr(char, "active_effects", [])}
+        for b in setup:
+            if b.ability_id in mine or b.name in names:
+                up.add(getattr(b, "exclusive_group", None)
+                       or getattr(b, "shapeshift_form_id", None) or b.ability_id)
+        progressed = False
+        for b in setup:
+            if b.ability_id in mine or b.name in names:
+                continue
+            key = (getattr(b, "exclusive_group", None)
+                   or getattr(b, "shapeshift_form_id", None) or b.ability_id)
+            if key in up:
+                continue
+            if engine.execute_ability(char, b.ability_id, char)[0]:
+                up.add(key)
+                progressed = True
+        if not progressed:
+            break
+    char.current_health = char.health
+    if getattr(char, "mana", 0):
+        char.current_mana = char.mana
+    return setup
+
+
 #: What a tank is hit by while being measured: the hardest thing in the game at its own level.
 TANK_ATTACKER = "elemental_caster"
 TANK_PHYSICAL = "beast_large"
@@ -496,6 +556,7 @@ def tank_axes(char, level, gen, dress, fights):
             char.current_health = char.health
             enemy = Monster("hitter", template, level)
             engine = CombatEngine(char, enemy, party=Party(char))
+            precast_stances(char, engine)
             enemy.current_health = 10 ** 6          # measure survival, not the tank's damage
             turns, samples = 0, []
             last_defensive = -DEFEND_EVERY     # first defensive is allowed immediately
@@ -658,6 +719,7 @@ def healer_axes(char, level, gen, dress, fights):
     party.add_member(patient)
     enemy = Monster("sparring", "beast_basic", level)
     engine = CombatEngine(char, enemy, party=party, enemies=[enemy])
+    precast_stances(char, engine)
     enemy.current_health = 10 ** 6
 
     heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
