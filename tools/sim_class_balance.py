@@ -177,13 +177,34 @@ def main():
     ap.add_argument("--fights", type=int, default=20)
     ap.add_argument("--levels", default="5,10,20,30,40,50,60")
     ap.add_argument("--class", dest="only", default=None)
-    # WHY THE BENCHMARK IS ABOVE THE PLAYER'S LEVEL. In full level-appropriate gear every class
-    # beats a same-level creature every time in three to five turns, so a same-level fight cannot
-    # tell them apart - the numbers all read 100% and the audit says nothing. Ten levels up is the
-    # difficulty where outcomes actually separate (win rates 67-83%, kill times 10 to 33 turns),
-    # which is roughly what an elite or a bad pull feels like.
-    ap.add_argument("--above", type=float, default=0.25,
-                    help="enemy level = character level x (1 + this), min +2 (default 0.25)")
+    # WHY THE BENCHMARK IS ONLY SLIGHTLY ABOVE THE PLAYER'S LEVEL.
+    #
+    # This defaulted to 0.25 on the reasoning that a same-level fight reads
+    # 100% for everyone and separates nothing, so a big gap is needed to
+    # make outcomes diverge. That reasoning holds at low level and breaks
+    # badly at high level, because the gap is a PERCENTAGE: +2 levels at 5,
+    # but +15 at 60. At +15 the test stops measuring damage and starts
+    # measuring whether your armour class survives three hits, which cloth
+    # never will. The level 60 table read:
+    #
+    #   physical   Hunter 83, Rogue 75, Cultist 58, Guardian 58, Warrior 50
+    #   casters    Mage, Priest, Warlock, Shaman, Runemaster, Starcaller,
+    #              Stormbringer, Sun Cleric, Paladin, Druid ALL 0%
+    #
+    # which reads as every caster in the game being broken. They are not:
+    # traced directly, a level 60 Priest casts its whole kit successfully
+    # (Smite 98, Shadow Word: Pain 99 over 4 turns, Holy Fire 96) and
+    # nobody runs out of mana. It has 708 health in cloth and a level 75
+    # creature kills it in three swings. The benchmark was the finding.
+    #
+    # At a fair gap win rate saturates, exactly as the old comment said -
+    # and that is fine, because TURNS TO KILL is then the discriminator and
+    # it separates cleanly: 2.1 for a Rogue to 5.2 for a Paladin at 60.
+    # Win rate at a fair gap is a floor check ("can this class function"),
+    # kill speed is the comparison. Pass --above 0.25 deliberately to ask
+    # the different question of who survives an overwhelming pull.
+    ap.add_argument("--above", type=float, default=0.05,
+                    help="enemy level = character level x (1 + this), min +2 (default 0.05)")
     args = ap.parse_args()
     levels = [int(x) for x in args.levels.split(",")]
 
@@ -199,7 +220,11 @@ def main():
         return 1
 
     print(f"{len(roster)} classes x {len(levels)} levels x {args.fights} fights against "
-          f"{len(set(ENEMY_MIX))} enemy templates, each at level x{1+args.above:.2f}\n")
+          f"{len(set(ENEMY_MIX))} enemy templates, each at level x{1+args.above:.2f}\n"
+          f"  enemy level by player level: " +
+          ", ".join(f"{lv}->{enemy_level(lv, args.above)}" for lv in levels) +
+          "\n  NOTE the gap widens with level (+2 at 5, +15 at 60), so win rates are only "
+          "comparable WITHIN a level, never across them.\n")
     print("WIN RATE")
 
     results = {}
@@ -259,17 +284,40 @@ def main():
 
     # ---- outliers, measured against the spread rather than an invented target
     print("\nOUTLIERS")
+    # JUDGE EACH LEVEL AGAINST ITS OWN MEDIAN, NEVER AGAINST A FIXED BAR.
+    #
+    # Two things were wrong here and together they manufactured a crisis.
+    #
+    # The wording claimed a class "cannot reliably beat its own level" when
+    # the benchmark is deliberately ABOVE the player's level - see --above,
+    # whose own comment explains that a same-level fight reads 100% for
+    # everyone and separates nothing. Nobody fought their own level.
+    #
+    # And the gap is a PERCENTAGE, so the benchmark gets harder as the run
+    # goes up: +2 levels at level 5, +5 at 20, +15 at 60. A fixed <50% bar
+    # therefore means something different at every level, and the output
+    # read as every caster collapsing from level 40 - Mage, Priest, Shaman,
+    # Paladin, Runemaster, Stormbringer all at 0% - when what actually
+    # changed was the difficulty of the test. enemy_level's own docstring
+    # says "A FIXED LEVEL GAP IS NOT A FIXED DIFFICULTY"; a fixed percentage
+    # is not either, and acting on that table would have meant "fixing"
+    # eight classes that are fine.
+    #
+    # So: the only honest comparison is between classes at the SAME level,
+    # which is the median test. The absolute bar is gone, and the header
+    # now states the real enemy level so the numbers cannot be misread.
     problems = []
     for level in levels:
         wr = {d: row[level]["win"] for _s, (d, row) in results.items()}
         median = statistics.median(wr.values())
+        foe = enemy_level(level, args.above)
         for d, w in sorted(wr.items(), key=lambda kv: kv[1]):
-            if w < 0.5:
-                problems.append(f"level {level}: {d} wins {w*100:.0f}% - cannot reliably beat "
-                                f"its own level")
-            elif median - w > 0.3:
-                problems.append(f"level {level}: {d} wins {w*100:.0f}% against a median of "
-                                f"{median*100:.0f}%")
+            if median - w > 0.3:
+                problems.append(f"level {level} vs level {foe}: {d} wins {w*100:.0f}% "
+                                f"against a median of {median*100:.0f}%")
+            elif w == 0 and median >= 0.3:
+                problems.append(f"level {level} vs level {foe}: {d} wins NOTHING while the "
+                                f"median is {median*100:.0f}%")
         tk = {d: row[level]["turns"] for _s, (d, row) in results.items()
               if row[level]["turns"]}
         if len(tk) > 3:
