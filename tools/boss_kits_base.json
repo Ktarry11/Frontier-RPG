@@ -9730,5 +9730,496 @@
     "agility": -36
    }
   }
+ ],
+ "soldier": [
+  {
+   "name": "Slash",
+   "kind": "damage",
+   "amount": 20,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Battle Shout",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "self_only": true,
+   "stat_mods": {
+    "attack_power": 12
+   }
+  },
+  {
+   "name": "Execute",
+   "kind": "damage",
+   "amount": 32,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "boss_blighted_bear": [
+  {
+   "name": "Maul",
+   "kind": "damage",
+   "amount": 26,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Rotting Bite",
+   "kind": "damage",
+   "amount": 19,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic"
+  }
+ ],
+ "vektar_unbeaten": [
+  {
+   "name": "Unbeaten's Opener",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Takes the Purse",
+   "kind": "heal",
+   "amount": 150,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Works the Body",
+   "kind": "damage",
+   "amount": 82,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 4,
+    "stat_mods": {
+     "attack_power": 38
+    }
+   }
+  },
+  {
+   "name": "Plays to the Rim",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Never Dropped a Round",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 99,
+   "mana_cost": 0,
+   "school": "physical",
+   "hp_below": 0.35,
+   "lifesteal": 0.35
+  }
+ ],
+ "grateward_moktal": [
+  {
+   "name": "Stoker's Prod",
+   "kind": "damage",
+   "amount": 70,
+   "cooldown": 0,
+   "mana_cost": 12,
+   "school": "fire"
+  },
+  {
+   "name": "The Floor Gets Hot",
+   "kind": "dot",
+   "amount": 44,
+   "cooldown": 3,
+   "mana_cost": 20,
+   "school": "fire",
+   "duration": 4,
+   "is_aoe": true,
+   "dispel_type": "magic"
+  },
+  {
+   "name": "Open the Vents",
+   "kind": "damage",
+   "amount": 76,
+   "cooldown": 4,
+   "mana_cost": 26,
+   "school": "fire",
+   "is_aoe": true
+  },
+  {
+   "name": "Rakes the Coals",
+   "kind": "damage",
+   "amount": 84,
+   "cooldown": 5,
+   "mana_cost": 24,
+   "school": "fire"
+  },
+  {
+   "name": "Nowhere Cool to Stand",
+   "kind": "damage",
+   "amount": 88,
+   "cooldown": 6,
+   "mana_cost": 30,
+   "school": "fire",
+   "is_aoe": true,
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "healing_taken_pct": -28
+    },
+    "dispel_type": "magic"
+   }
+  }
+ ],
+ "rakjan_ribcracker": [
+  {
+   "name": "Ribcracker",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Holds You Still",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 3,
+    "stat_mods": {
+     "agility": -36
+    }
+   }
+  },
+  {
+   "name": "Leans On It",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Won't Go Down First",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 99,
+   "mana_cost": 0,
+   "school": "physical",
+   "hp_below": 0.3
+  }
+ ],
+ "zulgar_hammerfall": [
+  {
+   "name": "Hammerfall",
+   "kind": "damage",
+   "amount": 128,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Shears the Plate",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": -220
+    }
+   }
+  },
+  {
+   "name": "Both Hands",
+   "kind": "damage",
+   "amount": 158,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Sets His Feet",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "buff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": 120
+    }
+   }
+  }
+ ],
+ "jenshala_house_favourite": [
+  {
+   "name": "Favourite's Jab",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Takes the House's Cut",
+   "kind": "heal",
+   "amount": 190,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Breaks the Guard",
+   "kind": "damage",
+   "amount": 142,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "rider": {
+    "effect": "debuff",
+    "duration": 4,
+    "stat_mods": {
+     "armor": -240
+    }
+   }
+  },
+  {
+   "name": "Gives the Rim a Show",
+   "kind": "damage",
+   "amount": 124,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "What the House Paid For",
+   "kind": "damage",
+   "amount": 150,
+   "cooldown": 99,
+   "mana_cost": 0,
+   "school": "physical",
+   "hp_below": 0.35,
+   "lifesteal": 0.4
+  }
+ ],
+ "rootmaw": [
+  {
+   "name": "Sink Jaws",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Death Roll",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Drag to the Drain",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -40,
+    "dodge_rating": -18
+   }
+  }
+ ],
+ "hapka_the_drowned": [
+  {
+   "name": "Stair-Fall Reach",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Years in the Water",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4
+  },
+  {
+   "name": "Nobody Came Down",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4,
+   "stat_mods": {
+    "spirit": -34,
+    "intellect": -30
+   }
+  }
+ ],
+ "veilspeaker_zulrath": [
+  {
+   "name": "Veilspeaker's Word",
+   "kind": "damage",
+   "amount": 114,
+   "cooldown": 0,
+   "mana_cost": 16,
+   "school": "nature"
+  },
+  {
+   "name": "Put the Fall Out",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 5,
+   "mana_cost": 24,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "The Terraces Answer",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 20,
+   "school": "nature",
+   "duration": 5,
+   "stat_mods": {
+    "intellect": 58,
+    "spirit": 44
+   },
+   "self_only": true
+  }
+ ],
+ "sheetfall": [
+  {
+   "name": "Full Weight of Water",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "Break Over the Lip",
+   "kind": "damage",
+   "amount": 122,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Standing Column",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 96,
+    "stamina": 52
+   },
+   "self_only": true
+  }
+ ],
+ "tide_priestess_myzrai": [
+  {
+   "name": "Priestess's Rebuke",
+   "kind": "damage",
+   "amount": 134,
+   "cooldown": 0,
+   "mana_cost": 20,
+   "school": "frost"
+  },
+  {
+   "name": "Flood the Court",
+   "kind": "damage",
+   "amount": 148,
+   "cooldown": 5,
+   "mana_cost": 30,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Blessing of the Deep",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 7,
+   "mana_cost": 26,
+   "school": "frost",
+   "duration": 5,
+   "stat_mods": {
+    "intellect": 70,
+    "armor": 110
+   },
+   "self_only": true
+  }
+ ],
+ "saltgorge": [
+  {
+   "name": "Gorging Bite",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Swallow the Swimmer",
+   "kind": "damage",
+   "amount": 142,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Thrash the Hall",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -44,
+    "armor": -90
+   }
+  }
  ]
 }

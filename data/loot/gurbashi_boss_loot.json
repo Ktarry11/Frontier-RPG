@@ -1,0 +1,348 @@
+{
+  "_notes": "Gurbashi Arena boss loot (2026-10-29). Five pits, five bosses, one item per kill from that boss's pool of four. item_level = creature level + 3. Budget and the five-way family spread are checked by audit() in tools/build_gurbashi_content.py. Nothing in here is quested.",
+  "Vek'tar the Unbeaten": [
+    {
+      "name": "Unbeaten's Notching Axe",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "He put a notch in the haft for every round he finished. The haft ran out first.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 26
+      },
+      "secondary_stats": {
+        "hit_rating": 1.9,
+        "crit_chance_physical": 1.9
+      },
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Purse-Taker's Breastplate",
+      "slot": "chest",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "The crowd pays in one lump and he has never had to split it.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 238
+    },
+    {
+      "name": "Never-Dropped Legguards",
+      "slot": "legs",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Scuffed to the knee and nowhere above it, which tells you how the rounds went.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "plate",
+      "armor_value": 238
+    },
+    {
+      "name": "Crowd-Caller's Spaulders",
+      "slot": "shoulder",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Somebody has to read the names out. It is a better job than fighting and worse pay.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 119
+    }
+  ],
+  "Grateward Mok'tal": [
+    {
+      "name": "Stoker's Rod",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Long enough to reach the coals without leaning over the grate. Just.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 3.6,
+        "crit_chance_spell": 0.2
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Gratekeeper's Robe",
+      "slot": "chest",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Scorched through at the hem and patched from the inside, over and over.",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9.5,
+        "mp5": 1.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 49
+    },
+    {
+      "name": "Vent-Opener's Gloves",
+      "slot": "hands",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Two layers of hide and a lining nobody will name. He opens the vents by hand.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 24
+    },
+    {
+      "name": "Hot-Floor Treads",
+      "slot": "feet",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "flavor_text": "Thick soles, and the trick of never putting a whole foot down at once.",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 49
+    }
+  ],
+  "Rakjan the Ribcracker": [
+    {
+      "name": "Pair-Handler's Rib Knife",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Short, because the work is close. He never had to use it on his own fighter.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      },
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Ribcracker's Jerkin",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Cut wide across the shoulders and taken in twice at the waist since.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 14.7
+      },
+      "armor_type": "leather",
+      "armor_value": 102
+    },
+    {
+      "name": "Short-Round Hood",
+      "slot": "head",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Pulled down for the walk out. The rim does not get to see a face until it has paid.",
+      "primary_stats": {
+        "agility": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 76
+    },
+    {
+      "name": "Bloodcaller's Tally",
+      "slot": "neck",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "A cord of knots, one for every round the handler called and his fighter finished.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.1
+      }
+    }
+  ],
+  "Zul'gar Hammerfall": [
+    {
+      "name": "Hammerfall's Shear",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The head is flat on one face and drawn to an edge on the other. Both have been used.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Hard Round Hauberk",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Relinked at the shoulder where something came through it and did not come through twice.",
+      "primary_stats": {
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 0.9,
+        "dodge_rating": 0.9
+      },
+      "armor_type": "mail",
+      "armor_value": 163
+    },
+    {
+      "name": "Plate-Shearer's Bracers",
+      "slot": "wrist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Armour comes off other people in strips and somebody down here keeps the strips.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "mp5": 1.0
+      },
+      "armor_type": "mail",
+      "armor_value": 81
+    },
+    {
+      "name": "Hard Round Signet",
+      "slot": "ring",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The fourth pit is the one the bookmakers close the book on. This is why.",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "armor": 12.2,
+        "parry_rating": 0.2
+      }
+    }
+  ],
+  "Jen'shala, the House Favourite": [
+    {
+      "name": "Favourite's Gurbashi Pike",
+      "slot": "main_hand",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Longer than the pit is wide at the ends. She has never needed the ends.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 23,
+        "agility": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 100,
+      "weapon_damage_max": 135,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "House-Favourite's Sabatons",
+      "slot": "feet",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Nobody else in the five pits is shod. The house shods its own.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.3
+      },
+      "armor_type": "plate",
+      "armor_value": 125
+    },
+    {
+      "name": "Odds-Keeper's Sash",
+      "slot": "waist",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "The board in Booty Bay moved twice before anyone down here had heard your name.",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 5.0,
+        "hit_rating": 0.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 26
+    },
+    {
+      "name": "Betting Token of the Last Pit",
+      "slot": "trinket",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Stamped on one side, blank on the other. Which side is which depends who you ask.",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3.2
+      }
+    }
+  ]
+}

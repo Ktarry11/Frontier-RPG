@@ -5044,6 +5044,233 @@ SOUTHERN_NEEDLES_KITS = {
 }
 
 
+# =========================================================================================================
+# GURBASHI ARENA (levels 36-38) - five pits in a line, five bosses, no trash anywhere between them.
+#
+# A GAUNTLET LIVES OR DIES ON THE KITS. Five rooms with nothing but bosses in them is only interesting if
+# each boss is a DIFFERENT PROBLEM; five rising health bars in a row is the same fight five times with the
+# timer turned up, and the fifth one is the most boring of the lot. So the five below are authored against
+# the actual decision each one forces:
+#
+#   vektar_unbeaten          DAMAGE RACE. A heal on a short cooldown (choose_action only opens the heal
+#                            branch below 45% health, so it is precisely a "can you close the last half"
+#                            test) plus a lifesteal phase at 35%. Grind him slowly and he undoes it.
+#   grateward_moktal         PARTY-WIDE PRESSURE that punishes settling in. An is_aoe DoT on a 3-turn
+#                            cooldown against a 4-turn duration is a burn that never lapses, and his big
+#                            hit rides a healing_taken_pct debuff, so a patient static rotation loses the
+#                            arithmetic. Spend cooldowns early or dispel it - waiting is the losing play.
+#   rakjan_ribcracker        TARGET PRIORITY. Rakjan himself is a slow single-target wall, deliberately
+#   jinsha_bloodcaller       NOT the threat in the room: the threat is his handler, who throws a party-wide
+#                            shadow DoT and an AoE nuke. Tunnel the big one and the add kills the party.
+#                            They arrive together as a pack (tools/handbuilt_gurbashi_arena.py).
+#   zulgar_hammerfall        MITIGATION, not damage. Very few, very large swings, an armour shred riding
+#                            one of them, and an armour buff riding another - so answering him by hitting
+#                            harder stalls out and answering him by surviving the swing does not.
+#   jenshala_house_favourite THE COMBINATION: Vek'tar's heal and lifesteal phase on top of Zul'gar's shred
+#                            and oversized hits. The last pit asks both earlier questions at once.
+#
+# BOSS KITS CARRY FOUR ATTACKS plus their heal or phase ability, which is deliberate: that is exactly
+# tools/rework_boss_kits.py's MIN_ATTACKS, so it has no reason to bolt a generic "Crushing Blow" or
+# "Searing Blast" onto a hand-authored kit. It still appends its own named enrage at 35% to the three
+# that carry no heal, which is the house pattern rather than a problem here - Yearmaw and The
+# Thousandth Shard carry the same one.
+#
+# Their buffs and debuffs are RIDERS on damage, never plain casts.
+# Monster.choose_action is explicit that "bosses never spend a turn on a pure self-buff or debuff while
+# they have an attack to throw" - a plain buff in a boss kit is only ever cast in place of the basic
+# attack, which is how bosses became "glorified punching bags" the last time. The add is not a boss, so
+# its plain debuff does fire normally. Self-buff stat_mods stick to keys a Monster actually reads
+# (armor / attack_power / *_taken_pct - see MONSTER_READS_STAT_MODS in tools/audit_monster_combat.py);
+# a self_only "+stamina" on a monster is flavour text and nothing else.
+# =========================================================================================================
+GURBASHI_KITS = {
+    # ---- PIT ONE: the damage race -------------------------------------------------------------------
+    "vektar_unbeaten": [
+        ("Unbeaten's Opener", "damage", 94, 0, 0, "physical", {}),
+        ("Takes the Purse", "heal", 150, 4, 0, "physical", {}),
+        ("Works the Body", "damage", 82, 3, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 4, "stat_mods": {"attack_power": 38}}}),
+        ("Plays to the Rim", "damage", 100, 5, 0, "physical", {"is_aoe": True}),
+        ("Never Dropped a Round", "damage", 118, 99, 0, "physical",
+         {"hp_below": 0.35, "lifesteal": 0.35}),
+    ],
+    # ---- PIT TWO: there is a fire under the floor and the stoker is paid to keep it there ------------
+    "grateward_moktal": [
+        ("Stoker's Prod", "damage", 70, 0, 12, "fire", {}),
+        ("The Floor Gets Hot", "dot", 44, 3, 20, "fire",
+         {"duration": 4, "is_aoe": True, "dispel_type": "magic"}),
+        ("Open the Vents", "damage", 76, 4, 26, "fire", {"is_aoe": True}),
+        ("Rakes the Coals", "damage", 84, 5, 24, "fire", {}),
+        ("Nowhere Cool to Stand", "damage", 88, 6, 30, "fire",
+         {"is_aoe": True,
+          "rider": {"effect": "debuff", "duration": 4, "stat_mods": {"healing_taken_pct": -28},
+                    "dispel_type": "magic"}}),
+    ],
+    # ---- PIT THREE: the pair. The big one is the decoy; the handler is the fight ---------------------
+    "rakjan_ribcracker": [
+        ("Ribcracker", "damage", 100, 0, 0, "physical", {}),
+        ("Holds You Still", "damage", 86, 3, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 3, "stat_mods": {"agility": -36}}}),
+        ("Leans On It", "damage", 112, 5, 0, "physical", {}),
+        ("Won't Go Down First", "damage", 124, 99, 0, "physical", {"hp_below": 0.30}),
+    ],
+    "jinsha_bloodcaller": [
+        ("Bloodcaller's Lash", "damage", 72, 0, 14, "shadow", {}),
+        ("Calls the Crowd's Blood", "dot", 40, 3, 22, "shadow",
+         {"duration": 4, "is_aoe": True, "dispel_type": "magic"}),
+        ("Hex of the Short Round", "debuff", 0, 4, 18, "shadow",
+         {"duration": 3, "stat_mods": {"strength": -30, "agility": -30}, "dispel_type": "curse"}),
+        ("Blood for the House", "damage", 92, 5, 26, "shadow", {"is_aoe": True}),
+    ],
+    # ---- PIT FOUR: mitigation. Hitting him harder is not an answer to being hit this hard ------------
+    "zulgar_hammerfall": [
+        ("Hammerfall", "damage", 128, 0, 0, "physical", {}),
+        ("Shears the Plate", "damage", 118, 4, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 4, "stat_mods": {"armor": -220}}}),
+        ("Both Hands", "damage", 158, 6, 0, "physical", {}),
+        ("Sets His Feet", "damage", 104, 5, 0, "physical",
+         {"rider": {"effect": "buff", "duration": 4, "stat_mods": {"armor": 120}}}),
+    ],
+    # ---- PIT FIVE: the house's own fighter, and both earlier questions at once -----------------------
+    "jenshala_house_favourite": [
+        ("Favourite's Jab", "damage", 108, 0, 0, "physical", {}),
+        ("Takes the House's Cut", "heal", 190, 5, 0, "physical", {}),
+        ("Breaks the Guard", "damage", 142, 4, 0, "physical",
+         {"rider": {"effect": "debuff", "duration": 4, "stat_mods": {"armor": -240}}}),
+        ("Gives the Rim a Show", "damage", 124, 6, 0, "physical", {"is_aoe": True}),
+        ("What the House Paid For", "damage", 150, 99, 0, "physical",
+         {"hp_below": 0.35, "lifesteal": 0.40}),
+    ],
+}
+
+
+# ---------------------------------------------------------------------------------------------------
+# Stranglethorn's three caves (2026-10-29).  Rotvine Hollow 32-34, Veilfall Cave 35-37, The Drowned
+# Shrine 40-42.  Three flooded places, so almost everything here either fights FROM water or has given
+# up on breathing; the trolls and the naga are the only things down here with a plan.
+# ---------------------------------------------------------------------------------------------------
+STRANGLETHORN_CAVE_KITS = {
+    # ---- ROTVINE HOLLOW: the root floor, the drowned shelf, and the sink ------------------------------
+    "rotvine_strangler": [
+        ("Reaching Root", "damage", 62, 0, 0, "nature", {}),
+        ("Wrap the Legs", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"agility": -28}}),
+        ("Drag Under", "damage", 74, 5, 0, "nature", {}),
+    ],
+    "rotwater_snapper": [
+        ("Shallows Snap", "damage", 64, 0, 0, "physical", {}),
+        ("Roll in the Shallows", "damage", 78, 5, 0, "physical", {}),
+    ],
+    "sporelit_bat": [
+        ("Wing Rake", "damage", 60, 0, 0, "physical", {}),
+        ("Spore Dust", "debuff", 0, 5, 0, "nature", {"duration": 4, "stat_mods": {"spirit": -26}}),
+    ],
+    "zulmarosh_drowned": [
+        ("Waterlogged Fist", "damage", 66, 0, 0, "physical", {}),
+        ("Still Full of River", "dot", 30, 6, 0, "nature", {"duration": 4}),
+        ("Hold You Down", "debuff", 0, 6, 0, "shadow", {"duration": 3, "stat_mods": {"strength": -26}}),
+    ],
+    "rotcap_walker": [
+        ("Cap Slam", "damage", 70, 0, 0, "physical", {}),
+        ("Burst the Cap", "damage", 62, 5, 0, "nature", {"is_aoe": True}),
+        ("Swell With Damp", "buff", 0, 7, 0, "nature",
+         {"duration": 5, "stat_mods": {"stamina": 44, "armor": 50}, "self_only": True}),
+    ],
+    "rootmaw": [
+        ("Sink Jaws", "damage", 104, 0, 0, "physical", {}),
+        ("Death Roll", "damage", 118, 5, 0, "physical", {}),
+        ("Drag to the Drain", "debuff", 0, 6, 0, "nature",
+         {"duration": 4, "stat_mods": {"agility": -40, "dodge_rating": -18}}),
+    ],
+    "hapka_the_drowned": [
+        ("Stair-Fall Reach", "damage", 94, 0, 0, "physical", {}),
+        ("Years in the Water", "dot", 38, 6, 0, "shadow", {"duration": 4}),
+        ("Nobody Came Down", "debuff", 0, 7, 0, "shadow",
+         {"duration": 4, "stat_mods": {"spirit": -34, "intellect": -30}}),
+    ],
+
+    # ---- VEILFALL CAVE: limestone, spray, and the Zul'Rath shrine keepers -----------------------------
+    "veilfall_limeback": [
+        ("Lime-Crusted Claw", "damage", 74, 0, 0, "physical", {}),
+        ("Shell Under", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 72}, "self_only": True}),
+    ],
+    "limewing_bat": [
+        ("Dripline Dive", "damage", 72, 0, 0, "physical", {}),
+        ("Screech Off the Stone", "damage", 66, 4, 0, "nature", {"is_aoe": True}),
+    ],
+    "zulrath_shrinekeeper": [
+        ("Keeper's Glaive", "damage", 78, 0, 0, "physical", {}),
+        ("Off the Terrace", "damage", 88, 5, 0, "physical", {}),
+        ("Stand the Watch", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 66, "stamina": 40}, "self_only": True}),
+    ],
+    "zulrath_mistcaller": [
+        ("Call the Mist", "damage", 76, 0, 14, "nature", {}),
+        ("Blinding Spray", "debuff", 0, 5, 18, "nature",
+         {"duration": 4, "stat_mods": {"agility": -32, "spirit": -28}}),
+        ("Voice Under the Fall", "damage", 84, 6, 22, "nature", {"is_aoe": True}),
+    ],
+    "spraywater_elemental": [
+        ("Sheeting Slap", "damage", 80, 0, 12, "frost", {}),
+        ("Undertow", "debuff", 0, 5, 16, "frost", {"duration": 3, "stat_mods": {"attack_power": -38}}),
+        ("Gather the Fall", "buff", 0, 7, 20, "frost",
+         {"duration": 5, "stat_mods": {"intellect": 44}, "self_only": True}),
+    ],
+    "veilspeaker_zulrath": [
+        ("Veilspeaker's Word", "damage", 114, 0, 16, "nature", {}),
+        ("Put the Fall Out", "damage", 126, 5, 24, "frost", {"is_aoe": True}),
+        ("The Terraces Answer", "buff", 0, 7, 20, "nature",
+         {"duration": 5, "stat_mods": {"intellect": 58, "spirit": 44}, "self_only": True}),
+    ],
+    "sheetfall": [
+        ("Full Weight of Water", "damage", 108, 0, 0, "frost", {}),
+        ("Break Over the Lip", "damage", 122, 5, 0, "frost", {"is_aoe": True}),
+        ("Standing Column", "buff", 0, 7, 0, "frost",
+         {"duration": 5, "stat_mods": {"armor": 96, "stamina": 52}, "self_only": True}),
+    ],
+
+    # ---- THE DROWNED SHRINE: naga on the wall-tops, and the court that did not get out ---------------
+    "saltscale_myrmidon": [
+        ("Myrmidon's Glaive", "damage", 92, 0, 0, "physical", {}),
+        ("Sweep the Causeway", "damage", 104, 5, 0, "physical", {"is_aoe": True}),
+        ("Coil and Hold", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 88, "attack_power": 42}, "self_only": True}),
+    ],
+    "kundaraz_tidecaller": [
+        ("Pull of the Tide", "damage", 90, 0, 18, "frost", {}),
+        ("Take the Terrace", "damage", 102, 5, 26, "frost", {"is_aoe": True}),
+        ("Salt in the Lungs", "dot", 44, 6, 22, "nature", {"duration": 4}),
+    ],
+    "terrace_reefclaw": [
+        ("Shearing Pincer", "damage", 94, 0, 0, "physical", {}),
+        ("Under the Stone", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 92}, "self_only": True}),
+    ],
+    "sunken_court_drowned": [
+        ("Court Blade", "damage", 88, 0, 0, "physical", {}),
+        ("Still Standing Watch", "debuff", 0, 5, 0, "shadow",
+         {"duration": 4, "stat_mods": {"strength": -34, "agility": -30}}),
+        ("Water in the Mail", "dot", 40, 6, 0, "shadow", {"duration": 4}),
+    ],
+    "brinefang_eel": [
+        ("Brine Fang", "damage", 96, 0, 0, "physical", {}),
+        ("Out of the Dark Hall", "damage", 110, 5, 0, "physical", {}),
+    ],
+    "tide_priestess_myzrai": [
+        ("Priestess's Rebuke", "damage", 134, 0, 20, "frost", {}),
+        ("Flood the Court", "damage", 148, 5, 30, "frost", {"is_aoe": True}),
+        ("Blessing of the Deep", "buff", 0, 7, 26, "frost",
+         {"duration": 5, "stat_mods": {"intellect": 70, "armor": 110}, "self_only": True}),
+    ],
+    "saltgorge": [
+        ("Gorging Bite", "damage", 126, 0, 0, "physical", {}),
+        ("Swallow the Swimmer", "damage", 142, 5, 0, "physical", {}),
+        ("Thrash the Hall", "debuff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"agility": -44, "armor": -90}}),
+    ],
+}
+
+
 ALL_KITS = {}
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
@@ -5053,7 +5280,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BRISTLEBACK_KITS, BANDIT_KITS, DUROTAR_KITS, DUROTAR_OPEN_KITS, DUROTAR_CAVE_KITS, RAGEFIRE_CONTENT_KITS, ECHO_CONTENT_KITS, CENTRAL_BARRENS_KITS, SOUTHERN_BARRENS_KITS, BROODSPIRAL_KITS, RAZORFEN_KITS, WAILING_CONTENT_KITS, NORTHERN_BARRENS_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
-               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS):
+               SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

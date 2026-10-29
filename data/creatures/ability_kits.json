@@ -143,8 +143,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Leaping Slash",
@@ -477,8 +476,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "spider": [
@@ -497,8 +495,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web",
@@ -510,8 +507,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "serpent": [
@@ -530,8 +526,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "swarm": [
@@ -573,8 +568,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "deviate_viper": [
@@ -593,8 +587,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "deviate_shambler": [
@@ -652,8 +645,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "deviate_adder": [
@@ -693,8 +685,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "centaur_lancer": [
@@ -934,8 +925,7 @@
         "mana_cost": 32,
         "school": "magic",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Quick Flameward",
@@ -998,8 +988,7 @@
         "cooldown": 3,
         "mana_cost": 26,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Blood Mending",
@@ -1037,8 +1026,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -18
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "troll_headhunter": [
@@ -1162,8 +1150,7 @@
         "duration": 3,
         "stat_mods": {
           "hit_rating": -10
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Mending Winds",
@@ -1181,19 +1168,22 @@
         "amount": 20,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Battle Shout",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 16,
+        "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "self_only": true,
-        "stat_mods": {
-          "attack_power": 12
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 12
+          }
         }
       },
       {
@@ -1203,6 +1193,28 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 12
+        }
       }
     ],
     "shield_soldier": [
@@ -1321,8 +1333,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "goblin_tinker": [
@@ -1352,8 +1363,7 @@
         "duration": 2,
         "stat_mods": {
           "hit_rating": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "dwarf_digger": [
@@ -1514,8 +1524,7 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Renew",
@@ -1568,8 +1577,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Dark Mending",
@@ -1596,8 +1604,7 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Drain Life",
@@ -1668,8 +1675,7 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "bazzalan": [
@@ -1689,8 +1695,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Gouging Cut",
@@ -1772,8 +1777,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "zalazane": [
@@ -1839,8 +1843,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -12
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "hex_troll": [
@@ -1862,8 +1865,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -12
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "hexed_thrall": [
@@ -1882,8 +1884,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "zalazane_berserker": [
@@ -1926,8 +1927,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Tidal Ward",
@@ -1995,8 +1995,7 @@
         "duration": 2,
         "stat_mods": {
           "agility": -10
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "grotto_murloc": [
@@ -2097,8 +2096,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Egg-Guard Carapace",
@@ -2232,8 +2230,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -8
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -2319,8 +2316,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "claim_spider": [
@@ -2467,8 +2463,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "sandpincer_crawler": [
@@ -2536,8 +2531,7 @@
         "duration": 2,
         "stat_mods": {
           "agility": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "dust_devil": [
@@ -2559,8 +2553,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -7
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "ember_wisp": [
@@ -2579,8 +2572,7 @@
         "cooldown": 3,
         "mana_cost": 8,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "den_spinner": [
@@ -2779,8 +2771,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Swollen Hide",
@@ -2851,8 +2842,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -14
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -2985,8 +2975,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Crushing Blow",
@@ -3036,8 +3025,7 @@
         "cooldown": 3,
         "mana_cost": 32,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Dark Mending",
@@ -3122,8 +3110,7 @@
         "mana_cost": 36,
         "school": "fire",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Demonic Ward",
@@ -3330,8 +3317,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -20
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -3508,8 +3494,7 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "nightsaber_stalker": [
@@ -3614,8 +3599,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "curse"
+        "duration": 3
       },
       {
         "name": "Pistol Barrage",
@@ -3793,8 +3777,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "muckmaw": [
@@ -3883,8 +3866,7 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       }
     ],
     "deathguard_captain": [
@@ -3919,8 +3901,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Crushing Blow",
@@ -3988,8 +3969,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "the_bloated_one": [
@@ -4010,8 +3990,7 @@
         "mana_cost": 0,
         "school": "magic",
         "duration": 3,
-        "is_aoe": true,
-        "dispel_type": "disease"
+        "is_aoe": true
       },
       {
         "name": "Crushing Blow",
@@ -4061,8 +4040,7 @@
         "cooldown": 3,
         "mana_cost": 16,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "thurman_agamand": [
@@ -4087,8 +4065,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -14
-          },
-          "dispel_type": "disease"
+          }
         }
       },
       {
@@ -4151,8 +4128,7 @@
           "duration": 4,
           "stat_mods": {
             "armor": -20
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -4167,8 +4143,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -10
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -4211,8 +4186,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Brand of Penance",
@@ -4278,8 +4252,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web Wrap",
@@ -4448,8 +4421,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "bleak_worg": [
@@ -4491,8 +4463,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "captured_farmer": [
@@ -4643,8 +4614,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "gelihast": [
@@ -4842,8 +4812,7 @@
           "stat_mods": {
             "agility": -22,
             "attack_power": -10
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -4887,8 +4856,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "poison"
+        "is_aoe": true
       },
       {
         "name": "Frenzied Rage",
@@ -4964,8 +4932,7 @@
         "duration": 2,
         "stat_mods": {
           "attack_power": -999
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "verdan_the_everliving": [
@@ -5063,8 +5030,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -999
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -5080,8 +5046,7 @@
           "stat_mods": {
             "attack_power": -45,
             "agility": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -5145,8 +5110,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -35
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -5202,8 +5166,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "bristleback_thornweaver": [
@@ -5222,8 +5185,7 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Thorns",
@@ -5341,8 +5303,7 @@
         "cooldown": 3,
         "mana_cost": 22,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Demon Skin",
@@ -5408,8 +5369,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Curse of Weakness",
@@ -5423,8 +5383,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -18
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -5642,8 +5601,7 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "matriarch_vessra": [
@@ -5719,8 +5677,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "stormhide_patriarch": [
@@ -5971,8 +5928,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "ridge_stormbinder": [
@@ -6197,8 +6153,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -6344,8 +6299,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "cinder_imp": [
@@ -6364,8 +6318,7 @@
         "cooldown": 3,
         "mana_cost": 10,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "houndmaster_kraygh": [
@@ -6405,8 +6358,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -6479,8 +6431,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "felhound": [
@@ -6502,8 +6453,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Rending Claws",
@@ -6534,8 +6484,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -12
-        },
-        "dispel_type": "poison"
+        }
       }
     ],
     "hive_carapace_guard": [
@@ -6604,8 +6553,7 @@
         "cooldown": 3,
         "mana_cost": 8,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "roost_warden": [
@@ -6647,8 +6595,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Cyclone Veil",
@@ -6697,8 +6644,7 @@
         "is_aoe": true,
         "stat_mods": {
           "agility": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "thunder_broodmother": [
@@ -6742,8 +6688,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Thorned Lash",
@@ -6792,8 +6737,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "frost",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "drowned_buccaneer": [
@@ -6911,8 +6855,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Molten Hide",
@@ -6978,8 +6921,7 @@
         "cooldown": 3,
         "mana_cost": 34,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Curse of Agony",
@@ -6988,8 +6930,7 @@
         "cooldown": 4,
         "mana_cost": 30,
         "school": "magic",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Searing Chains",
@@ -7004,8 +6945,7 @@
           "stat_mods": {
             "agility": -18,
             "attack_power": -12
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -7053,8 +6993,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "ragefire_digger": [
@@ -7127,8 +7066,7 @@
         "cooldown": 3,
         "mana_cost": 32,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Flame Ward",
@@ -7191,8 +7129,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "grulgash_pitbreaker": [
@@ -7269,8 +7206,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Ember Frenzy",
@@ -7337,8 +7273,7 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "magic",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Hex of Weakness",
@@ -7352,8 +7287,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -18
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -7523,8 +7457,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "murloc_spearfisher": [
@@ -7611,8 +7544,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "sand_burrower": [
@@ -7723,8 +7655,7 @@
           "duration": 4,
           "stat_mods": {
             "intellect": -16
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -7770,8 +7701,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Tidebound Hide",
@@ -7837,8 +7767,7 @@
         "cooldown": 3,
         "mana_cost": 22,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Sea Veil",
@@ -8073,8 +8002,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "oasis_tangle_vine": [
@@ -8096,8 +8024,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "drowned_pilgrim": [
@@ -8119,8 +8046,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "cb_carrion_vulture": [
@@ -8139,8 +8065,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "kodo_wraith": [
@@ -8162,8 +8087,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "kolkar_taskmaster": [
@@ -8235,8 +8159,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "bandit_bombardier": [
@@ -8348,8 +8271,7 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "dreadmist_warlock": [
@@ -8368,8 +8290,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Fel Armor",
@@ -8449,8 +8370,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "riverbank_snapper": [
@@ -8493,8 +8413,7 @@
         "cooldown": 3,
         "mana_cost": 32,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Curse of Tongues",
@@ -8508,8 +8427,7 @@
           "duration": 4,
           "stat_mods": {
             "intellect": -20
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -8569,8 +8487,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -20
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -8714,8 +8631,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -8773,8 +8689,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Carapace Harden",
@@ -8855,8 +8770,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -8907,8 +8821,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Tears of the Pool",
@@ -8958,8 +8871,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -18
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -9080,8 +8992,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Vanishing Powder",
@@ -9276,8 +9187,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Hollow Ward",
@@ -9363,8 +9273,7 @@
           "duration": 3,
           "stat_mods": {
             "intellect": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -9530,8 +9439,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "modan_overseer": [
@@ -9807,8 +9715,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "hagg_taurenbane": [
@@ -9981,8 +9888,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "rift_sabertooth": [
@@ -10054,8 +9960,7 @@
         "duration": 3,
         "stat_mods": {
           "strength": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "sunscale_stalker": [
@@ -10124,8 +10029,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "brood_tunnel_guard": [
@@ -10160,8 +10064,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        },
-        "dispel_type": "poison"
+        }
       }
     ],
     "windspire_harpy": [
@@ -10311,8 +10214,7 @@
           "duration": 3,
           "stat_mods": {
             "strength": -24
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -10322,8 +10224,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -10430,8 +10331,7 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Bark of the Queen",
@@ -10745,8 +10645,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Skitter Swarm",
@@ -10817,8 +10716,7 @@
           "duration": 3,
           "stat_mods": {
             "intellect": -26
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -10898,8 +10796,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "hive_drone": [
@@ -10939,8 +10836,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -20
-        },
-        "dispel_type": "poison"
+        }
       }
     ],
     "resin_spitter": [
@@ -10962,8 +10858,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "brood_tender": [
@@ -11022,8 +10917,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "hive_weaver": [
@@ -11045,8 +10939,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -26
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Amber Ward",
@@ -11203,8 +11096,7 @@
         "cooldown": 4,
         "mana_cost": 30,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Thorned Lash",
@@ -11254,8 +11146,7 @@
           "duration": 4,
           "stat_mods": {
             "agility": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -11310,8 +11201,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -32
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -11336,8 +11226,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -11399,8 +11288,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -26
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -11509,8 +11397,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Chitin Veil",
@@ -11640,8 +11527,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "razorfen_geomancer": [
@@ -11663,8 +11549,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -30
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Stoneskin",
@@ -11707,8 +11592,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -36
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "razorfen_ward_keeper": [
@@ -11730,8 +11614,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -32
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Ward Barrier",
@@ -11763,8 +11646,7 @@
         "cooldown": 3,
         "mana_cost": 22,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Siphon Essence",
@@ -11794,8 +11676,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -34
-        },
-        "dispel_type": "curse"
+        }
       },
       {
         "name": "Soul Rend",
@@ -11804,8 +11685,7 @@
         "cooldown": 3,
         "mana_cost": 26,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "kraul_bristleboar": [
@@ -11882,8 +11762,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -28
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Wallow",
@@ -11990,8 +11869,7 @@
           "duration": 4,
           "stat_mods": {
             "agility": -34
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12160,8 +12038,7 @@
         "cooldown": 4,
         "mana_cost": 32,
         "school": "nature",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Spirit Ward",
@@ -12231,8 +12108,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -46
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12242,8 +12118,7 @@
         "cooldown": 4,
         "mana_cost": 30,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Dark Mending",
@@ -12431,8 +12306,7 @@
           "duration": 4,
           "stat_mods": {
             "armor": -52
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12442,8 +12316,7 @@
         "cooldown": 4,
         "mana_cost": 34,
         "school": "nature",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Thorned Lash",
@@ -12493,8 +12366,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12533,8 +12405,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "poison"
+        "is_aoe": true
       },
       {
         "name": "Serpent Form",
@@ -12684,8 +12555,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -38
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12722,8 +12592,7 @@
         "cooldown": 4,
         "mana_cost": 28,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Serpent's Gaze",
@@ -12737,8 +12606,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -42
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12796,8 +12664,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Hiss",
@@ -12811,8 +12678,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12869,8 +12735,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -999
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -12917,8 +12782,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Swell",
@@ -12983,8 +12847,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "deviate_ooze": [
@@ -13006,8 +12869,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "deviate_raptor": [
@@ -13074,8 +12936,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "dreadfang": [
@@ -13094,8 +12955,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "fang_initiate": [
@@ -13140,8 +13000,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -26
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "deviate_broodling": [
@@ -13186,8 +13045,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "bog_creature": [
@@ -13206,8 +13064,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "road_bandit": [
@@ -13270,8 +13127,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "witchwing_harpy": [
@@ -13293,8 +13149,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -18
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "witchwing_windcaller": [
@@ -13316,8 +13171,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        },
-        "dispel_type": "curse"
+        }
       },
       {
         "name": "Mending Gale",
@@ -13521,8 +13375,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "kolkar_scoutrider": [
@@ -13608,8 +13461,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "sludge_elemental": [
@@ -13631,8 +13483,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -26
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Congeal",
@@ -13686,8 +13537,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "dervish_hound": [
@@ -13814,8 +13664,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "old_mire_maw": [
@@ -13835,8 +13684,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Wallow",
@@ -13907,8 +13755,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -26
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -13974,8 +13821,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -28
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -14160,8 +14006,7 @@
         "mana_cost": 0,
         "school": "fire",
         "duration": 3,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Hard Hat Drill",
@@ -14232,8 +14077,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -28
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -14405,8 +14249,7 @@
           "stat_mods": {
             "attack_power": -34,
             "agility": -24
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -14506,8 +14349,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -16
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -14549,8 +14391,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "silithid_swarmer": [
@@ -14623,8 +14464,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 2,
-        "dispel_type": "magic"
+        "duration": 2
       }
     ],
     "venture_co_overseer": [
@@ -14643,8 +14483,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "venture_co_tinkerer": [
@@ -14687,8 +14526,7 @@
         "mana_cost": 0,
         "school": "fire",
         "duration": 3,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Hardhat Brace",
@@ -14860,8 +14698,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "demon_hound": [
@@ -14883,8 +14720,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Savage Lash",
@@ -14937,8 +14773,7 @@
         "cooldown": 4,
         "mana_cost": 28,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "elemental_water": [
@@ -15048,8 +14883,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "naga_warrior": [
@@ -15086,8 +14920,7 @@
         "cooldown": 3,
         "mana_cost": 13,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "curse"
+        "duration": 3
       }
     ],
     "crab_giant": [
@@ -15179,8 +15012,7 @@
         "cooldown": 4,
         "mana_cost": 20,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "curse"
+        "duration": 3
       },
       {
         "name": "Riptide Hex",
@@ -15194,8 +15026,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -14
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -15252,8 +15083,7 @@
           "duration": 4,
           "stat_mods": {
             "armor": -16
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -15332,8 +15162,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Frenzy",
@@ -15389,8 +15218,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Cursed Blade",
@@ -15404,8 +15232,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -12
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -15490,8 +15317,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -16
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Drain Life",
@@ -15518,8 +15344,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "scourge_abomination": [
@@ -15538,8 +15363,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Bone Shatter",
@@ -15583,8 +15407,7 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Unholy Frenzy",
@@ -15619,8 +15442,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -18
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Death Coil",
@@ -15647,8 +15469,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "drowned_crewman": [
@@ -15692,8 +15513,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -18
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -15772,8 +15592,7 @@
         "cooldown": 3,
         "mana_cost": 12,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "broodmother_silka": [
@@ -15793,8 +15612,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web Wrap",
@@ -15923,8 +15741,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Smothering Web",
@@ -16198,8 +16015,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Banshee Wail",
@@ -16222,8 +16038,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -16266,8 +16081,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Devour",
@@ -16345,8 +16159,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -18
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -16356,8 +16169,7 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Shadow Rend",
@@ -16401,8 +16213,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "gloomcap_sporeling": [
@@ -16421,8 +16232,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "moonwell_mothwing": [
@@ -16444,8 +16254,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "corrupted_moon_guard": [
@@ -16490,8 +16299,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -18
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Rootmend",
@@ -16520,8 +16328,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Mossy Hide",
@@ -16550,8 +16357,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -22
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -16594,8 +16400,7 @@
         "cooldown": 4,
         "mana_cost": 24,
         "school": "nature",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Choking Roots",
@@ -16609,8 +16414,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -26
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -16658,8 +16462,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "barrow_wight": [
@@ -16681,8 +16484,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -20
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "frostbitten_huntsman": [
@@ -16723,8 +16525,7 @@
         "cooldown": 4,
         "mana_cost": 22,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Gravewind",
@@ -16780,8 +16581,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -24
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -16791,8 +16591,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Rime Hide",
@@ -16849,8 +16648,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Rimed Shackles",
@@ -16864,8 +16662,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -28
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -16957,8 +16754,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Infernal Hide",
@@ -17056,8 +16852,7 @@
         "cooldown": 3,
         "mana_cost": 34,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Siphon Hope",
@@ -17071,8 +16866,7 @@
           "duration": 3,
           "stat_mods": {
             "intellect": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -17130,8 +16924,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Crushing Stomp",
@@ -17208,8 +17001,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -32
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -17219,8 +17011,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 5,
-        "dispel_type": "disease"
+        "duration": 5
       },
       {
         "name": "Bark of Ages",
@@ -17291,8 +17082,7 @@
           "duration": 3,
           "stat_mods": {
             "strength": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -17363,8 +17153,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -17374,8 +17163,7 @@
         "cooldown": 5,
         "mana_cost": 50,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Shadow Rend",
@@ -17416,8 +17204,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "grave_rat": [
@@ -17477,8 +17264,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "weeping_shade": [
@@ -17500,8 +17286,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -8
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "blighted_scarecrow": [
@@ -17542,8 +17327,7 @@
         "duration": 2,
         "stat_mods": {
           "agility": -8
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "scarlet_torchbearer": [
@@ -17562,8 +17346,7 @@
         "cooldown": 4,
         "mana_cost": 8,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "scarlet_picket": [
@@ -17644,8 +17427,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "crypt_crawler": [
@@ -17664,8 +17446,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "mawgrin_the_gaunt": [
@@ -17685,8 +17466,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Pack Howl",
@@ -17752,8 +17532,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Shroud of Dust",
@@ -17819,8 +17598,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       },
       {
         "name": "Web Snare",
@@ -17891,8 +17669,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -12
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -18130,8 +17907,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       },
       {
         "name": "Shroud Web",
@@ -18197,8 +17973,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Bone Armor",
@@ -18264,8 +18039,7 @@
         "cooldown": 4,
         "mana_cost": 16,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Penitent Prayer",
@@ -18374,8 +18148,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "rot_hide_mongrel": [
@@ -18464,8 +18237,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "venomweb_skitterer": [
@@ -18509,8 +18281,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -12
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "cult_acolyte": [
@@ -18532,8 +18303,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "cult_fanatic": [
@@ -18576,8 +18346,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       },
       {
         "name": "Shrill Screech",
@@ -18643,8 +18412,7 @@
         "cooldown": 3,
         "mana_cost": 10,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Mending Brine",
@@ -18811,8 +18579,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Swell",
@@ -18883,8 +18650,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -16
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -18942,8 +18708,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Gnoll War Cry",
@@ -19009,8 +18774,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Death's Hour",
@@ -19081,8 +18845,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -19269,8 +19032,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web Cocoon",
@@ -19404,8 +19166,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -16
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -19504,8 +19265,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Call the Pack",
@@ -19571,8 +19331,7 @@
         "cooldown": 4,
         "mana_cost": 10,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Virulent Mist",
@@ -19586,8 +19345,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -19638,8 +19396,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "pd_rot_worm": [
@@ -19658,8 +19415,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "pd_plagued_hound": [
@@ -19686,8 +19442,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "pd_plague_spore": [
@@ -19710,8 +19465,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "pd_plague_zombie": [
@@ -19772,8 +19526,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -24
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "pd_forsaken_witch": [
@@ -19803,8 +19556,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -24
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "pd_infected_retainer": [
@@ -19836,8 +19588,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "pd_blighted_courtier": [
@@ -19856,8 +19607,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Fawning Curse",
@@ -19869,8 +19619,7 @@
         "duration": 3,
         "stat_mods": {
           "strength": -24
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "pd_plague_surgeon": [
@@ -19916,8 +19665,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Wither",
@@ -19929,8 +19677,7 @@
         "duration": 3,
         "stat_mods": {
           "stamina": -20
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "pd_failed_experiment": [
@@ -19994,8 +19741,7 @@
         "is_aoe": true,
         "stat_mods": {
           "armor": -26
-        },
-        "dispel_type": "disease"
+        }
       }
     ],
     "pd_plagueweaver_vex": [
@@ -20016,8 +19762,7 @@
         "cooldown": 3,
         "mana_cost": 38,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "disease"
+        "duration": 5
       },
       {
         "name": "Wasting Thread",
@@ -20032,8 +19777,7 @@
           "stat_mods": {
             "attack_power": -30,
             "intellect": -30
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -20105,8 +19849,7 @@
           "stat_mods": {
             "strength": -32,
             "intellect": -32
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -20165,8 +19908,7 @@
         "mana_cost": 38,
         "school": "nature",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "disease"
+        "is_aoe": true
       },
       {
         "name": "Keeper's Vigor",
@@ -20225,8 +19967,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -42
-          },
-          "dispel_type": "disease"
+          }
         }
       },
       {
@@ -20285,8 +20026,7 @@
         "cooldown": 3,
         "mana_cost": 45,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "curse"
+        "duration": 5
       },
       {
         "name": "Sorcerer's Aegis",
@@ -20361,8 +20101,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "old_hob": [
@@ -20450,8 +20189,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "blighted_crow": [
@@ -20473,8 +20211,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -14
-        },
-        "dispel_type": "disease"
+        }
       }
     ],
     "gaunt_scarecrow_king": [
@@ -20508,8 +20245,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -18
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -20551,8 +20287,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "windfall_wasp": [
@@ -20571,8 +20306,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "orchardkeeper_gnarl": [
@@ -20648,8 +20382,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "longleg_the_stalker": [
@@ -20669,8 +20402,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web Snare",
@@ -20735,8 +20467,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "barn_ghoul": [
@@ -20758,8 +20489,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "tusk_mother_gorra": [
@@ -20954,8 +20684,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "crag_stalker": [
@@ -20996,8 +20725,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "berard_the_forgotten": [
@@ -21017,8 +20745,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Wailing Grief",
@@ -21032,8 +20759,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -20
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -21208,8 +20934,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "wall_warden": [
@@ -21327,8 +21052,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Mana Ward",
@@ -21397,8 +21121,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "drowned_ferryman": [
@@ -21418,8 +21141,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Lakewater Curse",
@@ -21433,8 +21155,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -20
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -21485,8 +21206,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "silkbound_weaver": [
@@ -21550,8 +21270,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       }
     ],
     "tome_wraith": [
@@ -21573,8 +21292,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -20
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "animated_spellblade": [
@@ -21616,8 +21334,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "magister_hawren": [
@@ -21651,8 +21368,7 @@
           "duration": 3,
           "stat_mods": {
             "intellect": -20
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -21702,8 +21418,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Rot Flask",
@@ -21791,8 +21506,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -20
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -21894,8 +21608,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "shadowfang_darksoul": [
@@ -21914,8 +21627,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       }
     ],
     "arugal_voidwalker": [
@@ -21934,8 +21646,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "haunted_servitor": [
@@ -21957,8 +21668,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "tormented_officer": [
@@ -22003,8 +21713,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -16
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "deathsworn_captain": [
@@ -22198,8 +21907,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "waterlogged_wretch": [
@@ -22303,8 +22011,7 @@
         "cooldown": 3,
         "mana_cost": 12,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       }
     ],
     "curse_beast": [
@@ -22324,8 +22031,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Curse Roar",
@@ -22339,8 +22045,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -20
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -22392,8 +22097,7 @@
         "cooldown": 3,
         "mana_cost": 12,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Commanding Presence",
@@ -22459,8 +22163,7 @@
         "cooldown": 3,
         "mana_cost": 12,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Ghostly Wail",
@@ -22474,8 +22177,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -20
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -22594,8 +22296,7 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -18
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "altar_bonewalker": [
@@ -22660,8 +22361,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       }
     ],
     "bonewarden_aldric": [
@@ -22681,8 +22381,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Warden's Ward",
@@ -22748,8 +22447,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Moonbane",
@@ -22763,8 +22461,7 @@
           "duration": 3,
           "stat_mods": {
             "attack_power": -22
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -22830,8 +22527,7 @@
           "duration": 3,
           "stat_mods": {
             "armor": -30
-          },
-          "dispel_type": "curse"
+          }
         }
       },
       {
@@ -23074,8 +22770,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Shake the Snow Loose",
@@ -23146,8 +22841,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "daggerspine_siren": [
@@ -23170,8 +22864,7 @@
         "stat_mods": {
           "intellect": -18,
           "attack_power": -14
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Tidewash",
@@ -23199,8 +22892,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Bloodscent Frenzy",
@@ -23352,8 +23044,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "the_tidewrack": [
@@ -23378,8 +23069,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -28
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -23389,8 +23079,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Barnacle Plating",
@@ -23446,8 +23135,7 @@
         "cooldown": 2,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "queen_thistlewing": [
@@ -23473,8 +23161,7 @@
           "stat_mods": {
             "agility": -26,
             "attack_power": -18
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -23499,8 +23186,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -23600,8 +23286,7 @@
         "stat_mods": {
           "agility": -22,
           "intellect": -16
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Claim Jumper's Cut",
@@ -23628,8 +23313,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "drowned_miner": [
@@ -23651,8 +23335,7 @@
         "duration": 3,
         "stat_mods": {
           "magic_resistance": -24
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "ashlan_silvervein": [
@@ -23672,8 +23355,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Flood the Lower Works",
@@ -23688,8 +23370,7 @@
           "stat_mods": {
             "agility": -30,
             "armor": -24
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -23748,8 +23429,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Grease the Deck",
@@ -23815,8 +23495,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Settle",
@@ -23902,8 +23581,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -28
-        },
-        "dispel_type": "curse"
+        }
       },
       {
         "name": "Pack Mending",
@@ -24037,8 +23715,7 @@
         "stat_mods": {
           "intellect": -24,
           "magic_resistance": -20
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Siphon Vitality",
@@ -24047,8 +23724,7 @@
         "cooldown": 4,
         "mana_cost": 20,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "gavin_the_fence": [
@@ -24690,8 +24366,7 @@
         "cooldown": 4,
         "mana_cost": 20,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Crushing Blow",
@@ -24822,8 +24497,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Unliving Resolve",
@@ -24998,8 +24672,7 @@
           "stat_mods": {
             "intellect": -30,
             "magic_resistance": -28
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -25009,8 +24682,7 @@
         "cooldown": 4,
         "mana_cost": 24,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Mantle of Alterac",
@@ -25074,8 +24746,7 @@
           "stat_mods": {
             "agility": -34,
             "attack_power": -24
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -25085,8 +24756,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Still Turning the Lock",
@@ -25359,8 +25029,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "alterac_expeditionary": [
@@ -25382,8 +25051,7 @@
         "duration": 4,
         "stat_mods": {
           "armor": -34
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Forty Years Cold",
@@ -25392,8 +25060,7 @@
         "cooldown": 5,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "syndicate_deepscout": [
@@ -25493,8 +25160,7 @@
         "stat_mods": {
           "intellect": -26,
           "mp5": -8
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "hoarfang": [
@@ -25540,8 +25206,7 @@
         "mana_cost": 0,
         "school": "frost",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Crushing Blow",
@@ -25589,8 +25254,7 @@
           "stat_mods": {
             "agility": -32,
             "dodge_rating": -14
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -25600,8 +25264,7 @@
         "cooldown": 5,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "The Map Is Not Finished",
@@ -25717,8 +25380,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Thickened Cap",
@@ -25751,8 +25413,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Spread the Signal",
@@ -25764,8 +25425,7 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": 24
-        },
-        "self_only": true
+        }
       }
     ],
     "myconid_tender": [
@@ -25796,8 +25456,7 @@
         "stat_mods": {
           "armor": 40,
           "attack_power": 22
-        },
-        "self_only": true
+        }
       }
     ],
     "mycelial_husk": [
@@ -25828,8 +25487,7 @@
         "duration": 4,
         "stat_mods": {
           "agility": -28
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "crystalback_skitterer": [
@@ -25915,8 +25573,7 @@
         "stat_mods": {
           "intellect": -30,
           "mp5": -10
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Prismatic Ward",
@@ -25949,8 +25606,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "arcane",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Swell",
@@ -25993,8 +25649,7 @@
         "duration": 3,
         "stat_mods": {
           "hit_rating": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "archive_revenant": [
@@ -26017,8 +25672,7 @@
         "stat_mods": {
           "spell_power": -34,
           "mp5": -10
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Dust of Dalaran",
@@ -26028,8 +25682,7 @@
         "mana_cost": 0,
         "school": "shadow",
         "duration": 4,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       }
     ],
     "codex_dissident": [
@@ -26051,8 +25704,7 @@
         "duration": 4,
         "stat_mods": {
           "armor": -38
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Read It Aloud",
@@ -26061,8 +25713,7 @@
         "cooldown": 5,
         "mana_cost": 16,
         "school": "arcane",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "syndicate_interloper": [
@@ -26117,8 +25768,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Lightless Hide",
@@ -26243,8 +25893,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Thorned Lash",
@@ -26346,8 +25995,7 @@
         "mana_cost": 0,
         "school": "arcane",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Call the Brood",
@@ -26419,8 +26067,7 @@
           "stat_mods": {
             "spell_power": -40,
             "armor": -34
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -26430,8 +26077,7 @@
         "cooldown": 5,
         "mana_cost": 16,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "I Was Right",
@@ -26503,8 +26149,7 @@
           "stat_mods": {
             "hit_rating": -26,
             "crit_chance_physical": -8
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -26580,8 +26225,7 @@
         "mana_cost": 20,
         "school": "shadow",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Arcane Burst",
@@ -26679,8 +26323,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "arcane",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Harden",
@@ -26756,8 +26399,7 @@
           "stat_mods": {
             "spell_power": -42,
             "mp5": -12
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -26902,8 +26544,7 @@
         "school": "arcane",
         "duration": 5,
         "is_aoe": true,
-        "hp_below": 0.4,
-        "dispel_type": "magic"
+        "hp_below": 0.4
       },
       {
         "name": "Arcane Burst",
@@ -26944,8 +26585,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Stand Where It Puts You",
@@ -26989,8 +26629,7 @@
         "duration": 5,
         "stat_mods": {
           "attack_power": 30
-        },
-        "self_only": true
+        }
       }
     ],
     "spore_scribe": [
@@ -27009,8 +26648,7 @@
         "cooldown": 4,
         "mana_cost": 16,
         "school": "nature",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Read to the Colony",
@@ -27041,8 +26679,7 @@
         "stat_mods": {
           "agility": -34,
           "dodge_rating": -16
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Thicken the Weave",
@@ -27054,8 +26691,7 @@
         "duration": 5,
         "stat_mods": {
           "armor": 56
-        },
-        "self_only": true
+        }
       }
     ],
     "pulpwright": [
@@ -27113,8 +26749,7 @@
           "stat_mods": {
             "armor": -44,
             "dodge_rating": -16
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -27125,8 +26760,7 @@
         "mana_cost": 18,
         "school": "nature",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Entry Expanded",
@@ -27193,8 +26827,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "And Again",
@@ -27252,8 +26885,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 5,
-        "dispel_type": "magic"
+        "duration": 5
       },
       {
         "name": "Strike It Through",
@@ -27268,8 +26900,7 @@
           "stat_mods": {
             "spell_power": -46,
             "attack_power": -40
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -27326,8 +26957,7 @@
         "mana_cost": 22,
         "school": "shadow",
         "duration": 5,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       },
       {
         "name": "Printed As Written",
@@ -27401,8 +27031,7 @@
             "armor": -56,
             "spell_power": -50,
             "attack_power": -46
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -27551,8 +27180,7 @@
         "duration": 4,
         "stat_mods": {
           "stamina": -18
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "quilboar_highrunner": [
@@ -27605,8 +27233,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Warmth of the Thorn",
@@ -27869,8 +27496,7 @@
         "duration": 4,
         "stat_mods": {
           "stamina": -20
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "the_last_kodo": [
@@ -28104,8 +27730,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "meltwater_yeti": [
@@ -28168,8 +27793,7 @@
         "duration": 4,
         "stat_mods": {
           "agility": -28
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "glacier_bear": [
@@ -28234,8 +27858,7 @@
           "duration": 4,
           "stat_mods": {
             "attack_power": -32
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -28483,8 +28106,7 @@
         "duration": 4,
         "stat_mods": {
           "intellect": -26
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "saltbound_shambler": [
@@ -28506,8 +28128,7 @@
         "duration": 4,
         "stat_mods": {
           "stamina": -24
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Still Walking",
@@ -28574,8 +28195,7 @@
         "duration": 3,
         "stat_mods": {
           "agility": -30
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "yearmaw": [
@@ -28609,8 +28229,7 @@
           "duration": 4,
           "stat_mods": {
             "strength": -34
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -28972,8 +28591,7 @@
         "duration": 3,
         "stat_mods": {
           "spirit": -24
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "sheerwing_rooktender": [
@@ -29069,8 +28687,7 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Under the Ledge",
@@ -29169,8 +28786,7 @@
         "duration": 4,
         "stat_mods": {
           "agility": -32
-        },
-        "dispel_type": "magic"
+        }
       },
       {
         "name": "Hide Like the Ground",
@@ -29393,8 +29009,7 @@
           "duration": 4,
           "stat_mods": {
             "agility": -36
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -29417,6 +29032,1110 @@
         "hp_below": 0.35,
         "stat_mods": {
           "attack_power": 50
+        }
+      }
+    ],
+    "vektar_unbeaten": [
+      {
+        "name": "Unbeaten's Opener",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Takes the Purse",
+        "kind": "heal",
+        "amount": 150,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Works the Body",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 38
+          }
+        }
+      },
+      {
+        "name": "Plays to the Rim",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Never Dropped a Round",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "hp_below": 0.35,
+        "lifesteal": 0.35
+      }
+    ],
+    "grateward_moktal": [
+      {
+        "name": "Stoker's Prod",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Floor Gets Hot",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 20,
+        "school": "fire",
+        "duration": 4,
+        "is_aoe": true,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "Open the Vents",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 4,
+        "mana_cost": 26,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Rakes the Coals",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "fire"
+      },
+      {
+        "name": "Nowhere Cool to Stand",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 6,
+        "mana_cost": 30,
+        "school": "fire",
+        "is_aoe": true,
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "healing_taken_pct": -28
+          },
+          "dispel_type": "magic"
+        }
+      },
+      {
+        "name": "Inferno Surge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "rakjan_ribcracker": [
+      {
+        "name": "Ribcracker",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Holds You Still",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "agility": -36
+          }
+        }
+      },
+      {
+        "name": "Leans On It",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Won't Go Down First",
+        "kind": "damage",
+        "amount": 124,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "hp_below": 0.3
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 60
+        }
+      }
+    ],
+    "jinsha_bloodcaller": [
+      {
+        "name": "Bloodcaller's Lash",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "shadow"
+      },
+      {
+        "name": "Calls the Crowd's Blood",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 22,
+        "school": "shadow",
+        "duration": 4,
+        "is_aoe": true,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "Hex of the Short Round",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 18,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "strength": -30,
+          "agility": -30
+        },
+        "dispel_type": "curse"
+      },
+      {
+        "name": "Blood for the House",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "shadow",
+        "is_aoe": true
+      }
+    ],
+    "zulgar_hammerfall": [
+      {
+        "name": "Hammerfall",
+        "kind": "damage",
+        "amount": 128,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Shears the Plate",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": -220
+          }
+        }
+      },
+      {
+        "name": "Both Hands",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sets His Feet",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 120
+          }
+        }
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 77
+        }
+      }
+    ],
+    "jenshala_house_favourite": [
+      {
+        "name": "Favourite's Jab",
+        "kind": "damage",
+        "amount": 108,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Takes the House's Cut",
+        "kind": "heal",
+        "amount": 190,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Breaks the Guard",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": -240
+          }
+        }
+      },
+      {
+        "name": "Gives the Rim a Show",
+        "kind": "damage",
+        "amount": 124,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "What the House Paid For",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "hp_below": 0.35,
+        "lifesteal": 0.4
+      }
+    ],
+    "rotvine_strangler": [
+      {
+        "name": "Reaching Root",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wrap the Legs",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28
+        }
+      },
+      {
+        "name": "Drag Under",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      }
+    ],
+    "rotwater_snapper": [
+      {
+        "name": "Shallows Snap",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Roll in the Shallows",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "sporelit_bat": [
+      {
+        "name": "Wing Rake",
+        "kind": "damage",
+        "amount": 60,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spore Dust",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "spirit": -26
+        }
+      }
+    ],
+    "zulmarosh_drowned": [
+      {
+        "name": "Waterlogged Fist",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Still Full of River",
+        "kind": "dot",
+        "amount": 30,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Hold You Down",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "strength": -26
+        }
+      }
+    ],
+    "rotcap_walker": [
+      {
+        "name": "Cap Slam",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Burst the Cap",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Swell With Damp",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5,
+        "stat_mods": {
+          "stamina": 44,
+          "armor": 50
+        },
+        "self_only": true
+      }
+    ],
+    "rootmaw": [
+      {
+        "name": "Sink Jaws",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Death Roll",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag to the Drain",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "agility": -40,
+            "dodge_rating": -18
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 135,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 62
+        }
+      }
+    ],
+    "hapka_the_drowned": [
+      {
+        "name": "Stair-Fall Reach",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Years in the Water",
+        "kind": "dot",
+        "amount": 38,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Nobody Came Down",
+        "kind": "damage",
+        "amount": 61,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "spirit": -34,
+            "intellect": -30
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Cleave",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 56
+        }
+      }
+    ],
+    "veilfall_limeback": [
+      {
+        "name": "Lime-Crusted Claw",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Under",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 72
+        },
+        "self_only": true
+      }
+    ],
+    "limewing_bat": [
+      {
+        "name": "Dripline Dive",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Screech Off the Stone",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "zulrath_shrinekeeper": [
+      {
+        "name": "Keeper's Glaive",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Off the Terrace",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stand the Watch",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 66,
+          "stamina": 40
+        },
+        "self_only": true
+      }
+    ],
+    "zulrath_mistcaller": [
+      {
+        "name": "Call the Mist",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 14,
+        "school": "nature"
+      },
+      {
+        "name": "Blinding Spray",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 18,
+        "school": "nature",
+        "duration": 4,
+        "stat_mods": {
+          "agility": -32,
+          "spirit": -28
+        }
+      },
+      {
+        "name": "Voice Under the Fall",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 6,
+        "mana_cost": 22,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "spraywater_elemental": [
+      {
+        "name": "Sheeting Slap",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 0,
+        "mana_cost": 12,
+        "school": "frost"
+      },
+      {
+        "name": "Undertow",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 16,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -38
+        }
+      },
+      {
+        "name": "Gather the Fall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 20,
+        "school": "frost",
+        "duration": 5,
+        "stat_mods": {
+          "intellect": 44
+        },
+        "self_only": true
+      }
+    ],
+    "veilspeaker_zulrath": [
+      {
+        "name": "Veilspeaker's Word",
+        "kind": "damage",
+        "amount": 114,
+        "cooldown": 0,
+        "mana_cost": 16,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Put the Fall Out",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 5,
+        "mana_cost": 24,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "The Terraces Answer",
+        "kind": "damage",
+        "amount": 91,
+        "cooldown": 5,
+        "mana_cost": 20,
+        "school": "nature",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "intellect": 58,
+            "spirit": 44
+          }
+        }
+      },
+      {
+        "name": "Thorned Lash",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wild Surge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 68
+        }
+      }
+    ],
+    "sheetfall": [
+      {
+        "name": "Full Weight of Water",
+        "kind": "damage",
+        "amount": 108,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Break Over the Lip",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Standing Column",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "armor": 96,
+            "stamina": 52
+          }
+        }
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 65
+        }
+      }
+    ],
+    "saltscale_myrmidon": [
+      {
+        "name": "Myrmidon's Glaive",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Causeway",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Coil and Hold",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 88,
+          "attack_power": 42
+        },
+        "self_only": true
+      }
+    ],
+    "kundaraz_tidecaller": [
+      {
+        "name": "Pull of the Tide",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 0,
+        "mana_cost": 18,
+        "school": "frost"
+      },
+      {
+        "name": "Take the Terrace",
+        "kind": "damage",
+        "amount": 102,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Salt in the Lungs",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 6,
+        "mana_cost": 22,
+        "school": "nature",
+        "duration": 4
+      }
+    ],
+    "terrace_reefclaw": [
+      {
+        "name": "Shearing Pincer",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Under the Stone",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 92
+        },
+        "self_only": true
+      }
+    ],
+    "sunken_court_drowned": [
+      {
+        "name": "Court Blade",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Still Standing Watch",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "strength": -34,
+          "agility": -30
+        }
+      },
+      {
+        "name": "Water in the Mail",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "brinefang_eel": [
+      {
+        "name": "Brine Fang",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Dark Hall",
+        "kind": "damage",
+        "amount": 110,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "tide_priestess_myzrai": [
+      {
+        "name": "Priestess's Rebuke",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 0,
+        "mana_cost": 20,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Flood the Court",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 5,
+        "mana_cost": 30,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Blessing of the Deep",
+        "kind": "damage",
+        "amount": 107,
+        "cooldown": 5,
+        "mana_cost": 26,
+        "school": "frost",
+        "rider": {
+          "effect": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "intellect": 70,
+            "armor": 110
+          }
+        }
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 80
+        }
+      }
+    ],
+    "saltgorge": [
+      {
+        "name": "Gorging Bite",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Swallow the Swimmer",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrash the Hall",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "agility": -44,
+            "armor": -90
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 76
         }
       }
     ],
@@ -29522,8 +30241,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "satyr": [
@@ -29542,8 +30260,7 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       }
     ],
     "satyr_warrior": [
@@ -29588,8 +30305,7 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "forsaken_traitor": [
@@ -29618,8 +30334,7 @@
         "duration": 2,
         "stat_mods": {
           "armor": -12
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "zombie": [
@@ -29674,8 +30389,7 @@
         "cooldown": 3,
         "mana_cost": 16,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "curse"
+        "duration": 3
       }
     ],
     "plague_abomination": [
@@ -29716,7 +30430,7 @@
         "amount": 24,
         "cooldown": 0,
         "mana_cost": 28,
-        "school": "nature"
+        "school": "lightning"
       },
       {
         "name": "Chain Lightning",
@@ -29724,7 +30438,7 @@
         "amount": 32,
         "cooldown": 3,
         "mana_cost": 35,
-        "school": "nature"
+        "school": "lightning"
       },
       {
         "name": "Hex",
@@ -29735,8 +30449,7 @@
         "duration": 2,
         "stat_mods": {
           "intellect": -8
-        },
-        "dispel_type": "curse"
+        }
       },
       {
         "name": "Shamanic Heal",
@@ -29763,8 +30476,7 @@
         "cooldown": 2,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "plagued_hound": [
@@ -29791,8 +30503,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "magma_elemental": [
@@ -29844,8 +30555,7 @@
         "cooldown": 2,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Immolate",
@@ -29854,8 +30564,7 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       }
     ],
     "plagued_rat": [
@@ -29874,8 +30583,7 @@
         "cooldown": 2,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       }
     ],
     "plague_zombie": [
@@ -29951,8 +30659,7 @@
         "cooldown": 2,
         "mana_cost": 40,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Blight Storm",
@@ -30000,8 +30707,7 @@
         "cooldown": 3,
         "mana_cost": 35,
         "school": "fire",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Flame Barrier",
@@ -30070,8 +30776,7 @@
         "stat_mods": {
           "armor": -18
         },
-        "is_aoe": true,
-        "dispel_type": "disease"
+        "is_aoe": true
       },
       {
         "name": "Abomination Roar",
@@ -30103,8 +30808,7 @@
         "cooldown": 3,
         "mana_cost": 25,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Fire Shield",
@@ -30135,8 +30839,7 @@
         "cooldown": 2,
         "mana_cost": 15,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "poison"
+        "duration": 3
       }
     ],
     "plague_keeper_voss": [
@@ -30163,8 +30866,7 @@
         "cooldown": 2,
         "mana_cost": 38,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Keeper's Vigor",
@@ -30202,8 +30904,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -10
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "carrion_bird": [
@@ -30231,7 +30932,7 @@
         "amount": 40,
         "cooldown": 0,
         "mana_cost": 45,
-        "school": "nature",
+        "school": "lightning",
         "boss_rework": 1
       },
       {
@@ -30240,7 +30941,7 @@
         "amount": 58,
         "cooldown": 3,
         "mana_cost": 65,
-        "school": "nature"
+        "school": "lightning"
       },
       {
         "name": "Lightning Storm",
@@ -30248,14 +30949,13 @@
         "amount": 26,
         "cooldown": 3,
         "mana_cost": 50,
-        "school": "nature",
+        "school": "lightning",
         "rider": {
           "effect": "debuff",
           "duration": 3,
           "stat_mods": {
             "armor": -15
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -30296,8 +30996,7 @@
         "amount": 26,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical",
-        "boss_rework": 1
+        "school": "physical"
       },
       {
         "name": "Rotting Bite",
@@ -30306,37 +31005,6 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic"
-      },
-      {
-        "name": "Crushing Blow",
-        "kind": "damage",
-        "amount": 34,
-        "cooldown": 4,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Sweeping Cleave",
-        "kind": "damage",
-        "amount": 18,
-        "cooldown": 5,
-        "mana_cost": 0,
-        "school": "physical",
-        "is_aoe": true
-      },
-      {
-        "name": "Enrage",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 99,
-        "mana_cost": 0,
-        "school": "physical",
-        "duration": 30,
-        "self_only": true,
-        "hp_below": 0.35,
-        "stat_mods": {
-          "attack_power": 16
-        }
       }
     ],
     "magmus": [
@@ -30366,8 +31034,7 @@
         "cooldown": 3,
         "mana_cost": 40,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       },
       {
         "name": "Magma Shield",
@@ -30431,8 +31098,7 @@
         "cooldown": 2,
         "mana_cost": 45,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Life Drain",
@@ -30526,8 +31192,7 @@
         "duration": 2,
         "stat_mods": {
           "intellect": -12
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "flame_guardian": [
@@ -30577,8 +31242,7 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "shadow",
-        "duration": 3,
-        "dispel_type": "disease"
+        "duration": 3
       },
       {
         "name": "Curse",
@@ -30589,8 +31253,7 @@
         "duration": 2,
         "stat_mods": {
           "intellect": -10
-        },
-        "dispel_type": "curse"
+        }
       }
     ],
     "plague_surgeon": [
@@ -30646,8 +31309,7 @@
         "duration": 2,
         "stat_mods": {
           "intellect": -15
-        },
-        "dispel_type": "curse"
+        }
       },
       {
         "name": "Undead Might",
@@ -30751,8 +31413,7 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "fire",
-        "duration": 3,
-        "dispel_type": "magic"
+        "duration": 3
       }
     ],
     "shadow_corruption": [
@@ -30771,8 +31432,7 @@
         "cooldown": 3,
         "mana_cost": 23,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       }
     ],
     "troll_hex_master": [
@@ -30791,8 +31451,7 @@
         "cooldown": 3,
         "mana_cost": 17,
         "school": "magic",
-        "duration": 3,
-        "dispel_type": "curse"
+        "duration": 3
       }
     ],
     "kirin_tor_mage": [
@@ -30812,8 +31471,7 @@
         "mana_cost": 38,
         "school": "magic",
         "duration": 3,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       }
     ],
     "forsaken_mage": [
@@ -30833,8 +31491,7 @@
         "mana_cost": 20,
         "school": "shadow",
         "duration": 3,
-        "is_aoe": true,
-        "dispel_type": "magic"
+        "is_aoe": true
       }
     ],
     "troll_axe_thrower": [
@@ -30901,8 +31558,7 @@
         "cooldown": 3,
         "mana_cost": 58,
         "school": "shadow",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Oracle's Ward",
@@ -30943,8 +31599,7 @@
         "duration": 3,
         "stat_mods": {
           "armor": -25
-        },
-        "dispel_type": "magic"
+        }
       }
     ],
     "satyr_warlord": [
@@ -30994,8 +31649,7 @@
         "cooldown": 3,
         "mana_cost": 44,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "magic"
+        "duration": 4
       },
       {
         "name": "Blood Idol",
@@ -31004,62 +31658,6 @@
         "cooldown": 3,
         "mana_cost": 44,
         "school": "magic"
-      }
-    ],
-    "boss_hezrul_bloodmark": [
-      {
-        "name": "Slash",
-        "kind": "damage",
-        "amount": 20,
-        "cooldown": 0,
-        "mana_cost": 0,
-        "school": "physical",
-        "boss_rework": 1
-      },
-      {
-        "name": "Battle Shout",
-        "kind": "damage",
-        "amount": 16,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical",
-        "rider": {
-          "effect": "buff",
-          "duration": 4,
-          "stat_mods": {
-            "attack_power": 12
-          }
-        }
-      },
-      {
-        "name": "Execute",
-        "kind": "damage",
-        "amount": 32,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Crushing Blow",
-        "kind": "damage",
-        "amount": 26,
-        "cooldown": 4,
-        "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Enrage",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 99,
-        "mana_cost": 0,
-        "school": "physical",
-        "duration": 30,
-        "self_only": true,
-        "hp_below": 0.35,
-        "stat_mods": {
-          "attack_power": 12
-        }
       }
     ],
     "boss_scourge_abomination": [
@@ -31079,8 +31677,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "disease"
+        "duration": 4
       },
       {
         "name": "Bone Shatter",
@@ -31152,8 +31749,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Dark Mending",
@@ -31198,8 +31794,7 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "curse"
+        "duration": 4
       },
       {
         "name": "Dark Mending",
@@ -31244,8 +31839,7 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "magic",
-        "duration": 4,
-        "dispel_type": "poison"
+        "duration": 4
       },
       {
         "name": "Web",
@@ -31259,8 +31853,7 @@
           "duration": 3,
           "stat_mods": {
             "agility": -12
-          },
-          "dispel_type": "magic"
+          }
         }
       },
       {
@@ -31406,6 +31999,56 @@
         "hp_below": 0.35,
         "stat_mods": {
           "attack_power": 17
+        }
+      }
+    ],
+    "boss_blighted_bear": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 26,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Rotting Bite",
+        "kind": "damage",
+        "amount": 19,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 34,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Cleave",
+        "kind": "damage",
+        "amount": 18,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 16
         }
       }
     ]

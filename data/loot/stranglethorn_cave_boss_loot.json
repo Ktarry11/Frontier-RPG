@@ -1,0 +1,396 @@
+{
+  "_notes": "Stranglethorn cave boss and named-rare loot (2026-10-29). ONE item drops per kill from the pool. item_level = creature level + 3. Budget checked by audit() in tools/build_stranglethorn_cave_content.py. Rares are never quested, and nothing here carries magic resistance (floor is level 45).",
+  "Rootmaw": [
+    {
+      "name": "Rootmaw's Drag-Tooth",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "It does not bite to kill. It bites to carry you to the drain.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Sunken Bole Stave",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Root, not wood. The difference matters to whoever has to hold it.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 31,
+        "spirit": 31
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 37,
+      "weapon_damage_max": 50,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Sinkwader Boots",
+      "slot": "feet",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Everyone who comes out of the Hollow comes out wet to the knee.",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 47
+    },
+    {
+      "name": "Outflow Warden's Hauberk",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The water leaves the crag here and it has to get past something to do it.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 150
+    }
+  ],
+  "Hap'ka the Drowned": [
+    {
+      "name": "Stairfall Maul",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Zul'Marosh has a stair and the bottom of it is under water.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 68,
+      "weapon_damage_max": 92,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Hap'ka's Rotted Longbow",
+      "slot": "ranged",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The stave held. Everything that was wrapped around it did not.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 78,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Drowned Shelf Wrappings",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Still laced the way he laced them, and still on him.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Nobody-Came-Down Greaves",
+      "slot": "legs",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "They knew where he fell. That was never the problem.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 226
+    }
+  ],
+  "Veilspeaker Zul'Rath": [
+    {
+      "name": "Veilspeaker's Spray-Rod",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "He argues with the waterfall daily and has not lost yet.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {
+        "spell_power": 2.2
+      },
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Terracekeeper's Glaive",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Long enough to reach the terrace below without going down to it.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 33,
+        "stamina": 33
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 98,
+      "weapon_damage_max": 133,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Mistcaller's Shroud",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "It has not been properly dry since it was made.",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 51
+    },
+    {
+      "name": "Shrinekeeper's Spaulders",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Carved on the inside, where the keeper can see it and nobody else can.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 122
+    }
+  ],
+  "Sheetfall": [
+    {
+      "name": "Standing Column Bulwark",
+      "slot": "off_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "It holds its shape for about as long as you need it not to.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 11
+      },
+      "armor_value": 81,
+      "block_value": 102
+    },
+    {
+      "name": "Lipwater Jerkin",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Cut for someone who works where the floor is always running.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 102
+    },
+    {
+      "name": "Plungewrought Legplates",
+      "slot": "legs",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Water falling this far does the hammering for you.",
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 244
+    },
+    {
+      "name": "Coif of the Fourth Terrace",
+      "slot": "head",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The lowest one. You hear the pool before you can see over the edge.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 122
+    }
+  ],
+  "Tide-Priestess Myzrai": [
+    {
+      "name": "Myzrai's Court Blade",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Naga work over troll stone. Neither of them asked the other.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_power": 5.0
+      },
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 109,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Vestments of the Taken Court",
+      "slot": "chest",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Cut to the old pattern, by someone who had seen the old pattern.",
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 57
+    },
+    {
+      "name": "Terrace-Walker's Treads",
+      "slot": "feet",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "The dry ground down here is two spans wide and it is the only road.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 57
+    },
+    {
+      "name": "Sanctum Guard's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Salt gets into the joints of everything and then stays there.",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 206
+    }
+  ],
+  "Saltgorge": [
+    {
+      "name": "Saltgorge Hide Mantle",
+      "slot": "shoulder",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "It lives in a hall with a roof on it and comes out at the doorway.",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 86
+    },
+    {
+      "name": "Deep Hall Chain",
+      "slot": "chest",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Whoever wore it last went into the water in it.",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 183
+    },
+    {
+      "name": "Brinelogged Girdle",
+      "slot": "waist",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Heavy, and it does not get lighter as it dries, because it does not dry.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 28
+    },
+    {
+      "name": "Courtyard Sabatons",
+      "slot": "feet",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Stone, water, stone. You can hear somebody coming the length of the terrace.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 137
+    }
+  ]
+}

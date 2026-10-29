@@ -304,6 +304,21 @@ class PortalManager:
                 (36, 150): ("Booty Bay", 35, 8),
                 (170, 116): ("The Drowned Shrine", 32, 10),
             },
+            # The caves and the gauntlet. A cave exit declares the OVERWORLD portal tile: _offset_spawn
+            # takes 2 off and transition_to_zone adds 3 back for leaving_cave, so the player lands one
+            # tile south of the mouth rather than on top of it.
+            "Rotvine Hollow": {
+                (32, 10): ("Northern Stranglethorn", 150, 40),
+            },
+            "Veilfall Cave": {
+                (32, 10): ("Central Stranglethorn", 40, 58),
+            },
+            "Gurbashi Arena": {
+                (40, 12): ("Central Stranglethorn", 150, 100),
+            },
+            "The Drowned Shrine": {
+                (32, 10): ("Southern Stranglethorn", 170, 116),
+            },
             "Booty Bay": {
                 (35, 4): ("Southern Stranglethorn", 36, 150),
                 (64, 34): ("Ratchet", 62, 32),                  # the boat: lands on the main pier head

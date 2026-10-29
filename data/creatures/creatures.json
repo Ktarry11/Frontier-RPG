@@ -2868,7 +2868,8 @@
       ],
       "is_boss": true,
       "boss_multiplier": 2.4,
-      "ability_kit": "zombie_bear"
+      "ability_kit": "boss_blighted_bear",
+      "boss_kit_base": "zombie_bear"
     },
     "Forsaken Patrol": {
       "template": "humanoid_warrior",
@@ -8333,6 +8334,260 @@
       "is_boss": true,
       "ability_kit": "panglass",
       "boss_multiplier": 1.9
+    },
+    "Vek'tar the Unbeaten": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": true,
+      "ability_kit": "vektar_unbeaten",
+      "boss_multiplier": 1.8
+    },
+    "Grateward Mok'tal": {
+      "template": "humanoid_caster",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": true,
+      "ability_kit": "grateward_moktal",
+      "boss_multiplier": 1.7
+    },
+    "Rakjan the Ribcracker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "rakjan_ribcracker",
+      "boss_multiplier": 1.9
+    },
+    "Zul'gar Hammerfall": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "zulgar_hammerfall",
+      "boss_multiplier": 1.9
+    },
+    "Jen'shala, the House Favourite": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        38
+      ],
+      "is_boss": true,
+      "ability_kit": "jenshala_house_favourite",
+      "boss_multiplier": 2.0
+    },
+    "Jin'sha the Bloodcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "jinsha_bloodcaller"
+    },
+    "Rotvine Strangler": {
+      "template": "beast_large",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "rotvine_strangler"
+    },
+    "Rotwater Snapper": {
+      "template": "aquatic_basic",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "rotwater_snapper"
+    },
+    "Sporelit Bat": {
+      "template": "beast_fast",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "sporelit_bat"
+    },
+    "Zul'Marosh Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        33,
+        34
+      ],
+      "is_boss": false,
+      "ability_kit": "zulmarosh_drowned"
+    },
+    "Rotcap Walker": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        33,
+        34
+      ],
+      "is_boss": false,
+      "ability_kit": "rotcap_walker"
+    },
+    "Rootmaw": {
+      "template": "beast_large",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "rootmaw",
+      "boss_multiplier": 1.8
+    },
+    "Hap'ka the Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "hapka_the_drowned",
+      "boss_multiplier": 1.7
+    },
+    "Veilfall Limeback": {
+      "template": "aquatic_basic",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "veilfall_limeback"
+    },
+    "Limewing Bat": {
+      "template": "beast_fast",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "limewing_bat"
+    },
+    "Zul'Rath Shrinekeeper": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "zulrath_shrinekeeper"
+    },
+    "Zul'Rath Mistcaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "zulrath_mistcaller"
+    },
+    "Spraywater Elemental": {
+      "template": "elemental_caster",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "spraywater_elemental"
+    },
+    "Veilspeaker Zul'Rath": {
+      "template": "humanoid_caster",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "veilspeaker_zulrath",
+      "boss_multiplier": 1.8
+    },
+    "Sheetfall": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "sheetfall",
+      "boss_multiplier": 1.7
+    },
+    "Saltscale Myrmidon": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        40,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "saltscale_myrmidon"
+    },
+    "Kundaraz Tidecaller": {
+      "template": "humanoid_caster",
+      "level_range": [
+        40,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "kundaraz_tidecaller"
+    },
+    "Terrace Reefclaw": {
+      "template": "aquatic_basic",
+      "level_range": [
+        40,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "terrace_reefclaw"
+    },
+    "Sunken Court Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        41,
+        42
+      ],
+      "is_boss": false,
+      "ability_kit": "sunken_court_drowned"
+    },
+    "Brinefang Eel": {
+      "template": "beast_fast",
+      "level_range": [
+        41,
+        42
+      ],
+      "is_boss": false,
+      "ability_kit": "brinefang_eel"
+    },
+    "Tide-Priestess Myzrai": {
+      "template": "humanoid_caster",
+      "level_range": [
+        42,
+        42
+      ],
+      "is_boss": true,
+      "ability_kit": "tide_priestess_myzrai",
+      "boss_multiplier": 1.9
+    },
+    "Saltgorge": {
+      "template": "beast_large",
+      "level_range": [
+        42,
+        42
+      ],
+      "is_boss": true,
+      "ability_kit": "saltgorge",
+      "boss_multiplier": 1.7
     }
   }
 }
