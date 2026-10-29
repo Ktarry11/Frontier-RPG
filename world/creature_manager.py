@@ -24,13 +24,49 @@ class CreatureManager:
         if creatures_file.exists():
             with open(creatures_file, 'r') as f:
                 self.creatures = json.load(f).get("creatures", {})
-        
+            self._reject_dead_kit_key(creatures_file, self.creatures)
+
         # Load encounters
         encounters_file = data_dir / "encounters.json"
         if encounters_file.exists():
             with open(encounters_file, 'r') as f:
                 self.encounters = json.load(f).get("zones", {})
     
+    @staticmethod
+    def _reject_dead_kit_key(path, creatures):
+        """Hard-fail on the `"kit"` key, which spawn_creature does not read.
+
+        DELIBERATELY LOUD, for the same reason entities/monster.py raises on
+        an unknown template key rather than falling back to beast_basic: a
+        silent substitution hides for months. spawn_creature reads
+        `ability_kit`; `"kit"` is read by nothing and never was, so a creature
+        carrying only `kit` fought with its TEMPLATE'S default kit instead of
+        the one authored for it. Six zone build tools had each noticed this
+        locally and stripped the key from their own creatures
+        (build_southern_barrens_content.py's DROP_KEYS,
+        build_silverpine_dungeon_content.py, build_central_barrens_content.py,
+        build_northern_barrens_content.py, build_wailing_content.py,
+        build_ashenvale_dungeon_content.py) without anything stopping the next
+        author from writing it again - and 33 creatures were still carrying it
+        when tools/audit_monster_combat.py put them in a real fight:
+        Skeleton Archer fought as a generic `marksman`, Ancient Treant as a
+        `large_beast`, Twisted Sapling as a `scorpid`, Zombie Bear as a
+        `boar`. The kits named for them existed and loaded for nobody.
+
+        Raising at load rather than reporting at spawn is on purpose: a
+        creature's moveset being wrong is not visible in play (it still
+        attacks, it just attacks with someone else's abilities), so the only
+        moment anyone will notice is the moment the data is wrong.
+        """
+        stale = sorted(name for name, d in creatures.items() if "kit" in d)
+        if stale:
+            raise ValueError(
+                f"{path}: {len(stale)} creature(s) carry a \"kit\" key, which "
+                f"nothing reads - spawn_creature reads \"ability_kit\". Rename "
+                f"the key (and delete it where an \"ability_kit\" is already "
+                f"present, which wins). Affected: {', '.join(stale[:12])}"
+                + (" ..." if len(stale) > 12 else ""))
+
     # A subzone roll blends its own table with the parent zone's open_zone
     # table at this fraction of a single open_zone entry's total weight -
     # "raptor grounds" should read as raptor TERRITORY within the Barrens,

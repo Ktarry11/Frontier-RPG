@@ -178,7 +178,7 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A measured strike with your weapon.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack. It is "
                    "also this class's only truly unconditional action, which "
                    "matters more here than elsewhere - a Witch Hunter opens "
@@ -211,7 +211,7 @@ ABILITIES = [
                    "that really does require the weapon."),
     ability("dawn_blade", "Dawn Blade", "damage",
             "Bring the blade round in a clean, bright arc.",
-            ranks(44, 11, 25), target_type="enemy", icon="ability_melee",
+            ranks(44, 11, 25), target_type="enemy", icon=None,
             source="CoA scales Dawn Blade from both Black Knight (Bulwark of "
                    "Darkness, Destroyer of Evil, Undying, Dawn Knight, "
                    "Foresight, Blade of the Misbegotten) and Inquisition "
@@ -341,7 +341,7 @@ ABILITIES = [
             "A stroke you have practised more than any other, and it gives "
             "something back.",
             ranks(58, 16, 25, start=10, count=7), cooldown=2,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Strike an enemy, dealing 100% Weapon Damage plus 26, "
                    "scaling with your parry rating, and healing you for 50% of "
                    "the damage dealt.' The spec's whole identity - 'Noctis "
@@ -354,7 +354,7 @@ ABILITIES = [
     ability("pommel_smash", "Pommel Smash", "damage",
             "Short, ugly, and it lands where the armour does not reach.",
             ranks(38, 10, 20, start=6, count=8), target_type="enemy",
-            icon="ability_melee",
+            icon=None,
             source="CoA: 'Pommel Smash strikes feed Shadowstorm, a chance to "
                    "trigger a Shadowstorm burst', and Guardbreaker makes it "
                    "cleave. The spec's cheap filler, so it is cheaper than "
@@ -374,7 +374,7 @@ ABILITIES = [
             "Drive the hilt into them hard enough that whatever they were "
             "saying stops.",
             ranks(50, 14, 20, start=20, count=6), cooldown=4,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Bash an enemy with your weapon's hilt, interrupting "
                    "them and preventing any spell from that school of magic "
                    "from being cast for 3 seconds', and the spec blurb calls "
@@ -691,7 +691,7 @@ ABILITIES = [
     ability("smite_evil", "Smite Evil", "damage",
             "A flat, bright stroke that catches more than one of them.",
             ranks(40, 11, 25, start=6, count=8), target_type="enemy_aoe",
-            damage_school="holy", max_targets=3, icon="ability_melee",
+            damage_school="holy", max_targets=3, icon=None,
             source="CoA: 'Strike an enemy with your blade, dealing Weapon "
                    "Damage plus 25 as Holy damage to them and 5 nearby "
                    "enemies.' The spec's cheap cleaving filler; Flames of the "
@@ -699,7 +699,7 @@ ABILITIES = [
     ability("dusk_blade", "Dusk Blade", "damage_and_heal",
             "Both blades, and you keep some of what comes off them.",
             ranks(54, 15, 30, start=12, count=7), cooldown=2,
-            target_type="enemy", damage_school="shadow", icon="ability_melee",
+            target_type="enemy", damage_school="shadow", icon=None,
             source="CoA: 'Strike an enemy with both weapons, dealing Weapon "
                    "Damage plus shadow SP Shadow damage, piercing resistances. "
                    "Heals for 25% of damage dealt.' The spec's sustain - 'Dusk "
@@ -708,7 +708,7 @@ ABILITIES = [
     ability("purifiers_edge", "Purifier's Edge", "damage",
             "The edges come up hot and stay that way.",
             ranks(56, 16, 30, start=16, count=7), cooldown=3,
-            target_type="enemy", damage_school="fire", icon="ability_melee",
+            target_type="enemy", damage_school="fire", icon=None,
             source="CoA: 'Strike an enemy with searing blades, dealing Weapon "
                    "Damage plus 20 with both weapons as Fire damage. Grants "
                    "Flames of Sin or increases the duration by 3 sec.' Flames "
@@ -738,7 +738,7 @@ ABILITIES = [
             "efficient thing you could have done.",
             ranks(42, 12, 35, start=32, count=5), cooldown=6,
             target_type="enemy_aoe", damage_school="fire", max_targets=4,
-            icon="ability_melee",
+            icon=None,
             source="CoA: 'Perform an advanced flourish, dealing AP Fire damage "
                    "to nearby enemies, repeating every 4 sec, and causing your "
                    "Flames of Sin to cleave up to 3 additional enemies for 20 "
@@ -747,7 +747,7 @@ ABILITIES = [
     ability("hunt", "Hunt", "damage",
             "Close the gap before they have finished deciding to run.",
             ranks(44, 13, 20, start=24, count=5), cooldown=5,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Charge an enemy, slowing their movement speed by "
                    "-70% for 2 seconds and generating 20 Rage. 2 Charges, 25 "
                    "sec recharge.' Neither charges nor movement speed exist "
@@ -758,7 +758,7 @@ ABILITIES = [
             "You have been carrying this for exactly this moment.",
             ranks(92, 25, 30, start=36, count=4), cooldown=3,
             target_type="enemy", execute_threshold_pct=35,
-            icon="ability_melee",
+            icon=None,
             source="CoA: 'Drive your concealed stake into the chest of an "
                    "injured enemy, dealing AP Physical damage... Only usable on "
                    "enemies at or below 35% health.' The spec's execute, at "

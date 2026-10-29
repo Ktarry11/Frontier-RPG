@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. It is also this class's only truly unconditional action, which matters more here than elsewhere - a Witch Hunter opens every fight on 0 Focus."
     },
     {
@@ -228,7 +228,7 @@
           "effect_value": 132
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA scales Dawn Blade from both Black Knight (Bulwark of Darkness, Destroyer of Evil, Undying, Dawn Knight, Foresight, Blade of the Misbegotten) and Inquisition (Protector of Darkshire, Interrogator, Dusk), so it is a class strike, not a spec one. The melee half of the chassis, on the same curve as Shadowblast.",
       "target_type": "enemy"
     },
@@ -548,7 +548,7 @@
           "effect_value": 154
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Strike an enemy, dealing 100% Weapon Damage plus 26, scaling with your parry rating, and healing you for 50% of the damage dealt.' The spec's whole identity - 'Noctis Blade is your on-demand self-heal, an active strike on a short cooldown whose damage and self-heal both scale with your parry rating.' damage_and_heal is the real effect_type for that. Scaling off parry specifically is not something an ability can declare, so the TREE does it: Dusk Knight converts Agility into parry and Dark Penance raises it.",
       "target_type": "enemy"
     },
@@ -611,7 +611,7 @@
           "effect_value": 108
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Pommel Smash strikes feed Shadowstorm, a chance to trigger a Shadowstorm burst', and Guardbreaker makes it cleave. The spec's cheap filler, so it is cheaper than Dawn Blade and has no cooldown.",
       "target_type": "enemy"
     },
@@ -716,7 +716,7 @@
           "effect_value": 120
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Bash an enemy with your weapon's hilt, interrupting them and preventing any spell from that school of magic from being cast for 3 seconds', and the spec blurb calls this 'the kit's only caster answer'. There is no interrupt and no school lockout in this engine, so the whole anti-caster half is gone and what remains is a cheap mid-cooldown strike. This is the single biggest gap between CoA's Black Knight and Frontier's.",
       "target_type": "enemy"
     },
@@ -1745,7 +1745,7 @@
           "effect_value": 117
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Strike an enemy with your blade, dealing Weapon Damage plus 25 as Holy damage to them and 5 nearby enemies.' The spec's cheap cleaving filler; Flames of the Sinned in the tree gives it a chance to strike twice.",
       "target_type": "enemy_aoe",
       "damage_school": "holy",
@@ -1804,7 +1804,7 @@
           "effect_value": 144
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Strike an enemy with both weapons, dealing Weapon Damage plus shadow SP Shadow damage, piercing resistances. Heals for 25% of damage dealt.' The spec's sustain - 'Dusk Blade is your health siphon' and 'the payoff is... grinding a fight out with Dusk Blade's siphon'.",
       "target_type": "enemy",
       "damage_school": "shadow"
@@ -1862,7 +1862,7 @@
           "effect_value": 152
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Strike an enemy with searing blades, dealing Weapon Damage plus 20 with both weapons as Fire damage. Grants Flames of Sin or increases the duration by 3 sec.' Flames of Sin is a stacking auto-attack rider with no engine shape; the tree's Searing Hilt carries the attack-speed half instead.",
       "target_type": "enemy",
       "damage_school": "fire"
@@ -2007,7 +2007,7 @@
           "effect_value": 90
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Perform an advanced flourish, dealing AP Fire damage to nearby enemies, repeating every 4 sec, and causing your Flames of Sin to cleave up to 3 additional enemies for 20 seconds.' The repeat and the Flames cleave have no hook; the AoE strike does.",
       "target_type": "enemy_aoe",
       "damage_school": "fire",
@@ -2054,7 +2054,7 @@
           "effect_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Charge an enemy, slowing their movement speed by -70% for 2 seconds and generating 20 Rage. 2 Charges, 25 sec recharge.' Neither charges nor movement speed exist here, so it is a cheap gap-closer on a real cooldown - and the tree's The Hunt Continues carries the Focus generation CoA puts on the ability itself.",
       "target_type": "enemy"
     },
@@ -2093,7 +2093,7 @@
           "effect_value": 167
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Drive your concealed stake into the chest of an injured enemy, dealing AP Physical damage... Only usable on enemies at or below 35% health.' The spec's execute, at CoA's own 35.",
       "target_type": "enemy",
       "execute_threshold_pct": 35

@@ -19,7 +19,7 @@
           "effect_value": 42
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_blade_of_the_empire",
@@ -85,7 +85,7 @@
         "resource": "insanity",
         "amount": 20
       },
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_horrorbolt",
@@ -364,7 +364,7 @@
           "effect_value": 239
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_entropic_slam",
@@ -421,7 +421,7 @@
           "effect_value": 135
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_twilight_domain",
@@ -597,7 +597,7 @@
         "resource": "insanity",
         "amount": 20
       },
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_void_resilience",
@@ -1209,7 +1209,7 @@
         "resource": "insanity",
         "amount": 20
       },
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_rift",
@@ -1343,7 +1343,7 @@
           "effect_value": 142
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_entropic_strike",
@@ -1381,7 +1381,7 @@
           "effect_value": 54
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "damage_school": "shadow",
       "_design_note": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate."
     },
@@ -1704,7 +1704,7 @@
           "effect_value": 142
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_crushing_dissonance",
@@ -1777,7 +1777,7 @@
           "effect_value": 169
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "cultist_bulwark_of_shadow",

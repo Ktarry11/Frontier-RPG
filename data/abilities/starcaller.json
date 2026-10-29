@@ -19,7 +19,7 @@
           "effect_value": 42
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_starsunder",
@@ -81,7 +81,7 @@
           "effect_value": 378
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_implementation_note": "Applies 1 Scattered Star per the tooltip - stacking resource not fully modeled yet, see class _source_note."
     },
     {
@@ -195,7 +195,7 @@
           "effect_value": 154
         }
       ],
-      "icon_id": "ability_melee"
+      "icon_id": null
     },
     {
       "ability_id": "starcaller_celestial_cleave",
@@ -1010,7 +1010,7 @@
           "effect_value": 46
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1044,7 +1044,7 @@
           "effect_value": 263
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {
@@ -1084,7 +1084,7 @@
           "effect_value": 294
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_implementation_note": "The per-Aspect unique effect isn't dynamically modeled yet (this ability's effect always resolves as flat weapon damage regardless of which Aspect is active) - real per-Aspect branching needs a proper conditional-effect dispatch, same class of gap as the Weapon Engraving procs on Runemaster."
     },
     {
@@ -1142,7 +1142,7 @@
           "effect_value": 149
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "damage_school": "arcane"
     },
     {

@@ -26,7 +26,14 @@ Scarlet get Holy Smite and Holy Light, the cultists keep Shadow Bolt and
 Curse of Agony.
 
 Resolution order for a creature's kit:
-    creatures.json "kit"  ->  template "default_kit"  ->  hard error
+    creatures.json "ability_kit"  ->  template "default_kit"  ->  hard error
+
+The key is "ability_kit", not "kit". This line said "kit" for a long time and
+the key it named was read by nothing, which is how 33 creatures ended up
+fighting with their template's default moveset - Skeleton Archer as a generic
+marksman, Zombie Bear as a boar - with their own authored kits loading for
+nobody. CreatureManager._reject_dead_kit_key now raises on the dead key at
+load time; its docstring has the full history.
 """
 import json
 import random
@@ -214,7 +221,12 @@ class MonsterAbility:
                 effect_type=EffectType.BUFF if is_buff else EffectType.DEBUFF,
                 duration=rider.get("duration", 3),
                 stat_mods=dict(rider.get("stat_mods") or {}),
-                dispel_type=(None if is_buff else rider.get("dispel_type")),
+                # A BUFF RIDER'S dispel_type USED TO BE HARD-DROPPED HERE,
+                # same as the self-buff case in use() - see the long note
+                # there. Passed through now, so a rider the data tags as
+                # Magic is purgeable; absent from the data it is None, which
+                # is what it already was.
+                dispel_type=rider.get("dispel_type"),
                 source_name=caster.name, real_time_seconds=None)
             out.append(r.apply_status_effect(effect))
         return out
@@ -321,7 +333,33 @@ class MonsterAbility:
                 effect_type=(EffectType.BUFF if self.self_only
                              else EffectType.DEBUFF),
                 duration=self.duration, stat_mods=dict(self.stat_mods),
-                dispel_type=(None if self.self_only else self.dispel_type),
+                # A SELF-BUFF'S AUTHORED dispel_type WAS THROWN AWAY HERE.
+                # The line read `None if self.self_only else self.dispel_type`,
+                # so no monster buff in the game could be purged no matter
+                # what the kit said - which is the exact mirror of the bug
+                # that put dispel_type on MonsterAbility in the first place
+                # (see the comment in __init__: 14 player cleanses with
+                # nothing to act on in PvE). Six player abilities exist purely
+                # to strip a Magic buff off an ENEMY - Shaman's Purge,
+                # Felsworn's Consume Magic, Necromancer's Death's Due,
+                # Stormbringer's Stormbreaker, Runemaster's Leyfeed, Sun
+                # Cleric's Gavel of Wrath - and all 435 monster buffs plus 198
+                # buff riders were invisible to every one of them.
+                #
+                # Measured before this: a MonsterAbility built with
+                # dispel_type="magic" and self_only=True applied a
+                # StatusEffect whose dispel_type was None, and
+                # monster.dispel_effect(DispelType.MAGIC) returned None.
+                #
+                # This changes NOTHING about today's balance: zero of the 435
+                # buff entries in ability_kits.json author a dispel_type, so
+                # every one of them still resolves to None exactly as before.
+                # It only means that tagging them (the same pass that tagged
+                # 444 dot/debuff effects, with 166 physical ones deliberately
+                # left undispellable) will now actually do something. Which
+                # buffs should be purgeable is a content call, deliberately
+                # left to the owner rather than decided here.
+                dispel_type=self.dispel_type,
                 source_name=caster.name,
                 # Monster buffs are COMBAT effects, so they must expire in turns.
                 # The StatusEffect default gives buffs a 30-minute real-time
@@ -393,7 +431,7 @@ class Monster(StatusEffectMixin):
         self.current_health = self.max_health
 
         self.base_armor = int(template["base_armor"] * level_mult)
-        self.magic_resistance = int(template["base_magic_resist"] * level_mult)
+        self.base_magic_resist = int(template["base_magic_resist"] * level_mult)
 
         # Per-school resistances (Fire/Frost/Nature/Shadow/Arcane/Holy -
         # see DamageSchool in combat/status_effects.py and Character.
@@ -478,6 +516,41 @@ class Monster(StatusEffectMixin):
     def armor(self, value):
         # Kept so older code (and the boss multiplier) can assign directly.
         self.base_armor = value
+
+    @property
+    def magic_resistance(self):
+        """Same story as `armor`, one stat later, and it stayed broken when
+        armor was fixed.
+
+        Every "Ward"/"Shroud"/"Aegis"/"Barrier" in the bestiary is a
+        self_only buff or a buff rider granting `magic_resistance`, and
+        take_damage DOES read self.magic_resistance (the "magic" branch) -
+        but it was a plain attribute, so the status mod went nowhere. 29
+        abilities across 29 kits, 696 points of magic resistance in total,
+        all of it flavour text: Flame Ward, Fel Armor, Tidal Ward, Mana Ward,
+        Amber Ward, Spirit Ward, Hollow Ward, Prismatic Ward, Storm Feathers,
+        Chitin Veil, Lightning Shield and the rest.
+
+        Measured before this existed, with a +200 magic_resistance buff on a
+        humanoid_caster: a 1000-point magic hit landed for 893 both with and
+        without the buff, while the same +200 through `armor` took a physical
+        hit from 1000 to 523. tools/audit_monster_combat.py reports the whole
+        set under INERT MONSTER BUFF; this moves the magic_resistance half of
+        that list out of it.
+
+        Floored at 0 so a future resistance-stripping debuff can strip the
+        pool bare but never invert into bonus damage, exactly as `armor` does.
+        """
+        return max(0, self.base_magic_resist
+                   + int(self.get_status_stat_mod("magic_resistance")))
+
+    @magic_resistance.setter
+    def magic_resistance(self, value):
+        # Same reason as armor's setter: older code and the tools assign
+        # straight to it (tools/monster_templates.py's elemental overrides,
+        # any boss tuning pass), and a property with no setter would turn
+        # those into AttributeError.
+        self.base_magic_resist = value
 
     @property
     def ability_power_bonus(self):
@@ -676,6 +749,43 @@ class Monster(StatusEffectMixin):
                     if not recipient.has_status_effect(a.effect_id):
                         return a
 
+        if basic.is_available(self):
+            return basic
+
+        # SLOT 0 IS NOT ALWAYS CASTABLE, and this used to be a bare
+        # `return basic`. The fallback never asked is_available, so a slot 0
+        # the monster could not afford was handed to the engine anyway,
+        # execute_monster_action got (False, "... unavailable") back, and the
+        # turn became "Shadow Corruption hesitates." - while an affordable
+        # ability was sitting off cooldown in the same kit. Slot 0 costs mana
+        # in 181 of 842 kits and nothing else in the game guarantees a free
+        # swing, so this is not a theoretical gap: tools/audit_monster_combat.py
+        # caught Shadow Corruption doing exactly that, holding 30 mana with
+        # Corrupting Bolt at 42 and Decay at 23 both on the table.
+        #
+        # This is the same bug the pet AI had (its fallback returned hotbar
+        # slot 0 without checking it was castable, which made one pet hesitate
+        # every other turn), and it is fixed the same way.
+        #
+        # It can only ever replace a turn that was ALREADY a guaranteed
+        # hesitate - every path above returns before reaching here, and this
+        # branch is entered only when slot 0 itself is unavailable - so no
+        # currently-working rotation changes. The kind ordering keeps the
+        # replacement sensible rather than merely non-empty: throw a hit,
+        # re-apply a DoT or debuff, and only then spend the turn on a buff or
+        # a heal the priority list already declined (an unhurt monster
+        # "healing" to full is a wasted turn too, just a noisier one).
+        FALLBACK_ORDER = {"damage": 0, "dot": 1, "debuff": 2, "buff": 3, "heal": 4}
+        castable = [a for a in self.abilities if a.is_available(self)]
+        if castable:
+            return min(castable,
+                       key=lambda a: (FALLBACK_ORDER.get(a.kind, 9), -a.amount))
+
+        # Genuinely nothing to cast. Returning basic keeps the existing
+        # contract with execute_monster_action, which logs the hesitate - that
+        # is an out-of-resources monster, which is a tuning question (see the
+        # NOTHING CASTABLE section of tools/audit_monster_combat.py), not
+        # something the AI can route around.
         return basic
 
     def decrement_all_cooldowns(self):

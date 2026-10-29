@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. It is also the hook ProcTrigger.ON_WEAPON_SWING fires off, which is what Zealotry listens for."
     },
     {
@@ -87,7 +87,7 @@
           "effect_value": 82
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "generates": {
         "resource": "combo",
         "amount": 20
@@ -941,7 +941,7 @@
           "effect_value": 94
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "generates": {
         "resource": "combo",
         "amount": 20
@@ -996,7 +996,7 @@
           "effect_value": 231
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA Zealot: 'Unleash a dominating Oath Breaker, dealing SP Physical damage, increased by 3% for each time you triggered Zealotry during your Oath Chain'. Physical, not Holy, which is why it is the one Zealot finisher that does not want Holy scaling.",
       "target_type": "enemy"
     },
@@ -1123,7 +1123,7 @@
           "effect_value": 260
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA names Mortal Abdication twice as a Zealot cooldown (One With The Light 'reduces the cooldown of Librams, Force of Golganneth, and Mortal Abdication', and Libram of Zeal is read 'from your Libram of Mortal Abdication') without ever stating what it does. Implemented as the single-target counterpart to Force of Golganneth on the same cooldown band, which is the only thing the surrounding text supports. GAP: its real mechanic is not in the reference.",
       "target_type": "enemy"
     },
@@ -1216,7 +1216,7 @@
           "effect_value": 86
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "generates": {
         "resource": "combo",
         "amount": 20
@@ -1435,7 +1435,7 @@
           "heal_value": 112
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "generates": {
         "resource": "combo",
         "amount": 20
@@ -1496,7 +1496,7 @@
           "heal_value": 180
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA Crusader: 'Titanstrike is your execute below 35% health and heals you for the damage dealt, twice that with Titanfall talented'. execute_threshold_pct is a PERCENT here, not a fraction - the engine compares it against target health on a 0-100 scale, and every shipped execute (Warrior 20, Cultist 35, Primalist 25/50) is written that way.",
       "target_type": "enemy",
       "execute_threshold_pct": 35

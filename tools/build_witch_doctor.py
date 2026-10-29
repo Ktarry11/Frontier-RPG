@@ -154,7 +154,7 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A swing with whatever you are holding.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack."),
 
     # ---- shared class kit -------------------------------------------------
@@ -570,7 +570,7 @@ ABILITIES = [
     ability("reclamation", "Reclamation", "damage_and_restore_mana",
             "A quick arrow, and something comes back down the line with it.",
             ranks(40, 30, start=10, count=7, mana_pct=4), target_type="enemy",
-            damage_school="nature", is_instant=True, icon="ability_melee",
+            damage_school="nature", is_instant=True, icon=None,
             source="CoA: 'Shoot a quick voodoo arrow at an enemy dealing 100% "
                    "Ranged Weapon Damage plus 15 as Nature damage and "
                    "collecting a Spirit. Spirit: Regenerates 7 health and mana "
@@ -581,7 +581,7 @@ ABILITIES = [
     ability("malefic_arrow", "Malefic Arrow", "ranged_damage",
             "The arrow is ordinary. What is wrapped around it is not.",
             ranks(70, 34, start=12, count=6), cooldown=2, target_type="enemy",
-            damage_school="nature", icon="ability_melee",
+            damage_school="nature", icon=None,
             source="CoA: 'Transforms your Malefic Wrath into Malefic Arrow. "
                    "Launch a voodoo arrow at an enemy, dealing 85% Ranged "
                    "Weapon Damage plus nature SP as Nature damage, healing you "

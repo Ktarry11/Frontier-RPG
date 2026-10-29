@@ -1439,6 +1439,542 @@ MAPPING.update({
 })
 
 
+MAPPING.update({
+    # =================================================================
+    # TEMPLAR - Holy warrior-monk, Silver Hand and Pantheon flavoured
+    # (Tyr, Aggramar, Khaz'goroth, Golganneth, Norgannon). Crusader is the
+    # Holy damage tree, Oathkeeper is the defensive one with librams and
+    # testaments, Zealot is the martial combo tree. Gold throughout, so:
+    # blades and blazing Light for Crusader, books and shields for
+    # Oathkeeper, fists and staves for Zealot.
+    # =================================================================
+    "templar_crusader_pure_focus": "spell_holy_mindsooth",
+    "templar_crusader_lights_chosen": "spell_holy_championsbond",
+    "templar_crusader_aggramars_rage": "spell_holy_fistofjustice",
+    "templar_crusader_chivalric": ("spell_holy_crusaderaura", 40),
+    "templar_crusader_paladin_training": "spell_holy_crusaderstrike",
+    "templar_crusader_warrior_of_tyr": "spell_holy_sealofmight",
+    "templar_crusader_righteousness": ("spell_holy_righteousfury", 40),
+    "templar_crusader_scourgebane": "spell_holy_turnundead",
+    "templar_crusader_divine_strikes": ("spell_holy_sealofvengeance", 40),
+    "templar_crusader_radiant_blade": ("inv_sword_33", 40),
+    "templar_crusader_focused": ("spell_holy_blessingofstrength", 40),
+    "templar_crusader_retribution": "spell_holy_auraoflight",
+    "templar_crusader_templars_might": "spell_holy_sealofwrath",
+    "templar_crusader_tyrs_blessing": "spell_holy_greaterblessingofkings",
+    "templar_crusader_serendipity": "spell_holy_serendipity",
+    "templar_crusader_judgement": ("spell_holy_excorcism_02", 40),
+    "templar_crusader_scarlet_training": ("inv_hammer_20", 40),
+    "templar_crusader_holy_edge": "spell_holy_innerfire",
+    "templar_crusader_martial_training": ("ability_warrior_decisivestrike", 40),
+    "templar_crusader_righteous_tempest": ("spell_holy_auramastery", 40),
+    "templar_crusader_titanfall": ("spell_holy_layonhands", 40),
+    "templar_crusader_argent_knight": ("spell_holy_holybolt", 40),
+    "templar_crusader_legacy_of_the_silver_hand": ("inv_shield_36", 40),
+    "templar_crusader_scarlet_champion": ("spell_holy_divinepurpose", 40),
+    # --- Oathkeeper: defensive
+    "templar_oathkeeper_bells_of_light": ("spell_holy_silence", 40),
+    "templar_oathkeeper_paragon": ("spell_holy_devotion", 40),
+    "templar_oathkeeper_blessed_padding": "inv_chest_cloth_22",
+    "templar_oathkeeper_graceful_fighter": "ability_parry",
+    "templar_oathkeeper_sacred_oath": "spell_holy_prayerofhealing02",
+    "templar_oathkeeper_staffguard": "inv_staff_13",
+    "templar_oathkeeper_conviction": ("spell_holy_blessingofstamina", 40),
+    "templar_oathkeeper_parry_dance": "ability_warrior_challange",
+    "templar_oathkeeper_way_of_the_monk": "ability_rogue_fleetfooted",
+    "templar_oathkeeper_uthers_legacy": "spell_holy_blessedrecovery",
+    "templar_oathkeeper_holy_warstaff": ("inv_staff_30", 40),
+    "templar_oathkeeper_sacred_resistance": "spell_holy_devotionaura",
+    "templar_oathkeeper_untainted": ("spell_holy_dispelmagic", 40),
+    "templar_oathkeeper_disciplined_mind": ("spell_holy_spiritualguidence", 40),
+    "templar_oathkeeper_fortified_body": "spell_nature_unyeildingstamina",
+    "templar_oathkeeper_duty_calls": ("spell_holy_divinepurpose", 200),
+    "templar_oathkeeper_barrier_of_light": ("spell_holy_powerwordshield", 40),
+    "templar_oathkeeper_battlepriest": ("spell_holy_innerfire", 40),
+    "templar_oathkeeper_lightkeeper": ("spell_holy_sealofprotection", 40),
+    "templar_oathkeeper_mending_ward": "spell_holy_restoration",
+    "templar_oathkeeper_eternal_blessing": "spell_holy_greaterblessingofwisdom",
+    "templar_oathkeeper_spiritual_abdicator": ("spell_holy_sealofsacrifice", 40),
+    "templar_oathkeeper_tome_of_light": ("inv_misc_book_09", 40),
+    # --- Zealot: martial
+    "templar_zealot_martial_paladin": "ability_rogue_quickrecovery",
+    "templar_zealot_solemn_soldier": ("spell_holy_devotionaura", 40),
+    "templar_zealot_bursting_impact": "ability_warrior_punishingblow",
+    "templar_zealot_calm_combatant": "spell_holy_divinespirit",
+    "templar_zealot_condemnation": "spell_holy_righteousnessaura",
+    "templar_zealot_zealotry": "ability_warrior_innerrage",
+    "templar_zealot_blade_sermon": ("inv_sword_04", 40),
+    "templar_zealot_chakra_of_power": "spell_holy_mindvision",
+    "templar_zealot_one_punch_man": "inv_gauntlets_04",
+    "templar_zealot_iron_penance": "spell_holy_penance",
+    "templar_zealot_deliverance": "ability_criticalstrike",
+    "templar_zealot_heavens_finest": ("spell_holy_greaterheal", 40),
+    "templar_zealot_upheave": ("ability_warrior_shockwave", 40),
+    "templar_zealot_transcending_strikes": ("spell_holy_divineintervention", 40),
+    "templar_zealot_battle_hardened": "ability_warrior_defensivestance",
+    "templar_zealot_priest_training": "spell_holy_heal",
+    "templar_zealot_unbroken_creed": ("spell_holy_sealofsalvation", 40),
+    "templar_zealot_devotion_of_khazgoroth": ("inv_hammer_16", 40),
+    "templar_zealot_holy_upheaval": ("spell_holy_blessingofstrength", 200),
+    "templar_zealot_might_of_aggramar": ("spell_holy_fistofjustice", 40),
+    "templar_zealot_one_with_the_light": "spell_holy_divineillumination",
+    "templar_zealot_fury_of_aggramar": "spell_holy_rapture",
+    "templar_zealot_norgannons_wrath": ("ability_heroicleap", 40),
+    # --- abilities
+    "templar_attack": "ability_meleedamage",
+    "templar_righteous_lunge": "ability_warrior_charge",
+    "templar_chastise": "spell_holy_righteousfury",
+    "templar_condemn": "spell_holy_excorcism_02",
+    "templar_holy_cleave": "ability_warrior_cleave",
+    "templar_temple_guardian": "spell_holy_sealofprotection",
+    "templar_benediction": "spell_holy_greaterheal",
+    "templar_blade_of_faith": "inv_sword_33",
+    "templar_divine_force": "spell_holy_holybolt",
+    "templar_interdict": "spell_holy_silence",
+    "templar_silverhand_incantation": "inv_shield_36",
+    "templar_libram_of_consecration": "inv_misc_book_11",
+    "templar_libram_of_fervor": "inv_misc_book_07",
+    "templar_libram_of_zeal": "inv_misc_book_06",
+    "templar_libram_of_tenacity": "inv_misc_book_05",
+    "templar_libram_of_grace": "inv_misc_book_04",
+    "templar_testament_of_fortitude": "spell_holy_blessingofstamina",
+    "templar_testament_of_will": "spell_holy_sealofsalvation",
+    "templar_testament_of_faith": "spell_holy_layonhands",
+    "templar_testament_of_hope": "spell_holy_devotion",
+    "templar_vindication": "ability_warrior_decisivestrike",
+    "templar_righteous_upheaval": "ability_warrior_shockwave",
+    "templar_divine_fury": "spell_holy_divinepurpose",
+    "templar_force_of_golganneth": "spell_nature_thunderclap",
+    "templar_mortal_abdication": "spell_holy_sealofsacrifice",
+    "templar_norgannons_wrath": "ability_heroicleap",
+    "templar_sacred_swing": "inv_sword_04",
+    "templar_reckoning": "inv_staff_30",
+    "templar_absolution": "spell_holy_dispelmagic",
+    "templar_barrier_of_light": "spell_holy_powerwordshield",
+    "templar_spiritual_abdication": "spell_holy_spiritualguidence",
+    "templar_tome_of_light": "inv_misc_book_09",
+    "templar_argent_blade": "spell_holy_sealofvengeance",
+    "templar_titanstrike": "inv_hammer_20",
+    "templar_righteous_tempest": "spell_holy_auramastery",
+    "templar_scarlet_hammer": "inv_hammer_16",
+    "templar_crusaders_brand": "spell_holy_crusaderaura",
+    "templar_divine_charge": "spell_holy_divineintervention",
+    "templar_testament_of_strength": "spell_holy_blessingofstrength",
+})
+
+
+MAPPING.update({
+    # =================================================================
+    # WITCH DOCTOR - Darkspear troll. Brewing is the potion healer,
+    # Shadowhunting is the spirit-glaive ranged tree, Voodoo is hexes and
+    # effigies. Bottles and herbs for Brewing, glaives and spirit beasts
+    # for Shadowhunting, masks and dolls for Voodoo.
+    # =================================================================
+    "witch_doctor_brewing_presence_of_the_loa": "spell_shadow_demonicempathy",
+    "witch_doctor_brewing_potent_mixes": ("inv_potion_29", 40),
+    "witch_doctor_brewing_mojo_addiction": "inv_potion_76",
+    "witch_doctor_brewing_plentiful_potions": ("inv_potion_51", 40),
+    "witch_doctor_brewing_spirit_healer": "spell_holy_spiritualguidence",
+    "witch_doctor_brewing_brewmaster": "inv_drink_05",
+    "witch_doctor_brewing_potion_boss": ("inv_potion_27", 40),
+    "witch_doctor_brewing_mixologist": ("trade_alchemy", 40),
+    "witch_doctor_brewing_disciple_of_sseratus": ("spell_nature_healingwavelesser", 40),
+    "witch_doctor_brewing_fresh_ingredients": ("inv_misc_herb_07", 40),
+    "witch_doctor_brewing_splash_on_em": ("inv_potion_83", 40),
+    "witch_doctor_brewing_senjins_presence": "inv_misc_idol_03",
+    "witch_doctor_brewing_jungle_secrets": ("inv_misc_herb_16", 40),
+    "witch_doctor_brewing_doctor_of_the_jungle": "spell_nature_resistnature",
+    "witch_doctor_brewing_spice_earthroot": "inv_misc_herb_05",
+    "witch_doctor_brewing_spice_peacebloom": "inv_misc_herb_peacebloom",
+    "witch_doctor_brewing_touch_of_the_spirits": "spell_nature_spiritarmor",
+    "witch_doctor_brewing_its_da_mojo": ("inv_potion_38", 40),
+    "witch_doctor_brewing_master_of_concoctions": ("inv_potion_93", 40),
+    "witch_doctor_brewing_mojo_wave": ("spell_nature_healingwavegreater", 40),
+    "witch_doctor_brewing_unstable_concoction": ("inv_potion_24", 40),
+    "witch_doctor_brewing_loas_blessing": ("spell_nature_regeneration", 40),
+    "witch_doctor_brewing_master_mixologist": ("inv_drink_17", 40),
+    # --- Shadowhunting
+    "witch_doctor_shadowhunting_loas_strength": "ability_hunter_pet_raptor",
+    "witch_doctor_shadowhunting_improved_malefic_arrow": ("ability_hunter_snipershot", 40),
+    "witch_doctor_shadowhunting_village_wisdom": ("inv_misc_idol_01", 40),
+    "witch_doctor_shadowhunting_shadowhunter": ("ability_stealth", 40),
+    "witch_doctor_shadowhunting_senjins_apprentice": "inv_spear_04",
+    "witch_doctor_shadowhunting_spiritual_devotee": "spell_holy_divinespirit",
+    "witch_doctor_shadowhunting_shadow_enchantments": "spell_shadow_curseofachimonde",
+    "witch_doctor_shadowhunting_eye_of_kimbul": "spell_shadow_evileye",
+    "witch_doctor_shadowhunting_spirit_hunting": "spell_nature_spiritwolf",
+    "witch_doctor_shadowhunting_berserking": ("racial_troll_berserk", 40),
+    "witch_doctor_shadowhunting_godslayer": "inv_weapon_glave_01",
+    "witch_doctor_shadowhunting_hex_of_death": "spell_shadow_deathcoil",
+    "witch_doctor_shadowhunting_the_true_spirit": ("spell_shadow_shadowfiend", 40),
+    "witch_doctor_shadowhunting_serpents_guile": ("ability_creature_poison_05", 40),
+    "witch_doctor_shadowhunting_voodoo_fire": ("spell_fire_bluefire", 40),
+    "witch_doctor_shadowhunting_umbral_glaive": ("inv_sword_72", 40),
+    "witch_doctor_shadowhunting_strength_of_da_loa": "ability_warrior_strengthofarms",
+    "witch_doctor_shadowhunting_darkspear_traditionalist": "inv_misc_head_troll_01",
+    "witch_doctor_shadowhunting_bwonsamdis_edge": "inv_misc_bone_skull_02",
+    "witch_doctor_shadowhunting_dambalas_lethality": "ability_creature_poison_02",
+    "witch_doctor_shadowhunting_a_price_to_pay": "spell_shadow_ritualofsacrifice",
+    "witch_doctor_shadowhunting_viper_ward": "spell_fire_firearmor",
+    "witch_doctor_shadowhunting_frenzied_spirits": ("spell_shadow_gathershadows", 40),
+    # --- Voodoo
+    "witch_doctor_voodoo_staff_of_the_coven": "inv_staff_13",
+    "witch_doctor_voodoo_stranglethorn_style": ("inv_misc_head_troll_02", 40),
+    "witch_doctor_voodoo_dark_magic": ("spell_shadow_shadowbolt", 40),
+    "witch_doctor_voodoo_loa_spirits": "spell_magic_managain",
+    "witch_doctor_voodoo_voodoo_power": ("spell_shadow_shadowpower", 40),
+    "witch_doctor_voodoo_zalazanes_malice": ("spell_shadow_curseofsargeras", 40),
+    "witch_doctor_voodoo_overflowing_juju": ("inv_potion_38", 200),
+    "witch_doctor_voodoo_its_da_voodoo": ("spell_shadow_twilight", 40),
+    "witch_doctor_voodoo_ritual_hexing": "spell_shadow_demonicfortitude",
+    "witch_doctor_voodoo_growing_malice": ("spell_shadow_shadowwordpain", 40),
+    "witch_doctor_voodoo_hexplosion": "spell_shadow_corpseexplode",
+    "witch_doctor_voodoo_jindos_wrath": ("spell_shadow_mindtwisting", 40),
+    "witch_doctor_voodoo_prolonged_malice": "spell_shadow_curseofmannoroth",
+    "witch_doctor_voodoo_voodoo_strings": ("inv_misc_idol_02", 40),
+    "witch_doctor_voodoo_hollow_spirit": ("spell_shadow_antishadow", 40),
+    "witch_doctor_voodoo_voodoo_mind": "spell_shadow_mindsteal",
+    "witch_doctor_voodoo_dark_loas_blessing": ("spell_shadow_demonicpact", 40),
+    "witch_doctor_voodoo_dark_effigy": ("inv_misc_idol_04", 40),
+    "witch_doctor_voodoo_malicious_golems": ("inv_misc_statue_02", 40),
+    "witch_doctor_voodoo_de_other_side": ("spell_shadow_nethercloak", 40),
+    "witch_doctor_voodoo_the_price_of_power": "spell_shadow_darkritual",
+    "witch_doctor_voodoo_juju_spirits": ("inv_potion_76", 40),
+    "witch_doctor_voodoo_voice_of_bwonsamdi": ("spell_shadow_shadesofdarkness", 40),
+    # --- abilities
+    "witch_doctor_attack": "ability_meleedamage",
+    "witch_doctor_malefic_wrath": "spell_shadow_shadowbolt",
+    "witch_doctor_loas_brew": "inv_potion_29",
+    "witch_doctor_shrinking_jinx": "spell_magic_polymorphchicken",
+    "witch_doctor_hex_of_malice": "spell_shadow_shadowwordpain",
+    "witch_doctor_healing_ward": "spell_nature_healingwavelesser",
+    "witch_doctor_lethargy_jinx": "spell_nature_slowingtotem",
+    "witch_doctor_hexbreak": "spell_nature_abolishmagic",
+    "witch_doctor_mirage": "spell_shadow_nethercloak",
+    "witch_doctor_shadowflare": "spell_shadow_twilight",
+    "witch_doctor_voljins_vigil": "inv_misc_idol_01",
+    "witch_doctor_amphibimorph": "spell_magic_polymorphrabbit",
+    "witch_doctor_allcure_elixir": "inv_potion_51",
+    "witch_doctor_slither": "ability_creature_poison_05",
+    "witch_doctor_stasis_ward": "spell_frost_stun",
+    "witch_doctor_swift_idol": "inv_misc_idol_02",
+    "witch_doctor_mimic_ward": "spell_shadow_antishadow",
+    "witch_doctor_cursed_effigy": "inv_misc_idol_04",
+    "witch_doctor_power_wuju": "spell_shadow_shadowpower",
+    "witch_doctor_death_draught": "inv_potion_24",
+    "witch_doctor_veil_of_darkness": "spell_shadow_shadesofdarkness",
+    "witch_doctor_big_bad_voodoo": "inv_misc_head_troll_02",
+    "witch_doctor_bad_juju": "inv_potion_38",
+    "witch_doctor_hexfire": "spell_fire_bluefire",
+    "witch_doctor_shadow_puppets": "spell_shadow_gathershadows",
+    "witch_doctor_malignant_jinx": "spell_shadow_curseofsargeras",
+    "witch_doctor_war_golem": "inv_misc_statue_02",
+    "witch_doctor_puppeteers_grasp": "spell_shadow_mindtwisting",
+    "witch_doctor_voice_of_bwonsamdi": "spell_shadow_demonicpact",
+    "witch_doctor_potion_toss": "inv_potion_83",
+    "witch_doctor_spirit_in_a_bottle": "inv_potion_93",
+    "witch_doctor_splash_potion": "inv_potion_27",
+    "witch_doctor_mojo_beam": "spell_nature_healingwavegreater",
+    "witch_doctor_ingredient_jungle_shrooms": "inv_misc_herb_07",
+    "witch_doctor_ingredient_frog_bones": "inv_misc_bone_01",
+    "witch_doctor_ingredient_bloodthistle": "inv_misc_herb_16",
+    "witch_doctor_voodoo_cauldron": "trade_alchemy",
+    "witch_doctor_base_beast_blood": "inv_potion_20",
+    "witch_doctor_base_crystal_water": "inv_potion_97",
+    "witch_doctor_tiki_splash": "spell_nature_regeneration",
+    "witch_doctor_master_mixologist": "inv_drink_17",
+    "witch_doctor_reclamation": "spell_nature_natureblessing",
+    "witch_doctor_malefic_arrow": "ability_hunter_snipershot",
+    "witch_doctor_spirit_glaive": "inv_sword_72",
+    "witch_doctor_spirit_shock": "spell_nature_earthshock",
+    "witch_doctor_call_of_sseratus": "spell_nature_corrosivebreath",
+    "witch_doctor_spirit_eclipse": "spell_shadow_shadowfiend",
+    "witch_doctor_shadowstalker": "ability_stealth",
+    "witch_doctor_shadow_avatar": "spell_shadow_demonform",
+    "witch_doctor_frenzied_spirits": "racial_troll_berserk",
+})
+
+
+MAPPING.update({
+    # =================================================================
+    # WITCH HUNTER - Darkshire monster-hunter with four trees. Black Knight
+    # is the Shadow sword-and-shield tank, Boltslinger is the crossbow,
+    # Houndmaster is the shadowhounds, Inquisition is fire and holy
+    # purging. Four subjects, four palettes: shadow-steel, bolts and
+    # mechanisms, hounds and horns, torch-fire.
+    # =================================================================
+    "witch_hunter_black_knight_dark_penance": "spell_shadow_twistedfaith",
+    "witch_hunter_black_knight_shadow_order": ("spell_shadow_shadowward", 40),
+    "witch_hunter_black_knight_dark_chivalry": "inv_chest_plate04",
+    "witch_hunter_black_knight_wide_swings": "ability_warrior_cleave",
+    "witch_hunter_black_knight_dusk_knight": "ability_parry",
+    "witch_hunter_black_knight_dark_power": "spell_shadow_demonicfortitude",
+    "witch_hunter_black_knight_no_regrets": "inv_shield_09",
+    "witch_hunter_black_knight_secret_society": "spell_shadow_darkritual",
+    "witch_hunter_black_knight_dark_riposte": "ability_warrior_revenge",
+    "witch_hunter_black_knight_clinch_fighting": ("inv_gauntlets_04", 40),
+    "witch_hunter_black_knight_bulwark_of_darkness": "inv_shield_32",
+    "witch_hunter_black_knight_destroyer_of_evil": "spell_holy_turnundead",
+    "witch_hunter_black_knight_guardbreaker": ("ability_warrior_shieldbreak", 40),
+    "witch_hunter_black_knight_undying": "spell_shadow_deathpact",
+    "witch_hunter_black_knight_dark_barrier": "spell_shadow_antimagicshell",
+    "witch_hunter_black_knight_foresight": "spell_holy_mindvision",
+    "witch_hunter_black_knight_witch_knight": "spell_shadow_antishadow",
+    "witch_hunter_black_knight_night_king": ("inv_crown_01", 40),
+    "witch_hunter_black_knight_dark_juggernaut": "ability_golemthunderclap",
+    "witch_hunter_black_knight_shadowstorm": "spell_shadow_shadowfury",
+    "witch_hunter_black_knight_blade_of_the_misbegotten": ("inv_sword_61", 40),
+    "witch_hunter_black_knight_dark_intuition": ("spell_shadow_sealofkings", 40),
+    "witch_hunter_black_knight_gaze_of_the_black_knight": ("spell_shadow_evileye", 40),
+    # --- Boltslinger: the crossbow
+    "witch_hunter_boltslinger_rapid_reload": ("ability_hunter_rapidkilling", 40),
+    "witch_hunter_boltslinger_mechanized_crossbows": ("inv_weapon_crossbow_10", 40),
+    "witch_hunter_boltslinger_night_stalker": "ability_stealth",
+    "witch_hunter_boltslinger_my_trusty_arbalest": "inv_weapon_crossbow_01",
+    "witch_hunter_boltslinger_heartless": "ability_criticalstrike",
+    "witch_hunter_boltslinger_enchanted_bolts": ("inv_misc_ammo_bullet_01", 40),
+    "witch_hunter_boltslinger_crossbow_expert": "ability_marksmanship",
+    "witch_hunter_boltslinger_brimming_hatred": "spell_shadow_bloodboil",
+    "witch_hunter_boltslinger_one_shot": ("ability_hunter_assassinate", 40),
+    "witch_hunter_boltslinger_silver_bolts": "inv_misc_ammo_bullet_03",
+    "witch_hunter_boltslinger_strafing_shot": "ability_upgrademoonglaive",
+    "witch_hunter_boltslinger_bane_of_witches": "spell_holy_righteousfury",
+    "witch_hunter_boltslinger_arbalest_mastery": "ability_hunter_snipertraining",
+    "witch_hunter_boltslinger_resourceful_pursuit": "ability_rogue_quickrecovery",
+    "witch_hunter_boltslinger_relentless": "ability_hunter_serpentswiftness",
+    "witch_hunter_boltslinger_escape_artist": ("ability_rogue_sprint", 40),
+    "witch_hunter_boltslinger_evasive": ("ability_rogue_feint", 40),
+    "witch_hunter_boltslinger_crossbow_frenzy": "ability_rogue_fleetfooted",
+    "witch_hunter_boltslinger_neverending_pursuit": ("ability_hunter_markedfordeath", 200),
+    "witch_hunter_boltslinger_contract_killing": ("inv_misc_note_01", 40),
+    "witch_hunter_boltslinger_heavy_crossbows": ("inv_weapon_crossbow_09", 40),
+    "witch_hunter_boltslinger_dead_and_gone": ("inv_shield_04", 40),
+    "witch_hunter_boltslinger_bounty_hunter": ("ability_hunter_mastermarksman", 40),
+    # --- Houndmaster: the shadowhounds
+    "witch_hunter_houndmaster_dark_ranger": ("ability_hunter_pet_wolf", 40),
+    "witch_hunter_houndmaster_expert_shot": "ability_hunter_snipershot",
+    "witch_hunter_houndmaster_houndfeeder": "inv_misc_food_15",
+    "witch_hunter_houndmaster_hail_of_gunfire": "inv_weapon_rifle_01",
+    "witch_hunter_houndmaster_kennel_master": ("ability_hunter_beasttaming", 40),
+    "witch_hunter_houndmaster_silver_bullets": "inv_misc_ammo_bullet_02",
+    "witch_hunter_houndmaster_darkrider": "ability_mount_jungletiger",
+    "witch_hunter_houndmaster_trapper": ("spell_shadow_mindsteal", 40),
+    "witch_hunter_houndmaster_loksey_journal": "inv_misc_book_05",
+    "witch_hunter_houndmaster_rampaging_hounds": ("ability_druid_challangingroar", 40),
+    "witch_hunter_houndmaster_defender_of_darkshire": "spell_nature_spiritarmor",
+    "witch_hunter_houndmaster_scent_of_magic": ("ability_tracking", 40),
+    "witch_hunter_houndmaster_decimate": ("ability_hunter_pet_hyena", 40),
+    "witch_hunter_houndmaster_pure_agony": ("spell_shadow_misery", 40),
+    "witch_hunter_houndmaster_reload": ("ability_hunter_steadyshot", 40),
+    "witch_hunter_houndmaster_anguish": "spell_shadow_ragingscream",
+    "witch_hunter_houndmaster_shadewalker": "spell_shadow_nethercloak",
+    "witch_hunter_houndmaster_dark_mind": "spell_shadow_mindtwisting",
+    "witch_hunter_houndmaster_daredevil": "ability_rogue_unfairadvantage",
+    "witch_hunter_houndmaster_lethal_pursuit": "ability_druid_ferociousbite",
+    "witch_hunter_houndmaster_veiled_in_darkness": "spell_shadow_shadesofdarkness",
+    "witch_hunter_houndmaster_expulsion_of_evil": "spell_holy_dispelmagic",
+    "witch_hunter_houndmaster_deal_with_the_devil": "spell_shadow_demonicpact",
+    # --- Inquisition: fire and holy
+    "witch_hunter_inquisition_flexible_fighter": ("ability_rogue_quickrecovery", 40),
+    "witch_hunter_inquisition_brooding_hatred": "spell_shadow_summonimp",
+    "witch_hunter_inquisition_sermon_of_flame": ("spell_fire_sealoffire", 40),
+    "witch_hunter_inquisition_refined_combatant": "ability_warrior_decisivestrike",
+    "witch_hunter_inquisition_protector_of_darkshire": "inv_shield_36",
+    "witch_hunter_inquisition_malice": "spell_shadow_shadowpower",
+    "witch_hunter_inquisition_holy_frenzy": "spell_holy_innerfire",
+    "witch_hunter_inquisition_interrogator": "spell_shadow_charm",
+    "witch_hunter_inquisition_dawn": ("spell_holy_divineillumination", 40),
+    "witch_hunter_inquisition_dusk": ("spell_shadow_twilight", 40),
+    "witch_hunter_inquisition_searing_hilt": ("spell_fire_flameblades", 40),
+    "witch_hunter_inquisition_cinder_and_ashes": "spell_fire_burnout",
+    "witch_hunter_inquisition_sinner": ("spell_holy_excorcism_02", 40),
+    "witch_hunter_inquisition_duskwood_renegade": ("inv_misc_cape_11", 40),
+    "witch_hunter_inquisition_flames_of_the_sinned": ("spell_fire_incinerate", 40),
+    "witch_hunter_inquisition_sin_eater": ("spell_shadow_lifedrain", 40),
+    "witch_hunter_inquisition_monster_hunting": ("ability_hunter_markedfordeath", 40),
+    "witch_hunter_inquisition_heartstopper": "spell_shadow_painspike",
+    "witch_hunter_inquisition_burned_alive": "spell_fire_immolation",
+    "witch_hunter_inquisition_torch_the_wicked": ("spell_fire_flamebolt", 40),
+    "witch_hunter_inquisition_hatred_and_vitriol": "ability_warrior_sunder",
+    "witch_hunter_inquisition_lightbringer": ("spell_holy_holybolt", 40),
+    "witch_hunter_inquisition_purity_and_wickedness": "spell_holy_auramastery",
+    # --- abilities
+    "witch_hunter_attack": "ability_meleedamage",
+    "witch_hunter_shadowblast": "spell_shadow_shadowbolt",
+    "witch_hunter_darkslayer": "inv_weapon_crossbow_10",
+    "witch_hunter_dawn_blade": "spell_holy_divineillumination",
+    "witch_hunter_burrow_bolt": "inv_misc_ammo_bullet_01",
+    "witch_hunter_vault": "ability_rogue_sprint",
+    "witch_hunter_witching_shroud": "inv_misc_cape_11",
+    "witch_hunter_witchblood_tonic": "inv_potion_51",
+    "witch_hunter_vampiric_tonic": "inv_potion_24",
+    "witch_hunter_slayers_mark": "ability_hunter_markedfordeath",
+    "witch_hunter_inquisitors_trap": "spell_shadow_mindsteal",
+    "witch_hunter_shadow_trap": "spell_shadow_auraofdarkness",
+    "witch_hunter_death_trap": "spell_shadow_deathanddecay",
+    "witch_hunter_noctis_blade": "inv_sword_61",
+    "witch_hunter_pommel_smash": "inv_gauntlets_04",
+    "witch_hunter_shadow_brand": "spell_shadow_shadowwordpain",
+    "witch_hunter_guard_strike": "ability_warrior_shieldbreak",
+    "witch_hunter_desecrate": "spell_shadow_chilltouch",
+    "witch_hunter_chains_of_darkness": "spell_frost_chainsofice",
+    "witch_hunter_stoicism": "ability_warrior_defensivestance",
+    "witch_hunter_march_of_the_black_king": "inv_crown_01",
+    "witch_hunter_knights_seal": "spell_shadow_sealofkings",
+    "witch_hunter_witching_idol": "inv_misc_idol_03",
+    "witch_hunter_witchblight": "spell_shadow_lifedrain02",
+    "witch_hunter_gaze_of_the_black_knight": "spell_shadow_evileye",
+    "witch_hunter_tormentor": "spell_shadow_misery",
+    "witch_hunter_witchbane": "ability_rogue_rupture",
+    "witch_hunter_heartseeking_bolt": "ability_hunter_assassinate",
+    "witch_hunter_twilight_frenzy": "spell_shadow_twilight",
+    "witch_hunter_damnation": "inv_weapon_crossbow_09",
+    "witch_hunter_daring_escape": "ability_rogue_feint",
+    "witch_hunter_pavise": "inv_shield_04",
+    "witch_hunter_slayer": "ability_hunter_mastermarksman",
+    "witch_hunter_houndmasters_whistle": "ability_hunter_beasttaming",
+    "witch_hunter_unleash_the_hounds": "ability_hunter_pet_wolf",
+    "witch_hunter_quickdraw": "ability_hunter_steadyshot",
+    "witch_hunter_houndmasters_call": "ability_druid_challangingroar",
+    "witch_hunter_darkflock": "spell_shadow_carrionswarm",
+    "witch_hunter_repulse": "ability_warrior_shockwave",
+    "witch_hunter_decimate": "ability_hunter_pet_hyena",
+    "witch_hunter_darkfeast": "spell_shadow_lifedrain",
+    "witch_hunter_rearmament": "ability_hunter_rapidkilling",
+    "witch_hunter_smite_evil": "spell_holy_holybolt",
+    "witch_hunter_dusk_blade": "spell_shadow_shadowward",
+    "witch_hunter_purifiers_edge": "spell_fire_flameblades",
+    "witch_hunter_torchlight": "spell_fire_flamebolt",
+    "witch_hunter_fiery_judgement": "spell_holy_excorcism_02",
+    "witch_hunter_flourish": "spell_fire_incinerate",
+    "witch_hunter_hunt": "ability_tracking",
+    "witch_hunter_stake": "inv_spear_02",
+    "witch_hunter_darkslayers_lantern": "spell_fire_sealoffire",
+    "witch_hunter_pyro_tonic": "inv_potion_27",
+    "witch_hunter_monster_hunting": "inv_misc_note_01",
+})
+
+
+MAPPING.update({
+    # =================================================================
+    # THE REMAINDER - the eight CoA classes that already had most of their
+    # art, plus the classic nine. These are the stragglers
+    # tools/audit_icon_coverage.py was left reporting after the thirteen
+    # empty classes were done: 38 with no file at all and the non-Attack
+    # half of the ability_melee sharers.
+    # =================================================================
+    "cultist_heretic_as_the_prophecy_foretold": "spell_shadow_mindtwisting",
+    "cultist_void_monstrosity_form": "spell_shadow_demonform",
+    "cultist_blade_of_the_empire": "inv_sword_61",
+    "cultist_dreadfall": "ability_warrior_savageblow",
+    "cultist_dreadfall_tank": "ability_warrior_shieldbreak",
+    "cultist_entropic_slam": "ability_warrior_shockwave",
+    "cultist_entropic_strike": "ability_warrior_decisivestrike",
+    "cultist_hammer_of_twilight": "inv_hammer_20",
+    "cultist_netherstrike": "spell_shadow_shadowfury",
+    "cultist_netherstrike_talent": ("spell_shadow_shadowfury", 40),
+    "cultist_void_strikes": "spell_shadow_twilight",
+    # --- Primalist
+    "primalist_earthen_avatar": "spell_nature_earthquake",
+    "primalist_mountain_king_earthen_avatar": ("spell_nature_earthquake", 40),
+    "primalist_rock_barrier": "spell_nature_stoneclawtotem",
+    "primalist_mountain_king_rock_barrier": ("spell_nature_stoneclawtotem", 40),
+    "primalist_grovekeeper_ancient_power": "spell_nature_natureguardian",
+    "primalist_grovekeeper_battleweaver": "spell_nature_healingtouch",
+    "primalist_grovekeeper_hammer_of_life": "spell_nature_giftofthewild",
+    "primalist_grovekeeper_natures_fury": "spell_nature_thorns",
+    "primalist_mountain_king_king_of_the_mountain": "ability_racial_avatar",
+    "primalist_primal_shred": "ability_druid_rake",
+    "primalist_raptor_talons": "ability_hunter_pet_raptor",
+    "primalist_rylaks_bite": "ability_hunter_pet_dragonhawk",
+    "primalist_totemic_smash": "spell_nature_strengthofearthtotem02",
+    "primalist_wildclaw": "ability_druid_mangle2",
+    # --- Runemaster
+    "runemaster_engravement_sky_and_stone": "spell_nature_earthbind",
+    "runemaster_glyphic_frost_glyph": "spell_frost_wizardmark",
+    "runemaster_glyphic_flame_glyph": "spell_fire_sealoffire",
+    "runemaster_glyphic_arcane_glyph": "spell_arcane_arcane02",
+    "runemaster_riftblade_elemental_inscription": "inv_misc_rune_06",
+    "runemaster_fire_blade": "spell_fire_flameblades",
+    "runemaster_fist_of_the_ancients": "inv_gauntlets_04",
+    "runemaster_fracture": "ability_warrior_shockwave",
+    "runemaster_frost_blade": "spell_frost_frostbrand",
+    "runemaster_hoarfrost": "spell_frost_iceclaw",
+    "runemaster_runeblade": "inv_sword_61",
+    "runemaster_smolder": "spell_fire_burnout",
+    # --- Starcaller
+    "starcaller_moon_guard_moonflares": ("spell_arcane_starfire", 40),
+    "starcaller_moon_guard_coalesced_resilience": ("spell_nature_moonglow", 40),
+    "starcaller_celestial_strike": "spell_nature_moonglow",
+    "starcaller_fan_of_knives": "ability_rogue_fanofknives",
+    "starcaller_starburst": "spell_arcane_arcane02",
+    "starcaller_starsunder": "spell_arcane_starfire",
+    "starcaller_umbral_blade": "inv_sword_72",
+    "starcaller_wardens_blade": "inv_sword_33",
+    # --- Stormbringer
+    "stormbringer_aerodynamics": "spell_nature_cyclone",
+    "stormbringer_wind_aerodynamics": ("spell_nature_cyclone", 40),
+    "stormbringer_kiss_of_the_clouds": "spell_nature_slowingtotem",
+    "stormbringer_wind_kiss_of_the_clouds": ("spell_nature_slowingtotem", 40),
+    "stormbringer_clear_skies": "spell_nature_abolishmagic",
+    "stormbringer_tailwind": "spell_nature_windfury",
+    "stormbringer_ride_the_lightning": "spell_nature_lightning",
+    "stormbringer_wind_raging_zephyr": "spell_nature_earthbindtotem",
+    "stormbringer_maelstrom_spheres_of_power": "spell_nature_wispsplode",
+    # --- Sun Cleric
+    "sun_cleric_piety_wrath_of_god": "spell_holy_righteousfury",
+    "sun_cleric_vow_of_the_valkyr": "spell_holy_championsgrace",
+    "sun_cleric_gavel_of_light": "inv_hammer_20",
+    "sun_cleric_gavel_of_wrath": "inv_hammer_16",
+    "sun_cleric_glorious_execution": "inv_sword_48",
+    "sun_cleric_justice": "spell_holy_sealofmight",
+    "sun_cleric_sunslam": "ability_warrior_shockwave",
+    # --- Tinker
+    "tinker_defibrillate": "inv_gizmo_pipe_01",
+    "tinker_hyperblast_barrage": "inv_misc_enggizmos_19",
+    "tinker_demolition_hyperblast_barrage_unlock": ("inv_misc_enggizmos_19", 40),
+    "tinker_demolition_rocket_launcher": "inv_misc_enggizmos_20",
+    "tinker_demolition_i_need_more_explosions": "spell_fire_selfdestruct",
+    "tinker_demolition_buster_scope": "inv_misc_spyglass_02",
+    "tinker_spanner_smash": "trade_engineering",
+    # --- Venomancer
+    "venomancer_barbed_stinger": "ability_creature_poison_02",
+    "venomancer_fortitude_barbed_stinger": ("ability_creature_poison_02", 40),
+    "venomancer_carapace_crash": "inv_misc_monsterspidercarapace_01",
+    "venomancer_chitin_rush": "ability_heroicleap",
+    "venomancer_hivebreak": "ability_warrior_shieldbreak",
+    "venomancer_venom_fang": "ability_creature_poison_05",
+    # --- Shaman
+    "shaman_frostbrand_weapon": "spell_frost_frostbrand",
+    # =================================================================
+    # EVERY CLASS'S BASIC ATTACK. All 30 pointed at one ability_melee
+    # sword, which for "Attack" is defensible - real WoW uses one icon for
+    # it too. But Kyle's rule was that a class should not be one icon, and
+    # a hotbar where the basic swing matches 29 other classes' is the same
+    # flatness one level up. Each gets the same base art tinted toward its
+    # own class palette, so an Attack still reads as an Attack while
+    # belonging to its class.
+    # =================================================================
+    "warrior_attack": "ability_meleedamage",
+    "rogue_attack": ("ability_meleedamage", 280),
+    "hunter_attack": ("ability_meleedamage", 120),
+    "paladin_attack": ("ability_meleedamage", 50),
+    "shaman_attack": ("ability_meleedamage", 200),
+    "druid_attack": ("ability_meleedamage", 100),
+    "priest_attack": ("ability_meleedamage", 30),
+    "mage_attack": ("ability_meleedamage", 220),
+    "warlock_attack": ("ability_meleedamage", 300),
+    "cultist_attack": ("ability_meleedamage", 260),
+    "primalist_attack": ("ability_meleedamage", 90),
+    "runemaster_attack": ("ability_meleedamage", 240),
+    "starcaller_attack": ("ability_meleedamage", 210),
+    "stormbringer_attack": ("ability_meleedamage", 190),
+    "sun_cleric_attack": ("ability_meleedamage", 45),
+    "tinker_attack": ("ability_meleedamage", 20),
+    "venomancer_attack": ("ability_meleedamage", 110),
+})
+
+
 # =====================================================================
 # Fetch / verify / install
 # =====================================================================
@@ -1488,6 +2024,22 @@ def fetch(icon_name, hue=0):
     out = io.BytesIO()
     im.save(out, format="PNG")
     return out.getvalue()
+
+
+def class_of(ident, dest):
+    """Which class an id belongs to, longest-prefix matched.
+
+    Splitting on "_" is wrong here for the same reason it was wrong in
+    audit_icon_coverage: knight_of_xoroth, witch_hunter, witch_doctor and
+    sun_cleric all contain underscores, and a naive split merges
+    witch_hunter with witch_doctor.
+    """
+    names = sorted({p.stem for p in (ROOT / "data/abilities").glob("*.json")},
+                   key=len, reverse=True)
+    for n in names:
+        if ident == n or ident.startswith(n + "_"):
+            return n
+    return ident.split("_")[0]
 
 
 def main(argv):
@@ -1553,7 +2105,16 @@ def main(argv):
         # exists to fix. Sharing a base icon is fine and often right;
         # installing the identical file twice is not, and a hue shift is
         # how a shared base becomes two distinct icons.
-        digest = hashlib.sha1(data).hexdigest()
+        # SCOPED TO ONE CLASS, deliberately. Two classes sharing an icon
+        # is fine and is what real WoW does - a player only ever sees one
+        # class's spellbook and one class's talent trees, so Guardian and
+        # Barbarian both using the cleave icon costs nothing. Two icons
+        # inside the SAME class being identical is the problem Kyle
+        # flagged, because those sit side by side on one screen. Checking
+        # globally instead reports 734 "duplicates" that are not defects
+        # and would force worse thematic choices to clear.
+        digest = (ident.rsplit("_", 1)[0].split("_")[0] if False
+                  else class_of(ident, dest)) + ":" + hashlib.sha1(data).hexdigest()
         if digest in seen:
             identical.append((ident, seen[digest], name, hue))
         else:

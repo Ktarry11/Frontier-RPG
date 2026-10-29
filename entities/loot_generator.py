@@ -494,13 +494,40 @@ class LootGenerator:
     #: roll freely across the full class pool.
     CLASS_BIAS_CHANCE = 0.35
 
-    #: Every class loot can currently roll for. Only the 9 vanilla classes
-    #: have ability/armor data wired up; the 21 CoA classes join this list
-    #: when they become selectable.
-    LOOT_CLASS_POOL = [
-        "Warrior", "Shaman", "Rogue", "Priest",
-        "Hunter", "Mage", "Warlock", "Druid", "Paladin",
-    ]
+    #: Every class loot can roll for - READ FROM data/items/armor_types.json
+    #: rather than listed here, so it cannot go stale again. See
+    #: _roll_target_class.
+    #:
+    #: THIS WAS A HARDCODED LIST OF THE 9 VANILLA CLASSES, with a comment
+    #: saying "the 21 CoA classes join this list when they become
+    #: selectable". They became selectable: all 30 are offered by
+    #: CharacterCreationScreen, all 30 have an entry in class_armor_map,
+    #: class_weapon_map and class_stat_template_map, and
+    #: tools/smoke_play_all_classes.py plays all 30 from level 1 to 60. The
+    #: list simply never got updated, and because a drop still *looked*
+    #: perfectly normal, nothing noticed. Rolling 120,000 real drops through
+    #: generate_loot_for_creature measured what it cost:
+    #:
+    #:   * CLOTH WAS 1.46x MAIL. Three of the nine pooled classes wear cloth
+    #:     and only two wear mail, so the free roll - the 65% of drops the
+    #:     class bias does not claim - was skewed by the shape of the stale
+    #:     list. Across all 30 the split is 8 cloth / 8 leather / 7 mail /
+    #:     7 plate, which is 1.14x at worst.
+    #:   * POLEAREMS CAME OUT 25 TIMES IN 120,000 ROLLS. polearm is in
+    #:     exactly one class's weapon list (Tinker), so it could only ever
+    #:     arrive through the class-bias path, for a Tinker player, and never
+    #:     once for the other 29 classes - while data/loot and data/quests
+    #:     between them hand-author 78 polearm items.
+    #:   * agi_int_hybrid NEVER ROLLED AT ALL with no player class given, and
+    #:     only for its own four classes otherwise.
+    #:
+    #: Deliberately NOT filtered to the classes character creation offers.
+    #: Loot rolls across the whole class pool on purpose (see
+    #: generate_loot_for_creature) precisely so gear for classes you are not
+    #: playing exists in the world for party members, and a class with gear
+    #: data is a class whose gear should exist whether or not the creation
+    #: screen lists it yet.
+    #: Populated in _load_data from the armour map, never written here.
 
     def _roll_target_class(self, char_class=None):
         """Pick which class a drop is itemized for (see generate_loot_for_creature)."""
