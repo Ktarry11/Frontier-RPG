@@ -97,7 +97,7 @@
     {
       "talent_id": "starcaller_moon_guard_crystal_shield",
       "name": "Crystal Shield",
-      "description": "Increases Stamina by 2% and grants Spell Power equal to 2% of your Attack Power, per rank.",
+      "description": "Increases your Stamina by 2% and grants Spell Power equal to 5% of your Attack Power, per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -106,13 +106,12 @@
       "hex_y": -4,
       "effects": {
         "stamina_pct": 2.0,
-        "spell_power_from_ap_pct": 0.02,
-        "spell_damage_taken_pct": -0.07
+        "spell_power_from_ap_pct": 0.05
       },
       "connected_to": [
         "starcaller_moon_guard_moon_guard_passive"
       ],
-      "_source": "CoA tooltip confirmed: 'Level 30 Passive. Boosts Stamina + spell damage from AP.'"
+      "_source": "spell_damage_taken_pct: -0.07 REMOVED 2026-10-28 on Kyle's direction to follow the CoA reference over earlier guidance. I added it that morning on the brief that Moon Guard is a magic tank, and it was wrong three ways: the real CoA Crystal Shield is 'Level 30 Passive. Increases your Stamina by 10% and increases your spell damage by 25% of your attack power' with no mitigation clause at all; -7% x 5 ranks gave this spec -35% magic damage taken, seven times the magic reduction in the entire Starcaller class tree (Constellation Barrier -5%, Mu'sha's Resilience -15% Arcane only); and it was never in the node's own tooltip, so a player could not see it.\n\nMoon Guard is CoA's 'Closest to Protection Paladin' - a PARRY and BLOCK tank whose damage comes FROM avoidance (Moonflares fire on avoided attacks, Nebula seeds stars on blocks, parries refund Energy and strike back). Its stat priority is Defense > Stamina > Hit/Expertise > Parry > Dodge > Block. Its survivability now comes from those procs actually firing on blocks and parries, which they could not before the on_block/on_parry triggers existed. Magnitudes here match CoA: 2% x 5 = 10% Stamina, 5% x 5 = 25% of attack power as spell power."
     },
     {
       "talent_id": "starcaller_moon_guard_starlord_mandate",

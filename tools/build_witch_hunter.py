@@ -1349,18 +1349,20 @@ BLACK_KNIGHT = tree(
                     "with the hit and expertise caps rather than Defense, so "
                     "there is no better home for it."),
         node(K, "no_regrets", "No Regrets",
-             "Increases your Armor by 3% and your chance to block by 2% per "
-             "rank.",
-             1, 2, 3, {"armor_pct": 3.0, "block": 2.0},
+             "Increases your Armor by 3%, your chance to block by 2%, and the "
+             "damage your blocks absorb by 4% per rank.",
+             1, 2, 3, {"armor_pct": 3.0, "block": 2.0, "block_value_pct": 0.04},
              connect=["dark_chivalry"],
              source="CoA: 'Your March of the Black King now increases your "
                     "Armor by 15%.' Conditioning Armor on a cooldown being up "
                     "is not expressible, so it is passive. Block comes with it "
                     "because weapon_types.json gives Witch Hunter shields, and "
-                    "`block` is BLOCK CHANCE in percentage points - the "
-                    "shield-gated roll in _recalculate_derived_stats, which "
-                    "stays 0 with no shield equipped. Block VALUE is the other "
-                    "half of the pair and lives on Secret of Raven Hill."),
+                    "BLOCK IS TWO STATS: `block` is the shield-gated CHANCE in "
+                    "percentage points (it stays 0 with no shield equipped) and "
+                    "block_value_pct is a FRACTION scaling how much a blocked "
+                    "hit loses. This is the tree's only block node, because "
+                    "CoA's Black Knight is a two-hander spec and block is "
+                    "Frontier's addition, not CoA's."),
         node(K, "secret_society", "Secret Society",
              "Increases your Shadow spell damage by 3% and your spell critical "
              "strike chance by 1% per rank.",
@@ -1374,15 +1376,19 @@ BLACK_KNIGHT = tree(
         node(K, "dark_riposte", "Dark Riposte",
              "Blows you turn aside knit you back together and return 10 Focus.",
              2, 0, 1, {}, connect=["dusk_knight"],
-             proc={"trigger": "on_damage_taken", "chance": 30, "icd": 0,
+             proc={"trigger": "on_parry", "chance": 100, "icd": 0,
                    "heal_flat": 60,
                    "grant_resource": {"resource": "focus", "amount": 10}},
              source="CoA: 'Parrying enemy attacks now restores 5% of your "
-                    "missing health and Rage.' There is no on-parry trigger - "
-                    "ON_DAMAGE_TAKEN is the closest real one - so it fires on a "
-                    "share of incoming hits instead. Both halves are real "
-                    "payloads, and the Focus half matters: this is the tank's "
-                    "second income stream alongside March of the Black King."),
+                    "missing health and Rage.' on_parry is a real trigger "
+                    "(Character.take_damage fires ('on_parry', 'on_avoid') off "
+                    "its avoidance roll), so this is CoA's node literally - "
+                    "every parry, not a chance on every hit. The 5%-of-missing "
+                    "shape has no payload key, so it is a flat heal plus a flat "
+                    "Focus grant. The Focus half matters: this is the tank's "
+                    "second income stream alongside March of the Black King, "
+                    "and it keys off the stat the whole spec already gears "
+                    "for."),
         node(K, "clinch_fighting", "Clinch Fighting",
              "While below 35% health, you take 6% less damage per rank.",
              2, 1, 3, {"low_health_damage_reduction_pct": 0.06,
@@ -1510,16 +1516,29 @@ BLACK_KNIGHT = tree(
                     "health and 99,156 effective HP against the next tank's "
                     "2,987, and validate_class.py passed it with zero errors "
                     "before the magnitude check existed."),
-        node(K, "secret_of_raven_hill", "Secret of Raven Hill",
-             "Reduces all damage you take by 2% and increases the damage your "
-             "blocks absorb by 4% per rank.",
-             5, 2, 2, {"damage_taken_pct": -0.02, "block_value_pct": 0.04},
-             connect=["dark_juggernaut"], total_slots=3,
-             source="CoA prints no tooltip for this one ('see builder "
-                    "tooltip'), so it carries the flat mitigation a tank tree "
-                    "needs plus block VALUE - the other half of the two-stat "
-                    "block system, where `block` rolls the chance and "
-                    "block_value_pct scales what a block absorbs."),
+        node(K, "dark_intuition", "Dark Intuition",
+             "Turning an attack aside sharpens you: your parry rises by 4% and "
+             "your haste by 4 for a few turns.",
+             5, 2, 1, {}, connect=["dark_juggernaut"], total_slots=3,
+             proc={"trigger": "on_avoid", "chance": 100, "icd": 0,
+                   "apply_effect": {
+                       "effect_id": "witch_hunter_dark_intuition",
+                       "name": "Dark Intuition",
+                       "effect_type": "buff",
+                       "duration": 3,
+                       "stat_mods": {"parry": 4.0, "haste": 4.0},
+                       "on_target": False}},
+             source="CoA class tree: 'Whenever you parry or dodge an attack, "
+                    "your attack speed is increased by 5%, and your parry "
+                    "chance by 2% for 15 seconds, stacking 2 times.' on_avoid "
+                    "is exactly 'parry or dodge' - the trigger fires from both "
+                    "branches of take_damage's avoidance roll - so this node is "
+                    "CoA's wording with nothing approximated except the stack "
+                    "count, which is folded into one larger application. It "
+                    "replaces Secret of Raven Hill, the one Black Knight talent "
+                    "CoA prints no tooltip for at all ('see builder tooltip'), "
+                    "because a real avoidance payoff is the heart of a spec CoA "
+                    "calls 'a sticky avoidance tank'."),
 
         node(K, "gaze_of_the_black_knight", "Gaze of the Black Knight",
              "You take the attention and the damage both, and you keep "
@@ -1527,7 +1546,7 @@ BLACK_KNIGHT = tree(
              6, 0, 1, {"damage_taken_pct": -0.12, "threat_generation_pct": 0.15},
              node_type="active",
              connect=["shadowstorm", "blade_of_the_misbegotten",
-                      "secret_of_raven_hill"],
+                      "dark_intuition"],
              total_slots=1,
              source="Capstone, sharing its name with the ABILITY of the same "
                     "name - CoA's capstone IS that spell, and Frontier needs it "
