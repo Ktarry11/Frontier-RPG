@@ -263,6 +263,18 @@ class Report:
 # ------------------------------------------------------------------ class facts
 
 
+
+def _proc_carries_stun(proc):
+    """True if a proc's apply_effect payload lands an is_stun debuff,
+    at any nesting depth."""
+    if isinstance(proc, dict):
+        if proc.get("is_stun"):
+            return True
+        return any(_proc_carries_stun(v) for v in proc.values())
+    if isinstance(proc, list):
+        return any(_proc_carries_stun(v) for v in proc)
+    return False
+
 def is_stat_conversion(key):
     """True for a <target>_from_<source>_pct stat-conversion key.
 
@@ -380,6 +392,58 @@ def validate_abilities(slug, report, effect_types, global_ids):
                 report.warn(
                     f"{ability.get('ability_id')}: stat_mod {key!r} is read by no "
                     f"engine code - this part of the ability does nothing")
+
+    # DESCRIPTION VERSUS IMPLEMENTATION. The other recurring defect class of
+    # this session: an ability whose own text promises a mechanic its data
+    # does not carry. Ten were fixed by hand before this check existed -
+    # Mage's Ice Barrier promised "absorbing incoming damage" and absorbed
+    # nothing; Cultist's Dreadnought Shield, Dark Veil and Doomcloak the
+    # same; Paladin's Hammer of Justice said "Stuns the target for 2 turns"
+    # and only slowed it; Cultist's Devour Magic and Devour Curse and
+    # Starcaller's Prayer of Elune all said they dispel and had no
+    # dispel_type, which the engine treats as a guaranteed no-match.
+    #
+    # WARNINGS, not errors, because natural language is fuzzy and this will
+    # have false positives: "shield" is a physical object in Guardian's Raise
+    # Shield, Paladin's Divine Shield is immunity via damage_taken_pct, and
+    # "cannot be dispelled" is a claim ABOUT dispelling rather than a dispel.
+    # The point is to make the gap visible rather than to fail a build.
+    PROMISES = (
+        # "absorbing the next HEALING an enemy would receive" is a healing
+        # absorb on a hostile target, a mechanic this engine does not have -
+        # a damage-absorb field would not implement it. Excluded so the check
+        # does not point at the wrong fix.
+        (re.compile(r"\babsorb(s|ing|ed)?\b(?!\s+the\s+next\s+healing)", re.I),
+         lambda a: a.get("absorb") or a.get("absorb_pct_max_health")
+                   or (a.get("proc") or {}).get("shield_pct")
+                   or "healing an enemy" in (a.get("description") or ""),
+         "promises absorption but carries no absorb or absorb_pct_max_health"),
+        # "purging a beneficial magic effect" removes an ENEMY BUFF -
+        # Spellsteal/Purge, which this engine has no mechanism for at all.
+        # dispel_type removes debuffs from an ALLY, so flagging these would
+        # point at a fix that does not apply. Dropped "purg" for that reason.
+        (re.compile(r"\b(dispel|cleanse)(s|es|ing|ed)?\b", re.I),
+         lambda a: a.get("dispel_type") or "not be dispelled" in (a.get("description") or "")
+                   or "cannot be dispelled" in (a.get("description") or ""),
+         "promises a dispel but carries no dispel_type, which the engine "
+         "treats as a guaranteed no-match"),
+        (re.compile(r"\bstun(s|ned|ning)\b", re.I),
+         # A stun can also arrive through a proc, which is the right shape
+         # for a DEFERRED one - Runemaster's Palm Sigil: Earth says "your
+         # next Magic damage stuns the target", so is_stun on the sigil
+         # itself would stun on the wrong cast.
+         lambda a: a.get("is_stun")
+                   or _proc_carries_stun(a.get("proc"))
+                   or re.search(
+             r"stun (immun|resist)|immune to stun|while stunned|stun duration",
+             a.get("description") or "", re.I),
+         "says it stuns but carries no is_stun flag"),
+    )
+    for ability in abilities:
+        desc = ability.get("description") or ""
+        for pattern, satisfied, complaint in PROMISES:
+            if pattern.search(desc) and not satisfied(ability):
+                report.warn(f"{ability.get('ability_id')}: {complaint}")
 
     # UNIT CONVENTIONS ON ABILITY stat_mods. This is the single worst trap in
     # the codebase and nothing checked it. Six separate bugs came from it in

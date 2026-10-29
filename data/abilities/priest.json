@@ -363,7 +363,9 @@
       ],
       "target_type": "ally",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "absorb_pct_max_health": 0.3,
+      "_source": "  ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized near the top of the band because this is the premier absorb in the game and the peers there are Templar's Tome of Light at 0.40 and Cultist's Eldritch Bastion at 0.35."
     },
     {
       "ability_id": "priest_holy_fire",

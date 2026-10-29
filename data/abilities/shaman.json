@@ -1387,7 +1387,9 @@
       "buff_scope": "combat",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Earth totem. Shields the caster, absorbing a burst of damage. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
+      "_design_note": "Earth totem. Shields the caster, absorbing a burst of damage. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "absorb_pct_max_health": 0.12,
+      "_source": "  ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized low because the description says 'a burst of damage', not a sustained shield, and it is a totem rather than a cooldown."
     },
     {
       "ability_id": "shaman_magma_totem",
