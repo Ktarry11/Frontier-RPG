@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. Also the target of extra_attack procs, which look up '<class_prefix>_attack' by name (see StatusEffectMixin.fire_proc_trigger) - Brigand's Tip of the Spear needs this id to exist."
     },
     {
@@ -1129,7 +1129,7 @@
           "effect_value": 108
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Weave Wild Strike to build further Advantage (Ravager makes it generate an extra stack)'. Melee `damage`, not ranged_damage - this is the spec that fights in dagger range, and it is what lets the class act with no bow equipped.",
       "target_type": "enemy",
       "generates": {
@@ -1196,7 +1196,7 @@
           "effect_value": 93
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA names Rusty Shiv with Flank as the pair Bounty Hunter reads ('Damage dealt by Flank and Rusty Shiv now increases the target's damage taken').",
       "target_type": "enemy"
     },
@@ -1253,7 +1253,7 @@
           "effect_value": 142
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Flank from behind for the Beatdown/Bounty payoff'. Position is not a concept here, so the bonus Flank gets for being behind the target is baked into its base damage rather than conditional.",
       "target_type": "enemy"
     },
@@ -1304,7 +1304,7 @@
           "effect_value": 116
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Bushwhack (teleport-behind plus stun) plays like Shadowstep-into-Cheap-Shot'. The teleport has no engine hook; the stun does.",
       "target_type": "enemy",
       "is_stun": true
@@ -1356,7 +1356,7 @@
           "effect_value": 304
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Dump with Assault once a few Advantage stacks are banked, especially below 20% health where it hits hardest', 'Only usable on enemies below 20% health'.",
       "target_type": "enemy",
       "execute_threshold_pct": 20
@@ -1402,7 +1402,7 @@
           "effect_value": 180
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Fire Viper's Bite whenever the target is bleeding to cash in its bonus-damage strikes', 'Generates 2 Advantage'. The 'if the target is bleeding' bonus has no engine hook - no ability can test the target's active effects - so it is priced as an unconditional hard hit.",
       "target_type": "enemy",
       "generates": {
@@ -1520,7 +1520,7 @@
           "effect_value": 110
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Hookshot to yank a breakaway bleeding add back'. The pull is not modellable; the hit is.",
       "target_type": "enemy"
     },
@@ -1584,7 +1584,7 @@
           "effect_value": 190
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Outmaneuver's teleport-in, decoy, teleport-back is a Shadowstep-with-Preparation-reset analog'. Reduced to its damage, which is the only half of a three-step teleport the engine can express.",
       "target_type": "enemy"
     },

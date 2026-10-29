@@ -19,7 +19,7 @@
           "effect_value": 0
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "Convention: every class ships a free rank-1 Attack. Also the ability the engine re-invokes for an extra_attack proc, found by the <class>_attack naming rule."
     },
     {
@@ -87,7 +87,7 @@
           "effect_value": 108
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: Reap is the builder in all three rotations - Domination's 'keep Reap flowing', Harvest's 'Reap as your basic filler', Soul's 'fill gaps with Reap, the cheap generator'. Class tree's Backswing raises the resource it returns, so it generates Souls as well as costing Mana. Warrior's heroic_strike curve.",
       "target_type": "enemy",
       "generates": {
@@ -154,7 +154,7 @@
           "effect_value": 141
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Murder on cooldown while closing, or on a second target, for free extra Soul Fragments'. The class tree's Mysterious Omen extends its range, so it is class kit rather than any one spec's.",
       "target_type": "enemy",
       "generates": {
@@ -275,7 +275,7 @@
           "effect_value": 226
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA class tree: 'Generates 3 Reaped Souls. Strike for 150% Weapon Damage plus AP Shadow damage, ignoring resistances, absorption, and invulnerability effects.' Soul calls it 'your hardest hitting opener'. The ignore-everything clause has no engine hook - there is no way to bypass resistance or an absorb shield on a single cast - so it is a plain big physical hit with the largest Souls grant in the kit.",
       "target_type": "enemy",
       "generates": {
@@ -376,7 +376,7 @@
           "effect_value": 114
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA class tree: 'Rush towards an enemy and generate 15 Runic Power. Cannot be used on the same target more than once every 20 seconds.' The per-target lockout has no engine hook; a 5 turn cooldown stands in for it.",
       "target_type": "enemy",
       "generates": {
@@ -425,7 +425,7 @@
           "effect_value": 144
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: the class tree's Ghastly Advance extends it and Between Shadows makes it generate a Reaped Soul; Soul's Apparition raises its damage 30%. Soul lists it under 'Spectre Stride closes'.",
       "target_type": "enemy",
       "generates": {
@@ -931,7 +931,7 @@
           "effect_value": 96
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Open with Crow's Harvest to leap into the pull, deal weapon damage in an arc, and harvest up to 3 Soul Fragments.' max_targets=4 rather than target_type alone, because enemy_aoe on its own hits EVERY enemy in the fight - the limited-cleave cap is what the tooltip means.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -987,7 +987,7 @@
           "effect_value": 183
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Doomrend to apply its anti-heal shield and, with Darkrend Scythe, start the bleed.' An ability's own `proc` is only attached for buff/debuff effect_types, so a damage ability cannot apply its own debuff: the anti-heal lives on the Blood Fueled talent instead, where a proc CAN land a healing_taken_pct debuff on the target.",
       "target_type": "enemy",
       "generates": {
@@ -1042,7 +1042,7 @@
           "effect_value": 290
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Slaughter the moment a target drops below 35% HP for the execute plus a Reaped Soul.' execute_threshold_pct is 0-100, not a fraction - guardian_final_verdict shipped 0.25 and gated itself at a quarter of one percent.",
       "target_type": "enemy",
       "execute_threshold_pct": 35,
@@ -1227,7 +1227,7 @@
           "effect_value": 148
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Loop Dirge (dual-weapon strike, generates 2 Soul Fragments) as your main sustained button.' Reaper is two-hand only in Frontier (weapon_types.json: sword_2h, axe_2h, mace_2h), so the dual-wield framing is dropped and it reads as a repeated two-handed strike. Its Shadowfrost school is dropped too - see the SCHOOL SPLIT note; a 'damage' ability never reads school talents.",
       "target_type": "enemy",
       "generates": {
@@ -1387,7 +1387,7 @@
           "effect_value": 118
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'dump Reaped Souls into Soulslam if 2+ mobs are clustered', 'That is your best AoE damage'. The other Souls spender, and the reason the pool is worth banking on a trash pull.",
       "target_type": "enemy_aoe",
       "max_targets": 5
@@ -1563,7 +1563,7 @@
           "effect_value": 106
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Dreadwake (cone, Weapon plus Frost damage, generates a Reaped Soul) as your main filler once you're on a 2H weapon'. A 12 yd cone becomes a 3-target cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
@@ -1619,7 +1619,7 @@
           "effect_value": 84
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: 'Swing at enemies around you in a fury of souls, dealing AP Shadowfrost Damage, reducing their melee and ranged attack speed by 20% for 15 seconds.' One cast cannot both damage and debuff, so the attack-speed slow moves to the Soulstorm talent as a proc and this keeps the AoE damage and threat the tank rotation needs.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
@@ -1669,7 +1669,7 @@
           "effect_value": 204
         }
       ],
-      "icon_id": "ability_melee",
+      "icon_id": null,
       "_source": "CoA: Decimation, Domination's level-50 passive - 'Reap, whose every 6th cast turns into a Decimate'. A cast counter has no hook, so Decimate is its own short-cooldown heavy strike rather than a Reap replacement.",
       "target_type": "enemy"
     },

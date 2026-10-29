@@ -205,7 +205,7 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
 ABILITIES = [
     ability("attack", "Attack", "damage",
             "A measured strike with your weapon.", one(1, 0, 0),
-            icon="ability_melee",
+            icon=None,
             source="Convention: every class ships a free rank-1 Attack. "
                    "Also the target of extra_attack procs, which look up "
                    "'<class_prefix>_attack' by name (see "
@@ -440,7 +440,7 @@ ABILITIES = [
     ability("wild_strike", "Wild Strike", "damage",
             "A short, fast cut that is already on its way back.",
             ranks(38, 10, 0, start=6, count=8), target_type="enemy",
-            icon="ability_melee", generates=banks(14),
+            icon=None, generates=banks(14),
             source="CoA: 'Weave Wild Strike to build further Advantage "
                    "(Ravager makes it generate an extra stack)'. Melee "
                    "`damage`, not ranged_damage - this is the spec that "
@@ -449,14 +449,14 @@ ABILITIES = [
     ability("rusty_shiv", "Rusty Shiv", "damage",
             "Not a good knife. Close enough.",
             ranks(30, 9, 15, start=2, count=8), target_type="enemy",
-            icon="ability_melee",
+            icon=None,
             source="CoA names Rusty Shiv with Flank as the pair Bounty Hunter "
                    "reads ('Damage dealt by Flank and Rusty Shiv now "
                    "increases the target's damage taken')."),
     ability("flank", "Flank", "damage",
             "You come in from the side they are not watching.",
             ranks(52, 15, 20, start=10, count=7), cooldown=2,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Flank from behind for the Beatdown/Bounty payoff'. "
                    "Position is not a concept here, so the bonus Flank gets "
                    "for being behind the target is baked into its base "
@@ -464,21 +464,21 @@ ABILITIES = [
     ability("bushwhack", "Bushwhack", "damage",
             "You are behind them before they finish turning round.",
             ranks(46, 14, 20, start=16, count=6), cooldown=5,
-            target_type="enemy", is_stun=True, icon="ability_melee",
+            target_type="enemy", is_stun=True, icon=None,
             source="CoA: 'Bushwhack (teleport-behind plus stun) plays like "
                    "Shadowstep-into-Cheap-Shot'. The teleport has no engine "
                    "hook; the stun does."),
     ability("assault", "Assault", "damage",
             "They are finished. This is just the part where they find out.",
             ranks(124, 36, 30, start=20, count=6), cooldown=3,
-            target_type="enemy", execute_threshold_pct=20, icon="ability_melee",
+            target_type="enemy", execute_threshold_pct=20, icon=None,
             source="CoA: 'Dump with Assault once a few Advantage stacks are "
                    "banked, especially below 20% health where it hits "
                    "hardest', 'Only usable on enemies below 20% health'."),
     ability("vipers_bite", "Viper's Bite", "damage",
             "Four strikes in the time most people manage one.",
             ranks(84, 24, 35, start=28, count=5), cooldown=4,
-            target_type="enemy", icon="ability_melee", generates=banks(8),
+            target_type="enemy", icon=None, generates=banks(8),
             source="CoA: 'Fire Viper's Bite whenever the target is bleeding "
                    "to cash in its bonus-damage strikes', 'Generates 2 "
                    "Advantage'. The 'if the target is bleeding' bonus has no "
@@ -504,7 +504,7 @@ ABILITIES = [
     ability("hookshot", "Hookshot", "damage",
             "The hook finds the wound you already made.",
             ranks(50, 15, 25, start=22, count=5), cooldown=4,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Hookshot to yank a breakaway bleeding add back'. "
                    "The pull is not modellable; the hit is."),
     ability("dirty_blades", "Dirty Blades", "buff",
@@ -520,7 +520,7 @@ ABILITIES = [
     ability("outmaneuver", "Outmaneuver", "damage",
             "You were never where they were swinging.",
             ranks(100, 30, 40, start=34, count=4), cooldown=8,
-            target_type="enemy", icon="ability_melee",
+            target_type="enemy", icon=None,
             source="CoA: 'Outmaneuver's teleport-in, decoy, teleport-back is "
                    "a Shadowstep-with-Preparation-reset analog'. Reduced to "
                    "its damage, which is the only half of a three-step "
