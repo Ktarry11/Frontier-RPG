@@ -89,7 +89,7 @@
       "name": "Build: Sentry Turret",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "summon",
+      "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
       "description": "Build a Sentry Turret for 5 min that shoots bullets at enemies, dealing 4 Physical damage. Activate again to deconstruct your Sentry Turret. Can only have 1 Sentry Turret up at a time.",
@@ -102,7 +102,10 @@
           "effect_value": 4
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "summon_pet_template": "sentry_turret",
+      "target_type": "self",
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
     },
     {
       "ability_id": "tinker_spanner_smash",
@@ -1027,7 +1030,7 @@
       "name": "Build: Clockwork Assistant",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "summon",
+      "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
       "description": "Construct a Clockwork Assistant to accompany the Tinker until dismissed.",
@@ -1040,14 +1043,17 @@
           "effect_value": 0
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "summon_pet_template": "clockwork_assistant",
+      "target_type": "self",
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
     },
     {
       "ability_id": "tinker_build_mechano_bear",
       "name": "Build: Mechano-Bear",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "summon",
+      "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
       "description": "Construct a Mechano-Bear to accompany the Tinker until dismissed.",
@@ -1060,7 +1066,10 @@
           "effect_value": 0
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "summon_pet_template": "mechano_bear",
+      "target_type": "self",
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
     },
     {
       "ability_id": "tinker_makeshift_dynamite",
@@ -1183,7 +1192,7 @@
       "name": "Build: Rusthound",
       "resource_type": "mana",
       "cooldown": 0,
-      "effect_type": "summon",
+      "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
       "description": "Construct a Rusthound to accompany the Tinker until dismissed.",
@@ -1196,7 +1205,10 @@
           "effect_value": 0
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "summon_pet_template": "rusthound",
+      "target_type": "self",
+      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py."
     },
     {
       "ability_id": "tinker_build_battle_turret_x13",

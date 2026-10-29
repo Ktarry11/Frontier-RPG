@@ -12,6 +12,10 @@ to actually offer a choice - no point authoring a dozen pets nobody can
 reach yet.
 """
 
+SENTRY_SOURCE = (
+    'Tinker construct, authored 2026-10-28 to fix a real bug: tinker_build_sentry_turret, _clockwork_assistant, _mechano_bear and _rusthound all shipped with effect_type="summon", which the ability engine does not handle - it only branches on "summon_pet", and only with a summon_pet_template. All four had no template either, so four abilities on a shipped class spent their resource and summoned nothing. Found by tools/validate_class.py\'s effect_type check. Like ZIGGI-6K and Stormbringer\'s Air Elemental these are never passed to pets_for_class - the Tinker builds them by casting the ability, not through a taming screen - so the template only has to exist for get_pet_template to find. level_req matches each ability\'s own level_req, because Character.summon_pet gates on THIS field separately and the two have to move together.'
+)
+
 PET_TEMPLATES = {
     "wolf": {
         "display_name": "Wolf",
@@ -497,6 +501,185 @@ PET_TEMPLATES = {
                 "ranks": [{"rank": 1, "level_req": 30, "cost": 20, "effect_value": 100}],
                 "is_instant": True,
                 "icon_id": "ability_debuff",
+            },
+        ],
+    },
+    "sentry_turret": {
+        "display_name": "Sentry Turret",
+        "pet_type": "tinker",
+        "base_hp": 70,
+        "base_armor": 24,
+        "base_magic_resist": 0,
+        "base_attack": 18,
+        "base_spell_power": 0,
+        "base_resource": 100,
+        "resource_type": "energy",
+        "crit_chance": 5.0,
+        "speed": 1.0,
+        "level_req": 1,
+        "_source": SENTRY_SOURCE,
+        "abilities": [
+            {
+                "ability_id": "pet_sentry_turret_bullet_spray",
+                "name": "Bullet Spray",
+                "resource_type": "energy",
+                "cooldown": 0,
+                "effect_type": "ranged_damage",
+                "duration": 0,
+                "stat_mods": {},
+                "description": "The turret's only job: put rounds downrange.",
+                "ranks": [
+                    {"rank": 1, "level_req": 1, "cost": 20, "effect_value": 30}
+                ],
+                "is_instant": True,
+                "icon_id": "ability_melee",
+            },
+        ],
+    },
+    "clockwork_assistant": {
+        "display_name": "Clockwork Assistant",
+        "pet_type": "tinker",
+        "base_hp": 105,
+        "base_armor": 14,
+        "base_magic_resist": 6,
+        "base_attack": 20,
+        "base_spell_power": 0,
+        "base_resource": 100,
+        "resource_type": "energy",
+        "crit_chance": 6.0,
+        "speed": 1.1,
+        "level_req": 8,
+        "_source": SENTRY_SOURCE,
+        "abilities": [
+            {
+                "ability_id": "pet_clockwork_assistant_spanner_strike",
+                "name": "Spanner Strike",
+                "resource_type": "energy",
+                "cooldown": 0,
+                "effect_type": "damage",
+                "duration": 0,
+                "stat_mods": {},
+                "description": "It swings the heaviest tool it is holding.",
+                "ranks": [
+                    {"rank": 1, "level_req": 8, "cost": 22, "effect_value": 38}
+                ],
+                "is_instant": True,
+                "icon_id": "ability_melee",
+            },
+            {
+                "ability_id": "pet_clockwork_assistant_calibrate",
+                "name": "Calibrate",
+                "resource_type": "energy",
+                "cooldown": 5,
+                "effect_type": "buff",
+                "duration": 3,
+                "stat_mods": {"haste": 6.0},
+                "description": "A few quick adjustments and it runs faster.",
+                "ranks": [
+                    {"rank": 1, "level_req": 20, "cost": 0, "effect_value": 100}
+                ],
+                "target_type": "self",
+                "is_instant": True,
+                "icon_id": None,
+            },
+        ],
+    },
+    "mechano_bear": {
+        "display_name": "Mechano-Bear",
+        "pet_type": "tinker",
+        "base_hp": 260,
+        "base_armor": 42,
+        "base_magic_resist": 10,
+        "base_attack": 30,
+        "base_spell_power": 0,
+        "base_resource": 100,
+        "resource_type": "energy",
+        "crit_chance": 5.0,
+        "speed": 0.9,
+        "level_req": 14,
+        "_source": SENTRY_SOURCE + " The Mechano-Bear is the durable one of "
+                   "the four - highest health and armour, slowest speed - so "
+                   "a Tinker has something that can hold a hit.",
+        "abilities": [
+            {
+                "ability_id": "pet_mechano_bear_piston_maul",
+                "name": "Piston Maul",
+                "resource_type": "energy",
+                "cooldown": 0,
+                "effect_type": "damage",
+                "duration": 0,
+                "stat_mods": {},
+                "description": "Hydraulics do the work a shoulder used to.",
+                "ranks": [
+                    {"rank": 1, "level_req": 14, "cost": 25, "effect_value": 52}
+                ],
+                "is_instant": True,
+                "icon_id": "ability_melee",
+            },
+            {
+                "ability_id": "pet_mechano_bear_iron_hide",
+                "name": "Iron Hide",
+                "resource_type": "energy",
+                "cooldown": 6,
+                "effect_type": "buff",
+                "duration": 2,
+                "stat_mods": {"damage_taken_pct": -0.2},
+                "description": "Plating locks down over the joints.",
+                "ranks": [
+                    {"rank": 1, "level_req": 26, "cost": 0, "effect_value": 100}
+                ],
+                "target_type": "self",
+                "is_instant": True,
+                "icon_id": None,
+            },
+        ],
+    },
+    "rusthound": {
+        "display_name": "Rusthound",
+        "pet_type": "tinker",
+        "base_hp": 180,
+        "base_armor": 20,
+        "base_magic_resist": 8,
+        "base_attack": 44,
+        "base_spell_power": 0,
+        "base_resource": 100,
+        "resource_type": "energy",
+        "crit_chance": 10.0,
+        "speed": 1.4,
+        "level_req": 30,
+        "_source": SENTRY_SOURCE + " The Rusthound is the aggressive one - "
+                   "fastest, highest attack and crit, thin armour - and the "
+                   "latest of the four at level 30.",
+        "abilities": [
+            {
+                "ability_id": "pet_rusthound_scrap_bite",
+                "name": "Scrap Bite",
+                "resource_type": "energy",
+                "cooldown": 0,
+                "effect_type": "damage",
+                "duration": 0,
+                "stat_mods": {},
+                "description": "Teeth that were never meant to be teeth.",
+                "ranks": [
+                    {"rank": 1, "level_req": 30, "cost": 22, "effect_value": 70}
+                ],
+                "is_instant": True,
+                "icon_id": "ability_melee",
+            },
+            {
+                "ability_id": "pet_rusthound_corroding_wound",
+                "name": "Corroding Wound",
+                "resource_type": "energy",
+                "cooldown": 4,
+                "effect_type": "dot",
+                "duration": 3,
+                "stat_mods": {},
+                "description": "The bite keeps working after it lets go.",
+                "ranks": [
+                    {"rank": 1, "level_req": 38, "cost": 25, "effect_value": 26}
+                ],
+                "is_instant": True,
+                "icon_id": None,
             },
         ],
     },
