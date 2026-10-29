@@ -312,6 +312,51 @@ def fight(char, enemy_template, level, gen, rng):
     engine = CombatEngine(char, enemy, party=Party(char))
 
     heals, attacks, setup, defensives = plan(char)
+
+    # STANCES GO UP BEFORE THE PULL, not during the fight. Every setup buff is
+    # a long-duration stance (Chronomancer's Aeons and Continuums run 60
+    # turns, Paladin's Seals and Hunter's Aspects likewise) and a player has
+    # them running before engaging. Casting them inside the fight charged a
+    # turn PER EXCLUSIVE GROUP out of a 4-5 turn fight, which is a 20-40%
+    # penalty applied to exactly the classes with the richest stance systems -
+    # Chronomancer Artificer has two groups, and paying two opening turns cost
+    # it more than the +10% damage and +6% crit its Continuum grants.
+    # Pre-casting is also how the existing in-loop maintenance was always
+    # meant to behave: "it costs a turn at the start of the fight and never
+    # again". It just cost one per group instead of none.
+    #
+    # The in-loop block below still re-applies anything that drops mid-fight.
+    for _group_pass in range(len(setup)):
+        mine = {getattr(fx, "effect_id", None)
+                for fx in getattr(char, "active_effects", [])}
+        names = {getattr(fx, "name", None)
+                 for fx in getattr(char, "active_effects", [])}
+        pending = [b for b in setup
+                   if b.ability_id not in mine and b.name not in names]
+        if not pending:
+            break
+        groups_up = set()
+        for b in setup:
+            if b.ability_id in mine or b.name in names:
+                groups_up.add(getattr(b, "exclusive_group", None)
+                              or getattr(b, "shapeshift_form_id", None)
+                              or b.ability_id)
+        progressed = False
+        for b in pending:
+            key = (getattr(b, "exclusive_group", None)
+                   or getattr(b, "shapeshift_form_id", None) or b.ability_id)
+            if key in groups_up:
+                continue
+            if engine.execute_ability(char, b.ability_id, char)[0]:
+                groups_up.add(key)
+                progressed = True
+        if not progressed:
+            break
+    # Full resources for the fight itself - the pre-pull buffs are paid for
+    # out of combat, so their cost must not come out of the opening rotation.
+    char.current_health = char.health
+    if getattr(char, "mana", 0):
+        char.current_mana = char.mana
     turns = 0
     #: HEALING HAS TO BE RATIONED OR HEALERS HEAL-LOCK. With a bare "heal below 35%" rule, a class
     #: whose heal does not outpace incoming damage never climbs back over the threshold and so
@@ -352,15 +397,42 @@ def fight(char, enemy_template, level, gen, rng):
         # how a player opens. Without this a Paladin never has a Seal and
         # Judgement is refused every turn of every fight.
         if setup:
+            # ONE RUNNING BUFF PER EXCLUSIVE GROUP, not one in total. This
+            # loop used to `break` the moment it found ANY setup buff already
+            # active, on the comment "something from the group is up - good" -
+            # which is only true when there is exactly one group.
+            #
+            # Chronomancer Artificer has two: chronomancer_aeon (the Aeons)
+            # and chronomancer_continuum (Singularity Core, Flux Emitter). It
+            # cast Aeon of Resilience on turn 1, and from turn 2 the Aeon was
+            # up so the loop broke immediately and SINGULARITY CORE WAS NEVER
+            # CAST IN ANY FIGHT - a permanent +10% damage and +6% crit that
+            # the spec's own page says to keep up ("On a single boss, keep
+            # Singularity Core and Decomposition up"). Measured with the
+            # Continuum actually running, Artificer's Wand lands 154 from a
+            # listed 90; without it the spec fought at a flat 10% deficit it
+            # was never given the chance to close.
+            #
+            # Still one cast per turn, so opening a fight costs a turn per
+            # group and nothing after that - which is how a player opens.
             mine = {getattr(fx, "effect_id", None)
                     for fx in getattr(char, "active_effects", [])}
             names = {getattr(fx, "name", None)
                      for fx in getattr(char, "active_effects", [])}
+            groups = {}
             for buff in setup:
-                if buff.ability_id in mine or buff.name in names:
-                    break           # something from the group is up - good
-                if engine.execute_ability(char, buff.ability_id, char)[0]:
-                    acted = True
+                key = (getattr(buff, "exclusive_group", None)
+                       or getattr(buff, "shapeshift_form_id", None)
+                       or buff.ability_id)
+                groups.setdefault(key, []).append(buff)
+            for _key, members in groups.items():
+                if any(b.ability_id in mine or b.name in names for b in members):
+                    continue                    # this group is covered
+                for buff in members:
+                    if engine.execute_ability(char, buff.ability_id, char)[0]:
+                        acted = True
+                        break
+                if acted:
                     break
             if acted:
                 continue

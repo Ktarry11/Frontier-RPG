@@ -1446,54 +1446,54 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 20,
-          "effect_value": 38
+          "cost": 34,
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 27,
-          "effect_value": 49
+          "cost": 44,
+          "effect_value": 90
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 33,
-          "effect_value": 60
+          "cost": 54,
+          "effect_value": 110
         },
         {
           "rank": 4,
           "level_req": 30,
-          "cost": 40,
-          "effect_value": 71
+          "cost": 64,
+          "effect_value": 130
         },
         {
           "rank": 5,
           "level_req": 36,
-          "cost": 47,
-          "effect_value": 82
+          "cost": 74,
+          "effect_value": 150
         },
         {
           "rank": 6,
           "level_req": 42,
-          "cost": 53,
-          "effect_value": 93
+          "cost": 84,
+          "effect_value": 170
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 60,
-          "effect_value": 104
+          "cost": 94,
+          "effect_value": 190
         },
         {
           "rank": 8,
           "level_req": 54,
-          "cost": 67,
-          "effect_value": 115
+          "cost": 104,
+          "effect_value": 210
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Transforms your Unmake into Artificer's Wand ... unleash 2 wand attacks dealing Ranged Weapon damage. Generates 1 Echo Fragment.' ranged_damage deliberately: it scales off ranged_attack_power and the Ranged weapon roll, so Wand Expert's Spirit conversion is a real conversion rather than flavour. The trade is that arcane_spell_damage does NOT touch the wand line, which is why this tree's wand nodes use all_damage, crit_chance_physical and per-ability keys instead.",
+      "_source": "29 Oct 2026, Kyle: \"Fix up chrono.\" Artificer's Wand is the spec's FILLER and main Echo Fragment generator per reference/coa_sidekick/SPEC_chronomancer__artificer.txt (\"Fill with Artificer's Wand to bank Echo Fragments\", \"Artificer's Wand and auto-wand attacks keep damage flowing while you kite\") - and it was never the best button at ANY level. It peaked at 115 a turn at 54 while Chromatic Shard reached 206 and Shatter Echo 230, so it sat fourth in its own kit from level 12 to 60 and no sane rotation ever pressed it.\n\nThat is what made the whole spec read as broken. Artificer's talents amplify artificers_wand, wand_of_time, discordance and shatter_echo; Wand Expert converts Spirit into ranged attack power and Artificer's Empowerment raises that Spirit, so the sidekick's \"almost the entire kit scales off one stat\" is real and implemented. But the rotation cast Chromatic Shard instead - a GENERIC Chronomancer spell all three specs share and no Artificer talent touches - so 56 talent points amplified abilities the spec never used. Measured, Chromatic Shard landed 1.22x its listed value where Mage's Fireball lands 2.04x, and chronomancer_artificer won 50% at level 20 against chronomancer_infinite's 81% on the same gear.\n\nSo the fix is the wand, not the tree: the tree was right and the numbers made its intended playstyle unplayable. Raised to parity with Chromatic Shard's curve, with costs kept well below it (210 for 104 against 206 for 158, so ~1.55x the damage per mana) because a no-cooldown filler should be the efficient button. Artificer's own talents, Singularity Core's +10% damage and the Spirit-to-ranged-AP conversion then push it clearly ahead, which is the design.\n\nSafe to buff in isolation: artificers_wand, crystal_cannon and shatter_echo all carry requires_talent, so they exist only for Artificer. Chromatic Shard is untouched, so Infinite and Time are unaffected.",
       "target_type": "enemy",
       "requires_talent": true
     },
