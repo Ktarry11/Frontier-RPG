@@ -82,11 +82,16 @@ SPEC_ROLES = {
     # Two of the five "broken healers" I was about to fix were specs sitting
     # a test they were never meant to take.
     "stormbringer_wind": "ranged_dps",
+    # stormbringer_lightning was filed as melee_dps and is not. Kyle, 29 Oct 2026: "strongbringer
+    # is basically ele shaman (pure caster)", and the tree agrees - "Pure elemental fury - channels
+    # raw electricity into fast, hard-hitting bolts". It was the third Stormbringer spec in a row
+    # mis-roled from a tree description rather than from what it actually does.
+    "stormbringer_lightning": "ranged_dps",
     "primalist_grovekeeper": ("melee_dps", "healer"),
     # ---- melee damage
     "warrior_fury": "melee_dps", "warrior_arms": "melee_dps", "rogue_combat": "melee_dps",
     "rogue_assassination": "melee_dps", "rogue_subtlety": "melee_dps",
-    "shaman_enhancement": "melee_dps", "stormbringer_lightning": "melee_dps",
+    "shaman_enhancement": "melee_dps",
     "runemaster_riftblade": "melee_dps", "runemaster_engravement": "melee_dps",
     "cultist_godblade": "melee_dps",
     "paladin_retribution": "melee_dps", "primalist_wildwalker": "melee_dps",

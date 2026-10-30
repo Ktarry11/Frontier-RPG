@@ -1,34 +1,38 @@
 #!/usr/bin/env python3
-"""Is there hand-authored gear for every class, at every level band?
+"""Is there gear for every SPEC, at every level band?
 
-    PYTHONPATH=. python3 tools/audit_class_gear_coverage.py [--class Warrior] [--band 31-40]
+    PYTHONPATH=. python3 tools/audit_class_gear_coverage.py [--spec shaman_enhancement]
+                                                            [--class Shaman] [--band 31-40]
+                                                            [--thin 3]
 
 Kyle, 29 Oct 2026: "i want gear to be unique, diverse, and have something for every class/spec but
-i also love balance. i want any class to be viable"
+i also love balance. i want any class to be viable" and then, on the first version of this file,
+"we NEED to consider complex hybrid classes bro".
 
-Budget (tools/audit_item_budgets.py) answers "is this item the right SIZE". This answers the other
-half: is anything here FOR YOU. An item can be perfectly on curve and still leave a class with
-nothing to wear, and that failure is invisible to a budget check - a zone can be 100% on-curve and
-hand a Venomancer not one usable piece.
+He was right and the first version was wrong in a way worth recording. It read
+class_stat_template_map, which gives each of 30 classes ONE stat template, and then reported
+coverage per class. That model cannot describe this game. An Enhancement Shaman came out as
+"mail / int_caster, 455 items" when what it wants is mail agility, of which it had none - and every
+one of those 455 items is perfectly on curve, so no budget audit could ever see the gap. The item
+sizes were right and the item was simply not for them.
 
-WHAT COUNTS AS GEAR FOR A CLASS. Two data files already decide it:
-  data/items/armor_types.json     class_armor_map        Warrior -> plate, Priest -> cloth
-  data/items/stat_templates.json  class_stat_template_map Warrior -> str_physical
+So this now reads world/spec_gear_needs.SPEC_GEAR: all 97 specs, each with the armour it wears and
+the stat template it actually gears for, and a per-entry note saying whether that came from Kyle,
+from a mechanical rule, or from a guess.
 
-A class's stat template names the stats it actually wants - str_physical is 70% strength and 30%
-stamina. So an armour piece serves a class when its armour type matches AND it carries that class's
-lead stat. A weapon serves a class when its type is in that class's class_weapon_map list and it
-carries the lead stat, or it is a pure stat-stick type (wand, totem, libram, idol, tome) that class
-can hold.
+WHAT COUNTS AS GEAR FOR A SPEC
+  armour      its type matches the spec's armour AND it carries the spec's lead stat
+  accessory   no armour type, so it serves on the lead stat alone
+  weapon      its type is in the CLASS's class_weapon_map AND it carries the spec's lead stat,
+              or it is a stat stick (wand, totem, libram, idol, tome, shield) the class can hold
 
-Frontier has THIRTY classes over twelve (armour, template) niches, which is why this needs checking
-rather than eyeballing: eleven classes are int_caster and three are str_physical, so a table full of
-strength plate serves three classes and a table full of intellect cloth serves eight. "One item per
-armour type" is NOT even coverage.
+WHY THIS NEEDS CHECKING RATHER THAN EYEBALLING: the 97 specs crowd into 12 (armour, template)
+niches, and they crowd unevenly - 24 specs want cloth/intellect while 2 want leather/strength. So
+"one item per armour type" was never even coverage, and a boss table that looks varied can still
+serve the same two dozen specs four times over.
 
-A niche is reported as thin when a level band holds fewer than THIN items for it. Below that a
-player levelling through the band sees nothing for their class in that content and the levelling
-curve stops working for them, however well budgeted everything is.
+A niche is THIN when a band holds fewer than --thin items for it (default 3). Below that, a player
+levelling through that content sees nothing for their spec, however well budgeted it all is.
 """
 import json
 import sys
@@ -44,60 +48,64 @@ _spec = importlib.util.spec_from_file_location("_aib", ROOT / "tools/audit_item_
 _aib = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_aib)
 
+from world.spec_gear_needs import SPEC_GEAR, wanted_stats  # noqa: E402
+
 ARMOR_MAP = json.loads((ROOT / "data/items/armor_types.json").read_text())["class_armor_map"]
-TEMPLATES = json.loads((ROOT / "data/items/stat_templates.json").read_text())
-TEMPLATE_MAP = TEMPLATES["class_stat_template_map"]
-TEMPLATE_STATS = TEMPLATES["stat_templates"]
 WEAPON_MAP = json.loads((ROOT / "data/items/weapon_types.json").read_text()).get("class_weapon_map", {})
 
-BANDS = [(1, 10), (11, 20), (21, 30), (31, 40), (41, 50), (51, 60)]
+#: ilvl 51-60 is deliberately absent. There are 3,546 hand-authored items at ilvl 40 and below, 96
+#: in 41-50, and ZERO above that - the game's content stops in the forties. Including the band made
+#: every one of the 97 specs report "0 armour, 0 weapons" and buried the two findings that are real
+#: under 194 that only say "this content does not exist yet". Pass --band 51-60 to look anyway.
+BANDS = [(1, 10), (11, 20), (21, 30), (31, 40), (41, 50)]
 
-#: Fewer than this many items for a niche in a band is thin. Three is one per roughly three levels
-#: of a ten-level band, which is sparse but survivable; below that the band has effectively nothing.
-THIN = 3
-
-#: Off-hand and relic types that are stat sticks rather than damage weapons - a class that can hold
-#: one is served by it whatever its lead stat, because it has no competing alternative.
+#: Off-hands and relics that are stat sticks rather than damage weapons. A spec that can hold one is
+#: served by it whatever its lead stat, because it has no competing alternative for that slot.
 STAT_STICKS = {"wand", "totem", "libram", "idol", "tome", "shield"}
 
 
-def lead_stats(template):
-    """The stats a class with this template actually wants, best first."""
-    stats = TEMPLATE_STATS[template]["primary_stats"]
-    return [s for s, _w in sorted(stats.items(), key=lambda kv: -kv[1])]
+def spec_class(spec_id):
+    """The class a spec belongs to - longest matching class prefix, so 'Knight of Xoroth' and
+    'Witch Hunter' resolve before any shorter name can steal them."""
+    best = None
+    for cls in ARMOR_MAP:
+        key = cls.lower().replace(" ", "_") + "_"
+        if spec_id.startswith(key) and (best is None or len(key) > len(best[1])):
+            best = (cls, key)
+    return best[0] if best else None
 
 
-def serves(item, armor_type, template):
-    """Does this item serve a class wearing `armor_type` with `template`?"""
+SPEC_CLASS = {s: spec_class(s) for s in SPEC_GEAR}
+
+
+def serves(item, armour, template):
+    """Does this armour or accessory serve a spec wearing `armour` with `template`?"""
+    if item.get("weapon_type"):
+        return False
     primary = item.get("primary_stats") or {}
-    wants = lead_stats(template)
-    lead = wants[0]
-    wtype = item.get("weapon_type")
-    if wtype:
-        return None  # weapons handled separately, they need the class name
+    lead = wanted_stats(template)[0]
     if item.get("slot") in ("neck", "ring", "trinket", "back"):
-        # Accessories have no armour type, so they serve on stats alone.
         return lead in primary
-    if item.get("armor_type") != armor_type:
+    if item.get("armor_type") != armour:
         return False
     return lead in primary
 
 
 def main():
-    only_class = None
-    if "--class" in sys.argv:
-        only_class = sys.argv[sys.argv.index("--class") + 1]
-    only_band = None
+    thin = 3
+    if "--thin" in sys.argv:
+        thin = int(sys.argv[sys.argv.index("--thin") + 1])
+    only_spec = sys.argv[sys.argv.index("--spec") + 1] if "--spec" in sys.argv else None
+    only_class = sys.argv[sys.argv.index("--class") + 1] if "--class" in sys.argv else None
+    bands = BANDS
     if "--band" in sys.argv:
         lo, hi = sys.argv[sys.argv.index("--band") + 1].split("-")
-        only_band = (int(lo), int(hi))
+        bands = [(int(lo), int(hi))]
 
     rows = [i for _s, _o, i in _aib.collect() if i.get("item_level")]
 
-    # (band, armour, template) -> count of armour/accessory items serving it
-    niche = defaultdict(int)
-    # (band, class) -> count of usable weapons
-    weapons = defaultdict(int)
+    niche = defaultdict(int)       # (band, armour, template) -> armour/accessory count
+    weapons = defaultdict(int)     # (band, spec_id) -> usable weapon count
 
     for item in rows:
         band = next((b for b in BANDS if b[0] <= item["item_level"] <= b[1]), None)
@@ -106,66 +114,66 @@ def main():
         wtype = item.get("weapon_type")
         if wtype:
             primary = item.get("primary_stats") or {}
-            for cls, allowed in WEAPON_MAP.items():
-                if wtype not in allowed:
+            for spec_id, (_armour, template, _role, _why) in SPEC_GEAR.items():
+                cls = SPEC_CLASS.get(spec_id)
+                if cls is None or wtype not in WEAPON_MAP.get(cls, []):
                     continue
-                if wtype in STAT_STICKS or lead_stats(TEMPLATE_MAP.get(cls, "str_physical"))[0] in primary:
-                    weapons[(band, cls)] += 1
+                if wtype in STAT_STICKS or wanted_stats(template)[0] in primary:
+                    weapons[(band, spec_id)] += 1
             continue
-        for cls in TEMPLATE_MAP:
-            if cls not in ARMOR_MAP:
+        seen_niches = set()
+        for _spec_id, (armour, template, _role, _why) in SPEC_GEAR.items():
+            if (armour, template) in seen_niches:
                 continue
-            if serves(item, ARMOR_MAP[cls], TEMPLATE_MAP[cls]):
-                niche[(band, ARMOR_MAP[cls], TEMPLATE_MAP[cls])] += 1
+            seen_niches.add((armour, template))
+            if serves(item, armour, template):
+                niche[(band, armour, template)] += 1
 
-    classes = sorted(c for c in TEMPLATE_MAP if c in ARMOR_MAP)
+    specs = sorted(SPEC_GEAR)
+    if only_spec:
+        specs = [s for s in specs if s == only_spec]
+        if not specs:
+            raise SystemExit(f"unknown spec {only_spec!r}")
     if only_class:
-        classes = [c for c in classes if c.lower() == only_class.lower()]
-        if not classes:
-            raise SystemExit(f"unknown class {only_class!r}")
+        specs = [s for s in specs if (SPEC_CLASS.get(s) or "").lower() == only_class.lower()]
+        if not specs:
+            raise SystemExit(f"no specs for class {only_class!r}")
 
     findings = []
-    bands = [only_band] if only_band else BANDS
-    hdr = "".join(f"{lo}-{hi:<7}" for lo, hi in bands)
-    print(f"{'class':20}{'armour':9}{'template':17}{hdr}")
-    print(f"{'':20}{'':9}{'':17}" + "".join("arm/wpn  " for _ in bands))
-    for cls in classes:
-        armor, template = ARMOR_MAP[cls], TEMPLATE_MAP[cls]
+    hdr = "".join(f"{lo}-{hi:<6}" for lo, hi in bands)
+    print(f"{'spec':32}{'armour':9}{'template':16}{hdr}")
+    print(f"{'':32}{'':9}{'':16}" + "".join("arm/wpn " for _ in bands))
+    for spec_id in specs:
+        armour, template, _role, _why = SPEC_GEAR[spec_id]
         cells = []
         for band in bands:
-            a = niche[(band, armor, template)]
-            w = weapons[(band, cls)]
+            a = niche[(band, armour, template)]
+            w = weapons[(band, spec_id)]
             cells.append(f"{a:>3}/{w:<4}")
-            if a < THIN:
-                findings.append(f"{cls} ({armor}/{template}) has {a} armour piece(s) in ilvl {band[0]}-{band[1]}")
-            if w < THIN:
-                findings.append(f"{cls} has {w} usable weapon(s) in ilvl {band[0]}-{band[1]}")
-        print(f"  {cls:18}{armor:9}{template:17}" + "".join(cells))
+            if a < thin:
+                findings.append(f"{spec_id} ({armour}/{template}) has {a} armour piece(s) at ilvl {band[0]}-{band[1]}")
+            if w < thin:
+                findings.append(f"{spec_id} has {w} usable weapon(s) at ilvl {band[0]}-{band[1]}")
+        print(f"  {spec_id:30}{armour:9}{template:16}" + "".join(cells))
 
-    # Niche totals, which is where the 30-classes-12-niches imbalance shows
-    print("\nitems per (armour, template) niche, all levels, with how many classes share it:")
+    print("\nitems per niche, all levels, against how many specs compete for it:")
     share = defaultdict(list)
-    for cls in TEMPLATE_MAP:
-        if cls in ARMOR_MAP:
-            share[(ARMOR_MAP[cls], TEMPLATE_MAP[cls])].append(cls)
-    for key, clss in sorted(share.items(), key=lambda kv: -len(kv[1])):
+    for spec_id, (armour, template, _r, _w) in SPEC_GEAR.items():
+        share[(armour, template)].append(spec_id)
+    for key, members in sorted(share.items(), key=lambda kv: -len(kv[1])):
         total = sum(niche[(b, key[0], key[1])] for b in BANDS)
-        per = total / len(clss)
-        print(f"   {key[0]:8} {key[1]:17} {total:5} items / {len(clss):2} class(es) = {per:6.1f} each")
+        print(f"   {key[0]:8} {key[1]:16} {total:5} items / {len(members):2} spec(s) = {total / len(members):7.1f} each")
 
     print()
     if findings:
-        seen = []
-        for f in findings:
-            if f not in seen:
-                seen.append(f)
-        print(f"{len(seen)} finding(s):")
-        for f in seen[:40]:
+        uniq = list(dict.fromkeys(findings))
+        print(f"{len(uniq)} finding(s):")
+        for f in uniq[:40]:
             print(f"  {f}")
-        if len(seen) > 40:
-            print(f"  ... and {len(seen) - 40} more")
+        if len(uniq) > 40:
+            print(f"  ... and {len(uniq) - 40} more")
         return 1
-    print(f"every class has at least {THIN} armour pieces and {THIN} weapons in every level band")
+    print(f"every spec has at least {thin} armour pieces and {thin} weapons in every band")
     return 0
 
 
