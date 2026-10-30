@@ -1,0 +1,3178 @@
+{
+  "quests": [
+    {
+      "quest_id": "swf_open_date",
+      "title": "Somebody Has to Hold the Date",
+      "giver_npc_id": "sw_race_marshal",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Race-Marshal Tozzik Brasswheel posts the times for the Saltwheel Open on the first clear day after the winter wet. Entries at the gantry, scrutineering at noon, flag at two.\n\nNobody has entered for three seasons. He posts them anyway, in a clean hand, and stands under the board for an hour afterwards in case somebody comes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Scrapper",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_salvage_tag",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "The start line wants clearing before anything else happens, and the ones clearing it are not mine. They have been off the course stripping the kerb markers since the wet, and every marker they take is a yard of the line I cannot certify.\n\nEight of them off the straight, and bring me the tags. The tags are numbered. I want to know which markers I have lost and not just how many.",
+      "turn_in_text": "Numbered consecutively, which means one person pulled them in one afternoon and did not hurry.\n\nI am not angry about it. I am angry that it took me until the tags to work out nobody had been out to look.\n\nRight. Scrutineering is at noon and I have no scrutineer.",
+      "next_quest_id": "swf_open_scrutineer",
+      "unique_item_defs": [
+        {
+          "name": "Course-Record Tunic",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "spell_power": 3.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Chest (Int/Sta/SP)"
+        },
+        {
+          "name": "Flagfall Greathelm",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 122,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Flagfall Pike",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 22
+          },
+          "secondary_stats": {
+            "armor": 55.3,
+            "parry_rating": 1.1
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_open_scrutineer",
+      "title": "Scrutineering Is at Noon",
+      "giver_npc_id": "sw_mechanic",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Mechanic Oyla Spannerwick has scrutineered every Open since she was old enough to hold the gauge, and she has not been asked since the track died.\n\nShe says yes before Tozzik finishes the sentence, which embarrasses them both.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_boiler_plate",
+          "count": 4
+        },
+        {
+          "type": "gather",
+          "target": "sf_pry_bar",
+          "count": 3
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "If anything runs on that straight it runs on a boiler, and I will not pass a boiler I have not seen plate from. Four pieces, off the Dustwheel crews - they are running the same pattern we did and running it badly, which makes their failures useful to me.\n\nAnd three pry bars. Not for the race. For me.\n\nThree years ago somebody drove a machine down that straight that had no boiler in it at all. Did the whole run on a thimble of fuel. I have taken one apart since and I understand it now, and that is worse than not understanding it.",
+      "turn_in_text": "Blued in a ring, every one of them. Same fault we had and never fixed, and they have not fixed it either.\n\nThere is a comfort in that I am not proud of.\n\nTell Tozzik his scrutineer is ready. Tell him I said it like it was nothing.",
+      "next_quest_id": "swf_open_entries",
+      "unique_item_defs": [
+        {
+          "name": "Start-Line Hood",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Somebody stitched a lap count into the lining and then stopped counting.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        },
+        {
+          "name": "Flagfall Chainmail",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Somebody stitched a lap count into the lining and then stopped counting.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 109,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Course-Record Ring",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Pit kit. Built for a sport that stopped and never adapted to anything else.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_open_entries",
+      "title": "Entries at the Gantry",
+      "giver_npc_id": "sw_race_marshal",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The board is up, the scrutineer is ready, and the entry column has been blank for three seasons.\n\nTozzik will not ask anyone directly. He has decided that asking would make it a favour, and a favour is not an entry.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_nazzik",
+            "swf_topic_grizzik",
+            "swf_topic_mozz"
+          ]
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "I am not going to go round the town asking. You can. You are not from here and it costs you nothing, which is the only reason this is not beneath both of us.\n\nNazzik holds the course record and will tell you so. Grizzik keeps a crew for a race that does not run and pays half of it herself. Mozz has fuel and no one to sell it to.\n\nAsk all three. Do not persuade anybody. I want to know what they say when nobody is leaning on them.",
+      "turn_in_text": "One record-holder who will not drive, one pit boss who would crew it tomorrow, and Mozz.\n\nMozz said he would supply the fuel at cost on condition somebody tells the newcomers this is their fault. I am not putting that on a board.\n\nBut he said he would supply it. Write that down and leave the rest.",
+      "next_quest_id": "swf_open_course",
+      "unique_item_defs": [
+        {
+          "name": "Start-Line Pants",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Flagfall Boots",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody stitched a lap count into the lining and then stopped counting.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Flagfall Shield",
+          "slot": "off_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Somebody stitched a lap count into the lining and then stopped counting.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 56,
+          "block_value": 70,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_open_course",
+      "title": "The Course, As It Is Now",
+      "giver_npc_id": "sw_race_marshal",
+      "zone": "the_shimmering_flats",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The Mirage Raceway is a loop out across the northern pan and back to the straight. It was surveyed once, eleven years ago, and has not been walked since the hives came up.\n\nTozzik has been posting a course he has not seen.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 144,
+          "target_y": 30,
+          "radius": 10
+        },
+        {
+          "type": "kill",
+          "target": "Glasswing Darter",
+          "count": 7,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_drone_resin",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Out to the far turn and look at it. That is all I am asking for and it is more than I have done.\n\nThe darters have taken the north leg and they come off the ground fast enough to put a driver into the salt. Seven of them, and bring me resin from whatever is laying it, because I need to know whether the course is fouled or whether it is being BUILT ON.\n\nThere is a difference and the difference decides whether there is a race.",
+      "turn_in_text": "Built on.\n\nThat resin is structural. They are not crossing my course, they are putting something down on it, and the far turn is inside whatever they are putting down.\n\nSo the loop is gone. The straight is not. A race on the straight alone is not an Open and I am going to call it one, and you are the only person who will ever know that I know.",
+      "next_quest_id": "swf_open_flagfall",
+      "unique_item_defs": [
+        {
+          "name": "Course-Record Greathelm",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 126,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Start-Line Wraps",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Pit kit. Built for a sport that stopped and never adapted to anything else.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Raceday Pendant",
+          "slot": "neck",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_open_flagfall",
+      "title": "Flagfall",
+      "giver_npc_id": "sw_pit_boss",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Pit-Boss Grizzik Vane has four hands on the payroll for a race that has not run since the wet before last. Tozzik pays half and she pays half and neither of them has ever said out loud what they are paying for.\n\nThis week they find out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Wheelman",
+          "count": 6,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "kill",
+          "target": "Dustwheel Boilerman",
+          "count": 5,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_course_wheel",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Here is the part nobody says in front of Tozzik. The Dustwheel know the date too, and they have been running the straight themselves since the wet, and they will be on it at two whether we are or not.\n\nSo the straight gets cleared properly this time. Six of the wheelmen and five of the boiler crews, and bring the wheels back - flat-spotted ones, off the ones that were actually driven. I want to see what they have been doing with my course.",
+      "turn_in_text": "Flat-spotted on one side, every one. They have been locking the wheels at the same mark on every run, which means they are racing each other out there. Properly. Timing it.\n\nThree years I have been paying half a crew to sit in a shed and the sport never stopped. It just stopped being ours.\n\nGo and tell Tozzik the flag drops at two.",
+      "next_quest_id": "swf_open_record",
+      "unique_item_defs": [
+        {
+          "name": "Scrutineer's Grips",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.2
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Scrutineer's Helm",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 86,
+          "label": "Mail Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Flagfall Ring",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Pit kit. Built for a sport that stopped and never adapted to anything else.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_open_record",
+      "title": "What Tozzik Writes Down",
+      "giver_npc_id": "sw_race_marshal",
+      "zone": "the_shimmering_flats",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "The flag dropped at two. One entrant, on the straight alone, because the loop belongs to something else now.\n\nTozzik timed it himself, because the only other person who knows how was driving.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 104,
+          "target_y": 50,
+          "radius": 6
+        },
+        {
+          "type": "kill",
+          "target": "Mound Sentinel",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_sentinel_plate",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Before I post it there is a thing I want done and I want it done by somebody who was not here for the good years.\n\nWalk the straight, end to end, at the pace a person walks. Then go and put eight of the mound-guards off the eastern mark and bring me four plates off them, because the eastern mark is where the course used to turn and I want to know what is standing on it now.\n\nI am going to post the time either way. I would rather post it knowing.",
+      "turn_in_text": "Worse than the record by a margin I am not going to say out loud, on a course that is a third of the one the record was set on.\n\nI have posted it.\n\nNazzik will tell you his record stands and he is right, and he will not tell you that he was under the board at six this morning reading the new time. I saw him. He saw me see him.\n\nThe date held. That is what I had and I held it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Flagfall Chausses",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Pit kit. Built for a sport that stopped and never adapted to anything else.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.3
+          },
+          "armor_type": "mail",
+          "armor_value": 118,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Course-Record Gauntlets",
+          "slot": "hands",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Raceday Shortbow",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Pit kit. Built for a sport that stopped and never adapted to anything else.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 61,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_dust_rights",
+      "title": "Salvage Rights, As Written",
+      "giver_npc_id": "sw_salvager",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Salvager Pim Gattle owns everything out on that track the day it stops moving. The rule is written down, it is older than the track, and she is the richest wreck-picker on a pan with no wrecks left on it.\n\nThe Dustwheel have been taking things that have not stopped moving yet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Scrapper",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_pry_bar",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Read the rule and you will find it says STOPPED. Not slowed, not parked, not abandoned by a crew that went into town for a season. Stopped.\n\nTen of them off my course and five of their bars, and before you tell me that is a lot of effort for a rule nobody enforces - yes. It is. That is what a rule nobody enforces costs, and I have been paying it every season since the wet.",
+      "turn_in_text": "Five bars and every one of them flattened at the business end, because they have been using them as levers on things that were never meant to come apart.\n\nI would have taught them that in a morning. Nobody asked me to teach anybody anything.\n\nGrizzik wants a word with you and she will not enjoy having it.",
+      "next_quest_id": "swf_dust_cousins",
+      "unique_item_defs": [
+        {
+          "name": "Off-Course Robe",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Track grit worked so far into the weave it is part of the weave now.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.6,
+            "mp5": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Dustwheel Hauberk",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Track grit worked so far into the weave it is part of the weave now.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 109,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Stripped Necklace",
+          "slot": "neck",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_dust_cousins",
+      "title": "Half of Them Are Somebody's Cousin",
+      "giver_npc_id": "sw_pit_boss",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Nobody in Saltwheel calls the Dustwheel bandits. The word has been available since the track died and not one person has picked it up.\n\nGrizzik Vane knows exactly why and will say it to you and to nobody else.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Boilerman",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_boiler_plate",
+          "count": 5
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_word"
+          ]
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Pim has you putting them off the course and she is right to and I want you to understand what you are doing, because she will not tell you.\n\nHalf of them are somebody's cousin. When the track died some of us walked into town and some of us walked out onto the pan, and the difference was mostly which way you were facing that week.\n\nEight of the crews, and five plates off them, and then come back and ask me what we call them. I want to be asked out loud.",
+      "turn_in_text": "Same fault in every plate. Our fault. They learned it from us, and we learned it from nobody - we worked it out, badly, over eleven years, and then taught it to the people we are now paying somebody to put off a road.\n\nWe do not call them anything. That is the answer and you made me say it.",
+      "next_quest_id": "swf_dust_fuel",
+      "unique_item_defs": [
+        {
+          "name": "Salvage-Rights Tunic",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "mp5": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Chest (Int/Sta/MP5)"
+        },
+        {
+          "name": "Axle-Found Legplates",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Stripped Band",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Came off the track the day it stopped moving, which makes it salvage.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_dust_fuel",
+      "title": "Two Hundred Racers and Six Customers",
+      "giver_npc_id": "sw_fuel_trader",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Fuel-Trader Mozz laid in enough to run a full season the year before the track died. He has been sitting on it since.\n\nHe has done the arithmetic on who is at fault and he will do it at you, at length, and the frustrating part is that his numbers are correct.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Wheelman",
+          "count": 7,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_course_wheel",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Before the sky changed I had two hundred racers on this pan. I have six customers. Six. And the same season the mountain turned up in the north, which I am told is a coincidence and which I am told by people who are not selling fuel.\n\nSeven of the wheelmen. They are burning something out there and it is not coming from me, and I want a wheel off one so I can see what it is doing to the rubber.",
+      "turn_in_text": "They are running it dry and lean and they are getting away with it, which means they have found something cheaper than what I sell.\n\nSo that is the rest of my customers gone, in front of me, with a wheel in my hand.\n\nYou came through same as the rest of them and I am not going to pretend I am delighted. But you did the job and the job was the job. Take it.",
+      "next_quest_id": "swf_dust_axle",
+      "unique_item_defs": [
+        {
+          "name": "Dustwheel Sandals",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Came off the track the day it stopped moving, which makes it salvage.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Boots (Int/Spi/HP)"
+        },
+        {
+          "name": "Dustwheel Armguards",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Track grit worked so far into the weave it is part of the weave now.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Axle-Found Band",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Claimed under a rule that is written down and that nobody enforces.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_dust_axle",
+      "title": "The Axle Nobody Will Claim",
+      "giver_npc_id": "sw_salvager",
+      "zone": "the_shimmering_flats",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "There is a broken axle out on the far straight that is worth more than anything else left on the course.\n\nIt has been there two seasons and neither Pim nor the Dustwheel has taken it, and both of them could have, any day, without being seen.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 128,
+          "target_y": 70,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Dustwheel Scrapper",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_salvage_tag",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Out past the far turn there is an axle. You will know it when you see it, it is the only thing out there that has not been stripped.\n\nGo and look at it. Do not bring it back, I am not asking you to bring it back. And put eight of them off it while you are there and bring me the tags, because if they have tagged it then it is theirs by their rule and I want to know that for certain rather than suspecting it for another two years.",
+      "turn_in_text": "Not tagged.\n\nTwo seasons and nobody has claimed it, theirs or mine, and now I have to decide what that means.\n\nIt means we both think the other one is going to need it more. That is a stupid thing for two businesses to think about each other and I have been thinking it since the wet.\n\nTake this to Winnow. She keeps the book. Tell her I sent you and do not tell her why.",
+      "next_quest_id": "swf_dust_ledger",
+      "unique_item_defs": [
+        {
+          "name": "Dustwheel Coif",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.7
+          },
+          "armor_type": "mail",
+          "armor_value": 86,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Axle-Found Helm",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Claimed under a rule that is written down and that nobody enforces.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.9,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 129,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Salvage-Rights Band",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_dust_ledger",
+      "title": "Winnow Writes It Down Twice",
+      "giver_npc_id": "sw_tally_clerk",
+      "zone": "saltwheel",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "Tally-Clerk Winnow records every cart in and out, every barrel of salt, written down twice. The town is shrinking and she can tell you by exactly how much, which makes her the least popular person in it.\n\nShe has been waiting a long time for somebody to ask her a specific question.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_salvage_tag",
+          "count": 8
+        },
+        {
+          "type": "deliver",
+          "target": "sf_pry_bar",
+          "count": 3,
+          "label": "Winnow's bench"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_ledger"
+          ]
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Pim sent you and did not say why, which means she has finally worked it out and cannot stand to be the one who says it.\n\nBring me eight of their tags and three of their bars and put them on this bench. Then ask me what column they go in. Go on. Ask me the actual question and I will give you the actual answer, which nobody in this town has wanted since the track died.",
+      "turn_in_text": "Customers.\n\nThey go in as customers. They have been buying fuel off somebody, parts off somebody, and salt off Jixa under a different name since the second winter, and it is in this book, and it has been in this book the whole time.\n\nThe town is down by a figure I could say out loud. It is not down by as much as it thinks, and the difference is sitting out on that pan calling itself something else.\n\nI am going to put this in front of Tozzik and he is going to have to decide whether they can enter.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Salvage-Rights Leggings",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Claimed under a rule that is written down and that nobody enforces.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.2,
+            "parry_rating": 0.9
+          },
+          "armor_type": "leather",
+          "armor_value": 74,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Stripped Boots",
+          "slot": "feet",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.4
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Dustwheel Axe",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Repaired four times by four different hands and none of them matched.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "armor": 16.7,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_five",
+      "title": "Five From the Fence",
+      "giver_npc_id": "sw_hive_watcher",
+      "zone": "the_shimmering_flats",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Watcher Brak Kesh can see five mounds from the east fence. Three years ago there were two, and the near one was twice as far out as it is now.\n\nHe says the number in the inn every evening. They have started buying him drinks so that he says it quieter.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Saltcrust Skitterer",
+          "count": 12,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_crust_mandible",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "I count mounds. That is the post, that is the whole post, and the post was invented by a man who expected the number to stay at two.\n\nThe skitterers come off the near one and work west along the fence line. A dozen of them and six mandibles, and look at the salt on the mandibles when you take them - it grows over the edge and it does not blunt it. I want to know if that is true of all of them or just the ones I have seen.",
+      "turn_in_text": "All of them.\n\nSo it is not damage and it is not age, it is how they are made, and a thing that is made that way on a salt pan was not an accident of where it ended up.\n\nThey belong here now. That is a worse sentence than the number is.",
+      "next_quest_id": "swf_mound_moved",
+      "unique_item_defs": [
+        {
+          "name": "Carapace Boots",
+          "slot": "feet",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Resin set hard in the seams and went on setting for a year after.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 54,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Fence-Line Leggings",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Fence-Line Loop",
+          "slot": "ring",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.6
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_moved",
+      "title": "The Near One Moved",
+      "giver_npc_id": "sw_hive_watcher",
+      "zone": "the_shimmering_flats",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The mound Brak calls the near one is not where it was at the start of the wet.\n\nMounds do not move. He has checked his own sightings four times and they are good sightings, taken off the same two fence posts since I took the post.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 92,
+          "target_y": 62,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Pan-Crawler Drone",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_drone_resin",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Out to the First Mound and stand at the foot of it. I need somebody who has not been looking at it every evening since the first winter to tell me what shape it is.\n\nTen of the crawlers while you are there and six of the resin. The resin is the thing. If they are laying fresh on the west face and the east face is old, then it did not move - it GREW, westward, toward the fence, and that is a different problem with a different arithmetic attached.",
+      "turn_in_text": "Fresh on the west, old on the east.\n\nIt grew. Toward us, at a rate I can now calculate, and I am going to calculate it tonight and then I am going to have to decide whether to say the new number in the inn.\n\nThey will buy me drinks either way. That is what I have learned about this town.",
+      "next_quest_id": "swf_mound_salt",
+      "unique_item_defs": [
+        {
+          "name": "Chitin-Set Byrnie",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 112,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Carapace Jerkin",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Resin set hard in the seams and went on setting for a year after.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Carapace Saber",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_salt",
+      "title": "What They Are Doing With the Salt",
+      "giver_npc_id": "sw_reagents",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Brewer Nissa Tolk seals everything in lead because salt air takes a cork in a season.\n\nShe has been reading Brak's notes over his shoulder in the inn and has noticed something he has not, because she is the only person in Saltwheel who thinks about salt as a substance rather than as a price.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 8
+        },
+        {
+          "type": "gather",
+          "target": "sf_crust_mandible",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Brak counts the mounds and nobody asks the obvious question, which is what is coming OUT of them.\n\nThe tunnelers bring spoil up and leave it. Eight loads of it, and five more mandibles for me to set against the spoil.\n\nThe pan is salt all the way down for as deep as anybody has ever dug. If what they are bringing up is dry, we have a problem nobody in this town is equipped to think about.",
+      "turn_in_text": "Dry. Bone dry, all eight, from under a pan that should be wet through at that depth.\n\nThey are not digging through the salt. They are digging through what is UNDER it, and what is under it has no water in it any more, and I would very much like to know when it stopped having water in it.\n\nSomebody has asked this question before. Not here. Go and find out where.",
+      "next_quest_id": "swf_mound_spitters",
+      "unique_item_defs": [
+        {
+          "name": "Chitin-Set Cap",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.7
+          },
+          "armor_type": "mail",
+          "armor_value": 86,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Mound-Watcher's Cap",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Resin set hard in the seams and went on setting for a year after.",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 54,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Mound-Watcher's Ring",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_spitters",
+      "title": "Spitters on the Fence Line",
+      "giver_npc_id": "sw_doctor",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Doc Pellik treats salt sores, sun, and whatever the bugs do to a hand. Three complaints, in that order, every season.\n\nThe third one has been climbing for two years and he has stopped pretending it has not.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hive Spitter",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "fetch",
+          "target": "sf_spitter_sac",
+          "count": 4
+        },
+        {
+          "type": "gather",
+          "target": "sf_scorpid_barb",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "A spitter gets resin into a wound and the wound sets. Not closes - SETS, with the dirt still in it, and then I am cutting it open again in a fortnight.\n\nNine of them off the fence line, and I want four sacs still under pressure and four scorpid barbs to set against them. The barbs keep their venom wet out here when everything else dries. If I can work out why, I can work out how to keep a wound open.\n\nIt is not elegant medicine. It is the medicine available.",
+      "turn_in_text": "Still under pressure, all four. Good.\n\nThe barb keeps wet because of something in the sheath and the resin sets because of something it is missing, and between the two of them I have an afternoon's work and possibly a hand saved in the spring.\n\nThat is the best sentence I have said in this surgery in a year.",
+      "next_quest_id": "swf_mound_mouths",
+      "unique_item_defs": [
+        {
+          "name": "Fence-Line Armguards",
+          "slot": "wrist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Crust-Breaker's Visor",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 129,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Fence-Line Longsword",
+          "slot": "main_hand",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Shell plate, cut down and strapped to something it was never grown for.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_mouths",
+      "title": "Two Mouths, One Hole",
+      "giver_npc_id": "sw_hive_watcher",
+      "zone": "the_shimmering_flats",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "There are two ways down into the Undercrust and they are most of the pan apart. The Crustfall is a shallow slot by Crustbreak. The Deep Shaft is out under the oldest mound on the map.\n\nBrak has assumed since he took the post that they are two caves.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 92,
+          "target_y": 140,
+          "radius": 7
+        },
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 172,
+          "target_y": 113,
+          "radius": 7
+        },
+        {
+          "type": "kill",
+          "target": "Flats Tunneler",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Both holes. The Crustfall first, then all the way across to the Deep Shaft, and ten of the tunnelers between them.\n\nI am not asking you to go in. I am asking you to stand at both and tell me whether the air coming out of them smells the same, because if it does then I have been counting two caves for four winters and there is one, and it is bigger than the pan it is under.",
+      "turn_in_text": "The same.\n\nOne hole. Most of this pan is standing on one hole with two mouths, and I have been writing down two numbers in two columns since the first winter like a man who cannot add up.\n\nI am going to go and say that in the inn tonight at full volume and they can buy me whatever they like.",
+      "next_quest_id": "swf_mound_queen",
+      "unique_item_defs": [
+        {
+          "name": "Carapace Belt",
+          "slot": "waist",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.4
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Mound-Watcher's Leggings",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 37,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Chitin-Set Shortbow",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Resin set hard in the seams and went on setting for a year after.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.1
+          },
+          "weapon_damage_min": 45,
+          "weapon_damage_max": 61,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_mound_queen",
+      "title": "The Hollow Queen",
+      "giver_npc_id": "sw_hive_watcher",
+      "zone": "the_undercrust",
+      "level_min": 39,
+      "level_max": 40,
+      "description": "One cave, two mouths, and at the heart of it something that has been laying since before anybody in Saltwheel was born.\n\nBrak has stopped counting mounds. He says there is no point counting the branches when you have found the root.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Hollow Queen",
+          "count": 1,
+          "zone": "the_undercrust"
+        },
+        {
+          "type": "kill",
+          "target": "Undercrust Ripper",
+          "count": 8,
+          "zone": "the_undercrust"
+        },
+        {
+          "type": "gather",
+          "target": "sf_sentinel_plate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3692,
+      "reward_gold": 14820,
+      "accept_text": "Go in at whichever mouth you like. They both get there, which is the thing I spent three years not knowing.\n\nShe is at the middle. Eight of the rippers on the way and five plates off the sentinels, and I want the plates because I want to see whether what guards her is made the same as what comes out to the fence.\n\nI am not coming. I have one skill and it is standing on a fence counting, and down there there is nothing to count.",
+      "turn_in_text": "Made the same. Exactly the same, root to branch, and she was the root.\n\nIt does not end it. You know that and I know that - there are four more mounds out there and a hole under all of them.\n\nBut the near one has stopped growing west this week. Measured off the same two posts. First time the number has gone the other way since I took this post, and I am going to enjoy it for exactly one evening.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Mound-Watcher's Boots",
+          "slot": "feet",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Mound-Watcher's Cloak",
+          "slot": "back",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.9,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        },
+        {
+          "name": "Mound-Watcher's Cudgel",
+          "slot": "main_hand",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "Taken off the fence line where the counting gets done.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        },
+        {
+          "name": "Crust-Breaker's Gauntlets",
+          "slot": "hands",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 39,
+          "flavor_text": "It smells faintly of the inside of a hive and washing does not help.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.4
+          },
+          "armor_type": "mail",
+          "armor_value": 81,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 40,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "swf_salt_one_trade",
+      "title": "The One Trade That Still Works",
+      "giver_npc_id": "sw_salt_buyer",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Jixa Brinecount deals in salt. That is the whole business, and everybody laughed at her for twenty years for it.\n\nThey are not laughing now. They are mostly just gone.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_vulture_quill",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Salt Vulture",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Salt is the only trade on this pan the Integration did not touch, and I will tell you why, because nobody else here will say a kind word about any of it.\n\nNothing that came through needed a racetrack. Everything that came through needs to eat.\n\nThe vultures are at the drying racks on the shore and they have worked out that a rack is a table. Ten of them and six quills, which I use for marking grades, and which I would buy off you anyway.",
+      "turn_in_text": "Salt-stiff, every one, which is what makes them good for grading - they do not bend and so they do not lie about the line they drew.\n\nYou will have heard a lot of complaining in this town and most of it is fair. Mine is the one ledger that went UP, and I am not going to pretend otherwise just to be sociable.",
+      "next_quest_id": "swf_salt_graded",
+      "unique_item_defs": [
+        {
+          "name": "Cartage Mitts",
+          "slot": "hands",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Brinecount's Bracers",
+          "slot": "wrist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.5,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 81,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Cartage Cudgel",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_salt_graded",
+      "title": "Pan Salt, Graded",
+      "giver_npc_id": "sw_salt_buyer",
+      "zone": "the_shimmering_flats",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Salt from the shore is clean and salt from the crust is not, and the difference is money.\n\nJixa grades it herself, by eye, with a vulture quill, and has never once been wrong in a way the buyer noticed.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 7
+        },
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 60,
+          "target_y": 36,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Crustback Scorpid",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Out onto the Crust and bring me seven loads of what the tunnelers have thrown up. It is the deepest salt anybody can get at without digging, and the deepest salt is the cleanest, which is a thing I have believed for twenty years on no evidence at all.\n\nEight of the scorpids off the drying ground while you are out. They get into the stacks and they do not come out and then somebody finds one in a barrel in Freewind Post and I hear about it for a year.",
+      "turn_in_text": "Cleanest I have graded. Twenty years of guessing and it turns out I was right, which is worth less than being able to prove it but it is not worth nothing.\n\nNow. The problem.\n\nI have the best salt I have ever had and no way to get it anywhere, because the cart does not come any more.",
+      "next_quest_id": "swf_salt_cart",
+      "unique_item_defs": [
+        {
+          "name": "Long-Haul Spaulders",
+          "slot": "shoulder",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Brinecount's Wristguards",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Brinecount's Band",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_salt_cart",
+      "title": "The Cart Does Not Come Any More",
+      "giver_npc_id": "sw_road_agent",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Road-Agent Fenk Dustle sells what a person needs to walk out of Saltwheel, which is a thriving business, because walking out is the only option available.\n\nHe is extremely cheerful about this and it takes a while to work out why.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mirage Basilisk",
+          "count": 7,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_basilisk_eye",
+          "count": 4
+        },
+        {
+          "type": "gather",
+          "target": "sf_scorpid_barb",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Jixa wants her salt in Freewind Post and there is no cart, no bird and no road worth the word. There is you.\n\nThe west crossing goes past the Brine and the basilisks have the Brine. Seven of them and four eyes - I sell the eyes to people who think they are lucky, and before you ask, no, and they buy them anyway.\n\nFive barbs as well. Those actually work for what I say they do, which makes them the odd item on my table.",
+      "turn_in_text": "Clouded right through. Looking into one is like looking down the pan at noon, which is exactly what I tell the buyers and exactly why they buy them.\n\nThe crossing is open. Go and tell Jixa, and then come back to me, because she is going to send you across it and you are going to want the kit and I am going to sell it to you.\n\nThere is no bird. I have mentioned that. I will mention it again.",
+      "next_quest_id": "swf_salt_crossing",
+      "unique_item_defs": [
+        {
+          "name": "Pan-Graded Mantle",
+          "slot": "shoulder",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 27,
+          "label": "Cloth Shoulders (Int/Sta/MP5)"
+        },
+        {
+          "name": "Cartage Mantle",
+          "slot": "back",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 28,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Cartage Band",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.5
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_salt_crossing",
+      "title": "Across the Pan, On Foot",
+      "giver_npc_id": "sw_salt_buyer",
+      "zone": "freewind_post",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "Freewind Post sits over a long drop at the far end of the mesas, and between it and Saltwheel there is a pan, a range, and nothing that flies for hire.\n\nJixa has been shipping to Spice-Trader Ovi for eleven years and the two of them have never met.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sf_graded_salt",
+          "count": 4,
+          "label": "Spice-Trader Ovi, Freewind Post"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_ovi"
+          ]
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Four sacks, graded, sealed. Ovi has been buying off me since before the sky changed and she has never once haggled, which told me everything I needed to know about her and nothing about what she looks like.\n\nWhen you get up there, ask her the question I have never been able to put in a letter. She will know which one. If she does not, she is not the woman I have been trading with.",
+      "turn_in_text": "[Spice-Trader Ovi turns one of the sacks so the seal faces her, and does not open it.]\n\nEleven years. She asks whether I still think it is boring.\n\nTell her yes. Tell her I have three climates on one table now and the only thing on it that has never caused me a day's trouble is her salt, and that the mountain can do what it likes as long as the pan keeps drying.\n\nAnd tell her the caravans will come. Bohl has been saying it for a year. One of these years he will be right.",
+      "next_quest_id": "swf_salt_back",
+      "unique_item_defs": [
+        {
+          "name": "Brinecount's Breeches",
+          "slot": "legs",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 5.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 37,
+          "label": "Cloth Legs (Int/Spi/HP)"
+        },
+        {
+          "name": "Cartage Wristguards",
+          "slot": "wrist",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Salt-Sealed Pendant",
+          "slot": "neck",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Graded, weighed, and written down twice before it was ever worn.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.3
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sf_graded_salt",
+            "name": "Graded Pan Salt",
+            "description": "Four sacks, graded by eye with a vulture quill and sealed in lead.",
+            "count": 4
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "swf_salt_back",
+      "title": "What Bohl Said About the Road",
+      "giver_npc_id": "fw_caravan_master",
+      "zone": "freewind_post",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "Caravan-Master Bohl runs four caravans a week up the ramp and not one of them on time.\n\nHe has been asked about the Saltwheel road every season since the track died and has given the same answer every time, and this season the answer has changed.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Scrapper",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_salvage_tag",
+          "count": 6
+        },
+        {
+          "type": "deliver",
+          "target": "sf_ovi_reply",
+          "count": 1,
+          "label": "Jixa Brinecount, Saltwheel"
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Ovi wants a cart on that pan and I have told her no every season because of what is on the road. Not the hives. The crews.\n\nNine of them off the west crossing and six tags, and if the tags are numbered in sequence then it is one outfit working a route and I can negotiate with an outfit. If they are scattered then it is nobody and I cannot.\n\nAnd take Ovi's reply back down with you. She wrote it standing up, which from her is a great deal.",
+      "turn_in_text": "In sequence. One outfit, one route, a schedule I can read off six tin tags.\n\nI can work with that. I have worked with worse and I married one of them.\n\nTell Brinecount the cart comes in the spring and tell her I said IF, in the voice I use for if. She will know. Everyone who ships out of a dying town knows that voice.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Salt-Sealed Gauntlets",
+          "slot": "hands",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.4
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Salt-Sealed Chain Belt",
+          "slot": "waist",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Salt-Sealed Spear",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 24
+          },
+          "secondary_stats": {
+            "armor": 60.0,
+            "parry_rating": 1.2
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 97,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sf_ovi_reply",
+            "name": "Ovi's Reply",
+            "description": "Written standing up, which from her is a great deal.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "swf_water_waterline",
+      "title": "The Watermark Is in the Wrong Place",
+      "giver_npc_id": "sw_mechanic",
+      "zone": "the_shimmering_flats",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "There are shore stacks out on the western pan - lumps of rock the salt has not finished eating - and every one of them carries a waterline.\n\nOyla noticed it with a gauge in her hand, looking for something else entirely.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 24,
+          "target_y": 40,
+          "radius": 9
+        },
+        {
+          "type": "gather",
+          "target": "sf_vulture_quill",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Pan-Crawler Drone",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Out to the stacks on the west shore. There is a stain round every one of them at a height and the height is the same on all of them, which means it is a waterline and not a coincidence.\n\nIt is a long way above where any water has been in my lifetime. Mark it for me - the quills take a mark on wet rock and hold it - and put nine of the drones off the stacks, because they are working the base of them and I do not want my marks eaten.",
+      "turn_in_text": "Same height on all five, to within a hand.\n\nThis pan was deeper than this. Not in a story, not in a song - measurably, at a height I can put a gauge on, and recently enough that the stain has not gone.\n\nSo where did it go. That is not a rhetorical thing. I want the answer and I do not have the range to go and get it.",
+      "next_quest_id": "swf_water_three",
+      "unique_item_defs": [
+        {
+          "name": "Dry-Pan Wraps",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Salt-stiff in a pattern that says it dried slowly and only once.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Watermark Grips",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Salt-stiff in a pattern that says it dried slowly and only once.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Three-Range Shield",
+          "slot": "off_hand",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Whatever soaked this has not been anywhere near it in a long time.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 57,
+          "block_value": 72,
+          "label": "Shield (Parry/Block/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_water_three",
+      "title": "Three Ranges, One Question",
+      "giver_npc_id": "sw_reagents",
+      "zone": "the_shimmering_flats",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "The tunnelers bring up dry spoil from under a pan that should be wet through.\n\nNissa Tolk has been holding that fact for a season waiting for somebody to bring her a second one, and Oyla has just brought her a waterline.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 9
+        },
+        {
+          "type": "gather",
+          "target": "sf_basilisk_eye",
+          "count": 3
+        },
+        {
+          "type": "kill",
+          "target": "Flats Tunneler",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "Two facts. The pan was deeper and the ground under it is dry. Those do not sit together without a third thing in between them and I do not have it.\n\nNine more loads of spoil, from as far east as you are willing to walk, and three basilisk eyes. The eyes cloud by taking up whatever is in the air around them - I can read a dry season off one the way you read a ring off a tree, if I have three to argue with each other.",
+      "turn_in_text": "The eastern spoil is drier than the western, and the eyes agree with each other, and none of this is a Saltwheel-sized question any more.\n\nWater comes off a mountain in the north. It crosses the mesas. It should arrive HERE. Somebody on that mountain has been watching their melt get bigger every spring and somebody on those mesas has been asking where it goes, and if you have stood in front of either of them then you already know more than I do.\n\nCome back when you have. Not before - I would only be guessing and I am too old to guess in front of company.",
+      "next_quest_id": "swf_water_answer",
+      "unique_item_defs": [
+        {
+          "name": "Dry-Pan Shawl",
+          "slot": "shoulder",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Carried down off a mountain, across the mesas and out onto the pan.",
+          "primary_stats": {
+            "stamina": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 27,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        },
+        {
+          "name": "Seep-Line Armguards",
+          "slot": "wrist",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Salt-stiff in a pattern that says it dried slowly and only once.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 88,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dry-Pan Band",
+          "slot": "ring",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "The stain on it is a waterline, and the waterline is in the wrong place.",
+          "primary_stats": {
+            "stamina": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_water_answer",
+      "title": "Lower Every Year",
+      "giver_npc_id": "sw_reagents",
+      "zone": "the_shimmering_flats",
+      "level_min": 39,
+      "level_max": 40,
+      "description": "The melt is higher every spring on the mountain. Nobody on the mesas can say where that water goes. The pan it should arrive on is drier than its own waterline and dry underneath.\n\nThe three of those have never been in one room. You have been in all three.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 160,
+          "target_y": 118,
+          "radius": 10
+        },
+        {
+          "type": "kill",
+          "target": "Mound Sentinel",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_sentinel_plate",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2840,
+      "reward_gold": 11400,
+      "accept_text": "You have stood on the mountain and you have stood on the mesas and now you are standing here, and you are the only person this side of the range who has done all three.\n\nSo: the Deep Mound, the oldest one on the pan, and the ground around it. Ten of the mound-guards, six plates, six loads of spoil from the foot of it.\n\nI think the water arrives. I think it has always arrived. I think something underneath has been drinking it for longer than this town has existed and the mountain has simply started sending more.",
+      "turn_in_text": "Wet.\n\nSix loads from the foot of the Deep Mound and every one of them damp, out of a pan that is bone dry four miles west of here.\n\nIt arrives. It has never stopped arriving. It goes under, and it goes east, and it ends up beneath the oldest hive on this pan - which has been sitting on the only wet ground in the flats since before the first goblin saw this place, and which has been getting MORE of it every spring since the range came down.\n\nNobody made that happen. A mountain arrived and the water it sheds found the lowest thing it could and the lowest thing was already occupied.\n\nI am going to write this down and I am going to send a copy up the mesas, and in about forty years somebody will read all three parts together and understand this pan.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dry-Pan Cuisses",
+          "slot": "legs",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 39,
+          "flavor_text": "Whatever soaked this has not been anywhere near it in a long time.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 182,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Dry-Pan Cowl",
+          "slot": "head",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 39,
+          "flavor_text": "The stain on it is a waterline, and the waterline is in the wrong place.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.5,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 28,
+          "label": "Cloth Helm (Int/SP/Hit)"
+        },
+        {
+          "name": "Three-Range Longbow",
+          "slot": "main_hand",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "required_level": 39,
+          "flavor_text": "The stain on it is a waterline, and the waterline is in the wrong place.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.1
+          },
+          "weapon_damage_min": 46,
+          "weapon_damage_max": 62,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 39,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "asp_higher_every_spring",
+        "fw_where_the_water_goes"
+      ]
+    },
+    {
+      "quest_id": "swf_inn_no_bird",
+      "title": "There Has Never Been a Bird On It",
+      "giver_npc_id": "sw_innkeeper",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "There is a post outside Saltwheel's inn of exactly the kind a wind rider perches on.\n\nThere has never been a wind rider on it. Innkeeper Vozzi Rimehand has explained this to every arrival for eleven years and has a particular flatness she keeps for the purpose.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Salt Vulture",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_vulture_quill",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Bed, board and a bind. That is the full list.\n\nBefore you ask: there is no wind rider. There was never a wind rider. You came in on your feet and that is how you are leaving.\n\nWhat there IS is nine birds roosting on the post, because it is the tallest thing in town and they are not fussy about what it was for. Nine of them and five quills, and then I will hear no more about birds from anybody.",
+      "turn_in_text": "Off the post and off my roof.\n\nI have had that post taken down twice and put back up twice, by different people, for different reasons, and neither of them could tell me what the reason was.\n\nIt stays up. I have stopped asking myself why. Your bed is the one at the end and the shutter does not latch.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bedded-Down Vestments",
+          "slot": "chest",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.6,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Chest (Int/SP/Hit)"
+        },
+        {
+          "name": "Rimehand's Cap",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "It has been slept in by people on their way somewhere, and by people who stopped.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.4
+          },
+          "armor_type": "leather",
+          "armor_value": 51,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Rimehand's Saber",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The salt gets into this every night and gets beaten out of it every morning.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_inn_two_years",
+      "title": "Snod and Vozzi Have Not Spoken",
+      "giver_npc_id": "sw_barkeep",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Vozzi runs the beds and Snod runs the bar and they have not exchanged a word in two years.\n\nThe business has never been better and both of them have noticed, which is the problem.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sf_crust_mandible",
+          "count": 7,
+          "label": "the bar at Saltwheel"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_snod"
+          ]
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "She needs scourers for the pots and will not ask me for them and I am not offering.\n\nSo you are going to bring me seven mandibles and put them behind this bar, where she will see them when she comes through for the ice, and she will take them, and she will not say anything, and that will be that.\n\nThen ask me what we fell out about. Everyone does eventually.",
+      "turn_in_text": "You want to know what it was.\n\nI do not remember. I have thought about it properly, more than once, in the quiet hours, and it has gone.\n\nShe remembers. I am certain she remembers. Which means one of us is carrying it and it is not me, and after two years asking her would be the cruellest thing in this building.\n\nShe took the mandibles. I watched her take them. Go on, get out of my bar.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hearth-Bound Treads",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Last-Bed Fists",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Inn kit. Mended in the evenings by somebody with better things to do.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Last-Bed Roundshield",
+          "slot": "off_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It has been slept in by people on their way somewhere, and by people who stopped.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "armor_value": 56,
+          "block_value": 70,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_inn_hinges",
+      "title": "Salt Gets Into a Hinge",
+      "giver_npc_id": "sw_repair",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Armourer Hett Grindle can slow salt. He cannot stop it, and anyone who tells you they can stop it is selling you grease.\n\nThe inn's shutters have not latched properly in a year and Vozzi has stopped mentioning it.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_sentinel_plate",
+          "count": 5
+        },
+        {
+          "type": "gather",
+          "target": "sf_drone_resin",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Here is a thing the hives are better at than we are, which I resent and which is true.\n\nThe sentinel plate has salt grown THROUGH it and still articulates. Ours seizes in a season. Bring me five plates and six of the wet resin and let me find out whether it is the plate or whether it is what they bed it in.\n\nIt is for a shutter. I am aware of the scale of the ambition.",
+      "turn_in_text": "It is the resin. The plate is ordinary. They bed every joint in something that never fully sets, so the salt gets in and gets pushed back out every time the joint moves.\n\nA hinge that cleans itself by being used. Three years that has been walking past my shop on eight legs.\n\nThe shutter at the end latches now. Do not tell her it was me, she will want the other eleven doing and I have a trade to run.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rimehand's Pants",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "The salt gets into this every night and gets beaten out of it every morning.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Bedded-Down Gloves",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Inn kit. Mended in the evenings by somebody with better things to do.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        },
+        {
+          "name": "Hearth-Bound Signet",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_inn_stock",
+      "title": "Eight Seasons of Raceday Stock",
+      "giver_npc_id": "sw_quartermaster",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Quartermaster Dral Wexx laid in eight seasons of stock the year before the track died, for a crowd that was coming and then did not.\n\nIt is all still in the warehouse, in good order, because he has kept it in good order, which is either professionalism or something sadder.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Boilerman",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_boiler_plate",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "sf_pry_bar",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "I have shelves built for a raceday crowd and six regulars. You can do that sum as fast as I can.\n\nThe Dustwheel have been into the back of the warehouse twice this season, and I would rather deal with that than report it, because reporting it means Winnow writes it down and once Winnow writes it down it is a fact about this town forever.\n\nEight of the crews, six plates, four bars. That is what they left behind and I want it accounted for.",
+      "turn_in_text": "Accounted for, and I am going to tell you something I have not told Winnow.\n\nThey did not take anything the second time. They put something back. A crate of plate, our pattern, better made than ours.\n\nSo either somebody out there is paying a debt nobody recorded, or they are being polite, and I have no column for either.\n\nTake what you are owed. The stock was never going to move and at least it is moving.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rimehand's Fists",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.3
+          },
+          "armor_type": "plate",
+          "armor_value": 86,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Last-Bed Breeches",
+          "slot": "legs",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 9.7,
+            "mp5": 2.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 36,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Rimehand's Loop",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Inn kit. Mended in the evenings by somebody with better things to do.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_solo_prices",
+      "title": "It Was Always the Wheels",
+      "giver_npc_id": "sw_general_goods",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Everything on Trader Grebbit Maul's table came across the pan on a cart with four bad wheels.\n\nHe will tell you the price is the wheels. It is partly the wheels.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Saltcrust Skitterer",
+          "count": 10,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_crust_mandible",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "You will think my prices are high. They are high. Cartage across a dead pan, and before you say it - yes, they were lower four years ago, and yes, that is about when the sky rearranged itself and half my suppliers found more interesting customers.\n\nTen of the skitterers out of the stock yard and five mandibles. They are in the sacks. They are always in the sacks.",
+      "turn_in_text": "Out of the sacks, and I will drop what I charge you by a bit and not by as much as you are hoping.\n\nI am not blaming you personally. I am blaming the general situation, of which you are a part, and I have found that saying that out loud to one person at a time is the only satisfaction available to me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Brinecount's Cuisses",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Graded, weighed, and written down twice before it was ever worn.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 163,
+          "label": "Plate Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Pan-Graded Sash",
+          "slot": "waist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.3,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Belt (Int/SP/MP5)"
+        },
+        {
+          "name": "Long-Haul Talisman",
+          "slot": "neck",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.4
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_solo_record",
+      "title": "The Record Stands",
+      "giver_npc_id": "sw_old_racer",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Old Nazzik holds the course record for the Saltwheel Open. Eleven years and nobody has touched it.\n\nHe will tell you why before you can work it out and get there first on purpose.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 120,
+          "target_y": 34,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Glasswing Darter",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Course record. Mine. Nobody has touched it in eleven years, and that is because nobody has driven the course in three, which I am aware of, and which does not take it off me.\n\nGo out to the north turn. There is a marker stone there with a time cut into it and I want to know whether it is still legible, because I am not going out to look and I am not going to explain why.\n\nThe darters are all over that leg. Eight of them while you are up there.",
+      "turn_in_text": "Legible.\n\nGood. That is good.\n\nI will tell you the thing I do not say in the inn. A record is not a thing you hold, it is a thing people are trying to take, and the day they stopped trying it stopped being a record and became a number on a rock.\n\nTozzik posted a new time this week. Worse than mine by a long way. Best morning I have had in a long time.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Start-Line Robe",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.7,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Start-Line Helm",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Flagfall Signet",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_solo_lead",
+      "title": "Sealed in Lead, and Charged For",
+      "giver_npc_id": "sw_reagents",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Salt air ruins a cork in a season, so Brewer Nissa Tolk seals everything in lead and charges you for the lead.\n\nShe has heard what they say about lead. She would like you to drink it fast.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_scorpid_barb",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Crustback Scorpid",
+          "count": 9,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Everything I make dies in a cork out here. Nine of them off the drying ground and six barbs - the sheath keeps the venom wet in air that dries everything else, and if I can get at what the sheath is doing I can stop sealing in lead and stop charging you for it.\n\nI would like to stop charging you for it. I would like that on the record.",
+      "turn_in_text": "Whatever is in the sheath, it is not a coating, it is the structure.\n\nWhich means I cannot copy it with what I have on this bench and I will be sealing in lead for another year at least.\n\nStill. Knowing I cannot do a thing is worth something. It is worth less than doing it. I will take it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Last-Bed Chausses",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Washed in water that was hauled across a pan to wash it.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 109,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Walk-Out Veil",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Inn kit. Mended in the evenings by somebody with better things to do.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        },
+        {
+          "name": "Hearth-Bound Staff",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "The salt gets into this every night and gets beaten out of it every morning.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 24.8,
+            "mp5": 5.3
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 36,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_solo_crew",
+      "title": "Four Hands and No Race",
+      "giver_npc_id": "sw_pit_boss",
+      "zone": "saltwheel",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Pit-Boss Grizzik Vane keeps four hands on the payroll for a race that has not run since the Integration.\n\nTozzik pays half. She pays half. Neither has said out loud what they are paying for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dustwheel Wheelman",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "gather",
+          "target": "sf_course_wheel",
+          "count": 5
+        },
+        {
+          "type": "gather",
+          "target": "sf_salvage_tag",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "My crew have not touched a running machine since the track died and two of them have started forgetting things that cannot be relearned off a book.\n\nSo I am sending you out to bring me work. Eight of the wheelmen, five wheels, four tags. The wheels go on my benches and my hands strip them and rebuild them and put them on a shelf, and then I pay them.\n\nIt is not a race. It is hands staying hands.",
+      "turn_in_text": "They had all five apart before I finished telling them what they were.\n\nOne of them cried about it, in the shed, where he thought I could not see, and I let him, and then I handed him the second one.\n\nThat is my whole management philosophy and it has never once failed me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dustwheel Sash",
+          "slot": "waist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Claimed under a rule that is written down and that nobody enforces.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.5,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        },
+        {
+          "name": "Off-Course Treads",
+          "slot": "feet",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Track grit worked so far into the weave it is part of the weave now.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 86,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dustwheel Pendant",
+          "slot": "neck",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Claimed under a rule that is written down and that nobody enforces.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.5
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_solo_shrinking",
+      "title": "By How Much, Exactly",
+      "giver_npc_id": "sw_tally_clerk",
+      "zone": "saltwheel",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "Every cart in, every cart out, every barrel of salt, written down twice.\n\nTally-Clerk Winnow is the least popular person in Saltwheel because she is the only one who can answer the question the town asks itself at night.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 7
+        },
+        {
+          "type": "gather",
+          "target": "sf_vulture_quill",
+          "count": 5
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "swf_topic_shrinking"
+          ]
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "I need spoil and quills - the spoil to weigh against last year's and the quills to write with, because I have used mine up and the general goods has stopped stocking them.\n\nThat last part is a data point and I have recorded it.\n\nThen ask me the question. Everyone wants to and nobody does, and I would like, once, to be asked rather than avoided.",
+      "turn_in_text": "By a quarter, over three years, in bodies. In trade it is worse and I will not say the figure because the figure is not mine to hand to a stranger.\n\nPeople think I keep this book to be unpleasant. I keep it because when a place goes, it goes without anybody writing down what was in it, and I have decided that is not happening here.\n\nThat is all. You asked. Nobody asks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Cartage Robe",
+          "slot": "chest",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 7.1,
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 37,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Pan-Graded Helm",
+          "slot": "head",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.5,
+            "block_rating": 0.9,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 133,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Brinecount's Cleaver",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "armor": 16.7,
+            "parry_rating": 0.3
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_item_entry_slip",
+      "title": "The Name Has Been Rewritten Twice",
+      "giver_npc_id": "item:sf_entry_slip",
+      "zone": "saltwheel",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "You turn the slip over. An entry for the Saltwheel Open, three seasons out of date, with the name scratched out and written in again twice - the same hand each time, pressing harder every go.\n\nSomebody entered, withdrew, entered, withdrew, and entered again, and then the race did not happen.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sf_entry_slip",
+          "count": 1,
+          "label": "Race-Marshal Tozzik Brasswheel, Saltwheel"
+        },
+        {
+          "type": "kill",
+          "target": "Dustwheel Wheelman",
+          "count": 7,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "The gantry is where entries are taken and the man under it takes them whether or not anybody brings him one.\n\nSeven of the wheelmen on your way in - they are on the straight at this hour and they will not step aside for somebody carrying paper.",
+      "turn_in_text": "[Tozzik reads it, and reads it again, and does not look up.]\n\nThat is his hand. He entered the year it died and pulled out, and entered, and pulled out, and entered.\n\nI never processed the third one. It came in after the date and I am a man who keeps the date, so I put it in a drawer and I said nothing, and he has spent three winters believing nobody wanted him on the line.\n\nNazzik is in the inn. I am not going over there tonight. Tomorrow. I will go tomorrow and that is not a thing I am saying to get out of it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Scrutineer's Shroud",
+          "slot": "back",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Laid in the season before the track died, and never once worn.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.7,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Start-Line Jerkin",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Start-Line Charm",
+          "slot": "neck",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Smells of hot oil, which on this pan it has no business doing any more.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "swf_item_sealed_tin",
+      "title": "Something Is Still Dry Inside",
+      "giver_npc_id": "item:sf_sealed_tin",
+      "zone": "the_shimmering_flats",
+      "level_min": 38,
+      "level_max": 39,
+      "description": "You turn the tin over. Lead-sealed at every seam, dug up out of pan that has been bone dry for longer than anyone has been counting.\n\nIt rattles. Whatever is in it has never once been wet.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 86,
+          "target_y": 92,
+          "radius": 9
+        },
+        {
+          "type": "gather",
+          "target": "sf_tunnel_spoil",
+          "count": 6
+        },
+        {
+          "type": "deliver",
+          "target": "sf_sealed_tin",
+          "count": 1,
+          "label": "Brewer Nissa Tolk, Saltwheel"
+        }
+      ],
+      "reward_exp": 2760,
+      "reward_gold": 11100,
+      "accept_text": "The tunnelers bring these up and leave them, which means there are more, which means somebody was sealing things in lead on this pan before anybody in Saltwheel was born.\n\nGo back to where the spoil comes up on the Brine and bring six loads with you, and then put the tin in front of the only person in town who seals things in lead.",
+      "turn_in_text": "[Nissa holds it up to the lamp and turns it slowly, and does not open it.]\n\nMy seam. Not my work - my SEAM, the double fold, which my mother taught me and which her people brought here from somewhere else entirely and which I have never seen on anything I did not make.\n\nIt came up out of ground that has been dry for a very long time.\n\nI am not opening it in front of you. I am not opening it tonight. Come back in the spring and I will tell you what my family was doing under this pan before there was a town on it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Watermark Treads",
+          "slot": "feet",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Whatever soaked this has not been anywhere near it in a long time.",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Seep-Line Girdle",
+          "slot": "waist",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Salt-stiff in a pattern that says it dried slowly and only once.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 59,
+          "label": "Mail Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dry-Pan Charm",
+          "slot": "neck",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "required_level": 38,
+          "flavor_text": "Whatever soaked this has not been anywhere near it in a long time.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.6
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 38,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

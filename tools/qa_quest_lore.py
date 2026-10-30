@@ -37,7 +37,28 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
 #: The band. Below LOW the world has amnesia; above HIGH every NPC is making the same remark.
-LOW, HIGH = 0.06, 0.18
+#:
+#: THE CEILING MOVED ON 2026-10-30, BECAUSE IT WAS STALE AND CONTRADICTED THE GUIDE IT CITES.
+#:
+#: This file's docstring still quotes claude/quest_writing_guide.md saying "roughly 10% of quests",
+#: and 0.06-0.18 is the band you get by bracketing 10%. But the guide has not said 10% since
+#: 2026-10-29, when Kyle replaced it: "Target: roughly 30% of quests. Kyle's call, 2026-10-29. This
+#: replaces the 10% figure this guide carried until then." The band was never moved with it.
+#:
+#: The proof it was wrong rather than merely strict: at 0.18 this tool failed stranglethorn_south at
+#: EXACTLY 30% - the number the guide names as the target - and reported it as "over-egged". A check
+#: that fails content for hitting its own documented target is not a strict check, it is a broken one.
+#:
+#: 0.40 is "roughly 30%" read generously. It is deliberately NOT loose enough to pass everything:
+#: stranglethorn_north still fails at 50%, which is correct and is the case Kyle himself called out -
+#: the first Stranglethorn passes landed at 61-70% and read as zones whose single subject was the
+#: Integration. The ceiling exists for exactly that and still catches it.
+#:
+#: THE FLOOR IS DELIBERATELY NOT MOVED. Raising it to match a 30% target would retroactively fail
+#: nineteen finished zones that sit between 0% and 9%, which is a real content question (most of them
+#: genuinely are silent) but it is Kyle's call about rewriting finished work, not a threshold to
+#: change in passing while fixing the ceiling.
+LOW, HIGH = 0.06, 0.40
 
 #: ZONES THE INTEGRATION ACTUALLY HAPPENED TO ARE EXEMPT FROM THE CEILING. The first run of this tool
 #: flagged the Aspen Wilderness at 24% as "over-egged" - a zone which IS a mountain range that arrived
