@@ -5635,6 +5635,8 @@ def create_all_zones():
     from tools import handbuilt_southern_needles as dsn
     from tools import handbuilt_drowning_floor as ddf
     from tools import handbuilt_rocky_pass as drp
+    from tools import handbuilt_shimmering_flats as dsf
+    from tools import handbuilt_undercrust as ducr   # NOT duc - that is handbuilt_undercity
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
     from tools import handbuilt_bloodsail_galleon as dbg
@@ -5729,6 +5731,9 @@ def create_all_zones():
         "The Weeping Ice": dwi.generate_weeping_ice(),  # (tools/handbuilt_weeping_ice.py)
         # The range's own summit: an outdoor dungeon, 33-36 (tools/handbuilt_rocky_pass.py)
         "Rocky Pass": drp.generate_rocky_pass(),
+        # The salt pan east of both, 35-40, and the hive under it with two mouths.
+        "The Shimmering Flats": dsf.generate_shimmering_flats(),
+        "The Undercrust": ducr.generate_undercrust(),
         # Mesa country. Terrain is hand-placed plateaux, NOT derived - see the module docstring
         # for why slope-derived rock is wrong for a range and exactly right for a mesa.
         "Southern Thousand Needles": dsn.generate_southern_needles(),  # (tools/handbuilt_southern_needles.py)

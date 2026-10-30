@@ -161,6 +161,31 @@ def slice_set(key, preview=None):
     return written
 
 
+# ---------------------------------------------------------------------------------------------------------
+# THE SHIMMERING FLATS + TANARIS. 8x6 = 48 cells, one sheet feeding two zones.
+#
+# One sheet because the two zones share a border and half a palette: the Flats' salt gives out into
+# Tanaris' sand, and generating them separately would have produced two sets that do not meet. The Drowning
+# Floor already does this the other way round - it paints from the Southern Needles set because the cave is
+# the inside of the same rock - so Tanaris borrowing from this directory is the established pattern rather
+# than a shortcut.
+#
+# ROW HEIGHTS WERE MEASURED, AND CAME BACK EVEN: 180/181/181/181/181/182 against an even split of 181, and
+# the columns the same. That is worth recording precisely BECAUSE the aspen sheet did not - it came back
+# 192/176/169/161/159/167, where cutting evenly walks progressively into the wrong row down the image. The
+# check is cheap and the failure is silent, so it gets run every time rather than assumed either way.
+# ---------------------------------------------------------------------------------------------------------
+_set("shimmering_flats", 8, 6, "tools/tile_sheets/shimmering_flats_tiles.png",
+     "assets/tiles/shimmering_flats/materials", """
+    sf_salt_white sf_salt_polygon sf_salt_plates sf_salt_clay sf_salt_thin_mud sf_salt_ripple sf_salt_dark sf_salt_glazed
+    sf_mud_curled sf_clay_saltrim sf_dust_hardpan sf_salt_gravel sf_track_rut sf_stones_salt sf_alkali_yellow sf_hardpan_swept
+    sf_chitin_plate sf_resin_poured sf_tunnel_spoil sf_crust_shattered sf_hive_floor sf_resin_grit sf_carapace_shards sf_hive_film
+    tan_sand_gold tan_dune_ripple tan_sand_pebble tan_hardpan_orange tan_wadi_gravel tan_sandstone_floor tan_dust_drift tan_scrub_sand
+    tan_paving_carved tan_flagstone_buried tan_rubble_sandstone tan_basalt_grit tan_deck_oiled tan_plank_bleached tan_harbour_dirt tan_quay_tarred
+    cen_limestone_wet cen_limestone_moss cen_water_shallow cen_water_deep cen_leaf_litter cen_ferns cen_roots_stone cen_grass_sunlit
+""")
+
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

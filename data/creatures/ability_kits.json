@@ -34585,6 +34585,245 @@
         "school": "frost",
         "duration": 3
       }
+    ],
+    "undercrust_swarmer": [
+      {
+        "name": "Scything Limb",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Over",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Formic Burn",
+        "kind": "dot",
+        "amount": 26,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "undercrust_ripper": [
+      {
+        "name": "Ripping Claw",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Open the Seam",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Open",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "defense_rating": -28
+        }
+      }
+    ],
+    "hive_excavator": [
+      {
+        "name": "Digging Claw",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bring the Roof",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Dig In",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 34
+        },
+        "self_only": true
+      }
+    ],
+    "salt_crusted_drone": [
+      {
+        "name": "Crusted Mandible",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Salt in the Wound",
+        "kind": "dot",
+        "amount": 30,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Grit",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -22
+        }
+      }
+    ],
+    "the_hollow_queen": [
+      {
+        "name": "The Queen's Reach",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Birthing Shriek",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Whole Brood Answers",
+        "kind": "damage",
+        "amount": 120,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Clutch of Eggs",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "saltback": [
+      {
+        "name": "Saltback's Weight",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Crust and Carapace",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shake the Gallery",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Plated Over",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 46
+        },
+        "self_only": true
+      }
+    ],
+    "riftjaw": [
+      {
+        "name": "Riftjaw's Bite",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Out of the Floor",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Jaw Locked",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Dragged Under",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -36,
+          "dodge_rating": -30
+        }
+      }
     ]
   }
 }

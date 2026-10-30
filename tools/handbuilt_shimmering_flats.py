@@ -93,8 +93,34 @@ HIVES = [
     ("Crustbreak",       92, 140, 13,  8.5, 0.08),
     ("The Pit Mound",   132, 104, 15, 10.0, 0.60),
     ("Highcast",        152,  46, 16, 11.5, 0.30),
-    ("The Deep Mound",  172, 118, 20, 14.0, 0.55),    # the oldest, and the far side of the pan
+    ("The Deep Mound",  160, 118, 18, 14.0, 0.55),    # the oldest, and the far side of the pan
 ]
+
+#: THE RIM. Mountains all the way round, which Kyle asked for to stop the zone being a box - "We can
+#: put mountains around the edge of the flat to give it shape, so it's not a box."
+#:
+#: It is also why the salt is here. A pan forms in a CLOSED BASIN: water runs in, cannot run out, and
+#: leaves its load behind when it evaporates. A salt flat with an open horizon on four sides is a salt
+#: flat that should have drained. So the rim is not decoration bolted onto the edge - it is the reason
+#: the zone exists, and the first version not having it was a hole in the premise as well as in the
+#: shape.
+RIM_H = 24.0
+RIM_W = 23.0
+
+#: The only ways through it. (edge point, inward point, width) - each cuts a notch in the rim, the same
+#: trick the hive tunnels and the Southern Needles mesa ramps use.
+#:
+#: THE SOUTH PASS GOES NOWHERE YET, deliberately. Kyle: "we need a mountain pass in the south where
+#: it'll go towards tanaris eventually." It is carved, it is walkable, and it has no portal registered
+#: on it until Tanaris exists - which is exactly what Southern Needles did with the road named "flats"
+#: that pointed at this zone for two zones before there was anything on the far side of it.
+GATES = [
+    ((0, 40), (36, 46), 4.5),       # the Aspen Wilderness, high and north
+    ((0, 132), (38, 128), 5.0),     # the Southern Needles road
+    ((120, 180), (116, 148), 5.0),  # THE SOUTH PASS, toward Tanaris
+]
+#: Where that pass meets the map edge. Unregistered on purpose - see above.
+TANARIS_PASS = (120, 176)
 
 #: The Mirage Raceway. A closed ring, still legible as a track because salt keeps a surface for years.
 RACEWAY = [(104, 34), (124, 26), (144, 30), (152, 44), (148, 62), (130, 72), (110, 70), (100, 56),
@@ -120,6 +146,15 @@ def _stack_r(gx, gy, cx, cy, rx, ry):
     a = np.arctan2(dy, dx)
     f = 1.0 + 0.12 * np.sin(2 * a + cx) + 0.07 * np.sin(3 * a + cy * 0.3) + 0.05 * np.sin(5 * a)
     return np.hypot(dx, dy) / f
+
+
+def _gate_cut(gx, gy):
+    """>0 inside a gate - a notch cut through the mountain rim."""
+    out = np.full(np.shape(gx), -9.0)
+    for ((ex, ey), (ix, iy), wide) in GATES:
+        d = T.seg_dist(gx, gy, ex, ey, ix, iy)
+        out = np.maximum(out, (wide - d) + 0.8 * wob(gx * 0.6, gy * 0.6))
+    return out
 
 
 def _tunnel_cut(gx, gy):
@@ -148,10 +183,28 @@ def elevation(gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
 
-    # the western rim: the shore stands about seven above the pan and drops to it over thirty tiles
-    e = 7.0 * smoothstep(66.0, 14.0, gx)
+    # THE RIM, all the way round, with notches cut for the three gates. Wobbled so the mountains have
+    # an outline rather than a rectangle's corners.
+    # A SOFT-MIN, NOT A MIN. min(dx, dy) is a rectangle's distance field and no amount of wobble
+    # hides that - the first version came back with a band of mountains and four square corners,
+    # which is precisely the box Kyle asked to get rid of. A soft minimum rounds the corners, so
+    # the rim thickens into them the way a real basin's does.
+    dx = np.minimum(gx, W - gx)
+    dy = np.minimum(gy, H - gy)
+    k = 9.0
+    edge = -k * np.log(np.exp(-dx / k) + np.exp(-dy / k))
 
-    # the stacks, and the DEEPEST WINS rather than adding - two overlapping footprints summing their
+    # AND THE WOBBLE HAS TO BE BIG. At an amplitude of 4.5 against a 23-tile rim it moved the inner
+    # edge by a fifth of its width and the eye still read a rectangle. At 16 the rim swings between
+    # about seven and forty tiles deep, which is bays and headlands rather than a border.
+    edge = (edge + 11.0 * wob(gx * 0.034, gy * 0.037)
+            + 5.0 * wob(gx * 0.088, gy * 0.081)
+            + 2.0 * wob(gx * 0.21, gy * 0.19))
+    rim = RIM_H * smoothstep(RIM_W, 2.0, edge)
+    rim = rim - 60.0 * np.clip(_gate_cut(gx, gy), 0, None)
+    e = np.clip(rim, 0.0, None)
+
+    # the stacks: erosion remnants standing on the pan inside the rim. DEEPEST WINS rather than adding - two overlapping footprints summing their
     # heights makes a spike at the junction, which is not a landform. Same rule as the mesas.
     plateau = np.zeros(np.shape(gx), float)
     for (_n, cx, cy, rx, ry, h) in STACKS:
@@ -244,10 +297,10 @@ def cliff_field(gx, gy):
     # sealed the three tall ones and with them the only ground route into Freewind.
     rock = rock - 40.0 * np.clip(_tunnel_cut(gx, gy), 0, None)
 
-    edge = np.minimum.reduce([gx, W - gx, gy, H - gy])
-    rock = np.maximum(rock, (4.0 - edge) * 2.0 + 0.3 * wob(gx * 1.3, gy * 1.3))
-    # both arrival shelves stay open
-    rock = np.where(gx < 14, np.minimum(rock, -0.6), rock)
+    # The rim does the edge sealing now, so the old four-tile border term is gone - it would have
+    # drawn a hard rectangle inside the mountains it is standing in.
+    # The three gates stay open.
+    rock = rock - 40.0 * np.clip(_gate_cut(gx, gy), 0, None)
     rock = np.where(road_dist(gx, gy) > -0.4, np.minimum(rock, -0.5), rock)
     rock = np.where(track_dist(gx, gy) > -0.4, np.minimum(rock, -0.5), rock)
     rock = np.where(water_field(gx, gy) > -1.0, np.minimum(rock, -0.5), rock)
@@ -267,7 +320,7 @@ def tile_kind(gx, gy):
 
 #: West to east, which is the level ladder. See the module docstring.
 SUBZONES = [
-    ("The Shore", 0, 0, 56, 180),                 # 35-36
+    ("The Shore", 18, 18, 56, 148),               # 35-36, the ground inside the west rim
     ("The Crust", 48, 18, 54, 144),               # 36-37
     ("The Mirage Raceway", 90, 16, 72, 66),       # 37-38
     ("The Brine", 86, 92, 72, 80),                # 37-38
@@ -303,13 +356,13 @@ def dress(L):
         if not z.is_walkable(x, y):
             continue
         r = rng.random()
-        if x < 54:                                            # the shore: the last of the desert
+        if x < 72:                                            # the shore: the last of the desert
             if r < 0.22:
                 nm = rng.choice(["sn_barrel_cactus", "sn_desert_sage", "sn_dead_shrub", "sn_grass_tuft",
                                  "sn_boulder_red", "sn_rock_spire", "sn_layered_stack", "sn_cairn"])
                 if L.prop(A(SN, nm), x, y, 4):
                     n += 1
-        elif x < 110:                                         # the crust: salt, bone and driftwood
+        elif x < 118:                                         # the crust: salt, bone and driftwood
             if r < 0.055:
                 nm = rng.choice(["sn_driftwood_salt", "sn_rib_bones", "sn_kodo_skull", "sn_dead_shrub",
                                  "sn_stone_pile"])

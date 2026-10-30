@@ -250,6 +250,7 @@ class PortalManager:
                 # something on the far side; Southern Thousand Needles now exists.
                 (104, 176): ("Southern Thousand Needles", 110, 12),
                 (48, 35): ("Rocky Pass", 52, 186),           # the cleft up to the summit
+                (204, 150): ("The Shimmering Flats", 6, 40),  # east, where the range bleeds out
             },
 
             # ===== SOUTHERN THOUSAND NEEDLES =====
@@ -261,6 +262,9 @@ class PortalManager:
                 # A hole at the foot of Broadback that swallows a wash and gives nothing back. The zone's
                 # WASHES are the channels the annual flood cuts on the surface; this is where it goes.
                 (104, 112): ("The Drowning Floor", 66, 102),
+                # The "flats" road, carved with the zone and left hanging at the map edge for
+                # two zones until there was something on the far side of it.
+                (214, 150): ("The Shimmering Flats", 6, 132),
             },
             "Freewind Post": {
                 (96, 20): ("Southern Thousand Needles", 168, 92),
@@ -336,6 +340,25 @@ class PortalManager:
                 # this is here. tools/verify_return_voyage.py asserts BOTH directions, so a later
                 # tidy-up cannot quietly make them symmetrical again.
                 (64, 34): ("The Crossing", 98, 50),             # arrive aft, the way we came
+            },
+
+            # ===== THE SHIMMERING FLATS, and the hive under it =====
+            # TWO MOUTHS INTO ONE CAVE, which nothing else in this game does. Kyle: "the cave will
+            # have two entrances in the overworld and each entrance will take us to a different part
+            # in the cave." The Crustfall drops you in the shallow galleries at the west end; the
+            # Deep Shaft, most of the way across the pan under the oldest hive on the map, drops you
+            # straight into the deep end. tools/handbuilt_undercrust.verify_two_mouths measures that
+            # they really are opposite ends - 132 tiles apart by path - because it is exactly the
+            # kind of property that quietly stops being true when a chamber moves.
+            "The Shimmering Flats": {
+                (6, 40): ("The Aspen Wilderness", 204, 150),
+                (6, 132): ("Southern Thousand Needles", 214, 150),
+                (92, 140): ("The Undercrust", 16, 66),      # the Crustfall, by Crustbreak
+                (172, 116): ("The Undercrust", 104, 54),    # the Deep Shaft, under the Deep Mound
+            },
+            "The Undercrust": {
+                (16, 66): ("The Shimmering Flats", 92, 140),
+                (104, 54): ("The Shimmering Flats", 172, 116),
             },
 
             # ===== ROCKY PASS - the summit of the range above the Aspen Wilderness =====
