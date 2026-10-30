@@ -48,7 +48,10 @@ TRIGGERS = (
 
 #: A beat needs breathing room or it becomes wallpaper. Measured in seconds of play, not in events -
 #: a player who clears three bosses in four minutes should not get three beats.
-BEAT_COOLDOWN = 150.0
+#: 150 was right when every eligible trigger fired; with TRIGGER_CHANCE gating on top of it the two
+#: compounded and a measured 45-minute session produced five beats with a 28-minute silence in the
+#: middle. That is not restraint, that is an empty party. 75 lets the chance table do the shaping.
+BEAT_COOLDOWN = 75.0
 
 #: And the same person should not be the voice of the party. Once someone speaks they go to the back
 #: of the queue; this is how many OTHER speakers have to go before they come up again.
@@ -58,6 +61,30 @@ SPEAKER_COOLDOWN = 3
 #: silence is better than a guaranteed call-and-response, which is how banter starts sounding like a
 #: sitcom.
 REPLY_CHANCE = 0.45
+
+#: How often a trigger actually gets a remark, once the cooldown has passed. Kyle, 30 Oct 2026:
+#: "the characters don't always need to chat 24/7. But I don't want life to be boring."
+#:
+#: Without this the feature is CLOCKWORK: the cooldown elapses and then the very next event, always,
+#: produces a line. Walk into four towns and you get four comments, evenly spaced, forever. That
+#: reads as a system rather than as people.
+#:
+#: So the big moments nearly always land and the routine ones often pass in silence. You cleared a
+#: dungeon or somebody nearly died - somebody says something. You walked into another town - maybe
+#: not, and the silence is what makes the next remark worth hearing.
+TRIGGER_CHANCE = {
+    "dungeon_clear": 0.85,
+    "close_call": 0.75,
+    "boss_down": 0.50,
+    "town_arrive": 0.55,
+    "zone_arrive": 0.40,
+}
+
+#: Lines the player has heard lately, by text. A four-person party only has two or three lines for a
+#: given trigger, so without this you hear the same sentence on your third town and the party stops
+#: feeling alive - repetition is a far worse kind of boring than silence. Keeping the recent texts
+#: out of the running makes a small pool feel several times larger.
+LINE_MEMORY = 14
 
 
 class BanterLine:
@@ -103,6 +130,7 @@ class BanterManager:
     def __init__(self):
         self.by_trigger = {}      # trigger -> [BanterLine]
         self.recent_speakers = []
+        self.recent_lines = []
         self.current = None
         self.since_last_beat = BEAT_COOLDOWN   # so the first real event can speak
         self._load()
@@ -141,6 +169,11 @@ class BanterManager:
             out.append(line)
         return out
 
+    def _unheard(self, lines):
+        """Drop lines the player has heard lately, unless that leaves nothing."""
+        fresh = [x for x in lines if x.text not in self.recent_lines]
+        return fresh or lines
+
     def _pick_speaker(self, lines):
         """Prefer whoever has not spoken lately, so the party does not get a narrator.
 
@@ -168,12 +201,16 @@ class BanterManager:
             return None
         if not force and self.since_last_beat < BEAT_COOLDOWN:
             return None
+        if not force and random.random() > TRIGGER_CHANCE.get(trigger, 0.5):
+            # Stay quiet AND keep the cooldown running, so a skipped moment does not bank up into a
+            # burst of three remarks the moment the dice finally land.
+            return None
         members = [m for m in (party.members if party else []) if getattr(m, "recruit_id", None)]
         if not members:
             return None
         by_id = {m.recruit_id: m for m in members}
 
-        openers = self._eligible(trigger, set(by_id), "open", zone)
+        openers = self._unheard(self._eligible(trigger, set(by_id), "open", zone))
         if not openers:
             return None
         first = self._pick_speaker(openers)
@@ -191,7 +228,7 @@ class BanterManager:
                 same = self._eligible(trigger, set(by_id), "reply", zone,
                                       exclude=(first.recruit_id,), topic=first.topic)
                 if same:
-                    second = self._pick_speaker(same)
+                    second = self._pick_speaker(self._unheard(same))
             if second is None and random.random() < REPLY_CHANCE:
                 replies = self._eligible(trigger, set(by_id), "reply", zone,
                                          exclude=(first.recruit_id,))
@@ -199,13 +236,15 @@ class BanterManager:
                 # subject - that is how you get a reply about Cairo after a remark about the weather.
                 replies = [r for r in replies if r.topic is None]
                 if replies:
-                    second = self._pick_speaker(replies)
+                    second = self._pick_speaker(self._unheard(replies))
             if second is not None:
                 beat.append((second.recruit_id, by_id[second.recruit_id].name, second.text))
 
-        for rid, _, _ in beat:
+        for rid, _, txt in beat:
             self.recent_speakers.append(rid)
+            self.recent_lines.append(txt)
         self.recent_speakers = self.recent_speakers[-12:]
+        self.recent_lines = self.recent_lines[-LINE_MEMORY:]
         self.since_last_beat = 0.0
         self.current = BanterBeat(beat)
         return self.current
