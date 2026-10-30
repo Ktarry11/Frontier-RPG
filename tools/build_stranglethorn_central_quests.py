@@ -177,6 +177,7 @@ OUT = ROOT / "data/quests/stranglethorn_central.json"
 CS = "central_stranglethorn"
 VF = "veilfall_cave"
 GA = "gurbashi_arena"
+TM = "tarren_mill"                     # the cross-zone thread's far end, a live zone key
 
 XP = {33: 2280, 34: 2360, 35: 2440, 36: 2520, 37: 2600, 38: 2680}
 GOLD = {33: 9300, 34: 9600, 35: 9900, 36: 10200, 37: 10500, 38: 10800}
@@ -212,6 +213,14 @@ tirisfal_gear.THEMES.update({
                "Bought out of a purse the rim paid into and nobody split.",
                "Somebody won this in a round the board had priced the other way.",
                "Three generations of gatehouse have signed something like this in and out again."]),
+    # The cross-zone thread's own flavour. The windrider line runs out of this jungle and ends on a
+    # millrace in Hillsbrad, so the kit it pays in is flying kit and waterworks kit and nothing that
+    # belongs to either end on its own.
+    "windline": (["Wind-Rider's", "North-Leg", "Sluice-Keeper's", "Millrace", "Knot-Cord"],
+                 ["Jungle damp on one side of the seam and valley frost on the other.",
+                  "Line kit. It has been at both ends of a long run and smells of both.",
+                  "Pate's bench mended this, and Pate mends things to last longer than he will.",
+                  "Wyvern hair in the stitching, worked in so deep that picking it out would be worse."]),
 })
 
 
@@ -236,6 +245,18 @@ def explore(zone, x, y, radius=7):
 
 def deliver(item, label, n=1):
     return dict(type="deliver", target=item, count=n, label=label)
+
+
+def talk(*topics):
+    """A DIALOGUE objective: ask the giver about every topic, in any order.
+
+    The content is NOT here. world/quest.py's QuestObjective.topics is only the completion
+    condition; the label and response text live in world/quest_dialogue_stranglethorn_central.py,
+    which world/quest_dialogue.py merges in by name. An unauthored topic renders no button and the
+    quest cannot be finished, so every id passed here has an entry in that module and
+    tools/audit_quests.py checks the pair.
+    """
+    return dict(type="dialogue", topics=list(topics))
 
 
 def carry(item_id, name, desc):
@@ -281,6 +302,16 @@ SCRIP = "bootybay_street_kid"          # Scrip - has never been a mile out of th
 BEXX = "bootybay_shipping_clerk"       # Clerk Bexx - manifest, weight, destination, in that order
 QUIET = "bootybay_fence"               # The Quiet Man - did not see you come in
 # Central Stranglethorn wilderness (tools/build_stranglethorn_central_npcs.py)
+# The cross-zone thread's far end. Kyle approved windriders out of the jungle up to Hillsbrad, so the
+# line is the mechanism and the people at the other end of it are ALREADY IN THE GAME - Pazzik keeps
+# the Grom'gol wyverns, Ghulrak keeps Tarren Mill's, and Pate and Reed are the two people in the world
+# whose whole working life is writing down how high a river is. data/quests/hillsbrad.json has both of
+# them at level 24-25, so this is a visitor arriving with a problem, not a rewrite of their post.
+# Deliberately NOT Berth-Master Zekka, Gazlowe or Customs Officer Prynn: the Southern pass has those.
+PAZZIK = "gromgol_flight_master"       # Windrider-Keeper Pazzik - flies the jungle leg
+GHULRAK = "tarren_mill_flight_master"  # Wind-Rider Ghulrak - flies the valley leg
+PATE = "tarren_mill_sluice_keeper"     # Sluice-Keeper Pate - twenty-two years on one crank
+REED = "tarren_mill_miller"            # Miller Aldous Reed - sixty years of the same water, written down
 DUBO = "stvc_road_ganger"
 BEXXIL = "stvc_arena_tout"
 ZULTAMO = "stvc_gurbashi_broker"
@@ -320,9 +351,8 @@ def vine_road():
         "of it out of the kerb line and put eight of the green adders off the verge while you are down "
         "there. They nest in the drainage. They should not be in the drainage.",
         "You cleared the drains.\n\nI did not ask you to clear the drains. I explained the drains. "
-        "Those are different and I am aware they are different.\n\nWhere you're from they would "
-        "have been somebody else's drains, I expect. Down here the road is whoever last cut "
-        "it.\n\nRight. Bexxil is up on the apron and "
+        "Those are different and I am aware they are different.\n\nDown here the road is whoever "
+        "last cut it, and tonight that was you, and I am not paying you for it.\n\nRight. Bexxil is up on the apron and "
         "she has been wanting a name. I will give her yours, and you can decide afterward whether that "
         "was a kindness.", nxt="stvc_tout_entry"))
 
@@ -581,10 +611,12 @@ def arena():
         "never lapses, and he closes off whatever you were going to use to answer it. Nobody has ever "
         "made a patient fight of Mok'tal and come up the stair.",
         "Two off the list.\n\nThe drum crew had you on the long count and they lost money on it, which I "
-        "enjoyed. They keep a separate count for fighters who came through from somewhere else - you "
-        "open too fast, all of you, every time, and it is not an opinion, it is a drumming problem. They "
-        "have had to learn a second rhythm since your lot started coming down that stair.\n\nYou did not "
-        "open too fast. I will tell them. They will not believe me.", nxt="stvc_arena_pair"))
+        "enjoyed more than a man in my position should.\n\nUnderstand what the count is. It is not "
+        "music and it is not ceremony - it is the clock the rim prices a round against, and a crew that "
+        "has drummed three generations of these fights can tell you to the beat how a fighter will "
+        "open. They had you opening fast. You did not.\n\nI will tell them. They will not believe me, "
+        "and they will put you back on the long count tomorrow, because being wrong once is cheaper "
+        "than re-learning a rhythm.", nxt="stvc_arena_pair"))
 
     A.append(Q("stvc_arena_pair", "The Handler Is the Fight", ZULTAMO, GA, 37, 37, "arena",
         "The rim has noticed whose money is on you, which means the third station has been changed. The "
@@ -681,6 +713,322 @@ def standalones():
 
 
 # =========================================================================================================
+# THE KNOT-CORD LINE - the one thread that leaves this jungle (2026-10-30, the 18 -> 30 pass).
+#
+# Kyle: "zones dont need to be isolated ... we can have a wide variety of quest types connecting the
+# world", and he approved windriders out of the jungle up to Silverpine or Tarren Mill.  So this is the
+# thread, and it is built on the one loose end the first eighteen deliberately left hanging:
+# stvc_zuljana_font ends with Zul'jana refusing to carry the Font's readings to Overseer Mokra, because
+# the honest reading is that the Veilfall is draining a country that was not there to drain and Mokra
+# writes everything down.
+#
+# The answer is not another soldier.  It is somebody whose trade is writing down how high a river is and
+# who reports to nobody - and there is no such person in Stranglethorn, which is the whole reason the
+# thread has to leave.  Tarren Mill has two of them on a millrace, already written, already voiced
+# (data/quests/hillsbrad.json: Pate has twenty-two years on the crank and would rather be the man who
+# asked; Reed's family has milled the same water for sixty years).  The windrider line is the means:
+# Pazzik flies the jungle leg, Ghulrak flies the valley leg, and the bundle goes up in a mail wrap.
+#
+# It goes OUT and it comes BACK.  The fourth station hands the verdict to Zul'jana in Grom'gol, because
+# a thread that ends in another zone is a thread the player stops caring about.
+# =========================================================================================================
+def knot_cord_line():
+    A = []
+    A.append(Q("stvc_cord_sealed", "Not to the Overseer", ZULJANA, VF, 36, 37, "veilfall",
+        "Zul'jana has the Font's readings and no intention of laying them on Overseer Mokra's table. "
+        "Mokra writes everything down, and a thing written down in a garrison has to mean something by "
+        "the end of the week.\n\nWhat the readings need is somebody whose whole trade is the height of "
+        "water and who answers to nobody about it. There is no such person in this jungle. There is no "
+        "such person in Grom'gol either, and she has checked.",
+        [fetch("veilfall_tally_cord", 4), explore(VF, 58, 40, 7)],
+        "Four more cords off the Font before I seal the bundle. Read this morning, not last month, so "
+        "nobody can tell me afterward that my water is a season stale.\n\nThen go up to the lamp "
+        "gallery above the plunge and stand on the terrace behind the brackets. There is a waterline on "
+        "that stone, and there is a second one above it, and the gap between them is the only part of "
+        "this you will be asked about by somebody who matters. Look at it with your own eyes. I am not "
+        "sending an account of a thing you have not seen.",
+        "Sealed, and my name is on the wrap, which I thought about for longer than I am going to "
+        "admit.\n\nThere is a mill in a valley a long way north of here where one family has written "
+        "down the height of the same water for sixty years, and a man on the sluice above it who has "
+        "had his hand on one crank for twenty-two. Neither of them has a commander.\n\nThat is who gets "
+        "this. I am going round my own camp, in writing, with my name on it, and I would rather do that "
+        "than hand Mokra a sentence she will have to act on by Thursday.", nxt="stvc_north_leg"))
+
+    A.append(Q("stvc_north_leg", "The Leg Nobody Flies", PAZZIK, CS, 36, 37, "windline",
+        "Windrider-Keeper Pazzik has flown freight out of Grom'gol since the camp had one post and a "
+        "rope, and the jungle leg used to cross the Veilfall basin because the basin gave his beasts a "
+        "lift up out of the trees.\n\nIt does not any more. The fall came up three years ago, the air "
+        "over it went cold and wrong, and now the north run goes the long way round and costs him a day "
+        "he does not get paid for. The lip perches where his wyverns used to set down have gone to the "
+        "bats out of the cave.",
+        [k("Limewing Bat", 10, zone=VF), explore(CS, 30, 78, 7),
+         deliver("zuljana_knot_bundle", "Put the wrap in Ghulrak's hands at Tarren Mill")],
+        "Ten of the limewings, and take them in the cave where they sleep, not on the perch where they "
+        "are awake and I have beasts on the ground.\n\nThen stand on the perch itself on the basin lip, "
+        "and feel the air coming off that water, and understand why I will not put a wyvern down "
+        "there.\n\nLast thing. This wrap goes up the line, and the line is me as far as the valley and "
+        "Ghulrak after that. Only I am not flying the basin and Ghulrak is not coming south for one "
+        "bundle, so the honest answer is that you are the middle of the line this week. Hand it to him "
+        "yourself.",
+        "Ghulrak turns the wrap over twice and holds it away from himself like something that has been "
+        "in a river.\n\n'No cargo number. No weight. No seal but a troll's name written in her own "
+        "hand.'\n\nHe puts it down on the rail anyway.\n\n'That is not freight. That is a favour, and I "
+        "have been on this line long enough to know the difference and to do them anyway. Pate is up at "
+        "the weir head. He has been waiting on somebody with more letters after their name than he has, "
+        "and you are not that, but you are carrying water, and that will do.'",
+        turn_in_npc_id=GHULRAK, nxt="stvc_sluice_book", requires_quests=["stvc_cord_sealed"],
+        grant_items=carry("zuljana_knot_bundle", "Zul'jana's Knot-Cord Bundle",
+                          "Five knotted cords, a folded sheet of readings and an oilcloth wrap, tied "
+                          "with a sailor's knot somebody in Grom'gol clearly had to be taught. The "
+                          "cords are still faintly damp.")))
+
+    A.append(Q("stvc_sluice_book", "What Pate Keeps In the Other Book", PATE, TM, 37, 38, "windline",
+        "Sluice-Keeper Pate raises and drops the gate on the Tarren Mill race, and when the gate goes "
+        "down the wheel stops and the whole valley learns his name inside an hour. He has done it for "
+        "twenty-two years and his predecessor's hand is in the front of the same book.\n\nHe has the "
+        "jungle's cords on the bench in front of him, weighted flat with a spanner, and he has read them "
+        "twice. What he has to say about them takes a while, and he would rather say it at the weir.",
+        [talk("the_board_and_the_book", "what_the_knots_say", "the_other_book"),
+         explore(TM, 40, 22, 7)],
+        "Come up to the weir head and ask me whatever you came to ask. I will not do this across a "
+        "doorway - I want the water making noise next to us while I say it, because a man can talk "
+        "himself into anything in a quiet room.\n\nMind the boards on the walkway. Two of them are new "
+        "and four of them are the ones I keep meaning to replace, and I have not yet managed to be the "
+        "man who fell in while explaining his own sluice.",
+        "There. Now you have had it from me standing next to the thing itself, which is the only way I "
+        "trust anything I say.\n\nTake the cords down to Aldous Reed at the mill. He has sixty years of "
+        "the same water in a ledger and a grandfather's hand before that, and he will do with these "
+        "what I cannot: tell you whether a river has ever behaved this way before and come back "
+        "down.\n\nI will say the one thing twice, since you are going to be repeating me. I am not "
+        "calling your numbers wrong. I am saying I cannot check them, and I am a man who checks.",
+        nxt="stvc_reed_verdict", requires_quests=["stvc_north_leg"]))
+
+    A.append(Q("stvc_reed_verdict", "Sixty Years of the Same Water", REED, CS, 37, 38, "windline",
+        "Aldous Reed's family has milled the Tarren Mill race for sixty years and written the height of "
+        "it down every week of them, in three hands, in one ledger. He has laid the jungle's cords "
+        "across his own columns and found the shape of them twice and not a third time.\n\nWhat he wants "
+        "now is a mark set at the far end, cut properly, by somebody who is going back there. A "
+        "measurement nobody can repeat is a story, and Reed does not keep stories in that book.",
+        [deliver("reed_sluice_board", "Set the marked board in the stone above the fall"),
+         explore(CS, 62, 46, 7), k("Spraywater Elemental", 8, zone=VF)],
+        "This is a gauge board. Oak, numbered, cut by my father and used for a weir that silted up "
+        "before you were born. Set it in the lip above your waterfall where the stone is sound, and set "
+        "it where a short person can read it, because the next one who reads it will not be "
+        "you.\n\nEight of the spray-things will come up out of the Font while you are working, because "
+        "they are made of exactly the water you are trying to measure. That is a sentence I have had to "
+        "say out loud to hear how it sounds.",
+        "Zul'jana reads Reed's note twice and then puts her hand flat on it.\n\n'Sixty years and the "
+        "same shape twice. Once in a melt year and once when a lake gave way upstream of him and "
+        "drained in a fortnight.\n\n'And then the third line, which is mine now. The water has been up "
+        "three years and has not come down, and the only way a river does that is if something new is "
+        "feeding it, and he writes that he has started dating his own book from the change because the "
+        "old dates stopped predicting anything.\n\n'He has turned your arrival into a unit of time. He "
+        "does not mean it unkindly. It is just the honest way to keep a book now, and I am going to have "
+        "to tell Mokra after all.'",
+        turn_in_npc_id=ZULJANA, requires_quests=["stvc_sluice_book"],
+        grant_items=carry("reed_sluice_board", "Reed's Gauge Board",
+                          "A length of numbered oak, the figures cut rather than painted, worn pale "
+                          "where sixty years of thumbs have found the same two numbers.")))
+    return A
+
+
+# =========================================================================================================
+# THE 18 -> 30 PASS - the rest of it, hung on the loose ends the first eighteen left.
+#
+# Every one of these answers something an earlier quest asked and did not finish: Zul'jana's two words
+# that mean the same thing, the centre gate that has opened twice in a season, the lamps nobody is
+# trimming now the Veilspeaker is dead, Garza's tenth report, Ulua's hands, and a nine-year-old who was
+# told no and has gone away and had a think about it.
+# =========================================================================================================
+def stonework():
+    A = []
+    A.append(Q("stvc_zultamo_courses", "What the Courses Are For", ZULTAMO, GA, 36, 37, "arena",
+        "Zul'jana sent you to the gatehouse with a question she had carried her whole life without "
+        "noticing: the Zul'Rath word for the Veilfall's water and the Gurbashi word for the arena's "
+        "sand are the same word.\n\nGatehouse Broker Zul'tamo's grandfather cut part of the wall this "
+        "list is nailed to. He is the third of his family to keep it, he has never been asked this, and "
+        "he puts his pen down, which for him is a considerable event.",
+        [talk("the_one_way", "the_uncut_faces", "the_word_for_sand"), explore(GA, 52, 26, 7)],
+        "Come down the stair with me and we will do this standing in it, because half of what I am "
+        "going to say is a thing you have to be looking at.\n\nStand at the foot of the stair first. "
+        "Not on it - at the foot, on the sand, where the ring opens both ways in front of you and you "
+        "will swear there is a choice.\n\nThen ask me, and I will answer the two of your three questions "
+        "I can answer, and be honest with you about the third one.",
+        "That is everything the gatehouse knows and I have just told you the end of it, which means "
+        "there is now one more person in the world who knows it than there was this morning.\n\nThe "
+        "rest is south, under the sea, in a hall my family stopped going to before my grandfather's "
+        "time. I have not been. I am sixty-one and I run a gate.\n\nIf you go and you come back, come "
+        "back here first. Not for the list. I would like to hear it from somebody who stood in it.",
+        requires_quests=["stvc_zuljana_names"]))
+
+    A.append(Q("stvc_centre_gate", "The Line With No Name In It", ZULTAMO, GA, 37, 38, "arena",
+        "The house opened the centre gate twice this season. The first one went through eleven days "
+        "before you did, and the gatehouse has his kit back - signed in, hung on a peg, counted - and "
+        "nothing to write on the line it belongs to.\n\nZul'tamo keeps the list because the list is the "
+        "only thing the Gurbashi have never let rot. A line with a kit and no name on it is the first "
+        "hole in it in three generations, and he will not leave it open.",
+        [k("Gurbashi Gatekeeper", 9), explore(GA, 76, 56, 6),
+         deliver("centre_gate_kitbag", "Hang the kitbag back on the gatehouse peg")],
+        "Take his bag down to the dead end and walk the gate mouth with it. Nine of the gate crew are "
+        "on that stretch and they will stop you, because stopping people in that mouth is the whole of "
+        "the post and it is older than my family.\n\nI want you to stand where he stood and then bring "
+        "the bag back up and hang it where it was. I am not asking you to find anything out. I have "
+        "asked, and the answer is that the rim does not remember a name because the board never had "
+        "one to print - he came through from somewhere else, there was nothing to put in the column, "
+        "and so the column went out blank.",
+        "On the peg. Good.\n\nHere is the entry I am going to write, and you are going to hear it "
+        "because you are the only person who will ever have stood in that mouth twice.\n\nA fighter of "
+        "no recorded house, passed the ring, entered the hall, did not come out. That is all of "
+        "it.\n\nA man came through from another world, walked down a stair nobody built for him, won "
+        "four rounds that nobody wrote down properly, and the honest entry is eleven words long. I have "
+        "kept this list my whole life and I did not know until this week that it was possible to be in "
+        "it and not be in it.",
+        requires_quests=["stvc_arena_favourite"],
+        grant_items=carry("centre_gate_kitbag", "A Signed-In Kitbag",
+                          "Canvas, buckled, counted in and tagged by the gate crew in a hand that has "
+                          "tagged thousands. Where the owner's house should be written there is a line "
+                          "and then nothing.")))
+
+    A.append(Q("stvc_drum_callers", "The Count Is the Clock", BEXXIL, CS, 34, 35, "arena",
+        "The drums are not music. The drums are the arena's clock: the rim prices a round in minutes, "
+        "and the minutes are whatever the drum crew says they are.\n\nTout Bexxil has three afternoons "
+        "of rounds that ran long by exactly the same amount, which is not how long is supposed to work, "
+        "and she has worked out what a drum-caller is being paid in. Not coin. Paper.",
+        [k("Gurbashi Drum-Caller", 9), fetch("undersized_stock_tally", 3)],
+        "Nine of the callers, out on the drum line east of the gate apron, and do it where the rim can "
+        "see which of them you are doing it to.\n\nThen three of the stock tallies, and you will have "
+        "to go back to the crates for those because that is where the paper comes from. Signed-in "
+        "weight is as good as coin down here and better than coin, because coin has to be counted by "
+        "somebody and a tally only has to be waved.\n\nIf I am wrong about this I have just had nine "
+        "musicians killed over a rounding error, so bring the paper.",
+        "Same hand on all three. Same hand as the drovers' book, which means the stock fraud and the "
+        "slow count are one scheme with two ends, and I have been pricing them as two different kinds "
+        "of bad luck for a season.\n\nI am not taking this to the house. The house takes a cut of both "
+        "ends.\n\nI am going to go on pricing it, now that I know which way it leans. That is not "
+        "honest and I am not going to pretend it is. It is just what a woman does with information she "
+        "paid for.",
+        requires_quests=["stvc_tout_entry"], salt="b"))
+    return A
+
+
+def basin_more():
+    A = []
+    A.append(Q("stvc_limeback_lamps", "Who Trims Them Now", ORDEK, VF, 36, 37, "veilfall",
+        "The sheet of the Veilfall went dark four nights after the Veilspeaker died, and Ordek Fenn has "
+        "sat on his camp stool and watched it be dark.\n\nHe spent two years telling himself there was "
+        "nobody behind the water. Now there is nobody behind the water, and he has worked out that the "
+        "difference between those two sentences is the whole of what he has done to this place.",
+        [k("Veilfall Limeback", 9, zone=VF), gather("veilfall_spray_moss", 6), explore(VF, 40, 70, 7)],
+        "The limebacks have come up off the lowest terrace now that there is nobody keeping them down "
+        "there. Nine of them, before they find the ramp. They are not the shrinekeepers and they will "
+        "not stop at the lip.\n\nSix more handfuls of the spray moss while you are on the band - I am "
+        "not going to pretend I have stopped selling it.\n\nAnd go down to the lowest terrace. The oil "
+        "is in a jar under the bracket, if nobody has knocked it over. I know where the jar is because "
+        "he told me, on the Wednesday, when I went in with a gift and came out without saying a word.",
+        "Lit. You lit them.\n\nI did not ask you to light them. I asked you to go down and look, and "
+        "you have gone down and done a dead man's evening chore, and now the water glows again and "
+        "every trader on the north road will go on believing it is the moonlight.\n\nI am going to keep "
+        "trimming them. That is the decision I have made while you were down there. Not as penance - I "
+        "have no faith in his water and he knew it. Because a lamp that somebody has kept lit for "
+        "generations should not go out over a tarp and a shoulder of dry rock.",
+        requires_quests=["stvc_veilspeaker"], salt="d"))
+
+    A.append(Q("stvc_ulua_cold_month", "The Water Is Going Sweet", ULUA, CS, 35, 36, "snapjaw",
+        "Netsetter Ulua's marsh is brackish. That is not an opinion about it; that is what the trade "
+        "is. Her nets, her mother's nets and her mother's mother's are all cut for fish that live where "
+        "the salt and the river argue.\n\nThe argument is being won. Something has been pushing fresh "
+        "water down into the standing marsh for about three years, and the catch has begun to come up "
+        "wrong, and she has worked out roughly when it started and has decided not to say so out loud.",
+        [gather("snapjaw_net_catch", 9), k("Snapjaw Leechswarm", 7), explore(CS, 34, 168, 7)],
+        "Nine lines this time, and not the near ones. The far set, down where the marsh stops being "
+        "mine and starts being whatever it is going to be.\n\nSeven of the leechswarms out of the slack "
+        "water first or you will lose fingers you have plans for.\n\nThen walk to the end of it. Past "
+        "the last stake, where the reeds change over from the grey kind to the green kind. I have known "
+        "that line my whole life and it has moved, and I would like somebody else to have stood on it "
+        "so that it is not just me saying so.",
+        "Green reed in eight of the nine. My mother would have thrown the whole set back.\n\nSo. The "
+        "line has moved, and you have stood on it, and now two of us know.\n\nHere is what I am going "
+        "to do about it, and I want you to hear it from me rather than from the Bay in a season. I am "
+        "going to go on setting nets in it until it stops paying, and then I am going to be a woman of "
+        "sixty with one trade and a marsh that does not have it any more.\n\nMy hands were going to "
+        "decide that for me anyway. The water has only got there first.",
+        requires_quests=["stvc_ulua_netsetter"], salt="f"))
+    return A
+
+
+def road_more():
+    A = []
+    A.append(Q("stvc_ganger_milepost", "Paid By the Furlong", DUBO, CS, 33, 34, "vineroad",
+        "Road-Ganger Dubo's gang is paid by the furlong, and a furlong is whatever the mileposts say it "
+        "is. The stones go in at the kerb line, cut faces north, and they have been in since his "
+        "father's gang.\n\nThree of them are in the wrong place. Not fallen - moved, reset, packed in "
+        "neatly with the cut faces turned, by somebody who knew exactly what the stones are for and "
+        "exactly who gets paid off them.",
+        [k("Bloodvine Raptor", 12), gather("vine_road_cut_vine", 5), explore(CS, 100, 120, 8)],
+        "Twelve of the raptors off the south stretch. They have come down onto the road since the ford "
+        "work and they go for a man who is kneeling, which is the whole of this job - kneeling.\n\nFive "
+        "good lengths out of the kerb line while you are down there, same as before.\n\nAnd stand at "
+        "the long milepost where the road bends south of the fork, and look at which way the cut face "
+        "is pointing. North is the camp. I have never in my life seen one of those stones turned, and I "
+        "have been looking at them since I was tall enough to read one.",
+        "Turned south. All three turned south, and packed in with new gravel, which means a tool and a "
+        "day and somebody's afternoon.\n\nSouth is the Bay. A stone turned south is a stretch of road "
+        "the Bay is paying for and the Gurbashi are not, and somebody has quietly made my gang the "
+        "Bay's gang for a mile and a half without mentioning it to me.\n\nI am not going to move them "
+        "back. I am going to find out who gets the invoice first, because if it is me I would like to "
+        "be the one asking the question rather than the one answering it.", salt="g"))
+
+    A.append(Q("stvc_notch_tithe", "What Came Up the Road", GARZA, CS, 36, 37, "moshogg",
+        "Watcher Garza's tenth report has the crate nail in it, and the crate nail says the Mosh'Ogg "
+        "and the arena gate have been trading up a road that goes nowhere but up.\n\nA report like that "
+        "goes to a tribunal, and a tribunal does not want a nail. It wants the goods on the midden, the "
+        "drovers who signed the weight at the other end, and a witness who can be stood up and asked "
+        "questions. She has been working out what she has got, and the arithmetic has not been "
+        "comfortable.",
+        [fetch("moshogg_midden_find", 4), k("Gurbashi Beast-Drover", 8)],
+        "Four more made things off the midden - the stamped ones, not the bones, same as last time. And "
+        "eight of the drovers at the crate line, because the trade has an end down there and I would "
+        "like the end down there to be short of hands when somebody finally reads my paper.\n\nI will "
+        "put it plainly, because you will work it out on the walk and I would rather you heard it from "
+        "me. I cannot put you in the report as the witness. A tribunal wants a name with a village "
+        "behind it and a commander who will stand up for it, and you have the first of those. You are "
+        "going to be the unnamed party who recovered the items. That is not what I think of you. It is "
+        "what the form has room for.",
+        "Four stamped, one of them twice, and a drover line that is going to be thin for a week. Good.\n\n"
+        "Here is the report, and you are in it, and you are in it as the unnamed party, and I have "
+        "signed under it that the items came to me in the condition described.\n\nThat sentence is me "
+        "staking my own post on your word. It is the largest thing I have got and it is a line of small "
+        "handwriting on the third page.\n\nEleven weeks ago I would not have written it. Sitting on one "
+        "road teaches you who actually comes up it.",
+        requires_quests=["stvc_garza_report"], salt="h"))
+    return A
+
+
+def bay_more():
+    A = []
+    A.append(Q("stvc_scrip_second", "Scrip Has Had a Think", SCRIP, CS, 33, 34, "arena",
+        "Scrip was told the big arena drums are crocolisk belly and the gorillas are the little ones "
+        "round the rim. He did not take it well.\n\nHe has had four days to consider it, and he has not "
+        "come round, and he has not dropped it either. What he has done is work out what would settle "
+        "it, which is more than most people in the Bay manage about anything.",
+        [talk("the_crocolisk_theory", "who_told_you_that", "what_he_would_do"),
+         k("Snapjaw Crocolisk", 9)],
+        "Right. I've got questions and I've written them on my hand, so don't go anywhere.\n\nAnd I "
+        "need nine of the marsh crocs done. Not for the hide - for how big the biggest one is. If the "
+        "biggest croc in that marsh isn't as wide across the belly as a drum is across the top, then "
+        "it can't be croc, can it, and then I'm right and Hobb's wrong and you're wrong too but mostly "
+        "Hobb.\n\nThat's called a test. Bexx told me about tests. He said most people don't do one "
+        "because they'd rather be right.",
+        "...fine.\n\nFine. It's croc. It's croc and I've had it wrong for two years and I told six "
+        "people.\n\nHe sits down on the crate he is not supposed to sit on.\n\n'Here's what I don't get "
+        "though. Everyone down here knows what the drums are made of. Nobody ever said. Not the "
+        "harbourmaster, not Bexx, not one sailor. They all just let me say gorilla for two years.'\n\nHe "
+        "looks up.\n\n'Was it funny? Is that it? Because I'd have told me.'",
+        requires_quests=["stvc_scrip_drums"], salt="i"))
+    return A
+
+
+# =========================================================================================================
 # DROPS
 # =========================================================================================================
 #: fetch/gather sources. Spread across two or three creatures each wherever the fiction allows it, so a
@@ -721,6 +1069,20 @@ FETCH_DROPS = {
     "Drumhide Gorilla": [("drumhide_hide_scrap", "Drumhide Scrap",
                           "Thick, grey and faintly dusty. It is not what the big drums are made of.",
                           0.48)],
+}
+
+#: ADDITIONAL sources for two items the 18 -> 30 pass leans on in corners the original source creature
+#: does not stand in. Staged, not merged - see main(). Neither row is anybody's only source.
+EXTRA_DROPS = {
+    # stvc_drum_callers' whole point is that the drum crew are being PAID in signed-in stock tallies,
+    # so a caller carrying one is the quest's thesis rather than a convenience.
+    "Gurbashi Drum-Caller": [("undersized_stock_tally", "Drover's Stock Tally",
+                              "Taken off a drummer, which is the part that should worry somebody.",
+                              0.40)],
+    # The bats roost in the Font and go through anything hanging in it. The cords hang in it.
+    "Limewing Bat": [("veilfall_tally_cord", "Veilfall Tally Cord",
+                      "Chewed at one end. The knots are intact, which is the only part that matters.",
+                      0.34)],
 }
 
 #: Quest-STARTER drops. The engine only rolls these while the quest is unstarted, unlocked and the item
@@ -790,7 +1152,7 @@ def audit(quests):
             if it.get("category") in ("material", "reagent", "trade_good"):
                 errs.append(f"{q['quest_id']}: {it['name']!r} is a crafting material")
         if any(o["type"] not in {"kill", "kill_boss", "fetch", "gather", "deliver", "explore", "craft",
-                                 "story"} for o in q["objectives"]):
+                                 "story", "dialogue"} for o in q["objectives"]):
             errs.append(f"{q['quest_id']}: unexpected objective type")
 
     ids = {q["quest_id"] for q in quests}
@@ -825,7 +1187,8 @@ def audit(quests):
 
 
 def main():
-    quests = (vine_road() + basin() + cave() + shelf() + marsh() + arena() + standalones())
+    quests = (vine_road() + basin() + cave() + shelf() + marsh() + arena() + standalones()
+              + knot_cord_line() + stonework() + basin_more() + road_more() + bay_more())
     audit(quests)
 
     OUT.write_text(json.dumps(
@@ -835,34 +1198,47 @@ def main():
                    "source is tools/quest_text_src/stranglethorn_central.txt.",
          "quests": quests}, indent=2, ensure_ascii=False) + "\n")
 
-    # SHARED FILE, RE-READ AT WRITE TIME. Northern and Southern are being written in parallel and all
-    # three passes append to this table, so it is loaded here and not a moment earlier.
-    dp = ROOT / "data/creatures/quest_drops.json"
-    drops = json.loads(dp.read_text())
-    # THE LOADERS READ data["drops"], NOT THE TOP LEVEL - both combat_engine._get_loot_item_drops and
-    # quest_locator.item_sources do json.load(f).get("drops", {}), so a creature key written beside
-    # "drops" instead of inside it is read by nothing and the item never drops. That shipped once and
-    # cost the Aspen pass two un-startable quests.
-    table = drops.setdefault("drops", drops)
-    for cre, rows in FETCH_DROPS.items():
-        cur = [d for d in table.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
-        for (iid, nm, desc, ch) in rows:
-            cur.append({"item_id": iid, "name": nm, "category": "quest", "description": desc,
-                        "chance": ch})
-        table[cre] = cur
-    for cre, rows in STARTER_DROPS.items():
-        cur = [d for d in table.get(cre, []) if d["item_id"] not in {r[0] for r in rows}]
-        for (iid, nm, desc, ch, qid) in rows:
-            cur.append({"item_id": iid, "name": nm, "category": "quest", "description": desc,
-                        "chance": ch, "starts_quest": qid})
-        table[cre] = cur
-    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    # DROPS GO TO STAGING NOW, NOT TO THE SHARED TABLE.
+    #
+    # FETCH_DROPS and STARTER_DROPS above were merged into data/creatures/quest_drops.json by the first
+    # eighteen and are live in it. Three agents are expanding Stranglethorn at once and three
+    # read-modify-writes of one json is how a creature's row silently loses an item, so this pass does
+    # not touch that file at all: the only NEW rows are EXTRA_DROPS, they go to a staging file, and Kyle
+    # merges the three staging files himself.
+    #
+    # Which is also why the twelve new quests ask for NO new quest item. Every fetch and gather they
+    # name is one of the thirteen item ids that is already in the shared table with a source creature,
+    # so none of them is waiting on that merge to be finishable - tools/audit_quests.py resolves all of
+    # them today. EXTRA_DROPS only widens where two of those items can be found, which is a quality
+    # improvement and nothing's blocker. Same reason there are no new item-starter quests in this pass:
+    # a starter drop cannot be staged and have the quest be startable.
+    sp = ROOT / "tools/staging_drops_stranglethorn_central.json"
+    staged = {}
+    for cre, rows in EXTRA_DROPS.items():
+        staged[cre] = [{"item_id": iid, "name": nm, "category": "quest", "description": desc,
+                        "chance": ch} for (iid, nm, desc, ch) in rows]
+    sp.write_text(json.dumps(
+        {"_notes": "STAGING, not loaded by the game. New Central Stranglethorn drop rows for the "
+                   "18 -> 30 pass (2026-10-30), to be merged into data/creatures/quest_drops.json "
+                   "under its 'drops' key by whoever merges the three Stranglethorn staging files. "
+                   "Merge by (creature, item_id): replace a row with the same item_id, keep the rest. "
+                   "Nothing in this file blocks a quest - every item here already has a source "
+                   "creature in the live table; these are additional sources in the subzones the new "
+                   "quests work in.",
+         "drops": staged}, indent=2, ensure_ascii=False) + "\n")
 
     chains = sum(1 for q in quests if q.get("next_quest_id"))
     starters = sum(1 for q in quests if str(q["giver_npc_id"]).startswith("item:"))
+    hist = {}
+    for q in quests:
+        for o in q["objectives"]:
+            hist[o["type"]] = hist.get(o["type"], 0) + 1
     print(f"Central Stranglethorn quests: {len(quests)} total, {chains} chained links, "
-          f"{starters} item-starters, {sum(len(v) for v in FETCH_DROPS.values())} fetch sources, "
-          f"{sum(len(v) for v in STARTER_DROPS.values())} starter drops")
+          f"{starters} item-starters, {sum(len(v) for v in FETCH_DROPS.values())} live fetch sources, "
+          f"{sum(len(v) for v in STARTER_DROPS.values())} live starter drops, "
+          f"{sum(len(v) for v in EXTRA_DROPS.values())} staged rows")
+    print("  objectives: " + ", ".join(f"{k_} {v}" for k_, v in sorted(hist.items(), key=lambda kv: -kv[1])))
+    print("  zones touched: " + ", ".join(sorted({q["zone"] for q in quests})))
 
 
 if __name__ == "__main__":

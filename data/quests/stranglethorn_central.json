@@ -112,7 +112,7 @@
       "reward_exp": 2360,
       "reward_gold": 9600,
       "accept_text": "You will want to know how a road works, so. There is a camber on it - the middle sits high and the water runs off the sides, and if the water does not run off the sides you have a river with ambitions. Kerb stone holds the camber. Vine comes through the kerb.\n\nCut me six good lengths of it out of the kerb line and put eight of the green adders off the verge while you are down there. They nest in the drainage. They should not be in the drainage.",
-      "turn_in_text": "You cleared the drains.\n\nI did not ask you to clear the drains. I explained the drains. Those are different and I am aware they are different.\n\nWhere you're from they would have been somebody else's drains, I expect. Down here the road is whoever last cut it.\n\nRight. Bexxil is up on the apron and she has been wanting a name. I will give her yours, and you can decide afterward whether that was a kindness.",
+      "turn_in_text": "You cleared the drains.\n\nI did not ask you to clear the drains. I explained the drains. Those are different and I am aware they are different.\n\nDown here the road is whoever last cut it, and tonight that was you, and I am not paying you for it.\n\nRight. Bexxil is up on the apron and she has been wanting a name. I will give her yours, and you can decide afterward whether that was a kindness.",
       "next_quest_id": "stvc_tout_entry",
       "unique_item_defs": [
         {
@@ -1184,7 +1184,7 @@
       "reward_exp": 3380,
       "reward_gold": 13650,
       "accept_text": "You come down the stair at the top of the ring and you will see you can only go one way round it. People tell visitors that is tradition. It is masonry. The two faces that would let you choose were never cut, three generations back, because the mason did not want the order to be a choice.\n\nFirst is Vek'tar, and his round is the one the rim likes, because it ends in a number of minutes everybody can count. Go at him and keep going - under a third he will drink the fight back out of you.\n\nThen the grate. Mok'tal keeps a fire under that floor and it never lapses, and he closes off whatever you were going to use to answer it. Nobody has ever made a patient fight of Mok'tal and come up the stair.",
-      "turn_in_text": "Two off the list.\n\nThe drum crew had you on the long count and they lost money on it, which I enjoyed. They keep a separate count for fighters who came through from somewhere else - you open too fast, all of you, every time, and it is not an opinion, it is a drumming problem. They have had to learn a second rhythm since your lot started coming down that stair.\n\nYou did not open too fast. I will tell them. They will not believe me.",
+      "turn_in_text": "Two off the list.\n\nThe drum crew had you on the long count and they lost money on it, which I enjoyed more than a man in my position should.\n\nUnderstand what the count is. It is not music and it is not ceremony - it is the clock the rim prices a round against, and a crew that has drummed three generations of these fights can tell you to the beat how a fighter will open. They had you opening fast. You did not.\n\nI will tell them. They will not believe me, and they will put you back on the long count tomorrow, because being wrong once is cheaper than re-learning a rhythm.",
       "next_quest_id": "stvc_arena_pair",
       "unique_item_defs": [
         {
@@ -1642,6 +1642,1137 @@
       "gear_reward_gear_level": 35,
       "gear_reward_rarity": "uncommon",
       "turn_in_npc_id": "bootybay_shipping_clerk"
+    },
+    {
+      "quest_id": "stvc_cord_sealed",
+      "title": "Not to the Overseer",
+      "giver_npc_id": "gromgol_troll_attache",
+      "zone": "veilfall_cave",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Zul'jana has the Font's readings and no intention of laying them on Overseer Mokra's table. Mokra writes everything down, and a thing written down in a garrison has to mean something by the end of the week.\n\nWhat the readings need is somebody whose whole trade is the height of water and who answers to nobody about it. There is no such person in this jungle. There is no such person in Grom'gol either, and she has checked.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "veilfall_tally_cord",
+          "count": 4
+        },
+        {
+          "type": "explore",
+          "target": "veilfall_cave",
+          "target_x": 58,
+          "target_y": 40,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Four more cords off the Font before I seal the bundle. Read this morning, not last month, so nobody can tell me afterward that my water is a season stale.\n\nThen go up to the lamp gallery above the plunge and stand on the terrace behind the brackets. There is a waterline on that stone, and there is a second one above it, and the gap between them is the only part of this you will be asked about by somebody who matters. Look at it with your own eyes. I am not sending an account of a thing you have not seen.",
+      "turn_in_text": "Sealed, and my name is on the wrap, which I thought about for longer than I am going to admit.\n\nThere is a mill in a valley a long way north of here where one family has written down the height of the same water for sixty years, and a man on the sluice above it who has had his hand on one crank for twenty-two. Neither of them has a commander.\n\nThat is who gets this. I am going round my own camp, in writing, with my name on it, and I would rather do that than hand Mokra a sentence she will have to act on by Thursday.",
+      "next_quest_id": "stvc_north_leg",
+      "unique_item_defs": [
+        {
+          "name": "Shrinekeeper's Veil",
+          "slot": "head",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Cold, and it stays cold a long way from the water.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "mp5": 1.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Lip-Stone Fists",
+          "slot": "hands",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It was inside the sheet of the fall, where the lamps are.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 84,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Shrinekeeper's Scepter",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Zul'Rath work, and the stitching argues with the damp and wins.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stvc_north_leg",
+      "title": "The Leg Nobody Flies",
+      "giver_npc_id": "gromgol_flight_master",
+      "zone": "central_stranglethorn",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Windrider-Keeper Pazzik has flown freight out of Grom'gol since the camp had one post and a rope, and the jungle leg used to cross the Veilfall basin because the basin gave his beasts a lift up out of the trees.\n\nIt does not any more. The fall came up three years ago, the air over it went cold and wrong, and now the north run goes the long way round and costs him a day he does not get paid for. The lip perches where his wyverns used to set down have gone to the bats out of the cave.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Limewing Bat",
+          "count": 10,
+          "zone": "veilfall_cave"
+        },
+        {
+          "type": "explore",
+          "target": "central_stranglethorn",
+          "target_x": 30,
+          "target_y": 78,
+          "radius": 7
+        },
+        {
+          "type": "deliver",
+          "target": "zuljana_knot_bundle",
+          "count": 1,
+          "label": "Put the wrap in Ghulrak's hands at Tarren Mill"
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Ten of the limewings, and take them in the cave where they sleep, not on the perch where they are awake and I have beasts on the ground.\n\nThen stand on the perch itself on the basin lip, and feel the air coming off that water, and understand why I will not put a wyvern down there.\n\nLast thing. This wrap goes up the line, and the line is me as far as the valley and Ghulrak after that. Only I am not flying the basin and Ghulrak is not coming south for one bundle, so the honest answer is that you are the middle of the line this week. Hand it to him yourself.",
+      "turn_in_text": "Ghulrak turns the wrap over twice and holds it away from himself like something that has been in a river.\n\n'No cargo number. No weight. No seal but a troll's name written in her own hand.'\n\nHe puts it down on the rail anyway.\n\n'That is not freight. That is a favour, and I have been on this line long enough to know the difference and to do them anyway. Pate is up at the weir head. He has been waiting on somebody with more letters after their name than he has, and you are not that, but you are carrying water, and that will do.'",
+      "next_quest_id": "stvc_sluice_book",
+      "unique_item_defs": [
+        {
+          "name": "Knot-Cord Girdle",
+          "slot": "waist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Jungle damp on one side of the seam and valley frost on the other.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.0
+          },
+          "armor_type": "mail",
+          "armor_value": 56,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Sluice-Keeper's Boots",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Jungle damp on one side of the seam and valley frost on the other.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Millrace Dirk",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Line kit. It has been at both ends of a long run and smells of both.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "tarren_mill_flight_master",
+      "requires_quests": [
+        "stvc_cord_sealed"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "zuljana_knot_bundle",
+            "name": "Zul'jana's Knot-Cord Bundle",
+            "description": "Five knotted cords, a folded sheet of readings and an oilcloth wrap, tied with a sailor's knot somebody in Grom'gol clearly had to be taught. The cords are still faintly damp.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stvc_sluice_book",
+      "title": "What Pate Keeps In the Other Book",
+      "giver_npc_id": "tarren_mill_sluice_keeper",
+      "zone": "tarren_mill",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Sluice-Keeper Pate raises and drops the gate on the Tarren Mill race, and when the gate goes down the wheel stops and the whole valley learns his name inside an hour. He has done it for twenty-two years and his predecessor's hand is in the front of the same book.\n\nHe has the jungle's cords on the bench in front of him, weighted flat with a spanner, and he has read them twice. What he has to say about them takes a while, and he would rather say it at the weir.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_board_and_the_book",
+            "what_the_knots_say",
+            "the_other_book"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "tarren_mill",
+          "target_x": 40,
+          "target_y": 22,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Come up to the weir head and ask me whatever you came to ask. I will not do this across a doorway - I want the water making noise next to us while I say it, because a man can talk himself into anything in a quiet room.\n\nMind the boards on the walkway. Two of them are new and four of them are the ones I keep meaning to replace, and I have not yet managed to be the man who fell in while explaining his own sluice.",
+      "turn_in_text": "There. Now you have had it from me standing next to the thing itself, which is the only way I trust anything I say.\n\nTake the cords down to Aldous Reed at the mill. He has sixty years of the same water in a ledger and a grandfather's hand before that, and he will do with these what I cannot: tell you whether a river has ever behaved this way before and come back down.\n\nI will say the one thing twice, since you are going to be repeating me. I am not calling your numbers wrong. I am saying I cannot check them, and I am a man who checks.",
+      "next_quest_id": "stvc_reed_verdict",
+      "unique_item_defs": [
+        {
+          "name": "Wind-Rider's Sabatons",
+          "slot": "feet",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Line kit. It has been at both ends of a long run and smells of both.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 86,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Wind-Rider's Chausses",
+          "slot": "legs",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Jungle damp on one side of the seam and valley frost on the other.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.2
+          },
+          "armor_type": "mail",
+          "armor_value": 115,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Wind-Rider's Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Pate's bench mended this, and Pate mends things to last longer than he will.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 59,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_north_leg"
+      ]
+    },
+    {
+      "quest_id": "stvc_reed_verdict",
+      "title": "Sixty Years of the Same Water",
+      "giver_npc_id": "tarren_mill_miller",
+      "zone": "central_stranglethorn",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "Aldous Reed's family has milled the Tarren Mill race for sixty years and written the height of it down every week of them, in three hands, in one ledger. He has laid the jungle's cords across his own columns and found the shape of them twice and not a third time.\n\nWhat he wants now is a mark set at the far end, cut properly, by somebody who is going back there. A measurement nobody can repeat is a story, and Reed does not keep stories in that book.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "reed_sluice_board",
+          "count": 1,
+          "label": "Set the marked board in the stone above the fall"
+        },
+        {
+          "type": "explore",
+          "target": "central_stranglethorn",
+          "target_x": 62,
+          "target_y": 46,
+          "radius": 7
+        },
+        {
+          "type": "kill",
+          "target": "Spraywater Elemental",
+          "count": 8,
+          "zone": "veilfall_cave"
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "This is a gauge board. Oak, numbered, cut by my father and used for a weir that silted up before you were born. Set it in the lip above your waterfall where the stone is sound, and set it where a short person can read it, because the next one who reads it will not be you.\n\nEight of the spray-things will come up out of the Font while you are working, because they are made of exactly the water you are trying to measure. That is a sentence I have had to say out loud to hear how it sounds.",
+      "turn_in_text": "Zul'jana reads Reed's note twice and then puts her hand flat on it.\n\n'Sixty years and the same shape twice. Once in a melt year and once when a lake gave way upstream of him and drained in a fortnight.\n\n'And then the third line, which is mine now. The water has been up three years and has not come down, and the only way a river does that is if something new is feeding it, and he writes that he has started dating his own book from the change because the old dates stopped predicting anything.\n\n'He has turned your arrival into a unit of time. He does not mean it unkindly. It is just the honest way to keep a book now, and I am going to have to tell Mokra after all.'",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Knot-Cord Handguards",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Line kit. It has been at both ends of a long run and smells of both.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.3
+          },
+          "armor_type": "plate",
+          "armor_value": 86,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Millrace Handguards",
+          "slot": "hands",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Wyvern hair in the stitching, worked in so deep that picking it out would be worse.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Wind-Rider's Hammer",
+          "slot": "main_hand",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Jungle damp on one side of the seam and valley frost on the other.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.9,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 70,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "gromgol_troll_attache",
+      "requires_quests": [
+        "stvc_sluice_book"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "reed_sluice_board",
+            "name": "Reed's Gauge Board",
+            "description": "A length of numbered oak, the figures cut rather than painted, worn pale where sixty years of thumbs have found the same two numbers.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stvc_zultamo_courses",
+      "title": "What the Courses Are For",
+      "giver_npc_id": "stvc_gurbashi_broker",
+      "zone": "gurbashi_arena",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Zul'jana sent you to the gatehouse with a question she had carried her whole life without noticing: the Zul'Rath word for the Veilfall's water and the Gurbashi word for the arena's sand are the same word.\n\nGatehouse Broker Zul'tamo's grandfather cut part of the wall this list is nailed to. He is the third of his family to keep it, he has never been asked this, and he puts his pen down, which for him is a considerable event.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_one_way",
+            "the_uncut_faces",
+            "the_word_for_sand"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "gurbashi_arena",
+          "target_x": 52,
+          "target_y": 26,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Come down the stair with me and we will do this standing in it, because half of what I am going to say is a thing you have to be looking at.\n\nStand at the foot of the stair first. Not on it - at the foot, on the sand, where the ring opens both ways in front of you and you will swear there is a choice.\n\nThen ask me, and I will answer the two of your three questions I can answer, and be honest with you about the third one.",
+      "turn_in_text": "That is everything the gatehouse knows and I have just told you the end of it, which means there is now one more person in the world who knows it than there was this morning.\n\nThe rest is south, under the sea, in a hall my family stopped going to before my grandfather's time. I have not been. I am sixty-one and I run a gate.\n\nIf you go and you come back, come back here first. Not for the list. I would like to hear it from somebody who stood in it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "House-Odds Leggings",
+          "slot": "legs",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Arena sand gets into everything down there and comes out of nothing.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 112,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Sand-Floor Bracers",
+          "slot": "wrist",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Bought out of a purse the rim paid into and nobody split.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Anticlockwise Dagger",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Three generations of gatehouse have signed something like this in and out again.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_zuljana_names"
+      ]
+    },
+    {
+      "quest_id": "stvc_centre_gate",
+      "title": "The Line With No Name In It",
+      "giver_npc_id": "stvc_gurbashi_broker",
+      "zone": "gurbashi_arena",
+      "level_min": 37,
+      "level_max": 38,
+      "description": "The house opened the centre gate twice this season. The first one went through eleven days before you did, and the gatehouse has his kit back - signed in, hung on a peg, counted - and nothing to write on the line it belongs to.\n\nZul'tamo keeps the list because the list is the only thing the Gurbashi have never let rot. A line with a kit and no name on it is the first hole in it in three generations, and he will not leave it open.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gurbashi Gatekeeper",
+          "count": 9,
+          "zone": "central_stranglethorn"
+        },
+        {
+          "type": "explore",
+          "target": "gurbashi_arena",
+          "target_x": 76,
+          "target_y": 56,
+          "radius": 6
+        },
+        {
+          "type": "deliver",
+          "target": "centre_gate_kitbag",
+          "count": 1,
+          "label": "Hang the kitbag back on the gatehouse peg"
+        }
+      ],
+      "reward_exp": 2680,
+      "reward_gold": 10800,
+      "accept_text": "Take his bag down to the dead end and walk the gate mouth with it. Nine of the gate crew are on that stretch and they will stop you, because stopping people in that mouth is the whole of the post and it is older than my family.\n\nI want you to stand where he stood and then bring the bag back up and hang it where it was. I am not asking you to find anything out. I have asked, and the answer is that the rim does not remember a name because the board never had one to print - he came through from somewhere else, there was nothing to put in the column, and so the column went out blank.",
+      "turn_in_text": "On the peg. Good.\n\nHere is the entry I am going to write, and you are going to hear it because you are the only person who will ever have stood in that mouth twice.\n\nA fighter of no recorded house, passed the ring, entered the hall, did not come out. That is all of it.\n\nA man came through from another world, walked down a stair nobody built for him, won four rounds that nobody wrote down properly, and the honest entry is eleven words long. I have kept this list my whole life and I did not know until this week that it was possible to be in it and not be in it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Anticlockwise Chain Belt",
+          "slot": "waist",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Arena sand gets into everything down there and comes out of nothing.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 57,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Sand-Floor Legplates",
+          "slot": "legs",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Bought out of a purse the rim paid into and nobody split.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 173,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Anticlockwise Charm",
+          "slot": "neck",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "required_level": 37,
+          "flavor_text": "Arena sand gets into everything down there and comes out of nothing.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.5
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 37,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_arena_favourite"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "centre_gate_kitbag",
+            "name": "A Signed-In Kitbag",
+            "description": "Canvas, buckled, counted in and tagged by the gate crew in a hand that has tagged thousands. Where the owner's house should be written there is a line and then nothing.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stvc_drum_callers",
+      "title": "The Count Is the Clock",
+      "giver_npc_id": "stvc_arena_tout",
+      "zone": "central_stranglethorn",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "The drums are not music. The drums are the arena's clock: the rim prices a round in minutes, and the minutes are whatever the drum crew says they are.\n\nTout Bexxil has three afternoons of rounds that ran long by exactly the same amount, which is not how long is supposed to work, and she has worked out what a drum-caller is being paid in. Not coin. Paper.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gurbashi Drum-Caller",
+          "count": 9,
+          "zone": "central_stranglethorn"
+        },
+        {
+          "type": "fetch",
+          "target": "undersized_stock_tally",
+          "count": 3
+        }
+      ],
+      "reward_exp": 2440,
+      "reward_gold": 9900,
+      "accept_text": "Nine of the callers, out on the drum line east of the gate apron, and do it where the rim can see which of them you are doing it to.\n\nThen three of the stock tallies, and you will have to go back to the crates for those because that is where the paper comes from. Signed-in weight is as good as coin down here and better than coin, because coin has to be counted by somebody and a tally only has to be waved.\n\nIf I am wrong about this I have just had nine musicians killed over a rounding error, so bring the paper.",
+      "turn_in_text": "Same hand on all three. Same hand as the drovers' book, which means the stock fraud and the slow count are one scheme with two ends, and I have been pricing them as two different kinds of bad luck for a season.\n\nI am not taking this to the house. The house takes a cut of both ends.\n\nI am going to go on pricing it, now that I know which way it leans. That is not honest and I am not going to pretend it is. It is just what a woman does with information she paid for.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gurbashi Slippers",
+          "slot": "feet",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Somebody won this in a round the board had priced the other way.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Boots (Int/Sta/SP)"
+        },
+        {
+          "name": "Sand-Floor Boots",
+          "slot": "feet",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Three generations of gatehouse have signed something like this in and out again.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gurbashi Ring",
+          "slot": "ring",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Somebody won this in a round the board had priced the other way.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_tout_entry"
+      ]
+    },
+    {
+      "quest_id": "stvc_limeback_lamps",
+      "title": "Who Trims Them Now",
+      "giver_npc_id": "stvc_basin_herbalist",
+      "zone": "veilfall_cave",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "The sheet of the Veilfall went dark four nights after the Veilspeaker died, and Ordek Fenn has sat on his camp stool and watched it be dark.\n\nHe spent two years telling himself there was nobody behind the water. Now there is nobody behind the water, and he has worked out that the difference between those two sentences is the whole of what he has done to this place.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Veilfall Limeback",
+          "count": 9,
+          "zone": "veilfall_cave"
+        },
+        {
+          "type": "gather",
+          "target": "veilfall_spray_moss",
+          "count": 6
+        },
+        {
+          "type": "explore",
+          "target": "veilfall_cave",
+          "target_x": 40,
+          "target_y": 70,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "The limebacks have come up off the lowest terrace now that there is nobody keeping them down there. Nine of them, before they find the ramp. They are not the shrinekeepers and they will not stop at the lip.\n\nSix more handfuls of the spray moss while you are on the band - I am not going to pretend I have stopped selling it.\n\nAnd go down to the lowest terrace. The oil is in a jar under the bracket, if nobody has knocked it over. I know where the jar is because he told me, on the Wednesday, when I went in with a gift and came out without saying a word.",
+      "turn_in_text": "Lit. You lit them.\n\nI did not ask you to light them. I asked you to go down and look, and you have gone down and done a dead man's evening chore, and now the water glows again and every trader on the north road will go on believing it is the moonlight.\n\nI am going to keep trimming them. That is the decision I have made while you were down there. Not as penance - I have no faith in his water and he knew it. Because a lamp that somebody has kept lit for generations should not go out over a tarp and a shoulder of dry rock.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lip-Stone Treads",
+          "slot": "feet",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Cold, and it stays cold a long way from the water.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Lip-Stone Breastplate",
+          "slot": "chest",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Cold, and it stays cold a long way from the water.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Shrinekeeper's Rod",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Limestone dust has set in the weave and gone faintly hard.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.5,
+            "crit_chance_spell": 0.1
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_veilspeaker"
+      ]
+    },
+    {
+      "quest_id": "stvc_ulua_cold_month",
+      "title": "The Water Is Going Sweet",
+      "giver_npc_id": "stvc_marsh_fisher",
+      "zone": "central_stranglethorn",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Netsetter Ulua's marsh is brackish. That is not an opinion about it; that is what the trade is. Her nets, her mother's nets and her mother's mother's are all cut for fish that live where the salt and the river argue.\n\nThe argument is being won. Something has been pushing fresh water down into the standing marsh for about three years, and the catch has begun to come up wrong, and she has worked out roughly when it started and has decided not to say so out loud.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "snapjaw_net_catch",
+          "count": 9
+        },
+        {
+          "type": "kill",
+          "target": "Snapjaw Leechswarm",
+          "count": 7,
+          "zone": "central_stranglethorn"
+        },
+        {
+          "type": "explore",
+          "target": "central_stranglethorn",
+          "target_x": 34,
+          "target_y": 168,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Nine lines this time, and not the near ones. The far set, down where the marsh stops being mine and starts being whatever it is going to be.\n\nSeven of the leechswarms out of the slack water first or you will lose fingers you have plans for.\n\nThen walk to the end of it. Past the last stake, where the reeds change over from the grey kind to the green kind. I have known that line my whole life and it has moved, and I would like somebody else to have stood on it so that it is not just me saying so.",
+      "turn_in_text": "Green reed in eight of the nine. My mother would have thrown the whole set back.\n\nSo. The line has moved, and you have stood on it, and now two of us know.\n\nHere is what I am going to do about it, and I want you to hear it from me rather than from the Bay in a season. I am going to go on setting nets in it until it stops paying, and then I am going to be a woman of sixty with one trade and a marsh that does not have it any more.\n\nMy hands were going to decide that for me anyway. The water has only got there first.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Snapjaw Cape",
+          "slot": "back",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Net-weave, and laid by hands that have done it for forty years.",
+          "primary_stats": {
+            "strength": 2,
+            "agility": 2,
+            "stamina": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Netsetter's Circlet",
+          "slot": "head",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Net-weave, and laid by hands that have done it for forty years.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 3.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Helm (Int/Spi/HP)"
+        },
+        {
+          "name": "Snapjaw Blade",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Brackish water has been in and out of this more times than anybody counted.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_ulua_netsetter"
+      ]
+    },
+    {
+      "quest_id": "stvc_ganger_milepost",
+      "title": "Paid By the Furlong",
+      "giver_npc_id": "stvc_road_ganger",
+      "zone": "central_stranglethorn",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Road-Ganger Dubo's gang is paid by the furlong, and a furlong is whatever the mileposts say it is. The stones go in at the kerb line, cut faces north, and they have been in since his father's gang.\n\nThree of them are in the wrong place. Not fallen - moved, reset, packed in neatly with the cut faces turned, by somebody who knew exactly what the stones are for and exactly who gets paid off them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodvine Raptor",
+          "count": 12,
+          "zone": "central_stranglethorn"
+        },
+        {
+          "type": "gather",
+          "target": "vine_road_cut_vine",
+          "count": 5
+        },
+        {
+          "type": "explore",
+          "target": "central_stranglethorn",
+          "target_x": 100,
+          "target_y": 120,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "Twelve of the raptors off the south stretch. They have come down onto the road since the ford work and they go for a man who is kneeling, which is the whole of this job - kneeling.\n\nFive good lengths out of the kerb line while you are down there, same as before.\n\nAnd stand at the long milepost where the road bends south of the fork, and look at which way the cut face is pointing. North is the camp. I have never in my life seen one of those stones turned, and I have been looking at them since I was tall enough to read one.",
+      "turn_in_text": "Turned south. All three turned south, and packed in with new gravel, which means a tool and a day and somebody's afternoon.\n\nSouth is the Bay. A stone turned south is a stretch of road the Bay is paying for and the Gurbashi are not, and somebody has quietly made my gang the Bay's gang for a mile and a half without mentioning it to me.\n\nI am not going to move them back. I am going to find out who gets the invoice first, because if it is me I would like to be the one asking the question rather than the one answering it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Milepost Vest",
+          "slot": "chest",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Bloodvine takes the cut back in nine days. This has been cut back off it twice.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.3
+          },
+          "armor_type": "leather",
+          "armor_value": 64,
+          "label": "Leather Chest (Agi/Sta/AP)"
+        },
+        {
+          "name": "Drover's Sash",
+          "slot": "waist",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Worn by somebody paid by the furlong and not by the hour.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 1.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Belt (Int/Sta/SP)"
+        },
+        {
+          "name": "Milepost Talisman",
+          "slot": "neck",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Green stains in the seams that no amount of river will shift.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stvc_notch_tithe",
+      "title": "What Came Up the Road",
+      "giver_npc_id": "stvc_shelf_watcher",
+      "zone": "central_stranglethorn",
+      "level_min": 36,
+      "level_max": 37,
+      "description": "Watcher Garza's tenth report has the crate nail in it, and the crate nail says the Mosh'Ogg and the arena gate have been trading up a road that goes nowhere but up.\n\nA report like that goes to a tribunal, and a tribunal does not want a nail. It wants the goods on the midden, the drovers who signed the weight at the other end, and a witness who can be stood up and asked questions. She has been working out what she has got, and the arithmetic has not been comfortable.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "moshogg_midden_find",
+          "count": 4
+        },
+        {
+          "type": "kill",
+          "target": "Gurbashi Beast-Drover",
+          "count": 8,
+          "zone": "central_stranglethorn"
+        }
+      ],
+      "reward_exp": 2600,
+      "reward_gold": 10500,
+      "accept_text": "Four more made things off the midden - the stamped ones, not the bones, same as last time. And eight of the drovers at the crate line, because the trade has an end down there and I would like the end down there to be short of hands when somebody finally reads my paper.\n\nI will put it plainly, because you will work it out on the walk and I would rather you heard it from me. I cannot put you in the report as the witness. A tribunal wants a name with a village behind it and a commander who will stand up for it, and you have the first of those. You are going to be the unnamed party who recovered the items. That is not what I think of you. It is what the form has room for.",
+      "turn_in_text": "Four stamped, one of them twice, and a drover line that is going to be thin for a week. Good.\n\nHere is the report, and you are in it, and you are in it as the unnamed party, and I have signed under it that the items came to me in the condition described.\n\nThat sentence is me staking my own post on your word. It is the largest thing I have got and it is a line of small handwriting on the third page.\n\nEleven weeks ago I would not have written it. Sitting on one road teaches you who actually comes up it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rockthrower's Mantle",
+          "slot": "back",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Ogre-made and ogre-sized. The straps are all new.",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "leather",
+          "armor_value": 28,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Notch-Guard Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "It came off the one road up, which is the whole of anybody's claim to that rock.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 6.3
+          },
+          "armor_type": "plate",
+          "armor_value": 126,
+          "label": "Plate Shoulders (Sta/Block/BV)"
+        },
+        {
+          "name": "Midden-Found Rod",
+          "slot": "main_hand",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "required_level": 36,
+          "flavor_text": "Found in a midden with a great deal of less interesting rubbish.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "weapon_damage_min": 43,
+          "weapon_damage_max": 58,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 36,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_garza_report"
+      ]
+    },
+    {
+      "quest_id": "stvc_scrip_second",
+      "title": "Scrip Has Had a Think",
+      "giver_npc_id": "bootybay_street_kid",
+      "zone": "central_stranglethorn",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Scrip was told the big arena drums are crocolisk belly and the gorillas are the little ones round the rim. He did not take it well.\n\nHe has had four days to consider it, and he has not come round, and he has not dropped it either. What he has done is work out what would settle it, which is more than most people in the Bay manage about anything.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_crocolisk_theory",
+            "who_told_you_that",
+            "what_he_would_do"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Snapjaw Crocolisk",
+          "count": 9,
+          "zone": "central_stranglethorn"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "Right. I've got questions and I've written them on my hand, so don't go anywhere.\n\nAnd I need nine of the marsh crocs done. Not for the hide - for how big the biggest one is. If the biggest croc in that marsh isn't as wide across the belly as a drum is across the top, then it can't be croc, can it, and then I'm right and Hobb's wrong and you're wrong too but mostly Hobb.\n\nThat's called a test. Bexx told me about tests. He said most people don't do one because they'd rather be right.",
+      "turn_in_text": "...fine.\n\nFine. It's croc. It's croc and I've had it wrong for two years and I told six people.\n\nHe sits down on the crate he is not supposed to sit on.\n\n'Here's what I don't get though. Everyone down here knows what the drums are made of. Nobody ever said. Not the harbourmaster, not Bexx, not one sailor. They all just let me say gorilla for two years.'\n\nHe looks up.\n\n'Was it funny? Is that it? Because I'd have told me.'",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Anticlockwise Sabatons",
+          "slot": "feet",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Bought out of a purse the rim paid into and nobody split.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "defense_rating": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 77,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Sand-Floor Gauntlets",
+          "slot": "hands",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Somebody won this in a round the board had priced the other way.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.5,
+            "parry_rating": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 32,
+          "label": "Leather Gloves (Dodge/Parry)"
+        },
+        {
+          "name": "Anticlockwise Band",
+          "slot": "ring",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Arena sand gets into everything down there and comes out of nothing.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stvc_scrip_drums"
+      ]
     }
   ]
 }

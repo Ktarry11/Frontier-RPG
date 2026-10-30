@@ -1,0 +1,23 @@
+{
+  "_notes": "STAGING, not loaded by the game. New Central Stranglethorn drop rows for the 18 -> 30 pass (2026-10-30), to be merged into data/creatures/quest_drops.json under its 'drops' key by whoever merges the three Stranglethorn staging files. Merge by (creature, item_id): replace a row with the same item_id, keep the rest. Nothing in this file blocks a quest - every item here already has a source creature in the live table; these are additional sources in the subzones the new quests work in.",
+  "drops": {
+    "Gurbashi Drum-Caller": [
+      {
+        "item_id": "undersized_stock_tally",
+        "name": "Drover's Stock Tally",
+        "category": "quest",
+        "description": "Taken off a drummer, which is the part that should worry somebody.",
+        "chance": 0.4
+      }
+    ],
+    "Limewing Bat": [
+      {
+        "item_id": "veilfall_tally_cord",
+        "name": "Veilfall Tally Cord",
+        "category": "quest",
+        "description": "Chewed at one end. The knots are intact, which is the only part that matters.",
+        "chance": 0.34
+      }
+    ]
+  }
+}
