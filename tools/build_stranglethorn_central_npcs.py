@@ -139,7 +139,16 @@ def snap(reach, ax, ay):
                      f"the layout has moved under this roster")
 
 
-def main():
+def main(check_only=False):
+    """--check runs the snap and prints the drift WITHOUT writing anything.
+
+    WHY THAT FLAG EXISTS (2026-10-30). The 18 -> 30 quest pass adds no NPC - all twelve new quests are
+    given by people already in a roster, which is also why there is no staging_npcs file for this zone.
+    But the snap is still the zone's regression test: if a prop moves, a clearing shrinks or the thicket
+    noise reseeds, these six anchors move with it and somebody needs to know. Meanwhile three agents are
+    expanding Stranglethorn at once and data/npcs/ambient_npcs.json belongs to all of them, so running
+    the test must not mean rewriting a shared file for no reason. So: --check tests, no flag writes.
+    """
     _zone, reach = built()
 
     rows, report = [], []
@@ -150,6 +159,18 @@ def main():
                      # offset so six people standing in one zone are not six copies of one sprite
                      "appearance_variant": (i * 7 + 2) % 24, "facing": "down"})
         report.append((nid, anchor, (x, y), max(abs(x - anchor[0]), abs(y - anchor[1]))))
+
+    if check_only:
+        print("CHECK ONLY - nothing written.")
+        for nid, anchor, got, drift in report:
+            flag = "  <-- MOVED" if drift else ""
+            print(f"  {nid:<24} anchor {str(anchor):<11} -> {str(got):<11} snapped {drift}{flag}")
+        live = {e["npc_id"]: (e["x"], e["y"]) for e in
+                json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]}
+        drifted = [e["npc_id"] for e in rows if live.get(e["npc_id"]) != (e["x"], e["y"])]
+        print(f"  {len(rows) - len(drifted)}/{len(rows)} agree with the shipped roster"
+              + (f"; DISAGREE: {drifted}" if drifted else ""))
+        return
 
     # APPEND-ONLY, RE-READ AT WRITE TIME. Three agents are writing Stranglethorn at once and this file
     # belongs to all of them, so it is read here and not a moment earlier.
@@ -169,4 +190,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(check_only="--check" in sys.argv)

@@ -76,19 +76,16 @@ Commercial indifference and private grievance in one town is the version of this
 do.  It is never the subject.
 
 Kyle's correction (2026-10-30): the first twenty carried it in fourteen, which is seventy per cent and
-makes a note into the theme.  The target is roughly thirty.  So three of the ten new quests carry it
-and no more, the three that do are all conversations where the grievance is the content rather than an
-aside, and three of the original fourteen have come off the list: bb_barons_name and bb_the_salvage
-each lost one line of "you will not know, being from where you are from", which was the same tic twice
-and did no work either time, and bb_pit_stock was never really carrying it - Kolk's consignment is four
-years old because that is how long ago he was paid by the head, which dates a man's working life and
-not the merge.  See EARTH at the bottom, which is the list the build output counts.  That lands at
-fourteen of thirty, not nine: getting to nine means trimming five more, and the five are named in
-EARTH_TRIM_CANDIDATES rather than cut on my own initiative.  It shows up as:
-  * Nizzik not writing down where anyone is from, and saying so as a fee schedule
+makes a note into the theme.  Thirty per cent is the standard, and it applies per zone - Northern
+Stranglethorn is on the same number.  So this file is NINE OF THIRTY.  Three of the ten new quests
+carry it and no more, and the three that do are all conversations where the grievance is the content
+rather than an aside; eight of the original fourteen came off the list in two rounds, one clause each,
+and EARTH at the bottom of this file records every cut and why.  Read that list before adding any of
+them back, because every one of those clauses looks harmless on its own and the sum of them is what
+made the zone read as being about the Integration.  It shows up as:
   * Weezel assuming you cannot read a Cartel seal, being from where you are from
-  * Sprocket asking where you were when it happened and not waiting for the answer
-  * Zan'rek correcting your word for the ruin.  Twice.  He has a name for it.  Several
+  * Nizzik, at the end of the tariff chain, on why she will not start a list of who came in
+  * Oona: yours came out of the sky, mine came out of a shipyard, and only one of us is in a cage
   * Scrip asking whether it is true that carts move without animals where you come from, flat
   * The Quiet Man, who knew which boat and knew which year - and who now sits down and says out loud
     what the book is for, which is the one place in the pass where the grievance gets a whole quest
@@ -326,8 +323,8 @@ def tariff():
         "and walk the whole apron, not the first ten yards of it. I will mark you paid when the carters "
         "stop leaving loads in the trees.",
         "Paid. You are on the boards and nobody can put you off them, which is the whole of what you "
-        "bought.\n\nAnd before you ask: no, I did not write down where you came in from. The Baron has "
-        "never asked me to and I have never offered. The fee is the same whoever is holding it out. "
+        "bought.\n\nAnd before you ask: no, I do not keep a book of who comes up this ramp. The Baron "
+        "has never asked me to and I have never offered. The fee is the same whoever is holding it out. "
         "That is not a courtesy, it is a schedule, but you will not get even the schedule in Ratchet.",
         nxt="bb_barons_name"))
 
@@ -453,9 +450,9 @@ def bloodsail():
         [explore(SSK, 68, 161, 8), k("Bloodsail Cannoneer", 6)],
         "Walk out on the bars at low water. You can do it, that is what a bar is, and the cannoneers "
         "will shoot at you the whole way, so thin them first or be fast.\n\nI want the third wreck "
-        "looked at. Not the two fresh ones, I know what is in those. The old one, out on the east bar. "
-        "Where were you when the ground changed? Never mind. Nobody was anywhere useful. Just go and "
-        "look at the hull and come back.",
+        "looked at. Not the two fresh ones, I know what is in those. The old one, out on the east bar, "
+        "and I want a pair of eyes on it that have never had a reason to lie to me. Go and look at the "
+        "hull and come back.",
         "Cartel colours under the barnacle. I thought so and I hoped not.\n\nThat hull went north out "
         "of this cove with company coin in it three years ago and never arrived, and the bar it is "
         "sitting on did not exist when it sailed. So either it hit something that was not there yet or "
@@ -511,8 +508,8 @@ def bloodsail():
         "be putting in writing.",
         [k("Bloodsail Bosun", 10), k("Bloodsail Cannoneer", 8), explore(SSK, 81, 149, 8)],
         "Four hulls, nine hundred ton together, standing off the east bar from Thursday's ebb. They "
-        "have no escort because an escort costs more than the cargo is worth and the Baron did the "
-        "arithmetic himself.\n\nThin the bosuns and the gun crews on the water side, not the camp. The "
+        "are coming in unguarded, because a hired gun hull costs more than the cargo is worth and the "
+        "Baron did that arithmetic himself.\n\nThin the bosuns and the gun crews on the water side, not the camp. The "
         "camp can sit there and be counted. I want the Thursday tide quiet and I want the beach track "
         "walked so the carters will use it in the dark.",
         "Four hulls in, nine hundred ton, nobody hurt, and I will not be thanking you for it because "
@@ -545,8 +542,8 @@ def kundaraz():
         "Standing, and you cut the vine off the seaward face, which is the face I need. That is a hull "
         "a decade instead of a hull a season and you will never meet the crews it is for.\n\nAnd you "
         "said it right the second time. Zul'Kundaraz. Kundaraz is the water coming up. Not the sea, the "
-        "water coming up. The city is named for the thing you people call a flood and it was named that "
-        "on purpose, by the people who built it, and nobody in that port has ever once asked me what it "
+        "water coming up. The city is named for a flood and it was named that on purpose, by the "
+        "people who built it, and nobody in that port has ever once asked me what it "
         "meant.",
         nxt="bb_stoneshapers"))
 
@@ -587,8 +584,8 @@ def kundaraz():
         "for the tide. The sills are chamfered inward, the halls have overflow courses at the top of "
         "the wall, and there are weirs in the junctions. Nobody drains a hall they built to be dry.\n\n"
         "The sea did not take Zul'Kundaraz. Zul'Kundaraz was given the sea. Then the sea came a hand "
-        "and a half further than it was given, and that part is new, and that part is not the masons' "
-        "doing. I will file it. Mind the step on your way off the platform.",
+        "and a half further than it was given, and that part is new. I will file it. Mind the step on "
+        "your way off the platform.",
         requires_quests=["bb_stoneshapers"]))
 
     A.append(Q("bb_what_the_vine_keeps", "What the Vine Keeps", QUIET, BB, 40, 41, "kundaraz",
@@ -652,8 +649,9 @@ def drowned():
         "which is a thing worth knowing before rather than after.",
         "A hand and a half over a line that somebody cut on purpose, in stone, expecting to be right "
         "about it for a thousand years.\n\nIn three years. That is the number. Not since the masons, "
-        "not since the trolls left. In three years.\n\nI am going to put it on the board as three years "
-        "and let whoever reads the board do the rest of it themselves. Clear to the cape, by the way. "
+        "not since the trolls left. In three years.\n\nI am going to put it on the board with the date "
+        "beside it, because writing it down is what a board is for and the rest of it is somebody "
+        "else's arithmetic. Clear to the cape, by the way. "
         "Which only means I cannot see them yet.",
         nxt="bb_tidecallers"))
 
@@ -1248,54 +1246,65 @@ def audit(quests):
     print(f"    capstones    {', '.join(CAPSTONES)} at 500 each")
     print(f"    earth note   {earth}/{len(quests)} quests carry the transplant undercurrent "
           f"({earth / len(quests):.0%}; target is 30%)")
-    print(f"    earth trim   next five, if Kyle wants 9/30: {', '.join(EARTH_TRIM_CANDIDATES)}")
+    print(f"    earth trim   {', '.join(EARTH_TRIM_CANDIDATES) if EARTH_TRIM_CANDIDATES else 'nothing queued - on target, see EARTH'}")
 
 
 #: The quests that carry the Earth-transplant undercurrent.  Kept as data so the count in the build
 #: output is not a thing somebody has to recount by hand later.
 EARTH = {
-    "bb_landing_fee",            # Nizzik does not write down where anyone is from, and says it as a schedule
     "bb_weezels_paperwork",      # Weezel picks you BECAUSE you cannot read a Cartel seal
     "bb_the_fee_explained",      # a list like that is a thing somebody uses later
-    "bb_three_wrecks",           # Sprocket asks where you were when it happened and does not wait
     "bb_oonas_name",             # yours came out of the sky, mine came out of a shipyard
-    "bb_kundaraz_road",          # Zan'rek corrects your word for the ruin, twice, and then tells you why
     "bb_stoneshapers",           # Scrip asks whether carts really move without animals. Flat
-    "bb_three_generations",      # the hand and a half is not the masons' doing, and Zekki dates it
     "bb_what_the_vine_keeps",    # I know which boat and I know which year, and so does every third person
-    "bb_the_water_came_further",  # Minzi says "in three years" and then says it again
     "bb_marlas_pot",             # Marla, warmly fine with you, and the one hot-water question
-    # ---- the three new ones, and all three are conversations where the grievance IS the content
+    # ---- the three new ones, and all three are conversations where the grievance IS the content.
+    # These are the zone's reason for having any of this at all and they are not to be trimmed.
     "bb_quiet_mans_ledger",      # the book, who comes asking after it, and why he will not sell it
     "bb_marlas_question",        # she finally gets her answer, sitting down, and gives one back
     "bb_kundaraz_means",         # "I would rather it had been a troll", said kindly and meant exactly
 }
 
-#: TRIMMED OFF THE LIST THIS PASS, and why - kept so the next reader does not re-add them by instinct.
-#:   bb_barons_name   the tension was "you will not know how a harbour works, so I will do this
-#:                    slowly", which is condescension about the player's origin doing no plot work.
-#:                    Rewritten as condescension about everybody, which is more in character anyway.
-#:   bb_the_salvage   "you will not know what you are looking at" - the identical tic, ninety lines
-#:                    later.  Same fix.
-#:   bb_pit_stock     not a reclassification I had to argue with: Kolk's four years date his own
-#:                    working life and a goblin consignment, which is the integration_timeline test
-#:                    for a span that is allowed to be any length, and nothing in that quest is about
-#:                    where the player is from.  It was on the list by mistake.
-
-#: THE GAP I AM NOT CLOSING ON MY OWN.  Fourteen of thirty is forty-seven per cent, not thirty.
-#: Getting to nine of thirty means trimming five more, and these are the five I would trim, weakest
-#: first - every one of them is a single clause, and in each case the quest works without it:
-#:   bb_three_wrecks            "Where were you when the ground changed? Never mind." An aside in the
-#:                              middle of an accept that is otherwise about a bar that moved.
-#:   bb_the_water_came_further  Minzi's "in three years" twice is really the Integration's DATE, which
-#:                              the zone needs; the tension is only in the repetition.
-#:   bb_three_generations       the hand and a half not being the masons' doing is lore, not grievance.
-#:   bb_landing_fee             Nizzik's closing paragraph is the best single piece of it in the pass,
-#:                              which is exactly why it should be one of the last to go.
-#:   bb_kundaraz_road           Zan'rek correcting you twice is now paid off by bb_kundaraz_means, so
-#:                              the correction could read as pilot's pedantry and lose nothing.
-EARTH_TRIM_CANDIDATES = ("bb_three_wrecks", "bb_the_water_came_further", "bb_three_generations",
-                         "bb_landing_fee", "bb_kundaraz_road")
+#: NINE OF THIRTY = 30%, which is the standard Kyle set on 2026-10-30 and which applies per zone -
+#: Northern Stranglethorn landed on the same number.  Eight quests came off the original fourteen in
+#: two rounds.  Written down because the instinct of every later pass will be to put them back, and
+#: because in each case the clause was the ONLY Earth content in the quest: nothing below lost a beat
+#: of plot, and every cut sentence still closes in the speaker's own voice.
+#:
+#: ROUND ONE - the "you will not know, being from where you're from" tic, which was the same joke
+#: three times and did no work any of the three:
+#:   bb_barons_name             "You will not know how a harbour works, so I will do this slowly" ->
+#:                              "because everybody has it wrong and most of them keep it".  More in
+#:                              character for the Baron anyway: his contempt is not selective.
+#:   bb_the_salvage             "You will not know what you are looking at" -> "Nobody gets this right
+#:                              the first time".  Vella is explaining a trade, not an origin.
+#:   bb_pit_stock               never actually carrying it.  Kolk's four years date his own working
+#:                              life and a goblin consignment, which is the integration_timeline test
+#:                              for a span allowed to be any length.  On the list by mistake.
+#:
+#: ROUND TWO - the five I had flagged as next, all taken, weakest first:
+#:   bb_three_wrecks            "Where were you when the ground changed? Never mind. Nobody was
+#:                              anywhere useful." -> "I want a pair of eyes on it that have never had
+#:                              a reason to lie to me", which is Sprocket's established trait (his
+#:                              tower keeps "who is lying about which") doing the same job better.
+#:   bb_the_water_came_further  the DATE stays - "in three years" twice is the zone's spine and
+#:                              Zul'Kundaraz does not work without it.  What went was the pointed
+#:                              hand-off, "let whoever reads the board do the rest of it themselves",
+#:                              which was the nudge toward whose fault it is.  Minzi now declines to
+#:                              interpret, which is what a lookout does.
+#:   bb_three_generations       "and that part is not the masons' doing" cut.  The hand and a half
+#:                              being new is the finding; attributing it was the accusation.
+#:   bb_kundaraz_road           "the thing you people call a flood" -> "a flood".  Zan'rek correcting
+#:                              the player twice is pilot's pedantry and reads as pedantry; the
+#:                              payoff that needed the grievance is bb_kundaraz_means, which keeps it.
+#:   bb_landing_fee             "I did not write down where you came in from" -> "I do not keep a book
+#:                              of who comes up this ramp".  The no-list idea survives, because its
+#:                              real payoff is bb_the_fee_explained's "a list like that is a thing
+#:                              somebody uses later", and THAT quest is still on the list.
+#:
+#: Nothing is left in EARTH_TRIM_CANDIDATES.  If the figure ever has to come down again it should come
+#: out of bb_weezels_paperwork or bb_stoneshapers, not out of the three conversations.
+EARTH_TRIM_CANDIDATES = ()
 
 
 def write_capstones():

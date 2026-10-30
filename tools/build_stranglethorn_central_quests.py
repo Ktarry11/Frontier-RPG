@@ -7,8 +7,21 @@ Central Stranglethorn + Veilfall Cave + the Gurbashi Arena quest pass.  Idempote
     PYTHONPATH=. python3 tools/audit_quests.py
     PYTHONPATH=. python3 tools/qa_quest_lore.py --zone stranglethorn_central --show
 
-Writes data/quests/stranglethorn_central.json and appends this pass's fetch/gather/starter drops to
-data/creatures/quest_drops.json.  Eighteen quests across the band 33-38.
+Writes data/quests/stranglethorn_central.json and the pass's new drop rows to
+tools/staging_drops_stranglethorn_central.json.  THIRTY quests across the band 33-38: the first
+eighteen (2026-10-30) and twelve more the same day, in knot_cord_line / stonework / basin_more /
+road_more / bay_more - each of which has its own block comment.
+
+THE SECOND PASS, IN ONE PARAGRAPH.  Twelve quests, none of which introduces a person or an item: every
+giver is already in a roster and every fetch and gather names one of the thirteen quest items the live
+drop table already has a source for, because three agents are expanding Stranglethorn at once and
+data/npcs/ambient_npcs.json and data/creatures/quest_drops.json belong to all three.  So this pass
+writes neither.  It hangs the twelve off loose ends the first eighteen left on the floor - the two
+words that turned out to be the same word, the centre gate that opened twice in a season, the lamps
+nobody is trimming now, Garza's tenth report, Ulua's hands, and a nine-year-old who was told no - and
+it adds the two things the first pass could not: DIALOGUE objectives (world/quest_dialogue.py now
+merges a per-zone module, so world/quest_dialogue_stranglethorn_central.py is ours alone) and ONE
+CHAIN THAT LEAVES THE ZONE (the knot-cord line, out to Tarren Mill on the windrider run and back).
 
 NO ESCORTS (Kyle's standing rule, and the only hard "never" in quest design).
 NO QUESTS BUILT AROUND RARES - Drumhide and Gorbuk the Shelf-King are the zone's two named rares and
@@ -94,13 +107,45 @@ Nine, and what each one is doing:
                                   off-world, because he has heard the ones who came through always
                                   lose the first round.  From a nine-year-old, which is worse.
 
-tools/qa_quest_lore.py scores this file at 11 of 18 and PASSES it.  Nine of those eleven are the list
-above; the other two are Vrak's three years on the gate and the Veilfall coming up three years ago,
-which the instrument counts because per claude/integration_timeline.md that exact span belongs to the
-Integration and nothing else - and in this zone it does, both times.  The tool's 18% ceiling is not
-applied to a file of eighteen quests (three hits in a small file is noise, so it needs n >= 20), which
-is the only reason a deliberate 50% does not read to it as over-egged.  Anybody raising this file past
-twenty quests should look at that number again before they do.
+THE 18 -> 30 PASS REVISED THIS DOWNWARD.  Kyle, 2026-10-30: half the file is too much, the target is
+about 30% across all thirty, "it must stay a note, never the zone's theme".  So the twelve new quests
+carry four (stvc_notch_tithe, stvc_centre_gate, stvc_sluice_book, stvc_reed_verdict - see the block
+above the new quest functions) and TWO OF THE ORIGINAL NINE WERE TRIMMED:
+
+  stvc_ganger_cut        lost "where you're from they would have been somebody else's drains, I
+                         expect".  It was the flimsiest of the nine: an aside, removable without the
+                         quest noticing, which is the definition of tacked on.  What replaced it is
+                         about the actual subject - who owns a cut road.
+  stvc_arena_first_four  lost the drum crew's separate count for off-worlders.  Good writing, but
+                         stvc_tout_entry says the same thing better two quests earlier ("nobody has a
+                         form line on you lot"), and a note made twice is a theme.  What replaced it
+                         explains what a drum count is FOR, which the quest needed anyway.
+
+That leaves ELEVEN of thirty, 37%, and the honest reading is that 37% is as close to 30% as the two
+allowed trims get: nine would need four, and the next two candidates are stvc_zuljana_names's
+correction and stvc_fenn_weather's exception, which are respectively the only native who pushes back
+about her own language and the only person in the jungle who is warm about you.  Cutting either to hit
+a percentage would cost more than the percentage is worth.  They are named here so the choice is
+somebody's to make and not invisible.
+
+WHAT tools/qa_quest_lore.py SAYS, AND WHY IT IS HIGHER.  It reports 13 of 30 (43%) and FAILS the file
+against its 18% ceiling - which the eighteen-quest version escaped only because the ceiling needs
+n >= 20 and the old docstring said in as many words that whoever crossed twenty should look again.
+Looked.  Its regex counts three things this file keeps apart:
+
+  7 + 2    the actual Earth notes it can see.  Four more it cannot: stvc_notch_tithe never uses a
+           flagged phrase, and stvc_sluice_book's is in a dialogue topic, which lives in
+           world/quest_dialogue_stranglethorn_central.py and is not in the text overlay it reads.
+  3        "three years" DATING THE VEILFALL'S RISE - stvc_zuljana_font, stvc_north_leg,
+           stvc_ulua_cold_month.  Per claude/integration_timeline.md that span is the Integration's
+           and these three are the zone's central piece of physical lore, so they are correct and
+           cannot be any other number.
+  2        "three years" as A PERSON'S TENURE - Vrak on the gate, Zul'jana listening to a garrison.
+           The timeline doc's own test says a tenure may be any length, so these two read as
+           Integration references by accident.  Changing them to any other number would drop the
+           instrument to 37% and cost the prose nothing; it is not done here because the 18 are
+           otherwise untouched by this pass, and it is the cheapest available improvement if the
+           number matters more than the diff.
 
 =========================================================================================================
 THE SHARED SPINE - THREE GENERATIONS OF TROLL STONEWORK, AND THIS IS THE ONE THAT STILL KNOWS
@@ -869,8 +914,8 @@ def stonework():
         "hole in it in three generations, and he will not leave it open.",
         [k("Gurbashi Gatekeeper", 9), explore(GA, 76, 56, 6),
          deliver("centre_gate_kitbag", "Hang the kitbag back on the gatehouse peg")],
-        "Take his bag down to the dead end and walk the gate mouth with it. Nine of the gate crew are "
-        "on that stretch and they will stop you, because stopping people in that mouth is the whole of "
+        "Take his bag down to the dead end and walk the gate mouth with it. Nine of the gatekeepers hold "
+        "that stretch and they will stop you, because stopping people in that mouth is the whole of "
         "the post and it is older than my family.\n\nI want you to stand where he stood and then bring "
         "the bag back up and hang it where it was. I am not asking you to find anything out. I have "
         "asked, and the answer is that the rim does not remember a name because the board never had "
