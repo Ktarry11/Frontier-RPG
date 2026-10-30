@@ -107,7 +107,23 @@ class QuestManager:
                 (c["type_id"], c["stat_template"], c["label"])
                 for c in q_def["gear_reward_choices_plan"]
             ] if q_def.get("gear_reward_choices_plan") else None,
-            unique_item_defs=q_def.get("unique_item_defs"),
+            # TWO SPELLINGS, ONE MEANING. Hand-authored reward gear was written under
+            # `unique_item_defs` by some builders and `rewards` by others, and only the first was
+            # ever read - so 166 quests across 13 zones handed out experience and gold and silently
+            # dropped 531 authored items on the floor. Whole zones: hillsbrad 56/57, underdark
+            # 30/31, aspen 20/21, southern_needles and underdark_dungeons 17 each. No crash, no
+            # warning; you turn the quest in and there is simply no gear on the screen.
+            #
+            # Measured: quests offering gear went 633 -> 799 of 855. The 56 that still offer none
+            # carry no authored gear under either key and pay experience and gold only, which is
+            # how they were written.
+            #
+            # The two schemas are identical (`rewards` additionally carries secondary_stats, which
+            # build_unique_reward_set already reads), so this is an alias, not a conversion.
+            # `unique_item_defs` deliberately wins: where a quest carries both they are duplicates,
+            # except aspen's asp_winch_house where the unique entry is a book and the rewards are
+            # gear - so precedence here keeps every already-working quest byte-identical.
+            unique_item_defs=q_def.get("unique_item_defs") or q_def.get("rewards"),
             next_quest_id=q_def.get("next_quest_id"),
             accept_text=q_def.get("accept_text", ""),
             turn_in_text=q_def.get("turn_in_text", ""),

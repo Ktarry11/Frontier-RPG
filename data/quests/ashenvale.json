@@ -1045,7 +1045,72 @@
       "reward_gold": 4800,
       "accept_text": "A good tree dies in four swings. These walkers take it back with a root in the ear. Clear eight so my boys can work, and don't leave any standing.",
       "turn_in_text": "Eight. I owe you a few logs' worth of thanks. Take your pick of the leftover axes. They're not good, but they're mine.",
-      "next_quest_id": "lumber_elder_stump"
+      "next_quest_id": "lumber_elder_stump",
+      "unique_item_defs": [
+        {
+          "name": "Second-Best Felling Axe",
+          "slot": "main_hand",
+          "weapon_type": "axe_1h",
+          "item_level": 19,
+          "rarity": "common",
+          "required_level": 20,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 1.6
+          },
+          "flavor_text": "The haft has been replaced twice and the head once. By now it is a different axe.",
+          "label": "Axe 1H (Str)",
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 35,
+          "attack_speed": 2.6
+        },
+        {
+          "name": "Limbing Hatchet",
+          "slot": "main_hand",
+          "weapon_type": "axe_1h",
+          "item_level": 19,
+          "rarity": "common",
+          "required_level": 20,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 1
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.8
+          },
+          "flavor_text": "For taking branches off a trunk that is already down. Light, and meant to be swung all day.",
+          "label": "Axe 1H (Agi)",
+          "weapon_damage_min": 21,
+          "weapon_damage_max": 30,
+          "attack_speed": 2.2
+        },
+        {
+          "name": "Felling Axe, Two-Hand",
+          "slot": "main_hand",
+          "weapon_type": "axe_2h",
+          "item_level": 19,
+          "rarity": "common",
+          "required_level": 20,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 2.4
+          },
+          "flavor_text": "Nobody sharpened this for a fight. It is sharp because a dull one wastes the day.",
+          "label": "Axe 2H (Str)",
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 3.6
+        }
+      ]
     },
     {
       "quest_id": "lumber_elder_stump",
