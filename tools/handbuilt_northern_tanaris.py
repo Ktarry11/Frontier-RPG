@@ -104,12 +104,42 @@ GATES = [
 # THE LANDMARKS. (name, cx, cy, rx, ry, height) - low broken ground, not mountains. These are RUINS:
 # they want to read as something that fell over, which means wide and low rather than tall and sharp.
 # =========================================================================================================
+#: GADGETZAN'S WALL. Kyle: "We also need to ensure the ruins of gadgetzan are there. So walls and
+#: destroyed buildings with the goblins moved to steamwheedle."
+#:
+#: THE WALL IS TERRAIN, NOT PROPS, and that is the whole reason this reads. Gadgetzan was a WALLED
+#: town and a walled town is recognisable from above in one glance - a ring, and a gap where the ring
+#: has failed. Scattering wall sprites across a flat patch gives you rubble on sand; a real ring that
+#: really blocks gives you a town that fell over, and the player understands it before reading a word.
+#:
+#: It is a RECTANGLE because goblins build square, and it is BROKEN IN FOUR PLACES: the two gates
+#: that were always there (the pass road in from the north, the caravan road out to the east) and two
+#: breaches that were not. A player can tell the difference between a gate and a hole, and the two
+#: holes are the only thing in this zone that says what actually happened here.
+# NOTE thick IS A HALF-WIDTH - the ring runs from -thick to +thick either side of the perimeter
+# line, so the wall on the ground is twice this. Set to 2.8 it came out five to six tiles through,
+# which is a rampart, not a town wall, and the corners rendered as solid blocks.
+GAD = dict(x0=76, y0=30, x1=118, y1=58, thick=1.3, height=9.0)
+
+#: (x, y, radius) - where the ring is down. The two road gaps carve themselves, because the road
+#: flattens whatever it crosses; these are the two that are damage.
+#: NOTE the damage reaches about TWICE the radius - the wall is killed outright inside it and fades
+#: back in over the same distance again, which is what a collapse looks like and is easy to
+#: under-count. At 6.0 the west breach took nineteen tiles of wall out, not twelve.
+BREACHES = [(76, 46, 4.5),      # west wall, stove in
+            (104, 58, 5.0)]     # south wall, the long collapse
+
 RUINS = [
     # HEIGHT 24, NOT 9. At 9 the flanks sloped under WALK_SLOPE and the whole pyramid was walkable
     # ground - it rendered as nothing at all in the shape preview, which is what a landmark that is
     # not actually there looks like. A step pyramid is steep; that is the only reason it reads.
     ("Zul'Farrak", 36, 58, 22, 24, 24.0),         # the step pyramid, broken open down one side
-    ("Gadgetzan", 97, 44, 21, 15, 5.5),           # the dead city. Low - you walk through it, not over.
+    # The ground inside the walls only - low, because you walk THROUGH the city, not over it. The
+    # walls themselves are a separate term below.
+    # HEIGHT 1.2, NOT 3.0. At 3.0 the mound's own falloff put a slope over WALK_SLOPE around its
+    # rim, which planted a ring of cliff INSIDE the walls - 37 tiles of unexplained rock in the
+    # middle of a town square. The ground inside a ruined city is just ground; the walls do the work.
+    ("Gadgetzan", 97, 44, 19, 13, 1.2),
 ]
 
 #: Where the pyramid is broken open, as a fraction of a turn. The cut crosses the ruin's flank in one
@@ -227,6 +257,22 @@ def elevation(gx, gy):
     # ---- THE WEST EDGE: low broken ground so the map does not simply stop.
     e = np.maximum(e, 9.0 * np.clip((9.0 + 3.0 * wob(gy * 0.12, gx * 0.1) - gx) / 7.0, 0.0, None))
 
+    # ---- GADGETZAN'S WALL RING. Distance to the rectangle's perimeter, raised into a thin wall,
+    # with the breaches cut back out of it.
+    G = GAD
+    inside = np.minimum(np.minimum(gx - G["x0"], G["x1"] - gx),
+                        np.minimum(gy - G["y0"], G["y1"] - gy))
+    # A WALL IS BUILT, SO IT IS STRAIGHT. The first version wobbled it by +/-0.9 against a 2.2
+    # thickness, which is most of the wall, and what came out wandered like a hedgerow - the one
+    # shape that reads instantly from above was thrown away to avoid looking artificial. Artificial
+    # is the point: a straight line in a desert is a thing somebody made. Ruin comes from the
+    # BREACHES, not from making the whole run crooked.
+    perim = np.abs(inside) + 0.3 * wob(gx * 0.5, gy * 0.5)
+    wall = np.clip(1.0 - perim / G["thick"], 0.0, 1.0)
+    for (bx, by, br) in BREACHES:
+        wall = wall * np.clip(np.hypot(gx - bx, gy - by) / br - 1.0, 0.0, 1.0)
+    e = np.maximum(e, G["height"] * wall)
+
     # ---- THE RUINS. Low and wide: these fell over, they were not pushed up.
     for (_n, cx, cy, rx, ry, h) in RUINS:
         r = np.hypot((gx - cx) / rx, (gy - cy) / ry)
@@ -335,6 +381,38 @@ CHESTS = [(40, 62), (104, 46), (152, 58), (196, 84)]
 FOREST = None
 
 
+#: GADGETZAN'S DEAD BUILDINGS, hand-placed. (sprite, x, y, height, solid)
+#:
+#: PLACED, NOT SCATTERED, because a town has a LAYOUT and rubble does not. The street is the caravan
+#: road running through at y~52; the trade buildings face it; the zeppelin tower is down across the
+#: north end, which is the thing you see first coming out of the pass. Random placement here would
+#: produce a field of broken houses, which reads as a disaster area rather than as a town that people
+#: walked out of - and they walked out, they were not buried. Kyle: "the goblins moved to steamwheedle."
+GADGETZAN_BUILDINGS = [
+    # the zeppelin tower, down. First thing you see coming out of the pass.
+    ("zep_tower_goblin", 92, 36, 16, "core"),
+    # the trade row, facing the street from the north
+    ("gazlowes_office", 84, 44, 11, "core"),
+    ("bud_ruined_house", 97, 43, 9, "core"),
+    ("scrapyard_workshop", 109, 44, 11, "core"),
+    # the south side of the street
+    ("bud_ruined_house", 88, 56, 9, "core"),
+    ("ek_burnt_cottage", 101, 56, 8, "core"),
+    ("bud_ruined_tower", 112, 55, 13, "core"),
+    # the east gate, where the caravan road leaves for Steamwheedle
+    ("ek_ruined_gatehouse", 118, 52, 12, "core"),
+]
+
+
+def _gadgetzan(L):
+    """The walls are terrain; this is what is left standing inside them."""
+    n = 0
+    for (sprite, x, y, h, solid) in GADGETZAN_BUILDINGS:
+        if L.prop(f"assets/buildings/{sprite}.png", x, y, h, solid=solid):
+            n += 1
+    return n
+
+
 def dress(L):
     """Desert, and what is lying in it.
 
@@ -345,6 +423,7 @@ def dress(L):
     the zone correctly without anybody telling them.
     """
     z = L.z
+    n = _gadgetzan(L)
     rng = np.random.default_rng(SEED)
     # KEEP CLEAR OF THE WAYS IN AND OUT. dress() blocks the tile it decorates, and the Drownbell's
     # portal sat inside the bonefield band - a rib cage rolled onto it and sealed the only cave in
@@ -353,7 +432,6 @@ def dress(L):
     SN = "assets/tiles/southern_needles/props/"
     SF = "assets/tiles/shimmering_flats/props/"
     A = lambda d, s: d + s + ".png"        # noqa: E731
-    n = 0
     for _ in range(3000):
         x = int(rng.integers(3, W - 3))
         y = int(rng.integers(3, H - 3))
