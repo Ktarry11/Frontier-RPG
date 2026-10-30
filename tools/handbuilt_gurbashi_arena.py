@@ -59,6 +59,10 @@ NAME = "Gurbashi Arena"
 DESC = ("A Gurbashi fighting pit sunk under Stranglethorn: five floors in a line, a crowd on every "
         "rim, and bookmakers who already know your name.")
 REGION = "Eastern Kingdoms - Stranglethorn"
+SP = "assets/tiles/stranglethorn/props/"
+#: a couple of shared sprites that Sheet C and E did not replace - the signal
+#: beacon and the hulls - still live with the other coastal art.
+CPD = "assets/tiles/coastal_props/"
 W, H = 80, 140
 BAKED = "assets/tiles/gurbashi_arena/{}/baked"
 SLUG = "arena"
@@ -150,10 +154,10 @@ def build_arena():
     # --- props.  A few per pit, each one somebody's job.
     p = L.prop
     # The Sand Gate: the way out, a banner either side of it, and the totem entries are marked at.
-    p("troll_war_banner", 33, 8, 6, where=CP, solid="core")
-    p("troll_war_banner", 47, 8, 6, where=CP, solid="core")
-    p("tiki_totem", 31, 17, 5, where=CP, solid="core")
-    p("tiki_totem", 49, 17, 5, where=CP, solid="core")
+    p("stv_arena_standard", 33, 8, 6, where=SP, solid="core")
+    p("stv_arena_standard", 47, 8, 6, where=SP, solid="core")
+    p("stv_troll_totem", 31, 17, 5, where=SP, solid="core")
+    p("stv_troll_totem", 49, 17, 5, where=SP, solid="core")
     # The Opening Bout: the drum crew start every bout, and the sand keeps what the last one left.
     p("vot_war_drum", 22, 28, 4, solid="core")
     p("vot_war_drum", 58, 28, 4, solid="core")
@@ -169,7 +173,7 @@ def build_arena():
     # The Pairing: the cage the pair are kept in, and the handlers' fire.
     p("rf_prison_cage", 21, 78, 5, solid="core")
     p("rf_prison_cage", 59, 78, 5, solid="core")
-    p("troll_cookfire", 29, 90, 4, where=CP)
+    p("stv_troll_cookfire", 29, 90, 4, where=SP)
     p("bone_pile", 52, 89, 3, where=SR)
     # The Hard Round: the pit they do not sweep, and two pillars that have been hit a lot.
     p("broken_column", 23, 102, 6, solid="core")
@@ -177,11 +181,11 @@ def build_arena():
     p("rf_fallen_pillar", 30, 114, 4)
     p("cracked_pillar", 50, 114, 6, where=SR, solid="core")
     # The House Floor: the idol the house bets under, the ruin it was built into, the banners.
-    p("jungle_idol", 40, 124, 7, where=JP, solid="core", avoid=3)
-    p("overgrown_ruin", 18, 128, 6, where=JP, solid="core")
-    p("sunken_totem", 62, 128, 5, where=CP, solid="core")
-    p("troll_war_banner", 26, 135, 6, where=CP, solid="core")
-    p("troll_war_banner", 54, 135, 6, where=CP, solid="core")
+    p("stv_troll_idol_head", 40, 124, 7, where=SP, solid="core", avoid=3)
+    p("stv_troll_ziggurat_block", 18, 128, 6, where=SP, solid="core")
+    p("stv_troll_totem", 62, 128, 5, where=SP, solid="core")
+    p("stv_arena_standard", 26, 135, 6, where=SP, solid="core")
+    p("stv_arena_standard", 54, 135, 6, where=SP, solid="core")
 
     L.finish([ARRIVAL, PORTAL] + [(x, y) for (x, y, _n) in BOSSES] + [ADD[:2]] + CHESTS)
     return zone, L

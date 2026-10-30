@@ -49,6 +49,7 @@ from tools.handbuilt_vot_caves import (CaveLayout, DP, _apply_pools,  # noqa: F4
                                        register_baked, pool_fields)
 from tools.handbuilt_echo_caves import cavern, tube, disc, pol, _wob  # noqa: F401
 
+SP = "assets/tiles/stranglethorn/props/"
 CP = "assets/tiles/coastal_props/"
 JP = "assets/tiles/echo_isles/props/"
 AP = "assets/tiles/ashenvale/props/"
@@ -187,25 +188,25 @@ def build_rotvine_hollow():
 
     p = L.prop
     # mouth: you come in under the roots and they are the first thing you touch
-    p("ash_root_arch", 32, 13, 6, where=AP, solid="core", avoid=1)
-    p("ash_glow_mushrooms", 30, 15, 3, where=AP)
+    p("stv_liana_arch", 32, 13, 6, where=SP, solid="core", avoid=1)
+    p("stv_mushroom_ring", 30, 15, 3, where=SP)
     p("den_glow_mushrooms", 34, 16, 3)
     # the drowned shelf: trolls the crag's stair dropped in here, and nobody came down for them
-    p("sunken_totem", 15, 28, 5, where=CP, solid="core")
+    p("stv_troll_totem", 15, 28, 5, where=SP, solid="core")
     p("bone_pile", 21, 32, 3, where=SR)
-    p("overgrown_ruin", 13, 34, 5, where=JP, solid="core")
+    p("stv_troll_ziggurat_block", 13, 34, 5, where=SP, solid="core")
     # the root floor: roots, fungus, mangrove at the water's edge.  Spread thin - it is one big room
-    p("ash_root_curtain", 43, 40, 6, where=AP)
-    p("ash_root_curtain", 71, 64, 6, where=AP)
-    p("mangrove_thicket", 36, 59, 6, where=CP, solid="core")
-    p("mangrove_thicket", 68, 36, 6, where=CP, solid="core")
-    p("ash_glow_mushrooms", 49, 34, 3, where=AP)
+    p("stv_moss_curtain", 43, 40, 6, where=SP)
+    p("stv_moss_curtain", 71, 64, 6, where=SP)
+    p("stv_mangrove", 36, 59, 6, where=SP, solid="core")
+    p("stv_mangrove", 68, 36, 6, where=SP, solid="core")
+    p("stv_mushroom_ring", 49, 34, 3, where=SP)
     p("den_glow_mushrooms", 53, 62, 3)
     p("den_glow_mushrooms", 30, 44, 3)
-    p("rock_outcrop_large", 60, 50, 5, where=AP, solid="core")
-    p("tide_pool", 46, 46, 3, where=JP)
+    p("stv_stone_pile", 60, 50, 5, where=SP, solid="core")
+    p("stv_tide_pool", 46, 46, 3, where=SP)
     # the outflow sink: where the water leaves, and what waits at the drain
-    p("ash_stream_bed", 96, 74, 4, where=AP)
+    p("stv_tide_pool", 96, 74, 4, where=SP)
     p("grotto_serpent_skeleton", 80, 77, 4)
     p("vot_beast_ribcage", 96, 64, 3)
     p("den_stalagmites", 100, 70, 4, solid="core")
@@ -275,15 +276,15 @@ def build_veilfall_cave():
     p = L.prop
     g = lambda r, a: pol(cx, cy, r, a)
     # the mouth: the water comes down across the opening and the trolls lit the inside of it
-    p("ash_waterfall_pool", 32, 14, 6, where=AP, avoid=1)
-    p("troll_cookfire", 27, 12, 3, where=CP)
-    p("tiki_totem", 36, 13, 5, where=CP, solid="core")
+    p("stv_tide_pool", 32, 14, 6, where=SP, avoid=1)
+    p("stv_troll_cookfire", 27, 12, 3, where=SP)
+    p("stv_troll_totem", 36, 13, 5, where=SP, solid="core")
     # the rim gallery: a long curved walk, so almost nothing on it - lamps and a banner at the head
-    p("troll_war_banner", *g(36, 185), 6, where=CP, solid="core")
+    p("stv_arena_standard", *g(36, 185), 6, where=SP, solid="core")
     p("vot_totem_pole", *g(36, 15), 6, solid="core")
     p("den_stalactites", *g(36, 255), 4)
     # second terrace: where the carving starts being deliberate
-    p("jungle_idol", *g(27, 95), 5, where=JP, solid="core")
+    p("stv_troll_idol_head", *g(27, 95), 5, where=SP, solid="core")
     p("spirit_brazier", *g(27, 200), 4, solid="core")
     p("cracked_pillar", *g(27, 340), 5, where=SR, solid="core")
     # third terrace: the shrine proper
@@ -293,19 +294,19 @@ def build_veilfall_cave():
     # the lowest terrace, at the water
     p("ritual_circle", *g(10, 135), 4, avoid=1)
     p("skull_pile", *g(11, 45), 3)
-    p("sunken_totem", *g(11, 185), 5, where=CP, solid="core")
+    p("stv_troll_totem", *g(11, 185), 5, where=SP, solid="core")
     # dripstone gallery
     p("den_stalactites", 69, 9, 4)
     p("den_stalagmite_pair", 76, 11, 4, solid="core")
-    p("ash_glow_mushrooms", 66, 15, 3, where=AP)
+    p("stv_mushroom_ring", 66, 15, 3, where=SP)
     # shrine of the mist
     p("grotto_shell_altar", 25, 70, 3, solid="core")
-    p("ash_mossy_spire", 35, 76, 5, where=AP, solid="core")
+    p("stv_troll_obelisk", 35, 76, 5, where=SP, solid="core")
     p("den_glow_mushrooms", 24, 77, 3)
     # the font
     p("grotto_blue_brazier", 80, 84, 4, solid="core")
     p("grotto_kelp_stalks", 90, 90, 4)
-    p("ash_glow_mushrooms", 90, 82, 3, where=AP)
+    p("stv_mushroom_ring", 90, 82, 3, where=SP)
 
     L.finish([VF_ARRIVE, VF_PORTAL, VF_BOSS, VF_RARE] + VF_CHESTS)
     return zone, L
@@ -371,7 +372,7 @@ def build_drowned_shrine():
 
     p = L.prop
     # the sea mouth
-    p("coral_reef_outcrop", 27, 12, 4, where=CP)
+    p("stv_coral_outcrop", 27, 12, 4, where=SP)
     p("grotto_anchor", 36, 13, 4)
     # the wall-top grid: a surviving column at the junctions, and nothing else on the route
     for (jx, jy) in ((20, 22), (72, 22), (46, 74), (98, 92)):
@@ -380,11 +381,11 @@ def build_drowned_shrine():
     p("broken_column", 98, 50, 5, solid="core")
     p("grotto_barnacle_pillar", 20, 76, 4, solid="core")
     p("grotto_kelp_stalks", 72, 50, 4)
-    p("coral_reef_outcrop", 46, 24, 4, where=CP)
+    p("stv_coral_outcrop", 46, 24, 4, where=SP)
     # the pillar court: the one hall on this terrace whose floor is still above the water
-    p("jungle_idol", 52, 28, 5, where=JP, solid="core")
-    p("sunken_totem", 66, 30, 5, where=CP, solid="core")
-    p("overgrown_ruin", 50, 44, 5, where=JP, solid="core")
+    p("stv_troll_idol_head", 52, 28, 5, where=SP, solid="core")
+    p("stv_troll_totem", 66, 30, 5, where=SP, solid="core")
+    p("stv_troll_ziggurat_block", 50, 44, 5, where=SP, solid="core")
     p("grotto_giant_clam", 68, 44, 3)
     p("cracked_pillar", 60, 26, 5, where=SR, solid="core")
     # the sanctum: naga moved in, and they did not change much

@@ -43,6 +43,8 @@ from tools.handbuilt_central_barrens import _wob, _smooth, _gauss
 JP = "assets/tiles/echo_isles/props/"
 CPD = "assets/tiles/coastal_props/"
 
+SP = "assets/tiles/stranglethorn/props/"
+
 KEY = "booty_bay"
 NAME = "Booty Bay"
 DESC = "A goblin port standing on pilings over a lagoon. Nothing sails without the Baron."
@@ -189,8 +191,9 @@ DECK_CHESTS = [(18, 26), (59, 26), (62, 34), (18, 49), (40, 35)]
 
 
 def dress(L):
-    P, B, D, C = L.prop, L.bld, L.dp, L.cp
-    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=JP, **kw)
+    P, B, D = L.prop, L.bld, L.dp
+    C = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
     z = L.z
 
     # ---- the boat to Ratchet, at the head of the middle pier -------------------------------------
@@ -200,91 +203,91 @@ def dress(L):
     L.deco("boat_troll", 61, 29, 7)
 
     # ---- the headland: the gate, the bone arch, the only soil in the zone ------------------------
-    C("crab_claw_arch", 35, 11, 9, solid=False, road_ok=True, nudge=0)
+    L.prop("stv_bone_arch", 35, 11, 9, solid=False, road_ok=True, nudge=0, path_dir=SP)
     P("br_signpost", 40, 14, 5, road_ok=True)
     # the headland is rock, so nothing STANDS on it - the growth hangs over the road from above, which
     # is what L.deco is for: a sprite with no collision and no placement check.
     for (x, y) in [(26, 12), (45, 9), (22, 7), (49, 14), (18, 11), (41, 6), (30, 16), (53, 10)]:
-        L.deco("jungle_banyan", x, y, 11, path_dir=CPD)
+        L.deco("stv_tree_buttress", x, y, 11, path_dir=SP)
     for (x, y) in [(21, 9), (48, 11), (16, 15), (44, 15)]:
-        L.deco("bamboo_grove", x, y, 8, path_dir=CPD)
-    L.deco("palm_lean_a", 40, 7, 10, path_dir=JP)
-    L.deco("palm_cluster", 24, 5, 10, path_dir=JP)
+        L.deco("stv_bamboo", x, y, 8, path_dir=SP)
+    L.deco("stv_palm_frond", 40, 7, 10, path_dir=SP)
+    L.deco("stv_palm_young", 24, 5, 10, path_dir=SP)
 
     # ---- the ramp foot: toll post and the harbourmaster's tower, first thing off the cliff --------
     B("guard_post", 47, 21, 6, nudge=2)
-    B("harbor_tower", 46, 28, 10, nudge=3)
+    B("bb_harbourmaster_tower", 46, 28, 10, nudge=3)
     D("vot_crate_stack", 44, 21, 3)
     P("br_signpost", 43, 22, 5)
 
     # ---- the upper gallery: the market row ------------------------------------------------------
-    B("bazaar_stall_row", 29, 28, 5)
-    B("mixed_trading_post", 37, 28, 6)
-    B("trading_post", 46, 26, 6, nudge=3)
+    B("bb_trade_shop", 29, 28, 5)
+    B("bb_trade_shop", 37, 28, 6)
+    B("bb_trade_shop", 46, 26, 6, nudge=3)
     D("rf_supply_crates", 33, 28, 3)
     D("vot_crate_stack", 24, 28, 3)
 
     # ---- the back walk and the cross bridge -----------------------------------------------------
-    B("the_broken_keel", 20, 40, 9, nudge=2)
-    B("generic_shack_a", 19, 30, 6, nudge=2)
+    B("bb_harbour_inn", 20, 40, 9, nudge=2)
+    B("bb_lean_shack", 19, 30, 6, nudge=2)
     D("rf_tool_rack", 19, 34, 3)
     D("vot_fire_pit", 32, 36, 2, solid=False)
     D("rf_supply_crates", 37, 36, 3)
 
     # ---- the east walk: the working side, clear of all three pier junctions ----------------------
-    B("ratchet_docks_warehouse", 41, 42, 8, nudge=2)
-    B("supply_cache_shed", 40, 31, 5, nudge=2)
-    C("fish_drying_rack", 39, 39, 4)
-    C("fish_crates_traps", 40, 29, 3)
+    B("bb_warehouse", 41, 42, 8, nudge=2)
+    B("gg_supply_store", 40, 31, 5, nudge=2)
+    L.prop("stv_fish_rack", 39, 39, 4, path_dir=SP)
+    L.prop("stv_fish_crates", 40, 29, 3, path_dir=SP)
 
     # ---- the lower gallery: the Baron's office, the cages, the holding yard ----------------------
-    B("gazlowes_office", 36, 50, 10, nudge=3)
-    B("generic_shack_b", 26, 50, 6, nudge=2)
+    B("bb_counting_house", 36, 50, 10, nudge=3)
+    B("bb_lean_shack", 26, 50, 6, nudge=2)
     D("rf_prison_cage", 21, 49, 5)
     D("vot_crate_stack", 31, 50, 3)
-    C("driftwood_pile", 43, 48, 3)
+    L.prop("stv_driftwood", 43, 48, 3, path_dir=SP)
 
     # ---- pier furniture: cranes, lanterns, traps, what a working harbour leaves lying about ------
     for (x, y) in [(46, 25), (52, 25), (58, 25)]:
-        L.deco("dock_lantern_post", x, y, 4)
+        L.deco("stv_dock_lantern", x, y, 4, path_dir=SP)
     for (x, y) in [(47, 33), (54, 33), (62, 33)]:
-        L.deco("dock_lantern_post", x, y, 4)
+        L.deco("stv_dock_lantern", x, y, 4, path_dir=SP)
     for (x, y) in [(47, 45), (54, 45)]:
-        L.deco("dock_lantern_post", x, y, 4)
+        L.deco("stv_dock_lantern", x, y, 4, path_dir=SP)
     for (x, y) in [(21, 23), (27, 22), (41, 22), (21, 45), (34, 44), (18, 38), (18, 27),
                    (25, 34), (37, 34), (40, 28), (40, 44), (45, 50)]:
-        L.deco("dock_lantern_post", x, y, 4)
-    L.deco("mooring_posts", 52, 36, 3)
-    L.deco("mooring_posts", 60, 36, 3)
-    L.deco("mooring_posts", 52, 48, 3)
-    L.deco("fish_crates_traps", 50, 27, 3)
-    L.deco("fish_crates_traps", 66, 38, 3)
-    L.deco("outrigger_canoe", 49, 48, 4)
-    L.deco("rowboat_wreck", 60, 50, 4)
+        L.deco("stv_dock_lantern", x, y, 4, path_dir=SP)
+    L.deco("stv_bollard", 52, 36, 3, path_dir=SP)
+    L.deco("stv_bollard", 60, 36, 3, path_dir=SP)
+    L.deco("stv_bollard", 52, 48, 3, path_dir=SP)
+    L.deco("stv_fish_crates", 50, 27, 3, path_dir=SP)
+    L.deco("stv_fish_crates", 66, 38, 3, path_dir=SP)
+    L.deco("stv_outrigger", 49, 48, 4, path_dir=SP)
+    L.deco("stv_boat_wreck", 60, 50, 4, path_dir=SP)
 
     # ---- the lagoon and the cliffs it is cut into ------------------------------------------------
-    L.deco("coral_reef_outcrop", 62, 44, 4)
-    L.deco("coral_reef_outcrop", 56, 52, 4)
-    L.deco("sea_stack_spire", 66, 21, 10)
-    L.deco("sunken_totem", 41, 52, 5)
-    L.deco("tide_pool", 52, 56, 3, path_dir=JP)
+    L.deco("stv_coral_outcrop", 62, 44, 4, path_dir=SP)
+    L.deco("stv_coral_outcrop", 56, 52, 4, path_dir=SP)
+    L.deco("stv_sea_stack", 66, 21, 10, path_dir=SP)
+    L.deco("stv_troll_totem", 41, 52, 5, path_dir=SP)
+    L.deco("stv_tide_pool", 52, 56, 3, path_dir=SP)
     # The jungle comes down the back wall and over both arms, and nobody cuts it because nobody can
     # reach it. All of this is deco: it hangs over rock, where a placement check would refuse it and
     # be right to, since none of it is standing on anything a player could walk on.
     for (x, y) in [(11, 18), (9, 48), (13, 55), (14, 26), (13, 44), (52, 57), (21, 57), (10, 36),
                    (58, 16), (60, 52), (16, 10), (12, 60)]:
-        L.deco("jungle_banyan", x, y, 11, path_dir=CPD)
+        L.deco("stv_tree_buttress", x, y, 11, path_dir=SP)
     for (x, y) in [(8, 30), (11, 41), (10, 13), (57, 9), (17, 52), (45, 57), (7, 56), (14, 33)]:
-        L.deco("bamboo_grove", x, y, 8, path_dir=CPD)
+        L.deco("stv_bamboo", x, y, 8, path_dir=SP)
     for (x, y) in [(12, 35), (9, 24), (15, 48), (55, 12), (31, 57), (13, 39)]:
-        L.deco("banana_plant", x, y, 6, path_dir=CPD)
+        L.deco("stv_banana_clump", x, y, 6, path_dir=SP)
     for (x, y) in [(13, 29), (10, 38), (14, 21), (51, 11), (27, 57), (39, 57), (15, 43)]:
-        L.deco("hibiscus_bush", x, y, 3, path_dir=CPD)
+        L.deco("stv_hibiscus", x, y, 3, path_dir=SP)
     for (x, y) in [(13, 15), (10, 52), (47, 6), (19, 11), (15, 57)]:
-        L.deco("palm_cluster" if (x + y) % 2 else "palm_lean_b", x, y, 10, path_dir=JP)
-    L.deco("mangrove_thicket", 16, 22, 6, path_dir=CPD)
-    L.deco("mangrove_thicket", 16, 47, 6, path_dir=CPD)
-    L.deco("tiki_totem", 17, 16, 7, path_dir=CPD)   # older than the port, and nobody moves it
+        L.deco("stv_palm_young" if (x + y) % 2 else "stv_screw_pine", x, y, 10, path_dir=SP)
+    L.deco("stv_mangrove", 16, 22, 6, path_dir=SP)
+    L.deco("stv_mangrove", 16, 47, 6, path_dir=SP)
+    L.deco("stv_troll_totem", 17, 16, 7, path_dir=SP)   # older than the port, and nobody moves it
 
 
 def deck_chests(L):

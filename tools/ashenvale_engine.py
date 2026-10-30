@@ -477,7 +477,11 @@ def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
                     if 0.8 < w < 7.5 and L.kind[iy, ix] == 5 and rnd.random() < 0.55:
                         pool = kit.get("woods") or kit["big"]
                         name, h = pool[rnd.randrange(len(pool))]
-                        path = f"{AP}{name}.png"
+                        # Same rule as Layout.tree(): a bare name is an Ashenvale prop, a name with a
+                        # "/" in it is already a path. Stranglethorn's canopy lives in its own
+                        # directory and this line used to send every one of its woods sprites to
+                        # assets/tiles/ashenvale/props/ and crash.
+                        path = f"{AP}{name}.png" if "/" not in name else name
                         wt = max(1, round(h * CB._aspect(path)))
                         L.z.add_landmark(path, ix - wt // 2, iy - h + 1, wt, h, solid=False)
                         m += 1

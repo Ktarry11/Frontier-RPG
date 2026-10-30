@@ -30,6 +30,11 @@ import numpy as np
 from tools import town_kit as K
 from tools.handbuilt_central_barrens import _wob
 
+SP = "assets/tiles/stranglethorn/props/"
+#: a couple of shared sprites that Sheet C and E did not replace - the signal
+#: beacon and the hulls - still live with the other coastal art.
+CPD = "assets/tiles/coastal_props/"
+
 KEY = "gromgol"
 NAME = "Grom'gol"
 DESC = "A Horde camp flown in over the range, dug into a jungle clearing and holding."
@@ -162,8 +167,9 @@ JP = "assets/tiles/echo_isles/props/"
 
 
 def dress(L):
-    P, B, D, C = L.prop, L.bld, L.dp, L.cp
-    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=JP, **kw)
+    P, B, D = L.prop, L.bld, L.dp
+    C = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
 
     # ---- the berth: the tower, the stair down, the airship riding above it ------------------------
     B("zep_tower_orc", 32, 16, 14, road_ok=True, nudge=0)
@@ -173,25 +179,25 @@ def dress(L):
     D("vot_crate_stack", 24, 10, 3)
     D("vot_crate_stack", 41, 10, 3)
     P("br_signpost", 36, 12, 5)
-    C("tiki_totem", 20, 8, 7)                    # the trolls got here first; the orcs left it standing
+    L.prop("stv_troll_totem", 20, 8, 7, path_dir=SP)                    # the trolls got here first; the orcs left it standing
 
     # ---- the beach: the wreck, the boats, and the sand the camp actually landed on ---------------
-    J("shipwreck_full", 18, 41, 11, shore_ok=True)
-    J("shipwreck_fragment", 10, 15, 7, shore_ok=True)
-    C("boat_orc", 12, 27, 6, shore_ok=True)
-    C("outrigger_canoe", 11, 22, 4, shore_ok=True)
-    C("mooring_posts", 13, 30, 3, shore_ok=True)
-    J("tide_pool", 9, 46, 3, solid=False, shore_ok=True)
-    J("coral_shell_cluster", 10, 11, 3, solid=False, shore_ok=True)
-    C("driftwood_pile", 12, 50, 3, shore_ok=True)
-    C("mangrove_thicket", 14, 53, 6, shore_ok=True)
-    C("mangrove_thicket", 13, 6, 6, shore_ok=True)
+    J("stv_wreck_hull", 18, 41, 11, shore_ok=True)
+    J("stv_wreck_bow", 10, 15, 7, shore_ok=True)
+    L.prop("boat_orc", 12, 27, 6, shore_ok=True, path_dir=CPD)
+    L.prop("stv_outrigger", 11, 22, 4, shore_ok=True, path_dir=SP)
+    L.prop("stv_bollard", 13, 30, 3, shore_ok=True, path_dir=SP)
+    J("stv_tide_pool", 9, 46, 3, solid=False, shore_ok=True)
+    J("stv_shells", 10, 11, 3, solid=False, shore_ok=True)
+    L.prop("stv_driftwood", 12, 50, 3, shore_ok=True, path_dir=SP)
+    L.prop("stv_mangrove", 14, 53, 6, shore_ok=True, path_dir=SP)
+    L.prop("stv_mangrove", 13, 6, 6, shore_ok=True, path_dir=SP)
     for (x, y) in [(15, 11), (16, 18), (15, 32), (17, 48), (14, 7), (16, 54)]:
-        J("palm_lean_a" if (x + y) % 2 else "palm_lean_b", x, y, 10)
+        J("stv_palm_frond" if (x + y) % 2 else "stv_screw_pine", x, y, 10)
 
     # ---- the high side: war hall, forge, weapon racks ---------------------------------------------
-    B("clan_hall", 44, 33, 11)
-    B("smithy", 56, 20, 8)
+    B("gg_longhouse", 44, 33, 11)
+    B("gg_forge", 56, 20, 8)
     D("vot_training_dummy", 46, 30, 4)
     D("vot_training_dummy", 49, 31, 4)
     D("vot_archery_target", 56, 32, 4)
@@ -205,11 +211,11 @@ def dress(L):
     D("vot_war_banner", 36, 26, 5)
 
     # ---- the low side: stores, provisioner, the medic's tent --------------------------------------
-    B("supply_depot", 22, 46, 8)
-    B("generic_tent_a", 21, 38, 5)
-    B("generic_tent_b", 25, 44, 5)
-    B("plain_orc_house_a", 19, 29, 6)
-    B("plain_orc_house_b", 21, 34, 6)
+    B("gg_supply_store", 22, 46, 8)
+    B("gg_command_tent", 21, 38, 5)
+    B("gg_command_tent", 25, 44, 5)
+    B("gg_supply_store", 19, 29, 6)
+    B("gg_command_tent", 21, 34, 6)
     D("vot_crate_stack", 18, 46, 3)
     D("vot_crate_stack", 18, 43, 3)
     D("vot_hide_rack", 24, 40, 3)
@@ -218,17 +224,17 @@ def dress(L):
     for (x, y) in [(44, 44), (46, 44), (48, 44), (50, 44), (52, 44), (52, 46), (52, 48),
                    (50, 48), (48, 48), (46, 48), (44, 48), (44, 46)]:
         D("vot_palisade", x, y, 3, solid=True, nudge=0)
-    P("br_raptor_nest", 48, 46, 4)
-    P("br_hitching_trough", 42, 44, 3)
-    B("generic_shack_a", 56, 41, 6)
+    L.prop("stv_raptor_nest", 48, 46, 4, path_dir=SP)
+    L.prop("stv_trough", 42, 44, 3, path_dir=SP)
+    B("bb_lean_shack", 56, 41, 6)
 
     # ---- the palisade ring itself: posts on the inside of the wall, gates marked -------------------
     for (x, y) in [(22, 6), (42, 6), (58, 22), (58, 34), (22, 53), (46, 53), (56, 10), (54, 46)]:
         D("vot_palisade", x, y, 4, solid=False, nudge=1)
     B("palisade_gatehouse", 26, 52, 8, road_ok=True, nudge=1)
-    B("watchtower", 38, 47, 10, nudge=3)
+    B("gg_watchtower", 38, 47, 10, nudge=3)
     D("vot_war_banner", 30, 50, 5)
-    C("troll_war_banner", 36, 49, 5)
+    L.prop("stv_arena_standard", 36, 49, 5, path_dir=SP)
 
     # ---- WHAT THE WALL IS HOLDING BACK, and what it is not --------------------------------------
     # A palisade keeps people out. It does nothing about the jungle, which has been coming back over
@@ -236,21 +242,21 @@ def dress(L):
     # ground and that is most of what a garrison does all day - the density belongs against the wall,
     # on the strand, and in the few places nobody has a reason to walk.
     for (x, y) in [(50, 42), (20, 51), (44, 51), (54, 35), (24, 8), (42, 9), (48, 20), (30, 10)]:
-        C("jungle_banyan", x, y, 11)
+        L.prop("stv_tree_buttress", x, y, 11, path_dir=SP)
     for (x, y) in [(55, 28), (20, 47), (20, 10), (46, 10), (18, 53), (40, 48), (56, 16), (52, 50)]:
-        C("bamboo_grove", x, y, 8)
+        L.prop("stv_bamboo", x, y, 8, path_dir=SP)
     for (x, y) in [(26, 21), (41, 20), (24, 31), (44, 32), (30, 46), (18, 18), (50, 30)]:
-        J("palm_cluster" if (x + y) % 3 else "palm_lean_a", x, y, 10)
+        J("stv_palm_young" if (x + y) % 3 else "stv_palm_frond", x, y, 10)
     for (x, y) in [(13, 35), (50, 35), (26, 7), (38, 52), (21, 34), (44, 36), (29, 50), (17, 14),
                    (51, 52), (35, 7), (33, 43), (56, 44)]:
-        C("hibiscus_bush", x, y, 3, solid=False)
+        L.prop("stv_hibiscus", x, y, 3, solid=False, path_dir=SP)
     for (x, y) in [(27, 42), (37, 45), (19, 26), (46, 25), (23, 15), (48, 44)]:
-        C("banana_plant", x, y, 6)
+        L.prop("stv_banana_clump", x, y, 6, path_dir=SP)
     for (x, y) in [(55, 24), (22, 49), (45, 49), (50, 10)]:
-        C("mossy_jungle_boulder", x, y, 4)
+        L.prop("stv_boulder_mossy", x, y, 4, path_dir=SP)
     # the troll stonework the camp was pitched on top of
-    J("overgrown_ruin", 31, 50, 8)
-    J("jungle_idol", 51, 17, 8)
+    J("stv_troll_ziggurat_block", 31, 50, 8)
+    J("stv_troll_idol_head", 51, 17, 8)
 
 
 def build_layout():

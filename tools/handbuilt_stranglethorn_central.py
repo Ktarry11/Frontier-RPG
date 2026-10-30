@@ -40,6 +40,11 @@ from tools.handbuilt_central_barrens import BP, DP, BLD, ENT, CP  # noqa: F401
 
 JP = "assets/tiles/echo_isles/props/"
 
+SP = "assets/tiles/stranglethorn/props/"
+#: a couple of shared sprites that Sheet C and E did not replace - the signal
+#: beacon and the hulls - still live with the other coastal art.
+CPD = "assets/tiles/coastal_props/"
+
 KEY = "stranglethorn_central"
 NAME = "Central Stranglethorn"
 DESC = ("The middle of the jungle, with no town in it. The Vine Road runs through and the arena drums "
@@ -212,10 +217,10 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
 ]
 
 TREES = {
-    "big":   [("large_canopy_tree", 11), ("canopy_tree_cluster", 10), ("large_canopy_tree", 10)],
-    "mid":   [("medium_canopy_tree", 9), (JP + "palm_cluster.png", 9), ("canopy_tree_cluster", 8)],
-    "small": [("medium_canopy_tree", 7), (JP + "palm_lean_a.png", 7), (JP + "palm_lean_b.png", 7)],
-    "woods": [("large_canopy_tree", 10), ("canopy_tree_cluster", 9), ("large_canopy_tree", 11)],
+    "big":   [(SP + "stv_tree_buttress.png", 11), (SP + "stv_tree_vined.png", 10), (SP + "stv_tree_buttress.png", 10)],
+    "mid":   [(SP + "stv_tree_cluster.png", 9), (SP + "stv_palm_young.png", 9), (SP + "stv_tree_vined.png", 8)],
+    "small": [(SP + "stv_tree_cluster.png", 7), (SP + "stv_palm_frond.png", 7), (SP + "stv_screw_pine.png", 7)],
+    "woods": [(SP + "stv_tree_buttress.png", 10), (SP + "stv_tree_vined.png", 9), (SP + "stv_tree_buttress.png", 11)],
 }
 
 
@@ -262,7 +267,7 @@ def rot_trees(L):
             break
         if not L.free_mask[y, x]:
             continue
-        if L.prop("dead_corrupted_tree", x, y, rnd.choice((6, 7, 8)), path_dir=E.AP, solid="core", nudge=0):
+        if L.prop("stv_tree_dead_giant", x, y, rnd.choice((6, 7, 8)), path_dir=SP, solid="core", nudge=0):
             L.free_mask[max(0, y - 3):y + 4, max(0, x - 3):x + 4] = False
             n += 1
     L.rot_trees = n
@@ -283,16 +288,16 @@ def sprinkle(L):
         r = rnd.random()
         dead = L.dead_mask[y, x]
         if ferns < 190 and r < 0.055 and not dead:
-            if L.prop("fern_cluster", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
+            if L.prop("stv_fern_clump", x, y, 3, path_dir=SP, solid=False, nudge=0):
                 ferns += 1
         elif bram < 70 and r < 0.064:
-            if L.prop("ash_bramble_thicket", x, y, 4, path_dir=E.AP, solid=False, nudge=0):
+            if L.prop("stv_bramble", x, y, 4, path_dir=SP, solid=False, nudge=0):
                 bram += 1
         elif logs < 36 and r < 0.070:
-            if L.prop("fallen_log", x, y, 3, path_dir=E.AP, solid=False, nudge=0):
+            if L.prop("stv_log_mossy", x, y, 3, path_dir=SP, solid=False, nudge=0):
                 logs += 1
         elif rocks < 40 and r < 0.078:
-            if L.prop("rock_outcrop_small", x, y, 4, path_dir=E.AP, solid=False, nudge=0):
+            if L.prop("stv_boulder_mossy", x, y, 4, path_dir=SP, solid=False, nudge=0):
                 rocks += 1
     L.clutter = (ferns, bram, logs, rocks)
 
@@ -311,130 +316,130 @@ def chests(L):
 
 def dress(L):
     P = L.prop
-    A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=E.AP, **kw)
-    X = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=E.XP, **kw)
-    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=JP, **kw)
-    C = lambda n, x, y, h, **kw: L.cp(n, x, y, h, **kw)
+    A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+    X = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+    J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+    C = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
 
     # ---- the north seam: the road comes out of the other zone and nobody has marked it but trolls ----
     P("br_signpost", 96, 10, 5)
-    J("jungle_idol", 92, 8, 8)
-    A("large_canopy_tree", 88, 14, 12)
-    A("large_canopy_tree", 110, 12, 12)
-    A("ash_bramble_thicket", 106, 8, 5, solid=False)
+    J("stv_troll_idol_head", 92, 8, 8)
+    A("stv_tree_buttress", 88, 14, 12)
+    A("stv_tree_buttress", 110, 12, 12)
+    A("stv_bramble", 106, 8, 5, solid=False)
 
     # ---- the Vine Road's north ford: flat stones laid in the Veilfall, worn hollow ------------------
-    A("ash_footbridge", 107, 37, 4, solid=False, road_ok=True, shore_ok=True)
-    A("ash_stream_bed", 113, 34, 3, solid=False, shore_ok=True)
-    A("ash_stream_bed", 100, 40, 3, solid=False, shore_ok=True)
-    A("rock_outcrop_large", 112, 42, 5)
+    A("stv_gangplank", 107, 37, 4, solid=False, road_ok=True, shore_ok=True)
+    A("stv_tide_pool", 113, 34, 3, solid=False, shore_ok=True)
+    A("stv_tide_pool", 100, 40, 3, solid=False, shore_ok=True)
+    A("stv_stone_pile", 112, 42, 5)
 
     # ---- the falls spur: a ford on the high side, and a lookout the trolls got to first --------------
-    A("ash_footbridge", 68, 47, 4, solid=False, road_ok=True, shore_ok=True)
-    J("jungle_idol", 72, 42, 9)
-    A("ash_ivy_pillar", 66, 40, 9)
-    A("rock_outcrop_small", 74, 50, 4, solid=False)
+    A("stv_gangplank", 68, 47, 4, solid=False, road_ok=True, shore_ok=True)
+    J("stv_troll_idol_head", 72, 42, 9)
+    A("stv_troll_column", 66, 40, 9)
+    A("stv_boulder_mossy", 74, 50, 4, solid=False)
 
     # ---- Veilfall Basin: the lip, the cave mouth on its dry shoulder, the pool underneath -----------
     # the water goes over at about (42,56) and the mouth sits just west of the notch, out of the spray
-    A("ash_waterfall_pool", 40, 64, 7, solid=False, shore_ok=True)
-    A("ash_waterfall_pool", 34, 70, 6, solid=False, shore_ok=True)
-    A("ash_stream_bed", 44, 54, 3, solid=False, shore_ok=True)
-    A("ash_root_curtain", 44, 60, 8, solid=False)
-    A("ash_mossy_spire", 46, 50, 10)
-    A("ash_overgrown_steps", 44, 62, 5, solid=False)
-    A("ash_overgrown_steps", 42, 66, 5, solid=False)
-    A("ash_glow_mushrooms", 38, 62, 3, solid=False)
-    A("ash_glow_mushroom_ring", 32, 62, 4, solid=False)
-    A("ash_canoe_jetty", 30, 74, 4, shore_ok=True, solid=False)
-    J("overgrown_ruin", 50, 64, 7)
-    A("ash_elven_ruin_wall", 34, 56, 7)
-    A("stone_archway", 46, 58, 8, solid=False, road_ok=True)
-    J("palm_cluster", 30, 50, 9)
-    J("palm_lean_b", 26, 64, 8)
-    C("hibiscus_bush", 36, 54, 3, solid=False)
+    A("stv_tide_pool", 40, 64, 7, solid=False, shore_ok=True)
+    A("stv_tide_pool", 34, 70, 6, solid=False, shore_ok=True)
+    A("stv_tide_pool", 44, 54, 3, solid=False, shore_ok=True)
+    A("stv_moss_curtain", 44, 60, 8, solid=False)
+    A("stv_troll_obelisk", 46, 50, 10)
+    A("stv_troll_steps", 44, 62, 5, solid=False)
+    A("stv_troll_steps", 42, 66, 5, solid=False)
+    A("stv_mushroom_ring", 38, 62, 3, solid=False)
+    A("stv_mushroom_ring", 32, 62, 4, solid=False)
+    A("stv_gangplank", 30, 74, 4, shore_ok=True, solid=False)
+    J("stv_troll_ziggurat_block", 50, 64, 7)
+    A("stv_troll_ziggurat_block", 34, 56, 7)
+    A("stv_troll_arch", 46, 58, 8, solid=False, road_ok=True)
+    J("stv_palm_young", 30, 50, 9)
+    J("stv_screw_pine", 26, 64, 8)
+    L.prop("stv_hibiscus", 36, 54, 3, solid=False, path_dir=SP)
 
     # ---- the coast: the sea the north zone starts, carried on south ---------------------------------
-    J("shipwreck_fragment", 24, 90, 7, shore_ok=True)
-    J("tide_pool", 22, 110, 3, solid=False, shore_ok=True)
-    J("coral_shell_cluster", 25, 132, 3, solid=False, shore_ok=True)
-    C("sea_stack_spire", 18, 42, 10, shore_ok=True)
-    C("driftwood_pile", 27, 120, 3, solid=False, shore_ok=True)
-    J("palm_lean_a", 32, 98, 8)
-    J("palm_cluster", 30, 136, 9)
+    J("stv_wreck_bow", 24, 90, 7, shore_ok=True)
+    J("stv_tide_pool", 22, 110, 3, solid=False, shore_ok=True)
+    J("stv_shells", 25, 132, 3, solid=False, shore_ok=True)
+    L.prop("stv_sea_stack", 18, 42, 10, shore_ok=True, path_dir=SP)
+    L.prop("stv_driftwood", 27, 120, 3, solid=False, shore_ok=True, path_dir=SP)
+    J("stv_palm_frond", 32, 98, 8)
+    J("stv_palm_young", 30, 136, 9)
 
     # ---- Mosh'Ogg Shelf: the notch, then ogres.  Big crude stuff and bones, no stonework ------------
-    A("ash_overgrown_steps", 150, 32, 5, solid=False, road_ok=True)
-    A("rock_outcrop_large", 142, 34, 6)
-    A("rock_outcrop_large", 156, 28, 6)
-    L.bld("generic_hut_a", 160, 40, 8)
-    L.bld("generic_hut_b", 170, 44, 8)
-    A("ash_furbolg_bonfire", 164, 44, 5)
-    P("kodo_skull", 158, 46, 4)
-    P("br_kodo_skeleton", 170, 36, 6)
-    X("ashx_skull_fence", 156, 42, 4)
-    X("ashx_skull_fence", 168, 48, 4)
-    A("ash_log_pile", 166, 38, 4)
-    A("ash_palisade_wall", 154, 38, 5)
-    P("mountain_rock", 148, 24, 5)
+    A("stv_troll_steps", 150, 32, 5, solid=False, road_ok=True)
+    A("stv_stone_pile", 142, 34, 6)
+    A("stv_stone_pile", 156, 28, 6)
+    L.prop("stv_troll_hut", 160, 40, 8, path_dir=SP)
+    L.prop("stv_troll_hut", 170, 44, 8, path_dir=SP)
+    A("stv_troll_cookfire", 164, 44, 5)
+    L.prop("stv_troll_skull_pile", 158, 46, 4, path_dir=SP)
+    L.prop("stv_troll_skull_pile", 170, 36, 6, path_dir=SP)
+    X("stv_troll_skull_fence", 156, 42, 4)
+    X("stv_troll_skull_fence", 168, 48, 4)
+    A("stv_driftwood", 166, 38, 4)
+    A("stv_palisade_wall", 154, 38, 5)
+    L.prop("stv_boulder_mossy", 148, 24, 5, path_dir=SP)
 
     # ---- Gurbashi Flats: bare dirt, banners, and the gate at the top of the apron -------------------
     P("br_signpost", 120, 92, 5)
-    L.bld("generic_tent_a", 126, 98, 5)
-    A("ash_supply_crates", 130, 94, 3)
-    C("troll_war_banner", 144, 108, 9)
-    C("troll_war_banner", 158, 108, 9)
-    C("troll_cookfire", 150, 116, 4)
-    C("troll_stilt_hut", 140, 116, 9)
-    C("troll_stilt_hut", 162, 116, 9)
-    C("tiki_totem", 146, 104, 7)
-    C("tiki_totem", 156, 104, 7)
-    A("ash_watch_platform", 166, 114, 10)
-    A("ash_palisade_wall", 136, 110, 5)
-    A("ash_palisade_wall", 170, 108, 5)
-    P("br_hitching_trough", 134, 104, 4)
-    J("overgrown_ruin", 158, 96, 8)
-    J("jungle_idol", 142, 96, 9)
-    A("ash_bramble_thicket", 164, 92, 5, solid=False)
+    L.bld("gg_command_tent", 126, 98, 5)
+    A("stv_crate_stack", 130, 94, 3)
+    L.prop("stv_arena_standard", 144, 108, 9, path_dir=SP)
+    L.prop("stv_arena_standard", 158, 108, 9, path_dir=SP)
+    L.prop("stv_troll_cookfire", 150, 116, 4, path_dir=SP)
+    L.prop("stv_troll_hut", 140, 116, 9, path_dir=SP)
+    L.prop("stv_troll_hut", 162, 116, 9, path_dir=SP)
+    L.prop("stv_troll_totem", 146, 104, 7, path_dir=SP)
+    L.prop("stv_troll_totem", 156, 104, 7, path_dir=SP)
+    A("stv_troll_platform", 166, 114, 10)
+    A("stv_palisade_wall", 136, 110, 5)
+    A("stv_palisade_wall", 170, 108, 5)
+    L.prop("stv_trough", 134, 104, 4, path_dir=SP)
+    J("stv_troll_ziggurat_block", 158, 96, 8)
+    J("stv_troll_idol_head", 142, 96, 9)
+    A("stv_bramble", 164, 92, 5, solid=False)
 
     # ---- the arena road: a stop halfway, where the jungle gets one more crack at the crowd ----------
-    A("ash_felled_tree", 118, 96, 4)
-    A("ash_log_pile", 124, 98, 4)
-    L.bld("generic_shack_a", 122, 90, 6)
-    A("ash_herb_rack", 126, 92, 4)
-    J("jungle_idol", 112, 94, 8)
+    A("stv_log_mossy", 118, 96, 4)
+    A("stv_driftwood", 124, 98, 4)
+    L.bld("bb_lean_shack", 122, 90, 6)
+    A("stv_troll_hide_rack", 126, 92, 4)
+    J("stv_troll_idol_head", 112, 94, 8)
 
     # ---- the fork: where the arena road leaves the Vine Road ----------------------------------------
     P("br_signpost", 90, 92, 5)
-    A("ash_overgrown_steps", 88, 84, 4, solid=False)
-    A("large_canopy_tree", 86, 96, 12)
-    A("large_canopy_tree", 100, 84, 12)
+    A("stv_troll_steps", 88, 84, 4, solid=False)
+    A("stv_tree_buttress", 86, 96, 12)
+    A("stv_tree_buttress", 100, 84, 12)
 
     # ---- The Snapjaw Marsh: water that does not move, and what grows in it -------------------------
-    C("mangrove_thicket", 50, 150, 7, shore_ok=True)
-    C("mangrove_thicket", 38, 142, 7, shore_ok=True)
-    C("mangrove_thicket", 60, 160, 7, shore_ok=True)
-    P("nb_fen_willow", 46, 152, 8)
-    P("nb_fen_willow", 32, 160, 8)
-    P("nb_lily_cattails", 54, 166, 3, solid=False, shore_ok=True)
-    P("nb_lily_cattails", 40, 170, 3, solid=False, shore_ok=True)
-    A("ash_footbridge", 70, 156, 4, solid=False, road_ok=True, shore_ok=True)
-    P("nb_boardwalk", 48, 158, 3, solid=False, road_ok=True, shore_ok=True)
-    X("twisted_dead_tree_cluster", 56, 146, 9)
-    X("twisted_dead_tree_cluster", 36, 134, 9)
-    X("ashx_nightmare_thorns", 44, 144, 5)
-    C("rowboat_wreck", 58, 172, 5, shore_ok=True)
-    C("sunken_totem", 30, 166, 6, shore_ok=True)
-    L.bld("generic_tent_b", 52, 154, 5)
-    A("ash_herb_rack", 56, 156, 4)
-    A("ash_glow_mushroom_ring", 64, 150, 4, solid=False)
+    L.prop("stv_mangrove", 50, 150, 7, shore_ok=True, path_dir=SP)
+    L.prop("stv_mangrove", 38, 142, 7, shore_ok=True, path_dir=SP)
+    L.prop("stv_mangrove", 60, 160, 7, shore_ok=True, path_dir=SP)
+    L.prop("stv_mangrove", 46, 152, 8, path_dir=SP)
+    L.prop("stv_mangrove", 32, 160, 8, path_dir=SP)
+    L.prop("stv_lily_pads", 54, 166, 3, solid=False, shore_ok=True, path_dir=SP)
+    L.prop("stv_lily_pads", 40, 170, 3, solid=False, shore_ok=True, path_dir=SP)
+    A("stv_gangplank", 70, 156, 4, solid=False, road_ok=True, shore_ok=True)
+    L.prop("stv_dock_rail", 48, 158, 3, solid=False, road_ok=True, shore_ok=True, path_dir=SP)
+    X("stv_tree_dead_giant", 56, 146, 9)
+    X("stv_tree_dead_giant", 36, 134, 9)
+    X("stv_bramble", 44, 144, 5)
+    L.prop("stv_boat_wreck", 58, 172, 5, shore_ok=True, path_dir=SP)
+    L.prop("stv_troll_totem", 30, 166, 6, shore_ok=True, path_dir=SP)
+    L.bld("gg_command_tent", 52, 154, 5)
+    A("stv_troll_hide_rack", 56, 156, 4)
+    A("stv_mushroom_ring", 64, 150, 4, solid=False)
 
     # ---- the south seam: the road goes on, and somebody keeps repainting the idol -------------------
     P("br_signpost", 104, 172, 5)
-    J("jungle_idol", 94, 170, 8)
-    A("ash_bramble_thicket", 108, 168, 5, solid=False)
-    A("large_canopy_tree", 90, 176, 12)
-    A("large_canopy_tree", 112, 174, 12)
+    J("stv_troll_idol_head", 94, 170, 8)
+    A("stv_bramble", 108, 168, 5, solid=False)
+    A("stv_tree_buttress", 90, 176, 12)
+    A("stv_tree_buttress", 112, 174, 12)
 
 
 def generate_zone():
