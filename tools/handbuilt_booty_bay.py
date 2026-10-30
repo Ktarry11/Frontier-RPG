@@ -1,27 +1,37 @@
 """
 Hand-built Booty Bay (70x60): the deep-water port at the bottom of the world.
 
-TOWN ARCHETYPE: TERRACED COVE.  Ratchet is a harbour with a bluff behind it; this is the opposite shape -
-a cove bitten out of a headland, with the only land approach on TOP of the cliff and the whole town
-hanging off the water below it.  You come in at the clifftop gate (35,4), walk east along the headland,
-and take the one ramp down past the harbourmaster's tower into the cove.  Below that there is no soil at
-all: the quay, the market and the inn stand on timber decking over the water, and the three piers run
-out from the promenade into the bay.  The boat to Ratchet ties up at the head of the middle one.
+TOWN ARCHETYPE: THERE IS NO GROUND.  Kyle, 29 Oct 2026: "Bootybay is a dock-based town bro" - and the
+first version of this file got that wrong in the most ordinary way, by building a cove with some piers
+bolted onto it.  Booty Bay is not a town beside the water.  It is a town ON the water: a three-level
+timber complex standing on pilings over a sheltered lagoon, with the cliff at its back and nothing
+underneath it but the tide.  It is a RING of galleries rather than one platform - an upper market row
+along the back of the cove, a lower deck under it, a back walk against the cliff, an east walk inside
+the arm, and one cross bridge straight over open water - so the lagoon shows through the middle of the
+town and you are always walking beside the drop rather than across a floor.
 
-The cove is the warm end of the map and it should read that way: white sand at the waterline, a
-blue lagoon rather than open grey sea, banyan and palm coming down the cliff on both sides, and the
-clifftop gate standing in a bleached bone arch - you walk into this town through a dead thing's jaws.
+So the land budget here is almost nothing on purpose.  The only soil in the zone is the shelf along the
+top of the northern headland, and the only reason it exists is that the road has to land somewhere: you
+come in at the clifftop gate (35,4), walk the headland east under the bone arch, and take the one ramp
+down onto the boards.  From the moment your boots hit planking you do not touch ground again.  Every
+building, every vendor, the Baron's office and the holding cages are all out over the water, and the
+three piers run further out from the promenade into the bay.  The boat to Ratchet ties up at the head of
+the middle one.
+
+The lagoon is the other half of the look.  The cove shelves slowly inside the arms of the headland, so
+most of the water you can see from the boards is a pale turquoise shelf rather than open sea, and the
+dark only starts out past the pier heads.
 
 WHY IT IS ITS OWN FACTION.  claude/stranglethorn_design.md: when the land road south turned to rock,
 Booty Bay stopped being one of the Steamwheedle Cartel's franchises and became the only deep-water
 harbour that still connects anything to anything.  Gazlowe signs the manifests in Ratchet.  Baron
-Revilgaz decides what actually sails.  The Cartel has not formally lost the port and will tell you so.
-The practical consequence for the town's shape is the LANDING FEE: the ramp is a choke point, there is a
-toll post on it, and you cannot reach the quay without walking past somebody who wants paying.
+Revilgaz decides what actually sails.  The practical consequence for the town's shape is the LANDING
+FEE: the ramp is the only way down and there is a toll post on it, so you cannot reach the boards
+without walking past somebody who wants paying.
 
 HARD CONTRACTS (world/portal_manager.py)
   portal   (35,4)  -> Southern Stranglethorn (36,150);  arrival (35,6)
-  boat     (64,34) -> Ratchet (64,30), the middle pier head; registered, not flavour
+  boat     (64,34) -> Ratchet (62,32), the middle pier head; registered, not flavour
 """
 import sys
 
@@ -30,9 +40,12 @@ import numpy as np
 from tools import town_kit as K
 from tools.handbuilt_central_barrens import _wob, _smooth, _gauss
 
+JP = "assets/tiles/echo_isles/props/"
+CPD = "assets/tiles/coastal_props/"
+
 KEY = "booty_bay"
 NAME = "Booty Bay"
-DESC = "A goblin port in a cove, built on decking over the water. Nothing sails without the Baron."
+DESC = "A goblin port standing on pilings over a lagoon. Nothing sails without the Baron."
 REGION = "Eastern Kingdoms - Stranglethorn"
 W, H = 70, 60
 BAKED_DIR = "assets/tiles/booty_bay/baked"
@@ -44,55 +57,45 @@ START = (35, 8)
 BOAT = (64, 34)
 
 ROADS = {
-    # the clifftop: in at the gate, east along the headland to the ramp head
-    "gate":  ([(35, 3), (35, 9), (39, 13), (45, 16)], 3.4),
-    # the one way down into the cove
-    "ramp":  ([(45, 16), (48, 22), (44, 28), (39, 33)], 3.0),
-    # the quay, west along the water
-    "quay":  ([(39, 33), (31, 35), (22, 37), (13, 39)], 3.2),
-    # down to the lower shelf: warehouses and the Baron's own stair
-    "lower": ([(28, 36), (27, 44), (25, 51)], 2.6),
-    # the headland's west end - the lookout over the cape
-    "look":  ([(33, 9), (24, 10), (15, 12), (9, 15)], 2.4),
+    # the headland shelf: in at the gate, east and down to the head of the ramp. This is the ONLY road,
+    # because it is the only ground.
+    "gate": ([(35, 3), (35, 8), (38, 12), (42, 16), (45, 19)], 3.4),
 }
-PLAZA = (34, 35, 7.0, 4.4)
+PLAZA = None
 
-# decks laid over water: (x0, x1, y0, y1)
+# ---------------------------------------------------------------- the boards
+# (x0, x1, y0, y1). These ARE the town - three levels plus the piers. The upper and lower galleries
+# overlap the quay deliberately: a gap of even one tile reads as a hole you fall through.
 DECKS = [
-    (43.0, 46.6, 23.0, 49.0),        # the promenade boardwalk, north-south
-    (46.0, 60.0, 24.6, 26.4),        # north pier
-    (46.0, 66.0, 32.8, 35.2),        # middle pier
-    (59.0, 69.0, 30.4, 38.6),        # middle pier head platform (boat at 64,34)
-    (46.0, 58.0, 44.6, 46.4),        # south pier
-    (36.0, 44.0, 32.0, 38.0),        # the quay apron - the town's floor
+    (42.0, 52.0, 16.0, 23.0),        # the ramp foot - where the road lands on planking
+    (19.0, 50.0, 21.5, 28.5),        # UPPER GALLERY: the market row, along the back of the cove
+    (16.0, 24.0, 24.0, 50.5),        # the back walk, hard against the cliff
+    (19.0, 46.0, 42.5, 50.5),        # LOWER GALLERY: the Baron's office and the cages
+    (38.0, 46.0, 24.0, 47.0),        # the east walk, inside the arm
+    (24.0, 42.0, 32.5, 37.0),        # the cross bridge, straight over open water
+    (44.0, 62.0, 24.6, 27.4),        # north pier
+    (44.0, 66.0, 32.6, 35.6),        # middle pier
+    (58.5, 69.0, 30.2, 38.8),        # middle pier head platform (boat at 64,34)
+    (44.0, 58.0, 44.6, 47.4),        # south pier
 ]
 
 _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
-_RIDGE_TREES = {}
-# the headland scarp: the cliff the town hangs off, open only where the ramp comes down (east of x 40)
-RIDGES = [([(2, 19), (12, 21), (22, 18), (32, 20), (39, 17)], 3.6)]
 GAPS = [(35, 4, 5, 5)]
 
 
-def paved(gx, gy):
-    cx, cy, rx, ry = PLAZA
-    r = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
-    return (1 - r) * min(rx, ry)
-
-
 def shore(gy):
-    """x of the waterline.  The headland reaches east at the top, the cove bites in below it, and the
-    southern cape comes back out again."""
+    """x of the waterline. The two arms of the headland reach east at the top and the bottom of the
+    map; between them the water comes almost all the way to the back wall, which is why the town had
+    to be built on pilings in the first place."""
     gy = np.asarray(gy, float)
-    return (44.0 + 15.0 * (1 - _smooth(13, 24, gy)) + 13.0 * _smooth(48, 58, gy)
-            - 3.2 * _gauss(gy, 34, 10) + 1.2 * np.sin(0.42 * gy + 0.8) + 0.7 * np.sin(0.93 * gy))
+    return (15.0 + 42.0 * (1 - _smooth(11, 23, gy)) + 40.0 * _smooth(43, 55, gy)
+            - 3.0 * _gauss(gy, 33, 13) + 1.1 * np.sin(0.44 * gy + 0.8) + 0.6 * np.sin(0.95 * gy))
 
 
 def water_fields(gx, gy):
-    """A LAGOON, not open sea: the cove shelves slowly, so there is a wide turquoise shelf inside the
-    arms of the headland before the water goes dark. The shelf is most of what you see from the quay,
-    and it is the difference between this reading as a tropical cove and a grey harbour."""
+    """A LAGOON, not open sea: the cove shelves slowly inside the arms, so most of the water visible
+    from the boards is a pale shelf and the dark starts out past the pier heads."""
     sea = gx - shore(gy)
     sheltered = np.exp(-((gy - 34.0) / 19.0) ** 2)
     return sea, sea - (3.4 + 13.0 * sheltered)
@@ -106,31 +109,15 @@ def deck_field(gx, gy):
     return best
 
 
-def _ridge(pts, hw, gx, gy):
-    from scipy.spatial import cKDTree
-    key = id(pts)
-    if key not in _RIDGE_TREES:
-        from tools.terrain_painter import Painter
-        _RIDGE_TREES[key] = cKDTree(Painter.spline(pts))
-    tree = _RIDGE_TREES[key]
-    d, idx = tree.query(np.stack([gx.ravel(), gy.ravel()], 1))
-    t = idx / max(1, tree.n - 1)
-    taper = 0.35 + 0.65 * np.sin(np.pi * t) ** 0.6
-    return (hw * taper).reshape(gx.shape) + 0.7 * _wob(gx, gy) - d.reshape(gx.shape)
-
-
 def cliff_field(gx, gy):
+    """EVERY piece of land here is rock except the road corridor. That is the whole archetype: the
+    headland is a cliff, the back wall is a cliff, and the town is not on either of them."""
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
-    out = np.full(gx.shape, -99.0)
-    for (pts, hw) in RIDGES:
-        out = np.maximum(out, _ridge(pts, hw, gx, gy))
-    west = (5.0 + 1.4 * np.sin(0.19 * gy + 0.4) + 0.8 * np.sin(0.47 * gy)) - gx
-    north = (2.8 + 1.1 * np.sin(0.14 * gx + 1.0) + 0.6 * np.sin(0.39 * gx)) - gy
-    south = gy - (56.4 - 1.3 * np.sin(0.16 * gx + 2.0) - 0.7 * np.sin(0.43 * gx))
-    out = np.maximum(out, np.maximum(west, np.maximum(north, south)))
-    # sea stacks standing off the cove mouth, and the knuckle the harbourmaster's tower sits on
-    for (cx, cy, rx, ry) in [(62, 12, 5.0, 3.6), (50, 54, 4.2, 3.0), (52, 20, 3.4, 2.6)]:
+    inland = shore(gy) - gx                       # >0 on the land side of the waterline
+    out = inland * 1.6 + 1.0 * _wob(gx, gy)
+    # knuckles standing out of the water: the stacks off the cove mouth and one inside the arms
+    for (cx, cy, rx, ry) in [(63, 12, 5.0, 3.6), (56, 54, 4.6, 3.2), (52, 40, 3.0, 2.4)]:
         r = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
         out = np.maximum(out, (1 - r) * min(rx, ry))
     clear = np.full(gx.shape, -99.0)
@@ -139,7 +126,7 @@ def cliff_field(gx, gy):
         clear = np.maximum(clear, (1 - d) * min(rx, ry))
     clear = np.maximum(clear, road_dist(gx, gy) + 2.4)
     clear = np.maximum(clear, deck_field(gx, gy) + 1.5)
-    return np.minimum(out + 1.0 * _wob(gx, gy), -clear)
+    return np.minimum(out, -clear)
 
 
 def fields(gx, gy):
@@ -157,43 +144,48 @@ def tile_kind(gx, gy):
 WATER = "sea"
 BASE = {"jungle": 1.0, "fern": 0.65, "clay": 0.15, "hard": 0.22}
 PAINT = {
-    "camp":  [(34, 35, 10, 6, 1.0), (26, 46, 8, 6, 0.8), (35, 8, 8, 5, 0.9), (20, 38, 9, 5, 0.8),
-              (14, 13, 8, 5, 0.7)],
-    "hard":  [(34, 35, 7, 4.5, 0.9), (46, 20, 6, 5, 0.8)],
-    "clay":  [(25, 50, 7, 5, 0.6)],
-    "mulch": [(10, 24, 7, 6, 0.5), (18, 54, 7, 5, 0.5)],
+    "camp":  [(38, 10, 8, 4, 0.8)],
+    "hard":  [(38, 10, 6, 3, 0.7)],
+    "mulch": [(28, 8, 8, 4, 0.5)],
 }
 
 NPC_POSITIONS = {
-    # the ramp: you pay before you reach the water
-    "bootybay_toll_collector": (46, 20),       # Tollkeeper Nizzik
-    "bootybay_harbourmaster": (47, 19),        # Harbourmaster Sprocket, tower door
-    "bootybay_gate_guard": (37, 7),            # Bruiser Kolk, clifftop gate
-    "bootybay_lookout": (11, 14),              # Lookout Minzi, the cape watch
-    # the quay
-    "bootybay_baron": (33, 52),                # Baron Revilgaz
-    "bootybay_baron_aide": (30, 48),           # Aide Fipple
-    "bootybay_dockmaster": (41, 30),           # Dockmaster Brek
-    "bootybay_crane_hand": (44, 27),           # Crane-Hand Durgo
-    "bootybay_shipwright": (19, 40),           # Shipwright Vella
-    "bootybay_cartel_factor": (24, 34),        # Factor Weezel - still signs for Ratchet, and says so
-    "bootybay_fence": (16, 42),                # The Quiet Man
-    "bootybay_bloodsail_captive": (26, 53),    # a Bloodsail nobody has decided what to do with
-    "bootybay_troll_pilot": (36, 39),          # Pilot Zan'rek, knows the reef
-    "bootybay_street_kid": (33, 32),           # Scrip
-    # vendors
-    "bootybay_trader": (31, 37),               # Trader Nixxle
-    "bootybay_tavern_keeper": (21, 49),        # Keeper Marla
-    "bootybay_shipping_clerk": (38, 35),       # Clerk Bexx
-    "bootybay_fishmonger": (43, 44),           # Gurgle
-    "bootybay_weapon_dealer": (14, 38),        # Dealer Sark
+    # NPCs stand on the OUTER edge of each gallery and the buildings sit against the inner edge. A
+    # walkway six or seven boards wide cannot hold both down its middle, and the first version of this
+    # roster proved it by refusing half the buildings.
+    # the headland and the ramp: you pay before your boots touch planking
+    "bootybay_gate_guard": (36, 8),            # Bruiser Kolk, clifftop gate
+    "bootybay_lookout": (31, 7),               # Lookout Minzi, the cape watch
+    "bootybay_toll_collector": (45, 19),       # Tollkeeper Nizzik, head of the ramp
+    "bootybay_harbourmaster": (49, 22),        # Harbourmaster Sprocket, tower door
+    # the upper gallery - the market row, sellers along the rail
+    "bootybay_trader": (30, 22),               # Trader Nixxle
+    "bootybay_shipping_clerk": (36, 22),       # Clerk Bexx
+    "bootybay_cartel_factor": (25, 22),        # Factor Weezel - still signs for Ratchet, and says so
+    "bootybay_street_kid": (33, 22),           # Scrip
+    "bootybay_crane_hand": (44, 22),           # Crane-Hand Durgo
+    # the back walk, against the cliff
+    "bootybay_weapon_dealer": (23, 31),        # Dealer Sark
+    "bootybay_fence": (23, 36),                # The Quiet Man
+    "bootybay_shipwright": (23, 41),           # Shipwright Vella
+    # the cross bridge and the east walk
+    "bootybay_tavern_keeper": (28, 34),        # Keeper Marla
+    "bootybay_dockmaster": (45, 30),           # Dockmaster Brek
+    "bootybay_troll_pilot": (45, 38),          # Pilot Zan'rek, knows the reef
+    "bootybay_fishmonger": (47, 46),           # Gurgle, the south pier
+    # the lower gallery
+    "bootybay_baron": (34, 44),                # Baron Revilgaz, outside his own door
+    "bootybay_baron_aide": (29, 44),           # Aide Fipple
+    "bootybay_bloodsail_captive": (24, 44),    # a Bloodsail nobody has decided what to do with
 }
-FORGE = (18, 36)
+FORGE = (23, 27)
 EXTRA_NPC_XY = [FORGE]
-CHESTS = [(8, 24), (12, 53), (41, 10), (23, 11)]
-
-
-JP = "assets/tiles/echo_isles/props/"
+#: NOT town_kit's CHESTS. Layout.chest() refuses any tile whose base is "path", which is the right rule
+#: everywhere else - a chest in the middle of a road is a bug - but every walkable tile in this town is
+#: decking, and decking is laid down as "path". So the chests are placed directly on the boards below,
+#: as crates on the quay, which is where they would actually be in a port.
+CHESTS = []
+DECK_CHESTS = [(18, 26), (59, 26), (62, 34), (18, 49), (40, 35)]
 
 
 def dress(L):
@@ -204,93 +196,112 @@ def dress(L):
     # ---- the boat to Ratchet, at the head of the middle pier -------------------------------------
     z.collision_layer[BOAT[1]][BOAT[0]] = None
     z.set_tile(BOAT[0], BOAT[1], "boat", "interaction")
-    L.deco("boat_orc", 67, 36, 8)
+    L.deco("boat_orc", 67, 37, 8)
+    L.deco("boat_troll", 61, 29, 7)
 
-    # ---- the clifftop gate and the headland walk --------------------------------------------------
+    # ---- the headland: the gate, the bone arch, the only soil in the zone ------------------------
     C("crab_claw_arch", 35, 11, 9, solid=False, road_ok=True, nudge=0)
-    B("palisade_gatehouse", 30, 7, 8, nudge=1)
-    P("br_signpost", 38, 10, 5)
-    C("sea_stack_spire", 58, 9, 11)
-    L.deco("sea_stack_spire", 66, 21, 9)
-    B("frontier_watchtower", 9, 12, 10)
-    C("jungle_banyan", 29, 16, 10)
-    C("jungle_banyan", 30, 11, 10)
-    C("bamboo_grove", 15, 8, 7)
-    C("mossy_jungle_boulder", 25, 7, 4)
+    P("br_signpost", 40, 14, 5, road_ok=True)
+    # the headland is rock, so nothing STANDS on it - the growth hangs over the road from above, which
+    # is what L.deco is for: a sprite with no collision and no placement check.
+    for (x, y) in [(26, 12), (45, 9), (22, 7), (49, 14), (18, 11), (41, 6), (30, 16), (53, 10)]:
+        L.deco("jungle_banyan", x, y, 11, path_dir=CPD)
+    for (x, y) in [(21, 9), (48, 11), (16, 15), (44, 15)]:
+        L.deco("bamboo_grove", x, y, 8, path_dir=CPD)
+    L.deco("palm_lean_a", 40, 7, 10, path_dir=JP)
+    L.deco("palm_cluster", 24, 5, 10, path_dir=JP)
 
-    # ---- the ramp: the toll post and the harbourmaster's tower on the knuckle ---------------------
-    B("guard_post", 48, 19, 6, nudge=2)
-    B("harbor_tower", 50, 16, 10, nudge=2)
-    C("signal_tower", 56, 17, 9, nudge=2)
-    D("vot_crate_stack", 47, 25, 3)
-    P("br_signpost", 44, 22, 5)
+    # ---- the ramp foot: toll post and the harbourmaster's tower, first thing off the cliff --------
+    B("guard_post", 47, 21, 6, nudge=2)
+    B("harbor_tower", 46, 28, 10, nudge=3)
+    D("vot_crate_stack", 44, 21, 3)
+    P("br_signpost", 43, 22, 5)
 
-    # ---- the quay: the floor of the town, and what stands on it ----------------------------------
-    B("the_broken_keel", 21, 47, 9)
-    B("trading_post", 32, 40, 6)
-    B("bazaar_stall_row", 20, 36, 5)
-    B("mixed_trading_post", 14, 35, 6)
-    B("ratchet_docks_warehouse", 36, 30, 9, nudge=2, road_ok=True)
-    B("supply_cache_shed", 12, 43, 5)
-    D("vot_fire_pit", 24, 37, 2, solid=False)
-    D("rf_supply_crates", 34, 38, 3)
-    D("rf_tool_rack", 17, 34, 3)
+    # ---- the upper gallery: the market row ------------------------------------------------------
+    B("bazaar_stall_row", 29, 28, 5)
+    B("mixed_trading_post", 37, 28, 6)
+    B("trading_post", 46, 26, 6, nudge=3)
+    D("rf_supply_crates", 33, 28, 3)
+    D("vot_crate_stack", 24, 28, 3)
 
-    # ---- the lower shelf: the Baron's stair, the cages, the holding yard --------------------------
-    B("gazlowes_office", 33, 50, 10, nudge=2)
-    B("generic_shack_a", 20, 50, 6)
-    B("generic_shack_b", 15, 48, 6)
-    D("rf_prison_cage", 24, 54, 5)
-    D("vot_crate_stack", 32, 53, 3)
-    C("driftwood_pile", 34, 48, 3)
+    # ---- the back walk and the cross bridge -----------------------------------------------------
+    B("the_broken_keel", 20, 40, 9, nudge=2)
+    B("generic_shack_a", 19, 30, 6, nudge=2)
+    D("rf_tool_rack", 19, 34, 3)
+    D("vot_fire_pit", 32, 36, 2, solid=False)
+    D("rf_supply_crates", 37, 36, 3)
 
-    # ---- the piers: cranes, lanterns, traps, the things a working harbour leaves lying about ------
-    for (x, y) in [(48, 24), (54, 24), (59, 24)]:
+    # ---- the east walk: the working side, clear of all three pier junctions ----------------------
+    B("ratchet_docks_warehouse", 41, 42, 8, nudge=2)
+    B("supply_cache_shed", 40, 31, 5, nudge=2)
+    C("fish_drying_rack", 39, 39, 4)
+    C("fish_crates_traps", 40, 29, 3)
+
+    # ---- the lower gallery: the Baron's office, the cages, the holding yard ----------------------
+    B("gazlowes_office", 36, 50, 10, nudge=3)
+    B("generic_shack_b", 26, 50, 6, nudge=2)
+    D("rf_prison_cage", 21, 49, 5)
+    D("vot_crate_stack", 31, 50, 3)
+    C("driftwood_pile", 43, 48, 3)
+
+    # ---- pier furniture: cranes, lanterns, traps, what a working harbour leaves lying about ------
+    for (x, y) in [(46, 25), (52, 25), (58, 25)]:
         L.deco("dock_lantern_post", x, y, 4)
-    for (x, y) in [(49, 33), (56, 33), (63, 33)]:
+    for (x, y) in [(47, 33), (54, 33), (62, 33)]:
         L.deco("dock_lantern_post", x, y, 4)
-    for (x, y) in [(48, 44), (55, 44)]:
+    for (x, y) in [(47, 45), (54, 45)]:
         L.deco("dock_lantern_post", x, y, 4)
-    for (x, y) in [(44, 28), (44, 41), (44, 47)]:
+    for (x, y) in [(21, 23), (27, 22), (41, 22), (21, 45), (34, 44), (18, 38), (18, 27),
+                   (25, 34), (37, 34), (40, 28), (40, 44), (45, 50)]:
         L.deco("dock_lantern_post", x, y, 4)
     L.deco("mooring_posts", 52, 36, 3)
-    L.deco("mooring_posts", 61, 36, 3)
-    L.deco("mooring_posts", 53, 47, 3)
-    L.deco("fish_crates_traps", 50, 26, 3)
-    L.deco("fish_crates_traps", 66, 37, 3)
-    L.deco("fish_crates_traps", 45, 45, 3)
-    L.deco("fish_drying_rack", 46, 42, 4)
-    L.deco("outrigger_canoe", 47, 48, 4)
-    L.deco("rowboat_wreck", 58, 50, 4)
+    L.deco("mooring_posts", 60, 36, 3)
+    L.deco("mooring_posts", 52, 48, 3)
+    L.deco("fish_crates_traps", 50, 27, 3)
+    L.deco("fish_crates_traps", 66, 38, 3)
+    L.deco("outrigger_canoe", 49, 48, 4)
+    L.deco("rowboat_wreck", 60, 50, 4)
 
-    # ---- the cove's edges: reef, wrecks, and the jungle coming down both walls -------------------
-    L.deco("coral_reef_outcrop", 60, 44, 4)
-    L.deco("coral_reef_outcrop", 54, 52, 4)
-    L.deco("coral_reef_outcrop", 62, 28, 4)
-    C("mangrove_thicket", 38, 50, 6, shore_ok=True)
-    C("mangrove_thicket", 41, 22, 6, shore_ok=True)
-    J("tide_pool", 40, 51, 3, solid=False, shore_ok=True)
-    J("coral_shell_cluster", 39, 26, 3, solid=False, shore_ok=True)
-    # the jungle comes down the cliff on both sides and nobody cuts it, because nobody owns the cliff
-    for (x, y) in [(9, 31), (10, 54), (12, 20), (28, 52), (16, 27), (33, 48), (8, 38), (24, 16)]:
-        C("jungle_banyan", x, y, 11)
-    for (x, y) in [(8, 45), (14, 16), (19, 23), (30, 20), (12, 33), (26, 29), (36, 46), (6, 50)]:
-        C("bamboo_grove", x, y, 8)
-    for (x, y) in [(19, 31), (11, 26), (22, 51), (34, 44), (16, 53), (27, 25)]:
-        C("banana_plant", x, y, 6)
-    for (x, y) in [(30, 30), (13, 50), (21, 18), (36, 24), (24, 41), (11, 37), (32, 11), (18, 45)]:
-        C("hibiscus_bush", x, y, 3, solid=False)
-    for (x, y) in [(22, 24), (14, 42), (31, 35), (37, 18), (26, 10), (8, 20)]:
-        J("palm_cluster" if (x + y) % 3 else "palm_lean_a", x, y, 10)
-    for (x, y) in [(17, 39), (29, 42), (12, 29), (38, 42)]:
-        J("palm_lean_b", x, y, 9)
-    C("tiki_totem", 35, 52, 7)                   # older than the port, and nobody moves it
-    C("sunken_totem", 42, 40, 5, shore_ok=True)
-    J("overgrown_ruin", 20, 55, 8)
+    # ---- the lagoon and the cliffs it is cut into ------------------------------------------------
+    L.deco("coral_reef_outcrop", 62, 44, 4)
+    L.deco("coral_reef_outcrop", 56, 52, 4)
+    L.deco("sea_stack_spire", 66, 21, 10)
+    L.deco("sunken_totem", 41, 52, 5)
+    L.deco("tide_pool", 52, 56, 3, path_dir=JP)
+    # The jungle comes down the back wall and over both arms, and nobody cuts it because nobody can
+    # reach it. All of this is deco: it hangs over rock, where a placement check would refuse it and
+    # be right to, since none of it is standing on anything a player could walk on.
+    for (x, y) in [(11, 18), (9, 48), (13, 55), (14, 26), (13, 44), (52, 57), (21, 57), (10, 36),
+                   (58, 16), (60, 52), (16, 10), (12, 60)]:
+        L.deco("jungle_banyan", x, y, 11, path_dir=CPD)
+    for (x, y) in [(8, 30), (11, 41), (10, 13), (57, 9), (17, 52), (45, 57), (7, 56), (14, 33)]:
+        L.deco("bamboo_grove", x, y, 8, path_dir=CPD)
+    for (x, y) in [(12, 35), (9, 24), (15, 48), (55, 12), (31, 57), (13, 39)]:
+        L.deco("banana_plant", x, y, 6, path_dir=CPD)
+    for (x, y) in [(13, 29), (10, 38), (14, 21), (51, 11), (27, 57), (39, 57), (15, 43)]:
+        L.deco("hibiscus_bush", x, y, 3, path_dir=CPD)
+    for (x, y) in [(13, 15), (10, 52), (47, 6), (19, 11), (15, 57)]:
+        L.deco("palm_cluster" if (x + y) % 2 else "palm_lean_b", x, y, 10, path_dir=JP)
+    L.deco("mangrove_thicket", 16, 22, 6, path_dir=CPD)
+    L.deco("mangrove_thicket", 16, 47, 6, path_dir=CPD)
+    L.deco("tiki_totem", 17, 16, 7, path_dir=CPD)   # older than the port, and nobody moves it
+
+
+def deck_chests(L):
+    """Crates on the boards. See DECK_CHESTS for why these do not go through Layout.chest()."""
+    z = L.z
+    for (x, y) in DECK_CHESTS:
+        if z.is_walkable(x, y) and z.interaction_layer[y][x] is None and z.collision_layer[y][x] is None:
+            z.set_tile(x, y, "chest", "interaction")
+            L.chests.append((x, y))
+        else:
+            L.skipped.append(("deck chest", x, y, "occupied"))
 
 
 def build_layout():
-    return K.build(sys.modules[__name__])
+    L = K.build(sys.modules[__name__])
+    deck_chests(L)
+    return L
 
 
 def generate_booty_bay():

@@ -66,12 +66,12 @@ SHEET = {
     "stv_planks":    (EI / "vot_planks.png", 0.5, None, None),
     "stv_beach":     (EI / "echo_sand.png", 0.5, (46, 0.34, 1.10), None),
     "stv_wet":       (EI / "echo_wetsand.png", 0.5, None, None),
-    "stv_sea_s":     (EI / "vot_water_shallow.png", 0.5, (176, 0.44, 1.42), None),
-    "stv_sea_d":     (EI / "vot_water_deep.png", 0.5, (184, 0.50, 1.58), None),
-    "stv_lake_s":    (EI / "vot_water_shallow.png", 0.3, (156, 0.50, 0.98), None),
-    "stv_lake_d":    (EI / "vot_water_deep.png", 0.3, (158, 0.58, 0.64), None),
-    "stv_cliff_a":   (EI / "echo_rock_a.png", 0.5, None, None),
-    "stv_cliff_b":   (EI / "echo_rock_b.png", 0.5, (96, 0.12, 0.84), None),
+    "stv_sea_s":     (EI / "vot_water_shallow.png", 0.5, (174, 0.34, 1.62), None),
+    "stv_sea_d":     (EI / "vot_water_shallow.png", 0.2, (196, 0.62, 1.26), None),
+    "stv_lake_s":    (EI / "vot_water_shallow.png", 0.3, (168, 0.38, 1.50), None),
+    "stv_lake_d":    (EI / "vot_water_shallow.png", 0.15, (186, 0.60, 1.08), None),
+    "stv_cliff_a":   (EI / "echo_rock_a.png", 0.5, (38, 0.16, 1.34), None),
+    "stv_cliff_b":   (EI / "echo_rock_b.png", 0.5, (70, 0.22, 1.12), None),
     "stv_canopy":    (EI / "echo_jungle_b.png", 0.35, (126, 0.92, 1.08), "canopy"),
 }
 
@@ -403,8 +403,11 @@ def post(rgb, X, Y, P):
     dap = P.sample_field(P.noise(6.5, "dapple", octaves=3), X, Y)
     lum_n = P.sample_field(P.noise(18.0, "lumlow", octaves=2), X, Y)
     shade = (0.84 + 0.28 * dap) * (0.96 + 0.08 * lum_n)
+    # water is lit from above and has no canopy over it: give the wet tiles most of the shade back
+    wet_lit = 1 - smoothstep(0.0, 1.2, sf(f["d_wi"]))
+    shade = shade * wet_lit + np.maximum(shade, 1.06) * (1 - wet_lit)
     shade *= 1 - 0.26 * (1 - smoothstep(0.0, 1.7, d_co))
-    shade *= 1 - 0.26 * smoothstep(1.5, 11.0, d_ci)
+    shade *= 1 - 0.15 * smoothstep(1.5, 11.0, d_ci)
     shade *= 1 - 0.32 * (1 - smoothstep(0.0, 2.6, d_fo))
     shade *= 1 - 0.42 * smoothstep(1.5, 10.0, d_fi)
     cf, wf = sf(f["cf"]), sf(f["wf"])
