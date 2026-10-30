@@ -1959,6 +1959,212 @@
       }
     },
     {
+      "quest_id": "swf_in_glass_pan",
+      "title": "The Far Side of Dryhollow",
+      "giver_npc_id": "fw_market_relics",
+      "zone": "the_shimmering_flats",
+      "level_min": 34,
+      "level_max": 35,
+      "description": "Relic-Keeper Dun can tell you whether a thing came up out of the mesas or down off the mountain. The shard the salt crew brought him did neither.\n\nIt is pan fused to glass, and the only pan big enough to do that to itself is four days east of anywhere he has been.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 24,
+          "target_y": 44,
+          "radius": 10
+        },
+        {
+          "type": "gather",
+          "target": "sf_vulture_quill",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Salt Vulture",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        }
+      ],
+      "reward_exp": 2440,
+      "reward_gold": 9900,
+      "accept_text": "East. Past the last mesa, through the gap, and out onto the white.\n\nI am not asking you to bring me anything. I have the shard. I am asking you to stand where it came from and tell me what is out there, because I have been pricing things off that pan for eleven years on the word of carters who never got out of the cart.\n\nThe birds will be a problem. Eight of them, and five quills while you are about it - I will buy those.",
+      "turn_in_text": "A town. There is a TOWN out there.\n\nGoblins, on a racetrack, on the edge of a salt flat that is eating them, and not one of the carters thought to mention it because not one of them ever walked past their own cart.\n\nI have spent eleven years treating that pan as weather. Go back. Find out what they call it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Brinecount's Sabatons",
+          "slot": "feet",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "block_rating": 0.4,
+            "block_value": 4.0
+          },
+          "armor_type": "plate",
+          "armor_value": 79,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Brinecount's Byrnie",
+          "slot": "chest",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Graded, weighed, and written down twice before it was ever worn.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 106,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Brinecount's Rod",
+          "slot": "main_hand",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 17.2,
+            "crit_chance_spell": 0.9
+          },
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "fw_the_glass_pan"
+      ]
+    },
+    {
+      "quest_id": "swf_in_other_end",
+      "title": "The Third End of the Road",
+      "giver_npc_id": "fw_caravan_master",
+      "zone": "saltwheel",
+      "level_min": 35,
+      "level_max": 36,
+      "description": "Namka has a road and somebody to talk to at both ends of it, which she has not had in three years.\n\nCaravan-Master Bohl has been looking at the same map and has noticed there is a third end, and that nobody in Freewind Post has ever walked it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_shimmering_flats",
+          "target_x": 36,
+          "target_y": 46,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Dustwheel Scrapper",
+          "count": 8,
+          "zone": "the_shimmering_flats"
+        },
+        {
+          "type": "deliver",
+          "target": "sf_road_query",
+          "count": 1,
+          "label": "Tally-Clerk Winnow, Saltwheel"
+        }
+      ],
+      "reward_exp": 2520,
+      "reward_gold": 10200,
+      "accept_text": "Four caravans a week up that ramp and not one of them on time, and every one of them comes from the north. Nothing has come from the east in my working life.\n\nThere is supposed to be a town out there. Walk to it. Put this in the hand of whoever keeps their books - every town has one and they are always the person nobody talks to - and let them answer it.\n\nEight of whatever is on that road, too. If I am sending carts I want to know what is on it.",
+      "turn_in_text": "[Tally-Clerk Winnow reads it twice, which is what she does with everything.]\n\nFreewind Post wants to know whether there is anything here worth a cart.\n\nThere is. I can tell him to the barrel what there is, and I have been able to for three years, and this is the first time in those three years that anybody outside this town has asked me a question.\n\nI am going to answer it at a length he will regret. Stay where you are - you are carrying it back, and you may as well know what this place is while I write.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Long-Haul Legplates",
+          "slot": "legs",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Haulage kit, and it has done the crossing more often than anyone riding in it.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 163,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Pan-Graded Bindings",
+          "slot": "wrist",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Salt has been through this so many times it has stopped doing damage.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 3.3,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Bracers (Int/SP/MP5)"
+        },
+        {
+          "name": "Pan-Graded Crook",
+          "slot": "main_hand",
+          "item_level": 35,
+          "rarity": "uncommon",
+          "required_level": 35,
+          "flavor_text": "Lead-sealed at the seams, which is what you do out here and why.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 17.7,
+            "crit_chance_spell": 0.9
+          },
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 36,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 35,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "sw_tally_clerk",
+      "requires_quests": [
+        "fw_the_road_is_open"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sf_road_query",
+            "name": "Bohl's Query",
+            "description": "Three lines, in a caravan-master's hand. Weight, frequency, and what it is worth.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
       "quest_id": "swf_water_waterline",
       "title": "The Watermark Is in the Wrong Place",
       "giver_npc_id": "sw_mechanic",

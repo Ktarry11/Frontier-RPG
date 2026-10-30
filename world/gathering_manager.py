@@ -473,6 +473,10 @@ CAVE_TO_PARENT_ZONE = {
     # silver and the wood idea moves to the Underdark proper, which is a zone rather than a cave.
     "The Frostward Descent": "Eastern Hillsbrad",
     "The Hollow Geode": "The Crystalline Underdark",
+    # A silithid hive dug through a salt pan - ore is exactly what is down there, and the Flats'
+    # own quests are built on the tunnelers bringing spoil UP and leaving it. Two mouths, one
+    # cave; the parent key is the same either way, so both entrances inherit the same table.
+    "The Undercrust": "The Shimmering Flats",
     # Stranglethorn's three caves, each under its own zone. All three inherit a parent table that stops
     # at the existing tier-40 ladder, so nothing new enters the material ladder here - Southern
     # Stranglethorn runs to 42 and still gathers exactly what the 38-40 band gathers. The Gurbashi
