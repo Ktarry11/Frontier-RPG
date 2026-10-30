@@ -62,8 +62,16 @@ deliberately different registers:
                                   cove and has decided what the arena drums are made of.
 
 =========================================================================================================
-THE EARTH-TRANSPLANT UNDERCURRENT - nine of eighteen, and never the subject of any of them
+THE EARTH-TRANSPLANT UNDERCURRENT - NINE OF THIRTY, and never the subject of any of them
 =========================================================================================================
+THE CURRENT NINE, for anybody reading this before the two revision blocks below: stvc_tout_entry,
+stvc_tout_staked, stvc_ulua_netsetter, stvc_arena_favourite, stvc_scrip_drums from the first eighteen,
+and stvc_notch_tithe, stvc_centre_gate, stvc_sluice_book, stvc_reed_verdict from the second twelve.
+Four of the original nine came out (stvc_ganger_cut, stvc_arena_first_four, stvc_fenn_weather and
+stvc_zuljana_names, the last of which was a miscount rather than a note) - see THE 18 -> 30 PASS
+REVISED THIS DOWNWARD, below, which has the reasoning per quest.  What follows immediately is the FIRST
+pass's rationale, kept because it is why each surviving note exists.
+
 Kyle: "the subtle animosity and lack of trust between 'native' people of Azeroth and the players ... we
 need slight tension or even casual and subtle earth references."
 
@@ -121,31 +129,62 @@ above the new quest functions) and TWO OF THE ORIGINAL NINE WERE TRIMMED:
                          form line on you lot"), and a note made twice is a theme.  What replaced it
                          explains what a drum count is FOR, which the quest needed anyway.
 
-That leaves ELEVEN of thirty, 37%, and the honest reading is that 37% is as close to 30% as the two
-allowed trims get: nine would need four, and the next two candidates are stvc_zuljana_names's
-correction and stvc_fenn_weather's exception, which are respectively the only native who pushes back
-about her own language and the only person in the jungle who is warm about you.  Cutting either to hit
-a percentage would cost more than the percentage is worth.  They are named here so the choice is
-somebody's to make and not invisible.
+TWO MORE WENT, AND THE ZONE LANDS ON NINE OF THIRTY - 30% exactly, which is the number Kyle set and
+which Northern and Southern are both held to as well.  The second pair came out differently from the
+first, and the difference is the point:
 
-WHAT tools/qa_quest_lore.py SAYS, AND WHY IT IS HIGHER.  It reports 13 of 30 (43%) and FAILS the file
-against its 18% ceiling - which the eighteen-quest version escaped only because the ceiling needs
-n >= 20 and the old docstring said in as many words that whoever crossed twenty should look again.
-Looked.  Its regex counts three things this file keeps apart:
+  stvc_fenn_weather      THE ONLY ONE THAT COST SOMETHING.  Ordek's question was "where you're from,
+                         does the rain come in a season" and it is now "you came down the road out of
+                         the north, and the north has weather I have only ever been told about".  The
+                         clause could not simply be deleted - it is the quest's engine, it is why he
+                         asks anything at all, and the turn-in answers it - so it was re-aimed instead:
+                         same man, same warmth, same discovery that his moss is a waterfall plant and
+                         he has been pricing it as common for two years.  What is lost is that he was
+                         the EXCEPTION, the one person openly fine with an off-worlder, and the reason
+                         the remaining notes read as deliberate rather than as the writer's mood.  He
+                         is now warm about a traveller instead.  That is a real loss and it is written
+                         down here rather than quietly absorbed.
+  stvc_zuljana_names     COST NOTHING, BECAUSE IT WAS NEVER AN EARTH NOTE.  Read it again: the tension
+                         in it is Zul'jana against a HORDE GARRISON that calls her jungle's cave "the
+                         waterfall cave" - the camp, not the player.  Its only Integration marker was
+                         an accident of arithmetic, her tenure written as "three years", and fixing
+                         that fixed the count without a word of the quest changing.  The first pass
+                         listing it among the nine was a miscount, not a trim.
 
-  7 + 2    the actual Earth notes it can see.  Four more it cannot: stvc_notch_tithe never uses a
-           flagged phrase, and stvc_sluice_book's is in a dialogue topic, which lives in
-           world/quest_dialogue_stranglethorn_central.py and is not in the text overlay it reads.
-  3        "three years" DATING THE VEILFALL'S RISE - stvc_zuljana_font, stvc_north_leg,
-           stvc_ulua_cold_month.  Per claude/integration_timeline.md that span is the Integration's
-           and these three are the zone's central piece of physical lore, so they are correct and
-           cannot be any other number.
-  2        "three years" as A PERSON'S TENURE - Vrak on the gate, Zul'jana listening to a garrison.
-           The timeline doc's own test says a tenure may be any length, so these two read as
-           Integration references by accident.  Changing them to any other number would drop the
-           instrument to 37% and cost the prose nothing; it is not done here because the 18 are
-           otherwise untouched by this pass, and it is the cheapest available improvement if the
-           number matters more than the diff.
+THE TWO TENURES, which are a correction and not a workaround.  claude/integration_timeline.md is
+explicit that a tenure may be any length, because the natives and their institutions were here before
+the merge - only a span attached to the EVENT is pinned to three years.  Both of these were written as
+three and so both read as postings that began the week the worlds met:
+
+  Sentry Vrak        three years on the gate -> SEVEN.  She has stopped enjoying saying her one line
+                     and keeps a tally nobody asked for.  Seven years earns that; three is a new post.
+                     Not nine: "nine came back through her gate" is in the next sentence.
+  Attache Zul'jana   three years -> NINETEEN.  This one was actively working against her.  Her whole
+                     standing is that she is the one person inside that fence who was here first, and
+                     a posting that started exactly when the worlds merged makes her as new as the
+                     people she is correcting.  Nineteen puts her in that camp before its current
+                     staff and before the event, which is what the quest has always meant.
+
+WHAT tools/qa_quest_lore.py SAYS, AND WHY IT IS STILL HIGHER.  It reports 10 of 30 (33%) and FAILS the
+file against its 18% ceiling - which the eighteen-quest version escaped only because the ceiling needs
+n >= 20, and the old docstring said in as many words that whoever crossed twenty should look again.
+Looked.  The instrument counts the PHRASE and not what the sentence is dating, so it cannot separate:
+
+  6        genuine Earth notes it can see - stvc_tout_entry, stvc_tout_staked, stvc_ulua_netsetter,
+           stvc_arena_favourite, stvc_scrip_drums, stvc_centre_gate.
+  1        stvc_reed_verdict, which is both a genuine note AND a correct date in one sentence.
+  3        "three years" DATING THE VEILFALL'S RISE and nothing else - stvc_zuljana_font,
+           stvc_north_leg, stvc_ulua_cold_month.  Per the timeline doc that span IS the Integration's,
+           these three are the zone's central piece of physical lore, and they are therefore correct
+           and cannot be any other number.  DO NOT "FIX" THESE.
+  0        the two tenures, now that they are seven and nineteen.
+  +2       invisible to it: stvc_notch_tithe uses no flagged phrase at all, and stvc_sluice_book's note
+           lives in a dialogue topic, which is in world/quest_dialogue_stranglethorn_central.py and not
+           in the text overlay the tool reads.
+
+So the real count is nine, the tool's ten minus three dates plus two it cannot see, and the gap is the
+instrument.  Anybody trimming this file further to satisfy that 18% would be cutting the Veilfall's
+date, which is the thing the zone is about.
 
 =========================================================================================================
 THE SHARED SPINE - THREE GENERATIONS OF TROLL STONEWORK, AND THIS IS THE ONE THAT STILL KNOWS
