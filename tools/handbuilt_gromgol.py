@@ -139,6 +139,8 @@ NPC_POSITIONS = {
     "gromgol_commander": (44, 36),            # Overseer Mokra, war hall door
     "gromgol_berth_master": (27, 18),         # Berth-Master Zekka, foot of the tower stair
     "gromgol_signalman": (37, 17),            # Signalman Grut
+    "gromgol_innkeeper": (24, 30),            # Innkeeper Rukha - the camp's only bunk and the hearth
+    "gromgol_flight_master": (38, 20),        # Windrider-Keeper Pazzik, the roost by the stair
     "gromgol_scout": (24, 16),                # Scout Hanzo
     "gromgol_quartermaster": (28, 28),        # Quartermaster Ghal
     # the parade yard and the wall
@@ -171,9 +173,11 @@ def dress(L):
     C = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
     J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
 
-    # ---- the berth: the tower, the stair down, the airship riding above it ------------------------
-    B("zep_tower_orc", 32, 16, 14, road_ok=True, nudge=0)
-    L.deco("zeppelin_orc", 32, 7, 10)
+    # ---- the north gate: the stair head up to the mooring tower ----------------------------------
+    # The tower itself is a zone of its own now and stands outside the wall; what is left in here is
+    # the foot of its stair and the traffic that comes down it.
+    B("gg_watchtower", 32, 16, 12, road_ok=True, nudge=0)
+
     D("vot_war_banner", 26, 14, 5)
     D("vot_war_banner", 38, 14, 5)
     D("vot_crate_stack", 24, 10, 3)

@@ -1,310 +1,342 @@
 {
- "hearth": {
-  "cooldown_steps": 500,
-  "default_bind": {
-   "zone": "Valley of Trials",
-   "x": null,
-   "y": null,
-   "name": "the Valley of Trials"
+  "hearth": {
+    "cooldown_steps": 500,
+    "default_bind": {
+      "zone": "Valley of Trials",
+      "x": null,
+      "y": null,
+      "name": "the Valley of Trials"
+    },
+    "note": "Cooldown counts overworld steps (not real time) so it survives save/load and can't be waited out."
   },
-  "note": "Cooldown counts overworld steps (not real time) so it survives save/load and can't be waited out."
- },
- "riding_skills": {
-  "1": {
-   "name": "Apprentice Riding",
-   "level": 20,
-   "price": 4000,
-   "speed_mult": 1.6,
-   "encounter_mult": 0.5,
-   "blurb": "Ride a mount: 60% faster, and half as many ambushes."
+  "riding_skills": {
+    "1": {
+      "name": "Apprentice Riding",
+      "level": 20,
+      "price": 4000,
+      "speed_mult": 1.6,
+      "encounter_mult": 0.5,
+      "blurb": "Ride a mount: 60% faster, and half as many ambushes."
+    },
+    "2": {
+      "name": "Journeyman Riding",
+      "level": 30,
+      "price": 20000,
+      "speed_mult": 2.0,
+      "encounter_mult": 0.35,
+      "blurb": "Fast mounts: twice walking speed, and far fewer ambushes."
+    }
   },
-  "2": {
-   "name": "Journeyman Riding",
-   "level": 30,
-   "price": 20000,
-   "speed_mult": 2.0,
-   "encounter_mult": 0.35,
-   "blurb": "Fast mounts: twice walking speed, and far fewer ambushes."
+  "mounts": [
+    {
+      "id": "timber_wolf",
+      "name": "Timber Wolf",
+      "tier": 1,
+      "price": 6000,
+      "vendors": [
+        "org_mount_vendor"
+      ],
+      "blurb": "A rangy grey wolf, broken to the saddle in the Valley of Trials."
+    },
+    {
+      "id": "dire_wolf",
+      "name": "Dire Wolf",
+      "tier": 2,
+      "price": 30000,
+      "vendors": [
+        "org_mount_vendor"
+      ],
+      "blurb": "Shoulder-high and mean. Won't bother with tired ground."
+    },
+    {
+      "id": "brown_kodo",
+      "name": "Brown Kodo",
+      "tier": 1,
+      "price": 6500,
+      "vendors": [
+        "taurajo_beast_trainer"
+      ],
+      "blurb": "Slow to start, impossible to stop. Tauren favourite."
+    },
+    {
+      "id": "war_kodo",
+      "name": "War Kodo",
+      "tier": 2,
+      "price": 32000,
+      "vendors": [
+        "taurajo_beast_trainer"
+      ],
+      "blurb": "Plated hide and a drum on the saddle. The Barrens parts for it."
+    },
+    {
+      "id": "razormane_raptor",
+      "name": "Razormane Raptor",
+      "tier": 1,
+      "price": 6200,
+      "vendors": [
+        "crossroads_stablemaster"
+      ],
+      "blurb": "Quick, loud and mostly loyal. Mind your fingers."
+    },
+    {
+      "id": "swift_raptor",
+      "name": "Swift Raptor",
+      "tier": 2,
+      "price": 31000,
+      "vendors": [
+        "crossroads_stablemaster"
+      ],
+      "blurb": "A lean, feathered sprinter bred for the Gold Road."
+    }
+  ],
+  "flight_nodes": {
+    "orgrimmar": {
+      "name": "Orgrimmar",
+      "zone": "Orgrimmar",
+      "master": "org_flight_master",
+      "pos": [
+        0,
+        0
+      ],
+      "continent": "kalimdor"
+    },
+    "razor_hill": {
+      "name": "Razor Hill",
+      "zone": "Razor Hill",
+      "master": "razorhill_flight_master",
+      "pos": [
+        12,
+        22
+      ],
+      "continent": "kalimdor"
+    },
+    "crossroads": {
+      "name": "The Crossroads",
+      "zone": "Crossroads",
+      "master": "crossroads_flight_master",
+      "pos": [
+        -8,
+        40
+      ],
+      "continent": "kalimdor"
+    },
+    "ratchet": {
+      "name": "Ratchet",
+      "zone": "Ratchet",
+      "master": "ratchet_flight_master",
+      "pos": [
+        24,
+        62
+      ],
+      "continent": "kalimdor"
+    },
+    "camp_taurajo": {
+      "name": "Camp Taurajo",
+      "zone": "Camp Taurajo",
+      "master": "taurajo_flight_master",
+      "pos": [
+        -5,
+        85
+      ],
+      "continent": "kalimdor"
+    },
+    "southern_barrens": {
+      "name": "Southern Barrens (Waystation)",
+      "zone": "Southern Barrens",
+      "master": "sb_flight_master",
+      "pos": [
+        -5,
+        115
+      ],
+      "continent": "kalimdor"
+    },
+    "splintertree": {
+      "name": "Splintertree Post",
+      "zone": "Splintertree Post",
+      "master": "splintertree_flight_master",
+      "pos": [
+        -20,
+        -60
+      ],
+      "continent": "kalimdor"
+    },
+    "astranaar": {
+      "name": "Astranaar",
+      "zone": "Astranaar",
+      "master": "astranaar_flight_master",
+      "pos": [
+        -45,
+        -50
+      ],
+      "continent": "kalimdor"
+    },
+    "undercity": {
+      "name": "Undercity",
+      "zone": "Undercity",
+      "master": "uc_flight_master",
+      "pos": [
+        0,
+        0
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "brill": {
+      "name": "Brill",
+      "zone": "Brill",
+      "master": "brill_flight_master",
+      "pos": [
+        10,
+        -32
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "sepulcher": {
+      "name": "The Sepulcher",
+      "zone": "The Sepulcher",
+      "master": "sepulcher_flight_master",
+      "pos": [
+        -24,
+        26
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "silverpine_south": {
+      "name": "Silverpine South (Forsaken Rearguard)",
+      "zone": "Silverpine South",
+      "master": "sp_south_flight_master",
+      "pos": [
+        -30,
+        58
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "gromgol": {
+      "name": "Grom'gol",
+      "zone": "Grom'gol",
+      "master": "gromgol_flight_master",
+      "pos": [
+        0,
+        0
+      ],
+      "continent": "stranglethorn"
+    },
+    "booty_bay": {
+      "name": "Booty Bay",
+      "zone": "Booty Bay",
+      "master": "bootybay_flight_master",
+      "pos": [
+        -6,
+        34
+      ],
+      "continent": "stranglethorn"
+    }
+  },
+  "flight_cost": {
+    "base": 60,
+    "per_unit": 4
+  },
+  "services": {
+    "razorhill_innkeep": [
+      "inn"
+    ],
+    "astranaar_innkeeper": [
+      "inn"
+    ],
+    "ratchet_tavern_keeper": [
+      "inn"
+    ],
+    "org_innkeeper": [
+      "inn"
+    ],
+    "crossroads_innkeeper": [
+      "inn"
+    ],
+    "taurajo_innkeeper": [
+      "inn"
+    ],
+    "splintertree_innkeeper": [
+      "inn"
+    ],
+    "sb_innkeeper": [
+      "inn"
+    ],
+    "org_flight_master": [
+      "flight"
+    ],
+    "razorhill_flight_master": [
+      "flight"
+    ],
+    "crossroads_flight_master": [
+      "flight"
+    ],
+    "ratchet_flight_master": [
+      "flight"
+    ],
+    "taurajo_flight_master": [
+      "flight"
+    ],
+    "sb_flight_master": [
+      "flight"
+    ],
+    "splintertree_flight_master": [
+      "flight"
+    ],
+    "astranaar_flight_master": [
+      "flight"
+    ],
+    "org_riding_trainer": [
+      "riding"
+    ],
+    "crossroads_riding_trainer": [
+      "riding"
+    ],
+    "taurajo_riding_trainer": [
+      "riding"
+    ],
+    "org_mount_vendor": [
+      "mounts"
+    ],
+    "crossroads_stablemaster": [
+      "mounts"
+    ],
+    "taurajo_beast_trainer": [
+      "mounts"
+    ],
+    "uc_innkeeper": [
+      "inn"
+    ],
+    "uc_riding_trainer": [
+      "riding"
+    ],
+    "uc_flight_master": [
+      "flight"
+    ],
+    "brill_flight_master": [
+      "flight"
+    ],
+    "sepulcher_flight_master": [
+      "flight"
+    ],
+    "sp_south_flight_master": [
+      "flight"
+    ],
+    "brill_innkeeper": [
+      "inn"
+    ],
+    "sepulcher_innkeeper": [
+      "inn"
+    ],
+    "gromgol_innkeeper": [
+      "inn"
+    ],
+    "gromgol_flight_master": [
+      "flight"
+    ],
+    "bootybay_tavern_keeper": [
+      "inn"
+    ],
+    "bootybay_flight_master": [
+      "flight"
+    ]
   }
- },
- "mounts": [
-  {
-   "id": "timber_wolf",
-   "name": "Timber Wolf",
-   "tier": 1,
-   "price": 6000,
-   "vendors": [
-    "org_mount_vendor"
-   ],
-   "blurb": "A rangy grey wolf, broken to the saddle in the Valley of Trials."
-  },
-  {
-   "id": "dire_wolf",
-   "name": "Dire Wolf",
-   "tier": 2,
-   "price": 30000,
-   "vendors": [
-    "org_mount_vendor"
-   ],
-   "blurb": "Shoulder-high and mean. Won't bother with tired ground."
-  },
-  {
-   "id": "brown_kodo",
-   "name": "Brown Kodo",
-   "tier": 1,
-   "price": 6500,
-   "vendors": [
-    "taurajo_beast_trainer"
-   ],
-   "blurb": "Slow to start, impossible to stop. Tauren favourite."
-  },
-  {
-   "id": "war_kodo",
-   "name": "War Kodo",
-   "tier": 2,
-   "price": 32000,
-   "vendors": [
-    "taurajo_beast_trainer"
-   ],
-   "blurb": "Plated hide and a drum on the saddle. The Barrens parts for it."
-  },
-  {
-   "id": "razormane_raptor",
-   "name": "Razormane Raptor",
-   "tier": 1,
-   "price": 6200,
-   "vendors": [
-    "crossroads_stablemaster"
-   ],
-   "blurb": "Quick, loud and mostly loyal. Mind your fingers."
-  },
-  {
-   "id": "swift_raptor",
-   "name": "Swift Raptor",
-   "tier": 2,
-   "price": 31000,
-   "vendors": [
-    "crossroads_stablemaster"
-   ],
-   "blurb": "A lean, feathered sprinter bred for the Gold Road."
-  }
- ],
- "flight_nodes": {
-  "orgrimmar": {
-   "name": "Orgrimmar",
-   "zone": "Orgrimmar",
-   "master": "org_flight_master",
-   "pos": [
-    0,
-    0
-   ],
-   "continent": "kalimdor"
-  },
-  "razor_hill": {
-   "name": "Razor Hill",
-   "zone": "Razor Hill",
-   "master": "razorhill_flight_master",
-   "pos": [
-    12,
-    22
-   ],
-   "continent": "kalimdor"
-  },
-  "crossroads": {
-   "name": "The Crossroads",
-   "zone": "Crossroads",
-   "master": "crossroads_flight_master",
-   "pos": [
-    -8,
-    40
-   ],
-   "continent": "kalimdor"
-  },
-  "ratchet": {
-   "name": "Ratchet",
-   "zone": "Ratchet",
-   "master": "ratchet_flight_master",
-   "pos": [
-    24,
-    62
-   ],
-   "continent": "kalimdor"
-  },
-  "camp_taurajo": {
-   "name": "Camp Taurajo",
-   "zone": "Camp Taurajo",
-   "master": "taurajo_flight_master",
-   "pos": [
-    -5,
-    85
-   ],
-   "continent": "kalimdor"
-  },
-  "southern_barrens": {
-   "name": "Southern Barrens (Waystation)",
-   "zone": "Southern Barrens",
-   "master": "sb_flight_master",
-   "pos": [
-    -5,
-    115
-   ],
-   "continent": "kalimdor"
-  },
-  "splintertree": {
-   "name": "Splintertree Post",
-   "zone": "Splintertree Post",
-   "master": "splintertree_flight_master",
-   "pos": [
-    -20,
-    -60
-   ],
-   "continent": "kalimdor"
-  },
-  "astranaar": {
-   "name": "Astranaar",
-   "zone": "Astranaar",
-   "master": "astranaar_flight_master",
-   "pos": [
-    -45,
-    -50
-   ],
-   "continent": "kalimdor"
-  },
-  "undercity": {
-   "name": "Undercity",
-   "zone": "Undercity",
-   "master": "uc_flight_master",
-   "pos": [
-    0,
-    0
-   ],
-   "continent": "eastern_kingdoms"
-  },
-  "brill": {
-   "name": "Brill",
-   "zone": "Brill",
-   "master": "brill_flight_master",
-   "pos": [
-    10,
-    -32
-   ],
-   "continent": "eastern_kingdoms"
-  },
-  "sepulcher": {
-   "name": "The Sepulcher",
-   "zone": "The Sepulcher",
-   "master": "sepulcher_flight_master",
-   "pos": [
-    -24,
-    26
-   ],
-   "continent": "eastern_kingdoms"
-  },
-  "silverpine_south": {
-   "name": "Silverpine South (Forsaken Rearguard)",
-   "zone": "Silverpine South",
-   "master": "sp_south_flight_master",
-   "pos": [
-    -30,
-    58
-   ],
-   "continent": "eastern_kingdoms"
-  }
- },
- "flight_cost": {
-  "base": 60,
-  "per_unit": 4
- },
- "services": {
-  "razorhill_innkeep": [
-   "inn"
-  ],
-  "astranaar_innkeeper": [
-   "inn"
-  ],
-  "ratchet_tavern_keeper": [
-   "inn"
-  ],
-  "org_innkeeper": [
-   "inn"
-  ],
-  "crossroads_innkeeper": [
-   "inn"
-  ],
-  "taurajo_innkeeper": [
-   "inn"
-  ],
-  "splintertree_innkeeper": [
-   "inn"
-  ],
-  "sb_innkeeper": [
-   "inn"
-  ],
-  "org_flight_master": [
-   "flight"
-  ],
-  "razorhill_flight_master": [
-   "flight"
-  ],
-  "crossroads_flight_master": [
-   "flight"
-  ],
-  "ratchet_flight_master": [
-   "flight"
-  ],
-  "taurajo_flight_master": [
-   "flight"
-  ],
-  "sb_flight_master": [
-   "flight"
-  ],
-  "splintertree_flight_master": [
-   "flight"
-  ],
-  "astranaar_flight_master": [
-   "flight"
-  ],
-  "org_riding_trainer": [
-   "riding"
-  ],
-  "crossroads_riding_trainer": [
-   "riding"
-  ],
-  "taurajo_riding_trainer": [
-   "riding"
-  ],
-  "org_mount_vendor": [
-   "mounts"
-  ],
-  "crossroads_stablemaster": [
-   "mounts"
-  ],
-  "taurajo_beast_trainer": [
-   "mounts"
-  ],
-  "uc_innkeeper": [
-   "inn"
-  ],
-  "uc_riding_trainer": [
-   "riding"
-  ],
-  "uc_flight_master": [
-   "flight"
-  ],
-  "brill_flight_master": [
-   "flight"
-  ],
-  "sepulcher_flight_master": [
-   "flight"
-  ],
-  "sp_south_flight_master": [
-   "flight"
-  ],
-  "brill_innkeeper": [
-   "inn"
-  ],
-  "sepulcher_innkeeper": [
-   "inn"
-  ]
- }
 }

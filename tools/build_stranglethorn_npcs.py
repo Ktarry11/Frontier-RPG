@@ -64,6 +64,11 @@ GROMGOL = {
                               "They are not tame. They are fed. There is a difference and I respect it."),
     "gromgol_smith": ("Smith Dorgun", "orc", "male",
                       "Damp eats steel faster than any enemy I ever met."),
+    # services. The hearth and the roost: the two reasons a camp counts as somewhere you can come back to.
+    "gromgol_innkeeper": ("Innkeeper Rukha", "orc", "female",
+                          "Twelve bunks and a fire. Set your hearth here and the jungle stops being a one-way trip."),
+    "gromgol_flight_master": ("Windrider-Keeper Pazzik", "goblin", "male",
+                              "Only one other roost worth flying to from here, and the Baron charges me to land on it."),
 }
 GROMGOL_VENDORS = {
     "gromgol_quartermaster": ("Quartermaster Ghal", "orc", "female", 33,
@@ -107,6 +112,11 @@ BOOTY_BAY = {
                              "The reef moves. Not fast. Fast enough."),
     "bootybay_street_kid": ("Scrip", "goblin", "male",
                             "Carry your crate? Watch your crate? Both is cheaper."),
+    # services
+    "bootybay_banker": ("MerchantTusk", "goblin", "male",
+                        "The vault is under the waterline and it has never flooded. Think about that."),
+    "bootybay_flight_master": ("Wind-Rider Zekki", "troll", "female",
+                               "North to the camp, and that is the whole map. Nobody flies out of this jungle."),
 }
 BOOTY_BAY_VENDORS = {
     "bootybay_trader": ("Trader Nixxle", "goblin", "female", 38,
@@ -120,6 +130,10 @@ BOOTY_BAY_VENDORS = {
     "bootybay_weapon_dealer": ("Dealer Sark", "goblin", "male", 38,
                                "I do not ask what for. I do ask for coin first."),
 }
+
+#: Bankers are an ambient-NPC flag, not a travel service - world/ambient_npc_manager.py reads
+#: is_banker and ui/screens/bank_screen.py defaults the name to "MerchantTusk" when it has none.
+BANKERS = {"bootybay_banker"}
 
 GENERAL = ["healing_potion_standard", "mana_potion_standard", "bread_and_cheese", "roasted_meat",
            "meal_river_fish", "meal_spiced_haunch", "drink_spring_flask", "drink_honeyed_mead"]
@@ -156,9 +170,12 @@ def rows(roster, vendors, M, zone_key):
     npcs, vend = [], []
     for i, (nid, (name, race, gender, line)) in enumerate(roster.items()):
         x, y = pos[nid]
-        npcs.append({"npc_id": nid, "name": name, "zone": zone_key, "x": x, "y": y,
-                     "greeting": line, "gender": gender, "race": race,
-                     "appearance_variant": i % 24, "facing": "down"})
+        row = {"npc_id": nid, "name": name, "zone": zone_key, "x": x, "y": y,
+               "greeting": line, "gender": gender, "race": race,
+               "appearance_variant": i % 24, "facing": "down"}
+        if nid in BANKERS:
+            row["is_banker"] = True
+        npcs.append(row)
     for i, (vid, (name, race, gender, lvl, line)) in enumerate(vendors.items()):
         x, y = pos[vid]
         vend.append({"vendor_id": vid, "name": name, "zone": zone_key, "x": x, "y": y,

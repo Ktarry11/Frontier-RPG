@@ -185,7 +185,7 @@ class PortalManager:
             "Zeppelin Tower": {
                 (32, 58): ("Durotar", 112, 35),
                 (32, 6): ("Undercity Zeppelin Tower", 32, 11),
-                (58, 32): ("Grom'gol", 32, 8),
+                (58, 32): ("Grom'gol Zeppelin Tower", 32, 11),
             },
             "Undercity Zeppelin Tower": {
                 (32, 58): ("Eastern Tirisfal", 21, 97),
@@ -284,8 +284,15 @@ class PortalManager:
             # Reached ONLY by transport: the zeppelin into Grom'gol at the top, the Ratchet boat into Booty
             # Bay at the bottom. There is no land route in from anywhere - the north edge of Northern
             # Stranglethorn is the range itself. The three wilderness zones are one road end to end.
+            # The tower is OUTSIDE the palisade now (Kyle, 29 Oct). Its N berth is the far end of the
+            # Durotar run and its S arm is the stair down into the camp, which is the same shape the
+            # Orgrimmar tower has had since it was built.
+            "Grom'gol Zeppelin Tower": {
+                (32, 6): ("Zeppelin Tower", 55, 34),            # the Durotar E berth: arrival (55,32)
+                (32, 58): ("Grom'gol", 32, 8),                  # the stair down: arrival (32,6)
+            },
             "Grom'gol": {
-                (32, 4): ("Zeppelin Tower", 55, 34),            # the E berth: arrival (55,32)
+                (32, 4): ("Grom'gol Zeppelin Tower", 32, 57),   # up the stair: arrival (32,55)
                 (32, 53): ("Northern Stranglethorn", 54, 96),
             },
             "Northern Stranglethorn": {

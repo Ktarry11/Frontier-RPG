@@ -39,16 +39,30 @@ APRON_DEPTH = 6.0
 
 PORTALS = {"N": (32, 6), "S": (32, 58), "E": (58, 32), "W": (6, 32)}
 ARRIVALS = {"N": (32, 9), "S": (32, 55), "E": (55, 32), "W": (9, 32)}
-LIVE_PORTALS = ("N", "S", "E")  # E = the Stranglethorn run to Grom'gol; W is still reserved
+#: Which arms are cut as real gates, PER SITE. It used to be one global tuple, which was fine while
+#: both towers were the same four-arm hub - but Grom'gol's tower is the far end of one route and has
+#: no third berth to offer, so a live E arm there would be a portal tile standing over a drop.
+LIVE_PORTALS = ("N", "S", "E")
 
 SITES = {
     "Zeppelin Tower": dict(region="Durotar", slug="zeppelin_tower", skin="orc", baked=BAKED_DIR,
+                           live=("N", "S", "E"),
                            desc="A creaking tower of lashed timber outside Orgrimmar's gates. "
                                 "Its airships run to the Undercity, and the berths to either side are waiting for more routes."),
     "Undercity Zeppelin Tower": dict(region="Eastern Kingdoms - Lordaeron", slug="undercity_zeppelin_tower",
-                                     skin="forsaken", baked=BAKED_DIR + "_forsaken",
+                                     skin="forsaken", baked=BAKED_DIR + "_forsaken", live=("N", "S"),
                                      desc="The Horde's mooring tower above the Tirisfal glades, bolted together by goblin hands. "
                                           "Airships from Orgrimmar dock at the north berth."),
+    # The far end of the Stranglethorn run. Same deck, same orc skin, and only two live arms: the
+    # berth the airship comes in on and the stair down into the camp. Kyle, 29 Oct: "zepplin tower
+    # outside grom'gol" - it was inside the palisade and it had no business being there. A mooring
+    # tower is a thing you walk out to.
+    "Grom'gol Zeppelin Tower": dict(region="Eastern Kingdoms - Stranglethorn",
+                                    slug="gromgol_zeppelin_tower", skin="orc", baked=BAKED_DIR,
+                                    live=("N", "S"),
+                                    desc="A goblin mooring tower bolted to the jungle canopy above Grom'gol. "
+                                         "The airship from Durotar comes in on the north berth; the stair "
+                                         "goes down into the camp."),
 }
 
 # zeppelin master per site (vendors.json carries the stock; position lives here)
@@ -156,7 +170,7 @@ def _terrain(L):
                 z.set_tile(x, y, "path", "base")
             else:
                 z.set_tile(x, y, "cliff", "collision")
-    for key in LIVE_PORTALS:
+    for key in SITES[L.site]["live"]:
         px, py = PORTALS[key]
         z.set_tile(px, py, "portal", "interaction")
     mx, my = MASTER_XY
