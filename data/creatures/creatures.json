@@ -1013,7 +1013,7 @@
       ],
       "is_boss": true,
       "boss_multiplier": 1.0,
-      "ability_kit": "boss_hezrul_bloodmark",
+      "ability_kit": "soldier",
       "boss_kit_base": "soldier"
     },
     "Pool Murloc": {
@@ -9333,6 +9333,164 @@
       "is_boss": true,
       "ability_kit": "riftjaw",
       "boss_multiplier": 2.5
+    },
+    "Saltcrust Skitterer": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "saltcrust_skitterer"
+    },
+    "Pan-Crawler Drone": {
+      "template": "vermin_swarm",
+      "level_range": [
+        35,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "pan_crawler_drone"
+    },
+    "Glasswing Darter": {
+      "template": "beast_fast",
+      "level_range": [
+        36,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "glasswing_darter"
+    },
+    "Flats Tunneler": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        37,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "flats_tunneler"
+    },
+    "Hive Spitter": {
+      "template": "humanoid_caster",
+      "level_range": [
+        37,
+        39
+      ],
+      "is_boss": false,
+      "ability_kit": "hive_spitter"
+    },
+    "Mound Sentinel": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "mound_sentinel"
+    },
+    "Salt Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "salt_vulture"
+    },
+    "Crustback Scorpid": {
+      "template": "beast_basic",
+      "level_range": [
+        36,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "crustback_scorpid"
+    },
+    "Mirage Basilisk": {
+      "template": "beast_large",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "mirage_basilisk"
+    },
+    "Dustwheel Scrapper": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwheel_scrapper"
+    },
+    "Dustwheel Boilerman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        37,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwheel_boilerman"
+    },
+    "Dustwheel Wheelman": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        39
+      ],
+      "is_boss": false,
+      "ability_kit": "dustwheel_wheelman"
+    },
+    "Scourbite": {
+      "template": "beast_basic",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": true,
+      "ability_kit": "scourbite",
+      "boss_multiplier": 1.6
+    },
+    "Gearjaw": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        38
+      ],
+      "is_boss": true,
+      "ability_kit": "gearjaw",
+      "boss_multiplier": 1.7
+    },
+    "Rustcoat": {
+      "template": "beast_large",
+      "level_range": [
+        38,
+        38
+      ],
+      "is_boss": true,
+      "ability_kit": "rustcoat",
+      "boss_multiplier": 1.7
+    },
+    "Hollowcrust": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        39,
+        39
+      ],
+      "is_boss": true,
+      "ability_kit": "hollowcrust",
+      "boss_multiplier": 1.8
+    },
+    "Paneater": {
+      "template": "beast_large",
+      "level_range": [
+        40,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "paneater",
+      "boss_multiplier": 1.9
     }
   }
 }

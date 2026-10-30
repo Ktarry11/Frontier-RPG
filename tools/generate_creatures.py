@@ -35,9 +35,33 @@ def main():
     print(f"  ✓ {len(templates_data['templates'])} templates")
 
     # Generate kits
+    #
+    # THIS MERGES. IT USED TO REPLACE, AND REPLACING SILENTLY DESTROYED 39 KITS.
+    #
+    # Not every kit lives in monster_kits.py. The per-zone content builders (build_return_voyage_content,
+    # build_undercrust_content and the rest) write theirs straight into ability_kits.json through
+    # merge_json, which is a perfectly reasonable thing for them to do and has been the pattern for a
+    # while. But this function rebuilt the file from monster_kits.ALL_KITS alone and wrote it out, so
+    # running it deleted every kit that only lived in the JSON.
+    #
+    # Measured the day this was fixed: one run took the file from 949 kits to 927 and left 34 creatures
+    # in live encounter tables - every Bloodsail aboard the Return Voyage ships among them - pointing at
+    # a kit that no longer existed. Monster.__init__ raises KeyError on an unknown kit, so those were not
+    # degraded mobs, they were a hard crash the moment one rolled. Nothing warned. The only reason it was
+    # caught is that rework_boss_kits() below happened to die on one of the missing ids.
+    #
+    # So: anything already in the file that this run does not know about is KEPT, and said out loud.
     print("Generating ability_kits.json...")
     kits_data = build_kits()
-    with open(data_dir / "ability_kits.json", "w") as f:
+    path = data_dir / "ability_kits.json"
+    if path.exists():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("kits", {})
+        outside = {k: v for k, v in existing.items() if k not in kits_data["kits"]}
+        if outside:
+            print(f"  keeping {len(outside)} kit(s) that live in the JSON rather than in "
+                  f"monster_kits.py (zone content builders write these)")
+        kits_data["kits"].update(outside)
+    with open(path, "w") as f:
         json.dump(kits_data, f, indent=2)
     print(f"  ✓ {len(kits_data['kits'])} kits")
 

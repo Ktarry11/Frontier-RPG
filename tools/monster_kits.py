@@ -5624,6 +5624,127 @@ STRANGLETHORN_KITS = {
 
 
 ALL_KITS = {}
+
+# ======================================================================================================
+# THE SHIMMERING FLATS (35-40) - open zone
+#
+# THREE POPULATIONS THAT WANT DIFFERENT THINGS FROM YOU, and the kits are where that shows rather than
+# in the names:
+#
+#   THE SILITHID stack and swarm. Individually weak, built around getting more of themselves onto you -
+#   their kits lean on AoE, on debuffs that stick, and on nothing that takes long to cast. They are what
+#   happened to this place, and three years in they are not visitors any more.
+#
+#   THE PAN'S OWN fauna are ambush: a scorpid, a vulture, a basilisk. High single-target damage and
+#   openers, because out here nothing gets close by walking at you across open salt.
+#
+#   THE DUSTWHEEL are goblins, so they fight like goblins - explosives, boilers, things that hurt
+#   whoever set them off. Every one of their kits has a cost attached somewhere, and the boilerman's
+#   actively damages himself, which is funnier and more honest than giving him a fireball.
+#
+# Damage calibrated against the band as it already stands: 35-40 trash runs 58-106 on its lead ability
+# and named rares 86-172, measured rather than guessed. Nothing here tops the dungeon bosses.
+# ======================================================================================================
+FLATS_KITS = {
+    # ---- THE SILITHID ---------------------------------------------------------------------------
+    "saltcrust_skitterer": [
+        ("Crusted Mandible", "damage", 64, 0, 0, "physical", {}),
+        ("Skitter", "damage", 52, 3, 0, "physical", {}),
+    ],
+    "pan_crawler_drone": [
+        ("Chitin Rake", "damage", 62, 0, 0, "physical", {}),
+        ("Boil Up", "damage", 50, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "glasswing_darter": [
+        ("Glass Edge", "damage", 80, 0, 0, "physical", {}),
+        ("Wing Shear", "damage", 66, 3, 0, "physical", {}),
+        ("Downdraft", "debuff", 0, 5, 0, "nature", {"duration": 3, "stat_mods": {"agility": -22}}),
+    ],
+    "flats_tunneler": [
+        ("Digging Claw", "damage", 84, 0, 0, "physical", {}),
+        ("Up Through the Crust", "damage", 70, 4, 0, "physical", {}),
+        ("Collapse Underfoot", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"dodge_rating": -24}}),
+    ],
+    "hive_spitter": [
+        ("Spit", "damage", 88, 0, 0, "nature", {}),
+        ("Resin Gout", "dot", 24, 4, 0, "nature", {"duration": 3}),
+        ("Seal the Mouth", "debuff", 0, 6, 0, "nature", {"duration": 3, "stat_mods": {"hit_rating": -20}}),
+    ],
+    "mound_sentinel": [
+        ("Sentinel's Claw", "damage", 98, 0, 0, "physical", {}),
+        ("Hold the Mound", "damage", 82, 4, 0, "physical", {"is_aoe": True}),
+        ("Plate Over", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 54}, "self_only": True}),
+    ],
+
+    # ---- THE PAN'S OWN --------------------------------------------------------------------------
+    "salt_vulture": [
+        ("Stooping Rake", "damage", 66, 0, 0, "physical", {}),
+        ("Pick at the Eyes", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"hit_rating": -18}}),
+    ],
+    "crustback_scorpid": [
+        ("Crushing Pincer", "damage", 76, 0, 0, "physical", {}),
+        ("Barb", "dot", 20, 4, 0, "nature", {"duration": 3}),
+    ],
+    "mirage_basilisk": [
+        ("Stone-Heavy Bite", "damage", 102, 0, 0, "physical", {}),
+        ("The Long Look", "debuff", 0, 6, 0, "nature",
+         {"duration": 3, "stat_mods": {"agility": -30, "dodge_rating": -26}}),
+        ("Shed Grit", "damage", 84, 4, 0, "physical", {"is_aoe": True}),
+    ],
+
+    # ---- THE DUSTWHEEL: goblins who stayed out on the track ---------------------------------------
+    "dustwheel_scrapper": [
+        ("Pry Bar", "damage", 78, 0, 0, "physical", {}),
+        ("Strip It", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"armor": -46}}),
+    ],
+    "dustwheel_boilerman": [
+        ("Scalding Jet", "damage", 82, 0, 0, "fire", {}),
+        ("Overpressure", "damage", 70, 4, 0, "fire", {"is_aoe": True}),
+        # it costs him something, which is the whole joke about goblin engineering
+        ("Vent the Boiler", "debuff", 0, 6, 0, "fire",
+         {"duration": 3, "stat_mods": {"armor": -38}, "self_only": True}),
+    ],
+    "dustwheel_wheelman": [
+        ("Wheel Iron", "damage", 94, 0, 0, "physical", {}),
+        ("Run You Down", "damage", 78, 4, 0, "physical", {}),
+        ("Floor It", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 40}, "self_only": True}),
+    ],
+
+    # ---- NAMED RARES. One per subzone, never quested (standing rule). -----------------------------
+    "scourbite": [
+        ("Scourbite's Pincer", "damage", 108, 0, 0, "physical", {}),
+        ("Venom Sac", "dot", 30, 3, 0, "nature", {"duration": 4}),
+        ("Backed Into the Rim", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 48}, "self_only": True}),
+    ],
+    "gearjaw": [
+        ("Gearjaw's Spanner", "damage", 122, 0, 0, "physical", {}),
+        ("Sapper's Answer", "damage", 104, 4, 0, "fire", {"is_aoe": True}),
+        ("Seize the Axle", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -34}}),
+    ],
+    "rustcoat": [
+        ("Rust-Caked Bite", "damage", 126, 0, 0, "physical", {}),
+        ("Flake and Scour", "dot", 34, 4, 0, "physical", {"duration": 3}),
+        ("Seized Solid", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 62}, "self_only": True}),
+    ],
+    "hollowcrust": [
+        ("Hollowcrust's Reach", "damage", 134, 0, 0, "physical", {}),
+        ("Bring the Mound Down", "damage", 112, 4, 0, "physical", {"is_aoe": True}),
+        ("Carapace of Salt", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 66}, "self_only": True}),
+    ],
+    "paneater": [
+        ("Paneater's Jaw", "damage", 144, 0, 0, "physical", {}),
+        ("Swallow the Ground", "damage", 120, 4, 0, "physical", {"is_aoe": True}),
+        ("Grinding Hunger", "dot", 38, 3, 0, "physical", {"duration": 4}),
+    ],
+}
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -5633,7 +5754,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
-               STRANGLETHORN_KITS):
+               STRANGLETHORN_KITS, FLATS_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

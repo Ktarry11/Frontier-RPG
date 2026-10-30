@@ -10569,5 +10569,160 @@
    "school": "physical",
    "hp_below": 0.35
   }
+ ],
+ "scourbite": [
+  {
+   "name": "Scourbite's Pincer",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Venom Sac",
+   "kind": "dot",
+   "amount": 30,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 4
+  },
+  {
+   "name": "Backed Into the Rim",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": 48
+   },
+   "self_only": true
+  }
+ ],
+ "gearjaw": [
+  {
+   "name": "Gearjaw's Spanner",
+   "kind": "damage",
+   "amount": 122,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Sapper's Answer",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "fire",
+   "is_aoe": true
+  },
+  {
+   "name": "Seize the Axle",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -34
+   }
+  }
+ ],
+ "rustcoat": [
+  {
+   "name": "Rust-Caked Bite",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Flake and Scour",
+   "kind": "dot",
+   "amount": 34,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3
+  },
+  {
+   "name": "Seized Solid",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 62
+   },
+   "self_only": true
+  }
+ ],
+ "hollowcrust": [
+  {
+   "name": "Hollowcrust's Reach",
+   "kind": "damage",
+   "amount": 134,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bring the Mound Down",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Carapace of Salt",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 66
+   },
+   "self_only": true
+  }
+ ],
+ "paneater": [
+  {
+   "name": "Paneater's Jaw",
+   "kind": "damage",
+   "amount": 144,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Swallow the Ground",
+   "kind": "damage",
+   "amount": 120,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Grinding Hunger",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
  ]
 }

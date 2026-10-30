@@ -120,9 +120,28 @@ def main(dry=False):
     def kit_of(c):
         return c.get("ability_kit") or tmpl[c["template"]].get("default_kit")
 
+    #: kits that arrived already in their final form and must not be reworked again
+    prebuilt = set()
+
     def raw_kit(kid):
         k = kits[kid]
         if k and k[0].get("boss_rework"):
+            # HAND-AUTHORED BOSS KITS EXIST AND THIS USED TO CRASH ON THEM.
+            #
+            # boss_rework was treated as proof that THIS script had reworked the kit, so the
+            # untouched original must be sitting in base_store. That is true for everything this
+            # script generates and false for everything the per-zone content builders write: they
+            # author boss kits straight into ability_kits.json already carrying boss_rework, and
+            # this script has never seen those, so the lookup raised KeyError - on
+            # bosun_harl_greave, which took down the whole run and with it every boss kit after it
+            # in the loop. Hezrul Bloodmark's kit was simply never generated as a result.
+            #
+            # A kit flagged as reworked with no cached original was authored in its final form.
+            # It is not an error and it must not be run through rework() a second time, which
+            # would stack another enrage phase on top of the one it already has.
+            if kid not in base_store:
+                prebuilt.add(kid)
+                return k
             return base_store[kid]
         base_store[kid] = k           # fresh / regenerated raw kit: remember it
         return k
@@ -147,8 +166,16 @@ def main(dry=False):
         else:
             target = base_id
             src = raw_kit(target)
+            # AND POINT THE CREATURE AT IT. This branch used to leave ability_kit alone, which is
+            # harmless for every boss whose ability_kit already equals its base - i.e. all of them,
+            # until one does not. Hezrul Bloodmark carried ability_kit "boss_hezrul_bloodmark" from
+            # an earlier run, back when his base kit WAS shared with trash; once it stopped being
+            # shared he fell down here, the boss_ kit was never regenerated, and nothing updated him
+            # to say so. He pointed at a kit that did not exist and crashed on spawn - the single
+            # creature in the game that could not be summoned.
+            c["ability_kit"] = target
         if target not in done:
-            kits[target] = rework(src)
+            kits[target] = src if target in prebuilt else rework(src)
             done[target] = name
             changed += 1
     if not dry:
