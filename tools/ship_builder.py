@@ -138,6 +138,26 @@ def platform(b, x0, y0, x1, y1, base="stone"):
     return n
 
 
+def afloat(L, path, cx, base_y, height):
+    """Place a ship sprite over WATER, bypassing the dry-floor guard.
+
+    Kyle: "ensure the boat is not on the land and its in the water - we enter
+    it through a ramp (portal)." He is right, and the reason every moored ship
+    on these maps had been sitting on the sand is CaveLayout.prop, which
+    refuses any prop whose base tile is not dry walkable floor. That guard is
+    correct for a barrel and exactly wrong for a ship: a ship's base tile
+    SHOULD be water.
+
+    So this goes to Builder.prop underneath it. Nothing is lost by skipping
+    the guard here - the sprite is decorative (solid=False), it cannot block
+    anything, and the tile it anchors to is sea the player could never stand
+    on anyway. The way aboard is a carved ramp with the portal on it.
+    """
+    L.b.prop(path, cx, base_y, height, solid=False)
+    L.placed += 1
+    return True
+
+
 def gangplank(b, x, y_from, y_to, base="path", width=1):
     """A walkway running north or south at column x, inclusive of both ends.
 

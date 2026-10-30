@@ -147,10 +147,13 @@ def dress(zone, L):
     S = dict(where=SP)
     C = dict(where=CP)
 
-    # ---- THE TWO SHIPS. Bottom-centre anchors sit on the plank ends, so each sprite stands off our
-    # beam with its boarding plank running to it.
-    P("bloodsail_raider", 58, 28, 22, near_ok=True, **C)
-    P("bloodsail_galleon", 72, 83, 18, near_ok=True, **C)
+    # ---- THE TWO SHIPS, AFLOAT. Kyle: "ensure the boat is not on the land and its in the water".
+    # CaveLayout.prop refuses a prop whose base tile is not dry floor, which is right for a barrel
+    # and exactly wrong for a ship - so these go through sb.afloat, which anchors them on open
+    # water. The raider lies at the head of the north plank; the galleon lies off the sand bar's
+    # east side, moored rather than beached.
+    sb.afloat(L, CP + "bloodsail_raider.png", 58, 26, 22)
+    sb.afloat(L, CP + "bloodsail_galleon.png", 88, 84, 20)
 
     # ---- OUR DECK. A working merchantman that has just been boarded: her own gear, and the first
     # evidence of the people who came over the rail.
@@ -172,11 +175,10 @@ def dress(zone, L):
     # ---- THE SAND BAR. Mooring gear at the water's edge and nothing else made by anybody - see the
     # careening note in the module docstring.
     P("bs_rope_coil", 54, 76, 2, near_ok=True, **S)
-    P("bs_lamp_post", 65, 77, 5, **S)
-    P("mooring_posts", 68, 82, 3, near_ok=True, **C)
+    P("mooring_posts", 70, 83, 3, near_ok=True, **C)
     # ... and the island itself.
     P("mangrove_thicket", 53, 81, 5, **C)
-    P("coral_reef_outcrop", 74, 81, 3, near_ok=True, **C)
+    P("coral_reef_outcrop", 53, 82, 3, near_ok=True, **C)
     P("sea_stack_spire", 53, 74, 7, **C)
     return zone, L
 

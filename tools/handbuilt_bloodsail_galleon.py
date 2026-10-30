@@ -46,27 +46,37 @@ CP = "assets/tiles/coastal_props/"
 SP = "assets/tiles/ship_props/"
 
 # ---------------------------------------------------------------- the cove
-AW, AH = 110, 96
-A_IN = (66, 84)          # ashore on the east horn of the cove, from The Crossing's sand bar
-A_OUT = (48, 18)         # up the boarding ramp at the head of the cove
+AW, AH = 110, 124
+A_IN = (54, 112)          # ashore at the landing, from The Crossing's sand bar
+A_OUT = (48, 30)         # on the ramp, out over the water. She is afloat beyond it.
 
-#: THE COVE IS CUT OUT OF THE LAND, NOT ASSEMBLED FROM PONDS.
+#: THE SHAPE KYLE PICKED. I had replaced this with a C of beach around a carved bay, on the
+#: argument that a cove is the sea reaching into the land. He looked at both and chose this one:
+#: "is the better option bro." So it is lobes of sand with water lying in them, and the route is
+#: the weave BETWEEN the pools.
 #:
-#: The first version of this map was a chain of overlapping sand lobes with shallow pools dropped
-#: on top, and it rendered as an island with puddles. That is the same mistake Kyle rejected on
-#: Rocky Pass - "Looks like anal beads bro" - a route built by unioning circles reads as a string
-#: of circles however the circles are placed.
+#: THAT ONLY WORKS IF THE POOLS ARE NOT CROSSABLE - Kyle again: "that route will only work if the
+#: light blue water is not crossable so we dont skip bosses." A walkable pool turns every weave
+#: into a straight line and both bosses into optional scenery. So the shallows are PAINTED on
+#: tiles whose collision stays water: the base layer is only what you see, and Tilemap.is_walkable
+#: reads collision first. Turquoise you cannot wade.
+COVE_LAND = [
+    (54, 106, 20, 10),    # the landing, where you come ashore
+    (42, 90, 16, 12),     # the west shore
+    (62, 78, 16, 12),     # the east shore
+    (44, 64, 16, 12),     # the middle
+    (62, 50, 16, 11),     # the east headland
+    (48, 40, 16, 10),     # the head, under her side
+]
+#: The pools the route weaves between. Blocking, per above.
 #:
-#: A cove is the sea reaching INTO the land. So: lay down one headland, then carve the bay back out
-#: of it from the south, narrowing as it goes north. What is left is a C of beach that you walk
-#: around, with water on one side of you the whole way and the galleon visible at the head of it
-#: from the moment you land.
-HEADLAND = [(52, 52, 33, 38), (74, 44, 16, 22), (30, 40, 14, 20)]
-#: Carved back OUT as blocking water. Wide at the mouth, narrow at the head, which is both what a
-#: drowned valley looks like and what makes the walk round it get tighter as you go.
-BAY = [(50, 96, 19, 16), (50, 78, 15, 13), (52, 62, 12, 11), (54, 48, 9, 9), (54, 36, 6, 6)]
-#: Waded shelf along the bay's edge - the shallows you can actually stand in.
-COVE_SHALLOWS = [(66, 72, 7, 6), (34, 66, 6, 6), (68, 44, 5, 5)]
+#: EACH LOBE OVERLAPS THE NEXT, which was not true of the first version and only did not matter
+#: because the pools were WALKABLE there - they were quietly acting as bridges between lobes that
+#: never touched. Making them block, which is the thing Kyle asked for, took the island apart:
+#: the entire east shore came back stranded. So the sand is a connected chain FIRST and the pools
+#: are dropped into the middle of it second, each pinching a wide stretch into a way round rather
+#: than cutting a link. Checked by flood fill: 2755 walkable, 2755 reachable, 0 stranded.
+COVE_POOLS = [(56, 94, 7, 5), (54, 78, 7, 5), (52, 58, 7, 5), (60, 44, 6, 4)]
 
 # -------------------------------------------------------------- the galleon
 GW, GH = 130, 80
@@ -100,16 +110,15 @@ CABIN_SECOND = "Fleet-Captain Orin Dace"
 CABIN_PACK = {CABIN_LEAD: [(34, 24, CABIN_SECOND)]}
 
 ANCHORAGE_PACKS = [
-    (68, 80, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
-    (70, 74, 47, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Deckmaster"]),
-    (74, 68, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
-    # ---- past Vohl at the neck. North of the midpoint between the two, or path distance gives
-    # them all to her and Renn is approached across open sand.
-    (76, 38, 48, ["Bloodsail Deckmaster", "Bloodsail Gunner", "Bloodsail Marine"]),
-    (68, 32, 48, ["Bloodsail Marine", "Bloodsail Deckmaster", "Bloodsail Gunner"]),
-    (64, 27, 48, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Marine"]),
+    (52, 104, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
+    (44, 98, 47, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Deckmaster"]),
+    (36, 96, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
+    # ---- past Vohl, round the second and third pools toward the head.
+    (66, 72, 48, ["Bloodsail Deckmaster", "Bloodsail Gunner", "Bloodsail Marine"]),
+    (64, 60, 48, ["Bloodsail Marine", "Bloodsail Deckmaster", "Bloodsail Gunner"]),
+    (66, 56, 48, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Marine"]),
 ]
-ANCHORAGE_BOSS_AT = {"Shorebreaker Teska Vohl": (80, 58), "Quartermaster Ilsa Renn": (60, 24)}
+ANCHORAGE_BOSS_AT = {"Shorebreaker Teska Vohl": (34, 92), "Quartermaster Ilsa Renn": (62, 52)}
 
 GDECK_PACKS = [
     (46, 32, 49, ["Bloodsail Reaver", "Bloodsail Deckmaster", "Bloodsail Stormcaller"]),
@@ -162,36 +171,28 @@ def build_anchorage():
     b.floor_id = "sand"
     _sea(zone, AW, AH)
 
-    b.lobes(HEADLAND, base="sand")
-    # ... and now take the sea back. _open carves; this is the opposite, so it is written out
-    # rather than borrowed - Builder has no "close" because no other zone has ever needed one.
-    for (cx, cy, rx, ry) in BAY:
+    b.lobes(COVE_LAND, base="sand")
+
+    # THE POOLS BLOCK. Painted, not carved - see the COVE_POOLS note above. b.lobes would open
+    # them, which is the one thing they must not be.
+    for (cx, cy, rx, ry) in COVE_POOLS:
         for dy in range(-ry, ry + 1):
             for dx in range(-rx, rx + 1):
                 if (dx / max(rx, 1)) ** 2 + (dy / max(ry, 1)) ** 2 <= 1.0:
                     x, y = cx + dx, cy + dy
                     if 0 <= x < AW and 0 <= y < AH:
                         zone.collision_layer[y][x] = "tropical_water"
-                        zone.set_tile(x, y, "tropical_water", "base")
-    # The shelf: painted on blocked tiles at the bay's edge, so it reads as wadeable water without
-    # letting the player swim the cove and skip both bosses.
-    for (cx, cy, rx, ry) in COVE_SHALLOWS:
-        for dy in range(-ry, ry + 1):
-            for dx in range(-rx, rx + 1):
-                if (dx / max(rx, 1)) ** 2 + (dy / max(ry, 1)) ** 2 <= 1.0:
-                    x, y = cx + dx, cy + dy
-                    if 0 <= x < AW and 0 <= y < AH and not zone.is_walkable(x, y):
                         zone.set_tile(x, y, "tropical_shallow", "base")
 
-    # The ramp up her side, at the head of the cove, out over the water.
-    sb.gangplank(b, A_OUT[0], 24, 14, base="path", width=3)
+    # THE RAMP UP HER SIDE, out over the water from the head of the beach. She lies afloat beyond
+    # it; the portal is on the ramp, not on the sand, so boarding her is a thing you walk up.
+    sb.gangplank(b, 48, 36, 24, base="path", width=3)
 
-    # Headland rock. Placed to PINCH the walk round the bay, so the east shore has a neck in it
-    # rather than being an open promenade.
-    b.pillar(84, 58, size=5)
-    b.pillar(78, 30, size=4)
-    b.pillar(24, 54, size=4)
-    b.pillar(34, 28, size=3)
+    # Headland rock, pinching the route where it passes between pools.
+    b.pillar(76, 82, size=4)
+    b.pillar(28, 88, size=4)
+    b.pillar(32, 66, size=3)
+    b.pillar(72, 46, size=3)
 
     for (px, py) in (A_IN, A_OUT):
         zone.collision_layer[py][px] = None
@@ -207,14 +208,14 @@ def build_anchorage():
     # side is the dungeon; the west side is scenery you can walk the whole length of, which is the
     # kind of thing a player explores once and resents. A chest at the far end of it is the
     # cheapest honest reason for it to be there.
-    ANCHORAGE_CHESTS[:] = [(28, 40), (56, 26)]
+    ANCHORAGE_CHESTS[:] = [(30, 86), (40, 38)]
     for (cx, cy) in ANCHORAGE_CHESTS:
         L.mark("chest", cx, cy)
 
     zone.add_subzone("The Bloodsail Anchorage", 0, 0, AW, AH)
-    zone.add_subzone("The Landing", 32, 70, 46, 24)
-    zone.add_subzone("The Cove", 24, 36, 58, 34)
-    zone.add_subzone("The Head of the Cove", 28, 14, 48, 24)
+    zone.add_subzone("The Landing", 32, 96, 46, 26)
+    zone.add_subzone("The Cove", 24, 60, 60, 36)
+    zone.add_subzone("The Head of the Cove", 30, 28, 50, 32)
     return zone, L
 
 
@@ -230,28 +231,26 @@ def dress_anchorage(zone, L):
     S = dict(where=SP)
     C = dict(where=CP)
 
-    P("bloodsail_galleon", 52, 22, 20, near_ok=True, **C)
-    # the water's edge, at the head of the cove
-    P("mooring_posts", 44, 24, 3, near_ok=True, **C)
-    P("bs_rope_coil", 56, 25, 2, near_ok=True, **S)
-    P("bs_lamp_post", 62, 28, 5, **S)
-    # ... and the island itself, thickest on the east horn you walk up
-    P("mangrove_thicket", 72, 80, 5, **C)
-    P("banana_plant", 66, 76, 4, **C)
-    P("jungle_banyan", 78, 70, 8, **C)
-    P("sea_stack_spire", 84, 52, 8, **C)
-    P("mossy_jungle_boulder", 76, 62, 4, **C)
-    P("coral_reef_outcrop", 70, 70, 3, near_ok=True, **C)
-    P("hibiscus_bush", 80, 44, 3, near_ok=True, **C)
-    P("bamboo_grove", 78, 34, 6, **C)
-    P("driftwood_pile", 68, 82, 3, near_ok=True, **C)
-    P("tiki_totem", 30, 46, 5, **C)
-    P("crab_claw_arch", 32, 34, 5, **C)
-    P("sea_stack_spire", 26, 60, 8, **C)
-    P("mangrove_thicket", 24, 72, 5, **C)
-    P("jungle_banyan", 34, 54, 8, **C)
-    P("mossy_jungle_boulder", 24, 36, 4, **C)
-    P("buried_treasure_chest", 32, 44, 3, near_ok=True, **C)
+    # SHE IS AFLOAT, not beached - her anchor tile is open water beyond the ramp head.
+    sb.afloat(L, CP + "bloodsail_galleon.png", 48, 22, 20)
+    # mooring gear at the ramp head, and NO LAMPS ON THE BEACH (Kyle: "dont put lamps on the
+    # beach") - a working anchorage lights its ship, not its sand.
+    P("mooring_posts", 42, 36, 3, near_ok=True, **C)
+    P("bs_rope_coil", 54, 37, 2, near_ok=True, **S)
+    # ... and the island itself.
+    P("mangrove_thicket", 42, 108, 5, **C)
+    P("banana_plant", 64, 106, 4, **C)
+    P("jungle_banyan", 34, 88, 8, **C)
+    P("sea_stack_spire", 72, 80, 8, **C)
+    P("mossy_jungle_boulder", 40, 84, 4, **C)
+    P("coral_reef_outcrop", 38, 68, 3, near_ok=True, **C)
+    P("hibiscus_bush", 68, 67, 3, near_ok=True, **C)
+    P("bamboo_grove", 70, 50, 6, **C)
+    P("driftwood_pile", 62, 102, 3, near_ok=True, **C)
+    P("tiki_totem", 36, 74, 5, **C)
+    P("crab_claw_arch", 38, 56, 5, **C)
+    P("sea_stack_spire", 30, 94, 8, **C)
+    P("buried_treasure_chest", 34, 64, 3, near_ok=True, **C)
     return zone, L
 
 
