@@ -371,7 +371,7 @@ GARZA = "stvc_shelf_watcher"
 def vine_road():
     A = []
     A.append(Q("stvc_no_bed_between", "No Bed Between Here and the Bay", VRAK, CS, 33, 34, "vineroad",
-        "Sentry Vrak has stood at Grom'gol's south gate for three years telling people that the road "
+        "Sentry Vrak has stood at Grom'gol's south gate for seven years telling people that the road "
         "is the whole of the accommodation between here and the harbour. She has stopped enjoying "
         "saying it.\n\nShe keeps a tally because nobody asked her to. Eleven went south this month and "
         "nine came back through her gate, and she does not know which two are still walking.",
@@ -456,11 +456,13 @@ def basin():
         [gather("veilfall_spray_moss", 7), k("Snapjaw Leechswarm", 8)],
         "There is a band of moss along the lip where the spray reaches and nowhere else - seven good "
         "handfuls would do me the season. Mind the leeches in the slack water under the pool. Eight of "
-        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: where "
-        "you're from, does the rain come in a season, or does it come all year? Everything I know about a "
-        "plant assumes a wet month and a dry month. If it rains all year where you came from then half "
-        "of what I know is local, and I would very much like to find out which half.",
-        "A season, then. Good. That is one thing I do not have to throw out.\n\nNow the moss. Look at "
+        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: you came "
+        "down the road out of the north, and the north has weather I have only ever been told about. Does "
+        "the rain come in a season up there, or does it come all year? Everything I know about a plant "
+        "assumes a wet month and a dry month. If there is country that rains all year round then half of "
+        "what I know is local, and I would very much like to find out which half.",
+        "A season up there too, then. Good. That is one thing I do not have to throw out.\n\nNow the "
+        "moss. Look at "
         "where you picked it - only the band. Only where the water reaches.\n\nThat is not a jungle "
         "plant. That is a waterfall plant, and there is one waterfall. I have been selling it to the "
         "camp as common for two years and pricing it accordingly, and I have just made myself "
@@ -492,7 +494,7 @@ def cave():
     A = []
     A.append(Q("stvc_zuljana_names", "It Has a Name. Several.", ZULJANA, VF, 35, 36, "veilfall",
         "Attache Zul'jana is the only person inside Grom'gol's fence who is from this jungle, and she "
-        "has spent three years listening to a garrison name things.\n\nThe camp calls it the waterfall "
+        "has spent nineteen years listening to a garrison name things.\n\nThe camp calls it the waterfall "
         "cave. The Zul'Rath who keep it have four names for it and which one they use depends on which "
         "terrace they are standing on. She will give you one. She is keeping the others and she does not "
         "feel she owes you an explanation for that.",
