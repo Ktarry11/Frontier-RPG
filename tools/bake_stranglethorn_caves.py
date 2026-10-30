@@ -11,8 +11,8 @@ darkened copy once and commits it, exactly as the Durotar and Echo bakers do).
 
   Rotvine Hollow      the Wailing Caverns damp set - wet clay, moss and standing water, with the troll
                       stonework of the crag's own stair showing through on the drowned shelf.
-  Veilfall Cave       bare limestone at the mouth, and the Blackfathom temple floor on the inner two
-                      terraces where the carving starts.  Water is grotto tidepool, as everywhere wet.
+  Veilfall Cave       bare limestone throughout, with the Blackfathom temple floor only in the plunge
+                      chamber - the one room the trolls finished.  Water is grotto tidepool.
   The Drowned Shrine  grotto TEMPLE floor and wall throughout, because this is a building: the only
                       cave floor in it is the sea mouth you came in through.  Water is read back from
                       the zone's own tiles (tile_water) rather than from analytic pools - the flooded
@@ -70,13 +70,18 @@ SPECS["veilfall_cave"] = dict(
     wall_keys=["wall", "rock", "twall"],
     # the inner ellipse covers the two inner terraces; a floor score only ever lands on floor tiles,
     # so one blob per depth band is enough to make the carving get more deliberate as you descend
+    # Retargeted 29 Oct when the ring-terrace spiral was replaced by an organic sprawl: the carving
+    # is now concentrated in the one chamber the Veilspeaker actually uses, and everything else is
+    # wet limestone.
     floors={
-        "shrine": [(66, 52, 24, 24)],
-        "sand": [(66, 52, 9, 9), (30, 73, 6, 5), (85, 87, 6, 4)],
-        "wet": [(32, 22, 8, 16), (30, 73, 10, 8), (85, 87, 10, 7), (73, 11, 10, 7)],
+        "shrine": [(68, 44, 20, 15)],
+        "sand": [(68, 44, 9, 8), (66, 80, 8, 6), (104, 72, 7, 5)],
+        "wet": [(32, 18, 9, 14), (30, 48, 17, 14), (66, 80, 13, 10), (104, 72, 11, 9),
+                (101, 22, 12, 9)],
     },
-    walls={"twall": [(66, 52, 26, 26)],
-           "rock": [(32, 22, 11, 19), (30, 73, 12, 10), (85, 87, 12, 9), (73, 11, 12, 9)]},
+    walls={"twall": [(68, 44, 22, 17)],
+           "rock": [(32, 18, 12, 17), (30, 48, 19, 16), (66, 80, 15, 12), (104, 72, 13, 11),
+                    (101, 22, 14, 11)]},
     pools=[SC.VF_POOLS],
     cfg=dict(ao=0.44, depth=0.86, lip=20, lip_col=(0.65, 0.9, 1.0), deep_dark=0.5,
              foam_col=(210, 240, 245), glows=[]),

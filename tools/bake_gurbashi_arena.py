@@ -7,7 +7,8 @@ Same pipeline as tools/bake_echo_caves.py: the Durotar cave baker
 (tools/bake_durotar_caves.bake_spec) pointed at this dungeon's own layout
 (tools/handbuilt_gurbashi_arena) and material spec.
 
-NO NEW TEXTURES.  Every material below already ships.  The five pits are told apart by what the
+NO NEW TEXTURES.  Every material below already ships - and since 29 Oct they are Stranglethorn's
+own, not Durotar's red desert rock.  The five pits are told apart by what the
 Gurbashi do with each floor rather than by hue tricks:
 
     The Sand Gate ......... swept stone.  The only part of the place anyone maintains.
@@ -25,17 +26,23 @@ from tools import bake_durotar_caves as BD
 from tools import handbuilt_gurbashi_arena as GA
 from tools.bake_durotar_caves import M, dim, CS, VC
 
+SP = "stranglethorn/materials/"
+
 SPECS = {
     GA.SLUG: dict(
         build="build_arena", seed=211, slug=GA.SLUG,
         materials={
-            "sand":    M(CS + "dg_sand_a", dim(VC + "vot_dune", 0.92)),
-            "stone":   M(CS + "dg_stone_a"),
+            # Repointed at Stranglethorn's own tiles once Sheet F landed (29 Oct). The Durotar cave
+            # set is RED DESERT ROCK, and against this dungeon's warm lip light the whole arena came
+            # out glowing orange like a lava tube. The Gurbashi run a sand pit under a jungle crag,
+            # not a volcano.
+            "sand":    M(SP + "stv_beach", dim(SP + "stv_beach", 0.90)),
+            "stone":   M(SP + "stv_ruin"),
             "grate":   M(VC + "bbc_floor_grate"),
-            "bone":    M(dim(VC + "vot_bonesand", 0.78)),
-            "hardpan": M(dim(VC + "vot_hardpan", 0.86)),
-            "wall":    M(CS + "dg_wall_a"),
-            "cliff":   M(VC + "vot_cliff_a"),
+            "bone":    M(SP + "stv_arena_sand"),
+            "hardpan": M(SP + "stv_trampled"),
+            "wall":    M(SP + "stv_cliff_b"),
+            "cliff":   M(SP + "stv_cliff_a"),
             "basalt":  M(CS + "rf_basalt_wall_a"),
         },
         floor_keys=["sand", "stone", "grate", "bone", "hardpan"],
@@ -51,7 +58,7 @@ SPECS = {
             "basalt": [(40, 59, 30, 13), (40, 84, 30, 13)],
         },
         pools=[],
-        cfg=dict(ao=0.46, depth=0.78, lip=18, lip_col=(1.0, 0.86, 0.60), deep_dark=0.3,
+        cfg=dict(ao=0.46, depth=0.78, lip=18, lip_col=(0.92, 0.90, 0.82), deep_dark=0.3,
                  foam_col=(205, 225, 225), glows=[]),
     ),
 }

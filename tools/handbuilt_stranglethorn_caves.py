@@ -218,95 +218,100 @@ def build_rotvine_hollow():
 # =================================================================== VEILFALL CAVE
 VF_PORTAL = (32, 10)
 VF_ARRIVE = (32, 8)
-VF_C = (66, 52)                        # the plunge pool, and the centre of every terrace
-VF_BOSS = (66, 63)                     # Veilspeaker Zul'Rath, lowest terrace, facing the water
-VF_RARE = (85, 83)                     # Sheetfall, in the font chamber (named rare)
-VF_CHESTS = [(30, 69), (73, 11), (48, 52), (97, 34)]
-VF_RINGS = (36, 27, 18, 10)
-VF_POOLS = [(66, 52, 7.2, 6.6, 0.5),                               # the plunge pool
-            (30, 73, 5.0, 3.8, 1.3),                               # the mist shrine's basin
-            (85, 87, 4.6, 3.4, 2.1),                               # the font
-            (79, 15, 3.4, 2.6, 0.8)]                               # a dripstone catch basin
+VF_BOSS = (68, 53)                     # Veilspeaker Zul'Rath, on the pool's south shore
+VF_RARE = (100, 69)                    # Sheetfall, on the font chamber's dry side (named rare)
+VF_CHESTS = [(20, 48), (96, 26), (57, 84), (109, 67)]
+VF_POOLS = [(68, 44, 7.0, 6.0, 0.5),                               # the plunge pool
+            (62, 85, 4.0, 3.0, 1.3),                               # the mist shrine's basin
+            (107, 77, 4.0, 3.0, 2.1),                              # the font
+            (104, 25, 3.0, 2.2, 0.8)]                              # a dripstone catch basin
+
+#: The hall lobes. Each big chamber is built as a RING OF OVERLAPPING LOBES rather than one blob, which
+#: is what leaves a mass of rock standing in the middle of it - the island. A single cavern() gives you
+#: an empty room; five of them in a circle give you a room with something in it to walk round.
+VF_HALL = (30, 48, 13, (20, 92, 164, 236, 308), 10, 8)             # the Hollow Hall, west
+VF_MIST = (66, 80, 10, (0, 90, 180, 270), 9, 7)                    # Shrine of the Mist, south
+
+
+def lobed(b, cx, cy, r, degs, rx, ry, ph=0.0):
+    """A chamber built from lobes on a circle, leaving an uncarved core."""
+    for i, deg in enumerate(degs):
+        ax, ay = pol(cx, cy, r, deg)
+        cavern(b, ax, ay, rx, ry, 0, ph + 0.7 * i)
 
 
 def build_veilfall_cave():
     zone, L = _cave("Veilfall Cave", 120, 95,
-                    "Wet limestone behind the Veilfall: four terraces of carved troll shrine stepping "
-                    "down around the plunge pool, and a wall of falling water across the mouth.",
+                    "Wet limestone behind the Veilfall: a sprawl of halls strung on narrow necks, with "
+                    "the plunge pool at the heart of it and troll carving where the rock allowed it.",
                     VF_PORTAL, VF_ARRIVE)
     b = L.b
-    cx, cy = VF_C
-    r0, r1, r2, r3 = VF_RINGS
-    # the mouth, behind the sheet of water, then straight down the west wall onto the rim
-    cavern(b, 32, 9, 9, 5, 0, 0.7)
-    tube(b, [(32, 13), (32, 24), (32, 33), (32, 40)], 5, ph=0.4)
-    # the plunge pool's own basin, cut out first so the water has somewhere to sit and a shore to sit on
-    disc(b, cx, cy, 8.5, ph=0.5)
-    # four ring galleries, each lower than the one outside it
-    for i, r in enumerate(VF_RINGS):
-        ring(b, cx, cy, r, 5, ph=0.3 + 0.6 * i)
-    # the ramps down, at staggered angles, so the descent circles the pool instead of dropping straight
-    radial(b, cx, cy, r0, r1, 330, 4)
-    radial(b, cx, cy, r1, r2, 120, 4)
-    radial(b, cx, cy, r2, r3, 250, 4)
-    # three collapsed stairs: shortcuts between neighbouring terraces, so every terrace is a loop
-    radial(b, cx, cy, r0, r1, 70, 3)
-    radial(b, cx, cy, r1, r2, 300, 3)
-    radial(b, cx, cy, r2, r3, 30, 3)
-    # shrine chambers cut OUTWARD off the rim, which is the only direction with rock to spare
-    for (deg, rr, rx, ry, rot, ph) in ((150, 42, 9, 7, 10, 1.1), (280, 42, 9, 7, -20, 0.2),
-                                       (60, 41, 9, 6, 15, 2.4)):
-        ax, ay = pol(cx, cy, rr, deg)
-        cavern(b, ax, ay, rx, ry, rot, ph)
-        radial(b, cx, cy, r0, rr, deg, 3)
+    # the mouth, behind the sheet of water, and the throat down to the first hall
+    cavern(b, 32, 12, 8, 5, 0, 0.7)
+    tube(b, [(32, 15), (31, 23), (30, 30)], 5, ph=0.4)
+    # the Hollow Hall: five lobes round a standing core of rock
+    lobed(b, *VF_HALL, ph=0.3)
+    # the neck east to the plunge
+    tube(b, [(43, 50), (52, 47), (59, 44)], 4, ph=1.1)
+    # the plunge: one wide chamber, and the pool is the thing standing in the middle of THIS one
+    cavern(b, 68, 44, 18, 13, 0, 0.6)
+    disc(b, 68, 44, 7.6, ph=0.5)
+    # north-east, up to the dripstone
+    tube(b, [(80, 38), (88, 31), (95, 26)], 4, ph=2.0)
+    cavern(b, 101, 22, 12, 9, 0, 1.4)
+    # south, down to the mist shrine
+    tube(b, [(70, 56), (71, 66), (70, 74)], 4, ph=0.9)
+    lobed(b, *VF_MIST, ph=1.7)
+    # east again, to the font
+    tube(b, [(78, 82), (88, 80), (96, 76)], 4, ph=2.6)
+    cavern(b, 104, 72, 11, 9, 0, 2.1)
+    # THE TWO LOOPS. Neither of these opens anything new - they exist so that no chamber in the cave is
+    # a dead end you have to walk back out of, which is the one rule all three of these caves share.
+    tube(b, [(104, 70), (107, 52), (101, 29)], 3.5, ph=1.5)        # font -> dripstone, up the east wall
+    tube(b, [(30, 62), (42, 72), (54, 80)], 4, ph=2.3)             # hall -> mist shrine, round the south
     _apply_pools(zone, VF_POOLS)
 
-    _subzones(zone, [("The Veil", 22, 3, 22, 14),
-                     ("The Rim Gallery", 24, 10, 84, 80),
-                     ("The Second Terrace", 34, 20, 64, 64),
-                     ("The Dripstone Gallery", 60, 3, 28, 20),
-                     ("Shrine of the Mist", 18, 62, 26, 22),
-                     ("The Font", 72, 76, 28, 19),
-                     ("The Plunge", 50, 36, 32, 32)])
+    _subzones(zone, [("The Veil", 22, 3, 20, 26),
+                     ("The Hollow Hall", 12, 30, 38, 36),
+                     ("The Plunge", 48, 28, 40, 32),
+                     ("The Dripstone Gallery", 86, 10, 34, 26),
+                     ("Shrine of the Mist", 50, 66, 34, 29),
+                     ("The Font", 90, 60, 30, 28)])
 
     _finish(L, zone, VF_PORTAL,
             [(VF_BOSS[0], VF_BOSS[1], "Veilspeaker Zul'Rath"),
              (VF_RARE[0], VF_RARE[1], "Sheetfall")], VF_CHESTS)
 
     p = L.prop
-    g = lambda r, a: pol(cx, cy, r, a)
     # the mouth: the water comes down across the opening and the trolls lit the inside of it
-    p("stv_tide_pool", 32, 14, 6, where=SP, avoid=1)
-    p("stv_troll_cookfire", 27, 12, 3, where=SP)
-    p("stv_troll_totem", 36, 13, 5, where=SP, solid="core")
-    # the rim gallery: a long curved walk, so almost nothing on it - lamps and a banner at the head
-    p("stv_arena_standard", *g(36, 185), 6, where=SP, solid="core")
-    p("vot_totem_pole", *g(36, 15), 6, solid="core")
-    p("den_stalactites", *g(36, 255), 4)
-    # second terrace: where the carving starts being deliberate
-    p("stv_troll_idol_head", *g(27, 95), 5, where=SP, solid="core")
-    p("spirit_brazier", *g(27, 200), 4, solid="core")
-    p("cracked_pillar", *g(27, 340), 5, where=SR, solid="core")
-    # third terrace: the shrine proper
-    p("temple_column", *g(18, 150), 5, solid="core")
-    p("temple_column", *g(18, 215), 5, solid="core")
-    p("vot_war_drum", *g(18, 75), 3, solid="core")
-    # the lowest terrace, at the water
-    p("ritual_circle", *g(10, 135), 4, avoid=1)
-    p("skull_pile", *g(11, 45), 3)
-    p("stv_troll_totem", *g(11, 185), 5, where=SP, solid="core")
+    p("stv_tide_pool", 32, 16, 6, where=SP, avoid=1)
+    p("stv_troll_cookfire", 27, 13, 3, where=SP)
+    p("stv_troll_totem", 36, 14, 5, where=SP, solid="core")
+    # the Hollow Hall: the island in the middle is the room's whole idea, so dress its foot and
+    # leave the walking space alone
+    p("stv_troll_idol_head", 30, 41, 5, where=SP, solid="core")
+    p("stv_troll_obelisk", 24, 57, 5, where=SP, solid="core")
+    p("den_stalactites", 18, 44, 4)
+    p("spirit_brazier", 40, 57, 4, solid="core")
+    # the plunge: carved, because this is the part the Veilspeaker actually uses
+    p("temple_column", 58, 38, 5, solid="core")
+    p("temple_column", 78, 38, 5, solid="core")
+    p("ritual_circle", 68, 55, 4, avoid=1)
+    p("vot_war_drum", 60, 52, 3, solid="core")
+    p("skull_pile", 77, 51, 3)
     # dripstone gallery
-    p("den_stalactites", 69, 9, 4)
-    p("den_stalagmite_pair", 76, 11, 4, solid="core")
-    p("stv_mushroom_ring", 66, 15, 3, where=SP)
+    p("den_stalactites", 96, 18, 4)
+    p("den_stalagmite_pair", 106, 20, 4, solid="core")
+    p("stv_mushroom_ring", 98, 18, 3, where=SP)
     # shrine of the mist
-    p("grotto_shell_altar", 25, 70, 3, solid="core")
-    p("stv_troll_obelisk", 35, 76, 5, where=SP, solid="core")
-    p("den_glow_mushrooms", 24, 77, 3)
+    p("grotto_shell_altar", 60, 74, 3, solid="core")
+    p("stv_troll_totem", 72, 74, 5, where=SP, solid="core")
+    p("den_glow_mushrooms", 56, 80, 3)
+    p("cracked_pillar", 74, 88, 5, where=SR, solid="core")
     # the font
-    p("grotto_blue_brazier", 80, 84, 4, solid="core")
-    p("grotto_kelp_stalks", 90, 90, 4)
-    p("stv_mushroom_ring", 90, 82, 3, where=SP)
+    p("grotto_blue_brazier", 102, 66, 4, solid="core")
+    p("grotto_kelp_stalks", 110, 74, 4)
+    p("stv_mushroom_ring", 97, 76, 3, where=SP)
 
     L.finish([VF_ARRIVE, VF_PORTAL, VF_BOSS, VF_RARE] + VF_CHESTS)
     return zone, L
