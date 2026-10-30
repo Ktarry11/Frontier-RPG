@@ -343,14 +343,33 @@ class LootGenerator:
             icon_id=pick_armor_icon(slot, effective_armor_type),
         )
 
-    def generate_weapon(self, slot, weapon_type, stat_template, item_level, rarity):
-        """Generate a weapon or off-hand item (shield/totem/wand)."""
+    def generate_weapon(self, slot, weapon_type, stat_template, item_level, rarity,
+                        strict=False):
+        """Generate a weapon or off-hand item (shield/totem/wand).
+
+        strict=True refuses an invalid stat_template instead of quietly
+        swapping it. TWO HAND-AUTHORED EPICS SILENTLY BECAME OTHER ITEMS:
+        "The Quiet Argument" was specified as a spi_healer one-handed mace
+        and "The Deep Bloom's Root" as a spi_healer staff, spi_healer was
+        valid on no weapon type at all, and the substitution below turned
+        both into int_caster items. Nothing failed, nothing logged, and the
+        table still said they were healer weapons. For a procedural roll the
+        substitution is right - better a slightly-off item than no drop -
+        but for a named item somebody wrote on purpose it is a lie, so
+        every hand-authoring caller passes strict=True.
+        """
         rarity_data = self.rarity_tiers[rarity]
         weapon_data = self.weapon_types["weapon_types"][weapon_type]
 
         # Validate stat_template against this weapon type's allowed list (shields have none)
         valid_templates = weapon_data["valid_stat_templates"]
         if valid_templates and stat_template not in valid_templates:
+            if strict:
+                raise ValueError(
+                    f"{weapon_type} does not accept stat_template "
+                    f"'{stat_template}' (valid: {', '.join(valid_templates)}) - "
+                    f"the item would have been generated as "
+                    f"'{valid_templates[0]}' instead of what was asked for")
             stat_template = valid_templates[0]
 
         hand = weapon_data["hand"]
@@ -755,7 +774,15 @@ class LootGenerator:
     #: shield slot to put block value in (druid, venomancer). Armour lived in
     #: _PHYSICAL_SECONDARY before, which kept "of the Tortoise" off every
     #: cloth and caster piece for no reason anyone could defend.
-    _SHARED_SECONDARY = {"stamina", "spirit", "armor"}
+    #: Haste is here because two hand-authored quest items carry it
+    #: (Grokka's Appraised Tusk Pendant, Bloodfeather's Talon Staff) and
+    #: tools/audit_stat_coherence flagged both: it was priced in
+    #: stat_budget_costs at 12.0 and claimed by no template, so it was a stat
+    #: that existed only on items somebody typed by hand. Shared is the
+    #: honest home for it - every class wants haste. Note there is still no
+    #: haste SUFFIX in Kyle's list, so haste reaches gear only by bonus roll
+    #: or by hand; that is his table to extend, not mine to invent.
+    _SHARED_SECONDARY = {"stamina", "spirit", "armor", "haste"}
 
     #: The two physical templates each admit the OTHER's primary stat, which
     #: the exclude-set comment below has always said they should ("Strength
@@ -1015,13 +1042,13 @@ class LootGenerator:
         both. Falls back to the unfiltered pool for an unknown template,
         which is the same fail-soft the suffix path uses.
 
-        ONE STAT LEAVES THE GAME HERE, deliberately and worth saying out
-        loud: `haste` is in no template's set and in none of the 83 authored
-        suffixes, so it filters out for everybody and bonus Haste rolls stop
-        happening. That matches Classic, where haste is not a levelling-gear
-        stat, and it matches the suffix table Kyle actually wrote. If haste
-        is wanted later it needs a home in the wanted sets and at least one
-        suffix, not a special case here.
+        `haste` nearly left the game here. It is in none of the 83 authored
+        suffixes, so the first version of this filter dropped it for every
+        template and bonus Haste rolls stopped happening - quietly, which is
+        the wrong way for a stat to die. audit_stat_coherence then found two
+        hand-authored quest items carrying it, so it is now in the shared
+        set and survives. It still has no suffix, which means it reaches
+        gear only by bonus roll or by hand; adding one is Kyle's call.
         """
         pool = self.stat_templates["secondary_stat_pool"]
         wanted = self._SUFFIX_TEMPLATE_STATS.get(stat_template)

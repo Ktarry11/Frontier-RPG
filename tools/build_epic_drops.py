@@ -6,6 +6,11 @@
 Kyle, 2026-10-28: "We can get the occasional drops as epic after lvl 30 in Dungeons and also for
 world drop after lvl 30. Think of how wow does it with world drops."
 
+Kyle, 2026-10-29: "Each epic should be unique bro and spread across the classes... i'd like to see
+more and more 'open world' epics pop up... These will be hand crafted. But also we can get the open
+world epics that are just procedurally generated with affixes like the greens/blues... Also some of
+the dungeons can drop them at a small chance."
+
 WHAT THE AUDIT FOUND. All 892 hand-authored dungeon items are rarity rare - there is not one epic
 drop anywhere in the game - while two upgrade kits take any crafted piece to epic plus five item
 levels. So there was no gear reason to run a dungeon. The procedural roller already gates epic at
@@ -16,13 +21,32 @@ one.
 WOW'S WORLD-DROP MODEL IS WHY THESE ARE NAMED AND FEW. A world epic in WoW is memorable because it
 is a specific item - people know the name, they know roughly what drops it, and almost nobody has
 one. A purple generated on the fly from a stat budget cannot do that however rare you make it, so
-these are hand-authored: twenty-two items, each with its own name and its own reason to exist.
+these are hand-authored: thirty-six items, each with its own name and its own reason to exist.
 
 STATS COME FROM THE ENGINE, NOT FROM ME. Only the identity is authored here - name, slot, type,
 item level, who it suits. LootGenerator fills in the actual numbers at epic budget, which is the
-same code path every other item in the game goes through. Hand-writing stat blocks for 22 epics
+same code path every other item in the game goes through. Hand-writing stat blocks for 36 epics
 would mean hand-deriving the armour and damage curves, and the first one I got slightly wrong would
 sit there being slightly wrong forever.
+
+THREE GUARDS, each of which exists because the thing it guards against already happened:
+
+  * strict=True on generate_weapon. "The Quiet Argument" was authored as a spi_healer mace and
+    "The Deep Bloom's Root" as a spi_healer staff; spi_healer was valid on no weapon type, so
+    generate_weapon substituted valid_templates[0] and both became int_caster items. Silently.
+    The table still said healer. Both weapon types now accept spi_healer, and a future mismatch
+    raises instead of lying.
+
+  * coherent(). A stat template only gates which gear SUFFIXES are eligible, so "agi_physical"
+    means "may roll any physical-ish suffix" rather than "carries agility". An agility 2H mace
+    came back carrying agility in 1 roll of 8, and 17 of 36 epics had no primary stats at all.
+    Each item is rerolled until it carries the stat it is named for, meaningfully. The engine is
+    untouched - that randomness is correct for procedural drops and wrong for a named item.
+
+  * ranged slots. 24 ranged weapons were authored into main_hand, so equipping a bow took the
+    melee weapon off. That was fixed in the data and in Equipment._resolve_slot, and then I
+    reintroduced it here by regenerating from a source that still said main_hand. The check is
+    upstream of the build now, on the table itself.
 
 SPREAD IS CHECKED, NOT ASSUMED, because Kyle's standing rule is that loot must not be lopsided
 toward one armour class or weapon type. The audit() at the bottom fails the build if it is.
@@ -63,10 +87,29 @@ WORLD = [
      "Heavy enough that the wearer's route can be followed a week later."),
     ("The Second Opinion", "main_hand", "weapon", "staff", 42, "int_caster",
      "Found alongside a first opinion, which had not worked."),
+    # --- the 43-50 band, which did not exist. Kyle asked for the agility polearm, the agility
+    # two-handed sword and the agility two-handed mace by name; all three are here.
+    ("The Understudy", "shoulder", "armor", "plate", 44, "str_int_hybrid",
+     "Built to the measurements of somebody more famous, and never collected."),
+    ("The Standing Order", "main_hand", "weapon", "polearm", 45, "agi_physical",
+     "Nobody has rescinded it. Nobody remembers issuing it either."),
+    ("Threshing Day", "main_hand", "weapon", "mace_2h", 46, "agi_physical",
+     "A farm tool that got good at something else and never went back."),
+    ("Last Word on the Matter", "main_hand", "weapon", "sword_2h", 47, "agi_physical",
+     "The argument it ended is not recorded. The ending is well attested."),
+    ("Saltmother's Shawl", "back", "armor", "cloth", 48, "spi_healer",
+     "Knitted by somebody who had buried enough people to know what the living need."),
+    ("Three Winters' Boots", "feet", "armor", "mail", 49, "agi_physical",
+     "Resoled twice, by two different hands, neither of them a cobbler's."),
+    ("The Inventory", "waist", "armor", "plate", 50, "str_physical",
+     "Every pouch labelled, in a hand that expected somebody else to read it."),
+    ("Quietkeep", "off_hand", "weapon", "tome", 50, "spi_healer",
+     "Half the pages are blank. The other half are names, and the list is still going."),
 ]
 
 #: Occasional drops from bosses at level 30 and up, themed to the dungeons that exist up there -
-#: the Crystalline Underdark's archive, the Drowning Floor, the Southern Needles.
+#: the Crystalline Underdark's archive, the Drowning Floor, the Southern Needles, and from 47 up
+#: the two Bloodsail ships of the Return Voyage.
 DUNGEON = [
     ("Marginalia", "wrist", "armor", "cloth", 38, "int_caster",
      "Somebody wrote on the inside of the cuff, in a hand too small to read without light."),
@@ -86,9 +129,94 @@ DUNGEON = [
      "Salt has got into every seam and made it heavier than it was built to be."),
     ("Galak Tollbreaker", "main_hand", "weapon", "axe_2h", 38, "str_physical",
      "Carried by the first person who declined to pay, and recovered from where they fell."),
-    ("Thermal-Borne Greaves", "legs", "armor", "mail", 36, "agi_physical",
+    ("Thermal-Borne Greaves", "legs", "armor", "mail", 36, "agi_int_hybrid",
      "Updraft off a mesa top will hold a feather for an hour. These were found at the bottom."),
+    # --- the Bloodsail band, 44-50.
+    ("Scuttler's Own Hook", "main_hand", "weapon", "fist_weapon", 44, "agi_physical",
+     "He kept the hand. He just found the hook more use in a boarding action."),
+    ("The Ledger of Debts", "chest", "armor", "cloth", 46, "int_caster",
+     "Every name crossed out, and the crossings-out are in a different ink to the names."),
+    ("Dace's Long Count", "legs", "armor", "leather", 47, "agi_int_hybrid",
+     "Tally marks down both thighs, in groups of five, running out of room."),
+    ("Breakwater", "off_hand", "weapon", "shield", 48, "str_physical",
+     "Took the whole sea at Booty Bay for a season and gave none of it back."),
+    ("What Floated Back", "head", "armor", "mail", 49, "agi_physical",
+     "The ship did not. This did, three weeks later, on the same tide."),
+    ("The Admiral's Last Order", "main_hand", "weapon", "sword_1h", 50, "str_int_hybrid",
+     "Given in a cabin, to nobody who outlived the giving of it."),
 ]
+
+#: An item named for a stat has to carry it. See coherent().
+LEAD_SHARE = 0.25
+MAX_REROLLS = 200
+
+
+def lead_stats(gen, stat_template):
+    """The primary stat(s) this template exists to deliver."""
+    return gen._TEMPLATE_LEAD.get(stat_template, frozenset())
+
+
+def templateless(gen, kind, atype):
+    """True for an item type the engine generates without consulting a stat
+    template at all - a shield, whose budget goes to stamina, armour and
+    block value by construction. Asking such an item to carry strength is
+    asking for something generate_weapon never promised, and the first run
+    of the coherence guard spent 200 rerolls discovering that about "What
+    the Tide Kept" before failing the build. The table still names a
+    template for a shield, because the name and the icon come from it."""
+    if kind != "weapon":
+        return False
+    wt = gen.weapon_types["weapon_types"].get(atype, {})
+    return not wt.get("valid_stat_templates")
+
+
+def coherent(item, gen, stat_template, kind=None, atype=None):
+    """True if the item carries the stat it is named for, meaningfully.
+
+    Items the engine builds without a template (shields) are coherent by
+    construction and exempt. Everything else must put at least LEAD_SHARE of
+    its primary stat points into one of its template's lead stats -
+    present-but-trivial is the failure mode this catches, where an "agility"
+    weapon rolls 1 agility and 40 stamina.
+    """
+    if kind is not None and templateless(gen, kind, atype):
+        return True
+    leads = lead_stats(gen, stat_template)
+    if not leads:
+        return True
+    primaries = item.primary_stats or {}
+    total = sum(primaries.values())
+    if not total:
+        return False
+    best = max((primaries.get(s, 0) for s in leads), default=0)
+    return best >= LEAD_SHARE * total
+
+
+def build_one(gen, name, slot, kind, atype, ilvl, template):
+    """Generate until the item is coherent, or report which one would not be."""
+    for _ in range(MAX_REROLLS):
+        if kind == "armor":
+            item = gen.generate_armor_piece(slot, atype, template, ilvl, "epic")
+        else:
+            item = gen.generate_weapon(slot, atype, template, ilvl, "epic", strict=True)
+        if item is None:
+            return None, f"the generator would not build {name} ({atype} {slot})"
+        if coherent(item, gen, template, kind, atype):
+            return item, None
+    return None, (f"{name} ({atype}, {template}) never rolled {int(LEAD_SHARE * 100)}% of its "
+                  f"primary stats into {'/'.join(sorted(lead_stats(gen, template)))} "
+                  f"in {MAX_REROLLS} tries - the suffix pool for this template may have no "
+                  f"suffix that leads with it")
+
+
+def check_ranged_slots(rows):
+    """A ranged weapon type authored into a melee slot - the regression I
+    reintroduced after fixing it once, so the check sits on the table."""
+    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text())["weapon_types"]
+    ranged = {k for k, v in wt.items() if v.get("hand") == "ranged"}
+    return [f"{name} is a {atype} (ranged) but authored into slot '{slot}'"
+            for name, slot, kind, atype, _il, _st, _f in rows
+            if kind == "weapon" and atype in ranged and slot != "ranged"]
 
 
 def audit(rows):
@@ -100,11 +228,24 @@ def audit(rows):
     for cls in ("cloth", "leather", "mail", "plate"):
         if armour[cls] < 2:
             problems.append(f"only {armour[cls]} {cls} pieces - the spread is lopsided")
-    if max(weapons.values(), default=0) > 3:
+    cap = 3
+    if max(weapons.values(), default=0) > cap:
         hog = max(weapons, key=weapons.get)
-        problems.append(f"{weapons[hog]} of the weapons are {hog}")
-    if len(templates) < 5:
-        problems.append(f"only {len(templates)} stat templates represented of 6")
+        problems.append(f"{weapons[hog]} of the weapons are {hog} (cap {cap})")
+    if len(templates) < 6:
+        missing = {"str_physical", "agi_physical", "int_caster", "spi_healer",
+                   "str_int_hybrid", "agi_int_hybrid"} - set(templates)
+        problems.append(f"only {len(templates)} stat templates of 6 - missing "
+                        f"{', '.join(sorted(missing))}")
+    share = max(templates.values(), default=0) / max(len(rows), 1)
+    if share > 0.40:
+        hog = max(templates, key=templates.get)
+        problems.append(f"{templates[hog]} of {len(rows)} epics are {hog} "
+                        f"({share:.0%}) - Kyle: \"spread across the classes\"")
+    names = [n for n, *_r in rows]
+    dupes = [n for n, c in Counter(names).items() if c > 1]
+    if dupes:
+        problems.append(f"duplicate names: {', '.join(dupes)} - Kyle: \"Each epic should be unique\"")
     print(f"  armour: {dict(armour)}")
     print(f"  weapons: {dict(weapons)}")
     print(f"  stat templates: {dict(templates)}")
@@ -115,36 +256,38 @@ def main():
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
 
-    print(f"spread check over {len(WORLD) + len(DUNGEON)} epics:")
-    problems = audit(WORLD + DUNGEON)
+    rows = WORLD + DUNGEON
+    print(f"spread check over {len(rows)} epics:")
+    problems = audit(rows) + check_ranged_slots(rows)
     if problems:
         print("\nFAILED - fix the table, not the check:")
         for p in problems:
             print(f"  - {p}")
         return 1
 
-    out = {"_notes": ("Named epic drops (2026-10-28). WORLD items drop from anything at level 30+ "
-                      "at a very low rate; DUNGEON items are the occasional purple off a level 30+ "
-                      "boss. Identity is hand-authored in tools/build_epic_drops.py; every stat "
-                      "below came from LootGenerator at epic budget, so these sit on the same "
-                      "curves as the rest of the game's loot. Rolled by entities/epic_drops.py.")}
+    out = {"_notes": ("Named epic drops. WORLD items drop from anything at level 30+ at a very "
+                      "low rate; DUNGEON items are the occasional purple off a level 30+ boss. "
+                      "Identity is hand-authored in tools/build_epic_drops.py; every stat below "
+                      "came from LootGenerator at epic budget, so these sit on the same curves "
+                      "as the rest of the game's loot, and each was rerolled until it carried "
+                      "the stat it is named for. Rolled by entities/epic_drops.py.")}
 
-    for key, rows in (("world", WORLD), ("dungeon", DUNGEON)):
+    rerolled = 0
+    for key, table in (("world", WORLD), ("dungeon", DUNGEON)):
         items = []
-        for name, slot, kind, atype, ilvl, template, flavour in rows:
-            if kind == "armor":
-                it = gen.generate_armor_piece(slot, atype, template, ilvl, "epic")
-            else:
-                it = gen.generate_weapon(slot, atype, template, ilvl, "epic")
-            if it is None:
-                print(f"FAILED: the generator would not build {name} ({atype} {slot})")
+        for name, slot, kind, atype, ilvl, template, flavour in table:
+            item, err = build_one(gen, name, slot, kind, atype, ilvl, template)
+            if err:
+                print(f"FAILED: {err}")
                 return 1
-            d = it.to_dict() if hasattr(it, "to_dict") else {}
+            d = item.to_dict() if hasattr(item, "to_dict") else {}
             d["name"] = name
             d["flavor_text"] = flavour
             # The generated item_id carries a uuid, which would make this file churn on every run.
             d["item_id"] = "epic_" + name.lower().replace("'", "").replace(" ", "_")
             items.append(d)
+            if not coherent(item, gen, template, kind, atype):
+                rerolled += 1
         out[key] = items
         print(f"\n  {key}: {len(items)} items, item level "
               f"{min(i['item_level'] for i in items)}-{max(i['item_level'] for i in items)}")

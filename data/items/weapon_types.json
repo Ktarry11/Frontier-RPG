@@ -6,7 +6,9 @@
       "valid_stat_templates": [
         "str_physical",
         "agi_physical",
-        "int_caster"
+        "int_caster",
+        "agi_int_hybrid",
+        "str_int_hybrid"
       ],
       "budget_multiplier": 1.0,
       "base_attack_speed": 2.4,
@@ -30,7 +32,9 @@
       "hand": "main_or_off",
       "valid_stat_templates": [
         "str_physical",
-        "agi_physical"
+        "agi_physical",
+        "agi_int_hybrid",
+        "str_int_hybrid"
       ],
       "budget_multiplier": 1.0,
       "base_attack_speed": 2.6,
@@ -55,7 +59,10 @@
       "valid_stat_templates": [
         "str_physical",
         "agi_physical",
-        "int_caster"
+        "int_caster",
+        "agi_int_hybrid",
+        "str_int_hybrid",
+        "spi_healer"
       ],
       "budget_multiplier": 1.0,
       "base_attack_speed": 2.6,
@@ -80,7 +87,8 @@
       "hand": "main_or_off",
       "valid_stat_templates": [
         "agi_physical",
-        "int_caster"
+        "int_caster",
+        "agi_int_hybrid"
       ],
       "budget_multiplier": 0.85,
       "base_attack_speed": 1.7,
@@ -92,7 +100,8 @@
       "hand": "main_or_off",
       "valid_stat_templates": [
         "str_physical",
-        "agi_physical"
+        "agi_physical",
+        "agi_int_hybrid"
       ],
       "budget_multiplier": 0.85,
       "base_attack_speed": 1.8,
@@ -104,7 +113,8 @@
       "hand": "two_hand",
       "valid_stat_templates": [
         "int_caster",
-        "str_int_hybrid"
+        "str_int_hybrid",
+        "spi_healer"
       ],
       "budget_multiplier": 1.8,
       "base_attack_speed": 3.2,
@@ -207,7 +217,8 @@
       "valid_stat_templates": [
         "int_caster",
         "str_int_hybrid",
-        "agi_int_hybrid"
+        "agi_int_hybrid",
+        "spi_healer"
       ],
       "budget_multiplier": 0.75,
       "base_attack_speed": 0.0,
