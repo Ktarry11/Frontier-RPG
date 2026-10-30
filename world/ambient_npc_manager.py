@@ -16,6 +16,7 @@ NPC types.
 """
 import json
 from pathlib import Path
+from world.zone_keys import zone_key as _zk
 
 
 class AmbientNPC:
@@ -84,10 +85,13 @@ class AmbientNPCManager:
 
     @staticmethod
     def _zone_key(zone):
-        """Same normalization VendorManager._zone_key uses - lowercase,
-        spaces to underscores - so this file can use either the Tilemap
-        display name or the slug form interchangeably."""
-        return zone.lower().replace(" ", "_")
+        """The shared normalisation (world/zone_keys.py).
+
+        This function used to lowercase and swap spaces only, while claiming in its own docstring to
+        match VendorManager - which strips apostrophes. It did not, and that one missing character
+        made every ambient NPC in Grom'gol and Kael's Bastion unreachable, plus the Sepulcher's over
+        the leading article. Nothing crashed; you just walked up to people and nothing happened."""
+        return _zk(zone)
 
     def set_viewer_class(self, char_class):
         """The player's class: class trainers for any OTHER class are hidden (18 trainers per town would bury the plaza)."""

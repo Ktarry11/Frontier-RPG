@@ -5,6 +5,7 @@ Vendors are stationary NPCs in towns that buy/sell consumables AND gear.
 import json
 import random
 from pathlib import Path
+from world.zone_keys import zone_key as _zk
 
 
 #: How many gear items a vendor stocks, and what rarity mix they roll from.
@@ -230,8 +231,11 @@ class VendorManager:
         between the two, so get_vendor_at_location() never matched anything -
         the entire vendor system was unreachable in every zone. Normalizing
         here fixes all zones at once and accepts either form.
+
+        Moved to the shared helper 29 Oct 2026 - this one stripped apostrophes but not a leading
+        article, which is why The Sepulcher's vendors were as unreachable as its ambient NPCs.
         """
-        return zone.strip().lower().replace(" ", "_").replace("'", "")
+        return _zk(zone)
 
     def get_vendors_in_zone(self, zone):
         """Get all vendors in a specific zone (accepts display name or slug)."""

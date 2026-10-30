@@ -14,6 +14,7 @@ from world.sawmill_manager import get_sawmill_manager
 from world.chest_manager import get_chest_manager
 from ui.sprite_loader import prewarm_chunk_sprites
 from world.tile_textures import TILE_SIZE
+from world.zone_keys import zone_key as _zk
 
 
 class ZoneManager:
@@ -196,9 +197,7 @@ class ZoneManager:
     @staticmethod
     def _normalize_zone_key(zone):
         """Match RecruitManager's normalization ("Valley of Trials" -> valley_of_trials)."""
-        key = str(zone).lower().replace(" ", "_").replace("'", "")
-        # "The Sepulcher" (zone) vs "sepulcher" (NPC data): a leading article never distinguishes zones
-        return key[4:] if key.startswith("the_") else key
+        return _zk(zone)
 
     def get_current_zone(self):
         """Get current zone tilemap."""

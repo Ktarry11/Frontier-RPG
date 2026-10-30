@@ -19,6 +19,7 @@ VendorManager's normalization rather than inventing a second convention.
 """
 import json
 from pathlib import Path
+from world.zone_keys import zone_key as _zk
 
 
 #: Equipment slots each gear theme should be handed on recruitment, and the
@@ -392,7 +393,7 @@ class RecruitManager:
     @staticmethod
     def _zone_key(zone):
         """Normalize "Valley of Trials" -> "valley_of_trials"."""
-        return str(zone).lower().replace(" ", "_").replace("'", "")
+        return _zk(zone)
 
     # ------------------------------------------------------------------
     # State

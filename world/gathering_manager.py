@@ -30,6 +30,7 @@ works, not covering every zone in the game.
 import json
 import random
 from pathlib import Path
+from world.zone_keys import zone_key as _zk
 
 
 class GatheringNode:
@@ -78,7 +79,11 @@ class GatheringNodeManager:
         pools_file = data_dir / "node_pools.json"
         if pools_file.exists():
             with open(pools_file, 'r') as f:
-                self.node_pools = json.load(f).get("zones", {})
+                # NORMALISE THE KEYS AT LOAD. The lookup side goes through _zone_key, so the index
+                # side has to as well or the two disagree the moment a zone name contains an article
+                # or an apostrophe - which is exactly the asymmetry that hid three broken rosters.
+                raw = json.load(f).get("zones", {})
+                self.node_pools = {self._zone_key(k): v for k, v in raw.items()}
 
         self._synthesize_cave_pools()
 
@@ -139,7 +144,7 @@ class GatheringNodeManager:
         codebase uses (ZoneManager._normalize_zone_key, VendorManager,
         race_registry, quest zone_key) - lowercase, spaces to
         underscores, strip apostrophes."""
-        return str(zone).lower().replace(" ", "_").replace("'", "")
+        return _zk(zone)
 
     # ------------------------------------------------------------------
     # Layout

@@ -229,6 +229,46 @@
         184
       ],
       "continent": "eastern_kingdoms"
+    },
+    "freewind_post": {
+      "name": "Freewind Post",
+      "zone": "Freewind Post",
+      "master": "fw_flight_master",
+      "pos": [
+        -10,
+        145
+      ],
+      "continent": "kalimdor"
+    },
+    "zoram_strand": {
+      "name": "Zoram Strand",
+      "zone": "Zoram Strand",
+      "master": "zoram_flight_master",
+      "pos": [
+        -70,
+        -55
+      ],
+      "continent": "kalimdor"
+    },
+    "tarren_mill": {
+      "name": "Tarren Mill",
+      "zone": "Tarren Mill",
+      "master": "tarren_mill_flight_master",
+      "pos": [
+        -18,
+        85
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "kaels_bastion": {
+      "name": "Kael's Bastion",
+      "zone": "Kael's Bastion",
+      "master": "kb_flight_master",
+      "pos": [
+        20,
+        40
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -336,6 +376,30 @@
       "inn"
     ],
     "bootybay_flight_master": [
+      "flight"
+    ],
+    "fw_innkeeper": [
+      "inn"
+    ],
+    "tarren_mill_innkeeper": [
+      "inn"
+    ],
+    "kb_innkeeper": [
+      "inn"
+    ],
+    "zoram_innkeeper": [
+      "inn"
+    ],
+    "fw_flight_master": [
+      "flight"
+    ],
+    "tarren_mill_flight_master": [
+      "flight"
+    ],
+    "kb_flight_master": [
+      "flight"
+    ],
+    "zoram_flight_master": [
       "flight"
     ]
   }

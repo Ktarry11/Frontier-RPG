@@ -9,6 +9,7 @@ different pattern.
 """
 import json
 from pathlib import Path
+from world.zone_keys import zone_key as _zk
 
 
 class Forge:
@@ -57,7 +58,7 @@ class ForgeManager:
         """Same normalization as every other zone-keyed lookup in this
         codebase (VendorManager._zone_key, GatheringNodeManager._zone_key,
         race_registry, quest zone_key)."""
-        return str(zone).strip().lower().replace(" ", "_").replace("'", "")
+        return _zk(zone)
 
     def get_forges_in_zone(self, zone):
         return self.forges_by_zone.get(self._zone_key(zone), [])
