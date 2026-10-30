@@ -24,7 +24,7 @@
       ],
       "reward_exp": 2120,
       "reward_gold": 8700,
-      "accept_text": "You will want to know what a tally is. A tally is the number of things, written down, so that the number cannot be argued with later. Mine says six crates a week go off the Vine Road between my south gate and the first bend. The raptors work that stretch and raptors chew. So go and work it back the other way, and when you find something chewed, bring me the stave off it.",
+      "accept_text": "A tally is the number of things, written down, so that the number cannot be argued with later, and mine says six crates a week go off the Vine Road between my south gate and the first bend. The raptors work that stretch and raptors chew. So go and work it back the other way, and when you find something chewed, bring me the stave off it.",
       "turn_in_text": "These are cut. Look at the end of one. A raptor leaves you a splintered end and every one of these is flat, and I have spent eleven weeks writing spoilage in my own hand while somebody walked off with the boards. I would rather have been robbed loudly. At least then the book would be right.",
       "next_quest_id": "stn_cut_not_chewed",
       "unique_item_defs": [
@@ -95,7 +95,7 @@
       "zone": "gromgol",
       "level_min": 30,
       "level_max": 31,
-      "description": "Overseer Mokra has Pell's flat-ended stave on her table and a camp that is six crates a week light. She does not ask where you are from and she does not offer a reason for not asking. She asks whether you can get as far as the cutline fork and back before the light goes.",
+      "description": "Overseer Mokra has Pell's flat-ended stave on her table and a camp that is six crates a week light. She has had the stave in her hand since first light and has not put it down. She asks whether you can get as far as the cutline fork and back before the light goes.",
       "objectives": [
         {
           "type": "kill",
@@ -1564,6 +1564,1064 @@
       ],
       "gear_reward_gear_level": 33,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stn_the_long_haul",
+      "title": "The Long Haul",
+      "giver_npc_id": "gromgol_flight_master",
+      "zone": "gromgol",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Windrider-Keeper Pazzik has established, at some cost to his dignity, that there is no sky over the coast north of Grom'gol. He has therefore stopped looking for a near roost. His new plan is the longest route on any flight ledger in the Horde and he is already pricing it.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "longhaul_feed_block",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Thornback Ape",
+          "count": 6,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "No roost in a morning's flight, fine. Then we go in one hop and we go far. Over the water, up the whole length of the coast, Tarren Mill in Hillsbrad. A wyvern that flies that does not eat on the way, it eats before, and that means pressed feed, the heavy blocks, boar fat and jungle grain beaten together until it goes hard. Six blocks. The rootgrubbers give you the fat. The thornbacks will try to take it back off you, because they have been robbing my feed store since the day the store existed.",
+      "turn_in_text": "Enough for one bird, one crossing, one way. Which is the whole of the argument, you understand. The Baron's roost I can reach twice before noon, and this one I can reach once and then I am sitting in Hillsbrad with a hungry wyvern and a landing fee of nothing at all. Nothing at all. I have been saying that number to myself for a week and it has not stopped being my favourite number.",
+      "next_quest_id": "stn_a_name_at_the_other_end",
+      "unique_item_defs": [
+        {
+          "name": "Long-Haul Gloves",
+          "slot": "hands",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Carried on a wyvern that was over open water when it got wet, and it shows.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 51,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Tower-Lit Girdle",
+          "slot": "waist",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Carried on a wyvern that was over open water when it got wet, and it shows.",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.6
+          },
+          "armor_type": "leather",
+          "armor_value": 32,
+          "label": "Leather Belt (Agi/Int/AP)"
+        },
+        {
+          "name": "Long-Haul Loop",
+          "slot": "ring",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Carried on a wyvern that was over open water when it got wet, and it shows.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stn_the_baron_charges_me_to_land"
+      ]
+    },
+    {
+      "quest_id": "stn_a_name_at_the_other_end",
+      "title": "A Name at the Other End",
+      "giver_npc_id": "gromgol_flight_master",
+      "zone": "gromgol",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "A route is not a route until somebody at the far end agrees to catch it. Pazzik has written his out in a small fast hand on both sides of the card, and he has heard there is an orc on a tower in Hillsbrad who flies the same beast he does and has nobody to fly it to.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pazzik_route_proposal",
+          "count": 1,
+          "label": "Put Pazzik's route in Wind-Rider Ghulrak's hand at Tarren Mill"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "Wind-Rider Ghulrak, Tarren Mill. Take him this and do not read it. No, read it, I do not care, it is a schedule and a price and the price is the part he will argue with. Go up on the Baron's route and change at the mill, and yes, that costs you, and yes, you are paying the fee I am trying to stop paying. Hold that thought for about nine hours and you will understand my whole position.",
+      "turn_in_text": "A jungle goblin wants to put a wyvern over open water for the better part of a day on the strength of a feed block. Sit down. I am not saying no. I am saying I have flown that coast and there is a stretch in the middle of it with nothing under you but water and nothing over you but weather, and a bird that tires there does not get to tire somewhere else instead.",
+      "next_quest_id": "stn_two_roosts_one_ledger",
+      "unique_item_defs": [
+        {
+          "name": "Windrider's Girdle",
+          "slot": "waist",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Smells of feed block, wet leather and goblin arithmetic.",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 77,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Relay Wraps",
+          "slot": "feet",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Smells of feed block, wet leather and goblin arithmetic.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Boots (Int/Spi/HP)"
+        },
+        {
+          "name": "Long-Haul Scepter",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "It has crossed more of this world in a week than its owner did in a life.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "spell_power": 1.4
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "tarren_mill_flight_master",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pazzik_route_proposal",
+            "name": "Pazzik's Proposed Route",
+            "description": "A schedule and a price, written small and fast on both sides of one card. The price is the part anybody will argue with.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stn_two_roosts_one_ledger",
+      "title": "Two Roosts, One Ledger",
+      "giver_npc_id": "tarren_mill_flight_master",
+      "zone": "tarren_mill",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Wind-Rider Ghulrak has flown the Hillsbrad lanes long enough to know exactly what the middle of Pazzik's route is: open water with nothing to come down on. He will put his hand to it if somebody holds that middle, and the only people flying that middle at night are dead.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "fences_from_the_air",
+            "why_not_bats",
+            "what_the_jungle_sends_north"
+          ]
+        },
+        {
+          "type": "deliver",
+          "target": "ghulrak_relay_endorsement",
+          "count": 1,
+          "label": "Carry Ghulrak's endorsement to Bat Handler Odo at the Sepulcher"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "Three things you should ask me before you fly anywhere, and I will answer all three, because a courier who does not know the route is cargo. Then take my endorsement west to the Sepulcher and put it in Bat Handler Odo's hand. His bats cross that water every night of the year. If he will bring a wyvern down on his tower in bad weather, the route stands. If he will not, your goblin can go on paying his Baron for the privilege of landing.",
+      "turn_in_text": "An orc's hand and a goblin's arithmetic, and the orc has the honesty to write down the part he cannot solve. There it is, bottom of the page, in his own letters: the middle. He has flown it. I have hung upside down in it. Those are not the same qualification and mine is the one that matters here.",
+      "next_quest_id": "stn_the_relay_signed",
+      "unique_item_defs": [
+        {
+          "name": "Windrider's Gloves",
+          "slot": "hands",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Flight-store issue, and the flight store is a crate under a tarpaulin.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Long-Haul Hood",
+          "slot": "head",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "It has crossed more of this world in a week than its owner did in a life.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Open-Water Charm",
+          "slot": "neck",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Flight-store issue, and the flight store is a crate under a tarpaulin.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "sepulcher_flight_master",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ghulrak_relay_endorsement",
+            "name": "Ghulrak's Endorsement",
+            "description": "An orc's hand under a goblin's arithmetic, and the honest part is the line naming what he cannot solve.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stn_the_relay_signed",
+      "title": "The Relay Signed",
+      "giver_npc_id": "sepulcher_flight_master",
+      "zone": "sepulcher",
+      "level_min": 34,
+      "level_max": 34,
+      "description": "Bat Handler Odo has read a goblin's route, an orc's endorsement, and a weather note about a jungle he will never see. He has signed it. He has also added a line at the bottom in his own hand, which is the part of the page that matters.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "odo_countersigned_route",
+          "count": 1,
+          "label": "Take the countersigned route back to Windrider-Keeper Pazzik at Grom'gol"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "I will light the tower. Not for the goblin and not for the orc. For the bird, which has no say in any of this and is the one that will be hitting the water. Take it back down to your Pazzik, and tell him the line at the bottom is mine and it is not open to discussion: in bad weather the wyvern comes down on my tower and the mail goes the rest of the way on a bat. He will hate that. He will sign it.",
+      "turn_in_text": "He lit the tower and then he put his hand in my pocket. Bad weather and the mail goes on a bat. His bat, his route, his cut, and he knew exactly what he was doing when he wrote it under the signature instead of over it. Stamp it. Three years I have paid the Baron to let me land, and now I pay a dead man to keep my bird out of the sea, and that is still cheaper, and I am going to walk into Booty Bay and tell the Baron so with my own mouth.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tower-Lit Leggings",
+          "slot": "legs",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Smells of feed block, wet leather and goblin arithmetic.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 102,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Relay Helm",
+          "slot": "head",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "Carried on a wyvern that was over open water when it got wet, and it shows.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.8
+          },
+          "armor_type": "plate",
+          "armor_value": 115,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Long-Haul Knife",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 34,
+          "flavor_text": "It has crossed more of this world in a week than its owner did in a life.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "gromgol_flight_master",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "odo_countersigned_route",
+            "name": "The Countersigned Route",
+            "description": "Three hands on one page now. The last one wrote his condition under the signature instead of over it, which was not an accident.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stn_nothing_they_have_fought_climbs",
+      "title": "Nothing They Have Fought Climbs",
+      "giver_npc_id": "gromgol_drillmaster",
+      "zone": "gromgol",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Drillmaster Ukko has a drill ground, a palisade, and a syllabus he has rewritten exactly once in his life. He rewrote it three years ago. He will tell you why if you ask him, and he would much rather you asked him here than worked it out on the cutline.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "what_climbs",
+            "what_the_drill_is_for",
+            "who_you_get"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Thornback Ape",
+          "count": 8,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2120,
+      "reward_gold": 8700,
+      "accept_text": "Ask me what you like. Then go and fight something that climbs. The thornbacks come down the cutline hand over hand and they do not come at your front, they come at the top of your head, and a recruit who has only ever been hit from the front dies looking at the ground. I want you to have been hit from above before I put anybody behind you. That is not a figure of speech. That is the order of the lesson.",
+      "turn_in_text": "You have been watching the canopy since you came back through that gate and you have not noticed you are doing it. That is the whole lesson and the jungle taught it to you in an afternoon. I have been shouting it across this ground for three years and it has never once gone in that fast.",
+      "next_quest_id": "stn_the_third_direction",
+      "unique_item_defs": [
+        {
+          "name": "Palisade Sash",
+          "slot": "waist",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Spliced twice, because nothing in this camp gets spliced only once.",
+          "primary_stats": {
+            "stamina": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 1.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 14,
+          "label": "Cloth Belt (Sta/Int/HP)"
+        },
+        {
+          "name": "Palisade Spaulders",
+          "slot": "shoulder",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Spliced twice, because nothing in this camp gets spliced only once.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Third-Direction Ring",
+          "slot": "ring",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Spliced twice, because nothing in this camp gets spliced only once.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stn_the_third_direction",
+      "title": "The Third Direction",
+      "giver_npc_id": "gromgol_drillmaster",
+      "zone": "gromgol",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Ukko wants a climbing frame on his drill ground and there is not a length of rope in Grom'gol that has not already been spliced twice. There is, however, a great deal of vine in this jungle, and the vine is attached to something that objects to being shortened.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "strangler_vine_coil",
+          "count": 7
+        },
+        {
+          "type": "kill",
+          "target": "Coilvine Python",
+          "count": 8,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "Coil. Strangler vine, off the wet ground where it grows green and has not gone woody yet. Cut it long and cut it fresh. Seven coils, and put the pythons off it before you start, because a coilvine in the canopy is exactly the colour of the thing you are reaching for and you will only make that mistake once.",
+      "turn_in_text": "Up. Down is the ground, forward is the gate, and up is the direction nobody drills, and now there is a frame on my ground to drill it on. First one over the top of it was a storesman's clerk with a bad leg, which is the only part of today I did not arrange. Nobody laughed. I would have had words.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Third-Direction Breeches",
+          "slot": "legs",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Spliced twice, because nothing in this camp gets spliced only once.",
+          "primary_stats": {
+            "stamina": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 30,
+          "label": "Cloth Legs (Sta/Int/HP)"
+        },
+        {
+          "name": "Drill-Ground Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Spliced twice, because nothing in this camp gets spliced only once.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 108,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Third-Direction Necklace",
+          "slot": "neck",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Worn through at the shoulder, where a climbing frame takes the weight.",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stn_not_tame_fed",
+      "title": "Not Tame, Fed",
+      "giver_npc_id": "gromgol_beast_handler",
+      "zone": "gromgol",
+      "level_min": 30,
+      "level_max": 31,
+      "description": "Beast-Handler Kozza keeps the camp's raptor pens and the wyvern lines, and she has one rule she repeats to everybody and means every time: the animals are not tame, they are fed. The feed ran short the week the resupply turned away, and the pens have become interesting to the panthers.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "rootgrubber_haunch",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Greenpelt Panther",
+          "count": 6,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2120,
+      "reward_gold": 8700,
+      "accept_text": "Boar haunch. Not offal, not slop. Dis is not slop I be making - a raptor dat gets slop remembers it, and den she bites de hand dat brought it. Eight off the rootgrubbers, good ones, off the leg. And the greenpelts have found my pens, mon. Dey sit in the green by the line and dey wait on feeding hour the same as the birds do. Put dem off it before one of dem works out which end of the pen the gate is on.",
+      "turn_in_text": "Dey eat, dey settle, dey let me walk between dem. Dat is the whole of it. Nobody in dis camp has named one of dose birds and nobody is going to, because the day you name a ting you start expecting it to be grateful. Den one morning it is not grateful, and you are surprised, and surprised is how a handler loses an arm.",
+      "next_quest_id": "stn_what_the_pens_know",
+      "unique_item_defs": [
+        {
+          "name": "Handler's Helm",
+          "slot": "head",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Nothing in the pens has a name, including this.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 105,
+          "label": "Plate Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Pen-Side Coat",
+          "slot": "chest",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Boar leather, tanned by somebody who had other work on that day.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 8.4
+          },
+          "armor_type": "leather",
+          "armor_value": 58,
+          "label": "Leather Chest (Agi/Sta/AP)"
+        },
+        {
+          "name": "Haunch-Cut Staff",
+          "slot": "main_hand",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 30,
+          "flavor_text": "Nothing in the pens has a name, including this.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 12.1
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 32,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stn_what_the_pens_know",
+      "title": "What the Pens Know",
+      "giver_npc_id": "gromgol_beast_handler",
+      "zone": "gromgol",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Kozza's raptors have gone off their feed on the same day of the week since the dry turn, and she has stopped thinking it is the feed. A penned bird knows what is moving on the road outside the fence better than the sentry on the gate does, and Kozza has been reading hers for three seasons.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "the_difference",
+            "the_raptors_on_the_road",
+            "what_she_will_not_do"
+          ]
+        }
+      ],
+      "reward_exp": 2280,
+      "reward_gold": 9300,
+      "accept_text": "Sit up on de rail and ask me. Dis is not a ting I can hand you in a sack and it is not a ting I am going to carry up to the overseer's table on my own, because what I have is a shape in my head, and a shape in your head is worth nothing at all until somebody else has heard it out loud and not laughed.",
+      "turn_in_text": "Dere. Now it is said, and now it is two of us dat know it, and if I go off dis rail tomorrow the camp still has it. Tell the overseer if you like. She will want it as a number and I have not got a number. I have got birds, and birds do not count. Dey just stop eating.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rail-Worn Gloves",
+          "slot": "hands",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Nothing in the pens has a name, including this.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.7
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        },
+        {
+          "name": "Pen-Side Mantle",
+          "slot": "back",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Nothing in the pens has a name, including this.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 2.4,
+            "hit_rating": 0.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 12,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Feeding-Hour Signet",
+          "slot": "ring",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Boar leather, tanned by somebody who had other work on that day.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "stn_signed_for_twice",
+      "title": "Signed For Twice",
+      "giver_npc_id": "gromgol_berth_master",
+      "zone": "gromgol",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Berth-Master Zekka has a grant out of Booty Bay with the Baron's stamp on it and a date in a much smaller hand underneath the stamp. He has read it four times. He would like somebody else to walk it across the camp to the overseer, because he has worked out what it means and does not want to be the one holding it when she does.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gromgol_berth_grant",
+          "count": 1,
+          "label": "Put the berth grant in Overseer Mokra's hand"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "It is a berth. A berth in the Baron's own harbour, granted to this camp, for this camp's airship, in perpetuity, at a rate. Read the rate. Then read the little date under the stamp, which is not the day he signed it, it is the day he decided we were the sort of camp that would one day have to ask. Take it to the overseer. I have signed for everything that came off that stair. I am not signing for this.",
+      "turn_in_text": "In perpetuity. A goblin has granted me, in perpetuity, the right to go on paying him for the one thing this camp cannot do without, and he dated the decision to the season we landed. He has been sitting on it for three years waiting for me to need the paper badly enough to come and ask for it. Put it on the table. Not in the chest. On the table, where I can look at it a while.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Grom'gol Chausses",
+          "slot": "legs",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Stamped on the inside with a requisition number nobody can look up.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.2
+          },
+          "armor_type": "mail",
+          "armor_value": 96,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Camp-Cut Treads",
+          "slot": "feet",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Stamped on the inside with a requisition number nobody can look up.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.2,
+            "block_rating": 0.5,
+            "dodge_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 72,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Signed-For Targe",
+          "slot": "off_hand",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Stamped on the inside with a requisition number nobody can look up.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "armor_value": 48,
+          "block_value": 60,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "gromgol_commander",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gromgol_berth_grant",
+            "name": "Grom'gol's Berth, In Perpetuity",
+            "description": "The Baron's stamp, a rate, and a date in a much smaller hand underneath. The date is the interesting one.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stn_four_reports_and_a_boot",
+      "title": "Four Reports and a Boot",
+      "giver_npc_id": "gromgol_field_medic",
+      "zone": "gromgol",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Field-Medic Sulaa said it to the quartermaster's face and he wrote it down and nothing happened, because the lot of boots she wants condemned was signed for by the only man whose signature could condemn it. So she has given up on the boots and started on the feet instead.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "sourwater_fen_tuber",
+          "count": 7
+        },
+        {
+          "type": "kill",
+          "target": "Bloatspawn Toad",
+          "count": 6,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2280,
+      "reward_gold": 9300,
+      "accept_text": "There is a tuber in the fen rot. Pale, about a thumb long, and it will pull water out of anything you pack it against. Seven, and they sit under the standing water, which means the toads - and a toad out there is a stone until it is on your back. I cannot condemn a boot. I can keep a foot dry inside one, and I have a ward of eleven men who would take that trade before breakfast.",
+      "turn_in_text": "A cloth, a tuber, and a foot dry for a day and a half. That is not a cure. That is a delay, and a delay is most of medicine in a place like this. He is still signing, by the way. Boots, rope, salt, bandages. Every requisition that comes off that stair has his hand at the bottom of it and not one person in this camp has ever asked him to stop.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fenrot Boots",
+          "slot": "feet",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Whatever was in it has gone out of it and left the shape.",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.3,
+            "parry_rating": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 49,
+          "label": "Mail Boots (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Causeway Leggings",
+          "slot": "legs",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Found on the causeway, which is a road the way the fen is a field.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 8.4,
+            "mp5": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 31,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Gaslit Crook",
+          "slot": "main_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Found on the causeway, which is a road the way the fen is a field.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 22.6,
+            "mp5": 4.9
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stn_standing_water"
+      ]
+    },
+    {
+      "quest_id": "stn_in_the_count",
+      "title": "In the Count",
+      "giver_npc_id": "gromgol_south_sentry",
+      "zone": "gromgol",
+      "level_min": 31,
+      "level_max": 32,
+      "description": "Sentry Vrak asked you once, as a courtesy, not to look at the ground outside the west wall. You looked or you did not. Either way she has stopped asking for courtesies and started asking for the thing she should have put in a report two years ago.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "vrak_burial_request",
+          "count": 1,
+          "label": "Take Vrak's request to Innkeeper Rukha"
+        },
+        {
+          "type": "kill",
+          "target": "Greenpelt Panther",
+          "count": 8,
+          "zone": "northern_stranglethorn"
+        }
+      ],
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "accept_text": "The greenpelts have the day. They know which day we carry out, they are on the apron before we are, and thinning them buys a week and then it is the same week over again. So. The innkeeper keeps a post with every name in this camp on it in chalk, and that post is the only honest list of us there is. I want a second one on it. The ones outside the wall. I am asking you because you are not on that post and nobody who is would carry this across the camp. That is not an insult. That is the reason.",
+      "turn_in_text": "She wants them chalked on the same post as the living. Same post, under a line, same chalk. She has been carrying that for two years and she has walked past this door every day of it. Well, I have the chalk and I have the post and I am not the one who has to explain it to the overseer, so it goes up tonight. You want the part that got me? She asked whether she was allowed to be on both.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Berth-Issue Cuffs",
+          "slot": "wrist",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Came off the airship in a lot of forty and this is what is left of the forty.",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 2.6
+          },
+          "armor_type": "mail",
+          "armor_value": 48,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Airborne Circlet",
+          "slot": "head",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Came off the airship in a lot of forty and this is what is left of the forty.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 6.1,
+            "mp5": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Grom'gol Signet",
+          "slot": "ring",
+          "item_level": 31,
+          "rarity": "uncommon",
+          "required_level": 31,
+          "flavor_text": "Came off the airship in a lot of forty and this is what is left of the forty.",
+          "primary_stats": {
+            "intellect": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "mp5": 0.5
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "gromgol_innkeeper",
+      "requires_quests": [
+        "stn_keep_to_it"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "vrak_burial_request",
+            "name": "Vrak's Request",
+            "description": "Four lines, unsealed, from somebody who has never written to anybody in this camp before.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "stn_a_mark_for_a_thing_still_being_made",
+      "title": "A Mark for a Thing Still Being Made",
+      "giver_npc_id": "gromgol_cartographer",
+      "zone": "gromgol",
+      "level_min": 32,
+      "level_max": 33,
+      "description": "Mapmaker Ashi invented a chart mark for a ruin that somebody is still working on. That took her an afternoon. Defending it will take her a year, and a new mark with only one site under it is not a mark, it is a mistake with a symbol on top of it.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "fourface_relief_chip",
+          "count": 6
+        },
+        {
+          "type": "explore",
+          "target": "northern_stranglethorn",
+          "target_x": 86,
+          "target_y": 90,
+          "radius": 7
+        }
+      ],
+      "reward_exp": 2280,
+      "reward_gold": 9300,
+      "accept_text": "Two sites or the survey office files it as a special case and buries it under the stair. So: chips off the new relief work up on the Steps, the four-faced stuff and not the old grey, six of them. Then go and stand in the cutline camp above the fork, where somebody has been stacking our timber into something that has a shape to it. If it has a shape, it is a site, and if it is a site I have two.",
+      "turn_in_text": "Two sites. Then it is a mark. I will send it north and it will come back corrected, because there is a clerk in the survey office who has been correcting my sheets for a year and a half and has never been further south than the Barrens. He came through the same season you did. He learned this jungle off sheets I drew and now he knows it better than I do on paper, and paper is what they keep. I am going to win this one. It will take until the dry turn and I am going to win it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Five-Faced Spaulders",
+          "slot": "shoulder",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Dressed on five faces. You only leave the fifth rough if you know what goes on top.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Stairkeeper's Cape",
+          "slot": "back",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Taken off a relief that was holding a flight of stairs in good order.",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 3.6
+          },
+          "armor_type": "leather",
+          "armor_value": 24,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Zul'Marosh Roundshield",
+          "slot": "off_hand",
+          "item_level": 32,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "flavor_text": "Older than any story anybody in this jungle still tells.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "armor_value": 49,
+          "block_value": 62,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "stn_less_wrong_than_it_was"
+      ]
     }
   ]
 }
