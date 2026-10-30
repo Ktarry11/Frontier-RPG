@@ -354,11 +354,23 @@ class PortalManager:
                 (6, 40): ("The Aspen Wilderness", 204, 150),
                 (6, 132): ("Southern Thousand Needles", 214, 150),
                 (92, 140): ("The Undercrust", 16, 66),      # the Crustfall, by Crustbreak
-                (172, 116): ("The Undercrust", 104, 54),    # the Deep Shaft, under the Deep Mound
+                (172, 113): ("The Undercrust", 104, 54),    # the Deep Shaft, under the Deep Mound
+                (104, 56): ("Saltwheel", 16, 50),           # the Raceway spur, into the town
+            },
+            # The goblin town, off the end of the Raceway spur road. One way in, one way out,
+            # and no flight point at either end of it - see tools/sync_saltwheel_npcs.py.
+            "Saltwheel": {
+                (16, 50): ("The Shimmering Flats", 104, 56),
             },
             "The Undercrust": {
                 (16, 66): ("The Shimmering Flats", 92, 140),
-                (104, 54): ("The Shimmering Flats", 172, 116),
+                # Moved off (172,116): a cave exit lands ONE TILE SOUTH of the declared tile
+                # (_offset_spawn takes 2, transition_to_zone adds 3 back), and the tile
+                # south of the old mouth was the Deep Mound's own wall - so climbing out
+                # of the Deep Shaft put the player inside rock. The arrival tile is the
+                # one nothing writes down and the only reason this was caught is that the
+                # check tests it rather than testing the portal tile.
+                (104, 54): ("The Shimmering Flats", 172, 113),
             },
 
             # ===== ROCKY PASS - the summit of the range above the Aspen Wilderness =====

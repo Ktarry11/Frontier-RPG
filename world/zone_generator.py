@@ -5637,6 +5637,7 @@ def create_all_zones():
     from tools import handbuilt_rocky_pass as drp
     from tools import handbuilt_shimmering_flats as dsf
     from tools import handbuilt_undercrust as ducr   # NOT duc - that is handbuilt_undercity
+    from tools import handbuilt_saltwheel as dswl
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
     from tools import handbuilt_bloodsail_galleon as dbg
@@ -5740,6 +5741,9 @@ def create_all_zones():
         "The Drowning Floor": ddf.generate_drowning_floor(),  # (tools/handbuilt_drowning_floor.py)
         # Three mesa tops over a long drop. The tauren capital-in-exile.
         "Freewind Post": dfw.generate_freewind_post(),  # (tools/handbuilt_freewind_post.py)
+        # The goblin town on the start line of a dead racetrack. An inn and deliberately no
+        # wind rider - Kyle: "This can have an inn but no wind rider." You walk out of Saltwheel.
+        "Saltwheel": dswl.generate_saltwheel(),  # (tools/handbuilt_saltwheel.py)
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)

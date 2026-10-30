@@ -182,7 +182,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -488,7 +488,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -865,7 +865,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs \u2014 close enough business."
+      "greeting": "Explosives, elixirs — close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -1040,7 +1040,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
+      "greeting": "The Burning Blade has its needs. I supply them — no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1213,7 +1213,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -2743,6 +2743,245 @@
       "race": "goblin",
       "appearance_variant": 23,
       "greeting": "I do not ask what for. I do ask for coin first."
+    },
+    {
+      "vendor_id": "sw_innkeeper",
+      "name": "Innkeeper Vozzi Rimehand",
+      "zone": "saltwheel",
+      "x": 34,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "meal_spiced_haunch",
+        "drink_barley_beer",
+        "drink_waterskin",
+        "healing_potion_superior"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 14,
+      "greeting": "Bed, board, and a bind. That is the full list and I will not be upsold on your behalf.\n\nBefore you ask: there is no wind rider. There was never a wind rider. You came in on your feet and that is how you are leaving, so eat something."
+    },
+    {
+      "vendor_id": "sw_general_goods",
+      "name": "Trader Grebbit Maul",
+      "zone": "saltwheel",
+      "x": 52,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "bread_and_cheese",
+        "roasted_meat",
+        "whetstone",
+        "flux_strong",
+        "thread_fine",
+        "parchment"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 3,
+      "greeting": "Everything on this table came across the pan on a cart with four bad wheels. The price is the wheels. It was always the wheels."
+    },
+    {
+      "vendor_id": "sw_reagents",
+      "name": "Brewer Nissa Tolk",
+      "zone": "saltwheel",
+      "x": 60,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "battle_elixir_superior",
+        "guardian_elixir_superior",
+        "elixir_of_greater_endurance",
+        "vial_leaded",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 9,
+      "greeting": "Salt air ruins a cork in a season, so I seal everything in lead and I charge you for the lead. Yes, I have heard what they say about lead. Drink it fast."
+    },
+    {
+      "vendor_id": "sw_salt_buyer",
+      "name": "Jixa Brinecount",
+      "zone": "saltwheel",
+      "x": 74,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "salt",
+        "curing_salt",
+        "meal_trailbread",
+        "drink_waterskin"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 20,
+      "greeting": "Salt. That is it, that is the whole business, and it is the only trade on this pan that the Integration did not touch.\n\nEverybody laughed at me for twenty years. They are not laughing now, they are just gone."
+    },
+    {
+      "vendor_id": "sw_road_agent",
+      "name": "Road-Agent Fenk Dustle",
+      "zone": "saltwheel",
+      "x": 80,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_trailbread",
+        "drink_waterskin",
+        "elixir_of_swiftness",
+        "healing_potion_superior",
+        "thread_fine"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 7,
+      "greeting": "I sell what you need to walk out of here, which is a thriving business, because walking out of here is the only option available to you.\n\nNo bird. Do not go looking for the post. There is a post. There has never been a bird on it."
+    },
+    {
+      "vendor_id": "sw_quartermaster",
+      "name": "Quartermaster Dral Wexx",
+      "zone": "saltwheel",
+      "x": 92,
+      "y": 38,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "whetstone",
+        "flux_strong",
+        "coal",
+        "heavy_bolts",
+        "shot_charged"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 5,
+      "greeting": "Raceday stock. We laid in eight seasons of it the year before the track died, so you are buying from a warehouse that was built for a crowd that is not coming."
+    },
+    {
+      "vendor_id": "sw_mechanic",
+      "name": "Mechanic Oyla Spannerwick",
+      "zone": "saltwheel",
+      "x": 52,
+      "y": 62,
+      "tile_sprite": "npc",
+      "sells": [
+        "glue",
+        "resin",
+        "coal",
+        "device_repair_bot",
+        "component_string",
+        "flux_strong"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 4,
+      "greeting": "Three years ago a human drove an Earth machine down that straight and it did the whole run on a thimble of fuel and no boiler at all.\n\nI have taken one apart since. I understand it now. That is worse."
+    },
+    {
+      "vendor_id": "sw_fuel_trader",
+      "name": "Fuel-Trader Mozz",
+      "zone": "saltwheel",
+      "x": 72,
+      "y": 62,
+      "tile_sprite": "npc",
+      "sells": [
+        "coal",
+        "bomb_sapper",
+        "eng_bomb_brine",
+        "glue",
+        "flux_strong"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 23,
+      "greeting": "I have fuel for two hundred racers and six customers. Do the arithmetic and then make me an offer, because I have done the arithmetic and I am desperate."
+    },
+    {
+      "vendor_id": "sw_salvager",
+      "name": "Salvager Pim Gattle",
+      "zone": "saltwheel",
+      "x": 64,
+      "y": 62,
+      "tile_sprite": "npc",
+      "sells": [
+        "resin",
+        "glue",
+        "component_string",
+        "thread_fine",
+        "whetstone",
+        "parchment"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 13,
+      "greeting": "Everything out on that track is mine the day it stops moving. That is the rule, it is written down, and it has made me the richest wreck-picker on a pan with no wrecks left."
+    },
+    {
+      "vendor_id": "sw_repair",
+      "name": "Armourer Hett Grindle",
+      "zone": "saltwheel",
+      "x": 84,
+      "y": 62,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "coal",
+        "thread_fine",
+        "glue"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 6,
+      "greeting": "Salt gets into a hinge and it is finished. I can slow it. I cannot stop it, and anyone who tells you they can stop it is selling you grease."
     }
   ]
 }
