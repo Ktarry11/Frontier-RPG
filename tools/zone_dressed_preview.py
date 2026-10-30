@@ -35,6 +35,14 @@ ZONES = {
     "southern_needles": "tools.handbuilt_southern_needles",
     "freewind": "tools.handbuilt_freewind_post",
     "drowning_floor": "tools.handbuilt_drowning_floor",
+    "rocky_pass": "tools.handbuilt_rocky_pass",
+    "crossing": "tools.handbuilt_return_voyage",
+    "raider_deck": "tools.handbuilt_bloodsail_raider",
+    "raider_hold": "tools.handbuilt_bloodsail_raider",
+    "anchorage": "tools.handbuilt_bloodsail_galleon",
+    "galleon_deck": "tools.handbuilt_bloodsail_galleon",
+    "galleon_hold": "tools.handbuilt_bloodsail_galleon",
+    "cabin": "tools.handbuilt_bloodsail_galleon",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
@@ -43,6 +51,14 @@ BUILDERS = {
     "weeping_ice": "build_weeping_ice_baked",
     "freewind": "build_freewind_baked",
     "drowning_floor": "build_drowning_floor_baked",
+    "rocky_pass": "build_rocky_pass_baked",
+    "crossing": "build_crossing_baked",
+    "raider_deck": "build_raider_deck_baked",
+    "raider_hold": "build_raider_hold_baked",
+    "anchorage": "build_anchorage_baked",
+    "galleon_deck": "build_galleon_deck_baked",
+    "galleon_hold": "build_galleon_hold_baked",
+    "cabin": "build_cabin_baked",
 }
 
 
@@ -58,11 +74,16 @@ def build(key):
 
 def compose(key, out, scale=4, props=True):
     M, L = build(key)
-    W, H = M.W, M.H
+    # The size comes from the zone: a module may hold several zones of different sizes
+    # (handbuilt_bloodsail_galleon has four), so M.W would be wrong or absent.
+    W, H = L.z.width, L.z.height
     canvas = Image.new("RGBA", (W * TILE_PX, H * TILE_PX), (18, 18, 20, 255))
 
     # open zones call it BAKED_DIR, cave modules call it BAKED
-    baked = ROOT / getattr(M, "BAKED_DIR", None or getattr(M, "BAKED", ""))
+    baked = getattr(M, "BAKED_DIR", None) or getattr(M, "BAKED", "")
+    if "{}" in baked:
+        baked = baked.format(key)
+    baked = ROOT / baked
     n = 0
     # Bakers write JPEG chunks (ground_<cx>_<cy>.jpg); accept PNG too in case a baker changes.
     files = sorted(list(baked.glob("*.jpg")) + list(baked.glob("*.png")))

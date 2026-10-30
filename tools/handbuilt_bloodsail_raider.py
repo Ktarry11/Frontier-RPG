@@ -26,9 +26,10 @@ came out with three pulls before the First Mate and ZERO before the Captain, whi
 final boss having no approach at all.
 """
 from world.tilemap import Tilemap
-from tools.handbuilt_vot_caves import CaveLayout  # noqa: F401
+from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 import tools.ship_builder as sb
 
+BAKED = "assets/tiles/return_voyage/{}/baked"   # .format(slug); bake_durotar_caves formats it
 CP = "assets/tiles/coastal_props/"
 SP = "assets/tiles/ship_props/"
 
@@ -196,10 +197,16 @@ def finish_raider_deck(zone, L):
                     + [(s[0], s[1]) for s in zone.trash_spawns])
 
 
-def generate_raider_deck():
+def build_raider_deck_baked():
     zone, L, _s = build_raider_deck()
     dress_raider_deck(zone, L)
     finish_raider_deck(zone, L)
+    return zone, L
+
+
+def generate_raider_deck():
+    zone, L = build_raider_deck_baked()
+    register_baked(zone, BAKED.format("raider_deck"))
     return zone
 
 
@@ -269,8 +276,14 @@ def finish_raider_hold(zone, L):
                     + [(s[0], s[1]) for s in zone.trash_spawns])
 
 
-def generate_raider_hold():
+def build_raider_hold_baked():
     zone, L, _s = build_raider_hold()
     dress_raider_hold(zone, L)
     finish_raider_hold(zone, L)
+    return zone, L
+
+
+def generate_raider_hold():
+    zone, L = build_raider_hold_baked()
+    register_baked(zone, BAKED.format("raider_hold"))
     return zone

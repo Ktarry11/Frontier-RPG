@@ -258,7 +258,7 @@ def bake_spec(key, preview=None):
     spec = SPECS[key]
     zone, L = getattr(C, spec["build"])()
     P = Painter(zone.width, zone.height, TEX, seed=spec["seed"])
-    wall_f, wall, d_in, d_out = wall_fields(P, zone)
+    wall_f, wall, d_in, d_out = wall_fields(P, zone, spec.get("wall_tile", "rock"))
     n_big = P.noise(9.0, key + "_big", octaves=3)
     n_mid = P.noise(4.0, key + "_mid", octaves=3)
     n_fine = P.noise(2.0, key + "_fine", octaves=2)

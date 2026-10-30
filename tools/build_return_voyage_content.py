@@ -300,19 +300,33 @@ KITSETS = {
 def loot_audit(rows):
     """Kyle's standing rule: loot must not lean on one armour class or weapon type.
 
-    Checked over the WHOLE 46, not per pool - a four-item pool cannot carry all four armour
-    classes and demanding it would just produce four identical-looking pools."""
+    Checked over the WHOLE set, not per pool - a four-item pool cannot carry all four armour
+    classes and demanding it would just produce four identical-looking pools.
+
+    THE THRESHOLDS SCALE WITH THE SET. They were fixed numbers tuned for the Return Voyage's 46
+    items, and the first thing that happened when Rocky Pass reused this function was four
+    failures on a 16-item set that is, in fact, evenly spread: 3 cloth, 3 leather, 3 mail, 2
+    plate out of 11 armour pieces is as flat as 11 pieces can be. A check whose bar is set by a
+    different data set's size is a check that fails on correct data, which is the fastest way to
+    train somebody to ignore it."""
     from collections import Counter
     armour = Counter(t for _n, _s, k, t, _st in rows if k == "armor")
     weapons = Counter(t for _n, _s, k, t, _st in rows if k == "weapon")
     templates = Counter(st for *_x, st in rows)
     problems = []
+    n_armour = sum(armour.values())
+    n_weapons = sum(weapons.values())
+    # Each armour class should carry at least half an even share, and never fewer than 2.
+    floor_each = max(2, int(n_armour / 4 * 0.5))
     for cls in ("cloth", "leather", "mail", "plate"):
-        if armour[cls] < 4:
-            problems.append(f"only {armour[cls]} {cls} pieces across {len(rows)} items")
-    if max(weapons.values(), default=0) > 3:
+        if armour[cls] < floor_each:
+            problems.append(f"only {armour[cls]} {cls} pieces of {n_armour} armour items "
+                            f"(at least {floor_each} expected)")
+    # No weapon type may be more than a third of the weapons, and never fewer than 3 allowed.
+    cap = max(3, int(n_weapons / 3))
+    if max(weapons.values(), default=0) > cap:
         hog = max(weapons, key=weapons.get)
-        problems.append(f"{weapons[hog]} of the weapons are {hog}")
+        problems.append(f"{weapons[hog]} of {n_weapons} weapons are {hog} (cap {cap})")
     missing = {"str_physical", "agi_physical", "int_caster", "spi_healer",
                "str_int_hybrid", "agi_int_hybrid"} - set(templates)
     if missing:

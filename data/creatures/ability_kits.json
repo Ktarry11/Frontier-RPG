@@ -34280,6 +34280,311 @@
         },
         "self_only": true
       }
+    ],
+    "pass_climber_quilboar": [
+      {
+        "name": "Frozen Tusk",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drive Uphill",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gore",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "defense_rating": -22
+        }
+      }
+    ],
+    "thornweald_geomancer": [
+      {
+        "name": "Splintering Stone",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rockfall",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Thorn in the Boot",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "ridge_wind_harpy": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stoop",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Buffeting Wings",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -20
+        }
+      }
+    ],
+    "snowcrest_windcaller": [
+      {
+        "name": "Ice Shard",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Scouring Gust",
+        "kind": "damage",
+        "amount": 64,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Numbed",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24
+        }
+      }
+    ],
+    "cliff_backed_ram": [
+      {
+        "name": "Headlong Charge",
+        "kind": "damage",
+        "amount": 86,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hoof and Horn",
+        "kind": "damage",
+        "amount": 68,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "thornmother_vekka": [
+      {
+        "name": "Thornmother's Rite",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Raise the Briar",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Shelf Answers",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted Through",
+        "kind": "dot",
+        "amount": 28,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Blood of the Mountain",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 8,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 30
+        },
+        "self_only": true
+      }
+    ],
+    "hagra_stormcrown": [
+      {
+        "name": "Stormcrown's Talons",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Drop From the Crag",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Everything On The Wind",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Thrown Off the Ledge",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -26,
+          "agility": -28
+        }
+      }
+    ],
+    "gorrek_passkeeper": [
+      {
+        "name": "Passkeeper's Cleaver",
+        "kind": "damage",
+        "amount": 128,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Nobody Crosses",
+        "kind": "damage",
+        "amount": 110,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Ledge",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Opened to the Cold",
+        "kind": "dot",
+        "amount": 34,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Hold the Summit",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "stat_mods": {
+          "attack_power": 40
+        },
+        "self_only": true
+      }
+    ],
+    "the_windsnapped": [
+      {
+        "name": "Windsnapped Talons",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Nothing Left To Lose",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frostbitten Wounds",
+        "kind": "dot",
+        "amount": 36,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3
+      }
     ]
   }
 }

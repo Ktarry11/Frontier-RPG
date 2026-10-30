@@ -39,9 +39,10 @@ list is falsy and the roll is the elif after it. The table has to hold nothing b
 at weight 0.
 """
 from world.tilemap import Tilemap
-from tools.handbuilt_vot_caves import CaveLayout  # noqa: F401
+from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 import tools.ship_builder as sb
 
+BAKED = "assets/tiles/return_voyage/{}/baked"   # .format(slug); bake_durotar_caves formats it
 CP = "assets/tiles/coastal_props/"
 SP = "assets/tiles/ship_props/"
 
@@ -289,10 +290,16 @@ def finish_anchorage(zone, L):
                     + [(s[0], s[1]) for s in zone.trash_spawns])
 
 
-def generate_anchorage():
+def build_anchorage_baked():
     zone, L = build_anchorage()
     dress_anchorage(zone, L)
     finish_anchorage(zone, L)
+    return zone, L
+
+
+def generate_anchorage():
+    zone, L = build_anchorage_baked()
+    register_baked(zone, BAKED.format("anchorage"))
     return zone
 
 
@@ -378,10 +385,16 @@ def finish_galleon_deck(zone, L):
                     + [(s[0], s[1]) for s in zone.trash_spawns])
 
 
-def generate_galleon_deck():
+def build_galleon_deck_baked():
     zone, L, _s = build_galleon_deck()
     dress_galleon_deck(zone, L)
     finish_galleon_deck(zone, L)
+    return zone, L
+
+
+def generate_galleon_deck():
+    zone, L = build_galleon_deck_baked()
+    register_baked(zone, BAKED.format("galleon_deck"))
     return zone
 
 
@@ -443,10 +456,16 @@ def finish_galleon_hold(zone, L):
                     + [(s[0], s[1]) for s in zone.trash_spawns])
 
 
-def generate_galleon_hold():
+def build_galleon_hold_baked():
     zone, L, _s = build_galleon_hold()
     dress_galleon_hold(zone, L)
     finish_galleon_hold(zone, L)
+    return zone, L
+
+
+def generate_galleon_hold():
+    zone, L = build_galleon_hold_baked()
+    register_baked(zone, BAKED.format("galleon_hold"))
     return zone
 
 
@@ -521,8 +540,14 @@ def finish_cabin(zone, L):
     return L.finish([C_IN, C_OUT, (30, 22)] + members)
 
 
-def generate_cabin():
+def build_cabin_baked():
     zone, L = build_cabin()
     dress_cabin(zone, L)
     finish_cabin(zone, L)
+    return zone, L
+
+
+def generate_cabin():
+    zone, L = build_cabin_baked()
+    register_baked(zone, BAKED.format("cabin"))
     return zone

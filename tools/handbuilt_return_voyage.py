@@ -44,6 +44,7 @@ from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 import tools.ship_builder as sb
 
+BAKED = "assets/tiles/return_voyage/{}/baked"   # .format(slug); bake_durotar_caves formats it
 CP = "assets/tiles/coastal_props/"
 SP = "assets/tiles/ship_props/"
 
@@ -188,8 +189,15 @@ def finish(zone, L):
     return L.finish(targets)
 
 
-def generate_the_crossing():
+def build_crossing_baked():
+    """(zone, layout) with props and QA done - what the baker paints from."""
     zone, L, _stations = build_the_crossing()
     dress(zone, L)
     finish(zone, L)
+    return zone, L
+
+
+def generate_the_crossing():
+    zone, L = build_crossing_baked()
+    register_baked(zone, BAKED.format("crossing"))
     return zone

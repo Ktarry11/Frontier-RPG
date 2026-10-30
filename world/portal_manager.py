@@ -249,6 +249,7 @@ class PortalManager:
                 # The pass over the divide. Carved with the zone and left unregistered until there was
                 # something on the far side; Southern Thousand Needles now exists.
                 (104, 176): ("Southern Thousand Needles", 110, 12),
+                (48, 35): ("Rocky Pass", 52, 186),           # the cleft up to the summit
             },
 
             # ===== SOUTHERN THOUSAND NEEDLES =====
@@ -335,6 +336,14 @@ class PortalManager:
                 # this is here. tools/verify_return_voyage.py asserts BOTH directions, so a later
                 # tidy-up cannot quietly make them symmetrical again.
                 (64, 34): ("The Crossing", 98, 50),             # arrive aft, the way we came
+            },
+
+            # ===== ROCKY PASS - the summit of the range above the Aspen Wilderness =====
+            # The cleft is in the Rim's WEST escarpment, deliberately the opposite end of the
+            # range from the Weeping Ice: a zone's two ways into the mountain should not share a
+            # hillside. (tools/handbuilt_rocky_pass.py)
+            "Rocky Pass": {
+                (52, 186): ("The Aspen Wilderness", 48, 35),
             },
 
             # ===== THE RETURN VOYAGE =====

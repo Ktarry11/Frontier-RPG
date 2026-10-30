@@ -58,8 +58,16 @@ BBC_MATERIALS = {
 
 
 # ------------------------------------------------------------------ helpers
-def wall_fields(P, zone):
-    wall_b = np.array([[c == "rock" for c in row] for row in zone.collision_layer])
+def wall_fields(P, zone, wall_tile="rock"):
+    """Distance fields for the zone's wall.
+
+    wall_tile defaults to "rock" because every cave in this project uses it. THE RETURN VOYAGE
+    DOES NOT: those zones are built with wall_id="tropical_water", because the sea is what stops
+    you walking off the deck. Hardcoding "rock" here meant the baker saw a map with no walls in
+    it at all, so the wall materials never scored anywhere and the ocean came out planked - the
+    whole map, sea included, painted as deck. Nothing errored; it just looked like a floor.
+    """
+    wall_b = np.array([[c == wall_tile for c in row] for row in zone.collision_layer])
     wall_f = P.tile_mask(wall_b, 0.5, 0.22, "wallm", sigma=1.0, soft=True)    # >0 inside
     wall = wall_f > 0
     d_in = ndi.gaussian_filter(P.edt(wall) / MASK_PX, 1.0)
