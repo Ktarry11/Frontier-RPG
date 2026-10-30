@@ -40,6 +40,8 @@ class MapScreen(BaseScreen):
         "small_rocks": (104, 104, 112),
         "shallow_water": (60, 106, 150),
         "deep_water": (34, 66, 116),
+        "tropical_shallow": (72, 158, 154),
+        "tropical_water": (20, 96, 110),
         "ice": (168, 200, 216),
         "lava": (168, 62, 30),
         "wood": (96, 70, 44),

@@ -54,6 +54,31 @@ TILES = {
         "walkable": False,
         "resource_node": None,
     },
+    # TROPICAL WATER. Kyle, on the Booty Bay crossing: "i assume we are
+    # throwing in tropical water colour lol". He is right that deep_water's
+    # (0, 51, 102) is a North Atlantic colour and wrong for the sea between
+    # Stranglethorn and the Barrens - but deep_water is the sea in Tirisfal
+    # and Silverpine too, where dark navy is exactly right, so this is a
+    # separate pair rather than a change to the existing one.
+    #
+    # tropical_water MUST stay walkable: False, because the ship zones use
+    # it as their wall. Water is otherwise walkable in this engine - only
+    # kind 3 sets collision - so a sea zone painted in the obvious way lets
+    # the player stroll off the quarterdeck and walk to Ratchet.
+    "tropical_shallow": {
+        "id": "tropical_shallow",
+        "layer": "base",
+        "color": (94, 203, 196),  # Turquoise over pale sand
+        "walkable": True,  # Can wade
+        "resource_node": None,
+    },
+    "tropical_water": {
+        "id": "tropical_water",
+        "layer": "base",
+        "color": (18, 118, 134),  # Deep teal, still reads as warm water
+        "walkable": False,
+        "resource_node": None,
+    },
     "lava": {
         "id": "lava",
         "layer": "base",
@@ -246,6 +271,20 @@ TILES = {
         "interaction_type": "boss_marker",
     },
 }
+
+#: EVERY BASE TILE THAT IS WATER, in one place.
+#:
+#: ui/tilemap_renderer.py held this list three separate times as inline
+#: tuples - the water chunk pass, the road-stamp skip, and the per-tile
+#: ground-vs-water chunk choice - and a comment in that same file complains
+#: about having just fixed "a PARALLEL, separate tuple to the one already
+#: fixed earlier in this file". Adding tropical water meant editing all
+#: three correctly or getting a sea that renders as flat colour with no
+#: shimmer in one pass out of three. So: one set, imported.
+WATER_BASE_TILES = frozenset({
+    "shallow_water", "deep_water", "tropical_shallow", "tropical_water",
+})
+
 
 def get_tile(tile_id):
     """Get tile properties by ID."""

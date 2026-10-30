@@ -11,6 +11,7 @@ from world.race_registry import sprite_base_path
 from world.chest_looks import chest_look, chest_sprite, is_boss_chest
 from world.gathering_manager import MATERIAL_TYPE_FOLDERS
 from boss_icons import get_boss_icon_path
+from world.tiles import WATER_BASE_TILES
 
 class TilemapRenderer:
     """Renders tilemaps as textured (or flat-color fallback) grids with camera viewport."""
@@ -326,7 +327,7 @@ class TilemapRenderer:
                     # tile is actually water, rather than relying on
                     # draw order to keep the two apart - water wins by
                     # construction now, not by which pass happens last.
-                    if tilemap.get_tile(px, py, "base") in ("shallow_water", "deep_water"):
+                    if tilemap.get_tile(px, py, "base") in WATER_BASE_TILES:
                         continue
                     screen_x, screen_y = camera.world_to_screen(px, py, self.tile_size)
                     screen_x += viewport_rect.x
@@ -441,7 +442,7 @@ class TilemapRenderer:
                                 tile_left, tile_top, tile_right, tile_bottom, FEATHER_PX)
         self._draw_chunk_layer(screen, camera, viewport_rect, tilemap.water_chunks,
                                 tile_left, tile_top, tile_right, tile_bottom, FEATHER_PX,
-                                tilemap=tilemap, only_base_tiles={"shallow_water", "deep_water"})
+                                tilemap=tilemap, only_base_tiles=WATER_BASE_TILES)
         # Real bug (finally fully found and fixed this session) - a
         # PARALLEL, separate "cliff"/"wall" tuple to the one already
         # fixed earlier in this file (the per-tile skip-check at the
@@ -523,7 +524,7 @@ class TilemapRenderer:
                 # correctly in the two independent chunk passes above,
                 # and this loop just needs to know whether to skip its
                 # own base_layer draw or not.
-                is_water_tile = base_tile in ("shallow_water", "deep_water")
+                is_water_tile = base_tile in WATER_BASE_TILES
                 if is_water_tile:
                     chunk = tilemap.get_water_chunk_at(x, y)
                 else:
