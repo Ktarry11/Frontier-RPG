@@ -63,12 +63,25 @@ REPLY_CHANCE = 0.45
 class BanterLine:
     """One authored line: who says it, what sets it off, and whether it answers or opens."""
 
-    def __init__(self, recruit_id, trigger, text, kind="open", zone=None):
+    def __init__(self, recruit_id, trigger, text, kind="open", zone=None, topic=None):
         self.recruit_id = recruit_id
         self.trigger = trigger
         self.text = text
         self.kind = kind          # "open" starts a beat, "reply" answers one
         self.zone = zone          # optional: only in this zone
+        #: Optional shared EARTH subject - "cities", "night_work", "the_cold". A reply carrying the
+        #: same topic as the opener answers what was actually said instead of changing the subject.
+        #: Kyle, 29 Oct 2026: "it'd be cool if Tarek mentions back home and kouroush mentions his
+        #: time in egypt. Players are integrated from earth, all players are."
+        #:
+        #: This is how two strangers can have a real exchange without breaking the independence
+        #: rule. They did not meet before and they have no history HERE - what they share is a
+        #: planet. So a topical reply answers the SUBJECT and never names or addresses the speaker,
+        #: which keeps qa_banter's no-naming check intact while making the beat feel pairwise.
+        #:
+        #: It stays linear, too. Topics are authored per character, not per pair: 44 companions is
+        #: 946 pairs and Kyle has said 50+, so anything quadratic was dead before it started.
+        self.topic = topic
 
 
 class BanterBeat:
@@ -105,7 +118,7 @@ class BanterManager:
                     if isinstance(e, str):
                         e = {"text": e}
                     line = BanterLine(recruit_id, trigger, e["text"],
-                                      e.get("kind", "open"), e.get("zone"))
+                                      e.get("kind", "open"), e.get("zone"), e.get("topic"))
                     self.by_trigger.setdefault(trigger, []).append(line)
 
     # ---------------------------------------------------------------- firing
@@ -114,7 +127,7 @@ class BanterManager:
         if self.current and not self.current.update(dt):
             self.current = None
 
-    def _eligible(self, trigger, party_ids, kind, zone=None, exclude=()):
+    def _eligible(self, trigger, party_ids, kind, zone=None, exclude=(), topic=None):
         out = []
         for line in self.by_trigger.get(trigger, []):
             if line.kind != kind or line.recruit_id not in party_ids:
@@ -122,6 +135,8 @@ class BanterManager:
             if line.recruit_id in exclude:
                 continue
             if line.zone and zone and line.zone != zone:
+                continue
+            if topic is not None and line.topic != topic:
                 continue
             out.append(line)
         return out
@@ -166,12 +181,27 @@ class BanterManager:
             return None
         beat = [(first.recruit_id, by_id[first.recruit_id].name, first.text)]
 
-        if len(by_id) > 1 and random.random() < REPLY_CHANCE:
-            replies = self._eligible(trigger, set(by_id), "reply", zone, exclude=(first.recruit_id,))
-            if replies:
-                second = self._pick_speaker(replies)
-                if second is not None:
-                    beat.append((second.recruit_id, by_id[second.recruit_id].name, second.text))
+        if len(by_id) > 1:
+            # A TOPICAL answer is the good case and is not left to the generic coin flip. When the
+            # opener raised a shared Earth subject and somebody else in the party has a line on that
+            # same subject, take it - that is the exchange Kyle asked for, and it is rare enough
+            # already without a 45% gate on top of needing two matching lines in one party.
+            second = None
+            if first.topic:
+                same = self._eligible(trigger, set(by_id), "reply", zone,
+                                      exclude=(first.recruit_id,), topic=first.topic)
+                if same:
+                    second = self._pick_speaker(same)
+            if second is None and random.random() < REPLY_CHANCE:
+                replies = self._eligible(trigger, set(by_id), "reply", zone,
+                                         exclude=(first.recruit_id,))
+                # An untopiced opener should not be answered by a line written to follow a specific
+                # subject - that is how you get a reply about Cairo after a remark about the weather.
+                replies = [r for r in replies if r.topic is None]
+                if replies:
+                    second = self._pick_speaker(replies)
+            if second is not None:
+                beat.append((second.recruit_id, by_id[second.recruit_id].name, second.text))
 
         for rid, _, _ in beat:
             self.recent_speakers.append(rid)

@@ -32,8 +32,36 @@ O = "open"
 R = "reply"
 
 
-def L(text, kind=O):
-    return {"text": text, "kind": kind}
+def L(text, kind=O, topic=None):
+    out = {"text": text, "kind": kind}
+    if topic:
+        out["topic"] = topic
+    return out
+
+
+# ------------------------------------------------------------------------------------------------
+# SHARED EARTH TOPICS. Kyle, 29 Oct 2026: "lets give characters the option to back and forth with
+# each other WHEN together in a group. Like it'd be cool if Tarek mentions back home and kouroush
+# mentions his time in egypt. Players are integrated from earth, all players are."
+#
+# This is the one thing these strangers genuinely have in common, and it is what lets them have a
+# real exchange WITHOUT breaking the independence rule. They never met and they have no history
+# here - but they both remember a planet, so one can answer the other's subject. A topical reply
+# answers the SUBJECT and never names or addresses the speaker, which keeps qa_banter's no-naming
+# check intact while making the beat read as a conversation.
+#
+# Authored per character per topic, never per pair: 44 companions is 946 pairs and Kyle has said
+# 50+, so anything quadratic was dead before it started. Adding a character is still one block.
+#
+# CITIES    somebody names where they are from; somebody else has been there, or has their own
+# NIGHT     people whose working life happened between midnight and dawn
+# COLD      people who worked outdoors in weather that could kill them
+# WATER     people whose job was water - rivers, the sea, a quay
+# FIRE      people for whom fire was a tool rather than a threat
+# MEASURE   people paid to be exact, who find this world's casual estimates maddening
+# ------------------------------------------------------------------------------------------------
+CITIES, NIGHT, COLD, WATER, FIRE, MEASURE = (
+    "cities", "night_work", "the_cold", "water", "fire", "measure")
 
 
 LINES = {
@@ -167,6 +195,109 @@ LINES = {
    "town_arrive": [L("No stones with names on them here. A town with no dead is a town that just started.")],
    "boss_down": [L("It will not get a marker. Most things do not. I think about that.", R)],
  },
+
+ # ---------------------------------------------------------------- wave two (19)
+ "tarek_templar": {
+   "town_arrive": [L("Cairo had a street like this. Narrower. Louder. Better bread.", O, CITIES)],
+   "dungeon_clear": [L("That carving by the door was cut by someone who was good at it.", O),
+                     L("Nothing in there was looked after. That's what I keep noticing.", R)],
+   "close_call": [L("I was slow. I'm always slow, but that was slower than I am.")],
+ },
+ "kourosh_mage": {
+   "town_arrive": [L("I spent eight days in Alexandria once, auditing a shipping firm. I've thought about those eight days more than the twelve years around them.", R, CITIES),
+                   L("Tehran was louder than this and I could price every risk in it.", O, CITIES)],
+   "boss_down": [L("Within tolerance. I had it at about one in nine against us.", O, MEASURE)],
+   "close_call": [L("That was outside my estimate. I'll revise it.", R, MEASURE)],
+ },
+ "fiona_witchhunter": {
+   "zone_arrive": [L("Weather's coming off that water. Two hours, maybe three.", O, WATER)],
+   "close_call": [L("Count your people. Do it now, not when we get in.")],
+   "boss_down": [L("Fine. Nobody under it when it dropped, which is the only bit I care about.", R)],
+ },
+ "pavlo_knight": {
+   "zone_arrive": [L("Long road. Good. I'm worse when we stop.")],
+   "town_arrive": [L("Lviv, when I was home, which was sixty nights a year. I wasn't good at being home.", O, CITIES)],
+   "dungeon_clear": [L("One way in. One way out. I like a place like that.", R)],
+ },
+ "junseo_reaper": {
+   "dungeon_clear": [L("Closed spaces don't bother me. I welded inside hulls nobody had opened yet.", O, NIGHT)],
+   "boss_down": [L("Good. Check your straps, check the ground, then we move.", R)],
+   "zone_arrive": [L("Night shift suited me. The steel moves less when it's cool.", O, NIGHT)],
+ },
+ "minh_chronomancer": {
+   "close_call": [L("You were going down a half-second before you knew it. I heard it.")],
+   "town_arrive": [L("Listen. That gate hinge is a whole tone flat and there's nobody here but me can hear it.", O, MEASURE)],
+   "boss_down": [L("A fraction early is the entire trade. A fraction late is a funeral.", R, MEASURE)],
+ },
+ "alonso_pyromancer": {
+   "boss_down": [L("Fire'll do what you ask if you ask properly. Twenty years and it never once surprised me.", O, FIRE)],
+   "close_call": [L("Burns I can do. Burns are the easy part, which nobody believes.", R)],
+   "town_arrive": [L("Guadalajara. Three benches and a furnace we never let go out.", O, CITIES)],
+ },
+ "delroy_witchdoctor": {
+   "town_arrive": [L("Somebody here's up at four making bread. There always is. I'll find them.", O, NIGHT)],
+   "dungeon_clear": [L("Everybody gets something and nobody waits long. Same as any morning.", R)],
+   "zone_arrive": [L("Thirty-one years I was awake when my city wasn't. I never saw it in daylight.", R, NIGHT)],
+   "close_call": [L("Sit down and drink it. No, I'm not telling you what is in it.")],
+ },
+ "imelda_primalist": {
+   "close_call": [L("Hands up. Not for show - up, where they do something.")],
+   "boss_down": [L("I know how it looks. I hit it and you felt better. I can't explain it either.", R)],
+   "zone_arrive": [L("The quay at five in the morning was louder than this.", O, NIGHT)],
+ },
+ "tomas_warrior": {
+   "zone_arrive": [L("Tell me where you want me before it starts. Not during. Never during.")],
+   "dungeon_clear": [L("Nothing fell on anybody. That's a good day by my old standards.", R)],
+   "town_arrive": [L("Prague had better scaffolding than this and I say that with love.", O, CITIES)],
+ },
+ "eino_barbarian": {
+   "zone_arrive": [L("This is warm. I'm not complaining. I'm noticing.", O, COLD)],
+   "boss_down": [L("It's dead. We can go.", R)],
+   "close_call": [L("You're fine. Walk it off or don't, but decide.")],
+ },
+ "ziad_felsworn": {
+   "boss_down": [L("I felt that one coming eight bars out. You learn it in a dark room.")],
+   "town_arrive": [L("Beirut at two in the morning, four nights a week. This is quieter and I'm not sure that's better.", O, NIGHT)],
+   "close_call": [L("Do not follow me in next time. That isn't modesty.", R)],
+ },
+ "pieter_guardian": {
+   "boss_down": [L("Lovely. Who's next?")],
+   "zone_arrive": [L("Look at that ground. Flat, drained, nobody cutting it. Criminal.")],
+   "dungeon_clear": [L("Twenty-two years I watched other people run onto a field I made. Not any more.", R, CITIES)],
+ },
+ "esteban_bloodmage": {
+   "close_call": [L("I have it written down. What it cost me, exactly, to the drop.", O, MEASURE)],
+   "boss_down": [L("Exposure's a trade, not a sin. The trick is knowing the number.", R, MEASURE),
+                 L("Everybody here estimates. I was paid for twenty years not to.", R, MEASURE)],
+   "town_arrive": [L("Rosario. Twenty years, three corridors, the same lead apron.", O, CITIES)],
+ },
+ "kiet_rogue": {
+   "town_arrive": [L("Nine of the locks on this street are bad and two of them are insulting.")],
+   "dungeon_clear": [L("There was a socket in that wall meant to take something. It isn't there now.", R)],
+   "zone_arrive": [L("I'm quiet and I'm not brave. Different things.")],
+ },
+ "stelios_necromancer": {
+   "dungeon_clear": [L("Nobody wrote any of that down. Four hundred men in my library and every one of them had a record.", O, NIGHT)],
+   "town_arrive": [L("Corinth. A prison, a card catalogue, and four hundred readers who weren't supposed to matter.", O, CITIES)],
+   "boss_down": [L("It's only angry about being forgotten. Most of them are.", R)],
+ },
+ "ratih_ranger": {
+   "zone_arrive": [L("That water was higher. Look at the line on the rock - that isn't this year.", O, WATER)],
+   "boss_down": [L("I shot from where the ground told me to stand. It usually does.", R)],
+   "dungeon_clear": [L("I walked catchments for fifteen years. Water keeps better records than people.", R, WATER)],
+   "town_arrive": [L("Nobody here has walked the whole catchment. I can tell.", O, MEASURE)],
+ },
+ "driss_shaman": {
+   "zone_arrive": [L("Wind's off. Not wrong - off. Sixteen years I listened to machines tell me that.", O, COLD)],
+   "town_arrive": [L("Tangier, on a ridge where it didn't stop blowing from October to March.", O, CITIES),
+                   L("Up on that ridge you could see the whole city and never have to be in it.", R, CITIES)],
+   "boss_down": [L("It answered me. That part I'm still not used to.", R)],
+ },
+ "marisol_priest": {
+   "boss_down": [L("Somebody should say something over it. Nobody will. I might.")],
+   "close_call": [L("I've sat with more dead people than everyone here together. You're not one of them.", R)],
+   "town_arrive": [L("Medellin. Twenty-four years, and a decade in the middle I don't discuss.", O, CITIES)],
+ },
 }
 
 
@@ -175,10 +306,10 @@ def main():
              for r in json.loads((ROOT / "data/npcs/recruits.json").read_text())["recruits"]}
     unknown = set(LINES) - set(names)
     if unknown:
-        raise SystemExit(f"banter written for recruits that do not exist: {sorted(unknown)}")
+        raise SystemExit(f"banter written for recruits that don't exist: {sorted(unknown)}")
 
-    # THE RULE, ENFORCED. A line that names another companion assumes they are in the party, that the
-    # two have met, and that there is a history. None of that is true.
+    # THE RULE, ENFORCED. A line that names another companion assumes they're in the party, that the
+    # two have met, and that there's a history. None of that's true.
     others = {}
     for rid, blocks in LINES.items():
         for trigger, entries in blocks.items():
@@ -198,7 +329,7 @@ def main():
         "_notes": "Party banter, authored per character per trigger (never per pair - see "
                   "world/banter_manager.py). A line never names another companion: the recruits are "
                   "strangers who happen to share an employer. Generated by "
-                  "tools/build_banter_lines.py; do not hand-edit.",
+                  "tools/build_banter_lines.py; don't hand-edit.",
         "lines": LINES,
     }, indent=2, ensure_ascii=False) + "\n")
 
