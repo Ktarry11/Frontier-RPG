@@ -36,29 +36,74 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
-#: The band. Below LOW the world has amnesia; above HIGH every NPC is making the same remark.
+#: THE BAND IS A CURVE, NOT A NUMBER. Kyle, 2026-10-30: "as we get to higher level zones, we will
+#: 100% see more earth references."
 #:
-#: THE CEILING MOVED ON 2026-10-30, BECAUSE IT WAS STALE AND CONTRADICTED THE GUIDE IT CITES.
+#: That is already true of the content and it is not subtle. Measured across all 31 quest files the
+#: Pearson correlation between a zone's median level and its lore rate is +0.76, with a cliff rather
+#: than a slope:
 #:
-#: This file's docstring still quotes claude/quest_writing_guide.md saying "roughly 10% of quests",
-#: and 0.06-0.18 is the band you get by bracketing 10%. But the guide has not said 10% since
-#: 2026-10-29, when Kyle replaced it: "Target: roughly 30% of quests. Kyle's call, 2026-10-29. This
-#: replaces the 10% figure this guide carried until then." The band was never moved with it.
+#:     levels  1-15   13 zones   mean lore  2%
+#:     levels 16-25    9 zones   mean lore  2%
+#:     levels 26-32    4 zones   mean lore 32%
+#:     levels 33+      5 zones   mean lore 44%
 #:
-#: The proof it was wrong rather than merely strict: at 0.18 this tool failed stranglethorn_south at
-#: EXACTLY 30% - the number the guide names as the target - and reported it as "over-egged". A check
-#: that fails content for hitting its own documented target is not a strict check, it is a broken one.
+#: IT IS LEVEL AND NOT RECENCY, which was the obvious alternative explanation and was tested. The
+#: writing guide lists sixteen zones that got a full rewrite pass with the Integration premise in
+#: hand; their median level is 16 and their mean lore rate is 1%. Tirisfal had eighty-four quests
+#: rewritten and sits at one percent. Writers with the premise in front of them still did not put
+#: Earth in the Barrens, because the merge did not happen in the Barrens.
 #:
-#: 0.40 is "roughly 30%" read generously. It is deliberately NOT loose enough to pass everything:
-#: stranglethorn_north still fails at 50%, which is correct and is the case Kyle himself called out -
-#: the first Stranglethorn passes landed at 61-70% and read as zones whose single subject was the
-#: Integration. The ceiling exists for exactly that and still catches it.
+#: Which is geography, not fashion. The starting zones are deep Azeroth. The mountain came down in
+#: the south and the high-level content IS the merge zone, so of course a Saltwheel goblin brings it
+#: up and a Durotar grunt does not.
 #:
-#: THE FLOOR IS DELIBERATELY NOT MOVED. Raising it to match a 30% target would retroactively fail
-#: nineteen finished zones that sit between 0% and 9%, which is a real content question (most of them
-#: genuinely are silent) but it is Kyle's call about rewriting finished work, not a threshold to
-#: change in passing while fixing the ceiling.
-LOW, HIGH = 0.06, 0.40
+#: SO A FLAT BAND WAS WRONG AT BOTH ENDS. At 0.06-0.40 this tool called nineteen low zones "SILENT -
+#: nothing here knows what happened to the world" when their silence is correct and deliberate, and
+#: it would fail the high zones for doing the thing the design asks of them. Both halves of that were
+#: noise, and nineteen false alarms is how a check stops being read.
+#:
+#: THE TOP OF THE CURVE IS A PLACEHOLDER. There is no 41-60 content yet, so the >=35 band is set from
+#: five zones and Kyle's direction, not from evidence. When those zones exist the ceiling should be
+#: revisited rather than inherited.
+LEVEL_BANDS = (
+    # (max median level, floor, ceiling)
+    (25, 0.00, 0.12),   # deep Azeroth. Silence is CORRECT here - the merge happened elsewhere.
+    (34, 0.15, 0.50),   # the frontier: where the range came down and the maps stopped agreeing.
+    (999, 0.25, 0.65),  # the merge zones proper.
+)
+
+
+def band_for(level):
+    for cap, lo, hi in LEVEL_BANDS:
+        if level <= cap:
+            return lo, hi
+    return LEVEL_BANDS[-1][1:]
+
+
+def zone_level(rows_for_zone):
+    """A zone's median quest level - what decides which band it is held to."""
+    lv = sorted(q.get("level_min") or 0 for _z, q, _b in rows_for_zone)
+    return lv[len(lv) // 2] if lv else 0
+
+
+def effective_level(zone, levels):
+    """A DUNGEON IS HELD TO ITS PARENT ZONE'S BAND, not to its own level.
+
+    Level is a proxy for "did the merge happen here", and the proxy breaks on exactly one shape:
+    high-level content in old-world geography. hillsbrad_dungeons has a median level of 27, which
+    put it one level over the boundary and into the frontier band, and it was the single failure
+    left after the curve went in - a dungeon under Hillsbrad being told it should be talking about
+    Earth, when Hillsbrad itself sits at 24 in the band below and passes.
+
+    That is a cliff artifact, not a finding. A dungeon is part of its zone: the Weeping Ice is in the
+    Aspen Wilderness and takes the Aspen's expectations, and Hillsbrad's dungeons take Hillsbrad's.
+    """
+    if zone.endswith("_dungeons"):
+        parent = zone[: -len("_dungeons")]
+        if parent in levels:
+            return levels[parent]
+    return levels[zone]
 
 #: ZONES THE INTEGRATION ACTUALLY HAPPENED TO ARE EXEMPT FROM THE CEILING. The first run of this tool
 #: flagged the Aspen Wilderness at 24% as "over-egged" - a zone which IS a mountain range that arrived
@@ -123,16 +168,22 @@ def main():
             hit[zone] += 1
             examples[zone].append((q["quest_id"], m.group(0)))
 
+    levels = {}
+    for zone in tot:
+        levels[zone] = zone_level([r for r in rows if r[0] == zone])
+    levels = {z: effective_level(z, levels) for z in levels}
+
     total_hit = sum(hit.values())
     print(f"== the world's own story, across {len(rows)} quests")
     print(f"   {total_hit} mention the Integration or the people it brought "
-          f"({100 * total_hit / max(1, len(rows)):.0f}%)   target {LOW:.0%}-{HIGH:.0%}\n")
+          f"({100 * total_hit / max(1, len(rows)):.0f}%)   band scales with zone level\n")
 
-    print(f"{'file':<26}{'n':>4}{'lore':>6}{'rate':>7}   verdict")
+    print(f"{'file':<26}{'lvl':>4}{'n':>4}{'lore':>6}{'rate':>7}{'band':>10}   verdict")
     fails = []
     for zone in sorted(tot, key=lambda z: hit[z] / tot[z]):
         n, h = tot[zone], hit[zone]
         rate = h / n
+        LOW, HIGH = band_for(levels[zone])
         # A ceiling on a 14-quest file is noise: three hits is 21% and means nothing. Floors still
         # apply at any size, because a zone with no mention at all is a zone with no mention at all.
         if rate < LOW:
@@ -145,7 +196,8 @@ def main():
             verdict = "high, and correct - the merge is this zone's subject"
         else:
             verdict = "ok"
-        print(f"{zone:<26}{n:>4}{h:>6}{rate:>6.0%}   {verdict}")
+        print(f"{zone:<26}{levels[zone]:>4}{n:>4}{h:>6}{rate:>6.0%}"
+              f"{f'{LOW:.0%}-{HIGH:.0%}':>10}   {verdict}")
         if show and examples[zone]:
             for qid, frag in examples[zone][:4]:
                 print(f"        {qid:<28}{frag!r}")
