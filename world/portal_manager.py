@@ -297,7 +297,7 @@ class PortalManager:
                 (100, 3): ("Northern Stranglethorn", 100, 177),
                 (100, 177): ("Southern Stranglethorn", 100, 7),
                 (40, 58): ("Veilfall Cave", 32, 10),
-                (150, 100): ("Gurbashi Arena", 40, 12),
+                (150, 100): ("Gurbashi Arena", 52, 12),
             },
             "Southern Stranglethorn": {
                 (100, 3): ("Central Stranglethorn", 100, 177),
@@ -314,7 +314,7 @@ class PortalManager:
                 (32, 10): ("Central Stranglethorn", 40, 58),
             },
             "Gurbashi Arena": {
-                (40, 12): ("Central Stranglethorn", 150, 100),
+                (52, 12): ("Central Stranglethorn", 150, 100),
             },
             "The Drowned Shrine": {
                 (32, 10): ("Southern Stranglethorn", 170, 116),
