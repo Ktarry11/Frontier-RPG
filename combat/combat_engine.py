@@ -6,7 +6,7 @@ import random
 from enum import Enum
 from combat.turn_meter import TurnMeter
 from entities.loot_generator import LootGenerator
-from entities.boss_loot import get_fixed_boss_loot
+from entities.boss_loot import get_fixed_boss_loot_all, shares_hoard
 
 
 class CombatAction(Enum):
@@ -752,22 +752,30 @@ class CombatEngine:
         # that table falls through to generate_boss_loot() exactly as
         # before - this never changes behavior for bosses without a
         # fixed table.
+        # A BOSS CAN NOW DROP SEVERAL ITEMS, so this is a list of drops
+        # rather than one. get_fixed_boss_loot_all returns one item for an
+        # ordinary boss (identical behaviour), three for the Return Voyage's
+        # double boss, and NONE for the second member of that pair, whose
+        # hoard is the first member's - see entities/boss_loot.MULTI_DROP and
+        # SHARED_HOARD. The empty list matters: a boss who shares a hoard
+        # must not fall through to the procedural roll, or he adds a fourth
+        # drop to a fight specified as three. `is None` would have let him.
         for enemy in self.enemies:
             if getattr(enemy, "is_boss", False):
-                loot = get_fixed_boss_loot(enemy.name)
-                if loot is None:
-                    loot = self.loot_generator.generate_boss_loot(
+                drops = get_fixed_boss_loot_all(enemy.name)
+                if not drops and not shares_hoard(enemy.name):
+                    drops = [self.loot_generator.generate_boss_loot(
                         creature_level=enemy.level,
                         char_class=self.player.char_class,
                         player_level=self.player.level,
-                    )
+                    )]
             else:
-                loot = self.loot_generator.generate_loot_for_creature(
+                drops = [self.loot_generator.generate_loot_for_creature(
                     creature_level=enemy.level,
                     char_class=self.player.char_class,
                     player_level=self.player.level,
-                )
-            if loot:
+                )]
+            for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):
                     self.loot_dropped = loot
                     self.loot_gained.append(loot)

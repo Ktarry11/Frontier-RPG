@@ -117,3 +117,48 @@ def get_fixed_boss_loot(boss_name):
     if not pool:
         return None
     return _item_from_def(random.choice(pool))
+
+
+#: Bosses that drop more than one item at once. Kyle, on the Return Voyage's
+#: finale: "a double boss fight of BOTH bloodsail leaders at once (they can
+#: drop 3 pieces of loot at once from a pool of 10)."
+MULTI_DROP = {
+    "Admiral Hedessa Crane": 3,
+}
+
+#: Bosses whose loot IS another boss's loot. The Admiral and the
+#: Fleet-Captain are one encounter standing in one cabin, so they share one
+#: hoard: three items off her table, and nothing of his own. Without this he
+#: would fall through to the procedural roll and add a fourth drop to a
+#: fight Kyle specified as three.
+SHARED_HOARD = {
+    "Fleet-Captain Orin Dace": "Admiral Hedessa Crane",
+}
+
+
+def shares_hoard(boss_name):
+    """True if this boss's drops come from another boss's table, so the
+    caller must not roll anything for him at all."""
+    return boss_name in SHARED_HOARD
+
+
+def get_fixed_boss_loot_all(boss_name):
+    """Every Item this boss drops, as a list - one for an ordinary boss,
+    MULTI_DROP[boss_name] for one that drops several, and empty for a boss
+    whose hoard belongs to somebody else.
+
+    DISTINCT, via random.sample rather than three independent choices.
+    Drawing three times with replacement from a pool of ten collides about
+    28% of the time, and "dropped 3 pieces" that turns out to be two of the
+    same belt reads as a bug rather than as luck. If the pool is smaller
+    than the drop count the sample is capped at the pool size, because
+    asking for more distinct items than exist should yield the whole pool
+    rather than raise in the middle of a boss kill.
+    """
+    if shares_hoard(boss_name):
+        return []
+    pool = _load_boss_loot_tables().get(boss_name)
+    if not pool:
+        return []
+    count = min(MULTI_DROP.get(boss_name, 1), len(pool))
+    return [_item_from_def(d) for d in random.sample(pool, count)]

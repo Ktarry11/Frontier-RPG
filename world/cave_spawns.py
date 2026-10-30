@@ -171,7 +171,32 @@ class CaveSpawnManager:
                     raise ValueError(
                         f"{cave_map.name}: pinned boss '{boss_name}' is not "
                         f"in this cave's encounter table")
-                self.spawns.append(SpawnPoint(bx, by, boss_name, is_boss=True))
+                # A BOSS PACK: two bosses, one fight. Kyle's Return Voyage
+                # finale is "a double boss fight of BOTH bloodsail leaders at
+                # once", and the leaders are standing in the same cabin - the
+                # second one does not have a chamber of his own to be pinned
+                # to. Two boss_positions entries would be two chambers, two
+                # fights and two loot rolls; folding the extra members into
+                # this SpawnPoint's `members` makes it one encounter that
+                # happens to have two bosses in it, which is what the pack
+                # machinery already does for trash. See zone.boss_pack.
+                extra = (getattr(cave_map, "boss_pack", None) or {}).get(boss_name) or []
+                members = [(bx, by, boss_name, None)]
+                for member in extra:
+                    mx, my, mname = member[0], member[1], member[2]
+                    if not cave_map.is_walkable(mx, my):
+                        mx, my = min(walkable,
+                                     key=lambda p: (p[0] - mx) ** 2 + (p[1] - my) ** 2)
+                    if mname not in self.creature_manager.creatures:
+                        raise ValueError(
+                            f"{cave_map.name}: boss-pack member '{mname}' has "
+                            f"no entry in creatures.json")
+                    members.append((mx, my, mname, member[3] if len(member) > 3 else None))
+                    if mname in available_bosses:
+                        available_bosses.remove(mname)
+                self.spawns.append(SpawnPoint(
+                    bx, by, boss_name, is_boss=True,
+                    members=members if extra else None))
                 if boss_name in available_bosses:
                     available_bosses.remove(boss_name)
 

@@ -738,7 +738,7 @@ class LootGenerator:
     _PHYSICAL_SECONDARY = {
         "attack_power", "crit_chance_physical", "hit_rating",
         "defense_rating", "dodge_rating", "parry_rating",
-        "block_rating", "block_value", "armor",
+        "block_rating", "block_value",
     }
     _CASTER_SECONDARY = {
         "spell_power", "healing_power", "mp5", "crit_chance_spell",
@@ -746,13 +746,34 @@ class LootGenerator:
         "fire_spell_power", "frost_spell_power", "arcane_spell_power",
         "shadow_spell_power", "nature_spell_power", "holy_spell_power",
     }
-    #: Stamina and Spirit belong to everyone - every class wants health, and
-    #: Spirit is the universal regen stat.
-    _SHARED_SECONDARY = {"stamina", "spirit"}
+    #: Stamina, Spirit and Armour belong to everyone - every class wants
+    #: health, Spirit is the universal regen stat, and armour is on every
+    #: piece of gear in the game regardless of who wears it. Kyle, 30 Oct:
+    #: "we DO need things like armor on weapons and bonus armor able to roll
+    #: on gear" - BFD's Tortoise Armor and the Wildfury Greatstaff are the
+    #: references, and the classes that need it most are the tanks with no
+    #: shield slot to put block value in (druid, venomancer). Armour lived in
+    #: _PHYSICAL_SECONDARY before, which kept "of the Tortoise" off every
+    #: cloth and caster piece for no reason anyone could defend.
+    _SHARED_SECONDARY = {"stamina", "spirit", "armor"}
 
+    #: The two physical templates each admit the OTHER's primary stat, which
+    #: the exclude-set comment below has always said they should ("Strength
+    #: and Agility may cross between the two physical templates, which real
+    #: Classic gear does freely") - the wanted sets just never said it, and
+    #: under the old overlap test nobody noticed, because a str+agi suffix got
+    #: in on the Stamina it happened to carry. Under the subset test the
+    #: contradiction became three dead suffixes: "of the Tiger", "of Striking"
+    #: and "of the Beast" were reachable by no template at all.
+    #:
+    #: The cross is NOT a free pass, or a Strength plate piece could roll pure
+    #: "of Agility" - see _lead_stat_ok below, which lets a suffix carry the
+    #: opposite primary only when it also carries the template's own.
     _SUFFIX_TEMPLATE_STATS = {
-        "str_physical": {"strength"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
-        "agi_physical": {"agility"} | _PHYSICAL_SECONDARY | _SHARED_SECONDARY,
+        "str_physical": ({"strength", "agility"} | _PHYSICAL_SECONDARY
+                         | _SHARED_SECONDARY),
+        "agi_physical": ({"agility", "strength"} | _PHYSICAL_SECONDARY
+                         | _SHARED_SECONDARY),
         "int_caster": {"intellect"} | _CASTER_SECONDARY | _SHARED_SECONDARY,
         # spi_healer WAS MISSING, and the failure mode was invisible rather
         # than loud. It is a real template in data/items/stat_templates.json,
@@ -836,6 +857,75 @@ class LootGenerator:
         "agi_int_hybrid": frozenset(),
     }
 
+    #: The primary stat (or stats) a template exists to deliver. Two jobs:
+    #: the cross-primary rule in _lead_stat_ok, and the roll weighting in
+    #: _suffix_weight - an item named for a stat should usually carry it.
+    _TEMPLATE_LEAD = {
+        "str_physical": frozenset({"strength"}),
+        "agi_physical": frozenset({"agility"}),
+        "int_caster": frozenset({"intellect"}),
+        "spi_healer": frozenset({"spirit", "intellect"}),
+        "str_int_hybrid": frozenset({"strength", "intellect"}),
+        "agi_int_hybrid": frozenset({"agility", "intellect"}),
+    }
+    #: Stamina and Spirit are nobody's foreign stat - every class wants them.
+    _UNIVERSAL_PRIMARY = frozenset({"stamina", "spirit"})
+
+    def _lead_stat_ok(self, suffix_stats, stat_template):
+        """A suffix may carry a primary stat this template does not lead with
+        ONLY if it also carries one the template does.
+
+        This is what keeps the Strength/Agility cross honest. "of the Tiger"
+        (Strength + Agility) belongs on a Warrior's plate and on a Rogue's
+        leather, because it leads with the stat each of them came for. Pure
+        "of Agility" on a Strength piece does not belong on either, and the
+        wanted-set test cannot tell the two cases apart - both are subsets.
+        """
+        leads = self._TEMPLATE_LEAD.get(stat_template)
+        if not leads:
+            return True
+        carried = set(suffix_stats) & self._PRIMARY_STAT_NAMES
+        foreign = carried - leads - self._UNIVERSAL_PRIMARY
+        return not foreign or bool(carried & leads)
+
+    #: How often a suffix should come up, relative to its neighbours in the
+    #: pool. Kyle, on an earlier version of this: "So i dont like the
+    #: weighted roll. It limits the game too much." The measurement said the
+    #: opposite - variety went UP, because an unweighted roll over a pool
+    #: that is 3/4 flavour suffixes means the stat an item is named for shows
+    #: up in a minority of rolls, and the items that do carry it all look the
+    #: same. Weighting the lead stat up spends the budget on the identity and
+    #: leaves the flavour slots free to differ. Kyle, after seeing it: "that
+    #: looks good bro." Worth keeping the history here, because the next
+    #: person to read this file will have the same first reaction he did.
+    #:
+    #: These are weights, not gates - a resistance suffix at 1 against a lead
+    #: at 10 is uncommon, never impossible.
+    SUFFIX_WEIGHT_LEAD = 10
+    SUFFIX_WEIGHT_PRIMARY = 6
+    SUFFIX_WEIGHT_UTILITY = 3
+    SUFFIX_WEIGHT_SCHOOL = 2
+    SUFFIX_WEIGHT_RESIST = 1
+
+    _SCHOOL_SPELL_POWER = frozenset({
+        "fire_spell_power", "frost_spell_power", "arcane_spell_power",
+        "shadow_spell_power", "nature_spell_power", "holy_spell_power",
+    })
+
+    def _suffix_weight(self, suffix_name, stat_template):
+        """Roll weight for one suffix under one template - see the
+        SUFFIX_WEIGHT_* constants for why this is weighted at all."""
+        stats = set(self.gear_suffixes[suffix_name]["stats"])
+        if stats & self._RESISTANCE_STATS:
+            return self.SUFFIX_WEIGHT_RESIST
+        if stats & self._SCHOOL_SPELL_POWER:
+            return self.SUFFIX_WEIGHT_SCHOOL
+        if stats & self._TEMPLATE_LEAD.get(stat_template, frozenset()):
+            return self.SUFFIX_WEIGHT_LEAD
+        if stats & self._PRIMARY_STAT_NAMES:
+            return self.SUFFIX_WEIGHT_PRIMARY
+        return self.SUFFIX_WEIGHT_UTILITY
+
     def _suffixes_for_template(self, stat_template, low_level=False, item_level=None):
         """Real suffixes whose primary stat set overlaps this
         stat_template's real stats - built lazily and cached per
@@ -858,10 +948,26 @@ class LootGenerator:
         if resists_ok:
             wanted_stats |= self._RESISTANCE_STATS
         banned = self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset())
+        # SUBSET, NOT OVERLAP. Kyle asked why an agility two-handed mace had
+        # come out carrying Healing Power, and the honest answer is that a
+        # suffix matched if ANY ONE of its stats was wanted. "of the Wild"
+        # carries agility and healing power; the agility was enough to let it
+        # through, and the healing power came along for the ride. The exclude
+        # sets below were a patch over the same hole - they list the stats a
+        # template must refuse, which only works for as long as somebody
+        # remembers to add every new stat to the right list.
+        #
+        # Requiring the whole suffix to sit inside the template's wanted set
+        # inverts that: a stat has to be named as appropriate before it can
+        # appear, so a stat nobody has classified is excluded by default
+        # rather than included by default. The exclude test stays as a second
+        # gate for the hybrids, whose wanted set is the union of both sides
+        # and so would otherwise accept anything.
         matches = [
             name for name, data in self.gear_suffixes.items()
-            if (wanted_stats & set(data["stats"].keys())
-                and not (banned & set(data["stats"].keys())))
+            if (set(data["stats"].keys()) <= wanted_stats
+                and not (banned & set(data["stats"].keys()))
+                and self._lead_stat_ok(data["stats"], stat_template))
         ]
         if not resists_ok:
             # Below RESISTANCE_LEVEL a resistance suffix must not appear at
@@ -892,6 +998,37 @@ class LootGenerator:
 
         self._suffix_template_cache[cache_key] = matches
         return matches
+
+    def _bonus_pool(self, stat_template):
+        """The bonus-roll pool, filtered to stats this template should carry.
+
+        FIXING THE SUFFIX WAS ONLY HALF OF IT. The suffix test above decides
+        the item's core stats; bonus_stat_rolls then layer extra secondaries
+        on top of Rare and Epic items, and that pool was the raw eight-stat
+        list from stat_templates.json with no template filter at all. So an
+        agility weapon whose suffix was now clean could still pick up Healing
+        Power on the bonus roll, which is exactly the item Kyle asked about,
+        arriving by the other door.
+
+        Derived from the same wanted/banned sets as the suffix pool rather
+        than a hand-kept parallel list, so a stat added to one is added to
+        both. Falls back to the unfiltered pool for an unknown template,
+        which is the same fail-soft the suffix path uses.
+
+        ONE STAT LEAVES THE GAME HERE, deliberately and worth saying out
+        loud: `haste` is in no template's set and in none of the 83 authored
+        suffixes, so it filters out for everybody and bonus Haste rolls stop
+        happening. That matches Classic, where haste is not a levelling-gear
+        stat, and it matches the suffix table Kyle actually wrote. If haste
+        is wanted later it needs a home in the wanted sets and at least one
+        suffix, not a special case here.
+        """
+        pool = self.stat_templates["secondary_stat_pool"]
+        wanted = self._SUFFIX_TEMPLATE_STATS.get(stat_template)
+        if not wanted:
+            return pool
+        banned = self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset())
+        return [s for s in pool if s in wanted and s not in banned] or pool
 
     def _roll_stats(self, stat_template, total_budget, bonus_rolls, rarity=None, item_level=None):
         """Pick a real suffix (data/items/gear_suffixes.json) appropriate
@@ -925,7 +1062,10 @@ class LootGenerator:
         low_level = item_level is not None and item_level < self.LOW_LEVEL_STAT_CAP
         candidates = self._suffixes_for_template(stat_template, low_level=low_level,
                                                  item_level=item_level)
-        suffix_name = random.choice(candidates)
+        suffix_name = random.choices(
+            candidates,
+            weights=[self._suffix_weight(n, stat_template) for n in candidates],
+        )[0]
         suffix_stats = self.gear_suffixes[suffix_name]["stats"]
 
         # Real budget-cost-aware division: each stat's raw weight is
@@ -970,7 +1110,7 @@ class LootGenerator:
         # level 4 has no business rolling bonus Haste/Crit Rating when
         # those stats don't exist on gear yet at that level.
         if bonus_rolls > 0 and not low_level:
-            pool = self.stat_templates["secondary_stat_pool"]
+            pool = self._bonus_pool(stat_template)
             available = [s for s in pool if s not in secondary_stats]
             chosen = random.sample(available, min(bonus_rolls, len(available)))
             bonus_budget = total_budget * 0.15

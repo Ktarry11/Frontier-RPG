@@ -73,7 +73,19 @@ class Equipment:
         succeeds and displaces whatever was there, rather than silently
         failing). Non-paired items (everything else) pass through
         unchanged.
+
+        A RANGED WEAPON GOES IN THE RANGED SLOT, whatever its item data
+        says. There is a `ranged` slot in EQUIPMENT_SLOTS and a
+        get_ranged_weapon() to read it, but nothing routed anything into
+        it: 24 bows, guns, crossbows, wands, totems, librams, idols and
+        thrown weapons were authored with slot "main_hand", so equipping a
+        bow took the melee weapon off the character. Fixing the 24 items
+        was necessary and not sufficient - the next hand-authored ranged
+        weapon would do it again, and the generator would have to remember
+        every time. The hand field is the authority, so read it here.
         """
+        if item.weapon_type and _load_weapon_type_hand(item.weapon_type) == "ranged":
+            return "ranged"
         pair = PAIRED_SLOTS.get(item.slot)
         if not pair:
             return item.slot
