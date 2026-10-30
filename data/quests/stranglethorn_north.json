@@ -19,7 +19,7 @@
         {
           "type": "fetch",
           "target": "gromgol_crate_stave",
-          "count": 5
+          "count": 6
         }
       ],
       "reward_exp": 2120,
@@ -27,7 +27,7 @@
       "accept_text": "You will want to know what a tally is. A tally is the number of things, written down, so that the number cannot be argued with later. Mine says six crates a week go off the Vine Road between my south gate and the first bend. The raptors work that stretch and raptors chew. So go and work it back the other way, and when you find something chewed, bring me the stave off it.",
       "turn_in_text": "These are cut. Look at the end of one. A raptor leaves you a splintered end and every one of these is flat, and I have spent eleven weeks writing spoilage in my own hand while somebody walked off with the boards. I would rather have been robbed loudly. At least then the book would be right.",
       "next_quest_id": "stn_cut_not_chewed",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Berth-Issue Girdle",
           "slot": "waist",
@@ -84,7 +84,9 @@
           "attack_speed": 2.8,
           "label": "Bow (Agi/Sta/Hit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_cut_not_chewed",
@@ -114,7 +116,7 @@
       "accept_text": "Stonehand. The stone-armed ones off the crag, and they have been working my road. I want fewer of them on it, and I want eyes on the fork where the cutline splits, because that is where the road stops being mine and starts being theirs. Do not bring me anything back. Bring me what you saw.",
       "turn_in_text": "Stacked. You are standing there telling me they stacked it. Not broken into, not eaten, not burned for the warmth of it. Stacked and squared with the lids still on. That is worse than thieves. Thieves I can post a sentry against. Somebody out there has a use for my timber and a number in their head for when they have enough of it.",
       "next_quest_id": "stn_what_the_wood_is_for",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Berth-Issue Treads",
           "slot": "feet",
@@ -166,7 +168,9 @@
           },
           "label": "Ring (Int/Spi/HP)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_what_the_wood_is_for",
@@ -194,7 +198,7 @@
       "accept_text": "Battens. Thin, dressed, cut to one length. If they are dressing boards they are not burning them, and you do not build with another camp's timber unless you have run out of your own. Get me six off the Stonehand, and keep the apes off your back while you do it. They come down the cutline for anything that smells of the camp, and my lumber smells of the camp all the way through.",
       "turn_in_text": "That is a lashing notch. That is a dressed edge and that is a lashing notch, and the two of them together make a scaffold batten. They are standing on my lumber to reach something higher than they can reach. Three years I have been short of board, and the trolls on that crag have been building.",
       "next_quest_id": "stn_one_road_four_names",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Stairkeeper's Sabatons",
           "slot": "feet",
@@ -249,7 +253,9 @@
           "attack_speed": 3.3,
           "label": "Polearm (Dodge/Parry)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_one_road_four_names",
@@ -286,7 +292,7 @@
       "accept_text": "You want to know what the Stonehand are building. Start with what you are standing on. Walk it from the Marosh ford at the top to the seam at the bottom, all of it, and mind the pythons where the canopy comes down to the road. Then come back and I will give you one of the older names. One of them. I am not handing you the set.",
       "turn_in_text": "Zul'marosh Dakka. The stair road. It never ran south to anywhere, it ran up, and your camp put a gate on the wrong end of it and called the rest of it vines. Somebody here will ask you where you were the day the sky changed. I am not going to. I have had that answer out of eleven of you now and not one of you knew what to do with it either.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Zul'Marosh Girdle",
           "slot": "waist",
@@ -341,7 +347,9 @@
           "attack_speed": 2.6,
           "label": "Axe (Str/Sta/Def)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_the_other_half",
@@ -369,7 +377,7 @@
       "accept_text": "Mangrove bark, strips off the water-side root and not off the trunk. The camp calls it mistvale bark, which is wrong but shorter. Dead'wa. The water that stands. Say it whichever way suits you, I am going to write the real one in my book either way. Take the strips and keep the stiltstalkers off you while you cut, because they do not rush and they do not stop.",
       "turn_in_text": "Trunk bark. You cut the trunk. It will do for a wash and it will not do for a draught, so I will sell it as a wash and nobody will die of it. Two hours from the gate. Two hours, and I have paid a goblin's tariff for three years to have the same bark come the long way round by sea.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Brackwater Belt",
           "slot": "waist",
@@ -422,7 +430,9 @@
           "attack_speed": 3.3,
           "label": "Polearm (Dodge/Parry)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_standing_water",
@@ -452,7 +462,7 @@
       "accept_text": "I need to know what that water does. Walk the lagoon shore and stand in it, and get the crocolisks thin enough that standing in it is a thing you can do for a while. I am not asking you to be careless with yourself. I am asking for one person who is not one of mine, and not under me, to come back and tell me whether that water rots a foot in a week.",
       "turn_in_text": "It does not. Then it is the boots. The whole camp's boots came off the airship in one lot three years ago and it was a bad lot, and the quartermaster who signed for them is still signing for things, and I have written four reports about a lagoon. I am going to ask you to leave that out of anything you say in the hall. Then I am going to go and say it to him myself.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Longjaw Mantle",
           "slot": "shoulder",
@@ -507,7 +517,9 @@
           "attack_speed": 3.2,
           "label": "Staff (Int/SP/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_including_me",
@@ -535,7 +547,7 @@
       "accept_text": "Camp stores. Went off the stair into the water back when the mangroves still came up to the wall, and the crocolisks moved in after, which is the only reason it is still down there. Four bundles, whatever is left dry inside them. Watch the toads more than the lizards. A toad out there does not look like anything at all until it is on you.",
       "turn_in_text": "That is not stores. That is a mask, a cord, and a drum skin that has been wet for three years, and my name is on the side of the crate in the column for cargo, because that is how I came. Listed between the salt and the rope. I packed my own tribe into a camp requisition so that nobody would read it out at the foot of the stair. Keep the cord. I do not want it looked at.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Brackwater Hauberk",
           "slot": "chest",
@@ -588,7 +600,9 @@
           },
           "label": "Ring (Str/Sta/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_less_wrong_than_it_was",
@@ -619,7 +633,7 @@
       "accept_text": "The lower court first, then the mouth above it. Stand in both and count courses. Not an impression, not about that many. Count them, and bring the number back, because I have three sheets with three different numbers on them and all three of them are mine.",
       "turn_in_text": "More than the last sheet. Then it is not a ruin. I have been drawing it as a ruin for two years with the little cross hatching we use for a thing that has stopped, and there is no mark on any chart I own for a thing somebody is still working on. I am going to have to invent one and then argue about it with Orgrimmar for a year.",
       "next_quest_id": "stn_the_stair_ends_in_a_socket",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Zul'Marosh Cape",
           "slot": "back",
@@ -676,7 +690,9 @@
           "attack_speed": 3.3,
           "label": "Polearm (Sta/Armor/Parry)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 31,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_the_stair_ends_in_a_socket",
@@ -704,7 +720,7 @@
       "accept_text": "The stairwardens hold the middle flights and they hold them properly, in reliefs, which is not a thing I have seen a jungle troll bother to do. Get through enough of them to work past the second landing, and bring me stone. Loose course stone off the stair itself, the old grey stuff, from where it has fallen and not from where it is still laid.",
       "turn_in_text": "Five faces. The old stone is dressed on five faces and the new work is dressed on four, and you only leave the fifth rough if you know what is going on top of it. Whoever is laying that new course has never seen the stair finished. They are copying the outside of a thing. Three years of patient good work by somebody who does not know what it was for.",
       "next_quest_id": "stn_nobody_left_who_built_it",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Course-Cut Greaves",
           "slot": "legs",
@@ -757,7 +773,9 @@
           "attack_speed": 2.8,
           "label": "Bow (Str/Agi/Sta)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_nobody_left_who_built_it",
@@ -785,7 +803,7 @@
       "accept_text": "The Rotvine call themselves keepers of that stair. They are not. They are sitting in a house calling themselves the family. Their vinespeakers carry knot-cord, which is a record, and I want five of them off them. I want you to hear me say that I am asking you to take a people's writing off their bodies, because I am not going to pretend to you that it is less than that.",
       "turn_in_text": "Recent. Every cord in your hand was tied inside three years. They kept nothing before that and then something started them, all at once, the way a camp starts a ledger when it has decided it owns something. Do not ask me what. I have a guess, and the guess belongs further south than here, with trolls who never stopped keeping theirs.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Course-Cut Jerkin",
           "slot": "chest",
@@ -840,7 +858,9 @@
           "attack_speed": 1.9,
           "label": "Wand (Int/SP/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_the_long_way_round",
@@ -870,7 +890,7 @@
       "accept_text": "This is a favour and I am asking it as one. There is a courier pouch out on the causeway short of the fen landing, in the rot where the creepers sit. Get out to the landing, get the creepers off the ground, and look where the gangplank meets the bank. I have not reported it. I would rather go on not having reported it.",
       "turn_in_text": "Lamp oil. Six jars of lamp oil and a requisition number, and the number is for the stores tent I walk past every morning. I went round a fen in the dark and then worried about it for three weeks over lamp oil, and the part I cannot get out of my head is that nobody has come asking for the lamp oil either.",
       "next_quest_id": "stn_three_flags",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Rotvine Belt",
           "slot": "waist",
@@ -921,7 +941,9 @@
           },
           "label": "Necklace (Sta/Spi/HP)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_three_flags",
@@ -949,7 +971,7 @@
       "accept_text": "Four resupplies turned away off my tower and I ran the flags for every one of them. Smoke over the fen means fire, fire in a jungle means a mooring nobody will risk, and so up go three flags. Go east and find me what is burning out there. The oozes are thick on that ground. If they are what is burning, bring me a piece of one and I will take the loss myself.",
       "turn_in_text": "Gas. It is gas. Those bladders come up out of the rot and the oozes go through them like a boot through ice, and this camp has gone hungry four times for a smell. Nobody ordered those flags. I read the smoke and I ran them, on my own judgement, four times. I am going to write that down before somebody upstairs writes a kinder version of it for me.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Causeway Hood",
           "slot": "head",
@@ -1004,7 +1026,9 @@
           "attack_speed": 2.6,
           "label": "Mace (Sta/Armor/Parry)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_the_hill_runs_warm",
@@ -1031,7 +1055,7 @@
       "accept_text": "Go in as far as the first standing water and look at the line on the wall above it. The stranglers hold the entry galleries and they come down out of the roof, so keep your head up and your back to the stone. I want a yes or a no on one thing and you do not need to go deep for it: is there more water in that hill than is coming out of it.",
       "turn_in_text": "Then something is holding it back. A hill that fills and does not empty has a plug in it, and a plug is either stone, which does not move on its own, or it is alive, which does. I have been reporting that outflow as weather for two years. Weather is what you call a thing you have not walked into yet.",
       "next_quest_id": "stn_what_was_holding_it_back",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Sump-Found Jerkin",
           "slot": "chest",
@@ -1083,7 +1107,9 @@
           "block_value": 64,
           "label": "Shield (Parry/Block/Dodge)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_what_was_holding_it_back",
@@ -1112,7 +1138,7 @@
       "accept_text": "Rootmaw. A root mass with a mouth grown across the throat of the lower gallery, and it has been drinking that cistern since before anybody alive started counting. Take it out of the water. And bring me the tokens off the drowned down there, and look at the marks on them before you take anything, because the drowned in that hill are not Rotvine and never were.",
       "turn_in_text": "Stairkeepers. That token is a count of courses, which is how a keeper signed for the stair he kept, and the number cut into these is bigger than the stair is. The stair was taller. Somebody took the top off it and left no story about doing it, and the Rotvine up there are building back toward a number they found written on a dead man.",
       "next_quest_id": "stn_hapka_still_counting",
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Drowned Helm",
           "slot": "head",
@@ -1184,6 +1210,8 @@
           "label": "Cloth Bracers (Sta/Int/HP)"
         }
       ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "rare",
       "requires_quests": [
         "stn_nobody_left_who_built_it"
       ]
@@ -1209,7 +1237,7 @@
       "accept_text": "Whatever is at the bottom of that hill is in my water now, and a berth-master will not bring an airship down into a stink. The Rotvine sent one of their own up there to keep the stair for them and he drowned doing it, and by every account he has not let that stop him. Go down to the sump and finish it, and bring me whatever he is carrying, because he is carrying something.",
       "turn_in_text": "Cord. Knotted cord, wet through, and three years of it by the length. Take it to the attache. She read it in front of me, she rolled it up, and she told me it was not for me. Three years I have held this camp and I have just been told politely, in my own hall, that the thing I paid for is not mine to read. Ask her again when you are further south than this. She will not say it to me twice.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Rootmaw Slippers",
           "slot": "feet",
@@ -1280,7 +1308,9 @@
           "armor_value": 138,
           "label": "Mail Legs (Str/Sta/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 34,
+      "gear_reward_rarity": "rare"
     },
     {
       "quest_id": "stn_keep_to_it",
@@ -1303,7 +1333,7 @@
       "accept_text": "Greenpelts on the apron. They come right up to the wall now, in daylight, and they are not hunting the wall, they are waiting at it. Thin them off the gate and off the first bend of the road. Keep to the road while you do it. There is nothing worth seeing off it on the west side and I would take it as a courtesy if you did not go looking.",
       "turn_in_text": "Clear. For about a week. Three years we have put our dead outside the wall, because the ground inside the palisade is rock a spade bounces off, and they have worked out which day we do it. Are you staying? I am not making conversation. I am counting what I have got and you are either in the count or you are passing through.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Airborne Chausses",
           "slot": "legs",
@@ -1360,7 +1390,9 @@
           "attack_speed": 2.6,
           "label": "Axe (Str/Sta/Def)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_twelve_bunks_and_a_fire",
@@ -1385,10 +1417,10 @@
       ],
       "reward_exp": 2120,
       "reward_gold": 8700,
-      "accept_text": "Resin off the buttress trees. It burns wet, which is the whole miracle of the stuff, and the boars root it out of the bark and tread it into the mulch, so you will be taking it off a boar one way or another. And before you go out there: I do not care where you came from. Nobody else in this camp is going to say that to you, so I say it early and I say it to everyone.",
+      "accept_text": "Resin off the buttress trees. It burns wet, which is the whole miracle of the stuff, and the boars root it out of the bark and tread it into the mulch, so you will be taking it off a boar one way or another. And before you go out there: I do not care where you are from. Not from here is the whole of it, and that is true of every single body behind this fence, mine included. Nobody else in this camp is going to say that to you, so I say it early and I say it to everyone.",
       "turn_in_text": "That will keep the fire honest for a month. Your name is on a bunk now. In chalk, on the post, same as everyone's. The ones who have been here since the camp landed still wander past and check theirs is still up there, every few weeks, and not one of them has ever asked me why I would rub it off. I have never rubbed one off in my life.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Grom'gol Breeches",
           "slot": "legs",
@@ -1440,7 +1472,9 @@
           "block_value": 58,
           "label": "Shield (Sta/Def/Dodge)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_rarity": "uncommon"
     },
     {
       "quest_id": "stn_the_baron_charges_me_to_land",
@@ -1468,9 +1502,9 @@
       "reward_exp": 2360,
       "reward_gold": 9600,
       "accept_text": "North end of the coast trail, past the ford. I want to know if there is sky over it. A wyvern wants open water on one side and nothing overhead on the other, and the raptors work that trail hard, so you will be earning the look. Count the raptors while you are at it. I price a route by what eats the courier, not by how far it is.",
-      "turn_in_text": "Canopy to the waterline. No roost, then, and the Baron keeps his landing fee for another year. Your lot gave me a word for the thing I run off that tower, you know. Timetable. I called it the schedule for years and a schedule is what you hope for. A timetable is the thing you are late against. Best word anybody ever handed me and I did not have to pay a copper for it.",
+      "turn_in_text": "Canopy to the waterline. No roost, then, and the Baron keeps his landing fee for another year. You lot gave me a word for the thing I run off that tower, you know. Timetable. I called it the schedule for years and a schedule is what you hope for. A timetable is the thing you are late against. Best word anybody ever handed me and I did not have to pay a copper for it.",
       "next_quest_id": null,
-      "rewards": [
+      "unique_item_defs": [
         {
           "name": "Berth-Issue Vambraces",
           "slot": "wrist",
@@ -1527,7 +1561,9 @@
           "attack_speed": 1.9,
           "label": "Wand (Int/SP/Crit)"
         }
-      ]
+      ],
+      "gear_reward_gear_level": 33,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }

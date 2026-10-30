@@ -181,7 +181,14 @@ def Q(qid, giver, zone, lo, hi, theme, objs, nxt=None, exp=None, gold=None, **en
              reward_exp=exp if exp is not None else int(XP[hi] * mult),
              reward_gold=gold if gold is not None else int(GOLD[hi] * mult),
              accept_text=t["accept_text"], turn_in_text=t["turn_in_text"], next_quest_id=nxt,
-             rewards=reward_pack(qid, theme, ilvl, lo, rarity, 4 if is_boss else 3))
+             # NOT "rewards".  QuestManager._build_quest reads unique_item_defs and never looks at a
+             # key called "rewards" - every quest in southern_needles.json, aspen.json and three
+             # others authored its gear under "rewards" and awards NOTHING, which
+             # tools/audit_quests.py reports as "the quest awards no gear".  Those files are not
+             # this pass's to fix; this one is written the way the engine reads.
+             # gear_reward_gear_level must also be set, or get_gear_choices is never called at all.
+             unique_item_defs=reward_pack(qid, theme, ilvl, lo, rarity, 4 if is_boss else 3),
+             gear_reward_gear_level=ilvl, gear_reward_rarity=rarity)
     q.update({kk: vv for kk, vv in engine.items() if vv})
     return q
 
@@ -217,7 +224,7 @@ FEN_LANDING, COAST_NORTH = (172, 122), (32, 34)
 def supply_line():
     return [
         Q("stn_the_weekly_shortfall", PELL, GG, 30, 31, "gromgol",
-          [k("Vinecrest Raptor", 8), fetch("gromgol_crate_stave", 5)],
+          [k("Vinecrest Raptor", 8), fetch("gromgol_crate_stave", 6)],
           nxt="stn_cut_not_chewed"),
         Q("stn_cut_not_chewed", MOKRA, GG, 30, 31, "gromgol",
           [k("Zul'Marosh Stonehand", 10), explore(NS, *FORK)],
@@ -374,7 +381,7 @@ def audit(quests):
     Also enforces the standing content rules that are cheap to check and expensive to ship wrong:
     no escort-shaped objective, no named rare as an objective, no stat numbers in the prose.
     """
-    rew = [r for q in quests for r in q["rewards"]]
+    rew = [r for q in quests for r in q["unique_item_defs"]]
     arm, wep = {}, {}
     for r in rew:
         if r.get("armor_type"):

@@ -207,6 +207,16 @@ GAPS = [
     # the east terrace, and the little one behind the steps that has a tree growing through it
     ("ell", 155, 86, 8, 6),
     ("ell", 145, 79, 6, 4),
+    # KNOWN ISSUE, do not "fix" by widening this ellipse - I tried that and it does not work.
+    # The east terrace is open ground per tile_kind (cliff -4.0 at its centre) and the player
+    # still cannot stand in it: seal_unreachable fills it, because the whole eastern half of the
+    # shelf - roughly x 151-175, y 79-85 - is one orphan pocket. The rock is not what closes it.
+    # Something placed during dress() walls the shelf off at about x 151, so the pocket never
+    # reaches START and gets sealed wholesale. Adding a connecting gap at (162,83) bought exactly
+    # four walkable tiles and left the pocket sealed.
+    # Fixing it means finding that blocker and then RE-BAKING the zone, since any change here
+    # moves tile_kind and the ground chunks on disk stop matching the map. Routed around for now;
+    # the Southern quest pass uses (178,68) instead of this court.
     ("ell", 167, 80, 5, 4),
     ("ell", 141, 90, 5, 4),
     ("ell", 170, 116, 9, 7),

@@ -24,12 +24,14 @@ WHAT IT CHECKS, and why each one is worth a line:
      duplicates, except aspen's asp_winch_house where the unique entry is a book and the rewards
      are gear - precedence is what keeps already-working quests byte-identical.
   4. No quest promises gear in its prose and hands over nothing.
-  5. No reward weapon has zero damage. Item takes weapon_damage_min/max and attack_speed as given
-     and derives nothing, so a weapon authored without them equips as a 0-0 damage stick. 79 of
-     600 reward weapons are in this state across 20 zones. Reported, NOT auto-fixed: picking the
-     numbers is a balance decision per item, and the 521 correct ones sit on a clean curve
-     (~0.57 dps per item level for uncommon) that makes each one a short, deliberate choice
-     rather than something to sweep.
+  5. No reward weapon is inert. Item takes weapon_damage_min/max, attack_speed and block_value as
+     given and derives nothing, so a weapon authored without them equips as a 0-0 damage stick and
+     a shield without block_value blocks nothing. Shields are judged on block_value and everything
+     else on damage plus swing speed - the first version of this check conflated the two and
+     flagged all 46 reward shields. 34 non-shield weapons are inert across 20 zones. Reported, NOT
+     auto-fixed: picking the numbers is a balance decision per item, and the correct ones sit on
+     clean curves (uncommon: ~0.57 dps per item level; shields 1.92 block and 1.53 armor per item
+     level) that make each one a short deliberate choice rather than something to sweep.
 
 Exits non-zero on any finding, except check 5, which only warns - it is a backlog, not a
 regression, and failing the build on it would mean nobody can use this file for the thing it was
@@ -132,12 +134,22 @@ def main():
             )
 
     # ---- 5. zero-damage weapons (warning only, see the module docstring) --------------------
+    # A SHIELD IS NOT A DAMAGE WEAPON. The first version of this check flagged all 46 reward
+    # shields as broken because they carry no weapon_damage - they are not supposed to. What a
+    # shield needs is block_value, and all 42 already-correct ones have it, so the check splits:
+    # shields are judged on block_value, everything else on damage and swing speed.
     zero = []
     for fname, q in rows:
         for item in (q.get("unique_item_defs") or []) + (q.get("rewards") or []):
-            if item.get("weapon_type") and not item.get("weapon_damage_max"):
-                zero.append((fname, q["quest_id"], item["name"], item.get("weapon_type"),
-                             item.get("item_level")))
+            wt = item.get("weapon_type")
+            if not wt:
+                continue
+            if wt == "shield":
+                broken = not item.get("block_value")
+            else:
+                broken = not (item.get("weapon_damage_max") and item.get("attack_speed"))
+            if broken:
+                zero.append((fname, q["quest_id"], item["name"], wt, item.get("item_level")))
 
     print(f"quests in data: {len(rows)}   loaded: {len(qm.quests)}   offering gear: {offered}")
 

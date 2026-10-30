@@ -91,8 +91,16 @@ Nine, and what each one is doing:
                                   fighter came from, and after today somebody has to re-price it.  The
                                   Quiet Man says this the way you would mention weather.
   THE CHILD                       stvc_scrip_drums.  Scrip asks whether anybody at the arena was from
-                                  off-world, because he has heard they always lose the first round and
-                                  he would like to know if that is true.  From a kid, which is worse.
+                                  off-world, because he has heard the ones who came through always
+                                  lose the first round.  From a nine-year-old, which is worse.
+
+tools/qa_quest_lore.py scores this file at 11 of 18 and PASSES it.  Nine of those eleven are the list
+above; the other two are Vrak's three years on the gate and the Veilfall coming up three years ago,
+which the instrument counts because per claude/integration_timeline.md that exact span belongs to the
+Integration and nothing else - and in this zone it does, both times.  The tool's 18% ceiling is not
+applied to a file of eighteen quests (three hits in a small file is noise, so it needs n >= 20), which
+is the only reason a deliberate 50% does not read to it as over-egged.  Anybody raising this file past
+twenty quests should look at that number again before they do.
 
 =========================================================================================================
 THE SHARED SPINE - THREE GENERATIONS OF TROLL STONEWORK, AND THIS IS THE ONE THAT STILL KNOWS
@@ -252,7 +260,15 @@ def Q(qid, title, giver, zone, lo, hi, theme, desc, objs, accept, done, nxt=None
              reward_exp=exp if exp is not None else int(XP[hi] * mult),
              reward_gold=gold if gold is not None else int(GOLD[hi] * mult),
              accept_text=accept, turn_in_text=done, next_quest_id=nxt,
-             rewards=reward_pack(qid + salt, theme, ilvl, lo, rarity, 4 if is_boss else 3))
+             # NOT "rewards".  world/quest_manager.py _build_quest reads unique_item_defs and nothing
+             # else; a pack authored under "rewards" loads, sits in the json and is never offered, and
+             # tools/audit_quests.py resolve_rewards reports it as broken.  The Southern Thousand
+             # Needles pass this file is modelled on shipped that way and all nineteen of its quests
+             # award no gear - so the template is followed everywhere except here.  The two gear_reward
+             # fields match what Northern Stranglethorn writes and are the engine's fallback if the
+             # item defs are ever stripped.
+             unique_item_defs=reward_pack(qid + salt, theme, ilvl, lo, rarity, 4 if is_boss else 3),
+             gear_reward_gear_level=ilvl, gear_reward_rarity=rarity)
     q.update({kk: vv for kk, vv in engine.items() if vv})
     return q
 
@@ -304,7 +320,9 @@ def vine_road():
         "of it out of the kerb line and put eight of the green adders off the verge while you are down "
         "there. They nest in the drainage. They should not be in the drainage.",
         "You cleared the drains.\n\nI did not ask you to clear the drains. I explained the drains. "
-        "Those are different and I am aware they are different.\n\nRight. Bexxil is up on the apron and "
+        "Those are different and I am aware they are different.\n\nWhere you're from they would "
+        "have been somebody else's drains, I expect. Down here the road is whoever last cut "
+        "it.\n\nRight. Bexxil is up on the apron and "
         "she has been wanting a name. I will give her yours, and you can decide afterward whether that "
         "was a kindness.", nxt="stvc_tout_entry"))
 
@@ -318,7 +336,8 @@ def vine_road():
         "card, thin crowd, thin money, and I am the one holding paper on a thin afternoon.\n\nNine of "
         "the drovers and four of their tallies. And before you ask why I bet on somebody I have never "
         "watched fight - that is the entire reason. Nobody down here knows what you people can do. Not "
-        "knowing is where my money lives. The rim likes an off-worlder for exactly that and no other.",
+        "knowing is where my money lives. Nobody has a form line on you lot, and the rim likes "
+        "that in a fighter more than it likes a fighter.",
         "You did it where they could see you.\n\nThe price came in. Do you understand what that means? "
         "The price coming in is the money going out, and the money was going to come to me.\n\nI have "
         "had to put my own purse on you to hold the line. That is not a compliment. That is a "
@@ -337,8 +356,9 @@ def vine_road():
         "it. Do not take it personally and do not take it slowly.",
         "She has filled the chit out in her own hand. Name, weight, reach, standing - and in the box "
         "where a house goes she has put outsider.\n\nZul'tamo reads it out flat, the way he would read a "
-        "weight.\n\n'Outsider. Good. That is a column, not an insult - we have had the column longer "
-        "than you have been in the world and it prices better than any other line on the sheet. You are "
+        "weight.\n\n'Outsider. Good. Not from here is a column on this sheet, not an insult - we have "
+        "had it longer than you have been in the world and it prices better than any other line on it. "
+        "You are "
         "on the list. Come down when the drums start.'",
         turn_in_npc_id=ZULTAMO, nxt="stvc_arena_first_four",
         grant_items=carry("bexxil_entry_chit", "Bexxil's Entry Chit",
@@ -361,8 +381,8 @@ def basin():
         [gather("veilfall_spray_moss", 7), k("Snapjaw Leechswarm", 8)],
         "There is a band of moss along the lip where the spray reaches and nowhere else - seven good "
         "handfuls would do me the season. Mind the leeches in the slack water under the pool. Eight of "
-        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: where you "
-        "are from, does the rain come in a season, or does it come all year? Everything I know about a "
+        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: where "
+        "you're from, does the rain come in a season, or does it come all year? Everything I know about a "
         "plant assumes a wet month and a dry month. If it rains all year where you came from then half "
         "of what I know is local, and I would very much like to find out which half.",
         "A season, then. Good. That is one thing I do not have to throw out.\n\nNow the moss. Look at "
@@ -385,7 +405,7 @@ def basin():
         "Carved steps. Carved steps and a lamp bracket with oil still in it.\n\nTwo years. Two years I "
         "have been camped at somebody's front door, selling their moss, and I never knocked, and I told "
         "myself a story about moonlight so I would not have to.\n\nYou knocked. I am going to need a "
-        "moment about that and I would rather have it alone.", nxt="stvc_zuljana_names"))
+        "moment about that and I would rather have it alone.", nxt="stvc_zuljana_names", salt="c"))
     return A
 
 
@@ -434,8 +454,8 @@ def cave():
         "veilfall",
         "The Veilspeaker has reached a conclusion about why the fall is wrong, and the conclusion is "
         "that somebody is standing where nobody should stand.\n\nThe somebody is Ordek Fenn. On a "
-        "Tuesday, three of the Zul'Rath came up the shoulder and took his drying rack apart, piece by "
-        "piece, without hurrying and without saying anything to him at all.",
+        "Tuesday, a party of his shrinekeepers came up the shoulder and took the drying rack apart, piece "
+        "by piece, without hurrying and without saying one word to him.",
         [boss("Veilspeaker Zul'Rath", zone=VF)],
         "I want you to understand what I am asking and that I have thought about it for four days.\n\nHe "
         "is on the south shore of the plunge, and he has decided my tarp is why his water is wrong, and "
@@ -514,7 +534,7 @@ def marsh():
         "which is the only part of this I will complain about out loud.\n\nAnd do not tell anyone in the "
         "Bay you did this. I sell into the Bay.",
         "Eight, and you reset them right, which I did not expect.\n\nSomething I will ask you and then "
-        "we will not discuss it again. Where you come from - is there standing water? Brackish, slow, "
+        "we will not discuss it again. Where you're from - is there standing water? Brackish, slow, "
         "the kind that does not go anywhere?\n\nAnd does anyone fish it.\n\nI am not making "
         "conversation. I would like to know whether this is a trade that exists in more than one place, "
         "in case it stops existing in this one.", nxt="stvc_wager_slip"))
@@ -583,7 +603,8 @@ def arena():
         "the centre gate more than once in a season. It has never had to. There is no rule about it - "
         "there has simply never been more than one in a season who got as far as the dead end.\n\nIt has "
         "opened twice this season. The first one was eleven days ago and nobody has said his name since, "
-        "and I have begun to wonder whether the gate is a prize or a tidying-up.", nxt="stvc_arena_favourite"))
+        "and I have begun to wonder whether the gate is a prize or a tidying-up.",
+        nxt="stvc_arena_favourite", salt="e"))
 
     A.append(Q("stvc_arena_favourite", "The House's Own", BEXXIL, GA, 37, 38, "arena",
         "Four rounds have made Bexxil's stake worth a great deal more than she paid for it, and she has "
@@ -602,8 +623,9 @@ def arena():
         "The Quiet Man counts it out without looking up, which is how you know it is the real number and "
         "not the one Bexxil would have preferred.\n\n'She is not ruined. She is annoyed, which on her is "
         "nearly the same shape.'\n\nHe squares the coin off with one finger.\n\n'The board has a field "
-        "for where a fighter came from. It has had it since before the Baron. Somebody is going to have "
-        "to sit down tonight and re-price that field, and it will be me, and I will not enjoy it.'\n\nHe "
+        "for where a fighter came from. It has had that field since before the Baron. Since you lot "
+        "started walking down that stair it is the only line on the sheet anybody argues about, and "
+        "somebody has to sit down tonight and re-price it, and it will be me.'\n\nHe "
         "finally looks up. 'Do not come back for a season. Let the number settle.'",
         requires_quests=["stvc_arena_pair"], turn_in_npc_id=QUIET))
     return A
@@ -630,7 +652,8 @@ def standalones():
         "No.\n\nNo, you have looked at the wrong ones. Crocolisk. You are telling me the big drums are "
         "crocolisk belly off the marsh and the gorillas are the little ones round the edge, and that is "
         "- no.\n\nHe folds the hide scrap up small and puts it in his shirt anyway.\n\n'Was anyone down "
-        "there from off-world? Like you? Because Hobb says they always lose the first round, every time, "
+        "there from off-world? Like you? Because Hobb says the ones who came through always "
+        "lose the first round, every time, "
         "and I said that can't be right, and he said ask someone who'd know.'\n\nHe is waiting. He is "
         "nine."))
 
@@ -731,7 +754,7 @@ def audit(quests):
     errs = []
     armour, weapons, acc = {}, {}, 0
     for q in quests:
-        for it in q["rewards"]:
+        for it in q["unique_item_defs"]:
             a, w = it.get("armor_type"), it.get("weapon_type")
             if a:
                 armour[a] = armour.get(a, 0) + 1
@@ -759,8 +782,8 @@ def audit(quests):
 
     # Standing rules that are cheap to check here and expensive to find in play.
     for q in quests:
-        for it in q["rewards"]:
-            for stat in it.get("stats", {}):
+        for it in q["unique_item_defs"]:
+            for stat in list(it.get("primary_stats", {})) + list(it.get("secondary_stats", {})):
                 if "resist" in str(stat).lower():
                     errs.append(f"{q['quest_id']}: {it['name']!r} carries {stat!r} - no "
                                 f"magic-resistance gear below level 45")
