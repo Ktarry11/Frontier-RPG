@@ -78,6 +78,12 @@ COVE_LAND = [
 #: than cutting a link. Checked by flood fill: 2755 walkable, 2755 reachable, 0 stranded.
 COVE_POOLS = [(56, 94, 7, 5), (54, 78, 7, 5), (52, 58, 7, 5), (60, 44, 6, 4)]
 
+#: (y0, y1, gap_lo, gap_hi) - bands the tide closes except for one gap, so the route has a neck
+#: a boss can hold. The first sits between pools 1 and 2 and opens to the west; the second between
+#: pools 3 and 4 and opens to the east, so the walk crosses the cove rather than running up one
+#: side of it.
+NECKS = [(85, 87, 34, 40), (50, 52, 68, 74)]
+
 # -------------------------------------------------------------- the galleon
 GW, GH = 130, 80
 #: 107 long on a 37 beam, about 2.9:1 - bigger than the raider in every dimension, which is what
@@ -107,37 +113,46 @@ CABIN_SECOND = "Fleet-Captain Orin Dace"
 
 #: One encounter, two bosses. {lead: [(x, y, name), ...]} - world/cave_spawns folds the members
 #: into the lead's SpawnPoint.
-CABIN_PACK = {CABIN_LEAD: [(34, 24, CABIN_SECOND)]}
+CABIN_PACK = {CABIN_LEAD: [(34, 22, CABIN_SECOND)]}
 
 ANCHORAGE_PACKS = [
     (52, 104, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
     (44, 98, 47, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Deckmaster"]),
     (36, 96, 47, ["Bloodsail Marine", "Bloodsail Marine", "Bloodsail Gunner"]),
     # ---- past Vohl, round the second and third pools toward the head.
-    (66, 72, 48, ["Bloodsail Deckmaster", "Bloodsail Gunner", "Bloodsail Marine"]),
+    (70, 64, 48, ["Bloodsail Deckmaster", "Bloodsail Gunner", "Bloodsail Marine"]),
     (64, 60, 48, ["Bloodsail Marine", "Bloodsail Deckmaster", "Bloodsail Gunner"]),
     (66, 56, 48, ["Bloodsail Gunner", "Bloodsail Marine", "Bloodsail Marine"]),
 ]
-ANCHORAGE_BOSS_AT = {"Shorebreaker Teska Vohl": (34, 92), "Quartermaster Ilsa Renn": (62, 52)}
+ANCHORAGE_BOSS_AT = {"Shorebreaker Teska Vohl": (37, 82), "Quartermaster Ilsa Renn": (71, 46)}
 
 GDECK_PACKS = [
     (46, 32, 49, ["Bloodsail Reaver", "Bloodsail Deckmaster", "Bloodsail Stormcaller"]),
     (56, 47, 49, ["Bloodsail Deckmaster", "Bloodsail Reaver", "Bloodsail Reaver"]),
-    (38, 48, 49, ["Bloodsail Stormcaller", "Bloodsail Reaver", "Bloodsail Deckmaster"]),
+    (44, 48, 49, ["Bloodsail Stormcaller", "Bloodsail Reaver", "Bloodsail Deckmaster"]),
     (34, 31, 49, ["Bloodsail Reaver", "Bloodsail Reaver", "Bloodsail Stormcaller"]),
 ]
-GDECK_BOSS_AT = {DECK_BOSS: (76, 40)}
+#: AFT OF THE BOARDING POINT IS BEHIND THE PLAYER. The first barricade here was at station 76,
+#: which is a fine chokepoint and entirely useless: you board amidships at x=52 and run FORWARD to
+#: the hatch at x=24, so 76 is over your shoulder the whole time and Ake came back skippable while
+#: every other boss in the dungeon had been fixed. A neck only counts if it is between the way in
+#: and the way out.
+GDECK_BOSS_AT = {DECK_BOSS: (34, 40)}
+#: (station x, gap y_lo, y_hi) - the barricade Ake holds. An open deck gives a boss nothing.
+GDECK_BARRICADES = [(44, 38, 42)]
 
 GHOLD_PACKS = [
     (32, 35, 50, ["Bloodsail Reaver", "Bloodsail Deckmaster", "Bloodsail Reaver"]),
     (40, 45, 50, ["Bloodsail Stormcaller", "Bloodsail Reaver", "Bloodsail Deckmaster"]),
     (50, 35, 50, ["Bloodsail Reaver", "Bloodsail Reaver", "Bloodsail Stormcaller"]),
     # ---- past Felk
-    (84, 45, 51, ["Bloodsail Deckmaster", "Bloodsail Reaver", "Bloodsail Stormcaller"]),
+    (88, 45, 51, ["Bloodsail Deckmaster", "Bloodsail Reaver", "Bloodsail Stormcaller"]),
     (94, 35, 51, ["Bloodsail Reaver", "Bloodsail Stormcaller", "Bloodsail Reaver"]),
     (100, 45, 51, ["Bloodsail Deckmaster", "Bloodsail Reaver", "Bloodsail Reaver"]),
 ]
-GHOLD_BOSS_AT = {"Powdermaster Juno Felk": (62, 40), "Keelwarden Orso Brann": (106, 40)}
+#: In their compartments - see the note in handbuilt_bloodsail_raider on why they came back out
+#: of the doorways.
+GHOLD_BOSS_AT = {"Powdermaster Juno Felk": (66, 40), "Keelwarden Orso Brann": (96, 40)}
 
 #: Six compartments, which is what makes the hold a dungeon rather than a long room.
 GBULKHEADS = [
@@ -146,7 +161,7 @@ GBULKHEADS = [
     (58, 32, 36),
     (74, 44, 48),
     (90, 32, 36),
-    (102, 44, 48),
+    (102, 44, 48),   # the cabin lobby door
 ]
 
 
@@ -188,11 +203,24 @@ def build_anchorage():
     # it; the portal is on the ramp, not on the sand, so boarding her is a thing you walk up.
     sb.gangplank(b, 48, 36, 24, base="path", width=3)
 
-    # Headland rock, pinching the route where it passes between pools.
+    # TWO NECKS, AND A BOSS STANDING IN EACH. Kyle: "No fuckers are skipping bosses in this
+    # game!" A scan of the map as first built found zero tiles anywhere that a boss could not be
+    # walked round - every passage was wider than the three-tile band a boss covers. So the
+    # geometry has to provide the chokepoint: the tide closes the beach at two bands and leaves
+    # one gap in each, which is where Vohl and Renn stand. Verified, not assumed - see
+    # tools/verify_return_voyage.py, which seals the trigger radius round each boss and checks the
+    # exit goes unreachable.
+    for (y0, y1, lo, hi) in NECKS:
+        closed = sb.tidal_cut(b, y0, y1, lo, hi)
+        if closed < 10:
+            raise AssertionError(f"{zone.name}: neck at y{y0}-{y1} closed only {closed} tiles - "
+                                 f"that band was already water, so it is not a neck")
+
+    # Headland rock, for the look of the shore rather than for the route.
     b.pillar(76, 82, size=4)
-    b.pillar(28, 88, size=4)
+    b.pillar(28, 96, size=4)
     b.pillar(32, 66, size=3)
-    b.pillar(72, 46, size=3)
+    b.pillar(72, 40, size=3)
 
     for (px, py) in (A_IN, A_OUT):
         zone.collision_layer[py][px] = None
@@ -202,13 +230,14 @@ def build_anchorage():
     zone.boss_position = zone.boss_positions[0][:2]
     for (x, y, n) in zone.boss_positions:
         L.mark("boss_marker", x, y)
-    zone.trash_spawns = sb.place_packs(zone, ANCHORAGE_PACKS)
+    zone.trash_packs = sb.place_packs(zone, ANCHORAGE_PACKS)
+    zone.trash_spawns = [m for pack in zone.trash_packs for m in pack]
 
     # THE WEST HORN IS A LONG WALK TO NOTHING otherwise. The cove is a U and the route up the east
     # side is the dungeon; the west side is scenery you can walk the whole length of, which is the
     # kind of thing a player explores once and resents. A chest at the far end of it is the
     # cheapest honest reason for it to be there.
-    ANCHORAGE_CHESTS[:] = [(30, 86), (40, 38)]
+    ANCHORAGE_CHESTS[:] = [(34, 96), (40, 38)]
     for (cx, cy) in ANCHORAGE_CHESTS:
         L.mark("chest", cx, cy)
 
@@ -245,7 +274,7 @@ def dress_anchorage(zone, L):
     P("mossy_jungle_boulder", 40, 84, 4, **C)
     P("coral_reef_outcrop", 38, 68, 3, near_ok=True, **C)
     P("hibiscus_bush", 68, 67, 3, near_ok=True, **C)
-    P("bamboo_grove", 70, 50, 6, **C)
+    P("bamboo_grove", 64, 56, 6, **C)
     P("driftwood_pile", 62, 102, 3, near_ok=True, **C)
     P("tiki_totem", 36, 74, 5, **C)
     P("crab_claw_arch", 38, 56, 5, **C)
@@ -298,10 +327,15 @@ def build_galleon_deck():
 
     # Deck houses and gun tackle, staggered so the run forward weaves.
     b.pillar(84, 30, size=4)
-    b.pillar(74, 48, size=4)
+    b.pillar(70, 50, size=4)
     b.pillar(64, 28, size=3)
     b.pillar(48, 50, size=3)
     b.pillar(42, 28, size=3)
+
+    for (station, lo, hi) in GDECK_BARRICADES:
+        closed = sb.choke(b, "x", station, lo, hi, base="dirt")
+        if closed < 8:
+            raise AssertionError(f"{zone.name}: barricade at x={station} closed only {closed}")
 
     for (px, py) in (D_IN, D_HATCH):
         zone.collision_layer[py][px] = None
@@ -311,7 +345,8 @@ def build_galleon_deck():
     zone.boss_position = zone.boss_positions[0][:2]
     for (x, y, n) in zone.boss_positions:
         L.mark("boss_marker", x, y)
-    zone.trash_spawns = sb.place_packs(zone, GDECK_PACKS)
+    zone.trash_packs = sb.place_packs(zone, GDECK_PACKS)
+    zone.trash_spawns = [m for pack in zone.trash_packs for m in pack]
 
     zone.add_subzone("The Galleon's Weather Deck", 0, 0, GW, GH)
     zone.add_subzone("The Boarding", 40, 44, 28, 24)
@@ -331,8 +366,8 @@ def dress_galleon_deck(zone, L):
     P("bs_cargo_net", 70, 34, 3, **S)
     P("bs_crate_stack", 54, 50, 4, **S)
     P("bs_sail_bundle", 50, 32, 3, **S)
-    P("bs_cannon_deck", 44, 46, 3, **S)
-    P("bs_weapon_rack", 34, 34, 4, **S)
+    P("bs_cannon_deck", 50, 46, 3, **S)
+    P("bs_weapon_rack", 32, 34, 4, **S)
     P("bs_barrel_cluster", 28, 47, 3, **S)
     P("bs_lamp_post", 18, 42, 5, **S)
     return zone, L
@@ -374,7 +409,8 @@ def build_galleon_hold():
     zone.boss_position = zone.boss_positions[0][:2]
     for (x, y, n) in zone.boss_positions:
         L.mark("boss_marker", x, y)
-    zone.trash_spawns = sb.place_packs(zone, GHOLD_PACKS)
+    zone.trash_packs = sb.place_packs(zone, GHOLD_PACKS)
+    zone.trash_spawns = [m for pack in zone.trash_packs for m in pack]
 
     zone.add_subzone("The Galleon's Hold", 0, 0, GW, GH)
     zone.add_subzone("The Cable Tier", 14, 28, 30, 26)
@@ -432,6 +468,13 @@ def build_cabin():
     # is the widest part of a galleon and the great cabin runs the full width of it.
     b.rect(12, 10, 48, 44, chamfer=6, base="path")
     sb.platform(b, 16, 12, 44, 20, base="sand")      # the stern gallery, under the windows
+
+    # THE BULKHEAD ACROSS THE CABIN, with the pair standing in its one doorway. A great cabin is
+    # a single room and a single room lets you walk round anybody in it - the skippability scan
+    # had both leaders optional, in the fight the whole dungeon is built around. This is the
+    # screen bulkhead a ship of this size really has between the cabin and the stern gallery,
+    # and the two of them are standing in the door of it.
+    sb.choke(b, "y", 28, 27, 33, base="dirt")
     sb.bulwark(b, base="dirt")
 
     for (px, py) in (C_IN, C_OUT):
@@ -439,10 +482,10 @@ def build_cabin():
         L.mark("portal", px, py)
 
     # The pair, as ONE SpawnPoint. boss_positions carries only the lead.
-    zone.boss_positions = [(30, 24, CABIN_LEAD)]
-    zone.boss_position = (30, 24)
+    zone.boss_positions = [(30, 22, CABIN_LEAD)]
+    zone.boss_position = (30, 22)
     zone.boss_pack = CABIN_PACK
-    L.mark("boss_marker", 30, 24)
+    L.mark("boss_marker", 30, 22)
 
     # NOT an empty list - see the module docstring. The zone simply has no trash attribute set to
     # anything falsy that populate() could fall past, and its encounter table holds only the two
@@ -475,7 +518,7 @@ def dress_cabin(zone, L):
 
 def finish_cabin(zone, L):
     members = [(m[0], m[1]) for v in CABIN_PACK.values() for m in v]
-    return L.finish([C_IN, C_OUT, (30, 24)] + members)
+    return L.finish([C_IN, C_OUT, (30, 22)] + members)
 
 
 def generate_cabin():

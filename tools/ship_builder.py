@@ -88,6 +88,69 @@ def carve_hull(b, x0, x1, ycen, beam, bow="w", base="path"):
     return stations
 
 
+#: A boss is triggered by walking within this many tiles of it (CaveSpawnManager.TRIGGER_RADIUS),
+#: so it covers a band 2*R+1 wide. A gap wider than that can be walked through untouched, which is
+#: why every doorway a boss is meant to hold is exactly this wide.
+TRIGGER_BAND = 3
+
+
+def choke(b, axis, line, gap_lo, gap_hi, wall=None, base=None):
+    """Block a whole row or column except for a gap - the general neck.
+
+    axis="x": `line` is a column (a station on a hull), the gap is a y range.
+    axis="y": `line` is a row, the gap is an x range.
+
+    EVERY BOSS IN THIS DUNGEON WAS SKIPPABLE and this is the fix. Kyle: "No
+    fuckers are skipping bosses in this game!" Testing it rather than eyeing
+    it found nine of nine - including the two behind six bulkheads, because
+    the bulkhead doorways were FOUR tiles wide and a boss covers three. One
+    tile of slack per door, and every boss in the ship was optional.
+
+    So a gap that a boss is meant to hold is TRIGGER_BAND wide, and the boss
+    stands in the middle of it. Verified in tools/verify_return_voyage.py by
+    sealing the trigger radius round each boss and checking the exit goes
+    unreachable - not by looking at how tight the doorway seems.
+    """
+    z = b.zone
+    closed = 0
+    span = range(b.h) if axis == "x" else range(b.w)
+    for v in span:
+        if gap_lo <= v <= gap_hi:
+            continue
+        x, y = (line, v) if axis == "x" else (v, line)
+        if z.is_walkable(x, y):
+            z.collision_layer[y][x] = wall or b.wall_id
+            if base:
+                z.set_tile(x, y, base, "base")
+            closed += 1
+    return closed
+
+
+def tidal_cut(b, y0, y1, gap_lo, gap_hi, base="tropical_shallow"):
+    """Close a band of beach with water, except for a gap - a neck.
+
+    Kyle: "We need to move the bosses so they are not skipable! ... No
+    fuckers are skipping bosses in this game!" He is right and the map could
+    not do it: a boss is triggered by walking within one tile of it, so it
+    covers a three-tile band, and a scan of the whole anchorage found ZERO
+    tiles where removing that band cut the entrance from the exit. Every
+    passage was wider than three, so every boss was optional, everywhere.
+
+    Placing the boss better cannot fix that - the geometry has to give it a
+    neck to stand in. This is the land version of bulkhead(): it blocks a
+    band except for the doorway. Painted as shallow rather than rock because
+    on a beach the thing that narrows your way is the tide coming in, and it
+    matches the pools already on the map.
+
+    Returns the number of tiles closed, so the caller can tell a real neck
+    from a band that happened to be water already.
+    """
+    closed = 0
+    for y in range(y0, y1 + 1):
+        closed += choke(b, "y", y, gap_lo, gap_hi, base=base)
+    return closed
+
+
 def bulwark(b, base="dirt"):
     """Paint the outermost walkable tile of a deck in a darker tile.
 
@@ -206,9 +269,17 @@ FAN = [(0, 0), (2, -1), (-2, 1), (0, -3), (0, 3), (2, 2), (-2, -2)]
 
 
 def place_packs(zone, specs, rad=6, spacing=2):
-    """Flatten pack specs into the (x, y, name, level) list a zone wants.
+    """Place pack specs and return them GROUPED: [[(x, y, name, level), ...], ...].
 
     specs = [(cx, cy, level, [name, ...]), ...]
+
+    GROUPED, because the grouping is the fight. CaveSpawnManager.populate has three branches, and
+    the one it takes decides whether a dungeon has pulls or a queue: zone.trash_packs makes each
+    group ONE encounter that aggroes together, while a flat zone.trash_spawns makes every mob its
+    own fight. Eighteen mobs authored as six pulls of three would have arrived as EIGHTEEN SOLO
+    FIGHTS, which is the same failure that once put fifteen one-mob fights in the Captain's Cabin,
+    just arriving by the other branch. The caller sets both: trash_packs from this, trash_spawns
+    from the flattening of it, which is what the quest locator and the previews read.
 
     Each member is nudged to the nearest walkable tile within `rad` and kept
     at least `spacing` tiles from any member already placed, so two members
@@ -217,7 +288,7 @@ def place_packs(zone, specs, rad=6, spacing=2):
     than dropping it - a pack quietly coming out one mob short is the kind of
     thing nobody notices until the dungeon feels easy.
     """
-    out = []
+    packs = []
     taken = set()
 
     def free(x, y):
@@ -226,6 +297,7 @@ def place_packs(zone, specs, rad=6, spacing=2):
                         for (px, py) in taken))
 
     for (cx, cy, level, names) in specs:
+        pack = []
         for i, name in enumerate(names):
             ox, oy = FAN[i % len(FAN)]
             tx, ty = cx + ox, cy + oy
@@ -249,5 +321,6 @@ def place_packs(zone, specs, rad=6, spacing=2):
                     f"({tx}, {ty}) within {rad} - the pack at ({cx}, {cy}) "
                     f"would have come out short")
             taken.add(spot)
-            out.append((spot[0], spot[1], name, level))
-    return out
+            pack.append((spot[0], spot[1], name, level))
+        packs.append(pack)
+    return packs

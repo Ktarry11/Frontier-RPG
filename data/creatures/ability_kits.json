@@ -33652,6 +33652,634 @@
           "attack_power": 16
         }
       }
+    ],
+    "bloodsail_marine": [
+      {
+        "name": "Boarding Cutlass",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Shove",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -34
+        }
+      }
+    ],
+    "bloodsail_gunner": [
+      {
+        "name": "Musket Shot",
+        "kind": "damage",
+        "amount": 128,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Point-Blank Volley",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Powder Burn",
+        "kind": "dot",
+        "amount": 36,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "bloodsail_deckmaster": [
+      {
+        "name": "Belaying Pin",
+        "kind": "damage",
+        "amount": 130,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drive Them On",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": 26
+          }
+        }
+      },
+      {
+        "name": "Hold The Deck",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 30
+        },
+        "self_only": true
+      }
+    ],
+    "bloodsail_reaver": [
+      {
+        "name": "Gutting Hook",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Throat Cut",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Deep Bleed",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "bloodsail_stormcaller": [
+      {
+        "name": "Squall Bolt",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Breaking Wave",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Soaked",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "fire_resistance": -30
+        }
+      }
+    ],
+    "bosun_harl_greave": [
+      {
+        "name": "Bosun's Starter",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Crack of the Rope",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lay About You",
+        "kind": "damage",
+        "amount": 104,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rally the Watch",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 8,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 34
+        },
+        "self_only": true
+      }
+    ],
+    "topman_yanni_sear": [
+      {
+        "name": "Drop from the Rigging",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Rigging Knife",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Swing Across",
+        "kind": "damage",
+        "amount": 128,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cut the Lines",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -38
+        }
+      }
+    ],
+    "first_mate_oskar_vane": [
+      {
+        "name": "First Mate's Sabre",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Press-Gang Shove",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Clear the Hatchway",
+        "kind": "damage",
+        "amount": 116,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "No One Passes",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 44
+        },
+        "self_only": true
+      }
+    ],
+    "captain_ruel_scuttler": [
+      {
+        "name": "Scuttler's Cutlass",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Pistol at the Belt",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Cabin",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rusted Blade",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Fight for the Ship",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "stat_mods": {
+          "attack_power": 50
+        },
+        "self_only": true
+      }
+    ],
+    "shorebreaker_teska_vohl": [
+      {
+        "name": "Shorebreaker's Maul",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Drive Into the Sand",
+        "kind": "damage",
+        "amount": 144,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wave Over the Neck",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Footing Gone",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -40
+        }
+      }
+    ],
+    "quartermaster_ilsa_renn": [
+      {
+        "name": "Quartermaster's Carbine",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Run Up the Signal",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -36
+        }
+      },
+      {
+        "name": "Broadside from the Anchorage",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Splinter Wounds",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "mastmaster_corbin_ake": [
+      {
+        "name": "Marlinspike",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Down the Backstay",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Let Fall the Yard",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Tangled in the Sheets",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -42
+        }
+      }
+    ],
+    "powdermaster_juno_felk": [
+      {
+        "name": "Scattering Charge",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Slow Match",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "The Whole Magazine",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Burning Wadding",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "keelwarden_orso_brann": [
+      {
+        "name": "Keelwarden's Maul",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Against the Bulkhead",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shake Her Timbers",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Set Against the Door",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "defense_rating": 52
+        },
+        "self_only": true
+      }
+    ],
+    "admiral_hedessa_crane": [
+      {
+        "name": "Admiral's Rime",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hoarfrost Lash",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "The Cold Off the Water",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Still the Blood",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -30,
+          "agility": -40
+        }
+      },
+      {
+        "name": "The Fleet Does Not Strike",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "stat_mods": {
+          "spell_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "fleet_captain_orin_dace": [
+      {
+        "name": "Fleet-Captain's Sabre",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Run Him Through",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Across the Cabin",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Opened Up",
+        "kind": "dot",
+        "amount": 62,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Hold Her Cabin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "stat_mods": {
+          "attack_power": 64
+        },
+        "self_only": true
+      }
     ]
   }
 }

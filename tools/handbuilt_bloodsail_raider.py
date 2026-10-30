@@ -62,21 +62,30 @@ DECK_PACKS = [
     (72, 29, 39, ["Bloodsail Cannoneer", "Bloodsail Swab", "Bloodsail Swab"]),
     # ---- past Greave. These sit FORWARD of the midpoint between the two bosses, or path distance
     # assigns them to Greave and Sear gets no approach at all.
-    (44, 40, 40, ["Bloodsail Bosun", "Bloodsail Swab", "Bloodsail Cannoneer"]),
+    (40, 40, 40, ["Bloodsail Bosun", "Bloodsail Swab", "Bloodsail Cannoneer"]),
     (36, 29, 40, ["Bloodsail Swab", "Bloodsail Cannoneer", "Bloodsail Swab"]),
     (30, 40, 41, ["Bloodsail Bosun", "Bloodsail Swab", "Bloodsail Swab"]),
 ]
-DECK_BOSS_AT = {"Bosun Harl Greave": (72, 35), "Topman Yanni Sear": (20, 35)}
+DECK_BOSS_AT = {"Bosun Harl Greave": (68, 35), "Topman Yanni Sear": (20, 35)}
+#: (station x, gap y_lo, y_hi) - the gaps the two deck bosses hold.
+DECK_BARRICADES = [(60, 33, 37), (28, 33, 37)]
 
 HOLD_PACKS = [
     (25, 31, 40, ["Bloodsail Swab", "Bloodsail Swab", "Bloodsail Bosun"]),
     (31, 39, 40, ["Bloodsail Cannoneer", "Bloodsail Swab", "Bloodsail Swab"]),
     (37, 31, 41, ["Bloodsail Swab", "Bloodsail Bosun", "Bloodsail Cannoneer"]),
     # ---- past Vane, and AFT of the midpoint between him and the Captain, for the same reason.
-    (68, 39, 41, ["Bloodsail Cannoneer", "Bloodsail Swab", "Bloodsail Swab"]),
+    (74, 39, 41, ["Bloodsail Cannoneer", "Bloodsail Swab", "Bloodsail Swab"]),
     (76, 31, 42, ["Bloodsail Bosun", "Bloodsail Cannoneer", "Bloodsail Swab"]),
     (80, 39, 42, ["Bloodsail Swab", "Bloodsail Swab", "Bloodsail Bosun"]),
 ]
+#: IN THEIR OWN COMPARTMENTS, not jammed in the doorways. I had moved every boss into a doorway
+#: and narrowed every doorway to the three tiles a boss covers, so that none of them could be run
+#: past. Kyle, on seeing it: "in all honesty, if people want to skip bosses they can. just need to
+#: make sure that we have trash mobs too. if people wanna miss loot chances thats fine. we have
+#: optional bosses in dungeons already." Which is the right call and a better game - a boss you
+#: cannot decline is a toll, not an encounter. The bulkheads stay, because compartments are what
+#: give the hold its pulls, and the pulls are the part he does want.
 HOLD_BOSS_AT = {"First Mate Oskar Vane": (44, 35), "Captain Ruel Scuttler": (88, 35)}
 
 #: (station x, doorway y_lo, y_hi). Alternating sides, so the run aft zigzags. Each one is checked
@@ -135,6 +144,17 @@ def build_raider_deck():
     b.pillar(78, 40, size=2)
     b.pillar(72, 24, size=2)
 
+    # TWO BARRICADES ACROSS HER, each with one gap. They went in to stop the deck bosses being
+    # walked round and they stay now that that is no longer required, because what they really do
+    # is give an open deck some pull structure - the gap is a pull point, and the stretch between
+    # two of them is a room. Lashed cargo and gun tackle rather than a wall: a fighting deck
+    # somebody has made defensible in a hurry.
+    for (station, lo, hi) in DECK_BARRICADES:
+        closed = sb.choke(b, "x", station, lo, hi, base="dirt")
+        if closed < 8:
+            raise AssertionError(f"{zone.name}: barricade at x={station} closed only {closed} "
+                                 f"tiles - the gap is as wide as the deck there")
+
     for (px, py) in (D_IN, D_HATCH):
         zone.collision_layer[py][px] = None
         L.mark("portal", px, py)
@@ -143,7 +163,8 @@ def build_raider_deck():
     zone.boss_position = zone.boss_positions[0][:2]
     for (x, y, n) in zone.boss_positions:
         L.mark("boss_marker", x, y)
-    zone.trash_spawns = sb.place_packs(zone, DECK_PACKS)
+    zone.trash_packs = sb.place_packs(zone, DECK_PACKS)
+    zone.trash_spawns = [m for pack in zone.trash_packs for m in pack]
 
     zone.add_subzone("The Bloodsail Raider", 0, 0, W, H)
     zone.add_subzone("The Quarterdeck", 78, 24, 30, 24)
@@ -213,7 +234,8 @@ def build_raider_hold():
     zone.boss_position = zone.boss_positions[0][:2]
     for (x, y, n) in zone.boss_positions:
         L.mark("boss_marker", x, y)
-    zone.trash_spawns = sb.place_packs(zone, HOLD_PACKS)
+    zone.trash_packs = sb.place_packs(zone, HOLD_PACKS)
+    zone.trash_spawns = [m for pack in zone.trash_packs for m in pack]
 
     zone.add_subzone("The Raider's Hold", 0, 0, W, H)
     zone.add_subzone("The Cable Tier", 12, 24, 20, 22)

@@ -5634,6 +5634,9 @@ def create_all_zones():
     from tools import handbuilt_weeping_ice as dwi
     from tools import handbuilt_southern_needles as dsn
     from tools import handbuilt_drowning_floor as ddf
+    from tools import handbuilt_return_voyage as drv
+    from tools import handbuilt_bloodsail_raider as dbr
+    from tools import handbuilt_bloodsail_galleon as dbg
     from tools import handbuilt_freewind_post as dfw
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
@@ -5741,6 +5744,17 @@ def create_all_zones():
         "Shadowfang Keep": dsfk.generate_shadowfang_keep(),  # stepped castle (tools/handbuilt_shadowfang_keep.py)
         "Ambermill Tower": dat.generate_ambermill_tower(),  # tower climb (tools/handbuilt_ambermill_tower.py)
         "Shadowpine Altar": dsa.generate_shadowpine_altar(),  # serpentine ritual caves (tools/handbuilt_shadowpine_altar.py)
+
+        # ===== THE RETURN VOYAGE - the crossing home from Booty Bay, and what is waiting on it =====
+        # Reached ONLY by sailing Booty Bay -> Ratchet; the southbound trip is still a direct boat.
+        # See tools/handbuilt_return_voyage.py for why that asymmetry is the whole idea.
+        "The Crossing": drv.generate_the_crossing(),           # the hub: our own deck, 4 ways off
+        "The Bloodsail Raider": dbr.generate_raider_deck(),    # 38-42 (tools/handbuilt_bloodsail_raider.py)
+        "The Raider's Hold": dbr.generate_raider_hold(),       # 38-42
+        "The Bloodsail Anchorage": dbg.generate_anchorage(),   # 47-48 (tools/handbuilt_bloodsail_galleon.py)
+        "The Galleon's Weather Deck": dbg.generate_galleon_deck(),   # 49
+        "The Galleon's Hold": dbg.generate_galleon_hold(),           # 50
+        "The Captain's Cabin": dbg.generate_cabin(),                 # 52, the double boss
     }
 
     # Caves are real maps now, not just encounter-table keys. Each is keyed

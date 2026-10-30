@@ -328,7 +328,50 @@ class PortalManager:
             },
             "Booty Bay": {
                 (35, 4): ("Southern Stranglethorn", 36, 150),
-                (64, 34): ("Ratchet", 62, 32),                  # the boat: lands on the main pier head
+                # THE ASYMMETRY. Ratchet -> Booty Bay is still the direct boat (see "Ratchet"
+                # above, unchanged). Booty Bay -> Ratchet is not: you arrive ON the boat,
+                # mid-crossing, with two Bloodsail ships on you. Going south is travel; coming
+                # north is an event, and a player who has only ever sailed one way never learns
+                # this is here. tools/verify_return_voyage.py asserts BOTH directions, so a later
+                # tidy-up cannot quietly make them symmetrical again.
+                (64, 34): ("The Crossing", 98, 50),             # arrive aft, the way we came
+            },
+
+            # ===== THE RETURN VOYAGE =====
+            # The hub, and the two Bloodsail ships on it (tools/handbuilt_return_voyage.py,
+            # handbuilt_bloodsail_raider.py, handbuilt_bloodsail_galleon.py).
+            "The Crossing": {
+                (24, 50): ("Ratchet", 62, 32),                  # forward, on to Ratchet
+                (98, 50): ("Booty Bay", 64, 34),                # aft, back the way we came
+                (58, 32): ("The Bloodsail Raider", 94, 35),     # the north plank
+                (60, 80): ("The Bloodsail Anchorage", 54, 112), # off the sand bar
+            },
+            "The Bloodsail Raider": {
+                (94, 35): ("The Crossing", 58, 32),
+                (18, 35): ("The Raider's Hold", 18, 35),        # the bow hatch, down
+            },
+            "The Raider's Hold": {
+                (18, 35): ("The Bloodsail Raider", 18, 35),     # back up the hatch
+                # THE LAP CLOSES HERE. The cabin is under the quarterdeck you boarded over, so the
+                # tile past the Captain comes out on our own deck - Kyle: "another portal right
+                # after the last boss that returns us to our ship so we don't back pedal".
+                (92, 35): ("The Crossing", 58, 32),
+            },
+            "The Bloodsail Anchorage": {
+                (54, 112): ("The Crossing", 60, 80),
+                (48, 30): ("The Galleon's Weather Deck", 52, 56),   # up the ramp, amidships
+            },
+            "The Galleon's Weather Deck": {
+                (52, 56): ("The Bloodsail Anchorage", 48, 30),
+                (24, 40): ("The Galleon's Hold", 24, 40),       # the forward hatch
+            },
+            "The Galleon's Hold": {
+                (24, 40): ("The Galleon's Weather Deck", 24, 40),
+                (110, 40): ("The Captain's Cabin", 30, 42),     # the cabin door, aft
+            },
+            "The Captain's Cabin": {
+                (30, 42): ("The Galleon's Hold", 110, 40),
+                (30, 12): ("The Crossing", 60, 80),             # the stern gallery, home
             },
 
             # ===== ASHENVALE / SILVERPINE / FENRIS ISLE CHAIN =====
