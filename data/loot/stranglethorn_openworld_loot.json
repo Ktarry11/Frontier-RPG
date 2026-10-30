@@ -1,5 +1,5 @@
 {
-  "_notes": "Stranglethorn open-world named-rare loot (2026-10-29). ONE item drops per kill from the rare's pool of four. item_level = creature level + 3. Budget checked by audit() in tools/build_stranglethorn_content.py. Rares are never quested, and nothing here carries magic resistance (the floor for that is level 45) or any crafting material.",
+  "_notes": "Stranglethorn open-world named-rare loot (2026-10-29). ONE item drops per kill from the rare's pool (four, or five where a strength-leather piece was added 29 Oct 2026 - Barbarian had no leather above ilvl 40). item_level = creature level + 3. Budget checked by audit() in tools/build_stranglethorn_content.py. Rares are never quested, and nothing here carries magic resistance (the floor for that is level 45) or any crafting material.",
   "Mistvale Longjaw": [
     {
       "name": "Longjaw's Tooth-Knife",
@@ -326,6 +326,21 @@
       "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 87
+    },
+    {
+      "name": "Crate-Hauler's Belt",
+      "slot": "waist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Worn by whoever was carrying it, before it started carrying itself.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 54
     }
   ],
   "Ssaren the Salvage-Taker": [
@@ -396,6 +411,21 @@
       },
       "armor_type": "plate",
       "armor_value": 269
+    },
+    {
+      "name": "Salvage-Hauler's Hood",
+      "slot": "head",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "flavor_text": "The stitching at the crown is a repair. So is the repair.",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 84
     }
   ],
   "Captain Orlee Vantch": [
@@ -466,6 +496,21 @@
       },
       "armor_type": "mail",
       "armor_value": 137
+    },
+    {
+      "name": "Bar-Hauler's Jerkin",
+      "slot": "chest",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Salt-stiff across the shoulders from hauling a line that did not want hauling.",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 114
     }
   ]
 }
