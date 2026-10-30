@@ -223,6 +223,46 @@ QUEST_TOPICS = {
 }
 
 
+# --------------------------------------------------------------------------------------------------
+# PER-ZONE TOPIC MODULES
+#
+# Everything above is authored directly in this file, which was fine while six quests used dialogue.
+# It does not survive several content passes running at once: three authors appending to one dict in
+# one file is a merge conflict at best and a silently dropped zone at worst, and the Stranglethorn
+# passes all skipped dialogue objectives entirely rather than touch this file - which is why 56
+# quests across three zones use four objective types out of seven.
+#
+# So a zone can own its own module instead. Drop a world/quest_dialogue_<zone>.py exporting a
+# QUEST_TOPICS dict in exactly the shape above, add its name below, and it merges in at import.
+# Nobody edits anybody else's file and the races are gone.
+#
+# A later module silently overwriting an earlier module's quest would be the same class of invisible
+# bug this codebase keeps producing, so a collision raises instead.
+# --------------------------------------------------------------------------------------------------
+_ZONE_TOPIC_MODULES = (
+    "stranglethorn_north",
+    "stranglethorn_central",
+    "stranglethorn_south",
+)
+
+for _mod_name in _ZONE_TOPIC_MODULES:
+    try:
+        _mod = __import__(f"world.quest_dialogue_{_mod_name}", fromlist=["QUEST_TOPICS"])
+    except ImportError:
+        # A zone listed before its content lands is normal, not an error. get_topic returns None
+        # for unauthored topics by design, and the dialogue screen renders no button for them.
+        continue
+    for _qid, _topics in getattr(_mod, "QUEST_TOPICS", {}).items():
+        if _qid in QUEST_TOPICS:
+            raise RuntimeError(
+                f"quest_dialogue: {_qid} is defined in both quest_dialogue_{_mod_name} and an "
+                f"earlier source. Topic content is keyed by quest_id, so one would silently "
+                f"replace the other."
+            )
+        QUEST_TOPICS[_qid] = _topics
+del _mod_name
+
+
 def get_topic(quest_id, topic_id):
     """The {"label", "response"} dict for one topic, or None if this
     quest/topic_id combination has no authored content - callers should
