@@ -67,7 +67,9 @@ THE EARTH-TRANSPLANT UNDERCURRENT - NINE OF THIRTY, and never the subject of any
 THE CURRENT NINE, for anybody reading this before the two revision blocks below: stvc_tout_entry,
 stvc_tout_staked, stvc_ulua_netsetter, stvc_arena_favourite, stvc_scrip_drums from the first eighteen,
 and stvc_notch_tithe, stvc_centre_gate, stvc_sluice_book, stvc_reed_verdict from the second twelve.
-Four of the original nine came out (stvc_ganger_cut, stvc_arena_first_four, stvc_fenn_weather and
+stvc_fenn_weather IS ONE OF THE NINE AND IS EXEMPT FROM BEING TRIMMED - it is the only warm one and it
+has already been cut once and restored; the block headed with his id below says why in full.
+Four of the original nine came out (stvc_ganger_cut, stvc_arena_first_four, stvc_tout_entry and
 stvc_zuljana_names, the last of which was a miscount rather than a note) - see THE 18 -> 30 PASS
 REVISED THIS DOWNWARD, below, which has the reasoning per quest.  What follows immediately is the FIRST
 pass's rationale, kept because it is why each surviving note exists.
@@ -133,23 +135,40 @@ TWO MORE WENT, AND THE ZONE LANDS ON NINE OF THIRTY - 30% exactly, which is the 
 which Northern and Southern are both held to as well.  The second pair came out differently from the
 first, and the difference is the point:
 
-  stvc_fenn_weather      THE ONLY ONE THAT COST SOMETHING.  Ordek's question was "where you're from,
-                         does the rain come in a season" and it is now "you came down the road out of
-                         the north, and the north has weather I have only ever been told about".  The
-                         clause could not simply be deleted - it is the quest's engine, it is why he
-                         asks anything at all, and the turn-in answers it - so it was re-aimed instead:
-                         same man, same warmth, same discovery that his moss is a waterfall plant and
-                         he has been pricing it as common for two years.  What is lost is that he was
-                         the EXCEPTION, the one person openly fine with an off-worlder, and the reason
-                         the remaining notes read as deliberate rather than as the writer's mood.  He
-                         is now warm about a traveller instead.  That is a real loss and it is written
-                         down here rather than quietly absorbed.
+  stvc_tout_entry        THE CHEAPEST CUT IN THE SET, because stvc_tout_staked two quests later works
+                         the same seam and works it better.  Bexxil's "nobody down here knows what you
+                         people can do ... nobody has a form line on you lot" is now "nobody down here
+                         has a form line on you.  The rim prices a stranger generously and a known
+                         quantity honestly, and I have never once made a living off honest."  The
+                         quest's spine is untouched - she still staked somebody she has never watched
+                         fight because an unpriced fighter is where a bookmaker's margin is - and the
+                         goblin is arguably sharper for having to say it about a stranger rather than
+                         about a world.  Nothing in the description or the turn-in changed.
   stvc_zuljana_names     COST NOTHING, BECAUSE IT WAS NEVER AN EARTH NOTE.  Read it again: the tension
                          in it is Zul'jana against a HORDE GARRISON that calls her jungle's cave "the
                          waterfall cave" - the camp, not the player.  Its only Integration marker was
                          an accident of arithmetic, her tenure written as "three years", and fixing
                          that fixed the count without a word of the quest changing.  The first pass
                          listing it among the nine was a miscount, not a trim.
+
+=========================================================================================================
+stvc_fenn_weather IS EXEMPT FROM EARTH TRIMMING.  DO NOT CUT IT TO HIT A NUMBER.
+=========================================================================================================
+It has already been cut once and put back, which is the reason this block exists in capitals.  Under a
+density target Ordek Fenn looks like the cheapest note in the zone: one question, one clause, deletable.
+He is the opposite.  He is the only person in thirty quests who is openly, warmly fine with an
+off-worlder, and the other eight notes are read AGAINST him - a zone where every single mention is
+resentment is as flat as a zone with none, and reads as one writer in one mood rather than as a world
+with a range of opinion in it.  Kyle, 2026-10-30, after the cut was made and reversed: "Fenn being
+openly fine with an off-worlder is not a quest I was trying to reduce - it is the thing that makes the
+other eight read as deliberate."
+
+His clause is also load-bearing INSIDE the quest.  He asks because his whole trade assumes a wet month
+and a dry month, and the turn-in answers the question he asked; re-aiming it at "the north" kept the
+quest standing but turned the exception into a man who is warm about a traveller, which is not the same
+instrument.  So: if a future pass needs this zone's Earth count lower, the honest places to look are
+the five notes listed in THE CURRENT NINE that are neither Fenn nor one of the four the second pass
+built on purpose.  Not him.
 
 THE TWO TENURES, which are a correction and not a workaround.  claude/integration_timeline.md is
 explicit that a tenure may be any length, because the natives and their institutions were here before
@@ -449,9 +468,9 @@ def vine_road():
         "The drovers are running undersized stock into the crates and signing it in at weight. Thin "
         "card, thin crowd, thin money, and I am the one holding paper on a thin afternoon.\n\nNine of "
         "the drovers and four of their tallies. And before you ask why I bet on somebody I have never "
-        "watched fight - that is the entire reason. Nobody down here knows what you people can do. Not "
-        "knowing is where my money lives. Nobody has a form line on you lot, and the rim likes "
-        "that in a fighter more than it likes a fighter.",
+        "watched fight - that is the entire reason. Nobody down here has a form line on you. The rim "
+        "prices a stranger generously and a known quantity honestly, and I have never once made a "
+        "living off honest.",
         "You did it where they could see you.\n\nThe price came in. Do you understand what that means? "
         "The price coming in is the money going out, and the money was going to come to me.\n\nI have "
         "had to put my own purse on you to hold the line. That is not a compliment. That is a "
@@ -495,13 +514,11 @@ def basin():
         [gather("veilfall_spray_moss", 7), k("Snapjaw Leechswarm", 8)],
         "There is a band of moss along the lip where the spray reaches and nowhere else - seven good "
         "handfuls would do me the season. Mind the leeches in the slack water under the pool. Eight of "
-        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: you came "
-        "down the road out of the north, and the north has weather I have only ever been told about. Does "
-        "the rain come in a season up there, or does it come all year? Everything I know about a plant "
-        "assumes a wet month and a dry month. If there is country that rains all year round then half of "
-        "what I know is local, and I would very much like to find out which half.",
-        "A season up there too, then. Good. That is one thing I do not have to throw out.\n\nNow the "
-        "moss. Look at "
+        "them and the shallows are yours.\n\nAnd while you are gone, think about this for me: where "
+        "you're from, does the rain come in a season, or does it come all year? Everything I know about a "
+        "plant assumes a wet month and a dry month. If it rains all year where you came from then half "
+        "of what I know is local, and I would very much like to find out which half.",
+        "A season, then. Good. That is one thing I do not have to throw out.\n\nNow the moss. Look at "
         "where you picked it - only the band. Only where the water reaches.\n\nThat is not a jungle "
         "plant. That is a waterfall plant, and there is one waterfall. I have been selling it to the "
         "camp as common for two years and pricing it accordingly, and I have just made myself "

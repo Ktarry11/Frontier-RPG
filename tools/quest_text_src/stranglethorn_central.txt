@@ -128,8 +128,8 @@ D: Tout Bexxil works the board, and the board is in Booty Bay, nailed up inside 
 A: The drovers are running undersized stock into the crates and signing it in at weight. Thin card, thin crowd,
    thin money, and I am the one holding paper on a thin afternoon. Nine of the drovers and four of their tallies.
    And before you ask why I bet on somebody I have never watched fight - that is the entire reason. Nobody down
-   here knows what you people can do. Not knowing is where my money lives. Nobody has a form line on you lot, and
-   the rim likes that in a fighter more than it likes a fighter.
+   here has a form line on you. The rim prices a stranger generously and a known quantity honestly, and I have
+   never once made a living off honest.
 T: You did it where they could see you. The price came in. Do you understand what that means? The price coming in
    is the money going out, and the money was going to come to me. I have had to put my own purse on you to hold the
    line. That is not a compliment. That is a relationship, and you did not agree to it, and neither did I.
@@ -160,11 +160,10 @@ D: Ordek Fenn has had a drying rack and a tarp on the dry shoulder of the Veilfa
    jungle.
 A: There is a band of moss along the lip where the spray reaches and nowhere else - seven good handfuls would do me
    the season. Mind the leeches in the slack water under the pool. Eight of them and the shallows are yours. And
-   while you are gone, think about this for me: you came down the road out of the north, and the north has weather
-   I have only ever been told about. Does the rain come in a season up there, or does it come all year? Everything
-   I know about a plant assumes a wet month and a dry month. If there is country that rains all year round then
-   half of what I know is local, and I would very much like to find out which half.
-T: A season up there too, then. Good. That is one thing I do not have to throw out. Now the moss. Look at where you picked it -
+   while you are gone, think about this for me: where you're from, does the rain come in a season, or does it come
+   all year? Everything I know about a plant assumes a wet month and a dry month. If it rains all year where you
+   came from then half of what I know is local, and I would very much like to find out which half.
+T: A season, then. Good. That is one thing I do not have to throw out. Now the moss. Look at where you picked it -
    only the band. Only where the water reaches. That is not a jungle plant. That is a waterfall plant, and there is
    one waterfall. I have been selling it to the camp as common for two years and pricing it accordingly, and I have
    just made myself considerably poorer by asking you a question.
@@ -411,11 +410,19 @@ T: Clerk Bexx looks at it for less time than it takes to say the number. 'Mine. 
 #
 # THE TRIMS, PART TWO (same day). Kyle's 30% is per zone, so two more came out and the zone lands on
 # NINE of thirty exactly:
-#   stvc_fenn_weather ..... Ordek's "where you're from, does the rain come in a season" is now "you came
-#                           down the road out of the north". The clause could not be deleted - it is the
-#                           quest's engine and the turn-in answers it - so it was re-aimed. Cost: he was
-#                           the EXCEPTION, the one person openly fine with an off-worlder. He is now warm
-#                           about a traveller. Written down rather than quietly absorbed.
+#   stvc_tout_entry ....... the cheapest cut in the set: stvc_tout_staked works the same seam two quests
+#                           later and works it better. "nobody has a form line on you lot" is now "nobody
+#                           down here has a form line on you. The rim prices a stranger generously and a
+#                           known quantity honestly, and I have never once made a living off honest."
+#                           Her spine is untouched - she staked an unpriced fighter because that is where
+#                           margin is - and the goblin is sharper for it.
+#
+#   stvc_fenn_weather ..... WAS CUT AND HAS BEEN PUT BACK, WORD FOR WORD. DO NOT TAKE HIM AGAIN. He is
+#                           the only person in thirty quests who is warmly fine with an off-worlder, and
+#                           the other eight notes are read against him: a zone where every mention is
+#                           resentment is as flat as a zone with none. His question is also the quest's
+#                           engine - he asks because his trade assumes a wet month and a dry one, and the
+#                           turn-in answers it. The builder docstring has the long version.
 #   stvc_zuljana_names .... cost nothing, because it was never an Earth note - the tension in it is a
 #                           local troll against a HORDE GARRISON that calls her cave "the waterfall
 #                           cave". Its only Integration marker was her tenure written as three years.

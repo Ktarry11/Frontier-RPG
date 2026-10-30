@@ -59,6 +59,25 @@ _NOT_SENTIENT = re.compile(r"golem|elemental|wisp|spirit|skeleton|ghoul(?!master
                            r"wraith|hydra|faerie dragon|battleboar|abomination|amber sentinel|brood tender|chitterlord|"
                            r"resin spitter|shadow corruption|flame guardian|dryad", re.I)
 
+#: Animal head nouns. A name whose LAST word is one of these is an animal with a descriptive
+#: modifier, not a plant - "Sporelit Bat" is a bat that grows fungus, not a fungus shaped like a bat.
+#:
+#: WHY THIS IS NEEDED. Family is inferred from the name, and a plant keyword anywhere in the name
+#: wins outright. So Sporelit Bat classified as `plant`, and plants cannot be skinned: a level-31
+#: beast in Rotvine Hollow yielded no leather at all, with nothing to see but an empty corpse.
+#:
+#: WHY IT IS NOT JUST "AN EXPLICIT TEMPLATE BEATS A LOOSE KEYWORD", which is what this function
+#: already does for `elemental`: the templates are STAT templates, not family declarations. Ancient
+#: Treant, Verdan the Everliving and Fenrot Creeper are all `beast_large` because that is the stat
+#: block a big slow thing wants, and letting the template win would have made twelve treants,
+#: saplings and spore clouds skinnable. The head noun is the part of the name that says what the
+#: creature IS; everything before it is decoration. Of the fourteen collisions game-wide this flips
+#: exactly the two animals - Sporelit Bat and Sporeback Grazer - and leaves the twelve plants alone.
+_ANIMAL_HEAD = re.compile(
+    r"(bat|grazer|boar|ape|gorilla|panther|raptor|cat|wolf|bear|stag|hound|"
+    r"serpent|adder|python|toad|crab|beetle|spider|scorpion|moth|wasp|hornet|"
+    r"rat|hare|ox|kodo|ram|goat|bird|hawk|owl|vulture|eel|shark|turtle)s?$", re.I)
+
 _FAMILY_RULES = [
     (re.compile(r"brood tender|resin spitter|chitterlord|amber sentinel|hive weaver|carapace|silithid|brood|skitter|scorpid|spider|web|wasp|larva|drone|stinger|crawler|hatchling|"
                 r"weaver|husk crawler|egg tender|amberwing|nightcrawler|skulker|tunnel-guard|nest guardian", re.I), "insect"),
@@ -108,6 +127,13 @@ def classify(name, template=None):
             if fam == "elemental" and template in ("beast_basic", "beast_fast", "beast_large", "vermin_sneaky", "vermin_swarm"):
                 continue
             if fam == "beast" and template.startswith(("undead", "elemental", "demon")):
+                continue
+            # A plant keyword loses to an animal head noun on a beast/vermin stat template - see
+            # _ANIMAL_HEAD. Both conditions are required: the head noun says it is an animal, and
+            # the template says somebody built it as one.
+            if (fam == "plant" and _ANIMAL_HEAD.search(name)
+                    and template in ("beast_basic", "beast_fast", "beast_large",
+                                     "vermin_sneaky", "vermin_swarm")):
                 continue
             return fam, False
     return _TEMPLATE_FAMILY.get(template, "beast"), False
