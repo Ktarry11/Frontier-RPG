@@ -74,7 +74,7 @@ def main():
     def drawn(sprite):
         return sprite in CS.ALL_SPRITES or sprite in CS.VARIANTS
 
-    for _, s in CS.RULES:
+    for _, s, _only in CS.RULES:
         if not drawn(s):
             bad.append(f"a name rule returns {s!r}, which no sheet draws")
     for t, s in CS.TEMPLATE_FALLBACK.items():
@@ -111,7 +111,7 @@ def main():
                    f"being picked with something randomised per run, so a monster would change "
                    f"appearance every time the game restarts.")
 
-    named = sum(1 for n in cave if any(rx.search(n) for rx, _ in CS.RULES))
+    named = sum(1 for n in cave if any(rx.search(n) for rx, _s, _o in CS.RULES))
     print(f"{len(flat)} sprites over {len(CS.SHEETS)} sheets "
           f"{ {k: len(v) for k, v in CS.SHEETS.items()} }")
     print(f"  {len(cre)} creatures resolve; {len(cave)} are in caves, {named} of those "
