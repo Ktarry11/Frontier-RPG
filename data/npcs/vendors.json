@@ -182,7 +182,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -488,7 +488,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -865,7 +865,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs — close enough business."
+      "greeting": "Explosives, elixirs \u2014 close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -1040,7 +1040,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them — no questions."
+      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1213,7 +1213,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -3470,6 +3470,156 @@
       "gender": "male",
       "appearance_variant": 11,
       "greeting": "Mixed thin, because everything out here has to survive a cart.\n\nI came out with the second camp on a three-month contract. That was two years and two camps ago and nobody has ever mentioned the contract again, including me."
+    },
+    {
+      "vendor_id": "astranaar_weaponsmith",
+      "name": "Sentinel Weaponsmith",
+      "zone": "astranaar",
+      "x": 40,
+      "y": 53,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "guardian_elixir_standard",
+        "battle_elixir_standard",
+        "elixir_of_fortitude",
+        "meal_spiced_haunch",
+        "drink_honeyed_mead",
+        "sturdy_arrows",
+        "rough_arrows"
+      ],
+      "buys_from_player": true,
+      "faction": "alliance",
+      "gear_level": 26,
+      "sells_gear": true,
+      "race": "night_elf",
+      "appearance_variant": 4,
+      "greeting": "Sentinel issue. It is maintained, it is sharp, and I will know if you neglect it."
+    },
+    {
+      "vendor_id": "astranaar_outfitter",
+      "name": "Astranaar Outfitter",
+      "zone": "astranaar",
+      "x": 40,
+      "y": 60,
+      "tile_sprite": "npc",
+      "sells": [
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak",
+        "parchment",
+        "healing_potion_minor",
+        "meal_tough_jerky",
+        "drink_barley_beer"
+      ],
+      "buys_from_player": true,
+      "faction": "alliance",
+      "gear_level": 26,
+      "sells_gear": true,
+      "race": "night_elf",
+      "appearance_variant": 6,
+      "greeting": "Everything here is cut for someone who has to move in it. Try it before you buy it."
+    },
+    {
+      "vendor_id": "astranaar_provisioner",
+      "name": "Provisioner Shaldrissa",
+      "zone": "astranaar",
+      "x": 80,
+      "y": 55,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "meal_trailbread",
+        "meal_river_fish",
+        "drink_waterskin",
+        "drink_spring_flask"
+      ],
+      "buys_from_player": true,
+      "faction": "alliance",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "night_elf",
+      "appearance_variant": 9,
+      "greeting": "Food, water, and something for the pain. In that order, usually."
+    },
+    {
+      "vendor_id": "splintertree_quartermaster_shop",
+      "name": "Quartermaster Huln",
+      "zone": "splintertree_post",
+      "x": 67,
+      "y": 43,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "guardian_elixir_standard",
+        "battle_elixir_standard",
+        "elixir_of_fortitude",
+        "meal_spiced_haunch",
+        "drink_honeyed_mead",
+        "sturdy_arrows",
+        "rough_arrows"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 26,
+      "sells_gear": true,
+      "race": "tauren",
+      "appearance_variant": 3,
+      "greeting": "The Overseer signs for it, you carry it, and it comes back in one piece. That is the arrangement."
+    },
+    {
+      "vendor_id": "splintertree_provisioner",
+      "name": "Cook Grishna",
+      "zone": "splintertree_post",
+      "x": 64,
+      "y": 59,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "mana_potion_standard",
+        "meal_trailbread",
+        "meal_river_fish",
+        "drink_waterskin",
+        "drink_spring_flask"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 14,
+      "sells_gear": false,
+      "race": "orc",
+      "appearance_variant": 5,
+      "greeting": "Eat before you go out. I am not sending anybody into that forest hungry."
+    },
+    {
+      "vendor_id": "splintertree_supplier",
+      "name": "Supplier Vokk",
+      "zone": "splintertree_post",
+      "x": 72,
+      "y": 45,
+      "tile_sprite": "npc",
+      "sells": [
+        "vial_empty",
+        "thread_coarse",
+        "flux_weak",
+        "parchment",
+        "healing_potion_minor",
+        "meal_tough_jerky",
+        "drink_barley_beer"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "orc",
+      "appearance_variant": 8,
+      "greeting": "Rope, thread, flux, parchment. Unglamorous, and you will be back for all four."
     }
   ]
 }
