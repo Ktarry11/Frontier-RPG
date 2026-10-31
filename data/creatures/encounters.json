@@ -2291,6 +2291,21 @@
             "The Turnkey": 0,
             "Baron Aliden Perenolde": 0
           }
+        },
+        "The Frostward Descent": {
+          "name": "The Frostward Descent",
+          "creatures": {
+            "Frostward Prowler": 4,
+            "Hoarfrost Yeti": 3,
+            "Rime-Shelled Crawler": 3,
+            "Alterac Expeditionary": 3,
+            "Syndicate Deepscout": 2,
+            "Lattice Crawler": 3,
+            "Shardling": 3,
+            "Hoarfang": 0,
+            "The Frozen Cartographer": 0,
+            "Latticeborn": 0
+          }
         }
       }
     },
@@ -2305,36 +2320,6 @@
           "Syndicate Deepscout": 2,
           "Lattice Crawler": 3,
           "Shardling": 3
-        }
-      },
-      "subzones": {
-        "The Frozen Course": {
-          "name": "The Frozen Course",
-          "creatures": {
-            "Hoarfrost Yeti": 5,
-            "Frostward Prowler": 4,
-            "Rime-Shelled Crawler": 3,
-            "Hoarfang": 0
-          }
-        },
-        "The Seam": {
-          "name": "The Seam",
-          "creatures": {
-            "Alterac Expeditionary": 4,
-            "Syndicate Deepscout": 3,
-            "Lattice Crawler": 2,
-            "Rime-Shelled Crawler": 2,
-            "The Frozen Cartographer": 0
-          }
-        },
-        "The Lattice Deeps": {
-          "name": "The Lattice Deeps",
-          "creatures": {
-            "Lattice Crawler": 5,
-            "Shardling": 3,
-            "Syndicate Deepscout": 2,
-            "Latticeborn": 0
-          }
         }
       }
     },
@@ -2739,17 +2724,7 @@
             "Zul'gar Hammerfall": 0,
             "Jen'shala, the House Favourite": 0
           }
-        }
-      }
-    },
-    "Gurbashi Arena": {
-      "open_zone": {
-        "name": "Gurbashi Arena",
-        "creatures": {}
-      }
-    },
-    "Northern Stranglethorn": {
-      "caves": {
+        },
         "Rotvine Hollow": {
           "name": "Rotvine Hollow",
           "creatures": {
@@ -2761,8 +2736,40 @@
             "Rootmaw": 0,
             "Hap'ka the Drowned": 0
           }
+        },
+        "Veilfall Cave": {
+          "name": "Veilfall Cave",
+          "creatures": {
+            "Zul'Rath Shrinekeeper": 4,
+            "Veilfall Limeback": 3,
+            "Limewing Bat": 3,
+            "Zul'Rath Mistcaller": 3,
+            "Spraywater Elemental": 2,
+            "Veilspeaker Zul'Rath": 0,
+            "Sheetfall": 0
+          }
+        },
+        "The Drowned Shrine": {
+          "name": "The Drowned Shrine",
+          "creatures": {
+            "Saltscale Myrmidon": 4,
+            "Kundaraz Tidecaller": 3,
+            "Terrace Reefclaw": 3,
+            "Sunken Court Drowned": 3,
+            "Brinefang Eel": 2,
+            "Tide-Priestess Myzrai": 0,
+            "Saltgorge": 0
+          }
         }
-      },
+      }
+    },
+    "Gurbashi Arena": {
+      "open_zone": {
+        "name": "Gurbashi Arena",
+        "creatures": {}
+      }
+    },
+    "Northern Stranglethorn": {
       "open_zone": {
         "name": "Northern Stranglethorn",
         "creatures": {
@@ -2828,20 +2835,6 @@
       }
     },
     "Central Stranglethorn": {
-      "caves": {
-        "Veilfall Cave": {
-          "name": "Veilfall Cave",
-          "creatures": {
-            "Zul'Rath Shrinekeeper": 4,
-            "Veilfall Limeback": 3,
-            "Limewing Bat": 3,
-            "Zul'Rath Mistcaller": 3,
-            "Spraywater Elemental": 2,
-            "Veilspeaker Zul'Rath": 0,
-            "Sheetfall": 0
-          }
-        }
-      },
       "open_zone": {
         "name": "Central Stranglethorn",
         "creatures": {
@@ -2907,20 +2900,6 @@
       }
     },
     "Southern Stranglethorn": {
-      "caves": {
-        "The Drowned Shrine": {
-          "name": "The Drowned Shrine",
-          "creatures": {
-            "Saltscale Myrmidon": 4,
-            "Kundaraz Tidecaller": 3,
-            "Terrace Reefclaw": 3,
-            "Sunken Court Drowned": 3,
-            "Brinefang Eel": 2,
-            "Tide-Priestess Myzrai": 0,
-            "Saltgorge": 0
-          }
-        }
-      },
       "open_zone": {
         "name": "Southern Stranglethorn",
         "creatures": {
