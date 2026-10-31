@@ -73,22 +73,35 @@ class CharacterCreationScreen(BaseScreen):
         # Button positions - 5-column grid so the roster fits within
         # SCREEN_WIDTH without overflowing like a single row would. Rows are
         # derived from the class count, so adding CoA classes just adds rows.
+        # THE SCREEN OUTGREW ITS LAYOUT. This grid was laid out for a shorter class list using the
+        # global BUTTON_WIDTH/HEIGHT (200x50); at 30 classes that is six rows running y=170 to
+        # 520, and the stats preview is drawn at a hard-coded y=350 - straight through rows four,
+        # five and six. The preview sat on top of three class buttons, which is what Kyle saw.
+        #
+        # So the grid uses its OWN button size rather than the global one. The global is right
+        # for screens with a handful of buttons and wrong for a 30-cell grid, and bending the
+        # global to suit this screen would have shrunk every button in the game.
         self.class_buttons = []
         columns = 5
-        grid_start_x = 60
-        grid_start_y = 170
-        col_spacing = BUTTON_WIDTH + BUTTON_PADDING
-        row_spacing = BUTTON_HEIGHT + BUTTON_PADDING
+        grid_start_x = 40
+        grid_start_y = 135
+        cls_btn_w, cls_btn_h = 170, 42
+        col_spacing = cls_btn_w + 8
+        row_spacing = cls_btn_h + 6
+        self.class_btn_size = (cls_btn_w, cls_btn_h)
         for i, _ in enumerate(self.classes):
             row = i // columns
             col = i % columns
             btn = pygame.Rect(
                 grid_start_x + (col * col_spacing),
                 grid_start_y + (row * row_spacing),
-                BUTTON_WIDTH,
-                BUTTON_HEIGHT
+                cls_btn_w,
+                cls_btn_h
             )
             self.class_buttons.append(btn)
+        #: Where the stats preview goes: to the RIGHT of the grid, not through it. Computed from
+        #: the grid's real right edge so adding a class row can never push the grid under it.
+        self.stats_preview_pos = (grid_start_x + columns * col_spacing + 20, grid_start_y)
 
         # Appearance controls sit in the strip between the class stat
         # preview box (draw_character_box: y=350..550) and the create
@@ -99,7 +112,7 @@ class CharacterCreationScreen(BaseScreen):
         # exist. See create_button's own position below, computed to
         # leave appearance_y a genuine ~70px band.
         appearance_x = grid_start_x
-        appearance_y = 560
+        appearance_y = 452
         self.appearance_x = appearance_x
         self.appearance_y = appearance_y
 
@@ -363,10 +376,17 @@ class CharacterCreationScreen(BaseScreen):
         for i, sz in enumerate(self.available_starts):
             color = (150, 200, 150) if i == self.selected_start_index else COLOR_DARK_GRAY
             self.renderer.draw_button(screen, self.start_buttons[i], sz.label, color=color)
-        # One line of what the place actually is, so the choice means something before you take it.
-        self.renderer.draw_text(screen, self._current_start().blurb,
-                                (self.start_x, self.appearance_y + 42), color=(150, 150, 160),
-                                size="small")
+        # What the place actually is, so the choice means something before you take it.
+        # WRAPPED, because it did not fit: both blurbs run past the right edge of the screen on
+        # one line (Deathknell's by ~190px) and were being drawn straight off it. The width here
+        # is the real space between this column and the screen edge rather than a guess, so a
+        # longer blurb wraps instead of silently vanishing.
+        blurb_w = SCREEN_WIDTH - 12 - self.start_x
+        for i, line in enumerate(self.renderer.wrap_text(
+                self._current_start().blurb, blurb_w, size="small")):
+            self.renderer.draw_text(screen, line,
+                                    (self.start_x, self.appearance_y + 42 + i * 16),
+                                    color=(150, 150, 160), size="small")
 
         # Variant cycle + live preview
         gender_option = self._current_gender_option()
@@ -392,7 +412,7 @@ class CharacterCreationScreen(BaseScreen):
         # Display selected class stats
         if 0 <= self.selected_class < len(self.classes):
             temp_char = Character("Preview", self.classes[self.selected_class])
-            self.renderer.draw_character_box(screen, temp_char, (SCREEN_WIDTH // 2 - 100, 350))
+            self.renderer.draw_character_box(screen, temp_char, self.stats_preview_pos)
         
         # Name field
         import pygame as _pg

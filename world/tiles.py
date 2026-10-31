@@ -290,10 +290,23 @@ def get_tile(tile_id):
     """Get tile properties by ID."""
     return TILES.get(tile_id)
 
+#: Every tile_id whose entry says walkable, resolved once.
+#:
+#: This is a hot path and the hotness is not obvious from here: generating the world calls it
+#: about 12.6 MILLION times, because every prop placement tests the tiles around a candidate
+#: spot and there are a hundred maps of them. At two function calls and two dict lookups each
+#: that was 17 of the 62 seconds the game took to reach its main menu.
+#:
+#: Safe to freeze because TILES is written once at import and never mutated anywhere in the
+#: codebase - no TILES[...] assignment, no .update, no .pop. If that ever stops being true this
+#: set has to be rebuilt with it, which is why it is stated here rather than left to be
+#: rediscovered.
+_WALKABLE_IDS = frozenset(tid for tid, t in TILES.items() if t and t.get("walkable", False))
+
+
 def is_walkable(tile_id):
     """Check if a tile is walkable."""
-    tile = get_tile(tile_id)
-    return tile.get("walkable", False) if tile else False
+    return tile_id in _WALKABLE_IDS
 
 def get_tile_color(tile_id):
     """Get display color for a tile."""
