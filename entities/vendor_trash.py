@@ -155,6 +155,29 @@ def _tier(level):
     return len(_config()["tiers"]) - 1, t
 
 
+def _band_suffix(level):
+    """Icon band for a creature level: "", "_t2" or "_t3".
+
+    THE BAND BOUNDARIES LIVE IN THE DATA, not here and not in the reskin tool, because both have
+    to agree about which levels get which art, and two copies of one rule is the bug this project
+    keeps re-finding. tools/reskin_vendor_trash_icons.py reads the same list.
+    """
+    for b in _config().get("icon_bands", []):
+        if level <= b["max_level"]:
+            return b["suffix"]
+    return ""
+
+
+def _icon_file(icon, level):
+    """The banded icon if that art exists, else the base art, else None. Never a broken path."""
+    if not icon:
+        return None
+    for cand in (f"{icon}{_band_suffix(level)}", icon):
+        if os.path.exists(os.path.join(_ICON_DIR, f"{cand}.png")):
+            return cand
+    return None
+
+
 def make_item(family, entry, level, element=None):
     """-> dict(item_id, name, price, icon_id, description) for one trash item at a creature level."""
     cfg = _config()
@@ -167,9 +190,12 @@ def make_item(family, entry, level, element=None):
         name = f"{cfg['elements'][element]} {name}"
         item_id = f"vt_{family}_{entry['id']}_{element}_{ti}"
         icon = f"{icon}_{element}"
-    if not name.startswith(tier["adjective"]):      # "Crude Idol" at the Crude tier stays "Crude Idol"
-        name = f"{tier['adjective']} {name}"
-    icon_id = icon if icon and os.path.exists(os.path.join(_ICON_DIR, f"{icon}.png")) else None
+    # A premium entry is already a named thing - "Gilded Death Mask", "Deepwater Pearl" - and
+    # stacking the tier word on top gives "Immaculate Gilded Death Mask", which is the adjective
+    # ladder eating the item's own identity. Those entries carry their name and take no prefix.
+    if not entry.get("no_adjective") and not name.startswith(tier["adjective"]):
+        name = f"{tier['adjective']} {name}"       # "Crude Idol" at the Crude tier stays as it is
+    icon_id = _icon_file(icon, level)
     # "Worth a few coppers" was written when the top tier paid 33 * 14 = 462c and was already a
     # lie then; a Peerless Core at level 55 sells for over eight silver. The line now scales with
     # what the thing is actually worth, because the description is the only place the player is
@@ -194,14 +220,25 @@ def icon_for_item_id(item_id):
         icon = entry.get("icon")
         if entry.get("element") and len(parts) >= 5:
             icon = f"{icon}_{parts[3]}"
-        if icon and os.path.exists(os.path.join(_ICON_DIR, f"{icon}.png")):
-            return icon
-        return None
+        # the tier index is the last part, and it picks the art band: an item sitting in a bag
+        # must show the icon it showed when it dropped.
+        try:
+            tier = cfg["tiers"][int(parts[-1])]
+        except (ValueError, IndexError, KeyError):
+            return _icon_file(icon, 1)
+        return _icon_file(icon, tier["max_level"])
     return None
 
 
 def _pick(family, level, name):
     entries = _config()["families"][family]
+    # LEVEL GATES. Kyle: "We dont need trash chance we need new vendor trash." Without these every
+    # entry drops at every level, so the only thing separating a level 3 kill from a level 55 one
+    # was an adjective - a level 55 demon dropping "Peerless Tattered Rags". min_level introduces
+    # items that only exist deep in the game; max_level retires the scraps that should stop.
+    gated = [e for e in entries
+             if e.get("min_level", 0) <= level <= e.get("max_level", 10 ** 9)]
+    entries = gated or entries      # never leave a family with nothing at all to drop
     element = None
     if family == "elemental":
         element = element_of(name)

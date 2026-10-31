@@ -72,7 +72,7 @@
     "coin_mult": 4.0
   },
   "coin": {
-    "per_level": 10,
+    "per_level": 8,
     "bonus_max": 0.5
   },
   "elements": {
@@ -120,7 +120,8 @@
         "name": "Feather Bundle",
         "icon": "vt_feathers",
         "price": 0.7,
-        "weight": 2
+        "weight": 2,
+        "max_level": 36
       },
       {
         "id": "horn",
@@ -134,7 +135,8 @@
         "name": "Fur Tuft",
         "icon": "vt_fur_tuft",
         "price": 0.6,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "membrane",
@@ -156,6 +158,33 @@
         "icon": "vt_dried_scales",
         "price": 0.8,
         "weight": 2
+      },
+      {
+        "id": "sabretooth",
+        "name": "Sabretooth Fang",
+        "price": 2.0,
+        "weight": 4,
+        "icon": "vt_fang",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "greatpelt",
+        "name": "Banded Greatpelt",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_pelt",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "ivory",
+        "name": "Ivory Tusk",
+        "price": 2.4,
+        "weight": 2,
+        "icon": "vt_tusk",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "insect": [
@@ -200,6 +229,33 @@
         "icon": "vt_egg_sac",
         "price": 0.9,
         "weight": 2
+      },
+      {
+        "id": "lacquer",
+        "name": "Lacquered Carapace",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_chitin_plate",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "barbstinger",
+        "name": "Barbed Stinger",
+        "price": 2.0,
+        "weight": 4,
+        "icon": "vt_stinger",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "amberglands",
+        "name": "Amber-Sealed Gland",
+        "price": 2.5,
+        "weight": 2,
+        "icon": "vt_venom_gland",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "aquatic": [
@@ -208,7 +264,8 @@
         "name": "Fish Scales",
         "icon": "vt_fish_scales",
         "price": 0.8,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "fin",
@@ -230,6 +287,33 @@
         "icon": "vt_pearl",
         "price": 1.8,
         "weight": 1
+      },
+      {
+        "id": "nacre",
+        "name": "Nacre Shell Plate",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_shell",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "abyssfin",
+        "name": "Abyssal Fin",
+        "price": 1.8,
+        "weight": 4,
+        "icon": "vt_fin",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "deeppearl",
+        "name": "Deepwater Pearl",
+        "price": 2.8,
+        "weight": 2,
+        "icon": "vt_pearl",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "undead": [
@@ -252,7 +336,8 @@
         "name": "Shroud Scrap",
         "icon": "vt_shroud",
         "price": 0.7,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "gravedust",
@@ -274,6 +359,33 @@
         "icon": "vt_grave_ring",
         "price": 1.3,
         "weight": 1
+      },
+      {
+        "id": "runedfemur",
+        "name": "Runed Femur",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_bone",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "deathmask",
+        "name": "Gilded Death Mask",
+        "price": 2.5,
+        "weight": 2,
+        "icon": "vt_jawbone",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "phylactery",
+        "name": "Phylactery Shard",
+        "price": 2.6,
+        "weight": 2,
+        "icon": "vt_ghost_vial",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "elemental": [
@@ -338,6 +450,42 @@
           "fire",
           "shadow"
         ]
+      },
+      {
+        "id": "primalcore",
+        "name": "Primal Core",
+        "price": 2.4,
+        "weight": 4,
+        "icon": "vt_core",
+        "min_level": 37,
+        "no_adjective": true,
+        "element": true
+      },
+      {
+        "id": "manashard",
+        "name": "Mana-Rich Shard",
+        "price": 2.0,
+        "weight": 4,
+        "icon": "vt_shard",
+        "min_level": 37,
+        "no_adjective": true,
+        "element": true
+      },
+      {
+        "id": "livinggeode",
+        "name": "Living Geode",
+        "price": 2.6,
+        "weight": 2,
+        "icon": "vt_geode",
+        "min_level": 37,
+        "no_adjective": true,
+        "element": true,
+        "elements": [
+          "earth",
+          "ice",
+          "arcane",
+          "fire"
+        ]
       }
     ],
     "demon": [
@@ -368,6 +516,33 @@
         "icon": "vt_charred_claw",
         "price": 1.0,
         "weight": 2
+      },
+      {
+        "id": "felhorn",
+        "name": "Fel-Branded Horn",
+        "price": 2.2,
+        "weight": 4,
+        "icon": "vt_demon_horn",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "infernalsigil",
+        "name": "Infernal Sigil",
+        "price": 2.3,
+        "weight": 4,
+        "icon": "vt_sigil",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "soulember",
+        "name": "Soul Ember",
+        "price": 2.5,
+        "weight": 2,
+        "icon": "vt_brimstone",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "plant": [
@@ -376,7 +551,8 @@
         "name": "Bark Chunk",
         "icon": "vt_bark",
         "price": 0.8,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "seedpod",
@@ -398,6 +574,33 @@
         "icon": "vt_spore_cap",
         "price": 1.1,
         "weight": 2
+      },
+      {
+        "id": "heartwood",
+        "name": "Heartwood Burl",
+        "price": 2.0,
+        "weight": 4,
+        "icon": "vt_bark",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "ironthorn",
+        "name": "Ironthorn Coil",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_thorn_vine",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "bloomcap",
+        "name": "Ancient Spore Bloom",
+        "price": 2.2,
+        "weight": 4,
+        "icon": "vt_spore_cap",
+        "min_level": 37,
+        "no_adjective": true
       }
     ],
     "junk": [
@@ -413,7 +616,8 @@
         "name": "Battered Tin Cup",
         "icon": "vt_tin_cup",
         "price": 0.7,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "locket",
@@ -448,16 +652,69 @@
         "name": "Bent Arrowheads",
         "icon": "vt_arrowheads",
         "price": 0.8,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
       },
       {
         "id": "rags",
         "name": "Tattered Rags",
         "icon": "vt_rags",
         "price": 0.6,
-        "weight": 3
+        "weight": 3,
+        "max_level": 36
+      },
+      {
+        "id": "warblade",
+        "name": "Officer's Broken Blade",
+        "price": 2.0,
+        "weight": 4,
+        "icon": "vt_broken_dagger",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "ledger",
+        "name": "Bloodstained Ledger",
+        "price": 1.9,
+        "weight": 4,
+        "icon": "vt_map_scrap",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "signet",
+        "name": "Looted Signet Ring",
+        "price": 2.4,
+        "weight": 2,
+        "icon": "vt_locket",
+        "min_level": 37,
+        "no_adjective": true
+      },
+      {
+        "id": "reliquary",
+        "name": "Sealed Reliquary",
+        "price": 2.3,
+        "weight": 2,
+        "icon": "vt_idol",
+        "min_level": 37,
+        "no_adjective": true
       }
     ]
   },
-  "_tier_notes": "price_level = max_level - 3 from tier 3 up, which is the curve tiers 3-5 already drew and is calibrated so a trash item's mean value stays ~1.55x the coin a humanoid of the same level drops (coin.per_level * level). Tier 5 sat at max_level 999 while its price_level of 33 said 36: a placeholder from before 30+ content existed, which flattened levels 30-60 into one tier."
+  "_tier_notes": "price_level = max_level - 3 from tier 3 up, which is the curve tiers 3-5 already drew and is calibrated so a trash item's mean value stays ~1.55x the coin a humanoid of the same level drops (coin.per_level * level). Tier 5 sat at max_level 999 while its price_level of 33 said 36: a placeholder from before 30+ content existed, which flattened levels 30-60 into one tier.",
+  "icon_bands": [
+    {
+      "max_level": 29,
+      "suffix": ""
+    },
+    {
+      "max_level": 43,
+      "suffix": "_t2"
+    },
+    {
+      "max_level": 999,
+      "suffix": "_t3"
+    }
+  ],
+  "_trash_notes": "min_level / max_level gate an entry to part of the game: the premium entries (no_adjective, min_level 37) are things only deep content drops, and the cheap scraps retire at 36 so a level 50 demon stops dropping Tattered Rags. icon_bands maps a level to an art suffix - the same list tools/reskin_vendor_trash_icons.py reskins against, so art and data cannot disagree. Premium weights are deliberately high - they are ~35-40% of a high-level roll, not a rare treat - because they are the only lever raising high-level income: Kyle ruled out trash_chance (\"We dont need trash chance we need new vendor trash\"), so value per drop has to carry it."
 }
