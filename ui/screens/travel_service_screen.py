@@ -282,7 +282,8 @@ class TravelServiceScreen(BaseScreen):
             return self._say("The windrider can't find the landing.", RED)
         self._party().remove_currency(cost)
         travel.force_dismount()
-        zm.transition_to_zone(node["zone"], master.x, master.y)
+        # via_portal=False: a flight path is a teleport, not a walk out of a cave mouth
+        zm.transition_to_zone(node["zone"], master.x, master.y, via_portal=False)
         self.state_manager.transition_to(GameState.OVERWORLD)
         overworld = self.state_manager.states.get(GameState.OVERWORLD)
         if overworld is not None and hasattr(overworld, "_notify"):

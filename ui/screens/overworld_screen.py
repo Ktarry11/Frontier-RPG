@@ -353,16 +353,17 @@ class OverworldScreen(BaseScreen):
         self._notify(message, (140, 220, 160) if mounted or message == "You dismount." else (240, 140, 140))
 
     def _use_hearth(self):
-        """Teleport to the innkeeper bind (outside caves/dungeons, off cooldown)."""
+        """Teleport to the innkeeper bind. Works anywhere off cooldown, caves and dungeons too."""
         from world.travel_manager import get_travel_manager
         travel = get_travel_manager()
-        reason = travel.hearth_block_reason(self.zone_manager.is_in_cave())
+        reason = travel.hearth_block_reason()
         if reason:
             self._notify(reason, (240, 140, 140))
             return
         bind = travel.use_hearth()
         self._release_movement_keys()
-        if not self.zone_manager.transition_to_zone(bind["zone"], bind["x"], bind["y"]):
+        if not self.zone_manager.transition_to_zone(bind["zone"], bind["x"], bind["y"],
+                                                   via_portal=False):
             self._notify("Your hearth bind no longer exists. Visit an innkeeper.", (240, 140, 140))
             return
         self._notify(f"You return to {bind['name']}.", (140, 220, 160))

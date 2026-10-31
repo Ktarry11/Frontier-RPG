@@ -7,6 +7,7 @@ new-game / load so a second character never inherits the first one's bind, fligh
 Rules (Kyle's calls, 2026-10-21):
   * MOUNTS   - a riding skill (trainer, gold, level-gated) plus a mount bought from a stable/mount vendor.  Mounted
                = faster walking and fewer random encounters.  Never in caves/dungeons; dismounted on entering one.
+  * HEARTH   - usable ANYWHERE off cooldown, caves and dungeons included.
   * HEARTH   - bind at any innkeeper (you stand on their tile).  Using it teleports you to the bind from any overworld
                zone, never from a cave/dungeon.  Cooldown is counted in overworld STEPS, not real time.
   * WINDRIDER- talking to a flight master discovers that node; pay gold to fly to any other discovered node.
@@ -59,10 +60,15 @@ class TravelManager:
     def set_bind(self, zone_name, x, y, place_name):
         self.bind = {"zone": zone_name, "x": int(x), "y": int(y), "name": place_name}
 
-    def hearth_block_reason(self, in_cave):
-        """None when the hearth can be used right now, otherwise a short player-facing reason."""
-        if in_cave:
-            return "You can't use your hearthstone inside a cave or dungeon."
+    def hearth_block_reason(self):
+        """None when the hearth can be used right now, otherwise a short player-facing reason.
+
+        USABLE IN CAVES AND DUNGEONS (Kyle, 2026-10-31). This used to refuse anywhere
+        zone.is_cave was set, which meant the one place a player most wants to leave in a hurry
+        was the one place they could not - and the walk back out of a nine-hull cove or a
+        two-map seam is long enough that "no" was a real cost for no design reason. The cooldown
+        is the only limit now.
+        """
         if not self.hearth_ready():
             return f"Your hearthstone is recharging ({self.hearth_steps_left} steps)."
         return None

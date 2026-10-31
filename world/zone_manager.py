@@ -398,11 +398,17 @@ class ZoneManager:
         sz = self.current_zone.get_subzone_at(self.player_x, self.player_y)
         return sz["name"] if sz else self.current_zone.name
     
-    def transition_to_zone(self, zone_name, spawn_x=None, spawn_y=None):
+    def transition_to_zone(self, zone_name, spawn_x=None, spawn_y=None, via_portal=True):
         """
         Move player to a new zone. If spawn_x/spawn_y are given, the player
         lands there; otherwise falls back to zone center (used only when no
         portal data specifies an exact arrival point).
+
+        via_portal=False for a TELEPORT - a hearthstone or a flight path. The cave-mouth nudge
+        below is about walking out of an opening that faces south; somebody vanishing out of a
+        dungeon and reappearing at an innkeeper is not walking out of anything, and nudging them
+        a tile puts them a tile off the bind they set. It only mattered once the hearth became
+        usable inside caves (Kyle, 2026-10-31) - before that, leaving a cave was always a walk.
         """
         leaving = self.current_zone          # the zone being left, for the banter hook below
         new_zone = self.get_zone_by_name(zone_name)
@@ -419,7 +425,8 @@ class ZoneManager:
             # should still land on its own authored entrance chamber
             # unchanged, and non-cave portals (boats, town gates) aren't
             # cave mouths and shouldn't be shifted.
-            leaving_cave = (self.current_zone is not None
+            leaving_cave = (via_portal
+                             and self.current_zone is not None
                              and getattr(self.current_zone, "is_cave", False)
                              and not getattr(new_zone, "is_cave", False)
                              and spawn_x is not None and spawn_y is not None)
