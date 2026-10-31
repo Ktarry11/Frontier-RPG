@@ -62,6 +62,17 @@ class Material:
 
         self.quantity = 1  # number in this stack
 
+    def get_rarity_color(self):
+        """Materials have no rarity, but every object the loot panels draw is asked
+        for one - the same reason LootItem carries this method. Without it a
+        gathered material cannot go in CombatEngine.loot_gained at all, which is
+        why cloth, meat and leather drops were invisible on the victory screen
+        (Kyle, 2026-10-31: "meat for cooking keeps dropping, but i dont see a
+        notification for it"). Soft green, matching the reagent colour the vendor
+        screen already uses, so a reagent reads as a reagent wherever it appears.
+        """
+        return (180, 210, 180)
+
     def to_dict(self):
         """Serialize for save/load."""
         return {

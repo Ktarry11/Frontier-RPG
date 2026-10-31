@@ -911,6 +911,10 @@ class CombatEngine:
                         continue
                     mat.quantity = qty
                     self.player.add_material(mat)
+                    # The victory panel reads loot_gained, not the log - see the note on
+                    # the quest-drop path above. Materials were log-only, so every cloth,
+                    # meat and leather drop was silent on the results screen.
+                    self.loot_gained.append(mat)
                     self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
         except Exception as exc:  # cloth is a bonus; never let it break victory
             print(f"WARNING: cloth drop failed: {exc}")
@@ -929,6 +933,10 @@ class CombatEngine:
                         continue
                     mat.quantity = qty
                     self.player.add_material(mat)
+                    # The victory panel reads loot_gained, not the log - see the note on
+                    # the quest-drop path above. Materials were log-only, so every cloth,
+                    # meat and leather drop was silent on the results screen.
+                    self.loot_gained.append(mat)
                     self.combat_log.append(
                         f"You butchered {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
         except Exception as exc:
@@ -946,6 +954,10 @@ class CombatEngine:
                         continue
                     mat.quantity = qty
                     self.player.add_material(mat)
+                    # The victory panel reads loot_gained, not the log - see the note on
+                    # the quest-drop path above. Materials were log-only, so every cloth,
+                    # meat and leather drop was silent on the results screen.
+                    self.loot_gained.append(mat)
                     self.combat_log.append(f"You skinned {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
 
                     # Skinning skill-up. This was missing entirely: leather was
@@ -983,6 +995,10 @@ class CombatEngine:
                         continue
                     mat.quantity = qty
                     self.player.add_material(mat)
+                    # The victory panel reads loot_gained, not the log - see the note on
+                    # the quest-drop path above. Materials were log-only, so every cloth,
+                    # meat and leather drop was silent on the results screen.
+                    self.loot_gained.append(mat)
                     self.combat_log.append(
                         f"You harvested {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
 

@@ -398,6 +398,73 @@ class ZoneManager:
         sz = self.current_zone.get_subzone_at(self.player_x, self.player_y)
         return sz["name"] if sz else self.current_zone.name
     
+    #: Asher never leaves this cave. See _enforce_asher_leash.
+    ASHER_ZONE = "Burning Blade Coven"
+
+    def _enforce_asher_leash(self, leaving, new_zone):
+        """Asher waits in the Coven. He does not come out, and he is there when you go back.
+
+        Kyle, 2026-10-31: "to prevent cheesing, don't let asher leave the demon cave. When you
+        leave the cave with him, he needs some kind of line to indicate that he will wait behind
+        until the filth is purged."
+
+        The cheese is real: Asher is a hand-authored level-5 Paladin with a fixed kit the player
+        cannot alter or outgrow, picked up in a level 3-5 cave. Walking him out into the open
+        world is a free second character carrying a dungeon's worth of power through content
+        built for one.
+
+        This uses the EXISTING dismiss/restore machinery rather than a new "benched" concept.
+        dismiss() snapshots the whole Character - gear, level, everything the player did with
+        him - and build_or_restore() rebuilds from that snapshot, so a leashed Asher comes back
+        exactly as he left rather than being regenerated. The leash flag only records that it was
+        the cave that sent him away and not the player clicking Dismiss, because those two have
+        to behave differently: the player cannot dismiss him at all (see party_screen.py), so
+        without the flag a re-entry could not tell "waiting for you inside" from "never recruited".
+        """
+        try:
+            from world.recruit_manager import get_recruit_manager
+            from world.banter_manager import get_banter_manager
+        except Exception:
+            return
+        party = getattr(self, "_banter_party", None)
+        if party is None:
+            return
+        rm = get_recruit_manager()
+        left_name = getattr(leaving, "name", None)
+        here = getattr(new_zone, "name", None)
+
+        if left_name == self.ASHER_ZONE and here != self.ASHER_ZONE:
+            asher = next((m for m in party.members
+                          if getattr(m, "recruit_id", None) == "asher_coleman"), None)
+            if asher is not None:
+                rm.dismiss(asher)
+                party.remove_member(asher)
+                self._asher_leashed = True
+                get_banter_manager().say(
+                    "asher_coleman", asher.name,
+                    "\"I'll hold here, brother. That filth don't get to wander out "
+                    "behind us while we're off somewhere else.\" He settles in facing "
+                    "the dark. \"Come back when you're ready. I'll be right here.\"",
+                    hold=7.5)
+            return
+
+        if here == self.ASHER_ZONE and getattr(self, "_asher_leashed", False):
+            if any(getattr(m, "recruit_id", None) == "asher_coleman" for m in party.members):
+                self._asher_leashed = False
+                return
+            recruit = rm.recruits.get("asher_coleman")
+            if recruit is None:
+                return
+            char = rm.build_or_restore(recruit, getattr(party.player, "level", None))
+            if char is not None and party.add_member(char):
+                rm.mark_recruited("asher_coleman")
+                self._asher_leashed = False
+                get_banter_manager().say(
+                    "asher_coleman", char.name,
+                    "\"Knew you'd be back.\" Asher is already on his feet. "
+                    "\"Let's finish it.\"",
+                    hold=6.0)
+
     def transition_to_zone(self, zone_name, spawn_x=None, spawn_y=None, via_portal=True):
         """
         Move player to a new zone. If spawn_x/spawn_y are given, the player
@@ -504,6 +571,8 @@ class ZoneManager:
                     banter.fire("town_arrive", party, zone=new_zone.name)
                 else:
                     banter.fire("zone_arrive", party, zone=new_zone.name)
+
+            self._enforce_asher_leash(leaving, new_zone)
 
             # Entering a cave lays out a fresh set of fixed spawns; leaving
             # clears them. Because populate() wipes the previous layout, this

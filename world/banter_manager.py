@@ -249,6 +249,22 @@ class BanterManager:
         self.current = BanterBeat(beat)
         return self.current
 
+    def say(self, recruit_id, speaker_name, text, hold=6.0):
+        """Put ONE scripted line in the banter panel, bypassing every gate above.
+
+        fire() is deliberately a lottery - cooldown, per-trigger chance, "has this
+        been heard" - because ambient chatter has to stay quiet most of the time.
+        A scripted beat is the opposite: it is a specific character saying a
+        specific thing at a specific moment (Asher refusing to leave the Coven),
+        and a 45% coin flip deciding whether the player is told why their
+        companion just vanished is not ambience, it is a bug. Does not touch
+        recent_lines/recent_speakers either, so a scripted line never uses up a
+        slot in the "don't repeat yourself" memory that ambient banter needs.
+        """
+        self.current = BanterBeat([(recruit_id, speaker_name, text)], hold=hold)
+        self.since_last_beat = 0.0
+        return self.current
+
     # ---------------------------------------------------------------- coverage
     def coverage(self):
         """{trigger: {recruit_id: (opens, replies)}} - what tools/qa_banter.py reports on."""

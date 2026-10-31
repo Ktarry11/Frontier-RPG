@@ -568,29 +568,58 @@ class TalentTreeScreen:
         footer_text = self.font_small.render(footer, True, (150, 150, 150))
         surface.blit(footer_text, (20, self.screen_height - 30))
     
+    def _wrap(self, text, max_width):
+        """Word-wrap against this screen's own font_small, measured not guessed.
+
+        This screen builds its fonts directly rather than going through Renderer,
+        so it cannot use Renderer.wrap_text - measuring with a font you are not
+        drawing with is how tooltips end up running off their boxes.
+        """
+        words = (text or "").split()
+        lines, cur = [], ""
+        for w in words:
+            trial = f"{cur} {w}".strip()
+            if self.font_small.size(trial)[0] <= max_width:
+                cur = trial
+            else:
+                if cur:
+                    lines.append(cur)
+                cur = w
+        if cur:
+            lines.append(cur)
+        return lines or [""]
+
     def _draw_tooltip(self, surface, node, tree):
         """Draw a tooltip for the selected node."""
+        TOOLTIP_BODY_W = 420
         tooltip_lines = [
             f"{node.name}",
             f"Tier {node.tier} | Ranks: {node.points_spent}/{node.max_points}",
             f"Cost: {node.cost_per_point} point per rank",
             "",
-            node.description,
         ]
-        
+        # The description is the player-facing sentence and it is the ONLY place
+        # the talent's numbers belong. Wrapped against the real font rather than
+        # left as one line, same reason as every other tooltip in the game.
+        tooltip_lines.extend(self._wrap(node.description or "", TOOLTIP_BODY_W))
+
         # Add tier requirement info
         required = tree.tier_requirements.get(node.tier, 0)
         current = tree.total_points_spent()
         if current < required:
             tooltip_lines.append(f"[LOCKED] Requires {required} points in tree ({current}/{required})")
         
-        # Add effects
-        if node.effects:
-            tooltip_lines.append("")
-            for key, value in node.effects.items():
-                if isinstance(value, (int, float)) and value != 0:
-                    tooltip_lines.append(f"  {key}: +{value}")
-        
+        # NO RAW EFFECT KEYS. Kyle, 2026-10-31: "for all of the talents we dont
+        # need the note portions of them visible to players... we dont need all
+        # the dev notes visible!" This used to dump node.effects straight into
+        # the tooltip, so Convection read "Reduces the Mana cost of your Shock
+        # spells by 6 per rank." and then repeated itself three times as
+        # "ability_shaman_earth_shock_cost: +6", which is an internal ability id
+        # and a sign convention (+6 meaning a 6-point REDUCTION) that means
+        # nothing to a player and contradicts the sentence above it. The
+        # description is the player-facing text and the effects dict is the
+        # implementation; only one of them belongs on screen.
+
         # Render tooltip box
         tooltip_texts = [self.font_small.render(line, True, self.color_text) for line in tooltip_lines]
         max_width = max(t.get_width() for t in tooltip_texts) + 20
