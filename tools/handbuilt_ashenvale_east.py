@@ -420,30 +420,42 @@ def dress(L):
     X("ashx_ice_stalagmites", 209, 48, 4)
     X("ashx_icicle_pillar", 206, 54, 5)
 
+    # THINNED 2026-10-31. Kyle: "demon wastes in ashenvale is crowded full of stuff.
+    # sometimes less is more." Measured at 44% of the open ground in one screen around
+    # (160,160) - the Grom's Rest approach, where the whole set converged. Six props cut,
+    # every one a DOUBLE of something still standing nearby:
+    #   L.dp("vot_fel_crystals", 188, 178, 3)
+    #     second fel-crystal cluster; 172,168 already says it
+    #   X("ashx_obsidian_spires", 144, 182, 5)
+    #     second spire; 190,176 keeps the skyline
+    #   X("ashx_charred_trunks", 174, 187, 6)
+    #     second charred stand; 144,162 already reads burnt
+    #   L.dp("temple_column", 156, 178, 5)
+    #     the memorial row had FOUR monuments in one screen
+    #   L.dp("temple_column", 174, 178, 5)
+    #     orc_memorial + shattered_orc_statue carry it alone
+    #   X("ashx_nightmare_thorns", 175, 172, 3, solid=False)
+    #     second thorn patch in the same screen as 156,170 (visual only)
+    # Nothing narrative went: the demon gate, Hellscream's memorial, the shattered statue,
+    # the hero tomb, the burned caravan and treehouse and the ribcage all stay.
     # ---- The Demon Wastes: fel fire and wreckage -------------------------------------------------------------------
     for (bx, by) in ((150, 168), (160, 181), (174, 184), (180, 172)):
         X("fel_fire_brazier", bx, by, 5, solid=False)
     L.dp("vot_fel_crystals", 172, 168, 4)
-    L.dp("vot_fel_crystals", 188, 178, 3)
     L.dp("rf_lava_fissure", 178, 178, 3, solid=False)
     L.dp("rf_skull_spears", 148, 183, 3)
     L.dp("bbc_skull_pile", 158, 187, 2)
     L.dp("rf_fallen_pillar", 146, 174, 3)
     X("ashx_demon_gate", 150, 178, 9, solid=False, road_ok=True)
     X("ashx_charred_trunks", 144, 162, 6)
-    X("ashx_charred_trunks", 174, 187, 6)
     X("ashx_demon_ribcage", 156, 186, 4)
     X("ashx_burned_caravan", 142, 167, 5)
     X("ashx_burned_treehouse", 187, 167, 9)
     X("ashx_obsidian_spires", 190, 176, 6)
-    X("ashx_obsidian_spires", 144, 182, 5)
     X("ashx_demon_skull_altar", 172, 184, 6)
     X("ashx_orc_hero_tomb", 182, 182, 4)
     X("ashx_nightmare_thorns", 156, 170, 3, solid=False)
-    X("ashx_nightmare_thorns", 175, 172, 3, solid=False)
     # Grom's Rest: Hellscream's memorial pillars flank the road to the cave
-    L.dp("temple_column", 156, 178, 5)
-    L.dp("temple_column", 174, 178, 5)
     X("ashx_orc_memorial", 160, 175, 6)
     X("ashx_shattered_orc_statue", 171, 175, 7)
     P("br_signpost", 160, 182, 5)

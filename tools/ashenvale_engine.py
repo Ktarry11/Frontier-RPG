@@ -402,7 +402,21 @@ def build_free_mask(L, npc_xy, margin_road=2.0):
 
 GROVE_MIN_DENSITY = 0.55    # forest density below which no grove is seeded
 GROVE_KEEP = 0.6            # chance a seed point above that becomes a grove
-GROVE_SPACING = 10          # min distance between grove centres (tiles)
+GROVE_SPACING = 11          # min distance between grove centres (tiles)
+
+#: Radius^2 of the merged trunk mass drawn round each tree in a grove. Kyle,
+#: 2026-10-31: "sometimes less is more. we should drop down overall props
+#: slightly when we can across the world."
+#:
+#: This is the lever that thins WITHOUT touching the look. A grove's canopy is
+#: drawn over the player's head and is not a blocker; this disc is the part you
+#: have to walk around. Shrinking it takes obstruction out of the forest floor
+#: while every tree stays exactly where it was and the painted woods read the
+#: same. Measured per screen-sized window by tools/audit_prop_density.py - the
+#: zones that were worst are all forest, and this is why.
+#:
+#: Was 4.6, with GROVE_SPACING 10.
+GROVE_TRUNK_R2 = 3.6
 
 
 def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
@@ -458,7 +472,7 @@ def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
             for yy in range(ty - 2, ty + 2):
                 for xx in range(tx - 2, tx + 3):
                     if 0 <= xx < spec.W and 0 <= yy < spec.H and L.free_mask[yy, xx] \
-                            and (xx - tx) ** 2 + 1.4 * (yy - ty + 0.5) ** 2 <= 4.6 \
+                            and (xx - tx) ** 2 + 1.4 * (yy - ty + 0.5) ** 2 <= GROVE_TRUNK_R2 \
                             and L.z.collision_layer[yy][xx] is None:
                         L.z.collision_layer[yy][xx] = "landmark"
                         L.free_mask[yy, xx] = False

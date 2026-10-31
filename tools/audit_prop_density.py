@@ -1,60 +1,88 @@
 #!/usr/bin/env python3
-"""Measure prop density zone by zone, across every zone in the game.
+"""Measure prop density LOCALLY - per screen-sized window - across every zone.
 
 Kyle, 2026-10-31: "demon wastes in ashenvale is crowded full of stuff. sometimes
 less is more. we should drop down overall props slightly when we can across the
 world."
 
-He is right about Demon Wastes. "Across the world" is the part that needs
-measuring first, because a blanket multiplier also thins the zones that are
-ALREADY sparse, and this codebase has burned me three times on exactly that
-shape of change. So: measure every zone, rank it, and cut only where the number
-says to.
+TWO EARLIER VERSIONS OF THIS TOOL WERE WRONG, both in the same way: they
+inferred "prop" from the collision layer, where a cave's WALL is the tile id
+"rock" and a zone's shape is indistinguishable from its clutter. One of them
+reported Orgrimmar and Durotar at 0.0% props; the other reported a set of caves
+at 87% because it was measuring the cave.
 
-WHAT COUNTS AS A PROP. A tree, a crate, a rock, a barrel: these are COLLISION
-tiles, not visual ones. That is why ZoneGenerator._scatter carries
-require_no_collision. A first version of this tool measured the visual layer
-and happily reported Orgrimmar and Durotar at 0.0% props, which is how I knew
-it was measuring the wrong thing - a check that reports what you know to be
-false is at least honest about being broken.
+The honest record is zone.landmarks. Every prop placed by the handbuilt engines
+goes through Tilemap.add_landmark with a real footprint (x, y, w, h), because
+that is how the renderer draws it. Terrain does not. So a landmark IS a prop, by
+construction, and no guessing is involved.
 
-So: prop = a collision tile that is NOT terrain. Terrain (cliff, wall, water,
-mountain) is the shape of the zone and nobody experiences it as clutter.
+AND IT IS MEASURED LOCALLY. A zone average is the wrong number: Demon Wastes is
+one corner of Ashenvale East, and a zone can sit at a comfortable average while
+one quarter of it is impassable with scenery. This walks a window roughly the
+size of what is on screen and reports the worst windows, because "crowded" is
+something you experience standing in one spot, not an average over 200x200
+tiles.
 
-DENOMINATOR. Open floor, i.e. walkable tiles plus the props standing in them.
-Props per total map area would punish a zone for having a big lake.
+Coverage = landmark footprint area inside the window / the window's open tiles.
+It can exceed 100%: props overlap, and that is itself a sign of a jammed area.
 """
 import sys, os, collections
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-#: Collision tiles that are terrain - the zone's shape, never clutter.
-TERRAIN = {
-    "cliff", "wall", "rock_wall", "mountain", "water", "deep_water", "lava",
-    "stone_wall", "cave_wall", "bone_hall_wall", "ice_wall", "building",
-    "wall_stone", "wall_wood", "hut", "tent", "roof", "ship_hull", "void",
-}
-#: ...and anything whose id ends in one of these reads as structure, not prop.
-TERRAIN_SUFFIX = ("_wall", "_cliff", "_building", "_roof", "_hull", "_floor")
-
-PROP_FLOOR_CROWDED = 0.22   # above this, the floor is visibly full of stuff
-PROP_FLOOR_SPARSE  = 0.03   # below this, cutting further would empty the zone
+WIN_W, WIN_H = 24, 18     # about one screen of tiles
+STEP = 12                 # overlapping windows, so a hotspot cannot fall between two
+CROWDED = 0.30            # a third of the ground in view is something to walk around
 
 
-def is_terrain(tid):
-    return tid in TERRAIN or any(tid.endswith(s) for s in TERRAIN_SUFFIX)
+def windows(zone):
+    for wy in range(0, max(1, zone.height - WIN_H + 1), STEP):
+        for wx in range(0, max(1, zone.width - WIN_W + 1), STEP):
+            yield wx, wy
 
 
 def measure(zone):
-    walk = 0
-    props = collections.Counter()
-    for y in range(zone.height):
-        for x in range(zone.width):
-            c = zone.collision_layer[y][x]
-            if c is None:
-                walk += 1
-            elif not is_terrain(str(c)):
-                props[str(c)] += 1
-    return walk, props
+    """-> (worst_coverage, worst_xy, mean_coverage, n_crowded, n_windows)
+
+    Coverage = tiles you must walk AROUND / open ground in view.
+
+    The measured thing is collision tiles whose id is exactly "landmark", which
+    Tilemap.add_landmark writes for a prop's solid footprint and nothing else
+    writes at all. Terrain keeps its own ids (cliff, rock, wall, water), so this
+    separates clutter from the shape of the zone without any guessing - which is
+    what the first two versions of this tool got wrong in both directions.
+
+    It also correctly discounts the forest. A tree is a landmark with a big
+    canopy, but add_landmark is called with solid=False and only its TRUNK tiles
+    are blockers, because the crown draws over the player's head. Measuring the
+    canopy footprint instead reported Ashenvale at 3598% and Stranglethorn at
+    4698%, which is a true statement about leaves and a useless one about
+    crowding. What Kyle means by "crowded full of stuff" is what you have to
+    path around, and that is this.
+    """
+    results = []
+    for wx, wy in windows(zone):
+        x1, y1 = min(wx + WIN_W, zone.width), min(wy + WIN_H, zone.height)
+        open_tiles = props = 0
+        for y in range(wy, y1):
+            row = zone.collision_layer[y]
+            for x in range(wx, x1):
+                c = row[x]
+                if c is None:
+                    open_tiles += 1
+                elif c == "landmark":
+                    props += 1
+                    open_tiles += 1
+        if open_tiles < 40:        # nearly all cliff or water; tells us nothing
+            continue
+        results.append((props / open_tiles, wx, wy))
+
+    if not results:
+        return None
+    results.sort(reverse=True)
+    worst = results[0]
+    mean = sum(r[0] for r in results) / len(results)
+    return (worst[0], (worst[1], worst[2]), mean,
+            sum(1 for r in results if r[0] >= CROWDED), len(results))
 
 
 def main():
@@ -65,37 +93,24 @@ def main():
     for name, z in zones.items():
         if not hasattr(z, "collision_layer"):
             continue
-        walk, props = measure(z)
-        n = sum(props.values())
-        floor = walk + n
-        if floor < 200:          # tiny interiors tell you nothing
+        m = measure(z)
+        if m is None:
             continue
-        rows.append((n / floor, name, n, floor, props))
+        worst, at, mean, ncrowd, nwin = m
+        rows.append((ncrowd, worst, name, at, mean, nwin))
 
     rows.sort(reverse=True)
-    print(f"{len(rows)} zones measured\n")
-    print(f"  {'props/floor':>11}  {'props':>6}  {'floor':>7}  zone")
-    crowded = []
-    for cov, name, n, floor, props in rows:
-        flag = ""
-        if cov >= PROP_FLOOR_CROWDED:
-            flag = "   <-- CROWDED"
-            crowded.append((name, cov, props))
-        elif cov <= PROP_FLOOR_SPARSE:
-            flag = "   (sparse - leave alone)"
-        print(f"  {cov*100:10.1f}%  {n:6d}  {floor:7d}  {name}{flag}")
+    print(f"  window {WIN_W}x{WIN_H} tiles (about one screen), step {STEP}, "
+          f"crowded >= {CROWDED*100:.0f}% of open ground blocked by props\n")
+    print(f"  {'crowded':>7} {'/win':>5}  {'worst':>7}  {'mean':>6}  zone (worst window)")
+    for ncrowd, worst, name, at, mean, nwin in rows[:30]:
+        flag = "   <-- THIN THIS" if ncrowd else ""
+        print(f"  {ncrowd:7d} {nwin:5d}  {worst*100:6.0f}%  {mean*100:5.0f}%  "
+              f"{name} @{at}{flag}")
 
-    cov = [r[0] for r in rows]
-    print(f"\n  median {sorted(cov)[len(cov)//2]*100:.1f}%   "
-          f"mean {sum(cov)/len(cov)*100:.1f}%   "
-          f"crowded (>={PROP_FLOOR_CROWDED*100:.0f}%): {len(crowded)}   "
-          f"sparse (<={PROP_FLOOR_SPARSE*100:.0f}%): {sum(1 for c in cov if c <= PROP_FLOOR_SPARSE)}")
-
-    if crowded:
-        print("\n  what the crowded zones are actually full of:")
-        for name, cov, props in crowded:
-            top = ", ".join(f"{t} x{c}" for t, c in props.most_common(6))
-            print(f"    {name} ({cov*100:.0f}%): {top}")
+    tot = sum(r[0] for r in rows)
+    print(f"\n  {tot} crowded windows across {len(rows)} zones; "
+          f"{sum(1 for r in rows if r[0])} zones have at least one")
     return 0
 
 
