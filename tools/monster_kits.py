@@ -6200,6 +6200,78 @@ GLITTERVEIN_KITS = {
 }
 
 
+# ======================================================================================
+# THE LASHINGS (44-48). The Southsea cove on the Tanaris coast.
+#
+# CALIBRATED BETWEEN NORTHERN TANARIS AND THE ABYSSAL SANDS, which is where this band sits: 41-44
+# trash runs 104-138, 44-47 runs 134-166, so this runs 140-178 and its bosses 230-275 before the
+# multiplier.
+#
+# PIRATES ARE PHYSICAL, AND THAT IS A DELIBERATE GAP IN THE REGION. Glittervein teaches the player
+# that magic resistance is an answer; this place teaches them that it is not always the question.
+# Everything here swings, shoots or sets light to things, and a party that has geared entirely for
+# arcane and frost will find out here that armour and dodge still exist.
+# ======================================================================================
+LASHINGS_KITS = {
+    "southsea_swabbie": [
+        ("Belaying Pin", "damage", 142, 0, 0, "physical", {}),
+        ("Boot to the Knee", "damage", 126, 3, 0, "physical", {}),
+    ],
+    "southsea_rigger": [
+        ("Marlinspike", "damage", 158, 0, 0, "physical", {}),
+        ("Down From the Shrouds", "damage", 140, 3, 0, "physical", {}),
+        ("Cut the Lanyard", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_speed": -42}}),
+    ],
+    "southsea_powdermonkey": [
+        ("Short Fuse", "damage", 150, 0, 0, "fire", {}),
+        ("Scatter Charge", "damage", 132, 4, 0, "fire", {"is_aoe": True}),
+    ],
+    "southsea_netcaster": [
+        ("Weighted Net", "damage", 148, 0, 0, "physical", {}),
+        ("Foul the Legs", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"dodge_rating": -62}}),
+        ("Haul In", "damage", 134, 3, 0, "physical", {}),
+    ],
+    "hulk_rat": [
+        ("Gnaw", "damage", 140, 0, 0, "physical", {}),
+        ("Bilge Fever", "dot", 36, 4, 0, "nature", {"duration": 3}),
+    ],
+
+    # ---- BOSSES, one on each plank.
+    "bosun_grell_tarpot": [
+        ("Starter's Rope", "damage", 232, 0, 0, "physical", {}),
+        ("Everybody On Deck", "damage", 202, 4, 0, "physical", {"is_aoe": True}),
+        ("Bosun's Call", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_speed": 64}, "self_only": True}),
+    ],
+    "sailmaker_oona_flay": [
+        ("Sailmaker's Needle", "damage", 244, 0, 0, "physical", {}),
+        ("Stitched to the Deck", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"dodge_rating": -96, "attack_speed": -48}}),
+        ("Cut Canvas", "damage", 212, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "powder_master_juss_wick": [
+        ("Linstock", "damage", 252, 0, 0, "fire", {}),
+        ("The Whole Hulk Goes Up", "damage", 224, 4, 0, "fire", {"is_aoe": True}),
+        ("Slow Match", "dot", 64, 3, 0, "fire", {"duration": 3}),
+    ],
+    "quartermaster_nadd_kell": [
+        ("The Share-Out", "damage", 258, 0, 0, "physical", {}),
+        ("Everything Is Logged", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -118}}),
+        ("Court's Decision", "damage", 226, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    # The one who IS good at it, which is what makes her different from Saltspray in the Barrens.
+    "captain_ardessa_rake": [
+        ("Rake's Cutlass", "damage", 275, 0, 0, "physical", {}),
+        ("Board Them", "damage", 242, 4, 0, "physical", {"is_aoe": True}),
+        ("Twenty Years at Anchor", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 128, "armor": 96}, "self_only": True}),
+    ],
+}
+
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -6210,7 +6282,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
                STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS, ABYSSAL_KITS,
-               GLITTERVEIN_KITS):
+               GLITTERVEIN_KITS, LASHINGS_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

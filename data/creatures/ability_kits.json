@@ -35033,6 +35033,412 @@
         }
       }
     ],
+    "southsea_swabbie": [
+      {
+        "name": "Belaying Pin",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boot to the Knee",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "southsea_rigger": [
+      {
+        "name": "Marlinspike",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Down From the Shrouds",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cut the Lanyard",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_speed": -42
+        }
+      }
+    ],
+    "southsea_powdermonkey": [
+      {
+        "name": "Short Fuse",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Scatter Charge",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      }
+    ],
+    "southsea_netcaster": [
+      {
+        "name": "Weighted Net",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Foul the Legs",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": -62
+        }
+      },
+      {
+        "name": "Haul In",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hulk_rat": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bilge Fever",
+        "kind": "dot",
+        "amount": 36,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      }
+    ],
+    "bosun_grell_tarpot": [
+      {
+        "name": "Starter's Rope",
+        "kind": "damage",
+        "amount": 232,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Everybody On Deck",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Bosun's Call",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_speed": 64
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 302,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 139
+        }
+      }
+    ],
+    "sailmaker_oona_flay": [
+      {
+        "name": "Sailmaker's Needle",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Stitched to the Deck",
+        "kind": "damage",
+        "amount": 159,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "dodge_rating": -96,
+            "attack_speed": -48
+          }
+        }
+      },
+      {
+        "name": "Cut Canvas",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 317,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 146
+        }
+      }
+    ],
+    "powder_master_juss_wick": [
+      {
+        "name": "Linstock",
+        "kind": "damage",
+        "amount": 252,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Whole Hulk Goes Up",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Slow Match",
+        "kind": "dot",
+        "amount": 64,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Searing Blast",
+        "kind": "damage",
+        "amount": 328,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fire Nova",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Inferno Surge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 151
+        }
+      }
+    ],
+    "quartermaster_nadd_kell": [
+      {
+        "name": "The Share-Out",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Everything Is Logged",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -118
+          }
+        }
+      },
+      {
+        "name": "Court's Decision",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 335,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 155
+        }
+      }
+    ],
+    "captain_ardessa_rake": [
+      {
+        "name": "Rake's Cutlass",
+        "kind": "damage",
+        "amount": 275,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Board Them",
+        "kind": "damage",
+        "amount": 242,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Twenty Years at Anchor",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 128,
+            "armor": 96
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 358,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 165
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",

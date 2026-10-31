@@ -5645,6 +5645,7 @@ def create_all_zones():
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
     from tools import handbuilt_cistern as dcis   # NOT dc - that is a dungeon alias
+    from tools import handbuilt_lashings as dlash
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
     from tools import handbuilt_bloodsail_galleon as dbg
@@ -5762,6 +5763,7 @@ def create_all_zones():
         "Glittervein": dgv.generate_glittervein(),
         "The Mother Vein": dmv.generate_mother_vein(),
         "The Cistern": dcis.generate_cistern(),
+        "The Lashings": dlash.generate_lashings(),
         # Tanaris zone 2: the ground that fell in when the water table dropped.
         "The Abyssal Sands": dabs.generate_abyssal_sands(),
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)

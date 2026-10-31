@@ -374,12 +374,19 @@ class PortalManager:
                 (60, 108): ("The Abyssal Sands", 60, 2),   # the one way south, on the west
                 (216, 56): ("Steamwheedle Port", 40, 58),
                 (200, 88): ("The Drownbell", 16, 12),
+                # THE SOUTHSEA COVE, up the coast from the port. Kyle asked for the Southsea's
+                # proper home in Tanaris, as against the Drownbell, which is a small sea cave
+                # under a headland with an entirely different crew in it.
+                (222, 26): ("The Lashings", 68, 112),
             },
             "Steamwheedle Port": {
                 (40, 58): ("Northern Tanaris", 216, 56),
             },
             "The Drownbell": {
                 (16, 12): ("Northern Tanaris", 200, 88),
+            },
+            "The Lashings": {
+                (68, 112): ("Northern Tanaris", 222, 26),
             },
             # Zone 2. Its SOUTH gate (toward Uldum) is still carved, walkable and deliberately
             # unregistered until that zone exists. The east gate now goes to Glittervein.

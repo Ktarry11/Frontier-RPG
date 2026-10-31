@@ -72,7 +72,10 @@ TAU = 2.0 * np.pi
 #: left pointing east. A pass that goes nowhere is better than a wall you have to re-cut later.
 PORTALS = {(92, 2): "The Shimmering Flats",
            (216, 56): "Steamwheedle Port",
-           (200, 88): "The Drownbell"}
+           (200, 88): "The Drownbell",
+           # The Southsea cove, up the coast from the port - their proper home, as against the
+           # Drownbell, which is a small sea cave under a headland with a different crew in it.
+           (222, 26): "The Lashings"}
 ARRIVALS = [(92, 8), (216, 54), (200, 86), (60, 102)]
 START = (92, 8)
 

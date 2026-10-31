@@ -235,6 +235,21 @@ def gangplank(b, x, y_from, y_to, base="path", width=1):
     return [(x, y) for y in range(lo, hi + 1)]
 
 
+def gangplank_x(b, y, x_from, x_to, base="path", width=1):
+    """A walkway running east or west along row y, inclusive of both ends.
+
+    The mirror of gangplank(). A fleet lashed side by side needs planks across as well as fore and
+    aft, and carving one with corridor() instead opens a rounded end that reads as a hull rather
+    than as a plank.
+    """
+    lo, hi = (x_from, x_to) if x_from <= x_to else (x_to, x_from)
+    half = (width - 1) // 2
+    for x in range(lo, hi + 1):
+        for dy in range(-half, width - half):
+            b._open(x, y + dy, base)
+    return [(x, y) for x in range(lo, hi + 1)]
+
+
 def bulkhead(b, stations, x, gap_lo, gap_hi):
     """Seal station x except for a doorway from gap_lo to gap_hi inclusive.
 

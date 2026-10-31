@@ -1,0 +1,330 @@
+{
+  "_notes": "Bosses of The Lashings. Hand-authored in tools/build_lashings_content.py; spread checked by its audit().",
+  "Bosun Grell Tarpot": [
+    {
+      "name": "Starter's Knotted Rope",
+      "slot": "main_hand",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "A bosun's rope has one knot for calling the watch and three for the other thing.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Bosun's Tarred Jerkin",
+      "slot": "chest",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Tarred against weather on a ship that has not met weather in twenty years.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 122
+    },
+    {
+      "name": "Deck-Caller's Gorget",
+      "slot": "neck",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "He could be heard the length of nine hulls and he knew it.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Hulk-Walker's Boots",
+      "slot": "feet",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Soled for wet planking, which out here is all the planking.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 97
+    }
+  ],
+  "Sailmaker Oona Flay": [
+    {
+      "name": "Flay's Sailmaker's Needle",
+      "slot": "main_hand",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Six inches of steel for canvas, and canvas is not what it has been through.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Stitched-Canvas Hauberk",
+      "slot": "chest",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Sailcloth, folded eleven times and sewn by somebody with nothing else to do.",
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 195
+    },
+    {
+      "name": "Sailmaker's Palm",
+      "slot": "hands",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "The leather pad a sailmaker drives a needle with. Hers is worn through twice.",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 61
+    },
+    {
+      "name": "Unfurled Mantle",
+      "slot": "shoulder",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Nobody on this fleet has unfurled anything in twenty years.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 45
+    }
+  ],
+  "Powder-Master Juss Wick": [
+    {
+      "name": "Wick's Linstock",
+      "slot": "main_hand",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "A yard of match-cord on a pole, and he has never once been seen to hurry.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 24
+      },
+      "secondary_stats": {
+        "spell_power": 32.4,
+        "mp5": 6.5
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 64,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Powder-Hulk Breastplate",
+      "slot": "chest",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Scorched in four places and holed in none, which is a career summary.",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 299
+    },
+    {
+      "name": "Slow-Match Bracers",
+      "slot": "wrist",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "They smell of it. Everything of his does.",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 62
+    },
+    {
+      "name": "Charge-Counter's Cap",
+      "slot": "head",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Forty-one barrels, and he could tell you where every one of them was.",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 46
+    }
+  ],
+  "Quartermaster Nadd Kell": [
+    {
+      "name": "The Share-Out Blade",
+      "slot": "main_hand",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "A quartermaster settles disputes. This is how the ones that will not settle end.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 117,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Prize-Court Legguards",
+      "slot": "legs",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Everything that came aboard was logged before it was divided. Everything.",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 299
+    },
+    {
+      "name": "Ledger-Keeper's Grips",
+      "slot": "hands",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Ink in the seams, four years deep.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 31
+    },
+    {
+      "name": "Fair-Shares Girdle",
+      "slot": "waist",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Fair by the articles, which is not the same as fair.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 99
+    }
+  ],
+  "Captain Ardessa Rake": [
+    {
+      "name": "Rake's Boarding Cutlass",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "She is the one who was good at it. That is the whole difference between this cove and the Barrens.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 42,
+        "stamina": 42
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 121,
+      "weapon_damage_max": 164,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Captain's Rated Plate",
+      "slot": "chest",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Kept like a ship, on the one hull in this cove that still is one.",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 312
+    },
+    {
+      "name": "Twenty-Years-at-Anchor Spaulders",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "She has not sailed since the sky changed and she has not stopped being a captain.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 97
+    },
+    {
+      "name": "Articles of the Southsea",
+      "slot": "trinket",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Signed by every hand aboard. The first signature is a cross and it is hers.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {}
+    }
+  ]
+}

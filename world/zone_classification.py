@@ -67,6 +67,10 @@ DUNGEONS = [
     # them and where the node pool is. Putting ore down here too would make the dungeon a farm.
     "The Mother Vein",
     "The Cistern",
+    # Added 2026-10-30 with the Southsea cove. Nine hulls lashed together with five hand-placed
+    # bosses on them. The Drownbell next door is deliberately NOT on this list - it is a cave, so
+    # it keeps Northern Tanaris's ore, and a fleet of rotting decks has nothing to mine anyway.
+    "The Lashings",
 ]
 
 
