@@ -312,6 +312,28 @@ class IconUIHelper:
         Returns:
             pygame.Surface or fallback surface
         """
+        # THE REAL CLASS ICONS LIVE SOMEWHERE ELSE. Kyle, 2026-10-31: "since we
+        # dont have character portaits you can use the class icon" - and the
+        # party roster was ALREADY asking for one here; it was getting a flat
+        # blue square back.
+        #
+        # Two implementations of one rule, again. ui/class_portrait.py loads
+        # assets/ui/class_icons/<class>.png - the authentic WoW class icons Kyle
+        # specifically asked for, 30 of them on disk. This method instead asked
+        # the icon registry for "class_<name>", and get_icon_surface only
+        # searches the ability/talent/bag/gear/trash/quest/consumable/recipe
+        # directories. Class icons are in none of them, so EVERY class fell
+        # through to _make_fallback_surface and the roster drew a coloured
+        # block. The real art is tried first now; the registry stays as the
+        # fallback for a class with no icon file (the custom Frontier classes
+        # that have no official art).
+        try:
+            from ui.class_portrait import get_class_icon
+            icon = get_class_icon(class_name, size=size)
+            if icon is not None:
+                return icon
+        except Exception:
+            pass
         icon_id = f"class_{class_name.lower()}"
         return self.renderer.get_icon_surface(icon_id, size)
 

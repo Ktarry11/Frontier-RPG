@@ -221,7 +221,11 @@ _RULES = [
     (r"marine|kul ?tiras|sailor|deckhand|boatswain|stranded", "human_marine", {"humanoid"}),
     (r"\byeti\b|wendigo", "yeti"),
     (r"scarecrow|harvest ?golem|harvest ?watcher|strawman", "scarecrow_golem"),
-    (r"whelp|dragonkin|drake|wyrmling", "dragon_whelp"),
+    # GUARDED: "whelp" is a baby dragon to a Razorjaw and a job description to a
+    # Felstalker Whelp, which is a demon hound. This rule sits ~50 lines above the demon
+    # block, so ungated it won the match and drew a fel hound as a bronze dragonling
+    # (Kyle, 2026-10-31: "felpup and felstalker shoulder not be whatever this is").
+    (r"whelp|dragonkin|drake|wyrmling", "dragon_whelp", {"beast", "dragon"}),
     (r"sprite ?darter|\bdarter\b|faerie dragon", "sprite_darter"),
     # --- named species that would otherwise be caught by a weaker rule
     (r"broodmother|brood tender|brood queen", "spider_broodmother"),
@@ -275,8 +279,14 @@ _RULES = [
     (r"revenant", "revenant"),
 
     # --- demons
+    # A "familiar" is an imp in every context this game has one - Vile Familiar was
+    # matching no demon rule at all and falling through to demon_caster -> fel_cultist,
+    # i.e. drawing a summoned imp as a robed human. Gated to demons so a future
+    # witch's cat familiar does not become an imp.
     (r"\bimps?\b", "imp"),
-    (r"felhound|felstalker|hound of|doomhound", "felhound"),
+    (r"\bfamiliar\b", "imp", {"demon"}),
+    # fel pup / fel whelp: the young of a felhound are a felhound, not a demon_brute.
+    (r"felhound|felstalker|fel ?(pup|whelp)|hound of|doomhound", "felhound"),
     (r"voidwalker|void ", "voidwalker"),
     (r"succubus", "fel_cultist"),
     (r"doomguard", "doomguard"),
@@ -464,6 +474,10 @@ FAMILY_FALLBACK = {
 #: tools/qa_creature_sprites.py counts it as parked rather than as dead weight. Give one a rule
 #: the moment a creature earns it.
 SPARE = {
+    "demon_brute_2": "second demon brute. Freed up 2026-10-31 when Fel Pup stopped resolving "
+                     "here (it is a felhound, not a brute) and no other creature's name hash "
+                     "reaches this variant. Kept, not deleted - the next brute-shaped demon "
+                     "takes it.",
     "dragon_whelp_bronze": "second dragon whelp; only 2 creatures are whelps and the name hash "
                            "reaches one look. Wire up when a second dragonkin exists.",
     "ghoul_gaunt": "third ghoul; 7 ghoul creatures spread over 2 looks.",

@@ -116,9 +116,24 @@ class InventoryScreen(BaseScreen):
         # default so nothing about the existing flow changes for anyone
         # who never touches gathering.
         self.active_tab = "gear"
-        self.gear_tab_button = pygame.Rect(SCREEN_WIDTH - 420, 20, 100, 36)
-        self.materials_tab_button = pygame.Rect(SCREEN_WIDTH - 310, 20, 130, 36)
+        # Three tabs now, shifted left so the row still clears the Close button
+        # at SCREEN_WIDTH-120.
+        self.gear_tab_button = pygame.Rect(SCREEN_WIDTH - 560, 20, 100, 36)
+        self.materials_tab_button = pygame.Rect(SCREEN_WIDTH - 450, 20, 130, 36)
+        self.consumables_tab_button = pygame.Rect(SCREEN_WIDTH - 310, 20, 140, 36)
         self.materials_rects = []  # list of pygame.Rect, index-aligned to subject.materials
+        # CONSUMABLES HAD NO HOME IN THE BAG AT ALL. Kyle, 2026-10-31: "i have
+        # tough jerky (food) in my inventory but there is no way to use it. I
+        # dont see it in my actual inventory unless im trying to sell it."
+        # He was right on both counts and they are the same bug: a Character
+        # keeps THREE separate lists - .inventory (gear + loot), .materials and
+        # .consumables - and this screen only ever rendered the first two. The
+        # vendor's _player_stock() merges all three, which is exactly why food
+        # was visible when selling and nowhere else. The only path to USING one
+        # was Skills -> Core tab -> scroll past every ability -> drag to the
+        # hotbar -> trigger it in combat, which is no path at all for a meal
+        # you want to eat standing in a field.
+        self.consumables_rects = []  # index-aligned to subject.consumables
 
         self._build_slot_rects()
 
@@ -240,6 +255,59 @@ class InventoryScreen(BaseScreen):
             y = MATERIALS_START_Y + row * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
             self.materials_rects.append(pygame.Rect(x, y, MATERIALS_SLOT_SIZE, MATERIALS_SLOT_SIZE))
 
+    def _build_consumables_rects(self, count):
+        """Grid layout for the Consumables tab - the same geometry as the
+        Materials tab, deliberately. Both are full-screen single-grid views of
+        a flat stackable list, so giving them different column counts or slot
+        sizes would be two layouts for one job and the tabs would jump under
+        the cursor as you switched between them."""
+        self.consumables_rects = []
+        for i in range(count):
+            col = i % MATERIALS_GRID_COLS
+            row = i // MATERIALS_GRID_COLS
+            x = MATERIALS_START_X + col * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
+            y = MATERIALS_START_Y + row * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
+            self.consumables_rects.append(pygame.Rect(x, y, MATERIALS_SLOT_SIZE, MATERIALS_SLOT_SIZE))
+
+    def _use_consumable(self, subject, consumable):
+        """Click-to-use from the bag. Mirrors what the combat hotbar does with
+        the same object, minus the combat log - Consumable.use() is the single
+        implementation and this is just a second door into it, so an out-of-
+        combat meal and an in-combat potion can never diverge on what they do.
+
+        can_use() is asked FIRST and its refusal is surfaced. use() returning
+        False silently is how 'I clicked my food and nothing happened' becomes
+        a bug report instead of a rule the player can learn."""
+        if consumable.required_level > subject.level:
+            self.equip_error = f"{consumable.name} requires level {consumable.required_level}."
+            self.equip_error_timer = 3.0
+            return
+        if not consumable.can_use(subject):
+            # The three reasons can_use says no, named rather than lumped into
+            # "you can't use that" - each one tells the player a different thing
+            # to do about it.
+            if (subject.consumable_cooldown > 0
+                    and consumable.consumable_type not in ("meal", "drink")):
+                self.equip_error = f"On cooldown ({subject.consumable_cooldown:.0f}s)."
+            elif consumable.buff_category == "guardian" and subject.guardian_buff is not None:
+                self.equip_error = "A guardian elixir is already active."
+            elif consumable.buff_category == "battle" and subject.battle_buff is not None:
+                self.equip_error = "A battle elixir is already active."
+            else:
+                self.equip_error = f"{subject.name} cannot use {consumable.name} right now."
+            self.equip_error_timer = 3.0
+            return
+
+        if consumable.use(subject):
+            self.equip_error = f"Used {consumable.name}."
+            # use() decrements the stack; an empty one leaves a dead slot in the
+            # grid that still hovers and still accepts clicks, so it goes here.
+            if consumable.quantity <= 0 and consumable in subject.consumables:
+                subject.consumables.remove(consumable)
+        else:
+            self.equip_error = f"{consumable.name} had no effect."
+        self.equip_error_timer = 3.0
+
     def handle_event(self, event):
         subject = self._get_subject()
 
@@ -283,6 +351,20 @@ class InventoryScreen(BaseScreen):
             if self.materials_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "materials"
                 self.selected_item = None
+                return
+            if self.consumables_tab_button.collidepoint(mouse_pos):
+                self.active_tab = "consumables"
+                self.selected_item = None
+                return
+
+            # Consumables tab: a click USES the thing, unlike the materials
+            # tab's look-but-don't-touch grid. That is the whole point of the
+            # tab existing - see _use_consumable.
+            if self.active_tab == "consumables":
+                for i, rect in enumerate(self.consumables_rects):
+                    if rect.collidepoint(mouse_pos) and i < len(subject.consumables):
+                        self._use_consumable(subject, subject.consumables[i])
+                        return
                 return
 
             # Materials tab has no click actions yet (Phase 1 has no
@@ -453,6 +535,16 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_rect(screen, self.materials_tab_button, (35, 35, 40))
         self.renderer.draw_rect(screen, self.materials_tab_button, materials_color, fill=False)
         self.renderer.draw_text(screen, "Materials", (self.materials_tab_button.x + 14, self.materials_tab_button.y + 9), color=materials_color)
+        cons_color = COLOR_GOLD if self.active_tab == "consumables" else (90, 90, 95)
+        self.renderer.draw_rect(screen, self.consumables_tab_button, (35, 35, 40))
+        self.renderer.draw_rect(screen, self.consumables_tab_button, cons_color, fill=False)
+        self.renderer.draw_text(screen, "Consumables",
+                                (self.consumables_tab_button.x + 10, self.consumables_tab_button.y + 9),
+                                color=cons_color)
+
+        if self.active_tab == "consumables":
+            self._render_consumables_tab(screen, subject)
+            return
 
         if self.active_tab == "materials":
             self._render_materials_tab(screen, subject)
@@ -579,6 +671,140 @@ class InventoryScreen(BaseScreen):
 
         if self.pending_destroy_item is not None:
             self._render_destroy_confirmation(screen)
+
+    def _render_consumables_tab(self, screen, subject):
+        """Potions, elixirs, food and drink - the third of the Character's three
+        bag lists, and until now the only one with no UI at all outside the
+        Skills screen's hotbar-assignment list.
+
+        Click to use (see _use_consumable). Active buff slots are printed along
+        the top, because 'why did my food do nothing' is nearly always 'you
+        already have a food buff' and can_use refusing silently was how that
+        read as a broken item.
+        """
+        self._build_consumables_rects(len(subject.consumables))
+
+        # What is already running, in the same place the materials tab puts the
+        # profession line - these four slots are what can_use() checks against.
+        active = []
+        for label, slot in (("Guardian", "guardian_buff"), ("Battle", "battle_buff"),
+                            ("Food", "food_buff"), ("Ammo", "ammo_buff")):
+            entry = getattr(subject, slot, None)
+            if entry:
+                cons = entry[0] if isinstance(entry, (tuple, list)) else entry
+                secs = entry[1] if isinstance(entry, (tuple, list)) and len(entry) > 1 else None
+                name = getattr(cons, "name", str(cons))
+                active.append(f"{label}: {name}" + (f" ({int(secs)}s)" if secs else ""))
+        cd = getattr(subject, "consumable_cooldown", 0) or 0
+        if cd > 0:
+            active.append(f"Potion cooldown: {cd:.0f}s")
+        self.renderer.draw_text(screen,
+                                "   ".join(active) if active else "No consumable buffs active.",
+                                (20, 60), color=COLOR_LIGHT_GRAY)
+
+        if not subject.consumables:
+            self.renderer.draw_text(
+                screen, "No consumables - buy food, drink and potions from a vendor.",
+                (MATERIALS_START_X, MATERIALS_START_Y), color=(150, 150, 150))
+        else:
+            for i, cons in enumerate(subject.consumables):
+                rect = self.consumables_rects[i]
+                usable = cons.required_level <= subject.level and cons.can_use(subject)
+                self.renderer.draw_rect(screen, rect, (35, 35, 40))
+                # Border carries usability, so an unusable stack reads as greyed
+                # rather than as a thing that ignores clicks for no reason.
+                self.renderer.draw_rect(screen, rect,
+                                        (210, 200, 140) if usable else (80, 80, 85),
+                                        fill=False)
+
+                if not self._draw_consumable_icon(screen, cons, rect, size=rect.width - 12):
+                    display_name = self.renderer.truncate(cons.name, rect.width - 8, size="small")
+                    self.renderer.draw_text(screen, display_name, (rect.x + 4, rect.y + 4),
+                                            size="small", color=COLOR_LIGHT_GRAY)
+
+                self.renderer.draw_text(screen, f"x{cons.quantity}",
+                                        (rect.x + 4, rect.bottom - 16),
+                                        size="small", color=(220, 220, 220))
+
+        self.renderer.draw_text(screen, "Click a consumable to use it.",
+                                (MATERIALS_START_X, SCREEN_HEIGHT - 60), color=(140, 140, 150))
+
+        # The gear tab draws this and then returns before reaching here, so the
+        # message has to be repeated for this view or every refusal from
+        # _use_consumable would be silent - which is the exact failure mode this
+        # whole tab exists to fix.
+        if self.equip_error:
+            self.renderer.draw_text(screen, self.equip_error,
+                                    (MATERIALS_START_X, SCREEN_HEIGHT - 34),
+                                    color=COLOR_GOLD)
+
+        mouse_pos = pygame.mouse.get_pos()
+        for i, rect in enumerate(self.consumables_rects):
+            if rect.collidepoint(mouse_pos) and i < len(subject.consumables):
+                self._draw_consumable_tooltip(screen, subject.consumables[i], mouse_pos, subject)
+                break
+
+    def _draw_consumable_icon(self, screen, consumable, rect, size=None):
+        """Blit a consumable's icon via icon_ui_helper, the same route the
+        Skills screen and the combat hotbar use for this exact object - so the
+        bag can't disagree with the hotbar about what a potion looks like.
+        Returns True if something was drawn."""
+        if not self.icon_ui_helper:
+            return False
+        size = size or min(rect.width, rect.height) - 8
+        try:
+            surf = self.icon_ui_helper.get_item_icon_surface(
+                {"name": consumable.name, "icon_id": getattr(consumable, "icon_id", None)},
+                size=size)
+        except Exception:
+            return False
+        if not surf:
+            return False
+        screen.blit(surf, (rect.x + (rect.width - size) // 2,
+                           rect.y + (rect.height - size) // 2))
+        return True
+
+    def _draw_consumable_tooltip(self, screen, cons, mouse_pos, subject):
+        """What it does, what it costs you, and why you can't use it right now."""
+        BODY_W = 300
+        lines = [cons.name]
+        ctype = str(cons.consumable_type).replace("_", " ").title()
+        lines.append(f"{ctype}" + (f"  -  requires level {cons.required_level}"
+                                   if cons.required_level else ""))
+        if cons.consumable_type in ("health_potion", "mana_potion"):
+            bar = "health" if cons.consumable_type == "health_potion" else "mana"
+            scaled = int(cons.effect_value * (1.0 + subject.level * cons.level_multiplier))
+            lines.append(f"Restores {scaled} {bar} instantly.")
+        elif cons.consumable_type in ("meal", "drink"):
+            bar = "health" if cons.consumable_type == "meal" else "mana"
+            lines.append(f"Restores {cons.effect_value} {bar} over "
+                         f"{int(cons.effect_duration)}s while you sit still.")
+        if cons.stat_bonuses:
+            lines.append(", ".join(f"+{v} {k.replace('_', ' ').title()}"
+                                   for k, v in cons.stat_bonuses.items())
+                         + (f" for {int(cons.effect_duration)}s" if cons.effect_duration else ""))
+        if cons.description:
+            lines.extend(self.renderer.wrap_text(cons.description, BODY_W, size="small"))
+        lines.append(f"Sell price: {format_coins(cons.sell_price)}")
+        if cons.required_level > subject.level:
+            lines.append(f"You need level {cons.required_level}.")
+        elif not cons.can_use(subject):
+            lines.append("Cannot be used right now.")
+
+        padding = 8
+        line_height = 20
+        font = self.renderer._get_font(size="small")
+        width = max(220, max(font.size(line)[0] for line in lines) + padding * 2)
+        height = padding * 2 + line_height * len(lines)
+        x = min(mouse_pos[0] + 16, SCREEN_WIDTH - width - 10)
+        y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - height - 10)
+        rect = pygame.Rect(x, y, width, height)
+        self.renderer.draw_rect(screen, rect, (20, 20, 24))
+        self.renderer.draw_rect(screen, rect, COLOR_GOLD, fill=False)
+        for i, line in enumerate(lines):
+            color = COLOR_GOLD if i == 0 else COLOR_LIGHT_GRAY
+            self.renderer.draw_text(screen, line, (x + padding, y + padding + i * line_height),
+                                    size="small", color=color)
 
     def _render_materials_tab(self, screen, subject):
         """Materials grid + profession skill readout. Kept as its own
