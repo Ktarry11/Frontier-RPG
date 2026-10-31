@@ -137,14 +137,18 @@ class CastScreen(BaseScreen):
     # ------------------------------------------------------------------
 
     def _castable_abilities(self, member):
+        from combat.abilities import is_castable_out_of_combat
         out = []
         for ability in member.ability_book.abilities.values():
             if not getattr(ability, "is_learned", True):
                 continue
             if hasattr(ability, "is_form_ready") and not ability.is_form_ready(member):
                 continue
-            target_type = getattr(ability, "target_type", "enemy")
-            if target_type == "enemy":
+            # ONE RULE, in combat/abilities.py - and it is keyed on what the ability DOES,
+            # not on who its target_type claims to point at. See is_castable_out_of_combat:
+            # the old target_type test let every Cleave and every untyped damage spell in the
+            # game through, aimed at the party.
+            if not is_castable_out_of_combat(ability):
                 continue
             out.append(ability)
         return out

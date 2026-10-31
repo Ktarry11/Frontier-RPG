@@ -166,6 +166,39 @@ CLASS_RESOURCE_MAP = {
 }
 
 
+#: effect_types that may be cast OUT OF COMBAT, on yourself or a companion.
+#:
+#: Kyle, 2026-10-31: "for some reason i can attack my own party on the 'cast' outside
+#: thing....this should only be for things that buff or heal. Why am i able to cleave my party
+#: members."
+#:
+#: The out-of-combat panel used to filter on target_type != "enemy", which sounds right and is
+#: not: target_type is None on 251 abilities and "enemy_aoe" on 199, and neither string equals
+#: "enemy". So every Cleave, every untyped Fireball and every DoT in the game sailed through the
+#: filter and was offered up with the party as the target list.
+#:
+#: An ALLOWLIST, not a denylist, and keyed on what the ability DOES rather than who it claims to
+#: point at. The failure mode being fixed is a damaging ability leaking through, so a new
+#: effect_type added later must default to "not castable out here" rather than to "fine".
+OUT_OF_COMBAT_EFFECTS = frozenset({
+    "heal", "hot", "buff", "dispel", "restore_resource", "shapeshift",
+    "summon_pet", "revive", "reset_cooldowns", "enable_instant_cast", "totem_loadout",
+})
+
+
+def is_castable_out_of_combat(ability):
+    """True if this ability is something you would cast on your own party in a field.
+
+    Deliberately excludes damage_and_heal: there is no enemy out here for the damage half to
+    land on, so what is left is a heal with a missing limb rather than a heal.
+    """
+    if getattr(ability, "effect_type", None) not in OUT_OF_COMBAT_EFFECTS:
+        return False
+    # A belt-and-braces check on the other axis: nothing aimed at an enemy, whatever its
+    # effect_type says. A "buff" that targets an enemy is a debuff wearing a hat.
+    return getattr(ability, "target_type", None) not in ("enemy", "enemy_aoe")
+
+
 def get_class_resource(char_class, character=None):
     """Return the PRIMARY ResourceType this class uses, defaulting to Mana
     for any unrecognized class rather than raising. This is what the main
