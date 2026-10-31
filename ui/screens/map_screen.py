@@ -293,7 +293,7 @@ class MapScreen(BaseScreen):
                     continue
                 creature = zm.creature_manager.creatures.get(spawn.creature_name, {})
                 template = creature.get("template")
-                icon = self._get_boss_icon(template)
+                icon = self._get_boss_icon(template, name=spawn.creature_name)
                 px, py = self._tile_to_screen(tilemap, rect, spawn.x, spawn.y)
                 if icon:
                     icon_rect = icon.get_rect(center=(px, py))
@@ -375,6 +375,25 @@ class MapScreen(BaseScreen):
             pygame.draw.circle(screen, (255, 0, 0), (lx + 7, ly + 7), 6)
         self.renderer.draw_text(screen, "Boss", (lx + 22, ly), color=(200, 200, 210))
 
+        # These three were UNREACHABLE: at some point a method got spliced into the middle of
+        # this one and they ended up below `return icon` inside _get_boss_icon, where they also
+        # referenced four locals (tilemap, zm, lx, ly) that only exist here. Python never
+        # complained because dead code is not checked, so the map has quietly had no size
+        # readout, no position readout and no "close map" hint for however long that has been
+        # true. Moved back where they belong.
+        ly += 14
+        self.renderer.draw_text(screen, f"Size: {tilemap.width} x {tilemap.height}",
+                                (lx, ly), color=(150, 150, 165))
+        ly += 24
+        self.renderer.draw_text(screen, f"Position: {zm.player_x}, {zm.player_y}",
+                                (lx, ly), color=(150, 150, 165))
+
+        footer = "M or ESC: close map"
+        fw = self.renderer.font_normal.size(footer)[0]
+        self.renderer.draw_text(screen, footer,
+                                (SCREEN_WIDTH // 2 - fw // 2, SCREEN_HEIGHT - 34),
+                                color=(150, 150, 150))
+
     def _draw_service_icon(self, screen, kind, cx, cy, scale=1.0):
         """Small procedural map glyphs: flight '!' / inn house / horseshoe / hearth star."""
         dark = (20, 20, 20)
@@ -432,14 +451,37 @@ class MapScreen(BaseScreen):
             pygame.draw.polygon(screen, dark, [(x + (x - cx) * 0.2, y + (y - cy) * 0.2) for x, y in pts])
             pygame.draw.polygon(screen, HEARTH_GOLD, pts)
 
-    def _get_boss_icon(self, template, size=18):
-        """Loaded-and-scaled boss portrait Surface for a creature template,
-        cached by (template, size). Returns None if the file can't be
-        loaded (missing/corrupt PNG) so callers can fall back to the old
-        plain-dot marker instead of crashing the whole map render."""
-        cache_key = (template, size)
+    def _get_boss_icon(self, template, size=18, name=None):
+        """Map marker for a boss, cached by (name, template, size).
+
+        THE REAL CREATURE FIRST. boss_icons.py maps a stat template to one of eight themed
+        portraits, which was the best available when nothing had art; now that every creature
+        resolves to its own sprite, the map can show the thing the player is about to fight
+        instead of a category. Compared side by side at 18px the sprite also simply reads
+        better - the portraits are dark and low-contrast and half vanish against the map, while
+        the sprites keep their colour and silhouette - so this is not consistency bought at the
+        cost of legibility.
+
+        Falls back to the old portrait, and then to None so callers can draw the plain dot,
+        rather than letting a missing PNG crash the map's render loop."""
+        cache_key = (name, template, size)
         if cache_key in self._boss_icon_cache:
             return self._boss_icon_cache[cache_key]
+        if name:
+            try:
+                from ui.sprite_loader import get_creature_sprite
+                # Asked for at a tile size that makes the 4.0 boss multiplier land on `size`,
+                # so this marker and the dungeon floor are driven by the same scale table
+                # rather than by a second opinion about how big a boss is.
+                art = get_creature_sprite(name, template, max(1, round(size / 4.0)), boss=True)
+                if art is not None and art.get_height():
+                    k = size / art.get_height()
+                    art = pygame.transform.smoothscale(
+                        art, (max(1, round(art.get_width() * k)), size))
+                    self._boss_icon_cache[cache_key] = art
+                    return art
+            except Exception:
+                pass
         try:
             path = get_boss_icon_path(template)
             raw = pygame.image.load(str(path)).convert_alpha()
@@ -448,16 +490,3 @@ class MapScreen(BaseScreen):
             icon = None
         self._boss_icon_cache[cache_key] = icon
         return icon
-
-        ly += 14
-        self.renderer.draw_text(screen, f"Size: {tilemap.width} x {tilemap.height}",
-                                (lx, ly), color=(150, 150, 165))
-        ly += 24
-        self.renderer.draw_text(screen, f"Position: {zm.player_x}, {zm.player_y}",
-                                (lx, ly), color=(150, 150, 165))
-
-        footer = "M or ESC: close map"
-        fw = self.renderer.font_normal.size(footer)[0]
-        self.renderer.draw_text(screen, footer,
-                                (SCREEN_WIDTH // 2 - fw // 2, SCREEN_HEIGHT - 34),
-                                color=(150, 150, 150))
