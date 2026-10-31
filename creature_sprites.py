@@ -78,7 +78,7 @@ SHEETS = {
     # ---- 4. undead and demons.
     'undead_demon': [
         'zombie_1', 'zombie_2', 'zombie_3', 'zombie_4',
-        'skeleton_archer_1', 'skeleton_archer_2', 'wraith_1', 'wraith_2',
+        'skeleton_archer', 'skeleton_marksman', 'wraith_1', 'wraith_2',
         'wraith_3', 'felhound_1', 'felhound_2', 'felhound_3',
         'skeleton_warrior_1', 'skeleton_warrior_2', 'ghoul_1', 'ghoul_2',
         'imp_1', 'imp_2', 'voidwalker_1', 'voidwalker_2',
@@ -145,7 +145,6 @@ VARIANTS = {
     'revenant': 2,
     'serpent': 2,
     'silithid_worker': 2,
-    'skeleton_archer': 2,
     'skeleton_warrior': 2,
     'slime_green': 2,
     'spectre': 2,
@@ -173,7 +172,7 @@ _RULES = [
     # --- named species that would otherwise be caught by a weaker rule
     (r"broodmother|brood tender|brood queen", "spider_broodmother"),
     (r"hatchling|spiderling", "spider_hatchling"),
-    (r"spider|weaver|webspinner|arachn", "spider"),
+    (r"spider|weaver|webspinner|arachn", "spider", {"insect"}),
     (r"silithid.*warrior|hive.*warrior", "silithid_worker"),
     (r"silithid|hive", "silithid_worker"),
     (r"scarab|beetle", "silithid_worker"),
@@ -182,19 +181,19 @@ _RULES = [
     (r"centipede", "maggot"),
     (r"maggot|grub", "maggot"),
     (r"\brats?\b|vermin", "rat_plague"),
-    (r"ooze|acid", "ooze_acid"),
-    (r"slime|sludge|muck", "slime_green"),
+    (r"ooze|acid", "ooze_acid", {"insect", "aquatic", "elemental"}),
+    (r"slime|sludge|muck", "slime_green", {"insect", "aquatic", "elemental", "beast"}),
     (r"carapace|shardback|crawler", "crawler_shell"),
 
     # --- aquatic
-    (r"naga.*(myrmidon|warrior|guard)", "naga_myrmidon"),
-    (r"naga.*(siren|witch|sorcer)|sea witch", "sea_witch"),
-    (r"\bnaga\b", "naga_warrior"),
+    (r"(naga|saltscale).*(myrmidon|warrior|guard)", "naga_myrmidon"),
+    (r"(naga|saltscale).*(siren|witch|sorcer)|sea witch", "sea_witch"),
+    (r"\bnaga\b|saltscale", "naga_warrior"),
     (r"drowned.*(captain|bosun|officer)", "pirate_captain"),
     (r"drowned|waterlogged|sodden", "drowned_sailor"),
     (r"murloc|makrura", "murloc"),
     (r"tidecaller|tide|lurker", "tide_lurker"),
-    (r"eel", "eel_electric"),
+    (r"\beels?\b", "eel_electric"),
     (r"jellyfish", "tentacle_horror"),
     (r"thresher", "thresher"),
     (r"crab", "crab_giant"),
@@ -207,6 +206,7 @@ _RULES = [
     (r"abomination|stitch", "abomination"),
     (r"skeleton.*(archer|bowman)|bone.*archer", "skeleton_archer"),
     (r"skeleton.*(mage|caster)|bone.*mage", "skeleton_archer"),
+    (r"\b(archer|bowman|marksman)\b", "skeleton_archer", {"undead"}),
     (r"skeleton|bonewarden|bone ", "skeleton_warrior"),
     (r"ghoul", "ghoul"),
     (r"zombie|shambler|risen", "zombie"),
@@ -232,10 +232,10 @@ _RULES = [
 
     # --- elementals, plants, constructs
     (r"(fire|flame|ember|magma|molten|lava|cinder|searing|smolder).*(elemental|spirit|guardian|caller|lord)",
-     "elemental_fire"),
+     "elemental_fire", {"elemental"}),
     (r"(water|tide|wave|naiad).*(elemental|spirit|lord)", "elemental_water"),
     (r"(earth|stone|rock|granite|crag).*(elemental|spirit|lord)", "elemental_earth"),
-    (r"(air|wind|storm|gale|thunder).*(elemental|spirit|lord|caller)", "elemental_air"),
+    (r"(air|wind|storm|gale|thunder).*(elemental|spirit|lord|caller)", "elemental_air", {"elemental"}),
     (r"(ice|frost|rime|winter).*(elemental|spirit|lord)", "elemental_water"),
     # NOT |wisp in the second group: it used to be, so "Vein-Lit Wisp" drew the arcane ELEMENTAL
     # - a humanoid of folded energy - while the actual wisp sprite, a floating mote with a face,
@@ -253,12 +253,12 @@ _RULES = [
     (r"chitter", "silithid_worker"),      # Chitterlord Skrix is an insect, not a cultist
     (r"construct|golem|sentinel", "golem_stone", {"elemental", "undead", "demon"}),
     (r"\bwisp\b", "wisp"),
-    (r"treant|ancient|bark|timber", "treant"),
+    (r"treant|ancient|bark|timber", "treant", {"plant"}),
     (r"sapling|sprout", "sapling_thorn"),
     (r"spore|gloomcap|fungal|mushroom|myconid", "spore_cap"),
-    (r"vine|strangler|thorn|creeper|lasher", "vine_strangler"),
+    (r"vine|strangler|thorn|creeper|lasher", "vine_strangler", {"plant"}),
     (r"\bore\b|\bgeode\b", "elemental_earth", {"plant", "elemental"}),
-    (r"bog|peat|marsh|mire", "bog_lord"),
+    (r"bog|peat|marsh|mire", "bog_lord", {"plant", "elemental", "beast"}),
 
     # --- beasts
     # "worgen" is a wolf-headed PERSON and all 8 in the game classify as humanoid; the plain
@@ -268,13 +268,13 @@ _RULES = [
     (r"\bworgs?\b|wolf|lupine|howler", "worg"),
     (r"raptor|velocir", "raptor"),
     (r"\bbats?\b|nightwing", "bat"),
-    (r"bear|ursa", "bear"),
-    (r"boar|battleboar|tusker", "boar"),
+    (r"\bbears?\b|ursa", "bear", {"beast"}),
+    (r"boar|battleboar|tusker", "boar", {"beast"}),
     (r"hyena|jackal", "hyena"),
     (r"panther|stalker|prowler", "panther", {"beast"}),
     (r"saber|sabre|\bcat\b|lynx", "saber_cat"),
     (r"basilisk", "basilisk"),
-    (r"serpent|snake|cobra|adder|viper", "serpent"),
+    (r"serpent|snake|cobra|adder|viper", "serpent", {"beast"}),
     (r"crocolisk|crocodile|gator", "crocolisk"),
     (r"kodo", "kodo"),
     (r"scorpion|scorpid", "scorpion"),
@@ -295,13 +295,14 @@ _RULES = [
     (r"kobold", "kobold"),
     (r"harpy.*(matriarch|queen)", "harpy_matriarch"),
     (r"harpy|windcaller", "harpy"),
-    (r"quilboar.*(geomancer|shaman|mystic)|razorfen.*(geomancer|shaman)", "quilboar_geomancer"),
-    (r"quilboar|razorfen|bristleback", "quilboar"),
+    (r"(quilboar|razorfen|razormane|bristleback).*(geomancer|shaman|mystic|warcaller)",
+     "quilboar_geomancer"),
+    (r"quilboar|razorfen|razormane|bristleback", "quilboar"),
     (r"centaur|kolkar|galak", "centaur"),
     (r"ogre.*(mage|magus)", "ogre"),
-    (r"ogre", "ogre"),
+    (r"ogre|mosh'ogg|gordunni|boulderfist", "ogre"),
     (r"troll.*(witch|hex|shadow|priest)", "troll_witchdoctor"),
-    (r"troll|zul'|vilebranch", "troll_axe"),
+    (r"troll|zul'|vilebranch|zalazane|gurbashi|bloodscalp|skullsplitter", "troll_axe"),
     (r"trogg", "trogg"),
     (r"furbolg", "furbolg"),
     (r"(bloodsail|southsea|pirate).*(captain|lord)", "pirate_captain"),
@@ -314,8 +315,8 @@ _RULES = [
     (r"apothecary|chemist|plaguebringer", "forsaken_apothecary"),
     (r"forsaken|deathguard", "forsaken_soldier"),
     (r"(venture|goblin).*(overseer|foreman|boss)", "goblin_overseer"),
-    (r"goblin|venture|sapper|tinker", "goblin_sapper"),
-    (r"dwarf|excavator|prospector|dark iron", "dwarf_excavator"),
+    (r"goblin|venture|sapper|tinker|dustwheel|boilerman|wheelman", "goblin_sapper"),
+    (r"dwarf|excavator|prospector|dark iron|dun garok|rifleman|mountaineer", "dwarf_excavator"),
     (r"deserter|grunt|orc\b", "orc_deserter"),
 
     # --- TITLES, last of all and above only the stat template.
@@ -358,7 +359,7 @@ RULES = [(re.compile(r[0], re.I), r[1], (r[2] if len(r) > 2 else None)) for r in
 TEMPLATE_FALLBACK = {
     "humanoid_warrior": "bandit_human",
     "humanoid_caster": "cultist_robed",
-    "humanoid_ranged": "skeleton_archer",
+    "humanoid_ranged": "hunter_ranger",
     "humanoid_rogue": "syndicate_rogue",
     "beast_large": "bear",
     "beast_fast": "worg",
@@ -367,7 +368,7 @@ TEMPLATE_FALLBACK = {
     "vermin_swarm": "rat_plague",
     "undead_basic": "zombie",
     "elemental_bruiser": "golem_stone",
-    "elemental_caster": "elemental_fire",
+    "elemental_caster": "elemental_air",
     "demon_caster": "fel_cultist",
     "demon_hound": "felhound",
     "aquatic_basic": "murloc",
@@ -382,6 +383,9 @@ TEMPLATE_FALLBACK = {
 FAMILY_TEMPLATE_FALLBACK = {
     ("demon", "demon_caster"): "fel_cultist",
     ("demon", "humanoid_caster"): "fel_cultist",
+    # An undead that fights at range is a skeleton with a bow. Only one creature in the game is
+    # actually NAMED "Skeleton Archer", so without this the second archer sprite had no customer.
+    ("undead", "humanoid_ranged"): "skeleton_archer",
 }
 
 #: What family each stat template implies. Used to decide whether the template still has anything
@@ -395,8 +399,19 @@ TEMPLATE_FAMILY = {
 }
 
 FAMILY_FALLBACK = {
-    "beast": "bear", "insect": "silithid_worker", "aquatic": "murloc", "undead": "zombie",
+    "humanoid": "bandit_human", "beast": "bear", "insect": "silithid_worker", "aquatic": "murloc", "undead": "zombie",
     "elemental": "golem_stone", "demon": "demon_brute", "plant": "spore_cap",
+}
+
+#: ART THAT EXISTS BUT NOTHING CURRENTLY SELECTS. Kyle: "don't toss the other stuff... Useful
+#: later don't lose them just rename them!" A sheet sometimes draws more of something than the
+#: game has creatures for - only one creature in the game is a Skeleton Archer, and the sheet drew
+#: two. The spare keeps its file under a name that says what it is, and sits here so
+#: tools/qa_creature_sprites.py counts it as parked rather than as dead weight. Give one a rule
+#: the moment a creature earns it.
+SPARE = {
+    "skeleton_marksman": "second skeleton archer; the game has one archer creature, the sheet "
+                         "drew two. Wire up when a second undead ranged type exists.",
 }
 
 DEFAULT = "bandit_human"

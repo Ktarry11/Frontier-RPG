@@ -93,7 +93,8 @@ def main():
         if f not in CS.ALL_SPRITES:
             bad.append(f"{n!r} resolves to {f!r}, which no sheet draws")
         reached[f] += 1
-    dead = sorted(CS.ALL_SPRITES - set(reached))
+    # SPARE art is parked on purpose, not dead - see creature_sprites.SPARE.
+    dead = sorted(CS.ALL_SPRITES - set(reached) - set(getattr(CS, "SPARE", {})))
     if dead:
         bad.append(f"{len(dead)} sprite(s) no creature can ever select: {dead[:12]}"
                    f"{' ...' if len(dead) > 12 else ''}")
@@ -116,6 +117,9 @@ def main():
           f"{ {k: len(v) for k, v in CS.SHEETS.items()} }")
     print(f"  {len(cre)} creatures resolve; {len(cave)} are in caves, {named} of those "
           f"({named / max(1, len(cave)):.0%}) matched by name or title rather than stat template")
+    spare = sorted(getattr(CS, "SPARE", {}))
+    if spare:
+        print(f"  parked for later ({len(spare)}): {spare}")
     print(f"  busiest art: {[f'{s} x{k}' for s, k in reached.most_common(6)]}")
 
     if bad:
