@@ -63,13 +63,25 @@ def places():
     enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
     zones, caves, empty = [], [], []
     for zn, z in enc.items():
-        pools = [z.get("creatures") or {}]
+        # z["open_zone"]["creatures"], NOT z["creatures"]. The first version read the latter,
+        # which does not exist, so EVERY zone came back empty and the tool confidently reported
+        # populated zones - the Frostward Descent among them - as having nothing to fight. It
+        # was believed, and acted on. A key that is simply absent reads as "no creatures here"
+        # and nothing anywhere says otherwise, which is why the assertion below exists.
+        pools = [(z.get("open_zone") or {}).get("creatures") or {}]
         pools += [(s.get("creatures") or {}) for s in (z.get("subzones") or {}).values()]
         (zones if any(pools) else empty).append(zn)
     for z in enc.values():
         for cn, cv in (z.get("caves") or {}).items():
             name = cv.get("name") or cn
             (caves if (cv.get("creatures") or {}) else empty).append(name)
+    # A schema typo here reports healthy zones as empty and empty ones as healthy, and nothing
+    # downstream can tell. So: the game ships far more populated zones than empty ones, and if
+    # that ever inverts it is this function that is wrong, not the content.
+    if len(empty) > len(zones):
+        raise SystemExit(f"REFUSING: {len(empty)} places look empty against only {len(zones)} "
+                         f"populated - that is a key name that no longer matches "
+                         f"encounters.json, not a game with no monsters in it.")
     return sorted(zones), sorted(set(caves)), sorted(set(empty))
 
 
