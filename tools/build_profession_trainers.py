@@ -51,15 +51,38 @@ PAIRS = [
      "and the second part is where people go wrong."),
     ("wood", "Woodwright", ["woodcutting", "woodworking"],
      "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet."),
-    ("hide", "Tanner", ["skinning", "leatherworking", "tailoring"],
-     "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the "
-     "lot of it."),
+    # COOKING LIVES HERE, and it is here rather than on a sixth NPC because Kyle's rule is a few
+    # trainers per town, combined by theme. It had no trainer ANYWHERE: a defined profession with
+    # recipes in data/crafting/recipes.json that no player in the game could learn. The tanner is
+    # the honest home for it - the person who shows you how to take a beast apart is the person
+    # who shows you what to do with the meat, and meat_drops already comes off the same creatures
+    # skinning does.
+    ("hide", "Tanner", ["skinning", "leatherworking", "tailoring", "cooking"],
+     "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay "
+     "once and I will teach you the lot of it, cooking included, because a skinner who throws the "
+     "meat away is a skinner who goes hungry holding a full pack."),
     ("essence", "Tinker", ["essence_harvesting", "engineering"],
      "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it "
      "decides it would rather not be."),
 ]
 #: Starter towns teach the gathering halves only, and nothing else in the pair.
 STARTER_PAIRS = {"forge": ["mining"], "herbs": ["herbalism"], "wood": ["woodcutting"]}
+
+#: AND THEY NEED THEIR OWN GREETING. The starter trainers were handed the full pair's line, so
+#: Forge Brakka in the Valley of Trials opened with "I teach both halves or neither" while her
+#: trains_profession was ["mining"] - the greeting promising exactly the thing the data refused.
+#: These say the true thing instead, and point at where the other half is.
+STARTER_GREETINGS = {
+    "forge": "Where to dig, and how to tell ore from rock. That is all I can give you here.\n\n"
+             "The hammer half is a different trade and wants a real forge, which this is not. Ask "
+             "in the first proper town you reach - whoever keeps the anvil there teaches it.",
+    "herbs": "Which weed to pull and which to leave. Start there.\n\n"
+             "What to do with them after is brewing, and brewing wants a bench and a roof. You "
+             "will find somebody who has both before you need it.",
+    "wood": "Fell it clean and strip it properly. A log cut badly is a log twice.\n\n"
+            "Making something of it comes later, with a saw and a sawmill. Neither of those is "
+            "mine to lend.",
+}
 STARTER = {"Valley of Trials", "Echo Isles", "Deathknell"}
 
 # sawmill sites: (zone display name, zone field in sawmills.json)
@@ -146,7 +169,8 @@ def main():
                       if z.is_walkable(anchor[0] + dx, anchor[1] + dy)), None)
         region = bct.flood(z, start)
         starter = zone_name in STARTER
-        pairs = [(k, t, STARTER_PAIRS[k], g) for (k, t, _, g) in PAIRS if k in STARTER_PAIRS] if starter \
+        pairs = [(k, t, STARTER_PAIRS[k], STARTER_GREETINGS[k])
+                 for (k, t, _, _g) in PAIRS if k in STARTER_PAIRS] if starter \
             else list(PAIRS)
         tiles = pick_tiles(z, region, anchor, occupied, len(pairs), 3, 12, 2)
         if len(tiles) < len(pairs):

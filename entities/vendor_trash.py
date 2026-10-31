@@ -170,8 +170,15 @@ def make_item(family, entry, level, element=None):
     if not name.startswith(tier["adjective"]):      # "Crude Idol" at the Crude tier stays "Crude Idol"
         name = f"{tier['adjective']} {name}"
     icon_id = icon if icon and os.path.exists(os.path.join(_ICON_DIR, f"{icon}.png")) else None
+    # "Worth a few coppers" was written when the top tier paid 33 * 14 = 462c and was already a
+    # lie then; a Peerless Core at level 55 sells for over eight silver. The line now scales with
+    # what the thing is actually worth, because the description is the only place the player is
+    # told whether a grey item is worth the bag slot.
+    worth = ("Worth a few coppers to any merchant." if price < 100 else
+             "A merchant will give you decent silver for this." if price < 400 else
+             "Merchants pay well for salvage this clean.")
     return {"item_id": item_id, "name": name, "price": price, "icon_id": icon_id,
-            "description": "Vendor trash. Worth a few coppers to any merchant."}
+            "description": f"Vendor trash. {worth}"}
 
 
 def icon_for_item_id(item_id):

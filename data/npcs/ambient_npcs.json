@@ -5239,1275 +5239,6 @@
       "trains_class": "*"
     },
     {
-      "npc_id": "pt_vot_forge",
-      "name": "Forge Brakka",
-      "zone": "valley_of_trials",
-      "x": 66,
-      "y": 40,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 3,
-      "facing": "down",
-      "trains_profession": [
-        "mining"
-      ]
-    },
-    {
-      "npc_id": "pt_vot_herbs",
-      "name": "Apothecary Shazra",
-      "zone": "valley_of_trials",
-      "x": 65,
-      "y": 39,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 6,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism"
-      ]
-    },
-    {
-      "npc_id": "pt_vot_wood",
-      "name": "Woodwright Bruga",
-      "zone": "valley_of_trials",
-      "x": 64,
-      "y": 38,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 9,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting"
-      ]
-    },
-    {
-      "npc_id": "pt_echo_forge",
-      "name": "Forge Hulda",
-      "zone": "echo_isles",
-      "x": 90,
-      "y": 53,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 4,
-      "facing": "down",
-      "trains_profession": [
-        "mining"
-      ]
-    },
-    {
-      "npc_id": "pt_echo_herbs",
-      "name": "Apothecary Urzul",
-      "zone": "echo_isles",
-      "x": 89,
-      "y": 58,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism"
-      ]
-    },
-    {
-      "npc_id": "pt_echo_wood",
-      "name": "Woodwright Orgha",
-      "zone": "echo_isles",
-      "x": 89,
-      "y": 52,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting"
-      ]
-    },
-    {
-      "npc_id": "pt_razorhill_forge",
-      "name": "Forge Orgha",
-      "zone": "razor_hill",
-      "x": 29,
-      "y": 32,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 9,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_razorhill_herbs",
-      "name": "Apothecary Kagra",
-      "zone": "razor_hill",
-      "x": 28,
-      "y": 33,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 12,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_razorhill_wood",
-      "name": "Woodwright Hulda",
-      "zone": "razor_hill",
-      "x": 28,
-      "y": 31,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 15,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_razorhill_hide",
-      "name": "Tanner Urzul",
-      "zone": "razor_hill",
-      "x": 27,
-      "y": 34,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 18,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_razorhill_essence",
-      "name": "Tinker Orgha",
-      "zone": "razor_hill",
-      "x": 27,
-      "y": 30,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 21,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_org_forge",
-      "name": "Forge Brakka",
-      "zone": "Orgrimmar",
-      "x": 98,
-      "y": 53,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 3,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_org_herbs",
-      "name": "Apothecary Shazra",
-      "zone": "Orgrimmar",
-      "x": 97,
-      "y": 54,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 6,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_org_wood",
-      "name": "Woodwright Bruga",
-      "zone": "Orgrimmar",
-      "x": 97,
-      "y": 52,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 9,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_org_hide",
-      "name": "Tanner Thurgan",
-      "zone": "Orgrimmar",
-      "x": 96,
-      "y": 55,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 12,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_org_essence",
-      "name": "Tinker Brakka",
-      "zone": "Orgrimmar",
-      "x": 96,
-      "y": 51,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 15,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_crossroads_forge",
-      "name": "Forge Grokk",
-      "zone": "Crossroads",
-      "x": 48,
-      "y": 34,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_crossroads_herbs",
-      "name": "Apothecary Vashka",
-      "zone": "Crossroads",
-      "x": 47,
-      "y": 35,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_crossroads_wood",
-      "name": "Woodwright Naruk",
-      "zone": "Crossroads",
-      "x": 46,
-      "y": 36,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 16,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_crossroads_hide",
-      "name": "Tanner Rokan",
-      "zone": "Crossroads",
-      "x": 44,
-      "y": 26,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 19,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_crossroads_essence",
-      "name": "Tinker Grokk",
-      "zone": "Crossroads",
-      "x": 43,
-      "y": 25,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_taurajo_forge",
-      "name": "Forge Baine",
-      "zone": "camp_taurajo",
-      "x": 43,
-      "y": 28,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_taurajo_herbs",
-      "name": "Apothecary Runetotem",
-      "zone": "camp_taurajo",
-      "x": 39,
-      "y": 38,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_taurajo_wood",
-      "name": "Woodwright Sunwalker",
-      "zone": "camp_taurajo",
-      "x": 38,
-      "y": 39,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_taurajo_hide",
-      "name": "Tanner Ahnu",
-      "zone": "camp_taurajo",
-      "x": 37,
-      "y": 38,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 16,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_taurajo_essence",
-      "name": "Tinker Hamuul",
-      "zone": "camp_taurajo",
-      "x": 36,
-      "y": 37,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 19,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_ratchet_forge",
-      "name": "Forge Fizzbolt",
-      "zone": "Ratchet",
-      "x": 22,
-      "y": 35,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "goblin",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_ratchet_herbs",
-      "name": "Apothecary Gadget",
-      "zone": "Ratchet",
-      "x": 18,
-      "y": 31,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "goblin",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_ratchet_wood",
-      "name": "Woodwright Tinkle",
-      "zone": "Ratchet",
-      "x": 17,
-      "y": 30,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "goblin",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_ratchet_hide",
-      "name": "Tanner Snicker",
-      "zone": "Ratchet",
-      "x": 16,
-      "y": 29,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "goblin",
-      "appearance_variant": 16,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_ratchet_essence",
-      "name": "Tinker Sprocket",
-      "zone": "Ratchet",
-      "x": 15,
-      "y": 30,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "goblin",
-      "appearance_variant": 19,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_forge",
-      "name": "Forge Kaga",
-      "zone": "southern_barrens",
-      "x": 148,
-      "y": 113,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_herbs",
-      "name": "Apothecary Greyhoof",
-      "zone": "southern_barrens",
-      "x": 147,
-      "y": 114,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 11,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_wood",
-      "name": "Woodwright Bloodhoof",
-      "zone": "southern_barrens",
-      "x": 147,
-      "y": 112,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_hide",
-      "name": "Tanner Moonfeather",
-      "zone": "southern_barrens",
-      "x": 146,
-      "y": 115,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 17,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_essence",
-      "name": "Tinker Nara",
-      "zone": "southern_barrens",
-      "x": 146,
-      "y": 111,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_splintertree_forge",
-      "name": "Forge Mogor",
-      "zone": "splintertree_post",
-      "x": 73,
-      "y": 56,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 12,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_splintertree_herbs",
-      "name": "Apothecary Garrek",
-      "zone": "splintertree_post",
-      "x": 72,
-      "y": 59,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 15,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_splintertree_wood",
-      "name": "Woodwright Karga",
-      "zone": "splintertree_post",
-      "x": 72,
-      "y": 55,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 18,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_splintertree_hide",
-      "name": "Tanner Skarn",
-      "zone": "splintertree_post",
-      "x": 66,
-      "y": 49,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "female",
-      "race": "orc",
-      "appearance_variant": 21,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_splintertree_essence",
-      "name": "Tinker Mogor",
-      "zone": "splintertree_post",
-      "x": 63,
-      "y": 61,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 2,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_astranaar_forge",
-      "name": "Forge Ilyenna",
-      "zone": "Astranaar",
-      "x": 90,
-      "y": 52,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 9,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_astranaar_herbs",
-      "name": "Apothecary Elaria",
-      "zone": "Astranaar",
-      "x": 89,
-      "y": 53,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "night_elf",
-      "appearance_variant": 1,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_astranaar_wood",
-      "name": "Woodwright Shandris",
-      "zone": "Astranaar",
-      "x": 89,
-      "y": 51,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 4,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_astranaar_hide",
-      "name": "Tanner Valen",
-      "zone": "Astranaar",
-      "x": 88,
-      "y": 54,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "night_elf",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_astranaar_essence",
-      "name": "Tinker Maiev",
-      "zone": "Astranaar",
-      "x": 88,
-      "y": 50,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_zoram_forge",
-      "name": "Forge Maiev",
-      "zone": "zoram_strand",
-      "x": 37,
-      "y": 27,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 5,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_zoram_herbs",
-      "name": "Apothecary Tyrande",
-      "zone": "zoram_strand",
-      "x": 36,
-      "y": 26,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "night_elf",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_zoram_wood",
-      "name": "Woodwright Thalanil",
-      "zone": "zoram_strand",
-      "x": 35,
-      "y": 29,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_zoram_hide",
-      "name": "Tanner Ilyenna",
-      "zone": "zoram_strand",
-      "x": 35,
-      "y": 25,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "night_elf",
-      "appearance_variant": 3,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_zoram_essence",
-      "name": "Tinker Elaria",
-      "zone": "zoram_strand",
-      "x": 34,
-      "y": 30,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "night_elf",
-      "appearance_variant": 6,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_deathknell_forge",
-      "name": "Forge Veyra",
-      "zone": "Deathknell",
-      "x": 66,
-      "y": 52,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "mining"
-      ]
-    },
-    {
-      "npc_id": "pt_deathknell_herbs",
-      "name": "Apothecary Aldous",
-      "zone": "Deathknell",
-      "x": 65,
-      "y": 53,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism"
-      ]
-    },
-    {
-      "npc_id": "pt_deathknell_wood",
-      "name": "Woodwright Verity",
-      "zone": "Deathknell",
-      "x": 65,
-      "y": 51,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting"
-      ]
-    },
-    {
-      "npc_id": "pt_brill_forge",
-      "name": "Forge Mirela",
-      "zone": "Brill",
-      "x": 44,
-      "y": 47,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 5,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_brill_herbs",
-      "name": "Apothecary Bleak",
-      "zone": "Brill",
-      "x": 43,
-      "y": 48,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_brill_wood",
-      "name": "Woodwright Veyra",
-      "zone": "Brill",
-      "x": 43,
-      "y": 42,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 11,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_brill_hide",
-      "name": "Tanner Aldous",
-      "zone": "Brill",
-      "x": 42,
-      "y": 49,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_brill_essence",
-      "name": "Tinker Verity",
-      "zone": "Brill",
-      "x": 42,
-      "y": 41,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 1,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_sepulcher_forge",
-      "name": "Forge Ysolde",
-      "zone": "sepulcher",
-      "x": 42,
-      "y": 58,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 9,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_sepulcher_herbs",
-      "name": "Apothecary Grimsby",
-      "zone": "sepulcher",
-      "x": 41,
-      "y": 59,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 12,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_sepulcher_wood",
-      "name": "Woodwright Edda",
-      "zone": "sepulcher",
-      "x": 41,
-      "y": 57,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 15,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_sepulcher_hide",
-      "name": "Tanner Mortimer",
-      "zone": "sepulcher",
-      "x": 40,
-      "y": 60,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 2,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_sepulcher_essence",
-      "name": "Tinker Thessaly",
-      "zone": "sepulcher",
-      "x": 40,
-      "y": 56,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 5,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_uc_forge",
-      "name": "Forge Veyra",
-      "zone": "Undercity",
-      "x": 131,
-      "y": 136,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 2,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_uc_herbs",
-      "name": "Apothecary Aldous",
-      "zone": "Undercity",
-      "x": 130,
-      "y": 137,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 5,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_uc_wood",
-      "name": "Woodwright Verity",
-      "zone": "Undercity",
-      "x": 129,
-      "y": 138,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_uc_hide",
-      "name": "Tanner Harken",
-      "zone": "Undercity",
-      "x": 127,
-      "y": 139,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 11,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_uc_essence",
-      "name": "Tinker Lenore",
-      "zone": "Undercity",
-      "x": 126,
-      "y": 140,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_forge",
-      "name": "Forge Verity",
-      "zone": "silverpine_south",
-      "x": 80,
-      "y": 49,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_herbs",
-      "name": "Apothecary Harken",
-      "zone": "silverpine_south",
-      "x": 79,
-      "y": 50,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_wood",
-      "name": "Woodwright Lenore",
-      "zone": "silverpine_south",
-      "x": 79,
-      "y": 48,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_hide",
-      "name": "Tanner Rothgar",
-      "zone": "silverpine_south",
-      "x": 78,
-      "y": 47,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_essence",
-      "name": "Tinker Ysolde",
-      "zone": "silverpine_south",
-      "x": 77,
-      "y": 46,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 3,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_freewind_forge",
-      "name": "Forge Kaga",
-      "zone": "freewind_post",
-      "x": 84,
-      "y": 104,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing"
-      ]
-    },
-    {
-      "npc_id": "pt_freewind_herbs",
-      "name": "Apothecary Greyhoof",
-      "zone": "freewind_post",
-      "x": 83,
-      "y": 105,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 11,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_freewind_wood",
-      "name": "Woodwright Bloodhoof",
-      "zone": "freewind_post",
-      "x": 83,
-      "y": 103,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_freewind_hide",
-      "name": "Tanner Moonfeather",
-      "zone": "freewind_post",
-      "x": 82,
-      "y": 106,
-      "greeting": "Hide, leather and cloth all come off the same bench in my trade. Pay once and I will teach you the lot of it.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 17,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring"
-      ]
-    },
-    {
-      "npc_id": "pt_freewind_essence",
-      "name": "Tinker Nara",
-      "zone": "freewind_post",
-      "x": 82,
-      "y": 102,
-      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "essence_harvesting",
-        "engineering"
-      ]
-    },
-    {
       "npc_id": "org_banker",
       "name": "MerchantTusk",
       "zone": "orgrimmar",
@@ -6630,7 +5361,7 @@
     },
     {
       "npc_id": "gromgol_troll_attache",
-      "name": "Attaché Zul'jana",
+      "name": "Attach\u00e9 Zul'jana",
       "zone": "gromgol",
       "x": 44,
       "y": 26,
@@ -7288,6 +6019,1289 @@
       "race": "goblin",
       "appearance_variant": 12,
       "facing": "down"
+    },
+    {
+      "npc_id": "pt_vot_forge",
+      "name": "Forge Brakka",
+      "zone": "valley_of_trials",
+      "x": 66,
+      "y": 40,
+      "greeting": "Where to dig, and how to tell ore from rock. That is all I can give you here.\n\nThe hammer half is a different trade and wants a real forge, which this is not. Ask in the first proper town you reach - whoever keeps the anvil there teaches it.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 3,
+      "facing": "down",
+      "trains_profession": [
+        "mining"
+      ]
+    },
+    {
+      "npc_id": "pt_vot_herbs",
+      "name": "Apothecary Shazra",
+      "zone": "valley_of_trials",
+      "x": 65,
+      "y": 39,
+      "greeting": "Which weed to pull and which to leave. Start there.\n\nWhat to do with them after is brewing, and brewing wants a bench and a roof. You will find somebody who has both before you need it.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 6,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism"
+      ]
+    },
+    {
+      "npc_id": "pt_vot_wood",
+      "name": "Woodwright Bruga",
+      "zone": "valley_of_trials",
+      "x": 64,
+      "y": 38,
+      "greeting": "Fell it clean and strip it properly. A log cut badly is a log twice.\n\nMaking something of it comes later, with a saw and a sawmill. Neither of those is mine to lend.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting"
+      ]
+    },
+    {
+      "npc_id": "pt_echo_forge",
+      "name": "Forge Hulda",
+      "zone": "echo_isles",
+      "x": 90,
+      "y": 53,
+      "greeting": "Where to dig, and how to tell ore from rock. That is all I can give you here.\n\nThe hammer half is a different trade and wants a real forge, which this is not. Ask in the first proper town you reach - whoever keeps the anvil there teaches it.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 4,
+      "facing": "down",
+      "trains_profession": [
+        "mining"
+      ]
+    },
+    {
+      "npc_id": "pt_echo_herbs",
+      "name": "Apothecary Urzul",
+      "zone": "echo_isles",
+      "x": 89,
+      "y": 58,
+      "greeting": "Which weed to pull and which to leave. Start there.\n\nWhat to do with them after is brewing, and brewing wants a bench and a roof. You will find somebody who has both before you need it.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism"
+      ]
+    },
+    {
+      "npc_id": "pt_echo_wood",
+      "name": "Woodwright Orgha",
+      "zone": "echo_isles",
+      "x": 89,
+      "y": 52,
+      "greeting": "Fell it clean and strip it properly. A log cut badly is a log twice.\n\nMaking something of it comes later, with a saw and a sawmill. Neither of those is mine to lend.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting"
+      ]
+    },
+    {
+      "npc_id": "pt_razorhill_forge",
+      "name": "Forge Orgha",
+      "zone": "razor_hill",
+      "x": 29,
+      "y": 32,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_razorhill_herbs",
+      "name": "Apothecary Kagra",
+      "zone": "razor_hill",
+      "x": 28,
+      "y": 33,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 12,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_razorhill_wood",
+      "name": "Woodwright Hulda",
+      "zone": "razor_hill",
+      "x": 28,
+      "y": 31,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_razorhill_hide",
+      "name": "Tanner Urzul",
+      "zone": "razor_hill",
+      "x": 27,
+      "y": 34,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 18,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_razorhill_essence",
+      "name": "Tinker Orgha",
+      "zone": "razor_hill",
+      "x": 27,
+      "y": 30,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 21,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_org_forge",
+      "name": "Forge Brakka",
+      "zone": "Orgrimmar",
+      "x": 98,
+      "y": 53,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 3,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_org_herbs",
+      "name": "Apothecary Shazra",
+      "zone": "Orgrimmar",
+      "x": 97,
+      "y": 54,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 6,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_org_wood",
+      "name": "Woodwright Bruga",
+      "zone": "Orgrimmar",
+      "x": 97,
+      "y": 52,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_org_hide",
+      "name": "Tanner Thurgan",
+      "zone": "Orgrimmar",
+      "x": 96,
+      "y": 55,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 12,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_org_essence",
+      "name": "Tinker Brakka",
+      "zone": "Orgrimmar",
+      "x": 96,
+      "y": 51,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_crossroads_forge",
+      "name": "Forge Grokk",
+      "zone": "Crossroads",
+      "x": 48,
+      "y": 34,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_crossroads_herbs",
+      "name": "Apothecary Vashka",
+      "zone": "Crossroads",
+      "x": 47,
+      "y": 35,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_crossroads_wood",
+      "name": "Woodwright Naruk",
+      "zone": "Crossroads",
+      "x": 46,
+      "y": 36,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 16,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_crossroads_hide",
+      "name": "Tanner Rokan",
+      "zone": "Crossroads",
+      "x": 44,
+      "y": 26,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 19,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_crossroads_essence",
+      "name": "Tinker Grokk",
+      "zone": "Crossroads",
+      "x": 43,
+      "y": 25,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_taurajo_forge",
+      "name": "Forge Baine",
+      "zone": "camp_taurajo",
+      "x": 43,
+      "y": 28,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_taurajo_herbs",
+      "name": "Apothecary Runetotem",
+      "zone": "camp_taurajo",
+      "x": 39,
+      "y": 38,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_taurajo_wood",
+      "name": "Woodwright Sunwalker",
+      "zone": "camp_taurajo",
+      "x": 38,
+      "y": 39,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_taurajo_hide",
+      "name": "Tanner Ahnu",
+      "zone": "camp_taurajo",
+      "x": 37,
+      "y": 38,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 16,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_taurajo_essence",
+      "name": "Tinker Hamuul",
+      "zone": "camp_taurajo",
+      "x": 36,
+      "y": 37,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 19,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_ratchet_forge",
+      "name": "Forge Fizzbolt",
+      "zone": "Ratchet",
+      "x": 22,
+      "y": 35,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "goblin",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_ratchet_herbs",
+      "name": "Apothecary Gadget",
+      "zone": "Ratchet",
+      "x": 18,
+      "y": 31,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "goblin",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_ratchet_wood",
+      "name": "Woodwright Tinkle",
+      "zone": "Ratchet",
+      "x": 17,
+      "y": 30,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "goblin",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_ratchet_hide",
+      "name": "Tanner Snicker",
+      "zone": "Ratchet",
+      "x": 16,
+      "y": 29,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "goblin",
+      "appearance_variant": 16,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_ratchet_essence",
+      "name": "Tinker Sprocket",
+      "zone": "Ratchet",
+      "x": 15,
+      "y": 30,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "goblin",
+      "appearance_variant": 19,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_sbarrens_forge",
+      "name": "Forge Kaga",
+      "zone": "southern_barrens",
+      "x": 148,
+      "y": 113,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_sbarrens_herbs",
+      "name": "Apothecary Greyhoof",
+      "zone": "southern_barrens",
+      "x": 147,
+      "y": 114,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 11,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_sbarrens_wood",
+      "name": "Woodwright Bloodhoof",
+      "zone": "southern_barrens",
+      "x": 147,
+      "y": 112,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 14,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_sbarrens_hide",
+      "name": "Tanner Moonfeather",
+      "zone": "southern_barrens",
+      "x": 146,
+      "y": 115,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 17,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_sbarrens_essence",
+      "name": "Tinker Nara",
+      "zone": "southern_barrens",
+      "x": 146,
+      "y": 111,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_splintertree_forge",
+      "name": "Forge Mogor",
+      "zone": "splintertree_post",
+      "x": 73,
+      "y": 56,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 12,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_splintertree_herbs",
+      "name": "Apothecary Garrek",
+      "zone": "splintertree_post",
+      "x": 72,
+      "y": 59,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_splintertree_wood",
+      "name": "Woodwright Karga",
+      "zone": "splintertree_post",
+      "x": 72,
+      "y": 55,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 18,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_splintertree_hide",
+      "name": "Tanner Skarn",
+      "zone": "splintertree_post",
+      "x": 66,
+      "y": 49,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 21,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_splintertree_essence",
+      "name": "Tinker Mogor",
+      "zone": "splintertree_post",
+      "x": 63,
+      "y": 61,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 2,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_astranaar_forge",
+      "name": "Forge Ilyenna",
+      "zone": "Astranaar",
+      "x": 90,
+      "y": 52,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_astranaar_herbs",
+      "name": "Apothecary Elaria",
+      "zone": "Astranaar",
+      "x": 89,
+      "y": 53,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "night_elf",
+      "appearance_variant": 1,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_astranaar_wood",
+      "name": "Woodwright Shandris",
+      "zone": "Astranaar",
+      "x": 89,
+      "y": 51,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 4,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_astranaar_hide",
+      "name": "Tanner Valen",
+      "zone": "Astranaar",
+      "x": 88,
+      "y": 54,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "night_elf",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_astranaar_essence",
+      "name": "Tinker Maiev",
+      "zone": "Astranaar",
+      "x": 88,
+      "y": 50,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_zoram_forge",
+      "name": "Forge Maiev",
+      "zone": "zoram_strand",
+      "x": 36,
+      "y": 23,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 5,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_zoram_herbs",
+      "name": "Apothecary Tyrande",
+      "zone": "zoram_strand",
+      "x": 35,
+      "y": 24,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "night_elf",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_zoram_wood",
+      "name": "Woodwright Thalanil",
+      "zone": "zoram_strand",
+      "x": 35,
+      "y": 22,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_zoram_hide",
+      "name": "Tanner Ilyenna",
+      "zone": "zoram_strand",
+      "x": 34,
+      "y": 21,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "night_elf",
+      "appearance_variant": 3,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_zoram_essence",
+      "name": "Tinker Elaria",
+      "zone": "zoram_strand",
+      "x": 33,
+      "y": 20,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "night_elf",
+      "appearance_variant": 6,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_deathknell_forge",
+      "name": "Forge Veyra",
+      "zone": "Deathknell",
+      "x": 66,
+      "y": 52,
+      "greeting": "Where to dig, and how to tell ore from rock. That is all I can give you here.\n\nThe hammer half is a different trade and wants a real forge, which this is not. Ask in the first proper town you reach - whoever keeps the anvil there teaches it.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "mining"
+      ]
+    },
+    {
+      "npc_id": "pt_deathknell_herbs",
+      "name": "Apothecary Aldous",
+      "zone": "Deathknell",
+      "x": 65,
+      "y": 53,
+      "greeting": "Which weed to pull and which to leave. Start there.\n\nWhat to do with them after is brewing, and brewing wants a bench and a roof. You will find somebody who has both before you need it.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism"
+      ]
+    },
+    {
+      "npc_id": "pt_deathknell_wood",
+      "name": "Woodwright Verity",
+      "zone": "Deathknell",
+      "x": 65,
+      "y": 51,
+      "greeting": "Fell it clean and strip it properly. A log cut badly is a log twice.\n\nMaking something of it comes later, with a saw and a sawmill. Neither of those is mine to lend.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting"
+      ]
+    },
+    {
+      "npc_id": "pt_brill_forge",
+      "name": "Forge Mirela",
+      "zone": "Brill",
+      "x": 44,
+      "y": 47,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 5,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_brill_herbs",
+      "name": "Apothecary Bleak",
+      "zone": "Brill",
+      "x": 43,
+      "y": 48,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_brill_wood",
+      "name": "Woodwright Veyra",
+      "zone": "Brill",
+      "x": 43,
+      "y": 42,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 11,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_brill_hide",
+      "name": "Tanner Aldous",
+      "zone": "Brill",
+      "x": 42,
+      "y": 49,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 14,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_brill_essence",
+      "name": "Tinker Verity",
+      "zone": "Brill",
+      "x": 42,
+      "y": 41,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 1,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_sepulcher_forge",
+      "name": "Forge Ysolde",
+      "zone": "sepulcher",
+      "x": 42,
+      "y": 58,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_sepulcher_herbs",
+      "name": "Apothecary Grimsby",
+      "zone": "sepulcher",
+      "x": 41,
+      "y": 59,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 12,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_sepulcher_wood",
+      "name": "Woodwright Edda",
+      "zone": "sepulcher",
+      "x": 41,
+      "y": 57,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_sepulcher_hide",
+      "name": "Tanner Mortimer",
+      "zone": "sepulcher",
+      "x": 40,
+      "y": 60,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 2,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_sepulcher_essence",
+      "name": "Tinker Thessaly",
+      "zone": "sepulcher",
+      "x": 40,
+      "y": 56,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 5,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_uc_forge",
+      "name": "Forge Veyra",
+      "zone": "Undercity",
+      "x": 131,
+      "y": 136,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 2,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_uc_herbs",
+      "name": "Apothecary Aldous",
+      "zone": "Undercity",
+      "x": 130,
+      "y": 137,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 5,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_uc_wood",
+      "name": "Woodwright Verity",
+      "zone": "Undercity",
+      "x": 129,
+      "y": 138,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_uc_hide",
+      "name": "Tanner Harken",
+      "zone": "Undercity",
+      "x": 127,
+      "y": 139,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 11,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_uc_essence",
+      "name": "Tinker Lenore",
+      "zone": "Undercity",
+      "x": 126,
+      "y": 140,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 14,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_spsouth_forge",
+      "name": "Forge Verity",
+      "zone": "silverpine_south",
+      "x": 80,
+      "y": 49,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_spsouth_herbs",
+      "name": "Apothecary Harken",
+      "zone": "silverpine_south",
+      "x": 79,
+      "y": 50,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_spsouth_wood",
+      "name": "Woodwright Lenore",
+      "zone": "silverpine_south",
+      "x": 79,
+      "y": 48,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_spsouth_hide",
+      "name": "Tanner Rothgar",
+      "zone": "silverpine_south",
+      "x": 78,
+      "y": 47,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "male",
+      "race": "forsaken",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_spsouth_essence",
+      "name": "Tinker Ysolde",
+      "zone": "silverpine_south",
+      "x": 77,
+      "y": 46,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "female",
+      "race": "forsaken",
+      "appearance_variant": 3,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_freewind_forge",
+      "name": "Forge Kaga",
+      "zone": "freewind_post",
+      "x": 84,
+      "y": 104,
+      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_freewind_herbs",
+      "name": "Apothecary Greyhoof",
+      "zone": "freewind_post",
+      "x": 83,
+      "y": 105,
+      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 11,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_freewind_wood",
+      "name": "Woodwright Bloodhoof",
+      "zone": "freewind_post",
+      "x": 83,
+      "y": 103,
+      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 14,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_freewind_hide",
+      "name": "Tanner Moonfeather",
+      "zone": "freewind_post",
+      "x": 82,
+      "y": 106,
+      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
+      "gender": "female",
+      "race": "tauren",
+      "appearance_variant": 17,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking",
+        "tailoring",
+        "cooking"
+      ]
+    },
+    {
+      "npc_id": "pt_freewind_essence",
+      "name": "Tinker Nara",
+      "zone": "freewind_post",
+      "x": 82,
+      "y": 102,
+      "greeting": "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it decides it would rather not be.",
+      "gender": "male",
+      "race": "tauren",
+      "appearance_variant": 0,
+      "facing": "down",
+      "trains_profession": [
+        "essence_harvesting",
+        "engineering"
+      ]
     }
   ]
 }
