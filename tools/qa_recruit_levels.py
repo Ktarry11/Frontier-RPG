@@ -115,7 +115,15 @@ def main():
             pass
     junk = gen.generate_item_for_class(left.char_class, left.level, slot="feet", rarity="common")
     left.inventory.append(junk)
+    def _spent(ch):
+        """Talent points actually PLACED in the character's trees."""
+        total = 0
+        for tree in (getattr(ch, "talent_trees", None) or {}).values():
+            total += getattr(tree, "total_points_spent", lambda: 0)()
+        return total
+
     old_lvl, old_hp, old_tp = left.level, left.health, left.talent_points_available
+    old_spent = _spent(left)
     mgr.mark_recruited(probe.recruit_id)
     mgr.dismiss(left)
     back = mgr.build_or_restore(probe, 50)
@@ -123,10 +131,19 @@ def main():
     want = probe.effective_level(50)
     if back.level != want:
         bad.append(f"rehire: {probe.name} left at {old_lvl}, returns at {back.level}, want {want}")
-    if back.health <= old_hp or back.talent_points_available <= old_tp:
+    # TALENT POINTS ARE SPENT, NOT BANKED. This used to assert that
+    # talent_points_available went UP, which was right when it was written and stopped being
+    # right the moment _catch_up gained its auto_spend_talents() call - a companion now comes
+    # back BUILT, so every point they gained is immediately placed and the unspent pool is 0
+    # both before and after. The check was failing on a feature working correctly. What it
+    # actually wants to know is that the levels were GAINED through level_up() rather than
+    # assigned, so it measures the two things level_up() produces that an assignment does not:
+    # a bigger health pool, and more points placed in the trees.
+    back_spent = _spent(back)
+    if back.health <= old_hp or back_spent <= old_spent:
         bad.append(f"rehire: {probe.name} returns labelled level {back.level} but with a level "
-                   f"{old_lvl} body - health {old_hp}->{back.health}, talent points "
-                   f"{old_tp}->{back.talent_points_available}. The level was assigned rather "
+                   f"{old_lvl} body - health {old_hp}->{back.health}, talent points spent "
+                   f"{old_spent}->{back_spent}. The level was assigned rather "
                    f"than gained through level_up().")
     stale = sorted(i.item_level for i in back.equipment.slots.values()
                    if i and i.item_level < back.level - CATCHUP)
@@ -141,8 +158,8 @@ def main():
     mgr.recruited_ids.discard(probe.recruit_id)
     mgr.dismissed_characters.pop(probe.recruit_id, None)
     print(f"rehire probe: {probe.name} left at {old_lvl}, returns at {back.level} "
-          f"(health {old_hp}->{back.health}, talent points {old_tp}->"
-          f"{back.talent_points_available})\n")
+          f"(health {old_hp}->{back.health}, talent points spent {old_spent}->{back_spent}, "
+          f"unspent {old_tp}->{back.talent_points_available})\n")
 
     # 6. the gate sees the snapshot, not just the authored level
     vet = next(r for r in recs if r.recruit_id != "asher_coleman" and r.level <= 20)
