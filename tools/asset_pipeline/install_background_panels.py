@@ -106,6 +106,32 @@ MAPPING = {
     ("s6", "04"): "fire_dungeon",       # fel hall, green fire over lava
     ("s6", "05"): "blighted",           # corrupted wood, red tendrils
     ("s6", "07"): "crystal",            # arcane cavern, blue pool and ley lines
+
+    # ---- sheet 7 : aimed at the packs qa_combat_backgrounds called thin ----------------------
+    ("s7", "00"): "desert",             # open dunes, nothing but sand
+    ("s7", "01"): "mountain",           # red rock canyon, river far below
+    ("s7", "02"): "desert",             # oasis, palms and mud-brick
+    ("s7", "03"): "salt_flat",          # bleached pan, picked-clean skeleton
+    ("s7", "04"): "desert",             # half-buried obelisk and arches
+    ("s7", "05"): "mossy_forest",       # redwood understorey
+    ("s7", "06"): "mossy_forest",       # autumn road
+    ("s7", "07"): "fantasy_forest",     # night wood, blue glow - Ashenvale
+    ("s7", "08"): "jungle",             # misty green jungle
+    ("s7", "09"): "blighted",           # dead wood under a grey sky
+
+    # ---- sheet 8 -----------------------------------------------------------------------------
+    ("s8", "00"): "ice_dungeon",        # ice cave, frozen floor
+    ("s8", "01"): "arena",              # a stepped fighting pit with barred gates
+    ("s8", "02"): "fire_dungeon",       # lava chamber
+    ("s8", "03"): "fantasy_forest",     # night wood with a lit hut
+    ("s8", "04"): "crystal",            # violet crystal cave
+    ("s8", "05"): "nautical/Flooded",   # sunken ruins, green water
+    ("s8", "06"): "blighted",           # dead swamp, bare stems
+    ("s8", "07"): "mossy_forest",       # dark redwood
+    ("s8", "08"): "nautical/Flooded",   # coral and open water
+    ("s8", "09"): "keep",               # forge interior, dwarven stonework
+    ("s8", "10"): "mossy_forest",       # farmland under banners
+    ("s8", "11"): "crystal",            # arcane sanctum, blue
 }
 
 #: Near-duplicate takes of a panel already mapped above. Kyle: "remove redundancy to not take up

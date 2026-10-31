@@ -75,6 +75,26 @@ def trim_caption(cell, bg):
     return cell[:bottom]
 
 
+def _contact(panels, outdir):
+    """Numbered contact sheet. Numbers are drawn ON the thumbnails because a grid of unlabelled
+    thumbnails is exactly as easy to miscount as the original sheet was."""
+    if not panels:
+        return
+    from PIL import ImageDraw
+    cell_w, cell_h, cols_n = 200, 130, 4
+    rows_n = -(-len(panels) // cols_n)
+    sheet = Image.new("RGB", (cols_n * (cell_w + 8) + 8, rows_n * (cell_h + 22) + 8), (20, 20, 24))
+    d = ImageDraw.Draw(sheet)
+    for i, p in enumerate(panels):
+        t = p.copy()
+        t.thumbnail((cell_w, cell_h))
+        cx = 8 + (i % cols_n) * (cell_w + 8)
+        cy = 8 + (i // cols_n) * (cell_h + 22)
+        sheet.paste(t, (cx + (cell_w - t.width) // 2, cy))
+        d.text((cx + 4, cy + cell_h + 4), f"{i:02d}", fill=(255, 230, 120))
+    sheet.save(outdir / "_contact.png")
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(args) != 2:
@@ -85,6 +105,31 @@ def main():
     a = np.array(Image.open(src).convert("RGB"))
     bg = backing_colour(a)
     near = (np.abs(a.astype(int) - bg).max(axis=2) <= BG_TOL)
+
+    rects_file = next((x for x in sys.argv[1:] if x.startswith("--rects=")), None)
+    if rects_file:
+        # SOME SHEETS ARE MOSAICS, NOT GRIDS. One of these had a double-height ice cave beside a
+        # double-height arena, a column split into two half-height cells, and two rows of four
+        # below - no rows x cols describes it, and slicing it 4x3 produced twelve cells each
+        # holding fragments of two different paintings. Rather than write a general mosaic
+        # segmenter for one sheet, the rectangles are measured off the sheet's own separator
+        # lines and listed in a file, which is reproducible and wrong in ways a contact sheet
+        # shows immediately.
+        boxes = []
+        for line in Path(rects_file.split("=", 1)[1]).read_text().splitlines():
+            line = line.split("#")[0].strip()
+            if line:
+                boxes.append(tuple(int(v) for v in line.replace(",", " ").split()))
+        n = 0
+        panels = []
+        for (x0, y0, x1, y1) in boxes:
+            img = Image.fromarray(a[y0:y1, x0:x1])
+            img.save(outdir / f"{n:02d}.png")
+            panels.append(img)
+            n += 1
+        _contact(panels, outdir)
+        print(f"{src.name}: {n} panels from {len(boxes)} explicit rectangles in {outdir}")
+        return 0
 
     grid = next((x for x in sys.argv[1:] if x.startswith("--grid=")), None)
     if grid:
@@ -123,23 +168,7 @@ def main():
             panels.append(img)
             n += 1
 
-    # Numbered contact sheet, so the panels can be matched to names by eye before anything is
-    # named. Numbers are drawn ON the thumbnails because a grid of unlabelled thumbnails is
-    # exactly as easy to miscount as the original sheet was.
-    if panels:
-        cell_w, cell_h, cols_n = 200, 130, 4
-        rows_n = -(-len(panels) // cols_n)
-        sheet = Image.new("RGB", (cols_n * (cell_w + 8) + 8, rows_n * (cell_h + 22) + 8), (20, 20, 24))
-        from PIL import ImageDraw
-        d = ImageDraw.Draw(sheet)
-        for i, p in enumerate(panels):
-            t = p.copy()
-            t.thumbnail((cell_w, cell_h))
-            cx = 8 + (i % cols_n) * (cell_w + 8)
-            cy = 8 + (i // cols_n) * (cell_h + 22)
-            sheet.paste(t, (cx + (cell_w - t.width) // 2, cy))
-            d.text((cx + 4, cy + cell_h + 4), f"{i:02d}", fill=(255, 230, 120))
-        sheet.save(outdir / "_contact.png")
+    _contact(panels, outdir)
 
     print(f"{src.name}: {len(rows)} row band(s) x {len(cols)} column band(s) -> {n} panels "
           f"in {outdir}")

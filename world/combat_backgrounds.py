@@ -29,7 +29,7 @@ VARIANT_FOLDERS = {
 }
 FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "jungle", "mountain",
                 "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
-                "keep")
+                "keep", "arena")
 
 # Nearest-match: every ZONE_BIOME / CAVE_BIOME tag in world/tile_textures.py
 # routed to whichever of the 7 available packs reads closest. Chosen by eye
@@ -132,7 +132,10 @@ ZONE_BACKGROUND = {
     "Boulder Lode Mine": "mountain",              # switchback terraces cut into cliffs
 
     # --- roofed stone ------------------------------------------------------
-    "Gurbashi Arena": "dark_dungeon",             # a fighting pit SUNK under Stranglethorn
+    # A stepped pit with barred gates, which is what it is. It will not actually be seen until
+    # the arena has fighters in it - it currently has no encounter table at all - but the wiring
+    # should be right before the roster lands, not after.
+    "Gurbashi Arena": "arena",
     "Dun Garok": "dark_dungeon",                  # "the dwarves cut it square"
     "Durnholde Keep": "dark_dungeon",             # curtain wall, dead keep, collapsed undercroft
     "The Broodspiral": "dark_dungeon",            # silithid hive spiralling into the earth

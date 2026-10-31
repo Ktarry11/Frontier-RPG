@@ -111,7 +111,22 @@ def get_background_for_zone(zone_name, is_cave=False, variant=None,
     if raw is None:
         return None
 
-    scaled = pygame.transform.smoothscale(raw, size)
+    # FILL THE SCREEN WITHOUT DISTORTING IT. This was a straight smoothscale to the viewport,
+    # which was invisible while every background was a 16:9 landscape painting and stopped being
+    # invisible the moment they were not: the current set runs from 0.72 (a tall desert dune) to
+    # 1.94 against a 1.78 screen, so the dune was being stretched two and a half times wider than
+    # it was drawn. Scale by the LARGER ratio so the image covers the viewport, then take the
+    # middle - a backdrop loses its edges off-screen, which nobody notices, instead of its
+    # proportions, which everybody does.
+    sw, sh = size
+    rw, rh = raw.get_width(), raw.get_height()
+    if rw and rh:
+        k = max(sw / rw, sh / rh)
+        full = pygame.transform.smoothscale(raw, (max(1, round(rw * k)), max(1, round(rh * k))))
+        scaled = pygame.Surface(size).convert()
+        scaled.blit(full, ((sw - full.get_width()) // 2, (sh - full.get_height()) // 2))
+    else:
+        scaled = pygame.transform.smoothscale(raw, size)
     _scaled_cache[scale_key] = scaled
     return scaled
 
