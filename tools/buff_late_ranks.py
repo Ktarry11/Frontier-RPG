@@ -45,6 +45,10 @@ os.chdir(ROOT)
 #: The five sim_class_balance reports as "far behind", and their ability files.
 CLASSES = ["runemaster", "knight_of_xoroth", "starcaller", "paladin", "tinker"]
 
+#: --only narrows a run to a subset, for the second pass where three of the five
+#: landed on the median at 1.25 and two did not. Buffing all five again would push the
+#: three that are already fine straight past it.
+
 #: Ranks below this are left alone - that is where these classes are already on the median.
 MIN_LEVEL = 36
 
@@ -57,9 +61,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--factor", type=float, required=True)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--only", nargs="*", default=None)
     args = ap.parse_args()
 
-    for cls in CLASSES:
+    for cls in (args.only or CLASSES):
         path = ROOT / "data/abilities" / f"{cls}.json"
         if not path.exists():
             print(f"  !! no ability file for {cls}")
@@ -87,7 +92,7 @@ def main():
         print(f"  {cls:18s} {touched:3d} abilities, {ranks:4d} ranks at level {MIN_LEVEL}+ "
               f"x{args.factor}")
     print(f"\n{'would apply' if args.dry_run else 'applied'} x{args.factor} to "
-          f"{len(CLASSES)} classes")
+          f"{len(args.only or CLASSES)} classes")
     return 0
 
 
