@@ -61,6 +61,14 @@ TICS = {
     '"is/was not adapting"': (lambda r: bool(re.search(
         r'\b(is|was|has|have)\s+n[o\']t\s+adapt', _all_text(r), re.I))),
     '"came through"': (lambda r: "came through" in _all_text(r).lower()),
+    # THE INTEGRATION WAS THREE YEARS AGO and claude/integration_timeline.md records that two
+    # separate passes have already got this wrong. A sentence dating the MERGE is constrained; a
+    # sentence dating a PERSON ("they made it up four years before the world ended") is not, so
+    # this only catches the phrasings that date the merge itself.
+    'mis-dating the Integration': (lambda r: bool(re.search(
+        r'(four|five|two) years ago\b|'
+        r'was not on this world (four|five|two) years ago|'
+        r'(four|five|two) years (since|after) (it|the Integration)', _all_text(r), re.I))),
     '"[job] in [City] for N years" opener': (lambda r: bool(re.match(
         r'^[A-Z][a-z]+\b[^.]{0,60}\bin [A-Z][a-z]+,?\s+(for\s+)?'
         r'(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|'
@@ -85,8 +93,13 @@ def load_batches():
             if rid in NEVER_TOUCH:
                 print(f"  refusing to rewrite {rid} - hand-authored and fixed")
                 continue
+            # A later batch OVERLAYS an earlier one, field by field, which is how the family
+            # pass works: batch 6 carries only the sections that gained a thread and leaves the
+            # rest of each character alone.
             if rid in out:
-                print(f"  !! {rid} appears in two batches; the later one wins")
+                merged = dict(out[rid])
+                merged.update(fields)
+                fields = merged
             out[rid] = fields
     return out
 
