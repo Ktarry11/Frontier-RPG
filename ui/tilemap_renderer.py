@@ -249,8 +249,25 @@ class TilemapRenderer:
             screen_y += viewport_rect.y
             px_w = chunk["width_tiles"] * self.tile_size
             px_h = chunk["height_tiles"] * self.tile_size
-            feathered = get_feathered_chunk_sprite(chunk["sprite_key"], px_w, px_h,
-                                                    feather_px=feather_px)
+            # OVERSIZED, which is what the offset blit below has always assumed and never got.
+            # Kyle, 2026-10-31: "water tiles are badly cropped, im looking at the ones in STV
+            # there is a lot of black overlap."
+            #
+            # This asked for a sprite of exactly px_w x px_h and then blitted it at
+            # -feather_px on BOTH axes. A same-sized image drawn 48px up and left is not a
+            # feathered margin, it is a misaligned semi-transparent copy of the chunk laid over
+            # the opaque one pass 1 already drew - a 48px-offset ghost of the texture, repeating
+            # on the chunk grid. On broken ground it reads as noise; on a large flat water
+            # texture it reads as exactly the banding Kyle is looking at.
+            #
+            # get_feathered_chunk_sprite's own docstring says the renderer "draws each chunk
+            # oversized by feather_px on every side (so chunks overlap their neighbors)". It
+            # does now: at (w + 2f) x (h + 2f) blitted at -f, the alpha ramp's opaque core lands
+            # exactly on the chunk's true rectangle and only the faded margin spills onto the
+            # neighbours, which is the whole idea.
+            feathered = get_feathered_chunk_sprite(
+                chunk["sprite_key"], px_w + 2 * feather_px, px_h + 2 * feather_px,
+                feather_px=feather_px)
             if feathered is not None:
                 screen.blit(feathered, (screen_x - feather_px, screen_y - feather_px))
             # No flat-color fallback here deliberately - a chunk with a
