@@ -65,8 +65,8 @@ BATCH = {
         "aware this is an absurd project and has allocated the rest of her life to it, which she "
         "considers a reasonable budget."),
     now=(
-        "Silverpine, and the Undercity when she can get there. People stop being people down "
-        "here and nobody marks the moment.\n\n"
+        "Northern Silverpine, on the road where people stop being people and nobody marks the "
+        "moment it happens.\n\n"
         "She has started holding services. They are badly attended. The Forsaken have begun to "
         "notice that she does not flinch at them and does not pity them either, and a few of "
         "them have started turning up."),

@@ -119,10 +119,11 @@ BATCH = {
         "night, which means other people. He is recruiting for it gently and has not yet told "
         "anybody what the third place is."),
     now=(
-        "The Windward Road under Freewind Post, where the mesas run out and the sky gets very "
-        "large.\n\n"
-        "Freewind's skywatchers were polite about him for about a month and now argue with him "
-        "nightly, which he describes as the warmest welcome of his life and means it."),
+        "The Southern Needles, where the mesas run out and the sky gets very large and there is "
+        "nothing between him and it for forty miles.\n\n"
+        "The skywatchers up at Freewind were polite about him for about a month and now argue "
+        "with him nightly, which he describes as the warmest welcome of his life and means it. "
+        "He walks up for it. It is most of a day each way."),
 ),
 
 "imelda_primalist": dict(
