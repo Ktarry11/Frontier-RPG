@@ -353,7 +353,13 @@ class QuestDialogScreen(BaseScreen):
             for label, _action, rect in self._greeting_buttons():
                 self.renderer.draw_button(screen, rect, label)
             if self.result_message:
-                self.renderer.draw_text(screen, self.result_message, (40, SCREEN_HEIGHT - 130), color=(120, 220, 140))
+                # SPLIT ON THE NEWLINE. This message is assembled with "\n" between its
+                # sentences and draw_text draws a single line, so the newline came out as a
+                # missing-glyph box: "Quest complete!<box>+165 reputation with Orgrimmar."
+                for i, line in enumerate(str(self.result_message).split("\n")):
+                    self.renderer.draw_text(screen, line,
+                                            (40, SCREEN_HEIGHT - 130 + i * 22),
+                                            color=(120, 220, 140))
 
     def _render_offer(self, screen):
         quest = self.active_quest
@@ -374,6 +380,19 @@ class QuestDialogScreen(BaseScreen):
         reward_lines = [f"Reward: {quest.reward_exp} XP"]
         if quest.reward_gold:
             reward_lines.append(coins(quest.reward_gold))
+        # REPUTATION IS A REWARD AND BELONGS HERE. It was only ever mentioned after the fact, in
+        # the green confirmation line, so you could not see it while deciding whether the quest
+        # was worth doing - Kyle: "It should fall under the 'reward' section if we can. So we can
+        # see like 'x exp, x money, x rep'". faction_manager.quest_reward reads it off the
+        # quest's zone, so it is known here, before turn-in, without the quest carrying a field.
+        try:
+            from world.faction_manager import get_faction_manager
+            fm = get_faction_manager()
+            fid, amt = fm.quest_reward(quest)
+            if fid and amt > 0:
+                reward_lines.append(f"+{amt} {fm.get(fid).name}")
+        except Exception:
+            pass        # a reward preview must never be what stops a quest being readable
         self.renderer.draw_text(screen, "   ".join(reward_lines), (40, 410), color=COLOR_GOLD)
 
         # Real reward preview instead of a vague "+ choice of gear" line

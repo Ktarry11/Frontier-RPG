@@ -1014,7 +1014,7 @@
         "bonus_pct": 0.1
       },
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "combat"
+      "buff_scope": "raid"
     },
     {
       "ability_id": "shaman_flametongue_weapon",
@@ -1112,7 +1112,7 @@
       },
       "damage_school": "fire",
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "combat"
+      "buff_scope": "raid"
     },
     {
       "ability_id": "shaman_frostbrand_weapon",
@@ -1185,7 +1185,7 @@
           "on_target": true
         }
       },
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.\""
     },
     {
@@ -1236,7 +1236,7 @@
         "extra_attack": true
       },
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "combat"
+      "buff_scope": "raid"
     },
     {
       "ability_id": "shaman_hex",

@@ -634,17 +634,26 @@ class InventoryScreen(BaseScreen):
         _draw_item_tooltip (no stat comparison - materials have no
         stats), same "just enough info to know what you're looking at"
         scope as the rest of Phase 1."""
+        # WRAP THE DESCRIPTION, DON'T GUESS AT IT. Kyle, 2026-10-31: "words are
+        # running off." The box used to be sized as `max line length * 7px` with
+        # nothing ever wrapped, so a one-word name set a 220px box and then a
+        # full sentence of flavour text was drawn straight through its right
+        # edge ("Vendor trash. Worth a few coppers to any merchant."). The body
+        # is drawn at size="small", so it is wrapped at size="small" too - see
+        # the note on Renderer.wrap_text about measuring the font you draw with.
+        BODY_W = 300
         lines = [
             material.name,
             f"{material.profession.title()} - {material.tier.title()} tier",
         ]
         if material.description:
-            lines.append(material.description)
+            lines.extend(self.renderer.wrap_text(material.description, BODY_W, size="small"))
         lines.append(f"Sell price: {format_coins(material.sell_price)}")
 
         padding = 8
         line_height = 20
-        width = max(220, max(len(line) for line in lines) * 7)
+        font = self.renderer._get_font(size="small")
+        width = max(220, max(font.size(line)[0] for line in lines) + padding * 2)
         height = padding * 2 + line_height * len(lines)
         x = min(mouse_pos[0] + 16, SCREEN_WIDTH - width - 10)
         y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - height - 10)
@@ -782,12 +791,21 @@ class InventoryScreen(BaseScreen):
             # much simpler tooltip, since none of the gear-specific
             # fields below (item_level, rarity, armor_type, weapon
             # damage, primary/secondary stats) exist on these objects.
-            lines = [item.name]
+            # Kyle, 2026-10-31: "words are running off." The box is a FIXED
+            # 260px and the description was appended as one unbroken line, so
+            # every loot item whose flavour text is a sentence rather than a
+            # phrase - which is most vendor trash - drew straight out through
+            # the right-hand border. Wrapped at the same size it is drawn in
+            # (normal, the draw_text default below), against the box's real
+            # inner width, so the box and the text can't disagree.
+            box_w = 260
+            body_w = box_w - 16
+            name_lines = self.renderer.wrap_text(item.name, body_w)
+            lines = list(name_lines)
             if getattr(item, "description", ""):
-                lines.append(item.description)
+                lines.extend(self.renderer.wrap_text(item.description, body_w))
             if getattr(item, "quantity", 1) > 1:
                 lines.append(f"Quantity: {item.quantity}")
-            box_w = 260
             box_h = 20 * len(lines) + 16
             x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
             y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
@@ -795,7 +813,9 @@ class InventoryScreen(BaseScreen):
             pygame.draw.rect(screen, (20, 20, 25), box_rect)
             pygame.draw.rect(screen, (120, 110, 70), box_rect, 1)
             for i, line in enumerate(lines):
-                color = COLOR_WHITE if i == 0 else (170, 170, 170)
+                # The NAME may now occupy more than one line, so the white
+                # colour follows the name block rather than just line 0.
+                color = COLOR_WHITE if i < len(name_lines) else (170, 170, 170)
                 self.renderer.draw_text(screen, line, (x + 8, y + 8 + i * 20), color=color)
             return
 

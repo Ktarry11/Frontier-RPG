@@ -810,13 +810,20 @@ class CombatScreen(BaseScreen):
                 name_color = COLOR_RED
                 suffix = ""
 
-            # Name plate, centered over the card like the reference screenshot
-            self.renderer.draw_text(screen, f"{foe.name}{suffix}", (x + card_w // 2, y),
+            # Name plate, centered over the card.
+            #
+            # ONE LINE, NOT TWO. Kyle, 2026-10-31: "we could have something like Boss Name (lvl x)
+            # which would completely remove an additional layer." The level used to sit on its own
+            # line under the name, and everything below this strip - bars, status chips, creature
+            # art, the combat log - is positioned off the bottom pixel the card reports, so that
+            # line cost 20px to every fight on screen whether or not the fight needed it. A boss
+            # with status effects is exactly where the strip runs out of room and the art gets
+            # scaled down, so the 20px is worth more there than anywhere else.
+            self.renderer.draw_text(screen, f"{foe.name} (Lvl {foe.level}){suffix}",
+                                    (x + card_w // 2, y),
                                     size="normal", color=name_color, center=True)
-            self.renderer.draw_text(screen, f"Lvl {foe.level}", (x + card_w // 2, y + 20),
-                                    font_size=14, color=(180, 180, 180), center=True)
 
-            bar_y = y + 42
+            bar_y = y + 22
             self.renderer.draw_health_bar(screen, (x, bar_y),
                                           max(0, foe.current_health), foe.max_health,
                                           width=card_w, height=16,

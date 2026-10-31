@@ -844,7 +844,7 @@ class CombatEngine:
                     from world.quest_manager import get_quest_manager
                     if not get_quest_manager().still_needs_item(self.player, item_id):
                         continue
-                from entities.loot_item import add_loot_item
+                from entities.loot_item import LootItem, add_loot_item
                 fit = add_loot_item(
                     self.player, item_id, drop_def["name"],
                     category=drop_def.get("category", "quest"),
@@ -857,6 +857,21 @@ class CombatEngine:
                 )
                 if fit:
                     self.combat_log.append(f"{enemy.name} dropped: {drop_def['name']}!")
+                    # THE VICTORY SCREEN READS loot_gained, NOT THE LOG. Kyle, 2026-10-31:
+                    # "When killing a monster that drops quest items, the victory screen doesnt
+                    # show the quest item drops (it only shows equipment and vendor trash)."
+                    # Every other drop path in this method appends to loot_gained; this one was
+                    # written later and only ever wrote a log line, so the one drop a player is
+                    # actively hunting was the one drop the results panel stayed silent about.
+                    #
+                    # add_loot_item returns True/False (it stacks, so there is no single new
+                    # object to hand back), so the stack it landed in is fetched out of the bag.
+                    # Reversed because a brand-new stack is appended at the end, and the panel
+                    # only reads .name and .get_rarity_color(), both of which LootItem has.
+                    stack = next((it for it in reversed(self.player.inventory)
+                                  if isinstance(it, LootItem) and it.item_id == item_id), None)
+                    if stack is not None:
+                        self.loot_gained.append(stack)
                     if drop_def.get("starts_quest"):
                         self.combat_log.append("It looks important - open your bag and click it to read it.")
                 else:

@@ -147,14 +147,24 @@ class Renderer:
         else:
             screen.blit(surface, (x, y_pos))
     
-    def wrap_text(self, text, max_width, size="normal"):
+    def wrap_text(self, text, max_width, size="normal", font_size=None):
         """
         Word-wrap text to fit within max_width pixels, measuring actual
         rendered text width rather than guessing by character count (which
         breaks for variable-width fonts and cuts messages off mid-word).
         Returns a list of line strings.
+
+        MEASURE THE FONT YOU WILL ACTUALLY DRAW WITH. This used to resolve
+        only 'normal' and 'large' - anything else, including the 'small' that
+        every tooltip body is drawn in, silently measured at NORMAL size. That
+        is wrong in the safe direction (over-wrapping), but it meant no caller
+        wanting small text could wrap properly, so tooltips guessed their width
+        at ~7px per character instead and the long ones ran off the box. Now it
+        takes the same size/font_size pair draw_text does and resolves them
+        through the same _get_font, so a wrap and the draw that follows it can
+        no longer disagree about which font is on screen.
         """
-        font = self.font_normal if size == "normal" else self.font_large
+        font = self._get_font(size=size, font_size=font_size)
         words = text.split(' ')
         lines = []
         current_line = ""

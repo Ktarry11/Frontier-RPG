@@ -533,6 +533,19 @@ class VendorScreen(BaseScreen):
         mouse_pos = pygame.mouse.get_pos()
         box_width = 320
         line_height = 20
+
+        # Kyle, 2026-10-31: "words are running off." The box is a fixed 320px
+        # and four separate branches above append item.description as one
+        # unbroken line, so any flavour text longer than the box drew through
+        # its right-hand border. Wrapped HERE, once, after every branch has had
+        # its say - doing it per-branch would be four copies of one rule, which
+        # is exactly how this got four ways to overflow in the first place.
+        # Wrapped at size="small" because that is what the draw loop below uses.
+        wrapped = []
+        for line in lines:
+            wrapped.extend(self.renderer.wrap_text(str(line), box_width - 16, size="small"))
+        lines = wrapped
+
         box_height = len(lines) * line_height + 12
         tooltip_x = min(mouse_pos[0] + 12, SCREEN_WIDTH - box_width - 10)
         tooltip_y = min(mouse_pos[1] + 12, SCREEN_HEIGHT - box_height - 10)
