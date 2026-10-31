@@ -9,18 +9,6 @@
       "is_boss": false,
       "ability_kit": "boar"
     },
-    "Dire Mottled Boar": {
-      "template": "beast_basic",
-      "level_range": [
-        3,
-        3
-      ],
-      "stat_overrides": {
-        "strength": 1.15,
-        "stamina": 1.15
-      },
-      "is_boss": false
-    },
     "Elder Mottled Boar": {
       "template": "beast_basic",
       "level_range": [
@@ -176,14 +164,6 @@
       ],
       "ability_kit": "felhound"
     },
-    "Greater Felhound": {
-      "template": "beast_fast",
-      "level_range": [
-        19,
-        23
-      ],
-      "ability_kit": "felhound"
-    },
     "Yarrog Baneshadow": {
       "template": "demon_caster",
       "level_range": [
@@ -257,15 +237,6 @@
       "level_range": [
         7,
         10
-      ],
-      "is_boss": false,
-      "ability_kit": "raptor"
-    },
-    "Elder Bloodtalon": {
-      "template": "beast_fast",
-      "level_range": [
-        9,
-        12
       ],
       "is_boss": false,
       "ability_kit": "raptor"
@@ -716,15 +687,6 @@
       "is_boss": false,
       "ability_kit": "prowler"
     },
-    "Savannah Huntress": {
-      "template": "beast_fast",
-      "level_range": [
-        12,
-        16
-      ],
-      "is_boss": false,
-      "ability_kit": "prowler"
-    },
     "Savannah Patriarch": {
       "template": "beast_large",
       "level_range": [
@@ -797,15 +759,6 @@
       "is_boss": false,
       "ability_kit": "bristleback_thornweaver"
     },
-    "Bristleback Geomancer": {
-      "template": "humanoid_caster",
-      "level_range": [
-        18,
-        24
-      ],
-      "is_boss": false,
-      "ability_kit": "quilboar_geomancer"
-    },
     "Bristleback Water Seeker": {
       "template": "humanoid_ranged",
       "level_range": [
@@ -814,15 +767,6 @@
       ],
       "is_boss": false,
       "ability_kit": "bristleback_water_seeker"
-    },
-    "Charlga's Enforcer": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        18,
-        24
-      ],
-      "is_boss": false,
-      "ability_kit": "charlgas_enforcer"
     },
     "Kolkar Stormer": {
       "template": "humanoid_caster",
@@ -894,15 +838,6 @@
         20
       ],
       "ability_kit": "druid_fang"
-    },
-    "Nightmare Ectoplasm": {
-      "template": "elemental_caster",
-      "level_range": [
-        20,
-        22
-      ],
-      "is_boss": false,
-      "ability_kit": "nightmare_wisp"
     },
     "Skum": {
       "template": "beast_large",
@@ -1005,17 +940,6 @@
       "is_boss": false,
       "ability_kit": "witchwing_windcaller"
     },
-    "Hezrul Bloodmark": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        25,
-        25
-      ],
-      "is_boss": true,
-      "boss_multiplier": 1.0,
-      "ability_kit": "soldier",
-      "boss_kit_base": "soldier"
-    },
     "Pool Murloc": {
       "template": "aquatic_basic",
       "level_range": [
@@ -1105,15 +1029,6 @@
       ],
       "is_boss": false,
       "ability_kit": "scarlet_recruit"
-    },
-    "Darkeye Bonecaster": {
-      "template": "humanoid_caster",
-      "level_range": [
-        7,
-        9
-      ],
-      "is_boss": false,
-      "ability_kit": "darkeye_bonecaster"
     },
     "Rotting Dead": {
       "template": "undead_basic",
@@ -1205,31 +1120,6 @@
       ],
       "is_boss": false,
       "ability_kit": "balnir_stableboy"
-    },
-    "Vile Fin Murloc": {
-      "template": "aquatic_basic",
-      "level_range": [
-        5,
-        7
-      ],
-      "is_boss": false
-    },
-    "Vile Fin Tidehunter": {
-      "template": "aquatic_basic",
-      "level_range": [
-        7,
-        9
-      ],
-      "hp_mult": 1.15,
-      "is_boss": false
-    },
-    "Drowned Fisherman": {
-      "template": "undead_basic",
-      "level_range": [
-        6,
-        8
-      ],
-      "is_boss": false
     },
     "Scarlet Zealot": {
       "template": "humanoid_warrior",
@@ -1460,56 +1350,6 @@
         19
       ]
     },
-    "Troll Axe Thrower": {
-      "template": "humanoid_ranged",
-      "level_range": [
-        20,
-        22
-      ],
-      "ability_kit": "troll_axe_thrower"
-    },
-    "Troll Hex Master": {
-      "template": "humanoid_caster",
-      "level_range": [
-        21,
-        23
-      ],
-      "ability_kit": "troll_hex_master"
-    },
-    "Scarlet Inquisitor": {
-      "template": "humanoid_caster",
-      "level_range": [
-        20,
-        22
-      ],
-      "ability_kit": "scarlet_inquisitor"
-    },
-    "Scarlet Marksman": {
-      "template": "humanoid_ranged",
-      "level_range": [
-        19,
-        21
-      ],
-      "ability_kit": "scarlet_marksman"
-    },
-    "Quilboar Shaman": {
-      "template": "humanoid_caster",
-      "level_range": [
-        25,
-        30
-      ],
-      "ability_kit": "quilboar_shaman"
-    },
-    "Quilboar Priestess": {
-      "template": "humanoid_caster",
-      "level_range": [
-        26,
-        28
-      ],
-      "is_boss": true,
-      "ability_kit": "boss_quilboar_priestess",
-      "boss_kit_base": "cultist_shadow"
-    },
     "Slug": {
       "template": "vermin_sneaky",
       "level_range": [
@@ -1526,22 +1366,6 @@
       ],
       "ability_kit": "bog_creature"
     },
-    "Furbolg Guardian": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        22,
-        25
-      ],
-      "ability_kit": "furbolg_guardian"
-    },
-    "Furbolg Warrior": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        22,
-        25
-      ],
-      "ability_kit": "furbolg_warrior"
-    },
     "Furbolg Shaman": {
       "template": "humanoid_caster",
       "level_range": [
@@ -1550,30 +1374,6 @@
       ],
       "is_boss": false,
       "ability_kit": "furbolg_shaman"
-    },
-    "Ancient Treant": {
-      "template": "beast_large",
-      "level_range": [
-        25,
-        27
-      ],
-      "ability_kit": "ancient_treant"
-    },
-    "Shadow Corruption": {
-      "template": "humanoid_caster",
-      "level_range": [
-        25,
-        27
-      ],
-      "ability_kit": "shadow_corruption"
-    },
-    "Twisted Sapling": {
-      "template": "vermin_sneaky",
-      "level_range": [
-        19,
-        22
-      ],
-      "ability_kit": "twisted_sapling"
     },
     "Ghamoo-ra": {
       "template": "beast_large",
@@ -1651,46 +1451,6 @@
       ],
       "ability_kit": "murloc_hydra"
     },
-    "Satyr": {
-      "template": "humanoid_caster",
-      "level_range": [
-        19,
-        23
-      ],
-      "ability_kit": "satyr"
-    },
-    "Satyr Warrior": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        19,
-        23
-      ],
-      "ability_kit": "satyr_warrior"
-    },
-    "Twilight Cultist": {
-      "template": "humanoid_caster",
-      "level_range": [
-        20,
-        24
-      ],
-      "ability_kit": "twilight_cultist"
-    },
-    "Void Construct": {
-      "template": "humanoid_caster",
-      "level_range": [
-        20,
-        24
-      ],
-      "ability_kit": "void_construct"
-    },
-    "Imp": {
-      "template": "humanoid_caster",
-      "level_range": [
-        19,
-        23
-      ],
-      "ability_kit": "imp"
-    },
     "Satyr Warlord": {
       "template": "humanoid_warrior",
       "level_range": [
@@ -1711,30 +1471,6 @@
       "ability_kit": "groms_lord_nightmare",
       "boss_multiplier": 2.6
     },
-    "Skeleton Archer": {
-      "template": "humanoid_ranged",
-      "level_range": [
-        10,
-        16
-      ],
-      "ability_kit": "skeleton_archer"
-    },
-    "Ghost": {
-      "template": "humanoid_caster",
-      "level_range": [
-        10,
-        16
-      ],
-      "ability_kit": "ghost"
-    },
-    "Zombie": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        10,
-        16
-      ],
-      "ability_kit": "zombie"
-    },
     "Giant Spider": {
       "template": "beast_fast",
       "level_range": [
@@ -1742,30 +1478,6 @@
         17
       ],
       "ability_kit": "giant_spider"
-    },
-    "Spider Cultist": {
-      "template": "humanoid_caster",
-      "level_range": [
-        11,
-        17
-      ],
-      "ability_kit": "spider_cultist"
-    },
-    "Ash Zombie": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        10,
-        16
-      ],
-      "ability_kit": "ash_zombie"
-    },
-    "Rotting Kobold": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        10,
-        16
-      ],
-      "ability_kit": "rotting_kobold"
     },
     "Forsaken Warrior": {
       "template": "humanoid_warrior",
@@ -1903,14 +1615,6 @@
       "boss_multiplier": 2.4,
       "ability_kit": "archmage_atiesh"
     },
-    "Worgen Beast": {
-      "template": "beast_fast",
-      "level_range": [
-        18,
-        24
-      ],
-      "ability_kit": "worgen_beast"
-    },
     "Worgen Warrior": {
       "template": "humanoid_warrior",
       "level_range": [
@@ -1918,22 +1622,6 @@
         24
       ],
       "ability_kit": "worgen_warrior"
-    },
-    "Cursed Spirit": {
-      "template": "humanoid_caster",
-      "level_range": [
-        18,
-        24
-      ],
-      "ability_kit": "cursed_spirit"
-    },
-    "Sea Hag": {
-      "template": "humanoid_caster",
-      "level_range": [
-        18,
-        22
-      ],
-      "ability_kit": "sea_hag"
     },
     "Drowned Sailor": {
       "template": "undead_basic",
@@ -1963,56 +1651,6 @@
       "is_boss": true,
       "boss_multiplier": 2.6,
       "ability_kit": "alpha_fenris"
-    },
-    "Fire Imp": {
-      "template": "humanoid_caster",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "fire_imp"
-    },
-    "Magma Elemental": {
-      "template": "elemental_bruiser",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "stat_overrides": {
-        "stamina": 1.3
-      },
-      "ability_kit": "magma_elemental"
-    },
-    "Corrupted Shaman": {
-      "template": "humanoid_caster",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "corrupted_shaman"
-    },
-    "Lava Lurker": {
-      "template": "beast_large",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "lava_lurker"
-    },
-    "Apprentice Plagueweaver": {
-      "template": "humanoid_caster",
-      "level_range": [
-        15,
-        15
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.0,
-      "ability_kit": "boss_apprentice_plagueweaver",
-      "boss_kit_base": "cultist_shadow"
     },
     "Plagued Rat": {
       "template": "beast_basic",
@@ -2109,42 +1747,6 @@
       "ability_kit": "pd_dark_sorcerer_zulketh",
       "boss_multiplier": 2.8
     },
-    "Fire Cultist": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "fire_cultist"
-    },
-    "Magma Seeker": {
-      "template": "beast_fast",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "magma_seeker"
-    },
-    "Flame Guardian": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "flame_guardian"
-    },
-    "Lava Sentinel": {
-      "template": "elemental_bruiser",
-      "level_range": [
-        10,
-        14
-      ],
-      "is_boss": false,
-      "ability_kit": "lava_sentinel"
-    },
     "Taragaman the Hungerer": {
       "template": "elemental_bruiser",
       "level_range": [
@@ -2163,36 +1765,6 @@
       ],
       "is_boss": false,
       "ability_kit": "earthborer"
-    },
-    "Magmus": {
-      "template": "elemental_bruiser",
-      "level_range": [
-        15,
-        15
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.4,
-      "ability_kit": "magmus"
-    },
-    "Pyromancer Loregrain": {
-      "template": "humanoid_caster",
-      "level_range": [
-        15,
-        15
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.5,
-      "ability_kit": "pyromancer_loregrain"
-    },
-    "Ragefire Shaman Overlord": {
-      "template": "humanoid_caster",
-      "level_range": [
-        15,
-        15
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.6,
-      "ability_kit": "ragefire_shaman_overlord"
     },
     "Plague Abomination": {
       "template": "humanoid_warrior",
@@ -2291,14 +1863,6 @@
       ],
       "ability_kit": "rotting_kobold"
     },
-    "Savage Rotting Kobold": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        18,
-        22
-      ],
-      "ability_kit": "rotting_kobold"
-    },
     "Corrupted Void Construct": {
       "template": "humanoid_caster",
       "level_range": [
@@ -2316,14 +1880,6 @@
       ],
       "ability_kit": "harpy_melee"
     },
-    "Quilboar Warrior": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        25,
-        30
-      ],
-      "ability_kit": "quilboar_warrior"
-    },
     "Satyr Cultist": {
       "template": "humanoid_caster",
       "level_range": [
@@ -2332,25 +1888,6 @@
       ],
       "is_boss": false,
       "ability_kit": "satyr"
-    },
-    "Small Spiders": {
-      "template": "vermin_swarm",
-      "level_range": [
-        2,
-        5
-      ],
-      "ability_kit": "spider"
-    },
-    "Spider Boss": {
-      "template": "beast_fast",
-      "level_range": [
-        5,
-        5
-      ],
-      "is_boss": true,
-      "boss_multiplier": 1.6,
-      "ability_kit": "boss_spider_boss",
-      "boss_kit_base": "spider"
     },
     "Searing Blade Scout": {
       "template": "humanoid_ranged",
@@ -2701,17 +2238,6 @@
       "is_boss": false,
       "ability_kit": "wolf"
     },
-    "Fen Creeper": {
-      "template": "vermin_swarm",
-      "level_range": [
-        16,
-        16
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.3,
-      "ability_kit": "boss_fen_creeper",
-      "boss_kit_base": "swarm"
-    },
     "Risen Husk": {
       "template": "undead_basic",
       "level_range": [
@@ -2824,15 +2350,6 @@
       "boss_multiplier": 2.5,
       "ability_kit": "lord_godfreys_remnant"
     },
-    "Forsaken Deserter": {
-      "template": "undead_basic",
-      "level_range": [
-        13,
-        16
-      ],
-      "is_boss": false,
-      "ability_kit": "forsaken_warrior"
-    },
     "Diseased Wolf": {
       "template": "beast_fast",
       "level_range": [
@@ -2841,44 +2358,6 @@
       ],
       "is_boss": false,
       "ability_kit": "wolf"
-    },
-    "Plague Rat Swarm": {
-      "template": "vermin_swarm",
-      "level_range": [
-        13,
-        16
-      ],
-      "is_boss": false,
-      "ability_kit": "swarm"
-    },
-    "Rot Hound": {
-      "template": "demon_hound",
-      "level_range": [
-        13,
-        16
-      ],
-      "is_boss": false,
-      "ability_kit": "undead_ghoul"
-    },
-    "Blighted Bear": {
-      "template": "beast_large",
-      "level_range": [
-        17,
-        17
-      ],
-      "is_boss": true,
-      "boss_multiplier": 2.4,
-      "ability_kit": "boss_blighted_bear",
-      "boss_kit_base": "zombie_bear"
-    },
-    "Forsaken Patrol": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        14,
-        17
-      ],
-      "is_boss": false,
-      "ability_kit": "forsaken_patrol"
     },
     "Skeletal Sentry": {
       "template": "undead_basic",
@@ -3474,15 +2953,6 @@
       ],
       "is_boss": false,
       "ability_kit": "restless_grave_dweller"
-    },
-    "Rampart Watchman": {
-      "template": "humanoid_warrior",
-      "level_range": [
-        14,
-        19
-      ],
-      "is_boss": false,
-      "ability_kit": "rampart_watchman"
     },
     "Shadow Grave Wight": {
       "template": "undead_basic",
@@ -7853,15 +7323,6 @@
       ],
       "is_boss": false,
       "ability_kit": "rimcliff_harpy"
-    },
-    "Rimcliff Windcaller": {
-      "template": "humanoid_caster",
-      "level_range": [
-        26,
-        28
-      ],
-      "is_boss": false,
-      "ability_kit": "rimcliff_windcaller"
     },
     "Quilboar Highrunner": {
       "template": "humanoid_warrior",

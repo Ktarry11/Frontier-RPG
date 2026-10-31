@@ -474,6 +474,21 @@ SPARE = {
     "mountain_giant_sandstone": "see mountain_giant_granite.",
     "skeleton_marksman": "second skeleton archer; the game has one archer creature, the sheet "
                          "drew two. Wire up when a second undead ranged type exists.",
+
+    # Parked 2026-10-31, when 61 unreachable creatures were deleted from creatures.json - early
+    # generic drafts that later passes replaced with named rosters (Fire Cultist and Magma
+    # Elemental became Searing Blade Pyromancer and Molten Elemental; Scarlet Marksman became
+    # Scarlet Bowman). The creatures went; the ART is fine and stays, per Kyle on the first
+    # sprite sheets: "don't toss the other stuff... Useful later don't lose them just rename
+    # them!" Each of these had exactly one customer and now has none.
+    "skeleton_archer": "its only customer was the creature Skeleton Archer, a deleted draft. "
+                       "The game still has skeletons - wire up when one is a ranged type.",
+    "kobold_2": "second kobold look; its users were Rotting Kobold and Savage Rotting Kobold, "
+                "both deleted drafts. Live kobolds all reach kobold_1.",
+    "elemental_fire_1": "drawn for the deleted Magma/Lava draft set. Ragefire Chasm's real "
+                        "roster resolves elsewhere; hold for a fire zone.",
+    "spectre_2": "second spectre; its user was the deleted Cursed Spirit draft.",
+    "vine_strangler_2": "second strangler; its user was the deleted Twisted Sapling draft.",
 }
 
 DEFAULT = "bandit_human"
