@@ -47,12 +47,18 @@ SAVE_VERSION = 9  # v9: adds faction reputation standing. v7: adds travel state 
 
 #: Number of save slots shown in the menu (Kyle, 2026-09-06: "improve save
 #: slots from 1 to 5" for external playtesting - multiple testers/characters
-#: need to coexist without overwriting each other). Slot filenames are
+#: need to coexist without overwriting each other; raised to 15 on 2026-10-31,
+#: "Make it 3x5 layout"). Slot filenames are
 #: "save_slot_1.json".."save_slot_5.json" (see save_slot_filename() just
 #: below). Slot 1 is special-cased to read/write the original single-slot
 #: "character.json" so saves made before this change keep working without
 #: a migration step - see save_slot_filename()'s docstring.
-SAVE_SLOT_COUNT = 5
+SAVE_SLOT_COUNT = 15
+
+#: The slot picker's grid, 3 columns x 5 rows (Kyle). Fifteen slots stacked in
+#: the original single column would be 990px tall on a 720px screen, so the
+#: shape is part of the setting rather than something the menu guesses.
+SAVE_SLOT_COLUMNS = 3
 
 
 def save_slot_filename(slot_number):

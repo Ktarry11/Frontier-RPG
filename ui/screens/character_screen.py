@@ -46,7 +46,14 @@ class CharacterCreationScreen(BaseScreen):
             "Barbarian",
         ]
         self.selected_class = 0
-        self.character_name = "Hero"
+        # EVERY CHARACTER USED TO BE CALLED "Hero". The field existed and was
+        # never editable, which did not matter with one save slot and matters a
+        # lot with fifteen - describe_save already puts the name in the slot
+        # picker, so the whole menu read "Hero - Level 12 Warrior" fifteen times
+        # over. Kyle: "technically we need to be able to name our characters."
+        self.character_name = ""
+        self.name_active = True        # the field has focus when the screen opens
+        self.NAME_MAX = 18
         self.created_character = None
 
         # Appearance selection (Kyle: "race + gender + options which we
@@ -147,6 +154,8 @@ class CharacterCreationScreen(BaseScreen):
             BUTTON_HEIGHT
         )
         
+        self.name_box = pygame.Rect(SCREEN_WIDTH // 2 - 170, SCREEN_HEIGHT - 122, 340, 38)
+
         # Back button
         self.back_button = pygame.Rect(20, 20, 100, 50)
 
@@ -245,17 +254,34 @@ class CharacterCreationScreen(BaseScreen):
                     self.selected_variant = (self.selected_variant + 1) % variant_count
                     return
             
+            # Clicking the name field focuses it; clicking anywhere else does not.
+            self.name_active = self.name_box.collidepoint(mouse_pos)
+
             # Check create button
             if self.create_button.collidepoint(mouse_pos):
                 self._create_character()
         
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RETURN:
+            if self.name_active and event.key not in (pygame.K_RETURN, pygame.K_KP_ENTER):
+                if event.key == pygame.K_BACKSPACE:
+                    self.character_name = self.character_name[:-1]
+                elif event.key == pygame.K_TAB:
+                    self.name_active = False
+                else:
+                    ch = event.unicode
+                    # Letters, spaces, apostrophes and hyphens only - this ends
+                    # up in a filename-adjacent summary and on screen, and a
+                    # name full of control characters helps nobody.
+                    if ch and (ch.isalpha() or ch in " '-") and len(self.character_name) < self.NAME_MAX:
+                        self.character_name += ch
+                return
+            if event.key in (pygame.K_RETURN, pygame.K_KP_ENTER):
                 self._create_character()
     
     def _create_character(self):
         """Create character and move to overworld."""
-        char = Character(self.character_name, self.classes[self.selected_class])
+        name = self.character_name.strip() or "Hero"
+        char = Character(name, self.classes[self.selected_class])
         # Hotbar is now auto-populated in Character.__init__
         char.enable_training()   # abilities above the starter kit are bought from class trainers
 
@@ -368,6 +394,27 @@ class CharacterCreationScreen(BaseScreen):
             temp_char = Character("Preview", self.classes[self.selected_class])
             self.renderer.draw_character_box(screen, temp_char, (SCREEN_WIDTH // 2 - 100, 350))
         
+        # Name field
+        import pygame as _pg
+        _pg.draw.rect(screen, (24, 24, 30), self.name_box)
+        _pg.draw.rect(screen,
+                      (220, 200, 130) if self.name_active else (90, 90, 100),
+                      self.name_box, 2)
+        self.renderer.draw_text(screen, "Name", (self.name_box.x, self.name_box.y - 22),
+                                color=(170, 170, 180))
+        shown = self.character_name or "Hero"
+        self.renderer.draw_text(
+            screen, shown, (self.name_box.x + 10, self.name_box.y + 9),
+            color=COLOR_WHITE if self.character_name else (110, 110, 120))
+        if self.name_active:
+            # A caret that blinks, so an empty box reads as "type here" rather
+            # than as a field that is not working.
+            if (_pg.time.get_ticks() // 450) % 2 == 0:
+                cx = self.name_box.x + 12 + self.renderer.font_normal.size(
+                    self.character_name)[0]
+                _pg.draw.line(screen, (230, 230, 240), (cx, self.name_box.y + 8),
+                              (cx, self.name_box.bottom - 8), 2)
+
         # Create button
         self.renderer.draw_button(screen, self.create_button, "Create Character")
         

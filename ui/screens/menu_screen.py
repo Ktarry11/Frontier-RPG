@@ -3,7 +3,8 @@ Main menu screen.
 """
 import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_PADDING
-from config import COLOR_WHITE, COLOR_DARK_GRAY, SAVE_SLOT_COUNT, save_slot_filename
+from config import (COLOR_WHITE, COLOR_DARK_GRAY, SAVE_SLOT_COUNT, SAVE_SLOT_COLUMNS,
+                    save_slot_filename)
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 
@@ -73,16 +74,24 @@ class MenuScreen(BaseScreen):
         in __init__ - SAVE_SLOT_COUNT is expected to stay constant at
         runtime, but rebuilding is cheap and keeps this robust if that
         ever changes."""
+        cols = max(1, SAVE_SLOT_COLUMNS)
+        rows = -(-SAVE_SLOT_COUNT // cols)          # ceil, so a partial last row still fits
         slot_height = 56
-        slot_width = 460
-        gap = 10
-        total_height = SAVE_SLOT_COUNT * slot_height + (SAVE_SLOT_COUNT - 1) * gap
-        start_y = SCREEN_HEIGHT // 2 - total_height // 2
+        gap = 12
+        # Width comes from the column count rather than a fixed number, so the
+        # picker stays on screen if the slot count or the columns ever change.
+        margin = 50
+        slot_width = (SCREEN_WIDTH - 2 * margin - (cols - 1) * gap) // cols
+        grid_w = cols * slot_width + (cols - 1) * gap
+        grid_h = rows * slot_height + (rows - 1) * gap
+        start_x = SCREEN_WIDTH // 2 - grid_w // 2
+        start_y = SCREEN_HEIGHT // 2 - grid_h // 2 + 20   # clear of the title
         rects = []
         for i in range(SAVE_SLOT_COUNT):
+            c, r = i % cols, i // cols
             rects.append(pygame.Rect(
-                SCREEN_WIDTH // 2 - slot_width // 2,
-                start_y + i * (slot_height + gap),
+                start_x + c * (slot_width + gap),
+                start_y + r * (slot_height + gap),
                 slot_width,
                 slot_height,
             ))
