@@ -45,11 +45,9 @@ TAB_NAMES = [
 
 
 def gold_str(copper):
-    """'1000g' / '10g 50s' - the same 10000-to-the-gold split Party.get_currency_string uses."""
-    g, rem = copper // 10000, copper % 10000
-    s, c = rem // 100, rem % 100
-    parts = ([f"{g}g"] if g else []) + ([f"{s}s"] if s else []) + ([f"{c}c"] if c or not (g or s) else [])
-    return " ".join(parts)
+    """'1000g' / '10g 50s'. entities/coins.py owns the split; this is the name the bank imports."""
+    from entities.coins import coins
+    return coins(copper)
 
 
 class Bank:

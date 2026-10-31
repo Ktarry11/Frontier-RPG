@@ -24,6 +24,7 @@ import pygame
 
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
+from entities.coins import coins
 from ui.screens.base_screen import BaseScreen
 from world.quest import QuestStatus
 from world.travel_manager import get_travel_manager, services_for_npc
@@ -372,7 +373,7 @@ class QuestDialogScreen(BaseScreen):
 
         reward_lines = [f"Reward: {quest.reward_exp} XP"]
         if quest.reward_gold:
-            reward_lines.append(f"{quest.reward_gold // 10000}g {(quest.reward_gold % 10000) // 100}s")
+            reward_lines.append(coins(quest.reward_gold))
         self.renderer.draw_text(screen, "   ".join(reward_lines), (40, 410), color=COLOR_GOLD)
 
         # Real reward preview instead of a vague "+ choice of gear" line
@@ -533,7 +534,7 @@ class QuestDialogScreen(BaseScreen):
             # not just correct under the hood.
             reward_lines.append(f"(base {quest.reward_exp}, scaled for your level)")
         if quest.reward_gold:
-            reward_lines.append(f"+ {quest.reward_gold // 10000}g {(quest.reward_gold % 10000) // 100}s")
+            reward_lines.append(f"+ {coins(quest.reward_gold)}")
         if quest.gear_reward_gear_level is not None:
             reward_lines.append("+ choice of gear")
         for i, line in enumerate(reward_lines):

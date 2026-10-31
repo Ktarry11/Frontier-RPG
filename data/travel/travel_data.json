@@ -13,7 +13,7 @@
     "1": {
       "name": "Apprentice Riding",
       "level": 20,
-      "price": 4000,
+      "price": 20000,
       "speed_mult": 1.6,
       "encounter_mult": 0.5,
       "blurb": "Ride a mount: 60% faster, and half as many ambushes."
@@ -21,10 +21,18 @@
     "2": {
       "name": "Journeyman Riding",
       "level": 30,
-      "price": 20000,
+      "price": 500000,
       "speed_mult": 2.0,
       "encounter_mult": 0.35,
       "blurb": "Fast mounts: twice walking speed, and far fewer ambushes."
+    },
+    "3": {
+      "name": "Master Riding",
+      "level": 40,
+      "price": 2000000,
+      "speed_mult": 2.5,
+      "encounter_mult": 0.1,
+      "blurb": "Two and a half times walking speed, and almost nothing catches you."
     }
   },
   "mounts": [

@@ -19,6 +19,7 @@ import pygame
 
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
+from entities.coins import coins
 from ui.screens.base_screen import BaseScreen
 from world.quest import QuestStatus, ObjectiveType
 
@@ -712,7 +713,7 @@ class QuestJournalScreen(BaseScreen):
         y += 36
         line = f"{quest.get_scaled_exp_reward(player_level)} XP"
         if quest.reward_gold:
-            line += f"     {quest.reward_gold // 10000}g {(quest.reward_gold % 10000) // 100}s"
+            line += f"     {coins(quest.reward_gold)}"
         self.renderer.draw_text(screen, line, (x, y))
         y += 34
 

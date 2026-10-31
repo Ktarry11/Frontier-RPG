@@ -48,7 +48,7 @@ class TravelManager:
                          "y": db["y"] if db["y"] is not None else 40, "name": db["name"]}
         self.hearth_steps_left = 0          # overworld steps until the hearth is ready again
         self.known_nodes = set()            # flight node ids discovered
-        self.riding_rank = 0                # 0 none, 1 apprentice, 2 journeyman
+        self.riding_rank = 0                # 0 none, 1 apprentice, 2 journeyman, 3 master
         self.owned_mounts = []              # mount ids
         self.active_mount = None            # mount id the player prefers/summons
         self.mounted = False
@@ -169,10 +169,18 @@ class TravelManager:
         return was
 
     def _skill_for_mount(self):
+        """The skill whose numbers apply right now, or None when on foot.
+
+        SPEED COMES FROM THE SKILL, NOT THE MOUNT. This used to cap the rank at the mount's tier,
+        which was fine while the mounts went as high as the skills did and became a silent bug the
+        moment Master Riding existed: the best mount in the game is tier 2, so a 200g skill could
+        never deliver its 2.5x and Master Riding was inert. The tier is a gate on OWNING a mount
+        (can_buy_mount), which is where a gate belongs; it is not a cap on how well you ride.
+        """
         mount = self.current_mount()
         if not (self.mounted and mount):
             return None
-        return self.riding_skill(min(self.riding_rank, mount["tier"]))
+        return self.riding_skill(self.riding_rank)
 
     def speed_mult(self):
         skill = self._skill_for_mount()
@@ -242,7 +250,10 @@ class TravelManager:
         self.hearth_steps_left = max(0, int(data.get("hearth_steps_left", 0)))
         nodes = travel_data()["flight_nodes"]
         self.known_nodes = {n for n in data.get("known_nodes", []) if n in nodes}
-        self.riding_rank = max(0, min(2, int(data.get("riding_rank", 0))))
+        # CLAMP FROM THE DATA, NEVER A LITERAL. This said min(2, ...) and so a player who had
+        # bought Master Riding loaded back as a Journeyman - silently, on every reload, for 200g.
+        top = max(int(k) for k in travel_data()["riding_skills"])
+        self.riding_rank = max(0, min(top, int(data.get("riding_rank", 0))))
         self.owned_mounts = [m for m in data.get("owned_mounts", []) if self.get_mount(m)]
         self.active_mount = data.get("active_mount") if self.get_mount(data.get("active_mount")) else None
         if self.active_mount is None and self.owned_mounts:
@@ -264,15 +275,10 @@ def services_for_npc(npc):
 
 
 def format_copper(copper):
-    gold, rem = divmod(int(copper), 10000)
-    silver, cop = divmod(rem, 100)
-    parts = []
-    if gold:
-        parts.append(f"{gold}g")
-    if silver or gold:
-        parts.append(f"{silver}s")
-    parts.append(f"{cop}c")
-    return " ".join(parts)
+    """Prices in the travel/mount shops. Was its own copy of the split and padded every value to
+    all three parts, so "200g 0s 0c" at the riding trainer sat next to "3g" at the vendor."""
+    from entities.coins import coins
+    return coins(copper)
 
 
 _travel_manager = None

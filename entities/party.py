@@ -272,12 +272,9 @@ class Party:
         return False
 
     def get_currency_string(self):
-        """Return formatted currency display like '45g 30s 75c'."""
-        gold = self.copper // 10000
-        remainder = self.copper % 10000
-        silver = remainder // 100
-        copper = remainder % 100
-        return f"{gold}g {silver}s {copper}c"
+        """'45g 30s 75c' - full width on purpose, so the HUD purse does not twitch as you spend."""
+        from entities.coins import coins
+        return coins(self.copper, full=True)
 
     # ------------------------------------------------------------------
     # Serialization
