@@ -296,6 +296,43 @@ class GatheringNodeManager:
             vendor_price=data.get("vendor_price", 0),
         )
 
+    #: Chance that an ore vein also yields a crystal, and which crystal each ore
+    #: TIER produces. Kyle, 2026-10-31: "Crystals can be found in ore veins."
+    #:
+    #: Crystals used to be their own node type under Essence Harvesting, which is
+    #: now deleted. Rather than invent a second node that competes with ore for
+    #: spawn points, a vein simply sometimes has a crystal in it - which is also
+    #: how it works in the ground. Engineering is the only consumer and its ladder
+    #: is tier-gated, so an early vein must never hand out a mid crystal: a level
+    #: 12 miner cracking a copper vein should not be able to build a void regulator.
+    CRYSTAL_FROM_VEIN = {
+        "early":   ["crystal_quartz", "crystal_azure"],
+        "mid":     ["crystal_emberglass", "crystal_tideglass", "crystal_voidglass"],
+        "late":    ["crystal_emberglass", "crystal_voidglass"],
+        "endgame": ["crystal_voidglass"],
+    }
+    CRYSTAL_FROM_VEIN_CHANCE = 0.18
+
+    def roll_vein_crystal(self, material_id, rng=None):
+        """-> a crystal material_id this ore vein also yielded, or None.
+
+        Only ore yields crystals; herbs, wood, cloth and the rest return None, so
+        this is safe to call on every gather rather than at one ore-only call site
+        (one rule, one implementation - the thing this codebase keeps getting wrong
+        is having two).
+        """
+        import random as _r
+        rng = rng or _r
+        data = self.materials.get(material_id) or {}
+        if data.get("material_type") != "ore":
+            return None
+        pool = self.CRYSTAL_FROM_VEIN.get(data.get("tier"))
+        if not pool:
+            return None
+        if rng.random() >= self.CRYSTAL_FROM_VEIN_CHANCE:
+            return None
+        return rng.choice(pool)
+
     def roll_skill_up(self, material_id, current_skill):
         """Roll whether gathering this material grants a skill-up, using
         the material's skill_range (see materials.json's _comment for the
@@ -362,7 +399,7 @@ _gathering_node_manager = None
 #: falling back to overflowing text instead of its sprite - herbs
 #: happened to work by coincidence since "herb"+"s" is actually correct).
 #: Single source of truth here so both renderers stay in sync, and so
-#: future material_types (wood, hide, essence, ...) only need one entry
+#: future material_types (wood, hide, ...) only need one entry
 #: added instead of two matching guesses.
 MATERIAL_TYPE_FOLDERS = {
     "ore": "ore",
@@ -396,14 +433,13 @@ MATERIAL_TYPE_FOLDERS = {
     # a text box while its art sat on disk. Found 2026-10-28 by diffing every material's icon path
     # against the files actually present.
     "bolt": "cloth",
-    # Essence Harvesting (Oct 2026) - the Frontier-original gathering
-    # profession feeding Engineering. "essence" drops off slain elementals
-    # (entities/essence_drops.py); "crystal" comes out of world nodes and so
-    # is the first NEW node type since wood - it renders on the ground through
-    # this same mapping, which is why the entry matters here and not only in
-    # the bag. No art yet for either; the UI falls back to its text box until
-    # there is.
-    "essence": "essences",
+    # Crystals. Kyle, 2026-10-31: "Crystals can be found in ore veins." These
+    # were the world-node half of the deleted Essence Harvesting profession;
+    # the elemental-drop half (the ten essence_* motes) is gone outright and
+    # the crystals moved to MINING, which is where a thing you pry out of rock
+    # belongs anyway. They come out of ore veins as a bonus roll rather than
+    # spawning their own node type - see CRYSTAL_FROM_VEIN below. No art yet;
+    # the UI falls back to its text box until there is.
     "crystal": "crystals",
     # Crafting reagents bought from vendors rather than gathered (thread,
     # vials, flux, ...). They never appear as a world node, but they do show

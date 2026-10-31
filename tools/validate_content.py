@@ -215,8 +215,7 @@ def main():
         obtainable |= set(v.get("sells", []))       # bought
     # Dropped off creatures - read the real drop tables rather than guessing.
     for mod_name, attr in (("entities.cloth_drops", "BANDS"),
-                           ("entities.skinning_drops", "BANDS"),
-                           ("entities.essence_drops", "BANDS")):
+                           ("entities.skinning_drops", "BANDS")):
         try:
             mod = __import__(mod_name, fromlist=[attr])
             for band in getattr(mod, attr, []):

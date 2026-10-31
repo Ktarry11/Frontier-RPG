@@ -574,6 +574,18 @@ class OverworldScreen(BaseScreen):
         else:
             self._notify(f"Gathered {material.name}.", (140, 220, 160))
 
+        # A vein sometimes has a crystal in it. Kyle, 2026-10-31: "Crystals can be
+        # found in ore veins." roll_vein_crystal returns None for everything that
+        # is not ore, so this needs no ore-only guard of its own. The crystal is a
+        # bonus on top of the ore, grants no extra skill-up, and is skipped
+        # silently if the bag is full - the ore was already collected and the
+        # player has been told about it.
+        crystal_id = gathering_manager.roll_vein_crystal(material_id)
+        if crystal_id:
+            crystal = gathering_manager.make_material_instance(crystal_id)
+            if crystal is not None and player.add_material(crystal):
+                self._notify(f"The vein also held {crystal.name}.", (170, 200, 240))
+
         # Award a small amount of character XP for gathering.
         # Calibration: ~1% of the XP needed to level at the material's
         # effective level (half the skill cap of this material tier, mapped

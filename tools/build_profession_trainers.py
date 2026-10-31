@@ -61,9 +61,9 @@ PAIRS = [
      "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay "
      "once and I will teach you the lot of it, cooking included, because a skinner who throws the "
      "meat away is a skinner who goes hungry holding a full pack."),
-    ("essence", "Tinker", ["essence_harvesting", "engineering"],
-     "Pry the essence out of a dead elemental, bind it into metal, and try not to be holding it when it "
-     "decides it would rather not be."),
+    ("essence", "Tinker", ["engineering"],
+     "Metal, a crystal out of a vein, and a steady hand. Bring me the first two and I will see about "
+     "the third."),
 ]
 #: Starter towns teach the gathering halves only, and nothing else in the pair.
 STARTER_PAIRS = {"forge": ["mining"], "herbs": ["herbalism"], "wood": ["woodcutting"]}

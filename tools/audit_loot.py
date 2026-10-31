@@ -612,7 +612,6 @@ def section_materials(rolls):
     from entities.cloth_drops import roll_cloth, BANDS as CLOTH_BANDS
     from entities.skinning_drops import roll_leather, BANDS as LEATHER_BANDS
     from entities.meat_drops import roll_meat, BANDS as MEAT_BANDS
-    from entities.essence_drops import roll_essence, BANDS as ESSENCE_BANDS
     from entities.material_tiers import HIGH_TIER, HIGH_TIER_FLOOR
     from entities.vendor_trash import classify
 
@@ -637,7 +636,6 @@ def section_materials(rolls):
         ("cloth", roll_cloth, CLOTH_BANDS, "humanoid"),
         ("leather", lambda e: roll_leather(e), LEATHER_BANDS, "beast"),
         ("meat", lambda e: roll_meat(e), MEAT_BANDS, "beast"),
-        ("essence", lambda e: roll_essence(e), ESSENCE_BANDS, "elemental"),
     ]
 
     max_level = max(v["level_range"][1] for v in cre.values())

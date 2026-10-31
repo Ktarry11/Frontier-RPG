@@ -1,5 +1,5 @@
 {
-  "_comment": "skill_range is [orange_ends, yellow_ends, green_ends, grey_at] - WoW's real profession skill-up convention. Below orange_ends: guaranteed skill-up (100%). Between orange_ends and yellow_ends: high chance. Between yellow_ends and green_ends: low chance. At/above grey_at: no skill-up at all - the material has nothing left to teach you. All 4 numbers are against the profession's OWN skill level (0-75 for early tier), not against character level. Common/cheap materials (Peacebloom, Copper, Weakstone) grey out early since they're meant to be quickly outgrown; the pricier/rarer early materials (Mageroyal, Rough Iron) stay relevant closer to the 75 cap.",
+  "_comment": "skill_range is [orange_ends, yellow_ends, green_ends, grey_at] - WoW's real profession skill-up convention. Below orange_ends: guaranteed skill-up (100%). Between orange_ends and yellow_ends: high chance. Between yellow_ends and green_ends: low chance. At/above grey_at: no skill-up at all - the material has nothing left to teach you. All 4 numbers are against the profession's OWN skill level (0-75 for early tier), not against character level. Common/cheap materials (Peacebloom, Copper, Weakstone) grey out early since they're meant to be quickly outgrown; the pricier/rarer early materials (Mageroyal, Rough Iron) stay relevant closer to the 75 cap.  ESSENCE HARVESTING REMOVED (Kyle, 2026-10-31: \"I need you to 100% remove essence harvesting from the game..actually delete it..it was a whim idea that we didn't pursue\"). The ten essence_* motes are gone outright. The five crystal_* entries stayed, moved to MINING per Kyle: \"Crystals can be found in ore veins\" - they were always world nodes, and Engineering's recipe ladder is built on them.",
   "materials": {
     "herb_peacebloom": {
       "name": "Peacebloom",
@@ -3221,182 +3221,12 @@
       "icon_id": "upgrade_kit_iron",
       "skill_range": null
     },
-    "essence_cinder": {
-      "name": "Cinder Mote",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "early",
-      "description": "A coal-warm speck that never quite goes out. Still hot an hour after the elemental fell.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 2,
-      "icon_id": "cinder",
-      "skill_range": [
-        5,
-        20,
-        35,
-        50
-      ]
-    },
-    "essence_runoff": {
-      "name": "Runoff Mote",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "early",
-      "description": "A bead of water that holds its shape in the palm and refuses to soak in.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 2,
-      "icon_id": "runoff",
-      "skill_range": [
-        5,
-        20,
-        35,
-        50
-      ]
-    },
-    "essence_draft": {
-      "name": "Draft Mote",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "early",
-      "description": "Caught air that pushes faintly against the jar it is kept in.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 2,
-      "icon_id": "draft",
-      "skill_range": [
-        10,
-        25,
-        40,
-        55
-      ]
-    },
-    "essence_grit": {
-      "name": "Grit Mote",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "early",
-      "description": "Packed earth and stone-dust, heavier in the hand than its size allows.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 2,
-      "icon_id": "grit",
-      "skill_range": [
-        10,
-        25,
-        40,
-        55
-      ]
-    },
-    "essence_static": {
-      "name": "Static Mote",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "early",
-      "description": "It lifts the hair on your arm from inside a closed pouch.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 2,
-      "icon_id": "static",
-      "skill_range": [
-        15,
-        30,
-        45,
-        60
-      ]
-    },
-    "essence_ember": {
-      "name": "Ember Heart",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "mid",
-      "description": "The fire-elemental's core, banked but not out. Warm through a leather glove.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 5,
-      "icon_id": "ember",
-      "skill_range": [
-        45,
-        65,
-        80,
-        95
-      ]
-    },
-    "essence_brine": {
-      "name": "Brine Heart",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "mid",
-      "description": "Dense, cold salt-water held in a shell of its own surface tension.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 5,
-      "icon_id": "brine",
-      "skill_range": [
-        45,
-        65,
-        80,
-        95
-      ]
-    },
-    "essence_gale": {
-      "name": "Gale Heart",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "mid",
-      "description": "A knot of moving air. Put it down and it drifts, slowly, toward the door.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 6,
-      "icon_id": "gale",
-      "skill_range": [
-        50,
-        70,
-        85,
-        100
-      ]
-    },
-    "essence_granite": {
-      "name": "Granite Heart",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "mid",
-      "description": "A fist of living stone, grain still shifting if you watch too long.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 6,
-      "icon_id": "granite",
-      "skill_range": [
-        50,
-        70,
-        85,
-        100
-      ]
-    },
-    "essence_umbral": {
-      "name": "Umbral Heart",
-      "material_type": "essence",
-      "profession": "essence_harvesting",
-      "tier": "mid",
-      "description": "Light bends around it rather than off it. Harvesters wrap these twice.",
-      "stack_limit": 20,
-      "vendor_price": 0,
-      "sell_price": 7,
-      "icon_id": "umbral",
-      "skill_range": [
-        60,
-        80,
-        95,
-        110
-      ]
-    },
     "crystal_quartz": {
       "name": "Rough Quartz",
       "material_type": "crystal",
-      "profession": "essence_harvesting",
+      "profession": "mining",
       "tier": "early",
-      "description": "Cloudy, common, and the first thing every harvester learns to pry loose.",
+      "description": "Cloudy, common, and the first thing every harvester learns to pry loose. Prised out of an ore vein alongside the metal.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 3,
@@ -3411,9 +3241,9 @@
     "crystal_azure": {
       "name": "Azure Crystal",
       "material_type": "crystal",
-      "profession": "essence_harvesting",
+      "profession": "mining",
       "tier": "early",
-      "description": "Pale blue and cold to hold. Rings faintly when struck.",
+      "description": "Pale blue and cold to hold. Rings faintly when struck. Prised out of an ore vein alongside the metal.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 3,
@@ -3428,9 +3258,9 @@
     "crystal_emberglass": {
       "name": "Emberglass",
       "material_type": "crystal",
-      "profession": "essence_harvesting",
+      "profession": "mining",
       "tier": "mid",
-      "description": "Fire-born glass, red through the middle, sharp enough to cut a glove.",
+      "description": "Fire-born glass, red through the middle, sharp enough to cut a glove. Prised out of an ore vein alongside the metal.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 7,
@@ -3445,9 +3275,9 @@
     "crystal_tideglass": {
       "name": "Tideglass",
       "material_type": "crystal",
-      "profession": "essence_harvesting",
+      "profession": "mining",
       "tier": "mid",
-      "description": "Sea-green and faintly wet to the touch however long it has been dry.",
+      "description": "Sea-green and faintly wet to the touch however long it has been dry. Prised out of an ore vein alongside the metal.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 8,
@@ -3462,9 +3292,9 @@
     "crystal_voidglass": {
       "name": "Voidglass",
       "material_type": "crystal",
-      "profession": "essence_harvesting",
+      "profession": "mining",
       "tier": "mid",
-      "description": "Black, flawless, and noticeably heavier than it looks. Engineers pay well.",
+      "description": "Black, flawless, and noticeably heavier than it looks. Engineers pay well. Prised out of an ore vein alongside the metal.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 10,

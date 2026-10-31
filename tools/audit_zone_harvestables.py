@@ -63,7 +63,7 @@ from entities.vendor_trash import _ANIMAL_HEAD, classify, _template_of  # noqa: 
 REGION_CONTAINERS = {"eastern_kingdoms_-_stranglethorn"}
 
 #: Underground. No trees below ground, so woodcutting is correctly absent rather than missing - the
-#: Crystalline Underdark is a cavern and has herbalism, mining and essence_harvesting as it should.
+#: Crystalline Underdark is a cavern and has herbalism and mining as it should.
 NO_WOODCUTTING_EXPECTED = {"crystalline_underdark", "frostward_descent", "deep_bloom", "weeping_ice"}
 
 #: Zones that should have no gathering nodes. A town is paved, a boss arena is sand, and a dungeon

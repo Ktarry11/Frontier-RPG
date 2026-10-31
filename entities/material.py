@@ -24,10 +24,11 @@ class Material:
         Args:
             material_id: unique identifier (e.g., "ore_copper", "herb_peacebloom")
             name: display name (e.g., "Copper Ore", "Peacebloom")
-            material_type: "ore" | "herb" (future: "wood", "hide", "essence", ...)
+            material_type: "ore" | "herb" | "crystal" (future: "wood", "hide", ...)
             profession: the gathering profession that produces this
-                        ("mining", "herbalism", future "woodcutting",
-                        "skinning", "essence_harvesting")
+                        ("mining", "herbalism", "woodcutting", "skinning").
+                        Crystals are mining: they come out of ore veins
+                        (GatheringNodeManager.roll_vein_crystal).
             tier: profession skill tier this belongs to - "early", "mid",
                   "late", "endgame" - matches the tiering Kyle's source
                   art sheets already use. Gates which nodes can drop it
