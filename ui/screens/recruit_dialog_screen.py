@@ -37,6 +37,30 @@ class RecruitDialogScreen(BaseScreen):
         self.result_message = None
 
     @property
+    def _player_level(self):
+        party = self.state_manager.get_party()
+        player = getattr(party, "player", None)
+        return getattr(player, "level", None)
+
+    @property
+    def block_reason(self):
+        """Why this companion will not come, or None. Live, like is_returning:
+        level up and walk back without leaving the screen and the Join button
+        has to work."""
+        return self.recruit.recruit_block_reason(self._player_level)
+
+    @property
+    def shown_level(self):
+        """The level they will actually join at - their catch-up level, or the
+        level they left with if this is somebody the player dismissed."""
+        if self.is_returning:
+            from world.recruit_manager import get_recruit_manager
+            snap = get_recruit_manager().dismissed_characters.get(self.recruit.recruit_id)
+            if snap and snap.get("level"):
+                return snap["level"]
+        return self.recruit.effective_level(self._player_level)
+
+    @property
     def is_returning(self):
         """True if this recruit was previously hired-then-dismissed, i.e.
         already knows the player. Read live rather than cached at
@@ -60,6 +84,8 @@ class RecruitDialogScreen(BaseScreen):
             return  # already resolved, only Close does anything now
 
         if self.join_button.collidepoint(mouse_pos):
+            if self.block_reason:
+                return          # too far above the player; the reason is on screen
             self._do_recruit()
             return
 
@@ -77,7 +103,12 @@ class RecruitDialogScreen(BaseScreen):
         returning = manager.is_dismissed(self.recruit.recruit_id)
 
         party = self.state_manager.get_party()
-        character = manager.build_or_restore(self.recruit)
+        # Checked again here rather than trusting the button: _do_recruit is the
+        # only place a companion actually joins, so it is the only place the
+        # rule is guaranteed to hold however the screen is driven.
+        if self.recruit.recruit_block_reason(self._player_level):
+            return
+        character = manager.build_or_restore(self.recruit, self._player_level)
         placement = party.add_member(character)
         manager.mark_recruited(self.recruit.recruit_id)
 
@@ -92,6 +123,9 @@ class RecruitDialogScreen(BaseScreen):
         screen.fill((10, 10, 15))
 
         self.renderer.draw_text(screen, self.recruit.name, (40, 30), size="large", color=COLOR_GOLD)
+        self.renderer.draw_text(
+            screen, f"Level {self.shown_level} {self.recruit.char_class}", (40, 68),
+            color=(180, 180, 190))
 
         if self.joined:
             self._render_joined(screen)
@@ -123,7 +157,15 @@ class RecruitDialogScreen(BaseScreen):
             self._draw_wrapped_text(screen, self.recruit.backstory, (40, 220),
                                      max_width=SCREEN_WIDTH - 80, color=(170, 170, 170))
 
-        self.renderer.draw_button(screen, self.join_button, "Recruit")
+        # Somebody too far above the player is shown WHY and at what level they
+        # will come, rather than a Recruit button that silently does nothing.
+        reason = self.block_reason
+        if reason:
+            self._draw_wrapped_text(screen, reason, (40, SCREEN_HEIGHT - 150),
+                                     max_width=SCREEN_WIDTH - 80, color=(230, 140, 120))
+            self.renderer.draw_button(screen, self.join_button, "Too Low", color=(70, 60, 60))
+        else:
+            self.renderer.draw_button(screen, self.join_button, "Recruit")
         self.renderer.draw_button(screen, self.leave_button, "Not Now")
 
     def _render_joined(self, screen):

@@ -12,6 +12,30 @@ naked or in generic filler. They're established adults who've been surviving
 out here, so showing up with nothing would read wrong - but the gear is
 deliberately Common quality, leaving all the real gearing to the player.
 
+COMPANIONS KEEP PACE WITH YOU, AND YOU CANNOT SKIP AHEAD TO THEM.
+Two rules, both Kyle's, and they are halves of the same idea - that who you
+travel with should be a choice about PEOPLE, never a race to the strongest
+body you can find:
+
+  CATCH-UP   a recruit you have not hired yet is never more than CATCHUP
+             levels below you, but never below the level they were authored
+             at. Silas stands in Ratchet at 12; meet him at 30 and he is 26.
+             Kyle: "if a player gets to level 30 and realize they want to try
+             a rogue, they don't want to level him from lvl 12."
+  THE GATE   you cannot hire somebody more than CATCHUP levels above you.
+             Kaelen starts at 36, so at 31 he will not come - he is five
+             levels up and that is one too many. At 32 he will.
+
+The two interlock: catch-up means anyone BELOW you is always within reach, so
+the gate only ever bites on a recruit authored above you. That is the whole
+point - it stops a level 20 player walking to the end of the map to collect a
+level 45 companion, without ever stranding a low-level one as unusable.
+
+CATCH-UP DOES NOT APPLY TO SOMEBODY YOU DISMISSED. They come back at the level
+and in the gear they left with (see build_or_restore), because that snapshot is
+the player's own investment and quietly raising its level would hand them a
+level 41 companion still wearing level 20 plate.
+
 Zone-key normalization matters here: recruits.json keys zones as
 `valley_of_trials` while ZoneManager passes "Valley of Trials". Vendors
 shipped broken for exactly this reason, so `_zone_key` mirrors
@@ -43,6 +67,13 @@ GEAR_THEMES = {
         "main_hand": "axe_1h",
     },
 }
+
+
+#: How far a companion may sit from the player in either direction: they level
+#: up to within this many levels below you, and you cannot hire one this many
+#: levels above you. One number, both rules, because they are the same promise
+#: read from each end - see the module docstring.
+CATCHUP = 4
 
 
 class RecruitNPC:
@@ -94,6 +125,28 @@ class RecruitNPC:
         self.home_x = data.get("home_x")
         self.home_y = data.get("home_y")
         self.home_note = data.get("home_note", "")
+
+    def effective_level(self, player_level=None):
+        """The level this companion is actually at when the player meets them.
+
+        Their authored level, raised so they are never more than CATCHUP below
+        the player. Never lowered: a companion authored above you waits at
+        their own level until you have caught up to them.
+        """
+        if player_level is None:
+            return self.level
+        return max(self.level, int(player_level) - CATCHUP)
+
+    def recruit_block_reason(self, player_level=None):
+        """None if this companion will come with you, else a line saying why not."""
+        if player_level is None:
+            return None
+        lvl = self.effective_level(player_level)
+        if lvl - int(player_level) > CATCHUP:
+            return (f"{self.name} is level {lvl} and will not follow somebody "
+                    f"{lvl - int(player_level)} levels below them. "
+                    f"Come back at level {lvl - CATCHUP}.")
+        return None
 
     def has_home(self):
         return bool(self.home_town
@@ -160,14 +213,18 @@ class RecruitNPC:
         baneshadow_done = baneshadow.status == QuestStatus.COMPLETED
         return fel_taint_started and not baneshadow_done
 
-    def build_character(self):
+    def build_character(self, player_level=None):
         """
         Create the actual `Character` for this recruit, spec-locked and
         wearing a themed starter set.
+
+        `player_level` applies the catch-up rule; omitting it builds them at
+        their authored level, which is what the audit tools want.
         """
         from entities.character import Character
 
-        char = Character(self.name, self.char_class, self.level)
+        char = Character(self.name, self.char_class,
+                         self.effective_level(player_level))
         char.row = self.row
 
         # Spec lock: companions committed to a role back on Earth and stay
@@ -321,7 +378,10 @@ class RecruitNPC:
             return
 
         generator = LootGenerator()
-        ilvl = max(1, self.level)
+        # THE CHARACTER'S level, not the authored one. Catch-up means a Silas
+        # met at 30 is level 26, and reading self.level here would have sent
+        # him out in the level 12 kit he was written with.
+        ilvl = max(1, char.level)
 
         for slot in theme["slots"]:
             try:
@@ -499,13 +559,17 @@ class RecruitManager:
         self.dismissed_characters[recruit_id] = character.to_dict()
         return self.recruits[recruit_id]
 
-    def build_or_restore(self, recruit):
+    def build_or_restore(self, recruit, player_level=None):
         """
         The Character to hand the player when they hire this recruit.
 
         A previously dismissed companion is rebuilt from their stored
-        snapshot so they return at the level and in the gear they left with.
-        A first-time hire is generated fresh.
+        snapshot so they return at the level and in the gear they left with -
+        the catch-up rule deliberately does NOT touch them, because that
+        snapshot is the player's own investment and raising its level without
+        its gear would be a worse companion, not a better one.
+
+        A first-time hire is generated fresh, at their catch-up level.
         """
         snapshot = self.dismissed_characters.get(recruit.recruit_id)
         if snapshot:
@@ -517,7 +581,7 @@ class RecruitManager:
                 # fresh build rather than making the NPC permanently dead.
                 print(f"Could not restore {recruit.name} from snapshot "
                       f"({exc}); rebuilding from scratch.")
-        return recruit.build_character()
+        return recruit.build_character(player_level)
 
     def is_recruited(self, recruit_id):
         return recruit_id in self.recruited_ids
