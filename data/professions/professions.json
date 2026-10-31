@@ -1,5 +1,5 @@
 {
-  "_comment": "Profession list and training tiers. cost is copper; 3 primary professions per character.",
+  "_comment": "Profession list and training tiers. cost is copper; 3 primary professions per character. kind 'secondary' (Kyle, 2026-10-31: cooking \"would be 'secondary' since i dont want it to take up profession space\") means the profession is free of the max_primary limit: it is not counted against the 3 slots and does not consume one. Everything else about it - tiers, caps, trainers, skill-ups - is identical to a primary, which is the point; the slot rule is the ONLY difference, so there is no second profession system to keep in step.",
   "max_primary": 3,
   "professions": {
     "mining": {
@@ -58,7 +58,7 @@
       "description": "Bind elemental essence into metal: trinkets, goggles, explosives and shot."
     },
     "cooking": {
-      "kind": "crafting",
+      "kind": "secondary",
       "name": "Cooking",
       "description": "Turn meat into meals that restore health and leave you well fed."
     }

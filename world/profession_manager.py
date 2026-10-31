@@ -35,6 +35,22 @@ def max_primary():
     return int(data().get("max_primary", 3))
 
 
+def is_secondary(profession):
+    """True for a trade that does NOT cost a profession slot.
+
+    Kyle, 2026-10-31, on Cooking: "it would be 'secondary' since i dont want it to take up
+    profession space." The slot rule is the ONLY thing that differs - tiers, caps, trainers,
+    skill-ups and recipes all behave exactly as a primary's do. Keeping it to one flag rather
+    than a parallel secondary-profession system means there is nothing to keep in step.
+    """
+    return professions().get(profession, {}).get("kind") == "secondary"
+
+
+def primary_count(character):
+    """How many of the character's known professions actually occupy a slot."""
+    return sum(1 for p in character.known_professions if not is_secondary(p))
+
+
 def professions_for_trainer(npc_id):
     """-> list of profession ids this NPC teaches (possibly empty).
 
@@ -75,14 +91,20 @@ def offers(character, profession):
     t = tiers()
     if not character.knows_profession(profession):
         first = t[0]
-        slots_left = max_primary() - len(character.known_professions)
+        secondary = is_secondary(profession)
+        # A secondary trade is free of the slot limit entirely - it neither needs a free slot
+        # nor reports one, because telling the player "2 of 3 slots free" next to something that
+        # costs no slot is exactly the kind of half-true the old line would have printed.
+        slots_left = max_primary() - primary_count(character)
         reason = None
-        if slots_left <= 0:
+        if not secondary and slots_left <= 0:
             reason = f"You already know {max_primary()} professions. Unlearn one first."
         elif character.level < first["required_level"]:
             reason = f"Requires level {first['required_level']}"
+        slot_note = ("  Secondary - costs you no profession slot."
+                     if secondary else f"  ({slots_left} of {max_primary()} slots free)")
         rows.append(dict(kind="learn", name=f"Learn {info['name']} ({first['name']})",
-                         sub=f"{info['description']}  Skill cap {first['cap']}.  ({slots_left} of {max_primary()} slots free)",
+                         sub=f"{info['description']}  Skill cap {first['cap']}.{slot_note}",
                          cost=first["cost"], enabled=reason is None, reason=reason))
         return rows
 

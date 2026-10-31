@@ -24,6 +24,12 @@ and icon_for returns None for them, which the UI already handles by falling
 back to its text rendering.
 """
 
+from pathlib import Path
+
+#: Where the icon files live. icon_for() checks this for a file named after the
+#: consumable_id itself - see its docstring.
+_ICON_DIR = Path(__file__).resolve().parent.parent / "assets" / "icons" / "consumables"
+
 #: family stem -> (ids using the LESSER bottle, ids using the GREATER bottle)
 _FAMILIES = {
     # ---- battle elixirs ------------------------------------------------
@@ -130,8 +136,27 @@ del _stem, _lesser, _greater, _cid
 def icon_for(consumable_id):
     """The icon file stem for a consumable, or None if it has no art yet.
 
-    None is a normal answer, not an error - food and ammo have no icons on
-    the alchemy sheet, and the UI already falls back to text for anything
-    without art.
+    Two sources, in order:
+
+    1. CONSUMABLE_ICONS, the hand-built family map above. The alchemy sheet
+       shares one bottle across a family's power tiers, so those ids cannot be
+       derived from a filename and have to be written down.
+    2. A file simply NAMED after the consumable. Food and ammo art was drawn
+       later and on its own sheets, one file per item, with each file already
+       named for its consumable_id - all 17 food and meal icons are on disk as
+       meal_cooked_feast_roast.png and so on. Nothing mapped them, so icon_for
+       returned None for every one of them and the whole food category drew as
+       text in the bag while its art sat in the folder unused. Deriving it
+       means any future consumable whose icon is named after its id works with
+       no edit here, which is the same "one place, no drift" argument the
+       family map above is making.
+
+    None is still a normal answer for a consumable with no art at all; the UI
+    falls back to text.
     """
-    return CONSUMABLE_ICONS.get(consumable_id)
+    mapped = CONSUMABLE_ICONS.get(consumable_id)
+    if mapped:
+        return mapped
+    if consumable_id and (_ICON_DIR / f"{consumable_id}.png").is_file():
+        return consumable_id
+    return None

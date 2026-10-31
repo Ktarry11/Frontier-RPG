@@ -3455,11 +3455,25 @@ class Character(StatusEffectMixin):
         return self.PROFESSION_TIER_CAPS[tier]
 
     def learn_profession(self, profession):
-        """Learn a primary profession. False if already known or all slots are used."""
+        """Learn a profession. False if already known, or if all primary slots are used.
+
+        SECONDARY TRADES DO NOT COST A SLOT (Kyle, 2026-10-31, on Cooking). The slot test asks
+        profession_manager rather than counting known_professions, because this method and
+        profession_manager.offers() are two places that both decide "can you learn this" - the
+        trainer would have offered Cooking and this would have silently refused it. One rule,
+        asked in both places. Falls back to the old count if the data cannot be read, so a
+        broken professions.json degrades to the previous behaviour instead of handing out
+        unlimited professions.
+        """
         if profession in self.known_professions:
             return False
-        if len(self.known_professions) >= self.MAX_PRIMARY_PROFESSIONS:
-            return False
+        try:
+            from world import profession_manager as pm
+            if not pm.is_secondary(profession) and pm.primary_count(self) >= self.MAX_PRIMARY_PROFESSIONS:
+                return False
+        except Exception:
+            if len(self.known_professions) >= self.MAX_PRIMARY_PROFESSIONS:
+                return False
         self.known_professions.append(profession)
         self.profession_tiers.setdefault(profession, 0)
         self.profession_skills.setdefault(profession, 0)

@@ -9094,6 +9094,196 @@
             "consumable_id": "meal_cooked_feast_roast",
             "count": 1
           }
+        },
+        "cook_skewers": {
+          "name": "Fire-Charred Skewers",
+          "inputs": {
+            "meat_stringy": 2
+          },
+          "skill_required": 25,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_skewers",
+            "count": 1
+          },
+          "skill_range": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "source": "trainer"
+        },
+        "cook_broth": {
+          "name": "Thin Broth",
+          "inputs": {
+            "meat_stringy": 2
+          },
+          "skill_required": 35,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_broth",
+            "count": 1
+          },
+          "skill_range": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "source": "trainer"
+        },
+        "cook_strips": {
+          "name": "Peppered Strips",
+          "inputs": {
+            "meat_lean": 2
+          },
+          "skill_required": 65,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_strips",
+            "count": 1
+          },
+          "skill_range": [
+            80,
+            100,
+            120,
+            140
+          ],
+          "source": "trainer"
+        },
+        "cook_pottage": {
+          "name": "Barley Pottage",
+          "inputs": {
+            "meat_lean": 2
+          },
+          "skill_required": 75,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_pottage",
+            "count": 1
+          },
+          "skill_range": [
+            90,
+            110,
+            130,
+            150
+          ],
+          "source": "trainer"
+        },
+        "cook_cutlets": {
+          "name": "Quickfire Cutlets",
+          "inputs": {
+            "meat_thick": 2
+          },
+          "skill_required": 115,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_cutlets",
+            "count": 1
+          },
+          "skill_range": [
+            130,
+            150,
+            170,
+            190
+          ],
+          "source": "trainer"
+        },
+        "cook_consomme": {
+          "name": "Clear Consomme",
+          "inputs": {
+            "meat_thick": 2
+          },
+          "skill_required": 125,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_consomme",
+            "count": 1
+          },
+          "skill_range": [
+            140,
+            160,
+            180,
+            200
+          ],
+          "source": "trainer"
+        },
+        "cook_medallions": {
+          "name": "Seared Medallions",
+          "inputs": {
+            "meat_rich": 3
+          },
+          "skill_required": 165,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_medallions",
+            "count": 1
+          },
+          "skill_range": [
+            180,
+            200,
+            220,
+            240
+          ],
+          "source": "trainer"
+        },
+        "cook_terrine": {
+          "name": "Spiced Terrine",
+          "inputs": {
+            "meat_rich": 3
+          },
+          "skill_required": 175,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_terrine",
+            "count": 1
+          },
+          "skill_range": [
+            190,
+            210,
+            230,
+            250
+          ],
+          "source": "trainer"
+        },
+        "cook_loin": {
+          "name": "Blackened Loin",
+          "inputs": {
+            "meat_prime": 3
+          },
+          "skill_required": 215,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_loin",
+            "count": 1
+          },
+          "skill_range": [
+            230,
+            250,
+            270,
+            290
+          ],
+          "source": "trainer"
+        },
+        "cook_roast_royale": {
+          "name": "Roast Royale",
+          "inputs": {
+            "meat_prime": 3
+          },
+          "skill_required": 225,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_roast_royale",
+            "count": 1
+          },
+          "skill_range": [
+            240,
+            260,
+            280,
+            300
+          ],
+          "source": "trainer"
         }
       }
     }

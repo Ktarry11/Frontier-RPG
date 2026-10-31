@@ -354,7 +354,10 @@ class TravelServiceScreen(BaseScreen):
                 shown = names[0]
             else:
                 shown = ", ".join(names[:-1]) + " and " + names[-1]
-            hint = (f"I teach {shown}. You know {len(player.known_professions)} of "
+            # Count only the professions that actually occupy a slot - a secondary trade
+            # (Cooking) is free, and counting it here would tell the player they had one
+            # fewer slot than they really do.
+            hint = (f"I teach {shown}. You know {pm.primary_count(player)} of "
                     f"{pm.max_primary()} professions.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
