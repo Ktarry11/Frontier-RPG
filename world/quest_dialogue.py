@@ -244,6 +244,7 @@ _ZONE_TOPIC_MODULES = (
     "stranglethorn_central",
     "stranglethorn_south",
     "shimmering_flats",
+    "tanaris",
 )
 
 for _mod_name in _ZONE_TOPIC_MODULES:

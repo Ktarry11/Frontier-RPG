@@ -1,0 +1,2874 @@
+{
+  "quests": [
+    {
+      "quest_id": "tan_berth_turned_away",
+      "title": "Four Berths and a Queue",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "steamwheedle_port",
+      "level_min": 41,
+      "level_max": 41,
+      "description": "Harbourmaster Senna Coil has four berths and has been turning ships away since the second winter.\n\nShe can tell you to the day when the queue started, because she started the queue, and she has never once got to the bottom of it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drownbell Deckhand",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_cove_tally",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2920,
+      "reward_gold": 11700,
+      "accept_text": "A ship waiting outside the heads is a ship somebody can board, and twice this season somebody has.\n\nNine of them off the shore road and bring me their tally sticks. The notches are not days - I have looked at two of these and they are a count of something, and I would like to know whether my queue is on that list.",
+      "turn_in_text": "It is a list of hulls. Nine sticks, and between them they have counted more ships than I have berthed this year.\n\nSo they are not raiding my queue at random. They are WORKING it, the way I work a tide table.\n\nI need two more berths cut and I needed them a year ago. Go and see Hack, and do not tell her I sent you in those words.",
+      "next_quest_id": "tan_berth_the_yard",
+      "unique_item_defs": [
+        {
+          "name": "Old-Quay Cuffs",
+          "slot": "wrist",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Harbour kit. Salt has been at it and salt has lost.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 40,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Keelmaker's Bracers",
+          "slot": "wrist",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Cut for a dock that was big enough once.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 98,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Harbourmaster's Ring",
+          "slot": "ring",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Four generations of the same hands have worn this to the shape of them.",
+          "primary_stats": {
+            "intellect": 2,
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 42,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_berth_the_yard",
+      "title": "What the Yard Would Want For It",
+      "giver_npc_id": "stw_yard_boss",
+      "zone": "steamwheedle_port",
+      "level_min": 41,
+      "level_max": 42,
+      "description": "Yard-Boss Grizzel Hack has the crews, the gear and the appetite to cut two berths out of that rock.\n\nWhat she does not have is any reason to do the quay a favour, and she is going to say so before she says yes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thornback Scorpid",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_scorpid_barb",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_sunstone_core",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Senna wants rock cut. Senna has wanted rock cut for a year and has not once walked up this hill to say so.\n\nFine. Here is my price, and it is not money. My powder crews work the stone out past the yard and the scorpids are in there with them. Ten of them, six barbs, and four sunstone cores off the elementals, because the cores run hot enough to set a charge and I would rather not buy fuse.",
+      "turn_in_text": "Good. Tell her yes.\n\nTell her it was always going to be yes. I grew up in a town with a wall round it and I watched what happens when the people who could fix a thing are waiting to be ASKED properly.\n\nShe can have her berths. She is going to have to sign for them in front of Hesper, though, because I am not doing this on a handshake with the quay.",
+      "next_quest_id": "tan_berth_signed",
+      "unique_item_defs": [
+        {
+          "name": "Upper-Yard Wraps",
+          "slot": "shoulder",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Hot metal got at this and the mark never came out.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.0,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 31,
+          "label": "Cloth Shoulders (Int/SP/Hit)"
+        },
+        {
+          "name": "Three-Year Bracers",
+          "slot": "wrist",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Hot metal got at this and the mark never came out.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 5.0
+          },
+          "armor_type": "plate",
+          "armor_value": 100,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Upper-Yard Loop",
+          "slot": "ring",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Yard kit, three years old and already mended twice.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 1.9
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_berth_signed",
+      "title": "In Front of the Clerk",
+      "giver_npc_id": "stw_tally_clerk",
+      "zone": "steamwheedle_port",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "Tally-Clerk Hesper Dunn keeps every crate in and out and which side of town it came from.\n\nShe has been waiting three years for the two halves of this town to need a document.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "tan_chewed_ledger",
+          "count": 6
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "tan_topic_columns",
+            "tan_topic_both_sides"
+          ]
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "They want it written down. Of course they want it written down, they are goblins, and this is the first time either of them has wanted the same piece of paper.\n\nI need six pages to copy the form onto and there is no clean paper in this town, so you are going to the dead city for it - the scrapjaws nest in the counting houses and they have chewed three years of Gadgetzan's books into bedding.\n\nThen come back and ask me what I keep those last two columns for. I will tell you properly.",
+      "turn_in_text": "Signed by both. It will outlive everybody who signed it, which is the only thing I have ever actually wanted out of this job.\n\nAnd you asked. Nobody asks.\n\nGo and tell Keelmaker the rock is coming out. He has been pricing a dry dock in his head since the wet and he thinks nobody has noticed.",
+      "next_quest_id": "tan_berth_keelmaker",
+      "unique_item_defs": [
+        {
+          "name": "Tide-Worn Chestguard",
+          "slot": "chest",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Four generations of the same hands have worn this to the shape of them.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 201,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Four-Berth Pants",
+          "slot": "legs",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "crit_chance_physical": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 83,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Harbourmaster's Mace",
+          "slot": "main_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Four generations of the same hands have worn this to the shape of them.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_berth_keelmaker",
+      "title": "What Keelmaker Has Been Pricing",
+      "giver_npc_id": "stw_shipwright",
+      "zone": "steamwheedle_port",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Shipwright Hald Keelmaker has had more work in three years than in the twenty before them, and every job of it came off the yard.\n\nHe is not bitter about that. He is the only one on the quay who is not, and it has cost him friends.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunbleached Basilisk",
+          "count": 8,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_basilisk_eye",
+          "count": 5
+        },
+        {
+          "type": "gather",
+          "target": "tan_sunstone_core",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Two berths is a hole in the rock. A dry dock is a hole in the rock with a gate on it, and while they are cutting I would rather they cut the second thing.\n\nThe gate wants glass and it wants heat. Five eyes - they take the sun and hold it, and set into a sight-glass they will tell me my water level in the dark - and five sunstone cores for the forge. Eight of them to get there.",
+      "turn_in_text": "Enough for the sight-glass and enough for the forge.\n\nI have been on this quay sixty years and I have never built anything that was not a repair. This is going to be a dry dock. Mine.\n\nThe yard will cut it and the quay will own it and in ten years nobody will remember which half did which, and that is the point of building something.",
+      "next_quest_id": "tan_berth_the_noise",
+      "unique_item_defs": [
+        {
+          "name": "Tide-Worn Treads",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Four generations of the same hands have worn this to the shape of them.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.2
+          },
+          "armor_type": "leather",
+          "armor_value": 42,
+          "label": "Leather Boots (Agi/Sta/AP)"
+        },
+        {
+          "name": "Tide-Worn Bindings",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Four generations of the same hands have worn this to the shape of them.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Bracers (Int/Sta/SP)"
+        },
+        {
+          "name": "Old-Quay Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_berth_the_noise",
+      "title": "The Whole Town Hears It",
+      "giver_npc_id": "stw_doctor",
+      "zone": "steamwheedle_port",
+      "level_min": 43,
+      "level_max": 43,
+      "description": "They start cutting rock at first light and they do not stop.\n\nSurgeon Wick Ambrose has been expecting the casualties and is getting a different kind than he planned for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drownbell Powdermonkey",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_hyena_jaw",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Bonefield Hyena",
+          "count": 8,
+          "zone": "northern_tanaris"
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Powder work. I have been setting hands for a fortnight and they are all yard hands, and before you say it - no, they are not careless, they are the ones doing the lifting.\n\nThe cove crews have worked out that a town making that much noise is a town not listening. Nine of their powdermonkeys off the shore. And the hyenas have come in close for the spoil tip - eight of them, and bring the jaws, I am sick of guessing which bite I am looking at.",
+      "turn_in_text": "That is the last of them off the tip.\n\nTwo things nobody expected from cutting a hole in a rock: the yard and the quay are drinking in the same half of the room now, and I have treated more quay hands this fortnight than in the last two years, because they came up the hill to help and they are sixty and they do not lift like they think they do.\n\nI am not complaining. I want that on a record somewhere.",
+      "next_quest_id": "tan_berth_done",
+      "unique_item_defs": [
+        {
+          "name": "Goat-Field Wraps",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Yard kit, three years old and already mended twice.",
+          "primary_stats": {
+            "stamina": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        },
+        {
+          "name": "Throughput Gloves",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Yard kit, three years old and already mended twice.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Hack's Signet",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Hot metal got at this and the mark never came out.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_berth_done",
+      "title": "Five and Six",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "steamwheedle_port",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "Berth five took eleven days. Berth six took nine, because by then the quay crews had stopped standing at the top of the hill watching.\n\nSenna Coil has got to the bottom of her queue for the first time since the second winter and does not know what to do with the afternoon.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "steamwheedle_port",
+          "target_x": 24,
+          "target_y": 26,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Drownbell Deckhand",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_bosun_whistle",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Walk the new front, end to end, and tell me if it reads as one quay or as two.\n\nThen go and finish what started this. Ten more off the shore and four of the bosuns' whistles - they signal with them and I would like to know the calls, because a harbour that can read the signals outside the heads is a harbour that gets a night's sleep.",
+      "turn_in_text": "One quay. You said one quay.\n\nI will take it. Ask me in ten years and I will tell you it was always one quay and I will have forgotten this conversation, and Hesper will have the document, and she will be insufferable about it and she will be right.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Four-Berth Belt",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Harbour kit. Salt has been at it and salt has lost.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Belt (Dodge/Parry)"
+        },
+        {
+          "name": "Harbourmaster's Greaves",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Harbour kit. Salt has been at it and salt has lost.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 70,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Keelmaker's Pendant",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.0
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_gad_the_press",
+      "title": "There Is a Press in That Town",
+      "giver_npc_id": "stw_engineer",
+      "zone": "northern_tanaris",
+      "level_min": 41,
+      "level_max": 41,
+      "description": "Engineer Faz Quill's whole workshop came out of Gadgetzan on three carts. Everything heavier than a cart is still in it.\n\nHe talks about a particular press more than he talks about most people, and he is aware of that.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 97,
+          "target_y": 44,
+          "radius": 10
+        },
+        {
+          "type": "kill",
+          "target": "Gadgetzan Scrapjaw",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_pried_fitting",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2920,
+      "reward_gold": 11700,
+      "accept_text": "Four days west, through the wall, second street off the east gate. It is a drop press and it weighs more than this shed.\n\nI am not asking you to bring it. I am asking you to go and tell me it is still there, because the Sandfury have been coming down off the pyramid and prying the brass off everything that has any, and five of those fittings will tell me how far in they have got.",
+      "turn_in_text": "Still there. Of course it is still there, nobody can move it, that is the whole reason I could not.\n\nThe fittings are from the second street. So they have got that far in.\n\nGo and see Mazzic. He will not ask you to go back, he will just want to know what the street looked like.",
+      "next_quest_id": "tan_gad_mazzic",
+      "unique_item_defs": [
+        {
+          "name": "Lintel-Cut Bracers",
+          "slot": "wrist",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.5
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Last-Season Spaulders",
+          "slot": "shoulder",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Goblin work, from a shop with a name cut into the lintel.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 8.8
+          },
+          "armor_type": "leather",
+          "armor_value": 61,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Dry-Well Shield",
+          "slot": "off_hand",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Goblin work, from a shop with a name cut into the lintel.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "armor_value": 65,
+          "block_value": 81,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 42,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_gad_mazzic",
+      "title": "Carried Out on a Door",
+      "giver_npc_id": "stw_old_gadgetzan",
+      "zone": "steamwheedle_port",
+      "level_min": 41,
+      "level_max": 42,
+      "description": "Old Mazzic did not leave Gadgetzan. He was carried out on a door by two people whose names he never got.\n\nHe would like that distinction kept, and he is the only one in this town who insists on it.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "tan_topic_carried",
+            "tan_topic_the_wells"
+          ]
+        },
+        {
+          "type": "gather",
+          "target": "tan_chewed_ledger",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Everybody says we LEFT. Like it was a Tuesday and a decision.\n\nAsk me about it properly and I will tell you, and then ask me about the wells, because that is the part the quay crowd have never once asked me about in three years.\n\nAnd bring me whatever the scrapjaws have not finished chewing out of the counting houses. Five will do. I want to see a figure in my own town's hand.",
+      "turn_in_text": "Those are water rates.\n\nFive pages and they are all water rates, and the number goes up in the third one and up again in the fourth and then the fifth one is a different hand entirely, because whoever was writing them stopped.\n\nI knew the wells went. Everybody knows the wells went. I have never had it in a column before.",
+      "next_quest_id": "tan_gad_the_wells",
+      "unique_item_defs": [
+        {
+          "name": "Gadgetzan Belt",
+          "slot": "waist",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Walled Cuisses",
+          "slot": "legs",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 201,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Lintel-Cut Spear",
+          "slot": "main_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "There is a town's worth of this and nobody to want it.",
+          "weapon_type": "polearm",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 3.6,
+            "parry_rating": 2.7
+          },
+          "weapon_damage_min": 80,
+          "weapon_damage_max": 108,
+          "attack_speed": 3.3,
+          "label": "Polearm (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_gad_the_wells",
+      "title": "What a Walled Town Drinks",
+      "giver_npc_id": "stw_old_gadgetzan",
+      "zone": "northern_tanaris",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "A desert city lives on its wells. Gadgetzan had nine of them and a wall round the lot.\n\nMazzic can name all nine. He grew up drinking from four.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 84,
+          "target_y": 50,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Sandfury Scavenger",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_sandfury_charm",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "The deep well is in the west quarter, under the broken wall. Go and look down it.\n\nThe Sandfury will be there, because the Sandfury are everywhere in that town now, and five of their charms would tell me whether they are living in it or just working it. There is a difference and it decides what I think of them.\n\nLook down the well. That is the job. The rest is me being curious in my old age.",
+      "turn_in_text": "Dry. Dry all the way down, and you could see the bottom, which from that well you never could.\n\nAnd the charms are grave charms. They are not living in my town, they are BURYING in it, which is either an insult or the most respect anybody has shown the place in three years and I genuinely cannot decide which.\n\nThere is a woman on the pan north of here who worked out where the water in this region goes. Hesper has the name.",
+      "next_quest_id": "tan_gad_the_answer",
+      "unique_item_defs": [
+        {
+          "name": "Dry-Well Shawl",
+          "slot": "shoulder",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.0,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 31,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Dry-Well Boots",
+          "slot": "feet",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.6
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Boots (Int/Hit/SP)"
+        },
+        {
+          "name": "Gadgetzan Necklace",
+          "slot": "neck",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_gad_the_answer",
+      "title": "The Far End of Somebody Else's Question",
+      "giver_npc_id": "stw_tally_clerk",
+      "zone": "northern_tanaris",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "A mountain came down in the north three years ago and the water under this region tipped with it. On the pan they worked out where it all goes.\n\nNobody on the pan worked out what it stopped doing on the way.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 97,
+          "target_y": 36,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Sandfury Hexxer",
+          "count": 8,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_hex_fetish",
+          "count": 5
+        },
+        {
+          "type": "gather",
+          "target": "tan_chewed_ledger",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "You have stood where that water ends up. I have the figures for where it used to start.\n\nGo back into the city and read me the north quarter - the shallow wells, the ones that went first - eight of the hexxers, six more pages, and five of their fetishes. The trolls were watching that water table longer than any of us and they marked what they saw.\n\nI want to put a goblin column and a troll fetish on the same bench and see if they agree.",
+      "turn_in_text": "They agree.\n\nThe shallow wells went in the first season and the deep well went in the second, which is a water table dropping, not a drought. The trolls marked it the same way and started marking it a season before we noticed, because they were LOOKING and we were selling each other water rates.\n\nSo: a range arrived, the water went under and east, and four days west of here a walled city died of thirst with its gates open.\n\nNobody did that on purpose. I am going to write it down anyway, in both columns, and in a hundred years somebody can be angry about it with the facts in front of them.",
+      "next_quest_id": "tan_gad_the_press_again",
+      "unique_item_defs": [
+        {
+          "name": "Gadgetzan Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.7
+          },
+          "armor_type": "mail",
+          "armor_value": 105,
+          "label": "Mail Shoulders (Int/Hit/SP)"
+        },
+        {
+          "name": "Last-Season Slippers",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "There is a town's worth of this and nobody to want it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Boots (Int/SP/Crit)"
+        },
+        {
+          "name": "Dry-Well Crook",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "secondary_stats": {
+            "healing_power": 18.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "swf_water_answer"
+      ]
+    },
+    {
+      "quest_id": "tan_gad_the_press_again",
+      "title": "Three Carts and a Fourth",
+      "giver_npc_id": "stw_engineer",
+      "zone": "northern_tanaris",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Faz Quill has known for three years that the press is immovable.\n\nHe has just been told why the town died, and has spent one evening with that and come out the other side wanting to try the press again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sandfury Axethrower",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_throwing_axe",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_pried_fitting",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Here is what I have worked out, and I want to say it once and then not again.\n\nIf the wells had held, I would still be in that town with that press and a lintel with my name on it, and I would be poorer and I would be happier. Both of those. I have stopped trying to pick one.\n\nThe Sandfury have the east gate and I need it clear for a hoist. Ten of the axethrowers, six axes so I can see what they are using, and six more fittings.",
+      "turn_in_text": "The gate is clear and I have a hoist in my head that will work.\n\nIt will take four carts and most of a season and Hack will laugh at me for a week.\n\nI am going to do it anyway. Not because the press is worth it - it is not, I can buy two. Because I would like to take ONE thing out of that town on purpose instead of being carried out of it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lintel-Cut Vambraces",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "There is a town's worth of this and nobody to want it.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 5.3
+          },
+          "armor_type": "plate",
+          "armor_value": 105,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Last-Season Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "There is a town's worth of this and nobody to want it.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Gloves (Str/Agi/Sta)"
+        },
+        {
+          "name": "Lintel-Cut Ring",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Goblin work, from a shop with a name cut into the lintel.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_gad_salvage",
+      "title": "Half of It Came Out of There",
+      "giver_npc_id": "stw_salvage_broker",
+      "zone": "steamwheedle_port",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Broker Nim Catchpenny buys what came off something and sells it to whoever needs it on something else.\n\nHalf of what crosses her counter came out of Gadgetzan and she will not pretend otherwise. If that bothers you, it is still for sale.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gadgetzan Scrapjaw",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_pried_fitting",
+          "count": 7
+        },
+        {
+          "type": "gather",
+          "target": "tan_chewed_ledger",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "The scrapjaws nest in the good buildings, which is also where the good brass is, which means my suppliers and my competition are the same animal.\n\nEleven of them, seven fittings, four pages. The pages are for Hesper - she pays better for paper than I do for brass, which tells you something about this town that I find hard to look at directly.",
+      "turn_in_text": "Good brass.\n\nI will tell you the thing I do not say at the counter. Every piece of this I can name the street for. Not the building - the STREET. I grew up on two of them.\n\nAnd I still sell it, and I would still sell it tomorrow, because the alternative is that it sits in a dead town under a bird's nest and nobody gets anything.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Walled Waistguard",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Goblin work, from a shop with a name cut into the lintel.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Last-Season Shawl",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "spell_power": 3.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Walled Necklace",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_zf_still_there",
+      "title": "Nobody Took the Pyramid",
+      "giver_npc_id": "stw_general_goods",
+      "zone": "northern_tanaris",
+      "level_min": 41,
+      "level_max": 42,
+      "description": "Trader Bix Rannow had a shop with a stone front and a name cut into the lintel. It is standing in a walled town with nobody in it.\n\nFour days further west there is a troll ruin with a great many people in it, and he thinks about that more than he lets on.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 36,
+          "target_y": 58,
+          "radius": 10
+        },
+        {
+          "type": "kill",
+          "target": "Sandfury Scavenger",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_sandfury_charm",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Everybody calls it the ruins. I have been out there. It is not ruins, it is a BROKEN BUILDING WITH PEOPLE IN IT, which is a completely different thing and I would like somebody else to go and confirm it so I can stop sounding mad about it at the bar.\n\nWalk up to the broken face. Ten of the scavengers on the way and six charms.",
+      "turn_in_text": "People in it. Thank you.\n\nThey did not leave. We left, they did not, and their roof is off and ours was fine.\n\nI have turned that over for three years and I have never once got it to come out in our favour.",
+      "next_quest_id": "tan_zf_what_happened",
+      "unique_item_defs": [
+        {
+          "name": "Step-Pyramid Shoes",
+          "slot": "feet",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 41,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Sandfury Pauldrons",
+          "slot": "shoulder",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Troll iron, and troll patience, and neither has gone anywhere.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 150,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Broken-Face Shield",
+          "slot": "off_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Something was done with this and nobody left is saying what.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "armor_value": 67,
+          "block_value": 83,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_zf_what_happened",
+      "title": "What Took the Roof Off",
+      "giver_npc_id": "stw_old_gadgetzan",
+      "zone": "northern_tanaris",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Something happened at Zul'Farrak and it was not three years ago - the break in that pyramid is older than anybody in Steamwheedle.\n\nOld Mazzic has heard four versions and believes none of them, which he considers the correct number.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sandfury Hexxer",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_hex_fetish",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_throwing_axe",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Four stories. A flood, a god, a war, and a thing they let out and put back. You will hear all four in one evening at the bar and every one of them is told by a goblin who has never been within a mile of it.\n\nNine of the hexxers and six fetishes. The fetishes are the only thing out there anybody has ever written anything ON. Five of their axes as well, because an axe tells you who somebody expects to fight.",
+      "turn_in_text": "The fetishes are marked for WATER. All six. Levels, seasons, and a line that is clearly a low mark because it has been cut over three times.\n\nAnd the axes are made for throwing at something taller than a troll.\n\nSo they were watching the water long before we were, and they were expecting something, and neither of those is any of the four stories.",
+      "next_quest_id": "tan_zf_the_marks",
+      "unique_item_defs": [
+        {
+          "name": "Step-Pyramid Tunic",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.2,
+            "mp5": 1.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 42,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Step-Pyramid Epaulets",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Old before the sky changed and unbothered by the sky changing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 64,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        },
+        {
+          "name": "Hexxer's Charm",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Something was done with this and nobody left is saying what.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_zf_the_marks",
+      "title": "Three Cuts in the Same Stone",
+      "giver_npc_id": "stw_tally_clerk",
+      "zone": "northern_tanaris",
+      "level_min": 43,
+      "level_max": 43,
+      "description": "A low-water mark cut three times is a record. Hesper Dunn knows a record when she sees one and she wants the rest of it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 24,
+          "target_y": 66,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Sandfury Axethrower",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_sandfury_charm",
+          "count": 7
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "If they cut a mark three times they cut it somewhere permanent, and a fetish is not permanent. It will be on the pyramid.\n\nThe south face, where the steps are still whole. Nine of the axethrowers to get a look at it and seven charms - they are grave charms and the graves are a date, and a date is the thing I am short of.",
+      "turn_in_text": "The marks are on the third step and there are not three. There are eleven.\n\nEleven low marks, cut over what the grave charms put at about four hundred years, and the last one is three years old and it is a foot and a half below the one before it.\n\nThey have been writing down this region's water since before there was a Gadgetzan to die of it. We had nine wells and a rates ledger. They have eleven marks and a stone.",
+      "next_quest_id": "tan_zf_the_offer",
+      "unique_item_defs": [
+        {
+          "name": "Hexxer's Leggings",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Old before the sky changed and unbothered by the sky changing.",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 137,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Sandfury Vambraces",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Hexxer's Loop",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Old before the sky changed and unbothered by the sky changing.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_zf_the_offer",
+      "title": "Somebody Should Go and Ask Them",
+      "giver_npc_id": "stw_doctor",
+      "zone": "northern_tanaris",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "Nobody in Steamwheedle has ever gone to Zul'Farrak to ask a question. Three years, four stories, eleven marks, and not one conversation.\n\nSurgeon Wick Ambrose points this out at the bar and is told he does not understand trolls, by people who have never met one.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sandfury Hexxer",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_hex_fetish",
+          "count": 7
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "tan_topic_ask_them"
+          ]
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "I am not going to pretend this is a peace mission. You are going to have to go through a great many of them to stand anywhere a hexxer will hear you, and ten is my estimate and I am probably low.\n\nSeven fetishes. And come back and tell me what you make of it, because I would like one person in this town to have an opinion they arrived at by looking.",
+      "turn_in_text": "Seven, and every one of them marked, and you stood on the step and read them.\n\nThat is more than anyone here has done. It is not a conversation and I am not going to call it one.\n\nBut the next person who tells me nobody can talk to the Sandfury is going to be told that somebody walked up their steps and read their water marks and walked back down, and that we have had three years to do it and did not.",
+      "next_quest_id": "tan_zf_the_axe",
+      "unique_item_defs": [
+        {
+          "name": "Unburied Sabatons",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Old before the sky changed and unbothered by the sky changing.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 105,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Unburied Pants",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 12.6
+          },
+          "armor_type": "leather",
+          "armor_value": 87,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Sandfury Sword",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Troll iron, and troll patience, and neither has gone anywhere.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_zf_the_axe",
+      "title": "What the Axes Are For",
+      "giver_npc_id": "stw_smith",
+      "zone": "steamwheedle_port",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Smith Dorga Ironside has been looking at a Sandfury throwing axe on her bench for a fortnight.\n\nIt is made for throwing at something considerably taller than a troll, and she has worked out what, and she does not like it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sandfury Axethrower",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_throwing_axe",
+          "count": 8
+        },
+        {
+          "type": "gather",
+          "target": "tan_sunstone_core",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "The balance is wrong for a person. The haft is short and the head is heavy and it wants to go up.\n\nEleven of them and eight more axes, and five sunstone cores so I can get my forge hot enough to test what the heads are tempered for.\n\nI have a guess. I would like to be wrong and I have not been wrong about a piece of steel in twenty years.",
+      "turn_in_text": "Tempered against heat.\n\nNot against armour, not against hide - against HEAT, the way you temper a tool that is going to be used near a forge or in a fire.\n\nThey have four hundred years of water marks and a quarry of axes balanced to throw upward at something that is hot. I am going to stop being curious about Zul'Farrak now and I would recommend it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Broken-Face Girdle",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        },
+        {
+          "name": "Broken-Face Chausses",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 5.1
+          },
+          "armor_type": "mail",
+          "armor_value": 140,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Broken-Face Pendant",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken off the steps of a thing that is still standing.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_cove_whose_claim",
+      "title": "Filed by a Company Nobody Knows",
+      "giver_npc_id": "stw_banker",
+      "zone": "steamwheedle_port",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "Strongbox-Keeper Pell holds what people do not want to carry and writes down what they do not want to forget.\n\nSomebody filed a salvage claim on that cove before the pirates took it, and the company that filed it does not appear in any book she has.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drownbell Deckhand",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_cove_tally",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_crawler_shell",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Before Vaile's crew there was a working party in that cove with a diving bell and a winch and a claim in order. Then there was not.\n\nTen off the shore, six tallies, and five of the crawler shells - the crawlers are all over the lower cove and they are eating something down there, and I would like to know whether it is fish.",
+      "turn_in_text": "Not fish.\n\nThose shells are growing on something metal - you can see the line of it in the curve. There is a great deal of worked metal on the floor of that cove and somebody was lifting it before Vaile arrived.\n\nKeep going. I will pay for the answer and I will pay better than the brokers.",
+      "next_quest_id": "tan_cove_the_bell",
+      "unique_item_defs": [
+        {
+          "name": "Cove-Taken Vest",
+          "slot": "chest",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Rope and brine and a long time without daylight.",
+          "primary_stats": {
+            "strength": 7,
+            "agility": 7,
+            "stamina": 7
+          },
+          "armor_type": "leather",
+          "armor_value": 83,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Careenage Girdle",
+          "slot": "waist",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Rope and brine and a long time without daylight.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.6
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Careenage Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 2,
+            "stamina": 2
+          },
+          "weapon_damage_min": 50,
+          "weapon_damage_max": 68,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_cove_the_bell",
+      "title": "The Bell Is Real",
+      "giver_npc_id": "stw_engineer",
+      "zone": "northern_tanaris",
+      "level_min": 43,
+      "level_max": 43,
+      "description": "A diving bell, goblin-built, on the floor of a flooded chamber with its chain still on the winch.\n\nFaz Quill has heard it described three times and has drawn it from the descriptions and would now like to see it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_drownbell",
+          "target_x": 62,
+          "target_y": 44,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Drownbell Cutthroat",
+          "count": 10,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "gather",
+          "target": "tan_tide_focus",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "In at the mouth, down the dry gallery, and as far as the wet end. Do not go to the bottom.\n\nTen of the cutthroats on the way and five of the tidecallers' focuses - they keep the water moving down there and if I know how, I know whether the bell can still be raised.\n\nI have wanted to see a working bell since I was eleven years old. This is the closest I have been and I am sending somebody else, which I am aware of.",
+      "turn_in_text": "It can be raised. The winch is seized and the chain is sound, and seized is a morning's work with the right bar.\n\nAnd the focuses are keeping a CURRENT in a cave with no tide in it, which is not weather, that is somebody's doing.\n\nVaile has a reason to keep that water moving and I would very much like to know what it is.",
+      "next_quest_id": "tan_cove_two_went_down",
+      "unique_item_defs": [
+        {
+          "name": "Below-Water Belt",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.1,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Belt (Int/SP/Crit)"
+        },
+        {
+          "name": "Below-Water Bracers",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Below-Water Pendant",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_cove_two_went_down",
+      "title": "Two of Them Went to Look",
+      "giver_npc_id": "stw_salvage_broker",
+      "zone": "the_drownbell",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "The pirates have not touched the bell. Two of them went down to look at it in the first season and neither came back up.\n\nThat is the only fact about the Drownbell that every version of the story agrees on.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bilge Crawler",
+          "count": 12,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "gather",
+          "target": "tan_crawler_shell",
+          "count": 7
+        },
+        {
+          "type": "gather",
+          "target": "tan_bosun_whistle",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "I buy off Vaile's people. I am not proud of it and I am not going to lie about it to you of all people.\n\nWhat I will tell you is that the ones who come up to trade will haggle about anything in that cove except the bottom chamber, and they do not refuse, they just go quiet.\n\nTwelve of them, seven shells, five whistles. The whistles are how they call each other down there and I want to know if there is a call for the bottom.",
+      "turn_in_text": "There is a call for the bottom and it is the same call as abandon ship.\n\nI have been buying off these people for two years and I did not know that, and now I do, and I am going to have to decide what I think about a crew that keeps working a hole they have a retreat signal for.",
+      "next_quest_id": "tan_cove_the_warden",
+      "unique_item_defs": [
+        {
+          "name": "Cove-Taken Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Gloves (Dodge/Parry)"
+        },
+        {
+          "name": "Bell-Chain Chestguard",
+          "slot": "chest",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Rope and brine and a long time without daylight.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1.1,
+            "block_value": 10.5
+          },
+          "armor_type": "plate",
+          "armor_value": 210,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Bell-Chain Talisman",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_cove_the_warden",
+      "title": "Something Is Still Guarding It",
+      "giver_npc_id": "stw_shipwright",
+      "zone": "the_drownbell",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Shipwright Hald Keelmaker has worked out what is between the pirates and the bell, and it is not the water.\n\nSomebody left a watch on that salvage and the watch has not been told to stop.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drownbell Bosun",
+          "count": 10,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "gather",
+          "target": "tan_bosun_whistle",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_tide_focus",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "A careenage. They haul a hull over on that ground to work the bottom of it, which means that cove was a WORKING YARD before it was a pirate hole, and a working yard has a watchman.\n\nTen of them, six whistles, six focuses. I am not asking you to go to the careenage yet. I am asking you to take the cove's middle off its feet first, because whatever is on that ground, you do not want it and Vaile's crew behind you at once.",
+      "turn_in_text": "That is the middle of the cove cleared and the way to the careenage open.\n\nWhatever is standing on that ground has been standing on it since before Vaile, and it is not hers, and it is not going to care which of you it is looking at.\n\nGo carefully. And when you have done it, there is still a captain at the bottom.",
+      "next_quest_id": "tan_cove_vaile",
+      "unique_item_defs": [
+        {
+          "name": "Drownbell Mantle",
+          "slot": "back",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Below-Water Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Rope and brine and a long time without daylight.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.5,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 157,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Careenage Signet",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_cove_vaile",
+      "title": "Captain Vaile Drownbell",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "the_drownbell",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "She took this cove off people who were only trying to lift something out of it, and she has held it for two years without once going to the bottom of her own cave.\n\nSenna Coil wants the cove because a harbourmaster with pirates a mile down the coast is not a harbourmaster, she is a hostage with a ledger.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Vaile Drownbell",
+          "count": 1,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "kill",
+          "target": "Cove Tidecaller",
+          "count": 9,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "gather",
+          "target": "tan_tide_focus",
+          "count": 7
+        }
+      ],
+      "reward_exp": 4108,
+      "reward_gold": 16380,
+      "accept_text": "The bottom chamber. Through the wet gallery and down.\n\nNine of the tidecallers first - they are the ones keeping that water moving and I would rather you fought her in still water than in her own current. Seven focuses, which Quill wants and which I am going to let him have because he has earned it.\n\nAnd Vaile. I have six berths now and I would like to use all six.",
+      "turn_in_text": "She is down. And she never went to the bottom of her own cove in two years, which I have now had confirmed by somebody who has.\n\nThe bell is still there. The claim Pell found is still unanswered. Whoever filed it is still not in any book.\n\nI have a cove I can police and a harbour I can run and a hole in my own records, and I will take two out of three.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bell-Chain Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "rare",
+          "required_level": 44,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1.1,
+            "block_value": 10.6
+          },
+          "armor_type": "plate",
+          "armor_value": 211,
+          "label": "Plate Shoulders (Sta/Block/BV)"
+        },
+        {
+          "name": "Careenage Chausses",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "rare",
+          "required_level": 44,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.7,
+            "spell_power": 10.1
+          },
+          "armor_type": "mail",
+          "armor_value": 187,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Careenage Flail",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "rare",
+          "required_level": 44,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 82,
+          "weapon_damage_max": 111,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Below-Water Leggings",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "rare",
+          "required_level": 44,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 16.9
+          },
+          "armor_type": "leather",
+          "armor_value": 117,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tan_road_nothing_back",
+      "title": "Nothing Coming Back Worth the Axle",
+      "giver_npc_id": "stw_caravan_agent",
+      "zone": "northern_tanaris",
+      "level_min": 41,
+      "level_max": 42,
+      "description": "Agent Rullo Tack could run a cart north onto the pan tomorrow. He has not, and the reason is not the hives.\n\nThe reason is that a cart goes out full and comes back empty, and an empty cart is a wage with no freight under it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dunecrest Raptor",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_raptor_claw",
+          "count": 6
+        },
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 140,
+          "target_y": 62,
+          "radius": 10
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Everybody assumes it is danger. It is arithmetic.\n\nThe raptors have the middle of the road and eleven of them would make the crossing a proposition rather than a gamble - six claws so I can price the guard hire properly.\n\nAnd walk the nineteen-mile stretch while you are out. That is where the axles go and I want to know if it is the surface or the load.",
+      "turn_in_text": "The surface. It is the surface, it has always been the surface, and a season of cart traffic would pack it flat and then it would stop being the surface.\n\nWhich is a thing I cannot fix by not running carts on it. I have been standing on the wrong side of that for a year.",
+      "next_quest_id": "tan_road_the_bones",
+      "unique_item_defs": [
+        {
+          "name": "Dry-Crossing Hauberk",
+          "slot": "chest",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Road kit, and the road it was made for does not run any more.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 4.8
+          },
+          "armor_type": "mail",
+          "armor_value": 134,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Dry-Crossing Leggings",
+          "slot": "legs",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Dust from two deserts in the same seam.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 11.3,
+            "mp5": 2.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 41,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Dry-Crossing Ring",
+          "slot": "ring",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "It has done the crossing more often than anything riding in it.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.6
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_road_the_bones",
+      "title": "Everything That Stops Is Theirs",
+      "giver_npc_id": "stw_doctor",
+      "zone": "northern_tanaris",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The bonefields either side of the caravan road are not a graveyard. They are a feeding ground with a very long history and a very regular supply.\n\nWick Ambrose would like to know what the supply was before there were carts.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bonefield Hyena",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_hyena_jaw",
+          "count": 7
+        },
+        {
+          "type": "gather",
+          "target": "tan_vulture_quill",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Bone out there goes down four feet and the top foot is kodo and cart ox and the rest is not.\n\nEleven of them, seven jaws, five quills. The jaws will tell me what has been eating out there this century. The quills are for me - a sun-stiff quill makes the best splint-splice I have ever used and I will not apologise for the detour.",
+      "turn_in_text": "The jaws are all one animal and the animal has not changed. Whatever has been dying on that road has been dying on it for a very long time, in roughly the same numbers, through a goblin city rising and falling and a mountain arriving.\n\nThe road is older than any of us. We have been using somebody else's road and calling it ours.",
+      "next_quest_id": "tan_road_the_salt",
+      "unique_item_defs": [
+        {
+          "name": "Agent's Gloves",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "It has done the crossing more often than anything riding in it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.1,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Westbound Boots",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dust from two deserts in the same seam.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "Nineteen-Mile Talisman",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_road_the_salt",
+      "title": "The Woman on the Pan",
+      "giver_npc_id": "stw_fishmonger",
+      "zone": "steamwheedle_port",
+      "level_min": 43,
+      "level_max": 43,
+      "description": "Fishmonger Oda Brack buys her salt off a woman on the pan who has never once been late in eleven years.\n\nShe has never met her, and until this season she had never thought that was strange.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thornback Scorpid",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_scorpid_barb",
+          "count": 7
+        },
+        {
+          "type": "deliver",
+          "target": "tan_fish_order",
+          "count": 1,
+          "label": "Jixa Brinecount, Saltwheel"
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Her town is dying and my town is not and she still gets the cart out. That is the whole trade, really - somebody keeps turning up.\n\nTake her this. It is an order for next season and it is bigger than last season, which I would like her to hear from a person rather than read off a slip.\n\nTen of them off the dry crossing and seven barbs on the way - the crossing is the worst of it and I would rather you did it light.",
+      "turn_in_text": "[Jixa Brinecount reads the order twice and then puts it down and does not pick it up again.]\n\nBigger than last season.\n\nEleven years she has been buying off me and not one of those years did the number go up. It went DOWN in the second one and I did not say anything and neither did she.\n\nTell her yes. Tell her the cart will be there. Tell her it was always going to be there, which she knows, and tell her anyway.",
+      "next_quest_id": "tan_road_the_cart",
+      "unique_item_defs": [
+        {
+          "name": "Westbound Breeches",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 42,
+          "label": "Cloth Legs (Int/Spi/HP)"
+        },
+        {
+          "name": "Agent's Bracers",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Road kit, and the road it was made for does not run any more.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 102,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Dry-Crossing Band",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "sw_salt_buyer",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tan_fish_order",
+            "name": "Oda's Standing Order",
+            "description": "Next season's salt, and the number is bigger than last season's.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "tan_road_the_cart",
+      "title": "A Cart Both Ways",
+      "giver_npc_id": "stw_caravan_agent",
+      "zone": "northern_tanaris",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "An order going north and salt coming south is freight in both directions, which is the one thing Rullo Tack has been waiting for.\n\nHe is going to be unbearable about having been right that it was arithmetic.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunstone Elemental",
+          "count": 9,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_sunstone_core",
+          "count": 6
+        },
+        {
+          "type": "gather",
+          "target": "tan_raptor_claw",
+          "count": 6
+        },
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 112,
+          "target_y": 72,
+          "radius": 9
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Freight both ways. That is a route. That has always been the only thing standing between this and a route.\n\nThe elementals are sitting on the dry crossing where the surface is worst and nine of them clears the worst mile. Six cores and six claws - the cores go to Hack for the road crew and the claws price the guard hire.\n\nAnd walk the crossing one more time. If it is still the surface I will say so in writing and eat it.",
+      "turn_in_text": "First cart goes in eleven days.\n\nI will tell you what I have not told Oda. The order going north is not what makes this work - it is small, it is fish money. What makes it work is that somebody on that pan now believes a cart is coming, and a town that believes a cart is coming starts getting freight ready for it.\n\nThat is the whole trade. Somebody has to go first and be slightly wrong about the numbers.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Agent's Wraps",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Dust from two deserts in the same seam.",
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "spell_power": 3.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        },
+        {
+          "name": "Westbound Mantle",
+          "slot": "back",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Dust from two deserts in the same seam.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.1
+          },
+          "armor_type": "leather",
+          "armor_value": 35,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Nineteen-Mile Band",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Dust from two deserts in the same seam.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_solo_beds",
+      "title": "Forty Beds",
+      "giver_npc_id": "stw_innkeeper",
+      "zone": "steamwheedle_port",
+      "level_min": 41,
+      "level_max": 41,
+      "description": "Innkeeper Mirabel Sump has forty beds and has had forty beds since her mother ran the house.\n\nThe town has twice the people it did three years ago.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Carrion Vulture of Tanaris",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_vulture_quill",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2920,
+      "reward_gold": 11700,
+      "accept_text": "I could put twenty more upstairs and I am not going to, and the reason is that the day I do it the yard crowd stop sleeping in their own sheds and start sleeping in my house, and then I am running a barracks.\n\nThe vultures have found the kitchen midden. Ten of them and six quills - I sell the quills and the quills are most of what I make on a bad week, which is a thing I would rather you did not repeat.",
+      "turn_in_text": "Off the midden and off my roof.\n\nForty beds. My mother had forty beds in a town of three hundred and she turned nobody away, and I have forty beds in a town of nine hundred and I turn people away every night.\n\nThat is not a complaint about the newcomers. That is a complaint about me, and I know the difference, and I am working on it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Old-Quay Bracers",
+          "slot": "wrist",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 65,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Tide-Worn Hood",
+          "slot": "head",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "primary_stats": {
+            "agility": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 61,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Old-Quay Mace",
+          "slot": "main_hand",
+          "item_level": 42,
+          "rarity": "uncommon",
+          "required_level": 41,
+          "flavor_text": "Harbour kit. Salt has been at it and salt has lost.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 78,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 42,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_solo_salt_air",
+      "title": "Salt Air or Dry Sand",
+      "giver_npc_id": "stw_smith",
+      "zone": "steamwheedle_port",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "Smith Dorga Ironside tempers for one or the other and cannot temper for both.\n\nEverything she makes goes onto a ship or into the desert, and the two of them want opposite things from a piece of steel.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunstone Elemental",
+          "count": 10,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_sunstone_core",
+          "count": 7
+        }
+      ],
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "accept_text": "Hot work, and it is hot already, so I am at the anvil before the sun and done when it is overhead.\n\nTen of the elementals and seven cores. A core holds a working heat for half a day without a bellows, which in this climate is the difference between a trade and a punishment.",
+      "turn_in_text": "Seven cores is a season of mornings I do not have to pump for.\n\nAnd before you ask - no, I will not temper you something that does both. Anybody who tells you they can is selling you a story. Pick the sea or pick the sand and I will do it properly.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Goat-Field Gauntlets",
+          "slot": "hands",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Made fast rather than made well, and it has outlasted things made well.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 67,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Three-Year Handguards",
+          "slot": "hands",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Everything here was built on ground that was a goat field.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.3,
+            "block_rating": 0.7,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 100,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Three-Year Walking Stick",
+          "slot": "main_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Everything here was built on ground that was a goat field.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 16,
+            "spirit": 16
+          },
+          "secondary_stats": {
+            "healing_power": 17.4
+          },
+          "weapon_damage_min": 32,
+          "weapon_damage_max": 44,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_solo_bird",
+      "title": "Bring Me the Town That Makes Me Wrong",
+      "giver_npc_id": "stw_flight_master",
+      "zone": "northern_tanaris",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Wind-Rider Kezzik is the only flight master for a very long way and prices like it.\n\nHe gets asked about the pan north of here at least once a week, always by somebody who has just walked off it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_tanaris",
+          "target_x": 92,
+          "target_y": 20,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Carrion Vulture of Tanaris",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_vulture_quill",
+          "count": 7
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "There is a post out on that pan. There is no BIRD on it, because a bird needs feeding and a feeding needs somebody paying, and six customers do not pay for a wyvern.\n\nI am not being hard about it. I would love to be wrong.\n\nThe carrion birds nest in the pass and they harry my runs - eleven of them and seven quills, and the quills are for fletching, which is a wyvern-keeper's problem nobody expects.",
+      "turn_in_text": "The pass is clear and I will take the run lower through it from now on.\n\nAnd I meant it. Bring me the town that makes me wrong. If there is ever freight on that pan going both ways I will put a bird out there myself and charge them half what I charge you, and I will enjoy being told I was wrong about it more than I will enjoy the money.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Westbound Handguards",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dry-Crossing Robe",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 1.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 42,
+          "label": "Cloth Chest (Int/Sta/MP5)"
+        },
+        {
+          "name": "Westbound Walking Stick",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Freight-grade, which means heavier than it looks and worth the weight.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "secondary_stats": {
+            "healing_power": 17.8
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_solo_counter",
+      "title": "Nothing Has Changed at This Counter",
+      "giver_npc_id": "stw_chandler",
+      "zone": "steamwheedle_port",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "Chandler Vex Tarrow's grandfather chandlered this quay and his father before him.\n\nHe will tell you what has changed: nothing, at this counter. Everything, forty yards that way.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drownbell Powdermonkey",
+          "count": 11,
+          "zone": "northern_tanaris"
+        },
+        {
+          "type": "gather",
+          "target": "tan_cove_tally",
+          "count": 7
+        },
+        {
+          "type": "gather",
+          "target": "tan_crawler_shell",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Rope, pitch, canvas, lamp oil. Same four things, same prices adjusted for the same reasons, same counter.\n\nThe cove crews have been taking pitch off the quay at night and pitch is the one thing I cannot make and cannot replace inside a season. Eleven of them, seven tallies, six shells.\n\nI am aware that forty yards that way they have invented three new trades since the wet. I am not competing with that. I am selling rope.",
+      "turn_in_text": "That is my pitch back and then some.\n\nI will tell you the thing I have never said out loud in this shop. The yard is the best thing that has happened to this quay in a hundred years. Every one of those new trades needs rope.\n\nMy grandfather would have hated them and he would have sold to them and he would have been rude about it for forty years, and I have decided to skip the rude part.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tide-Worn Breeches",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Cut for a dock that was big enough once.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 11.8,
+            "mp5": 2.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 43,
+          "label": "Cloth Legs (HP/MP5)"
+        },
+        {
+          "name": "Harbourmaster's Girdle",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Harbour kit. Salt has been at it and salt has lost.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.8
+          },
+          "armor_type": "mail",
+          "armor_value": 70,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Harbourmaster's Necklace",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "It smells of pitch, which out here is the smell of somebody still working.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_item_well_token",
+      "title": "A Number Too High for Three Years",
+      "giver_npc_id": "item:tan_well_token",
+      "zone": "northern_tanaris",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "You turn the token over. Stamped brass from Gadgetzan's public well, dated three years ago and numbered in the eleven thousands.\n\nEleven thousand draws from a public well in a town of four hundred, in one season. Somebody was drawing and drawing and the well was giving less every week.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tan_well_token",
+          "count": 1,
+          "label": "Old Mazzic, Steamwheedle Port"
+        },
+        {
+          "type": "kill",
+          "target": "Gadgetzan Scrapjaw",
+          "count": 9,
+          "zone": "northern_tanaris"
+        }
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "accept_text": "Four days east, to the port, and into the hand of the only person there who will know what the number means.\n\nNine of the scrapjaws on your way out of the city. They nest where the tokens are, which is to say where the queue was.",
+      "turn_in_text": "[Old Mazzic turns it over and reads the number and does not say anything for a while.]\n\nEleven thousand four hundred and six.\n\nThat is the season I was carried out. I stood in that queue. Not at the end of it - I was somewhere around nine thousand, which means I got water, which means somebody behind me did not.\n\nI have spent three years telling this town I was carried out of a city. I was carried out of a QUEUE. That is a different sentence and I have not been saying it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Walled Cuirass",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Carried four days east by somebody who did not look back.",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 205,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Dry-Well Gloves",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.7
+          },
+          "armor_type": "mail",
+          "armor_value": 68,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        },
+        {
+          "name": "Gadgetzan Longsword",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "required_level": 42,
+          "flavor_text": "Dust got into it in a city that has not had rain in three years.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 81,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tan_item_salvage_claim",
+      "title": "Countersigned Twice",
+      "giver_npc_id": "item:tan_salvage_claim",
+      "zone": "the_drownbell",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "You turn the claim over. Salvage rights on something in the Drownbell, filed in order and countersigned twice - once by a company nobody in Steamwheedle has heard of, and once by a hand that did not write its name, only a mark.\n\nWhoever held this was lifting something out of that cove and had every right to.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_drownbell",
+          "target_x": 44,
+          "target_y": 58,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Drownbell Bosun",
+          "count": 8,
+          "zone": "the_drownbell"
+        },
+        {
+          "type": "deliver",
+          "target": "tan_salvage_claim",
+          "count": 1,
+          "label": "Strongbox-Keeper Pell, Steamwheedle Port"
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "The careenage first - whoever filed this worked that ground, and a working party leaves more behind than a crew does.\n\nEight of the bosuns to get there and back. Then take it to the only person in the port who keeps a book of who is allowed to own what.",
+      "turn_in_text": "[Pell lays it flat and goes through four ledgers without finding the company, which takes a long time, and she does not hurry it.]\n\nNot in any book I hold. Not in any book the harbourmaster holds either, I checked those last winter.\n\nThe mark, though. The mark I have seen. It is on two deposits in my own strongroom, both of them unclaimed, both of them lodged the season before Vaile took that cove.\n\nSomebody is still owed something down there, and they are not coming for it, and I am going to have to work out why.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Cove-Taken Shoes",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Drownbell Girdle",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "Rope and brine and a long time without daylight.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.5
+          },
+          "armor_type": "mail",
+          "armor_value": 70,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Cove-Taken Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 43,
+          "flavor_text": "It came up out of the cove and it did not come up alone.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 52,
+          "weapon_damage_max": 71,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}
