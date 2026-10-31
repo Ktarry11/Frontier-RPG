@@ -30,7 +30,14 @@ FIVE CLAIMS:
      to come through Character.level_up() rather than an assignment, or they return with a level
      46 label on a level 20 body - so the health and talent points are checked, not just .level.
 
-  6. THEIR GEAR MATCHES THE LEVEL THEY JOIN AT. The catch-up level is generated in one place and
+  6. THE GATE JUDGES THE LEVEL THEY WOULD ACTUALLY JOIN AT, snapshot included. Kyle: "a lvl 30
+     player can't recruit a lvl 46. So they won't de-level, no." This file's first version asked
+     RecruitNPC.effective_level, which knows only the AUTHORED level - so a Silas dismissed at 46
+     read as a level 26 hire, a level 30 player sailed through the gate, and then got the level 46
+     character anyway. The rule and the number it judges now both come from RecruitManager, and
+     this claim re-hires a high-level veteran at every player level to prove it.
+
+  7. THEIR GEAR MATCHES THE LEVEL THEY JOIN AT. The catch-up level is generated in one place and
      the starter kit's item level in another, and they have to agree - a level 46 Silas in the
      level 14 kit he was authored with is the bug this claim exists to catch.
 """
@@ -49,20 +56,22 @@ pygame.init()
 
 from world.recruit_manager import get_recruit_manager, CATCHUP  # noqa: E402
 
+MGR = get_recruit_manager()
+
 PLAYER_LEVELS = range(1, 61)
 #: building a Character is slow, so claim 5 samples rather than sweeping all 44.
 GEAR_SAMPLE = 6
 
 
 def main():
-    recs = list(get_recruit_manager().recruits.values())
+    recs = list(MGR.recruits.values())
     bad = []
     print(f"{len(recs)} recruits, CATCHUP = {CATCHUP}\n")
 
     for r in recs:
         for pl in PLAYER_LEVELS:
-            lvl = r.effective_level(pl)
-            blocked = bool(r.recruit_block_reason(pl))
+            lvl = MGR.join_level(r, pl)
+            blocked = bool(MGR.block_reason(r, pl))
 
             # 2. never below the authored level
             if lvl < r.level:
@@ -79,14 +88,14 @@ def main():
         # 3. the boundary, named
         edge = r.level - CATCHUP
         if edge > 1:
-            if not r.recruit_block_reason(edge - 1):
+            if not MGR.block_reason(r, edge - 1):
                 bad.append(f"{r.name} (level {r.level}) should refuse a player at {edge - 1}.")
-            if r.recruit_block_reason(edge):
+            if MGR.block_reason(r, edge):
                 bad.append(f"{r.name} (level {r.level}) should come with a player at {edge}.")
 
         # 4. anyone authored at or below the player is always reachable
         for pl in PLAYER_LEVELS:
-            if r.level <= pl and r.recruit_block_reason(pl):
+            if r.level <= pl and MGR.block_reason(r, pl):
                 bad.append(f"{r.name} (level {r.level}) is blocked for a player at {pl} who is "
                            f"already above them - the two rules have stopped interlocking.")
                 break
@@ -94,7 +103,7 @@ def main():
     # 5. a rehire catches up, body and kit
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
-    mgr = get_recruit_manager()
+    mgr = MGR
     probe = next(r for r in recs if r.recruit_id != "asher_coleman" and r.level <= 20)
     left = probe.build_character(probe.level + CATCHUP)      # hired around their own level
     for sl in ("chest", "legs"):
@@ -135,7 +144,33 @@ def main():
           f"(health {old_hp}->{back.health}, talent points {old_tp}->"
           f"{back.talent_points_available})\n")
 
-    # 6. gear follows the join level.
+    # 6. the gate sees the snapshot, not just the authored level
+    vet = next(r for r in recs if r.recruit_id != "asher_coleman" and r.level <= 20)
+    high = vet.build_character(50)
+    MGR.mark_recruited(vet.recruit_id)
+    MGR.dismiss(high)
+    for pl in PLAYER_LEVELS:
+        jl = MGR.join_level(vet, pl)
+        if jl < high.level:
+            bad.append(f"gate: {vet.name} left at {high.level} but join_level says {jl} for a "
+                       f"player at {pl} - they must not de-level to suit the player.")
+        blocked = bool(MGR.block_reason(vet, pl))
+        if blocked != (jl - pl > CATCHUP):
+            bad.append(f"gate: {vet.name} (would join at {jl}) blocked={blocked} for a player at "
+                       f"{pl}, rule says {jl - pl > CATCHUP}")
+        got = MGR.build_or_restore(vet, pl)
+        if blocked and got is not None:
+            bad.append(f"gate: {vet.name} is blocked for a player at {pl} but build_or_restore "
+                       f"still handed over a level {got.level} character.")
+        if not blocked and got is None:
+            bad.append(f"gate: {vet.name} is hireable at player {pl} but build_or_restore "
+                       f"refused.")
+    print(f"gate probe: {vet.name} dismissed at {high.level} is blocked below player "
+          f"{high.level - CATCHUP}, and never de-levels\n")
+    MGR.recruited_ids.discard(vet.recruit_id)
+    MGR.dismissed_characters.pop(vet.recruit_id, None)
+
+    # 7. gear follows the join level.
     #
     # ASHER IS EXEMPT, and only Asher. He does not wear a generated starter kit at all - he has a
     # fixed, hand-authored loadout the player can never alter (RecruitNPC._build_asher_kit), which
@@ -159,7 +194,7 @@ def main():
     hi = max(r.level for r in recs)
     print(f"authored levels {lo}-{hi}")
     for pl in (10, 20, 30, 40, 50):
-        ok = [r for r in recs if not r.recruit_block_reason(pl)]
+        ok = [r for r in recs if not MGR.block_reason(r, pl)]
         join = sorted({r.effective_level(pl) for r in ok})
         print(f"  player {pl:2}: {len(ok):2}/{len(recs)} hireable, they join at levels "
               f"{join[0]}-{join[-1]}")

@@ -47,7 +47,8 @@ class RecruitDialogScreen(BaseScreen):
         """Why this companion will not come, or None. Live, like is_returning:
         level up and walk back without leaving the screen and the Join button
         has to work."""
-        return self.recruit.recruit_block_reason(self._player_level)
+        from world.recruit_manager import get_recruit_manager
+        return get_recruit_manager().block_reason(self.recruit, self._player_level)
 
     @property
     def shown_level(self):
@@ -59,13 +60,8 @@ class RecruitDialogScreen(BaseScreen):
         ABOVE the catch-up level they keep their own, which is why this is a
         max rather than a straight substitution.
         """
-        lvl = self.recruit.effective_level(self._player_level)
-        if self.is_returning:
-            from world.recruit_manager import get_recruit_manager
-            snap = get_recruit_manager().dismissed_characters.get(self.recruit.recruit_id)
-            if snap and snap.get("level"):
-                lvl = max(lvl, snap["level"])
-        return lvl
+        from world.recruit_manager import get_recruit_manager
+        return get_recruit_manager().join_level(self.recruit, self._player_level)
 
     @property
     def is_returning(self):
@@ -113,7 +109,7 @@ class RecruitDialogScreen(BaseScreen):
         # Checked again here rather than trusting the button: _do_recruit is the
         # only place a companion actually joins, so it is the only place the
         # rule is guaranteed to hold however the screen is driven.
-        if self.recruit.recruit_block_reason(self._player_level):
+        if manager.block_reason(self.recruit, self._player_level):
             return
         character = manager.build_or_restore(self.recruit, self._player_level)
         placement = party.add_member(character)

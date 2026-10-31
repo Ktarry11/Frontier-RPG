@@ -151,17 +151,6 @@ class RecruitNPC:
             return self.level
         return max(self.level, int(player_level) - CATCHUP)
 
-    def recruit_block_reason(self, player_level=None):
-        """None if this companion will come with you, else a line saying why not."""
-        if player_level is None:
-            return None
-        lvl = self.effective_level(player_level)
-        if lvl - int(player_level) > CATCHUP:
-            return (f"{self.name} is level {lvl} and will not follow somebody "
-                    f"{lvl - int(player_level)} levels below them. "
-                    f"Come back at level {lvl - CATCHUP}.")
-        return None
-
     def has_home(self):
         return bool(self.home_town
                     and self.home_x is not None
@@ -626,6 +615,37 @@ class RecruitManager:
         character.current_mana = character.mana
         return character
 
+    def join_level(self, recruit, player_level=None):
+        """The level this companion would ACTUALLY join at, right now.
+
+        Their catch-up level, or the level they left with if that is higher -
+        somebody dismissed at 46 does not shrink back to 26 to suit a level 30
+        player (Kyle: "they won't de-level, no").
+
+        THE GATE READS THIS, not RecruitNPC.effective_level, and that is the
+        whole reason this method exists on the manager instead. effective_level
+        knows only what a companion was authored at, so it said a level 46
+        veteran was a level 26 hire and waved a level 30 player straight past
+        the gate - who then got the level 46 character anyway. The rule and the
+        number it judges have to come from the same place.
+        """
+        lvl = recruit.effective_level(player_level)
+        snap = self.dismissed_characters.get(recruit.recruit_id)
+        if snap and snap.get("level"):
+            lvl = max(lvl, int(snap["level"]))
+        return lvl
+
+    def block_reason(self, recruit, player_level=None):
+        """None if this companion will come with you, else a line saying why not."""
+        if player_level is None:
+            return None
+        lvl = self.join_level(recruit, player_level)
+        gap = lvl - int(player_level)
+        if gap > CATCHUP:
+            return (f"{recruit.name} is level {lvl} and will not follow somebody "
+                    f"{gap} levels below them. Come back at level {lvl - CATCHUP}.")
+        return None
+
     def build_or_restore(self, recruit, player_level=None):
         """
         The Character to hand the player when they hire this recruit.
@@ -635,6 +655,11 @@ class RecruitManager:
         caught up, because they have been living their own life while away.
         A first-time hire is generated fresh, at their catch-up level.
         """
+        # Refuse here too, not only at the button: this is the only place a
+        # companion actually joins, so it is the only place the rule is sure to
+        # hold however the call is made.
+        if self.block_reason(recruit, player_level):
+            return None
         snapshot = self.dismissed_characters.get(recruit.recruit_id)
         if snapshot:
             from entities.character import Character
@@ -642,7 +667,7 @@ class RecruitManager:
                 char = Character.from_dict(snapshot)
                 # Asher's loadout is fixed and hand-authored and the player can
                 # never alter it, so he catches up in level but not in kit.
-                return self._catch_up(char, recruit.effective_level(player_level),
+                return self._catch_up(char, self.join_level(recruit, player_level),
                                       regear=recruit.recruit_id != "asher_coleman")
             except Exception as exc:
                 # Never let a bad snapshot block re-hiring; fall back to a
