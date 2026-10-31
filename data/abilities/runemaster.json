@@ -91,7 +91,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Launch a primordial missile at an enemy. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to, matching Runemaster's actual identity as a rune-cycling caster - not a fixed school.",
+      "description": "Launch a primordial missile at an enemy. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
       "_source": "Confirmed screenshot: Lvl 2, '27 Elemental Damage.' Core ranged spell option, extended to 8 ranks.",
       "ranks": [
         {
@@ -475,7 +475,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with elemental force. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to, matching Runemaster's actual identity as a rune-cycling caster - not a fixed school.",
+      "description": "Blast an enemy with elemental force. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
       "_source": "Confirmed screenshot: Lvl 6, '31 Elemental Damage.' Glyphic's real generator per the handoff doc ('Elemental Burst - Elemental damage + generates a Glyph').",
       "ranks": [
         {
@@ -953,7 +953,7 @@
       "effect_type": "spell_damage",
       "duration": 2,
       "stat_mods": {},
-      "description": "Inscribe an area with runes, repeatedly damaging enemies inside. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to at cast time, locked in for the zone's whole duration - matching Runemaster's real rune-cycling identity.",
+      "description": "Inscribe an area with runes, repeatedly damaging enemies inside. It deals whichever element you are Attuned to at the moment of casting, locked in for the whole duration.",
       "_source": "Confirmed screenshot: Glyphic-locked, Lvl 34, '34 Elemental Damage every 0.50 sec to up to 5 enemies inside.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -981,7 +981,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Unleash your active Glyph's effect on an enemy for Elemental damage. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to, matching Runemaster's actual identity as a rune-cycling caster - not a fixed school.",
+      "description": "Unleash your active Glyph on an enemy. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
       "_source": "Confirmed screenshot: Glyphic-locked, Lvl 20, '153 Elemental Damage.' The spec's real spender - consumes Glyph stacks per the handoff doc.",
       "ranks": [
         {
@@ -1703,7 +1703,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Brand an enemy, banking a percentage of your damage dealt to unleash later as Elemental damage. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to, matching Runemaster's actual identity as a rune-cycling caster - not a fixed school.",
+      "description": "Brand an enemy, banking a share of your damage to unleash later. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
       "_source": "CoA handoff doc: 'Runic Brand banks a % of your damage, unleashes after a delay as Elemental damage; triggers Weapon Engraving on hit.' Real numbers not confirmed via a dedicated screenshot.",
       "ranks": [
         {
@@ -1794,7 +1794,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A repeating barrage of Elemental-damage missiles. Each missile grants a Glyph. Real dynamic school: deals whichever element (Frost/Fire/Arcane) you're currently Attuned to, matching Runemaster's actual identity as a rune-cycling caster - not a fixed school.",
+      "description": "A repeating barrage of missiles, each one granting a Glyph. They deal whichever element you are currently Attuned to - Frost, Fire or Arcane.",
       "_source": "CoA handoff doc: 'Repeating Elemental damage; each missile grants a Glyph.' Real numbers not confirmed via a dedicated screenshot.",
       "ranks": [
         {

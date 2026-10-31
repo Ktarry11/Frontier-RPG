@@ -997,8 +997,14 @@ class Ability:
 
         # Real base-value line(s), phrased per effect_type - the actual
         # "before modifiers" numbers Kyle asked for.
-        if self.effect_type in ("damage", "spell_damage"):
-            lines.append(f"Base damage: {self.effect_value}")
+        # ranged_damage was missing from this list, so every Shoot/Javelin Toss/Multi-Shot in
+        # the game showed no damage number at all in its own tooltip.
+        if self.effect_type in ("damage", "spell_damage", "ranged_damage"):
+            # effect_value 0 means the ability deals WEAPON damage rather than a flat amount
+            # (the basic Attack, and anything else that just swings). "Base damage: 0" is a
+            # lie about that, so it says nothing and _shape_line says "with your weapon".
+            if self.effect_value:
+                lines.append(f"Base damage: {self.effect_value}")
         elif self.effect_type in ("dot", "spell_dot"):
             lines.append(f"Base damage: {self.effect_value} over {self.duration} turns")
         elif self.effect_type == "heal":
@@ -1010,14 +1016,153 @@ class Ability:
         elif self.effect_type == "damage_and_restore_mana":
             lines.append(f"Base damage: {self.effect_value}  |  Restores {self.mana_restore_pct}% mana")
         elif self.effect_type in ("buff", "debuff") and self.stat_mods:
-            mod_bits = [f"{k.replace('_', ' ').title()} {'+' if v >= 0 else ''}{v}"
-                        for k, v in self.stat_mods.items()]
-            lines.append(", ".join(mod_bits))
+            lines.append(", ".join(self._stat_mod_text(k, v) for k, v in self.stat_mods.items()))
 
+        # WHAT IT DOES, generated from the ability's own data.
+        #
+        # Kyle, 2026-10-31: "a lot of the skills dont need these odd AI flavor texts. theyre
+        # strange. all skills and spells should simply say WHAT they do."
+        #
+        # He is describing two thirds of the game. Of 1274 abilities, 437 have a description
+        # that states a mechanic, 824 are pure flavour that states nothing ("Nothing
+        # complicated. You are angry and it is useful.", "Less now, more over the next while."),
+        # and 13 are leaked design notes ("Real dynamic school: ... matching Runemaster's actual
+        # identity as a rune-cycling caster - not a fixed school").
+        #
+        # Rewriting 824 strings by hand would be 824 chances to drift from the numbers the
+        # moment anything is retuned. This is GENERATED from effect_type, target_type, duration
+        # and the rest, so it cannot disagree with what the ability actually does - and it says
+        # the things the "Base damage: 44" line above does not: who it hits, how many, for how
+        # long, whether it stuns.
+        # Suppressed when it would only restate the obvious. "Damages one enemy" under a
+        # "Base damage: 44" line is noise; "Damages all enemies", "Heals your whole party",
+        # "stuns", "lasts 3 turns", "requires defensive form" are not. The test is whether the
+        # ability is aimed anywhere other than its effect_type's default and whether it has
+        # anything extra to say - see _shape_line.
+        shape = self._shape_line()
+        if shape and not self._shape_is_obvious():
+            lines.append(shape)
+
+        # EVERY description is kept. A first version of this dropped any description with no
+        # digit and no rule-word in it, and measuring that showed it throwing away 683 of 881 -
+        # including "Hurls a bolt of lightning at the target" and "A wave of restorative energy
+        # heals your wounds", which are precisely the wording Kyle held up as the GOOD example.
+        # His complaint is the odd ones ("Nothing complicated. You are angry and it is useful.")
+        # and the leaked design notes, not short plain English. Those are a small enough set to
+        # fix by hand in the data, which is where they belong - a classifier that cannot tell
+        # "Hurls a bolt of lightning" from "Less now, more over the next while" has no business
+        # deciding what the player gets to read.
         if self.description:
             lines.append(self.description)
 
         return lines
+
+    #: Words that mean an authored description is saying something the generated line cannot.
+    def _shape_is_obvious(self):
+        """True when _shape_line would only repeat what the lines above already said."""
+        if self.is_aoe or self.is_stun or self.absorb or self.absorb_pct_max_health:
+            return False
+        if self.requires_form or self.requires_ranged_weapon or self.execute_threshold_pct:
+            return False
+        if self.max_targets:
+            return False
+        if self.duration and self.effect_type in ("buff", "debuff", "dot", "spell_dot", "hot"):
+            return False
+        if self.effect_type in ("damage", "ranged_damage") and not self.effect_value:
+            return False        # "with your weapon" is the only place that is said
+        # Aimed somewhere other than where this kind of ability normally points? Worth saying.
+        default = self.DEFAULT_TARGET_TYPE.get(self.effect_type)
+        return default is not None and self.target_type == default
+
+    def _shape_line(self):
+        """One sentence describing the ability's shape, built from its own fields.
+
+        VERB FIRST. The first version named the subject first ("Yourself is strengthened",
+        "All enemies burns") and had to agree with it, which it did not. Leading with the verb
+        sidesteps agreement entirely and reads like a tooltip rather than a lab report.
+        """
+        who = {
+            "self": "you",
+            "ally": "one ally",
+            "party": "your whole party",
+            "enemy": "one enemy",
+            "enemy_aoe": "all enemies",
+        }.get(self.target_type, "the target")
+        if self.is_aoe and self.target_type not in ("party", "enemy_aoe"):
+            who = "all enemies"
+        if self.max_targets:
+            who = f"up to {self.max_targets} targets"
+
+        verb = {
+            "damage": "Damages", "spell_damage": "Damages", "ranged_damage": "Damages",
+            "dot": "Afflicts", "spell_dot": "Afflicts",
+            "heal": "Heals", "hot": "Heals",
+            "buff": "Strengthens", "debuff": "Weakens",
+            "dispel": "Removes an effect from", "revive": "Revives",
+            "summon_pet": "Summons an ally for", "restore_resource": "Restores resource to",
+            "shapeshift": "Changes the form of",
+            "damage_and_heal": "Damages", "damage_and_restore_mana": "Damages",
+            "reset_cooldowns": "Resets cooldowns for",
+            "enable_instant_cast": "Grants an instant cast to",
+            "totem_loadout": "Sets the totems of",
+        }.get(self.effect_type)
+        line = f"{verb} {who}" if verb else ""
+        if (self.effect_type in ("damage", "ranged_damage") and not self.effect_value):
+            line += " with your weapon"
+        if self.effect_type == "hot":
+            line += " over time"
+        if self.effect_type == "damage_and_heal":
+            line += " and heals you"
+        elif self.effect_type == "damage_and_restore_mana":
+            line += " and restores your mana"
+
+        extras = []
+        if self.duration and self.effect_type in ("buff", "debuff", "dot", "spell_dot", "hot"):
+            extras.append(f"lasts {self.duration} turn{'s' if self.duration != 1 else ''}")
+        if self.is_stun:
+            extras.append("stuns")
+        if self.absorb or self.absorb_pct_max_health:
+            extras.append("absorbs damage")
+        if self.requires_form:
+            # requires_form can be a list of acceptable forms; "['defensive']" is not a word.
+            forms = self.requires_form
+            if isinstance(forms, (list, tuple, set)):
+                forms = " or ".join(str(f).replace("_", " ") for f in forms)
+            else:
+                forms = str(forms).replace("_", " ")
+            extras.append(f"requires {forms} form")
+        if self.requires_ranged_weapon:
+            extras.append("requires a ranged weapon")
+        if self.execute_threshold_pct:
+            extras.append(f"only below {self.execute_threshold_pct}% health")
+        if extras:
+            line = (line + "; " if line else "") + ", ".join(extras)
+        return line[0].upper() + line[1:] if line else ""
+
+    @staticmethod
+    def _stat_mod_text(key, value):
+        """One stat modifier, in words a player can act on.
+
+        The raw line read "Damage Taken Pct -0.4" and "Cc Immune +1". The first is a fraction
+        the player has to know to multiply by 100; the second is an internal flag. Keys ending
+        _pct carry BOTH conventions in this game's data (a fraction below 1, a whole percentage
+        at or above it), so the magnitude decides which - the same test used elsewhere.
+        """
+        label = {
+            "cc_immune": "Immune to crowd control",
+            "damage_taken_pct": "Damage taken",
+            "physical_damage_taken_pct": "Physical damage taken",
+            "magic_damage_taken_pct": "Magic damage taken",
+            "damage_dealt_pct": "Damage dealt",
+            "max_health_pct": "Maximum health",
+            "max_mana_pct": "Maximum mana",
+        }.get(key, key.replace("_", " ").title())
+        if key == "cc_immune":
+            return label
+        if key.endswith("_pct"):
+            pct = abs(value) * 100 if abs(value) < 1 else abs(value)
+            return f"{label} {'+' if value >= 0 else '-'}{pct:g}%"
+        return f"{label} {'+' if value >= 0 else ''}{value:g}"
 
     # ------------------------------------------------------------------
     # TALENT INTEGRATION (Phase 4.5b)
