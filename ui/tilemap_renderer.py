@@ -1027,6 +1027,12 @@ class TilemapRenderer:
             ("Tree/Rock", (70, 70, 70)),
             ("NPC", (255, 215, 0)),
             ("Portal", (138, 43, 226)),
+            # Boat was missing from this list while tiles.py has always drawn it crimson
+            # (220,20,60) - close enough to the Boss red below that the Ratchet dock read as a
+            # boss (Kyle, 2026-10-31: "Oh the portal from ratchet is there, its just red").
+            # Both have real art now, so these colours only show where art is missing, but a
+            # legend that omits a tile the game draws is its own small lie.
+            ("Boat", (220, 20, 60)),
             ("Boss", (180, 0, 0)),
             ("Player", (255, 255, 255)),
         ]
@@ -1035,9 +1041,13 @@ class TilemapRenderer:
         row_height = 18
         box_size = 12
 
+        # Rows per column derived from the real item count rather than a hardcoded 4. With 4
+        # baked in, adding a ninth entry spilled into a THIRD column at x + max_width, straight
+        # out of the panel this is sized to fit.
+        per_col = (len(legend_items) + 1) // 2
         for i, (label, color) in enumerate(legend_items):
-            col = i // 4
-            row = i % 4
+            col = i // per_col
+            row = i % per_col
             item_x = x + col * col_width
             item_y = y + row * row_height
 

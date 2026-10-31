@@ -28,6 +28,10 @@ TILE_SIZE = 32
 # Sheet paths, relative to the project root (frontier_rpg/).
 # ---------------------------------------------------------------------------
 SHEETS = {
+    # Dock art for the universal boat/portal tiles at the bottom of this file. The files were
+    # already in the tree as Stranglethorn props and nothing referenced them.
+    "stv_gangplank": "assets/tiles/stranglethorn/props/stv_gangplank.png",
+    "stv_rowboat": "assets/tiles/stranglethorn/props/stv_rowboat.png",
     # Real Durotar/desert ground textures (10 cropped tiles from an
     # AI-generated Durotar terrain sheet) - replaces the earlier
     # "gen_red_sand"/"gen_red_rock" baked-tint stand-ins flagged in
@@ -1825,6 +1829,26 @@ WORLD_ANCHORED = {
 }
 
 
+#: TILES THAT LOOK THE SAME IN EVERY BIOME, consulted when the biome itself has no entry.
+#:
+#: Kyle, 2026-10-31: "No boat from ratchet to booty bay either", then "Oh the portal from
+#: ratchet is there, its just red."
+#:
+#: Both halves of that are this. No biome in this file maps "portal" or "boat" - there is even a
+#: comment above BIOME_TILES noting that "no biome currently maps 'lava' or 'boat'" as an
+#: expected state - so both always fell through to tiles.py's flat colour: magenta for a portal,
+#: crimson for a boat. A crimson square in a town also reads as the legend's red "Boss", which
+#: is why the Ratchet dock looked like a boss rather than a boat.
+#:
+#: A boat is a boat in every biome, so this is global rather than sixty copies in sixty biome
+#: dicts. A biome that genuinely wants its own (an ice-locked dock, a fel portal) still wins,
+#: because the biome is asked first.
+UNIVERSAL_TILES = {
+    "boat": ("stv_gangplank", (0, 0, 195, 137), True),
+    "portal": ("stv_rowboat", (0, 0, 181, 138), True),
+}
+
+
 def get_texture_entry(biome_id, tile_id, x=None, y=None):
     """Return (sheet_path, rect, smooth) for a tile_id in a biome, or None
     if unmapped - callers must fall back to tiles.py's flat color on None.
@@ -1843,10 +1867,10 @@ def get_texture_entry(biome_id, tile_id, x=None, y=None):
     source variants (cracked_red_earth_a/b/c etc) being available, which
     produced a visible grid-repeat pattern once actually rendered.
     """
-    biome_tiles = BIOME_TILES.get(biome_id)
-    if not biome_tiles:
-        return None
-    entry = biome_tiles.get(tile_id)
+    biome_tiles = BIOME_TILES.get(biome_id) or {}
+    # The biome is asked FIRST so a biome-specific version always wins; UNIVERSAL_TILES is the
+    # fallback for things that look the same everywhere. See its comment.
+    entry = biome_tiles.get(tile_id) or UNIVERSAL_TILES.get(tile_id)
     if not entry:
         return None
     # Variant list vs single entry: a single entry is a 3-tuple whose
