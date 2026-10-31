@@ -371,6 +371,7 @@ class PortalManager:
             # did with the pass that now points here, for two zones before Tanaris was built.
             "Northern Tanaris": {
                 (92, 2): ("The Shimmering Flats", 120, 176),
+                (60, 108): ("The Abyssal Sands", 60, 2),   # the one way south, on the west
                 (216, 56): ("Steamwheedle Port", 40, 58),
                 (200, 88): ("The Drownbell", 16, 12),
             },
@@ -379,6 +380,11 @@ class PortalManager:
             },
             "The Drownbell": {
                 (16, 12): ("Northern Tanaris", 200, 88),
+            },
+            # Zone 2. Its east gate (to Glittervein) and south gate (toward Uldum) are carved
+            # and walkable and deliberately unregistered until those zones exist.
+            "The Abyssal Sands": {
+                (60, 2): ("Northern Tanaris", 60, 108),
             },
             "The Undercrust": {
                 (16, 66): ("The Shimmering Flats", 92, 140),

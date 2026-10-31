@@ -5641,6 +5641,7 @@ def create_all_zones():
     from tools import handbuilt_northern_tanaris as dnt
     from tools import handbuilt_steamwheedle_port as dstw
     from tools import handbuilt_drownbell as ddrow   # NOT ddb - that is handbuilt_deep_bloom
+    from tools import handbuilt_abyssal_sands as dabs
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
     from tools import handbuilt_bloodsail_galleon as dbg
@@ -5755,6 +5756,8 @@ def create_all_zones():
         "Steamwheedle Port": dstw.generate_steamwheedle_port(),
         # The pirate cove. A CAVE, not a dungeon: fixed_spawns False, boss pinned.
         "The Drownbell": ddrow.generate_drownbell(),
+        # Tanaris zone 2: the ground that fell in when the water table dropped.
+        "The Abyssal Sands": dabs.generate_abyssal_sands(),
         "Azurelode Mine": dazl.generate_azurelode_mine(),  # drowned silver mine (tools/handbuilt_azurelode.py)
         "Durnholde Keep": ddur.generate_durnholde_keep(),  # broken-ring keep (tools/handbuilt_durnholde.py)
         "Dun Garok": dgar.generate_dun_garok(),  # gauntlet-of-gates dwarf hold (tools/handbuilt_dun_garok.py)
