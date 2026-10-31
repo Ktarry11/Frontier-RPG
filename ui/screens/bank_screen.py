@@ -20,6 +20,35 @@ from config import (SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD, COLOR_
                     COLOR_RED, COLOR_DARK_GRAY)
 from core.game_states import GameState
 from entities.bank import SLOTS_PER_TAB, TAB_NAMES, MAX_TABS, gold_str
+from entities.guild_bank import SLOTS as GUILD_SLOTS, get_guild_bank
+
+#: The guild bank rides on the end of the tab strip as one extra tab. It is a different STORE -
+#: account-wide, its own file, 24 slots, never bought - but it is the same gesture, so putting it
+#: anywhere else would mean a second screen that does what this one already does.
+GUILD_TAB = MAX_TABS
+
+
+class _GuildAsTab:
+    """The guild bank wearing the Bank's (tab, index) shape.
+
+    Every click path in this screen already speaks get(tab, i) / deposit(item, tab) /
+    withdraw(tab, i). Rather than branch all of them on which store is active - five places that
+    would each have to stay in step - the guild bank is adapted to that shape once, here, and the
+    existing code runs unchanged over it. The tab argument is ignored because there is only one.
+    """
+
+    def __init__(self, guild):
+        self.guild = guild
+        self.tabs_owned = GUILD_TAB + 1        # so the tab strip treats it as owned, never for sale
+
+    def get(self, _tab, i):
+        return self.guild.get(i)
+
+    def deposit(self, item, _tab=None):
+        return self.guild.deposit(item)
+
+    def withdraw(self, _tab, i):
+        return self.guild.withdraw(i)
 from ui.renderer import Renderer
 from ui.screens.base_screen import BaseScreen
 
@@ -47,9 +76,22 @@ class BankScreen(BaseScreen):
 
     # ------------------------------------------------------------------ data
     def _bank(self):
+        """The store the click paths act on - the party bank, or the guild bank on its tab."""
         party = self.state_manager.get_party() if hasattr(self.state_manager, "get_party") \
             else getattr(self.state_manager, "party", None)
+        if self.active_tab == GUILD_TAB:
+            return (_GuildAsTab(get_guild_bank()), party)
         return (getattr(party, "bank", None), party)
+
+    def _real_bank(self):
+        """The party bank itself, for the tab strip and its prices."""
+        party = self.state_manager.get_party() if hasattr(self.state_manager, "get_party") \
+            else getattr(self.state_manager, "party", None)
+        return getattr(party, "bank", None)
+
+    def _slots_shown(self):
+        """24 on the guild tab, 48 on a bank tab - so nothing draws or clicks a cell that is not there."""
+        return GUILD_SLOTS if self.active_tab == GUILD_TAB else SLOTS_PER_TAB
 
     def _build_rects(self):
         rows = (SLOTS_PER_TAB + GRID_COLS - 1) // GRID_COLS
@@ -65,7 +107,7 @@ class BankScreen(BaseScreen):
             self.player_rects.append(pygame.Rect(PLAYER_X + c * (CELL + GAP),
                                                  PLAYER_Y + r * (CELL + GAP), CELL, CELL))
         self.tab_rects = [pygame.Rect(40 + i * (TAB_W + 6), TAB_Y, TAB_W, TAB_H)
-                          for i in range(MAX_TABS)]
+                          for i in range(MAX_TABS + 1)]      # +1: the guild bank
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 150, 20, 120, 40)
         self.deposit_all_rect = pygame.Rect(PLAYER_X, PLAYER_Y - 44, 190, 34)
 
@@ -78,7 +120,7 @@ class BankScreen(BaseScreen):
 
         if event.type == pygame.MOUSEMOTION:
             self.hover = None
-            for i, r in enumerate(self.bank_rects):
+            for i, r in enumerate(self.bank_rects[:self._slots_shown()]):
                 if r.collidepoint(event.pos) and bank.get(self.active_tab, i):
                     self.hover = ("bank", i)
             for i, r in enumerate(self.player_rects):
@@ -99,9 +141,18 @@ class BankScreen(BaseScreen):
             return
 
         # --- tabs: owned ones switch, the next one is for sale
+        real = self._real_bank()
         for i, r in enumerate(self.tab_rects):
             if not r.collidepoint(pos):
                 continue
+            if i == GUILD_TAB:
+                # Always available and never bought - it is not the bank's to sell.
+                self.active_tab = GUILD_TAB
+                self.message = ""
+                return
+            if real is None:
+                return
+            bank = real
             if i < bank.tabs_owned:
                 self.active_tab = i
                 self.message = ""
@@ -125,7 +176,7 @@ class BankScreen(BaseScreen):
             return
 
         # --- bank slot -> backpack
-        for i, r in enumerate(self.bank_rects):
+        for i, r in enumerate(self.bank_rects[:self._slots_shown()]):
             if not r.collidepoint(pos):
                 continue
             item = bank.get(self.active_tab, i)
@@ -147,7 +198,8 @@ class BankScreen(BaseScreen):
             if spot is None:
                 spot = bank.deposit(item)
             if spot is None:
-                self.message = "The vault is full. Buy another tab."
+                self.message = ("The guild bank is full." if self.active_tab == GUILD_TAB
+                            else "The vault is full. Buy another tab.")
                 return
             player.inventory.remove(item)
             self.message = f"Stored {getattr(item, 'name', 'it')}."
@@ -201,12 +253,20 @@ class BankScreen(BaseScreen):
                                 color=COLOR_GOLD)
 
         # --- tab strip
+        real = self._real_bank()
         for i, r in enumerate(self.tab_rects):
-            if i < bank.tabs_owned:
+            if i == GUILD_TAB:
+                # Always there, never for sale - it is not the bank's to sell.
+                col = (70, 90, 130) if self.active_tab == GUILD_TAB else (40, 50, 72)
+                self.renderer.draw_button(screen, r, "Guild Bank", color=col)
+                continue
+            if real is None:
+                continue
+            if i < real.tabs_owned:
                 col = (70, 110, 70) if i == self.active_tab else COLOR_DARK_GRAY
                 self.renderer.draw_button(screen, r, TAB_NAMES[i], color=col)
-            elif i == bank.tabs_owned:
-                price = bank.next_tab_price()
+            elif i == real.tabs_owned:
+                price = real.next_tab_price()
                 self.renderer.draw_button(screen, r, f"Buy {gold_str(price)}", color=(110, 90, 40))
             else:
                 # Locked tabs beyond the next one are drawn flat and unlabelled on purpose: a row of
@@ -215,10 +275,19 @@ class BankScreen(BaseScreen):
                 pygame.draw.rect(screen, (46, 46, 52), r, 1)
 
         # --- the two grids
-        used = sum(1 for s in bank.tabs[self.active_tab] if s is not None)
-        self.renderer.draw_text(screen, f"{TAB_NAMES[self.active_tab]}  {used}/{SLOTS_PER_TAB}",
-                                (BANK_X, BANK_Y - 30), color=COLOR_GOLD)
-        for i, r in enumerate(self.bank_rects):
+        shown = self._slots_shown()
+        if self.active_tab == GUILD_TAB:
+            g = get_guild_bank()
+            header, sub = (f"Guild Bank  {g.used}/{g.capacity}",
+                           "Shared by every character on this install.")
+        else:
+            used = sum(1 for s in bank.tabs[self.active_tab] if s is not None)
+            header, sub = f"{TAB_NAMES[self.active_tab]}  {used}/{SLOTS_PER_TAB}", None
+        self.renderer.draw_text(screen, header, (BANK_X, BANK_Y - 30), color=COLOR_GOLD)
+        if sub:
+            self.renderer.draw_text(screen, sub, (BANK_X + 210, BANK_Y - 27),
+                                    color=(140, 160, 200), size="small")
+        for i, r in enumerate(self.bank_rects[:shown]):
             self._cell(screen, r, bank.get(self.active_tab, i))
 
         cap = getattr(player, "inventory_capacity", 16)

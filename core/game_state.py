@@ -39,6 +39,9 @@ class GameStateManager:
         self.current_state = GameState.MENU
         self._entered_state_fresh = False  # True for exactly one _ensure_*_screen() call right after a transition_to
         self.player = None
+        # Which save file this session is playing; set by load_game/save_game.
+        # The guild bank commits against it - see _remember_slot.
+        self.current_save_file = "character.json"
         self.current_enemy = None
         self.current_enemies = []
         self.current_vendor = None  # Phase 6: current vendor NPC for vendor screen
@@ -148,6 +151,18 @@ class GameStateManager:
     def describe_save(self, filename="character.json"):
         return self._save_system().describe_save(filename)
 
+    def _remember_slot(self, filename):
+        """Which save file this session is playing.
+
+        Nothing tracked this before: save_game and load_game were each handed a
+        filename by the menu and the game never knew which slot it was in. The
+        guild bank needs it - a deposit has to commit the character in the same
+        breath or the item exists in both places (see entities/guild_bank.py).
+        """
+        self.current_save_file = filename
+        from entities.guild_bank import set_host_saver
+        set_host_saver(lambda: self.save_game(self.current_save_file))
+
     def save_game(self, filename="character.json"):
         """
         Persist everything. Returns True on success.
@@ -175,6 +190,7 @@ class GameStateManager:
         except Exception as exc:
             print(f"Save failed: {exc}")
             return False
+        self.current_save_file = filename
         return True
 
     def load_game(self, filename="character.json"):
@@ -194,6 +210,13 @@ class GameStateManager:
         data = self._save_system().load_full_save(filename)
         if not data or not data.get("character"):
             return False
+        # This slot is the one a guild bank transaction will commit alongside,
+        # and the cached guild bank is dropped so switching characters re-reads
+        # it from disk - otherwise the shaman would still be looking at the
+        # druid's view of the shelf.
+        self._remember_slot(filename)
+        from entities.guild_bank import reset_guild_bank
+        reset_guild_bank()
 
         try:
             player = Character.from_dict(data["character"])
