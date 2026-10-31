@@ -31,10 +31,24 @@ the gate only ever bites on a recruit authored above you. That is the whole
 point - it stops a level 20 player walking to the end of the map to collect a
 level 45 companion, without ever stranding a low-level one as unusable.
 
-CATCH-UP DOES NOT APPLY TO SOMEBODY YOU DISMISSED. They come back at the level
-and in the gear they left with (see build_or_restore), because that snapshot is
-the player's own investment and quietly raising its level would hand them a
-level 41 companion still wearing level 20 plate.
+CATCH-UP APPLIES TO SOMEBODY YOU DISMISSED TOO. Kyle: "these are real people
+bro. They're not just sitting there doing nothing." Dismiss Silas at 20, come
+back at 45, and he has not been standing in a doorway in Ratchet for twenty
+levels - he has been working. He returns caught up, and in kit that matches.
+
+The worry that kept this out at first was that raising a snapshot's level
+without its gear hands the player a level 41 companion in level 20 plate. So
+the gear comes with it, on two rules that keep it from being a theft:
+
+  RARITY IS PRESERVED. Each piece is re-rolled at their new level AT THE SAME
+  RARITY, so a rare you handed them comes back a rare. Only the numbers move.
+  THE OLD KIT IS GONE. It is not retired into their pack. Kyle, overruling the
+  careful version of this: "if these people are in the party, and I dismiss
+  them at level 20 in greens. I come back at level 50 and they are level 46.
+  They very much can destroy shit we give them lol. No one is keeping lvl 20
+  gear for no reason." He is right - hoarding it would be the one unrealistic
+  thing in a feature whose entire point is that these are people living their
+  own lives, and it would hand the player back six bags of dead weight.
 
 Zone-key normalization matters here: recruits.json keys zones as
 `valley_of_trials` while ZoneManager passes "Valley of Trials". Vendors
@@ -559,23 +573,77 @@ class RecruitManager:
         self.dismissed_characters[recruit_id] = character.to_dict()
         return self.recruits[recruit_id]
 
+    @staticmethod
+    def _catch_up(character, target_level, regear=True):
+        """Bring a returning companion up to `target_level`, gear included.
+
+        Levels go through Character.level_up() one at a time rather than by
+        assigning to .level: that is the only path that scales core stats,
+        recalculates derived ones, unlocks ability ranks, grants talent points
+        and syncs pets. Setting the attribute directly would return a level 45
+        companion with a level 20 body and a level 20 pet.
+        """
+        from entities.loot_generator import LootGenerator
+
+        gained = character.level < target_level
+        guard = 0
+        while character.level < target_level and guard < 200:
+            character.level_up()
+            guard += 1
+        if not (gained and regear):
+            return character
+
+        gen = LootGenerator()
+        for slot, item in list(character.equipment.slots.items()):
+            if item is None or item.item_level >= character.level - CATCHUP:
+                continue
+            try:
+                fresh = gen.generate_item_for_class(
+                    character.char_class, character.level, slot=slot,
+                    rarity=item.rarity)          # what the player invested stays invested
+            except Exception:
+                continue
+            if fresh is None:
+                continue
+            # Straight into the slot. NOT through equip_item, which would push
+            # the old piece into their pack - they replaced that gear years ago
+            # and did not carry the corpse of it around. See the module
+            # docstring for Kyle overruling the version that kept it.
+            character.equipment.slots[slot] = fresh
+
+        # And they did not keep the contents of the pack either. Same rule, same
+        # reason: somebody who gained twenty-six levels sold the level 20 commons
+        # they were carrying rather than hauling them the whole way. Anything
+        # without an item_level (quest items and the like) is left alone, because
+        # that is not gear and not theirs to throw out.
+        character.inventory = [
+            it for it in character.inventory
+            if getattr(it, "item_level", None) is None
+            or it.item_level >= character.level - CATCHUP]
+
+        character._recalculate_derived_stats()
+        character.current_health = character.health
+        character.current_mana = character.mana
+        return character
+
     def build_or_restore(self, recruit, player_level=None):
         """
         The Character to hand the player when they hire this recruit.
 
         A previously dismissed companion is rebuilt from their stored
-        snapshot so they return at the level and in the gear they left with -
-        the catch-up rule deliberately does NOT touch them, because that
-        snapshot is the player's own investment and raising its level without
-        its gear would be a worse companion, not a better one.
-
+        snapshot - keeping every choice the player made for them - and then
+        caught up, because they have been living their own life while away.
         A first-time hire is generated fresh, at their catch-up level.
         """
         snapshot = self.dismissed_characters.get(recruit.recruit_id)
         if snapshot:
             from entities.character import Character
             try:
-                return Character.from_dict(snapshot)
+                char = Character.from_dict(snapshot)
+                # Asher's loadout is fixed and hand-authored and the player can
+                # never alter it, so he catches up in level but not in kit.
+                return self._catch_up(char, recruit.effective_level(player_level),
+                                      regear=recruit.recruit_id != "asher_coleman")
             except Exception as exc:
                 # Never let a bad snapshot block re-hiring; fall back to a
                 # fresh build rather than making the NPC permanently dead.

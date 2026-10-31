@@ -23,7 +23,14 @@ FIVE CLAIMS:
      within CATCHUP, the gate can only ever block a companion authored ABOVE you - never one you
      walked past twenty levels ago. If this ever fails, the two rules have stopped interlocking
      and somebody in the world has become permanently unhirable.
-  5. THEIR GEAR MATCHES THE LEVEL THEY JOIN AT. The catch-up level is generated in one place and
+  5. A REHIRE IS CAUGHT UP TOO, BODY AND KIT. Kyle: "these are real people bro. They're not
+     just sitting there doing nothing." Somebody dismissed at 20 and re-hired at 50 comes back
+     at 46, with stats, talent points and gear to match, keeping the RARITY the player invested
+     in them and carrying none of the level 20 kit they obviously sold years ago. The level has
+     to come through Character.level_up() rather than an assignment, or they return with a level
+     46 label on a level 20 body - so the health and talent points are checked, not just .level.
+
+  6. THEIR GEAR MATCHES THE LEVEL THEY JOIN AT. The catch-up level is generated in one place and
      the starter kit's item level in another, and they have to agree - a level 46 Silas in the
      level 14 kit he was authored with is the bug this claim exists to catch.
 """
@@ -84,7 +91,51 @@ def main():
                            f"already above them - the two rules have stopped interlocking.")
                 break
 
-    # 5. gear follows the join level.
+    # 5. a rehire catches up, body and kit
+    from entities.loot_generator import LootGenerator
+    gen = LootGenerator()
+    mgr = get_recruit_manager()
+    probe = next(r for r in recs if r.recruit_id != "asher_coleman" and r.level <= 20)
+    left = probe.build_character(probe.level + CATCHUP)      # hired around their own level
+    for sl in ("chest", "legs"):
+        try:
+            it = gen.generate_item_for_class(left.char_class, left.level, slot=sl, rarity="rare")
+            left.inventory.append(it)
+            left.equip_item(it)
+        except Exception:
+            pass
+    junk = gen.generate_item_for_class(left.char_class, left.level, slot="feet", rarity="common")
+    left.inventory.append(junk)
+    old_lvl, old_hp, old_tp = left.level, left.health, left.talent_points_available
+    mgr.mark_recruited(probe.recruit_id)
+    mgr.dismiss(left)
+    back = mgr.build_or_restore(probe, 50)
+
+    want = probe.effective_level(50)
+    if back.level != want:
+        bad.append(f"rehire: {probe.name} left at {old_lvl}, returns at {back.level}, want {want}")
+    if back.health <= old_hp or back.talent_points_available <= old_tp:
+        bad.append(f"rehire: {probe.name} returns labelled level {back.level} but with a level "
+                   f"{old_lvl} body - health {old_hp}->{back.health}, talent points "
+                   f"{old_tp}->{back.talent_points_available}. The level was assigned rather "
+                   f"than gained through level_up().")
+    stale = sorted(i.item_level for i in back.equipment.slots.values()
+                   if i and i.item_level < back.level - CATCHUP)
+    if stale:
+        bad.append(f"rehire: {probe.name} returns at {back.level} still wearing item levels "
+                   f"{stale}")
+    if any(getattr(i, "item_level", 10 ** 6) < back.level - CATCHUP for i in back.inventory):
+        bad.append(f"rehire: {probe.name} came back still hauling their old kit in their pack.")
+    if not any(i.rarity == "rare" for i in back.equipment.slots.values() if i):
+        bad.append(f"rehire: {probe.name} was given rares and returned without any - the "
+                   f"player's investment was not preserved.")
+    mgr.recruited_ids.discard(probe.recruit_id)
+    mgr.dismissed_characters.pop(probe.recruit_id, None)
+    print(f"rehire probe: {probe.name} left at {old_lvl}, returns at {back.level} "
+          f"(health {old_hp}->{back.health}, talent points {old_tp}->"
+          f"{back.talent_points_available})\n")
+
+    # 6. gear follows the join level.
     #
     # ASHER IS EXEMPT, and only Asher. He does not wear a generated starter kit at all - he has a
     # fixed, hand-authored loadout the player can never alter (RecruitNPC._build_asher_kit), which

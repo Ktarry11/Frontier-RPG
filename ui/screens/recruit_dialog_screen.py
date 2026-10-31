@@ -51,14 +51,21 @@ class RecruitDialogScreen(BaseScreen):
 
     @property
     def shown_level(self):
-        """The level they will actually join at - their catch-up level, or the
-        level they left with if this is somebody the player dismissed."""
+        """The level they will actually join at.
+
+        The same catch-up level whether this is a first meeting or a return:
+        somebody the player dismissed has been living their own life, not
+        waiting in a doorway, so they come back having kept pace. If they left
+        ABOVE the catch-up level they keep their own, which is why this is a
+        max rather than a straight substitution.
+        """
+        lvl = self.recruit.effective_level(self._player_level)
         if self.is_returning:
             from world.recruit_manager import get_recruit_manager
             snap = get_recruit_manager().dismissed_characters.get(self.recruit.recruit_id)
             if snap and snap.get("level"):
-                return snap["level"]
-        return self.recruit.effective_level(self._player_level)
+                lvl = max(lvl, snap["level"])
+        return lvl
 
     @property
     def is_returning(self):
