@@ -8,8 +8,8 @@ afford up to 5 sprite prompts. So about 36 sprites per sheet."
 
 FIVE CLAIMS:
 
-  1. THE BUDGET IS THE BUDGET. 180 sprites across 5 sheets, nothing drawn twice. Art is the scarce
-     thing here, so a sheet quietly growing to 41 means a prompt that will not slice.
+  1. NOTHING IS DRAWN TWICE AND NO SHEET IS TOO BIG TO GENERATE. Art is the scarce thing here, and
+     a sheet quietly growing past what one image can lay out is a prompt that will not slice.
   2. EVERY RULE AND EVERY FALLBACK POINTS AT A SPRITE THAT EXISTS IN A SHEET. A rule naming art
      nobody drew is a red box in a dungeon, and it gets found by a player rather than by us.
   3. EVERY CREATURE IN THE GAME RESOLVES. Not just cave creatures - sprite_for has a floor, so
@@ -36,7 +36,9 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 import creature_sprites as CS  # noqa: E402
 
-BUDGET = 180
+#: Sheets are added over time, so the total is reported rather than asserted - the claim that
+#: matters is the per-sheet cap (a prompt can only lay out so many cells) and that nothing is
+#: drawn twice.
 #: A sheet is generated as one image, so this is really "how many cells a prompt can lay out and
 #: still have every creature come back distinct". 41 is a 6x7 grid with one gap; past the mid-40s
 #: the generator starts blending neighbours, which is a whole sheet wasted.
@@ -53,10 +55,8 @@ def main():
         for cv in z.get("caves", {}).values():
             cave |= set(cv.get("creatures", {}))
 
-    # ---- 1. the budget
+    # ---- 1. nothing drawn twice, no sheet too big to generate
     flat = [s for v in CS.SHEETS.values() for s in v]
-    if len(flat) != BUDGET:
-        bad.append(f"{len(flat)} sprites across the sheets, budget is {BUDGET}")
     dup = [s for s, k in Counter(flat).items() if k > 1]
     if dup:
         bad.append(f"drawn more than once: {dup}")

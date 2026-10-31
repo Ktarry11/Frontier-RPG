@@ -41,14 +41,14 @@ SHEETS = {
     #    which is why this sheet is the biggest.
     'humanoids': [
         'bandit_human_1', 'bandit_human_2', 'bandit_human_3', 'cultist_robed_1',
-        'cultist_robed_2', 'cultist_robed_3', 'syndicate_rogue', 'centaur',
-        'warden_armoured', 'pirate_captain', 'pirate_cutthroat', 'quilboar',
-        'noble_armoured', 'troll_axe', 'champion_plate', 'forsaken_soldier',
-        'harpy', 'matriarch_brood', 'cultist_acolyte', 'pirate_bosun',
+        'cultist_robed_2', 'cultist_robed_3', 'syndicate_rogue_1', 'centaur_1',
+        'warden_armoured', 'pirate_captain', 'pirate_cutthroat_1', 'quilboar_1',
+        'noble_armoured', 'troll_axe_1', 'champion_plate', 'forsaken_soldier_1',
+        'harpy_1', 'matriarch_brood', 'cultist_acolyte', 'pirate_bosun',
         'satyr', 'cult_overseer', 'priest_hooded', 'troll_witchdoctor',
-        'furbolg', 'kobold', 'dwarf_excavator', 'fel_cultist',
-        'forsaken_apothecary', 'goblin_sapper', 'archmage_robed', 'executioner_hooded',
-        'gnoll', 'hunter_ranger', 'ogre', 'trogg',
+        'furbolg', 'kobold_1', 'dwarf_excavator', 'fel_cultist',
+        'forsaken_apothecary', 'goblin_sapper_1', 'archmage_robed', 'executioner_hooded',
+        'gnoll_1', 'hunter_ranger', 'ogre_1', 'trogg',
         'goblin_overseer', 'harpy_matriarch', 'orc_deserter', 'quilboar_geomancer',
     ],
     # ---- 2. beasts.
@@ -99,6 +99,30 @@ SHEETS = {
         'wisp_2', 'elemental_earth_1', 'elemental_earth_2', 'elemental_water',
         'sapling_thorn', 'crystal_sentinel', 'elemental_arcane',
     ],
+    # ---- 6. more of the people, and the factions that had no sprite at all.
+    'humanoids_2': [
+        'bandit_human_4', 'bandit_human_5', 'bandit_human_6', 'cultist_robed_4',
+        'cultist_robed_5', 'cultist_robed_6', 'syndicate_rogue_2', 'syndicate_rogue_3',
+        'quilboar_2', 'quilboar_3', 'quilboar_4', 'centaur_2',
+        'centaur_3', 'troll_axe_2', 'troll_axe_3', 'harpy_2',
+        'harpy_3', 'pirate_cutthroat_2', 'ogre_2', 'forsaken_soldier_2',
+        'scarlet_crusader', 'scarlet_priest', 'scarlet_archer', 'twilight_cultist',
+        'bloodelf_magister', 'nightelf_sentinel', 'human_militia', 'human_marine',
+        'worgen_1', 'worgen_2', 'houndmaster', 'tauren_brave',
+        'murloc_oracle', 'kobold_2', 'gnoll_2', 'goblin_sapper_2',
+    ],
+    # ---- 7. more beasts, and the species that were drawing as the wrong animal.
+    'beasts_2': [
+        'bear_4', 'bear_5', 'bear_6', 'worg_4',
+        'worg_5', 'worg_6', 'boar_3', 'boar_4',
+        'spider_4', 'spider_5', 'zombie_5', 'zombie_6',
+        'drowned_sailor_3', 'murloc_3', 'murloc_4', 'silithid_worker_3',
+        'silithid_worker_4', 'crawler_shell_3', 'crawler_shell_4', 'tide_lurker_3',
+        'raptor_3', 'raptor_4', 'panther_3', 'panther_4',
+        'vulture_3', 'kodo_3', 'yeti_1', 'yeti_2',
+        'scarecrow_golem', 'dragon_whelp', 'dragon_whelp_bronze', 'mountain_giant_granite',
+        'mountain_giant_sandstone', 'sprite_darter', 'ghoul_gaunt', 'wraith_pale',
+    ],
 }
 
 #: sprite id -> how many different looks of it the sheets draw, as <id>_1 .. <id>_n.
@@ -110,57 +134,70 @@ SHEETS = {
 #: leaving room for "but we can get a lot of them".
 VARIANTS = {
     'abomination': 2,
-    'bandit_human': 3,
-    'bear': 3,
-    'boar': 2,
+    'bandit_human': 6,
+    'bear': 6,
+    'boar': 4,
     'bog_lord': 2,
+    'centaur': 3,
     'crab_giant': 2,
-    'crawler_shell': 2,
+    'crawler_shell': 4,
     'crocolisk': 2,
     'crypt_fiend': 2,
     'crystal_shardling': 2,
-    'cultist_robed': 3,
+    'cultist_robed': 6,
     'demon_brute': 2,
     'doomguard': 2,
-    'drowned_sailor': 2,
+    'drowned_sailor': 3,
     'eel_electric': 2,
     'elemental_air': 3,
     'elemental_earth': 2,
     'elemental_fire': 4,
     'felhound': 3,
+    'forsaken_soldier': 2,
     'ghoul': 2,
+    'gnoll': 2,
+    'goblin_sapper': 2,
     'golem_stone': 4,
     'gorilla': 2,
+    'harpy': 3,
     'hyena': 2,
     'imp': 2,
-    'kodo': 2,
+    'kobold': 2,
+    'kodo': 3,
     'lattice_grown': 2,
-    'murloc': 2,
+    'murloc': 4,
     'mutated_thing': 2,
     'naga_myrmidon': 2,
+    'ogre': 2,
     'ooze_acid': 2,
-    'panther': 2,
-    'raptor': 2,
+    'panther': 4,
+    'pirate_cutthroat': 2,
+    'quilboar': 4,
+    'raptor': 4,
     'rat_plague': 2,
     'revenant': 2,
     'serpent': 2,
-    'silithid_worker': 2,
+    'silithid_worker': 4,
     'skeleton_warrior': 2,
     'slime_green': 2,
     'spectre': 2,
-    'spider': 3,
+    'spider': 5,
     'spider_broodmother': 2,
     'spore_cap': 5,
+    'syndicate_rogue': 3,
     'tentacle_horror': 2,
-    'tide_lurker': 2,
+    'tide_lurker': 3,
     'treant': 2,
+    'troll_axe': 3,
     'vine_strangler': 3,
     'voidwalker': 2,
-    'vulture': 2,
+    'vulture': 3,
     'wisp': 2,
-    'worg': 3,
+    'worg': 6,
+    'worgen': 2,
     'wraith': 3,
-    'zombie': 4,
+    'yeti': 2,
+    'zombie': 6,
 }
 
 #: sprite id -> set of every sprite the art actually produces.
@@ -169,6 +206,23 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # ===== added with sheets 6 and 7 =====
+    (r"scarlet.*(crusader|knight|defender|myrmidon|champion|commander|centurion)", "scarlet_crusader"),
+    (r"scarlet.*(priest|preacher|chaplain|confessor|zealot|evangel)", "scarlet_priest"),
+    (r"scarlet.*(archer|marksman|hunter|tracker|bowman)", "scarlet_archer"),
+    (r"scarlet", "scarlet_crusader"),
+    (r"twilight", "twilight_cultist"),
+    (r"magister|blood ?elf|sunfury|quel'", "bloodelf_magister"),
+    (r"sentinel.*(scout|picket|archer|huntress|watcher)|night ?elf|\bkaldorei\b", "nightelf_sentinel"),
+    (r"houndmaster|beastmaster|kennel", "houndmaster"),
+    (r"\btauren\b|longhorn|grimtotem", "tauren_brave"),
+    (r"(murloc|fish).*(oracle|seer|priest|tidecaller)|oracle", "murloc_oracle", {"aquatic", "humanoid"}),
+    (r"militia|farmhand|peasant|conscript|footman|watchman|hillsbrad", "human_militia", {"humanoid"}),
+    (r"marine|kul ?tiras|sailor|deckhand|boatswain|stranded", "human_marine", {"humanoid"}),
+    (r"\byeti\b|wendigo", "yeti"),
+    (r"scarecrow|harvest ?golem|harvest ?watcher|strawman", "scarecrow_golem"),
+    (r"whelp|dragonkin|drake|wyrmling", "dragon_whelp"),
+    (r"sprite ?darter|\bdarter\b|faerie dragon", "sprite_darter"),
     # --- named species that would otherwise be caught by a weaker rule
     (r"broodmother|brood tender|brood queen", "spider_broodmother"),
     (r"hatchling|spiderling", "spider_hatchling"),
@@ -264,7 +318,7 @@ _RULES = [
     # "worgen" is a wolf-headed PERSON and all 8 in the game classify as humanoid; the plain
     # worg rule was drawing them as a quadruped wolf. The gnoll sprite is the beast-headed
     # humanoid on the sheet, so it is the honest stand-in until worgen earn their own cell.
-    (r"worgen", "gnoll"),
+    (r"worgen|gilnean|shadowfang", "worgen"),
     (r"\bworgs?\b|wolf|lupine|howler", "worg"),
     (r"raptor|velocir", "raptor"),
     (r"\bbats?\b|nightwing", "bat"),
@@ -410,6 +464,14 @@ FAMILY_FALLBACK = {
 #: tools/qa_creature_sprites.py counts it as parked rather than as dead weight. Give one a rule
 #: the moment a creature earns it.
 SPARE = {
+    "dragon_whelp_bronze": "second dragon whelp; only 2 creatures are whelps and the name hash "
+                           "reaches one look. Wire up when a second dragonkin exists.",
+    "ghoul_gaunt": "third ghoul; 7 ghoul creatures spread over 2 looks.",
+    "wraith_pale": "fourth wraith; 11 wraith creatures spread over 3 looks.",
+    "mountain_giant_granite": "NOTHING IN THE GAME IS A MOUNTAIN GIANT - the only 'giant' names "
+                              "are Giant Crab and Giant Spider, where giant is an adjective. Held "
+                              "for Feralas and Azshara, which are giant country.",
+    "mountain_giant_sandstone": "see mountain_giant_granite.",
     "skeleton_marksman": "second skeleton archer; the game has one archer creature, the sheet "
                          "drew two. Wire up when a second undead ranged type exists.",
 }
