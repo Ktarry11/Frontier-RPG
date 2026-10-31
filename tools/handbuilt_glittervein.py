@@ -250,15 +250,33 @@ def _ramp_lane(gx, gy):
 
 
 def vein_field(gx, gy):
-    """>0 on a crystal seam. Decoration and loot flavour; it does not change the walking."""
+    """>0 on a crystal seam. Decoration, paint and loot flavour; it does not change the walking.
+
+    A SEAM IS LENTICULAR AND IT WANDERS. The first version held each seam at a constant tile width
+    and a constant bearing, which draws a perfectly straight radial bar of even thickness - and
+    five of those around a round hole read as neon spokes on a wheel, not as geology. Two things
+    fix it and both are what real ore shoots do:
+
+      THE BEARING DRIFTS with radius, because a fracture follows whatever would not take the
+      stress, and that is never a straight line.
+      THE WIDTH PINCHES OUT. Ore shoots are lenses on a string, fat in places and gone in others,
+      so the width swings through zero and the seam breaks into segments instead of running
+      unbroken from the lip to the water.
+
+    And it lives on the WALL. It was reaching across the green shelf and into the pool, which is
+    where limestone and water are, not where a crystal face is exposed.
+    """
     dx, dy = gx - CX, gy - CY
     ang = np.arctan2(dy, dx) / TAU
     r = np.hypot(dx, dy)
     out = np.full(np.shape(gx), -9.0)
-    inwall = (r > R_WATER - 2) & (r < R_LIP + 2)
-    for (turn, wdt) in VEINS:
-        d = np.abs(((ang - turn + 0.5) % 1.0) - 0.5) * TAU * np.maximum(r, 1.0)
-        out = np.maximum(out, np.where(inwall, wdt - d, -9.0))
+    inwall = (r > R_FLOOR - 3) & (r < R_LIP + 1)
+    for k, (turn, wdt) in enumerate(VEINS):
+        drift = turn + 0.045 * np.sin(r * 0.085 + k * 1.7) + 0.02 * np.sin(r * 0.21 + k * 0.9)
+        d = np.abs(((ang - drift + 0.5) % 1.0) - 0.5) * TAU * np.maximum(r, 1.0)
+        # swings negative, so the seam pinches out entirely in places
+        w = wdt * (0.72 + 0.95 * np.sin(r * 0.13 + k * 2.3))
+        out = np.maximum(out, np.where(inwall, w - d, -9.0))
     return out
 
 
