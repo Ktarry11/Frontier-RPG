@@ -51,6 +51,11 @@ BATCH_MODULES = [
     "tools.writing.recruits_batch4",
     "tools.writing.recruits_batch5",
     "tools.writing.recruits_batch6",
+    # Register pass. Kyle, 2026-10-31: "avoid weird tics... Avoid the weird prose."
+    # Overlays the batches above field-by-field, so these carry only rewritten sections.
+    "tools.writing.recruits_batch7a",
+    "tools.writing.recruits_batch7b",
+    "tools.writing.recruits_batch7c",
 ]
 
 #: The tics the rewrite exists to kill. --check counts them and fails if any survive.
@@ -74,6 +79,29 @@ TICS = {
         r'(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|'
         r'fifteen|sixteen|seventeen|eighteen|nineteen|twenty)\b',
         str(r.get("backstory", "")).strip()))),
+}
+
+
+#: MY OWN TICS, not the old text's. Kyle, 2026-10-31: "Ok also avoid weird tics. I know you can
+#: write well. Avoid the weird prose."
+#:
+#: He was right and it measured. The first rewrite replaced one template with another one: 168
+#: flat negations across 42 of 43 characters, 92 em dashes in 38 of them, and 51 trailing
+#: "..., which is ..." closers in 31. Every character was being narrated by the same dry,
+#: withholding voice that will not use a contraction. That is a house style, and a house style
+#: is the thing we were removing.
+#:
+#: These are capped as a SHARE OF THE CAST rather than banned, because any one of them is fine in
+#: one character's mouth and a tic in twenty. The cap is what stops a narrator emerging.
+STYLE_CAPS = {
+    "flat negation (does not / has not / is not)": (r'\b(does|did|has|have|is|was|would|could) not\b', 0.55),
+    "em dash":                                     (r'—', 0.45),
+    '", which is/was ..." closer':                 (r', which (is|was|has|he|she|they)\b', 0.30),
+    '"is aware"':                                  (r'\b(is|was) aware\b', 0.20),
+    '"has stopped"':                               (r'\b(has|have) stopped\b', 0.20),
+    '"never once"':                                (r'\bnever once\b', 0.15),
+    '"will tell you"':                             (r'\b(will|would) tell you\b', 0.15),
+    '"he/she says it like"':                       (r'\bsays (it|that|so)\b', 0.20),
 }
 
 
@@ -150,6 +178,19 @@ def main():
               + ("   <-- IN A REWRITTEN RECRUIT" if done else ""))
         if done:
             print(f"        {done}")
+
+    # ---- style caps: is a narrator emerging? ----------------------------------------------
+    import re as _re
+    pool = [r for r in records if r["recruit_id"] not in NEVER_TOUCH]
+    print()
+    for label, (pat, cap) in STYLE_CAPS.items():
+        hit = [r["name"] for r in pool if _re.search(pat, _all_text(r), _re.I)]
+        share = len(hit) / max(1, len(pool))
+        over = share > cap
+        if over:
+            failed = True
+        print(f"  {share:5.0%} of the cast (cap {cap:.0%})  {label}"
+              + ("   <-- A NARRATOR IS EMERGING" if over else ""))
 
     lens = [len(str(r.get("backstory", "")).split()) for r in records]
     import statistics
