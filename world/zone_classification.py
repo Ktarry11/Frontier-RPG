@@ -58,6 +58,15 @@ DUNGEONS = [
     # Rotvine Hollow, Veilfall Cave and The Drowned Shrine are deliberately NOT on this list - they are
     # caves, so they keep their ore and herbs.
     "Gurbashi Arena",
+    # Added 2026-10-30 with Glittervein. Both halves of the cenote dungeon: fixed packs, seven
+    # hand-placed bosses and nothing in them worth gathering. The Drownbell next door is
+    # deliberately NOT on this list - it is a cave, so it keeps Northern Tanaris's ore.
+    #
+    # A SEAM FULL OF CRYSTAL IS THE OBVIOUS PLACE TO WANT ORE, and it still gets none: the player
+    # mines the seams on the WALL of the cenote, in the open zone, which is where vein_field puts
+    # them and where the node pool is. Putting ore down here too would make the dungeon a farm.
+    "The Mother Vein",
+    "The Cistern",
 ]
 
 

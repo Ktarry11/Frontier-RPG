@@ -284,6 +284,21 @@ def bake_spec(key, preview=None):
 
     fields = dict(wall_f=wall_f.astype(np.float32), d_in=d_in.astype(np.float32),
                   d_out=d_out.astype(np.float32))
+    # GLOWING FLOORS. A general version of the lava field below, because the Glittervein dungeon's
+    # only light source is its crystal and there was no way to say so: glows[] needs a distance
+    # field and the only ones that existed were d_lava and the water pools. Any floor key named in
+    # glow_floors gets a d_<key> field built from the same rects that paint it, so a spec can light
+    # its rooms from whatever material is actually in them.
+    for gk in spec.get("glow_floors", ()):
+        ell = spec["floors"].get(gk, [])
+        if not ell:
+            continue
+        # MASKED TO ACTUAL FLOOR. A floors rect is a box, and the parts of it that fall inside
+        # solid rock still make a glow source - which put big soft discs of light on stone several
+        # galleries away from any crystal, reading as a lighting bug rather than a lit room.
+        m = (region(P, wp, ell) > 0.25) & (wall_f <= 0.1)
+        fields[f"d_{gk}"] = ndi.gaussian_filter(P.edt(~m) / MASK_PX, 1.0).astype(np.float32)
+
     # lava tiles
     if spec.get("lava"):
         lava_b = np.array([[b == "lava" for b in row] for row in zone.base_layer])

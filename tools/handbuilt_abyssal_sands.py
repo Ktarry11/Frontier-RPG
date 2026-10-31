@@ -56,7 +56,9 @@ TAU = 2.0 * np.pi
 #: Only the north gate is registered. The other two are carved and walkable and point at zones that
 #: do not exist - exactly what the Flats did with the pass that now goes to Tanaris, and what
 #: Southern Needles did with the road that pointed at the Flats.
-PORTALS = {(60, 2): "Northern Tanaris"}
+#: The east gate to Glittervein was carved and walkable and deliberately unregistered for two
+#: passes, exactly as the Flats' south pass was before Tanaris existed. Glittervein exists now.
+PORTALS = {(60, 2): "Northern Tanaris", (176, 96): "Glittervein"}
 ARRIVALS = [(60, 8), (170, 96), (46, 152)]
 START = (60, 8)
 

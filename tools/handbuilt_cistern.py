@@ -37,7 +37,7 @@ carries no gathering.
 
 HARD CONTRACT (world/portal_manager.py):
     (46, 122) <-> The Mother Vein (46, 10)     the shaft down
-    (60,   4) <-> Glittervein (78, 101)        the outflow, out beside the camp
+    (60,   7) <-> Glittervein (82, 101)        the outflow, out beside the camp
 """
 import math
 
@@ -50,7 +50,7 @@ UDP = "assets/tiles/underdark/props/"
 SFP = "assets/tiles/shimmering_flats/props/"
 W, H = 120, 130
 ENTRANCE = (46, 122)        # down from The Mother Vein
-OUTFLOW = (60, 4)           # up and out, to the isle at Lastwater
+OUTFLOW = (60, 7)           # up and out, to the isle at Lastwater
 
 NODES = [
     (46, 118),      # 0 - the drowned stair, where the shaft lets out
@@ -155,7 +155,10 @@ def build_cistern(omit=()):
 
     # THE OUTFLOW. Up out of the cistern and off the top of the map - the channel the water takes
     # to the pool, and the way the party gets home.
-    b.corridor([(60, 10), OUTFLOW], width=4)
+    # Run it past the portal in both directions. A portal needs walkable ground on the ARRIVAL
+    # tile as well as its own, and the arrival tile is the one nothing in the data writes down -
+    # with the mouth at the very end of the channel the engine had to snap the landing a tile.
+    b.corridor([(60, 14), (60, 3)], width=4)
 
     # Standing water: the stair is wet, and the cistern is most of the way to being a lake. The
     # island is what The Thirst stands on, so it is not optional.
@@ -274,8 +277,8 @@ def dress(zone, L):
     P("ud_crystal_float", 50, 11, 7, **U)
     P("ud_crystal_float", 70, 11, 7, **U)
     P("ud_lattice_growth", 60, 26, 6, **U)
-    P("ud_moss_curtain", 56, 7, 5, **U)
-    P("ud_moss_curtain", 64, 7, 5, **U)
+    P("ud_moss_curtain", 56, 5, 5, **U)
+    P("ud_moss_curtain", 64, 5, 5, **U)
     return zone, L
 
 

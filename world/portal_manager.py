@@ -381,10 +381,33 @@ class PortalManager:
             "The Drownbell": {
                 (16, 12): ("Northern Tanaris", 200, 88),
             },
-            # Zone 2. Its east gate (to Glittervein) and south gate (toward Uldum) are carved
-            # and walkable and deliberately unregistered until those zones exist.
+            # Zone 2. Its SOUTH gate (toward Uldum) is still carved, walkable and deliberately
+            # unregistered until that zone exists. The east gate now goes to Glittervein.
             "The Abyssal Sands": {
                 (60, 2): ("Northern Tanaris", 60, 108),
+                (176, 96): ("Glittervein", 6, 96),
+            },
+            # Zone 3, the cenote, and the end of the five-zone water chain. Three doors on the
+            # surface map: the gate west back to the Sands, the dig mouth on the isle that is the
+            # way INTO the dungeon, and THE OUTFLOW, which is the way out of the far end of it.
+            #
+            # The outflow is not a convenience. The water in the pool was pulled down to the
+            # Cistern and pushed back up, and the channel it takes is the one the party walks out
+            # through - so a group that fights from the dig head to the heart surfaces beside the
+            # camp it started from. Kyle: "at the very end (after the last boss) brings you back
+            # out to Lastwater."
+            "Glittervein": {
+                (6, 96): ("The Abyssal Sands", 176, 96),
+                (86, 100): ("The Mother Vein", 60, 104),
+                (82, 101): ("The Cistern", 60, 7),
+            },
+            "The Mother Vein": {
+                (60, 104): ("Glittervein", 86, 100),
+                (46, 10): ("The Cistern", 46, 122),
+            },
+            "The Cistern": {
+                (46, 122): ("The Mother Vein", 46, 10),
+                (60, 7): ("Glittervein", 82, 101),
             },
             "The Undercrust": {
                 (16, 66): ("The Shimmering Flats", 92, 140),

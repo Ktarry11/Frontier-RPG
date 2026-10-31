@@ -69,7 +69,7 @@ TAU = 2.0 * np.pi
 PORTALS = {
     (6, 96): "The Abyssal Sands",
     (86, 100): "The Mother Vein",
-    (78, 101): "The Cistern",
+    (82, 101): "The Cistern",
 }
 ARRIVALS = [(12, 96)]
 START = (12, 96)
