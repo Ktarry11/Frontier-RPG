@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+"""Apply a batch of hand-written recruit rewrites into data/npcs/recruits.json.
+
+    PYTHONPATH=. python3 tools/rewrite_recruits.py --check
+    PYTHONPATH=. python3 tools/rewrite_recruits.py
+
+Kyle, 2026-10-31: "We 100% NEED to fix up writting. It's too fake. No recruits feel alive."
+
+WHY THE OLD ONES FELT FAKE, measured rather than guessed:
+
+    41/44  the `forward` section began with the literal words "She wants" / "He wants"
+    44/44  the same four sections in the same order, every time
+    28/44  backstory opened "[job] in [named city] for N years"
+    20/44  `adjustment` began "Three years ago he/she came through..."
+    12/44  contained the literal sentence "is not adapting"
+
+Each one read fine alone. Four in a row and you can feel the mould. Underneath the phrasing was
+the worse problem: every single recruit was a competent professional who had quietly found
+their calling. Nobody failing, nobody wrong about themselves, nobody hard work. Forty-four
+well-adjusted adults who all landed on their feet is not a cast, it is one character with
+forty-four CVs.
+
+THE SECTION KEYS ARE FIXED. ui/screens/background_screen.py draws exactly the four tabs in
+Character.BACKGROUND_SECTION_KEYS, so the variety has to live in the prose.
+
+ASHER COLEMAN IS NEVER TOUCHED. He is hand-authored and fixed by Kyle's standing instruction;
+this refuses to write to him even if a batch names him.
+
+--check re-runs the measurements above over the current data, so the mould cannot creep back in
+unnoticed.
+"""
+import argparse
+import collections
+import importlib
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+os.chdir(ROOT)
+
+NEVER_TOUCH = {"asher_coleman"}
+
+BATCH_MODULES = [
+    "tools.writing.recruits_batch1",
+    "tools.writing.recruits_batch2",
+    "tools.writing.recruits_batch3",
+    "tools.writing.recruits_batch4",
+    "tools.writing.recruits_batch5",
+    "tools.writing.recruits_batch6",
+]
+
+#: The tics the rewrite exists to kill. --check counts them and fails if any survive.
+TICS = {
+    '"She/He wants" opening `forward`': (lambda r: bool(
+        re.match(r'^(She|He|They) wants?\b',
+                 str((r.get("background_sections") or {}).get("forward", "")).strip()))),
+    '"is/was not adapting"': (lambda r: bool(re.search(
+        r'\b(is|was|has|have)\s+n[o\']t\s+adapt', _all_text(r), re.I))),
+    '"came through"': (lambda r: "came through" in _all_text(r).lower()),
+    '"[job] in [City] for N years" opener': (lambda r: bool(re.match(
+        r'^[A-Z][a-z]+\b[^.]{0,60}\bin [A-Z][a-z]+,?\s+(for\s+)?'
+        r'(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|'
+        r'fifteen|sixteen|seventeen|eighteen|nineteen|twenty)\b',
+        str(r.get("backstory", "")).strip()))),
+}
+
+
+def _all_text(r):
+    return " ".join([str(r.get("backstory", "")), str(r.get("greeting", ""))]
+                    + [str(v) for v in (r.get("background_sections") or {}).values()])
+
+
+def load_batches():
+    out = {}
+    for mod in BATCH_MODULES:
+        try:
+            m = importlib.import_module(mod)
+        except ModuleNotFoundError:
+            continue
+        for rid, fields in m.BATCH.items():
+            if rid in NEVER_TOUCH:
+                print(f"  refusing to rewrite {rid} - hand-authored and fixed")
+                continue
+            if rid in out:
+                print(f"  !! {rid} appears in two batches; the later one wins")
+            out[rid] = fields
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true", help="measure the tics, write nothing")
+    args = ap.parse_args()
+
+    path = ROOT / "data/npcs/recruits.json"
+    data = json.loads(path.read_text(), object_pairs_hook=collections.OrderedDict)
+    block = data.get("recruits", data)
+    records = block if isinstance(block, list) else list(block.values())
+    by_id = {r["recruit_id"]: r for r in records}
+
+    if not args.check:
+        batches = load_batches()
+        written = 0
+        for rid, fields in batches.items():
+            r = by_id.get(rid)
+            if r is None:
+                print(f"  !! no recruit called {rid}")
+                continue
+            if "greeting" in fields:
+                r["greeting"] = fields["greeting"]
+            if "backstory" in fields:
+                r["backstory"] = fields["backstory"]
+            sections = r.setdefault("background_sections", collections.OrderedDict())
+            for key in ("before", "adjustment", "forward", "now"):
+                if key in fields:
+                    sections[key] = fields[key]
+            written += 1
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        print(f"\n{written} recruits rewritten")
+
+    # ---- the measurements, over whatever is on disk now ------------------------------------
+    rewritten = set(load_batches()) if not args.check else set(load_batches())
+    print(f"\n{len(records)} recruits on disk, {len(rewritten)} covered by a batch so far\n")
+    failed = False
+    for label, test in TICS.items():
+        hits = [r for r in records if r["recruit_id"] not in NEVER_TOUCH and test(r)]
+        # A tic surviving in a recruit nobody has rewritten yet is expected. One surviving in a
+        # recruit this pass claims to have rewritten is the pass failing at its only job.
+        done = [r["name"] for r in hits if r["recruit_id"] in rewritten]
+        if done:
+            failed = True
+        print(f"  {len(hits):2d}/{len(records)}  {label}"
+              + ("   <-- IN A REWRITTEN RECRUIT" if done else ""))
+        if done:
+            print(f"        {done}")
+
+    lens = [len(str(r.get("backstory", "")).split()) for r in records]
+    import statistics
+    print(f"\n  backstory words: median {statistics.median(lens):.0f}, "
+          f"range {min(lens)}-{max(lens)}")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
