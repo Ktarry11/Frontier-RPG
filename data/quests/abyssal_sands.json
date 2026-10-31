@@ -1,0 +1,2811 @@
+{
+  "quests": [
+    {
+      "quest_id": "ab_fourth_peg",
+      "title": "Fourth Peg",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The camp is named for the stake it is pitched around. Learn why there are four.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_pegs",
+            "ab_the_job"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 140,
+          "target_y": 25,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "You came down the north gate, so you have walked about nine miles of this and you will have noticed there is no road.\n\nThere was one. It is in a hole. I am not here to build you a new one - I am here to find out whether a new one is POSSIBLE, which is a different job with a different answer, and only one of those has ever been funded.\n\nStand by the peg a moment. Everything this camp does is measured from that stake.",
+      "turn_in_text": "Seven months, that one has stood. The longest any of them has managed.\n\nIf you are going to be out in it, I can use you. Everything we need is a reading taken somewhere I would rather not send Hask on his own.",
+      "next_quest_id": "ab_the_level_run",
+      "unique_item_defs": [
+        {
+          "name": "Fourth-Peg Spaulders",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.5
+          },
+          "armor_type": "leather",
+          "armor_value": 65,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Fourth-Peg Belt",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Belt (Int/SP/Hit)"
+        },
+        {
+          "name": "Fourth-Peg Glaive",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "stamina": 28
+          },
+          "secondary_stats": {
+            "armor": 71.1,
+            "parry_rating": 1.4
+          },
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.3,
+          "label": "Polearm (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_level_run",
+      "title": "The Level Run",
+      "giver_npc_id": "ab_rodman",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Run the level west from the peg and come back with the ground under it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 93,
+          "target_y": 32,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 44,
+          "target_y": 16,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Pit Shrike",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "A level run is two people and a long walk and it is the dullest work in the world right up until it is not.\n\nI need the ground between here and Cartfall, in a straight line, which means walking it rather than going round. Mind the shrikes - they nest where the ground is thin and they have opinions about company.",
+      "turn_in_text": "Good numbers. Boring numbers, which out here is the only kind worth having - and three years ago there were no numbers at all, because nobody had thought to take any.\n\nWhat I cannot write down is the other thing. The hardpan RINGS different over a void. Not much. It is louder in the cold. I have been trying to put that in a book for two years and it keeps coming out sounding like a man guessing.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Chainman's Shroud",
+          "slot": "back",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.4,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 17,
+          "label": "Cloth Cloak (Int/SP/Crit)"
+        },
+        {
+          "name": "Fourth-Peg Armguards",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 105,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Level-Run Signet",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.0
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_reading_the_pan",
+      "title": "What Hask Hears",
+      "giver_npc_id": "ab_rodman",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Test the thing he cannot write down, in the one place it can be checked.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Limestone Crawler",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_crawler_plate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "There is one way to test me and you are going to hate it: the crawlers come up through the thin ground. Where they are thickest is where the roof is worst.\n\nSo. Go where I say the hardpan rings wrong, count what comes out at you, and bring me the plates. If I am right you will have a bad afternoon and I will have a method.",
+      "turn_in_text": "Five. You got five off a stretch I called thin, and Peska's rod came back at eleven on the stretch either side of it.\n\nThat is not proof. It is the first thing I have had that is even the same SHAPE as proof.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Chainman's Girdle",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 107,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Peg-Iron Helm",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.8
+          },
+          "armor_type": "mail",
+          "armor_value": 107,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Struck-Camp Hatchet",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "armor": 20.2,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_wait_and_read",
+      "title": "Come Back in Four Days",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "A survey is one reading taken twice, and the second reading is the whole job.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 62,
+          "target_y": 89,
+          "radius": 9
+        },
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 96,
+          "target_y": 33,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Hollowing Ooze",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "Anybody can take a reading. A reading is a number and a number on its own cannot tell you whether ground is going anywhere.\n\nTwo readings, four days apart, at the same stake: THAT tells you. We have been doing it for two years and I have nine hundred pairs of numbers and about four of them matter.\n\nTake the second pass on the Wide Sink and Nineteen Mile. And bring me ooze residue - they eat limestone, and I want to know how fast.",
+      "turn_in_text": "The Wide Sink has moved eleven inches in four days. Eleven inches is nothing to look at and it is enormous in a column.\n\nThat rim is still going. Four years on, and the hole we all think of as finished is not finished.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fourth-Peg Legplates",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 215,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Struck-Camp Bindings",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Bracers (Int/Sta/SP)"
+        },
+        {
+          "name": "Chainman's Targe",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "armor_value": 71,
+          "block_value": 89,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_second_peg",
+      "title": "The Second Peg",
+      "giver_npc_id": "item:ab_second_peg_head",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The top of a survey stake, snapped off, with a number still on it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_second_peg_head",
+          "count": 1,
+          "label": "the snapped peg head, to Chief Surveyor Vane"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "It is the top four inches of a proper survey stake, driven and then broken off about a foot above where it was driven. There is a number burned into it.",
+      "turn_in_text": "Two. That is Second Peg, and Second Peg is sitting on the lip of the Wide Sink being perfectly accurate about a place that is not there any more.\n\nSomebody broke the head off it. That was not the ground. Somebody stood out there and snapped the top off a survey stake, and I have no idea who or why and I think about it more than I should.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Peg-Iron Armguards",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.9
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Fourth-Peg Cuffs",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Fourth-Peg Shortbow",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 3,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.8
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_is_it_possible",
+      "title": "Whether, Not How",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Enough readings to say something careful, finally.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_answer"
+          ]
+        },
+        {
+          "type": "fetch",
+          "target": "ab_ooze_residue",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Saltbone Revenant",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "I have two years of pairs and I am close to being able to say a sentence I can defend. I would like one more set from the south, where the revenants are, and then I am going to say it whether the port likes it or not.",
+      "turn_in_text": "Here it is, and you may tell Rullo Tack I said it.\n\nA road is possible. A road is NOT possible on a twenty-year bond, which is the only kind anybody will finance, because this field is still opening and four of my eleven are still moving.\n\nSo the honest answer is: ask me again in ten years. Nobody has ever paid a surveyor to say that and I expect it will cost me the contract.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Chainman's Legplates",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 219,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Struck-Camp Skirt",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 8.8,
+            "hit_rating": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 45,
+          "label": "Cloth Legs (Int/SP/Hit)"
+        },
+        {
+          "name": "Struck-Camp Longsword",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_on_the_box",
+      "title": "He Was On the Box",
+      "giver_npc_id": "ab_teamster",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The teamster who came off the back of a cart that kept going down.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_nineteen_mile"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Cartfall Scavenger",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Nineteen Mile. I was on the box and the lead pair were six lengths ahead of me when it went.\n\nI did not do anything clever. The cart went down and I came off the back of it and the ground I landed on held. That is the whole story and I have told it four hundred times.\n\nWhat I would like is for the scavengers to stop going through it. They are at the rim of that hole every day and there are people in it.",
+      "turn_in_text": "Thank you. I know what they are. They came through with everything else and found a desert full of carts with nobody guarding them, and I would probably be doing the same.\n\nI would still rather they did it somewhere else.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Went-With-It Belt",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.2,
+            "mp5": 0.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Belt (Int/SP/MP5)"
+        },
+        {
+          "name": "Went-With-It Gloves",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Somebody was wearing this on an ordinary afternoon.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 3.8
+          },
+          "armor_type": "mail",
+          "armor_value": 70,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        },
+        {
+          "name": "Cartfall Blade",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_lead_pair",
+      "title": "The Lead Pair",
+      "giver_npc_id": "ab_teamster",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The beasts went in ahead of the cart and some of them came back out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pitfall Kodo",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_kodo_harness",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "The kodo that went down are not all dead. Some of them came out the other side of something down there and they are not right, and they are the ones you see on the flats with harness still on them.\n\nCut the harness off what you have to put down. Bring it to me. It is a house mark and somebody should know whose.",
+      "turn_in_text": "[He goes through the straps one at a time without hurrying.]\n\nThis one is Tarrow's. This one is Tarrow's. This one I do not know.\n\nI will write to Steamwheedle. It is four years late and I am going to do it anyway.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Went-With-It Handguards",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Somebody was wearing this on an ordinary afternoon.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 107,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Went-With-It Coif",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Four years under sand and the buckles still work, which is the cruel part.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 5.8
+          },
+          "armor_type": "mail",
+          "armor_value": 107,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Nineteen-Mile Walking Stick",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "spell_power": 23.3,
+            "crit_chance_spell": 1.2
+          },
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_drovers_in_the_sand",
+      "title": "Still Walking the Line",
+      "giver_npc_id": "ab_cook",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The drovers are still on the route, in the sense that nobody ever called them off.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunken Drover",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_drovers_tag",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "I cooked for caravans for eleven years before this and I will tell you the thing about drovers: they do not stop. Weather, raiders, a broken axle - the road keeps going and so do they.\n\nThe ones out there still have not stopped. Bring me their tags. I want to cook for a camp that has done right by them, and we have not.",
+      "turn_in_text": "I knew two of these. Not well. Well enough to know how they take their tea, which is the sort of thing you know about a drover.\n\nPeska will put the numbers in the book. I am going to do something else about it, and I am not going to tell you what because it is not your business and it is not hers either.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Went-With-It Robe",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.6,
+            "crit_chance_spell": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 44,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Went-With-It Bracers",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Went-With-It Loop",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_never_arrived",
+      "title": "The Cart That Never Arrived",
+      "giver_npc_id": "item:ab_sealed_waybill",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "A sealed manifest for freight that is somewhere under the First Hole.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_sealed_waybill",
+          "count": 1,
+          "label": "the sealed waybill, to Quartermaster Lund"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "A cargo manifest, still sealed, for a cart that is not going to arrive. The wax is intact, which after four years in a desert is its own small miracle.",
+      "turn_in_text": "[He breaks the seal, reads it, and sets it down.]\n\nSeed grain. Forty bushels of seed grain for Gadgetzan, dated the spring the wells went.\n\nSomebody in that city ordered seed. In the second dry season, with the well dropping, somebody sat down and ordered next year's seed.\n\nI am going to keep this. I do not entirely know why.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Off-the-Box Bindings",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.3,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Cartfall Spaulders",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Four years under sand and the buckles still work, which is the cruel part.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.5,
+            "block_rating": 1.1,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 161,
+          "label": "Plate Shoulders (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Nineteen-Mile Band",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Somebody was wearing this on an ordinary afternoon.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_what_the_birds_know",
+      "title": "What the Birds Know",
+      "giver_npc_id": "ab_rodman",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "A shrike's crop is a survey of what is living where nobody can look.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pit Shrike",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_shrike_crop",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "Here is a free method and it is not mine, it is every rodman's: open the bird.\n\nA shrike hunts the thin ground and the rim and it will eat anything it can carry. What is in its crop is a list of what is living in a place you cannot get to.\n\nSix crops will tell me more about the floor of those holes than Vizzi's rope has in a year, and I would like that on record before I say it to her face.",
+      "turn_in_text": "Four of six had something in them from below the water line. From a WATER line, in the Abyssal Sands, where there has not been standing water in living memory.\n\nShe is going to be insufferable. She has been saying there is water down there for a year.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Went-With-It Mantle",
+          "slot": "back",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Teamster's kit. The teamster is still here; most of them are not.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.3
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Off-the-Box Cuirass",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Somebody was wearing this on an ordinary afternoon.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1.1,
+            "block_value": 11.0
+          },
+          "armor_type": "plate",
+          "armor_value": 219,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Lead-Pair Longbow",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off the back of a cart that did not stop going down.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_long_collapse",
+      "title": "Twenty-Two Tiles in an Afternoon",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The newest hole on the map, and the longest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 84,
+          "target_y": 85,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Sinkhole Lurker",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_lurker_spur",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "The Long Collapse opened eleven months ago, over about four hours, and it took twenty-two tiles of ground and a stretch of the old road with it.\n\nIt is the only one any of us watched happen. I want the rim walked and I want it walked by somebody who is not me, because I have walked it nine times and I have stopped seeing it.",
+      "turn_in_text": "You can walk the length of that one and never be more than a step from the edge, and three years ago it was road.\n\nThat is in my book now, in those words, which is not how I usually write. Some things want saying plainly.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Nineteen-Mile Treads",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Somebody was wearing this on an ordinary afternoon.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 45,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Cartfall Legguards",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Teamster's kit. The teamster is still here; most of them are not.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "spell_power": 7.9
+          },
+          "armor_type": "mail",
+          "armor_value": 146,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Cartfall Necklace",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Teamster's kit. The teamster is still here; most of them are not.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.1
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_nine_have_floors",
+      "title": "Nine of the Eleven",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Somebody has to go down them, and she has been doing it alone.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_rope",
+            "ab_no_bottom"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Limestone Crawler",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "Somebody has to go down them. Not far - far enough to see whether there is a floor and whether the floor is going anywhere.\n\nNine of the eleven have floors. Two do not. I would like a second pair of hands on the line and I would like them attached to somebody who can fight, because the floors are not empty.",
+      "turn_in_text": "Peska logs the two as 'no bottom observed'. I would log them differently. I would log them as 'do not'.\n\nNone of the eleven existed three years ago. People forget that, out here, as fast as they can.\n\nShe is being careful and I am being accurate and we have agreed to disagree about which of those is the job.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lamplit Boots",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken off something that had no business being at that depth.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.5
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Up-Through Skirt",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken off something that had no business being at that depth.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.6,
+            "mp5": 1.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 44,
+          "label": "Cloth Legs (Int/SP/MP5)"
+        },
+        {
+          "name": "Second-Shelf Targe",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "armor_value": 71,
+          "block_value": 89,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_up_through_the_floor",
+      "title": "Up Through the Floor",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The holes did not only swallow.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Limestone Crawler",
+          "count": 10,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "kill",
+          "target": "Hollowing Ooze",
+          "count": 6,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "Everybody out here talks about what went IN. Four years of it. The carts, the kodo, the road.\n\nNobody wants to talk about what came OUT, and I have been down nine of these on a rope, and I am telling you that the crawlers and the oozes were not living on this desert four years ago because this desert could not feed them.\n\nThe holes opened a way. It goes both directions.",
+      "turn_in_text": "Thin them where they come up and you buy the camp a week. You do not buy it two.\n\nBefore the change there was nothing under this desert that wanted to be above it.\n\nI have stopped pretending this is a problem that gets solved. It is a problem that gets managed by people who are still here, and that is me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Up-Through Leggings",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8,
+            "dodge_rating": 0.8
+          },
+          "armor_type": "mail",
+          "armor_value": 143,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Lamplit Belt",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        },
+        {
+          "name": "Up-Through Sword",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_what_the_salt_cured",
+      "title": "Four Days From the Nearest Brine",
+      "giver_npc_id": "ab_reagents",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "The revenants are salt-cured and there is no salt out here.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Saltbone Revenant",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_salt_knuckle",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "I am a brewer, so I know what brine does to a bone, and the things coming up out of the southern holes are BRINE-CURED.\n\nThe nearest brine is the Shimmering Flats and that is four days' walk northwest. Either somebody is carrying salt out here for a purpose I do not want to think about, or there is brine under us.",
+      "turn_in_text": "Under us. It has to be under us, and it has been coming this way for three years.\n\nThe pan is four days northwest and everybody there will tell you the water goes under and goes EAST. We are east. We have always been east. Nobody ever stopped to ask what it was going through on the way.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Up-Through Mantle",
+          "slot": "back",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 5.3
+          },
+          "armor_type": "leather",
+          "armor_value": 36,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Rope-Hand's Greathelm",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Taken off something that had no business being at that depth.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "block_rating": 0.8,
+            "block_value": 8.2
+          },
+          "armor_type": "plate",
+          "armor_value": 164,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Up-Through Longsword",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_throats",
+      "title": "No Bottom Observed",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The two holes with no floor, and what comes up them.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 17,
+          "target_y": 96,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Deepwater Horror",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_wet_scale",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "The Throats are the two with no floor and they are the two I will not go down past forty feet.\n\nThere is something living in them that is WET. I need scale off whatever you can reach, and somebody else has to be holding the knife, because I been down that hole nine times and the tenth is where people stop coming back.",
+      "turn_in_text": "Still wet. It has been in a bag, in a desert, for a day, and it is still wet.\n\nThere is water down there. Not damp - water, enough of it to keep something that size alive. Everybody in this camp has been walking over it for two years.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Rope-Hand's Legguards",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 146,
+          "label": "Mail Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Up-Through Vambraces",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 109,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Rope-Hand's Rod",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_feeding_from_below",
+      "title": "What Is Feeding Them",
+      "giver_npc_id": "ab_reagents",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Nothing in this zone is native to a desert, which is the point.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hollowing Ooze",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_ooze_residue",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Pit Shrike",
+          "count": 6,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Go through the bestiary of this place with me. Crawlers: cave animal. Oozes: cave animal. The horrors in the Throats: aquatic. The revenants: brine.\n\nThere is not one thing on this map that belongs in a desert except the shrikes, and the shrikes are here because everything ELSE is here.\n\nThe entire population of this zone is a consequence of the water leaving. Bring me enough residue to say that with a number on it.",
+      "turn_in_text": "A number. Finally a number.\n\nThat is not a desert bestiary with some cave animals in it. That is a cave bestiary that has had its roof taken off.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Up-Through Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 112,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Second-Shelf Pants",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Taken off something that had no business being at that depth.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.5,
+            "parry_rating": 1.1
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Legs (Dodge/Parry)"
+        },
+        {
+          "name": "Second-Shelf Charm",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_managed_not_solved",
+      "title": "Managed, Not Solved",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Buy the camp another week, properly this time.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sinkhole Lurker",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "kill",
+          "target": "Limestone Crawler",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_lurker_spur",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Peska wants the readings. Hask wants his method. Odd wants the scavengers off the rim.\n\nI want the camp to still be here in a month, and that is a different list and it is mostly killing.\n\nI am not going to dress it up. Go and make the ground round this peg quiet for a while.",
+      "turn_in_text": "Quiet. For a while.\n\nThat is the whole job and anybody who tells you different has not been here two years.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lamplit Girdle",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.7
+          },
+          "armor_type": "leather",
+          "armor_value": 46,
+          "label": "Leather Belt (Agi/Int/AP)"
+        },
+        {
+          "name": "Up-Through Handguards",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.4,
+            "parry_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 74,
+          "label": "Mail Gloves (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "No-Bottom Necklace",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Taken off something that had no business being at that depth.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_fused_face",
+      "title": "One Face of It Is Glass",
+      "giver_npc_id": "ab_rodman",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "The south face of one pit is fused, and nothing out here is hot enough.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 134,
+          "target_y": 69,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Glasswall Elemental",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "The Glasswall. South face, about sixty feet of it, fused solid - proper glass, you can see yourself in it in the afternoon.\n\nSand goes to glass at about three thousand degrees. There is nothing in this desert that gets to three thousand degrees, there is no volcanic rock within a hundred miles, and lightning does not do sixty feet in a line.\n\nGo and look at it and tell me what you think, because I have run out of things to think.",
+      "turn_in_text": "It is not weathered. That is the part. Three years of sand on glass and the face is still smooth, which means it happened AFTER the hole opened, not before.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fused-Face Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Sand went to glass here and nothing out here is hot enough to do that.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 109,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Annealed Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "South-Facing Signet",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Sand went to glass here and nothing out here is hot enough to do that.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_annealed",
+      "title": "Still Warm",
+      "giver_npc_id": "ab_reagents",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Shards off the fused face, still warm hours after sundown.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Glasswall Elemental",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_fused_shard",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "I have had a shard of that face on my bench for a month and it is WARM. Not hot. Warm, at midnight, in a desert that goes to freezing.\n\nBring me five more and I will find out whether it is the stone or whether it is something in the stone, and I would like it to be the stone.",
+      "turn_in_text": "It is not the stone.\n\nI have crushed one, dissolved one, and left one in the dark for a week, and the one in the dark is the warmest of the three. Whatever is in that glass is not being heated. It is heating.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Annealed Handguards",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It throws the afternoon back at you from forty yards.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.0
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Gloves (Int/Hit/SP)"
+        },
+        {
+          "name": "Glasswall Slippers",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.4,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Boots (Int/SP/Crit)"
+        },
+        {
+          "name": "Annealed Rod",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "One face of it is glass and will not take a scratch.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 18,
+            "spirit": 18
+          },
+          "secondary_stats": {
+            "healing_power": 19.0
+          },
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_south_facing",
+      "title": "It Throws the Afternoon Back",
+      "giver_npc_id": "ab_cook",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "You can see the Glasswall from the camp at the right hour, and the camp has opinions.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_glass"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Glasswall Elemental",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "Twice a year the sun gets the angle right and that face throws the whole afternoon back at us, and for about forty minutes this camp is the brightest place in Tanaris.\n\nTobbit says it is a hazard. Hask says it is beautiful. I say it is the only thing out here that does anything on a schedule and I will not have it spoken of badly.",
+      "turn_in_text": "There. Now I can stand and watch it without something coming up the rise at me, which is all I have ever wanted out of that wall.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Heat-Struck Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It throws the afternoon back at you from forty yards.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 5.5
+          },
+          "armor_type": "plate",
+          "armor_value": 109,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Heat-Struck Chain Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.0
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Annealed Necklace",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Sand went to glass here and nothing out here is hot enough to do that.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.2
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_nothing_is_hot_enough",
+      "title": "Nothing Out Here Is Hot Enough",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Put the Glasswall in the book properly, with the thing nobody wants to write.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_fused_shard",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Glasswall Elemental",
+          "count": 9,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_glass"
+          ]
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "I have to write up that face and I have been putting it off for seven months, because the honest entry is 'cause unknown' and I have never written that in a book with my name on it.\n\nGet me enough of it that 'cause unknown' comes with six samples and a date, which is the difference between an admission and a finding.",
+      "turn_in_text": "'Cause unknown. Sixty feet, south-facing, post-collapse, six samples, no local heat source identified.'\n\nThere. It is in. I feel worse than I expected and better than I deserve.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fused-Face Veil",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "stamina": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Helm (Sta/Int/HP)"
+        },
+        {
+          "name": "Fused-Face Chainmail",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "stamina": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 5.4
+          },
+          "armor_type": "mail",
+          "armor_value": 149,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Glasswall Pendant",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Warm hours after sundown, in a desert that goes cold.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_wrong_direction",
+      "title": "The Wrong Direction for a Hole",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The easternmost pit has light coming up out of it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 153,
+          "target_y": 140,
+          "radius": 9
+        },
+        {
+          "type": "kill",
+          "target": "Deepwater Horror",
+          "count": 6,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "East pit. Underlight, which is what the camp calls it and what Peska has grudgingly started calling it in the book.\n\nThere is light coming UP out of that hole. Not much - you cannot see it at noon - but stand on the rim after dark and you can read by it, and light does not come up out of the ground.\n\nGo and stand on it. Everybody has to once.",
+      "turn_in_text": "Everybody who looks in wants to go in. That is the part nobody says out loud and it is true of every single person in this camp including me.\n\nThat light was not there before the change. Nothing here was.",
+      "next_quest_id": "ab_lit_from_below",
+      "unique_item_defs": [
+        {
+          "name": "Eastward Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Eastward Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Everybody who looks in wants to go in. Nobody says that part.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 5.5
+          },
+          "armor_type": "plate",
+          "armor_value": 109,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Eastward Signet",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Everybody who looks in wants to go in. Nobody says that part.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_lit_from_below",
+      "title": "Lit From Below",
+      "giver_npc_id": "ab_rodman",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Work out what is making the light, which means getting close to it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Glasswall Elemental",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "kill",
+          "target": "Hollowing Ooze",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_wet_scale",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "It is not fire. Fire flickers and that does not. It is not the glass - wrong colour and wrong place.\n\nWhat it IS doing is getting slightly brighter every season, which I have measured, and I would like a sample of everything living within forty feet of it before I say anything about that in front of Peska.",
+      "turn_in_text": "Every single thing within forty feet of that pit is wet, and the further east you go the wetter they get.\n\nEast. Everything about this zone points east and the camp is pitched in the northeast corner and I do not think that was an accident on Peska's part, whatever she says.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wrong-Direction Vambraces",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Cold, and it came out of the warmest part of the map.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Underlight Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Carried out of a pit you can read by at night.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 6,
+            "stamina": 6
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Lit-From-Below Cudgel",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Cold, and it came out of the warmest part of the map.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_the_two_without",
+      "title": "The Two Without Floors",
+      "giver_npc_id": "ab_digger",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Both bottomless pits are on the east side, and east is where the ground is worst.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 44,
+          "target_y": 115,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "the_abyssal_sands",
+          "target_x": 153,
+          "target_y": 140,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Deepwater Horror",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Nine have floors. Two do not. Both of the two are east.\n\nI have been down both to the end of my line and the line is a hundred and twenty feet and it does not reach anything.\n\nWalk both rims for me in one day, in order, and tell me whether you come back thinking what I think.",
+      "turn_in_text": "They are the same hole. That is what I think and I have thought it for a year and there is no way to prove it from up here.\n\nSomething runs between them. Under us. East.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Eastward Helm",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Everybody who looks in wants to go in. Nobody says that part.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Lit-From-Below Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Cold, and it came out of the warmest part of the map.",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 10.1
+          },
+          "armor_type": "leather",
+          "armor_value": 70,
+          "label": "Leather Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Lit-From-Below Signet",
+          "slot": "ring",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_everything_points_east",
+      "title": "Everything Points East",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Put it together: the brine, the wet scale, the light, the two with no floor.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_east"
+          ]
+        },
+        {
+          "type": "fetch",
+          "target": "ab_wet_scale",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Saltbone Revenant",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Sepp has brine. Hask has four shrike crops with water animals in them. Vizzi has a hundred and twenty feet of line that does not reach anything, twice, both on the east side. And there is light coming up out of the ground.\n\nI am a surveyor. I do not get to say what that MEANS. I do get to say that every single one of those points the same direction, and I want one more set of readings before I write the sentence.",
+      "turn_in_text": "East. All of it, east, toward the big hole with the water in it that the goblins are sitting on - a hole that was not there before the change either, like everything else I have had to measure.\n\nSomebody over there needs to see my book and I am four years too busy to carry it.",
+      "next_quest_id": "ab_carry_the_book",
+      "unique_item_defs": [
+        {
+          "name": "No-Bottom Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 112,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Underlight Circlet",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Carried out of a pit you can read by at night.",
+          "primary_stats": {
+            "stamina": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Helm (Sta/Int/HP)"
+        },
+        {
+          "name": "Underlight Rod",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.0
+          },
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 75,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_four_carts",
+      "title": "Four Carts",
+      "giver_npc_id": "ab_quartermaster",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Everything this camp owns has to fit on four carts and be gone in a day.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cartfall Scavenger",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "fetch",
+          "target": "ab_lifted_brass",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Four carts. That is the rule and I did not make it, and we have struck camp in a day twice and both times I was glad about the rule and nobody else was.\n\nThe scavengers have been at the spare fittings. Brass, mostly, which they can sell and I cannot replace. Get it back.",
+      "turn_in_text": "That is a cart's worth of brass. I know exactly what that is worth because I know exactly what everything here is worth, which is the entire job.\n\nPrices have been mad since the day the ground changed, and brass has been the maddest of them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Struck-Camp Spaulders",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 105,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Chainman's Cuffs",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Bracers (Agi/Sta/AP)"
+        },
+        {
+          "name": "Level-Run Knife",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_a_short_pantry",
+      "title": "A Short Pantry",
+      "giver_npc_id": "ab_cook",
+      "zone": "the_abyssal_sands",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "There is food out here. It is a short list and she knows all of it now.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pitfall Kodo",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "kill",
+          "target": "Pit Shrike",
+          "count": 6,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "A desert has a pantry. It is short and most of it is unpleasant and after four camps I know all of it.\n\nKodo is the bulk of it. Shrike, if you are quick and you do not mind the work. Go and get me enough for a fortnight and I will cook you something you will be rude about and finish.",
+      "turn_in_text": "There. You were rude about it and you finished it.\n\nSome of what I cook with came through with everybody else, you know. There are things growing in Tanaris now that have no business in a desert and they go in the pot like anything else.\n\nFour camps. The food has got better every time and nobody expected that, including me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Peg-Iron Sash",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.3,
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Belt (Int/SP/MP5)"
+        },
+        {
+          "name": "Peg-Iron Pauldrons",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.7
+          },
+          "armor_type": "leather",
+          "armor_value": 67,
+          "label": "Leather Shoulders (Agi/Sta/AP)"
+        },
+        {
+          "name": "Peg-Iron Axe",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_peg_irons",
+      "title": "Peg Irons",
+      "giver_npc_id": "ab_smith",
+      "zone": "the_abyssal_sands",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Survey stakes need iron and the crawlers keep eating it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_crawler_plate",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Limestone Crawler",
+          "count": 8,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "I shod kodo for nine years and now I make peg irons, which is a sentence I try not to say out loud too often.\n\nThe crawlers go for them. Something in the iron, or something in the heat of it - Sepp has a theory and I have stopped listening. Bring me plate and I will line the next batch with it, and we will find out whether a crawler will chew through its own cousin.",
+      "turn_in_text": "It will not. Six weeks and not a mark on them.\n\nI have lined survey stakes with the shells of the things that eat survey stakes. I would like somebody to write that down somewhere it will be found.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Fourth-Peg Greathelm",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 161,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Level-Run Bracers",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Level-Run Charm",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.1
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_three_month_contract",
+      "title": "A Three-Month Contract",
+      "giver_npc_id": "ab_reagents",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "He came out on a three-month contract two years and two camps ago.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_contract"
+          ]
+        },
+        {
+          "type": "kill",
+          "target": "Saltbone Revenant",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        },
+        {
+          "type": "kill",
+          "target": "Sinkhole Lurker",
+          "count": 7,
+          "zone": "the_abyssal_sands"
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "I came out with the second camp on a three-month contract.\n\nThat was two years and two camps ago and nobody has ever mentioned the contract again, including me.\n\nI am not complaining and I would like that understood before I ask you for anything. Go south and make the run to the Throats survivable for a woman carrying glass, and I will tell you why I stayed.",
+      "turn_in_text": "Because somebody has to be the one who is still here when the answer turns up.\n\nThat is it. That is the whole reason and it took me eight months to work it out and about four seconds to say.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Peg-Iron Bracers",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Marked in a very small hand with a date and a bearing.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Level-Run Breeches",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "primary_stats": {
+            "stamina": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 5.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Legs (Sta/Int/HP)"
+        },
+        {
+          "name": "Peg-Iron Pendant",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ab_carry_the_book",
+      "title": "Four Years of Dates",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Her collapse log, east, to somebody who has been waiting four years for it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_collapse_log",
+          "count": 1,
+          "label": "Peska Vane's collapse log, to the surveyor at Lastwater"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_east"
+          ]
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Through the east gate, down into the hole with the water in it. There is a camp at the bottom and there is a tauren in it doing the same job I am doing from the other end.\n\nI have every collapse date since this began and no theory at all. I am told she has four years of theory and has never once had a set of dates from inside a collapse field.\n\nNeither of us knew the other existed. That is not a charming coincidence, it is a disgrace, and it is the ordinary condition of everybody who has worked on this since the sky changed.",
+      "turn_in_text": "[Ulla Stormhollow reads the first twenty pages standing up, then sits down on a crate and reads the rest without saying anything.]\n\nShe has dates.\n\nFour years I have had a shape with no numbers in it, and there is a goblin four days northwest who has been writing the numbers down the entire time and thought she was doing something else.\n\nTell her - no. I will write. Some things should not be carried by somebody else.",
+      "next_quest_id": "ab_the_answer_comes_back",
+      "unique_item_defs": [
+        {
+          "name": "Lit-From-Below Vambraces",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.7,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 112,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Underlight Cloak",
+          "slot": "back",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Everybody who looks in wants to go in. Nobody says that part.",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 37,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Underlight Cudgel",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Cold, and it came out of the warmest part of the map.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "armor": 21.1,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_collapse_log",
+            "name": "Peska Vane's Collapse Log",
+            "description": "Eleven holes, four years, every date and bearing, in a very small hand.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "ab_the_answer_comes_back",
+      "title": "What She Said Back",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Carry the reply west, and the Sands finally get told what happened to them.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_ullas_reply",
+          "count": 1,
+          "label": "Ulla's reply, to Chief Surveyor Vane"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "ab_the_reply"
+          ]
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "I have written it out. It is four pages and the first three are arithmetic she will be able to check herself, which is the only kind of letter worth sending to somebody like her.\n\nThe fourth page is what it means, and she is not going to like it, because it means her field is going to keep opening until somebody stops the thing that is doing it.",
+      "turn_in_text": "[Peska reads it twice. Then she goes and stands by the peg for a while.]\n\nIt is not the ground.\n\nTwo years. Two years of me reading the hardpan and Hask listening to it and both of us trying to work out what was wrong with the ROCK, and the rock is fine. The rock has done nothing. The rock has been holding up exactly as well as rock does when there is water under it.\n\nI am going to have to tell the camp. And then I am going to have to write to the port and tell them the answer to 'is a road possible' is 'ask whoever is at the bottom of that hole'.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Eastward Jerkin",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Everybody who looks in wants to go in. Nobody says that part.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.5,
+            "parry_rating": 1.1
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Eastward Sash",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Carried out of a pit you can read by at night.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        },
+        {
+          "name": "Wrong-Direction Necklace",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Cold, and it came out of the warmest part of the map.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.2
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_ullas_reply",
+            "name": "Ulla Stormhollow's Reply",
+            "description": "Four pages. Three of arithmetic and one of what it means.",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}

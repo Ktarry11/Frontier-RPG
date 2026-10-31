@@ -96,6 +96,15 @@ ABYSSAL_ZONE = {
             "creatures": {"Sinkhole Lurker": 5, "Saltbone Revenant": 4, "Pitfall Kodo": 3,
                           "Limestone Crawler": 3, "Longcollapse": 0},
         },
+        # FOURTH PEG. Eight people in tents, and nothing spawns on them - see
+        # CreatureManager.is_safe_subzone. A subzone with no roster of its own falls through to the
+        # parent zone's table AND rolls at 5% a step against the open zone's 2%, so without this
+        # the quietest place on the map would be the most dangerous one.
+        "Fourth Peg": {
+            "name": "Fourth Peg",
+            "safe": True,
+            "creatures": {},
+        },
         "Underlight": {
             "name": "Underlight",
             "creatures": {"Glasswall Elemental": 4, "Deepwater Horror": 4, "Hollowing Ooze": 4,
@@ -268,7 +277,7 @@ def main():
     enc = json.loads(ENC.read_text(encoding="utf-8"))
     enc["zones"]["The Abyssal Sands"] = ABYSSAL_ZONE
     ENC.write_text(json.dumps(enc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("  encounters.json: open_zone + 7 subzones")
+    print(f"  encounters.json: open_zone + {len(ABYSSAL_ZONE['subzones'])} subzones (Fourth Peg safe)")
 
     pls = pools()
     bad = audit(pls)

@@ -451,7 +451,8 @@ def build():
     q.append(Q("gv_the_cutters_stock", "Four Months of Stock", CUTTER, GV, 47, 48, "seam",
                "The only stone in the world that ignores a spell, and the supply has a date on it.",
                [k("Shardback Crawler", 7), fetch("gv_rough_seam_glass", 6)],
-               "There is one seam in the world that shrugs off a spell and you are standing in the "
+               "There is a single seam in the world that shrugs off a spell and you are standing in "
+               "the "
                "hole it came out of - and it was not here three years ago either, before you ask. Nobody cut this stone before the change because nobody had found the hole.\n\nI have about four months of cut stock left. After that I "
                "am a very skilled woman sitting on a rock. Get me rough off the wall - the seams "
                "run up the inside, you cannot miss them, they are the only thing down here that "
@@ -657,13 +658,13 @@ def build():
                        "walked all of it.")))
 
     q.append(Q("gv_the_book_goes_east", "The Column Nobody Wanted", CLERK, GV, 52, 52, "lastwater",
-               "Oss's nine hundred and forty-two dawns, copied for the port's own clerk.",
+               "The whole column out of Oss's book, written out again for the port's own clerk.",
                [deliver("gv_copied_column", "the copied column, to Tally-Clerk Hesper Dunn"),
                 talk("gv_two_clerks")],
                "Hesper Dunn out in the port keeps a book like mine. She keeps hers so that in four "
                "years nobody can claim the town was always like this.\n\nMine is nine hundred and "
                "forty-two dawns of a number that nobody wanted and that turned out to be the only "
-               "record anybody had of the thing happening. Copy it and take it to her. Two books "
+               "record anybody had of the thing happening. Copy it and take it to her. A pair of books "
                "four days apart are harder to lose than one.",
                "She will keep it. She will keep it in the same box and she will date the box, "
                "because that is what we are like.\n\nSomebody in forty years is going to open that "
@@ -735,32 +736,31 @@ def audit(quests):
     # COUNTS IN PROSE BIND TO THE WRONG OBJECTIVE when an item id shares a word with a creature
     # name - eight on the Flats and seven on Tanaris, both after the guide warned about it. Check
     # it here rather than rediscovering it in the audit.
-    NUMWORD = re.compile(r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|"
-                         r"twelve|dozen|forty|fifty)\b", re.I)
+    # THE ENGINE'S RULE, not a narrower one. prose_count_mismatches looks for a number within two
+    # words of ANY word from an objective's target id and binds it to that objective - so the
+    # failure is a number near a target word that is not that objective's count, whether or not
+    # two targets share the word. Checking only shared words missed "four years of collapse dates"
+    # beside a count-1 ab_collapse_log, which the game's own audit then caught.
+    NUMWORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+               "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "dozen": 12}
     for q in quests:
-        seen = {}
+        words = {}
         for o in q["objectives"]:
             for w in str(o.get("target", "")).lower().replace("_", " ").split():
                 if len(w) > 3:
-                    seen.setdefault(w, set()).add(o.get("target"))
-        blob = " ".join(str(q.get(kk) or "") for kk in ("description", "accept_text", "turn_in_text"))
-        toks = re.findall(r"[A-Za-z0-9']+", blob)
-        low = [t.lower() for t in toks]
-        for w, tg in seen.items():
-            if len(tg) < 2:
+                    words.setdefault(w, []).append(o.get("count", 1))
+        blob = " ".join(str(q.get(kk) or "") for kk in ("description", "accept_text",
+                                                        "turn_in_text"))
+        low = [t.lower() for t in re.findall(r"[A-Za-z0-9']+", blob)]
+        for i, t in enumerate(low):
+            if t not in words:
                 continue
-            # Only a PROBLEM when a number actually sits within two words of the shared token -
-            # which is the window prose_count_mismatches uses. Flagging the collision alone made
-            # the check fail on crystal_quartz and crystal_azure, two legitimate gatherables that
-            # share a prefix and have no count anywhere near them in the text.
-            for i, t in enumerate(low):
-                if t != w:
-                    continue
-                window = low[max(0, i - 2):i + 3]
-                if any(NUMWORD.fullmatch(x) for x in window):
-                    bad.append(f"{q['quest_id']}: a count sits beside '{w}', which appears in two "
-                               f"objective targets {sorted(tg)} - the count will bind to whichever "
-                               f"objective comes first")
+            for x in low[max(0, i - 2):i + 3]:
+                n = int(x) if x.isdigit() else NUMWORD.get(x)
+                if n is not None and n not in words[t]:
+                    bad.append(f"{q['quest_id']}: '{x} ... {t}' puts the number {n} beside an "
+                               f"objective word whose count is {words[t]} - the prose count will "
+                               f"be read as the objective's")
                     break
     return bad
 

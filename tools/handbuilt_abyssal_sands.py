@@ -244,7 +244,9 @@ def tile_kind(gx, gy):
 
 
 def road_dist(gx, gy):
-    """NO ROAD. There was one and it is in a hole. Nobody has surveyed a new line because nobody is
+    """NO ROAD. There was one and it is in a hole, and there is still not a new one - Fourth Peg
+    is eight people trying to find out whether one is POSSIBLE, which is a different job with a
+    different answer and only one of those has ever been funded. Nobody has surveyed a line because
     confident the ground they would survey will still be there next season."""
     return np.full(np.shape(gx), -9.0)
 
@@ -263,12 +265,33 @@ SUBZONES = [
     ("The Throats", 18, 76, 54, 70),
     ("The Long Collapse", 54, 96, 72, 56),
     ("Underlight", 118, 96, 58, 58),
+    # The camp. Flagged "safe" in encounters.json - a subzone with no roster of its own falls
+    # through to the parent zone's table AND rolls at 5% a step against the open zone's 2%, so
+    # without the flag the quietest place on the map is the most dangerous one.
+    ("Fourth Peg", 128, 16, 26, 22),
 ]
 
 BASE = {"sand": 0.50, "hard": 0.26, "clay": 0.14, "rock": 0.10}
 PAINT = {}
 COBBLE = []
-NPC_POSITIONS = {}
+#: FOURTH PEG. A road survey camp, pitched around the fourth stake because the first three are all
+#: in holes. Up on the northeast flat, which is the furthest any ground on this map sits from a
+#: pit - thirty-five tiles from the nearest one, measured rather than eyeballed.
+#:
+#: THIS DOES NOT GIVE THE ZONE A TOWN OR A ROAD. There is still no road; there are eight people
+#: trying to find out whether one is possible, in tents, on four carts they can strike in a day.
+#: The docstring's claim stands: nobody has surveyed a new LINE, because every line they have
+#: pegged so far has been overtaken by the ground before it could be finished.
+NPC_POSITIONS = {
+    "ab_surveyor":     (140, 25),      # the peg itself is here, and so is she
+    "ab_rodman":       (145, 23),
+    "ab_teamster":     (134, 24),
+    "ab_digger":       (147, 28),
+    "ab_quartermaster": (136, 29),
+    "ab_cook":         (140, 30),
+    "ab_smith":        (144, 30),
+    "ab_reagents":     (132, 27),
+}
 CHESTS = [(34, 22), (96, 36), (28, 110), (134, 100)]
 FOREST = None
 

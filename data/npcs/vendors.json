@@ -3369,6 +3369,107 @@
       "gender": "female",
       "appearance_variant": 10,
       "greeting": "Bring it to me before it breaks, not after. Down here after is a long walk.\n\nI repaired pump housings for two years and I have repaired weapons for one, and I will tell you which of those I would rather be doing. A pump that fails floods a gallery. A sword that fails kills the person holding it, and lately the person holding it is somebody I know."
+    },
+    {
+      "vendor_id": "ab_quartermaster",
+      "name": "Quartermaster Tobbit Lund",
+      "zone": "the_abyssal_sands",
+      "x": 136,
+      "y": 29,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "meal_trailbread",
+        "drink_waterskin",
+        "whetstone",
+        "flux_strong",
+        "component_string",
+        "parchment",
+        "glue",
+        "coal"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 25,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 5,
+      "greeting": "Everything a camp needs and nothing a camp cannot carry on four carts.\n\nThat is the rule and I did not make it. Four carts is what we can strike and move in a day, and we have moved in a day twice, and both times I was glad about the rule and nobody else was."
+    },
+    {
+      "vendor_id": "ab_cook",
+      "name": "Cook Marda Pell",
+      "zone": "the_abyssal_sands",
+      "x": 140,
+      "y": 30,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "meal_trailbread",
+        "meal_spiced_haunch",
+        "drink_barley_beer",
+        "drink_waterskin",
+        "healing_potion_superior"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 25,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 23,
+      "greeting": "Bedrolls under the awning and the pot is on. Both of them come with the posting.\n\nI have fed this camp in four places and the food has got better every time, which is not a thing anybody expected including me. You learn a desert's pantry eventually. It is a short pantry and I know all of it now."
+    },
+    {
+      "vendor_id": "ab_smith",
+      "name": "Smith Gorra Blacktooth",
+      "zone": "the_abyssal_sands",
+      "x": 144,
+      "y": 30,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "coal",
+        "glue",
+        "thread_fine",
+        "resin"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 25,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "female",
+      "appearance_variant": 17,
+      "greeting": "Bring it before it goes, not after. There is no second forge between here and the port.\n\nI shoe nothing and I shod kodo for nine years, which tells you what this posting is. These days it is peg irons, chain, and whatever the crawlers have been at."
+    },
+    {
+      "vendor_id": "ab_reagents",
+      "name": "Brewer Sepp Narrow",
+      "zone": "the_abyssal_sands",
+      "x": 132,
+      "y": 27,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "battle_elixir_superior",
+        "guardian_elixir_superior",
+        "elixir_of_greater_endurance",
+        "vial_empty"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 25,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 11,
+      "greeting": "Mixed thin, because everything out here has to survive a cart.\n\nI came out with the second camp on a three-month contract. That was two years and two camps ago and nobody has ever mentioned the contract again, including me."
     }
   ]
 }
