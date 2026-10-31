@@ -64,4 +64,17 @@ BATCH = {
         "decide who belongs."),
 ),
 
+"tomas_warrior": dict(
+    forward=(
+        "Something that stays up.\n\n"
+        "He has been looking at the way this city holds its roofs on with an expression the "
+        "orcs find difficult to read and have decided not to ask about.\n\n"
+        "There was a woman in Prague he hadn't asked yet, and before her a lighting tech called "
+        "Dominik who asked him first and had a yes inside the week. The crew ran a book on which "
+        "way he'd go. He refused to settle it for them, mostly because he liked watching the "
+        "money change hands.\n\n"
+        "Three years is long enough that he has started describing both of them in the past "
+        "tense without noticing. His friends here have noticed."),
+),
+
 }
