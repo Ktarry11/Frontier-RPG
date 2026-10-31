@@ -28,7 +28,7 @@ VARIANT_FOLDERS = {
     "nautical": ("Deck", "Hold", "Flooded"),
 }
 FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "jungle", "mountain",
-                "mossy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
+                "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
                 "keep")
 
 # Nearest-match: every ZONE_BIOME / CAVE_BIOME tag in world/tile_textures.py
@@ -40,11 +40,14 @@ BIOME_TO_BACKGROUND = {
     "desert": "desert",
     "desert_oasis": "desert",
     "tropical": "jungle",
-    # Ashenvale and Astranaar. Routed to jungle when jungle was the only pack with big trees in
-    # it; they were drawing the same overgrown stepped temple as Booty Bay, two zones and a
-    # continent apart. mossy_forest now holds the glowing-motes fantasy forest, which is what
-    # tile_textures describes these as ("teal/gold fantasy trees... the sparkle/beauty read").
-    "mythical_forest": "mossy_forest",
+    # Ashenvale, Astranaar, Zoram Strand, Splintertree Post. Routed to jungle when jungle was the
+    # only pack with big trees in it, so they drew the same overgrown stepped temple as Booty
+    # Bay, a continent away - Kyle: "Ashenvale is a forest not troll ruins". Moving them to
+    # mossy_forest was not enough either, because that pack also holds a farm cottage and a barn,
+    # which is Hillsbrad. fantasy_forest is woodland only: the glowing-motes forest and the
+    # autumn lakeshore, matching tile_textures' own description of these zones ("teal/gold
+    # fantasy trees... the sparkle/beauty read").
+    "mythical_forest": "fantasy_forest",
     # The undead belt - Silverpine, Tirisfal, the Sepulcher, Fenris Isle, Deathknell, Brill and
     # Undercity itself - fought in a healthy green forest and a generic stone dungeon until the
     # blighted pack existed. Nine zones, all of them explicitly written as dead country.

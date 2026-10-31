@@ -30,7 +30,7 @@ MAPPING = {
     # ---- sheet 1 -------------------------------------------------------------
     ("s1", "00"): "desert",             # sun-bleached dunes, ribcage, cracked pan
     ("s1", "01"): "fire_dungeon",       # obsidian hall, lava seams underfoot
-    ("s1", "02"): "mossy_forest",       # mystical forest, glowing motes
+    ("s1", "02"): "fantasy_forest",       # mystical forest, glowing motes
     # sky is what you see from a zeppelin deck: cloud and land far below. The void and the
     # constellation stair were in here and a zeppelin tower rolled DEEP SPACE, so they moved
     # to crystal, which is the arcane pack.
@@ -100,7 +100,7 @@ MAPPING = {
     ("s5", "05"): "nautical/Deck",      # coastal fort at sunset
 
     # ---- sheet 6 -------------------------------------------------------------
-    ("s6", "00"): "mossy_forest",       # autumn lakeshore, broken arches
+    ("s6", "00"): "fantasy_forest",       # autumn lakeshore, broken arches
     ("s6", "01"): "blighted",           # plague swamp, green and violet ooze
     ("s6", "03"): "jungle",             # deep jungle, ruins among the roots
     ("s6", "04"): "fire_dungeon",       # fel hall, green fire over lava
