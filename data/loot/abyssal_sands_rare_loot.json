@@ -1,0 +1,468 @@
+{
+  "_notes": "Named rares of the Abyssal Sands. One item per kill. Hand-authored in tools/build_abyssal_content.py; spread checked by its audit().",
+  "The First Down": [
+    {
+      "name": "First-Down Goad",
+      "slot": "main_hand",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Still in the hand it was in. The hand came up with it.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 40,
+        "stamina": 40
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 117,
+      "weapon_damage_max": 159,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Harness-Scarred Breastplate",
+      "slot": "chest",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Four years in a hole and the buckles still work.",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 299
+    },
+    {
+      "name": "Drover's Last Wraps",
+      "slot": "hands",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Whoever went down first went down holding the reins.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 62
+    },
+    {
+      "name": "Three-Year Pendant",
+      "slot": "neck",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "The date scratched inside is the season the shallow wells went.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Axleback": [
+    {
+      "name": "Axleback's Hauling Chain",
+      "slot": "main_hand",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Dragged out of a pit with a cart still attached to the other end.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 40,
+        "stamina": 40
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 117,
+      "weapon_damage_max": 159,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Cartfall Hide Jerkin",
+      "slot": "chest",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "It went in with the caravan and it came out without it.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 124
+    },
+    {
+      "name": "Teamster's Scaled Boots",
+      "slot": "feet",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "The ground gave way under these and they are still walking on it.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 99
+    },
+    {
+      "name": "Spoil-Ring Circlet",
+      "slot": "head",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "flavor_text": "Everything a hole throws up ends up in a ring round it.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 46
+    }
+  ],
+  "The Wide Sink Mother": [
+    {
+      "name": "Brood-Mother's Shearing Limb",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Articulated. It should not be, and it is.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Hollowed Carapace Guard",
+      "slot": "shoulder",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Shell plate off something that only came up because the floor went down.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 229
+    },
+    {
+      "name": "Sink-Mother's Veil",
+      "slot": "head",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "There is a smell in the Wide Sink and this has it.",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9.2,
+        "mp5": 1.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Crawler-Scale Bracers",
+      "slot": "wrist",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Thin, curved, and sharper than they have any right to be.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 102
+    }
+  ],
+  "Glasswall Warden": [
+    {
+      "name": "Annealed Wall-Shard",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Sand fused into glass where something very hot came up through it.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.8
+      },
+      "weapon_damage_min": 75,
+      "weapon_damage_max": 102,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Glasswall Plate",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "One face of it is still glass and will not take a scratch.",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 306
+    },
+    {
+      "name": "Fused-Face Leggings",
+      "slot": "legs",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "The south face of that hole is a mirror in the afternoon.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 127
+    },
+    {
+      "name": "Annealing Band",
+      "slot": "wrist",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Warm, hours after sundown, in a desert that goes cold.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 6.1,
+        "mp5": 1.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 31
+    }
+  ],
+  "The Thing in the Throat": [
+    {
+      "name": "Throat-Cold Rod",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Cold in a hole that has never held water in living memory.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9.2,
+        "mp5": 1.8
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Remembered-Water Mantle",
+      "slot": "shoulder",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Damp. Nobody has worked out how.",
+      "primary_stats": {
+        "stamina": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 5.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Deep-Throat Scale Vest",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Whatever is down there came from somewhere that still has water in it.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 204
+    },
+    {
+      "name": "Undertow Treads",
+      "slot": "feet",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "It pulls, and there is nothing to pull with.",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "leather",
+      "armor_value": 63
+    }
+  ],
+  "Longcollapse": [
+    {
+      "name": "Longcollapse Sweeper",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Twenty-two tiles of ground went in one afternoon and this was under it.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 42,
+        "stamina": 42
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 121,
+      "weapon_damage_max": 164,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Nothing-Left-Standing Girdle",
+      "slot": "waist",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "The longest hole on the map and the newest.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 156
+    },
+    {
+      "name": "Collapse-Walker's Leggings",
+      "slot": "legs",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "You can walk the length of that one and never be more than a step from the edge.",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 208
+    },
+    {
+      "name": "Fallen-Ground Charm",
+      "slot": "trinket",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Picked up off ground that was twenty feet higher four years ago.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Underlight": [
+    {
+      "name": "Underlight's Lantern-Staff",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Something is lit down there and it was not lit by anybody.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 25
+      },
+      "secondary_stats": {
+        "spell_power": 33.7,
+        "mp5": 6.7
+      },
+      "weapon_damage_min": 49,
+      "weapon_damage_max": 67,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Glow-Touched Robes",
+      "slot": "chest",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Stand on that rim at night and you can read by it.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 7.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 65
+    },
+    {
+      "name": "Drawn-Downward Spaulders",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Everybody who looks in wants to go in. That is the part nobody says.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 97
+    },
+    {
+      "name": "Deep-Shine Gauntlets",
+      "slot": "hands",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "The light comes UP, which is the wrong direction for a hole.",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 104
+    }
+  ]
+}

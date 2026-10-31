@@ -5902,6 +5902,119 @@ TANARIS_KITS = {
     ],
 }
 
+
+# ======================================================================================================
+# THE ABYSSAL SANDS (44-47) - Tanaris zone 2. Eleven holes and what came up out of them.
+#
+# CALIBRATED AGAINST NORTHERN TANARIS, NOT RE-EXTRAPOLATED. That block carries the note and this is
+# the first roster to honour it: 41-44 trash runs 104-138 and its rares 150-185, so 44-47 steps to
+# trash 134-166 and rares 190-225. Re-extrapolating from 35-40 a second time would have landed near
+# 180 for trash, which is how a band drifts upward every time somebody adds a zone.
+#
+# TWO POPULATIONS AND THEY ARE THE SAME EVENT. Things that fell in and are still down there, and
+# things that came UP through the holes because something opened a way to them. The zone's whole
+# bestiary is a consequence of the water leaving - nothing here is native to a desert.
+# ======================================================================================================
+ABYSSAL_KITS = {
+    # ---- WHAT FELL IN. Caravans, their beasts, and the people who were on them.
+    "cartfall_scavenger": [
+        ("Pick Over", "damage", 134, 0, 0, "physical", {}),
+        ("Strip the Dead", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"armor": -58}}),
+    ],
+    "sunken_drover": [
+        ("Drover's Goad", "damage", 142, 0, 0, "physical", {}),
+        ("Still Walking the Line", "damage", 120, 4, 0, "physical", {}),
+        ("Three Years Down", "dot", 38, 3, 0, "shadow", {"duration": 3}),
+    ],
+    "pitfall_kodo": [
+        ("Blundering Weight", "damage", 150, 0, 0, "physical", {}),
+        ("Stamp", "damage", 126, 4, 0, "physical", {"is_aoe": True}),
+        ("Will Not Lie Down", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 74}, "self_only": True}),
+    ],
+
+    # ---- WHAT CAME UP. The holes did not only swallow.
+    "limestone_crawler": [
+        ("Shearing Limb", "damage", 138, 0, 0, "physical", {}),
+        ("Up Through the Floor", "damage", 118, 3, 0, "physical", {}),
+        ("Grit in the Joint", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"dodge_rating": -40}}),
+    ],
+    "hollowing_ooze": [
+        ("Dissolve", "damage", 146, 0, 0, "nature", {}),
+        ("Spread Thin", "damage", 124, 4, 0, "nature", {"is_aoe": True}),
+        ("Etched Away", "dot", 42, 3, 0, "nature", {"duration": 4}),
+    ],
+    "deepwater_horror": [
+        ("Reaching Arm", "damage", 158, 0, 0, "frost", {}),
+        ("Remembered Water", "debuff", 0, 6, 0, "frost",
+         {"duration": 3, "stat_mods": {"agility": -50, "hit_rating": -34}}),
+        ("Drag Under", "damage", 134, 5, 0, "frost", {}),
+    ],
+    "pit_shrike": [
+        ("Stooping Strike", "damage", 136, 0, 0, "physical", {}),
+        ("Nest Dive", "damage", 116, 3, 0, "physical", {}),
+    ],
+    "sinkhole_lurker": [
+        ("Ambush From Below", "damage", 160, 0, 0, "physical", {}),
+        ("Collapse Underfoot", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"defense_rating": -46}}),
+        ("Swallow", "dot", 44, 4, 0, "physical", {"duration": 3}),
+    ],
+    "saltbone_revenant": [
+        ("Saltbone Reach", "damage", 166, 0, 0, "shadow", {}),
+        ("What the Dry Keeps", "dot", 46, 3, 0, "shadow", {"duration": 4}),
+        ("Unburied Again", "buff", 0, 6, 0, "shadow",
+         {"duration": 4, "stat_mods": {"attack_power": 78}, "self_only": True}),
+    ],
+    "glasswall_elemental": [
+        ("Fused Slam", "damage", 164, 0, 0, "fire", {}),
+        ("Shear the Face", "damage", 140, 4, 0, "fire", {"is_aoe": True}),
+        ("Heat Off the Wall", "dot", 44, 3, 0, "fire", {"duration": 3}),
+    ],
+
+    # ---- NAMED RARES. One per subzone, never quested.
+    "the_first_down": [
+        ("The First Down", "damage", 192, 0, 0, "physical", {}),
+        ("Still Harnessed", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"agility": -46}}),
+        ("Four Years Standing", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 88}, "self_only": True}),
+    ],
+    "axleback": [
+        ("Axleback's Weight", "damage", 198, 0, 0, "physical", {}),
+        ("Shake the Rim", "damage", 166, 4, 0, "physical", {"is_aoe": True}),
+        ("Cart Still On It", "dot", 48, 3, 0, "physical", {"duration": 4}),
+    ],
+    "the_wide_sink_mother": [
+        ("Brood Reach", "damage", 206, 0, 0, "physical", {}),
+        ("Up Through Everything", "damage", 172, 4, 0, "physical", {"is_aoe": True}),
+        ("Hollowed Out", "debuff", 0, 6, 0, "nature",
+         {"duration": 3, "stat_mods": {"defense_rating": -54, "armor": -70}}),
+    ],
+    "glasswall_warden": [
+        ("Fused Fist", "damage", 212, 0, 0, "fire", {}),
+        ("The Wall Answers", "damage", 180, 4, 0, "fire", {"is_aoe": True}),
+        ("Annealed", "buff", 0, 6, 0, "fire",
+         {"duration": 4, "stat_mods": {"armor": 96}, "self_only": True}),
+    ],
+    "the_thing_in_the_throat": [
+        ("Out of the Throat", "damage", 218, 0, 0, "frost", {}),
+        ("Cold That Should Not Be", "dot", 54, 3, 0, "frost", {"duration": 4}),
+        ("Pulled Down", "debuff", 0, 6, 0, "frost",
+         {"duration": 3, "stat_mods": {"agility": -58, "dodge_rating": -50}}),
+    ],
+    "longcollapse": [
+        ("Longcollapse Sweep", "damage", 222, 0, 0, "physical", {}),
+        ("Take the Ground", "damage", 188, 4, 0, "physical", {"is_aoe": True}),
+        ("Nothing Left Standing", "debuff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -82}}),
+    ],
+    "underlight": [
+        ("Underlight's Glow", "damage", 225, 0, 0, "arcane", {}),
+        ("Something Is Lit Down There", "damage", 192, 4, 0, "arcane", {"is_aoe": True}),
+        ("Drawn Toward It", "debuff", 0, 6, 0, "arcane",
+         {"duration": 3, "stat_mods": {"intellect": -56, "spell_power": -60}}),
+    ],
+}
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -5911,7 +6024,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
-               STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS):
+               STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS, ABYSSAL_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

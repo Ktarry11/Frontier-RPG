@@ -10915,5 +10915,227 @@
     "spell_power": -48
    }
   }
+ ],
+ "the_first_down": [
+  {
+   "name": "The First Down",
+   "kind": "damage",
+   "amount": 192,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Still Harnessed",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -46
+   }
+  },
+  {
+   "name": "Four Years Standing",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 88
+   },
+   "self_only": true
+  }
+ ],
+ "axleback": [
+  {
+   "name": "Axleback's Weight",
+   "kind": "damage",
+   "amount": 198,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Shake the Rim",
+   "kind": "damage",
+   "amount": 166,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Cart Still On It",
+   "kind": "dot",
+   "amount": 48,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
+ ],
+ "the_wide_sink_mother": [
+  {
+   "name": "Brood Reach",
+   "kind": "damage",
+   "amount": 206,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Up Through Everything",
+   "kind": "damage",
+   "amount": 172,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Hollowed Out",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 3,
+   "stat_mods": {
+    "defense_rating": -54,
+    "armor": -70
+   }
+  }
+ ],
+ "glasswall_warden": [
+  {
+   "name": "Fused Fist",
+   "kind": "damage",
+   "amount": 212,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "fire"
+  },
+  {
+   "name": "The Wall Answers",
+   "kind": "damage",
+   "amount": 180,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "fire",
+   "is_aoe": true
+  },
+  {
+   "name": "Annealed",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "fire",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 96
+   },
+   "self_only": true
+  }
+ ],
+ "the_thing_in_the_throat": [
+  {
+   "name": "Out of the Throat",
+   "kind": "damage",
+   "amount": 218,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "Cold That Should Not Be",
+   "kind": "dot",
+   "amount": 54,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4
+  },
+  {
+   "name": "Pulled Down",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -58,
+    "dodge_rating": -50
+   }
+  }
+ ],
+ "longcollapse": [
+  {
+   "name": "Longcollapse Sweep",
+   "kind": "damage",
+   "amount": 222,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Take the Ground",
+   "kind": "damage",
+   "amount": 188,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Nothing Left Standing",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -82
+   }
+  }
+ ],
+ "underlight": [
+  {
+   "name": "Underlight's Glow",
+   "kind": "damage",
+   "amount": 225,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Something Is Lit Down There",
+   "kind": "damage",
+   "amount": 192,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Drawn Toward It",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 3,
+   "stat_mods": {
+    "intellect": -56,
+    "spell_power": -60
+   }
+  }
  ]
 }
