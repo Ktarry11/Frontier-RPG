@@ -113,6 +113,22 @@ class VendorScreen(BaseScreen):
             if scroll is not None:
                 items.append(scroll)
                 continue
+            # BAGS. Kyle, 2026-10-31: "We need to ensure bags can be made through
+            # tailoring or sold via some vendors." Vendors already offered bags
+            # through the random gear roll, but that roll has a deliberate LEVEL
+            # FLOOR on it, so the starter bags were the one thing it never
+            # produced - the players with 24 slots and no bag could not buy one
+            # anywhere. Naming a bag in a vendor's sells list puts it on the
+            # shelf permanently instead of hoping the roll offers it.
+            #
+            # Same shape as the recipe-scroll branch above, and the buy path
+            # needs nothing extra: a bag Item carries slot and armor_value, so
+            # _is_gear routes it to add_to_inventory, and its price falls back
+            # to sell_price * 4, which is what the catalog's vendor_price says.
+            bag = self.loot_generator.generate_bag(bag_id=item_id)
+            if bag is not None:
+                items.append(bag)
+                continue
             # Genuinely unknown ID — warn and skip rather than crash
             print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
 
