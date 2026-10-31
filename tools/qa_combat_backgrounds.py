@@ -50,17 +50,32 @@ from ui.combat_background_loader import get_background_for_zone, _resolve_folder
 
 
 def places():
-    """-> ([overworld zone names], [cave/dungeon names]) as the game actually ships them."""
+    """-> ([zones that fight], [caves that fight], [places with nothing to fight]).
+
+    Kyle: "Backgrounds are not important for places that don't have mobs." A backdrop is only
+    ever seen behind a fight, so a town with no encounter table cannot show one and must not
+    count against a pack's coverage - counting Orgrimmar and Ratchet as "places needing desert
+    art" overstated how thin that pack really is.
+
+    The empty ones are returned rather than dropped, because "this place has no creatures" is
+    worth looking at on its own: it is right for a capital and wrong for a dungeon.
+    """
     enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
-    zones = sorted(enc)
-    caves = sorted({cv.get("name") or cn
-                    for z in enc.values() for cn, cv in (z.get("caves") or {}).items()})
-    return zones, caves
+    zones, caves, empty = [], [], []
+    for zn, z in enc.items():
+        pools = [z.get("creatures") or {}]
+        pools += [(s.get("creatures") or {}) for s in (z.get("subzones") or {}).values()]
+        (zones if any(pools) else empty).append(zn)
+    for z in enc.values():
+        for cn, cv in (z.get("caves") or {}).items():
+            name = cv.get("name") or cn
+            (caves if (cv.get("creatures") or {}) else empty).append(name)
+    return sorted(zones), sorted(set(caves)), sorted(set(empty))
 
 
 def main():
     bad = []
-    zones, caves = places()
+    zones, caves, empty = places()
 
     # ---- 1 & 2. the backdrop was CHOSEN for this place, one way or the other
     #
@@ -119,7 +134,8 @@ def main():
     # ---- report
     folders = sorted({get_background_folder(b) for b in reached if b in BIOME_TO_BACKGROUND})
     print(f"{len(zones)} overworld zones + {len(caves)} caves/dungeons = "
-          f"{len(zones) + len(caves)} places a fight can start")
+          f"{len(zones) + len(caves)} places a fight can start "
+          f"({len(empty)} more have no encounter table and never show a backdrop)")
     print(f"  {len(reached)} biomes in use -> {len(folders)} background packs: {folders}")
     # Counted through the SAME resolution the game uses, overrides included. Counting it off the
     # biome alone reported 43 places in mossy_forest after the overrides had moved most of them
@@ -139,6 +155,12 @@ def main():
             thin.append(f"{dest} ({imgs} image(s) for {places_n} places)")
     if thin:
         print(f"  thin packs, worth topping up: {', '.join(sorted(thin))}")
+
+    # Printed, not asserted. A capital or an inn town having no encounter table is correct; a
+    # built zone or a dungeon having none is a content hole wearing the same clothes, and only a
+    # human can tell which is which from a list.
+    if empty:
+        print(f"  no encounter table (so no backdrop is ever shown): {empty}")
 
     unused = sorted(set(BIOME_TO_BACKGROUND.values()) - set(folders))
     if unused:
