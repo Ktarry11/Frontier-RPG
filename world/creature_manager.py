@@ -79,6 +79,25 @@ class CreatureManager:
     # walking through.
     SUBZONE_OPEN_ZONE_BLEND = 0.35
 
+    def is_safe_subzone(self, zone_name, subzone_name):
+        """True for a subzone flagged "safe": true in encounters.json.
+
+        WHY THIS EXISTS. A subzone with no roster of its own falls straight through to the parent
+        zone's open_zone table (see get_encounter_table), and subzones roll encounters at 5% per
+        step against the open zone's 2% - so the quietest place on a map is the MOST dangerous one
+        unless somebody says otherwise. That is fine for a shrine or a waypoint and wrong for a
+        settlement: Lastwater is ten vendors and a dungeon doorway on an island at the bottom of
+        the Glittervein, and without this the player gets jumped by level-49 Brinewrought between
+        the innkeeper and the quartermaster.
+
+        Towns are normally their own map, where zone.is_town covers this. A settlement that lives
+        INSIDE an open zone has had no way to say it is a settlement until now.
+        """
+        if zone_name not in self.encounters or not subzone_name:
+            return False
+        sz = self.encounters[zone_name].get("subzones", {}).get(subzone_name)
+        return bool(sz and sz.get("safe"))
+
     def get_encounter_table(self, zone_name, location_type="open_zone", subzone_name=None):
         """Get encounter table for a zone/subzone/cave.
 
@@ -102,6 +121,8 @@ class CreatureManager:
         if location_type == "open_zone":
             return zone_data.get("open_zone", {}).get("creatures", {})
         elif location_type == "subzone" and subzone_name:
+            if self.is_safe_subzone(zone_name, subzone_name):
+                return {}
             subzone_table = dict(
                 zone_data.get("subzones", {}).get(subzone_name, {}).get("creatures", {}))
             open_table = zone_data.get("open_zone", {}).get("creatures", {})

@@ -135,7 +135,11 @@ def build_cistern(omit=()):
                    "Where the water has been going for three years, and the thing that has been "
                    "taking it.")
     zone.is_cave = True
-    zone.region = "Kalimdor - Tanaris"
+    # THE PARENT ZONE, NOT THE GEOGRAPHIC REGION. zone_manager.trigger_encounter looks a cave or
+    # dungeon's encounter table up under `region` as a ZONE NAME
+    # (encounters["zones"][region]["caves"][map name]), so "Kalimdor - Tanaris" - which is what the
+    # open zones carry and what this said first - matches nothing and the map spawns nothing.
+    zone.region = "Glittervein"
     zone.fixed_spawns = True
     L = CaveLayout(zone, (ENTRANCE[0], ENTRANCE[1] - 2))
     b = L.b

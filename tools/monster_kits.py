@@ -6015,6 +6015,191 @@ ABYSSAL_KITS = {
     ],
 }
 
+# ======================================================================================
+# GLITTERVEIN (46-49), and the two halves of its dungeon (48-52).
+#
+# CALIBRATED AGAINST THE ABYSSAL SANDS, which is the band directly below. 44-47 trash runs 134-166
+# and its rares 190-225, so this steps to trash 150-185 and rares 210-250, and the dungeon runs
+# 165-200 trash and 240-290 on bosses before their multiplier. Re-extrapolating from Northern
+# Tanaris a second time would have put trash near 200, which is how a band drifts upward every time
+# somebody adds a zone.
+#
+# THE SCHOOLS ARE THE ZONE'S ARGUMENT. Everything in the hole that grew from the seam hits ARCANE,
+# and everything that came with the water hits FROST. That is not decoration: this is the zone that
+# introduces magic resistance, and resistance gear is worthless against a bestiary that only swings
+# swords. A tank who brings arcane resistance to the Choir and frost to the Cistern should notice.
+# ======================================================================================
+GLITTERVEIN_KITS = {
+    # ---- THE DRY RIM. Nothing up here grew here; it came for what comes out of the hole.
+    "rimfall_jackal": [
+        ("Snap", "damage", 152, 0, 0, "physical", {}),
+        ("Run It Down", "damage", 138, 3, 0, "physical", {}),
+    ],
+    "sunbleached_stalker": [
+        ("Shiv", "damage", 158, 0, 0, "physical", {}),
+        ("Takes What Climbs Out", "damage", 142, 3, 0, "physical", {}),
+        ("Sun in Your Eyes", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"hit_rating": -44}}),
+    ],
+    # ---- THE TERRACES. Stone, and the first things that like the shade of a hole.
+    "terrace_basilisk": [
+        ("Bite", "damage", 168, 0, 0, "physical", {}),
+        ("Flat Stare", "debuff", 0, 5, 0, "nature",
+         {"duration": 3, "stat_mods": {"attack_speed": -38}}),
+    ],
+    "shardback_crawler": [
+        ("Shear", "damage", 160, 0, 0, "physical", {}),
+        ("Shed the Shards", "damage", 140, 4, 0, "arcane", {"is_aoe": True}),
+    ],
+    # ---- THE SEAMS. Arcane, because the crystal is.
+    "vein_lit_wisp": [
+        ("Vein-Light", "damage", 150, 0, 0, "arcane", {}),
+        ("Draw Off the Seam", "damage", 134, 3, 0, "arcane", {}),
+        ("Flicker", "buff", 0, 6, 0, "arcane",
+         {"duration": 3, "stat_mods": {"dodge_rating": 62}, "self_only": True}),
+    ],
+    "lattice_grown": [
+        ("Lattice Fist", "damage", 176, 0, 0, "physical", {}),
+        ("Grow Over It", "damage", 152, 4, 0, "arcane", {"is_aoe": True}),
+    ],
+    # ---- THE GREEN SHELF. The only living band on the map, and it is living very hard.
+    "shelf_prowler": [
+        ("Pounce", "damage", 164, 0, 0, "physical", {}),
+        ("Out of the Ferns", "damage", 148, 3, 0, "physical", {}),
+    ],
+    "sporefed_hulk": [
+        ("Heavy Swing", "damage", 182, 0, 0, "physical", {}),
+        ("Spore Wash", "dot", 44, 4, 0, "nature", {"duration": 3, "is_aoe": True}),
+    ],
+    # ---- THE WATERLINE. Frost, because this water came a long way under a desert.
+    "waterline_serpent": [
+        ("Coil", "damage", 170, 0, 0, "physical", {}),
+        ("Drag Under", "damage", 155, 4, 0, "frost", {}),
+    ],
+    "pool_horror": [
+        ("Enfold", "damage", 178, 0, 0, "physical", {}),
+        ("Cold That Should Not Be Here", "dot", 46, 3, 0, "frost", {"duration": 3}),
+    ],
+
+    # ---- NAMED RARES, one per surface subzone.
+    "thirstjaw": [
+        ("Thirstjaw's Grip", "damage", 215, 0, 0, "physical", {}),
+        ("Waits at the Lip", "damage", 190, 3, 0, "physical", {}),
+        ("Will Not Let Go", "debuff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"dodge_rating": -58}}),
+    ],
+    "old_riser": [
+        ("Riser's Weight", "damage", 220, 0, 0, "physical", {}),
+        ("Up the Step", "damage", 196, 4, 0, "physical", {"is_aoe": True}),
+        ("Older Than the Hole", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 96}, "self_only": True}),
+    ],
+    "shatterlight": [
+        ("Shatterlight", "damage", 225, 0, 0, "arcane", {}),
+        ("Split the Beam", "damage", 198, 4, 0, "arcane", {"is_aoe": True}),
+        ("Refraction", "buff", 0, 6, 0, "arcane",
+         {"duration": 3, "stat_mods": {"dodge_rating": 78}, "self_only": True}),
+    ],
+    "rootbound": [
+        ("Rootbound's Reach", "damage", 230, 0, 0, "physical", {}),
+        ("Down Into the Damp", "dot", 56, 3, 0, "nature", {"duration": 3}),
+        ("Hold Fast", "debuff", 0, 5, 0, "nature",
+         {"duration": 3, "stat_mods": {"attack_speed": -52}}),
+    ],
+    "stillwater": [
+        ("Stillwater's Weight", "damage", 240, 0, 0, "frost", {}),
+        ("The Pool Does Not Move", "damage", 210, 4, 0, "frost", {"is_aoe": True}),
+        ("Under", "dot", 60, 3, 0, "frost", {"duration": 3}),
+    ],
+
+    # ======================= THE MOTHER VEIN (48-50) =======================
+    "sodden_digger": [
+        ("Pick", "damage", 168, 0, 0, "physical", {}),
+        ("Still On Shift", "damage", 150, 3, 0, "physical", {}),
+        ("Nine Hundred Days Wet", "dot", 42, 4, 0, "shadow", {"duration": 3}),
+    ],
+    "vein_crawler": [
+        ("Shearing Limb", "damage", 172, 0, 0, "physical", {}),
+        ("Through the Seam", "damage", 152, 3, 0, "physical", {}),
+    ],
+    "glass_weaver": [
+        ("Spin Glass", "damage", 176, 0, 0, "arcane", {}),
+        ("Thread the Vein", "damage", 156, 4, 0, "arcane", {"is_aoe": True}),
+        ("Refract", "buff", 0, 6, 0, "arcane",
+         {"duration": 3, "stat_mods": {"armor": 88}, "self_only": True}),
+    ],
+    "lattice_hound": [
+        ("Run the Seam", "damage", 184, 0, 0, "physical", {}),
+        ("Corner It", "damage", 162, 3, 0, "physical", {}),
+    ],
+    "brinewrought_hulk": [
+        ("Brine Slam", "damage", 196, 0, 0, "physical", {}),
+        ("Burst the Casing", "damage", 170, 4, 0, "frost", {"is_aoe": True}),
+        ("Harden", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 104}, "self_only": True}),
+    ],
+
+    # ======================= THE CISTERN (50-52) =======================
+    "seam_singer": [
+        ("Sounding Note", "damage", 180, 0, 0, "arcane", {}),
+        ("Sympathetic Resonance", "damage", 158, 4, 0, "arcane", {"is_aoe": True}),
+        ("Shatter Pitch", "debuff", 0, 5, 0, "arcane",
+         {"duration": 3, "stat_mods": {"spell_power": -62}}),
+    ],
+    "cistern_lurker": [
+        ("Undertow", "damage", 190, 0, 0, "frost", {}),
+        ("Out of the Standing Water", "damage", 168, 3, 0, "frost", {}),
+        ("Drowning Grip", "debuff", 0, 5, 0, "frost",
+         {"duration": 3, "stat_mods": {"attack_speed": -56}}),
+    ],
+
+    # ======================= BOSSES =======================
+    # Grebble is the only one of the seven who was ever a person, and he is the first one you meet,
+    # which is the right order: the map gets less human the further in it goes.
+    "pitboss_grebble_vask": [
+        ("Foreman's Hammer", "damage", 244, 0, 0, "physical", {}),
+        ("THE WAGE BILL", "damage", 212, 4, 0, "physical", {"is_aoe": True}),
+        ("Eleven Months of This", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 118}, "self_only": True}),
+    ],
+    "the_sump": [
+        ("Sump Surge", "damage", 252, 0, 0, "frost", {}),
+        ("What the Pumps Could Not Hold", "damage", 220, 4, 0, "frost", {"is_aoe": True}),
+        ("Silt and Standing Water", "dot", 62, 3, 0, "nature", {"duration": 3}),
+    ],
+    "glassmaw": [
+        ("Glassmaw's Bite", "damage", 260, 0, 0, "physical", {}),
+        ("Swallow the Light", "damage", 228, 4, 0, "arcane", {}),
+        ("Cut on Every Edge", "dot", 66, 3, 0, "physical", {"duration": 3}),
+    ],
+    "resonance": [
+        ("Struck Note", "damage", 268, 0, 0, "arcane", {}),
+        ("The Whole Seam Answers", "damage", 236, 4, 0, "arcane", {"is_aoe": True}),
+        ("Standing Wave", "debuff", 0, 5, 0, "arcane",
+         {"duration": 3, "stat_mods": {"spell_power": -84, "hit_rating": -48}}),
+    ],
+    "the_siphon": [
+        ("Draw", "damage", 272, 0, 0, "arcane", {}),
+        ("Lift the Water", "damage", 240, 4, 0, "frost", {"is_aoe": True}),
+        ("Running Dry", "dot", 70, 3, 0, "arcane", {"duration": 3}),
+    ],
+    "the_standing_wave": [
+        ("Break", "damage", 280, 0, 0, "frost", {}),
+        ("Water Does Not Do This", "damage", 248, 4, 0, "frost", {"is_aoe": True}),
+        ("Held Upright", "buff", 0, 6, 0, "frost",
+         {"duration": 4, "stat_mods": {"armor": 132}, "self_only": True}),
+    ],
+    # THE END OF FIVE ZONES. Arcane and frost together, because it is the seam and the water at
+    # once - there is no single resistance answer to the last fight, which is the point of having
+    # spent a whole zone teaching the player that resistance is an answer.
+    "the_thirst": [
+        ("Thirst", "damage", 290, 0, 0, "arcane", {}),
+        ("Three Years of Drinking", "damage", 256, 4, 0, "frost", {"is_aoe": True}),
+        ("The Table Tips", "dot", 76, 3, 0, "arcane", {"duration": 3}),
+    ],
+}
+
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -6024,7 +6209,8 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
-               STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS, ABYSSAL_KITS):
+               STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS, ABYSSAL_KITS,
+               GLITTERVEIN_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

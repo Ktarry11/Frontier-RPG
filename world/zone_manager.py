@@ -286,9 +286,13 @@ class ZoneManager:
         enemy = self.creature_manager.get_random_creature(
             zone_name, location_type=location_type, subzone_name=subzone_key, quest_targets=targets)
 
-        # Fall back to the open-zone table if a subzone has no table entry,
-        # so a geographic region without encounter data never yields None.
-        if enemy is None and location_type != "open_zone":
+        # Fall back to the open-zone table if a subzone has no table entry, so a geographic region
+        # without encounter data never yields None - EXCEPT for a subzone flagged safe, where
+        # "nothing spawned" is the answer rather than a gap to be filled. Without this exception
+        # the flag would do nothing at all: get_encounter_table returns {} and this line
+        # immediately rolls the parent zone's table instead.
+        if (enemy is None and location_type != "open_zone"
+                and not self.creature_manager.is_safe_subzone(zone_name, subzone_key)):
             enemy = self.creature_manager.get_random_creature(
                 zone_name, location_type="open_zone")
         return enemy

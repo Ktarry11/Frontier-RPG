@@ -1,0 +1,466 @@
+{
+  "_notes": "Bosses of The Mother Vein and The Cistern. Hand-authored in tools/build_glittervein_content.py; spread and resistance placement checked by its audit().",
+  "Pitboss Grebble Vask": [
+    {
+      "name": "Foreman's Settling Hammer",
+      "slot": "main_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "He went down with the wage book and he did not come up with it.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 93,
+      "weapon_damage_max": 126,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Wage-Book Bulwark",
+      "slot": "off_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Eleven months of figures, lacquered to a board and strapped to an arm.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 14
+      },
+      "armor_value": 108,
+      "block_value": 135
+    },
+    {
+      "name": "Pitboss's Shift Coat",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Company issue. Nobody has issued anything down here in a year.",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 135
+    },
+    {
+      "name": "Evacuation-Order Band",
+      "slot": "wrist",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "He signed it. He did not read it to anybody.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 33
+    }
+  ],
+  "The Sump": [
+    {
+      "name": "Sump-Drawn Pumprod",
+      "slot": "main_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Four hundred feet of pipe and this is the end that was in the water.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 26
+      },
+      "secondary_stats": {
+        "spell_power": 35.0,
+        "mp5": 7.0
+      },
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Pump-Chief's Plate Harness",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Six pumps. Four were the Company's. These are not.",
+      "primary_stats": {
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "frost_resistance": 16.2
+      },
+      "armor_type": "plate",
+      "armor_value": 324
+    },
+    {
+      "name": "Silt-Choked Scale Leggings",
+      "slot": "legs",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Whatever the pumps were lifting, it was not only water.",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 216
+    },
+    {
+      "name": "Standing-Water Cord",
+      "slot": "waist",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "flavor_text": "Damp to the touch and it has been out of the gallery for a year.",
+      "primary_stats": {
+        "stamina": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 3.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 33
+    }
+  ],
+  "Glassmaw": [
+    {
+      "name": "Glassmaw's Shearing Edge",
+      "slot": "main_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "flavor_text": "A vug is a room made of knives and this is one of its teeth.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 95,
+      "weapon_damage_max": 128,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Vug-Lined Shoulderguards",
+      "slot": "shoulder",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "flavor_text": "The walls of those rooms ARE the loot, which is a problem when they bite.",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 103
+    },
+    {
+      "name": "Crystal-Cut Chain Vest",
+      "slot": "chest",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "flavor_text": "Every link scored, none of them through.",
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 220
+    },
+    {
+      "name": "Swallowed-Light Hood",
+      "slot": "head",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "flavor_text": "It goes dark where that thing has been.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 5.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 51
+    }
+  ],
+  "Resonance": [
+    {
+      "name": "Struck-Note Chime",
+      "slot": "main_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Ring it once and the whole seam answers, which is how everyone here died.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "intellect": 27
+      },
+      "secondary_stats": {
+        "spell_power": 36.4,
+        "mp5": 7.3
+      },
+      "weapon_damage_min": 130,
+      "weapon_damage_max": 176,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Choir-Deaf Greatplate",
+      "slot": "chest",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Thick enough that the note arrives late.",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "arcane_resistance": 16.8
+      },
+      "armor_type": "plate",
+      "armor_value": 336
+    },
+    {
+      "name": "Sympathetic Lattice Gloves",
+      "slot": "hands",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "They hum. Not loudly. Constantly.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 4.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 35
+    },
+    {
+      "name": "Pitch-Shattered Buckler",
+      "slot": "off_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Cracked across in a pattern that is too regular to be damage.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 15
+      },
+      "armor_value": 112,
+      "block_value": 140
+    }
+  ],
+  "The Siphon": [
+    {
+      "name": "Siphon's Drawing Arm",
+      "slot": "main_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "It is the proof. The water does not rise on its own and this is what raises it.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Drawn-Dry Legplates",
+      "slot": "legs",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Cold enough to ache, in a desert, below a desert.",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "frost_resistance": 16.8
+      },
+      "armor_type": "plate",
+      "armor_value": 336
+    },
+    {
+      "name": "Lift-and-Pull Scale Belt",
+      "slot": "waist",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Five zones of water came up through something shaped like this.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 112
+    },
+    {
+      "name": "Running-Dry Charm",
+      "slot": "trinket",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "flavor_text": "Ulla was right. This is what being right looks like when you dig it up.",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "arcane_resistance": 6.7
+      }
+    }
+  ],
+  "The Standing Wave": [
+    {
+      "name": "Wave-Held Trident",
+      "slot": "main_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "flavor_text": "Water does not stand up. This has been standing up for three years.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "intellect": 46,
+        "stamina": 46
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 132,
+      "weapon_damage_max": 179,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Upright-Water Vestments",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "flavor_text": "Soaked through and it will not dry and it will not drip.",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13.7,
+        "mp5": 2.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 71
+    },
+    {
+      "name": "Unbroken-Surface Boots",
+      "slot": "feet",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "flavor_text": "You can walk on it. You should not want to.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 71
+    },
+    {
+      "name": "Lattice-Bound Spaulders",
+      "slot": "shoulder",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "flavor_text": "The crystal is holding it. That is the whole sentence.",
+      "primary_stats": {
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "frost_resistance": 12.9
+      },
+      "armor_type": "plate",
+      "armor_value": 257
+    }
+  ],
+  "The Thirst": [
+    {
+      "name": "The Drinking Lattice",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "flavor_text": "Five zones of water, three years, and this is the shape it all went through.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "spell_power": 7.8,
+        "mp5": 1.6
+      }
+    },
+    {
+      "name": "Thirst-Denying Battleplate",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "flavor_text": "The seam gave up trying to grow through this one.",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "arcane_resistance": 17.4
+      },
+      "armor_type": "plate",
+      "armor_value": 348
+    },
+    {
+      "name": "Water-Table Pendant",
+      "slot": "neck",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "flavor_text": "A walled city died of thirst with a well in the middle of it. This is why.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Aquifer-Walker's Striders",
+      "slot": "feet",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "flavor_text": "You come out where the water comes out, which is beside the camp you started at.",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "leather",
+      "armor_value": 72
+    }
+  ]
+}

@@ -11137,5 +11137,365 @@
     "spell_power": -60
    }
   }
+ ],
+ "thirstjaw": [
+  {
+   "name": "Thirstjaw's Grip",
+   "kind": "damage",
+   "amount": 215,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Waits at the Lip",
+   "kind": "damage",
+   "amount": 190,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Will Not Let Go",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "dodge_rating": -58
+   }
+  }
+ ],
+ "old_riser": [
+  {
+   "name": "Riser's Weight",
+   "kind": "damage",
+   "amount": 220,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Up the Step",
+   "kind": "damage",
+   "amount": 196,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Older Than the Hole",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 96
+   },
+   "self_only": true
+  }
+ ],
+ "shatterlight": [
+  {
+   "name": "Shatterlight",
+   "kind": "damage",
+   "amount": 225,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Split the Beam",
+   "kind": "damage",
+   "amount": 198,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Refraction",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 3,
+   "stat_mods": {
+    "dodge_rating": 78
+   },
+   "self_only": true
+  }
+ ],
+ "rootbound": [
+  {
+   "name": "Rootbound's Reach",
+   "kind": "damage",
+   "amount": 230,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Down Into the Damp",
+   "kind": "dot",
+   "amount": 56,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 3
+  },
+  {
+   "name": "Hold Fast",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 3,
+   "stat_mods": {
+    "attack_speed": -52
+   }
+  }
+ ],
+ "stillwater": [
+  {
+   "name": "Stillwater's Weight",
+   "kind": "damage",
+   "amount": 240,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "The Pool Does Not Move",
+   "kind": "damage",
+   "amount": 210,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Under",
+   "kind": "dot",
+   "amount": 60,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 3
+  }
+ ],
+ "pitboss_grebble_vask": [
+  {
+   "name": "Foreman's Hammer",
+   "kind": "damage",
+   "amount": 244,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "THE WAGE BILL",
+   "kind": "damage",
+   "amount": 212,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Eleven Months of This",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 118
+   },
+   "self_only": true
+  }
+ ],
+ "the_sump": [
+  {
+   "name": "Sump Surge",
+   "kind": "damage",
+   "amount": 252,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "What the Pumps Could Not Hold",
+   "kind": "damage",
+   "amount": 220,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Silt and Standing Water",
+   "kind": "dot",
+   "amount": 62,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "nature",
+   "duration": 3
+  }
+ ],
+ "glassmaw": [
+  {
+   "name": "Glassmaw's Bite",
+   "kind": "damage",
+   "amount": 260,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Swallow the Light",
+   "kind": "damage",
+   "amount": 228,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Cut on Every Edge",
+   "kind": "dot",
+   "amount": 66,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3
+  }
+ ],
+ "resonance": [
+  {
+   "name": "Struck Note",
+   "kind": "damage",
+   "amount": 268,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "The Whole Seam Answers",
+   "kind": "damage",
+   "amount": 236,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "arcane",
+   "is_aoe": true
+  },
+  {
+   "name": "Standing Wave",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 3,
+   "stat_mods": {
+    "spell_power": -84,
+    "hit_rating": -48
+   }
+  }
+ ],
+ "the_siphon": [
+  {
+   "name": "Draw",
+   "kind": "damage",
+   "amount": 272,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Lift the Water",
+   "kind": "damage",
+   "amount": 240,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Running Dry",
+   "kind": "dot",
+   "amount": 70,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 3
+  }
+ ],
+ "the_standing_wave": [
+  {
+   "name": "Break",
+   "kind": "damage",
+   "amount": 280,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "frost"
+  },
+  {
+   "name": "Water Does Not Do This",
+   "kind": "damage",
+   "amount": 248,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "Held Upright",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "frost",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 132
+   },
+   "self_only": true
+  }
+ ],
+ "the_thirst": [
+  {
+   "name": "Thirst",
+   "kind": "damage",
+   "amount": 290,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "arcane"
+  },
+  {
+   "name": "Three Years of Drinking",
+   "kind": "damage",
+   "amount": 256,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "frost",
+   "is_aoe": true
+  },
+  {
+   "name": "The Table Tips",
+   "kind": "dot",
+   "amount": 76,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "arcane",
+   "duration": 3
+  }
  ]
 }

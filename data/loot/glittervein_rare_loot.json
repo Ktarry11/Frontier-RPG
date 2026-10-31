@@ -1,0 +1,329 @@
+{
+  "_notes": "Named rares of Glittervein. One item per kill. Hand-authored in tools/build_glittervein_content.py; spread and resistance placement checked by its audit().",
+  "Thirstjaw": [
+    {
+      "name": "Thirstjaw's Hooked Fang",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "It waits at the lip, where the tired come up.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Lip-of-the-Hole Hauberk",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Everything that climbs out of there climbs out slowly.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 204
+    },
+    {
+      "name": "Rimwatcher's Cowl",
+      "slot": "head",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "You can see the whole pan from up there and none of it is worth watching.",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Dry Rim Pendant",
+      "slot": "neck",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Forty-six feet above the only water for a hundred miles.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Riser": [
+    {
+      "name": "Riser's Stepping Maul",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "The terraces are steps and something has been walking up them for a long time.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 41,
+        "stamina": 41
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 119,
+      "weapon_damage_max": 162,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Terrace-Warden Greaves",
+      "slot": "legs",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Crystal dust in every seam of them, and it does not brush out.",
+      "primary_stats": {
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "arcane_resistance": 15.3
+      },
+      "armor_type": "plate",
+      "armor_value": 306
+    },
+    {
+      "name": "First-Terrace Jerkin",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Whatever is on that bench has had the run of it for years.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 127
+    },
+    {
+      "name": "Old Riser's Tooth",
+      "slot": "trinket",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "flavor_text": "Worn flat on one side from going up the same stone.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Shatterlight": [
+    {
+      "name": "Shatterlight Prism-Rod",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Hold it up in the galleries and the walls answer.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 4.7,
+        "mp5": 0.9
+      },
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Split-Beam Mantle",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "The light in those galleries comes from the stone and goes where it likes.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 48
+    },
+    {
+      "name": "Gallery-Walker's Grips",
+      "slot": "hands",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Everyone who works the seams loses the pads off their fingers.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 65
+    },
+    {
+      "name": "Refracted Scale Coif",
+      "slot": "head",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Looks like four of itself in the right light.",
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 156
+    }
+  ],
+  "Rootbound": [
+    {
+      "name": "Rootbound's Creeping Limb",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Six feet of green that has had three years and no winter.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "strength": 42,
+        "stamina": 42
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 49,
+      "weapon_damage_max": 67,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Greenshelf Breastplate",
+      "slot": "chest",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Rust would be easier. This has something growing in the rivets.",
+      "primary_stats": {
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "nature_resistance": 15.6
+      },
+      "armor_type": "plate",
+      "armor_value": 312
+    },
+    {
+      "name": "Damp-Band Bracers",
+      "slot": "wrist",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "The only band on that wall where anything is alive.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 104
+    },
+    {
+      "name": "Fern-Shadow Slippers",
+      "slot": "feet",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "flavor_text": "Quiet, on the one part of the hole that has leaf litter.",
+      "primary_stats": {
+        "stamina": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 3.7
+      },
+      "armor_type": "cloth",
+      "armor_value": 32
+    }
+  ],
+  "Stillwater": [
+    {
+      "name": "Stillwater's Drowning Spear",
+      "slot": "main_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "flavor_text": "Cold all the way through, in a desert, at the bottom of a hole.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "intellect": 43,
+        "stamina": 43
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 124,
+      "weapon_damage_max": 167,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Waterline Scale Girdle",
+      "slot": "waist",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "flavor_text": "The mark round the rock where the pool used to stop.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 106
+    },
+    {
+      "name": "Unmoving-Pool Guards",
+      "slot": "shoulder",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "flavor_text": "Nothing on that water moves. Not even the surface.",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 238
+    },
+    {
+      "name": "Deep-Still Treads",
+      "slot": "feet",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "flavor_text": "The only standing water for a hundred miles and it stands very still.",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 66
+    }
+  ]
+}

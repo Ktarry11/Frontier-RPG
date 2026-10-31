@@ -33924,6 +33924,1115 @@
         }
       }
     ],
+    "rimfall_jackal": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Run It Down",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "sunbleached_stalker": [
+      {
+        "name": "Shiv",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Takes What Climbs Out",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sun in Your Eyes",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "hit_rating": -44
+        }
+      }
+    ],
+    "terrace_basilisk": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Flat Stare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "attack_speed": -38
+        }
+      }
+    ],
+    "shardback_crawler": [
+      {
+        "name": "Shear",
+        "kind": "damage",
+        "amount": 160,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shed the Shards",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      }
+    ],
+    "vein_lit_wisp": [
+      {
+        "name": "Vein-Light",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Draw Off the Seam",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Flicker",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": 62
+        },
+        "self_only": true
+      }
+    ],
+    "lattice_grown": [
+      {
+        "name": "Lattice Fist",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grow Over It",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      }
+    ],
+    "shelf_prowler": [
+      {
+        "name": "Pounce",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Ferns",
+        "kind": "damage",
+        "amount": 148,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "sporefed_hulk": [
+      {
+        "name": "Heavy Swing",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spore Wash",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "is_aoe": true
+      }
+    ],
+    "waterline_serpent": [
+      {
+        "name": "Coil",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag Under",
+        "kind": "damage",
+        "amount": 155,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      }
+    ],
+    "pool_horror": [
+      {
+        "name": "Enfold",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cold That Should Not Be Here",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3
+      }
+    ],
+    "thirstjaw": [
+      {
+        "name": "Thirstjaw's Grip",
+        "kind": "damage",
+        "amount": 215,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Waits at the Lip",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Will Not Let Go",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "dodge_rating": -58
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 129
+        }
+      }
+    ],
+    "old_riser": [
+      {
+        "name": "Riser's Weight",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Up the Step",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Older Than the Hole",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 96
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 286,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 132
+        }
+      }
+    ],
+    "shatterlight": [
+      {
+        "name": "Shatterlight",
+        "kind": "damage",
+        "amount": 225,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Split the Beam",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Refraction",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "dodge_rating": 78
+          }
+        }
+      },
+      {
+        "name": "Arcane Burst",
+        "kind": "damage",
+        "amount": 292,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Overload",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 135
+        }
+      }
+    ],
+    "rootbound": [
+      {
+        "name": "Rootbound's Reach",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Down Into the Damp",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Hold Fast",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_speed": -52
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Cleave",
+        "kind": "damage",
+        "amount": 161,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 138
+        }
+      }
+    ],
+    "stillwater": [
+      {
+        "name": "Stillwater's Weight",
+        "kind": "damage",
+        "amount": 240,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Pool Does Not Move",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Under",
+        "kind": "dot",
+        "amount": 60,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 312,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Frost Nova",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
+        }
+      }
+    ],
+    "sodden_digger": [
+      {
+        "name": "Pick",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Still On Shift",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Nine Hundred Days Wet",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3
+      }
+    ],
+    "vein_crawler": [
+      {
+        "name": "Shearing Limb",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Through the Seam",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "glass_weaver": [
+      {
+        "name": "Spin Glass",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Thread the Vein",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Refract",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 88
+        },
+        "self_only": true
+      }
+    ],
+    "lattice_hound": [
+      {
+        "name": "Run the Seam",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Corner It",
+        "kind": "damage",
+        "amount": 162,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "brinewrought_hulk": [
+      {
+        "name": "Brine Slam",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Burst the Casing",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Harden",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 104
+        },
+        "self_only": true
+      }
+    ],
+    "seam_singer": [
+      {
+        "name": "Sounding Note",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Sympathetic Resonance",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Shatter Pitch",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "spell_power": -62
+        }
+      }
+    ],
+    "cistern_lurker": [
+      {
+        "name": "Undertow",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Out of the Standing Water",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Drowning Grip",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "stat_mods": {
+          "attack_speed": -56
+        }
+      }
+    ],
+    "pitboss_grebble_vask": [
+      {
+        "name": "Foreman's Hammer",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "THE WAGE BILL",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Eleven Months of This",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": 118
+          }
+        }
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 317,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 146
+        }
+      }
+    ],
+    "the_sump": [
+      {
+        "name": "Sump Surge",
+        "kind": "damage",
+        "amount": 252,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "What the Pumps Could Not Hold",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Silt and Standing Water",
+        "kind": "dot",
+        "amount": 62,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 328,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Frost Nova",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 151
+        }
+      }
+    ],
+    "glassmaw": [
+      {
+        "name": "Glassmaw's Bite",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Swallow the Light",
+        "kind": "damage",
+        "amount": 228,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Cut on Every Edge",
+        "kind": "dot",
+        "amount": 66,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 338,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Cleave",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Enrage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 156
+        }
+      }
+    ],
+    "resonance": [
+      {
+        "name": "Struck Note",
+        "kind": "damage",
+        "amount": 268,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Whole Seam Answers",
+        "kind": "damage",
+        "amount": 236,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Standing Wave",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": -84,
+            "hit_rating": -48
+          }
+        }
+      },
+      {
+        "name": "Arcane Burst",
+        "kind": "damage",
+        "amount": 348,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Overload",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 161
+        }
+      }
+    ],
+    "the_siphon": [
+      {
+        "name": "Draw",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Lift the Water",
+        "kind": "damage",
+        "amount": 240,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Running Dry",
+        "kind": "dot",
+        "amount": 70,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3
+      },
+      {
+        "name": "Arcane Burst",
+        "kind": "damage",
+        "amount": 354,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Wave",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Arcane Overload",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 163
+        }
+      }
+    ],
+    "the_standing_wave": [
+      {
+        "name": "Break",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Water Does Not Do This",
+        "kind": "damage",
+        "amount": 248,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Held Upright",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 132
+          }
+        }
+      },
+      {
+        "name": "Frost Lance",
+        "kind": "damage",
+        "amount": 364,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Killing Chill",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 168
+        }
+      }
+    ],
+    "the_thirst": [
+      {
+        "name": "Thirst",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Three Years of Drinking",
+        "kind": "damage",
+        "amount": 256,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "The Table Tips",
+        "kind": "dot",
+        "amount": 76,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3
+      },
+      {
+        "name": "Arcane Burst",
+        "kind": "damage",
+        "amount": 377,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Wave",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Arcane Overload",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 174
+        }
+      }
+    ],
     "ancient_treant": [
       {
         "name": "Branch Smash",
