@@ -29,8 +29,8 @@
           "required_level": 18,
           "flavor_text": "Dun-coloured and weather-beaten. It disappears on a canyon wall, which is the point.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 4,
+            "stamina": 4
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -64,8 +64,8 @@
           "required_level": 18,
           "flavor_text": "Ribbed soles. They grip rock like it owes them money.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 2
+            "strength": 4,
+            "stamina": 4
           },
           "armor_type": "mail",
           "armor_value": 32,
@@ -104,9 +104,9 @@
           "required_level": 18,
           "flavor_text": "Leather bound with rock-crystal. They hum a little. They've never told anyone why.",
           "primary_stats": {
-            "strength": 2,
-            "agility": 2,
-            "stamina": 2
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 20,
@@ -120,8 +120,8 @@
           "required_level": 18,
           "flavor_text": "A string of tiny geodes. It tinkles before a slide. The tinkle is the warning.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 2
+            "strength": 4,
+            "stamina": 4
           },
           "label": "Necklace (Str/Sta)"
         },
@@ -134,7 +134,7 @@
           "flavor_text": "A flat slab of slate, hand-fitted. Heavy, honest, impossible to leave behind.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 8
           },
           "armor_value": 32,
           "block_value": 40,
@@ -178,8 +178,8 @@
           "required_level": 19,
           "flavor_text": "Spotted pelt over riveted leather. It still smells like the cat.",
           "primary_stats": {
-            "strength": 5,
-            "agility": 5
+            "strength": 7,
+            "agility": 7
           },
           "armor_type": "leather",
           "armor_value": 42,
@@ -194,11 +194,11 @@
           "flavor_text": "A fang as long as your hand, set in a wrapped grip. It still looks hungry.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.34,
+            "crit_chance_physical": 0.34
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -213,11 +213,11 @@
           "required_level": 19,
           "flavor_text": "A plain band hammered from an old ramp-spike. It has held a lot of weight.",
           "primary_stats": {
-            "strength": 1,
-            "stamina": 2
+            "strength": 2,
+            "stamina": 4
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.1
+            "crit_chance_physical": 0.2
           },
           "label": "Ring (Str/Sta)"
         }
@@ -263,8 +263,8 @@
           "required_level": 19,
           "flavor_text": "Hide leggings with reinforced knees. For people who spend their lives climbing in and out of holes.",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 5
+            "agility": 7,
+            "stamina": 7
           },
           "armor_type": "leather",
           "armor_value": 42,
@@ -278,8 +278,8 @@
           "required_level": 19,
           "flavor_text": "A small horn on a cord. One blast gets the whole ramp's attention.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 4,
+            "intellect": 4
           },
           "label": "Necklace (Agi/Int)"
         },
@@ -292,8 +292,8 @@
           "flavor_text": "Short, heavy and well-balanced. Persuasive in a traffic dispute.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 3
+            "agility": 10,
+            "stamina": 5
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -333,8 +333,8 @@
           "required_level": 18,
           "flavor_text": "Lots of pockets. Each one smells of something dead.",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 5
+            "agility": 7,
+            "stamina": 7
           },
           "armor_type": "leather",
           "armor_value": 40,
@@ -349,11 +349,11 @@
           "flavor_text": "A small axe with a hyena tooth set in the pommel. It's a lucky tooth. Mostly.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 3,
-            "agility": 3
+            "stamina": 5,
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.17
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 44,
@@ -368,8 +368,8 @@
           "required_level": 18,
           "flavor_text": "Bone plates over mail. They've seen a lot of marrow.",
           "primary_stats": {
-            "strength": 2,
-            "intellect": 2
+            "strength": 4,
+            "intellect": 4
           },
           "armor_type": "mail",
           "armor_value": 32,
@@ -408,8 +408,8 @@
           "required_level": 19,
           "flavor_text": "Linked giant knuckle-plates. The belt weighs more than it should and holds up better than it looks.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 6,
+            "stamina": 6
           },
           "armor_type": "plate",
           "armor_value": 51,
@@ -425,7 +425,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "shadow_spell_power": 3.9
+            "shadow_spell_power": 9.07
           },
           "weapon_damage_min": 28,
           "weapon_damage_max": 38,
@@ -440,8 +440,8 @@
           "required_level": 19,
           "flavor_text": "A tiny polished knuckle on a cord. It feels like being very, very small.",
           "primary_stats": {
-            "stamina": 2,
-            "spirit": 2
+            "stamina": 4,
+            "spirit": 4
           },
           "label": "Necklace (Sta/Spi)"
         }
@@ -483,11 +483,11 @@
           "required_level": 20,
           "flavor_text": "A horned helm shaped from a matriarch's horn. It's heavy, and it's warm, and it remembers.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 6
           },
           "secondary_stats": {
-            "defense_rating": 0.3,
-            "dodge_rating": 0.3
+            "defense_rating": 0.45,
+            "dodge_rating": 0.45
           },
           "armor_type": "plate",
           "armor_value": 80,
@@ -502,8 +502,8 @@
           "flavor_text": "Soft hide, long fur. It looks like it's meant to hold something small.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 2.4,
-            "mp5": 0.5
+            "healing_power": 5.0,
+            "mp5": 1.04
           },
           "armor_type": "cloth",
           "armor_value": 8,
@@ -587,11 +587,11 @@
           "required_level": 21,
           "flavor_text": "Strings of small bones on cloth. They click in time with your heart.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 3
+            "intellect": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.18
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -605,11 +605,11 @@
           "required_level": 21,
           "flavor_text": "Sections of giant rib over iron. Bigger than it needs to be, tougher than it looks.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 8
           },
           "secondary_stats": {
-            "armor": 14.0,
-            "parry_rating": 0.3
+            "armor": 19.12,
+            "parry_rating": 0.41
           },
           "armor_type": "plate",
           "armor_value": 112,
@@ -648,11 +648,11 @@
           "required_level": 19,
           "flavor_text": "Boiled leather, sewn with thorn-wood buttons. Sharp edges, comfortable fit.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 6.2
+            "attack_power": 8.47
           },
           "armor_type": "leather",
           "armor_value": 42,
@@ -667,11 +667,11 @@
           "flavor_text": "Narrow, curved, and extremely sharp. The grip is wrapped in a stranger's good intentions.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "attack_power": 3.9
+            "attack_power": 6.62
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -686,8 +686,8 @@
           "required_level": 19,
           "flavor_text": "A braided cord with a single small bell. It isn't there to warn you. It's there to remind you.",
           "primary_stats": {
-            "strength": 2,
-            "agility": 2
+            "strength": 4,
+            "agility": 4
           },
           "label": "Necklace (Str/Agi)"
         }
@@ -729,8 +729,8 @@
           "required_level": 20,
           "flavor_text": "Tough bristled hide, hard to cut and harder to wear to a formal occasion.",
           "primary_stats": {
-            "agility": 3,
-            "spirit": 3
+            "agility": 5,
+            "spirit": 5
           },
           "armor_type": "leather",
           "armor_value": 22,
@@ -745,11 +745,11 @@
           "flavor_text": "A short bow of bent thornwood. It's light and fast. It hates being dropped.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 1,
-            "stamina": 2
+            "agility": 2,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 29,
           "weapon_damage_max": 40,
@@ -764,8 +764,8 @@
           "required_level": 20,
           "flavor_text": "Mail over leather with thorn-points riveted in. They make for a respectful hug.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 6,
+            "intellect": 6
           },
           "armor_type": "mail",
           "armor_value": 53,
@@ -809,11 +809,11 @@
           "required_level": 21,
           "flavor_text": "Hide in three colours. They look good, if you can ignore the stitching.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 6.7
+            "attack_power": 9.21
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -828,11 +828,11 @@
           "flavor_text": "A curved blade for lifting pelts. It could also lift other things.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.2,
-            "crit_chance_physical": 0.2
+            "hit_rating": 0.34,
+            "crit_chance_physical": 0.34
           },
           "weapon_damage_min": 36,
           "weapon_damage_max": 49,
@@ -847,8 +847,8 @@
           "required_level": 21,
           "flavor_text": "A cloak sewn from several different animals. Uncomfortably well-made.",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 18,
@@ -914,11 +914,11 @@
           "required_level": 22,
           "flavor_text": "A hood of woven vine. It sprouts small flowers when you cast something kind.",
           "primary_stats": {
-            "intellect": 3
+            "intellect": 4
           },
           "secondary_stats": {
-            "spell_power": 3.5,
-            "crit_chance_spell": 0.2
+            "spell_power": 5.2,
+            "crit_chance_spell": 0.3
           },
           "armor_type": "cloth",
           "armor_value": 18,
@@ -933,9 +933,9 @@
           "flavor_text": "Plate studded with sharpened thorns. They didn't have to do that, but they did.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 0.4,
-            "block_rating": 0.8,
-            "dodge_rating": 0.5
+            "parry_rating": 0.55,
+            "block_rating": 1.09,
+            "dodge_rating": 0.68
           },
           "armor_type": "plate",
           "armor_value": 117,
@@ -974,8 +974,8 @@
           "required_level": 19,
           "flavor_text": "Thick-soled, quiet and easy to run in. A scout's best friend.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 5,
+            "stamina": 5
           },
           "armor_type": "leather",
           "armor_value": 21,
@@ -990,11 +990,11 @@
           "flavor_text": "A short blade with a notch in it from hitting rock. Not a very good rock-breaker.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 5,
+            "stamina": 5
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.34
           },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
@@ -1009,11 +1009,11 @@
           "required_level": 19,
           "flavor_text": "A tiny brass spyglass on a cord. You can see a surprising amount through it.",
           "primary_stats": {
-            "agility": 1,
-            "intellect": 1
+            "agility": 2,
+            "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 2.5
+            "attack_power": 5.05
           },
           "label": "Necklace (Agi/Int)"
         }
@@ -1051,11 +1051,11 @@
           "flavor_text": "A short blade set with a glowing shard. It hums when you cast.",
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 5,
+            "stamina": 5
           },
           "secondary_stats": {
-            "spell_power": 1.9
+            "spell_power": 3.23
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 47,
@@ -1070,11 +1070,11 @@
           "required_level": 20,
           "flavor_text": "Stone-faced plate. They don't scrape. They crush.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 6
           },
           "secondary_stats": {
-            "block_rating": 0.3,
-            "block_value": 2.7
+            "block_rating": 0.58,
+            "block_value": 5.21
           },
           "armor_type": "plate",
           "armor_value": 53,
@@ -1088,11 +1088,11 @@
           "required_level": 20,
           "flavor_text": "Grey cloth, stiff with dust. It shakes off magic better than it shakes off dirt.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 3.2,
-            "mp5": 0.6
+            "spell_power": 4.73,
+            "mp5": 0.89
           },
           "armor_type": "cloth",
           "armor_value": 16,
@@ -1136,8 +1136,8 @@
           "required_level": 21,
           "flavor_text": "Leather with brass studs. Good for crowd control and intimidation.",
           "primary_stats": {
-            "strength": 6,
-            "agility": 6
+            "strength": 8,
+            "agility": 8
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1171,8 +1171,8 @@
           "required_level": 21,
           "flavor_text": "Mail links on a studded strap. It holds everything you own, and all of it rattles.",
           "primary_stats": {
-            "agility": 3,
-            "intellect": 3
+            "agility": 6,
+            "intellect": 6
           },
           "armor_type": "mail",
           "armor_value": 37,
@@ -1216,11 +1216,11 @@
           "required_level": 21,
           "flavor_text": "A stout iron cap with a lantern-hook. Dented from every ceiling in the quarry.",
           "primary_stats": {
-            "stamina": 4
+            "stamina": 6
           },
           "secondary_stats": {
-            "block_rating": 0.4,
-            "block_value": 4.2
+            "block_rating": 0.59,
+            "block_value": 6.24
           },
           "armor_type": "plate",
           "armor_value": 84,
@@ -1234,11 +1234,11 @@
           "required_level": 21,
           "flavor_text": "Cloth wraps stitched with a tally pattern. Counting suits you.",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 4
           },
           "secondary_stats": {
-            "spell_power": 2.2,
-            "hit_rating": 0.1
+            "spell_power": 3.9,
+            "hit_rating": 0.18
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -1253,11 +1253,11 @@
           "flavor_text": "A heavy pick with a short haft. It was used for digging, but it works for other things too.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "defense_rating": 0.2
+            "defense_rating": 0.34
           },
           "weapon_damage_min": 36,
           "weapon_damage_max": 49,
@@ -1304,8 +1304,8 @@
           "required_level": 21,
           "flavor_text": "Soft hide, dyed in the colours of dusk. It disappears in grass and in rumours.",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 6
+            "agility": 8,
+            "stamina": 8
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1320,11 +1320,11 @@
           "flavor_text": "Light, quiet and fast to reload. It was built for one thing.",
           "weapon_type": "crossbow",
           "primary_stats": {
-            "agility": 1,
-            "stamina": 2
+            "agility": 2,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 30,
           "weapon_damage_max": 41,
@@ -1339,8 +1339,8 @@
           "required_level": 21,
           "flavor_text": "A narrow band with a little peephole. You can almost see through it.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 4,
+            "intellect": 4
           },
           "label": "Ring (Agi/Int)"
         }
@@ -1382,9 +1382,9 @@
           "required_level": 22,
           "flavor_text": "Heavy mail with leather straps. Whatever you walk, it walks where you tell it.",
           "primary_stats": {
-            "strength": 4,
-            "agility": 4,
-            "stamina": 4
+            "strength": 5,
+            "agility": 5,
+            "stamina": 5
           },
           "armor_type": "mail",
           "armor_value": 78,
@@ -1398,8 +1398,8 @@
           "required_level": 22,
           "flavor_text": "Light, fast and quiet. It doesn't flap. It doesn't dare.",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "leather",
           "armor_value": 19,
@@ -1414,11 +1414,11 @@
           "flavor_text": "A fang set in a bone hilt. A trophy, and a warning.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 5,
+            "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 4.5
+            "attack_power": 7.64
           },
           "weapon_damage_min": 37,
           "weapon_damage_max": 50,
@@ -1464,8 +1464,8 @@
           "flavor_text": "Thin leather, thick insulation. Made for people who do delicate work near explosives.",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 0.4,
-            "parry_rating": 0.3
+            "dodge_rating": 0.77,
+            "parry_rating": 0.58
           },
           "armor_type": "leather",
           "armor_value": 24,
@@ -1479,11 +1479,11 @@
           "required_level": 22,
           "flavor_text": "A brass horn on a chain. It never explodes. It threatens to.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 4,
+            "stamina": 4
           },
           "secondary_stats": {
-            "spell_power": 1.1
+            "spell_power": 2.22
           },
           "label": "Necklace (Int/Sta)"
         },
@@ -1495,8 +1495,8 @@
           "required_level": 22,
           "flavor_text": "Scorched mail with a leather liner. It remembers every explosion, and forgives none.",
           "primary_stats": {
-            "agility": 4,
-            "spirit": 4
+            "agility": 6,
+            "spirit": 6
           },
           "armor_type": "mail",
           "armor_value": 58,
@@ -1540,11 +1540,11 @@
           "required_level": 23,
           "flavor_text": "Thick dwarven plate with a vein of bright ore. It rings when struck, and holds.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 8
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.55,
+            "dodge_rating": 0.55
           },
           "armor_type": "plate",
           "armor_value": 121,
@@ -1559,11 +1559,11 @@
           "flavor_text": "A short axe built for crowded places. Fast, honest, and meaner than it looks.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 4,
-            "agility": 3
+            "stamina": 7,
+            "agility": 5
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.2
+            "crit_chance_physical": 0.34
           },
           "weapon_damage_min": 38,
           "weapon_damage_max": 52,
@@ -1578,8 +1578,8 @@
           "required_level": 23,
           "flavor_text": "A band of dark iron. It looks heavy and feels reassuring.",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 2
+            "strength": 4,
+            "stamina": 4
           },
           "label": "Ring (Str/Sta)"
         }
@@ -1616,8 +1616,8 @@
           "required_level": 20,
           "flavor_text": "Soft down and long flight feathers. It rustles when you aren't moving.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 6,
+            "stamina": 6
           },
           "armor_type": "leather",
           "armor_value": 33,
@@ -1632,11 +1632,11 @@
           "flavor_text": "A light bow cut for shooting at things overhead. It forgives mistakes.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 1,
-            "stamina": 2
+            "agility": 2,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 29,
           "weapon_damage_max": 40,
@@ -1651,8 +1651,8 @@
           "required_level": 20,
           "flavor_text": "Mail leggings with wind-cut slits. They breathe in the heat and still turn a blade.",
           "primary_stats": {
-            "agility": 5,
-            "intellect": 5
+            "agility": 7,
+            "intellect": 7
           },
           "armor_type": "mail",
           "armor_value": 71,
@@ -1698,7 +1698,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 4.2
+            "nature_spell_power": 9.77
           },
           "weapon_damage_min": 30,
           "weapon_damage_max": 41,
@@ -1713,11 +1713,11 @@
           "required_level": 21,
           "flavor_text": "Fine cloth that eddies faintly in a still room. Unsettling and weirdly comforting.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 3
+            "intellect": 4,
+            "stamina": 5
           },
           "secondary_stats": {
-            "mp5": 0.4
+            "mp5": 0.71
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -1731,11 +1731,11 @@
           "required_level": 21,
           "flavor_text": "Light, quiet and sand-coloured. A cloak for people who prefer not to be seen.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 2.7
+            "attack_power": 5.63
           },
           "armor_type": "leather",
           "armor_value": 18,
@@ -1782,11 +1782,11 @@
           "flavor_text": "A long feather tipped with a spark. It crackles when you point it.",
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 1
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 1.8,
-            "mp5": 0.4
+            "spell_power": 4.19,
+            "mp5": 0.93
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 43,
@@ -1801,11 +1801,11 @@
           "required_level": 22,
           "flavor_text": "Light cloth that doesn't catch on thorns or ideas.",
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 5
+            "intellect": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "mp5": 0.9
+            "mp5": 1.23
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -1869,11 +1869,11 @@
           "required_level": 21,
           "flavor_text": "Overlapping scales over soft hide. It sheds sand and the occasional dagger.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 6.7
+            "attack_power": 9.15
           },
           "armor_type": "leather",
           "armor_value": 46,
@@ -1888,11 +1888,11 @@
           "flavor_text": "A strong longbow strung with raptor sinew. It remembers its prey.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 1,
-            "stamina": 2
+            "agility": 2,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 30,
           "weapon_damage_max": 41,
@@ -1907,8 +1907,8 @@
           "required_level": 21,
           "flavor_text": "Gauntlets barbed with lashtail spines. Use caution when applauding.",
           "primary_stats": {
-            "strength": 3,
-            "agility": 3
+            "strength": 6,
+            "agility": 6
           },
           "armor_type": "mail",
           "armor_value": 37,
@@ -1953,11 +1953,11 @@
           "flavor_text": "Strung with sinew from the alpha herself. It twangs like something remembering how to hunt.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 2
+            "agility": 5,
+            "stamina": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 44,
@@ -1972,8 +1972,8 @@
           "required_level": 23,
           "flavor_text": "Overlapping raptor scales over soft hide. It sheds sand and rumours.",
           "primary_stats": {
-            "strength": 6,
-            "agility": 6
+            "strength": 8,
+            "agility": 8
           },
           "armor_type": "leather",
           "armor_value": 50,
@@ -1987,8 +1987,8 @@
           "required_level": 23,
           "flavor_text": "Feathered and speckled. Smells faintly of gratitude.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 4,
+            "stamina": 4
           },
           "armor_type": "cloth",
           "armor_value": 10,
@@ -2027,8 +2027,8 @@
           "required_level": 22,
           "flavor_text": "Thick hide with extra pockets. It smells of dirt and ambition.",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 6
+            "strength": 8,
+            "stamina": 8
           },
           "armor_type": "leather",
           "armor_value": 48,
@@ -2043,11 +2043,11 @@
           "flavor_text": "A stout hammer with a pointed end. Good for rocks, locks and people who ask the wrong questions.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "stamina": 4,
-            "agility": 3
+            "stamina": 7,
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.34
           },
           "weapon_damage_min": 37,
           "weapon_damage_max": 50,
@@ -2062,11 +2062,11 @@
           "required_level": 22,
           "flavor_text": "Plates of hardened shell, strapped over mail. They hurt anything that hurts them.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 5
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.35,
+            "dodge_rating": 0.35
           },
           "armor_type": "mail",
           "armor_value": 39,
@@ -2110,11 +2110,11 @@
           "required_level": 23,
           "flavor_text": "Layered chitin over plate. It rings when you hit it, and it hits back.",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 8
           },
           "secondary_stats": {
-            "armor": 15.2,
-            "parry_rating": 0.3
+            "armor": 20.76,
+            "parry_rating": 0.41
           },
           "armor_type": "plate",
           "armor_value": 121,
@@ -2148,11 +2148,11 @@
           "required_level": 23,
           "flavor_text": "Light chitin over cloth. Insects tend to leave you alone while you wear it.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 4
+            "intellect": 4,
+            "stamina": 6
           },
           "secondary_stats": {
-            "mp5": 0.7
+            "mp5": 1.03
           },
           "armor_type": "cloth",
           "armor_value": 19,
@@ -2200,8 +2200,8 @@
           "weapon_type": "mace_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "spell_power": 5.7,
-            "spell_penetration": 2.4
+            "spell_power": 9.68,
+            "spell_penetration": 4.07
           },
           "weapon_damage_min": 39,
           "weapon_damage_max": 53,
@@ -2216,9 +2216,9 @@
           "required_level": 24,
           "flavor_text": "Hard shell plates, stitched with sinew. The cavities hold amber, and the amber holds something.",
           "primary_stats": {
-            "strength": 3,
-            "agility": 3,
-            "stamina": 3
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
           },
           "armor_type": "mail",
           "armor_value": 63,
@@ -2233,8 +2233,8 @@
           "flavor_text": "A bead of resin, warm to the touch. Something small inside kicks whenever you heal.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 2.8,
-            "mp5": 0.6
+            "healing_power": 5.66,
+            "mp5": 1.21
           },
           "label": "Ring"
         }
@@ -2278,8 +2278,8 @@
           "required_level": 20,
           "flavor_text": "Quilted hide, chalk-stained at the cuffs. Every pocket has a drawing of a tunnel in it.",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 5
+            "strength": 7,
+            "stamina": 7
           },
           "armor_type": "leather",
           "armor_value": 44,
@@ -2294,11 +2294,11 @@
           "flavor_text": "A drone's barb on a hammer-handle. Gets the point across.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "strength": 2,
-            "stamina": 3
+            "strength": 3,
+            "stamina": 5
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.1
+            "crit_chance_physical": 0.17
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 47,
@@ -2313,8 +2313,8 @@
           "required_level": 20,
           "flavor_text": "A little bead of resin on a wire. Warm, in a cold place.",
           "primary_stats": {
-            "intellect": 2,
-            "stamina": 2
+            "intellect": 4,
+            "stamina": 4
           },
           "label": "Ring (Int/Sta)"
         }
@@ -2351,11 +2351,11 @@
           "required_level": 21,
           "flavor_text": "A cap of cloth with a lens of hive-amber. Everything you look at takes on a golden cast, and a faint resentment.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 4,
+            "stamina": 4
           },
           "secondary_stats": {
-            "spell_power": 2.0
+            "spell_power": 2.97
           },
           "armor_type": "cloth",
           "armor_value": 17,
@@ -2369,8 +2369,8 @@
           "required_level": 21,
           "flavor_text": "Resin-hardened hide. Sticky only if you want them to be.",
           "primary_stats": {
-            "strength": 3,
-            "agility": 3
+            "strength": 6,
+            "agility": 6
           },
           "armor_type": "leather",
           "armor_value": 23,
@@ -2385,7 +2385,7 @@
           "flavor_text": "A tiny round shield of pressed amber. Very sturdy for something so small.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 9
           },
           "armor_value": 37,
           "block_value": 46,
@@ -2432,8 +2432,8 @@
           "flavor_text": "Cloth stiffened with brood-resin. It cracks when you kneel, which is a good reason to stay standing.",
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 6.6,
-            "mp5": 1.4
+            "healing_power": 9.07,
+            "mp5": 1.92
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -2447,11 +2447,11 @@
           "required_level": 22,
           "flavor_text": "Chitin over steel. Every plate remembers a different hive.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 6
           },
           "secondary_stats": {
-            "armor": 7.3,
-            "parry_rating": 0.1
+            "armor": 14.1,
+            "parry_rating": 0.19
           },
           "armor_type": "plate",
           "armor_value": 58,
@@ -2466,11 +2466,11 @@
           "flavor_text": "A carapace-headed mace. Hits like a tunnel collapsing.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 4
+            "strength": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.34
           },
           "weapon_damage_min": 37,
           "weapon_damage_max": 50,
@@ -2537,11 +2537,11 @@
           "required_level": 23,
           "flavor_text": "Pale silk, spun by something that should have been a moth. Cool to the touch.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 4,
+            "stamina": 4
           },
           "secondary_stats": {
-            "spell_power": 2.2
+            "spell_power": 3.25
           },
           "armor_type": "cloth",
           "armor_value": 19,
@@ -2555,11 +2555,11 @@
           "required_level": 23,
           "flavor_text": "Mail laced with hive-amber. A faint glow when anything ugly gets close.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 4
+            "intellect": 4,
+            "stamina": 6
           },
           "secondary_stats": {
-            "mp5": 0.7
+            "mp5": 1.03
           },
           "armor_type": "mail",
           "armor_value": 60,
@@ -2605,8 +2605,8 @@
           "required_level": 25,
           "flavor_text": "Quilted hide with thorn-guards sewn into the shoulders. It smells of the hill and of Oggra's tobacco.",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 7
+            "agility": 10,
+            "intellect": 10
           },
           "armor_type": "leather",
           "armor_value": 54,
@@ -2621,11 +2621,11 @@
           "flavor_text": "A short hooked blade for cutting thorn, and, if need be, quilboar.",
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 4,
-            "agility": 3
+            "stamina": 7,
+            "agility": 5
           },
           "secondary_stats": {
-            "hit_rating": 0.2
+            "hit_rating": 0.34
           },
           "weapon_damage_min": 41,
           "weapon_damage_max": 55,
@@ -2640,8 +2640,8 @@
           "required_level": 25,
           "flavor_text": "A ring of carved bone. The Spearhide who owned it was no longer using it.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 6,
+            "stamina": 6
           },
           "label": "Ring (Int/Sta)"
         }
@@ -2684,11 +2684,11 @@
           "required_level": 26,
           "flavor_text": "A robe stitched with living briar. Each thorn points away from the wearer, which is considerate.",
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 5
+            "intellect": 7,
+            "stamina": 7
           },
           "secondary_stats": {
-            "spell_power": 3.3
+            "spell_power": 4.51
           },
           "armor_type": "cloth",
           "armor_value": 28,
@@ -2704,7 +2704,7 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 5.1
+            "nature_spell_power": 11.86
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 48,
@@ -2719,8 +2719,8 @@
           "required_level": 26,
           "flavor_text": "Leather bound with root. They hold fast to whatever they grip.",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "strength": 6,
+            "stamina": 6
           },
           "armor_type": "leather",
           "armor_value": 28,
@@ -2766,8 +2766,8 @@
           "required_level": 28,
           "flavor_text": "Mail woven through with vine-rope. It creaks when you move and it dares you to climb something.",
           "primary_stats": {
-            "strength": 7,
-            "agility": 7
+            "strength": 10,
+            "agility": 10
           },
           "armor_type": "mail",
           "armor_value": 96,
@@ -2782,11 +2782,11 @@
           "flavor_text": "A knotted club with iron studs. It makes a distinct, regrettable sound.",
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 7,
+            "stamina": 8
           },
           "secondary_stats": {
-            "defense_rating": 0.3
+            "defense_rating": 0.51
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 60,
@@ -2801,8 +2801,8 @@
           "required_level": 28,
           "flavor_text": "Soft leather boots, treaded for narrow places and falling.",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 7,
+            "intellect": 7
           },
           "armor_type": "leather",
           "armor_value": 30,
@@ -2848,11 +2848,11 @@
           "required_level": 30,
           "flavor_text": "Cloth sewn with thorn and prayer-beads. It hums quietly with other people's voices.",
           "primary_stats": {
-            "intellect": 5
+            "intellect": 7
           },
           "secondary_stats": {
-            "spell_power": 6.2,
-            "mp5": 1.2
+            "spell_power": 8.47,
+            "mp5": 1.64
           },
           "armor_type": "cloth",
           "armor_value": 32,
@@ -2866,11 +2866,11 @@
           "required_level": 30,
           "flavor_text": "A plate helm with a stylised boar-snout. The tusks are real, which is sad.",
           "primary_stats": {
-            "stamina": 5
+            "stamina": 7
           },
           "secondary_stats": {
-            "defense_rating": 0.4,
-            "dodge_rating": 0.4
+            "defense_rating": 0.59,
+            "dodge_rating": 0.59
           },
           "armor_type": "plate",
           "armor_value": 115,
@@ -2885,11 +2885,11 @@
           "flavor_text": "A bow of ironwood thorn. It pulls hard and seldom misses.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 3
+            "agility": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 40,
           "weapon_damage_max": 54,
@@ -2937,9 +2937,9 @@
           "flavor_text": "Plate grown over a pen-keeper's rib-guard. The tusk-spikes are decoration, mostly.",
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 0.6,
-            "block_rating": 1.1,
-            "dodge_rating": 0.7
+            "parry_rating": 0.82,
+            "block_rating": 1.5,
+            "dodge_rating": 0.96
           },
           "armor_type": "plate",
           "armor_value": 163,
@@ -2973,8 +2973,8 @@
           "required_level": 32,
           "flavor_text": "A heavy cloak of boar-hide. It rustles and whispers menacing little oaths.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 6,
+            "stamina": 6
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -2989,11 +2989,11 @@
           "flavor_text": "Narrow enough to go between plates and nothing else.",
           "weapon_type": "fist_weapon",
           "primary_stats": {
-            "agility": 5
+            "agility": 8
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "crit_chance_physical": 0.4
+            "hit_rating": 0.68,
+            "crit_chance_physical": 0.68
           },
           "weapon_damage_min": 64,
           "weapon_damage_max": 87,
@@ -3046,7 +3046,7 @@
           "flavor_text": "A shield of warded stone. It still hums with the binding that held the beast.",
           "weapon_type": "shield",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 11
           },
           "armor_value": 54,
           "block_value": 68,
@@ -3061,11 +3061,11 @@
           "flavor_text": "A dagger carved from a beast-pit fang. It likes your hand.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 4
+            "agility": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.51,
+            "crit_chance_physical": 0.51
           },
           "weapon_damage_min": 49,
           "weapon_damage_max": 67,
@@ -3080,8 +3080,8 @@
           "required_level": 32,
           "flavor_text": "A seal-stone pendant, still faintly warm. It dulls the blows you take.",
           "primary_stats": {
-            "stamina": 3,
-            "spirit": 3
+            "stamina": 6,
+            "spirit": 6
           },
           "label": "Necklace (Sta/Spi)"
         }
@@ -3125,11 +3125,11 @@
           "required_level": 34,
           "flavor_text": "Cloth woven from living briar. It pulses faintly when something nearby needs healing.",
           "primary_stats": {
-            "stamina": 5,
-            "intellect": 5
+            "stamina": 7,
+            "intellect": 7
           },
           "secondary_stats": {
-            "healing_power": 3.1
+            "healing_power": 4.58
           },
           "armor_type": "cloth",
           "armor_value": 27,
@@ -3143,11 +3143,11 @@
           "required_level": 34,
           "flavor_text": "Plate legguards edged with thorn. Enemies bleed before they have the sense to run.",
           "primary_stats": {
-            "stamina": 9
+            "stamina": 12
           },
           "secondary_stats": {
-            "armor": 21.6,
-            "parry_rating": 0.4
+            "armor": 29.68,
+            "parry_rating": 0.55
           },
           "armor_type": "plate",
           "armor_value": 173,
@@ -3161,8 +3161,8 @@
           "required_level": 34,
           "flavor_text": "A belt of ancient boar-hide, scarred and thick. It makes you feel hunted, and quick.",
           "primary_stats": {
-            "strength": 4,
-            "agility": 4
+            "strength": 8,
+            "agility": 8
           },
           "armor_type": "leather",
           "armor_value": 36,
@@ -3177,11 +3177,11 @@
           "flavor_text": "A great bow of quilboar-bone and sinew. It sings when strung.",
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 2,
-            "stamina": 3
+            "agility": 5,
+            "stamina": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.1
+            "hit_rating": 0.23
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 59,
@@ -3229,11 +3229,11 @@
           "required_level": 29,
           "flavor_text": "Soft leather, cut for quiet movement. It hushes the sound of your breath, and your boots.",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 7
+            "agility": 7,
+            "stamina": 10
           },
           "secondary_stats": {
-            "hit_rating": 0.3
+            "hit_rating": 0.41
           },
           "armor_type": "leather",
           "armor_value": 62,
@@ -3248,11 +3248,11 @@
           "flavor_text": "A dagger with a handle wrapped in cord to find the grip by feel.",
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 4
+            "agility": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.3,
-            "crit_chance_physical": 0.3
+            "hit_rating": 0.51,
+            "crit_chance_physical": 0.51
           },
           "weapon_damage_min": 45,
           "weapon_damage_max": 62,
@@ -3267,8 +3267,8 @@
           "required_level": 29,
           "flavor_text": "A bone amulet, strung on sinew. It tingles when something nearby is lying.",
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 6,
+            "stamina": 6
           },
           "label": "Necklace (Int/Sta)"
         },
@@ -3281,11 +3281,11 @@
           "flavor_text": "Written for a choir of two, one of them absent.",
           "weapon_type": "tome",
           "primary_stats": {
-            "stamina": 4,
-            "spirit": 4
+            "stamina": 7,
+            "spirit": 7
           },
           "secondary_stats": {
-            "healing_power": 2.6
+            "healing_power": 4.48
           },
           "label": "Tome (Int/Spi)",
           "attack_speed": 0.0
@@ -3325,11 +3325,11 @@
           "required_level": 25,
           "flavor_text": "Two kinds of dirt on it and no ground that makes both.",
           "primary_stats": {
-            "stamina": 3,
-            "spirit": 3
+            "stamina": 4,
+            "spirit": 4
           },
           "secondary_stats": {
-            "healing_power": 2.1
+            "healing_power": 3.12
           },
           "armor_type": "mail",
           "armor_value": 58,
@@ -3343,11 +3343,11 @@
           "required_level": 25,
           "flavor_text": "Two kinds of dirt on it and no ground that makes both.",
           "primary_stats": {
-            "stamina": 3
+            "stamina": 6
           },
           "secondary_stats": {
-            "defense_rating": 0.2,
-            "dodge_rating": 0.2
+            "defense_rating": 0.39,
+            "dodge_rating": 0.39
           },
           "armor_type": "plate",
           "armor_value": 58,
@@ -3361,11 +3361,11 @@
           "required_level": 25,
           "flavor_text": "Found with one half in leaf mould and one half in Barrens clay.",
           "primary_stats": {
-            "intellect": 1,
-            "spirit": 1
+            "intellect": 2,
+            "spirit": 2
           },
           "secondary_stats": {
-            "healing_power": 1.5
+            "healing_power": 3.03
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -3409,11 +3409,11 @@
           "required_level": 30,
           "flavor_text": "Carried up a ramp, like everything else in this city.",
           "primary_stats": {
-            "agility": 2,
-            "intellect": 2
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 4.2
+            "attack_power": 8.11
           },
           "armor_type": "leather",
           "armor_value": 29,
@@ -3427,11 +3427,11 @@
           "required_level": 30,
           "flavor_text": "Hot to the touch until about two in the morning.",
           "primary_stats": {
-            "stamina": 2,
-            "spirit": 2
+            "stamina": 4,
+            "spirit": 4
           },
           "secondary_stats": {
-            "healing_power": 1.7
+            "healing_power": 3.01
           },
           "armor_type": "mail",
           "armor_value": 46,
@@ -3447,8 +3447,8 @@
           "weapon_type": "axe_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 0.7,
-            "parry_rating": 0.5
+            "dodge_rating": 1.19,
+            "parry_rating": 0.85
           },
           "weapon_damage_min": 43,
           "weapon_damage_max": 58,

@@ -75,13 +75,25 @@ STAT_MOD = {
 #: 1.232 with an interquartile spread of 0.11 - it simply had nowhere to live, so nothing could
 #: tell an item that had fallen off it.
 SLOT_K = {
+    # Kyle, 2026-10-31: "I think we should bump this up roughly. It's too much of a
+    # difference." The gap between the best and worst slot was 6.2x (2H 1.232 against a ring
+    # 0.198) and is now 3.1x. He set chest/legs, head/shoulder/one-handers, the accessories and
+    # ranged; the seven minor slots are mine, placed between his accessory 0.40 and medium 0.55
+    # so the ordering he already had is preserved - without them a ring would have been worth
+    # more than a pair of gloves.
+    #
+    # The numbers these replaced, which were FITTED from the game's own items and are what
+    # tools/rescale_item_stats.py multiplied every authored item away from:
+    #   2H 1.232 | chest .476 legs .473 | shoulder .372 head .370 | main_hand .324
+    #   off_hand .290 | wrist .254 feet .251 shield .240 waist .237 hands .233
+    #   neck .198 ring .198 trinket .193 back .192 | ranged .172
     "2H": 1.232,
-    "chest": 0.476, "legs": 0.473,
-    "shoulder": 0.372, "head": 0.370,
-    "main_hand_weapon": 0.324, "off_hand_weapon": 0.290,
-    "wrist": 0.254, "feet": 0.251, "shield": 0.240, "waist": 0.237, "hands": 0.233,
-    "neck": 0.198, "ring": 0.198, "trinket": 0.193, "back": 0.192,
-    "ranged_weapon": 0.172,
+    "chest": 0.650, "legs": 0.650,
+    "head": 0.550, "shoulder": 0.550,
+    "main_hand_weapon": 0.550, "off_hand_weapon": 0.500,
+    "wrist": 0.450, "feet": 0.450, "shield": 0.450, "waist": 0.450, "hands": 0.450,
+    "neck": 0.400, "ring": 0.400, "trinket": 0.400, "back": 0.400,
+    "ranged_weapon": 0.400,
 }
 
 #: Rarity scales the whole budget. 0.787 is the median across all 17 slots and the slots agree

@@ -563,6 +563,30 @@ class StatusEffectMixin:
             self.active_effects = []
         return self.active_effects
 
+    def _discard_effect(self, effect):
+        """Drop an effect if it is still there. Returns True if this call removed it.
+
+        EVERY TICK PATH ITERATES A SNAPSHOT AND REMOVES FROM THE LIVE LIST, which is correct
+        right up until something removes an effect in between. A DoT tick calls take_damage, and
+        anything that fires from there - a proc, a dispel (remove_debuff_by_dispel_type above),
+        a death - can take an effect out of the live list while our snapshot still holds it. The
+        next expiry then called list.remove on something already gone and raised ValueError out
+        of the middle of combat.
+
+        It surfaced when every item in the game got stronger: damage numbers changed, so DoTs
+        started landing killing blows on different turns, and a crash that needed two effects
+        expiring around one death went from rare to reproducible. Nothing about the status
+        system changed - the rescale only altered how often the existing race was lost.
+
+        Removing something already removed is not an error, it is the goal, so this is
+        idempotent rather than guarded by a check at each call site.
+        """
+        effects = self._effects()
+        if effect in effects:
+            effects.remove(effect)
+            return True
+        return False
+
     def apply_status_effect(self, effect):
         """Add an effect, refreshing in place if one with the same id exists.
 
@@ -890,7 +914,7 @@ class StatusEffectMixin:
                 messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
                 effect.duration -= 1
                 if effect.is_expired():
-                    self._effects().remove(effect)
+                    self._discard_effect(effect)
                     messages.append(f"{effect.name} fades from {self.name}.")
             elif effect.effect_type == EffectType.HOT:
                 healed = effect.tick_potency()
@@ -898,7 +922,7 @@ class StatusEffectMixin:
                 messages.append(f"{self.name} is healed {healed} by {effect.name}.")
                 effect.duration -= 1
                 if effect.is_expired():
-                    self._effects().remove(effect)
+                    self._discard_effect(effect)
                     messages.append(f"{effect.name} fades from {self.name}.")
             elif effect.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
                 if effect.real_time_seconds is not None:
@@ -939,7 +963,7 @@ class StatusEffectMixin:
                     continue
                 effect.duration -= 1
                 if effect.is_expired():
-                    self._effects().remove(effect)
+                    self._discard_effect(effect)
                     messages.append(f"{effect.name} fades from {self.name}.")
                     # A buff/debuff carrying stat_mods (e.g. Frenzy's
                     # +attack_power) just left the bonus pool
@@ -1506,7 +1530,7 @@ class StatusEffectMixin:
                 continue
             effect.real_time_seconds -= dt
             if effect.is_expired():
-                self._effects().remove(effect)
+                self._discard_effect(effect)
                 messages.append(f"{effect.name} fades from {self.name}.")
                 # Same reasoning as the turn-based path above: a raid buff
                 # like Fortitude expiring after its real 30 minutes must
