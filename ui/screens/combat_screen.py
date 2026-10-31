@@ -9,7 +9,7 @@ from config import (
 from core.game_states import GameState
 from ui.sprite_loader import get_creature_sprite
 from combat.combat_engine import CombatEngine
-from combat.status_effects import EffectType
+from combat.status_effects import EffectType, is_displayable_buff
 from ui.screens.base_screen import BaseScreen
 
 
@@ -1527,8 +1527,8 @@ class CombatScreen(BaseScreen):
         is tight.
         """
         effects = [e for e in combatant._effects()
-                   if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF,
-                                        EffectType.DOT, EffectType.HOT)]
+                   if is_displayable_buff(e)
+                   or e.effect_type in (EffectType.DOT, EffectType.HOT)]
         if not effects:
             return
 
@@ -1558,8 +1558,8 @@ class CombatScreen(BaseScreen):
         icons), matching the visual language players already know.
         """
         effects = [e for e in combatant._effects()
-                   if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF,
-                                        EffectType.DOT, EffectType.HOT)]
+                   if is_displayable_buff(e)
+                   or e.effect_type in (EffectType.DOT, EffectType.HOT)]
         if not effects:
             return
 

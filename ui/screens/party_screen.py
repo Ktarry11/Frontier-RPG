@@ -453,10 +453,9 @@ class PartyScreen(BaseScreen):
         `duration` would print a meaningless number, which is the trap
         get_effects_summary falls into by flattening both into one field.
         """
-        from combat.status_effects import EffectType
+        from combat.status_effects import EffectType, is_displayable_buff
 
-        effects = [e for e in member._effects()
-                   if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF)]
+        effects = [e for e in member._effects() if is_displayable_buff(e)]
 
         self.renderer.draw_text(screen, "ACTIVE EFFECTS", (x, y),
                                 font_size=14, color=COLOR_GOLD)

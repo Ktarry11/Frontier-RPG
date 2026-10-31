@@ -444,6 +444,43 @@ class StatusEffect:
         return f"<StatusEffect {self.name} {self.duration}/{self.max_duration}>"
 
 
+#: Prefix on the synthetic StatusEffect that Character._sync_talent_procs
+#: creates for every proc-carrying talent node. See that method: the effect
+#: exists ONLY to carry the proc payload, carries no stat_mods, and lasts as
+#: long as the points are spent (duration=999999, real_time_seconds=None).
+TALENT_PROC_PREFIX = "talent_proc_"
+
+
+def is_displayable_buff(effect):
+    """True if this effect belongs in a player-facing buff/debuff LIST.
+
+    Kyle, 2026-10-31, on recruiting a companion: "they have all the possible
+    buffs which pushes everything down." The screenshot showed a level 60 Holy
+    priest whose ACTIVE EFFECTS read Desperate Prayer / Blessed Recovery /
+    Inspiration / Blessed Resilience / Spirit of Redemption, each at 999999t,
+    with the real content shoved off the panel.
+
+    None of those are buffs. They are her TALENTS. _sync_talent_procs gives
+    every proc-carrying talent node a permanent synthetic BUFF so the proc has
+    something to live on, and the buff panels were filtering on effect_type
+    alone, so a well-specced character's whole talent build rendered as a wall
+    of permanent timers. The more talents you spend, the worse it got - which
+    is why it showed up on a recruit joining at level 60 with a full build.
+
+    ONE RULE, ONE IMPLEMENTATION: party_screen, cast_screen and combat_screen
+    each had their own copy of the effect_type filter, so the same leak was in
+    all three. They now all call this. A talent is shown on the Talents screen,
+    where the player went looking for it; a buff panel is for things that
+    started recently and will end.
+    """
+    from combat.status_effects import EffectType  # local: module self-reference
+    if effect.effect_type not in (EffectType.BUFF, EffectType.DEBUFF):
+        return False
+    if str(getattr(effect, "effect_id", "")).startswith(TALENT_PROC_PREFIX):
+        return False
+    return True
+
+
 class StatusEffectMixin:
     """Mixed into Character and Monster so both handle effects identically.
 

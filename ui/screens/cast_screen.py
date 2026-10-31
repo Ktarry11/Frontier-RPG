@@ -412,9 +412,8 @@ class CastScreen(BaseScreen):
             # get_status_effect_icon_surface - falls back to that same
             # helper's own effect_type-based fallback icon for anything
             # without a real icon_id yet, so this never shows a blank gap.
-            from combat.status_effects import EffectType
-            buffs = [e for e in member._effects()
-                    if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF)]
+            from combat.status_effects import EffectType, is_displayable_buff
+            buffs = [e for e in member._effects() if is_displayable_buff(e)]
             buff_y = res_y + 14
             BUFF_ICON_SIZE = 20
             if buffs and self.icon_ui_helper:
