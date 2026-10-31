@@ -113,6 +113,15 @@ SPIRAL_TURNS = 1.0
 # six tiles either side at full strength, then a tile and a half of transition into the cliff.
 RAMP_CORE, RAMP_SHOULDER = 6.0, 1.5
 
+#: Half-width of the clear lane down the ramp's middle. See _ramp_lane.
+#:
+#: Measured, not guessed. The ramp band is fifteen tiles but only its flat core walks, so the
+#: WALKABLE road is about ten tiles wide - and a lane of 3.5 was taking 4009 of the wall's 4323
+#: walkable tiles, leaving a 93%-clear road with twenty-six props on it. Two gives a four-tile
+#: guaranteed lane and hands the shoulders back to the dressing pass, which is the whole point of
+#: having a lane rather than banning scenery from the road outright.
+RAMP_LANE = 2.0
+
 #: THE DUNGEON ISLE. (cx, cy, r) - dead centre of the pool, and what the whole descent is for.
 #: Kyle: "i want the center of the cenote to be a dungeon." So the middle of the lake is not
 #: scenery, it is the destination, and the zone's job is to put the player on it.
@@ -185,41 +194,51 @@ def _spit(gx, gy):
     return wide - d + 0.5 * wob(gx * 0.22, gy * 0.2)
 
 
-def _spiral(gx, gy):
-    """(mask, depth) for the descending spiral.
-
-    mask is 1 on the ramp and falls to 0 off it. depth is how far down the ramp is AT THAT POINT
-    ALONG ITS LENGTH - constant across the ramp's width, which is what keeps it walkable.
-    """
-    # THE SAME RADIUS THE CONE USES. _raw_depth, floorward and water_field all measure distance
-    # with _wr - the lobed, wobbled radius that stops the hole being a perfect circle. Measuring the
-    # ramp band with a plain hypot instead put the band on a true circle and the cliff it is cut
-    # into on a shape up to 7% plus two tiles away from it. Inside the band the depth was then flat
-    # in ONE radius while the ground either side of it fell in ANOTHER, so the blend at the shoulder
-    # was steep even where the mask was saturated. Both have to be the same measurement or the ramp
-    # and the wall are not the same surface.
+def _spiral_geom(gx, gy):
+    """(r, r_center, t) for the descending spiral - the ONE place the ramp's position is worked out.
+    The ramp mask and the clear lane both need it, and two copies of this arithmetic is exactly how
+    a lane ends up running down somewhere the ramp is not."""
     dx, dy = gx - CX, gy - CY
     r = np.maximum(_wr(gx, gy), 0.5)
     ang = (np.arctan2(dy, dx) / TAU) % 1.0            # 0..1 round the hole
 
     # How many whole turns in is this point? The spiral passes every bearing SPIRAL_TURNS times at
     # different radii, so pick the pass whose radius is nearest to r.
+    #
     # THE SPIRAL ENDS AT THE FLOOR, NOT AT THE WATER. Mapping it onto R_LIP..R_WATER while the
     # bottom was flat from R_FLOOR inward left the ramp arriving at a depth of 33 onto a floor at
-    # 46 - a thirteen-deep step round the entire shore, which read as rock, which sealed the
-    # bottom of the hole with twenty-nine reachable tiles in it. Ending the descent where the
-    # ground levels out makes the join exact instead of nearly right.
+    # 46 - a thirteen-deep step round the entire shore, which read as rock, which sealed the bottom
+    # of the hole. Ending the descent where the ground levels out makes the join exact.
     want = SPIRAL_TURNS * (R_LIP - r) / (R_LIP - R_FLOOR)
     k = np.round(want - ang)
-    t = (ang + k) / SPIRAL_TURNS                       # 0 at the rim, 1 at the water
-    t = np.clip(t, 0.0, 1.0)
+    t = np.clip((ang + k) / SPIRAL_TURNS, 0.0, 1.0)   # 0 at the rim, 1 at the floor
+    return r, R_LIP - (R_LIP - R_FLOOR) * t, t
 
-    r_center = R_LIP - (R_LIP - R_FLOOR) * t
-    mask = np.clip((RAMP_CORE + RAMP_SHOULDER - np.abs(r - r_center)) / RAMP_SHOULDER,
-                   0.0, 1.0)
-    # only between the rim and the waterline
+
+def _spiral(gx, gy):
+    """(mask, depth) for the descending spiral.
+
+    mask is 1 on the ramp and falls to 0 off it. depth is how far down the ramp is AT THAT POINT
+    ALONG ITS LENGTH - constant across the ramp's width, which is what keeps it walkable.
+    """
+    r, r_center, t = _spiral_geom(gx, gy)
+    mask = np.clip((RAMP_CORE + RAMP_SHOULDER - np.abs(r - r_center)) / RAMP_SHOULDER, 0.0, 1.0)
+    # only between the rim and the floor
     mask = np.where((r < R_LIP) & (r > R_FLOOR - 1.0), mask, 0.0)
     return mask, DEPTH * t
+
+
+def _ramp_lane(gx, gy):
+    """True down the middle of the ramp - the lane that stays clear of scenery.
+
+    Banning props from the WHOLE ramp band was the first attempt and it is wrong on this map,
+    because on a one-turn spiral the ramp IS the walkable wall: the descent came out as bare rock
+    with a hundred and fifty props piled on the rim and the shore. What the road needs is a clear
+    middle, not a clear everything - so seven tiles down the centreline take nothing and the
+    shoulders either side are dressed like any other ground.
+    """
+    r, r_center, _t = _spiral_geom(gx, gy)
+    return np.abs(r - r_center) < RAMP_LANE
 
 
 def vein_field(gx, gy):
@@ -407,7 +426,28 @@ NPC_POSITIONS = {
 #: build complains, because placing a chest on an unwalkable tile is not an error, it is just a
 #: waste. They are re-sited whenever the wall changes, which going from two turns to one did to all
 #: four of them: a coordinate on a ramp is a coordinate that belongs to that ramp's geometry.
-CHESTS = [(45, 132), (63, 54), (117, 115), (56, 95)]
+#: They now sit IN THE CLEAR LANE, which is the only ground on the wall that nothing can ever be
+#: dropped on - chests are placed after the dressing pass, so a chest on the ramp's shoulder is a
+#: chest a fern can bury, and that is a silent loss rather than a crash.
+CHESTS = [(46, 132), (67, 51), (119, 112), (58, 94)]
+#: What a stalled dig camp has lying around. The underdark set has the survey and excavation props
+#: already - they were made for the Codex's dig in the Sunken Archive, and a goblin works stoppage
+#: looks much the same from the outside. Placed by hand and checked, never rolled.
+CAMP_PROPS = [
+    (87, 90, "ud_dig_scaffold"),      # over the shaft head, north of the mouth
+    (85, 103, "ud_dig_scaffold"),
+    (81, 89, "ud_survey_tripod"),     # Ulla's instruments, at the north end where she stands
+    (87, 86, "ud_survey_tripod"),
+    (79, 97, "ud_codex_tent"),
+    (92, 98, "ud_codex_tent"),
+    (84, 94, "ud_field_desk"),        # the tally clerk's book, in the middle of the argument
+    (92, 90, "ud_codex_crates"),
+    (78, 94, "ud_codex_crates"),
+    (94, 93, "ud_specimen_rack"),     # the cutter's stock
+    (82, 86, "ud_arcane_brazier"),
+    (90, 103, "ud_arcane_brazier"),
+]
+
 FOREST = None
 
 
@@ -423,21 +463,23 @@ def dress(L):
     rng = np.random.default_rng(SEED)
     SF = "assets/tiles/shimmering_flats/props/"
     SN = "assets/tiles/southern_needles/props/"
+    UD = "assets/tiles/underdark/props/"
+    BR = "assets/tiles/barrens/props/"
     A = lambda d, s: d + s + ".png"        # noqa: E731
     n = 0
-    for _ in range(4200):
+    for _ in range(9000):
         x = int(rng.integers(3, W - 3))
         y = int(rng.integers(3, H - 3))
         if not z.is_walkable(x, y):
             continue
-        # THE ROAD STAYS CLEAR. Two hundred and fifty-eight props sealed two thousand six hundred
-        # tiles of shore the first time this ran, because the spiral's mouth onto the floor is a
-        # seam a few tiles wide and a single boulder in it is a wall. A worked quarry keeps its haul
-        # road clear for exactly this reason, so the ramp and the ground either side of where it
-        # lands take no scenery - and the descent then cannot be closed by a dice roll.
+        # THE ROAD KEEPS ITS LANE. Two hundred and fifty-eight props sealed two thousand six
+        # hundred tiles of shore the first time this ran, because the spiral's mouth onto the floor
+        # is a seam a few tiles wide and a single boulder in it is a wall. A worked quarry keeps a
+        # clear haul road for exactly that reason - but only the MIDDLE of it, or the descent is
+        # bare rock the whole way down.
         xa = np.array([[float(x)]])
         ya = np.array([[float(y)]])
-        if float(_spiral(xa, ya)[0][0, 0]) > 0.3:
+        if bool(_ramp_lane(xa, ya)[0, 0]):
             continue
         if abs(float(_wr(xa, ya)[0, 0]) - R_FLOOR) < 4.0:
             continue
@@ -450,26 +492,73 @@ def dress(L):
             continue
         r = float(np.hypot(x - CX, y - CY))
         depth = float(np.clip((R_LIP - r) / (R_LIP - R_WATER), 0.0, 1.0))
+        on_vein = float(vein_field(xa, ya)[0, 0]) > 0.0
         roll = rng.random()
-        if depth < 0.15:                                   # the dry rim: desert, and barely that
+
+        # THE ARCANE FOLLOWS THE SEAMS. Kyle wants "a mixture of tropical / arcane / mystic...so
+        # underdark mixed with barrens oasis style", and the cheap way to do that is to shake
+        # crystal over the whole map like glitter. The zone already has five crystal seams defined
+        # by vein_field - the things it is NAMED for, and where its magic resistance gear comes
+        # from - so the crystal goes ON THEM. Then the glow has a geography: a player can see a
+        # seam from the rim, follow it down, and find the loot and the ore where the light was.
+        if on_vein and roll < 0.34 and depth > 0.10:
+            nm = rng.choice(["ud_crystal_cyan", "ud_crystal_violet", "ud_crystal_spire",
+                             "ud_lattice_growth", "ud_geode_open", "ud_crystal_float"])
+            if L.prop(A(UD, nm), x, y, 5):
+                n += 1
+            continue
+
+        if depth < 0.15:
+            # THE DRY RIM. Desert, and barely that. Nothing glows up here and nothing is green -
+            # the whole zone is the argument that the hole is the only reason anything lives, so
+            # the top of it has to be dead or the argument is never made.
             if roll < 0.05:
-                nm = rng.choice(["tan_thorn_scrub", "tan_dead_palm", "sn_boulder_red",
-                                 "tan_dune_grass"])
-                if L.prop(A(SF if nm.startswith("tan_") else SN, nm), x, y, 3):
+                nm, d = rng.choice([("tan_thorn_scrub", SF), ("tan_dead_palm", SF),
+                                    ("sn_boulder_red", SN), ("tan_dune_grass", SF),
+                                    ("br_tumbleweed_bones", BR), ("br_dead_tree_vulture", BR)])
+                if L.prop(A(d, nm), x, y, 3):
                     n += 1
-        elif depth < 0.55:                                 # the terraces: stone, and the first moss
-            if roll < 0.12:
-                nm = rng.choice(["cen_mossy_boulder", "sn_layered_stack", "tan_ruin_block",
-                                 "cen_roots_shaft", "sn_stone_pile"])
-                where = SF if nm.startswith(("cen_", "tan_")) else SN
-                if L.prop(A(where, nm), x, y, 4):
+        elif depth < 0.50:
+            # THE TERRACES. Stone, ruin and the first lichen, with the seams starting to show.
+            if roll < 0.20:
+                nm, d = rng.choice([("cen_mossy_boulder", SF), ("sn_layered_stack", SN),
+                                    ("tan_ruin_block", SF), ("cen_roots_shaft", SF),
+                                    ("sn_stone_pile", SN), ("ud_lichen_boulder", UD),
+                                    ("ud_rune_stone", UD), ("br_sandstone_boulders", BR)])
+                if L.prop(A(d, nm), x, y, 4):
                     n += 1
-        else:                                              # the green shelf and the waterline
+        elif depth < 0.80:
+            # THE GREEN SHELF. Where the damp reaches. Fern, vine, moss and the first fungus - the
+            # handover band, and the one place both palettes are present in equal measure.
             if roll < 0.30:
-                nm = rng.choice(["cen_ferns", "cen_vines", "cen_fallen_palm", "cen_mossy_boulder",
-                                 "cen_arch", "cen_roots_shaft"])
-                if L.prop(A(SF, nm), x, y, 5):
+                nm, d = rng.choice([("cen_ferns", SF), ("cen_vines", SF), ("cen_roots_shaft", SF),
+                                    ("ud_moss_curtain", UD), ("ud_shroom_squat_ochre", UD),
+                                    ("ud_shroom_cluster_blue", UD), ("ud_fungal_node", UD),
+                                    ("br_mossy_boulder", BR), ("br_golden_grass_tuft", BR)])
+                if L.prop(A(d, nm), x, y, 5):
                     n += 1
+        else:
+            # THE WATERLINE. A Barrens oasis that has been left alone underground for three years
+            # with a magic seam running through it: acacia and lilies and standing water, and then
+            # a violet mushroom the height of a man and a stone that has not come down yet.
+            if roll < 0.34:
+                nm, d = rng.choice([("br_umbrella_acacia", BR), ("br_green_oak", BR),
+                                    ("acacia_tree", BR), ("nb_lily_cattails", BR),
+                                    ("nb_fen_willow", BR), ("cen_fallen_palm", SF),
+                                    ("cen_arch", SF), ("cen_ferns", SF),
+                                    ("ud_shroom_tall_violet", UD), ("ud_glow_pool", UD),
+                                    ("ud_floating_stone", UD), ("ud_shroom_canopy", UD)])
+                if L.prop(A(d, nm), x, y, 6):
+                    n += 1
+
+    # ===== LASTWATER'S OWN CLUTTER =====
+    # Hand-placed, because this is the one part of the map where a prop in the wrong tile closes a
+    # camp. Every one of these is checked by verify(), which requires all ten people AND the dig
+    # mouth to stay reachable - so a scaffold dropped across the only line to the door fails the
+    # build rather than shipping.
+    for (px, py, nm) in CAMP_PROPS:
+        if L.prop(A(UD, nm), px, py, 5):
+            n += 1
     return n
 
 
