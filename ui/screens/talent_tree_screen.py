@@ -291,17 +291,11 @@ class TalentTreeScreen:
             self.lock_message_timer = 3.0
             return
 
-        if (can_spend_in_tier and clicked_node.can_spend_point() and available_points > 0):
-            clicked_node.spend_point()
-            self.character.talent_points_available -= 1
-            self.character._recalculate_derived_stats()  # FIX: talent effects not applying without this
-            # Spending a point may have just unlocked a talent-granted
-            # ability (Wild Growth, Nourish, etc) - refresh immediately so
-            # it shows up in the cast panel/hotbar right away rather than
-            # waiting for the next level-up to notice. Same reasoning as
-            # the _recalculate_derived_stats() call above it.
-            self.character._sync_talent_unlocked_abilities()
-            self.character._sync_talent_procs()
+        # Character.spend_talent_point owns the rule now - the rank, the point, the stat
+        # recalculation and the two talent syncs have to happen together, and when that was
+        # written out here it was only true for a human clicking. It re-checks the tier gate and
+        # the max rank itself, so the checks above remain only to decide what to print.
+        if self.character.spend_talent_point(self.current_tree_id, clicked_node.talent_id):
             print(f"✅ Spent point in {clicked_node.name}. Points available: {available_points - 1}")
         else:
             print(f"❌ Cannot spend point: tier_locked={not can_spend_in_tier}, maxed={not clicked_node.can_spend_point()}, points={available_points}")

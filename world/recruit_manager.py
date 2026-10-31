@@ -249,6 +249,9 @@ class RecruitNPC:
             return char
 
         self._equip_starter_gear(char)
+        # Built, not blank - see _catch_up for why. A recruit hired at their authored level 38
+        # had the same empty tree a caught-up one did; this is the same fix at the other door.
+        char.auto_spend_talents()
         return char
 
     @staticmethod
@@ -329,7 +332,12 @@ class RecruitNPC:
                 stat_template=None, primary_stats=primary_stats,
                 secondary_stats={}, armor_value=10, required_level=1,
                 sell_price=0, flavor_text="",
-                icon_id=pick_armor_icon(slot, "plate"),
+                # Seeded, so every Asher everywhere wears the same plate. His loadout is
+                # documented right above as fixed and unalterable, but this call was a plain
+                # random pick, so his breastplate came out plate11 on one build and plate14 on
+                # the next and nobody could tell because a save keeps whatever it rolled. Kyle
+                # already asked for exactly this on the mace below; the armour never got it.
+                icon_id=pick_armor_icon(slot, "plate", seed=f"asher_coleman:{slot}"),
             )
 
         chest = armor_item("chest", {"strength": 2, "stamina": 1}, "Family Breastplate")
@@ -579,6 +587,20 @@ class RecruitManager:
         while character.level < target_level and guard < 200:
             character.level_up()
             guard += 1
+
+        # AND THEY SPENT THE POINTS. level_up() grants a talent point per level but nothing
+        # places it, so a companion caught up from 20 to 46 arrived with 42 unspent points and an
+        # empty tree - which on a level 46 healer is not a blank slate, it is a level 46 healer
+        # missing most of their healing, in a party the player is relying on. They come built,
+        # down their own locked spec. Kyle's free reset refunds the lot if he wants to redo it by
+        # hand.
+        #
+        # Asher excepted, same as the regear above and for the same reason: he is a fixed,
+        # hand-authored companion who has to come back exactly as he left, and a build is part of
+        # "exactly". build_character does not need this guard because he returns early there.
+        if getattr(character, "recruit_id", None) != "asher_coleman":
+            character.auto_spend_talents()
+
         if not (gained and regear):
             return character
 

@@ -119,16 +119,32 @@ def _icons_for_prefixes(prefixes):
     return matches
 
 
-def pick_armor_icon(slot, armor_type):
+def pick_armor_icon(slot, armor_type, seed=None):
     """Random icon_id for an armor slot, or None if nothing matches
     (caller falls back to the existing rarity-colored-box rendering -
-    see icon_migration_and_ui.py's get_item_icon_surface)."""
+    see icon_migration_and_ui.py's get_item_icon_surface).
+
+    `seed` makes the pick DETERMINISTIC for callers whose item is supposed to be a fixed piece of
+    authored kit rather than a roll - pass any stable string and that string always yields the
+    same icon. Added for Asher Coleman, whose loadout is documented as fixed and unalterable but
+    whose armour icons re-rolled on every build, so his breastplate was plate11 one call and
+    plate14 the next. Kyle had already asked for exactly this on his mace ("the icon should be
+    equally fixed, not re-rolled"); the armour simply never got the same treatment. Seeded off a
+    local Random so it cannot disturb the global stream every other roll in the game shares.
+    """
     prefixes = (ARMOR_ICON_PREFIXES.get((slot, armor_type))
                or ARMOR_ICON_PREFIXES.get((slot, None)))
     if not prefixes:
         return None
     candidates = _icons_for_prefixes(prefixes)
-    return random.choice(candidates) if candidates else None
+    if not candidates:
+        return None
+    if seed is not None:
+        # Sorted first: _all_gear_files() comes from a directory glob, whose order is whatever
+        # the filesystem hands back. Seeding a pick over an unordered list is deterministic per
+        # process and nothing more, which is the same trap hash() set for the creature variants.
+        return random.Random(seed).choice(sorted(candidates))
+    return random.choice(candidates)
 
 
 def pick_weapon_icon(weapon_type):

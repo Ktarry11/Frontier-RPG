@@ -1597,6 +1597,94 @@ class Character(StatusEffectMixin):
         gains["talent_points"] = 1 if self.level >= 5 else 0
         return gains
 
+    def spend_talent_point(self, tree_id, talent_id):
+        """Put one point into a talent. Returns True if it went in.
+
+        THE ONE PLACE A TALENT POINT IS SPENT. This rule used to live only inside
+        ui/screens/talent_tree_screen.py's click handler, which meant the four things that have
+        to happen together - the node gains a rank, the character loses a point, derived stats
+        recalculate, and talent-granted abilities and procs re-sync - were only guaranteed to
+        happen together when a human clicked. Anything else that wanted to spend a point (the
+        recruit auto-spend below, a future preset build, a test) would have had to repeat all
+        four, and the fifth caller to forget _sync_talent_unlocked_abilities would ship a
+        companion whose talents were paid for but whose spells never appeared.
+
+        Enforces the same three gates the screen enforced: the spec lock, the tier gate, and the
+        node's own max rank.
+        """
+        if self.talent_points_available <= 0:
+            return False
+        if self.locked_spec and tree_id != self.locked_spec:
+            return False
+        tree = self.talent_trees.get(tree_id)
+        if tree is None:
+            return False
+        node = tree.get_node(talent_id)
+        if node is None or not node.can_spend_point():
+            return False
+        if not tree.can_spend_in_tier(node.tier, tree.total_points_spent()):
+            return False
+
+        node.spend_point()
+        self.talent_points_available -= 1
+        self._recalculate_derived_stats()
+        self._sync_talent_unlocked_abilities()
+        self._sync_talent_procs()
+        return True
+
+    def auto_spend_talents(self, tree_id=None):
+        """Spend every available point down one tree. Returns how many went in.
+
+        For companions who arrive already levelled. A recruit caught up from 20 to 46 gets 42
+        points and an empty tree, and an empty tree on a level 46 healer is not a blank slate -
+        it is a level 46 healer missing two thirds of their healing. Nobody is going to sit in
+        the talent screen clicking forty-two times for a hireling, so they turn up built.
+
+        Nothing is lost by doing this: Kyle's free talent reset refunds the lot, so a player who
+        dislikes the build gets the points back and spends them by hand.
+
+        Order is lowest tier first, and each node is filled to its max before moving on. That is
+        not an aesthetic choice - tier gates are cumulative point counts, so spending depth-first
+        from the bottom is what unlocks the tiers above. Spreading one point per node would stall
+        against the first gate with points left over.
+        """
+        tree_id = tree_id or self.locked_spec
+        if not tree_id:
+            # No locked spec (a player character): pick the tree they have already invested in,
+            # and the first one only if they have invested nowhere.
+            trees = sorted(self.talent_trees.items(),
+                           key=lambda kv: (-kv[1].total_points_spent(), kv[0]))
+            if not trees:
+                return 0
+            tree_id = trees[0][0]
+        tree = self.talent_trees.get(tree_id)
+        if tree is None:
+            return 0
+
+        spent = 0
+        # Bounded by the points themselves rather than by `while True`: a tier gate that can
+        # never be met (an authoring error in a tree) would otherwise spin forever on a
+        # background load screen with nothing to show for it.
+        guard = self.talent_points_available + 1
+        while self.talent_points_available > 0 and guard > 0:
+            guard -= 1
+            placed = False
+            for tier in range(0, tree.get_max_tier() + 1):
+                if not tree.can_spend_in_tier(tier, tree.total_points_spent()):
+                    continue
+                for node in tree.get_nodes_in_tier(tier):
+                    if node.can_spend_point() and self.spend_talent_point(tree_id, node.talent_id):
+                        spent += 1
+                        placed = True
+                        break
+                if placed:
+                    break
+            if not placed:
+                # Every reachable node is maxed and no gate will open. Leftover points stay
+                # available rather than being silently dropped.
+                break
+        return spent
+
     def _grant_talent_points(self):
         """Keep talent points in sync with level: 1 per level from level 5 on.
 
