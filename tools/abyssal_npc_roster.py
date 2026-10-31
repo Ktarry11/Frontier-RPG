@@ -97,7 +97,7 @@ ABYSSAL_AMBIENT = {
         "for about a day and a half. So when the camp talks about the ground like it is weather, "
         "I let them, and I go and stand somewhere else."),
     "ab_digger": (
-        "Rope-Hand Vizzi Trask", "goblin", "female", 26,
+        "Rope-Hand Vizzi Trask", "goblin", "female", 12,
         "Somebody has to go down them. Not far. Far enough to see whether there is a floor and "
         "whether the floor is going anywhere.\n\nNine of the eleven have floors. Two do not, and "
         "the two that do not are the two on the east side, and east is where the ground is worst "

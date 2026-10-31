@@ -64,7 +64,7 @@ GLITTERVEIN_VENDORS = {
         "rope and I am generous with the lamp oil and I will remain generous right up until "
         "somebody from the Survey asks me for a favour."),
     "gv_crystal_cutter": (
-        "Cutter Vessa Quill", "goblin", "female", 25,
+        "Cutter Vessa Quill", "goblin", "female", 21,
         ["vial_leaded", "vial_empty", "thread_fine", "whetstone", "resin"], True,
         "Vein glass. Cut, backed, and set into whatever you are already wearing.\n\nThere is one "
         "seam in the world that shrugs off a spell and you are standing in the hole it came out "
@@ -126,7 +126,7 @@ GLITTERVEIN_AMBIENT = {
         "a region for three years, and the goblins want to open the door and ask it for the "
         "crystal."),
     "gv_diver": (
-        "Diver Sanna Creel", "goblin", "female", 26,
+        "Diver Sanna Creel", "goblin", "female", 24,
         "Forty feet in on a lungful, tie off, forty feet back. I have been into the first gallery "
         "nine times and I have come out nine times, which I am aware is not the same as being "
         "good at it.\n\nIt is not dark in there. That is the part nobody writes down. There is "

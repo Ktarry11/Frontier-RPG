@@ -9,6 +9,7 @@ from config import (
 )
 from core.game_states import GameState
 from world.zone_manager import ZoneManager
+from world import zone_levels
 from ui.screens.base_screen import BaseScreen
 from ui.tilemap_renderer import TilemapRenderer
 from ui.camera import CameraManager
@@ -776,8 +777,14 @@ class OverworldScreen(BaseScreen):
         gathering_node_positions = self.zone_manager.gathering_manager.active_nodes_render_data()
         self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators)
         
-        # Draw large zone indicator at top center
-        self.renderer.draw_text(screen, f"~ {zone.name} ~", (SCREEN_WIDTH // 2 - 80, 10), size="large", color=(200, 200, 100))
+        # Draw large zone indicator at top center, with the zone's level band.
+        #
+        # CENTRED PROPERLY, not offset by a guessed 80px. The old position assumed a short name;
+        # adding "- Level 44-47" to it made every long zone name run off toward the tab column.
+        # draw_text already takes center=True, which measures the surface.
+        self.renderer.draw_text(screen, zone_levels.banner(zone.name),
+                                (SCREEN_WIDTH // 2, 10), size="large", color=(200, 200, 100),
+                                center=True)
         
         # Draw encounter status (top left)
         encounter_status = "ON" if self.encounters_enabled else "OFF"

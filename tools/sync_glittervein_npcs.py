@@ -46,6 +46,25 @@ INN = "gv_innkeeper"
 CAMP = "Lastwater"
 
 
+#: Appearance variants are art directories, not free integers: assets/npcs/<race>/<race>_<n>/.
+#: Three of these shipped at 25 and 26 when the goblin sheet stops at 24, which does not crash -
+#: the NPC just renders as whatever the loader falls back to, and nobody notices in a diff.
+def _check_variants(records):
+    import os, re as _re
+    bad = []
+    for (name, race, _gender, var, *_rest) in records:
+        d = os.path.join("assets", "npcs", race)
+        if not os.path.isdir(d):
+            continue
+        have = {int(m.group(1)) for n in os.listdir(d)
+                if (m := _re.fullmatch(rf"{race}_(\d+)", n))}
+        if have and var not in have:
+            bad.append(f"{name}: {race} variant {var}, but art exists only for "
+                       f"{min(have)}-{max(have)}")
+    if bad:
+        raise SystemExit("appearance variants with no art:\n  " + "\n  ".join(bad))
+
+
 def _load(path, key):
     d = json.loads(Path(path).read_text())
     return d, d[key]
@@ -59,6 +78,7 @@ def main():
     made = moved = 0
 
     for (zone, M, VEND, AMB, gear) in ZONES:
+        _check_variants(list(VEND.values()) + list(AMB.values()))
         pos = M.NPC_POSITIONS
         missing = [k for k in list(VEND) + list(AMB) if k not in pos]
         spare = [k for k in pos if k not in VEND and k not in AMB]
@@ -77,9 +97,19 @@ def main():
                                 "sells_gear": sells_gear, "race": race, "gender": gender,
                                 "appearance_variant": var, "greeting": greet})
                 made += 1
-            elif (rec["x"], rec["y"]) != (x, y):
-                rec["x"], rec["y"] = x, y
-                moved += 1
+            else:
+                # THE ROSTER IS THE SOURCE OF TRUTH FOR WHO THEY ARE, not just where they stand.
+                # This only moved x/y, so correcting three appearance variants in the roster
+                # changed nothing at all and the sync cheerfully reported "0 moved".
+                if (rec["x"], rec["y"]) != (x, y):
+                    rec["x"], rec["y"] = x, y
+                    moved += 1
+                for kk, vv in (("name", name), ("race", race), ("gender", gender),
+                               ("appearance_variant", var), ("greeting", greet),
+                               ("sells", sells), ("sells_gear", sells_gear)):
+                    if rec.get(kk) != vv:
+                        rec[kk] = vv
+                        moved += 1
 
         for nid, (name, race, gender, var, greet) in AMB.items():
             x, y = pos[nid]
@@ -89,9 +119,15 @@ def main():
                              "greeting": greet, "gender": gender, "race": race,
                              "appearance_variant": var, "facing": "down"})
                 made += 1
-            elif (rec["x"], rec["y"]) != (x, y):
-                rec["x"], rec["y"] = x, y
-                moved += 1
+            else:
+                if (rec["x"], rec["y"]) != (x, y):
+                    rec["x"], rec["y"] = x, y
+                    moved += 1
+                for kk, vv in (("name", name), ("race", race), ("gender", gender),
+                               ("appearance_variant", var), ("greeting", greet)):
+                    if rec.get(kk) != vv:
+                        rec[kk] = vv
+                        moved += 1
 
     # prune ghosts: anything in our zone the roster no longer names should not be standing there.
     # Trainers (ct_*, pt_*) belong to build_class_trainers / build_profession_trainers, never to us.

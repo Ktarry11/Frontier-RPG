@@ -99,6 +99,45 @@ GROUPS = {
     "vt_fur_tuft": "fen_banshee_lock",
 }
 
+# ---- Tanaris 2026-10-30: Glittervein, the Abyssal Sands and the Lashings. Thirty items that
+# ---- shipped with no mapping at all, which LootItem resolves to nothing and the UI draws as a
+# ---- coloured square. Reusing one icon across several items is the established pattern here.
+TANARIS = {
+    # --- documents and records. These three zones are full of people keeping books.
+    "qi_ledger": "gv_drowned_ledger",
+    "qi_papers": "ab_sealed_waybill lsh_chewed_articles",
+    "qi_ticket": "lsh_prize_tag",
+    "qi_dog_tag": "ab_drovers_tag gv_shift_token",
+    # --- survey and dig kit
+    "qi_tablet": "ab_second_peg_head gv_bench_marker",
+    "qi_ore": "gv_salvaged_iron lsh_ships_nail ab_lifted_brass",
+    "qi_powder_keg": "lsh_short_keg",
+    "qi_crate": "ab_shrike_crop",
+    # --- the seams: this is the zone that is made of crystal
+    "qi_crystal": "gv_rough_seam_glass gv_spun_glass gv_struck_shard gv_tideglass_core",
+    "vt_geode": "gv_lattice_core ab_fused_shard",
+    "vt_shard": "gv_settled_light",
+    # --- the water
+    "qi_vial": "gv_sealed_deepwater ab_ooze_residue",
+    "vt_fish_scales": "ab_wet_scale",
+    # --- off things that were alive
+    "vt_chitin_plate": "ab_crawler_plate",
+    "vt_thorn_vine": "ab_lurker_spur",
+    "vt_bone": "ab_salt_knuckle",
+    "qi_herbs": "gv_shelf_blindweed",
+    # --- rope, net and harness
+    "qi_trophy_cord": "lsh_cut_net ab_kodo_harness",
+    "qi_chart": "gv_scav_tally",
+    # --- CARRIED ITEMS COUNT TOO. grant_items.on_accept creates a quest item through the same
+    # --- constructor as a drop, so a letter the giver hands you needs a mapping exactly as much
+    # --- as something you loot. Nine of these were missed by looking only at quest_drops.json.
+    "qi_journal": "ab_collapse_log gv_tally_book",
+    "qi_letter": "ab_ullas_reply gv_ullas_account gv_ullas_finding",
+    "qi_page": "gv_copied_column lsh_closing_entry gv_works_order_paper",
+    "qi_amber": "gv_cut_plate",
+}
+GROUPS.update(TANARIS)
+
 
 def main():
     table = {}
