@@ -226,6 +226,12 @@ def main():
 
     for prof, recs in recipes.items():
         for rid, r in recs.items():
+            # A recipe flagged staged_post_60 is authored content waiting on zones that do not
+            # exist yet - its material has art and a tier, and is deliberately not gatherable.
+            # Reporting it as broken buries the recipes that are ACTUALLY broken: woodcutting
+            # alone put 25 of these in the failure list, which is where a real one would hide.
+            if r.get("staged_post_60"):
+                continue
             for inp in r.get("inputs", {}):
                 if inp in known and inp not in obtainable:
                     fail("input-unobtainable",

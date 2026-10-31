@@ -106,6 +106,20 @@ MATERIAL_KITS = {
     "upgrade_kit_thick":     "thick",
     "upgrade_kit_rugged":    "rugged",
     "upgrade_kit_fiendish":  "fiendish",
+
+    # Added 2026-10-31. These seven tiers already shipped armour and weapon recipes - 30
+    # leatherworking and 17 tailoring pieces - with no kit to upgrade any of it, which is all 47
+    # of validate_content's gear-no-kit failures. The gear was authored and the kit step behind
+    # it never was, so a player could craft a Cragscale piece and then find the upgrade system
+    # simply had no opinion about it.
+    "upgrade_kit_cragscale":  "cragscale",
+    "upgrade_kit_stormscale": "stormscale",
+    "upgrade_kit_stonebound": "stonebound",
+    # Tailoring — the cloth tiers woven between the WoW anchors above
+    "upgrade_kit_spidersilk":  "spidersilk",
+    "upgrade_kit_dusk_velvet": "dusk_velvet",
+    "upgrade_kit_gossamer":    "gossamer",
+    "upgrade_kit_thistledown": "thistledown",
 }
 
 

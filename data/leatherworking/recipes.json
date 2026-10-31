@@ -3451,6 +3451,60 @@
         "material_tier": "thick"
       },
       "vendor_location": "Razorfen Approach (hidden)"
+    },
+    "lw_kit_cragscale": {
+      "name": "Cragscale Upgrade Kit",
+      "inputs": {
+        "leather_cragscale": 10
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_cragscale"
+      },
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "trainer"
+    },
+    "lw_kit_stormscale": {
+      "name": "Stormscale Upgrade Kit",
+      "inputs": {
+        "leather_stormscale": 10
+      },
+      "skill_required": 146,
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_stormscale"
+      },
+      "skill_range": [
+        151,
+        161,
+        171,
+        181
+      ],
+      "source": "trainer"
+    },
+    "lw_kit_stonebound": {
+      "name": "Stonebound Upgrade Kit",
+      "inputs": {
+        "leather_stonebound": 10
+      },
+      "skill_required": 188,
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_stonebound"
+      },
+      "skill_range": [
+        193,
+        203,
+        213,
+        223
+      ],
+      "source": "trainer"
     }
   }
 }
