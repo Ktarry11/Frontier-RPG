@@ -63,6 +63,11 @@ class TalentTreeScreen:
         self.lock_message = None
         self.lock_message_timer = 0.0
         self.back_button = pygame.Rect(screen_width - 110, 12, 95, 30)
+        # FREE FOR NOW, deliberately. Kyle: "We can start this as free so it's
+        # easy to test combinations." When it stops being free this is where
+        # the cost goes - the reset itself is already one call, so pricing it
+        # later is a guard in _reset_all_talents and nothing else.
+        self.reset_button = pygame.Rect(screen_width - 250, 12, 130, 30)
         
         # Colors
         self.color_bg = (20, 20, 30)
@@ -248,6 +253,10 @@ class TalentTreeScreen:
             self._close()
             return
 
+        if self.reset_button.collidepoint(mouse_x, mouse_y):
+            self._reset_all_talents()
+            return
+
         # Spec tabs: switching trees is how a Shaman gets from Elemental to
         # Enhancement/Restoration. Previously the screen opened on whichever
         # tree happened to be first in the dict and there was no way to
@@ -322,6 +331,38 @@ class TalentTreeScreen:
             self.character._sync_talent_procs()
             print(f"✅ Refunded point from {clicked_node.name}. Points available: {self.character.talent_points_available}")
     
+    def _reset_all_talents(self):
+        """Refund every point this character has spent, across every tree.
+
+        THIS GOES THROUGH THE SAME refund_point() AND RESYNC THE RIGHT-CLICK
+        PATH USES, one node at a time, rather than zeroing points_spent and
+        recomputing a total. A talent can grant an ability, place something on
+        the hotbar, or register a proc, and a reset that only moved numbers
+        would leave all of that behind - the character would keep abilities
+        from talents they no longer have. _grant_talent_points is what decides
+        the final pool, so the count cannot drift either.
+
+        Locked trees are included ON PURPOSE, unlike a right-click refund. A
+        companion's points were spent in their locked tree, so a reset that
+        skipped locked trees could not reset a companion at all - which is
+        most of what this button is for, now that a caught-up rehire arrives
+        with forty of them.
+        """
+        refunded = 0
+        for tree in self.character.talent_trees.values():
+            for node in tree.nodes.values():
+                while node.points_spent > 0:
+                    node.refund_point()
+                    refunded += 1
+        self.character._grant_talent_points()      # single source of truth for the pool
+        self.character._recalculate_derived_stats()
+        self.character._sync_talent_unlocked_abilities()
+        self.character._sync_talent_procs()
+        self.lock_message = (f"Refunded {refunded} talent point{'s' if refunded != 1 else ''}."
+                             if refunded else "No talent points spent.")
+        self.lock_message_timer = 3.0      # seconds, matching the spend path above
+        return refunded
+
     def handle_event(self, event):
         """Handle user input."""
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -397,6 +438,11 @@ class TalentTreeScreen:
         surface.blit(title, (20, 10))
 
         # Back button
+        pygame.draw.rect(surface, (60, 40, 40), self.reset_button)
+        pygame.draw.rect(surface, (190, 130, 120), self.reset_button, 2)
+        reset_text = self.font_medium.render("Reset Talents", True, (250, 220, 210))
+        surface.blit(reset_text, reset_text.get_rect(center=self.reset_button.center))
+
         pygame.draw.rect(surface, (70, 60, 40), self.back_button)
         pygame.draw.rect(surface, (200, 180, 120), self.back_button, 2)
         back_text = self.font_medium.render("Back", True, (255, 240, 200))
