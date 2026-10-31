@@ -70,9 +70,9 @@ START = (12, 96)
 #:
 #: R_LIP is where the ground starts to go and R_WATER is the waterline, but the DESCENT runs from
 #: R_LIP to R_FLOOR - the spiral ends where the ground levels out, not at the water's edge, and the
-#: shore between R_FLOOR and R_WATER is flat. That leaves two turns of ramp over twenty-eight tiles
-#: of radius: fourteen tiles of pitch, eleven of ramp, three of riser. The ramp has to be wide
-#: enough to stand and turn round on or the descent is a corridor rather than a road.
+#: shore between R_FLOOR and R_WATER is flat. That leaves ONE turn of ramp over twenty-eight tiles
+#: of radius: twenty-eight tiles of pitch, fifteen of ramp, thirteen of riser. The ramp has to be
+#: wide enough to stand and turn round on or the descent is a corridor rather than a road.
 CX, CY = 86, 94
 R_LIP, R_WATER = 62.0, 23.0
 DEPTH = 46.0
@@ -95,18 +95,23 @@ TERRACES = 3
 #: just exposed the smooth cone, its sideways slope would still be 1.18 and the whole ramp would be
 #: rock however gently it descended. So depth on the ramp is a function of how far ALONG the spiral
 #: a point is, and does not vary across it at all.
-# Two turns over the twenty-eight tiles of radius between the lip and the floor is fourteen tiles
-# of pitch. The ramp band is eleven of those, so three tiles are left for the riser between one
-# pass and the next - and a three-tile step of twenty-three depth is a gradient of nearly eight,
-# which is rock by a wide margin. THE PITCH MUST EXCEED THE BAND WIDTH. If it does not, successive
-# passes merge, there is no riser anywhere, and the "spiral" is the bare cone again under another
-# name - walkable nowhere, and looking perfectly correct from above the whole time.
-SPIRAL_TURNS = 2.0
+# ONE LAP. Kyle: "so lets not make it too annoying of a spiral, not too tight as that'd be
+# annoying. Maybe one layer only." He is right and the earlier number was the designer enjoying the
+# mechanism rather than the player walking it - two and a half laps of a hundred-and-seventy-tile
+# hole is four hundred tiles of descent every single time you come down here, and there is a camp
+# and a dungeon at the bottom that people will visit repeatedly.
+#
+# One turn over the twenty-eight tiles of radius between the lip and the floor gives a pitch of
+# twenty-eight tiles. The ramp band takes fifteen of those and the remaining thirteen are the cliff
+# it is cut into. THE PITCH MUST STILL EXCEED THE BAND WIDTH - if it does not, the single pass wraps
+# into itself, no riser is left anywhere, and the "spiral" is the bare cone again under another
+# name: walkable nowhere, and looking perfectly correct from above the whole time.
+SPIRAL_TURNS = 1.0
 # A PLATEAU, NOT A TRIANGLE. A mask that falls off linearly from the spiral's centreline makes
 # the ramp flat only along one line and sloped everywhere else, because the blend between the ramp
 # depth and the cone behind it IS a gradient. The band needs a flat CORE with a short shoulder:
-# four tiles either side at full strength, then a tile and a half of transition into the cliff.
-RAMP_CORE, RAMP_SHOULDER = 4.0, 1.5
+# six tiles either side at full strength, then a tile and a half of transition into the cliff.
+RAMP_CORE, RAMP_SHOULDER = 6.0, 1.5
 
 #: THE DUNGEON ISLE. (cx, cy, r) - dead centre of the pool, and what the whole descent is for.
 #: Kyle: "i want the center of the cenote to be a dungeon." So the middle of the lake is not
@@ -400,8 +405,9 @@ NPC_POSITIONS = {
 #: One per level of the descent, and every one of them checked in verify(). Two of the first four
 #: were sitting inside cliff - a chest in rock is loot the player can never see and nothing in the
 #: build complains, because placing a chest on an unwalkable tile is not an error, it is just a
-#: waste. (86,50) and (60,120) were the dead ones.
-CHESTS = [(30, 96), (86, 53), (61, 119), (112, 110)]
+#: waste. They are re-sited whenever the wall changes, which going from two turns to one did to all
+#: four of them: a coordinate on a ramp is a coordinate that belongs to that ramp's geometry.
+CHESTS = [(45, 132), (63, 54), (117, 115), (56, 95)]
 FOREST = None
 
 
