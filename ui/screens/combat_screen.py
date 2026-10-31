@@ -894,63 +894,12 @@ class CombatScreen(BaseScreen):
         return max_bottom
 
     def _render_ability_tooltip(self, screen, ability, pos):
-        """Real hover tooltip for hotbar abilities - same content source
-        (Ability.get_tooltip_lines) and layout logic as cast_screen.py's
-        _render_tooltip, so the two read identically wherever a player
-        sees them. Positioned near the cursor, clamped to stay on-screen.
+        """Hover tooltip for an ability. ONE implementation, in ui/ability_tooltip.py -
+        this used to be a 40-line copy of the same box drawn in two other screens.
         """
-        lines = ability.get_tooltip_lines(getattr(self.state_manager, "player", None))
-        if not lines:
-            return
-
-        font_size = 14
-        line_height = 18
-        padding = 10
-        font = self.renderer._get_font(font_size=font_size)
-
-        max_text_width = 320
-        wrapped_lines = []
-        for line in lines:
-            if font.size(line)[0] <= max_text_width:
-                wrapped_lines.append(line)
-                continue
-            words = line.split()
-            cur = ""
-            for word in words:
-                candidate = f"{cur} {word}".strip()
-                if font.size(candidate)[0] > max_text_width and cur:
-                    wrapped_lines.append(cur)
-                    cur = word
-                else:
-                    cur = candidate
-            if cur:
-                wrapped_lines.append(cur)
-
-        box_w = max(font.size(l)[0] for l in wrapped_lines) + padding * 2
-        box_h = len(wrapped_lines) * line_height + padding * 2
-
-        x, y = pos
-        x += 16
-        y -= box_h + 16  # above the cursor - hotbar sits at the bottom of
-        # the screen, so a tooltip drawn BELOW the cursor here would run
-        # straight off the bottom edge; cast_screen.py's ability list
-        # doesn't have this problem since it's nowhere near the bottom.
-        if x + box_w > SCREEN_WIDTH:
-            x = SCREEN_WIDTH - box_w - 4
-        if y < 0:
-            y = 4
-        if x < 0:
-            x = 4
-
-        pygame.draw.rect(screen, (15, 15, 20), (x, y, box_w, box_h))
-        pygame.draw.rect(screen, COLOR_GOLD, (x, y, box_w, box_h), 2)
-
-        text_y = y + padding
-        for i, line in enumerate(wrapped_lines):
-            color = COLOR_GOLD if i == 0 else COLOR_WHITE
-            self.renderer.draw_text(screen, line, (x + padding, text_y),
-                                    font_size=font_size, color=color)
-            text_y += line_height
+        from ui.ability_tooltip import draw_ability_tooltip
+        draw_ability_tooltip(self.renderer, screen, ability, pos,
+                             getattr(self.state_manager, "player", None))
 
     def _draw_stance_selector(self, screen, player):
         """Warrior-only stance buttons on the right edge (see

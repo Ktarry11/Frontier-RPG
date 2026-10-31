@@ -858,7 +858,17 @@ class TilemapRenderer:
                 # folder was a generic race variant until this art landed - Thrall was orc variant
                 # 0 - so the fallback below is the path they all used and still use if a file is
                 # missing, which is what lets these land one at a time.
-                tile_h = int(self.tile_size * self.npc_sprite_scale)
+                # sprite_scale: a per-NPC multiplier on top of the global one, for a figure who
+                # is meant to read as physically bigger than everyone around him. Kyle,
+                # 2026-10-31: "make merchanttusk 2x bigger wherever he is found lol. hes a
+                # running joke for my friend who also made a bank alt named that." Data-driven
+                # rather than a name check in here, because MerchantTusk is FOUR npc_ids (one
+                # banker per city, all the same troll - "dere is only one bank, mon") and a
+                # hardcoded list here would be a fifth place to keep them in step. Sprites are
+                # bottom-aligned below, so a bigger one grows upward and his feet stay on his
+                # tile.
+                tile_h = int(self.tile_size * self.npc_sprite_scale
+                             * float(getattr(npc, "sprite_scale", 1.0) or 1.0))
                 sprite = None
                 leader_path = f"assets/npcs/leaders/{getattr(npc, 'npc_id', '')}"
                 if os.path.exists(f"{leader_path}/down.png"):

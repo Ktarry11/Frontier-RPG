@@ -199,13 +199,17 @@ class TravelServiceScreen(BaseScreen):
                    else f"Rank {o['from_rank']} -> {o['rank']}  -  requires level {o['level_req']}")
             name = o["name"] if o["rank"] == 1 else f"{o['name']}  (Rank {o['rank']})"
             ok = copper >= o["cost"]
+            # tip: the Ability itself, so hovering the row shows what it actually does.
+            # Kyle, 2026-10-31: "when we go to learn something, is there a way to hover over it
+            # and show what it does? like we can do that in our cast bar already." Buying a
+            # spell off a name and a price alone is a guess.
             rows.append(dict(name=name, sub=sub, price=o["cost"], label="Learn", enabled=ok,
                              reason=None if ok else "Not enough gold", action="train",
-                             arg=o["ability"].ability_id))
+                             arg=o["ability"].ability_id, tip=o["ability"]))
         for u in tm.upcoming(player, limit=4):
             what = u["name"] if u["rank"] == 1 else f"{u['name']}  (Rank {u['rank']})"
             rows.append(dict(name=what, sub=f"Available at level {u['level_req']}", price=None, label="Locked",
-                             enabled=False, action="none", arg=None))
+                             enabled=False, action="none", arg=None, tip=u.get("ability")))
         return rows
 
     # ------------------------------------------------------------------ actions
@@ -365,6 +369,7 @@ class TravelServiceScreen(BaseScreen):
         self.renderer.draw_text(screen, hint, (40, 92), color=GREY)
 
         self._row_buttons = []
+        hover_rows = []          # (panel rect, the thing to describe) for the tooltip pass below
         y = 130
         rows = self._rows()
         if not rows:
@@ -388,7 +393,18 @@ class TravelServiceScreen(BaseScreen):
             self.renderer.draw_button(screen, btn, row["label"],
                                       color=(30, 90, 110) if row["enabled"] else (50, 50, 56))
             self._row_buttons.append((btn, row["action"], row["arg"], row["enabled"], row.get("reason")))
+            if row.get("tip") is not None:
+                hover_rows.append((panel, row["tip"]))
             y += ROW_H + ROW_GAP
+
+        # Drawn AFTER every row, so the tooltip is never painted over by the next panel down.
+        mouse = pygame.mouse.get_pos()
+        for panel, tip in hover_rows:
+            if panel.collidepoint(mouse):
+                from ui.ability_tooltip import draw_ability_tooltip
+                draw_ability_tooltip(self.renderer, screen, tip, mouse,
+                                     getattr(self.state_manager, "player", None))
+                break
 
         if self.message:
             self.renderer.draw_text(screen, self.message, (40, SCREEN_HEIGHT - 70), color=self.message_color)

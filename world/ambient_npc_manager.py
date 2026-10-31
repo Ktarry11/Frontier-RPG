@@ -48,6 +48,11 @@ class AmbientNPC:
         #: MerchantTusk. A flag rather than an npc_id check, so the bank is a ROLE a record can carry
         #: and not a hardcoded list of three names in the UI layer.
         self.is_banker = bool(data.get("is_banker", False))
+        #: Per-NPC multiplier on the drawn sprite height, 1.0 being everyone else. For a figure
+        #: who should read as physically larger than the crowd around him - MerchantTusk at 2.0,
+        #: on Kyle's instruction. The renderer bottom-aligns sprites, so a bigger one grows
+        #: upward rather than sinking into the floor.
+        self.sprite_scale = float(data.get("sprite_scale", 1.0) or 1.0)
 
 
 class AmbientNPCManager:

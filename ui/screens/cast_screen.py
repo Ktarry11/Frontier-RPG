@@ -312,64 +312,12 @@ class CastScreen(BaseScreen):
             self._render_tooltip(screen, self.hovered_ability, self.mouse_pos)
 
     def _render_tooltip(self, screen, ability, pos):
-        """Real hover tooltip - per Kyle's ask, showing the ability's raw
-        pre-modifier info (see Ability.get_tooltip_lines' docstring for
-        why these numbers deliberately don't reflect the caster's actual
-        computed damage). Positioned near the cursor, clamped so it can
-        never draw off the right/bottom edge of the screen.
+        """Hover tooltip for an ability. ONE implementation, in ui/ability_tooltip.py -
+        this used to be a 40-line copy of the same box drawn in two other screens.
         """
-        lines = ability.get_tooltip_lines(getattr(self.state_manager, "player", None))
-        if not lines:
-            return
-
-        font_size = 14
-        line_height = 18
-        padding = 10
-        font = self.renderer._get_font(font_size=font_size)
-
-        # Wrap the description line (usually the longest) rather than
-        # letting a long flavor-text line force the tooltip absurdly wide.
-        max_text_width = 320
-        wrapped_lines = []
-        for line in lines:
-            if font.size(line)[0] <= max_text_width:
-                wrapped_lines.append(line)
-                continue
-            words = line.split()
-            cur = ""
-            for word in words:
-                candidate = f"{cur} {word}".strip()
-                if font.size(candidate)[0] > max_text_width and cur:
-                    wrapped_lines.append(cur)
-                    cur = word
-                else:
-                    cur = candidate
-            if cur:
-                wrapped_lines.append(cur)
-
-        box_w = max(font.size(l)[0] for l in wrapped_lines) + padding * 2
-        box_h = len(wrapped_lines) * line_height + padding * 2
-
-        x, y = pos
-        x += 16  # offset so the tooltip doesn't sit directly under the cursor
-        y += 16
-        if x + box_w > SCREEN_WIDTH:
-            x = SCREEN_WIDTH - box_w - 4
-        if y + box_h > SCREEN_HEIGHT:
-            y = SCREEN_HEIGHT - box_h - 4
-
-        pygame.draw.rect(screen, (15, 15, 20), (x, y, box_w, box_h))
-        pygame.draw.rect(screen, COLOR_GOLD, (x, y, box_w, box_h), 2)
-
-        text_y = y + padding
-        for i, line in enumerate(wrapped_lines):
-            # First line (name+rank) in gold, rest in white - matches the
-            # real WoW convention Kyle's screenshot shows (title stands
-            # out, body text is plain).
-            color = COLOR_GOLD if i == 0 else COLOR_WHITE
-            self.renderer.draw_text(screen, line, (x + padding, text_y),
-                                    font_size=font_size, color=color)
-            text_y += line_height
+        from ui.ability_tooltip import draw_ability_tooltip
+        draw_ability_tooltip(self.renderer, screen, ability, pos,
+                             getattr(self.state_manager, "player", None))
 
     def _render_roster(self, screen):
         self._roster_rects = []

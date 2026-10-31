@@ -90,7 +90,11 @@ def upcoming(character, limit=6):
                    _highest_available_rank(ability, character.level))
         if have < len(ability.ranks):
             nxt = ability.ranks[have]
-            out.append({"name": ability.name, "rank": have + 1, "level_req": nxt["level_req"], "new": have == 0})
+            # The ability object rides along so the trainer screen can show its tooltip on
+            # hover - "what am I working toward" is the most useful place to be able to read
+            # one, and a name and a level is not an answer to that.
+            out.append({"name": ability.name, "rank": have + 1, "level_req": nxt["level_req"],
+                        "new": have == 0, "ability": ability})
     out.sort(key=lambda o: (o["level_req"], o["name"]))
     return out[:limit]
 

@@ -55,10 +55,19 @@ from ui.screens.base_screen import BaseScreen
 GRID_COLS = 8
 CELL = 56
 GAP = 5
-BANK_X, BANK_Y = 40, 190
-PLAYER_X, PLAYER_Y = 760, 190
+# 232, not 190: the tab strip is two rows now and the bank's own "Strongbox 0/48"
+# header sits at BANK_Y-30, which has to clear the second row's bottom edge (194).
+BANK_X, BANK_Y = 40, 232
+PLAYER_X, PLAYER_Y = 760, 232
 TAB_Y = 120
-TAB_W, TAB_H = 128, 34
+# THE TAB STRIP BELONGS TO THE BANK SIDE ONLY. Kyle, 2026-10-31: "bank looks good, but there is
+# overlap with our inventory." Eight tabs (7 strongboxes + the guild bank) on ONE row at 128px
+# ran from x=40 to x=1106, straight through the "Backpack 0/24" header and the "Deposit
+# everything" button at x=760. Two rows of four, sized to the bank grid's own width, so the strip
+# sits over the vault it belongs to and the backpack column is never underneath it.
+TAB_COLS = 4
+TAB_W, TAB_H = 116, 34
+TAB_ROW_GAP = 6
 
 
 class BankScreen(BaseScreen):
@@ -106,8 +115,11 @@ class BankScreen(BaseScreen):
             c, r = i % GRID_COLS, i // GRID_COLS
             self.player_rects.append(pygame.Rect(PLAYER_X + c * (CELL + GAP),
                                                  PLAYER_Y + r * (CELL + GAP), CELL, CELL))
-        self.tab_rects = [pygame.Rect(40 + i * (TAB_W + 6), TAB_Y, TAB_W, TAB_H)
-                          for i in range(MAX_TABS + 1)]      # +1: the guild bank
+        # +1: the guild bank. Wrapped to TAB_COLS per row - see the note on TAB_W.
+        self.tab_rects = [pygame.Rect(BANK_X + (i % TAB_COLS) * (TAB_W + 6),
+                                      TAB_Y + (i // TAB_COLS) * (TAB_H + TAB_ROW_GAP),
+                                      TAB_W, TAB_H)
+                          for i in range(MAX_TABS + 1)]
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 150, 20, 120, 40)
         self.deposit_all_rect = pygame.Rect(PLAYER_X, PLAYER_Y - 44, 190, 34)
 
