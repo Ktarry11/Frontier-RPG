@@ -34,17 +34,17 @@
     },
     {
       "max_level": 43,
-      "price_level": 40,
+      "price_level": 46,
       "adjective": "Flawless"
     },
     {
       "max_level": 50,
-      "price_level": 47,
+      "price_level": 64,
       "adjective": "Immaculate"
     },
     {
       "max_level": 999,
-      "price_level": 57,
+      "price_level": 82,
       "adjective": "Peerless"
     }
   ],
@@ -701,7 +701,7 @@
       }
     ]
   },
-  "_tier_notes": "price_level = max_level - 3 from tier 3 up, which is the curve tiers 3-5 already drew and is calibrated so a trash item's mean value stays ~1.55x the coin a humanoid of the same level drops (coin.per_level * level). Tier 5 sat at max_level 999 while its price_level of 33 said 36: a placeholder from before 30+ content existed, which flattened levels 30-60 into one tier.",
+  "_tier_notes": "price_level = max_level - 3 through tier 5, which is the curve tiers 3-5 already drew and is calibrated so a trash item's mean value stays ~1.55x the coin a humanoid of the same level drops (coin.per_level * level). Tier 5 sat at max_level 999 while its price_level of 33 said 36: a placeholder from before 30+ content existed, which flattened levels 30-60 into one tier. Tiers 6-8 then ACCELERATE above that line (46/58/74 against the 40/47/57 the rule would give) because the rule alone left the 41-49 zones paying less per kill than Southern Stranglethorn at 38-42: those zones are 10-40% coin-droppers against Stranglethorn's 60%, and a coin mob pays every kill while a trash mob pays on 30% of them. Raising the top tiers is the lever that closes that without touching trash_chance.",
   "icon_bands": [
     {
       "max_level": 29,
