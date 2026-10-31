@@ -1,0 +1,1112 @@
+{
+  "quests": [
+    {
+      "quest_id": "lsh_four_berths",
+      "title": "You Can See the Masts From the Yard",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "steamwheedle_port",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The harbourmaster has lost three sailings this season and is done being patient.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "lsh_the_cove",
+            "lsh_the_arithmetic"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "the_lashings",
+          "target_x": 68,
+          "target_y": 106,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "accept_text": "Four berths, and I have been turning ships away since the second winter. Three years ago that was an inconvenience. Now it is the whole town's throat.\n\nAnd four miles up that coast there are nine hulls lashed together with about a hundred people on them taking one sailing in six.\n\nThis port has spent twenty years deciding that is somebody else's problem. Go and stand on the first deck and come back and tell me if it still is.",
+      "turn_in_text": "They have not moved in twenty years. Not one of those hulls has moved.\n\nThat is the part I cannot get the yard to understand. A fleet that sails is weather. A fleet that sits there is a NEIGHBOUR, and you do not get to ignore a neighbour for twenty years and then be surprised.",
+      "next_quest_id": "lsh_recognising_my_own_stock",
+      "unique_item_defs": [
+        {
+          "name": "Rafted Pauldrons",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.5
+          },
+          "armor_type": "leather",
+          "armor_value": 65,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Lashed Mantle",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 5.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Shoulders (Int/Spi/HP)"
+        },
+        {
+          "name": "Cove-Taken Dagger",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_recognising_my_own_stock",
+      "title": "I Have Started Recognising It",
+      "giver_npc_id": "stw_salvage_broker",
+      "zone": "steamwheedle_port",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The salvage broker keeps being offered things she sold last month.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Rigger",
+          "count": 8,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "fetch",
+          "target": "lsh_prize_tag",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "I buy what came off something and I sell it onto something else and I have never once pretended otherwise.\n\nWhat I will not do is buy my own stock back. Twice this season somebody has put a crate on my counter that I SOLD, out of this shop, six weeks before.\n\nGet me the tags off them. Hesper inks every crate that leaves this port and they have been re-inking over the top, and badly.",
+      "turn_in_text": "Her hand underneath and theirs on top. Every one.\n\nThat is not a pirate crew taking a prize at sea. That is somebody going through a manifest. They know what is on our ships before the ships leave.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Logged Handguards",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "Taken under articles, which the takers consider a meaningful distinction.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Articles Boots",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "It came off a sailing out of Steamwheedle and it has a mark to prove it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 0.7,
+            "parry_rating": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 44,
+          "label": "Leather Boots (Dodge/Parry)"
+        },
+        {
+          "name": "Prize-Court Halberd",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 44,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 26
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1.2
+          },
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_my_own_powder",
+      "title": "That Is My Powder",
+      "giver_npc_id": "stw_engineer",
+      "zone": "steamwheedle_port",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The engineer's powder is in the cove and he is embarrassed about how it got there.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Powdermonkey",
+          "count": 8,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "fetch",
+          "target": "lsh_short_keg",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "I build things that mostly work and I am honest about the mostly, so I am going to be honest about this: I sold them the powder.\n\nNot knowingly. A freight agent I will not name, a standing order, four years of it, and I never once asked where it went because the money was good and I had a workshop to replace.\n\nGo and get me a keg back. I want to see my own cooperage mark with a scrape through it.",
+      "turn_in_text": "There it is. Scraped, not sanded - they were in a hurry and they did not care.\n\nForty-one of those went up the coast. I have had three years of telling people my whole workshop is still in Gadgetzan and feeling sorry for myself, and in the same three years I armed a pirate fleet by not asking a question.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Share-Out Shawl",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.5,
+            "mp5": 1.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 33,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Logged Sabatons",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Taken under articles, which the takers consider a meaningful distinction.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "armor_type": "mail",
+          "armor_value": 71,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        },
+        {
+          "name": "Share-Out Pendant",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "It came off a sailing out of Steamwheedle and it has a mark to prove it.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.1
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_the_boarding_nets",
+      "title": "Weighted at the Hem",
+      "giver_npc_id": "stw_shipwright",
+      "zone": "steamwheedle_port",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The nets are not for fish.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Southsea Netcaster",
+          "count": 9,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "fetch",
+          "target": "lsh_cut_net",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "accept_text": "A fishing net is weighted evenly. A boarding net is weighted at the HEM so it drops flat over a deck and nobody under it can stand up.\n\nI have mended both for thirty years and I can tell them apart in the dark. Bring me what they are using and I will tell the harbourmaster exactly what her crews are walking into.",
+      "turn_in_text": "Hem-weighted, every one, and the mesh is tight enough that a cutlass will not go through it.\n\nThey are not sinking anybody. They have never wanted to sink anybody. They want the deck and the crew standing still on it, and that is a much more frightening sentence than the other one.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Twenty-Year Breeches",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8.6,
+            "hit_rating": 0.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 44,
+          "label": "Cloth Legs (Int/SP/Hit)"
+        },
+        {
+          "name": "Nine-Hull Boots",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 107,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Twenty-Year Dirk",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "required_level": 45,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_the_bosun",
+      "title": "Everybody On Deck",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "the_lashings",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "A bosun holds the first gangway, and there is no way round a gangway.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Bosun Grell Tarpot",
+          "count": 1,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "kill",
+          "target": "Southsea Swabbie",
+          "count": 6,
+          "zone": "the_lashings"
+        }
+      ],
+      "reward_exp": 4316,
+      "reward_gold": 17160,
+      "accept_text": "Here is what I have worked out about that cove and it is the only useful thing anybody has said about it in twenty years.\n\nThey are hulls lashed together. One plank between each. There is no going round, for you OR for them - which means you can take it apart one deck at a time and they cannot flank you, and it also means every single plank has somebody standing on it.\n\nThe first one is Grell Tarpot. You will hear him before you see him.",
+      "turn_in_text": "The whole cove heard that. Good.\n\nThey cannot reinforce past a man standing on a three-foot plank any more than you can get past one. Twenty years they have been safe behind that and today it is the thing holding them still.",
+      "next_quest_id": "lsh_the_sailmaker",
+      "unique_item_defs": [
+        {
+          "name": "Rafted Mitts",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.9,
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 30,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Lashed Belt",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.0,
+            "parry_rating": 0.7
+          },
+          "armor_type": "leather",
+          "armor_value": 61,
+          "label": "Leather Belt (Dodge/Parry)"
+        },
+        {
+          "name": "Lashed Ring",
+          "slot": "ring",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        },
+        {
+          "name": "Twenty-Year Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "stamina": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 5.3
+          },
+          "armor_type": "mail",
+          "armor_value": 146,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lsh_the_sailmaker",
+      "title": "Nobody Has Unfurled Anything",
+      "giver_npc_id": "stw_shipwright",
+      "zone": "the_lashings",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The sailmaker on a fleet that does not sail.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sailmaker Oona Flay",
+          "count": 1,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "kill",
+          "target": "Hulk Rat",
+          "count": 7,
+          "zone": "the_lashings"
+        }
+      ],
+      "reward_exp": 4316,
+      "reward_gold": 17160,
+      "accept_text": "There is a sailmaker on that fleet. I have thought about that more than is healthy.\n\nNobody on those hulls has unfurled a sail in twenty years. So either she has had nothing to do for two decades, or she has been making something else - and I have seen the nets, so I know which.\n\nShe will be on the careenage. That is the hull laid over to have its bottom scraped, and they never righted it, and I think about that one too.",
+      "turn_in_text": "Her palm was worn through twice. Twice, on a fleet with no sails.\n\nI have mended canvas for thirty years. I would like it on record that I am sorry about this one in a way I am not sorry about the others.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lashed Cap",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Rope-burn in the grain of it, from being hauled rather than carried.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 146,
+          "label": "Mail Helm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Twenty-Year Coat",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2.0,
+            "parry_rating": 1.5
+          },
+          "armor_type": "leather",
+          "armor_value": 122,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Cove-Taken Sword",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Def)"
+        },
+        {
+          "name": "Rafted Wraps",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Salt got at it slowly, which is the worst way.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 30,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lsh_the_powder_master",
+      "title": "Forty-One Barrels",
+      "giver_npc_id": "stw_engineer",
+      "zone": "the_lashings",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "His powder, and the man who has been counting it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Powder-Master Juss Wick",
+          "count": 1,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "fetch",
+          "target": "lsh_short_keg",
+          "count": 4
+        }
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "accept_text": "Juss Wick keeps the powder hulk, which is the third hull up, and he has been keeping it for longer than I have been selling to him.\n\nHe knows exactly where every barrel is. I know that because I know how much I sent and the harbourmaster knows how much has gone off in the last four years, and the difference has not been wasted by anybody.\n\nI would like my mark back and I would like him to not have it.",
+      "turn_in_text": "Forty-one. He had it written on a board.\n\nI am going to pay for the cooperage to restamp everything in my shop with a mark that cannot be scraped. It will cost me more than the powder did. I am going to do it anyway.",
+      "next_quest_id": "lsh_the_prize_court",
+      "unique_item_defs": [
+        {
+          "name": "Articles Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.2
+          },
+          "armor_type": "leather",
+          "armor_value": 49,
+          "label": "Leather Cloak (Agi/Int/AP)"
+        },
+        {
+          "name": "Logged Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Taken under articles, which the takers consider a meaningful distinction.",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 149,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Fair-Shares Cleaver",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Logged, valued and divided by somebody with very neat handwriting.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "weapon_damage_min": 87,
+          "weapon_damage_max": 117,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        },
+        {
+          "name": "Share-Out Wraps",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Logged, valued and divided by somebody with very neat handwriting.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 8.4,
+            "mp5": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 31,
+          "label": "Cloth Boots (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lsh_the_prize_court",
+      "title": "Everything Is Logged",
+      "giver_npc_id": "stw_salvage_broker",
+      "zone": "the_lashings",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "They keep books. Better books than the port does.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Quartermaster Nadd Kell",
+          "count": 1,
+          "zone": "the_lashings"
+        },
+        {
+          "type": "fetch",
+          "target": "lsh_prize_tag",
+          "count": 4
+        }
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "accept_text": "The hull they call the prize court is where everything they take is logged and valued and divided, under articles, by a quartermaster.\n\nI want the books. Not to be righteous about it - I want to know who has been buying, because somebody in this port has, for twenty years, and it is not me and I would very much like to be able to prove that.",
+      "turn_in_text": "[She reads for a long time.]\n\nFour names. Two of them are dead, one of them left with the Gadgetzan crowd, and one of them is still trading out of the Upper Yard.\n\nI am not going to tell you which. I am going to walk over there this afternoon and have a conversation, and whatever else happens, they are going to know that I know.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Logged Shawl",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "It came off a sailing out of Steamwheedle and it has a mark to prove it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 12.6,
+            "mp5": 2.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Shoulders (HP/MP5)"
+        },
+        {
+          "name": "Prize-Court Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.5,
+            "block_rating": 1.0,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 149,
+          "label": "Plate Bracers (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Prize-Court Necklace",
+          "slot": "neck",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Prize-Court Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8,
+            "dodge_rating": 0.8
+          },
+          "armor_type": "mail",
+          "armor_value": 149,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lsh_the_articles",
+      "title": "Signed With a Cross",
+      "giver_npc_id": "item:lsh_chewed_articles",
+      "zone": "the_lashings",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "A crew agreement for a ship that is not a ship any more.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "lsh_chewed_articles",
+          "count": 1,
+          "label": "the chewed articles, to Tally-Clerk Hesper Dunn"
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Ship's articles - the agreement every hand signs about shares, discipline and what happens to the wounded. Half of it has been eaten by something. The signatures are mostly intact.",
+      "turn_in_text": "Ninety-one marks. Most of them crosses.\n\nThat is not a crew list, that is a CENSUS. Ninety-one people with a written agreement about who gets what if they are hurt - which is more than the yard has, and I have been asking for that in writing for three years.\n\nI am going to file this. I am not going to say where under.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Articles Visor",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Logged, valued and divided by somebody with very neat handwriting.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Logged Chaps",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "It came off a sailing out of Steamwheedle and it has a mark to prove it.",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13.5
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        },
+        {
+          "name": "Share-Out Rod",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Logged, valued and divided by somebody with very neat handwriting.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 75,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_rake",
+      "title": "The One Who Is Good At It",
+      "giver_npc_id": "stw_harbourmaster",
+      "zone": "the_lashings",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Captain Ardessa Rake, aboard the only hull in that cove still kept like a ship.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Ardessa Rake",
+          "count": 1,
+          "zone": "the_lashings"
+        }
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "accept_text": "Ardessa Rake has run that cove for twenty-two years and I want to tell you the thing about her that matters, because it is not that she is cruel.\n\nThere is a Southsea crew up in the Barrens under a man called Saltspray who is loud and bad at it. SHE sent him there. That is what you do with a man who is loud and bad at it when you are good at it and you intend to stay.\n\nShe keeps one hull like a ship. Nine of them and she keeps one. You will know it when you are standing on it.",
+      "turn_in_text": "She was on the quarterdeck of a hull that has not moved since before I had this post.\n\nI am going to be straight with you, because the yard will not be: this port will take her cove's trade within a month and call it recovery, and half of what comes down that coast will be the same cargo that went up it.\n\nI still wanted it stopped. Both of those are true and I have stopped trying to make them sit comfortably together.",
+      "next_quest_id": "lsh_the_masts_are_gone",
+      "unique_item_defs": [
+        {
+          "name": "Nine-Hull Cuisses",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 48,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1.1,
+            "dodge_rating": 1.1
+          },
+          "armor_type": "plate",
+          "armor_value": 306,
+          "label": "Plate Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Cove-Taken Armguards",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 48,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.7
+          },
+          "armor_type": "mail",
+          "armor_value": 102,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Twenty-Year Targe",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 48,
+          "flavor_text": "Rope-burn in the grain of it, from being hauled rather than carried.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "armor_value": 102,
+          "block_value": 127,
+          "label": "Shield (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Nine-Hull Epaulets",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 48,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13.8
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lsh_the_masts_are_gone",
+      "title": "You Cannot See Them From the Yard",
+      "giver_npc_id": "stw_caravan_agent",
+      "zone": "steamwheedle_port",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "What the port does the week after.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "lsh_after"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "steamwheedle_port",
+          "target_x": 80,
+          "target_y": 54,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "Forty years I have priced freight on this coast and every single price had the Southsea in it. A sixth for the cove, we called it. Nobody wrote it down, it was just in the number.\n\nI have spent this morning repricing everything and I do not mind telling you it has made me feel strange. Go and stand on the Upper Yard and look north and come back.",
+      "turn_in_text": "You cannot see the masts. Twenty-two years of being able to see the masts from that yard and you cannot see them.\n\nI will run a cart west now. I have said for three years that there was nothing coming back worth the axle and that was true and it was also a thing I said instead of the real reason.",
+      "next_quest_id": "lsh_the_last_column",
+      "unique_item_defs": [
+        {
+          "name": "Rafted Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Rope-burn in the grain of it, from being hauled rather than carried.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 114,
+          "label": "Mail Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Lashed Helm",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Off a deck that has not moved in twenty years.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 171,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Cove-Taken Signet",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Pirate kit - which is to say somebody else's kit, once.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.2
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lsh_the_last_column",
+      "title": "Which Side It Came From",
+      "giver_npc_id": "stw_tally_clerk",
+      "zone": "steamwheedle_port",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The clerk who keeps the last two columns has one more to add.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "lsh_closing_entry",
+          "count": 1,
+          "label": "the closing entry, to Harbourmaster Coil"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "lsh_two_columns"
+          ]
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "Every crate in, every crate out, which side of town it came from and which side it went to. People assume I keep the last two columns to be unpleasant.\n\nI keep them because in four years somebody is going to claim this town was always like this.\n\nWell. In four years somebody is also going to claim there was never a cove, or that it was nothing much, or that it fell apart on its own. Take Senna the closing entry and we will both have signed it.",
+      "turn_in_text": "Signed, dated and filed.\n\nThat is the whole of my profession in one afternoon: something enormous happened, and the only part of it that will still exist in forty years is a line in a book that two people put their names to while everybody else was busy being relieved.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Share-Out Greaves",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 76,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Fair-Shares Chaps",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Taken under articles, which the takers consider a meaningful distinction.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 8,
+            "stamina": 8
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Share-Out Stiletto",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "There is a number inked on the inside of it and it is not the owner's.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 8.8
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "lsh_closing_entry",
+            "name": "The Closing Entry",
+            "description": "One line, two columns, and a space for a second signature.",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}
