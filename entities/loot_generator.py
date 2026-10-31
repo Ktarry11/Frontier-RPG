@@ -1158,7 +1158,13 @@ class LootGenerator:
         fallback path, in which case the name has no suffix at all,
         same as before this system existed."""
         prefix = random.choice(ARMOR_NAME_PREFIXES.get(rarity, ARMOR_NAME_PREFIXES["common"]))
-        noun_map = ARMOR_NAME_NOUNS.get(slot, {"_default": "Item"})
+        # The NOUN table is keyed by the kind of thing ("ring", "trinket"); the EQUIPMENT is
+        # keyed by the physical slot ("ring1", "ring2", "trinket1", "trinket2"). Anything
+        # generated for a numbered slot missed the table entirely and came out named "Simple
+        # Item" - which is how a level 32 companion ended up wearing a "Reinforced Item of the
+        # Squire". Strip the trailing index and ask once.
+        noun_map = ARMOR_NAME_NOUNS.get(slot) or ARMOR_NAME_NOUNS.get(
+            str(slot).rstrip("12") if slot else slot, {"_default": "Item"})
         noun = noun_map.get(stat_template, noun_map.get("_default", "Item"))
         base_name = f"{prefix} {noun}"
         return f"{base_name} {suffix_name}" if suffix_name else base_name

@@ -62,25 +62,58 @@ from world.zone_keys import zone_key as _zk
 
 #: Equipment slots each gear theme should be handed on recruitment, and the
 #: weapon type to put in their main hand.
+#: Armour every companion turns up wearing, whatever their role. Kyle, 2026-10-31: "when players
+#: join our party, it should be reasonable with their gear. a lvl 32 shouldnt start with this
+#: lol." A level 32 Barbarian was arriving in FIVE pieces - chest, legs, hands, feet and a
+#: weapon - with head, shoulders, back, wrist, waist, neck, both rings and both trinkets all
+#: empty, which is not a starter kit, it is a character who lost a fight with a wardrobe.
+#: Everyone now fills the armour slots; the accessories below are what still varies.
+BASE_ARMOR_SLOTS = ["head", "shoulder", "chest", "wrist", "hands", "waist", "legs", "feet", "back"]
+
+#: The accessories, added on top. Kept separate because they are the slots a player is most
+#: likely to want to fill themselves, so a companion arrives with something rather than
+#: everything.
+ACCESSORY_SLOTS = ["neck", "ring1"]
+
 GEAR_THEMES = {
     "tank": {
-        "slots": ["chest", "legs", "head", "hands", "feet"],
+        "slots": BASE_ARMOR_SLOTS + ACCESSORY_SLOTS,
         "main_hand": "sword_1h",
         "off_hand": "shield",
     },
     "healer": {
-        "slots": ["chest", "legs", "head", "feet"],
+        "slots": BASE_ARMOR_SLOTS + ACCESSORY_SLOTS,
         "main_hand": "staff",
     },
     "melee_dps": {
-        "slots": ["chest", "legs", "hands", "feet"],
+        "slots": BASE_ARMOR_SLOTS + ACCESSORY_SLOTS,
         "main_hand": "dagger",
     },
     "ranged_dps": {
-        "slots": ["chest", "legs", "hands", "feet"],
+        "slots": BASE_ARMOR_SLOTS + ACCESSORY_SLOTS,
         "main_hand": "axe_1h",
     },
 }
+
+
+def starter_rarity(level, slot=None):
+    """What quality a companion met at `level` is wearing in `slot`.
+
+    A companion was previously dressed entirely in COMMON at every level, which is why a level
+    32 Barbarian read as a level 1 one: common gear is named from one fixed prefix pool
+    ("Simple", "Plain") at every item level, so his level 32 chestpiece was called a Simple
+    Breastplate. The fix is the quality, not the naming - "Simple" is the right word for a
+    level 4 recruit and the wrong word for a level 32 one.
+
+    Rises with level because somebody who has survived to 40 out here has found better than
+    vendor stock, and the weapon runs one step ahead of the armour because it is the piece a
+    player looks at first and the one that most defines what the companion can do.
+    """
+    tiers = ["common", "uncommon", "rare"]
+    idx = 0 if level < 12 else (1 if level < 38 else 2)
+    if slot in ("main_hand", "off_hand") and idx < len(tiers) - 1:
+        idx += 1
+    return tiers[idx]
 
 
 #: How far a companion may sit from the player in either direction: they level
@@ -397,7 +430,7 @@ class RecruitNPC:
         for slot in theme["slots"]:
             try:
                 item = generator.generate_item_for_class(
-                    self.char_class, ilvl, slot=slot, rarity="common")
+                    self.char_class, ilvl, slot=slot, rarity=starter_rarity(ilvl, slot))
             except Exception:
                 continue
             if item:
@@ -416,7 +449,7 @@ class RecruitNPC:
                 continue
             try:
                 item = generator.generate_item_for_class(
-                    self.char_class, ilvl, slot=slot_key, rarity="common")
+                    self.char_class, ilvl, slot=slot_key, rarity=starter_rarity(ilvl, slot_key))
             except Exception:
                 continue
             if item:

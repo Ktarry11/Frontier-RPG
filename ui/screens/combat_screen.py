@@ -770,11 +770,18 @@ class CombatScreen(BaseScreen):
     #: strip stays inside its budget, a boss can ask for its full 4 tiles and simply get trimmed
     #: to whatever is left. Trash goes from 58px to 82px, which is the difference between a
     #: thumbnail and a creature you can actually read.
-    ENEMY_ART_TILE = 48
+    #: 40, was 48. Kyle, 2026-10-31: "shift the enemy stuff up... and reduce the sprite size
+    #: slightly." Everything below the enemy strip is positioned off its bottom pixel, so this
+    #: and the y=8 start below are both really gifts to the combat log.
+    ENEMY_ART_TILE = 40
 
     #: Vertical room the combat log needs before it starts overlapping the hotbar: the gold
-    #: "Combat Log" heading plus eight wrapped lines, which is what _render actually lays out.
-    LOG_MIN_H = 25 + 8 * 25 + 10 + 20
+    #: "Combat Log" heading plus the MINIMUM three wrapped lines the log will shrink to before
+    #: it refuses to shrink further (see the clamp in render()). This used to reserve eight,
+    #: which is what the log wanted rather than what it needs, and the difference was being
+    #: taken out of the creature art for no gain - the log then drew its eight lines straight
+    #: under the party cards anyway.
+    LOG_MIN_H = 25 + 3 * 25 + 10 + 20
 
     def _draw_enemy_strip(self, screen):
         """
@@ -792,7 +799,7 @@ class CombatScreen(BaseScreen):
         card_gap = 20
         total_w = len(enemies) * card_w + (len(enemies) - 1) * card_gap
         start_x = max(20, (SCREEN_WIDTH - total_w) // 2)
-        y = 20
+        y = 8          # was 20 - "shift the enemy stuff up" (Kyle, 2026-10-31)
         max_bottom = y  # tracks the lowest pixel any card actually reaches
 
         for i, foe in enumerate(enemies):
@@ -871,7 +878,11 @@ class CombatScreen(BaseScreen):
                 # rows of status chips eats all of that and draws the log underneath the buttons.
                 # So the art gets whatever room is genuinely left and is scaled down to fit it,
                 # rather than a fixed size that happens to fit the cases I looked at.
-                room = self._hotbar_top() - self.LOG_MIN_H - card_bottom - 10
+                # The art must leave the log its MINIMUM. Everything under the enemy strip is
+                # positioned off card_bottom, and the log now ends at the party cards rather
+                # than running under them, so the real ceiling is the party strip - not the
+                # hotbar, which is another card-height further down.
+                room = self._party_strip_top() - self.LOG_MIN_H - card_bottom - 10
                 if art.get_height() > room:
                     if room < 24:
                         art = None          # no honest room at all - bars beat a smear
@@ -947,6 +958,23 @@ class CombatScreen(BaseScreen):
             return SCREEN_HEIGHT - 170
         return min(r.top for r in self.hotbar_positions) - 10
 
+    PARTY_CARD_H = 140
+
+    def _party_strip_top(self):
+        """The top edge of the party cards, or the hotbar's top when there are none.
+
+        The combat log is drawn ABOVE this and has to stop here. It used to draw a fixed eight
+        lines from wherever the enemy strip ended, with no idea the party cards existed, so a
+        full party simply covered the bottom half of the log (Kyle, 2026-10-31: "we loose a lot
+        of text when this happens"). Same single-source-of-truth argument as
+        _hotbar_panel_top right above - a second hardcoded number here is how those two drifted
+        apart last time.
+        """
+        party = self.state_manager.get_party()
+        if not party or not party.members:
+            return self._hotbar_panel_top()
+        return self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+
     def _draw_party_strip(self, screen, acting):
         """
         Party cards laid out horizontally, sitting directly above the
@@ -964,7 +992,7 @@ class CombatScreen(BaseScreen):
         from combat.abilities import get_class_resource, get_class_secondary_resource, ResourceType
 
         strip_bottom = self._hotbar_panel_top() - 10  # clears the real hotbar panel top with a small gap
-        card_h = 140
+        card_h = self.PARTY_CARD_H
         card_gap = 12
         card_w = min(240, (SCREEN_WIDTH - 40 - (len(members) - 1) * card_gap) // len(members))
         total_w = len(members) * card_w + (len(members) - 1) * card_gap
@@ -1128,8 +1156,15 @@ class CombatScreen(BaseScreen):
         # the hotbar already draw their own opaque backgrounds, but the log
         # text itself was drawn directly onto whatever's behind it - fine
         # against a flat fill, unreadable against a busy background image.
+        # How many lines genuinely fit between the enemy strip and the party cards. Clamped so
+        # a cramped layout still shows a few lines rather than none, and never more than the 8
+        # this was always written for.
+        LOG_LINE_H = 25
+        room = self._party_strip_top() - (center_y + 40) - 6
+        max_visible_lines = max(3, min(8, room // LOG_LINE_H))
+
         if self.combat_background:
-            log_panel_h = 25 + 8 * 25 + 10
+            log_panel_h = 25 + max_visible_lines * LOG_LINE_H + 10
             log_panel = pygame.Rect(log_left_edge - 10, center_y - 8, log_width + 20, log_panel_h)
             panel_surf = pygame.Surface(log_panel.size, pygame.SRCALPHA)
             panel_surf.fill((10, 10, 15, 165))
@@ -1153,7 +1188,6 @@ class CombatScreen(BaseScreen):
             for line in self.renderer.wrap_text(msg, log_width):
                 all_wrapped_lines.append((line, msg_color))
 
-        max_visible_lines = 8
         log_start = max(0, len(all_wrapped_lines) - max_visible_lines)
         for line, msg_color in all_wrapped_lines[log_start:]:
             self.renderer.draw_text(screen, line, (center_x, center_y), size="normal", color=msg_color)
