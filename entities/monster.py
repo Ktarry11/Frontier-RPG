@@ -475,12 +475,26 @@ class Monster(StatusEffectMixin):
 
         self.abilities = []
         for entry in kits[self.kit_id]:
+            # THE AUTHORED AMOUNT IS THE AMOUNT. Kyle, 2026-10-31: "this raptor just hit for
+            # 1445... The attacks at high level are waaaaaaaaaaaaaaay overtuned jesus."
+            #
+            # This used to multiply by level_mult (1 + 0.15 per level), which is correct for the
+            # TEMPLATE-derived stats above - base_hp, base_armor and the resistances come from a
+            # template shared across every level, so they have to be scaled to the creature in
+            # front of you. Ability kits are not like that. They are authored PER CREATURE, and
+            # the amounts in them already rise with level on their own: median authored damage
+            # runs 14 at level 2, 36 at level 20, 124 at level 42, 205 at level 52. Multiplying
+            # that curve by a second one gave the product of the two.
+            #
+            #   level  5: authored 23  x1.60 =   37
+            #   level 20: authored 36  x3.85 =  139
+            #   level 42: authored 106 x7.15 =  757   -> 1228 after the level-gap modifier
+            #   level 52: authored 205 x8.65 = 1773
+            #
+            # At low level the extra factor is small enough to look like tuning, which is why
+            # this survived: it only becomes a one-shot somewhere past 35, exactly where Kyle
+            # found it. A level 42 raptor now hits for its authored 106.
             scaled = entry.get("amount", 0)
-            # Buffs/debuffs carry no amount; scaling their stat_mods by level
-            # would make a level 20 mob's self-buff wildly stronger than its
-            # own attacks, so only damage/heal/dot potency scales.
-            if entry.get("kind") in ("damage", "heal", "dot"):
-                scaled = int(scaled * level_mult)
             self.abilities.append(MonsterAbility(
                 name=entry["name"],
                 kind=entry.get("kind", "damage"),
