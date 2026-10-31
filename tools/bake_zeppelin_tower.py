@@ -35,6 +35,16 @@ SKINS = {
                      ground=("tf_withered_meadow", "tf_dead_grass"), abyss="tf_blight_soil", baked=Z.BAKED_DIR + "_forsaken",
                      haze=V(112, 130, 118), iron=V(40, 42, 44), beam=V(40, 36, 36),
                      live=V(150, 80, 190), idle=V(150, 146, 140)),
+    # GROM'GOL: the far end of the Stranglethorn run, and it was using the orc skin - the same
+    # red clay and grey haze as the tower outside Orgrimmar, two thousand miles away in a
+    # different climate. Kyle, 2026-10-31: "I LOVE the high-up cloud stuff we do, i think we
+    # need to make the grom'gol zepplin tower look blue and tropical not the identical to
+    # durotar." Canopy and sea far below, pale tropical haze, and brass-green mooring lamps.
+    "jungle": dict(src=ROOT / "assets/tiles/stranglethorn/materials", planks="stv_planks",
+                   planks_native="h", ground=("stv_canopy", "stv_jungle"), abyss="stv_sea_d",
+                   baked=Z.BAKED_DIR + "_jungle",
+                   haze=V(150, 198, 214), iron=V(44, 52, 48), beam=V(52, 46, 30),
+                   live=V(70, 190, 170), idle=V(150, 146, 140)),
 }
 SKIN = SKINS["orc"]
 MATERIALS = {

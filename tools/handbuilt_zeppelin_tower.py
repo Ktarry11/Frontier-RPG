@@ -58,7 +58,8 @@ SITES = {
     # outside grom'gol" - it was inside the palisade and it had no business being there. A mooring
     # tower is a thing you walk out to.
     "Grom'gol Zeppelin Tower": dict(region="Eastern Kingdoms - Stranglethorn",
-                                    slug="gromgol_zeppelin_tower", skin="orc", baked=BAKED_DIR,
+                                    slug="gromgol_zeppelin_tower", skin="jungle",
+                                    baked=BAKED_DIR + "_jungle",
                                     live=("N", "S"),
                                     desc="A goblin mooring tower bolted to the jungle canopy above Grom'gol. "
                                          "The airship from Durotar comes in on the north berth; the stair "
@@ -178,6 +179,7 @@ def _terrain(L):
 
 
 UP = "assets/tiles/undercity/props/"
+SP = "assets/tiles/stranglethorn/props/"
 KITS = {
     "orc": dict(banner=OP + "war_banner.png", stair_lamp=OP + "orc_brazier.png", berth_lamp=CP + "dock_lantern_post.png",
                 crates=DP + "vot_crate_stack.png", cargo=GP + "gob_oil_drums.png",
@@ -186,6 +188,13 @@ KITS = {
     "forsaken": dict(banner=UP + "uc_royal_banner.png", stair_lamp=UP + "uc_skull_pillar.png", berth_lamp=UP + "uc_lantern_post.png",
                      crates=UP + "uc_crate_stack.png", cargo=UP + "uc_coffin_stack.png",
                      east=UP + "uc_crate_stack.png", west=UP + "uc_tool_rack.png"),
+    # Grom'gol: the same goblin engine under a jungle canopy. Troll braziers and war banners
+    # rather than Orgrimmar's, and cargo that reads as a jungle outpost's - the camp it serves
+    # ships hides and timber, not oil drums.
+    "jungle": dict(banner=SP + "stv_war_banner.png", stair_lamp=SP + "stv_troll_brazier.png",
+                   berth_lamp=SP + "stv_dock_lantern.png", crates=SP + "stv_crate_stack.png",
+                   cargo=SP + "stv_cargo_net.png",
+                   east=SP + "stv_crate_tarp.png", west=SP + "stv_fish_crates.png"),
 }
 
 
@@ -222,12 +231,17 @@ def _dress(L, kit):
     p(kit["banner"], 14, 36, 5)
 
 
-SHIPS = {"orc": CP + "zeppelin_orc.png", "forsaken": CP + "zeppelin_undead.png"}
+#: The Grom'gol run flies the same class of Horde airship in a jungle livery, so the two routes
+#: out of Durotar are told apart at a glance from the deck. Kyle, 2026-10-31: "the east one goes
+#: to grom'gol. Can we recolour a horde zepplin and put it there?"
+SHIPS = {"orc": CP + "zeppelin_orc.png", "forsaken": CP + "zeppelin_undead.png",
+         "jungle": CP + "zeppelin_orc_jungle.png"}
 
 
 def _ship(L, skin, height=8, cx=32, base_y=8):
-    """The airship moored at the live north berth, hovering over the apron with the portal tile (32,6) under its gondola.
-    Visual only (the berth lane stays walkable); side view, nose to the right, like every other sprite in the game."""
+    """An airship moored over a berth apron, with the berth's portal tile under its gondola.
+    Visual only (the lane stays walkable); side view, nose to the right, like every other sprite
+    in the game."""
     path = SHIPS[skin]
     wt = max(1, round(height * _aspect(path)))
     L.z.add_landmark(path, cx - wt // 2, base_y - height + 1, wt, height, solid=False)
@@ -238,6 +252,13 @@ def build_layout(site="Zeppelin Tower"):
     _terrain(L)
     _dress(L, KITS[SITES[site]["skin"]])
     _ship(L, SITES[site]["skin"])
+    # A SHIP AT EVERY LIVE BERTH, not just the north one. Durotar's east arm has been a real
+    # portal to Grom'gol since that route opened and was still dressed as "a route that is
+    # coming" - bollards, a crate and nothing moored. An empty berth over a live portal is why
+    # the run was invisible from the deck. The east ship flies the jungle livery because that is
+    # where it goes; the north one stays Horde red for the Undercity shuttle.
+    if "E" in SITES[site].get("live", ()):
+        _ship(L, "jungle", cx=54, base_y=32)
     return L
 
 
