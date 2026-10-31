@@ -95,6 +95,70 @@
         "crossroads_stablemaster"
       ],
       "blurb": "A lean, feathered sprinter bred for the Gold Road."
+    },
+    {
+      "id": "mire_hopper",
+      "name": "Mire Hopper",
+      "tier": 1,
+      "price": 6400,
+      "vendors": [
+        "gromgol_beast_handler",
+        "crossroads_stablemaster"
+      ],
+      "blurb": "A frog the size of a pony. It does not run, it LAUNCHES, and the landing is your problem."
+    },
+    {
+      "id": "crag_lizard",
+      "name": "Crag Lizard",
+      "tier": 1,
+      "price": 6300,
+      "vendors": [
+        "taurajo_beast_trainer",
+        "tarren_mill_stablemaster"
+      ],
+      "blurb": "Flat, wide-footed and unbothered by heat. It will cross a salt pan at noon without comment."
+    },
+    {
+      "id": "carrion_horse",
+      "name": "Carrion Horse",
+      "tier": 2,
+      "price": 31000,
+      "vendors": [
+        "uc_beastmaster"
+      ],
+      "blurb": "Half a horse and all of a hurry. It has not eaten in nine years and shows no sign of stopping."
+    },
+    {
+      "id": "rune_saber",
+      "name": "Rune Saber",
+      "tier": 2,
+      "price": 32000,
+      "vendors": [
+        "org_mount_vendor",
+        "tarren_mill_stablemaster"
+      ],
+      "blurb": "A great cat with old script cut into its hide, lit from underneath. Nobody will say who cut it."
+    },
+    {
+      "id": "plaguebone_charger",
+      "name": "Plaguebone Charger",
+      "tier": 3,
+      "price": 150000,
+      "vendors": [
+        "uc_beastmaster"
+      ],
+      "blurb": "Barded bone and green fire where the eyes were. It was a warhorse once and remembers the job."
+    },
+    {
+      "id": "veinlit_strider",
+      "name": "Vein-Lit Strider",
+      "tier": 3,
+      "price": 155000,
+      "vendors": [
+        "gromgol_beast_handler",
+        "org_mount_vendor"
+      ],
+      "blurb": "A long-legged lizard grown through with Glittervein crystal. It hums faintly when it runs."
     }
   ],
   "flight_nodes": {
@@ -434,6 +498,17 @@
     ],
     "ab_cook": [
       "inn"
+    ],
+    "tarren_mill_stablemaster": [
+      "mounts",
+      "riding"
+    ],
+    "gromgol_beast_handler": [
+      "mounts",
+      "riding"
+    ],
+    "uc_beastmaster": [
+      "mounts"
     ]
   }
 }
