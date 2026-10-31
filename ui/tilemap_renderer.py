@@ -6,7 +6,9 @@ import os
 import pygame
 from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
-from ui.sprite_loader import get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite, get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite
+from ui.sprite_loader import (get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite,
+                             get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite,
+                             get_creature_sprite)
 from world.race_registry import sprite_base_path
 from world.chest_looks import chest_look, chest_sprite, is_boss_chest
 from world.gathering_manager import MATERIAL_TYPE_FOLDERS
@@ -928,7 +930,26 @@ class TilemapRenderer:
                 screen_x += viewport_rect.x
                 screen_y += viewport_rect.y
 
-                if is_boss:
+                # REAL CREATURE ART FIRST. Trash was a flat (200,60,60) rectangle and bosses
+                # shared 8 tinted portraits across 343 of them; creature_sprites resolves a
+                # creature by name, then title, then family, and only then by its stat template.
+                # Falls through to the old markers when a sprite is missing, so a creature added
+                # before its art is a portrait or a red box rather than nothing at all.
+                creature_art = None
+                if creature_name:
+                    template = None
+                    if creature_manager is not None:
+                        template = (creature_manager.creatures.get(creature_name, {})
+                                    or {}).get("template")
+                    creature_art = get_creature_sprite(creature_name, template,
+                                                       self.tile_size, bool(is_boss))
+                if creature_art is not None:
+                    # Standing ON the spawn tile: feet at its bottom edge, centred across it.
+                    art_rect = creature_art.get_rect(midbottom=(
+                        screen_x + self.tile_size // 2,
+                        screen_y + self.tile_size + self.tile_size // 4))
+                    screen.blit(creature_art, art_rect)
+                elif is_boss:
                     # Real boss portrait (see boss_icons.py), same system
                     # the map screen uses - was a flat red square with a
                     # white X, which read as a broken/missing texture
@@ -960,6 +981,7 @@ class TilemapRenderer:
                         pygame.draw.rect(screen, (180, 0, 0), rect)
                         pygame.draw.rect(screen, (255, 60, 60), rect, 2)
                 else:
+                    # No art for this creature yet - the old placeholder, not nothing.
                     rect = pygame.Rect(screen_x, screen_y, self.tile_size, self.tile_size)
                     pygame.draw.rect(screen, (200, 60, 60), rect)  # dull red = trash mob
 

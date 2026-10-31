@@ -367,3 +367,36 @@ def cache_stats():
         "sprites_cached": sum(1 for v in _sprite_cache.values() if v is not None),
         "sprites_failed": sum(1 for v in _sprite_cache.values() if v is None),
     }
+
+
+#: How tall a creature stands on a dungeon floor, in tiles. A boss is unmistakable at a glance -
+#: Kyle, 2026-09-09: "boss sprites in dungeon need to be way bigger" - and trash is a little over
+#: a tile so a pull of four reads as four bodies rather than a wall.
+CREATURE_TILES = {"trash": 1.7, "boss": 4.0}
+
+
+def get_creature_sprite(name, template=None, tile_size=48, boss=False):
+    """Scaled creature sprite for a dungeon floor, or None if the art is missing.
+
+    Resolution lives in creature_sprites.sprite_file (name, then title, then family, then stat
+    template), so this only turns the resulting id into a Surface. Scaled by HEIGHT in tiles so a
+    long low crawler and a tall skeleton both stand the right size rather than both being squeezed
+    into a square.
+    """
+    from creature_sprites import sprite_file, sprite_path
+    kind = "boss" if boss else "trash"
+    sid = sprite_file(name, template)
+    cache_key = ("creature", sid, kind, tile_size)
+    if cache_key in _sprite_cache:
+        return _sprite_cache[cache_key]
+    result = None
+    try:
+        raw = _load_sheet(str(sprite_path(sid)))
+        if raw is not None and raw.get_height():
+            k = CREATURE_TILES[kind] * tile_size / raw.get_height()
+            result = pygame.transform.smoothscale(
+                raw, (max(1, round(raw.get_width() * k)), max(1, round(raw.get_height() * k))))
+    except Exception:
+        result = None
+    _sprite_cache[cache_key] = result
+    return result

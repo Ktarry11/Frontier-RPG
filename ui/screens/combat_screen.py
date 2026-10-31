@@ -7,6 +7,7 @@ from config import (
     COLOR_WHITE, COLOR_DARK_GRAY, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_GOLD, COLOR_YELLOW
 )
 from core.game_states import GameState
+from ui.sprite_loader import get_creature_sprite
 from combat.combat_engine import CombatEngine
 from combat.status_effects import EffectType
 from ui.screens.base_screen import BaseScreen
@@ -47,6 +48,19 @@ class CombatScreen(BaseScreen):
         self.hovered_ability = None
         self.mouse_pos = (0, 0)
     
+    #: Hotbar geometry. Promoted out of _init_hotbar_positions because the enemy strip has to
+    #: know where the hotbar starts in order to not push the combat log underneath it, and two
+    #: copies of "where the hotbar is" is exactly the kind of split that rots the moment one of
+    #: them changes.
+    HOTBAR_BUTTON_SIZE = 80
+    HOTBAR_SPACING = HOTBAR_BUTTON_SIZE + 5
+    HOTBAR_X_START = 40
+
+    @classmethod
+    def _hotbar_top(cls):
+        """Topmost pixel the hotbar occupies - the ceiling everything above it has to live under."""
+        return SCREEN_HEIGHT - cls.HOTBAR_BUTTON_SIZE - 40 - cls.HOTBAR_SPACING
+
     def _init_hotbar_positions(self):
         """Calculate hotbar button positions (2 rows of 10, larger buttons),
         plus a block of click-only "extra slot" buttons filling the dead
@@ -55,10 +69,10 @@ class CombatScreen(BaseScreen):
         estate in the hotbar panel). Extra slots get 2 rows x 4 cols - same
         button size as the hotbar so it reads as one continuous bar, not a
         bolted-on second widget."""
-        HOTBAR_BUTTON_SIZE = 80  # Larger!
-        HOTBAR_SPACING = HOTBAR_BUTTON_SIZE + 5
-        HOTBAR_X_START = 40
-        
+        HOTBAR_BUTTON_SIZE = self.HOTBAR_BUTTON_SIZE
+        HOTBAR_SPACING = self.HOTBAR_SPACING
+        HOTBAR_X_START = self.HOTBAR_X_START
+
         # Row 1 (bottom)
         hotbar_y1 = SCREEN_HEIGHT - HOTBAR_BUTTON_SIZE - 40
         for i in range(10):
@@ -750,6 +764,18 @@ class CombatScreen(BaseScreen):
 
         return row_count * (chip_h + 3) + 4
 
+    #: Tile size the enemy art is scaled against in combat - the same 48 the dungeon floor uses,
+    #: so a creature is about the size in a fight that it was on the tile you walked into. This
+    #: was 34 while the art could overrun the combat log; now that the clamp below guarantees the
+    #: strip stays inside its budget, a boss can ask for its full 4 tiles and simply get trimmed
+    #: to whatever is left. Trash goes from 58px to 82px, which is the difference between a
+    #: thumbnail and a creature you can actually read.
+    ENEMY_ART_TILE = 48
+
+    #: Vertical room the combat log needs before it starts overlapping the hotbar: the gold
+    #: "Combat Log" heading plus eight wrapped lines, which is what _render actually lays out.
+    LOG_MIN_H = 25 + 8 * 25 + 10 + 20
+
     def _draw_enemy_strip(self, screen):
         """
         Enemies laid out side by side across the top of the screen, each in
@@ -814,6 +840,48 @@ class CombatScreen(BaseScreen):
             if alive:
                 effects_h = self._draw_status_effects(screen, foe, (x, card_bottom), max_width=card_w)
                 card_bottom += effects_h
+
+            # THE CREATURE ITSELF. Combat drew no creature art at all - a fight was two name
+            # plates and some bars - so this is the first place the player actually sees what
+            # they are fighting. Under the card rather than over it, so the bars stay the thing
+            # you read at a glance and the art is what you look at between turns. A dead foe is
+            # greyed rather than removed, so the strip does not reflow mid-fight.
+            #
+            # monster_type, NOT "template". Monster.__init__ stores the templates.json key as
+            # monster_type; there is no .template. The first version of this line read .template
+            # via getattr and so passed None for every enemy in the game - name rules still
+            # fired, so most creatures looked right, but anything that resolves by stat template
+            # fell through to DEFAULT and drew as a human bandit IN COMBAT ONLY, while the same
+            # creature drew correctly on the dungeon floor two seconds earlier. qa_creature_sprites
+            # now asserts the attribute exists so renaming it breaks a check instead of the art.
+            art = get_creature_sprite(foe.name, getattr(foe, "monster_type", None),
+                                      self.ENEMY_ART_TILE, bool(getattr(foe, "is_boss", False)))
+            if art is not None:
+                # THE ART MUST NOT COST THE COMBAT LOG ITS SPACE. Everything below this strip is
+                # positioned off the bottom pixel it reports, and the log is a fixed-height block
+                # sitting directly above the hotbar. Before there was any art the strip bottomed
+                # out around y=160 and the log cleared the hotbar by ~90px; a 4-tile boss plus two
+                # rows of status chips eats all of that and draws the log underneath the buttons.
+                # So the art gets whatever room is genuinely left and is scaled down to fit it,
+                # rather than a fixed size that happens to fit the cases I looked at.
+                room = self._hotbar_top() - self.LOG_MIN_H - card_bottom - 10
+                if art.get_height() > room:
+                    if room < 24:
+                        art = None          # no honest room at all - bars beat a smear
+                    else:
+                        k = room / art.get_height()
+                        art = pygame.transform.smoothscale(
+                            art, (max(1, round(art.get_width() * k)), max(1, round(room))))
+            if art is not None:
+                if not alive:
+                    # 90 is 35% brightness, which on this screen's near-black panel left a dead
+                    # foe as a barely-visible smudge. Dead should read as drained, not deleted.
+                    art = art.copy()
+                    art.fill((125, 125, 135, 255), special_flags=pygame.BLEND_RGBA_MULT)
+                art_rect = art.get_rect(midtop=(x + card_w // 2, card_bottom + 6))
+                screen.blit(art, art_rect)
+                card_bottom = art_rect.bottom + 4
+
             max_bottom = max(max_bottom, card_bottom)
 
         return max_bottom

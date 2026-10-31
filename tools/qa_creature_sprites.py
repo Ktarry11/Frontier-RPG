@@ -112,6 +112,35 @@ def main():
                    f"being picked with something randomised per run, so a monster would change "
                    f"appearance every time the game restarts.")
 
+    # ---- 6. THE COMBAT SCREEN AND THE DUNGEON FLOOR AGREE.
+    #
+    # Two call sites draw the same creature from two different sources: the dungeon floor reads the
+    # stat template out of creatures.json, and the combat screen reads it off the live Monster
+    # object. They have to be the same string or the same monster has two appearances two seconds
+    # apart. The first version of the combat wiring read `foe.template`, which does not exist -
+    # Monster calls it `monster_type` - so every enemy in combat resolved with template=None and
+    # anything that resolves by template alone drew as a human bandit. Nothing crashed and most
+    # creatures looked fine, which is exactly why this is a check and not a code read.
+    attr = "monster_type"
+    try:
+        from entities.monster import Monster
+        probe_name, probe = next(iter(cre.items()))
+        m = Monster(probe_name, probe["template"], level=max(1, int(probe.get("level", 1))))
+        if not hasattr(m, attr):
+            bad.append(f"a live Monster has no .{attr}; the combat screen reads that attribute to "
+                       f"pick creature art and would pass None for every enemy in the game")
+        else:
+            mismatch = []
+            for n, c in cre.items():
+                mon = Monster(n, c["template"], level=max(1, int(c.get("level", 1))))
+                if CS.sprite_file(n, getattr(mon, attr, None)) != CS.sprite_file(n, c["template"]):
+                    mismatch.append(n)
+            if mismatch:
+                bad.append(f"{len(mismatch)} creature(s) draw differently in combat than on the "
+                           f"dungeon floor: {mismatch[:8]}")
+    except Exception as exc:
+        bad.append(f"could not build a Monster to check the combat path agrees: {exc!r}")
+
     named = sum(1 for n in cave if any(rx.search(n) for rx, _s, _o in CS.RULES))
     print(f"{len(flat)} sprites over {len(CS.SHEETS)} sheets "
           f"{ {k: len(v) for k, v in CS.SHEETS.items()} }")
@@ -127,9 +156,12 @@ def main():
         for b in bad[:20]:
             print("  -", b)
         return 1
-    print("\ncreature sprites OK - 180 across 5 sheets, nothing drawn twice, every rule and "
-          "fallback points at real art, all creatures resolve, resolution is stable across "
-          "processes, and no sprite is dead weight.")
+    # Counted, not typed. This line said "180 across 5 sheets" for two sheets longer than it was
+    # true, which is the small version of the bug this whole file exists to catch.
+    print(f"\ncreature sprites OK - {len(flat)} across {len(CS.SHEETS)} sheets, nothing drawn "
+          "twice, every rule and fallback points at real art, all creatures resolve, resolution "
+          "is stable across processes, no sprite is dead weight, and combat draws each creature "
+          "the same as the dungeon floor does.")
     return 0
 
 
