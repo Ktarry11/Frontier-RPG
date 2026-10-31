@@ -56,6 +56,9 @@ BATCH_MODULES = [
     "tools.writing.recruits_batch7a",
     "tools.writing.recruits_batch7b",
     "tools.writing.recruits_batch7c",
+    # Tarek. Kyle, 2026-10-31: "make it that Tarek is gay and fled from Egypt to avoid
+    # persecution." Overlays only his sections.
+    "tools.writing.recruits_batch8",
 ]
 
 #: The tics the rewrite exists to kill. --check counts them and fails if any survive.
