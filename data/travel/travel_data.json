@@ -269,6 +269,16 @@
         40
       ],
       "continent": "eastern_kingdoms"
+    },
+    "steamwheedle_port": {
+      "name": "Steamwheedle Port",
+      "zone": "Steamwheedle Port",
+      "master": "stw_flight_master",
+      "pos": [
+        120,
+        150
+      ],
+      "continent": "kalimdor"
     }
   },
   "flight_cost": {
@@ -404,6 +414,12 @@
     ],
     "sw_innkeeper": [
       "inn"
+    ],
+    "stw_innkeeper": [
+      "inn"
+    ],
+    "stw_flight_master": [
+      "flight"
     ]
   }
 }

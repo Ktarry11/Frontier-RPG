@@ -1,0 +1,531 @@
+{
+  "_notes": "Named rares of Northern Tanaris and the Drownbell's boss and rare. One item per kill. Hand-authored in tools/build_tanaris_content.py; spread checked by its audit().",
+  "Thaka the Unburied": [
+    {
+      "name": "Thaka's Grave-Haft",
+      "slot": "main_hand",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Troll iron, buried with him, dug back up by him.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 38,
+        "stamina": 38
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 111,
+      "weapon_damage_max": 150,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Unburied Pauldrons",
+      "slot": "shoulder",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Sand came out of the seams for a week.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 211
+    },
+    {
+      "name": "Sandfury Ritual Wraps",
+      "slot": "hands",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Whatever was done at that pyramid, it was done with hands like these.",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.4
+      },
+      "armor_type": "cloth",
+      "armor_value": 29
+    },
+    {
+      "name": "Pyramid-Step Treads",
+      "slot": "feet",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "The steps are still there. That is most of what is left.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 58
+    }
+  ],
+  "The Last Tenant": [
+    {
+      "name": "The Tenant's Ledger",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "It nested in a counting house and chewed a nest out of the books. This one survived.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 3.7
+      }
+    },
+    {
+      "name": "Hoarded Scrap Vest",
+      "slot": "chest",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Goblin plate, chewed into a shape that suited something else.",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 183
+    },
+    {
+      "name": "Lintel-Fall Girdle",
+      "slot": "waist",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Taken from under a doorway that is still standing, which is more than can be said for the door.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 137
+    },
+    {
+      "name": "Empty-City Mantle",
+      "slot": "shoulder",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "flavor_text": "Nobody locked anything. They just went.",
+      "primary_stats": {
+        "stamina": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 5.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 43
+    }
+  ],
+  "Nineteen Mile": [
+    {
+      "name": "Milepost Breaker",
+      "slot": "main_hand",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Named for the stone it uprooted and carried for a season.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 38,
+        "stamina": 38
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 111,
+      "weapon_damage_max": 150,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Nineteen-Mile Hide",
+      "slot": "chest",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Road dust worked so far in it is part of the hide.",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 117
+    },
+    {
+      "name": "Drover's Vigil Bracers",
+      "slot": "wrist",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "You hear it on the road long before the road shows you anything.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 93
+    },
+    {
+      "name": "Roadwatch Pendant",
+      "slot": "neck",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Carried by somebody who counted the posts out loud to stay awake.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Marrowmaw": [
+    {
+      "name": "Marrowmaw's Rib-Hook",
+      "slot": "main_hand",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Not a tooth. Something it found and kept using.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      },
+      "weapon_damage_min": 82,
+      "weapon_damage_max": 111,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Bonefield Jerkin",
+      "slot": "chest",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "There is a smell in the bonefields and this has it.",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 117
+    },
+    {
+      "name": "Hyena-Laugh Helm",
+      "slot": "head",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "You hear them before dark and then you hear them all night.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 211
+    },
+    {
+      "name": "Carrion-Watch Leggings",
+      "slot": "legs",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 43,
+      "flavor_text": "Whatever stops on that road is theirs by morning.",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 6.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 58
+    }
+  ],
+  "Saltjaw": [
+    {
+      "name": "Saltjaw's Spine-Rod",
+      "slot": "main_hand",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Brine got into it and did something nobody has explained.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "spell_power": 8.6,
+        "mp5": 1.7
+      },
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 113,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Brine-Crusted Hauberk",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Rinse it and it comes away in your hand. Nobody rinses it.",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 191
+    },
+    {
+      "name": "Shorebreaker Gauntlets",
+      "slot": "hands",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "It works the tideline where the sand stops being sand.",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 143
+    },
+    {
+      "name": "Tidewrack Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Everything the sea gives back, it gives back here.",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 44
+    }
+  ],
+  "The Drowned Purser": [
+    {
+      "name": "The Purser's Tally-Staff",
+      "slot": "main_hand",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Still counting. That is the part people find difficult.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 27,
+        "stamina": 27
+      },
+      "secondary_stats": {
+        "spell_power": 18.6
+      },
+      "weapon_damage_min": 46,
+      "weapon_damage_max": 62,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Short-Measure Wraps",
+      "slot": "wrist",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "He was thrown over for exactly what you think.",
+      "primary_stats": {
+        "stamina": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 3.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 29
+    },
+    {
+      "name": "Ledger-Keeper's Jerkin",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "The book went in with him and the book is not in the pockets.",
+      "primary_stats": {
+        "agility": 12
+      },
+      "secondary_stats": {
+        "hit_rating": 0.9,
+        "crit_chance_physical": 0.9
+      },
+      "armor_type": "leather",
+      "armor_value": 119
+    },
+    {
+      "name": "Drowned Purser's Signet",
+      "slot": "trinket",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "It has a number on the inside and the number is not a date.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Bellwarden": [
+    {
+      "name": "The Warden's Chain-Axe",
+      "slot": "main_hand",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "A length of the bell's own chain with something heavy wired to the end of it.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 39,
+        "stamina": 39
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 113,
+      "weapon_damage_max": 153,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Careenage Scale Greaves",
+      "slot": "legs",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "They hauled hulls over on this ground for years before anybody took the cove.",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 191
+    },
+    {
+      "name": "Bellwarden's Breastplate",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Whatever it is guarding, it was not told to stop.",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 287
+    },
+    {
+      "name": "Chain-Rust Band",
+      "slot": "wrist",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Salt water and iron, given a very long time.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 95
+    }
+  ],
+  "Captain Vaile Drownbell": [
+    {
+      "name": "Vaile's Cutlass",
+      "slot": "main_hand",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "She took this cove off people who were only trying to lift something out of it.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Drownbell's Longcoat",
+      "slot": "chest",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Dry on the inside, which down there is a kind of wealth.",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 122
+    },
+    {
+      "name": "Captain's Storm-Hood",
+      "slot": "head",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "She does not go down to the bell either.",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 8.8,
+        "mp5": 1.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 45
+    },
+    {
+      "name": "Cove-Taker's Spaulders",
+      "slot": "shoulder",
+      "item_level": 48,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Two of them went down to look at it. Neither came back up.",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 146
+    }
+  ]
+}

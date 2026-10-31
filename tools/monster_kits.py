@@ -5745,6 +5745,163 @@ FLATS_KITS = {
     ],
 }
 
+
+# ======================================================================================================
+# TANARIS (41-45) - Northern Tanaris and The Drownbell. The game's first content above 40.
+#
+# DAMAGE IS EXTRAPOLATED, NOT COPIED, and this is the first roster that has had to be. Every band
+# below this one could be calibrated against what already existed; 41-45 had nothing in it at all
+# (audit_quests: "NOTHING TO DO at level(s): 43-60"). Measured, 35-40 trash runs 58-106 on its lead
+# ability and named rares 86-172, so this band takes the same slope on: trash 104-138, rares 150-185,
+# the cave boss at 196. Anything later in this band should be calibrated against THESE and not
+# re-extrapolated, or the numbers will drift upward every time somebody adds a zone.
+#
+# THREE POPULATIONS ON THE SURFACE. The trolls are still at their own ruin, which is the point of
+# leaving Zul'Farrak standing: whatever happened there did not finish them, it just took the roof
+# off. The desert fauna are doing well. The pirates are a spill out of the cove and get rarer the
+# further you are from the shore.
+# ======================================================================================================
+TANARIS_KITS = {
+    # ---- THE SANDFURY, still at their own ruin ---------------------------------------------------
+    "sandfury_scavenger": [
+        ("Pry Loose", "damage", 104, 0, 0, "physical", {}),
+        ("Carry It Off", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"armor": -52}}),
+    ],
+    "sandfury_axethrower": [
+        ("Thrown Axe", "damage", 112, 0, 0, "physical", {}),
+        ("Pin Them", "damage", 94, 3, 0, "physical", {}),
+        ("Ranging Shot", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"dodge_rating": -34}}),
+    ],
+    "sandfury_hexxer": [
+        ("Hex Bolt", "damage", 118, 0, 0, "shadow", {}),
+        ("Sand in the Blood", "dot", 34, 4, 0, "shadow", {"duration": 3}),
+        ("Hex of Weakness", "debuff", 0, 6, 0, "shadow",
+         {"duration": 3, "stat_mods": {"strength": -40, "attack_power": -44}}),
+    ],
+
+    # ---- THE DESERT, which is doing fine -----------------------------------------------------------
+    "dunecrest_raptor": [
+        ("Rake", "damage", 110, 0, 0, "physical", {}),
+        ("Pack Rush", "damage", 92, 3, 0, "physical", {}),
+    ],
+    "thornback_scorpid": [
+        ("Crushing Pincer", "damage", 108, 0, 0, "physical", {}),
+        ("Thorn Barb", "dot", 30, 4, 0, "nature", {"duration": 3}),
+    ],
+    "sunbleached_basilisk": [
+        ("Stone-Heavy Bite", "damage", 128, 0, 0, "physical", {}),
+        ("The Long Look", "debuff", 0, 6, 0, "nature",
+         {"duration": 3, "stat_mods": {"agility": -38, "dodge_rating": -34}}),
+        ("Shed Grit", "damage", 106, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    # tan_ prefix because "carrion_vulture" is already taken - the duplicate guard in this file
+    # caught it on import, which is exactly what that guard is for.
+    "tan_carrion_vulture": [
+        ("Stooping Rake", "damage", 106, 0, 0, "physical", {}),
+        ("Pick at the Eyes", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"hit_rating": -26}}),
+    ],
+    "bonefield_hyena": [
+        ("Worrying Bite", "damage", 114, 0, 0, "physical", {}),
+        ("Drag Down", "damage", 96, 4, 0, "physical", {}),
+        ("Laughing Fit", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 48}, "self_only": True}),
+    ],
+    "gadgetzan_scrapjaw": [
+        ("Scrap Bite", "damage", 104, 0, 0, "physical", {}),
+        ("Nest Scatter", "damage", 88, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "sunstone_elemental": [
+        ("Searing Slam", "damage", 132, 0, 0, "fire", {}),
+        ("Heat Shimmer", "debuff", 0, 5, 0, "fire", {"duration": 3, "stat_mods": {"hit_rating": -30}}),
+        ("Glassing Heat", "dot", 38, 4, 0, "fire", {"duration": 3}),
+    ],
+
+    # ---- THE COVE'S SPILL, on the surface ----------------------------------------------------------
+    "drownbell_deckhand": [
+        ("Boarding Axe", "damage", 120, 0, 0, "physical", {}),
+        ("Shove Off", "damage", 100, 4, 0, "physical", {}),
+    ],
+    "drownbell_powdermonkey": [
+        ("Powder Burn", "damage", 116, 0, 0, "fire", {}),
+        ("Short Fuse", "damage", 98, 4, 0, "fire", {"is_aoe": True}),
+        ("Spilt Powder", "dot", 32, 3, 0, "fire", {"duration": 3}),
+    ],
+
+    # ---- INSIDE THE COVE ---------------------------------------------------------------------------
+    "drownbell_cutthroat": [
+        ("Gutting Knife", "damage", 122, 0, 0, "physical", {}),
+        ("Out of the Dark", "damage", 104, 3, 0, "physical", {}),
+        ("Opened Up", "dot", 34, 4, 0, "physical", {"duration": 3}),
+    ],
+    "drownbell_bosun": [
+        ("Belaying Pin", "damage", 130, 0, 0, "physical", {}),
+        ("Rally the Watch", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 52}}),
+        ("Over the Side", "damage", 110, 4, 0, "physical", {}),
+    ],
+    "cove_tidecaller": [
+        ("Cold Surge", "damage", 126, 0, 0, "frost", {}),
+        ("Undertow", "debuff", 0, 5, 0, "frost", {"duration": 3, "stat_mods": {"agility": -42}}),
+        ("Rising Water", "damage", 108, 5, 0, "frost", {"is_aoe": True}),
+    ],
+    "bilge_crawler": [
+        ("Scuttling Bite", "damage", 112, 0, 0, "physical", {}),
+        ("Swarm the Hold", "damage", 94, 4, 0, "physical", {"is_aoe": True}),
+    ],
+
+    # ---- NAMED RARES, one per surface subzone. Never quested. --------------------------------------
+    "thaka_the_unburied": [
+        ("Thaka's Reach", "damage", 156, 0, 0, "physical", {}),
+        ("Still Standing", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 72}, "self_only": True}),
+        ("Dust of the Dead", "dot", 40, 4, 0, "shadow", {"duration": 3}),
+    ],
+    "the_last_tenant": [
+        ("Nesting Bite", "damage", 150, 0, 0, "physical", {}),
+        ("Bring the Roof", "damage", 126, 4, 0, "physical", {"is_aoe": True}),
+        ("Hoarded Scrap", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 64}, "self_only": True}),
+    ],
+    "nineteen_mile": [
+        ("Milepost Charge", "damage", 162, 0, 0, "physical", {}),
+        ("Road Dust", "debuff", 0, 5, 0, "physical", {"duration": 3, "stat_mods": {"hit_rating": -36}}),
+        ("Trample", "damage", 134, 4, 0, "physical", {"is_aoe": True}),
+    ],
+    "marrowmaw": [
+        ("Marrow Crack", "damage", 168, 0, 0, "physical", {}),
+        ("Worry the Bone", "dot", 44, 3, 0, "physical", {"duration": 4}),
+        ("Pack of One", "buff", 0, 6, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": 66}, "self_only": True}),
+    ],
+    "saltjaw": [
+        ("Saltjaw's Bite", "damage", 174, 0, 0, "physical", {}),
+        ("Shake the Shore", "damage", 142, 4, 0, "physical", {"is_aoe": True}),
+        ("Brine-Crusted Hide", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 78}, "self_only": True}),
+    ],
+    "the_drowned_purser": [
+        ("The Purser's Ledger", "damage", 180, 0, 0, "shadow", {}),
+        ("Count It Again", "dot", 46, 3, 0, "shadow", {"duration": 4}),
+        ("Short Measure", "debuff", 0, 6, 0, "shadow",
+         {"duration": 3, "stat_mods": {"intellect": -44, "spell_power": -48}}),
+    ],
+
+    # ---- THE CAVE'S BOSS AND RARE. Four abilities, first a 0-cooldown damage. -----------------------
+    "captain_vaile_drownbell": [
+        ("Vaile's Cutlass", "damage", 196, 0, 0, "physical", {"boss_rework": 1}),
+        ("Cut the Chain", "damage", 168, 3, 0, "physical", {}),
+        ("All Hands to the Rail", "damage", 146, 5, 0, "physical", {"is_aoe": True}),
+        ("Down With Her", "dot", 50, 4, 0, "frost", {"duration": 3}),
+    ],
+    "the_bellwarden": [
+        ("Warden's Grip", "damage", 185, 0, 0, "physical", {"boss_rework": 1}),
+        ("Toll the Bell", "damage", 158, 4, 0, "frost", {"is_aoe": True}),
+        ("Hold the Careenage", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 86}, "self_only": True}),
+        ("Weighted Down", "debuff", 0, 6, 0, "frost", {"duration": 3, "stat_mods": {"agility": -48}}),
+    ],
+}
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -5754,7 +5911,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                BARRENS_MURLOC_KITS, BARRENS_MISC_KITS, DEMON_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
-               STRANGLETHORN_KITS, FLATS_KITS):
+               STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")

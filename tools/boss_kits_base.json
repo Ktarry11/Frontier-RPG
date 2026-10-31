@@ -10724,5 +10724,196 @@
    "school": "physical",
    "duration": 4
   }
+ ],
+ "thaka_the_unburied": [
+  {
+   "name": "Thaka's Reach",
+   "kind": "damage",
+   "amount": 156,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Still Standing",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 72
+   },
+   "self_only": true
+  },
+  {
+   "name": "Dust of the Dead",
+   "kind": "dot",
+   "amount": 40,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 3
+  }
+ ],
+ "the_last_tenant": [
+  {
+   "name": "Nesting Bite",
+   "kind": "damage",
+   "amount": 150,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Bring the Roof",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Hoarded Scrap",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": 64
+   },
+   "self_only": true
+  }
+ ],
+ "nineteen_mile": [
+  {
+   "name": "Milepost Charge",
+   "kind": "damage",
+   "amount": 162,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Road Dust",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "hit_rating": -36
+   }
+  },
+  {
+   "name": "Trample",
+   "kind": "damage",
+   "amount": 134,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  }
+ ],
+ "marrowmaw": [
+  {
+   "name": "Marrow Crack",
+   "kind": "damage",
+   "amount": 168,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Worry the Bone",
+   "kind": "dot",
+   "amount": 44,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  },
+  {
+   "name": "Pack of One",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": 66
+   },
+   "self_only": true
+  }
+ ],
+ "saltjaw": [
+  {
+   "name": "Saltjaw's Bite",
+   "kind": "damage",
+   "amount": 174,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Shake the Shore",
+   "kind": "damage",
+   "amount": 142,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "is_aoe": true
+  },
+  {
+   "name": "Brine-Crusted Hide",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 78
+   },
+   "self_only": true
+  }
+ ],
+ "the_drowned_purser": [
+  {
+   "name": "The Purser's Ledger",
+   "kind": "damage",
+   "amount": 180,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "shadow"
+  },
+  {
+   "name": "Count It Again",
+   "kind": "dot",
+   "amount": 46,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 4
+  },
+  {
+   "name": "Short Measure",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "shadow",
+   "duration": 3,
+   "stat_mods": {
+    "intellect": -44,
+    "spell_power": -48
+   }
+  }
  ]
 }

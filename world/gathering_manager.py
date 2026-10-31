@@ -477,6 +477,10 @@ CAVE_TO_PARENT_ZONE = {
     # own quests are built on the tunnelers bringing spoil UP and leaving it. Two mouths, one
     # cave; the parent key is the same either way, so both entrances inherit the same table.
     "The Undercrust": "The Shimmering Flats",
+    # A sea cave the pirates took off whoever was salvaging it - and whoever that was, they were
+    # down there for the rock. Inherits Northern Tanaris's table ore-only, which means it is also
+    # the first place in the game a player can mine mithril underground.
+    "The Drownbell": "Northern Tanaris",
     # Stranglethorn's three caves, each under its own zone. All three inherit a parent table that stops
     # at the existing tier-40 ladder, so nothing new enters the material ladder here - Southern
     # Stranglethorn runs to 42 and still gathers exactly what the 38-40 band gathers. The Gurbashi
