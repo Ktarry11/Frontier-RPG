@@ -304,7 +304,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "A short, ugly noise at close range. They lose the thread entirely until something hits them hard enough to find it again.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "_source": "Real screenshot: Requires Level 8. Demolition leveling sequence.  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Discombobulate an enemy, disorienting them for 4 sec. Damage dealt will end the effect.\"",
       "ranks": [
         {
@@ -588,7 +588,7 @@
       "stat_mods": {
         "mp5": 10
       },
-      "description": "Clip a module to an ally and let it trickle power back into them while it holds. One module to a Tinker - the second one just argues with the first.",
+      "description": "Grants your party: Mp5 +10 for 60 turns. Only one Mana Module per Tinker.",
       "_source": "Real screenshot: Requires Level 16. Invention leveling sequence. Real duration is 30 min - modeled as a 60-turn buff per project convention same as other 1hr/30min Tinker buffs.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Empower an ally with a mana module, restoring 10 mana every 5 seconds for 30 min. Only one Module per Tinker can be active.\"",
       "target_type": "party",
       "ranks": [
@@ -1097,7 +1097,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Load a stick of dynamite into a gun, which is exactly as advisable as it sounds, and send it downrange.",
+      "description": "Deals Fire damage to the target. Generates 10 Scrap.",
       "_source": "Real screenshot: Requires Level 18, Makeshift Dynamite (Rank 1) - real self-rank gate, Kyle-confirmed ('ANY MECH STUFF are gated', Makeshift Dynamite explicitly named too). Generates 10 Scrap - see Character.current_scrap, spent on Mechsuit Form (combat/status_effects.py real 'tinker_mechsuit_form' timed buff). Granted by a Mechanics talent node.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 20 as Fire damage. 2 Charges, 8 sec recharge.\"",
       "requires_talent": true,
       "generates": {
