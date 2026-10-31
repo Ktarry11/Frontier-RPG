@@ -1435,6 +1435,16 @@ class CombatScreen(BaseScreen):
             # Multi-mob pulls roll loot once PER enemy, so show every drop (not just the last).
             loots = list(getattr(self.combat_engine, "loot_gained", None) or ([loot] if loot else []))
             loot_h = box_h if len(loots) <= 1 else 38 + 20 * min(5, len(loots)) + (20 if len(loots) > 5 else 0)
+            # BAGS FULL. Kyle, 2026-10-31: "the combat log is also buried under
+            # everything. How about we have the bags full message pop up on
+            # victory screen." He had just spent a run convinced six Grom's Rest
+            # bosses were dropping nothing. They were dropping; his bags were
+            # full; the game said so only in the log, behind the panel. This is
+            # the one surface he is guaranteed to be looking at after a kill.
+            missed = list(getattr(self.combat_engine, "loot_missed", None) or [])
+            missed_h = 0
+            if missed:
+                missed_h = 30 + 20 * min(3, len(missed)) + (20 if len(missed) > 3 else 0)
 
             # Solid panel behind the whole result block. The scrim alone was
             # not enough: a dimmed unit frame still sits directly behind the
@@ -1448,6 +1458,10 @@ class CombatScreen(BaseScreen):
             # prompt.
             boxes_shown = int(bool(player.is_alive())) + int(bool(loots))
             content_h = max(box_h, loot_h) if boxes_shown else 0
+            # The warning sits under both boxes, so it adds to the panel height
+            # rather than competing with them - otherwise it would render on top
+            # of the coin line or get clipped off the bottom.
+            content_h += missed_h
 
             panel_w = max(680, (box_w * 2 + gap) + 120)
             panel_top = result_center_y - 30
@@ -1497,6 +1511,38 @@ class CombatScreen(BaseScreen):
                         ly += 20
                 if len(loots) > len(shown):
                     self.renderer.draw_text(screen, f"+{len(loots) - len(shown)} more (see log)", (loot_box.x + 12, ly), color=(150, 150, 150))
+
+            # BAGS FULL - drawn before the coin line so it is the first thing
+            # under the loot box. Amber on a dark red plate: loud enough to stop
+            # the player, not styled as an error, because nothing went wrong
+            # except that they are out of room.
+            if missed:
+                warn_w = max(360, box_w + 60 if len(loots) > 1 else box_w)
+                warn = pygame.Rect(SCREEN_WIDTH // 2 - warn_w // 2,
+                                   box_y + (max(box_h, loot_h) if boxes_shown else 0) + 12,
+                                   warn_w, missed_h - 12)
+                self.renderer.draw_rect(screen, warn, (46, 22, 22))
+                self.renderer.draw_rect(screen, warn, (235, 140, 90), fill=False)
+                head = ("YOUR BAGS ARE FULL - 1 drop left behind" if len(missed) == 1
+                        else f"YOUR BAGS ARE FULL - {len(missed)} drops left behind")
+                hw = self.renderer.font_normal.size(head)[0]
+                self.renderer.draw_text(screen, head,
+                                        (warn.centerx - hw // 2, warn.y + 6),
+                                        color=(255, 170, 110))
+                wy = warn.y + 28
+                for nm in missed[:3]:
+                    for line in self.renderer.wrap_text(nm, warn.width - 24)[:1]:
+                        lw = self.renderer.font_normal.size(line)[0]
+                        self.renderer.draw_text(screen, line,
+                                                (warn.centerx - lw // 2, wy),
+                                                color=(225, 190, 160))
+                        wy += 20
+                if len(missed) > 3:
+                    extra = f"+{len(missed) - 3} more"
+                    ew = self.renderer.font_normal.size(extra)[0]
+                    self.renderer.draw_text(screen, extra,
+                                            (warn.centerx - ew // 2, wy),
+                                            color=(190, 160, 140))
 
             if player.is_alive():
                 bits = []

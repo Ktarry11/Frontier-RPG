@@ -89,6 +89,18 @@ class CombatEngine:
         self.loot_dropped = None   # last Item dropped, for the victory screen
         self.exp_earned = 0        # total XP awarded this fight, for the victory screen
         self.loot_gained = []      # every Item dropped this fight
+        #: Drops the player could NOT take because their bags were full. Kyle,
+        #: 2026-10-31, after reporting that no Grom's Rest boss dropped loot:
+        #: "Ooooooh fuck bro I'm dumb. My bags are full." He was not dumb - the
+        #: game knew, and said so only in the COMBAT LOG, while the victory panel
+        #: he was actually looking at showed nothing at all. "Nothing dropped"
+        #: and "something dropped and you could not carry it" rendered
+        #: identically, which is how a full bag reads as six broken bosses.
+        #: Equipment, epics and recipe scrolls INSERT at the front; vendor
+        #: trash and material drops append. The victory banner only has room to
+        #: name three, and losing a boss weapon matters more than losing a
+        #: Choice Demon Horn.
+        self.loot_missed = []
         self.copper_earned = 0     # coin dropped this fight (humanoids only), for the victory screen
         self.trash_gained = 0      # vendor trash items picked up this fight
         self.trash_value = 0       # their total sell value in copper
@@ -820,6 +832,7 @@ class CombatEngine:
                     # like a missing-loot bug, so it's called out in the log.
                     self.combat_log.append(
                         f"{enemy.name} dropped {loot.name}, but your bags are full!")
+                    self.loot_missed.insert(0, loot.name)
 
             # NAMED EPICS. Kyle, 2026-10-28: "occasional drops as epic after lvl 30 in Dungeons
             # and also for world drop after lvl 30." Rolled separately from the gear roll above
@@ -835,6 +848,7 @@ class CombatEngine:
                 else:
                     self.combat_log.append(
                         f"{enemy.name} dropped {epic.name}, but your bags are full!")
+                    self.loot_missed.insert(0, epic.name)
 
             # RECIPE SCROLLS. entities/recipe_drops.py decides; world/recipe_manager builds the
             # item; the inventory screen already knows how to learn from one on click. This call
@@ -853,6 +867,7 @@ class CombatEngine:
                     else:
                         self.combat_log.append(
                             f"{enemy.name} dropped {scroll.name}, but your bags are full!")
+                        self.loot_missed.insert(0, scroll.name)
 
             # Per-creature LootItem drops (quest items, materials, trash)
             # - a real drop table, separate from the gear roll above.
@@ -910,6 +925,7 @@ class CombatEngine:
                 else:
                     self.combat_log.append(
                         f"{enemy.name} dropped {drop_def['name']}, but your bags are full!")
+                    self.loot_missed.append(drop_def['name'])
 
         # Coin + vendor trash (entities/vendor_trash.py, data/items/vendor_trash.json). WoW logic: only humanoid-type
         # creatures carry coin (dungeon mobs pay 1.5x, bosses 4x); everything else drops vendor trash by style (hides,
@@ -932,6 +948,7 @@ class CombatEngine:
                     self.combat_log.append(f"{enemy.name} dropped: {it['name']}.")
                 else:
                     self.combat_log.append(f"{enemy.name} dropped {it['name']}, but your bags are full!")
+                    self.loot_missed.append(it['name'])
         # Cloth for Tailoring (entities/cloth_drops.py): humanoids only. Materials stack without a bag cap.
         try:
             from entities.cloth_drops import roll_cloth
