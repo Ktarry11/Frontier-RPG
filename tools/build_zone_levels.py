@@ -43,30 +43,21 @@ ENC = ROOT / "data/creatures/encounters.json"
 CRE = ROOT / "data/creatures/creatures.json"
 
 
-#: Fraction of the weighted spawn mass to trim off each end before reading the band.
-#: WHY TRIM AT ALL. Eastern Hillsbrad's table holds a Worg Prowler (11-14) and a Giant Spider
-#: (11-17) alongside twelve creatures at 22-26, because those two are generic animals shared with
-#: the early zones. The raw min/max is 11-27, which is TRUE - they do spawn - and useless on a
-#: label, because the zone is a 22-26 zone with two strays in it. Weighting by encounter weight
-#: and cutting the thin tails leaves the band a player would actually report.
-#:
-#: It is weighted, not a plain percentile over creature names, so a creature that appears at
-#: weight 2 out of 40 cannot move the band the way one at weight 6 can.
-#:
-#: TRIMMED AT THE BOTTOM ONLY. Trimming both ends by the same fraction cut Valley of Trials to 1-5
-#: and Durotar to 6-12, and both of those top ends are real - Durotar genuinely runs to 18 because
-#: it is the whole starter continent. The strays are always at the FLOOR, because the generic
-#: low-level animals (worgs, spiders, murlocs) are the ones shared across zones; nothing shares a
-#: creature DOWNWARD into a zone it is too strong for. So the ceiling is taken as it is.
-TRIM_LO, TRIM_HI = 0.06, 0.0
-
-
 def _band(entries, creatures):
-    """(lo, hi) over non-boss creatures, trimmed by weighted spawn mass, or None.
+    """(lo, hi) - the plain range of levels that spawn here, or None.
 
-    `entries` is {creature name: encounter weight}.
+    JUST THE RANGE. It is on screen so a player can estimate whether they should be in a place,
+    and the honest answer to that is the lowest and highest thing they might meet. An earlier
+    version trimmed thin tails off by weighted spawn mass, which is a statistic that has to be
+    tuned per-zone and was never going to be right for both Valley of Trials and a grotto with one
+    odd creature in it.
+
+    `entries` is {creature name: encounter weight}; weight is only used to skip weight-0 rows.
+
+    BOSSES ARE EXCLUDED. They are pinned, fought once, and deliberately sit above their zone - a
+    level 53 boss at the end of a 49-52 dungeon would otherwise make the whole place read as 53.
     """
-    mass = {}
+    lo = hi = None
     for n, w in entries.items():
         c = creatures.get(n)
         if not c or c.get("is_boss") or w <= 0:
@@ -74,27 +65,9 @@ def _band(entries, creatures):
         a, b = c.get("level_range", [None, None])[:2]
         if a is None:
             continue
-        span = max(1, b - a + 1)
-        for lv in range(a, b + 1):
-            mass[lv] = mass.get(lv, 0.0) + w / span
-    if not mass:
-        return None
-    total = sum(mass.values())
-    levels = sorted(mass)
-
-    run, lo = 0.0, levels[0]
-    for lv in levels:
-        run += mass[lv]
-        if run > total * TRIM_LO:
-            lo = lv
-            break
-    run, hi = 0.0, levels[-1]
-    for lv in reversed(levels):
-        run += mass[lv]
-        if run > total * TRIM_HI:
-            hi = lv
-            break
-    return (lo, hi) if lo <= hi else (levels[0], levels[-1])
+        lo = a if lo is None else min(lo, a)
+        hi = b if hi is None else max(hi, b)
+    return (lo, hi) if lo is not None else None
 
 
 def main():
@@ -145,20 +118,6 @@ def main():
 
     missing = sorted(z for z in built if z not in bands)
     print(f"{len(bands)} zones banded, {len(built)} built")
-
-    # A BAND WIDER THAN THIS IS ALMOST ALWAYS A BUG, not a big zone - either a stray creature in
-    # an encounter table or a town that inherited from somewhere it is not. Reported, not fatal:
-    # Durotar genuinely runs 6-18 because it is the whole starter continent.
-    wide = sorted((z, b) for z, b in bands.items() if b[1] - b[0] > 14)
-    if wide:
-        print(f"\n  {len(wide)} band(s) wider than 14 levels - check these are real:")
-        for z, b in wide:
-            print(f"    {z:30} {b[0]}-{b[1]}")
-    if missing:
-        print("\nFAILED - these zones have no level band and would show a blank label:")
-        for z in missing:
-            print(f"  - {z}")
-        return 1
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     out = {"_notes": ("Zone name -> [level_min, level_max], for the overworld banner. DERIVED by "
