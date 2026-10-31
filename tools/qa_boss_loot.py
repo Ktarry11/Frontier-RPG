@@ -35,6 +35,10 @@ def load():
     enc = json.load(open(D / "creatures" / "encounters.json")).get("zones", {})
     loot = {}
     for p in sorted((D / "loot").glob("*.json")):
+        # epic_drops.json is keyed by BUCKET ("dungeon", "world"), not by boss
+        # name. Reading it as a boss table reported two phantom broken entries.
+        if p.name == "epic_drops.json":
+            continue
         try:
             data = json.load(open(p))
         except (json.JSONDecodeError, OSError):
@@ -51,24 +55,76 @@ def load():
 def instanced_tables(enc):
     """Every creature that spawns in a DUNGEON or CAVE, with where it spawns.
 
-    Dungeons and caves are the instanced content - the places with bosses. The
-    open-world "open_zone" table and the overworld "subzones" are excluded: a
-    named rare out in a subzone is deliberately NOT a boss (Kyle: "Hand placed
-    mobs are only in full dungeons!"), so pulling them in here would bury the
-    real failures under a hundred by-design ones.
+    Dungeons, caves AND subzones. Subzones are included not because a rare out
+    there is a boss - Kyle: "Hand placed mobs are only in full dungeons!", and
+    rares are deliberately not bosses - but because a creature listed in one IS
+    REACHABLE, and the only question this section answers is reachability. A
+    first version excluded them and then reported 163 bosses as spawning
+    nowhere, which was its own blind spot rather than 163 bugs.
     """
     where = collections.defaultdict(list)
     for zname, z in enc.items():
-        for bucket in ("dungeons", "caves"):
+        for bucket in ("dungeons", "caves", "subzones"):
             for sub, sdata in (z.get(bucket) or {}).items():
                 for cname in (sdata.get("creatures") or {}):
                     where[cname].append(f"{zname}/{sub}")
-        # a dungeon zone may put its bosses straight in open_zone when the whole
-        # zone IS the instance (Grom's Rest, Ragefire) - count those too
         if (z.get("location_type") or "").lower() in ("dungeon", "cave"):
             for cname in ((z.get("open_zone") or {}).get("creatures") or {}):
                 where[cname].append(f"{zname}/open")
     return where
+
+
+
+def _simulate(creatures, is_boss, sample=None):
+    """Kill every flagged boss and return [(name, why)] for any that dropped nothing."""
+    import random
+    from world.creature_manager import CreatureManager
+    from entities.character import Character
+    from combat.combat_engine import CombatEngine
+    from entities.boss_loot import shares_hoard
+
+    random.seed(20261031)
+    cm = CreatureManager()
+    # A boss who SHARES A HOARD drops nothing on purpose - the Return Voyage
+    # finale is one fight with two bosses in it, and the pair's loot is on the
+    # other one. Dropping nothing is correct for him and only for him.
+    names = [n for n in sorted(creatures) if is_boss(n) and not shares_hoard(n)]
+    if sample:
+        names = names[:sample]
+
+    bad = []
+    for name in names:
+        try:
+            m = cm.spawn_creature(name)
+        except Exception as exc:
+            bad.append((name, f"spawn_creature raised {type(exc).__name__}: {exc}"))
+            continue
+        if m is None:
+            bad.append((name, "spawn_creature returned None"))
+            continue
+        if not getattr(m, "is_boss", False):
+            bad.append((name, "spawned WITHOUT is_boss - takes the 35% trash roll"))
+            continue
+        # A FRESH PLAYER PER BOSS. Reusing one filled his bags after ~20 kills,
+        # after which every drop hit combat_engine's "bags are full" branch and
+        # never reached loot_gained - and the run reported 312 broken bosses.
+        # That was the harness, not the game. Worth leaving written down: this
+        # check was wrong in the alarming direction, which is the direction that
+        # wastes a day chasing a bug that is not there.
+        player = Character("Boss Loot QA", "shaman", level=60)
+        ce = CombatEngine(player, m)
+        for e in ce.enemies:
+            e.current_health = 0
+        try:
+            ce._resolve_victory()
+        except Exception as exc:
+            bad.append((name, f"_resolve_victory raised {type(exc).__name__}: {exc}"))
+            continue
+        gear = [l for l in (getattr(ce, "loot_gained", None) or [])
+                if getattr(l, "slot", None)]       # an item, not cloth/meat
+        if not gear:
+            bad.append((name, "victory produced no equipment drop"))
+    return bad
 
 
 def main():
@@ -115,15 +171,11 @@ def main():
             print(f"    {n:34s} table={loot[n]}")
         print()
 
-    if unflagged_spawned:
-        print(f"  REVIEW - {len(unflagged_spawned)} creature(s) spawn in a dungeon or cave with")
-        print(f"  neither is_boss nor a loot table. Most are intended trash; a boss hiding")
-        print(f"  in here is dropping trash loot:")
-        for n in unflagged_spawned[:40]:
-            print(f"    {n:34s} spawns={', '.join(where[n])}")
-        if len(unflagged_spawned) > 40:
-            print(f"    ... and {len(unflagged_spawned)-40} more")
-        print()
+    # Deliberately NOT reported: the ~680 creatures that spawn in an instance
+    # with neither flag nor table. They are the trash, by design, and listing
+    # them buried the two checks above under 680 rows of noise. A check nobody
+    # reads is worse than no check. If a boss is ever hiding in there, the
+    # curated-table check above is what catches it the moment it gets loot.
 
     if unspawnable:
         print(f"  REVIEW - {len(unspawnable)} flagged boss(es) appear in no dungeon or cave table:")
@@ -135,6 +187,27 @@ def main():
 
     print(f"  OK - {len(procedural)} flagged boss(es) use the procedural boss roll "
           f"(guaranteed drop, rare floor) by design")
+
+    # ------------------------------------------------------------------
+    # BEHAVIOURAL PASS: actually kill every boss and look in the bag.
+    #
+    # Everything above reads data. Data agreeing with itself is not the same as
+    # a boss dropping loot, and Kyle's report was behavioural - "none of the
+    # bosses in grom's rest are dropping loot" - so the audit has to be too.
+    # This spawns each flagged boss through CreatureManager exactly as the game
+    # does, runs CombatEngine._resolve_victory on a corpse, and requires a drop.
+    #
+    # A boss is GUARANTEED a drop: curated table first, else the procedural boss
+    # roll with a rare floor. So "no items" here is always a bug, never variance.
+    # ------------------------------------------------------------------
+    dropped = _simulate(creatures, is_boss)
+    if dropped:
+        fail = True
+        print(f"\n  BROKEN - {len(dropped)} boss(es) killed and dropped NOTHING:")
+        for n, why in dropped[:30]:
+            print(f"    {n:34s} {why}")
+        if len(dropped) > 30:
+            print(f"    ... and {len(dropped)-30} more")
 
     print("\nFAIL" if fail else "\nPASS")
     return 1 if fail else 0

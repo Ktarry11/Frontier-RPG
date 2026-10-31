@@ -119,7 +119,9 @@ ZONE_BACKGROUND = {
     # --- desert and salt ---------------------------------------------------
     "Northern Tanaris": "desert",
     "The Abyssal Sands": "desert",                # collapse pits across open desert
-    "The Shimmering Flats": "desert",             # salt pan; no salt pack exists, desert is closest
+    # "The Shimmering Flats" is set in the .update() below, to salt_flat. The salt pack DOES
+    # exist (assets/backgrounds/salt_flat); the note that once sat here saying otherwise was
+    # stale, and the dead "desert" entry it justified has been removed.
     "Glittervein": "desert",                      # dead desert rim; the lake is the floor, not the backdrop
 
     # --- rock, canyon, highland. The mountain pack has 30 images and until
@@ -192,6 +194,33 @@ ZONE_BACKGROUND.update({
     # --- timber deck over open sky ------------------------------------------------------------
     "Zeppelin Tower": "sky",
     "Undercity Zeppelin Tower": "sky",
+    "Grom'gol Zeppelin Tower": "sky",            # its Stranglethorn twin, missed when the pair was set
+
+    # --- fel corruption is not a magma cave -----------------------------------------------------
+    # Kyle, 2026-10-31: "grom's rest is a fel dungeon and it just has standard RFC background."
+    # Exactly right, and the cause was structural rather than a typo: Grom's Rest is built on the
+    # cave_warm biome, cave_warm routes to fire_dungeon, and fire_dungeon is the Ragefire pack. For
+    # a Burning Blade magma cave that mapping is correct; for a demon-corrupted forest dungeon it
+    # is the wrong colour entirely. blighted is the purple-and-fel-green corruption set.
+    "Grom's Rest": "blighted",
+
+    # --- built, not dug -------------------------------------------------------------------------
+    # Ambermill is a mage tower with a library and a lab in it - "THE STACKED OCTAGONS", dressed
+    # stone floor by floor. It was on cave_warm too, so it was fighting in Ragefire's magma as well.
+    "Ambermill Tower": "keep",
+    # Kael's Bastion is the Codex's index-town: "every line of it was decided in advance". A built
+    # place of galleries and dressed stone, not the green field mossy_forest gave it.
+    "Kael's Bastion": "keep",
+
+    # --- height is the whole point --------------------------------------------------------------
+    # Freewind Post's own builder says the job is "SELLING HEIGHT" in "the 'high in the air' style
+    # that you did with the zepplin towers" - so it belongs in the same pack they use, not in a
+    # forest it sits a thousand feet above.
+    "Freewind Post": "sky",
+
+    # --- salt, and a desert port ----------------------------------------------------------------
+    "Saltwheel": "salt_flat",                    # a town ON the salt pan; it had a green forest
+    "Steamwheedle Port": "desert",               # the Tanaris town that won; it had a green forest
 })
 
 
