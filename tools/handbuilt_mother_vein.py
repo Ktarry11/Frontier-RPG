@@ -3,6 +3,14 @@ Hand-built The Mother Vein (120x150): the Glittervein's dungeon. Levels 48-51, f
 
 ARCHETYPE: THE SEAM. The player walks INSIDE the ore shoot.
 
+TWO MAPS, AND THE SECOND ONE IS HOW YOU GET OUT. Kyle: "basically means you enter, go through some
+bosses, at the other end is another way further down into the dungeon into another map with more
+bosses. at the very end (after the last boss) brings you back out to Lastwater." So this map is the
+upper half - three bosses and a shaft at the far end - and tools/handbuilt_cistern.py is the lower
+half. The way out of the lower half is THE OUTFLOW: the channel the water itself takes to reach the
+pool, which is why following it surfaces at Lastwater. The exit is the answer to the question the
+whole five-zone chain has been asking.
+
 Every interior Frontier has built is a shape a person or a creature would make: a gauntlet of
 gates, a broken ring, drowned workings, switchback terraces, a spiral, stacked octagons, a throne
 ascent, a warren that trends down, a roofed country, a stack of shelves, a closing bubble, a
@@ -25,8 +33,7 @@ So the map is NARROW GALLERIES BETWEEN WIDE VUGS, and the galleries always come 
                                                                      [Pitboss Grebble Vask]
     THE SHOOT           the vein proper. Narrow, angular, doubled.             [The Sump]
     THE GLASS ROOMS     vugs - crystal-lined pockets where the seam swelled.   [Glassmaw]
-    THE CHOIR           where the seam resonates.                              [Resonance]
-    THE CISTERN         the heart, and where the water has been going.         [The Thirst]
+    THE DOWNSHAFT       where the seam drops out from under the workings, and the goblins stopped.
 
 AND THE PAYOFF IS A FIVE-ZONE PAYOFF. The Aspen melt came early; the Southern Needles went dry; the
 Shimmering Flats went to salt; Gadgetzan died of thirst with a well in the middle of it; the floor
@@ -44,25 +51,29 @@ and requires the heart to stay reachable through every one of them, and separate
 width of the galleries against the width of the vugs. A docstring that says "it branches and
 rejoins" is worth nothing; a test that severs each branch is worth something.
 
-HARD CONTRACT (world/portal_manager.py): portal (60, 144) <-> Glittervein (86, 100).
+HARD CONTRACT (world/portal_manager.py):
+    (60, 104) <-> Glittervein (86, 100)        the way in
+    (46,  10) <-> The Cistern (46, 122)        the way down
 """
 import math
 
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, DP, register_baked  # noqa: F401
+from tools import seam_kit
 
 BAKED = "assets/tiles/mother_vein/baked"
 UDP = "assets/tiles/underdark/props/"
 SFP = "assets/tiles/shimmering_flats/props/"
-W, H = 120, 150
-PORTAL = (60, 144)
+W, H = 120, 110
+PORTAL = (60, 104)          # up and out, to the isle at Lastwater
+DOWNSHAFT = (46, 10)        # down, into The Cistern
 
 #: THE DIG HEAD. Exact rects, and the only exact rects on the map. Goblins cut this part, so it is
 #: square and timbered, and the moment the player leaves it nothing is square again.
 DIG = {
-    "head":     (50, 130, 70, 146),       # the shaft foot, where the lift came down
-    "drift_w":  (28, 135, 50, 141),       # two drifts chasing the seam sideways, abandoned
-    "drift_e":  (70, 135, 92, 141),
+    "head":     (50,  90, 70, 106),       # the shaft foot, where the lift came down
+    "drift_w":  (28,  95, 50, 101),       # two drifts chasing the seam sideways, abandoned
+    "drift_e":  (70,  95, 92, 101),
 }
 
 #: THE VERTICAL BUDGET, which is the thing that actually has to be laid out and was twice patched
@@ -71,11 +82,11 @@ DIG = {
 #: neighbour by enough tiles that the galleries between them are the only way across - the first
 #: build had the gallery room overlapping the first vug by two tiles, and those two tiles were a
 #: door around the entire first segment. Clearances as built, top of one chamber to bottom of the
-#: next: 11, 8, 10, 20.
+#: next: 11, 8, 6.
 
 #: THE DROWNED GALLERY. Chamfered - it was cut, then it fell in. Half-building, half-rock, which is
 #: the handover between the two halves of the map.
-GALLERY = (34, 116, 86, 130, 6)
+GALLERY = (34, 76, 86, 90, 6)
 
 #: THE NODES. Where the seam swells into a vug. The galleries run BETWEEN these, in pairs.
 #: x wanders deliberately: a fracture does not run down the middle of anything.
@@ -89,20 +100,19 @@ GALLERY = (34, 116, 86, 130, 6)
 #: time. Five nodes twenty-two apart with vugs seven tall leaves six clear tiles of gallery
 #: between each pair of chambers, which is where the galleries become load-bearing.
 NODES = [
-    (60, 116),      # 0 - the top of the drowned gallery, where the natural seam takes over
-    (54,  98),      # 1
-    (68,  76),      # 2
-    (46,  52),      # 3
-    (60,  14),      # 4 - the cistern
+    (60, 76),       # 0 - the top of the drowned gallery, where the natural seam takes over
+    (54, 58),       # 1
+    (68, 36),       # 2
+    (46, 14),       # 3 - the downshaft chamber
 ]
 
 #: (node index, rx, ry) - the vugs themselves. Wide, because they are the only wide places, and no
-#: taller than seven or they eat the galleries either side of them.
+#: taller than seven or they eat the galleries either side of them. The downshaft chamber is larger
+#: because it has to hold a hole in its floor and a fight around it.
 VUGS = [
     (1, 10, 7),
     (2,  9, 7),
-    (3, 11, 7),
-    (4, 21, 11),     # the cistern
+    (3, 13, 9),
 ]
 
 #: The bow of each pair of galleries, left and right, between node i and node i+1. Asymmetric on
@@ -111,7 +121,6 @@ BOWS = [
     (-17, 14),
     (-13, 19),
     (-20, 12),
-    (-15, 21),
 ]
 
 #: Galleries are THREE wide. That number is the archetype. Everything else about this map follows
@@ -142,52 +151,31 @@ BRINE = "Brinewrought Hulk"
 #: quietly stacks a pull somewhere nobody fights. gallery_paths() prints the anchors.
 PACKS = [
     # --- the Dig Head and the Drowned Gallery, before Pitboss Grebble Vask (4)
-    (60, 140, [(SODDEN, 48), (SODDEN, 48), (CRAWL, 48)]),
-    (38, 138, [(SODDEN, 48), (CRAWL, 48), (SODDEN, 48)]),
-    (82, 138, [(SODDEN, 48), (SODDEN, 48), (CRAWL, 48), (CRAWL, 48)]),
-    (60, 124, [(SODDEN, 48), (CRAWL, 49), (WEAVE, 48)]),
-    # --- both branches of the first segment, before The Sump (3)
-    (43, 110, [(CRAWL, 49), (CRAWL, 49), (HOUND, 49)]),
-    (74, 110, [(SODDEN, 49), (WEAVE, 49), (CRAWL, 49)]),
-    (68, 104, [(CRAWL, 49), (WEAVE, 49), (SODDEN, 49)]),
+    (60, 100, [(SODDEN, 48), (SODDEN, 48), (CRAWL, 48)]),
+    (38,  98, [(SODDEN, 48), (CRAWL, 48), (SODDEN, 48)]),
+    (82,  98, [(SODDEN, 48), (SODDEN, 48), (CRAWL, 48), (CRAWL, 48)]),
+    (60,  84, [(SODDEN, 48), (CRAWL, 49), (WEAVE, 48)]),
+    # --- both galleries of the first segment, before The Sump (3)
+    (43,  70, [(CRAWL, 49), (CRAWL, 49), (HOUND, 49)]),
+    (74,  70, [(SODDEN, 49), (WEAVE, 49), (CRAWL, 49)]),
+    (68,  64, [(CRAWL, 49), (WEAVE, 49), (SODDEN, 49)]),
     # --- the Shoot, before Glassmaw (4)
-    (41,  91, [(CRAWL, 49), (WEAVE, 49), (HOUND, 49)]),
-    (73,  91, [(WEAVE, 49), (HOUND, 49), (CRAWL, 49), (SODDEN, 49)]),
-    (55,  84, [(HOUND, 50), (WEAVE, 50), (CRAWL, 50)]),
-    (87,  84, [(WEAVE, 50), (HOUND, 50), (BRINE, 50)]),
-    # --- the Glass Rooms, before Resonance (4)
-    (48,  68, [(WEAVE, 50), (WEAVE, 50), (HOUND, 50)]),
-    (80,  68, [(HOUND, 50), (CRAWL, 50), (WEAVE, 50), (BRINE, 50)]),
-    (26,  60, [(WEAVE, 50), (HOUND, 50), (BRINE, 50)]),
-    (58,  60, [(HOUND, 51), (WEAVE, 50), (WEAVE, 51)]),
-    # --- the Choir and the long throat into the Cistern, before The Thirst (4). No goblins here.
-    (31,  40, [(BRINE, 51), (HOUND, 51), (WEAVE, 51)]),
-    (67,  40, [(WEAVE, 51), (BRINE, 51), (HOUND, 51)]),
-    (45,  27, [(BRINE, 51), (BRINE, 51)]),
-    (81,  27, [(WEAVE, 51), (BRINE, 51)]),
+    (41,  51, [(CRAWL, 49), (WEAVE, 49), (HOUND, 49)]),
+    (73,  51, [(WEAVE, 49), (HOUND, 49), (CRAWL, 49), (SODDEN, 49)]),
+    (55,  44, [(HOUND, 50), (WEAVE, 50), (CRAWL, 50)]),
+    (87,  44, [(WEAVE, 50), (HOUND, 50), (BRINE, 50)]),
+    # --- the run to the downshaft. No boss after these: the fight at the end of this map is the
+    # --- decision to go further down, and a gauntlet is the wrong way to ask that question (3)
+    (48,  29, [(WEAVE, 50), (HOUND, 50), (BRINE, 50)]),
+    (80,  29, [(HOUND, 50), (WEAVE, 50), (CRAWL, 50)]),
+    (26,  22, [(BRINE, 50), (WEAVE, 50)]),
 ]
 
 
 def gallery_paths():
-    """The pairs of galleries, as corridor point-lists. ONE place builds them and the verifier
-    reads the same function, so the test cannot be severing something the map does not have.
-
-    FOUR POINTS, NOT THREE. A single waypoint at mid-height is not a bow, it is a zigzag: the
-    second leg of the left branch sweeps all the way back across the segment and straight through
-    where the right branch is, so the pair merged into one wide ribbon and the map had a third
-    route everywhere. Offsetting at BOTH the one-third and two-thirds heights keeps each branch on
-    its own side of the segment, and the two only meet at the vugs they join.
-    """
-    out = []
-    for i in range(len(NODES) - 1):
-        (ax, ay), (bx, by) = NODES[i], NODES[i + 1]
-        y1 = ay + (by - ay) // 3
-        y2 = ay + 2 * (by - ay) // 3
-        for bow in BOWS[i]:
-            # the bends are CORNERS. A fracture turns sharply or not at all; a smooth curve is a
-            # thing water cut, and the water here arrived long after the crack did.
-            out.append((i, bow, [(ax, ay), (ax + bow, y1), (bx + bow, y2), (bx, by)]))
-    return out
+    """The pairs of galleries. tools/seam_kit.py owns the shape; this just names the inputs, so
+    the map, the other half of the dungeon and the verifier cannot drift apart."""
+    return seam_kit.bow_paths(NODES, BOWS)
 
 
 def _near_walkable(zone, x, y, rad=8):
@@ -236,20 +224,18 @@ def build_mother_vein(omit=()):
     # ---- standing water. The drowned gallery and the cistern are the two places it has pooled.
     b.water([(60, 120, 20, 5), (60, 14, 15, 7)], island=[(60, 14, 6, 4)])
 
-    px, py = PORTAL
-    zone.collision_layer[py][px] = None
-    zone.set_tile(px, py, "dirt", "base")
-    zone.collision_layer[py - 1][px] = None
-    L.mark("portal", px, py)
+    for (px, py) in (PORTAL, DOWNSHAFT):
+        zone.collision_layer[py][px] = None
+        zone.set_tile(px, py, "dirt", "base")
+        zone.collision_layer[py - 1][px] = None
+        L.mark("portal", px, py)
 
     # EACH BOSS SITS AT THE FAR END OF ITS SECTION - the lowest y the player reaches in it. Placed
     # mid-section the packs straddle them, so a player meets half a boss's trash after killing it
     # and the three-to-four rule stops meaning anything.
-    bosses = [(60, 122, "Pitboss Grebble Vask"),    # in the drowned gallery itself
-              (54,  98, "The Sump"),                # the vug where the pumps gave out
-              (68,  76, "Glassmaw"),                # the glass rooms
-              (46,  52, "Resonance"),               # the choir
-              (60,  14, "The Thirst")]              # the cistern
+    bosses = [(60, 82, "Pitboss Grebble Vask"),     # in the drowned gallery itself
+              (54, 58, "The Sump"),                 # the vug where the pumps gave out
+              (68, 36, "Glassmaw")]                 # the glass rooms
     fixed = []
     for (x, y, n) in bosses:
         p = _near_walkable(zone, x, y)
@@ -271,7 +257,7 @@ def build_mother_vein(omit=()):
     BOSSES.update({n: (x, y) for (x, y, n) in fixed})
 
     chests = []
-    for (x, y) in ((32, 138), (88, 138), (74, 110), (87, 84), (26, 60)):
+    for (x, y) in ((32, 98), (88, 98), (74, 70), (87, 44)):
         p = _near_walkable(zone, x, y)
         assert p, (x, y)
         chests.append(p)
@@ -318,7 +304,7 @@ def finish(zone, L):
     #: The trash goes in as targets too. L.mark() only treats portal/boss/chest tiles as critical,
     #: so a prop with a solid footprint can be placed on top of a mob and bury it inside a wall -
     #: which renders fine and spawns an unreachable pack.
-    targets = [PORTAL] + [(x, y) for (x, y) in BOSSES.values()] + list(CHESTS) \
+    targets = [PORTAL, DOWNSHAFT] + [(x, y) for (x, y) in BOSSES.values()] + list(CHESTS) \
         + [(x, y) for (x, y, _n, _l) in TRASH]
     return L.finish(targets)
 
@@ -328,48 +314,39 @@ def dress(zone, L):
     U = dict(where=UDP)
     S = dict(where=SFP)
     # ---- the Dig Head: goblin work, and all of it stopped mid-shift
-    P("ud_dig_scaffold", 60, 142, 7, **U)
-    P("ud_frozen_crate", 54, 140, 3, **U)
-    P("ud_frozen_crate", 66, 140, 3, **U)
-    P("sf_hand_winch", 34, 138, 4, **S)
-    P("sf_hand_winch", 86, 138, 4, **S)
-    P("sf_fuel_drums", 44, 139, 3, **S)
-    P("sf_scrap_heap", 76, 139, 3, **S)
+    P("ud_dig_scaffold", 60, 102, 7, **U)
+    P("ud_frozen_crate", 54, 100, 3, **U)
+    P("ud_frozen_crate", 66, 100, 3, **U)
+    P("sf_hand_winch", 34, 98, 4, **S)
+    P("sf_hand_winch", 86, 98, 4, **S)
+    P("sf_fuel_drums", 44, 99, 3, **S)
+    P("sf_scrap_heap", 76, 99, 3, **S)
     # ---- the Drowned Gallery: the pumps, and what they could not keep up with
-    P("ud_dig_scaffold", 42, 128, 7, **U)
-    P("sf_condenser", 76, 128, 5, **S)
-    P("ud_glow_pool", 60, 124, 3, **U)
-    P("ud_masonry_rubble", 46, 118, 4, **U)
-    P("ud_masonry_rubble", 74, 118, 4, **U)
+    P("ud_dig_scaffold", 42, 88, 7, **U)
+    P("sf_condenser", 76, 88, 5, **S)
+    P("ud_glow_pool", 60, 84, 3, **U)
+    P("ud_masonry_rubble", 46, 78, 4, **U)
+    P("ud_masonry_rubble", 74, 78, 4, **U)
     # ---- the Shoot: the seam itself, and the first crystal worth the walk
-    for (x, y) in ((54, 98), (68, 76)):
+    for (x, y) in ((54, 58), (68, 36)):
         P("ud_crystal_cyan", x - 6, y, 6, **U)
         P("ud_crystal_violet", x + 6, y, 6, **U)
-    P("ud_lattice_growth", 54, 93, 5, **U)
-    P("ud_stalagmites", 43, 110, 4, **U)
-    P("ud_stalagmites", 73, 91, 4, **U)
-    P("ud_lichen_boulder", 68, 81, 4, **U)
+    P("ud_lattice_growth", 54, 53, 5, **U)
+    P("ud_stalagmites", 43, 70, 4, **U)
+    P("ud_stalagmites", 73, 51, 4, **U)
+    P("ud_lichen_boulder", 68, 41, 4, **U)
     # ---- the Glass Rooms: vugs, so the walls are the loot
-    P("ud_crystal_spire", 40, 52, 9, **U)
-    P("ud_crystal_spire", 52, 52, 9, **U)
-    P("ud_geode_open", 46, 47, 5, **U)
-    P("ud_geode_open", 80, 68, 5, **U)
-    P("ud_crystal_float", 46, 58, 6, **U)
-    P("ud_lattice_growth", 48, 68, 5, **U)
-    # ---- the Choir: lattice in exact repeating geometry, and it is making a noise
-    P("ud_lattice_growth", 67, 44, 6, **U)
-    P("ud_lattice_growth", 45, 31, 6, **U)
-    P("ud_crystal_spire", 31, 44, 9, **U)
-    P("ud_crystal_spire", 81, 31, 9, **U)
-    P("ud_rune_stone", 67, 40, 4, **U)
-    P("ud_arcane_brazier", 31, 40, 4, **U)
-    # ---- the Cistern: the water, and the thing that has been taking it
-    P("ud_crystal_spire", 44, 14, 11, **U)
-    P("ud_crystal_spire", 76, 14, 11, **U)
-    P("ud_crystal_float", 52, 8, 7, **U)
-    P("ud_crystal_float", 68, 8, 7, **U)
-    P("ud_glow_pool", 60, 22, 3, **U)
-    P("ud_lattice_growth", 60, 5, 6, **U)
+    P("ud_crystal_spire", 62, 36, 9, **U)
+    P("ud_crystal_spire", 74, 36, 9, **U)
+    P("ud_geode_open", 68, 31, 5, **U)
+    P("ud_geode_open", 87, 44, 5, **U)
+    P("ud_crystal_float", 55, 44, 6, **U)
+    # ---- the Downshaft: a hole in a floor, and goblin tackle abandoned round the lip of it
+    P("ud_dig_scaffold", 40, 16, 7, **U)
+    P("ud_survey_tripod", 52, 16, 4, **U)
+    P("ud_crystal_spire", 36, 10, 9, **U)
+    P("ud_crystal_spire", 56, 10, 9, **U)
+    P("ud_glow_pool", 46, 20, 3, **U)
     return zone, L
 
 

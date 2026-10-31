@@ -61,8 +61,16 @@ SEED = 4912
 
 TAU = 2.0 * np.pi
 
-#: (86, 100) is the dig mouth on the isle - see THE MOTHER VEIN below.
-PORTALS = {(6, 96): "The Abyssal Sands", (86, 100): "The Mother Vein"}
+#: THREE DOORS ON THIS MAP. (6,96) is the gate west to the Sands. (86,100) is the dig mouth on the
+#: isle, which is the way INTO the dungeon. (78,101) is THE OUTFLOW, which is the way out of the
+#: far end of it - a party that fights all the way down to the heart follows the water back up and
+#: surfaces beside the camp it started from. Kyle: "at the very end (after the last boss) brings
+#: you back out to Lastwater."
+PORTALS = {
+    (6, 96): "The Abyssal Sands",
+    (86, 100): "The Mother Vein",
+    (78, 101): "The Cistern",
+}
 ARRIVALS = [(12, 96)]
 START = (12, 96)
 
