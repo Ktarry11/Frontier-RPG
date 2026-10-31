@@ -52,12 +52,20 @@
     "open_zone": {
       "trash_chance": 0.3,
       "junk_chance": 0.15,
-      "coin_mult": 1.0
+      "coin_mult": 1.0,
+      "trash_count": [
+        1,
+        1
+      ]
     },
     "cave": {
-      "trash_chance": 0.6,
+      "trash_chance": 0.7,
       "junk_chance": 0.3,
-      "coin_mult": 1.5
+      "coin_mult": 1.75,
+      "trash_count": [
+        1,
+        3
+      ]
     }
   },
   "boss": {
@@ -716,5 +724,6 @@
       "suffix": "_t3"
     }
   ],
-  "_trash_notes": "min_level / max_level gate an entry to part of the game: the premium entries (no_adjective, min_level 37) are things only deep content drops, and the cheap scraps retire at 36 so a level 50 demon stops dropping Tattered Rags. icon_bands maps a level to an art suffix - the same list tools/reskin_vendor_trash_icons.py reskins against, so art and data cannot disagree. Premium weights are deliberately high - they are ~35-40% of a high-level roll, not a rare treat - because they are the only lever raising high-level income: Kyle ruled out trash_chance (\"We dont need trash chance we need new vendor trash\"), so value per drop has to carry it."
+  "_trash_notes": "min_level / max_level gate an entry to part of the game: the premium entries (no_adjective, min_level 37) are things only deep content drops, and the cheap scraps retire at 36 so a level 50 demon stops dropping Tattered Rags. icon_bands maps a level to an art suffix - the same list tools/reskin_vendor_trash_icons.py reskins against, so art and data cannot disagree. Premium weights are deliberately high - they are ~35-40% of a high-level roll, not a rare treat - because they are the only lever raising high-level income: Kyle ruled out trash_chance (\"We dont need trash chance we need new vendor trash\"), so value per drop has to carry it.",
+  "_cave_notes": "Kyle: \"Technically we could have the beast Dungeons drop vendor trash at 70% and instead of dropping 1 per kill they drop multiple.\" That is this block, and it replaced a scattered-coin rule I had written first.\nWHY HIS IS THE BETTER ONE: the problem was that a dungeon has to pay for being a dungeon, and 14 of 47 paid under 1.5x an open zone of their own level while three paid LESS than the open world (The Den 0.67x, The Broodspiral 0.97x, Widow's Lair 0.99x) - because a flat cave bonus multiplies a base that swings on bestiary, and a beast dungeon has no coin to multiply. Raising coin_mult alone to 2.0 still left 13 under 1.5x: it is a multiplier on zero. My fix put coin on the floor of the lair, which works but needs an excuse for why a hyena's den has money in it. Paying in TRASH instead needs no excuse at all - the purse rule stays exactly as it was, only sentient things carry coin - and it puts the value where the rest of this pass put it. Measured: min 1.56x, median 2.72x, nothing under the floor, at 0.82 items per kill against 0.43 before, which is still under one item a kill and no bag problem."
 }

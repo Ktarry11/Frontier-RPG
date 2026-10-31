@@ -261,16 +261,30 @@ def roll_drops(enemy, rng=random):
     family, coin = classify(name)
     out = {"copper": 0, "items": []}
 
-    if coin:
+    def _coin(scale):
         base = level * cfg["coin"]["per_level"]
-        copper = base + int(base * rng.random() * cfg["coin"]["bonus_max"])
-        copper = int(copper * rates["coin_mult"] * (cfg["boss"]["coin_mult"] if boss else 1.0))
-        out["copper"] = max(1, copper)
+        c = base + int(base * rng.random() * cfg["coin"]["bonus_max"])
+        return max(1, int(c * rates["coin_mult"] * scale
+                          * (cfg["boss"]["coin_mult"] if boss else 1.0)))
+
+    if coin:
+        out["copper"] = _coin(1.0)
         n = rng.randint(*cfg["boss"]["junk_items"]) if boss else (1 if rng.random() < rates["junk_chance"] else 0)
         for _ in range(n):
             out["items"].append(_pick("junk", level, name))
     else:
-        n = rng.randint(*cfg["boss"]["trash_items"]) if boss else (1 if rng.random() < rates["trash_chance"] else 0)
+        # A DUNGEON PAYS FOR BEING A DUNGEON, and it pays in trash rather than coin because a
+        # beast carries no purse anywhere in this game. 14 of 47 dungeons used to pay under 1.5x
+        # an open zone of their own level and three paid LESS than the open world outside them,
+        # because the cave bonus multiplies a base that swings on bestiary and a beast dungeon
+        # has no coin to multiply. trash_count is the lever: more pieces per kill, not a richer
+        # purse. See _cave_notes in the data.
+        if boss:
+            n = rng.randint(*cfg["boss"]["trash_items"])
+        elif rng.random() < rates["trash_chance"]:
+            n = rng.randint(*rates.get("trash_count", [1, 1]))
+        else:
+            n = 0
         for _ in range(n):
             out["items"].append(_pick(family, level, name))
     return out

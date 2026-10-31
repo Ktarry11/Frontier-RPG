@@ -34,8 +34,21 @@ FOUR CLAIMS:
      pirate cove: a coin mob pays on 100% of kills and a trash mob on 30%. It is reported per
      level below, and bounded loosely so this file catches a regression without pretending the
      gap is a bug.
+
+  5. A DUNGEON PAYS FOR BEING A DUNGEON. Kyle: "Dungeons generally should give better money as
+     they are harder." Every cave must out-earn an OPEN ZONE OF ITS OWN LEVEL - not its parent
+     zone, which is the comparison that hid this: Dustwind Cave looked like 1.18x Durotar while
+     actually paying 1.16x what level 4-8 ground pays, and Durotar's band runs to 18.
+
+     Measured that way, 14 of 47 dungeons paid under 1.5x and three paid LESS than the open
+     world, worst of all The Den at 0.67x. This claim is simulated rather than derived, because
+     what a dungeon pays depends on its encounter table and no amount of reading the rates block
+     will tell you a cave is full of beasts.
 """
+import json
 import os
+import random
+import statistics
 import sys
 from pathlib import Path
 
@@ -47,6 +60,11 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from entities.vendor_trash import _config, _tier, make_item, _band_suffix  # noqa: E402
 
 ICON_DIR = ROOT / "assets" / "icons" / "vendor_trash"
+
+#: a dungeon must out-earn open ground of its own level by at least this much. Today the worst is
+#: 1.64x and the median is 2.58x.
+DUNGEON_FLOOR = 1.5
+SAMPLE = 3000
 LEVELS = range(1, 61)
 #: expected-value-per-kill of a trash dropper as a fraction of a coin dropper. Loose on purpose -
 #: see claim 4. Today this runs 0.33 (level 10) to 0.59 (level 50).
@@ -138,6 +156,68 @@ def main():
         print(f"  {lvl:3} {t['adjective']:11} {mean:10.0f}c {coin:9.0f}c "
               f"{r:23.2f}x  {n:3}")
 
+    # ---- 5. dungeons out-earn open ground of their own level
+    from entities.vendor_trash import roll_drops
+    cre = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
+    zl = json.loads((ROOT / "data/zones/zone_levels.json").read_text(encoding="utf-8"))["zones"]
+
+    class _E:
+        def __init__(self, n, l, loc):
+            self.name, self.level, self.location_type, self.is_boss = n, l, loc, False
+
+    def _tbl(d):
+        return [(k, w) for k, w in d.items()
+                if w > 0 and k in cre and not cre[k].get("is_boss")]
+
+    def _income(rows, loc, n=SAMPLE, seed=1):
+        rng = random.Random(seed)
+        names = [r[0] for r in rows]
+        ws = [r[1] for r in rows]
+        tot = 0
+        for _ in range(n):
+            nm = rng.choices(names, weights=ws, k=1)[0]
+            a, b2 = cre[nm].get("level_range", [1, 1])[:2]
+            r = roll_drops(_E(nm, rng.randint(max(1, a), max(1, b2)), loc), rng=rng)
+            tot += r["copper"] + sum(i["price"] for i in r["items"])
+        return tot / n
+
+    open_by_zone = {}
+    for z, zz in enc.items():
+        t = dict(zz.get("open_zone", {}).get("creatures", {}))
+        for sz in zz.get("subzones", {}).values():
+            for k, v in sz.get("creatures", {}).items():
+                t[k] = max(t.get(k, 0), v)
+        rows = _tbl(t)
+        if rows and z in zl:
+            open_by_zone[z] = (zl[z], _income(rows, "open_zone"))
+    open_at = {}
+    for L in LEVELS:
+        v = [i for (bb, i) in open_by_zone.values() if bb[0] <= L <= bb[1]]
+        if v:
+            open_at[L] = statistics.mean(v)
+
+    ratios = []
+    for z, zz in enc.items():
+        for cname, cv in zz.get("caves", {}).items():
+            rows = _tbl(cv.get("creatures", {}))
+            if not rows or cname not in zl:
+                continue
+            bb = zl[cname]
+            mid = (bb[0] + bb[1]) // 2
+            if mid not in open_at:
+                continue
+            r = _income(rows, "cave") / open_at[mid]
+            ratios.append((r, cname, bb))
+            if r < DUNGEON_FLOOR:
+                bad.append(f"{cname} ({bb[0]}-{bb[1]}) pays {r:.2f}x an open zone of its level, "
+                           f"under the {DUNGEON_FLOOR}x floor - it is harder and should pay more.")
+    if ratios:
+        rs = sorted(ratios)
+        print(f"\n{len(rs)} dungeons vs open ground of their own level: "
+              f"min {rs[0][0]:.2f}x ({rs[0][1]}), median "
+              f"{statistics.median([r for r, _, _ in rs]):.2f}x, max {rs[-1][0]:.2f}x")
+
     print(f"\n{len(list(ICON_DIR.glob('*.png')))} icon files across bands {bands}")
     if bad:
         print(f"\n{len(bad)} problem(s):")
@@ -145,7 +225,8 @@ def main():
             print("  -", b)
         return 1
     print("curve OK - every family drops at every level, all banded art exists, trash never "
-          "decreases with level, and it tracks coin the whole way.")
+          "decreases with level, it tracks coin the whole way, and every dungeon out-earns open "
+          "ground of its own level.")
     return 0
 
 
