@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A swing with whatever you are holding.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A swarm of carrion insects pours off you and settles on the target. It does not hurry.",
+      "description": "Deals Shadow damage to the target. Generates 20 Life Force.",
       "ranks": [
         {
           "rank": 1,
@@ -178,7 +178,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "The target's flesh starts moving on its own.",
+      "description": "Deals Shadow damage to the target over time for 4 turns. Generates 15 Life Force.",
       "ranks": [
         {
           "rank": 1,
@@ -246,7 +246,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "You take what the dead are no longer using.",
+      "description": "Restores life force to you.",
       "ranks": [
         {
           "rank": 1,
@@ -270,7 +270,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "A hook comes out of the dark and the target stops going anywhere.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -293,7 +293,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You find a body nobody was watching and burst it.",
+      "description": "Deals Shadow damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -352,7 +352,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "You remind the target what it is owed.",
+      "description": "Removes 1 magic effect from the target.",
       "ranks": [
         {
           "rank": 1,
@@ -377,7 +377,7 @@
         "armor": 120,
         "magic_resistance": 55
       },
-      "description": "You take back some of what you lent your servants.",
+      "description": "Armor +120, Magic Resistance +55 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -421,7 +421,7 @@
         "healing_power": 45,
         "magic_resistance": 40
       },
-      "description": "A sweet, thick smell settles over you and everything you have raised.",
+      "description": "Healing Power +45, Magic Resistance +40 for 5 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -445,7 +445,7 @@
       "stat_mods": {
         "magic_damage_taken_pct": -25
       },
-      "description": "Spellwork slides off you and off everything standing near you.",
+      "description": "Magic damage taken -25% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -470,7 +470,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.35
       },
-      "description": "You put something of yourself somewhere safer than here.",
+      "description": "Damage taken -35% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -492,7 +492,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "The target spends a while being something else.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -515,7 +515,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Five of them go down at once and come up wrong.",
+      "description": "Interrupts and stuns up to 5 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -567,7 +567,7 @@
         "max_health_pct": 0.3,
         "magic_resistance": 60
       },
-      "description": "You stop pretending to be alive for a while.",
+      "description": "Maximum health +30%, Magic Resistance +60 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -589,7 +589,7 @@
       "effect_type": "revive",
       "duration": 0,
       "stat_mods": {},
-      "description": "They are not finished. You have decided.",
+      "description": "Revives a fallen ally.",
       "ranks": [
         {
           "rank": 1,
@@ -610,7 +610,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Something old and patient takes hold, and prayers stop helping.",
+      "description": "Deals Shadow damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -674,7 +674,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "The last disease you apply, and the one that notices the others.",
+      "description": "Deals Shadow damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -726,7 +726,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You reach into the rot already there and seed it everywhere else.",
+      "description": "Deals Shadow damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -773,7 +773,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You drink what the disease has been making.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -827,7 +827,7 @@
       "stat_mods": {
         "haste": 10.0
       },
-      "description": "You brew something and make everyone drink it.",
+      "description": "Haste +10 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -850,7 +850,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Shard after shard, and when it stops the target is inside the ice.",
+      "description": "Deals Frost damage to the target over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -909,7 +909,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The sky drops something heavy on them.",
+      "description": "Deals Frost damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -961,7 +961,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "The ground goes white and nothing standing on it moves.",
+      "description": "Interrupts and stuns up to 5 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -985,7 +985,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Their heart skips and the words go with it.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -1011,7 +1011,7 @@
         "frost_spell_power": 50,
         "magic_resistance": 30
       },
-      "description": "You stop being warm. It was never doing much for you.",
+      "description": "Frost Spell Power +50, Magic Resistance +30.",
       "ranks": [
         {
           "rank": 1,
@@ -1036,7 +1036,7 @@
         "crit_chance_spell": 3.0,
         "crit_chance_physical": 3.0
       },
-      "description": "Standing near you is uncomfortable in a way that helps.",
+      "description": "Spell crit chance +3, Physical crit chance +3 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1059,7 +1059,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Something long and dead circles overhead and keeps breathing.",
+      "description": "Deals Frost damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1100,7 +1100,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "It gets up faster than you expect every time.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1124,7 +1124,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "A thin one, still holding its staff.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1148,7 +1148,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "She was loud in life too.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1172,7 +1172,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Several people, eventually.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1196,7 +1196,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Three of them, and none of them need to breathe before they loose.",
+      "description": "Deals Shadow damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1261,7 +1261,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "He walks into the middle of them and starts leaking.",
+      "description": "Deals Shadow damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1314,7 +1314,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "It comes apart on purpose and the pieces keep swinging.",
+      "description": "Deals damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1363,7 +1363,7 @@
         "damage_dealt_pct": 12,
         "attack_power": 40
       },
-      "description": "He does not fight. He expects.",
+      "description": "Damage dealt +12%, Attack Power +40 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1386,7 +1386,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "They set off towards the enemy and do not arrive intact.",
+      "description": "Deals Shadow damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1427,7 +1427,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You thank it, and then you use it.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -1481,7 +1481,7 @@
       "stat_mods": {
         "damage_dealt_pct": 5
       },
-      "description": "It creaks past and everyone fights a little harder for reasons they would rather not examine.",
+      "description": "Damage dealt +5% for 4 turns.",
       "ranks": [
         {
           "rank": 1,

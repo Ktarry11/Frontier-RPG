@@ -9,7 +9,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic melee attack.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -28,7 +28,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hurls a bolt of lightning at the target.",
+      "description": "Deals Nature damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -96,7 +96,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shocks the target with the fury of the earth.",
+      "description": "Deals Nature damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -343,7 +343,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Arcing lightning that leaps between foes.",
+      "description": "Deals Nature damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -871,7 +871,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Removes a beneficial Magic effect from the target.",
+      "description": "Removes 1 magic effect from the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1126,7 +1126,7 @@
       },
       "damage_school": "frost",
       "exclusive_group": "shaman_imbue",
-      "description": "Imbue your weapon with biting cold. Your hits land a heavy Frost strike often enough to matter, and drag at whatever they catch. The control imbue. Only one imbue can be active at a time.",
+      "description": "Attack Power +6 for 5 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1547,7 +1547,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "Draw the spirits in close. Blows land softer, and your own swings give some of the strength back, for a short time.",
+      "description": "Damage taken -30% for 3 turns.",
       "ranks": [
         {
           "rank": 1,

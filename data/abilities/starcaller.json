@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic weapon strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -408,7 +408,7 @@
       "stat_mods": {
         "intellect": 3
       },
-      "description": "Enhance an ally with a blessing from Elune, increasing their Intellect.",
+      "description": "Grants your party: Intellect +3 for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 4, '+3 Intellect for 30 min.'",
       "target_type": "party",
       "ranks": [
@@ -463,7 +463,7 @@
       "stat_mods": {
         "spell_power": 80
       },
-      "description": "Activate this to cause your next Lunar Phase spell to trigger its Lunar effect. Usable while casting or channeling.",
+      "description": "Spell Power +80 for 1 turn.",
       "_source": "Confirmed screenshot: Lvl 8, real Balance-Druid-style Eclipse toggle - empowers the next 'Lunar Eclipse:' tagged effect on spells like Moonwell Splash, Silverstream, Starfire Shot, and Moonflow.",
       "target_type": "self",
       "ranks": [
@@ -770,7 +770,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Instantly bring a dead ally back to life. Usable in combat.",
+      "description": "Heals an ally.",
       "_source": "Confirmed screenshot: Lvl 40, '400 health and 635 mana. This spell is usable in combat.' Real in-combat battle-rez, unusual for the archetype.",
       "target_type": "ally",
       "ranks": [
@@ -854,7 +854,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast the target enemy and all enemies near them with lunar fire, applying Scattered Stars.",
+      "description": "Deals Arcane damage to all nearby enemies.",
       "_source": "Confirmed screenshot: Sentinel-locked, Lvl 26, 9 Mana, 45yd, 2s cast, 12 sec cooldown, '231 Arcane damage, applying Scattered Stars. Consuming a Scattered Star reduces the remaining cooldown by 1.5 sec.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -981,7 +981,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Unleash hidden blades upon nearby enemies, applying a Scattered Star per hit.",
+      "description": "Deals Arcane damage to all nearby enemies.",
       "_source": "Confirmed screenshot: Warden-locked, melee range, instant, 15 sec cooldown, 'dealing 25 Arcane damage scaling with maximum mana, applying 1 Scattered Star per hit. Consuming a Scattered Star reduces the remaining cooldown by 2 sec.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1865,7 +1865,7 @@
       "stat_mods": {
         "armor": -80
       },
-      "description": "Reveal stealthed and invisible enemies in an area.",
+      "description": "Applies to all nearby enemies: Armor -80 for 3 turns.",
       "_source": "CoA handoff doc: 'Reveals stealthed/invisible enemies in an area.'",
       "target_type": "enemy_aoe",
       "ranks": [

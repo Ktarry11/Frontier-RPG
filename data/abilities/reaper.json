@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured swing of the scythe.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, economical cut that leaves a soul loose in the air for you to take.",
+      "description": "Deals damage to the target. Generates 10 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -103,7 +103,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two fast strikes to the same spot, which is usually enough.",
+      "description": "Deals damage to the target. Generates 15 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -170,7 +170,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Reach past the body for what is underneath it, and take some back with you.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -236,7 +236,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A blow the scythe lands somewhere other than here, so there is nothing in the way of it.",
+      "description": "Deals damage to the target. Generates 25 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -291,7 +291,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "The wound will not close while the scythe still remembers it.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -343,7 +343,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cover the ground between you in two strides and open with the hook of the blade.",
+      "description": "Deals damage to the target. Generates 15 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -392,7 +392,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You arrive before the sound of you does.",
+      "description": "Deals damage to the target. Generates 10 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -441,7 +441,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spend what you have taken. It goes back into you as fast as it comes out of them.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -500,7 +500,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A clean cut through something that was never physical.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -546,7 +546,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "A sound that gets into the throat and stays there, and then gets worse.",
+      "description": "Deals Shadow/Frost damage to up to 4 targets over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -590,7 +590,7 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Stand in it. Whatever is leaving you, some of it comes back.",
+      "description": "Heals you over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -653,7 +653,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take the edge off your own soul. It grows back, mostly.",
+      "description": "Restores mana to you.",
       "ranks": [
         {
           "rank": 1,
@@ -676,7 +676,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Say the quiet part out loud and three of them answer.",
+      "description": "Restores souls to you.",
       "ranks": [
         {
           "rank": 1,
@@ -701,7 +701,7 @@
       "stat_mods": {
         "haste": -20.0
       },
-      "description": "Something cold closes on the back of their leg.",
+      "description": "Applies to the target: Haste -20 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -724,7 +724,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.1
       },
-      "description": "Keep one of them awake and screaming where it can take the hits meant for you.",
+      "description": "Damage taken -10% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -745,7 +745,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "Ask him for something and he always says yes. That is the problem with him.",
+      "description": "Strengthens you for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -798,7 +798,7 @@
         "magic_damage_taken_pct": -45.0,
         "damage_taken_pct": -0.15
       },
-      "description": "Step out of your own body for a moment. Nothing aimed at it lands.",
+      "description": "Magic damage taken -45%, Damage taken -15% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -819,7 +819,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Whatever got into their head, you take it out again.",
+      "description": "Removes 1 magic effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -843,7 +843,7 @@
       "stat_mods": {
         "damage_dealt_pct": 20.0
       },
-      "description": "Open your own skin first. After that nothing they do is news.",
+      "description": "Damage dealt +20% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -864,7 +864,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Show them a way out that was never there.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -948,7 +948,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Open them from the collarbone down and leave the wound arguing with anything that tries to close it.",
+      "description": "Deals damage to the target. Generates 15 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1003,7 +1003,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A finishing blow against an enemy who is already beaten.",
+      "description": "Deals damage to the target. Usable only below 35% health. Generates 20 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1059,7 +1059,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cut the thread the words are travelling down.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1131,7 +1131,7 @@
         "damage_dealt_pct": 15.0,
         "crit_chance_physical": 15.0
       },
-      "description": "Decide the fight is over and then spend a while proving it.",
+      "description": "Damage dealt +15%, Physical crit chance +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1153,7 +1153,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "It stops being a fight and becomes weather.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1182,7 +1182,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The same two notes, over and over, until something gives.",
+      "description": "Deals damage to the target. Generates 20 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1243,7 +1243,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Name them once. It keeps going back on its own after that.",
+      "description": "Deals Shadow/Frost damage to the target over time for 3 turns. Generates 10 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1302,7 +1302,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Open the box. Everything in it goes the same direction.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1354,7 +1354,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Put everything you are carrying into the ground at once.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1402,7 +1402,7 @@
       "stat_mods": {
         "damage_dealt_pct": 12.0
       },
-      "description": "The blade goes cold enough that the air around it complains.",
+      "description": "Damage dealt +12% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1426,7 +1426,7 @@
         "dodge": 25.0,
         "damage_taken_pct": -0.2
       },
-      "description": "Become the part of the room nobody looks at.",
+      "description": "Dodge +25, Damage taken -20% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1449,7 +1449,7 @@
       "stat_mods": {
         "damage_dealt_pct": 3.0
       },
-      "description": "Standing near you is bad for them and good for everyone else.",
+      "description": "Damage dealt +3%.",
       "ranks": [
         {
           "rank": 1,
@@ -1475,7 +1475,7 @@
         "damage_dealt_pct": 20.0,
         "haste": 10.0
       },
-      "description": "For a little while you are the last thing that happens here.",
+      "description": "Damage dealt +20%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1497,7 +1497,7 @@
       "effect_type": "reset_cooldowns",
       "duration": 0,
       "stat_mods": {},
-      "description": "You have been dead before. It did not take.",
+      "description": "Resets your ability cooldowns.",
       "ranks": [
         {
           "rank": 1,
@@ -1518,7 +1518,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A wave of them goes out ahead of the blade and arrives first.",
+      "description": "Deals damage to up to 3 targets. Generates 15 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1580,7 +1580,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything within reach of the swing hears the same thing.",
+      "description": "Deals damage to up to 5 targets. Generates 10 Souls.",
       "ranks": [
         {
           "rank": 1,
@@ -1636,7 +1636,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Every sixth cut lands somewhere the first five were only asking about.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1684,7 +1684,7 @@
         "armor_pct": 25.0,
         "parry": 10.0
       },
-      "description": "Set yourself. The souls in the haft take the next few for you.",
+      "description": "Armor Pct +25%, Parry +10 for 3 turns. Generates 60 Mana.",
       "ranks": [
         {
           "rank": 1,
@@ -1709,7 +1709,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let one of them loose on its own recognisance.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1731,7 +1731,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Something large and patient stands up between you and them.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1756,7 +1756,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.03
       },
-      "description": "Your presence takes the edge off whatever is coming for the rest of them.",
+      "description": "Damage taken -3%.",
       "ranks": [
         {
           "rank": 1,
@@ -1781,7 +1781,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": -10.0
       },
-      "description": "Three of them at once is enough to live on for a while.",
+      "description": "Physical damage taken -10% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1812,7 +1812,7 @@
         "crit_chance_physical": 3.0,
         "crit_chance_spell": 3.0
       },
-      "description": "You show them where the seams are.",
+      "description": "Physical crit chance +3, Spell crit chance +3.",
       "ranks": [
         {
           "rank": 1,
@@ -1834,7 +1834,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Put the mark on one of them and the ones beside it notice.",
+      "description": "Interrupts and stuns up to 3 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,

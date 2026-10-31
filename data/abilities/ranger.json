@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A fast, flat shot. Nothing clever, and it keeps your quiver working.",
+      "description": "Deals damage to the target. Generates 12 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -103,7 +103,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Put the arrow through the gap in their helm.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -154,7 +154,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A dart dipped in something that does not stop working when it lands.",
+      "description": "Deals damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -234,7 +234,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A seed pod that bursts hard enough to put someone on their back.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -291,7 +291,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A heavy arrow placed where it takes the fight out of them for a moment.",
+      "description": "Deals damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -345,7 +345,7 @@
       "stat_mods": {
         "haste": -25.0
       },
-      "description": "They go down, and whatever was eating at them goes with them.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -369,7 +369,7 @@
       "stat_mods": {
         "dodge": 25.0
       },
-      "description": "Thorns and leaves come up around you and nothing quite lands.",
+      "description": "Dodge +25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -417,7 +417,7 @@
       "stat_mods": {
         "crit_chance_physical": 15.0
       },
-      "description": "You stop being somewhere they are looking.",
+      "description": "Physical crit chance +15 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -441,7 +441,7 @@
       "stat_mods": {
         "attack_power": -45
       },
-      "description": "Their weapon is in your hand now. They are taking it badly.",
+      "description": "Applies to the target: Attack Power -45 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -462,7 +462,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bitter, and it works.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -513,7 +513,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "You stop thinking about the shot and simply take it.",
+      "description": "Restores archery points to you.",
       "ranks": [
         {
           "rank": 1,
@@ -564,7 +564,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You take the extra half-second and it is worth it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -621,7 +621,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The arrow comes off the first one and finds the next.",
+      "description": "Deals damage to up to 3 targets. Generates 15 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -677,7 +677,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A barbed head that does more coming out than going in.",
+      "description": "Deals damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -728,7 +728,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "One arrow, and the fight is over.",
+      "description": "Deals damage to the target. Requires a ranged weapon. Usable only below 20% health. Generates 10 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -789,7 +789,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Toxin on the head, and the arrow goes through the throat.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -840,7 +840,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The arrow is already burning when it leaves the string.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -886,7 +886,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A volley down a line, and the line stops being a line.",
+      "description": "Deals damage to up to 4 targets. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -939,7 +939,7 @@
       "stat_mods": {
         "crit_chance_physical": 15.0
       },
-      "description": "The fight narrows down to the next three shots.",
+      "description": "Physical crit chance +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -963,7 +963,7 @@
       "stat_mods": {
         "attack_power": 30
       },
-      "description": "Every head in the quiver goes through the same jar first.",
+      "description": "Attack Power +30.",
       "ranks": [
         {
           "rank": 1,
@@ -988,7 +988,7 @@
       "stat_mods": {
         "crit_chance_physical": 5.0
       },
-      "description": "Heads left in the coals until just before you need them.",
+      "description": "Physical crit chance +5.",
       "ranks": [
         {
           "rank": 1,
@@ -1011,7 +1011,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You open them up and leave them to it.",
+      "description": "Deals damage to the target over time for 3 turns. Generates 12 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -1078,7 +1078,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, fast cut that is already on its way back.",
+      "description": "Deals damage to the target. Generates 14 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -1145,7 +1145,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Not a good knife. Close enough.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1208,7 +1208,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You come in from the side they are not watching.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1317,7 +1317,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A finishing blow against a weakened enemy.",
+      "description": "Deals damage to the target. Usable only below 20% health.",
       "ranks": [
         {
           "rank": 1,
@@ -1420,7 +1420,7 @@
       "stat_mods": {
         "haste": -35.0
       },
-      "description": "They were about to say something.",
+      "description": "Applies to the target: Haste -35 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1441,7 +1441,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A handful of darts, thrown low and wide.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1487,7 +1487,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The hook finds the wound you already made.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1535,7 +1535,7 @@
         "attack_power": 50,
         "crit_chance_physical": 4.0
       },
-      "description": "Whatever is on the blades is not coming off between fights.",
+      "description": "Attack Power +50, Physical crit chance +4 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1557,7 +1557,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You were never where they were swinging.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1596,7 +1596,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You hold the draw until the arrowhead goes green, then let go.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1647,7 +1647,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A plain arrow with old work carved into the shaft.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1698,7 +1698,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The vines go out with the arrow and take hold where it lands.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1744,7 +1744,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The shot goes out low and something goes with it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1795,7 +1795,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "An old recipe. Nobody has improved on it.",
+      "description": "Deals damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1848,7 +1848,7 @@
       "stat_mods": {
         "haste": -30.0
       },
-      "description": "You whistle once and the sky answers.",
+      "description": "Applies to all nearby enemies: Haste -30 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1869,7 +1869,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "It has been waiting somewhere above you this whole time.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1894,7 +1894,7 @@
       "stat_mods": {
         "crit_chance_physical": 5.0
       },
-      "description": "Two notes. Everyone knows what they mean.",
+      "description": "Grants your party: Physical crit chance +5 for 4 turns. Generates 8 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -1923,7 +1923,7 @@
       "stat_mods": {
         "haste": 12.0
       },
-      "description": "A longer note, and the whole line picks up the pace.",
+      "description": "Grants your party: Haste +12 for 4 turns. Generates 8 Archery Points.",
       "ranks": [
         {
           "rank": 1,
@@ -1953,7 +1953,7 @@
         "attack_power": 45,
         "spell_power": 45
       },
-      "description": "It is not a pleasant sound and it is not meant to be.",
+      "description": "Grants your party: Attack Power +45, Spell Power +45 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1977,7 +1977,7 @@
       "stat_mods": {
         "hit_rating": 2
       },
-      "description": "You tell them where to aim and they listen.",
+      "description": "Grants your party: Hit Rating +2.",
       "ranks": [
         {
           "rank": 1,
@@ -2001,7 +2001,7 @@
       "stat_mods": {
         "armor_pct": 15.0
       },
-      "description": "Old wood holds. So does anyone standing near it.",
+      "description": "Grants your party: Armor Pct +15%.",
       "ranks": [
         {
           "rank": 1,
@@ -2025,7 +2025,7 @@
       "stat_mods": {
         "haste": 25.0
       },
-      "description": "Short, loud, and over before anyone can think better of it.",
+      "description": "Grants your party: Haste +25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2049,7 +2049,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "Whatever has hold of them lets go.",
+      "description": "Grants your party: Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2071,7 +2071,7 @@
       "effect_type": "dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "You mark them, and everyone else knows who to shoot.",
+      "description": "Deals damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2112,7 +2112,7 @@
       "stat_mods": {
         "dodge": 15.0
       },
-      "description": "One long step backwards, taken early.",
+      "description": "Dodge +15 for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -2136,7 +2136,7 @@
       "stat_mods": {
         "attack_power_pct": 10.0
       },
-      "description": "For a moment everyone is shooting at the same thing at the same time.",
+      "description": "Grants your party: Attack Power Pct +10% for 3 turns.",
       "ranks": [
         {
           "rank": 1,

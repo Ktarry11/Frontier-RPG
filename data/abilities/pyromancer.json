@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A swing of your staff. It is not what you are for.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Invoke flames upon an enemy, burning them where they stand.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -100,7 +100,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Set an enemy alight. The fire keeps working after you stop.",
+      "description": "Deals Fire damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -164,7 +164,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hurl a shard of molten rock. It leaves the wound burning.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -282,7 +282,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Warm an ally with everliving flames.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -340,7 +340,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Call down a meteor. Whatever survives the impact spends a while wondering what happened.",
+      "description": "Deals Fire damage to up to 8 targets and stuns them.",
       "ranks": [
         {
           "rank": 1,
@@ -397,7 +397,7 @@
         "cc_immune": 1,
         "haste": 15
       },
-      "description": "Step through the fire and come out somewhere else, with nothing still holding you.",
+      "description": "Immune to crowd control, Haste +15 for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -423,7 +423,7 @@
         "haste": -30,
         "dodge": -10
       },
-      "description": "Chains of fire close around an enemy's legs.",
+      "description": "Applies to the target: Haste -30, Dodge -10 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -452,7 +452,7 @@
       "stat_mods": {
         "haste": -20
       },
-      "description": "Set Ysera's gaze on an enemy and they stop being a problem for a while.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -474,7 +474,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Leap and come down hard enough that the ground gives.",
+      "description": "Deals Fire damage to up to 10 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -528,7 +528,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A tornado of fire that walks through a pack and knocks it apart.",
+      "description": "Deals Fire damage to all nearby enemies over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -574,7 +574,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Ring a clump of enemies in fire. They stop thinking about you.",
+      "description": "Deals Fire damage to all nearby enemies over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -615,7 +615,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Launch, and land. Both halves hurt.",
+      "description": "Deals Fire damage to all nearby enemies and stuns them.",
       "ranks": [
         {
           "rank": 1,
@@ -656,7 +656,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "A crust of magma closes over you.",
+      "description": "Strengthens you for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -679,7 +679,7 @@
       "effect_type": "buff",
       "duration": 4,
       "stat_mods": {},
-      "description": "Wrap an ally in molten lava. What gets through it is not much.",
+      "description": "Strengthens an ally for 4 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -702,7 +702,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Draw on the Spell-Weaver and the well refills.",
+      "description": "Restores mana to you.",
       "ranks": [
         {
           "rank": 1,
@@ -749,7 +749,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "Burn the grip off everyone around you.",
+      "description": "Grants your party: Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -772,7 +772,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Gather everything you have and let it out in a line. It burns what is in front of you and mends what is behind.",
+      "description": "Deals Fire damage to all nearby enemies and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -810,7 +810,7 @@
         "spell_power": 50,
         "healing_power": 35
       },
-      "description": "The ground under you will not settle, and neither will you.",
+      "description": "Spell Power +50, Healing Power +35 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -838,7 +838,7 @@
       "effect_type": "spell_dot",
       "duration": 5,
       "stat_mods": {},
-      "description": "Burn an enemy from the inside. You can keep walking while it works.",
+      "description": "Deals Fire damage to the target over time for 5 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -903,7 +903,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything you have put into an enemy comes back out at once.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -961,7 +961,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Open the ground under an enemy and let what is down there up.",
+      "description": "Deals Fire damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1009,7 +1009,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A spray of molten slag across everything in front of you.",
+      "description": "Deals Fire damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -1049,7 +1049,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Tear every fire you have lit out of an enemy in one go.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1084,7 +1084,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "It stops being work.",
+      "description": "Makes your next cast instant.",
       "ranks": [
         {
           "rank": 1,
@@ -1107,7 +1107,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A steady, careful flame held against a wound.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1164,7 +1164,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything you can give, at once, and it costs you.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1215,7 +1215,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spread the flames down the line. They burn one way and mend the other.",
+      "description": "Deals Fire damage to all nearby enemies and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1262,7 +1262,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "The egg sits there and radiates. Standing near it helps.",
+      "description": "Heals your party over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1307,7 +1307,7 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Tell the Phoenix to settle. It burns quieter and wider.",
+      "description": "Heals your party over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1341,7 +1341,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A bonfire that gives back more than it takes to stand beside.",
+      "description": "Heals your party over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1375,7 +1375,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "The Phoenix cuts across the field and everything in its line comes away wearing fire.",
+      "description": "Strengthens your party for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -1399,7 +1399,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Burn it out of them.",
+      "description": "Removes 2 magic/disease effects from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1430,7 +1430,7 @@
         "mp5": 40,
         "crit_chance_spell": 5
       },
-      "description": "Kael'thas worked this out first. You are only borrowing it.",
+      "description": "Haste +15, Mp5 +40, Spell crit chance +5 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1454,7 +1454,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A maw of black fire closes on an enemy. There is no arguing with it.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1512,7 +1512,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Fire comes down in streaks across a whole pack.",
+      "description": "Deals Fire damage to up to 8 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1565,7 +1565,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Neltharion's fire does not care how many of them there are.",
+      "description": "Deals Fire damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -1611,7 +1611,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Time folds over an enemy and hits them with every colour at once.",
+      "description": "Deals Fire/Arcane damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1655,7 +1655,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Pin them in place, then come down the line on fire.",
+      "description": "Deals Fire damage to all nearby enemies over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1693,7 +1693,7 @@
         "attack_power_pct": -30,
         "haste": -15
       },
-      "description": "Breathe on their weapons until the weapons stop mattering.",
+      "description": "Applies to all nearby enemies: Attack Power Pct -30%, Haste -15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1726,7 +1726,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Call on all five of them at once. They answer briefly.",
+      "description": "Restores mana to you.",
       "ranks": [
         {
           "rank": 1,
@@ -1780,7 +1780,7 @@
       "stat_mods": {
         "crit_chance_spell": 25
       },
-      "description": "For a moment you cannot miss and you cannot glance.",
+      "description": "Spell crit chance +25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1807,7 +1807,7 @@
         "fire_resistance": 30,
         "spell_power": 25
       },
-      "description": "Scales close over your skin. You can stand where a caster should not.",
+      "description": "Armor +180, Fire Resistance +30, Spell Power +25.",
       "ranks": [
         {
           "rank": 1,
@@ -1849,7 +1849,7 @@
         "crit_chance_spell": 3,
         "intellect": 8
       },
-      "description": "Everyone near you finds the weak spot more often.",
+      "description": "Grants your party: Spell crit chance +3, Intellect +8.",
       "ranks": [
         {
           "rank": 1,

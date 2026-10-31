@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A heavy swing that carries down the line, striking the enemy behind your target and drawing their attention to you.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -162,7 +162,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hammer an enemy's guard apart, the strike spilling onto others pressed in close.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -231,7 +231,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Close the distance at a dead run and crash into an enemy, leaving them reeling.",
+      "description": "Deals damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -325,7 +325,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.15
       },
-      "description": "Your presence steadies the whole line, and blows that fall on your allies land softer.",
+      "description": "Damage taken -15% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -400,7 +400,7 @@
       "stat_mods": {
         "threat_generation_pct": 200
       },
-      "description": "Roar a challenge that every enemy in earshot takes personally.",
+      "description": "Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -444,7 +444,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring your weapon down hard enough that the ground answers, and spellwork nearby comes apart mid-word.",
+      "description": "Deals damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -502,7 +502,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A straight, punishing blow that leaves the struck unable to find their voice.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -547,7 +547,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You have been closer to the end than this and walked off it.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -592,7 +592,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Finish what you started, and take back some of what it cost you.",
+      "description": "Deals damage to the target and heals you for part of it. Usable only below 25% health.",
       "ranks": [
         {
           "rank": 1,
@@ -644,7 +644,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "The old oath still carries you further than it should.",
+      "description": "Restores energy to you.",
       "ranks": [
         {
           "rank": 1,
@@ -690,7 +690,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A wide, flat arc that catches everything standing too close together.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -754,7 +754,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You keep time with your weapon, and the rhythm of it carries.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -813,7 +813,7 @@
       "stat_mods": {
         "attack_power_pct": 12.0
       },
-      "description": "Your allies fight to the measure you set, and hit harder for it.",
+      "description": "Attack Power Pct +12% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -835,7 +835,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A hard, driving cadence that wears down everything in front of you and ends on a note they feel in their knees.",
+      "description": "Deals damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -885,7 +885,7 @@
         "attack_power": 40,
         "crit_chance_physical": 3.0
       },
-      "description": "Standing where they can see you is worth more than anything you could shout.",
+      "description": "Attack Power +40, Physical crit chance +3 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -910,7 +910,7 @@
         "physical_damage_taken_pct": -12,
         "stun_duration_reduction_pct": 0.3
       },
-      "description": "Drive your standard into the ground. Nobody standing in its shadow gives up ground easily.",
+      "description": "Physical damage taken -12%, Stun duration +30% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -932,7 +932,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hit the pack at a run and scatter it.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -986,7 +986,7 @@
       "stat_mods": {
         "haste": 15.0
       },
-      "description": "You find the pace of the fight and everyone around you matches it.",
+      "description": "Haste +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1010,7 +1010,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "Whatever is holding your ally, it stops holding them.",
+      "description": "Grants an ally: Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1034,7 +1034,7 @@
       "stat_mods": {
         "attack_power_pct": -15.0
       },
-      "description": "A sour, grinding refrain that gets into the enemy's head and stays there.",
+      "description": "Applies to the target: Attack Power Pct -15% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1058,7 +1058,7 @@
         "haste": 8.0,
         "physical_damage_taken_pct": -5
       },
-      "description": "You set off and the line comes with you.",
+      "description": "Haste +8, Physical damage taken -5% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1080,7 +1080,7 @@
       "effect_type": "reset_cooldowns",
       "duration": 0,
       "stat_mods": {},
-      "description": "You reach for a note you have no business hitting, and it comes.",
+      "description": "Resets your ability cooldowns.",
       "ranks": [
         {
           "rank": 1,
@@ -1104,7 +1104,7 @@
         "attack_power": 30,
         "stamina": 8
       },
-      "description": "You tell them what the day requires, and they believe you.",
+      "description": "Attack Power +30, Stamina +8.",
       "ranks": [
         {
           "rank": 1,
@@ -1130,7 +1130,7 @@
         "spell_power": 30,
         "mp5": 6
       },
-      "description": "A word for the ones who fight with their minds.",
+      "description": "Spell Power +30, Mp5 +6.",
       "ranks": [
         {
           "rank": 1,
@@ -1157,7 +1157,7 @@
         "crit_chance_physical": 2.0,
         "crit_chance_spell": 2.0
       },
-      "description": "The one you save for when it has already gone wrong.",
+      "description": "Maximum health +8%, Physical crit chance +2, Spell crit chance +2.",
       "ranks": [
         {
           "rank": 1,
@@ -1180,7 +1180,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The rhythm breaks and lands on everything near you.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1232,7 +1232,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cover the ground between you faster than they can set themselves.",
+      "description": "Deals damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -1284,7 +1284,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A thrown spear, placed where it will keep bleeding long after it lands.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1337,7 +1337,7 @@
       "stat_mods": {
         "haste": -20.0
       },
-      "description": "The net goes out low and they stop going anywhere.",
+      "description": "Applies to the target: Haste -20 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1454,7 +1454,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You claim the ground you are standing on, and make staying on it expensive.",
+      "description": "Deals damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1494,7 +1494,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 3,
       "stat_mods": {},
-      "description": "It stops being work and starts being easy.",
+      "description": "Makes your next cast instant.",
       "ranks": [
         {
           "rank": 1,
@@ -1517,7 +1517,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.1
       },
-      "description": "Being surrounded has stopped registering as a problem.",
+      "description": "Damage taken -10% for 3 turns.",
       "ranks": [
         {
           "rank": 1,

@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A swing of whatever you are holding.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take a piece of the target out of the present and do not give it back.",
+      "description": "Deals Arcane damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -100,7 +100,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, precise strike with your wand, landing a fraction before you make it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -169,7 +169,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Walk the injury backwards to a moment before it happened.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -220,7 +220,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Let time do to the target in seconds what it would have taken years to do.",
+      "description": "Deals Arcane damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -325,7 +325,7 @@
       "stat_mods": {
         "haste": -25.0
       },
-      "description": "The target keeps moving. It simply takes them longer than it should.",
+      "description": "Applies to the target: Haste -25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -373,7 +373,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two moments arrive in the wrong order and everything standing between them pays for it.",
+      "description": "Deals Arcane damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -426,7 +426,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A cone of time fractals that arrives twice.",
+      "description": "Deals Arcane damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -476,7 +476,7 @@
         "damage_taken_pct": -0.3,
         "mp5": 20
       },
-      "description": "Step out of the fight for a moment. The fight does not get a say.",
+      "description": "Damage taken -30%, Mp5 +20 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -500,7 +500,7 @@
       "stat_mods": {
         "haste": -40.0
       },
-      "description": "A binding that bounces from one enemy to the next and holds all of them.",
+      "description": "Applies to up to 3 targets: Haste -40 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -523,7 +523,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "They are suddenly very small and very cross about it.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -546,7 +546,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shore up the timeline you are all standing in.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -593,7 +593,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "A guard set on an ally a little ahead of them, where the next bad thing will arrive.",
+      "description": "Grants an ally: Damage taken -30% for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -618,7 +618,7 @@
       "stat_mods": {
         "haste": 15.0
       },
-      "description": "Your ally gets to where they were going before they decide to go there.",
+      "description": "Grants an ally: Haste +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -642,7 +642,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "You lock yourself into one perfect moment. Nothing reaches in to move you out of it.",
+      "description": "Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -664,7 +664,7 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Reality bends around you and gives back what it took.",
+      "description": "Strengthens you for 2 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -687,7 +687,7 @@
       "effect_type": "buff",
       "duration": 4,
       "stat_mods": {},
-      "description": "Ten small refusals, handed to an ally one at a time.",
+      "description": "Strengthens an ally for 4 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -710,7 +710,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Put a weight on them that nothing nearby can stand far enough away from.",
+      "description": "Deals Arcane damage to up to 5 targets over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -816,7 +816,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "The target's reality softens and starts to run.",
+      "description": "Deals Arcane damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -874,7 +874,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Tear the fabric and leave the tear open.",
+      "description": "Deals Arcane damage to the target over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -932,7 +932,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Something comes loose and goes looking for the nearest target.",
+      "description": "Deals Arcane damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -988,7 +988,7 @@
         "haste": -20.0,
         "attack_power": -40
       },
-      "description": "Their sense of when to act stops agreeing with everyone else's.",
+      "description": "Applies to the target: Haste -20, Attack Power -40 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1011,7 +1011,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "You put one of them somewhere else for a while.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1036,7 +1036,7 @@
       "stat_mods": {
         "damage_dealt_pct": 5
       },
-      "description": "You widen everyone's view of what is about to happen.",
+      "description": "Grants your party: Damage dealt +5% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1061,7 +1061,7 @@
         "damage_dealt_pct": 15,
         "haste": 10.0
       },
-      "description": "You stop being a person who uses chaos.",
+      "description": "Damage dealt +15%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1084,7 +1084,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You find the version of them that was not hurt yet and bring it forward.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1141,7 +1141,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Whatever just happened to your party, you tell it differently.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -1186,7 +1186,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You hold the moment open and let it spread.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -1228,7 +1228,7 @@
         "haste": 12.0,
         "mp5": 12
       },
-      "description": "You take the cheap, quick version of the trick, over and over.",
+      "description": "Haste +12, Mp5 +12 for 60 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1281,7 +1281,7 @@
         "healing_done_pct": 18,
         "haste": -6.0
       },
-      "description": "Less now, more over the next while.",
+      "description": "Healing Done Pct +18%, Haste -6 for 60 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1308,7 +1308,7 @@
         "crit_chance_spell": 12,
         "healing_done_pct": 10
       },
-      "description": "Expensive, loud, and it lands when it has to.",
+      "description": "Spell crit chance +12, Healing Done Pct +10% for 60 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1332,7 +1332,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You reach past the injury to the weave behind it.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1372,7 +1372,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Everything in that patch of ground stops, including the parts you would rather keep.",
+      "description": "Interrupts and stuns up to 4 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1419,7 +1419,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "You pull them to where you are standing, and whatever was holding them is left behind.",
+      "description": "Removes 1 magic effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1441,7 +1441,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two quick strikes with the wand, close enough together to count as one.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1505,7 +1505,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The wand fires on its own, twice, and does not ask.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1551,7 +1551,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You let go of everything you have been holding back at once.",
+      "description": "Deals Arcane damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1607,7 +1607,7 @@
         "damage_dealt_pct": 10,
         "crit_chance_physical": 6
       },
-      "description": "A point of compressed time sitting just off your wand hand.",
+      "description": "Damage dealt +10%, Physical crit chance +6 for 60 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1634,7 +1634,7 @@
         "damage_dealt_pct": 6,
         "haste": 8.0
       },
-      "description": "The wand's output spreads itself thinner and wider.",
+      "description": "Damage dealt +6%, Haste +8 for 60 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1658,7 +1658,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "You spend a minute you have not had yet.",
+      "description": "Restores mana to you.",
       "ranks": [
         {
           "rank": 1,
@@ -1682,7 +1682,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything compresses, and the next thing you do takes no time at all.",
+      "description": "Makes your next cast instant.",
       "ranks": [
         {
           "rank": 1,
@@ -1704,7 +1704,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A small timestorm, with three of them standing in it.",
+      "description": "Deals Arcane damage to up to 3 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1747,7 +1747,7 @@
       "stat_mods": {
         "hit_chance_spell": -60
       },
-      "description": "A pane of warped time, standing where the next spell was going to go.",
+      "description": "Applies to the target: Hit Chance Spell -60 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1769,7 +1769,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "The moment they are standing in gives way under them.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,

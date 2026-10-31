@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic weapon strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -96,7 +96,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Strike with both weapons at once.",
+      "description": "Deals damage to the target.",
       "_source": "Confirmed screenshot: 30 Rage (was 20), melee range, instant, 'Requires Melee Weapon', 'Weapon Damage plus 4' at Rank 1. Core level-1 Rage spender, extended to 8 ranks.",
       "ranks": [
         {
@@ -246,7 +246,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Rejuvenate an ally.",
+      "description": "Heals an ally.",
       "_source": "Confirmed screenshot: Lvl 6 (was Lvl 4), 'healing them for 66' at Rank 1. Extended to 8 ranks.",
       "target_type": "ally",
       "ranks": [
@@ -1010,7 +1010,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Rush an enemy alongside your pet to strike them.",
+      "description": "Deals damage to the target.",
       "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 20, 2 Charges, 10 sec recharge, '120% Weapon Damage plus 14.' Real pet-combo ability.",
       "ranks": [
         {
@@ -1048,7 +1048,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A heavy weapon strike that also hits nearby enemies.",
+      "description": "Deals damage to all nearby enemies.",
       "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 22, '140% Weapon Damage plus 51. Deals an additional 30 damage to up to 5 enemies within 8 yds.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1184,7 +1184,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Tame a Raptor to fight alongside you, replacing any pet you currently have.",
+      "description": "Summons a pet to fight for you.",
       "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer', then correcting: 'Primalist tames beasts like hunter, not elementals'). Previously stubbed as a self-buff with no real mechanic - the real tooltip ('You may now tame beasts... to aid you as a companion') is itself the unlock/first-tame moment, same real shape as Hunter's own Tame Beast, so this ability now IS the tame cast directly (talent-gated via Spirit Beast Master's own unlock_ability, rather than baseline like Hunter's) instead of a separate no-op buff sitting in front of a taming system that didn't exist. Also added Primalist as a real pet_type to pet_screen.py and combat/pet_templates.py (new 'raptor' template) so this has an actual roster to pick from, same real acquisition flow as Hunter's taming screen.",
       "target_type": "self",
       "ranks": [
@@ -1208,7 +1208,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A devastating execute against a heavily wounded enemy.",
+      "description": "Deals damage to the target. Usable only below 25% health.",
       "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
       "execute_threshold_pct": 25,
       "ranks": [
@@ -1463,7 +1463,7 @@
         "armor_pct": 30,
         "physical_damage_taken_pct": -8
       },
-      "description": "Pull stone up around yourself, hardening your hide against the next few blows.",
+      "description": "Armor Pct +30%, Physical damage taken -8% for 3 turns, absorbing damage.",
       "target_type": "self",
       "ranks": [
         {

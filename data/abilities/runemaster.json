@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic staff strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -91,7 +91,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Launch a primordial missile at an enemy. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
+      "description": "Deals Attunement damage to the target.",
       "_source": "Confirmed screenshot: Lvl 2, '27 Elemental Damage.' Core ranged spell option, extended to 8 ranks.",
       "ranks": [
         {
@@ -453,7 +453,7 @@
       "stat_mods": {
         "all_stats_pct": 10
       },
-      "description": "Enhance an ally, increasing their total stats.",
+      "description": "Grants your party: All stats +10% for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 2, '+10% total stats.'",
       "target_type": "party",
       "ranks": [
@@ -475,7 +475,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with elemental force. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
+      "description": "Deals Attunement damage to the target. Generates 1 Runes.",
       "_source": "Confirmed screenshot: Lvl 6, '31 Elemental Damage.' Glyphic's real generator per the handoff doc ('Elemental Burst - Elemental damage + generates a Glyph').",
       "ranks": [
         {
@@ -633,7 +633,7 @@
       "stat_mods": {
         "agility": 10
       },
-      "description": "Enhance an ally, increasing their Agility.",
+      "description": "Grants your party: Agility +10 for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 18, '+10 Agility. Lasts 30 min.'",
       "target_type": "party",
       "ranks": [
@@ -755,7 +755,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Feed off the latent magic of an enemy, stealing beneficial magic effects from them. Usable while moving.",
+      "description": "Removes 1 magic effect from the target.",
       "_source": "Confirmed screenshot: Lvl 22, 'stealing 2 beneficial magic effects from them.'",
       "ranks": [
         {
@@ -914,7 +914,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with frigid runic magic, applying Frigid Fusion.",
+      "description": "Deals Frost damage to the target.",
       "_source": "Confirmed screenshot: 6 Mana, 35yd, 2s cast, 15s CD, '73 Frost damage and applying Frigid Fusion: accumulate 20% of your damage dealt to the target over 6 sec, then deal it as Frost damage.' Accumulate-and-release mechanic not yet dynamically modeled.",
       "ranks": [
         {
@@ -981,7 +981,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Unleash your active Glyph on an enemy. It deals whichever element you are currently Attuned to - Frost, Fire or Arcane.",
+      "description": "Deals Attunement damage to the target.",
       "_source": "Confirmed screenshot: Glyphic-locked, Lvl 20, '153 Elemental Damage.' The spec's real spender - consumes Glyph stacks per the handoff doc.",
       "ranks": [
         {
@@ -1071,7 +1071,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A strong Arcane DoT that envelops the target and nearby enemies.",
+      "description": "Deals Arcane damage to all nearby enemies over time for 4 turns.",
       "_source": "CoA handoff doc confirmed: 'Arcane DoT enveloping target + nearby; grants Transcribing.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1509,7 +1509,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Ignite your blade and strike an enemy.",
+      "description": "Deals damage to the target.",
       "_source": "Confirmed screenshot: Riftblade-locked, Lvl 18, '140% Weapon Damage plus 37 Fire Damage.'",
       "ranks": [
         {

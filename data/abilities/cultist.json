@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic weapon strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -29,7 +29,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Strike an enemy with Shadow-infused steel.",
+      "description": "Deals damage to the target. Generates 20 Insanity.",
       "_source": "Confirmed screenshot: 7 Mana, melee range, instant, 'Requires Melee Weapon', 3 Charges/6 sec recharge, 'Generates 20 Insanity. Strike an enemy, dealing 31 Shadow damage.' Core level-1 melee generator - charge system compressed to a short flat cooldown, extended to 8 ranks per Kyle's starting-ability direction.",
       "ranks": [
         {
@@ -374,7 +374,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Crush enemies in front of you.",
+      "description": "Deals damage to all nearby enemies.",
       "_source": "Confirmed screenshot: Lvl 12, '130% Weapon Damage plus 16 as Shadow damage and draining 40 Insanity.' The class's AoE Insanity spender.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -844,7 +844,7 @@
       "stat_mods": {
         "all_stats_pct": 10
       },
-      "description": "Gift an ally with the madness of N'Zoth, increasing total stats. Only one Whisper per Cultist active.",
+      "description": "Grants your party: All stats +10% for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 24, '+10% total stats. Lasts 30 min.' Part of the mutually-exclusive Whispers family.",
       "target_type": "party",
       "ranks": [
@@ -1737,7 +1737,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A heavy Shadow-infused weapon strike, spending Insanity.",
+      "description": "Deals damage to the target.",
       "_source": "CoA handoff doc confirmed as Dreadnought's core Insanity spender. Real numbers not confirmed via a dedicated screenshot.",
       "ranks": [
         {
@@ -2392,7 +2392,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Battle-resurrect a fallen ally. Usable only out of combat.",
+      "description": "Heals an ally.",
       "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'",
       "target_type": "ally",
       "ranks": [

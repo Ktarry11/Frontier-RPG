@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic claw strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -29,7 +29,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spew poison on an enemy.",
+      "description": "Deals Nature damage to the target.",
       "_source": "Confirmed screenshot: 11 Mana, 30yd, 2s cast, '19 Nature damage' at Rank 1. Core level-1 spammer - per Kyle, starting abilities get a long rank tail (up to Rank 8-10), not the 5-rank cap used elsewhere.",
       "ranks": [
         {
@@ -164,7 +164,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bite an enemy with venomous fangs.",
+      "description": "Deals damage to the target.",
       "_source": "Confirmed screenshot: Lvl 4, '24 Nature damage' at Rank 1. Flat single-target melee-ish bite, distinct from Venom Bolt (Mana caster spell) and Claw Strike (Beetle-locked cleave) - this is the base-kit bite attack.",
       "ranks": [
         {
@@ -277,7 +277,7 @@
       "stat_mods": {
         "agility": 6
       },
-      "description": "Inject an ally with spider pheromones, increasing their Agility.",
+      "description": "Grants your party: Agility +6 for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 10, '+6 Agility. Lasts 30 min.'",
       "target_type": "party",
       "ranks": [
@@ -1310,7 +1310,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Inject an enemy with a devastating, escalating venom, applying a Brood Mark.",
+      "description": "Deals Nature damage to the target over time for 3 turns.",
       "_source": "Confirmed screenshot: 'dealing 24 Nature damage every 3 sec for 21 sec, damage increasing over time. Applies 1 Brood Mark.'",
       "ranks": [
         {
@@ -1508,7 +1508,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Wilt the life from an enemy with vile poison.",
+      "description": "Deals Nature damage to the target over time for 3 turns.",
       "_source": "Confirmed screenshot: Lvl 20, '234 Nature damage over 18 sec.'",
       "ranks": [
         {

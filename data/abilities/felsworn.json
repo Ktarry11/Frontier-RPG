@@ -11,7 +11,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -31,7 +31,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two quick cuts, one from each hand, and the fel in you feeds on what they open.",
+      "description": "Deals damage to the target. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -183,7 +183,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring the weight of Sargeras down on one target.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -247,7 +247,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Tear a seam through everything standing in front of you.",
+      "description": "Deals Shadow/Fire damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -303,7 +303,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Close the gap in a blur of fel and hit whatever is at the end of it.",
+      "description": "Deals damage to the target. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -424,7 +424,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take what they were saving and keep it.",
+      "description": "Removes 1 magic effect from the target.",
       "ranks": [
         {
           "rank": 1,
@@ -448,7 +448,7 @@
       "stat_mods": {
         "hit_chance_spell": -25.0
       },
-      "description": "Cut the word out of their mouth.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -519,7 +519,7 @@
         "haste": -25.0,
         "attack_power": -30
       },
-      "description": "Something underneath starts talking to all of them at once.",
+      "description": "Interrupts and stuns up to 5 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -545,7 +545,7 @@
         "crit_chance_physical": 40.0,
         "crit_chance_spell": 40.0
       },
-      "description": "You gorge until the next thing you touch cannot survive being touched.",
+      "description": "Physical crit chance +40, Spell crit chance +40 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -569,7 +569,7 @@
         "max_health_pct": 0.15,
         "stamina": 20
       },
-      "description": "He has been dead a long time and still has something left to give.",
+      "description": "Maximum health +15%, Stamina +20 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -593,7 +593,7 @@
         "damage_taken_pct": -0.8,
         "haste": -40.0
       },
-      "description": "You stop existing for a moment. It is not restful.",
+      "description": "Damage taken -80%, Haste -40 for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -614,7 +614,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Both blades into the same gap, widening it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -728,7 +728,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Off-hand work, fast and low.",
+      "description": "Deals damage to the target. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -784,7 +784,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You arrive before they have decided where to stand.",
+      "description": "Deals damage to the target and stuns it. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -835,7 +835,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You burn, and so does anything standing close enough to matter.",
+      "description": "Deals Fire damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -929,7 +929,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Six places at once, six times, and then you are standing somewhere else entirely.",
+      "description": "Deals damage to the target. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -999,7 +999,7 @@
         "attack_power_pct": 15.0,
         "crit_chance_physical": 8.0
       },
-      "description": "Mannoroth's blood is still in there somewhere and it still wants a fight.",
+      "description": "Attack Power Pct +15%, Physical crit chance +8 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1020,7 +1020,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Doom, delivered. Nothing they put between you and it holds.",
+      "description": "Deals Shadow/Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1081,7 +1081,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The blast goes wide and takes the pack with it.",
+      "description": "Deals Shadow/Fire damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1193,7 +1193,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A short, bright burn that keeps burning.",
+      "description": "Deals Shadow/Fire damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1242,7 +1242,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "You hold the beam on them and they stop getting anywhere.",
+      "description": "Deals Shadow damage to the target over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1282,7 +1282,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Something lands where you pointed. The pack stops looking at you.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1304,7 +1304,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "What they were going to spend, you spend instead.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1353,7 +1353,7 @@
         "crit_chance_physical": 3.0,
         "crit_chance_spell": 3.0
       },
-      "description": "The fel coming off you sharpens everyone standing near it.",
+      "description": "Physical crit chance +3, Spell crit chance +3 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1438,7 +1438,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You take your time winding up and they feel every bit of the wait.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1493,7 +1493,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": -30
       },
-      "description": "You decide that this is survivable and that settles it.",
+      "description": "Physical damage taken -30% for 3 turns. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -1520,7 +1520,7 @@
       "stat_mods": {
         "attack_power_pct": 10.0
       },
-      "description": "Nothing complicated. You are angry and it is useful.",
+      "description": "Attack Power Pct +10% for 3 turns. Generates 40 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -1549,7 +1549,7 @@
         "taunt": 1,
         "threat_generation_pct": 200
       },
-      "description": "You tell the room who it is fighting, and then you take it.",
+      "description": "Damage taken -50%, Taunts the target, Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1570,7 +1570,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You look at them properly for the first time and they catch fire.",
+      "description": "Deals Shadow/Fire damage to the target and heals you for part of it. Usable only below 35% health.",
       "ranks": [
         {
           "rank": 1,
@@ -1623,7 +1623,7 @@
         "haste": 10.0,
         "attack_power_pct": 5.0
       },
-      "description": "You set the pace and the room keeps up.",
+      "description": "Haste +10, Attack Power Pct +5% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1648,7 +1648,7 @@
         "damage_taken_pct": -0.12,
         "haste": 10.0
       },
-      "description": "A crack over their heads, and the whole line finds another gear.",
+      "description": "Damage taken -12%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1672,7 +1672,7 @@
       "stat_mods": {
         "armor": -110
       },
-      "description": "The scar stays open and everyone can see where to aim.",
+      "description": "Applies to the target: Armor -110 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1693,7 +1693,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You trade something you were saving for something you need now.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,

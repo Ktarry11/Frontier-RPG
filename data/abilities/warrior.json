@@ -9,7 +9,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic melee attack.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -133,7 +133,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blasts nearby enemies with a concussive shockwave.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +205,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Exploits an opening, striking with unavoidable force.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -335,7 +335,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A whirling storm of steel, striking all nearby enemies.",
+      "description": "Deals damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -499,7 +499,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A sweeping attack hitting all nearby enemies.",
+      "description": "Deals damage to all nearby enemies.",
       "ranks": [
         {
           "rank": 1,
@@ -596,7 +596,7 @@
       "stat_mods": {
         "crit_chance_physical": 15
       },
-      "description": "A brief flurry of counter-attacks against anyone who strikes you.",
+      "description": "Physical crit chance +15 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -620,7 +620,7 @@
       "stat_mods": {
         "attack_power": -80
       },
-      "description": "A terrifying shout that weakens all nearby enemies.",
+      "description": "Applies to all nearby enemies: Attack Power -80 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -824,7 +824,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Requires Berserker Stance. A spinning attack that hits all nearby enemies.",
+      "description": "Deals damage to all nearby enemies. Requires ['Berserker'] Form.",
       "ranks": [
         {
           "rank": 1,

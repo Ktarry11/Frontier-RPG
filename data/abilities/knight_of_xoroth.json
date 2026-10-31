@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Drive your weapon in and let the hellfire in it bite. The burn feeds the fire you carry.",
+      "description": "Deals damage to the target. Generates 20 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -103,7 +103,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, economical cut. You take what the swing gives you.",
+      "description": "Deals damage to the target. Generates 10 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -170,7 +170,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A grinding, two-handed sweep that catches whoever is pressed in beside your target.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -228,7 +228,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spend the fire banked in you on one downward blow. The more you have stored, the less of them is left.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -285,7 +285,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let the mortal half of you surface for a moment. What it closes stays closed.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -342,7 +342,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "The wound will not close while it is still burning.",
+      "description": "Deals Fire damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -394,7 +394,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hellfire comes off your weapon in a sheet and takes everything in front of you with it.",
+      "description": "Deals Fire damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -447,7 +447,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The hook goes out, bites, and brings them back to you.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -498,7 +498,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The chain comes round low and hard, and whatever they were saying stops.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -549,7 +549,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Chains out of nothing, wrapped tight. They are not going anywhere and they are not doing anything.",
+      "description": "Deals damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -597,7 +597,7 @@
       "stat_mods": {
         "threat_generation_pct": 180
       },
-      "description": "You stop being a thing they can ignore.",
+      "description": "Threat generated +180% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -618,7 +618,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "Something between you and the next blow. It does not have to be yours.",
+      "description": "Strengthens you for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -641,7 +641,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Reach inward for the part of you that was put there, and let it answer.",
+      "description": "Restores rage to you. Generates 20 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -692,7 +692,7 @@
         "cc_immune": 1,
         "haste": 10.0
       },
-      "description": "Past a certain point nothing anyone does to you registers as a reason to stop.",
+      "description": "Immune to crowd control, Haste +10 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -716,7 +716,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.25
       },
-      "description": "You stop giving ground, and stop noticing the reasons to.",
+      "description": "Damage taken -25% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -738,7 +738,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Whatever you have been radiating, let it all go at once.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -787,7 +787,7 @@
         "crit_chance_physical": 8.0,
         "crit_chance_spell": 8.0
       },
-      "description": "You carry an air about you that the dying recognise.",
+      "description": "Physical crit chance +8, Spell crit chance +8.",
       "ranks": [
         {
           "rank": 1,
@@ -896,7 +896,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "One of them is always listening. It comes when called and it soaks what it is pointed at.",
+      "description": "Summons a pet to fight for you. Generates 20 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -922,7 +922,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Something much larger lands where you pointed, and stays.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -945,7 +945,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let the stored fire out all at once, in every direction, and take the recoil as fuel.",
+      "description": "Deals Fire damage to up to 5 targets. Generates 30 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -996,7 +996,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You made them. You can spend them.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -1035,7 +1035,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A word spoken over them that keeps working after you have stopped paying attention.",
+      "description": "Deals Fire/Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1080,7 +1080,7 @@
       "stat_mods": {
         "haste": -20.0
       },
-      "description": "Chains across the ground. Crossing it costs more than they have.",
+      "description": "Applies to all nearby enemies: Haste -20 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1101,7 +1101,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You breathe out and the fire goes both ways.",
+      "description": "Deals Fire damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1150,7 +1150,7 @@
       "stat_mods": {
         "damage_dealt_pct": 10
       },
-      "description": "For a while the people fighting beside you are fighting for something older than you.",
+      "description": "Grants your party: Damage dealt +10% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1172,7 +1172,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Quick, low, and already pulling back out.",
+      "description": "Deals damage to the target. Generates 10 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -1234,7 +1234,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring the weapon down on the ground instead of on them. It reaches further that way.",
+      "description": "Deals damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1280,7 +1280,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "One swing for everything standing close enough to regret it.",
+      "description": "Deals damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1323,7 +1323,7 @@
       "stat_mods": {
         "crit_chance_physical": 40.0
       },
-      "description": "You already know where this one lands.",
+      "description": "Physical crit chance +40 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1348,7 +1348,7 @@
         "armor_penetration_pct": 30,
         "attack_power": 40
       },
-      "description": "The blade catches and stays caught.",
+      "description": "Armor Penetration Pct +30%, Attack Power +40 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1370,7 +1370,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A strike that arrives already hot.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1478,7 +1478,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You open something in them that keeps chewing.",
+      "description": "Deals Fire/Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1537,7 +1537,7 @@
         "damage_dealt_pct": 20,
         "crit_chance_spell": 15.0
       },
-      "description": "You stop pretending the thing inside you is a passenger.",
+      "description": "Damage dealt +20%, Spell crit chance +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1559,7 +1559,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The sky over them stops behaving and starts falling.",
+      "description": "Deals Fire damage to up to 6 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1600,7 +1600,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "A bigger one, and a worse temper.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,

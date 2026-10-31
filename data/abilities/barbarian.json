@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured swing with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A straight, heavy swing with the whole shoulder behind it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -99,7 +99,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cross the ground at a run with the weapon already moving, and cut whatever is standing in the way.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -151,7 +151,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spin with both arms out and let the weapon find everything close enough to matter.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -212,7 +212,7 @@
         "damage_dealt_pct": 15,
         "haste": 10
       },
-      "description": "Stop holding anything back. It hurts later and works now.",
+      "description": "Damage dealt +15%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -236,7 +236,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "Decide, briefly and without much evidence, that this is not how it ends.",
+      "description": "Damage taken -30% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -258,7 +258,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "One short punch to the jaw. Whatever they were saying stops.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -280,7 +280,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A light spear, thrown fast and low. You are moving again before it lands.",
+      "description": "Deals damage to the target. Generates 25 Energy.",
       "ranks": [
         {
           "rank": 1,
@@ -358,7 +358,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Pick up a rock. Throw the rock. They sit down.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -380,7 +380,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You shout something in a language you were never taught, and it helps.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -425,7 +425,7 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You pull the others in close. Nobody in the knot of you bleeds out quietly.",
+      "description": "Heals your party over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -472,7 +472,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "Your skull has been described, more than once, as a structural feature.",
+      "description": "Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -494,7 +494,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The cold that comes out of you is older than you are.",
+      "description": "Deals Frost damage to up to 5 targets. Generates 40 Energy.",
       "ranks": [
         {
           "rank": 1,
@@ -539,7 +539,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything you have, into one place, with no plan for the follow-up.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -596,7 +596,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A wide, careless arc. Whoever stood too close to your target shares in it.",
+      "description": "Deals damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -655,7 +655,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Finish it. There is no second swing in this one.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -706,7 +706,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring it down on the front rank. They go down with it.",
+      "description": "Deals damage to up to 4 targets and stuns them.",
       "ranks": [
         {
           "rank": 1,
@@ -753,7 +753,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "A second wind you did not earn and will not question.",
+      "description": "Restores energy to you.",
       "ranks": [
         {
           "rank": 1,
@@ -779,7 +779,7 @@
         "max_health_pct": 0.15,
         "attack_power": 30
       },
-      "description": "You get bigger when it is going badly. Nobody has explained it.",
+      "description": "Maximum health +15%, Attack Power +30 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -801,7 +801,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "One is down. You are already looking at the next one.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -840,7 +840,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You stop swinging in single blows and simply do not stop.",
+      "description": "Deals damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -879,7 +879,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Whatever is in your hand, at whoever is too far to punch.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -942,7 +942,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Barbed, so it argues on the way out as well as the way in.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -993,7 +993,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A heavy axe, thrown into the middle of them. It stays there.",
+      "description": "Deals damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1038,7 +1038,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "In at a dead run, and out again before they have straightened up.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1083,7 +1083,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two axes, one after the other, through whatever they were using for cover.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1134,7 +1134,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Thrown hard enough to go through the first one and keep the argument going.",
+      "description": "Deals damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1174,7 +1174,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You laugh at something that is not funny and feel better for it.",
+      "description": "Heals you. Generates 20 Energy.",
       "ranks": [
         {
           "rank": 1,
@@ -1226,7 +1226,7 @@
         "damage_dealt_pct": 20,
         "crit_chance_physical": 8
       },
-      "description": "You start showing off. It is, annoyingly, also the correct play.",
+      "description": "Damage dealt +20%, Physical crit chance +8 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1287,7 +1287,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Three in a row, then you are somewhere else entirely.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1320,7 +1320,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Swing the tankard like it was built for this. It mostly was.",
+      "description": "Deals damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1387,7 +1387,7 @@
         "haste": 12,
         "frost_resistance": 15
       },
-      "description": "You stop fighting alone without anyone arriving.",
+      "description": "Haste +12, Frost Resistance +15 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1417,7 +1417,7 @@
       "stat_mods": {
         "haste": 10
       },
-      "description": "The pace you set is the pace everyone ends up keeping.",
+      "description": "Grants your party: Haste +10.",
       "ranks": [
         {
           "rank": 1,
@@ -1438,7 +1438,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You breathe out and the air in front of you stops being survivable.",
+      "description": "Deals Frost damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1488,7 +1488,7 @@
         "crit_chance_physical": 5,
         "frost_resistance": 10
       },
-      "description": "Everyone's edges come away colder than they went in.",
+      "description": "Grants your party: Physical crit chance +5, Frost Resistance +10.",
       "ranks": [
         {
           "rank": 1,
@@ -1509,7 +1509,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You throw a full one. It is a waste and it works.",
+      "description": "Deals Frost damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -1550,7 +1550,7 @@
       "effect_type": "hot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Something with horns is angry on your behalf, and everyone standing near you benefits.",
+      "description": "Heals your party over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1595,7 +1595,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "You say a name you only half remember. Something answers it.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1620,7 +1620,7 @@
         "damage_taken_pct": -0.08,
         "stamina": 6
       },
-      "description": "You put a drink in their hand and take the next hit meant for them.",
+      "description": "Grants an ally: Damage taken -8%, Stamina +6.",
       "ranks": [
         {
           "rank": 1,
@@ -1669,7 +1669,7 @@
         "attack_power": 45,
         "spell_power": 45
       },
-      "description": "You share the tankard around. Generously, and without asking.",
+      "description": "Grants your party: Attack Power +45, Spell Power +45 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1694,7 +1694,7 @@
         "spell_power": 50,
         "frost_resistance": 20
       },
-      "description": "A drink brewed for someone who never had to ask twice.",
+      "description": "Spell Power +50, Frost Resistance +20 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1718,7 +1718,7 @@
       "stat_mods": {
         "haste": 30
       },
-      "description": "Someone throws the first punch and it stops being your problem to start one.",
+      "description": "Grants your party: Haste +30 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1743,7 +1743,7 @@
         "damage_dealt_pct": 12,
         "frost_resistance": 25
       },
-      "description": "You drive it into the ground and the ground agrees with you.",
+      "description": "Grants your party: Damage dealt +12%, Frost Resistance +25 for 4 turns.",
       "ranks": [
         {
           "rank": 1,

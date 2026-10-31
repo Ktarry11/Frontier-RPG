@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic staff strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -29,7 +29,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shock an enemy with raw current, and leave it crackling in them a moment longer.",
+      "description": "Deals Nature damage to the target. Generates 20 Static.",
       "_source": "Confirmed screenshot: 18 Mana, 35yd, 1.5s cast, Generates 20 Static, '17 Nature damage, plus an additional 20% of the initial damage over 1 sec.' Lvl 1. Extended to 8 ranks (was 5) per Kyle: starting abilities rank up much further, up to Rank 8-10, matching the treatment given to Venomancer's Venom Bolt/Serpent's Fang.  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Shock an enemy with raw current, dealing Nature damage plus a lingering 1-turn DoT worth 10% of the hit.\"",
       "applies_dot_pct": 0.1,
       "ranks": [
@@ -557,7 +557,7 @@
       "stat_mods": {
         "spell_hit_reduction": 1
       },
-      "description": "Lock an enemy's nerves with residual static, interfering with their next actions.",
+      "description": "Applies to the target: Spell Hit Reduction +1 for 2 turns.",
       "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
       "ranks": [
         {
@@ -732,7 +732,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A line of wind and lightning tears through all enemies.",
+      "description": "Deals Nature damage to all nearby enemies. Generates 15 Static.",
       "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -821,7 +821,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Shoot lightning at an enemy, bouncing to nearby enemies.",
+      "description": "Deals Nature damage to up to 4 targets. Generates 5 Static.",
       "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 22 (Rank 2 shown), 'dealing 142 Nature damage, bouncing to up to 4 enemies. Generates 5 Static for each enemy struck.' Fixed during DPS niche audit (Oct 2026): was plain enemy_aoe, hitting every living enemy in the fight rather than the tooltip's real 'up to 4 enemies' cap - added max_targets=4 (see combat/abilities.py's Ability.max_targets/_hostile_recipients). NOTE left unfixed/deferred: 'Generates 5 Static for each enemy struck' is a true per-target scaling that this ability does not currently have - generates (see Ability._generate_resource) fires once per CAST, flat, before targets are even resolved, so this grants a flat 5 Static regardless of how many of the up to 4 enemies were actually hit. Fixing that needs generates to scale with the real resolved-target count at _apply_effect time, a structural change to how `generates` works for every ability using it, not a one-line fix bundled here - flagged in claude/dps_niche_audit.md for a deliberate follow-up pass rather than built silently.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
@@ -966,7 +966,7 @@
       "effect_type": "spell_dot",
       "duration": 2,
       "stat_mods": {},
-      "description": "Channel a storm beam upon an enemy. Shock can be instantly cast while channeling.",
+      "description": "Deals Frost damage to the target over time for 2 turns.",
       "_source": "Confirmed screenshot: Maelstrom-locked, Requires Lvl 20, Depletes 20 Static, '152 Frost Damage over 8 sec, scaling with your spell haste. Shock can be instantly cast while channeling.'",
       "ranks": [
         {
@@ -1046,7 +1046,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Call an Air Elemental to aid you in combat, replacing any pet you currently have.",
+      "description": "Summons a pet to fight for you.",
       "_source": "Built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer'). Previously stubbed as a self-buff placeholder. Real pet template added (combat/pet_templates.py's 'air_elemental', pet_type 'stormbringer' - a caster-style ranged pet, Nature-damage Lightning Bolt). Talent-gated via Tempest's Call's unlock_ability (requires_talent below), same as the talent's own tooltip ('Learn Summon: Air Elemental'). NOTE: Lexicon of Servitude (tier 5, 'Increases your Air Elemental's damage by 6% per rank') reads a pet_damage stat_mod key not currently read anywhere in the engine - flagged on the pet template's own _source rather than silently left broken; wiring real pet-damage talent scaling is a separate, bigger mechanic than this one summon ability.",
       "target_type": "self",
       "ranks": [
@@ -1247,7 +1247,7 @@
       "stat_mods": {
         "haste": 5.0
       },
-      "description": "Put the wind at your party's back, quickening everything they do.",
+      "description": "Grants your party: Haste +5 for 3 turns.",
       "_source": "CoA Wind, free node at 'Requires 11 points in this tree (level 30)': \"Depletes 20 Static. Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 seconds. Does not stack with similar effects.\" The 20-Static cost is kept verbatim. The self-damage half is dropped: stat_mods on a target_type party buff land on every recipient, so damage_dealt_pct here would buff the whole group, not the caster. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
       "target_type": "party",
       "ranks": [
@@ -1300,7 +1300,7 @@
       "stat_mods": {
         "pushback_reduction_pct": 100
       },
-      "description": "Wrap the party in cloud. It soaks the hits that land first and keeps their casts from faltering under fire.",
+      "description": "Grants your party: Casting pushback +100% for 2 turns, absorbing damage.",
       "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The 40-Static cost is kept verbatim and the pushback immunity maps onto pushback_reduction_pct, which Stabilizing Pressure on this same class already uses. absorb_pct_max_health sizes the shield per recipient from their own health, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive, same key, same target_type) - CoA's Intellect scaling has nothing to hang on. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
       "target_type": "party",
       "absorb_pct_max_health": 0.1,
@@ -1325,7 +1325,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Become the bolt and cross the field. Everything in the line you take comes away burnt.",
+      "description": "Deals Nature damage to all nearby enemies.",
       "_source": "CoA Lightning, 'Requires 23 TE in this tree': \"Depletes 40 Static. Infuse yourself with lightning and blink forward a long distance, dealing SP Nature damage to all enemies in your path. Scales with modifiers to Discharge.\" The 40-Static cost and the Nature school are kept verbatim. There is no movement in this combat engine, so the blink is dropped and the damage along the path becomes an enemy_aoe hit. Rank values sit alongside Freewind, the class's other 2-rank late AoE, rather than being tuned - balance is deferred per Kyle.",
       "target_type": "enemy_aoe",
       "ranks": [

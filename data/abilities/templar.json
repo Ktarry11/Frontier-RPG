@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cover the ground between you and strike on the way in. Grants an Oath.",
+      "description": "Deals damage to the target. Generates 20 Combo.",
       "ranks": [
         {
           "rank": 1,
@@ -103,7 +103,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Call down a single hard blow of Holy force. Consumes two Oaths.",
+      "description": "Deals Holy damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -241,7 +241,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A wide sweep of Holy light that catches up to three enemies. Grants an Oath.",
+      "description": "Deals Holy damage to up to 3 targets. Generates 20 Combo.",
       "ranks": [
         {
           "rank": 1,
@@ -367,7 +367,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Speak a blessing over a wounded ally. Consumes two Oaths.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -482,7 +482,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Leap at an enemy hard enough to put them on the ground and stop whatever they were saying.",
+      "description": "Deals Holy damage to the target and stuns it.",
       "ranks": [
         {
           "rank": 1,
@@ -558,7 +558,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Throw a holy hammer and follow it in. It lands hard on everyone in front of you and mends everyone behind you. Consumes two Oaths.",
+      "description": "Deals Holy damage to up to 4 targets and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -639,7 +639,7 @@
         "spell_power_from_agility_pct": 0.3,
         "ap_from_intellect_pct": 0.3
       },
-      "description": "Read the fervor aloud, and your training answers in a language it does not usually speak: your quickness feeds your spellwork and your learning feeds your arm.",
+      "description": "Spell Power From Agility Pct +30%, Ap From Intellect Pct +30% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -664,7 +664,7 @@
       "stat_mods": {
         "haste": 20.0
       },
-      "description": "Read the zeal aloud and stop pacing yourself.",
+      "description": "Haste +20 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -804,7 +804,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "Break an ally free of whatever is holding them in place.",
+      "description": "Grants an ally: Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -826,7 +826,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A prayer you only get to make once in a while, and it works.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -896,7 +896,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, zealous strike that gets straight to the point. Grants an Oath.",
+      "description": "Deals damage to the target. Generates 20 Combo.",
       "ranks": [
         {
           "rank": 1,
@@ -957,7 +957,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring everything you have been holding back down at once. Consumes three Oaths.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1008,7 +1008,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A cleaving blow of Holy fire that comes apart on impact and catches up to four enemies. Consumes two Oaths.",
+      "description": "Deals Holy damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1096,7 +1096,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "One strike, delivered like a verdict.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1135,7 +1135,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Leap, hang a moment, and come down as a column of light. Consumes two Oaths.",
+      "description": "Deals Holy damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1171,7 +1171,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Swing wide at everything in front of you. Grants an Oath.",
+      "description": "Deals damage to up to 3 targets. Generates 20 Combo.",
       "ranks": [
         {
           "rank": 1,
@@ -1233,7 +1233,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Call the whole pull to account at once, striking up to four enemies. Consumes two Oaths.",
+      "description": "Deals Holy damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1288,7 +1288,7 @@
       "stat_mods": {
         "threat_generation_pct": 200
       },
-      "description": "Make yourself the only thing in the room worth hitting.",
+      "description": "Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1383,7 +1383,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A blow struck with argent fervour. What it takes out of them comes back into you. Grants an Oath.",
+      "description": "Deals damage to the target and heals you for part of it. Generates 20 Combo.",
       "ranks": [
         {
           "rank": 1,
@@ -1451,7 +1451,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Finish a wounded enemy and take back what the fight cost you. Consumes two Oaths.",
+      "description": "Deals damage to the target and heals you for part of it. Usable only below 35% health.",
       "ranks": [
         {
           "rank": 1,
@@ -1557,7 +1557,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Drop a scarlet hammer on them from somewhere above.",
+      "description": "Deals Holy damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1605,7 +1605,7 @@
       "stat_mods": {
         "haste": -20.0
       },
-      "description": "Brand an enemy. They are not getting away from you, and they will feel it every time they swing.",
+      "description": "Applies to the target: Haste -20 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1628,7 +1628,7 @@
       "stat_mods": {
         "haste": 15.0
       },
-      "description": "You and yours come up onto the light and move.",
+      "description": "Grants your party: Haste +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,

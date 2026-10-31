@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A basic weapon strike.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -92,7 +92,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with the light of the sun.",
+      "description": "Deals Holy damage to the target.",
       "_source": "Confirmed screenshot: 6 Mana, 30yd, 2s cast, '27 to 31 Holy damage.' Core level-1 damage spell, extended to 8 ranks.",
       "ranks": [
         {
@@ -644,7 +644,7 @@
       "stat_mods": {
         "all_stats_pct": 10
       },
-      "description": "Place a Devotion on the friendly target, increasing their total stats. Only one Devotion per Sun Cleric active at a time.",
+      "description": "Grants your party: All stats +10% for 30 turns.",
       "_source": "Confirmed screenshot: Lvl 44, 3 Mana, instant, '+10% total stats. Lasts 30 min.' Part of the Devotion family.",
       "target_type": "party",
       "ranks": [
@@ -712,7 +712,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Blast an enemy with burning light.",
+      "description": "Deals Fire damage to the target.",
       "_source": "Confirmed screenshot: Lvl 18, '114 Fire damage.' Piety's real Sunset-side primary nuke.",
       "ranks": [
         {
@@ -994,7 +994,7 @@
       "stat_mods": {
         "magic_damage_taken_pct": -50
       },
-      "description": "Deflect the next harmful spell cast on the Blessed ally within a window.",
+      "description": "Grants an ally: Magic damage taken -50% for 2 turns.",
       "_source": "CoA handoff doc confirmed: 'Deflects the next harmful spell on Blessed ally within a window. Only on Blessed ally.'",
       "target_type": "ally",
       "ranks": [
@@ -1135,7 +1135,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Battle-resurrect a fallen ally. Usable only out of combat.",
+      "description": "Heals an ally.",
       "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'",
       "target_type": "ally",
       "ranks": [

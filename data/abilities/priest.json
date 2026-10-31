@@ -9,7 +9,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A weak melee strike. The Light is your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -248,7 +248,7 @@
         "stamina": 3,
         "max_health_pct": 0
       },
-      "description": "Fortifies the spirit, increasing Stamina.",
+      "description": "Grants your party: Stamina +3, Maximum health +0% for 5 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -375,7 +375,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Consumes the target in holy flame.",
+      "description": "Deals Holy damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -637,7 +637,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Removes a beneficial Magic effect from an enemy, or a harmful Magic effect from an ally.",
+      "description": "Removes 1 magic effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -659,7 +659,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Removes a Disease effect from an ally.",
+      "description": "Removes 1 disease effect from an ally.",
       "ranks": [
         {
           "rank": 1,

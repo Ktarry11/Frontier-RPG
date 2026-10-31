@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A swing with whatever you are holding.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A fistful of ill will, thrown hard.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -100,7 +100,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A mouthful of something bitter that puts an ally back together.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -171,7 +171,7 @@
       "stat_mods": {
         "attack_power": -45
       },
-      "description": "The target's arms stop reaching as far as they used to.",
+      "description": "Applies to the target: Attack Power -45 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -210,7 +210,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A curse that settles in and keeps working.",
+      "description": "Deals Shadow damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -263,7 +263,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A ward planted in the dirt that keeps everyone standing near it on their feet.",
+      "description": "Heals your party over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -317,7 +317,7 @@
         "haste": -25,
         "healing_taken_pct": -20
       },
-      "description": "Everything the target does arrives late, and nothing that is done for them helps much.",
+      "description": "Applies to the target: Haste -25, Healing Taken Pct -20% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -356,7 +356,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "You talk the curse off them.",
+      "description": "Removes 1 curse effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -381,7 +381,7 @@
         "threat_generation_pct": -60,
         "dodge": 10
       },
-      "description": "You step out of your own outline and leave it standing there.",
+      "description": "Threat generated -60%, Dodge +10 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -402,7 +402,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Dark fire goes up out of the ground under a whole pack of them.",
+      "description": "Deals Shadow damage to up to 5 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -451,7 +451,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.25
       },
-      "description": "You hold still and breathe the way he taught, and the hits stop mattering so much.",
+      "description": "Damage taken -25% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -480,7 +480,7 @@
       "stat_mods": {
         "haste": -30
       },
-      "description": "The target is a frog. It has opinions about this but no way to express them.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -502,7 +502,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Clears out whatever they swallowed, breathed, or were bitten by.",
+      "description": "Removes 1 poison/disease effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -530,7 +530,7 @@
         "dodge": 25,
         "haste": 15
       },
-      "description": "You come apart into something long and low, and whatever was holding you is holding nothing.",
+      "description": "Dodge +25, Haste +15 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -553,7 +553,7 @@
       "stat_mods": {
         "haste": -20
       },
-      "description": "A ward that stops everything close to it where it stands.",
+      "description": "Interrupts and stuns up to 4 targets for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -579,7 +579,7 @@
         "haste": 12,
         "dodge": 5
       },
-      "description": "An idol goes in the ground and nobody around it drags their feet.",
+      "description": "Grants your party: Haste +12, Dodge +5 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -603,7 +603,7 @@
         "shadow_spell_power": 25,
         "spell_power": 15
       },
-      "description": "Something shaped roughly like you stands at your shoulder and repeats you.",
+      "description": "Shadow Spell Power +25, Spell Power +15 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -639,7 +639,7 @@
         "physical_damage_taken_pct": -8,
         "magic_damage_taken_pct": -8
       },
-      "description": "A bundle of sticks and hair with your enemies' luck tied into it.",
+      "description": "Grants your party: Physical damage taken -8%, Magic damage taken -8% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -664,7 +664,7 @@
         "attack_power": 30,
         "spirit": 8
       },
-      "description": "You hand out the good stuff.",
+      "description": "Grants your party: Spell Power +30, Attack Power +30, Spirit +8 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -700,7 +700,7 @@
         "damage_taken_pct": -0.5,
         "threat_generation_pct": -100
       },
-      "description": "You drink it, you stop, and for a moment nothing in the room thinks you are worth the trouble.",
+      "description": "Damage taken -50%, Threat generated -100% for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -723,7 +723,7 @@
       "stat_mods": {
         "damage_taken_pct": 0.12
       },
-      "description": "A shadow settles over them and everything you send lands harder.",
+      "description": "Applies to the target: Damage taken +12% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -759,7 +759,7 @@
         "damage_taken_pct": -0.3,
         "damage_dealt_pct": -25
       },
-      "description": "The drums start, and for a little while nothing in your line can be killed. Nothing in your line can kill much either.",
+      "description": "Grants your party: Damage taken -30%, Damage dealt -25% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -780,7 +780,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A bolt of something that was never meant to be aimed at people.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -839,7 +839,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Fire that burns colder than it should and finds the seams in whatever you have already cursed.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -891,7 +891,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Small flat things peel off your shadow and go to work.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -962,7 +962,7 @@
       "stat_mods": {
         "magic_damage_taken_pct": -10
       },
-      "description": "You build something out of mud and malice and stand behind it.",
+      "description": "Magic damage taken -10% for 2 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -1002,7 +1002,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 0,
       "stat_mods": {},
-      "description": "You go thin and sideways, and casting stops needing you to stand still.",
+      "description": "Makes your next cast instant.",
       "ranks": [
         {
           "rank": 1,
@@ -1027,7 +1027,7 @@
         "crit_chance_spell": 8,
         "damage_dealt_pct": 15
       },
-      "description": "You let him speak through you. He is not gentle about it.",
+      "description": "Shadow Spell Power +40, Spell crit chance +8, Damage dealt +15% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1048,7 +1048,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You fill one from the pot and throw it without looking.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -1100,7 +1100,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You uncork it at them. Something leaves, and on its way out it patches up whoever is worst off behind you.",
+      "description": "Deals damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1158,7 +1158,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You throw the whole bottle into the middle of them.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -1203,7 +1203,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A steady line of mojo from you to them, held open as long as you can hold it.",
+      "description": "Heals an ally over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1248,7 +1248,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Shrooms go in the pot. Everyone gets a little better for a while.",
+      "description": "Heals your party over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1290,7 +1290,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.06
       },
-      "description": "Bones in the pot. Whatever is coming lands softer.",
+      "description": "Grants your party: Damage taken -6% for 4 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -1333,7 +1333,7 @@
       "stat_mods": {
         "healing_taken_pct": 8
       },
-      "description": "Thistle in the pot. What your allies deal starts coming back to them.",
+      "description": "Grants your party: Healing Taken Pct +8% for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1382,7 +1382,7 @@
         "healing_taken_pct": 20,
         "mp5": 4
       },
-      "description": "The pot goes down where the tank is standing. Everything poured into that circle goes further.",
+      "description": "Grants your party: Healing Taken Pct +20%, Mp5 +4 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1417,7 +1417,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": -15
       },
-      "description": "Blood in the base. The hits still land, they just stop arriving all at once.",
+      "description": "Grants your party: Physical damage taken -15% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1464,7 +1464,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "You break the big one over the whole group.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -1494,7 +1494,7 @@
         "healing_power_pct": 40,
         "haste": 10
       },
-      "description": "Everything in the pot is suddenly twice what it was.",
+      "description": "Healing Power Pct +40%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1515,7 +1515,7 @@
       "effect_type": "damage_and_restore_mana",
       "duration": 0,
       "stat_mods": {},
-      "description": "A quick arrow, and something comes back down the line with it.",
+      "description": "Deals Nature damage to the target and restores some of your mana.",
       "ranks": [
         {
           "rank": 1,
@@ -1581,7 +1581,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The arrow is ordinary. What is wrapped around it is not.",
+      "description": "Deals Nature damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1633,7 +1633,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two glaives that are not quite there go through the line and come back.",
+      "description": "Deals Shadow damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1683,7 +1683,7 @@
         "haste": -45,
         "damage_dealt_pct": -20
       },
-      "description": "You get a hand around the part of them that was about to speak.",
+      "description": "Applies to the target: Haste -45, Damage dealt -20% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1704,7 +1704,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Four wards come up out of the ground around you and start biting.",
+      "description": "Deals Nature damage to up to 4 targets over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1745,7 +1745,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything you have been saving goes out at once and bursts on arrival.",
+      "description": "Deals Shadow damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1790,7 +1790,7 @@
         "haste": 15,
         "threat_generation_pct": -80
       },
-      "description": "You step into the dark between two trees and nothing follows you in.",
+      "description": "Dodge +30, Haste +15, Threat generated -80% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1814,7 +1814,7 @@
         "damage_dealt_pct": 12,
         "haste": 10
       },
-      "description": "You stop being quite a person for a few seconds.",
+      "description": "Damage dealt +12%, Haste +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1838,7 +1838,7 @@
         "crit_chance_physical": 10,
         "crit_chance_spell": 10
       },
-      "description": "You spend the lot. For a few seconds you cannot miss and you cannot be worn down.",
+      "description": "Physical crit chance +10, Spell crit chance +10 for 3 turns.",
       "ranks": [
         {
           "rank": 1,

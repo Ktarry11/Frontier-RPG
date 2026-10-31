@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -170,7 +170,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Open a wrist and let the anger in.",
+      "description": "Restores rage to you.",
       "ranks": [
         {
           "rank": 1,
@@ -221,7 +221,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Mend blood and bone. Whoever you do it to will not want it done again for a while.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -275,7 +275,7 @@
         "dodge": 15.0,
         "parry": 5.0
       },
-      "description": "Trade some blood for reflexes you did not have a moment ago.",
+      "description": "Dodge +15, Parry +5 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -299,7 +299,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.6
       },
-      "description": "Come apart into a puddle. Very little can hurt a puddle.",
+      "description": "Damage taken -60% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -323,7 +323,7 @@
       "stat_mods": {
         "cc_immune": 1
       },
-      "description": "A howl that gets your allies' feet moving again.",
+      "description": "Immune to crowd control for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -347,7 +347,7 @@
       "stat_mods": {
         "max_health_pct": 0.25
       },
-      "description": "You get bigger. It is not pleasant to watch.",
+      "description": "Maximum health +25% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -369,7 +369,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Trap something in a sphere of its own blood and leave it there.",
+      "description": "Interrupts and stuns the target for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -392,7 +392,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cover the ground between you in one unpleasant movement.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -449,7 +449,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Show them what is under their own skin. They stop being able to think about anything else.",
+      "description": "Deals Shadow damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -496,7 +496,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Give them what they are short of. You can spare it.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -535,7 +535,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "A skin of blood over an ally. It takes the first part of whatever is coming.",
+      "description": "Strengthens an ally for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -557,7 +557,7 @@
       "effect_type": "revive",
       "duration": 0,
       "stat_mods": {},
-      "description": "There is enough left in them to start again. You supply the rest.",
+      "description": "Revives a fallen ally.",
       "ranks": [
         {
           "rank": 1,
@@ -590,7 +590,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A bolt with your own blood in it. Some of it comes back.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -662,7 +662,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bend the blood in a whole room at once.",
+      "description": "Deals Shadow damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -715,7 +715,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Plant a plague in the ground and let it work.",
+      "description": "Deals Shadow damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -774,7 +774,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The ground opens under a pack of them and closes again.",
+      "description": "Deals Shadow damage to up to 4 targets. Generates 22 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -899,7 +899,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A bleed that does not clot.",
+      "description": "Deals Shadow damage to the target over time for 4 turns. Generates 16 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -969,7 +969,7 @@
       "stat_mods": {
         "magic_damage_taken_pct": 5.0
       },
-      "description": "Name what is wrong with them out loud. Everything after that lands harder.",
+      "description": "Applies to the target: Magic damage taken +5% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -991,7 +991,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Put the fang in and take it all back.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1059,7 +1059,7 @@
         "cc_immune": 1,
         "healing_taken_pct": 30.0
       },
-      "description": "You want it badly enough that nothing gets between you and it.",
+      "description": "Immune to crowd control, Healing Taken Pct +30% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1081,7 +1081,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Something gives way behind their eyes and the sentence stops.",
+      "description": "Interrupts and stuns the target for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -1132,7 +1132,7 @@
         "shadow_spell_power": 30,
         "spell_power": 15
       },
-      "description": "You stop pretending the blood is anyone else's.",
+      "description": "Shadow Spell Power +30, Spell Power +15 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1157,7 +1157,7 @@
         "attack_power_pct": 10.0,
         "haste": 4.0
       },
-      "description": "Let the curse up as far as your throat and no further.",
+      "description": "Attack Power Pct +10%, Haste +4.",
       "ranks": [
         {
           "rank": 1,
@@ -1184,7 +1184,7 @@
         "crit_chance_physical": 4.0,
         "armor_pct": 10.0
       },
-      "description": "Stop holding it back. What is left is faster and much worse.",
+      "description": "Attack Power Pct +22%, Physical crit chance +4, Armor Pct +10%.",
       "ranks": [
         {
           "rank": 1,
@@ -1207,7 +1207,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Find a vein that is already open and widen it.",
+      "description": "Deals Shadow damage to the target. Generates 20 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -1275,7 +1275,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Everything they have left, all at once, outward.",
+      "description": "Deals Shadow damage to the target. Generates 26 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -1331,7 +1331,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Open them up along a line you have used before.",
+      "description": "Deals damage to the target. Usable only below 35% health.",
       "ranks": [
         {
           "rank": 1,
@@ -1389,7 +1389,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take a bite out of the fight.",
+      "description": "Deals damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1453,7 +1453,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Two holes, close together, deep.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1504,7 +1504,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Three seconds of hitting everything within reach.",
+      "description": "Deals damage to up to 4 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1556,7 +1556,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Arrive teeth first.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1605,7 +1605,7 @@
         "shadow_spell_power": 25,
         "haste": 8.0
       },
-      "description": "The anger arrives before you have decided anything.",
+      "description": "Spell crit chance +10, Shadow Spell Power +25, Haste +8 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1631,7 +1631,7 @@
         "crit_chance_physical": 6.0,
         "haste": 8.0
       },
-      "description": "Whatever is left of the human part goes quiet.",
+      "description": "Attack Power Pct +15%, Physical crit chance +6, Haste +8 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1655,7 +1655,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.3
       },
-      "description": "Being the one they are all hitting stops mattering so much.",
+      "description": "Damage taken -30% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1682,7 +1682,7 @@
         "threat_generation_pct": 60,
         "attack_power_pct": -8.0
       },
-      "description": "Stay in it. You hit softer and almost nothing gets through.",
+      "description": "Armor Pct +25%, Stamina Pct +12%, Threat generated +60%, Attack Power Pct -8%.",
       "ranks": [
         {
           "rank": 1,
@@ -1705,7 +1705,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bite down and keep what comes loose.",
+      "description": "Deals damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1769,7 +1769,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The workhorse bite. Nothing clever about it.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1832,7 +1832,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "One pass across the whole front rank.",
+      "description": "Deals damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1884,7 +1884,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Leave something in the wound that should not be in a wound.",
+      "description": "Deals Shadow damage to up to 4 targets over time for 3 turns. Generates 26 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -1943,7 +1943,7 @@
       "stat_mods": {
         "threat_generation_pct": 200
       },
-      "description": "Every one of them decides you are the problem.",
+      "description": "Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1967,7 +1967,7 @@
       "stat_mods": {
         "threat_generation_pct": 140
       },
-      "description": "Show teeth at one of them in particular.",
+      "description": "Threat generated +140% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1991,7 +1991,7 @@
       "stat_mods": {
         "haste": -25.0
       },
-      "description": "A sound that gets into their legs.",
+      "description": "Applies to up to 5 targets: Haste -25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2018,7 +2018,7 @@
         "haste": 12.0,
         "healing_taken_pct": 50.0
       },
-      "description": "A frenzy you come out the other side of larger.",
+      "description": "Maximum health +20%, Haste +12, Healing Taken Pct +50% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2040,7 +2040,7 @@
       "effect_type": "enable_instant_cast",
       "duration": 3,
       "stat_mods": {},
-      "description": "You stop waiting between bites.",
+      "description": "Makes your next cast instant.",
       "ranks": [
         {
           "rank": 1,
@@ -2061,7 +2061,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "They are suddenly short of the one thing they cannot borrow.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2107,7 +2107,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Put them back together with what you have on hand.",
+      "description": "Heals an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -2170,7 +2170,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Hit one of them hard enough that your own side feels better.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -2236,7 +2236,7 @@
       "effect_type": "hot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A globe of blood over the group, giving back steadily.",
+      "description": "Heals your party over time for 4 turns. Generates 30 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -2338,7 +2338,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short service, said over everyone at once.",
+      "description": "Heals your party.",
       "ranks": [
         {
           "rank": 1,
@@ -2389,7 +2389,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Stand still and sing. It costs them and it pays you.",
+      "description": "Deals Shadow damage to up to 4 targets and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -2435,7 +2435,7 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {},
-      "description": "Nobody standing in that gets a word out.",
+      "description": "Interrupts and stuns up to 5 targets for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2459,7 +2459,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Draw the sickness out and leave it on the floor.",
+      "description": "Removes 1 disease effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -2481,7 +2481,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Cut the curse out of an ally and hold onto it.",
+      "description": "Removes 1 curse effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -2506,7 +2506,7 @@
         "healing_power_pct": 18.0,
         "spell_power": 25
       },
-      "description": "Let the blood magic sit closer to the surface. Everything you do carries more of it.",
+      "description": "Healing Power Pct +18%, Spell Power +25 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2528,7 +2528,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Drink more than you need. You will need it.",
+      "description": "Restores vitality to you.",
       "ranks": [
         {
           "rank": 1,
@@ -2551,7 +2551,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "A small wound that makes every other wound worse.",
+      "description": "Deals Shadow damage to the target over time for 4 turns. Generates 20 Rage.",
       "ranks": [
         {
           "rank": 1,
@@ -2607,7 +2607,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Store up what you have done to them and hand it back.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2649,7 +2649,7 @@
       "stat_mods": {
         "armor": 160
       },
-      "description": "A film of old blood over everyone's gear. It holds.",
+      "description": "Armor +160.",
       "ranks": [
         {
           "rank": 1,
@@ -2674,7 +2674,7 @@
         "armor": 80,
         "physical_damage_taken_pct": -4.0
       },
-      "description": "Thorns under an ally's skin, pointing outward.",
+      "description": "Grants an ally: Armor +80, Physical damage taken -4% for 4 turns.",
       "ranks": [
         {
           "rank": 1,

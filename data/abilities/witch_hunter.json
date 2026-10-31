@@ -10,7 +10,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A measured strike with your weapon.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -30,7 +30,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, flat shot you can take from anywhere, and the one that settles you into the fight.",
+      "description": "Deals damage to the target. Generates 25 Focus.",
       "ranks": [
         {
           "rank": 1,
@@ -103,7 +103,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A heavy, deliberate bolt. You take the extra moment to place it.",
+      "description": "Deals damage to the target. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -171,7 +171,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bring the blade round in a clean, bright arc.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -240,7 +240,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A bolt with a line on it. Whatever it hits comes to you.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -293,7 +293,7 @@
       "stat_mods": {
         "dodge": 20.0
       },
-      "description": "Push off and cover ground you had no business covering.",
+      "description": "Dodge +20 for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -317,7 +317,7 @@
         "magic_damage_taken_pct": -50,
         "cc_immune": 1
       },
-      "description": "You step sideways out of the spellwork and it closes over empty air.",
+      "description": "Magic damage taken -50%, Immune to crowd control for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -338,7 +338,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Bitter, black, and it takes the curse with it.",
+      "description": "Removes 1 curse effect from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -360,7 +360,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "For a little while, what you take off them stays with you.",
+      "description": "Strengthens you for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -389,7 +389,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": 8
       },
-      "description": "You name them out loud. Everything after that is easier.",
+      "description": "Applies to the target: Physical damage taken +8% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -412,7 +412,7 @@
       "stat_mods": {
         "haste": -25.0
       },
-      "description": "Laid where they will walk, and it goes off badly for everyone standing near it.",
+      "description": "Applies to up to 5 targets: Haste -25 for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -434,7 +434,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "The ground goes dark under them and they stop where they are.",
+      "description": "Interrupts and stuns up to 5 targets for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -457,7 +457,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A quiet mark, and then a debt that comes due.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -503,7 +503,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "A stroke you have practised more than any other, and it gives something back.",
+      "description": "Deals damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -625,7 +625,7 @@
       "stat_mods": {
         "threat_generation_pct": 180
       },
-      "description": "A mark that burns cold and will not be ignored.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -677,7 +677,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Drive the hilt into them hard enough that whatever they were saying stops.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -784,7 +784,7 @@
         "taunt": 1,
         "threat_generation_pct": 200
       },
-      "description": "Reach out, take hold of all of them at once, and make yourself the only thing worth looking at.",
+      "description": "Applies to up to 5 targets: Taunts the target, Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -808,7 +808,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.2
       },
-      "description": "Set yourself and decide that this is survivable.",
+      "description": "Damage taken -20% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -829,7 +829,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let the dark out and let it carry you a while.",
+      "description": "Restores focus to you.",
       "ranks": [
         {
           "rank": 1,
@@ -880,7 +880,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Lay the old oath on them and let it do the work.",
+      "description": "Deals Shadow damage to the target over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -926,7 +926,7 @@
       "effect_type": "dispel",
       "duration": 0,
       "stat_mods": {},
-      "description": "Plant it, and whatever is in your friends' heads loses its grip.",
+      "description": "Removes 2 magic effects from an ally.",
       "ranks": [
         {
           "rank": 1,
@@ -949,7 +949,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let it all out at once. Everything close enough pays, and you come back up.",
+      "description": "Deals Shadow damage to up to 5 targets and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -992,7 +992,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.15
       },
-      "description": "You look at them, and for a while what happens to them happens to you instead.",
+      "description": "Damage taken -15% for 3 turns, absorbing damage.",
       "ranks": [
         {
           "rank": 1,
@@ -1014,7 +1014,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "A bolt that sits in the wound and keeps asking questions.",
+      "description": "Deals Shadow/Arcane damage to the target over time for 3 turns. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -1074,7 +1074,7 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "You do not stop shooting until the magazine does.",
+      "description": "Deals damage to the target over time for 3 turns. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -1131,7 +1131,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take the extra breath. Put it exactly where it needs to go.",
+      "description": "Deals damage to the target. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -1187,7 +1187,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spin up and keep firing, and do not stop moving.",
+      "description": "Deals Shadow/Arcane damage to up to 5 targets. Requires a ranged weapon.",
       "ranks": [
         {
           "rank": 1,
@@ -1242,7 +1242,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Spend everything you have left on one bolt.",
+      "description": "Deals damage to the target. Requires a ranged weapon. Usable only below 35% health.",
       "ranks": [
         {
           "rank": 1,
@@ -1289,7 +1289,7 @@
       "stat_mods": {
         "dodge": 30.0
       },
-      "description": "Go backwards faster than they expected, and let the shots go where you were.",
+      "description": "Dodge +30 for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -1335,7 +1335,7 @@
         "crit_chance_physical": 3.0,
         "crit_chance_spell": 3.0
       },
-      "description": "Point out the soft parts and everyone starts hitting them.",
+      "description": "Grants your party: Physical crit chance +3, Spell crit chance +3 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1357,7 +1357,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "One note, and something comes out of the dark that answers to you.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1380,7 +1380,7 @@
       "effect_type": "summon_pet",
       "duration": 0,
       "stat_mods": {},
-      "description": "Let the rest of them off the chain.",
+      "description": "Summons a pet to fight for you.",
       "ranks": [
         {
           "rank": 1,
@@ -1403,7 +1403,7 @@
       "effect_type": "ranged_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The shot you take before you have decided to take it.",
+      "description": "Deals damage to the target. Generates 25 Focus.",
       "ranks": [
         {
           "rank": 1,
@@ -1458,7 +1458,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Send them in. They know what to do.",
+      "description": "Deals Shadow damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1510,7 +1510,7 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Crows. A lot of them, and they stay a while.",
+      "description": "Deals Shadow damage to up to 5 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1557,7 +1557,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A short, loud burst that puts everything in front of you on its back foot.",
+      "description": "Deals Shadow damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1607,7 +1607,7 @@
         "attack_power_pct": 15.0,
         "haste": 8.0
       },
-      "description": "Work them up until they stop being careful.",
+      "description": "Attack Power Pct +15%, Haste +8 for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1628,7 +1628,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Take something back out of the dark. It costs later, not now.",
+      "description": "Heals you.",
       "ranks": [
         {
           "rank": 1,
@@ -1673,7 +1673,7 @@
       "effect_type": "reset_cooldowns",
       "duration": 0,
       "stat_mods": {},
-      "description": "Reload everything, including the things you have already used.",
+      "description": "Resets your ability cooldowns.",
       "ranks": [
         {
           "rank": 1,
@@ -1694,7 +1694,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A flat, bright stroke that catches more than one of them.",
+      "description": "Deals Holy damage to up to 3 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1759,7 +1759,7 @@
       "effect_type": "damage_and_heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Both blades, and you keep some of what comes off them.",
+      "description": "Deals Shadow damage to the target and heals you for part of it.",
       "ranks": [
         {
           "rank": 1,
@@ -1817,7 +1817,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "The edges come up hot and stay that way.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1875,7 +1875,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Throw it and let it stick.",
+      "description": "Deals Fire damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -1927,7 +1927,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Say what they are, and let it catch.",
+      "description": "Deals Fire damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -1974,7 +1974,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A long, showy pass with both blades that happens to be the most efficient thing you could have done.",
+      "description": "Deals Fire damage to up to 4 targets.",
       "ranks": [
         {
           "rank": 1,
@@ -2021,7 +2021,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Close the gap before they have finished deciding to run.",
+      "description": "Deals damage to the target.",
       "ranks": [
         {
           "rank": 1,
@@ -2066,7 +2066,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "You have been carrying this for exactly this moment.",
+      "description": "Deals damage to the target. Usable only below 35% health.",
       "ranks": [
         {
           "rank": 1,
@@ -2106,7 +2106,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Open the shutter. Nothing in the light moves for a moment.",
+      "description": "Interrupts and stuns up to 5 targets for 1 turn.",
       "ranks": [
         {
           "rank": 1,
@@ -2131,7 +2131,7 @@
       "stat_mods": {
         "damage_dealt_pct": 20.0
       },
-      "description": "It burns on the way down and keeps burning.",
+      "description": "Damage dealt +20% for 3 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -2154,7 +2154,7 @@
       "stat_mods": {
         "haste": 10.0
       },
-      "description": "You have done this before and everyone can tell.",
+      "description": "Grants your party: Haste +10 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
