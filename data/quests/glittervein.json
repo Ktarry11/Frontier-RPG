@@ -1,0 +1,3140 @@
+{
+  "quests": [
+    {
+      "quest_id": "gv_the_lip",
+      "title": "The Lip of It",
+      "giver_npc_id": "gv_quartermaster",
+      "zone": "glittervein",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Stand on the rim and look in before you start down. Everybody does it once.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 86,
+          "target_y": 30,
+          "radius": 10
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_hole",
+            "gv_lastwater"
+          ]
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "You came down the pass from the Sands, so you have already seen what a hole in limestone looks like when the water has gone. Walk to the edge of this one and look at what it looks like when the water has NOT.\n\nThere is green down there. Four days in any direction from here there is no green at all.",
+      "turn_in_text": "It stops people. It has stopped every single person who has come over that rim since I have been here, and I have watched a lot of them do it.\n\nThe ones who came through with the change stop longest. I think it is because they have somewhere to compare it to and the rest of us do not.",
+      "next_quest_id": "gv_jackals_at_the_lip",
+      "unique_item_defs": [
+        {
+          "name": "Rim-Dry Gauntlets",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.6
+          },
+          "armor_type": "mail",
+          "armor_value": 73,
+          "label": "Mail Gloves (Sta/Spi/HP)"
+        },
+        {
+          "name": "Terrace Boots",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "block_rating": 0.5,
+            "block_value": 5.5
+          },
+          "armor_type": "plate",
+          "armor_value": 109,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Terrace Loop",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.2
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_jackals_at_the_lip",
+      "title": "What Waits at the Top",
+      "giver_npc_id": "gv_innkeeper",
+      "zone": "glittervein",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The jackals have learned where the tired come up.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rimfall Jackal",
+          "count": 8,
+          "zone": "glittervein"
+        }
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "accept_text": "Nothing on that rim lives off the rim. There is nothing up there to live off. They are up there because everything that comes OUT of the hole comes out slowly, and they have had three years to work that out.\n\nThin them where the road crests. That is where they sit.",
+      "turn_in_text": "Better. A cart gets up that last stretch at walking pace with everyone pushing, and that is not a moment you want to be fighting.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Spiral-Walked Chausses",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 146,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Green-Shelf Cuisses",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 219,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Spiral-Walked Longbow",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_what_climbs_out",
+      "title": "What Comes Up the Road",
+      "giver_npc_id": "gv_quartermaster",
+      "zone": "glittervein",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Someone has been working the top of the haul road, and it is not jackals.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunbleached Stalker",
+          "count": 6,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_scav_tally",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "We have lost three loads off the top of the road this season and jackals do not take crates.\n\nThey keep a tally. I want to see it, because I would like to know whether they have been counting OUR carts or everybody's.",
+      "turn_in_text": "Everybody's. Four years of notches and a third of them are older than this camp.\n\nSo they were up there before the dig was, waiting on a road that did not exist yet. That is patience, and I do not like what it says about them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Waterline Shroud",
+          "slot": "back",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Damp, in a desert, which is the whole argument of this place.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 3.6,
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 18,
+          "label": "Cloth Cloak (Int/SP/MP5)"
+        },
+        {
+          "name": "Terrace Coat",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 7,
+            "stamina": 7
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        },
+        {
+          "name": "Green-Shelf Charm",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.2
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_the_long_way_down",
+      "title": "One Lap",
+      "giver_npc_id": "gv_innkeeper",
+      "zone": "glittervein",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Walk the haul road to the bottom. All of it, once, on foot.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 58,
+          "target_y": 94,
+          "radius": 8
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_road",
+            "gv_the_water"
+          ]
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "There is one road down and it goes round the hole once. Goblins cut it wide enough to turn a cart on and then spent four years arguing about whether that was worth it.\n\nWalk it to the shore. Do not take the short way; there is no short way, and the people who have gone looking for one are a story I tell at the fire.",
+      "turn_in_text": "Forty-six feet of cut road and the air changes about two thirds of the way down. Everyone notices and nobody expects to.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Waterline Sandals",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "stamina": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        },
+        {
+          "name": "Waterline Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Rim-Dry Talisman",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 46,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_first_green",
+      "title": "The Only Green in Tanaris",
+      "giver_npc_id": "gv_reagents",
+      "zone": "glittervein",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The shelf above the waterline is the only living ground in the region.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shelf Prowler",
+          "count": 7,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_shelf_blindweed",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "I brew with the only clean water for a hundred miles, which makes me either the luckiest brewer alive or the one with the shortest supply line, and I have not decided.\n\nThe shelf has blindweed on it. Nothing else in Tanaris does. Bring me some, and clear the prowlers off it while you are there - they have had three years of nothing competing with them and it has made them bold.",
+      "turn_in_text": "Three years ago this hole had a dozen things living in it. Now it has everything that could find it. The green is not getting bigger; the crowd is.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Spiral-Walked Visor",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 168,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Green-Shelf Pauldrons",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "mail",
+          "armor_value": 112,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Spiral-Walked Halberd",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 21,
+            "stamina": 27
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1.2
+          },
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 119,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_eleven_months",
+      "title": "Eleven Months",
+      "giver_npc_id": "gv_dig_boss",
+      "zone": "glittervein",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The Dig-Boss would like somebody new to hear his side of it.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_company",
+            "gv_the_flood"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 86,
+          "target_y": 100,
+          "radius": 6
+        }
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "accept_text": "Eleven months. Eleven months of paying ninety people's wages out of a hole that has produced nothing, and the ledger in Steamwheedle calls that MY fault.\n\nIt was not my fault. We were four hundred feet down a clean seam when the water came up to meet us, and water does not come UP. Not here. Not in a desert.\n\nGo and stand at the mouth. Then come back and tell me whether a man should be closing that or opening it.",
+      "turn_in_text": "You looked a long time. Everybody does.\n\nShe will tell you it was pulled. I have been told a lot of things by a lot of people in three years and most of them started with the world changing and ended with me owing somebody money.",
+      "next_quest_id": "gv_the_other_two_pumps",
+      "unique_item_defs": [
+        {
+          "name": "Lastwater Leggings",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Camp kit off a rock nobody can leave quickly.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 8.1
+          },
+          "armor_type": "mail",
+          "armor_value": 149,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Still-Here Vestments",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9.0,
+            "mp5": 1.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Lastwater Flail",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_the_other_two_pumps",
+      "title": "Four of Mine and Two of Hers",
+      "giver_npc_id": "gv_pump_chief",
+      "zone": "glittervein",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Six pumps. Two of them work, and they are not the Company's two.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shardback Crawler",
+          "count": 8,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_salvaged_iron",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "I can clear the first gallery in nine days. I have been able to clear the first gallery in nine days for eleven months.\n\nWhat I cannot do is cast new housings out of nothing, and the crawlers have been eating the iron off the spoil heap faster than I can pick it over. Get me the iron and get them off it.",
+      "turn_in_text": "Nine days. That is all it has ever been. Nine days and two people saying the same sentence on the same afternoon, and I have had neither for a year.\n\nI built pumps for twenty years before the world changed and I was good at it, and now I am a man with four broken housings on a rock.",
+      "next_quest_id": "gv_the_book",
+      "unique_item_defs": [
+        {
+          "name": "Eleven-Month Sash",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Somebody carried this down the spiral and never carried it back up.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "mp5": 0.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Belt (Int/Sta/MP5)"
+        },
+        {
+          "name": "Lastwater Belt",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Camp kit off a rock nobody can leave quickly.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.7
+          },
+          "armor_type": "plate",
+          "armor_value": 114,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Still-Here Cudgel",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Somebody carried this down the spiral and never carried it back up.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "armor": 21.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_the_book",
+      "title": "The Same Book",
+      "giver_npc_id": "gv_tally_clerk",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Nine hundred and forty-one days of water level, and both sides read it their way.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gv_tally_book",
+          "count": 1,
+          "label": "Oss Pinch's water-level book, to Ulla Stormhollow"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_book_topic"
+          ]
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "Nine hundred and forty-one days of water level, taken at dawn, written down whether anybody wanted it or not.\n\nThe Boss says my book proves the flood is seasonal. Ulla says my book proves it is not. It is the SAME BOOK.\n\nTake it to her. I would like to watch somebody else carry it across the camp for once.",
+      "turn_in_text": "She did not argue with it. That is the part that worries me - she read it for an hour and then asked what the weather had been doing four days WEST.",
+      "next_quest_id": "gv_same_book",
+      "unique_item_defs": [
+        {
+          "name": "Still-Here Vest",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.5,
+            "parry_rating": 1.1
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Chest (Dodge/Parry)"
+        },
+        {
+          "name": "Camp-Issue Sandals",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Somebody carried this down the spiral and never carried it back up.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 4.6,
+            "crit_chance_spell": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Boots (Int/SP/Crit)"
+        },
+        {
+          "name": "Still-Here Buckler",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Camp kit off a rock nobody can leave quickly.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "armor_value": 76,
+          "block_value": 95,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_tally_book",
+            "name": "Oss Pinch's Water-Level Book",
+            "description": "Nine hundred and forty-one dawns, in a very small hand.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "gv_same_book",
+      "title": "Both of Them Are Reading It Right",
+      "giver_npc_id": "gv_tally_clerk",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Get the argument stated plainly by both sides, in order, in one afternoon.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_company",
+            "gv_the_survey",
+            "gv_the_book_topic"
+          ]
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "I have started to suspect a number is only ever worth what the person reading it already believed, which is a terrible thing for a clerk to work out about herself.\n\nGo and get it said. Him first, her second, and come back and tell me if I am wrong.",
+      "turn_in_text": "You are not going to tell me I am wrong, are you.\n\nThen I will keep taking it at dawn, and one of them will be right eventually, and my book will have been right the whole time without ever helping anybody.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bedroll Fists",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Provisioned for ninety and issued to ten.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.7
+          },
+          "armor_type": "plate",
+          "armor_value": 114,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Camp-Issue Chain Belt",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Somebody carried this down the spiral and never carried it back up.",
+          "primary_stats": {
+            "stamina": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.8
+          },
+          "armor_type": "mail",
+          "armor_value": 76,
+          "label": "Mail Belt (Sta/Spi/HP)"
+        },
+        {
+          "name": "Eleven-Month Ring",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Provisioned for ninety and issued to ten.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.3
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_the_wet_test",
+      "title": "Where It Is Coldest",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Water from the deep end of the pool, sealed, where nobody has stirred it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pool Horror",
+          "count": 7,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_sealed_deepwater",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "I need water from the bottom of that pool and I need it SEALED, because the argument I am about to make rests on how cold it is and air ruins that in minutes.\n\nThere is something in the deep end that objects. It has objected to Sanna nine times.",
+      "turn_in_text": "Colder than the pool it came out of. Four degrees colder, consistently, from the deep end - and the Flats have been saying the water goes east for longer than any of us have been here, since well before the change.\n\n\n\nWater does not refrigerate itself. That water has come a very long way underground and it has come FAST, and I can now say so with a figure attached.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Camp-Issue Byrnie",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Somebody carried this down the spiral and never carried it back up.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "spell_power": 8.4
+          },
+          "armor_type": "mail",
+          "armor_value": 156,
+          "label": "Mail Chest (Int/Hit/SP)"
+        },
+        {
+          "name": "Lastwater Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.0
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Eleven-Month Dagger",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.0
+          },
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_who_drove_this",
+      "title": "Somebody Methodical",
+      "giver_npc_id": "item:gv_bench_marker",
+      "zone": "glittervein",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "A survey marker, bent, driven into the second terrace by somebody who knew how.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gv_bench_marker",
+          "count": 1,
+          "label": "the bent marker, to Ulla Stormhollow"
+        },
+        {
+          "type": "kill",
+          "target": "Terrace Basilisk",
+          "count": 6,
+          "zone": "glittervein"
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "It is a surveyor's marker, driven properly, into a bench of a hole four days from the nearest road. Somebody has been doing this work down here before, and doing it well.",
+      "turn_in_text": "That is mine. Third season, before the camp existed.\n\nI have driven forty of those between the Aspen and here and I have never once come back and found one. You have no idea what it is like to be handed proof that you were somewhere.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Spiral-Walked Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 114,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Spiral-Walked Circlet",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.9,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Helm (Int/SP/Crit)"
+        },
+        {
+          "name": "Waterline Scepter",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "weapon_damage_min": 56,
+          "weapon_damage_max": 76,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_works_order",
+      "title": "A Works Order, Not a Fight",
+      "giver_npc_id": "gv_dig_boss",
+      "zone": "glittervein",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Both halves of the camp sign the same piece of paper, finally.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_works_order"
+          ]
+        },
+        {
+          "type": "deliver",
+          "target": "gv_works_order_paper",
+          "count": 1,
+          "label": "the countersigned works order, to Pump-Chief Thane"
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "She has a figure. I have hated that woman for eleven months and she has a figure and I can do arithmetic.\n\nSo: nine days of pumping on the first gallery, her two housings and my four, and she gets a man on the face the whole time writing down what we find. I will sign that. I am not going to enjoy signing that.\n\nTake it to Thane before I read it again.",
+      "turn_in_text": "He signed it. He SIGNED it.\n\nNine days. Tell everybody. Tell the cook first, he is the one who has had to seat them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Camp-Issue Cord",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Camp kit off a rock nobody can leave quickly.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        },
+        {
+          "name": "Camp-Issue Spaulders",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Camp kit off a rock nobody can leave quickly.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.2
+          },
+          "armor_type": "mail",
+          "armor_value": 117,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Still-Here Axe",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "armor": 21.9,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_works_order_paper",
+            "name": "Countersigned Works Order",
+            "description": "Two signatures, eleven months apart in temperament and four inches apart on the page.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "gv_five_places",
+      "title": "Five Places, In Order",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "The tauren with the notebook has walked where you have walked, four years ahead.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_chain",
+            "gv_the_melt"
+          ]
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "You came here through the Sands. Before that, Tanaris. Before that the pan, and the Needles, and if you have been at this long enough, the Aspen.\n\nI have walked all five. In that order. Starting four years ago, because the thaw was coming early and nobody could tell me why.\n\nSit down. You already know four sixths of this and nobody has ever put it in front of you in one piece.",
+      "turn_in_text": "At every one of those places somebody told me it was a local problem with a local cause. Five times. Five different people, all of them careful, none of them wrong about their own valley.\n\nIt is one problem. You are standing in it.",
+      "next_quest_id": "gv_the_marks",
+      "unique_item_defs": [
+        {
+          "name": "Terrace Gauntlets",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.9
+          },
+          "armor_type": "plate",
+          "armor_value": 117,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Green-Shelf Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.0
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Spiral-Walked Charm",
+          "slot": "neck",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.0
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "tan_gad_the_answer"
+      ]
+    },
+    {
+      "quest_id": "gv_the_marks",
+      "title": "Nine Hundred and Forty-One Dawns",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Read the old waterlines off the rock, where nobody has written anything down.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 56,
+          "target_y": 94,
+          "radius": 7
+        },
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 112,
+          "target_y": 96,
+          "radius": 7
+        },
+        {
+          "type": "kill",
+          "target": "Waterline Serpent",
+          "count": 8,
+          "zone": "glittervein"
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "Oss's book goes back nine hundred and forty-one days. The ROCK goes back further and it has been keeping the same record for nothing.\n\nFind me the old marks on the west shore and the east. I want to know what this pool did before anybody was here to have an opinion about it.",
+      "turn_in_text": "It was lower. Three years ago that pool was eleven feet lower than it is now, and it has come up steadily since.\n\nThree years. You will have noticed that number before. Everyone who came across has.",
+      "next_quest_id": "gv_does_not_choose",
+      "unique_item_defs": [
+        {
+          "name": "Green-Shelf Veil",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 7.0,
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 36,
+          "label": "Cloth Helm (Int/SP/MP5)"
+        },
+        {
+          "name": "Spiral-Walked Sabatons",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Damp, in a desert, which is the whole argument of this place.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 78,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Terrace Signet",
+          "slot": "ring",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_does_not_choose",
+      "title": "Water Does Not Choose",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Prove the pool is being fed rather than filling.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Waterline Serpent",
+          "count": 7,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_tideglass_core",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "A pool that is filling is a pool with a level. A pool that is being FED has a current, and a current leaves a grain in anything that grows in it.\n\nGet me tideglass off the waterline and cores out of the lattice above it. The crystal grows toward what feeds it. If I am right, every one of those will point the same way, and the way will be DOWN.",
+      "turn_in_text": "Every single one. Down and slightly east, all of them, without exception.\n\nThe water in this pool is not sitting here. It is passing through on its way somewhere and coming back up, and something at the far end of that is doing the work.",
+      "next_quest_id": "gv_a_well_in_the_middle",
+      "unique_item_defs": [
+        {
+          "name": "Green-Shelf Mitts",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 4.8,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Gloves (Int/SP/Hit)"
+        },
+        {
+          "name": "Terrace Visor",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 179,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Spiral-Walked Signet",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_a_well_in_the_middle",
+      "title": "A Well in the Middle of It",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "The arithmetic that kills a walled city, written out once.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_gadgetzan"
+          ]
+        },
+        {
+          "type": "fetch",
+          "target": "gv_settled_light",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Vein-Lit Wisp",
+          "count": 6,
+          "zone": "glittervein"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "You have stood in Gadgetzan. There is a well in the middle of that city and it is dry and the city is dead, and every goblin in Steamwheedle will tell you the range came down three years ago and tipped the table.\n\nThat is true and it is not an explanation. A table does not tip and then keep tipping for three years.\n\nBring me residue off the wisps on the seam. They settle where the draw is strongest, and I want to know whether the draw is still increasing.",
+      "turn_in_text": "Still increasing. Not slowing, not settling - increasing, in the fourth year.\n\nWhatever took that city's water is still thirsty. That is what I could not say last week and can say now.",
+      "next_quest_id": "gv_it_is_being_pulled",
+      "unique_item_defs": [
+        {
+          "name": "Terrace Byrnie",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "mail",
+          "armor_value": 159,
+          "label": "Mail Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Rim-Dry Slippers",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Ferns got at it. Nothing in Tanaris has fern on it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 6.7,
+            "mp5": 1.4
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Boots (HP/MP5)"
+        },
+        {
+          "name": "Rim-Dry Shortbow",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 3,
+            "agility": 3,
+            "stamina": 3
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_it_is_being_pulled",
+      "title": "It Is Being Pulled",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Say the sentence out loud, to the man who has to act on it.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_argument"
+          ]
+        },
+        {
+          "type": "deliver",
+          "target": "gv_ullas_finding",
+          "count": 1,
+          "label": "Ulla's finding, to Dig-Boss Marn Cobble"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "I have a figure, a direction, and a rate. I have had the first two for a year and the third since this morning, and the third is the one that matters.\n\nThe water under this region is being drawn down a shaft four hundred feet below us, by something that started doing it about the time the sky changed.\n\nTake that to Cobble. He will not like it and he will not argue with it, which are different things and he is better than he looks at keeping them apart.",
+      "turn_in_text": "He read it twice and asked one question: whether it would stop if somebody made it stop.\n\nI did not have an answer. I think we are about to get one.",
+      "next_quest_id": "gv_mv_open_the_door",
+      "unique_item_defs": [
+        {
+          "name": "Rim-Dry Legguards",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Carried down forty-six feet of cut road.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9,
+            "dodge_rating": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 159,
+          "label": "Mail Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Spiral-Walked Vestments",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Damp, in a desert, which is the whole argument of this place.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9.5,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 49,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Green-Shelf Loop",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "The only thing growing for a hundred miles grew on this.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 3.1
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_ullas_finding",
+            "name": "Ulla's Finding",
+            "description": "A figure, a direction and a rate, on one sheet, in a very steady hand.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "gv_last_entry",
+      "title": "The Last Entry",
+      "giver_npc_id": "item:gv_drowned_ledger",
+      "zone": "the_cistern",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Company accounts, four hundred feet down, ending on a date.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gv_drowned_ledger",
+          "count": 1,
+          "label": "the waterlogged ledger, to Tally-Clerk Oss Pinch"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "It is a ledger, and it is a proper one - ruled, dated, double-entered. The last line is a date and nothing after it.",
+      "turn_in_text": "That is Hallick's hand. He kept the face accounts and he went down with the shift.\n\nHe balanced it. Look at the bottom of the column - he was four hundred feet under a desert with the water coming up and he BALANCED IT first.\n\nI am going to put this in the box with mine.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dig-Head Chain Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "spell_power": 4.5
+          },
+          "armor_type": "mail",
+          "armor_value": 82,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Drowned-Gallery Mitts",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        },
+        {
+          "name": "Four-Hundred-Foot Saber",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.4
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_the_cutters_stock",
+      "title": "Four Months of Stock",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "glittervein",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "The only stone in the world that ignores a spell, and the supply has a date on it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shardback Crawler",
+          "count": 7,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_rough_seam_glass",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "There is one seam in the world that shrugs off a spell and you are standing in the hole it came out of - and it was not here three years ago either, before you ask. Nobody cut this stone before the change because nobody had found the hole.\n\nI have about four months of cut stock left. After that I am a very skilled woman sitting on a rock. Get me rough off the wall - the seams run up the inside, you cannot miss them, they are the only thing down here that glows.",
+      "turn_in_text": "Rough, but it is the real thing. You can tell because it goes COLD when you hold it near anything cast, and nothing else does that.",
+      "next_quest_id": "gv_four_months_left",
+      "unique_item_defs": [
+        {
+          "name": "Shrug-Off Cap",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "There is one seam like this anywhere and you are standing in the hole it came from.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "spell_power": 6.2
+          },
+          "armor_type": "mail",
+          "armor_value": 114,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Vein-Cut Girdle",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "Backed with vein glass, which is the only stone in the world that ignores a spell.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 114,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Seam-Set Hatchet",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 47,
+          "flavor_text": "There is one seam like this anywhere and you are standing in the hole it came from.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "armor": 21.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_four_months_left",
+      "title": "What Grows Over It",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The lattice is eating the exposed face faster than anybody can cut it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lattice-Grown",
+          "count": 9,
+          "zone": "glittervein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_lattice_core",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "accept_text": "The problem is not finding the seam. The problem is that something has worked out the seam is worth having.\n\nThe lattice grows over an exposed face in a season and once it has, the stone underneath is no good - whatever it does to the crystal, it does it all the way through. Cut it back and bring me the cores.",
+      "turn_in_text": "These are growing TOWARD the seam. Not over it, toward it.\n\nI have been calling it a weed for two years. It is not a weed. It is something that wants what I want.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Glass-Backed Armguards",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "There is one seam like this anywhere and you are standing in the hole it came from.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "block_rating": 0.6,
+            "block_value": 5.7
+          },
+          "armor_type": "plate",
+          "armor_value": 114,
+          "label": "Plate Bracers (Sta/Block/BV)"
+        },
+        {
+          "name": "Vein-Cut Epaulets",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Backed with vein glass, which is the only stone in the world that ignores a spell.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 71,
+          "label": "Leather Shoulders (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Shrug-Off Talisman",
+          "slot": "neck",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Backed with vein glass, which is the only stone in the world that ignores a spell.",
+          "primary_stats": {
+            "intellect": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_what_shrugs_off_a_spell",
+      "title": "Why It Works",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Test the glass against something that actually casts.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Vein-Lit Wisp",
+          "count": 8,
+          "zone": "glittervein"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_resistance"
+          ]
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "I can tell you vein glass shrugs off a spell. I cannot tell you WHY, and neither can anybody in Steamwheedle, and I have stopped pretending that is fine.\n\nTake a backed plate up the galleries and let the wisps hit it. They are the only thing down here that throws anything worth measuring.",
+      "turn_in_text": "It does not block. That is the thing nobody says properly. It does not block - it takes the shape of the spell and then it will not hold it, the way water will not hold a fist.\n\nSo you want it where you are going to be HIT. Breastplate, shield, greaves. Not a hat.",
+      "next_quest_id": "gv_backed_and_set",
+      "unique_item_defs": [
+        {
+          "name": "Seam-Set Breeches",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "There is one seam like this anywhere and you are standing in the hole it came from.",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "spell_power": 5.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 48,
+          "label": "Cloth Legs (Int/Sta/SP)"
+        },
+        {
+          "name": "Cutter's Belt",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Cut, backed and set by somebody who has four months of stock left.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.0
+          },
+          "armor_type": "leather",
+          "armor_value": 48,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Seam-Set Band",
+          "slot": "ring",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Backed with vein glass, which is the only stone in the world that ignores a spell.",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2,
+            "spell_power": 3.4
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_backed_and_set",
+      "title": "Backed, and Set",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "glittervein",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "She will set the glass into something you already wear.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "gv_spun_glass",
+          "count": 4
+        },
+        {
+          "type": "deliver",
+          "target": "gv_cut_plate",
+          "count": 1,
+          "label": "the cut plate, back to Vessa Quill"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "The weavers in the dig spin it into thread. I have never worked out how and I would very much like a length of it, because thread takes a curve and a plate does not.\n\nBring me spun glass out of the vein and I will back something of yours properly. Tank kit, mind. There is no point in this on somebody standing at the back.",
+      "turn_in_text": "There. Now when something down there decides to be clever at you, it will find out that you are wearing the one stone in the world that does not care.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Glass-Backed Slippers",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Cold to the touch and it has never been near water.",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Boots (Int/Sta/SP)"
+        },
+        {
+          "name": "Shrug-Off Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Cold to the touch and it has never been near water.",
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.2
+          },
+          "armor_type": "leather",
+          "armor_value": 49,
+          "label": "Leather Belt (Agi/Sta/AP)"
+        },
+        {
+          "name": "Seam-Set Talisman",
+          "slot": "neck",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 49,
+          "flavor_text": "Cut, backed and set by somebody who has four months of stock left.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_cut_plate",
+            "name": "Vessa's Cut Plate",
+            "description": "Vein glass, cut and backed, waiting for somebody to set it into.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "gv_the_seam_is_the_zone",
+      "title": "Follow One Down",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "glittervein",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Pick a seam out from the rim and walk the length of it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 108,
+          "target_y": 60,
+          "radius": 8
+        },
+        {
+          "type": "explore",
+          "target": "glittervein",
+          "target_x": 50,
+          "target_y": 126,
+          "radius": 8
+        }
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "accept_text": "Here is a thing nobody tells newcomers and everybody works out: you can see the seams from the top. They are the only lit thing in the hole.\n\nStand on the rim, pick one, and follow it all the way down. Everybody who works this wall knows their own seam by sight and that is how you start.",
+      "turn_in_text": "Now you can find your way down there in the dark, which you will need to, because the lamps on that road have been out since the works stopped.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Vein-Cut Wraps",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Cold to the touch and it has never been near water.",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 4.7,
+            "hit_rating": 0.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Boots (Int/SP/Hit)"
+        },
+        {
+          "name": "Cutter's Chainmail",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Cold to the touch and it has never been near water.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.8,
+            "parry_rating": 0.6
+          },
+          "armor_type": "mail",
+          "armor_value": 156,
+          "label": "Mail Chest (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Shrug-Off Necklace",
+          "slot": "neck",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "required_level": 48,
+          "flavor_text": "Cold to the touch and it has never been near water.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_mv_open_the_door",
+      "title": "Nine Days",
+      "giver_npc_id": "gv_pump_chief",
+      "zone": "glittervein",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "The first gallery is clear. Somebody has to walk into it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_mother_vein",
+          "target_x": 60,
+          "target_y": 100,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Sodden Digger",
+          "count": 8,
+          "zone": "the_mother_vein"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "Nine days, like I said. The first gallery is dry and the dig head is standing open for the first time in a year.\n\nAnd there are people in it. That is the part I have not told the Boss yet. They are still on shift, in the sense that nobody ever called the shift, and they do not want anybody down there with them.",
+      "turn_in_text": "Forty of them. We signed off forty missing and there are forty down there.\n\nHalf of them came through with everybody else and took the first wage anybody offered. They were not from here. Nobody is going to come looking.\n\nI am going to have to be the one who tells him that, aren't I.",
+      "next_quest_id": "gv_mv_still_on_shift",
+      "unique_item_defs": [
+        {
+          "name": "Pitboss's Leggings",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Company issue, and the company stopped issuing a year ago.",
+          "primary_stats": {
+            "stamina": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 5.7
+          },
+          "armor_type": "mail",
+          "armor_value": 159,
+          "label": "Mail Legs (Sta/Spi/HP)"
+        },
+        {
+          "name": "Four-Hundred-Foot Armguards",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Four-Hundred-Foot Mace",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 93,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_mv_still_on_shift",
+      "title": "Still On Shift",
+      "giver_npc_id": "gv_tally_clerk",
+      "zone": "glittervein",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Every one of them had a number, and the numbers are still on the board.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "gv_shift_token",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Vein Crawler",
+          "count": 8,
+          "zone": "the_mother_vein"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "Each of them carried a brass token with a number on it. You hang it on the board going in and you take it off coming out, and that is how a dig knows who is below.\n\nThere are forty tokens still hanging on that board. Bring me what you can off them and I will take the numbers down properly, which is a thing somebody should have done eleven months ago.",
+      "turn_in_text": "Six. I will do the rest myself over time.\n\nHesper Dunn keeps a book like mine out in the port and she told me once she keeps hers so that in four years nobody can claim the town was always like this. Mine is so that in four years somebody can still say their names.",
+      "next_quest_id": "gv_mv_the_foreman",
+      "unique_item_defs": [
+        {
+          "name": "Dig-Head Vestments",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Still on shift, in the sense that nobody ever called the shift.",
+          "primary_stats": {
+            "stamina": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 5.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 50,
+          "label": "Cloth Chest (Sta/Int/HP)"
+        },
+        {
+          "name": "Dig-Head Hauberk",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9,
+            "dodge_rating": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 162,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Shift-Worn Signet",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.3
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_mv_the_foreman",
+      "title": "The Wage Bill",
+      "giver_npc_id": "gv_dig_boss",
+      "zone": "the_mother_vein",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The pitboss who would not call the evacuation is at the head of the gallery.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Pitboss Grebble Vask",
+          "count": 1,
+          "zone": "the_mother_vein"
+        }
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "accept_text": "Grebble Vask was my pitboss and he was the best I ever had, and he did not call the evacuation because calling it cost eleven thousand and not calling it cost nothing until it cost everything.\n\nHe is still down there. He is still shouting figures. I have heard him from the mouth and I would like that to stop.",
+      "turn_in_text": "Thank you.\n\nI signed that order. He read it out to me and I signed it and the thing that has been eating me for a year is that I would sign it again, because from where I stood on the Tuesday it was the right number.",
+      "next_quest_id": "gv_mv_what_the_pumps",
+      "unique_item_defs": [
+        {
+          "name": "Four-Hundred-Foot Coif",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Still on shift, in the sense that nobody ever called the shift.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9,
+            "dodge_rating": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 162,
+          "label": "Mail Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Shift-Worn Mantle",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "stamina": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 5.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 50,
+          "label": "Cloth Shoulders (Sta/Int/HP)"
+        },
+        {
+          "name": "Pitboss's Talisman",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.2
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        },
+        {
+          "name": "Drowned-Gallery Chaps",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Company issue, and the company stopped issuing a year ago.",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19.5
+          },
+          "armor_type": "leather",
+          "armor_value": 135,
+          "label": "Leather Legs (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_mv_what_the_pumps",
+      "title": "What the Pumps Could Not Hold",
+      "giver_npc_id": "gv_pump_chief",
+      "zone": "the_mother_vein",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The pump chamber, and the thing the water left in it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Sump",
+          "count": 1,
+          "zone": "the_mother_vein"
+        }
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "accept_text": "Four of those six housings are down there in the sump chamber and they are MINE, and I have wanted them back for a year.\n\nThere is something in that chamber now. Sanna has seen it from the gallery mouth and she will not go past the arch, and Sanna has gone into that water nine times.",
+      "turn_in_text": "You got them out. Look at the face on that casing - the water did not do that, something SAT on it.\n\nI can run four more pumps off these. Not that it matters any more. We are not here for the crystal now, are we.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Dig-Head Wristguards",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Still on shift, in the sense that nobody ever called the shift.",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 9.7
+          },
+          "armor_type": "leather",
+          "armor_value": 67,
+          "label": "Leather Bracers (Agi/Sta/AP)"
+        },
+        {
+          "name": "Dig-Head Boots",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 162,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Drowned-Gallery Necklace",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Company issue, and the company stopped issuing a year ago.",
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "mp5": 1.0
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        },
+        {
+          "name": "Drowned-Gallery Hauberk",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "stamina": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 7.8
+          },
+          "armor_type": "mail",
+          "armor_value": 216,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_mv_glassmaw",
+      "title": "The Glass Rooms",
+      "giver_npc_id": "gv_diver",
+      "zone": "the_mother_vein",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "The vugs are rooms made of knives, and something lives in them.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Glassmaw",
+          "count": 1,
+          "zone": "the_mother_vein"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_spun_glass",
+          "count": 4
+        }
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "accept_text": "Forty feet in on a lungful, tie off, forty feet back. That was the job before the gallery dried.\n\nNow I can walk it, and I have walked it, and past the pump chamber the seam opens into rooms that are made entirely of crystal faces. Beautiful. Also every surface in there will open you up, and one of them MOVES.",
+      "turn_in_text": "Nine times I went in on a lungful and I never once got as far as that room.\n\nThere is a hole in the floor at the back of it. It goes down. I looked at it for a long time and then I came back up here and had a drink.",
+      "next_quest_id": "gv_ci_further_down",
+      "unique_item_defs": [
+        {
+          "name": "Shift-Worn Gauntlets",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "It was four hundred feet down when the water came up to meet it.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 165,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Drowned-Gallery Cape",
+          "slot": "back",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 7.9
+          },
+          "armor_type": "leather",
+          "armor_value": 55,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Dig-Head Loop",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Company issue, and the company stopped issuing a year ago.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.2
+          },
+          "label": "Ring (Int/Spi/HP)"
+        },
+        {
+          "name": "Dig-Head Sabatons",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 51,
+          "flavor_text": "Goblin work, and the last of it anybody did down there.",
+          "primary_stats": {
+            "stamina": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "mail",
+          "armor_value": 110,
+          "label": "Mail Boots (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_ci_further_down",
+      "title": "The Hole in the Floor",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "the_mother_vein",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Down the shaft at the back of the glass rooms, into whatever is below it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_cistern",
+          "target_x": 46,
+          "target_y": 118,
+          "radius": 8
+        },
+        {
+          "type": "kill",
+          "target": "Seam Singer",
+          "count": 8,
+          "zone": "the_cistern"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Sanna has described the shaft to me three times and each time she has described it as going DOWN, which is a thing shafts do and not worth saying three times.\n\nShe means it is going down past where the water is. Nothing drains below the water table. Something is holding that shaft dry, and I would like to know what and I am not able to go myself.",
+      "turn_in_text": "Singing. You said singing and I wrote down singing and I want to be clear that I do not know what that means.\n\nWhatever is down there arrived when everything arrived. Three years, and it has been doing this the whole time under a desert nobody walks.\n\nGo carefully. I have spent four years wanting to be right about this and I find I would rather you came back.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Thirst-Denying Handguards",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 82,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Cistern Cuirass",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 248,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Drawn-Dry Loop",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Five zones went into making this wet.",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gv_ci_the_choir",
+      "title": "The Whole Seam Answers",
+      "giver_npc_id": "gv_crystal_cutter",
+      "zone": "the_cistern",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "The lattice down here grows in exact repeating geometry, and it resonates.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Resonance",
+          "count": 1,
+          "zone": "the_cistern"
+        },
+        {
+          "type": "fetch",
+          "target": "gv_struck_shard",
+          "count": 4
+        }
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "accept_text": "Sanna brought up a shard and it has been ringing on my bench for a day. A day. I have put it in sand, I have put it in water, I have put it in a lead box.\n\nThere is something down there that strikes the seam and the whole seam answers. That is not crystal doing what crystal does. Somebody is PLAYING it.",
+      "turn_in_text": "It stopped. The one on my bench stopped the moment you came up the spiral, and I did not need telling what that meant.\n\nI have been cutting this stone for eleven years. I did not know it could be asked to do anything.",
+      "next_quest_id": "gv_ci_the_siphon",
+      "unique_item_defs": [
+        {
+          "name": "Drawn-Dry Wraps",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Five zones went into making this wet.",
+          "primary_stats": {
+            "stamina": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        },
+        {
+          "name": "Drawn-Dry Cuisses",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Carried up the channel the water takes, which is how anybody gets out.",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9
+          },
+          "armor_type": "plate",
+          "armor_value": 330,
+          "label": "Plate Legs (Str/Sta/Def)"
+        },
+        {
+          "name": "Drawn-Dry Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4,
+            "stamina": 4
+          },
+          "weapon_damage_min": 80,
+          "weapon_damage_max": 109,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        },
+        {
+          "name": "Water-Table Cuffs",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_ci_the_siphon",
+      "title": "The Proof",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "the_cistern",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "The thing that lifts the water, which is the whole argument made of metal and ice.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Siphon",
+          "count": 1,
+          "zone": "the_cistern"
+        }
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "accept_text": "You have found the works. Sanna's description is the first thing anybody has told me in four years that I could not have predicted.\n\nWater does not rise. I have built an argument on that sentence across five zones and a thousand miles and I have never once been able to show anybody the thing that breaks it.\n\nGo and break it.",
+      "turn_in_text": "So it is real.\n\nFour years. Five places. Every one of them a local problem with a local cause and every single one of those people was looking at the same machine.\n\nI would like a moment, if you do not mind. I will have the rest of it written up by the time you have climbed back down.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Water-Table Sash",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Carried up the channel the water takes, which is how anybody gets out.",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.6,
+            "hit_rating": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Belt (Int/SP/Hit)"
+        },
+        {
+          "name": "Water-Table Wristguards",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "primary_stats": {
+            "strength": 6,
+            "agility": 5,
+            "stamina": 5
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Outflow Knife",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.4,
+            "parry_rating": 1.1
+          },
+          "weapon_damage_min": 95,
+          "weapon_damage_max": 128,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Outflow Shoulderplates",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 247,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_ci_standing_water",
+      "title": "Water Does Not Do This",
+      "giver_npc_id": "gv_diver",
+      "zone": "the_cistern",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Past the works, the water is standing up.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Standing Wave",
+          "count": 1,
+          "zone": "the_cistern"
+        },
+        {
+          "type": "kill",
+          "target": "Cistern Lurker",
+          "count": 8,
+          "zone": "the_cistern"
+        }
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "accept_text": "I have been in water my whole life. Harbour water, cave water, the pool out there that nobody else will swim in.\n\nI went to the lip of that chamber and the water in it is standing UP. Not a wave. Not moving at all. Standing, held, like something is holding it, and the lattice goes all the way through it.\n\nI came back. You will notice I came back.",
+      "turn_in_text": "Nine times into that gallery on a lungful and I thought I had seen the worst thing down here on about the fourth.\n\nI was nowhere near it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Outflow Vambraces",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 165,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Outflow Spaulders",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Carried up the channel the water takes, which is how anybody gets out.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.9,
+            "dodge_rating": 0.9
+          },
+          "armor_type": "mail",
+          "armor_value": 165,
+          "label": "Mail Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Water-Table Charm",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.3
+          },
+          "label": "Necklace (Str/Sta/Crit)"
+        },
+        {
+          "name": "Thirst-Denying Grips",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Carried up the channel the water takes, which is how anybody gets out.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Gloves (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_ci_the_thirst",
+      "title": "Three Years of Drinking",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "the_cistern",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "The top of the shaft, and the end of five zones.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Thirst",
+          "count": 1,
+          "zone": "the_cistern"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_end"
+          ]
+        }
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "accept_text": "Everything in that place is downstream of one room and I can tell you exactly where it is, because I have been drawing this map for four years without knowing what I was drawing.\n\nWhatever is in there arrived when everything else arrived. It has been drinking a region since, and it has not slowed down once, and the fourth year is faster than the third.\n\nI am not going to tell you to be careful. You have walked the same five places I have. You know what it has cost already.",
+      "turn_in_text": "It let go.\n\nYou came out of the outflow, did you? Everybody does - there is only the one channel and it is the channel the water takes. You followed it home.\n\nOss took the level at dawn. It is down four inches. Four inches is nothing. Four inches is the first time that number has gone the right way in nine hundred and forty-two days.",
+      "next_quest_id": "gv_tell_them_why",
+      "unique_item_defs": [
+        {
+          "name": "Thirst-Denying Belt",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 0.6,
+            "parry_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 110,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Water-Table Handguards",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.6,
+            "block_rating": 1.1,
+            "dodge_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 165,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Cistern Wand",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Five zones went into making this wet.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.0,
+            "crit_chance_spell": 0.2
+          },
+          "weapon_damage_min": 80,
+          "weapon_damage_max": 109,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        },
+        {
+          "name": "Cistern Tunic",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "flavor_text": "Five zones went into making this wet.",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 13.2,
+            "mp5": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 68,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "gv_tell_them_why",
+      "title": "Somebody Should Tell Them",
+      "giver_npc_id": "gv_surveyor",
+      "zone": "glittervein",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Four days east, to the goblins who were told their city died of bad luck.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gv_ullas_account",
+          "count": 1,
+          "label": "Ulla's account, to Old Mazzic in Steamwheedle"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_the_road_east"
+          ]
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "There is a man in Steamwheedle who did not leave Gadgetzan. He was carried out of it on a door by two people whose names he never got, and he has spent three years listening to people say his town had bad luck.\n\nIt did not have bad luck. It had a cause, the cause had a location, and the location is four hundred feet under my feet.\n\nTake him the account. He is owed the sentence and I am not able to make the walk any more.",
+      "turn_in_text": "[Mazzic reads it twice, slowly, and then puts it down flat on the counter and smooths it with his hand.]\n\nI knew it was not us. Three years of goblins telling me the desert turned and I knew it was not US.\n\nThat is not better. I want to be honest with you - it is not better at all. But it is TRUE, and I have not had one of those about my own town since the day I came out of it on a door.",
+      "next_quest_id": "gv_the_book_goes_east",
+      "unique_item_defs": [
+        {
+          "name": "Thirst-Denying Chestguard",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Five zones went into making this wet.",
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "block_rating": 1.2,
+            "block_value": 12.4
+          },
+          "armor_type": "plate",
+          "armor_value": 248,
+          "label": "Plate Chest (Sta/Block/BV)"
+        },
+        {
+          "name": "Cistern Mitts",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It came out of the room the whole region's water is in.",
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 25,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        },
+        {
+          "name": "Drawn-Dry Necklace",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The seam gave up trying to grow through it.",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.8
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_ullas_account",
+            "name": "Ulla Stormhollow's Account",
+            "description": "Four years, five places, one cause, in the handwriting of somebody who walked all of it.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "gv_the_book_goes_east",
+      "title": "The Column Nobody Wanted",
+      "giver_npc_id": "gv_tally_clerk",
+      "zone": "glittervein",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Oss's nine hundred and forty-two dawns, copied for the port's own clerk.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gv_copied_column",
+          "count": 1,
+          "label": "the copied column, to Tally-Clerk Hesper Dunn"
+        },
+        {
+          "type": "dialogue",
+          "topics": [
+            "gv_two_clerks"
+          ]
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Hesper Dunn out in the port keeps a book like mine. She keeps hers so that in four years nobody can claim the town was always like this.\n\nMine is nine hundred and forty-two dawns of a number that nobody wanted and that turned out to be the only record anybody had of the thing happening. Copy it and take it to her. Two books four days apart are harder to lose than one.",
+      "turn_in_text": "She will keep it. She will keep it in the same box and she will date the box, because that is what we are like.\n\nSomebody in forty years is going to open that and find out exactly when a region stopped drying out. Not from a speech. From two clerks nobody listened to.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lastwater Pauldrons",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Provisioned for ninety and issued to ten.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 186,
+          "label": "Plate Shoulders (Str/Sta/Def)"
+        },
+        {
+          "name": "Still-Here Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9.9,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 51,
+          "label": "Cloth Legs (Int/SP/Crit)"
+        },
+        {
+          "name": "Camp-Issue Necklace",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It has been at the bottom of a hole long enough to stop smelling of anything.",
+          "primary_stats": {
+            "stamina": 3,
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 2.4
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gv_copied_column",
+            "name": "The Copied Column",
+            "description": "Nine hundred and forty-two dawns in a very small hand, copied twice over by lamplight.",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}
