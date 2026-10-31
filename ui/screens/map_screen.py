@@ -23,6 +23,11 @@ CLASS_VIOLET = (190, 130, 240)
 PROF_TEAL = (90, 210, 205)
 FORGE_ORANGE = (255, 125, 45)
 SAW_TAN = (210, 170, 105)
+#: Shop vendors. Kyle, 2026-10-31: "Can we get a map icon indicating vendors?
+#: Since I can't find vendors in towns without clicking on every single person."
+#: Deliberately a warm yellow, distinct from INN_AMBER and FORGE_ORANGE, because
+#: all three cluster in the same few tiles of a town square.
+SHOP_YELLOW = (255, 215, 90)
 
 
 class MapScreen(BaseScreen):
@@ -313,13 +318,29 @@ class MapScreen(BaseScreen):
         vendor_mgr = getattr(zm, "vendor_manager", None)
         if vendor_mgr is not None:
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
-        markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(), "forge": set(), "sawmill": set()}
+        markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
+                   "forge": set(), "sawmill": set(), "shop": set()}
         for npc in service_npcs:
-            for svc in services_for_npc(npc):
+            svcs = services_for_npc(npc)
+            for svc in svcs:
                 kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight",
                         "train_class": "class", "train_prof": "prof"}.get(svc)
                 if kind:
                     markers[kind].add((npc.x, npc.y))
+            # PLAIN SHOPS. Kyle: "I can't find vendors in towns without clicking
+            # on every single person." Trainers, innkeepers and flight masters
+            # already had their own glyph; the NPC who simply sells you things
+            # had nothing but the same grey dot every other person in town gets,
+            # which made the actual shop the one thing on the map you could not
+            # find. Only tagged when the NPC has stock and no service glyph of
+            # its own, so an innkeeper who also sells food stays an innkeeper
+            # rather than collecting a second marker on the same tile.
+            if svcs:
+                continue
+            sells = (list(getattr(npc, "sells", None) or [])
+                     or bool(getattr(npc, "sells_gear", False)))
+            if sells:
+                markers["shop"].add((npc.x, npc.y))
         # Crafting stations: forges (ore -> bars) and sawmills (logs -> planks)
         for forge in getattr(zm, "forge_manager", None) and zm.forge_manager.get_forges_in_zone(tilemap.name) or []:
             markers["forge"].add((forge.x, forge.y))
@@ -331,7 +352,7 @@ class MapScreen(BaseScreen):
             hx, hy = self._tile_to_screen(tilemap, rect, bind["x"], bind["y"])
             self._draw_service_icon(screen, "hearth", hx, hy)
 
-        for kind in ("forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
+        for kind in ("shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
             for tx, ty in sorted(markers[kind]):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 self._draw_service_icon(screen, kind, fx, fy)
@@ -359,7 +380,8 @@ class MapScreen(BaseScreen):
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
-        for kind, text in (("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
+        for kind, text in (("shop", "Vendor (buy / sell)"),
+                           ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
                            ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
                            ("class", "Class trainer"), ("prof", "Profession trainers"),
                            ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)")):
@@ -441,6 +463,13 @@ class MapScreen(BaseScreen):
             pygame.draw.circle(screen, dark, (cx, cy), 1)
             for dx, dy in ((0, -5), (0, 5), (-5, 0), (5, 0)):
                 pygame.draw.rect(screen, SAW_TAN, (cx + dx - 1, cy + dy - 1, 2, 2))
+        elif kind == "shop":
+            # a coin: filled disc with a rim and a slot, which reads at 8px where
+            # a coin-purse outline just turns into a blob
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, SHOP_YELLOW, (cx, cy), 8, 2)
+            pygame.draw.circle(screen, SHOP_YELLOW, (cx, cy), 4)
+            pygame.draw.line(screen, dark, (cx, cy - 3), (cx, cy + 3), 2)
         elif kind == "hearth":
             import math
             pts = []
