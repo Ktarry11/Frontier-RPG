@@ -356,11 +356,29 @@ class PortalManager:
                 (92, 140): ("The Undercrust", 16, 66),      # the Crustfall, by Crustbreak
                 (172, 113): ("The Undercrust", 104, 54),    # the Deep Shaft, under the Deep Mound
                 (104, 56): ("Saltwheel", 16, 50),           # the Raceway spur, into the town
+                (120, 176): ("Northern Tanaris", 92, 2),   # THE SOUTH PASS, down into Tanaris
             },
             # The goblin town, off the end of the Raceway spur road. One way in, one way out,
             # and no flight point at either end of it - see tools/sync_saltwheel_npcs.py.
             "Saltwheel": {
                 (16, 50): ("The Shimmering Flats", 104, 56),
+            },
+
+            # ===== TANARIS. Three zones; this is the first, and the only one built. =====
+            # Kyle drew the region: the top strip is the way in, the Abyssal Sands (44-47) are the
+            # southwest and Glittervein (46-49) the southeast. The south pass out of this zone is
+            # carved and walkable and NOT registered until the Sands exist - exactly what the Flats
+            # did with the pass that now points here, for two zones before Tanaris was built.
+            "Northern Tanaris": {
+                (92, 2): ("The Shimmering Flats", 120, 176),
+                (216, 56): ("Steamwheedle Port", 40, 58),
+                (200, 88): ("The Drownbell", 16, 12),
+            },
+            "Steamwheedle Port": {
+                (40, 58): ("Northern Tanaris", 216, 56),
+            },
+            "The Drownbell": {
+                (16, 12): ("Northern Tanaris", 200, 88),
             },
             "The Undercrust": {
                 (16, 66): ("The Shimmering Flats", 92, 140),
