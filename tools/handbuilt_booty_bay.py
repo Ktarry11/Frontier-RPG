@@ -192,6 +192,53 @@ CHESTS = []
 DECK_CHESTS = [(18, 26), (59, 26), (62, 34), (18, 49), (40, 35)]
 
 
+def _veg(L, name, cx, base_y, height, path_dir=SP, max_push=14):
+    """Place a jungle sprite so its canopy does NOT hang over the walkable boards.
+
+    Kyle, 2026-10-31: "booty bay is an absolute mess bro. so much wasted space and everything is
+    crammed to shit."
+
+    Measured before touching anything: 123% of the walkable deck sat under a prop footprint, and
+    53% of that was jungle vegetation. Sixteen tree buttresses and seven bamboo clumps were
+    drawing over the boards.
+
+    The intent in dress() was already right - the comment there says this growth "hangs over
+    rock, where a placement check would refuse it and be right to". The problem is that deco()
+    does no check at all, and these sprites are eleven tiles tall: anchored against the cliff
+    they still spread a canopy several tiles wide over the deck in front of them. An anchor on
+    rock does not mean a FOOTPRINT on rock.
+
+    So this does the check deco() deliberately skips, for vegetation only: push the sprite away
+    from the town centre until its footprint clears the deck, and shrink it if pushing is not
+    enough. Nothing is deleted - the jungle still comes down the back wall, it just stops
+    standing in the market.
+    """
+    import numpy as np
+    from tools.handbuilt_central_barrens import _aspect
+
+    z = L.z
+    path = f"{path_dir}{name}.png"
+
+    def clear(ax, ay, h):
+        wt = max(1, round(h * _aspect(path)))
+        x0, y0 = ax - wt // 2, ay - h + 1
+        for yy in range(max(0, y0), min(z.height, ay + 1)):
+            for xx in range(max(0, x0), min(z.width, x0 + wt)):
+                if z.is_walkable(xx, yy):
+                    return False
+        return True
+
+    # Away from the middle of the map is away from the town, which is built around it.
+    dx = 1 if cx >= W // 2 else -1
+    dy = 1 if base_y >= H // 2 else -1
+    for push in range(0, max_push + 1):
+        for h in (height, max(3, int(height * 0.7)), max(3, int(height * 0.5))):
+            if clear(cx + dx * push, base_y + dy * (push // 2), h):
+                L.deco(name, cx + dx * push, base_y + dy * (push // 2), h, path_dir=path_dir)
+                return True
+    return False        # nowhere for it: better absent than drawn across the boards
+
+
 def dress(L):
     P, B, D = L.prop, L.bld, L.dp
     C = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
@@ -210,11 +257,11 @@ def dress(L):
     # the headland is rock, so nothing STANDS on it - the growth hangs over the road from above, which
     # is what L.deco is for: a sprite with no collision and no placement check.
     for (x, y) in [(26, 12), (45, 9), (22, 7), (49, 14), (18, 11), (41, 6), (30, 16), (53, 10)]:
-        L.deco("stv_tree_buttress", x, y, 11, path_dir=SP)
+        _veg(L, "stv_tree_buttress", x, y, 11, path_dir=SP)
     for (x, y) in [(21, 9), (48, 11), (16, 15), (44, 15)]:
-        L.deco("stv_bamboo", x, y, 8, path_dir=SP)
-    L.deco("stv_palm_frond", 40, 7, 10, path_dir=SP)
-    L.deco("stv_palm_young", 24, 5, 10, path_dir=SP)
+        _veg(L, "stv_bamboo", x, y, 8, path_dir=SP)
+    _veg(L, "stv_palm_frond", 40, 7, 10, path_dir=SP)
+    _veg(L, "stv_palm_young", 24, 5, 10, path_dir=SP)
 
     # ---- the ramp foot: toll post and the harbourmaster's tower, first thing off the cliff --------
     B("guard_post", 47, 21, 6, nudge=2)
@@ -278,17 +325,17 @@ def dress(L):
     # be right to, since none of it is standing on anything a player could walk on.
     for (x, y) in [(11, 18), (9, 48), (13, 55), (14, 26), (13, 44), (52, 57), (21, 57), (10, 36),
                    (58, 16), (60, 52), (16, 10), (12, 60)]:
-        L.deco("stv_tree_buttress", x, y, 11, path_dir=SP)
+        _veg(L, "stv_tree_buttress", x, y, 11, path_dir=SP)
     for (x, y) in [(8, 30), (11, 41), (10, 13), (57, 9), (17, 52), (45, 57), (7, 56), (14, 33)]:
-        L.deco("stv_bamboo", x, y, 8, path_dir=SP)
+        _veg(L, "stv_bamboo", x, y, 8, path_dir=SP)
     for (x, y) in [(12, 35), (9, 24), (15, 48), (55, 12), (31, 57), (13, 39)]:
-        L.deco("stv_banana_clump", x, y, 6, path_dir=SP)
+        _veg(L, "stv_banana_clump", x, y, 6, path_dir=SP)
     for (x, y) in [(13, 29), (10, 38), (14, 21), (51, 11), (27, 57), (39, 57), (15, 43)]:
-        L.deco("stv_hibiscus", x, y, 3, path_dir=SP)
+        _veg(L, "stv_hibiscus", x, y, 3, path_dir=SP)
     for (x, y) in [(13, 15), (10, 52), (47, 6), (19, 11), (15, 57)]:
-        L.deco("stv_palm_young" if (x + y) % 2 else "stv_screw_pine", x, y, 10, path_dir=SP)
-    L.deco("stv_mangrove", 16, 22, 6, path_dir=SP)
-    L.deco("stv_mangrove", 16, 47, 6, path_dir=SP)
+        _veg(L, "stv_palm_young" if (x + y) % 2 else "stv_screw_pine", x, y, 10, path_dir=SP)
+    _veg(L, "stv_mangrove", 16, 22, 6, path_dir=SP)
+    _veg(L, "stv_mangrove", 16, 47, 6, path_dir=SP)
     L.deco("stv_troll_totem", 17, 16, 7, path_dir=SP)   # older than the port, and nobody moves it
 
 
