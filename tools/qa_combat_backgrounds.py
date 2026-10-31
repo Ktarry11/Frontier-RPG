@@ -44,7 +44,8 @@ pygame.init()
 pygame.display.set_mode((64, 64))
 
 from world.tile_textures import ZONE_BIOME, CAVE_BIOME, DEFAULT_BIOME, get_biome_for_zone  # noqa: E402
-from world.combat_backgrounds import BIOME_TO_BACKGROUND, get_background_folder  # noqa: E402
+from world.combat_backgrounds import (BIOME_TO_BACKGROUND, get_background_folder,  # noqa: E402
+                                      ZONE_BACKGROUND, get_background_for_place)
 from ui.combat_background_loader import get_background_for_zone, _resolve_folder_path, _list_images  # noqa: E402
 
 
@@ -61,15 +62,22 @@ def main():
     bad = []
     zones, caves = places()
 
-    # ---- 1 & 2. explicit biome, not a default
+    # ---- 1 & 2. the backdrop was CHOSEN for this place, one way or the other
+    #
+    # Two ways to choose one: a biome entry (which also drives the zone's floor and wall
+    # textures) or a ZONE_BACKGROUND override (which drives only the backdrop). The override
+    # exists because filling in the biome tables to fix 43 backdrops would have repainted 43
+    # hand-built zones. Either counts; neither means the default is showing.
     for name in zones:
-        if name not in ZONE_BIOME:
-            bad.append(f"zone {name!r} is not in ZONE_BIOME - it silently gets DEFAULT_BIOME "
-                       f"({DEFAULT_BIOME!r}) and whatever backdrop that maps to")
+        if name not in ZONE_BIOME and name not in ZONE_BACKGROUND:
+            bad.append(f"zone {name!r} has neither a biome nor a background override - it "
+                       f"silently gets DEFAULT_BIOME ({DEFAULT_BIOME!r}) and whatever backdrop "
+                       f"that maps to")
     for name in caves:
-        if name not in CAVE_BIOME:
-            bad.append(f"cave/dungeon {name!r} is not in CAVE_BIOME - it falls through to the "
-                       f"OVERWORLD table and fights under an outdoor sky")
+        if name not in CAVE_BIOME and name not in ZONE_BACKGROUND:
+            bad.append(f"cave/dungeon {name!r} has neither a CAVE_BIOME entry nor a background "
+                       f"override - it falls through to the OVERWORLD table and fights under an "
+                       f"outdoor sky")
 
     # ---- 3. the biomes actually reached have art
     reached = defaultdict(list)
@@ -79,6 +87,9 @@ def main():
         reached[get_biome_for_zone(name, is_cave=True)].append(name)
 
     for biome, users in sorted(reached.items()):
+        users = [u for u in users if u not in ZONE_BACKGROUND]
+        if not users:
+            continue        # every place on this biome is overridden; the biome is not in play
         if biome not in BIOME_TO_BACKGROUND:
             bad.append(f"biome {biome!r} ({len(users)} place(s), e.g. {users[0]!r}) is not in "
                        f"BIOME_TO_BACKGROUND - it defaults to mossy_forest")
@@ -110,10 +121,25 @@ def main():
     print(f"{len(zones)} overworld zones + {len(caves)} caves/dungeons = "
           f"{len(zones) + len(caves)} places a fight can start")
     print(f"  {len(reached)} biomes in use -> {len(folders)} background packs: {folders}")
+    # Counted through the SAME resolution the game uses, overrides included. Counting it off the
+    # biome alone reported 43 places in mossy_forest after the overrides had moved most of them
+    # elsewhere - a summary that disagrees with the code it is summarising.
     spread = Counter()
-    for biome, users in reached.items():
-        spread[get_background_folder(biome) if biome in BIOME_TO_BACKGROUND else "DEFAULTED"] += len(users)
+    for name, is_cave in [(z, False) for z in zones] + [(c, True) for c in caves]:
+        folder, pinned = get_background_for_place(name, get_biome_for_zone(name, is_cave))
+        spread[f"{folder}/{pinned}" if pinned else folder] += 1
     print(f"  places per pack: {dict(spread.most_common())}")
+    # Not a failure - every place has art and loads. But a pack with two images serving eleven
+    # places means a lot of players see the same backdrop, and that is invisible from a passing
+    # check that only asks "is there a file".
+    thin = []
+    for dest, places_n in spread.items():
+        imgs = len(_list_images(_resolve_folder_path(*(dest.split("/") + [None])[:2])))
+        if imgs and places_n / imgs >= 3:
+            thin.append(f"{dest} ({imgs} image(s) for {places_n} places)")
+    if thin:
+        print(f"  thin packs, worth topping up: {', '.join(sorted(thin))}")
+
     unused = sorted(set(BIOME_TO_BACKGROUND.values()) - set(folders))
     if unused:
         print(f"  packs no place currently uses: {unused}")

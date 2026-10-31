@@ -18,7 +18,8 @@ import random
 import pygame
 
 from world.tile_textures import get_biome_for_zone
-from world.combat_backgrounds import get_background_folder, get_variant_options
+from world.combat_backgrounds import (get_background_folder, get_variant_options,
+                                      get_background_for_place)
 
 BACKGROUNDS_ROOT = "assets/backgrounds"
 
@@ -83,8 +84,12 @@ def get_background_for_zone(zone_name, is_cave=False, variant=None,
         path = _zone_choice[cache_key]
     else:
         biome = get_biome_for_zone(zone_name, is_cave=is_cave)
-        folder_name = get_background_folder(biome)
-        folder_path = _resolve_folder_path(folder_name, variant)
+        # The per-place override comes first and may pin a variant of its own. Without this the
+        # 43 zones and dungeons missing from the biome tables all resolved to the same green
+        # forest, and the tables could not simply be filled in because they also choose the
+        # FLOOR AND WALL TEXTURES of a zone - see ZONE_BACKGROUND's comment.
+        folder_name, pinned = get_background_for_place(zone_name, biome)
+        folder_path = _resolve_folder_path(folder_name, pinned or variant)
         images = _list_images(folder_path)
         if not images:
             # Variant subfolder came up empty (e.g. mossy_forest/Dark has
