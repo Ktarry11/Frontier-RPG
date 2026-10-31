@@ -61,16 +61,18 @@ SEED = 4912
 
 TAU = 2.0 * np.pi
 
-PORTALS = {(6, 96): "The Abyssal Sands"}
+#: (86, 100) is the dig mouth on the isle - see THE MOTHER VEIN below.
+PORTALS = {(6, 96): "The Abyssal Sands", (86, 100): "The Mother Vein"}
 ARRIVALS = [(12, 96)]
 START = (12, 96)
 
 #: THE CENOTE. Centre, and the radii of the four levels.
 #:
-#: R_LIP is where the ground starts to go; R_WATER is the waterline. The three terraces sit between
-#: them, which makes each tread about fourteen tiles wide - enough to fight on, which is the point.
-#: A terrace you cannot stand and turn round on is a corridor, and this zone would be three nested
-#: corridors instead of three rings.
+#: R_LIP is where the ground starts to go and R_WATER is the waterline, but the DESCENT runs from
+#: R_LIP to R_FLOOR - the spiral ends where the ground levels out, not at the water's edge, and the
+#: shore between R_FLOOR and R_WATER is flat. That leaves two turns of ramp over twenty-eight tiles
+#: of radius: fourteen tiles of pitch, eleven of ramp, three of riser. The ramp has to be wide
+#: enough to stand and turn round on or the descent is a corridor rather than a road.
 CX, CY = 86, 94
 R_LIP, R_WATER = 62.0, 23.0
 DEPTH = 46.0
@@ -367,13 +369,39 @@ SUBZONES = [
     ("The Vein Galleries", 44, 52, 84, 84),
     ("The Green Shelf", 56, 64, 60, 60),
     ("The Waterline", 64, 72, 44, 44),
+    # The camp on the isle. It sits INSIDE the Waterline box on purpose - the more specific box
+    # wins when a tile is in both, so the player reads "Lastwater" standing in the camp and
+    # "The Waterline" standing on the shore twenty tiles away.
+    ("Lastwater", 74, 82, 24, 24),
 ]
 
 BASE = {"sand": 0.40, "hard": 0.26, "clay": 0.20, "rock": 0.14}
 PAINT = {}
 COBBLE = []
-NPC_POSITIONS = {}
-CHESTS = [(30, 96), (86, 50), (60, 120), (112, 110)]
+#: LASTWATER. Ten people on the isle, arranged between the spit (which lands at the top) and the
+#: dig mouth (which is at the bottom), so a player walks the length of the camp to reach the door.
+#: Nobody stands on the line between those two points - an NPC tile is an interaction tile and a
+#: person standing in a doorway is a person blocking it.
+NPC_POSITIONS = {
+    # the north end, where the spit lands
+    "gv_surveyor":       (84, 88),
+    "gv_tally_clerk":    (89, 87),
+    "gv_diver":          (78, 92),
+    # the camp proper
+    "gv_innkeeper":      (80, 95),
+    "gv_quartermaster":  (82, 92),
+    "gv_crystal_cutter": (91, 93),
+    "gv_reagents":       (93, 96),
+    "gv_smith":          (90, 90),
+    # the south end, either side of the dig mouth at (86, 100)
+    "gv_dig_boss":       (89, 100),
+    "gv_pump_chief":     (83, 100),
+}
+#: One per level of the descent, and every one of them checked in verify(). Two of the first four
+#: were sitting inside cliff - a chest in rock is loot the player can never see and nothing in the
+#: build complains, because placing a chest on an unwalkable tile is not an error, it is just a
+#: waste. (86,50) and (60,120) were the dead ones.
+CHESTS = [(30, 96), (86, 53), (61, 119), (112, 110)]
 FOREST = None
 
 
@@ -477,6 +505,14 @@ def verify(zone):
     #     this zone shipped twice, and both times every terrace above it measured fine.
     assert rings.get("floor", 0) > 400, \
         f"the cenote floor has only {rings.get('floor', 0)} reachable tiles - the shore is cut off"
+
+    # 1c) EVERY CHEST AND EVERY PERSON HAS TO BE SOMEWHERE THE PLAYER CAN STAND. Neither of these
+    #     is an error at build time - a chest on a cliff tile places perfectly happily and is then
+    #     invisible forever, and an NPC spot that fell in rock is a quest giver nobody can reach.
+    for (cx_, cy_) in CHESTS:
+        assert (cx_, cy_) in seen, f"chest at ({cx_},{cy_}) is not reachable - it is loot in a wall"
+    for who, (nx_, ny_) in NPC_POSITIONS.items():
+        assert (nx_, ny_) in seen, f"{who} stands at ({nx_},{ny_}), which the player cannot reach"
 
     # 2) THE DUNGEON ISLE HAS TO BE REACHED, not merely walkable. It is the one tile in this zone
     #    that the entire descent exists to deliver the player to, and it sits in the middle of a
