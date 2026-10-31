@@ -173,13 +173,46 @@ class CombatEngine:
         if not living:
             return None
 
-        threat_target = self.highest_threat_target(actor)
-        if threat_target is not None and threat_target in living:
-            return threat_target
+        return self.threat_weighted_target(actor, living)
 
-        front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
-        pool = front or living
-        return random.choice(pool)
+    #: How much of a share the lowest-threat ally still gets, relative to the highest. Threat
+    #: should DECIDE who gets hit, not DICTATE it - see threat_weighted_target.
+    #:
+    #: 0.10 measured, not guessed: in a five-ally party it leaves the threat leader taking about
+    #: three quarters of the swings and the other four about 7% each. 0.18 was tried first and
+    #: gave the leader only 59%, which is too little for a tank holding five times the player's
+    #: threat to feel like they are holding anything.
+    THREAT_FLOOR = 0.10
+
+    def threat_weighted_target(self, enemy, living):
+        """Who this enemy swings at: usually whoever holds the most threat, not always.
+
+        Kyle, 2026-10-31: "All 4 enemies just hit the exact same player and kill him. Then next
+        time it's their turn, they do the same shit."
+
+        He was describing strict argmax threat. The player does the damage, so the player tops
+        every enemy's table, so every enemy in a four-mob pull swings at the player, every round,
+        until the player is dead - and no amount of threat a companion generates changes a thing
+        until it passes the player's, at which point the whole pack switches at once. Both states
+        are the same bug: the target was a certainty rather than a tendency.
+
+        A threat-WEIGHTED pick keeps the system meaning what it says - a tank who holds aggro
+        takes most of the hits, and taunting still works - while letting a four-mob pull spread
+        across the party the way it looks like it should. THREAT_FLOOR is what stops anyone
+        being mathematically unhittable at zero threat, which is its own kind of fake.
+        """
+        from entities.party import FRONT_ROW
+        table = self.threat_tables.get(enemy) or {}
+        entries = [(a, max(0.0, float(table.get(a, 0.0)))) for a in living]
+        top = max((t for _, t in entries), default=0.0)
+        if top <= 0:
+            # Nobody has generated threat on this enemy yet - the original front-row-preferred
+            # random pick, unchanged.
+            front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
+            return random.choice(front or living)
+        floor = top * self.THREAT_FLOOR
+        weights = [max(floor, t) for _, t in entries]
+        return random.choices([a for a, _ in entries], weights=weights, k=1)[0]
 
     def _owned_pets(self):
         """Every pet currently fielded by an ally, in owner order."""

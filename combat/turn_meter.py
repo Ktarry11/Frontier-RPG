@@ -16,8 +16,35 @@ class TurnMeter:
         
         # Initialize turn meters for all combatants
         for char in combatants:
-            char.turn_meter = 0.0
+            char.turn_meter = self._opening_meter(char)
             self._refresh_turn_speed(char)
+
+    #: How much of a head start a combatant can start a fight with, as a fraction of
+    #: TURN_THRESHOLD. See _opening_meter.
+    OPENING_SPREAD = 0.45
+
+    @staticmethod
+    def _opening_meter(char):
+        """A small random head start, so identical creatures do not act in lockstep.
+
+        Kyle, 2026-10-31: "For group battles it looks like everyone just attacks at the same
+        time. Theres no turn order."
+
+        The meter system was working - it reads Agility and Haste every tick and a fast
+        character really does act sooner. The problem was the starting line: EVERY combatant
+        began on exactly 0.0, so four Mangrove Stiltstalkers with identical Agility crossed the
+        threshold on the same tick and went on crossing it together for the whole fight. Four
+        identical creatures acting identically is not a missing turn order, it is a turn order
+        with nothing to order by, and it reads to a player as "they all went at once".
+
+        A random opening offset breaks that tie once, at the start, and the meter does the rest.
+        It is deliberately smaller than a full turn (0.45) so it shuffles who goes first within a
+        round without ever handing anyone a free extra turn - the thing that decides how OFTEN
+        you act stays Agility and Haste, which is what Kyle asked for.
+        """
+        from config import TURN_THRESHOLD
+        import random as _random
+        return _random.uniform(0.0, TURN_THRESHOLD * TurnMeter.OPENING_SPREAD)
 
     @staticmethod
     def _refresh_turn_speed(char):

@@ -222,13 +222,30 @@ class CombatScreen(BaseScreen):
         if event.type == pygame.MOUSEMOTION:
             self.mouse_pos = event.pos
             self.hovered_ability = None
-            player = self.state_manager.player
-            for i, rect in enumerate(self.hotbar_positions):
-                if rect.collidepoint(event.pos):
-                    from entities.consumable import Consumable
-                    slot_content = player.hotbar[i] if i < len(player.hotbar) else None
-                    if slot_content and not isinstance(slot_content, Consumable):
-                        self.hovered_ability = player.ability_book.get_ability(slot_content)
+            # HOVER THE BAR THAT IS ACTUALLY DRAWN. Kyle, 2026-10-31: "When it is an allies'
+            # turn, i can ONLY hover over the spells that I currently have on my hotbar. So if i
+            # hover over heal (slot 3) nothing gets pulled up as I dont have it on my shaman's
+            # bar." The render loop draws _acting_member()'s hotbar; this read
+            # state_manager.player's. Two different characters indexed by the same slot number,
+            # so on an ally's turn the button said "Heal" and the tooltip said "Healing Wave" -
+            # the player's own slot 1 - or said nothing at all where the player's bar was empty.
+            # One actor, asked the same way in both places.
+            actor = self._acting_member() or self.state_manager.player
+            from entities.consumable import Consumable
+            # The click-only extra slots are hovered too - they are drawn from the same actor's
+            # extra_slots and had no hover handling at all, so an ability parked there (a weapon
+            # imbue, say) was the one button on screen you could not read.
+            for rects, slots in ((self.hotbar_positions, getattr(actor, "hotbar", [])),
+                                 (self.extra_slot_positions, getattr(actor, "extra_slots", []) or [])):
+                hit = False
+                for i, rect in enumerate(rects):
+                    if rect.collidepoint(event.pos):
+                        slot_content = slots[i] if i < len(slots) else None
+                        if slot_content and not isinstance(slot_content, Consumable):
+                            self.hovered_ability = actor.ability_book.get_ability(slot_content)
+                        hit = True
+                        break
+                if hit:
                     break
 
         if not self.combat_engine.is_active:

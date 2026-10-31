@@ -522,8 +522,17 @@ class InventoryScreen(BaseScreen):
         if subject is player:
             title = "INVENTORY & EQUIPMENT" if self.active_tab == "gear" else "MATERIALS"
         else:
-            title = (f"{subject.name.upper()}'S INVENTORY & EQUIPMENT - Lv {subject.level} {subject.char_class}"
-                     if self.active_tab == "gear" else f"{subject.name.upper()}'S MATERIALS")
+            # A COMPANION'S NAME IS THE TITLE. Kyle, 2026-10-31: "there is a lot of weird overlap
+            # in the top of the party screen." The old wording was "EINO VIRTANEN'S INVENTORY &
+            # EQUIPMENT - Lv 32 Barbarian", drawn at size="large" with no width limit, so it ran
+            # straight through the "Backpack 0/24" header at x=600 AND the tab buttons beyond it.
+            # The tabs already say which screen this is, so the words that were overflowing were
+            # the ones carrying no information.
+            title = (f"{subject.name.upper()}  -  Lv {subject.level} {subject.char_class}"
+                     if self.active_tab == "gear" else f"{subject.name.upper()} - MATERIALS")
+        # Hard-truncated to stop short of the backpack column whatever the name, because a long
+        # name is a thing players make and a fixed layout is a thing we chose.
+        title = self.renderer.truncate(title, INV_START_X - 40, size="large")
         self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
 
         # ---- Tab buttons - always visible regardless of active tab ----
