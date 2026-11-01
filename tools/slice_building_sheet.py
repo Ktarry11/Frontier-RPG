@@ -67,6 +67,27 @@ _set("underdark_props", 6, 6, "assets/tiles/underdark/props", """
     ud_dig_scaffold ud_codex_tent ud_broken_column ud_fallen_arch ud_statue_armless ud_masonry_rubble
     ud_floating_stone ud_rune_stone ud_fungal_shelf ud_fungal_node ud_cocooned_shape ud_stalagmites""")
 
+#: BANDIT / OUTLAW buildings (claude/bandit_building_prompts.md). Kyle, 2026-11-01: "not caveman or
+#: archaic or anything" - these are tradesmen and dispossessed gentry who turned, so the sheet is
+#: competent human architecture that has been seized and barricaded. Cell 23 is the one deliberately
+#: crude building on it.
+_set("bandit", 6, 5, "assets/buildings", """
+    bd_brigand_hall bd_counting_house bd_captains_quarters bd_barricaded_townhouse bd_seized_chapel bd_strongroom
+    bd_seized_watermill bd_powder_store bd_arms_workshop bd_carpenter_shop bd_mason_shed bd_warehouse
+    bd_seized_farmhouse bd_commandeered_barn bd_grain_store bd_cart_shed bd_stock_pen bd_well_house
+    bd_gate_barricade bd_lookout_tower bd_guard_post bd_palisade_section bd_sentry_leanto bd_winch_house
+    bd_dock_house bd_boat_shed bd_hideout_entrance bd_interrogation_house bd_fence_shop bd_burnt_house""")
+
+#: ORC GARRISON buildings (claude/orc_building_prompts.md). The eleven orc buildings already in the
+#: library are Valley-of-Trials starter architecture - huts, tents, hide. Kyle: "actual buildings and not
+#: just huts and shacks." Cells 28-30 are orc construction with Forsaken tenants, for Hammerfall.
+_set("orc", 6, 5, "assets/buildings", """
+    orc_war_hall orc_warchief_lodge orc_barracks_longhouse orc_officers_house orc_great_gatehouse orc_stockade_section
+    orc_war_forge orc_armoury orc_siege_workshop orc_tannery_hall orc_butchery orc_supply_store
+    orc_spirit_lodge orc_totem_court orc_great_totem orc_warbeast_stable orc_kennel_block orc_pyre_platform
+    orc_mess_hall orc_brew_house orc_warlock_tower orc_healer_house orc_quartermaster_post orc_smokehouse
+    orc_watch_tower orc_guard_post orc_signal_beacon orc_forsaken_apothecary orc_deathguard_post orc_bone_yard_shed""")
+
 #: THE ASPEN WILDERNESS props. Cells 1-10 are the zone's TREES - aspen and lodgepole - so like the
 #: Underdark's giant mushrooms they get scattered by the forest pass and their relative scale against the
 #: brush and camp gear is load-bearing. Nothing from Earth is on this sheet (Kyle, 2026-10-27: "we dont
