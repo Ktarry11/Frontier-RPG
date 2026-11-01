@@ -141,6 +141,27 @@ def main():
     cs._draw_pet_chips(screen, None)
     check("a dead pet is not drawn", not drawn)
 
+    # ---- 5. a Necromancer's four, and worse ---------------------------------
+    # Kyle: "will this work for necromancer who has many pets". The targeting
+    # panel used to walk a fixed 90px per row from y=120, which fits six rows on
+    # a 720px screen. Five party members hid that; a full party plus a
+    # Necromancer's four minions is nine rows and the last three were drawn off
+    # the bottom - valid targets with no pixels and no way to click them.
+    for cls, cap in (("necromancer", 3), ("tinker", 2), ("witch_hunter", 2)):
+        c = Character("T", cls, level=60)
+        check(f"{cls} can actually summon its extra pets",
+              c.max_extra_pets == cap, f"got {c.max_extra_pets}, want {cap}")
+
+    for n in (1, 5, 9, 13, 25):
+        rects = cs._target_row_rects(n, 40, 400)
+        check(f"{n} target rows all fit on screen",
+              len(rects) == n and max(r.bottom for r in rects) <= 720
+              and min(r.height for r in rects) >= 36,
+              f"bottom={max(r.bottom for r in rects)}, h={rects[0].height}")
+        # No two rows may overlap, or one would steal the other's clicks.
+        overlap = any(a.colliderect(b) for i, a in enumerate(rects) for b in rects[i + 1:])
+        check(f"{n} target rows do not overlap", not overlap)
+
     print(f"\n{len(FAILS)} failed" if FAILS else "\npets survive the combat screen")
     return 1 if FAILS else 0
 

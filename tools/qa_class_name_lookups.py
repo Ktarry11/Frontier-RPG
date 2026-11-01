@@ -120,6 +120,32 @@ def main():
     check("an unrelated label is untouched",
           strip_class_prefix("Shadow", "priest") == "Shadow")
 
+    # ---- 3b. the other three display-name-keyed class tables ----------------
+    # Found by sweeping for the same shape after the first four. All three
+    # missed for every class in the game, so the whole roster was getting the
+    # fallback: front row for everyone including the casters, one default
+    # weapon for everyone, and no extra pets for the three classes built
+    # around commanding several.
+    import entities.party as _party
+    import entities.starting_gear as _gear
+    from entities.character import Character as _Char
+    for label, table in (("party.DEFAULT_ROW_BY_CLASS", _party.DEFAULT_ROW_BY_CLASS),
+                         ("starting_gear.CLASS_WEAPON_TYPE", _gear.CLASS_WEAPON_TYPE),
+                         ("character.EXTRA_PET_CAP", _Char.EXTRA_PET_CAP)):
+        unreachable = [c for c in classes
+                       if any(class_key(c) == class_key(k) for k in table)
+                       and lookup(table, c) is None]
+        check(f"{label} resolves for every class it lists",
+              not unreachable, str(unreachable))
+    check("back-row casters are actually in the back row",
+          _party.default_row_for("priest") == _party.BACK_ROW
+          and _party.default_row_for("warlock") == _party.BACK_ROW)
+    check("a front-row class is still front",
+          _party.default_row_for("warrior") == _party.FRONT_ROW)
+    check("the pet classes get their extra pet slots",
+          [_Char("T", c, level=60).max_extra_pets
+           for c in ("necromancer", "tinker", "witch_hunter")] == [3, 2, 2])
+
     # ---- 4. class icons -----------------------------------------------------
     from ui.class_portrait import get_class_icon
     missing = [c for c in classes if get_class_icon(c) is None]

@@ -891,7 +891,11 @@ class Character(StatusEffectMixin):
 
     @property
     def max_extra_pets(self):
-        return self.EXTRA_PET_CAP.get(self.char_class, 0)
+        # Display-name keys against an id. Necromancer, Tinker and Witch Hunter all resolved
+        # to 0, so the three classes built around commanding several minions could not summon a
+        # single extra one. See core/class_names.py.
+        from core.class_names import lookup
+        return lookup(self.EXTRA_PET_CAP, self.char_class, 0)
 
     @property
     def all_pets(self):

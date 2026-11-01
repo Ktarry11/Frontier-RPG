@@ -996,14 +996,25 @@ class CombatScreen(BaseScreen):
         if not party or not party.members:
             return self._hotbar_panel_top()
         top = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
-        if self._living_pets():
-            top -= self.PET_CHIP_H + 6
+        rows = self._pet_chip_rows()
+        if rows:
+            top -= rows * (self.PET_CHIP_H + 4) + 2
         return top
 
     #: Height of one pet chip. Pets get a compact row above the party cards rather than a full
     #: card: they have no gear, no talents and no resource bar worth the space, and a sixth
     #: full-width card would squeeze a five-person party's cards below readable.
     PET_CHIP_H = 30
+
+    #: Most chips on one line before wrapping. Kyle, 2026-10-31: "will this work for
+    #: necromancer who has many pets". A Necromancer commands four, and a party could in
+    #: principle field several pet classes at once, so the row wraps instead of squeezing
+    #: twenty chips into something unreadable.
+    PET_CHIPS_PER_ROW = 5
+
+    def _pet_chip_rows(self):
+        n = len(self._living_pets())
+        return 0 if not n else -(-n // self.PET_CHIPS_PER_ROW)
 
     def _living_pets(self):
         engine = getattr(self, "combat_engine", None)
@@ -1024,12 +1035,18 @@ class CombatScreen(BaseScreen):
         pets = self._living_pets()
         if not pets:
             return
-        y = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H - self.PET_CHIP_H - 6
-        chip_w = min(240, (SCREEN_WIDTH - 40 - (len(pets) - 1) * 12) // max(1, len(pets)))
-        total_w = len(pets) * chip_w + (len(pets) - 1) * 12
-        x0 = max(20, (SCREEN_WIDTH - total_w) // 2)
+        rows = self._pet_chip_rows()
+        per_row = -(-len(pets) // rows)
+        top = (self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+               - rows * (self.PET_CHIP_H + 4) - 2)
         for i, pet in enumerate(pets):
-            rect = pygame.Rect(x0 + i * (chip_w + 12), y, chip_w, self.PET_CHIP_H)
+            r, c = divmod(i, per_row)
+            in_row = min(per_row, len(pets) - r * per_row)
+            chip_w = min(240, (SCREEN_WIDTH - 40 - (in_row - 1) * 12) // max(1, in_row))
+            total_w = in_row * chip_w + (in_row - 1) * 12
+            x0 = max(20, (SCREEN_WIDTH - total_w) // 2)
+            rect = pygame.Rect(x0 + c * (chip_w + 12), top + r * (self.PET_CHIP_H + 4),
+                               chip_w, self.PET_CHIP_H)
             is_acting = pet is acting
             pygame.draw.rect(screen, (26, 34, 28), rect)
             pygame.draw.rect(screen, COLOR_GOLD if is_acting else (90, 120, 95), rect,
@@ -1684,6 +1701,67 @@ class CombatScreen(BaseScreen):
             self.renderer.draw_text(screen, letter, (rect.x + 6, rect.y + 3),
                                     size="small", color=COLOR_WHITE)
 
+    #: Shortest a targeting row may be compressed to and still be comfortably clickable.
+    TARGET_ROW_MIN_H = 46
+    TARGET_ROW_MAX_H = 90
+
+    def _target_row_rects(self, count, left_x, col_w):
+        """`count` rects stacked down the screen, in as many columns as it takes.
+
+        Kyle, 2026-10-31: "will this work for necromancer who has many pets".
+
+        It would not have. This panel walked a fixed 90px per row from y=120,
+        which fits six rows on a 720px screen. That was invisible while only
+        party members were listed (five, worst case), and adding pets to the
+        column broke it immediately: a Necromancer runs four minions, so a full
+        party plus its summons is nine rows and the last three were drawn off
+        the bottom of the screen - unclickable, with no indication they existed.
+
+        So: compress the rows to fit, down to TARGET_ROW_MIN_H, then start a
+        second column rather than shrink past clickable. The ally side has room
+        for two columns before the enemy panel.
+        """
+        top, bottom = 120, SCREEN_HEIGHT - 70
+        avail = bottom - top
+        if count <= 0:
+            return []
+        per_col = max(1, avail // self.TARGET_ROW_MIN_H)
+        cols = max(1, -(-count // per_col))          # ceil
+        rows = -(-count // cols)
+        row_h = max(self.TARGET_ROW_MIN_H, min(self.TARGET_ROW_MAX_H, avail // rows))
+        w = col_w if cols == 1 else (col_w - 12) // 2 + 0 * cols
+        if cols > 1:
+            w = (col_w - 12 * (cols - 1)) // cols
+        out = []
+        for i in range(count):
+            c, r = divmod(i, rows)
+            out.append(pygame.Rect(left_x + c * (w + 12), top + r * row_h, w, row_h - 10))
+        return out
+
+    def _draw_target_row(self, screen, combatant, rect, text_color, bar_color, subtitle):
+        """One targeting row, drawn to whatever height the layout gave it.
+
+        The two loops used to hardcode the same four offsets each. They now share
+        this, because _target_row_rects can hand back a 46px row as readily as a
+        90px one and two copies of "the bar sits at y+46" would both be wrong the
+        first time a Necromancer brought four minions.
+        """
+        compact = rect.height < 62
+        self.renderer.draw_text(screen, combatant.name, (rect.x + 10, rect.y + 4),
+                                size="small", color=text_color)
+        if not compact:
+            self.renderer.draw_text(screen, subtitle, (rect.x + 10, rect.y + 22),
+                                    size="small", color=text_color)
+        bar_h = 16 if compact else 26
+        bar_y = rect.bottom - bar_h - 6
+        self.renderer.draw_health_bar(screen, (rect.x + 10, bar_y),
+                                      combatant.current_health,
+                                      getattr(combatant, "health", None)
+                                      or combatant.max_health,
+                                      width=max(60, rect.width - 120), height=bar_h,
+                                      bar_color=bar_color)
+        self._draw_buff_icons(screen, combatant, (rect.right - 100, rect.y + 4))
+
     def _render_targeting(self, screen):
         """Render the targeting UI: highlight valid targets, store rects for hit-testing."""
         screen.fill((20, 20, 20))
@@ -1700,53 +1778,36 @@ class CombatScreen(BaseScreen):
         # health bar rather than a skinny line, while keeping the same
         # horizontal length. Name text is "small" - the "large" name label
         # was visually dominating a row that's mostly meant to show HP/buffs.
-        y = 120
         # PETS ARE ALLIES AND HAVE TO BE DRAWN LIKE ONE. combat_engine.is_ally()
         # counts them, living_allies() counts them, a heal can validly target one -
         # but this loop read combat_engine.allies, which is party.members only, so a
         # summon was targetable and invisible at the same time. Kyle: "so pets dont
         # show anything, tried warlock."
-        for ally in self.combat_engine.allies + [p for p in self.combat_engine.pets
-                                                 if p.is_alive()]:
+        allies = self.combat_engine.allies + [p for p in self.combat_engine.pets
+                                              if p.is_alive()]
+        for ally, rect in zip(allies, self._target_row_rects(len(allies), 40, 400)):
             is_valid = ally in self.targeting_valid_targets
             is_hovered = ally is self.targeting_hovered
             color = COLOR_GOLD if is_hovered else (COLOR_GREEN if is_valid else COLOR_DARK_GRAY)
-            rect = pygame.Rect(40, y, 400, 80)
             if is_valid:
                 pygame.draw.rect(screen, (60, 80, 60), rect)  # green tint
                 if is_hovered:
                     pygame.draw.rect(screen, COLOR_GOLD, rect, 3)  # gold border
-            self.renderer.draw_text(screen, f"{ally.name}", (rect.x + 10, rect.y + 8),
-                                    size="small", color=color)
-            self.renderer.draw_text(screen, f"Lv {ally.level} {ally.char_class}",
-                                    (rect.x + 10, rect.y + 26), size="small", color=color)
-            self.renderer.draw_health_bar(screen, (rect.x + 10, rect.y + 46),
-                                          ally.current_health, ally.health,
-                                          width=280, height=26, bar_color=COLOR_GREEN)
-            self._draw_buff_icons(screen, ally, (rect.x + 300, rect.y + 8))
+            self._draw_target_row(screen, ally, rect, color, COLOR_GREEN,
+                                  f"Lv {ally.level} {ally.char_class}")
             self._targeting_rects.append((ally, rect))
-            y += 90  # Space for thicker rects
 
-        y_enemies = 120
-        for foe in self.combat_engine.enemies:
+        foes = list(self.combat_engine.enemies)
+        for foe, rect in zip(foes, self._target_row_rects(len(foes), SCREEN_WIDTH - 440, 400)):
             is_valid = foe in self.targeting_valid_targets
             is_hovered = foe is self.targeting_hovered
             color = COLOR_GOLD if is_hovered else (COLOR_RED if is_valid else COLOR_DARK_GRAY)
-            rect = pygame.Rect(SCREEN_WIDTH - 440, y_enemies, 400, 80)
             if is_valid:
                 pygame.draw.rect(screen, (80, 40, 40), rect)  # red tint
                 if is_hovered:
                     pygame.draw.rect(screen, COLOR_GOLD, rect, 3)  # gold border
-            self.renderer.draw_text(screen, f"{foe.name}",
-                                    (rect.x + 10, rect.y + 8), size="small", color=color)
-            self.renderer.draw_text(screen, f"Lv {foe.level}",
-                                    (rect.x + 10, rect.y + 26), size="small", color=color)
-            self.renderer.draw_health_bar(screen, (rect.x + 10, rect.y + 46),
-                                          foe.current_health, foe.max_health,
-                                          width=280, height=26, bar_color=COLOR_RED)
-            self._draw_buff_icons(screen, foe, (rect.x + 300, rect.y + 8))
+            self._draw_target_row(screen, foe, rect, color, COLOR_RED, f"Lv {foe.level}")
             self._targeting_rects.append((foe, rect))
-            y_enemies += 90  # Space for thicker rects
 
         # Instructions
         self.renderer.draw_text(screen,

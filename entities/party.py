@@ -102,7 +102,12 @@ DEFAULT_ROW_BY_CLASS = {
 
 def default_row_for(char_class):
     """Starting row for a class (front for melee, back for casters/ranged)."""
-    return DEFAULT_ROW_BY_CLASS.get(char_class, FRONT_ROW)
+    # Keyed by display name ("Sun Cleric") while char_class is the id ("sun_cleric"), so a
+    # plain .get() missed for EVERY class and silently put the whole roster in the front row -
+    # the back-row casters included. Same family as the spellbook-tab and class-icon bugs; see
+    # core/class_names.py.
+    from core.class_names import lookup
+    return lookup(DEFAULT_ROW_BY_CLASS, char_class, FRONT_ROW)
 
 
 def row_damage_multiplier(row, damage_type="physical"):

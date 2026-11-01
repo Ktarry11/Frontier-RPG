@@ -214,7 +214,11 @@ def grant_starting_gear(character):
     armor_map, stat_map = _load_class_maps()
     char_class = character.char_class
 
-    weapon_type = CLASS_WEAPON_TYPE.get(char_class, _DEFAULT_WEAPON_TYPE)
+    # Display-name keys against an id, so this missed for all 30 classes and every character
+    # in the game started with the fallback weapon instead of their class's. See
+    # core/class_names.py.
+    from core.class_names import lookup
+    weapon_type = lookup(CLASS_WEAPON_TYPE, char_class, _DEFAULT_WEAPON_TYPE)
     armor_type = armor_map.get(char_class, "cloth")
     stat_template = stat_map.get(char_class, "int_caster")
 
