@@ -152,6 +152,33 @@ def main():
         check(f"{cls} can actually summon its extra pets",
               c.max_extra_pets == cap, f"got {c.max_extra_pets}, want {cap}")
 
+    # TWO pet owners in one party. Kyle: "what if there are 2 necros in a part".
+    # combat_engine.pets is built by walking every ally's all_pets, so the real
+    # question is whether the party, the engine and the panel agree about a
+    # stable that belongs to more than one person.
+    from entities.party import Party as _Party
+    from combat.combat_engine import CombatEngine as _Engine
+    from entities.monster import Monster as _Monster
+    a = Character("Kyle", "necromancer", level=60)
+    b = Character("Freja", "necromancer", level=60)
+    p2 = _Party(a)
+    p2.members.append(b)
+    for owner in (a, b):
+        owner.active_pet = Pet(f"{owner.name} Prime", "wolf", owner)
+        owner.extra_pets = [Pet(f"{owner.name} M{k}", "raptor", owner)
+                            for k in range(owner.max_extra_pets)]
+    dummy = _Monster("D", "beast_basic", level=60)
+    e2 = _Engine(a, dummy, enemies=[dummy], party=p2)
+    check("two necromancers bring eight pets between them", len(e2.pets) == 8,
+          f"{len(e2.pets)}")
+    check("and they are credited to both owners",
+          {p.owner.name for p in e2.pets} == {"Kyle", "Freja"})
+    check("every one of them is an ally and a combatant",
+          all(e2.is_ally(p) and p in e2.combatants for p in e2.pets))
+    check("living_allies counts party plus every pet",
+          len(e2.living_allies()) == len(p2.members) + 8,
+          f"{len(e2.living_allies())}")
+
     for n in (1, 5, 9, 13, 25):
         rects = cs._target_row_rects(n, 40, 400)
         check(f"{n} target rows all fit on screen",

@@ -1754,13 +1754,21 @@ class CombatScreen(BaseScreen):
                                     size="small", color=text_color)
         bar_h = 16 if compact else 26
         bar_y = rect.bottom - bar_h - 6
+        # Buff icons only get their own gutter when the row is wide enough to spare
+        # one; in a three-column layout the bar needs the whole width.
+        roomy = rect.width >= 300
+        bar_w = max(50, rect.width - (120 if roomy else 20))
         self.renderer.draw_health_bar(screen, (rect.x + 10, bar_y),
                                       combatant.current_health,
                                       getattr(combatant, "health", None)
                                       or combatant.max_health,
-                                      width=max(60, rect.width - 120), height=bar_h,
-                                      bar_color=bar_color)
-        self._draw_buff_icons(screen, combatant, (rect.right - 100, rect.y + 4))
+                                      width=bar_w, height=bar_h,
+                                      bar_color=bar_color,
+                                      # "379/1379" overflows a narrow bar and reads as
+                                      # garbage on top of the next one.
+                                      show_text=bar_w >= 110)
+        if roomy:
+            self._draw_buff_icons(screen, combatant, (rect.right - 100, rect.y + 4))
 
     def _render_targeting(self, screen):
         """Render the targeting UI: highlight valid targets, store rects for hit-testing."""
