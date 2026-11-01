@@ -71,8 +71,10 @@ PORTALS = {(4, 92): "Arathi Central",
 ARRIVALS = [(4, 94), (34, 40), (150, 62), (160, 134)]
 START = (10, 92)
 
-#: How wide the wadeable band is around every shore. Past this you are swimming.
-SHORE_W = 3.2
+#: How wide the wadeable band is around every shore. Past this you are swimming. Raised from 3.2
+#: on Kyle's note that "deep water is nice but too much is wasted space" - a wider wadeable
+#: shelf turns the gaps between islands into places you fight rather than places you cross.
+SHORE_W = 4.6
 
 # ---- roads -----------------------------------------------------------------------------------------
 # Only the MAINLAND has roads. Out in the archipelago there is no road, because nobody out there builds
@@ -106,42 +108,123 @@ def coast_x(gy):
     return 88.0 + 6.0 * np.sin(a) + 3.5 * np.sin(2.0 * a + 1.1) + 2.0 * np.sin(3.0 * a + 0.4)
 
 
-#: (cx, cy, rx, ry) - six island hilltops. Each one is a HIGHLAND hill with the sea round it, not a
-#: tropical cay: they get the same heather, rock and Arathi ruins as the mainland.
-ISLANDS = [
-    (116.0, 58.0, 13.0, 10.0),      # The Wrack - nearest, the stepping stone
-    (150.0, 64.0, 17.0, 13.0),      # Gallowmast Isle - the big one, the crew's hold under it
-    (184.0, 52.0, 12.0, 11.0),      # The Far Cairn - the outermost
-    (124.0, 112.0, 14.0, 11.0),     # Bothy Rock - a shepherd's hut on a rock
-    (158.0, 132.0, 15.0, 12.0),     # The Tidewrack rocks
-    (188.0, 110.0, 11.0, 9.0),      # The Bonepicker - a bird rock
-]
+#: THE ISLANDS. Kyle, 2026-11-01: "Make the islands more random and less anal beads" and "Islands can
+#: be odd shapes too bro." He was right - the first pass was six near-identical ellipses in two tidy
+#: rows, which is a string of beads and not a drowned country.
+#:
+#: Each island is now a LIST OF LOBES (cx, cy, rx, ry, rot) unioned together, so the silhouette comes
+#: out of how the lobes overlap rather than being one smooth oval, and each one gets a deliberately
+#: distinct shape:
+#:
+#:   The Wrack          a comma - a round head with a tail trailing south-west
+#:   Gallowmast Isle    a boomerang, with a sheltered bay in the crook. The crew's wharf is in the bay,
+#:                      which is WHY the hold is on this island and not another one.
+#:   The Far Cairn      a long thin spit running north-east, barely wide enough to stand on in places
+#:   Bothy Rock         a crescent open to the south, the bothy on the inside of the curve
+#:   The Tidewrack      three lobes barely touching: a hill that broke rather than drowned
+#:   The Bonepicker     a near-column, tall and narrow, which is why only birds use it
+#:
+#: SKERRIES carry no content and exist so the water is not empty between the six that do.
+#: Each island also gets its own wobble amplitude and phase (the last two numbers) so the outlines are
+#: not all smoothed the same way - the big sheltered one is smooth, the broken one is ragged.
+ISLANDS = {
+    "The Wrack": ([(113.0, 52.0, 10.0, 9.0, 0.0),
+                   (120.0, 60.0, 6.5, 5.0, 35.0),
+                   (125.0, 66.0, 3.4, 2.8, 0.0)], 1.3, 0.0),
+    "Gallowmast Isle": ([(146.0, 56.0, 13.0, 8.0, 25.0),
+                         (156.0, 70.0, 9.0, 12.0, 15.0),
+                         (139.0, 68.0, 7.0, 6.0, 0.0)], 0.9, 1.7),
+    "The Far Cairn": ([(178.0, 56.0, 9.0, 4.5, -35.0),
+                       (188.0, 46.0, 7.5, 4.0, -35.0),
+                       (195.0, 38.0, 4.5, 3.4, 0.0)], 1.1, 3.1),
+    "Bothy Rock": ([(118.0, 104.0, 7.5, 6.0, 0.0),
+                    (126.0, 108.0, 6.5, 5.0, 40.0),
+                    (129.0, 118.0, 7.0, 6.0, -20.0)], 1.2, 0.8),
+    "The Tidewrack": ([(152.0, 128.0, 8.0, 6.5, 20.0),
+                       (163.0, 134.0, 7.0, 5.5, -30.0),
+                       (155.0, 142.0, 5.5, 4.5, 0.0)], 1.9, 2.4),
+    "The Bonepicker": ([(189.0, 108.0, 5.0, 9.5, 10.0),
+                        (186.0, 118.0, 4.0, 4.5, 0.0)], 1.0, 4.2),
+    # ---- the middle band. Kyle, 2026-11-01: "make sure the top and bottom are connected if possible
+    # by shallows. Deep water is nice but too much is wasted space." These three sit in what was an
+    # empty trench between the north and south chains and turn two dead ends into one loop.
+    "The Teeth": ([(106.0, 74.0, 4.0, 7.0, 25.0),
+                   (111.0, 81.0, 3.4, 5.0, -15.0),
+                   (102.0, 69.0, 3.0, 3.0, 0.0)], 1.8, 1.1),        # jagged, close inshore
+    "The Middenstone": ([(134.0, 86.0, 9.0, 7.0, -20.0),
+                         (142.0, 92.0, 6.0, 5.5, 30.0),
+                         (128.0, 93.0, 5.0, 4.0, 0.0)], 1.2, 3.6),  # the hinge of the loop
+    "Saltquern": ([(170.0, 82.0, 7.5, 5.0, 40.0),
+                   (176.0, 90.0, 5.0, 6.5, 0.0),
+                   (164.0, 76.0, 4.0, 3.4, 0.0)], 1.4, 2.0),        # a mill-stone shape, east side
+    # The south-west quarter of the sea was still one dead trench after the middle band went in. This
+    # fills it and gives the southern loop a second way round.
+    "The Spindrift": ([(106.0, 138.0, 6.0, 9.0, -25.0),
+                       (113.0, 148.0, 5.5, 4.5, 15.0),
+                       (99.0, 130.0, 4.0, 3.4, 0.0)], 1.6, 0.4),
+    # skerries - scenery, no content, no flats to them
+    "_skerries": ([(134.0, 40.0, 3.6, 2.6, 20.0),
+                   (108.0, 84.0, 3.0, 4.2, 0.0),
+                   (173.0, 94.0, 4.0, 2.8, -25.0),
+                   (180.0, 150.0, 3.4, 3.0, 0.0),
+                   (128.0, 80.0, 2.6, 2.2, 0.0),
+                   (196.0, 70.0, 3.0, 4.0, 15.0)], 1.5, 5.0),
+}
 
 #: Shallow crossings. Without these the islands are unreachable rocks; with them the archipelago has a
 #: walkable spine (mainland -> Wrack -> Gallowmast -> Far Cairn) and a southern loop you have to wade.
+#: Each one is checked against coast_x(y) and the real lobe edges, not by eye - see the note on FLATS
+#: being the thing that silently strands an island.
 FLATS = [
-    (102.0, 60.0, 9.0, 5.0),        # the shore to The Wrack
-    (133.0, 61.0, 8.0, 4.5),        # Wrack to Gallowmast
-    (167.0, 57.0, 8.0, 4.5),        # Gallowmast to the Far Cairn
-    # The southern chain's first flat MUST reach back to the mainland waterline. At rx=10 centred on
-    # 104 it started at x=94 while the coast at that latitude is x~85, leaving nine tiles of deep water
-    # nothing could cross - so seal_unreachable walled off all three southern islands and the whole
-    # Tidewrack arrival with them. coast_x(y) is the number to check a flat against, not the eye.
-    (100.0, 106.0, 16.0, 5.0),      # the shore to Bothy Rock
-    (141.0, 124.0, 9.0, 5.0),       # Bothy to the Tidewrack rocks
-    (174.0, 118.0, 9.0, 5.0),       # Tidewrack to the Bonepicker
+    (101.0, 55.0, 14.0, 6.0),       # the shore to The Wrack
+    (130.0, 57.0, 9.0, 5.0),        # Wrack to Gallowmast
+    (167.0, 58.0, 10.0, 5.0),       # Gallowmast to the Far Cairn
+    (100.0, 102.0, 16.0, 6.0),      # the shore to Bothy Rock
+    (142.0, 124.0, 10.0, 6.0),      # Bothy to the Tidewrack rocks
+    # Reshaping the islands moved both ends of this one: the Tidewrack now reaches east to ~x170
+    # at y~134 and the Bonepicker hangs south to y~122, so the flat has to span the DIAGONAL
+    # between them. At (176,120) it missed and the Bonepicker sealed to rock - 0 walkable tiles.
+    (176.0, 126.0, 11.0, 9.0),      # Tidewrack to the Bonepicker
+    # ---- the middle band, north-south. These are what make the archipelago a LOOP instead of two
+    # dead-end strings, and they are the reason the trench between the chains is no longer dead water.
+    (102.0, 64.0, 8.0, 7.0),        # The Wrack down to The Teeth
+    (110.0, 90.0, 8.0, 7.0),        # The Teeth down toward Bothy Rock
+    (122.0, 88.0, 9.0, 6.0),        # The Teeth across to The Middenstone
+    (138.0, 76.0, 8.0, 8.0),        # Gallowmast down to The Middenstone
+    (134.0, 102.0, 8.0, 7.0),       # The Middenstone down to Bothy Rock
+    (156.0, 84.0, 9.0, 6.0),        # The Middenstone across to Saltquern
+    (176.0, 72.0, 7.0, 9.0),        # Saltquern up to the Far Cairn
+    (182.0, 98.0, 7.0, 8.0),        # Saltquern down to the Bonepicker
+    # Wide on purpose: at (99,120,8,9) this stopped three tiles short of Bothy Rock's west lobe
+    # and The Spindrift sealed. The gap between two islands is measured lobe edge to lobe edge.
+    (104.0, 122.0, 13.0, 11.0),     # Bothy Rock down to The Spindrift
+    (124.0, 142.0, 11.0, 7.0),      # The Spindrift east to the Tidewrack rocks
 ]
 
 
-def _ell(gx, gy, cx, cy, rx, ry):
-    return (1.0 - np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)) * min(rx, ry)
+def _ell(gx, gy, cx, cy, rx, ry, rot=0.0):
+    dx, dy = gx - cx, gy - cy
+    if rot:
+        r = np.radians(rot)
+        c, s_ = np.cos(r), np.sin(r)
+        dx, dy = c * dx + s_ * dy, -s_ * dx + c * dy
+    return (1.0 - np.sqrt((dx / rx) ** 2 + (dy / ry) ** 2)) * min(rx, ry)
 
 
 def island_field(gx, gy):
+    """>0 on any island. Unions every lobe of every island, each group wobbled by its own amount.
+
+    The per-group wobble is what stops the archipelago reading as one artist's hand: the sheltered
+    boomerang comes out smooth at 0.9 and the broken hill comes out ragged at 1.9, from the same
+    function.
+    """
     best = np.full(np.shape(gx), -99.0)
-    for (cx, cy, rx, ry) in ISLANDS:
-        best = np.maximum(best, _ell(gx, gy, cx, cy, rx, ry))
-    return best + 1.1 * wob(gx, gy)
+    for (lobes, amp, ph) in ISLANDS.values():
+        grp = np.full(np.shape(gx), -99.0)
+        for (cx, cy, rx, ry, rot) in lobes:
+            grp = np.maximum(grp, _ell(gx, gy, cx, cy, rx, ry, rot))
+        best = np.maximum(best, grp + amp * wob(gx + ph * 7.0, gy + ph * 5.0))
+    return best
 
 
 def flat_field(gx, gy):
@@ -149,6 +232,11 @@ def flat_field(gx, gy):
     for (cx, cy, rx, ry) in FLATS:
         best = np.maximum(best, _ell(gx, gy, cx, cy, rx, ry))
     return best
+
+
+#: Where each named island sits, for subzones, props and QA - the centroid of its lobes.
+ISLAND_CENTRES = {n: (sum(l[0] for l in lobes) / len(lobes), sum(l[1] for l in lobes) / len(lobes))
+                  for n, (lobes, _a, _p) in ISLANDS.items() if not n.startswith("_")}
 
 
 def water_field(gx, gy):
@@ -182,8 +270,9 @@ OUTCROPS = [
     (70, 86, 2.4, 1.8),
 ]
 #: Sea stacks, out in the water between the islands - the drowned country's chimneys.
-STACKS = [(106, 80, 2.6, 2.2), (134, 92, 2.8, 2.4), (170, 88, 2.6, 2.2), (112, 136, 2.6, 2.2),
-          (196, 78, 2.4, 2.0), (146, 150, 2.6, 2.2), (176, 36, 2.4, 2.0)]
+#: Three of these were swallowed by the new middle-band islands and moved out into open water.
+STACKS = [(90, 108, 2.6, 2.2), (146, 112, 2.8, 2.4), (190, 134, 2.6, 2.2), (112, 136, 2.6, 2.2),
+          (196, 60, 2.4, 2.0), (146, 150, 2.6, 2.2), (176, 36, 2.4, 2.0)]
 
 
 def cliff_field(gx, gy):
@@ -222,12 +311,19 @@ SUBZONES = [
     ("Saltspur Landing", 32, 84, 36, 26),
     ("The Southern Moor", 20, 112, 56, 42),
     ("The Wrackline Shore", 72, 40, 32, 110),
-    ("The Wrack", 100, 44, 34, 30),
-    ("Gallowmast Isle", 130, 48, 42, 36),
-    ("The Far Cairn", 170, 38, 30, 30),
-    ("Bothy Rock", 108, 98, 34, 30),
-    ("The Tidewrack", 140, 116, 40, 34),
-    ("The Bonepicker", 174, 98, 26, 26),
+    # Derived from each island's real lobe bounding box, not drawn by eye - reshaping the islands
+    # moved every one of them and a subzone rectangle that no longer covers its island is a table
+    # that never rolls.
+    ("The Wrack", 101, 41, 31, 31),
+    ("Gallowmast Isle", 130, 44, 39, 41),
+    ("The Far Cairn", 168, 32, 35, 34),
+    ("Bothy Rock", 108, 96, 31, 32),
+    ("The Tidewrack", 142, 119, 31, 31),
+    ("The Bonepicker", 180, 96, 18, 30),
+    ("The Teeth", 96, 60, 22, 30),
+    ("The Middenstone", 120, 76, 32, 26),
+    ("Saltquern", 157, 69, 28, 30),
+    ("The Spindrift", 92, 118, 30, 40),
 ]
 
 # ---- baker config -------------------------------------------------------------------------------------
@@ -261,10 +357,12 @@ NPC_POSITIONS = {
     "saltspur_scout": (54, 92),
     "arathi_barrow_warden": (38, 50),          # outside the barrow, not going in
     "arathi_wreck_salvager": (82, 108),        # working the shore south of the jetty
-    "arathi_bothy_hermit": (124, 108),         # on Bothy Rock, the only soul out there
+    "arathi_bothy_hermit": (120, 105),         # on Bothy Rock, the only soul out there
 }
 
-CHESTS = [(30, 46), (58, 86), (36, 128), (118, 56), (152, 70), (184, 50), (126, 114), (160, 138)]
+#: (188,45) was on the Far Cairn before the islands were reshaped and ended up in open water.
+CHESTS = [(30, 46), (58, 86), (36, 128), (114, 53), (156, 68), (189, 44), (122, 107), (157, 136),
+          (134, 86), (170, 82), (107, 75), (106, 138)]
 
 OAKS = [("ek_willow", 8, 0.30), ("ek_pine_trio", 7, 0.32), ("ek_dead_oak", 7, 0.28), ("ek_willow", 7, 0.30)]
 FOREST = dict(seed=39, count=58, rim=13, thorn=8, names=[
@@ -305,42 +403,44 @@ def dress(L):
     p(CO + "rowboat_wreck.png", 92, 134, 7)
 
     # ---- THE WRACK: the stepping stone ----------------------------------------------------------------
-    p(RU + "ruin_stone_ring.png", 116, 56, 5, solid=False)
-    p(CO + "driftwood_pile.png", 110, 64, 4)
-    b("bd_sentry_leanto", 120, 62, 6, nudge=2)
+    p(RU + "ruin_stone_ring.png", 113, 52, 5, solid=False)
+    p(CO + "driftwood_pile.png", 122, 63, 4)
+    b("bd_sentry_leanto", 119, 58, 6, nudge=2)
 
     # ---- GALLOWMAST ISLE: the crew's island, and the hold under it -----------------------------------
     # The Wrackline get the BANDIT sheet, not a tropical pirate set: they are Arathi coast people whose
     # villages went under, working the drowned ones, so their buildings are the ones they grew up in.
     p(ENT + "ent_mangrove_cave.png", 150, 58, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
-    b("bd_dock_house", 142, 76, 9, nudge=2)
-    b("bd_warehouse", 156, 70, 9, nudge=2)
-    b("bd_lookout_tower", 160, 56, 12, nudge=2)
-    b("bd_fence_shop", 146, 68, 8, nudge=2)
-    p(CO + "fish_crates_traps.png", 152, 74, 4)
-    p(CO + "dock_lantern_post.png", 140, 74, 5)
-    p("ek_gibbet", 158, 62, 6)
+    # The wharf sits in the crook of the boomerang - the sheltered bay is why the hold is here.
+    b("bd_dock_house", 147, 66, 9, nudge=2)
+    b("bd_warehouse", 156, 72, 9, nudge=2)
+    b("bd_lookout_tower", 145, 53, 12, nudge=2)
+    b("bd_fence_shop", 140, 68, 8, nudge=2)
+    p(CO + "fish_crates_traps.png", 153, 66, 4)
+    p(CO + "dock_lantern_post.png", 151, 70, 5)
+    p("ek_gibbet", 152, 58, 6)
 
     # ---- THE FAR CAIRN: the outermost, and the oldest ------------------------------------------------
-    p(RU + "ruin_bone_pillars.png", 184, 48, 7)
-    p(RU + "ruin_stone_ring.png", 184, 56, 5, solid=False)
-    p("ek_web_boulder", 190, 52, 5)
+    p(RU + "ruin_bone_pillars.png", 188, 46, 7)
+    p(RU + "ruin_stone_ring.png", 179, 56, 5, solid=False)
+    p("ek_web_boulder", 194, 39, 5)
 
     # ---- BOTHY ROCK: a shepherd's hut on what is now a rock in the sea --------------------------------
-    b("bd_sentry_leanto", 124, 110, 6, nudge=2)
-    p("ek_farm_fence", 118, 116, 3, solid=True)
-    p("ek_farm_fence", 130, 116, 3, solid=True)
-    p(CO + "driftwood_pile.png", 128, 120, 4)
+    # The bothy sits on the INSIDE of the crescent, which is the only sheltered ground on it.
+    b("bd_sentry_leanto", 124, 109, 6, nudge=2)
+    p("ek_farm_fence", 118, 104, 3, solid=True)
+    p("ek_farm_fence", 129, 117, 3, solid=True)
+    p(CO + "driftwood_pile.png", 130, 121, 4)
 
     # ---- THE TIDEWRACK: the flooded cave, and the rocks round it --------------------------------------
     p(ENT + "ent_mangrove_cave.png", 160, 130, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
-    p(CO + "rowboat_wreck.png", 150, 140, 7)
-    p(CO + "driftwood_pile.png", 166, 138, 4)
-    b("bd_boat_shed", 154, 126, 8, nudge=2)
+    p(CO + "rowboat_wreck.png", 155, 142, 7)
+    p(CO + "driftwood_pile.png", 163, 134, 4)
+    b("bd_boat_shed", 152, 128, 8, nudge=2)
 
     # ---- THE BONEPICKER: a bird rock, and what they have picked ---------------------------------------
-    p("ek_cross_crows", 188, 106, 5)
-    p(RU + "ruin_bone_pillars.png", 190, 114, 6)
+    p("ek_cross_crows", 189, 105, 5)
+    p(RU + "ruin_bone_pillars.png", 186, 118, 6)
 
     # ---- the mainland moor and the seam ----------------------------------------------------------------
     T.grove(L, 26, 130, 8, 6, 8, OAKS, seed=10)
