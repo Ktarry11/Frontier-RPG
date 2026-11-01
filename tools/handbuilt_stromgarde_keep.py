@@ -306,6 +306,40 @@ def finish(zone, L):
     return L.finish(targets)
 
 
+def _snap_trash(zone, spots, rad=4):
+    """Nudge each hand-placed mob onto real floor, and report any that cannot be.
+
+    Trash is authored against a mental picture of the floorplan while the floorplan is generated, so a
+    mob written beside a pillar or just past a gallery edge lands in rock. In rock it is silently
+    un-fightable, and dungeon_packs.apply_packs only raises on it much later with a message about
+    re-running the pull builder, a long way from the coordinates that are wrong.
+
+    Snapping keeps the pack TOGETHER - a member moved two tiles is still in its pull - while a mob
+    with no floor within `rad` is a real authoring error and is reported with its position.
+    """
+    out, lost = [], []
+    for (x, y, mob, lvl) in spots:
+        if zone.is_walkable(x, y):
+            out.append((x, y, mob, lvl))
+            continue
+        best = None
+        for dy in range(-rad, rad + 1):
+            for dx in range(-rad, rad + 1):
+                nx, ny = x + dx, y + dy
+                if not zone.is_walkable(nx, ny):
+                    continue
+                if any(abs(px - nx) + abs(py - ny) < 1 for (px, py, _m, _l) in out):
+                    continue
+                d = dx * dx + dy * dy
+                if best is None or d < best[0]:
+                    best = (d, nx, ny)
+        if best is None:
+            lost.append((x, y, mob, lvl))
+        else:
+            out.append((best[1], best[2], mob, lvl))
+    return out, lost
+
+
 def _attach_trash(zone):
     """Hand-placed trash, checked against the real floor.
 
@@ -313,8 +347,8 @@ def _attach_trash(zone):
     it later with a message about re-running the pull builder - a long way from the authoring mistake.
     Caught here instead, where the coordinates are.
     """
-    TRASH[:] = [t for t in _trash() if zone.is_walkable(t[0], t[1])]
-    dropped = [t for t in _trash() if not zone.is_walkable(t[0], t[1])]
+    snapped, dropped = _snap_trash(zone, _trash())
+    TRASH[:] = snapped
     zone.trash_spawns = list(TRASH)
     zone.authored_trash_spawns = list(TRASH)
     return dropped
