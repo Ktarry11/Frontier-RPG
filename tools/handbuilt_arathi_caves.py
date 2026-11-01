@@ -55,8 +55,33 @@ def _carve(zone, spec):
     b = L.b
     for i, (pts, w0, w1) in enumerate(spec["PATHS"].values()):
         tube(b, pts, w0, w1, ph=0.5 + i * 0.9)
-    for (cx, cy, rx, ry, rot, ph, _n) in spec["ROOMS"].values():
+    # ROOMS are a LIST OF LOBES each, not one ellipse. Kyle, 2026-11-01: "These caves are very boring.
+    # Put more effort into them if you can bro" - and he was right: the first build had five distinct
+    # OUTLINES and five identical insides, because every room was one smooth oval joined to the next by
+    # one smooth tube. Nothing to walk round, nothing to find, no rhythm. Unioned lobes give a room
+    # corners, bays and a long axis; ALCOVES below give it pockets; PILLARS give it something to fight
+    # around.
+    for lobes in spec["ROOMS"].values():
+        for (cx, cy, rx, ry, rot, ph) in lobes[0]:
+            cavern(b, cx, cy, rx, ry, rot, ph)
+    for (cx, cy, rx, ry, rot, ph) in spec.get("ALCOVES", ()):
         cavern(b, cx, cy, rx, ry, rot, ph)
+
+    # PILLARS are carved back to rock AFTER the floor exists - roof supports, rock islands and spines
+    # that split a room into routes. A hall you cross in a straight line is a corridor with a big name.
+    for (cx, cy, rx, ry, rot) in spec.get("PILLARS", ()):
+        import math as _m
+        c, s_ = _m.cos(_m.radians(rot)), _m.sin(_m.radians(rot))
+        R = int(max(rx, ry)) + 2
+        for yy in range(int(cy) - R, int(cy) + R + 1):
+            for xx in range(int(cx) - R, int(cx) + R + 1):
+                if not (0 <= xx < spec["W"] and 0 <= yy < spec["H"]):
+                    continue
+                dx, dy = xx - cx, yy - cy
+                u, v = (c * dx + s_ * dy) / rx, (-s_ * dx + c * dy) / ry
+                if u * u + v * v <= 1.0:
+                    zone.collision_layer[yy][xx] = "wall"
+                    zone.set_tile(xx, yy, "rock", "collision")
 
     px, py = spec["PORTAL"]
     zone.collision_layer[py][px] = None
@@ -82,8 +107,12 @@ def _carve(zone, spec):
     spec["_chests"] = chests
 
     zone.add_subzone(zone.name, 0, 0, spec["W"], spec["H"])   # cave table key first
-    for (cx, cy, rx, ry, _rot, _ph, name) in spec["ROOMS"].values():
-        zone.add_subzone(name, int(cx - rx - 2), int(cy - ry - 2), int(2 * rx + 4), int(2 * ry + 4))
+    for (lobes, name) in spec["ROOMS"].values():
+        x0 = min(cx - rx for (cx, cy, rx, ry, _r, _p) in lobes)
+        x1 = max(cx + rx for (cx, cy, rx, ry, _r, _p) in lobes)
+        y0 = min(cy - ry for (cx, cy, rx, ry, _r, _p) in lobes)
+        y1 = max(cy + ry for (cx, cy, rx, ry, _r, _p) in lobes)
+        zone.add_subzone(name, int(x0 - 2), int(y0 - 2), int(x1 - x0 + 4), int(y1 - y0 + 4))
     return L
 
 
@@ -102,7 +131,7 @@ def _place(L, name, x, y, height, rad=6, **kw):
     """
     z = L.z
     avoid = kw.get("avoid", 2)
-    best = None
+    cands = []
     for dy in range(-rad, rad + 1):
         for dx in range(-rad, rad + 1):
             nx, ny = int(x) + dx, int(y) + dy
@@ -112,13 +141,15 @@ def _place(L, name, x, y, height, rad=6, **kw):
                 continue
             if any(max(abs(qx - nx), abs(qy - ny)) <= avoid for (qx, qy) in L.critical):
                 continue
-            d = dx * dx + dy * dy
-            if best is None or d < best[0]:
-                best = (d, nx, ny)
-    if best is None:
-        L.skipped.append((name, x, y, "no floor within radius"))
-        return False
-    return L.prop(name, best[1], best[2], height, **kw)
+            cands.append((dx * dx + dy * dy, nx, ny))
+    # EVERY candidate in distance order, not just the nearest. L.prop has its own refusals - chiefly
+    # "would isolate N tiles", which a solid prop in a doorway earns - and giving up on the first one
+    # leaves a room bare for a reason that the next tile over does not have.
+    for (_d, nx, ny) in sorted(cands):
+        if L.prop(name, nx, ny, height, **kw):
+            return True
+    L.skipped.append((name, x, y, "no usable floor within radius"))
+    return False
 
 
 # =====================================================================================================
@@ -130,17 +161,32 @@ def _place(L, name, x, y, height, rad=6, **kw):
 BOULDERGOR = dict(
     W=66, H=52, PORTAL=(30, 46),
     PATHS={
-        "mouth": ([(30, 46), (30, 42), (29, 39)], 5.0, 5.2),
-        "crawl": ([(26, 33), (20, 30), (16, 25), (20, 20), (26, 17)], 3.4, 3.4),   # the long low squeeze
-        "upper": ([(30, 17), (36, 15), (42, 14)], 4.4, 4.6),
+        "mouth":   ([(30, 46), (30, 42), (29, 39)], 5.0, 5.2),
+        # the crawl, with two PASSING PLACES where it bellies out - the rhythm is squeeze, breathe,
+        # squeeze, and an ogre band can only come at you one at a time in the narrow parts
+        "crawl_a": ([(26, 33), (21, 31), (18, 28)], 3.0, 3.0),
+        "crawl_b": ([(18, 28), (15, 24), (18, 21)], 3.0, 3.0),
+        "crawl_c": ([(18, 21), (22, 18), (27, 17)], 3.0, 3.2),
+        "stash":   ([(16, 26), (10, 25)], 2.6, 3.4),          # a dead-end pocket off the crawl
+        "upper":   ([(30, 17), (36, 15), (42, 14)], 4.4, 4.6),
+        # a crack above the lower hall: a loop round the spine, so the hall can be fought two ways
+        "crack":   ([(24, 26), (31, 23), (39, 26)], 2.8, 2.8),
     },
     ROOMS={
-        "mouth":  (30, 44, 8.0, 4.5, 0, 0.4, "The Boulder Gate"),
-        "lower":  (31, 32, 15.0, 7.0, 0, 1.2, "The Lower Hall"),
-        "upper":  (46, 14, 14.0, 6.5, 0, 2.3, "The Chief's Hall"),
+        "mouth": ([(30, 44, 8.0, 4.5, 0, 0.4)], "The Boulder Gate"),
+        # the lower hall: two overlapping lobes, so it has a waist rather than being one oval
+        "lower": ([(24, 33, 10.0, 6.5, 10, 1.2), (38, 31, 11.0, 6.0, -8, 2.6)], "The Lower Hall"),
+        # the chief's hall: a long main bay with a raised back bay behind the pillars
+        "upper": ([(46, 15, 11.0, 5.5, 0, 2.3), (56, 11, 7.0, 4.5, 20, 0.9)], "The Chief's Hall"),
     },
-    BOSSES=[(50, 13, "Gor'mok the Pit Chief"), (24, 34, "Gruln Stonejaw")],
-    CHESTS=[(20, 35), (40, 30), (54, 17), (34, 11)],
+    #: sleeping dens off the lower hall's north wall, and the chief's larder
+    ALCOVES=[(19, 26, 3.4, 2.8, 0, 1.1), (29, 25, 3.0, 2.6, 0, 2.2), (41, 25, 3.4, 2.8, 0, 0.6),
+             (52, 20, 3.6, 3.0, 0, 1.8)],
+    #: the spine that splits the lower hall into two aisles, and the chief's roof supports
+    PILLARS=[(31, 33, 5.0, 1.8, -12), (44, 13, 1.8, 1.8, 0), (50, 16, 1.8, 1.8, 0),
+             (14, 25, 1.4, 1.4, 0)],
+    BOSSES=[(57, 11, "Gor'mok the Pit Chief"), (24, 34, "Gruln Stonejaw")],
+    CHESTS=[(10, 25), (41, 25), (19, 26), (52, 20)],
     BAKED=f"{BAKED_ROOT}/bouldergor/baked",
     DESC="A two-hall ogre hold on the high moor, joined by a crawl neither band likes using.",
     REGION="Arathi Highlands",
@@ -181,22 +227,34 @@ def _dress_bouldergor(zone, L):
 BOULDERFIST = dict(
     W=74, H=64, PORTAL=(32, 50),
     PATHS={
-        "mouth":  ([(32, 50), (33, 46), (34, 43)], 5.0, 5.2),
-        "spoke_n": ([(36, 34), (38, 25), (36, 18)], 3.8, 4.2),
-        "spoke_w": ([(28, 36), (18, 33), (11, 29)], 3.6, 4.0),
-        "spoke_e": ([(45, 37), (55, 35), (63, 31)], 3.8, 4.2),
-        "spoke_s": ([(40, 44), (48, 50), (54, 56)], 3.6, 3.8),
+        "mouth":   ([(32, 50), (33, 46), (34, 43)], 5.0, 5.2),
+        "spoke_n": ([(36, 32), (39, 25), (36, 18)], 3.6, 4.2),          # kinked
+        "spoke_w": ([(26, 36), (18, 34), (11, 29)], 3.4, 4.0),          # straight-ish
+        "spoke_e": ([(46, 37), (55, 34), (63, 30)], 3.6, 4.2),
+        "spoke_s": ([(40, 45), (47, 51), (54, 56)], 3.4, 3.8),
+        # THE BACK PASSAGE. A pure star is five dead ends; this one link turns the north and east dens
+        # into a loop, so a pull in the hall can be run away from in more than one direction.
+        "back":    ([(37, 17), (50, 16), (62, 22), (66, 27)], 2.8, 2.8),
+        # and a servants' crack from the west den down to the larder, long and mean
+        "crack":   ([(10, 32), (14, 44), (26, 54), (42, 58), (52, 58)], 2.4, 2.4),
     },
     ROOMS={
-        "mouth": (33, 48, 7.5, 4.2, 0, 0.5, "The Fist Gate"),
-        "hall":  (36, 38, 16.0, 8.0, 0, 1.0, "The Feast Hall"),
-        "north": (35, 15, 9.0, 6.0, 0, 1.9, "The Bone Den"),
-        "west":  (8, 28, 8.5, 6.0, 0, 2.4, "The Scrap Den"),
-        "east":  (67, 29, 9.0, 6.5, 0, 0.8, "The Chief's Den"),
-        "south": (57, 58, 8.0, 5.0, 0, 3.1, "The Deep Larder"),
+        "mouth": ([(33, 48, 7.5, 4.2, 0, 0.5)], "The Fist Gate"),
+        # the feast hall: three lobes, so it is a long room with a bulge rather than a circle
+        "hall":  ([(28, 39, 10.0, 6.5, 8, 1.0), (40, 38, 10.0, 7.0, -6, 2.4),
+                   (34, 45, 7.0, 4.0, 0, 3.0)], "The Feast Hall"),
+        "north": ([(35, 15, 7.0, 5.0, 0, 1.9), (41, 12, 4.5, 3.6, 0, 0.3)], "The Bone Den"),
+        "west":  ([(8, 28, 6.5, 5.0, 0, 2.4), (10, 21, 4.5, 3.6, 15, 1.2)], "The Scrap Den"),
+        "east":  ([(67, 29, 7.0, 5.5, 0, 0.8), (62, 35, 5.0, 4.0, 0, 2.7)], "The Chief's Den"),
+        "south": ([(57, 58, 7.0, 4.5, 0, 3.1), (49, 60, 5.0, 3.4, 0, 1.5)], "The Deep Larder"),
     },
-    BOSSES=[(67, 28, "Boulderfist Hal'dun"), (35, 14, "Mauler Krakk")],
-    CHESTS=[(28, 40), (8, 27), (34, 12), (58, 58), (62, 32)],
+    ALCOVES=[(21, 33, 3.2, 2.6, 0, 0.9), (30, 31, 3.0, 2.4, 0, 2.1), (45, 31, 3.2, 2.6, 0, 1.4),
+             (52, 40, 3.4, 2.8, 0, 2.9), (28, 18, 3.0, 2.6, 0, 0.4), (56, 20, 3.2, 2.6, 0, 3.4)],
+    #: four roof supports in a rough square, plus a rock island the fire pit sits against
+    PILLARS=[(26, 34, 2.0, 2.0, 0), (44, 33, 2.0, 2.0, 0), (26, 44, 2.0, 2.0, 0), (44, 44, 2.0, 2.0, 0),
+             (35, 41, 3.0, 1.6, 20), (66, 32, 1.6, 1.6, 0), (6, 25, 1.6, 1.6, 0)],
+    BOSSES=[(69, 27, "Boulderfist Hal'dun"), (41, 11, "Mauler Krakk")],
+    CHESTS=[(21, 33), (8, 21), (28, 18), (52, 40), (49, 60)],
     BAKED=f"{BAKED_ROOT}/boulderfist/baked",
     DESC="The larger ogre hold: a feast hall with four dens off it, grown rather than planned.",
     REGION="Arathi Highlands",
@@ -243,27 +301,43 @@ def _dress_boulderfist(zone, L):
 BARROW = dict(
     W=58, H=70, PORTAL=(30, 52),
     PATHS={
-        "mouth": ([(30, 52), (30, 48), (29, 45)], 4.6, 4.6),
-        "spine": ([(29, 45), (29, 36), (28, 26), (28, 16), (28, 9)], 4.4, 5.6),
-        "rib_a": ([(29, 41), (22, 40)], 3.0, 3.4),
-        "rib_b": ([(29, 41), (36, 40)], 3.0, 3.4),
-        "rib_c": ([(29, 31), (20, 30)], 3.0, 3.4),
-        "rib_d": ([(29, 31), (38, 30)], 3.0, 3.4),
-        "rib_e": ([(28, 21), (19, 20)], 3.0, 3.4),
-        "rib_f": ([(28, 21), (37, 20)], 3.0, 3.4),
+        "mouth":  ([(30, 52), (30, 48), (29, 45)], 4.6, 4.6),
+        # the spine BREATHES: it is cut as four segments whose width swells between rib junctions and
+        # pinches at them, so walking it has a pulse instead of being one corridor
+        "spine_a": ([(29, 45), (29, 41)], 5.6, 3.6),
+        "spine_b": ([(29, 41), (29, 36), (28, 31)], 3.6, 5.8),
+        "spine_c": ([(28, 31), (28, 26), (28, 21)], 5.8, 3.4),
+        "spine_d": ([(28, 21), (28, 16), (28, 11)], 3.4, 6.0),
+        "rib_a": ([(29, 41), (22, 40)], 3.0, 3.4), "rib_b": ([(29, 41), (36, 40)], 3.0, 3.4),
+        "rib_c": ([(29, 31), (20, 30)], 3.0, 3.4), "rib_d": ([(29, 31), (38, 30)], 3.0, 3.4),
+        "rib_e": ([(28, 21), (19, 20)], 3.0, 3.4), "rib_f": ([(28, 21), (37, 20)], 3.0, 3.4),
+        # THE ROBBERS' TUNNEL. Someone dug in from the side and cut across two ribs rather than walk
+        # the spine - it is crooked, too narrow, and it is the reason this barrow is already empty.
+        "robbers": ([(14, 44), (13, 36), (16, 30), (15, 24), (18, 19)], 2.4, 2.4),
+        "rob_in":  ([(14, 44), (20, 42)], 2.4, 2.4),
     },
     ROOMS={
-        "mouth": (30, 50, 6.5, 4.0, 0, 0.6, "The Barrow Mouth"),
-        "n_a":   (19, 40, 4.5, 3.6, 0, 1.4, "The First Niches"),
-        "n_b":   (39, 40, 4.5, 3.6, 0, 2.2, "The Second Niches"),
-        "n_c":   (17, 30, 4.5, 3.6, 0, 0.9, "The Flooded Niches"),
-        "n_d":   (41, 30, 4.5, 3.6, 0, 2.8, "The Silted Niches"),
-        "n_e":   (16, 20, 4.5, 3.6, 0, 1.7, "The Drowned Niches"),
-        "n_f":   (40, 20, 4.5, 3.6, 0, 3.3, "The Last Niches"),
-        "head":  (28, 8, 13.0, 7.0, 0, 2.0, "The Barrow Head"),
+        "mouth": ([(30, 50, 6.5, 4.0, 0, 0.6)], "The Barrow Mouth"),
+        "n_a":   ([(19, 40, 4.5, 3.6, 0, 1.4)], "The First Niches"),
+        "n_b":   ([(39, 40, 4.5, 3.6, 0, 2.2)], "The Second Niches"),
+        "n_c":   ([(17, 30, 4.5, 3.6, 0, 0.9)], "The Flooded Niches"),
+        "n_d":   ([(41, 30, 4.5, 3.6, 0, 2.8)], "The Silted Niches"),
+        "n_e":   ([(16, 20, 4.5, 3.6, 0, 1.7)], "The Drowned Niches"),
+        "n_f":   ([(40, 20, 4.5, 3.6, 0, 3.3)], "The Last Niches"),
+        # the head: a wide chamber with a deep apse behind the thane
+        "head":  ([(28, 9, 12.0, 6.0, 0, 2.0), (28, 4, 6.0, 3.0, 0, 0.7)], "The Barrow Head"),
     },
-    BOSSES=[(28, 7, "The Barrow Warden"), (16, 20, "Thane Aldric's Shade")],
-    CHESTS=[(19, 40), (41, 30), (40, 20), (33, 6), (22, 9)],
+    #: burial shelves - small pockets off the ribs and the spine, the actual graves
+    ALCOVES=[(23, 44, 2.6, 2.2, 0, 0.5), (34, 44, 2.6, 2.2, 0, 1.6), (23, 34, 2.6, 2.2, 0, 2.7),
+             (34, 34, 2.6, 2.2, 0, 0.8), (22, 24, 2.6, 2.2, 0, 1.9), (34, 24, 2.6, 2.2, 0, 3.0),
+             (21, 15, 3.0, 2.4, 0, 1.1), (35, 15, 3.0, 2.4, 0, 2.3)],
+    #: a plinth in each niche chamber, and a ring of columns round the thane
+    PILLARS=[(19, 40, 1.4, 1.4, 0), (39, 40, 1.4, 1.4, 0), (17, 30, 1.4, 1.4, 0), (41, 30, 1.4, 1.4, 0),
+             (16, 20, 1.4, 1.4, 0), (40, 20, 1.4, 1.4, 0),
+             (22, 10, 1.6, 1.6, 0), (34, 10, 1.6, 1.6, 0), (22, 6, 1.6, 1.6, 0), (34, 6, 1.6, 1.6, 0),
+             (28, 38, 1.5, 3.0, 0), (28, 28, 1.5, 3.0, 0)],
+    BOSSES=[(28, 4, "The Barrow Warden"), (18, 19, "Thane Aldric's Shade")],
+    CHESTS=[(23, 44), (34, 34), (21, 15), (35, 15), (13, 36)],
     BAKED=f"{BAKED_ROOT}/barrow/baked",
     DESC="An Arathor barrow dug into a hill that is now below the waterline. The far end is water.",
     REGION="Arathi Highlands",
@@ -275,8 +349,11 @@ def _dress_barrow(zone, L):
     P("gothic_gate", 30, 49, 6, solid="core", avoid=1)
     P("broken_column", 25, 51, 5, solid="core")
     # the ribs: a sarcophagus in each, getting worse as you go in
-    for (x, y) in ((19, 40), (39, 40), (17, 30), (41, 30), (16, 21), (40, 21)):
-        P("sarcophagus", x, y, 4, solid="core", avoid=1)
+    # NOT solid: each niche already has a stone plinth carved as a PILLAR at its centre, so a solid
+    # sarcophagus in the same small room leaves a ring of floor too thin to walk and L.prop refuses it
+    # outright ("would isolate 3 tiles"). The lid lies flat beside the plinth instead.
+    for (x, y) in ((21, 40), (37, 40), (19, 30), (43, 30), (18, 21), (38, 21)):
+        P("sarcophagus", x, y, 4, solid=False, avoid=1)
     P("temple_column", 24, 36, 6, solid="core")
     P("temple_column", 34, 36, 6, solid="core")
     P("skull_pile", 31, 34, 2)
@@ -305,15 +382,30 @@ WRACKLINE = dict(
     PATHS={
         "mouth": ([(28, 48), (28, 45), (28, 42)], 5.2, 5.4),
         "ramp1": ([(44, 40), (52, 36), (56, 31)], 4.0, 4.2),     # east end, up to the cargo shelf
-        "ramp2": ([(22, 29), (14, 25), (12, 19)], 4.0, 4.2),     # west end, up to the quarters
+        # Both ramps run INTO the shelf above, not up to its edge. Stopping at (12,19) left the
+        # whole crew shelf and its three bunks sealed off - the boss with them.
+        "ramp2": ([(22, 29), (14, 25), (13, 20), (17, 16)], 4.0, 4.2),
+        # THE BACK STAIR. Narrow, hidden behind the cargo, and it skips a whole shelf. A smuggler's
+        # cave with one route through it is a warehouse; this is the thing the crew uses when the
+        # revenue men come in the front.
+        "stair": ([(50, 41), (56, 44), (62, 38), (62, 28), (58, 20), (46, 15)], 2.4, 2.4),
+        # and a tide channel along the back of the boat floor, cutting behind the rock islands
+        "channel": ([(14, 38), (24, 36), (36, 37), (46, 39)], 2.8, 2.8),
     },
     ROOMS={
-        "dock":   (28, 41, 18.0, 6.0, 0, 0.7, "The Boat Floor"),
-        "cargo":  (36, 28, 20.0, 6.5, 0, 1.6, "The Cargo Shelf"),
-        "crew":   (30, 14, 17.0, 6.5, 0, 2.5, "The Crew's Shelf"),
+        # three long shelves, each two lobes so they have ends rather than being one bar
+        "dock":  ([(22, 42, 11.0, 5.0, 0, 0.7), (36, 41, 10.0, 5.5, 0, 2.2)], "The Boat Floor"),
+        "cargo": ([(28, 28, 11.0, 5.5, 0, 1.6), (44, 27, 11.0, 6.0, 0, 3.0)], "The Cargo Shelf"),
+        "crew":  ([(24, 14, 10.0, 5.5, 0, 2.5), (38, 13, 9.0, 5.0, 0, 1.0)], "The Crew's Shelf"),
     },
-    BOSSES=[(30, 13, "Captain Mory Vane"), (56, 29, "Ledger-Keeper Ashkin")],
-    CHESTS=[(16, 42), (44, 40), (20, 27), (50, 27), (38, 13)],
+    #: bunks off the crew shelf, a lamp room, and two cargo bays
+    ALCOVES=[(18, 8, 3.2, 2.6, 0, 0.4), (28, 7, 3.2, 2.6, 0, 1.5), (40, 7, 3.2, 2.6, 0, 2.6),
+             (34, 21, 3.4, 2.6, 0, 0.9), (52, 21, 3.4, 2.6, 0, 2.0), (16, 46, 3.4, 2.8, 0, 3.1)],
+    #: rock islands standing in the boat floor, and a crate-row spine down the cargo shelf
+    PILLARS=[(28, 43, 2.6, 2.0, 15), (40, 44, 2.2, 1.8, -20), (17, 40, 2.0, 1.6, 0),
+             (34, 29, 4.5, 1.5, 0), (48, 29, 3.0, 1.5, 0), (30, 15, 1.8, 3.0, 0)],
+    BOSSES=[(44, 12, "Captain Mory Vane"), (58, 30, "Ledger-Keeper Ashkin")],
+    CHESTS=[(16, 46), (34, 21), (52, 21), (18, 8), (40, 7)],
     BAKED=f"{BAKED_ROOT}/wrackline/baked",
     DESC="A sea cave in three shelves: boats at the tideline, cargo above it, the crew above that.",
     REGION="Arathi Highlands",
@@ -355,22 +447,35 @@ def _dress_wrackline(zone, L):
 TIDEWRACK = dict(
     W=62, H=58, PORTAL=(34, 50),
     PATHS={
-        "mouth": ([(34, 50), (33, 47), (32, 44)], 5.0, 5.0),
-        "ring_w": ([(28, 42), (16, 36), (12, 26), (18, 16), (28, 11)], 4.2, 4.2),
-        "ring_e": ([(36, 42), (48, 36), (52, 26), (46, 16), (36, 11)], 4.2, 4.2),
-        # MUST overlap the sump disc, not stop at its rim. At (32,18) it ended one row short and
-        # the island was a sealed pocket of floor with the boss standing on it.
+        "mouth":  ([(34, 50), (33, 47), (32, 44)], 5.0, 5.0),
+        # the two arms of the ring, DIFFERENT WIDTHS: the west arm is broad and the east arm pinches
+        # to almost nothing halfway round, so the two ways to the causeway are not the same walk
+        "ring_w": ([(28, 42), (16, 36), (12, 26), (18, 16), (28, 11)], 5.0, 5.0),
+        "ring_e": ([(36, 42), (48, 37), (52, 27), (46, 17), (36, 11)], 4.4, 2.6),
         "causeway": ([(32, 10), (32, 22)], 3.4, 3.4),         # the only way onto the island
+        # the island is a RING ITSELF - a walkway round a pool in its middle
+        "isle_w": ([(30, 23), (26, 27), (30, 32)], 3.0, 3.0),
+        "isle_e": ([(34, 23), (38, 27), (34, 32)], 3.0, 3.0),
+        "isle_s": ([(30, 32), (34, 32)], 3.0, 3.0),
+        # a stub to the south-east pocket. As a bare ALCOVE it floated 27 tiles clear of the
+        # ring - an alcove only works if it overlaps something, and this one did not.
+        "pocket_e": ([(42, 42), (46, 45)], 2.4, 2.4),
     },
     ROOMS={
-        "mouth":  (33, 48, 6.5, 3.8, 0, 0.5, "The Tide Gate"),
-        "sump":   (32, 27, 9.0, 8.0, 0, 1.3, "The Sump"),
-        "north":  (32, 10, 11.0, 4.5, 0, 2.1, "The North Shelf"),
+        "mouth": ([(33, 48, 6.5, 3.8, 0, 0.5)], "The Tide Gate"),
+        "sump":  ([(32, 27, 8.0, 7.5, 0, 1.3)], "The Sump"),
+        "north": ([(32, 10, 10.0, 4.0, 0, 2.1), (24, 12, 5.0, 3.4, 0, 0.6)], "The North Shelf"),
     },
-    BOSSES=[(32, 24, "The Wrack-Drowned"), (12, 26, "Brinemaw")],
-    CHESTS=[(32, 25), (12, 25), (52, 26), (28, 9)],
+    #: pockets off the outer ring - what the tide has pushed into the wall
+    ALCOVES=[(9, 30, 3.4, 3.0, 0, 0.8), (14, 18, 3.2, 2.6, 0, 1.9), (55, 30, 3.4, 3.0, 0, 3.0),
+             (50, 18, 3.0, 2.4, 0, 1.2), (20, 44, 3.2, 2.6, 0, 2.4), (46, 45, 3.2, 2.6, 0, 0.3)],
+    #: the pool at the heart of the island, and two stacks pinching the east arm
+    PILLARS=[(32, 27, 3.2, 3.2, 0), (49, 32, 2.2, 2.6, 0), (47, 22, 2.0, 2.2, 0),
+             (15, 32, 1.8, 2.0, 0)],
+    BOSSES=[(32, 22, "The Wrack-Drowned"), (9, 30, "Brinemaw")],
+    CHESTS=[(32, 32), (20, 44), (55, 30), (24, 12)],
     BAKED=f"{BAKED_ROOT}/tidewrack/baked",
-    DESC="A round flooded sump with an island in the middle and a shelf round the wall.",
+    DESC="A round flooded sump with a ringed island in the middle and a shelf round the wall.",
     REGION="Arathi Highlands",
 )
 
