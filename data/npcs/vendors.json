@@ -202,7 +202,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -540,7 +540,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -953,7 +953,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs \u2014 close enough business."
+      "greeting": "Explosives, elixirs — close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -1152,7 +1152,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
+      "greeting": "The Burning Blade has its needs. I supply them — no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1345,7 +1345,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -3960,6 +3960,299 @@
       "race": "orc",
       "appearance_variant": 8,
       "greeting": "Rope, thread, flux, parchment. Unglamorous, and you will be back for all four."
+    },
+    {
+      "vendor_id": "arathi_refuge_quartermaster",
+      "name": "Quartermaster Horg",
+      "zone": "arathi_west",
+      "x": 70,
+      "y": 102,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "meal_trailbread",
+        "drink_barley_beer",
+        "whetstone",
+        "vial_empty",
+        "thread_fine",
+        "small_burlap_sack"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": true,
+      "race": "orc",
+      "gender": "male",
+      "appearance_variant": 7,
+      "greeting": "Camp stores. I requisition for a garrison of forty and I am supplied for a garrison of twelve, so take what you need and do not take more."
+    },
+    {
+      "vendor_id": "arathi_refuge_innkeeper",
+      "name": "Innkeeper Mura Flint",
+      "zone": "arathi_west",
+      "x": 62,
+      "y": 108,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_trailbread",
+        "drink_barley_beer",
+        "bread_and_cheese",
+        "spiced_wine",
+        "meal_river_fish",
+        "drink_spring_flask"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 3,
+      "greeting": "There is a roof in the north corner that has held three winters. That is the inn. Set your hearth by the fire and I will not ask you anything else."
+    },
+    {
+      "vendor_id": "arathi_refuge_flightmaster",
+      "name": "Wind Rider Keeper Sharzak",
+      "zone": "arathi_west",
+      "x": 72,
+      "y": 110,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_tough_jerky",
+        "drink_waterskin"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 19,
+      "sells_gear": false,
+      "race": "orc",
+      "gender": "male",
+      "appearance_variant": 16,
+      "greeting": "Two wyverns. One of them will take you to Hammerfall and one of them will take you to Tarren Mill, and which is which changes depending on their mood."
+    },
+    {
+      "vendor_id": "hammerfall_quartermaster",
+      "name": "Quartermaster Urga Ironhand",
+      "zone": "arathi_central",
+      "x": 134,
+      "y": 58,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "guardian_elixir_standard",
+        "battle_elixir_standard",
+        "meal_spiced_haunch",
+        "drink_honeyed_mead",
+        "whetstone",
+        "flux_medium",
+        "buckled_saddlebag"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": true,
+      "race": "orc",
+      "gender": "female",
+      "appearance_variant": 2,
+      "greeting": "The hold's stores, and the hold's stores are good, because we have been here long enough to build shelves."
+    },
+    {
+      "vendor_id": "hammerfall_innkeeper",
+      "name": "Innkeeper Grettha",
+      "zone": "arathi_central",
+      "x": 136,
+      "y": 64,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_spiced_haunch",
+        "drink_honeyed_mead",
+        "bread_and_cheese",
+        "spiced_wine",
+        "meal_river_fish",
+        "drink_spring_flask",
+        "salt"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 11,
+      "greeting": "A real inn, with a real fire, and I will tell anyone in Orgrimmar who asks that we built it before the second watchtower and we were right to."
+    },
+    {
+      "vendor_id": "hammerfall_windrider_master",
+      "name": "Wind Rider Master Dreka",
+      "zone": "arathi_central",
+      "x": 154,
+      "y": 62,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_tough_jerky",
+        "drink_waterskin"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": false,
+      "race": "orc",
+      "gender": "female",
+      "appearance_variant": 20,
+      "greeting": "The roost is full and the routes are flown. Hammerfall is on the map now, whatever Orgrimmar's cartographers are still printing."
+    },
+    {
+      "vendor_id": "hammerfall_weaponsmith",
+      "name": "Weaponsmith Krol Anvilbrand",
+      "zone": "arathi_central",
+      "x": 128,
+      "y": 60,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_medium",
+        "coal",
+        "bs_stonemace",
+        "sturdy_arrows",
+        "heavy_bolts"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": true,
+      "race": "orc",
+      "gender": "male",
+      "appearance_variant": 13,
+      "greeting": "War forge. Not a camp fire with a rock next to it - a forge, with a chimney, built by someone who knew what they were doing. Me."
+    },
+    {
+      "vendor_id": "hammerfall_general_goods",
+      "name": "Trader Molg",
+      "zone": "arathi_central",
+      "x": 146,
+      "y": 66,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "drink_barley_beer",
+        "parchment",
+        "thread_fine",
+        "vial_empty",
+        "small_burlap_sack",
+        "worn_leather_satchel",
+        "salt"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": false,
+      "race": "orc",
+      "gender": "male",
+      "appearance_variant": 17,
+      "greeting": "Everything a soldier forgets to pack and then needs on the moor at four in the afternoon. I have made a study of it."
+    },
+    {
+      "vendor_id": "hammerfall_reagent_vendor",
+      "name": "Reagent-Keeper Shelna",
+      "zone": "arathi_central",
+      "x": 132,
+      "y": 68,
+      "tile_sprite": "npc",
+      "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "parchment",
+        "thread_fine",
+        "dye_mild",
+        "resin",
+        "tanning_reagent",
+        "curing_salt"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 7,
+      "greeting": "Components. Measured, labelled and dated, because the alternative is Apothecary Voss guessing, and he has guessed before."
+    },
+    {
+      "vendor_id": "hammerfall_tauren_herbalist",
+      "name": "Herbalist Nahto Greenhoof",
+      "zone": "arathi_central",
+      "x": 152,
+      "y": 46,
+      "tile_sprite": "npc",
+      "sells": [
+        "mana_potion_standard",
+        "guardian_elixir_standard",
+        "elixir_of_warding",
+        "mushroom_broth",
+        "spiced_stew",
+        "resin"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 21,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "male",
+      "appearance_variant": 9,
+      "greeting": "There is good growing in the basin and nobody here is looking at it. They are all looking at the ogres. The ogres will still be there next season. So will the plants, if somebody tends them."
+    },
+    {
+      "vendor_id": "saltspur_quartermaster",
+      "name": "Quartermaster Dreg",
+      "zone": "arathi_east",
+      "x": 50,
+      "y": 98,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "meal_river_fish",
+        "drink_spring_flask",
+        "guardian_elixir_standard",
+        "battle_elixir_standard",
+        "whetstone",
+        "vial_leaded"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 12,
+      "greeting": "Landed stores. Everything here came off a boat and some of it came off somebody else's boat, and I am not going to pretend otherwise."
+    },
+    {
+      "vendor_id": "arathi_wreck_salvager",
+      "name": "Salvager Pik Bronzewhistle",
+      "zone": "arathi_east",
+      "x": 82,
+      "y": 108,
+      "tile_sprite": "npc",
+      "sells": [
+        "parchment",
+        "resin",
+        "glue",
+        "component_string",
+        "fletching",
+        "sinew",
+        "worn_leather_satchel"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 22,
+      "sells_gear": true,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 5,
+      "greeting": "Six wrecks on the flats and the tide only lets you at them twice a day. I know which two. That knowledge is the business."
     }
   ]
 }
