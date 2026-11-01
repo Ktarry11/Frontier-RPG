@@ -380,7 +380,12 @@ def get_owning_tree(char_class, ability):
     """
     # CoA classes: spec placement comes from data/spellbook_tabs_coa.json (built from the CoA handoff's
     # per-spec ability lists by tools/build_coa_spellbook_tabs.py).  "core" = class kit / no single spec.
-    coa = _coa_tabs().get(char_class)
+    # data/spellbook_tabs_coa.json is keyed by DISPLAY name ("Sun Cleric") while char_class is the
+    # id ("sun_cleric"), so a plain .get() missed for every CoA class and dropped their whole kit
+    # into Core. Kyle, 2026-10-31: "for CoA classes we need to put them into tabs rather than just
+    # core."
+    from core.class_names import class_key, lookup as _class_lookup
+    coa = _class_lookup(_coa_tabs(), char_class)
     if coa is not None and ability.ability_id in coa:
         tab = coa[ability.ability_id]
         return None if tab == "core" else tab
@@ -395,14 +400,17 @@ def get_owning_tree(char_class, ability):
 
     school = getattr(ability, "damage_school", None)
     if isinstance(school, str):
-        class_map = CLASS_SCHOOL_TREE_MAP.get(char_class, {})
+        # Keyed by display name here too, and char_class is the id, so this missed for the
+        # classic nine as well - a Mage's whole book sat in Core with the Fire/Frost/Arcane
+        # tabs never appearing at all.
+        class_map = _class_lookup(CLASS_SCHOOL_TREE_MAP, char_class, {}) or {}
         return class_map.get(school)
 
     # Mage-only Arcane fallback for school-less spell EFFECTS (not
     # physical abilities - a Mage's basic Attack has no school either,
     # but it's a weapon swing, not a spell, so it belongs in Core like
     # any other class's physical ability, not forced into Arcane).
-    if char_class == "Mage" and school is None:
+    if class_key(char_class) == "mage" and school is None:
         real_spell_effect_types = ("buff", "debuff", "damage", "spell_damage",
                                     "dot", "spell_dot", "heal", "hot",
                                     "damage_and_heal", "damage_and_restore_mana")

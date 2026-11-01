@@ -237,9 +237,13 @@ def _lookup_class_resource(char_class):
     """
     if char_class in CLASS_RESOURCE_MAP:
         return CLASS_RESOURCE_MAP[char_class]
-    lowered = char_class.lower() if isinstance(char_class, str) else char_class
+    # Lowercasing alone was not enough: the map is keyed by display name, so the four two-word
+    # classes (Sun Cleric, Witch Doctor, Witch Hunter, Knight of Xoroth) never matched their id
+    # and every one of them silently reported Mana. class_key collapses the space too.
+    from core.class_names import class_key
+    want = class_key(char_class)
     for key, value in CLASS_RESOURCE_MAP.items():
-        if key.lower() == lowered:
+        if class_key(key) == want:
             return value
     if char_class not in _WARNED_UNKNOWN_CLASSES:
         _WARNED_UNKNOWN_CLASSES.add(char_class)

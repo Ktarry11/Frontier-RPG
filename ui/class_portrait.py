@@ -32,7 +32,8 @@ def _icon_key(char_class):
 
     One-word classes hid this for months because "Paladin".lower() already matched.
     """
-    return "_".join(str(char_class).lower().split())
+    from core.class_names import class_key
+    return class_key(char_class)
 
 
 def get_class_icon(char_class, size=None):

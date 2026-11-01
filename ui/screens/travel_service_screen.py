@@ -195,8 +195,15 @@ class TravelServiceScreen(BaseScreen):
                              price=total, label="Learn all", enabled=bool(affordable),
                              reason="Not enough gold", action="train_all", arg=None))
         for o in offers:
-            sub = (f"New ability  -  requires level {o['level_req']}" if o["new"]
-                   else f"Rank {o['from_rank']} -> {o['rank']}  -  requires level {o['level_req']}")
+            if o["new"]:
+                sub = f"New ability  -  requires level {o['level_req']}"
+                # An ability you walked past: say so, and say for how long. Without this the only
+                # hint that you skipped something is that the row quietly says a higher rank.
+                if o.get("behind", 0) >= 3:
+                    sub = (f"New ability  -  learnable since level {o['first_level']}"
+                           f"  -  {o['behind']} levels overdue")
+            else:
+                sub = f"Rank {o['from_rank']} -> {o['rank']}  -  requires level {o['level_req']}"
             name = o["name"] if o["rank"] == 1 else f"{o['name']}  (Rank {o['rank']})"
             ok = copper >= o["cost"]
             # tip: the Ability itself, so hovering the row shows what it actually does.

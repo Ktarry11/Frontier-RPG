@@ -73,8 +73,24 @@ def offers(character):
                 "ability": ability, "name": ability.name, "rank": top, "from_rank": have,
                 "cost": rank_cost(ability, top), "level_req": ability.ranks[top - 1]["level_req"],
                 "new": have == 0, "max_rank": len(ability.ranks),
+                # The level this ABILITY first became teachable, which never changes. Used for
+                # ordering, and for telling the player how long a skipped one has been waiting.
+                "first_level": ability.ranks[0]["level_req"],
+                "behind": max(0, character.level - ability.ranks[0]["level_req"]) if have == 0 else 0,
             })
-    out.sort(key=lambda o: (o["level_req"], o["name"]))
+    # ORDER BY THE ABILITY, NOT BY THE RANK ON OFFER. Kyle, 2026-10-31: "if we don't buy a skill,
+    # like at lvl 4, then we grow too high of level we cant buy it, it vanishes from the option."
+    #
+    # It never left this list - a sweep of all 30 classes from level 1 to 60 finds zero abilities
+    # that stop being offered while untrained. What it did was MOVE. Sorting by the offered rank's
+    # level meant a skipped ability sank as the player levelled: Rejuvenation is the first row at
+    # level 9 and the eleventh at level 14, renamed "(Rank 2)", with only seven rows on screen. The
+    # one skill you still owe yourself was the hardest one in the list to find, and it got harder
+    # every level.
+    #
+    # Keyed on the ability's FIRST rank now, so a skill holds the same place in the list for the
+    # whole game, and anything never bought sorts above the rank-ups it shares a level with.
+    out.sort(key=lambda o: (o["first_level"], 0 if o["new"] else 1, o["name"]))
     return out
 
 

@@ -172,8 +172,8 @@ class SkillsScreen(BaseScreen):
                 # spellbook - repeating "Mage" on every tab is noise a
                 # real WoW spellbook doesn't have either (its tabs just
                 # say "Fire", "Frost", "Arcane").
-                if label.startswith(player.char_class + " "):
-                    label = label[len(player.char_class) + 1:]
+                from core.class_names import strip_class_prefix
+                label = strip_class_prefix(label, player.char_class)
                 tab_order.append((tab_key, label))
                 seen_trees.add(tab_key)
             groups[tab_key].append(ability)
