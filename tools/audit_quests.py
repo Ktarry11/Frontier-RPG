@@ -161,6 +161,8 @@ class World:
         self.creatures = load_json("data/creatures/creatures.json")["creatures"]
         self.encounters = load_json("data/creatures/encounters.json")
         self.quest_drops = load_json("data/creatures/quest_drops.json")["drops"]
+        # Gathering nodes are the other way an item legitimately reaches a bag - see item_sources.
+        self.gather_pools = load_json("data/gathering/node_pools.json")["zones"]
 
         self.ambient = {n["npc_id"] for n in
                         load_json("data/npcs/ambient_npcs.json")["npcs"]}
@@ -280,8 +282,24 @@ class World:
         return bool(self.creatures.get(creature, {}).get("is_boss"))
 
     def item_sources(self, item_id):
-        return [c for c, drops in self.quest_drops.items()
-                if any(d.get("item_id") == item_id for d in drops)]
+        """Everything in the game that can put `item_id` in a player's bags.
+
+        QUEST DROPS ARE NOT THE ONLY SOURCE, and reading them as if they were is what made this
+        check report five working objectives as broken. A GATHER objective - "hold 8 liferoot" -
+        is meant to point at a REAL gatherable: world/quest.py's own definition is "hold N of a
+        QuestItem/material", and a material comes off a node, not off a corpse. Arathi's
+        herbalist, prospector and shipwright all ask for things that are in
+        data/gathering/node_pools.json for the zone the quest is set in, and all three read as
+        unobtainable here until the pools were part of the answer.
+
+        Pays for a player's existing profession instead of inventing a seventh kind of bandit
+        who inexplicably carries herbs, which is the alternative and is worse.
+        """
+        out = [c for c, drops in self.quest_drops.items()
+               if any(d.get("item_id") == item_id for d in drops)]
+        out += [f"gathered:{zone}" for zone, z in self.gather_pools.items()
+                if item_id in (z.get("table") or {})]
+        return out
 
     def npc_exists(self, npc_id):
         return (npc_id in self.ambient or npc_id in self.vendors
@@ -548,13 +566,17 @@ def resolve_rewards(world, rows):
     for fname, q in rows:
         qid = q["quest_id"]
 
-        # `rewards` is not a field QuestManager._build_quest reads. Anything
-        # authored there is loaded, kept in the JSON, and never offered.
-        if q.get("rewards") and not q.get("unique_item_defs"):
-            findings.append(("broken", qid, fname,
-                             f"{len(q['rewards'])} reward item(s) authored under the "
-                             f"key 'rewards', which QuestManager._build_quest does not "
-                             f"read - the quest awards no gear"))
+        # THIS RULE WAS TRUE AND IS NOT ANY MORE, AND THAT IS WORSE THAN NEVER HAVING HAD IT.
+        #
+        # `rewards` really was unread once; QuestManager._build_quest now does
+        #     unique_item_defs=q_def.get("unique_item_defs") or q_def.get("rewards")
+        # and has for a while. The rule was never retired with the fix, so it reported 215
+        # quests across eleven files - Hillsbrad, the Underdark, Southern Needles, Arathi - as
+        # awarding no gear while they all award gear perfectly well. 215 false findings in a
+        # list of 244 is not a noisy check, it is a check that hides the real ones: the two
+        # genuinely broken deliver objectives in this same run were sitting underneath them.
+        #
+        # An audit that is wrong in the safe direction still costs you the audit.
 
         for key in ("unique_item_defs", "rewards"):
             for d in (q.get(key) or []):

@@ -199,7 +199,10 @@
           "splintertree_post",
           "ashenvale_east",
           "ashenvale_west",
-          "zoram_strand"
+          "zoram_strand",
+          "arathi_west",
+          "arathi_central",
+          "arathi_east"
         ],
         "also": []
       },
@@ -226,7 +229,8 @@
           "Grom's Rest",
           "Ragefire Chasm",
           "Razorfen Kraul",
-          "Wailing Caverns"
+          "Wailing Caverns",
+          "Stromgarde Keep"
         ]
       }
     },
@@ -251,11 +255,17 @@
       "quest_rep": {
         "default": 250,
         "boss": 250,
-        "capstones": {},
+        "capstones": {
+          "are_thane_aldric": 350
+        },
         "zones": [
           "echo_isles"
         ],
-        "also": []
+        "also": [
+          "are_the_barrow_door",
+          "are_the_barrow_warden",
+          "are_wrack_drowned"
+        ]
       },
       "kill_rep": {
         "_comment": "Zalazane's hexed and the naga on the reefs - the two things keeping the tribe off its own islands.",
@@ -315,7 +325,24 @@
           "eastern_hillsbrad",
           "western_hillsbrad"
         ],
-        "also": []
+        "also": [
+          "arw_wide_country",
+          "arw_witherbark_hollow",
+          "arw_what_veska_hears",
+          "arw_stro_the_claim",
+          "arw_stro_the_chapel",
+          "arw_stro_the_undercroft",
+          "arc_four_circles",
+          "arc_the_bound",
+          "arc_the_mere",
+          "arc_the_silt_mother",
+          "arc_dry_the_brood",
+          "arc_witherbark_village",
+          "arc_dry_the_shift",
+          "are_they_are_holding",
+          "are_gallowmast",
+          "arw_what_killed_the_scout"
+        ]
       },
       "kill_rep": {
         "_comment": "The Scarlet Crusade, who kill them on sight, and the cults still serving the thing that made them.",
@@ -341,7 +368,8 @@
           "Shadowfang Keep",
           "Ambermill Tower",
           "Shadowpine Altar",
-          "Durnholde Keep"
+          "Durnholde Keep",
+          "Drywhisker Deeps"
         ]
       }
     },
@@ -432,7 +460,11 @@
           "freewind_post",
           "the_drowning_floor"
         ],
-        "also": []
+        "also": [
+          "arc_ask_them",
+          "arc_the_answer",
+          "arc_good_growing"
+        ]
       },
       "kill_rep": {
         "_comment": "What presses on the ground they have left: quilboar raiding the camps, and the Bael'dun dwarves digging a plain that is not theirs while the tauren watch a worse one from a distance.",

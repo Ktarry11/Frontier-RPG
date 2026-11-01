@@ -992,6 +992,95 @@
           "label": "Shield (Parry/Block/Dodge)"
         }
       ]
+    },
+    {
+      "quest_id": "arc_two_years_of_paper",
+      "title": "Two Years of Paper",
+      "giver_npc_id": "org_elder_2",
+      "zone": "orgrimmar",
+      "level_min": 33,
+      "level_max": 34,
+      "description": "Elder Torgun has found a file. It is a hold called Hammerfall, somewhere in the Arathi Highlands, and it has filed a requisition every quarter for two years and received nothing, because the road to it ran through a wall that was shut.\n\nThe wall is open. The file is now a problem rather than a curiosity.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "orgrimmar_writ_hammerfall",
+          "count": 1,
+          "label": "Put Orgrimmar's writ in Overlord Gath'rok's hand"
+        }
+      ],
+      "reward_exp": 2360,
+      "reward_gold": 9600,
+      "accept_text": "Eight requisitions. Powder, iron, two smiths and a healer, and the last one just says 'anything'.\n\nI cannot send a column up a road we have not walked. I can send this, and this says the city knows they are there. Do not tell me that is nothing. For two years it has been nothing, and now it is not.",
+      "turn_in_text": "Two years.\n\nI am going to read this properly, and then I am going to put it on the wall of the longhouse where everyone who is still angry about it can see the date on it. Thank you for carrying it. Go and see the Quartermaster.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Wide-Country Sabatons",
+          "slot": "feet",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "The grass up here lies the same way all year. It tells you which way the wind lives.",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 137,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Longwalk Gloves",
+          "slot": "hands",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "Camp issue, mended twice by whoever was holding it at the time.",
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 8.3
+          },
+          "armor_type": "leather",
+          "armor_value": 57,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Moorfast Saber",
+          "slot": "main_hand",
+          "item_level": 33,
+          "rarity": "uncommon",
+          "required_level": 33,
+          "flavor_text": "The grass up here lies the same way all year. It tells you which way the wind lives.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1.1,
+            "parry_rating": 0.8
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "turn_in_npc_id": "hammerfall_commander",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "orgrimmar_writ_hammerfall",
+            "name": "Orgrimmar's Writ",
+            "description": "Heavy paper, the Warchief's seal, and eight quarters of requisitions bound into the back of it. None of them answered.",
+            "count": 1
+          }
+        ]
+      }
     }
   ]
 }

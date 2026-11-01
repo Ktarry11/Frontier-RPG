@@ -4674,6 +4674,178 @@
           }
         ]
       }
+    },
+    {
+      "quest_id": "arw_through_the_wall",
+      "title": "What Is Through the Wall",
+      "giver_npc_id": "tarren_mill_commander",
+      "zone": "tarren_mill",
+      "level_min": 28,
+      "level_max": 29,
+      "description": "Thoradin's Wall runs along the top of Hillsbrad and it has been a closed thing for as long as anyone at Tarren Mill has been posted here. You can see the gap in it from the mill roof on a clear day.\n\nIt is open. Commander Thorne has had that confirmed twice and does not believe either of them, because what is on the far side of a wall nobody has crossed in three years is a question with no safe answer.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "arathi_west",
+          "target_x": 20,
+          "target_y": 118,
+          "radius": 10
+        },
+        {
+          "type": "explore",
+          "target": "arathi_west",
+          "target_x": 62,
+          "target_y": 100,
+          "radius": 10
+        }
+      ],
+      "reward_exp": 1960,
+      "reward_gold": 8100,
+      "accept_text": "I am not sending a column through a gap I know nothing about. I am sending one person, and one person is you.\n\nGet to the gap, get through it, and keep going until you find whoever is holding the other side. Then come back and tell me whether they are holding it against us.",
+      "turn_in_text": "A Horde camp, in a human ruin, flying our colours and using the ruin's own name for itself.\n\nThat is not what I expected and it is better than what I expected. Go back and tell their commander the wall works both ways now.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Moorfast Boots",
+          "slot": "feet",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "Three thousand years of weather and the moor has not finished with any of it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 0.4,
+            "block_rating": 0.8,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 116,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Kite-Watched Cape",
+          "slot": "back",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "Camp issue, mended twice by whoever was holding it at the time.",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 3,
+            "stamina": 3
+          },
+          "armor_type": "leather",
+          "armor_value": 43,
+          "label": "Leather Cloak (Str/Agi/Sta)"
+        },
+        {
+          "name": "Moorfast Axe",
+          "slot": "main_hand",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "flavor_text": "Everything on this moor is further away than it looks, including the weather.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 55,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ],
+      "turn_in_npc_id": "arathi_refuge_commander"
+    },
+    {
+      "quest_id": "arw_what_killed_the_scout",
+      "title": "What Killed Pria's Runner",
+      "giver_npc_id": "hbe_mill_apothecary",
+      "zone": "eastern_hillsbrad",
+      "level_min": 29,
+      "level_max": 30,
+      "description": "Field Apothecary Wren has a body and no answer. One of Scout Halm's runners went north to look at the wall and came back over a horse, and the wounds on him are from an animal she cannot name.\n\nShe has a professional objection to not being able to name things.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Highland Fleshripper",
+          "count": 8,
+          "zone": "arathi_west"
+        },
+        {
+          "type": "fetch",
+          "target": "fleshripper_dewclaw",
+          "count": 5
+        }
+      ],
+      "reward_exp": 2040,
+      "reward_gold": 8400,
+      "accept_text": "Four punctures in an arc, and the arc is wider than a wolf's. Whatever did this is standing on that moor right now being perfectly ordinary to everyone who lives there.\n\nBring me the dewclaws. Five will do - I want to see whether the spacing is consistent or whether I am looking at one very large individual.",
+      "turn_in_text": "Consistent. So it is a species and not a monster, which is the better of the two answers and the one that means there are a great many of them.\n\nI will write it up. Highland fleshripper. Somebody has probably named it already and I do not care.",
+      "next_quest_id": null,
+      "rewards": [
+        {
+          "name": "Kite-Watched Cuffs",
+          "slot": "wrist",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Everything on this moor is further away than it looks, including the weather.",
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.2
+          },
+          "armor_type": "mail",
+          "armor_value": 80,
+          "label": "Mail Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Kite-Watched Pants",
+          "slot": "legs",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "The grass up here lies the same way all year. It tells you which way the wind lives.",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 72,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Moorfast Cudgel",
+          "slot": "main_hand",
+          "item_level": 29,
+          "rarity": "uncommon",
+          "required_level": 29,
+          "flavor_text": "Everything on this moor is further away than it looks, including the weather.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "armor": 18.5,
+            "parry_rating": 0.4
+          },
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)"
+        }
+      ],
+      "gear_reward_slot": "trinket"
     }
   ]
 }
