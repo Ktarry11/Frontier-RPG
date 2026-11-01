@@ -1,0 +1,1656 @@
+{
+  "_notes": "Arathi Highlands named-boss and rare loot. ONE item drops per kill from the pool. item_level = creature level + 3. Names and stat intent are hand-authored in tools/build_arathi_boss_loot.py; the NUMBERS are solved from LootGenerator's own budget formula there - do not hand-edit this file, edit SPECS and re-run.",
+  "Boulderfist Hal'dun": [
+    {
+      "name": "Hal'dun's Ringbreaker",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The ogres have been taking the standing stones down for forty years and are not quick.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 43,
+        "stamina": 27
+      },
+      "secondary_stats": {
+        "attack_power": 24.68
+      },
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 152,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Hold-Chief's Platemail",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Four smiths' work, none of them ogres, none of them willing.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 16,
+        "strength": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 0.92
+      },
+      "armor_value": 315
+    },
+    {
+      "name": "Ringwall Sabatons",
+      "slot": "feet",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The hold's outer wall is a stone circle with mud packed into the gaps.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "stamina": 11,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.64
+      },
+      "armor_value": 145
+    },
+    {
+      "name": "Idol-Breaker's Charm",
+      "slot": "neck",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "He wears one of the smaller stones. It has stopped doing whatever it did.",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 5.82
+      }
+    }
+  ],
+  "Brinemaw": [
+    {
+      "name": "Brinemaw's Loose Tooth",
+      "slot": "ranged",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "It grows them back. The ones it loses wash up barbed, which teeth are not.",
+      "weapon_type": "thrown",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 6.25
+      },
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 94,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Gill-Rent Scalemail",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Scraped off the thing and cured. It has never stopped smelling of the sump.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "agility": 18,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 10.16
+      },
+      "armor_value": 225
+    },
+    {
+      "name": "Deep-Sump Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The sump at the Tidewrack is open water and goes down further than the cave does.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.66
+      },
+      "armor_value": 119
+    },
+    {
+      "name": "Lure of the Pearl Floor",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Something down there is arranging them. In rows.",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 3.67
+      }
+    }
+  ],
+  "Captain Mory Vane": [
+    {
+      "name": "Vane's Long Nine",
+      "slot": "ranged",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "She took the hold from the sea side, which nobody had thought was a side.",
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.48
+      },
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 98,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Captain's Storm-Cut Leathers",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Cut short at the knee for climbing a wet rock face in the dark.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.78
+      },
+      "armor_value": 141
+    },
+    {
+      "name": "Reaver's Boarding Spurs",
+      "slot": "feet",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "For going up a hull. Used going up a cliff more often now.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 7.03
+      },
+      "armor_value": 156
+    },
+    {
+      "name": "Bloodsail Captain's Band",
+      "slot": "ring",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The Bloodsail gave her a ring instead of a ship. She took the hold instead.",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.48
+      }
+    }
+  ],
+  "Gor'mok the Pit Chief": [
+    {
+      "name": "Pit-Chief's Knucklebar",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The pit at Boulder'gor is a hole with a lip on it. He has never lost in it.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 6.12
+      },
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 94,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Ring-Scarred Jerkin",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Worn by everyone who fought him. Taken off everyone who fought him.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.65
+      },
+      "armor_value": 118
+    },
+    {
+      "name": "Deepden Treads",
+      "slot": "feet",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The floor down there is packed by generations of the same few steps.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 5.89
+      },
+      "armor_value": 130
+    },
+    {
+      "name": "Trophy of the Standing Count",
+      "slot": "trinket",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "He keeps count out loud. The number is much higher than the number of bodies.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 5.23
+      }
+    }
+  ],
+  "Grevan the Gatekeeper": [
+    {
+      "name": "Gatekeeper's Barred Shield",
+      "slot": "off_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The gate has not opened in three years. He is still being paid to not open it.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_value": 73,
+      "block_value": 91
+    },
+    {
+      "name": "Portcullis Pauldrons",
+      "slot": "shoulder",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Something very heavy came down on the left one and stopped.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 12,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "armor_value": 239
+    },
+    {
+      "name": "Warden's Chainmail Coif",
+      "slot": "head",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Stromgarde issue. The crest has been filed off and not replaced with another.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "stamina": 12,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "armor_value": 159
+    },
+    {
+      "name": "Keyring of the Outer Ward",
+      "slot": "trinket",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Eleven keys. Four of the doors they open are no longer standing.",
+      "primary_stats": {
+        "stamina": 9,
+        "strength": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.51
+      }
+    }
+  ],
+  "Grubbis Tallow": [
+    {
+      "name": "Tallow's Guttering Wand",
+      "slot": "ranged",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "A candle he has never let go out, in a holder he has never let anyone else carry.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 3.5
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 90,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Chandler's Waxed Robes",
+      "slot": "chest",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Dipped, not woven. Years of dipping.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 16,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 5.68
+      },
+      "armor_value": 67
+    },
+    {
+      "name": "Wick-Trimmer's Gloves",
+      "slot": "hands",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Kobolds are frightened of the dark in a way that is not a joke to them.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.56
+      },
+      "armor_value": 46
+    },
+    {
+      "name": "Dripstone Loop",
+      "slot": "ring",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Wax, over bone, over wax. He has been making it his whole life.",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 3.5
+      }
+    }
+  ],
+  "Gruln Stonejaw": [
+    {
+      "name": "Stonejaw's Quarry Cleaver",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Not forged. Found, and then argued with for a long time.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 38,
+        "stamina": 24
+      },
+      "secondary_stats": {
+        "attack_power": 22.21
+      },
+      "weapon_damage_min": 71,
+      "weapon_damage_max": 141,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Crag-Walker's Girdle",
+      "slot": "waist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "An ogre's belt makes a human's chest-piece, which is how the Syndicate used them.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "stamina": 10,
+        "strength": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.58
+      },
+      "armor_value": 130
+    },
+    {
+      "name": "Boulderfist Knuckle-Plate",
+      "slot": "hands",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Three fingers of it. The fourth was never made and was never missed.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 5.89
+      },
+      "armor_value": 196
+    },
+    {
+      "name": "Stoneheart Pendant",
+      "slot": "neck",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Ogres do not wear jewellery. He wore this one, and did not say where it came from.",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Harbinger Veska": [
+    {
+      "name": "Witherbark Harbinger's Totem",
+      "slot": "ranged",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Carved facing away from the village, which is not how they are usually carved.",
+      "weapon_type": "totem",
+      "primary_stats": {
+        "spirit": 5,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "mp5": 1.12
+      }
+    },
+    {
+      "name": "Hollow-Drum Shoulderguards",
+      "slot": "shoulder",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The hide is from something that was not a deer and the drum was not for dancing.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 4.8
+      },
+      "armor_value": 99
+    },
+    {
+      "name": "Hexthread Leggings",
+      "slot": "legs",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Six colours of thread, and the sixth is not a dye anyone sells.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 4.99
+      },
+      "armor_value": 59
+    },
+    {
+      "name": "Charm of the Turned Ear",
+      "slot": "neck",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Trolls bury these at the edge of a camp to hear what is coming. Hers faced in.",
+      "primary_stats": {
+        "spirit": 8,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "mp5": 1.68
+      }
+    }
+  ],
+  "Ledger-Keeper Ashkin": [
+    {
+      "name": "Ashkin's Accounting Crossbow",
+      "slot": "ranged",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "He writes down every bolt. He writes down what it was spent on.",
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 6.25
+      },
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 97,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Purser's Oilskin Coat",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Three years of salt and the ink inside the breast pocket has never run.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 18,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 10.16
+      },
+      "armor_value": 141
+    },
+    {
+      "name": "Shelf-Clerk's Cuffs",
+      "slot": "wrist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "A pirate crew that keeps books keeps them somewhere dry and high up.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_power": 4.13
+      },
+      "armor_value": 48
+    },
+    {
+      "name": "Weighted Cargo-Seal",
+      "slot": "neck",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Stamped on every crate on the shelf. Half the crates are not theirs.",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 7,
+        "stamina": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Lord Falconcrest": [
+    {
+      "name": "Falconcrest's Court Blade",
+      "slot": "main_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "A duelling sword, in a keep with no court left to duel in.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 7.4
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 100,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Pretender's Breastplate",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The Stromgarde arms, re-engraved with his own. Badly, and by his own hand.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "attack_power": 8.74
+      },
+      "armor_value": 291
+    },
+    {
+      "name": "Mantle of the Third Claimant",
+      "slot": "shoulder",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Two others claimed this hall before him. He does not mention them by name.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 13,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.72
+      },
+      "armor_value": 246
+    },
+    {
+      "name": "Falconer's Hooded Band",
+      "slot": "head",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The bird it was made for has been loose over the moor for years.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.57
+      },
+      "armor_value": 102
+    }
+  ],
+  "Mauler Krakk": [
+    {
+      "name": "Krakk's Rendering Maul",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "He has worn a groove into the floor where he sets it down.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 43,
+        "stamina": 27
+      },
+      "secondary_stats": {
+        "attack_power": 24.68
+      },
+      "weapon_damage_min": 77,
+      "weapon_damage_max": 154,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Maulhide Shoulders",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Cured in the hold's own runoff, which is why nobody else wants them.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 8.0
+      },
+      "armor_value": 111
+    },
+    {
+      "name": "Bone-Set Gauntlets",
+      "slot": "hands",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The setting is not decorative. It is how an ogre makes a glove fit a human hand.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 6.54
+      },
+      "armor_value": 218
+    },
+    {
+      "name": "Mauler's Weighted Cord",
+      "slot": "waist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Heavier than it needs to be. That was the point of it.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "stamina": 11,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.64
+      },
+      "armor_value": 145
+    }
+  ],
+  "Old Bonepicker": [
+    {
+      "name": "Bonepicker's Longbow",
+      "slot": "ranged",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Taken off the last person who tried. Left on the flat for the next one.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.48
+      },
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 99,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Scavenger's Patchwork Vest",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Nine kinds of leather. None of them cut from the same animal, or the same decade.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 18,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 10.16
+      },
+      "armor_value": 141
+    },
+    {
+      "name": "Pickings Girdle",
+      "slot": "waist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The flat it nests on is above the tide and the tide keeps bringing it work.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 7.03
+      },
+      "armor_value": 156
+    },
+    {
+      "name": "Keenest Eye",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "It watched the whole wreck happen and then waited for the water to go down.",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.48
+      }
+    }
+  ],
+  "Overseer Mull": [
+    {
+      "name": "Go'Shek Tally-Mace",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The farm still files its yield. Nobody has come to collect it in three years.",
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 7.2
+      },
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 99,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Overseer's Buckled Hauberk",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Let out twice at the straps. He was a smaller man when he was given it.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 8.51
+      },
+      "armor_value": 189
+    },
+    {
+      "name": "Fieldhand's Bound Wraps",
+      "slot": "wrist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "The people who worked this ground wore these. He kept a pair.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 5.89
+      },
+      "armor_value": 81
+    },
+    {
+      "name": "Signet of the Lost Rent",
+      "slot": "ring",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "A seal for a ledger that was already a lie when it was sealed.",
+      "primary_stats": {
+        "strength": 7,
+        "intellect": 6,
+        "stamina": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Overseer Ratch": [
+    {
+      "name": "Ratch's Shift-Ending Axe",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "The shift ends when he says. He has not said for a while.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 8.4
+      },
+      "weapon_damage_min": 66,
+      "weapon_damage_max": 113,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Overseer's Lamplit Harness",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Four lamp-hooks across the shoulders. You can see him coming along a gallery.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 9.92
+      },
+      "armor_value": 220
+    },
+    {
+      "name": "Tally-Scratch Bracers",
+      "slot": "wrist",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "The marks on the inside are a count of days. They stop, then start again lower.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 6.87
+      },
+      "armor_value": 95
+    },
+    {
+      "name": "Whistle of the Lower Shift",
+      "slot": "trinket",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "The diggers still come when it blows. It is not clear that they want to.",
+      "primary_stats": {
+        "stamina": 11,
+        "strength": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6
+      }
+    }
+  ],
+  "Silt-Mother Ooga": [
+    {
+      "name": "Silt-Mother's Spawning Idol",
+      "slot": "ranged",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The mere is shallow, warm, and full. Those three facts are the same fact.",
+      "weapon_type": "idol",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 2.59
+      }
+    },
+    {
+      "name": "Mireclutch Hauberk",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "It drains for about an hour after you take it out of the water.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "spirit": 14,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "mp5": 3.02
+      },
+      "armor_value": 210
+    },
+    {
+      "name": "Brood-Slick Grips",
+      "slot": "hands",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The grip is better wet, which is not how grips usually work.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_value": 90
+    },
+    {
+      "name": "Pearl of the Drowned Mere",
+      "slot": "trinket",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Freshwater. Something in there is making them anyway.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 3.88
+      }
+    }
+  ],
+  "Sister Mollis": [
+    {
+      "name": "Libram of the Kept Vigil",
+      "slot": "ranged",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "She has read the evening office every evening. The chapel roof went two winters ago.",
+      "weapon_type": "libram",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 4
+      },
+      "secondary_stats": {
+        "healing_power": 2.39
+      }
+    },
+    {
+      "name": "Vestments of the Shuttered Chapel",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Clean. In all of this, clean.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 5.83
+      },
+      "armor_value": 60
+    },
+    {
+      "name": "Almsgiver's Clasped Belt",
+      "slot": "waist",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The pouch is empty and the clasp is worn from being opened.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "spirit": 9,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "mp5": 1.94
+      },
+      "armor_value": 42
+    },
+    {
+      "name": "Censer of Grey Smoke",
+      "slot": "trinket",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Whatever she is burning now is not incense and she knows it is not.",
+      "primary_stats": {
+        "spirit": 8,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "mp5": 1.72
+      }
+    }
+  ],
+  "Thane Aldric's Shade": [
+    {
+      "name": "Aldric's Oathkeeping Sword",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "He swore to hold the eastern march. He is still at it, which is the problem.",
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 11,
+        "intellect": 10,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 69,
+      "weapon_damage_max": 114,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Thane's Barrow-Plate",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Arathor work. There is no smith alive who could repair it and he does not need one.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 18,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 0.99
+      },
+      "armor_value": 338
+    },
+    {
+      "name": "Pall of the Long Watch",
+      "slot": "back",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Buried with him, under four feet of standing water, facing the door.",
+      "primary_stats": {
+        "stamina": 11,
+        "strength": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.61
+      },
+      "armor_value": 43
+    },
+    {
+      "name": "March-Lord's Ring of Office",
+      "slot": "ring",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The march it is an office of is a drowned field with ogres walking over it.",
+      "primary_stats": {
+        "strength": 8,
+        "intellect": 7,
+        "stamina": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Barrow Warden": [
+    {
+      "name": "Warden's Mausoleum Pavis",
+      "slot": "off_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "A door-shield. It was a door first.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_value": 87,
+      "block_value": 109
+    },
+    {
+      "name": "Grave-Marble Legplates",
+      "slot": "legs",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The barrow's upper floor is marble. Below the stair it is limestone and wet.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 18,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 0.99
+      },
+      "armor_value": 338
+    },
+    {
+      "name": "Sepulchre Helm",
+      "slot": "head",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "No eye-slit worth the name. Whatever is in it is not looking out of it.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 15,
+        "strength": 7
+      },
+      "secondary_stats": {
+        "defense_rating": 0.84
+      },
+      "armor_value": 286
+    },
+    {
+      "name": "Cerement Bindings",
+      "slot": "wrist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Linen. Three years of it holding, in water, is not a thing linen does.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 4.69
+      },
+      "armor_value": 48
+    }
+  ],
+  "The Pick-Mother": [
+    {
+      "name": "Pick-Mother's Splitting Fang",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Kobolds hand their picks down. This one has been handed down past being a pick.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.56
+      },
+      "weapon_damage_min": 73,
+      "weapon_damage_max": 109,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Brood-Gallery Chainmail",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Sized for something that grows. Let out at the seams four times.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "agility": 18,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 10.16
+      },
+      "armor_value": 225
+    },
+    {
+      "name": "Spoil-Heap Treads",
+      "slot": "feet",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Mine spoil is loose, sharp and moves under you. These do not.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 0.54
+      },
+      "armor_value": 97
+    },
+    {
+      "name": "Nursery Candle-Stub",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The deepest gallery is the warm one. That is where she keeps them.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 4.17
+      }
+    }
+  ],
+  "The Ring Warden": [
+    {
+      "name": "Warden's Plumbline Stave",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "The rings are not a calendar and not a grave. The Warden is still measuring which.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 39,
+        "stamina": 25
+      },
+      "secondary_stats": {
+        "spell_power": 14.48
+      },
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 61,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Mantle of the Fourth Circle",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "There are four rings. Three are quiet.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.67
+      },
+      "armor_value": 55
+    },
+    {
+      "name": "Lodestone Girdle",
+      "slot": "waist",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Stand in the ring wearing this and you can feel which way the stones are facing.",
+      "armor_type": "leather",
+      "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_value": 90
+    },
+    {
+      "name": "Sighting-Ring of the Basin",
+      "slot": "ring",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Hold it up at the right spot and all four circles line up. Nobody built that twice.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 3.41
+      }
+    }
+  ],
+  "The Saltquern": [
+    {
+      "name": "The Turning Stone",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "A mill-wheel for grinding salt out of the shallows. Nobody has turned it in years.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 35,
+        "intellect": 30,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 82,
+      "weapon_damage_max": 164,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Saltcrust Carapace",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Not worn. Grown, over whatever is turning the wheel.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 18,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 0.99
+      },
+      "armor_value": 338
+    },
+    {
+      "name": "Brinehardened Boots",
+      "slot": "feet",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Standing in salt water does this to leather over about a decade.",
+      "armor_type": "mail",
+      "primary_stats": {
+        "stamina": 12,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.69
+      },
+      "armor_value": 156
+    },
+    {
+      "name": "Grinding-Stone Fragment",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The wheel is down to three quarters of itself and is still going round.",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "attack_power": 6.25
+      }
+    }
+  ],
+  "The Vault-Thing": [
+    {
+      "name": "Tome of the Lower Stair",
+      "slot": "off_hand",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Stromgarde was built on top of this. The undercroft is the part that was here first.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.56
+      }
+    },
+    {
+      "name": "Vaultkeeper's Mouldered Robe",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Cut for a human frame, and the frame inside it is close enough to be worse.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 5.13
+      },
+      "armor_value": 60
+    },
+    {
+      "name": "Gravelight Bracers",
+      "slot": "wrist",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "They give off nothing you could read by. You can still tell when they are near.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "strength": 8,
+        "intellect": 7,
+        "stamina": 5
+      },
+      "secondary_stats": {},
+      "armor_value": 201
+    },
+    {
+      "name": "Coffer-Seal of Arathor",
+      "slot": "ring",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "The empire that sealed this did not record what it was sealing.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.45
+      }
+    }
+  ],
+  "The Wrack-Drowned": [
+    {
+      "name": "Drowned Lantern-Pole",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Carried out to the tideline to look for survivors. It came back. They did not.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "spirit": 39,
+        "intellect": 28
+      },
+      "secondary_stats": {
+        "mp5": 8.49
+      },
+      "weapon_damage_min": 35,
+      "weapon_damage_max": 65,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Shroud of the Standing Tide",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The water in there comes up twice a day and has nowhere to go.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 6.77
+      },
+      "armor_value": 70
+    },
+    {
+      "name": "Wracklight Handwraps",
+      "slot": "hands",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "What is on them is not phosphorescence and does not come off in fresh water.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "mp5": 2.25
+      },
+      "armor_value": 48
+    },
+    {
+      "name": "Keepsake of the Undertow",
+      "slot": "neck",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Everyone drowned here was carrying one of something. This is the one that was kept.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 4.17
+      }
+    }
+  ],
+  "What They Dug Into": [
+    {
+      "name": "Blade From Below the Sump",
+      "slot": "main_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The kobolds did not make this and did not want to find it. They were digging for ore.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 35,
+        "intellect": 30,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 84,
+      "weapon_damage_max": 162,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Scale of the Thing in the Water",
+      "slot": "chest",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Not plate. Worn as plate, because there is nothing else to call it.",
+      "armor_type": "plate",
+      "primary_stats": {
+        "stamina": 18,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 0.99
+      },
+      "armor_value": 338
+    },
+    {
+      "name": "Sumpwater Crown",
+      "slot": "head",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "The sump has been filling since before the mine. The mine found the top of it.",
+      "armor_type": "cloth",
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.72
+      },
+      "armor_value": 59
+    },
+    {
+      "name": "What the Deep Floor Gave Up",
+      "slot": "trinket",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Nobody in Drywhisker will say its name, and not out of respect.",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 0.52
+      }
+    }
+  ]
+}

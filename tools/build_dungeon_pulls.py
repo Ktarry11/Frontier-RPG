@@ -41,6 +41,13 @@ CONFIG = {
     # Durnholde has five bosses and a ring you can walk either way, so three pulls each keeps the total
     # sane rather than four (Kyle: "about 3-4 groups between each boss. Sometimes less").
     "Durnholde Keep": dict(p_main=3, p_rare=1, rares=()),
+    # Stromgarde's four bosses sit along one spine with the undercroft hanging off it, so four
+    # pulls each; The Vault-Thing is down there behind a knock-through and is reached last either
+    # way you walk the keep.
+    "Stromgarde Keep": dict(p_main=4, p_rare=1, rares=()),
+    # Drywhisker is four stacked galleries joined by three inclines - the route is forced, so
+    # three pulls a boss rather than four, same reasoning as Durnholde.
+    "Drywhisker Deeps": dict(p_main=3, p_rare=1, rares=()),
 }
 
 ROLE = {"humanoid_warrior": "melee", "beast_large": "melee", "elemental_bruiser": "melee", "undead_basic": "melee",
