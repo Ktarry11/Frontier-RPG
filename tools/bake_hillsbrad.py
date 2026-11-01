@@ -39,7 +39,16 @@ ZONES = {"hillsbrad_east": "tools.handbuilt_hillsbrad_east",
          # The town baker is the same baker: Tarren Mill is Hillsbrad country, so it paints from the same green
          # material set rather than getting a palette of its own that would drift out of step with the zone
          # the player walks in from.
-         "tarren_mill": "tools.handbuilt_tarren_mill"}
+         "tarren_mill": "tools.handbuilt_tarren_mill",
+         # ARATHI shares this baker on purpose. It is the zone next door and the same country - the
+         # hb_* materials ARE the Lordaeron set - and giving Arathi a palette of its own would let the
+         # two drift apart at a border the player walks across. The difference between them is carried
+         # entirely by each module's own BASE weights: Hillsbrad is 62% grass, Arathi West is 46% dry
+         # and 20% rocky. The green stops at the wall because the mix changes, not because the
+         # materials do.
+         "arathi_west": "tools.handbuilt_arathi_west",
+         "arathi_central": "tools.handbuilt_arathi_central",
+         "arathi_east": "tools.handbuilt_arathi_east"}
 
 MATERIALS = {
     "grass":   ("hb_grass", "hb_grass2", 1.0),
@@ -84,7 +93,12 @@ def build_scores(P, M):
     cliff_f = np.clip(cliff * 0.5, -0.4, 0.6).astype(np.float32)
     d_co = ndi.gaussian_filter(np.maximum(-cliff, 0), 1.2)
     d_ci = ndi.gaussian_filter(np.maximum(cliff, 0), 1.2)
-    sea = M.sea_field(gx, gy).astype(np.float32) if hasattr(M, "sea_field") else np.full_like(cliff, -99.0)
+    # Arathi East names its open water water_field rather than sea_field (it has no inland pools
+    # to distinguish it from), so fall back to that - without it the whole archipelago paints as
+    # grass with a blue tile grid on top.
+    _sea = getattr(M, "sea_field", None) or (getattr(M, "water_field", None)
+                                             if getattr(M, "KEY", "") == "arathi_east" else None)
+    sea = _sea(gx, gy).astype(np.float32) if _sea else np.full_like(cliff, -99.0)
     P.fields = dict(cliff=cliff, d_co=d_co, d_ci=d_ci, cf=cliff_f, water=water, deep=deep, sea=sea)
 
     # Base: GREEN PASTURE, with oak-stand floor and fern painted on top of it.

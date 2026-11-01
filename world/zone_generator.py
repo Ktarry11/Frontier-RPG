@@ -5650,6 +5650,13 @@ def create_all_zones():
     from tools import handbuilt_bloodsail_raider as dbr
     from tools import handbuilt_bloodsail_galleon as dbg
     from tools import handbuilt_freewind_post as dfw
+    # ===== ARATHI HIGHLANDS - three zones laid across the game's two content troughs =====
+    from tools import handbuilt_arathi_west as darw
+    from tools import handbuilt_arathi_central as darc
+    from tools import handbuilt_arathi_east as dare
+    from tools import handbuilt_arathi_caves as darcv
+    from tools import handbuilt_stromgarde_keep as dstro
+    from tools import handbuilt_drywhisker_deeps as ddry
     from tools import handbuilt_deathknell as ddk
     from tools.handbuilt_western_tirisfal import generate_western_tirisfal as generate_western_tirisfal_handbuilt
     from tools.handbuilt_eastern_tirisfal import generate_eastern_tirisfal as generate_eastern_tirisfal_handbuilt
@@ -5789,6 +5796,23 @@ def create_all_zones():
         "The Galleon's Weather Deck": dbg.generate_galleon_deck(),   # 49
         "The Galleon's Hold": dbg.generate_galleon_hold(),           # 50
         "The Captain's Cabin": dbg.generate_cabin(),                 # 52, the double boss
+
+        # ===== ARATHI HIGHLANDS - through Thoradin's Wall, east out of Eastern Hillsbrad =====
+        # Sited on the two troughs tools/audit_content_by_level.py measured: levels 28-30 (quests
+        # available fall from 90 at level 24 to 24 at 29) and 38-40 (59 at 36 down to 18 at 40).
+        # Keys must stay exactly these strings - portal_manager keys on zone.name.
+        "Arathi West": darw.generate_arathi_west(),        # 28-33, the escarpment
+        "Arathi Central": darc.generate_arathi_central(),  # 33-37, the basin, the rings, Hammerfall
+        "Arathi East": dare.generate_arathi_east(),        # 37-40, the drowned coast
+        # The five caves: one per zone plus the two sea caves. Single-boss, random trash.
+        "Boulder'gor": darcv.generate_bouldergor(),
+        "Boulderfist Hall": darcv.generate_boulderfist_hall(),
+        "The Drowned Barrow": darcv.generate_drowned_barrow(),
+        "Wrackline Hold": darcv.generate_wrackline_hold(),
+        "The Tidewrack": darcv.generate_tidewrack(),
+        # The two dungeons. Multi-boss, so hand-placed trash.
+        "Stromgarde Keep": dstro.generate_stromgarde_keep(),    # 31-34, the Syndicate in the ruin
+        "Drywhisker Deeps": ddry.generate_drywhisker_deeps(),   # 37-40, the kobold mine
     }
 
     # Caves are real maps now, not just encounter-table keys. Each is keyed

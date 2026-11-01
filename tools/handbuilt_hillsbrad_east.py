@@ -328,10 +328,13 @@ def dress(L):
     p(CO + "coral_reef_outcrop.png", 44, 150, 3, shore_ok=True)
     p("ek_signpost", 64, 132, 4)
 
-    # ---- Thoradin's Wall: the Arathi border, shut
-    for x in (120, 128, 136, 144, 152):
+    # ---- Thoradin's Wall: the Arathi border, OPEN
+    # It shipped shut, with the archway solid, because there was nothing on the far side yet and an
+    # unregistered portal tile fails safe. Arathi West exists now, so the arch is passable and the
+    # gate tile under it is the portal. The wall arches either side stay solid - the gap is a gap.
+    for x in (120, 128, 136, 152):
         p(RU + "ruin_wall_arch.png", x, 154, 6)
-    p(RU + "ruin_archway.png", 140, 152, 8, solid=True, nudge=0, road_ok=True, allow_overlap=True)
+    p(RU + "ruin_archway.png", 144, 152, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     p("ek_signpost", 134, 144, 4)
     p("ek_dead_oak", 124, 148, 6)
 

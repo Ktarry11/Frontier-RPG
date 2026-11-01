@@ -542,12 +542,48 @@ class PortalManager:
             "Azurelode Mine": {
                 (55, 86): ("Western Hillsbrad", 33, 63),           # cave exit: +3 -> arrive (33,61), south of the adit
             },
+            # ===== ARATHI HIGHLANDS =====
+            # Thoradin's Wall was built, dressed and SHUT in Eastern Hillsbrad long before there was
+            # anything behind it - Ada Rook stands at the gap and has never seen the far side. This is
+            # the far side. Every pair below is registered BOTH ways; portal_qa checks for that.
+            "Arathi West": {
+                (4, 118): ("Eastern Hillsbrad", 136, 150),   # back through the wall
+                (176, 84): ("Arathi Central", 6, 86),
+                (44, 34): ("Boulder'gor", 30, 46),           # the ogre hold on the moor
+                (36, 140): ("Stromgarde Keep", 84, 144),     # the ruined archway, 31-34
+            },
+            "Arathi Central": {
+                (4, 84): ("Arathi West", 174, 86),
+                (186, 92): ("Arathi East", 6, 94),
+                (38, 40): ("Boulderfist Hall", 32, 50),
+                (170, 114): ("Drywhisker Deeps", 76, 154),   # the kobold mine, 37-40
+            },
+            "Arathi East": {
+                (4, 92): ("Arathi Central", 184, 94),
+                (34, 38): ("The Drowned Barrow", 30, 52),
+                (150, 60): ("Wrackline Hold", 28, 48),       # sea cave, under Gallowmast
+                (160, 132): ("The Tidewrack", 34, 50),       # sea cave, the southern rocks
+            },
+            # Leaving a cave arrives at the destination tile +3, which is why each of these sits three
+            # tiles north of the overworld mouth it came out of.
+            "Boulder'gor": {(30, 46): ("Arathi West", 44, 31)},
+            "Boulderfist Hall": {(32, 50): ("Arathi Central", 38, 37)},
+            "The Drowned Barrow": {(30, 52): ("Arathi East", 34, 35)},
+            "Wrackline Hold": {(28, 48): ("Arathi East", 150, 57)},
+            "The Tidewrack": {(34, 50): ("Arathi East", 160, 129)},
+            "Stromgarde Keep": {(84, 144): ("Arathi West", 36, 137)},
+            "Drywhisker Deeps": {(76, 154): ("Arathi Central", 170, 111)},
+
             "Eastern Hillsbrad": {
                 # Hand-built (tools/handbuilt_hillsbrad_east.py): Tarren Mill, Durnholde, and the shut Arathi wall.
                 (5, 86): ("Western Hillsbrad", 152, 88),           # arrive (152,86), clear of the east gate
                 (62, 28): ("Tarren Mill", 34, 82),                 # the town gate off the mill square: arrive (34,80)
                 (109, 74): ("Durnholde Keep", 70, 112),            # the keep's fallen archway
                 (95, 138): ("Dun Garok", 55, 96),                  # the fort door cut into the southern ridge
+                # THORADIN'S WALL, finally open. Shipped shut with the zone and left unregistered
+                # until there was something on the far side of it - an unregistered portal tile fails
+                # safe, which is why Ada Rook could stand there for weeks without a bug.
+                (136, 148): ("Arathi West", 6, 120),
                 (116, 7): ("The Frostward Descent", 60, 134),       # arrive (60,132), inside the entry hall
             },
             "Dun Garok": {
