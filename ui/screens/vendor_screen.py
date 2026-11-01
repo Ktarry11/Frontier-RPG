@@ -39,6 +39,23 @@ class VendorScreen(BaseScreen):
     ITEM_ROW_HEIGHT = 44
     VISIBLE_ROWS = 9
 
+    #: Sell-side tabs. Kyle, 2026-10-31: "I also need a way to scroll down or sell stuff by tabs -
+    #: since this forces me to sell crafting materials before my trash gear."
+    #:
+    #: Both halves of that are real. scroll_vendor/scroll_player existed from the first version of
+    #: this screen and were threaded through every slice and hit test, but NOTHING ever assigned to
+    #: them - no wheel handler, no buttons, no keys. The list was permanently frozen on its first
+    #: nine rows, and because consumables and materials are concatenated ahead of inventory, gear
+    #: was always the part that fell off the bottom.
+    SELL_FILTERS = [
+        ("all", "All"),
+        ("gear", "Gear"),
+        ("mats", "Materials"),
+        ("supplies", "Supplies"),
+        ("junk", "Junk"),
+    ]
+    TAB_HEIGHT = 24
+
     def __init__(self, state_manager, vendor):
         super().__init__(state_manager)
         self.vendor = vendor
@@ -50,6 +67,7 @@ class VendorScreen(BaseScreen):
         self.selected_player_item = None
         self.scroll_vendor = 0
         self.scroll_player = 0
+        self.sell_filter = "all"
 
         self.message = None
         self.message_color = COLOR_WHITE
@@ -151,11 +169,62 @@ class VendorScreen(BaseScreen):
         from entities.material import Material
         return isinstance(thing, Material)
 
-    def _player_stock(self):
+    def _category_of(self, item):
+        """Which sell tab an item belongs under. Trash is tested FIRST because a
+        piece of vendor trash is a LootItem with a slot and an armor_value, so
+        _is_gear says yes to it and it would otherwise file under Gear."""
+        if getattr(item, "category", None) == "trash":
+            return "junk"
+        if self._is_material(item):
+            return "mats"
+        if self._is_gear(item):
+            return "gear"
+        return "supplies"
+
+    def _player_stock(self, filtered=True):
         """Player's consumables + materials + inventory gear, read fresh every
-        call so newly bought items appear immediately."""
+        call so newly bought items appear immediately.
+
+        Filtered by the active sell tab unless asked otherwise - the unfiltered
+        list is what the tab counts are drawn from.
+        """
         player = self.state_manager.player
-        return list(player.consumables) + list(getattr(player, "materials", [])) + list(player.inventory)
+        stock = (list(player.consumables) + list(getattr(player, "materials", []))
+                 + list(player.inventory))
+        if filtered and self.sell_filter != "all":
+            stock = [i for i in stock if self._category_of(i) == self.sell_filter]
+        return stock
+
+    # ------------------------------------------------------------------ scrolling
+
+    def _max_scroll(self, count):
+        return max(0, count - self.VISIBLE_ROWS)
+
+    def _clamp_scrolls(self):
+        """Both scroll positions, pulled back into range.
+
+        Called on every render as well as on every wheel event, because the
+        lists SHRINK underneath the scroll position: sell the last four things
+        on page two and page two stops existing. Clamping only on input would
+        leave the panel showing nothing with no way to tell why.
+        """
+        self.scroll_vendor = max(0, min(self.scroll_vendor,
+                                        self._max_scroll(len(self.vendor_inventory))))
+        self.scroll_player = max(0, min(self.scroll_player,
+                                        self._max_scroll(len(self._player_stock()))))
+
+    def _panel_rect(self, x):
+        return pygame.Rect(x, self.PANEL_Y, self.PANEL_WIDTH, self.PANEL_HEIGHT)
+
+    def _filter_tab_rects(self):
+        """tab key -> rect, laid out in a row above the player panel."""
+        rects = {}
+        x = self.PLAYER_PANEL_X + 112  # clear of the "Your Items" header on the same line
+        for key, label in self.SELL_FILTERS:
+            w = 10 + 8 * len(label) + 10
+            rects[key] = pygame.Rect(x, self.PANEL_Y - self.TAB_HEIGHT - 4, w, self.TAB_HEIGHT)
+            x += w + 4
+        return rects
 
     # ------------------------------------------------------------------ actions
 
@@ -299,9 +368,41 @@ class VendorScreen(BaseScreen):
             if event.key == pygame.K_s:
                 self._sell_item()
                 return
+            # Keyboard scrolling for the sell list, which is the one that grows.
+            if event.key in (pygame.K_PAGEUP, pygame.K_PAGEDOWN):
+                step = self.VISIBLE_ROWS if event.key == pygame.K_PAGEDOWN else -self.VISIBLE_ROWS
+                self.scroll_player += step
+                self._clamp_scrolls()
+                return
+            if event.key == pygame.K_TAB:
+                keys = [k for k, _ in self.SELL_FILTERS]
+                self.sell_filter = keys[(keys.index(self.sell_filter) + 1) % len(keys)]
+                self.scroll_player = 0
+                self.selected_player_item = None
+                return
+
+        elif event.type == pygame.MOUSEWHEEL:
+            # Scroll whichever panel the cursor is over. event.y is +1 up / -1 down.
+            # A real MOUSEWHEEL carries no position, so the cursor is queried. The
+            # headless QA harness cannot move a cursor under the dummy video driver,
+            # so an event that DOES carry a pos is honoured.
+            mx, my = getattr(event, "pos", None) or pygame.mouse.get_pos()
+            if self._panel_rect(self.PLAYER_PANEL_X).collidepoint(mx, my):
+                self.scroll_player -= event.y
+            elif self._panel_rect(self.VENDOR_PANEL_X).collidepoint(mx, my):
+                self.scroll_vendor -= event.y
+            self._clamp_scrolls()
+            return
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             pos = event.pos
+
+            for key, rect in self._filter_tab_rects().items():
+                if rect.collidepoint(pos):
+                    self.sell_filter = key
+                    self.scroll_player = 0
+                    self.selected_player_item = None
+                    return
 
             # Vendor item list
             for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
@@ -356,16 +457,25 @@ class VendorScreen(BaseScreen):
         self.renderer.draw_text(screen, f"Party gold: {currency_str}",
                                 (SCREEN_WIDTH // 2 - 100, 100), color=COLOR_WHITE)
 
+        self._clamp_scrolls()
+
         self._draw_panel_header(screen, self.VENDOR_PANEL_X, "Vendor Stock")
         for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
             self._draw_item_row(screen, self.VENDOR_PANEL_X, i, item,
                                 selected=(item is self.selected_vendor_item), mode="buy")
+        self._draw_scrollbar(screen, self.VENDOR_PANEL_X, len(self.vendor_inventory), self.scroll_vendor)
 
         self._draw_panel_header(screen, self.PLAYER_PANEL_X, "Your Items")
+        self._draw_filter_tabs(screen)
         player_stock = self._player_stock()
         for i, item in enumerate(player_stock[self.scroll_player:self.scroll_player + self.VISIBLE_ROWS]):
             self._draw_item_row(screen, self.PLAYER_PANEL_X, i, item,
                                 selected=(item is self.selected_player_item), mode="sell")
+        if not player_stock:
+            self.renderer.draw_text(screen, "Nothing here.",
+                                    (self.PLAYER_PANEL_X + 14, self.PANEL_Y + 14),
+                                    size="small", color=(120, 120, 130))
+        self._draw_scrollbar(screen, self.PLAYER_PANEL_X, len(player_stock), self.scroll_player)
 
         buy_rect = self._get_buy_button_rect()
         sell_rect = self._get_sell_button_rect()
@@ -423,6 +533,42 @@ class VendorScreen(BaseScreen):
         pygame.draw.rect(screen, (28, 28, 36), panel_rect)
         pygame.draw.rect(screen, (70, 70, 85), panel_rect, 2)
         self.renderer.draw_text(screen, label, (x, self.PANEL_Y - 26), color=COLOR_GOLD)
+
+    def _draw_filter_tabs(self, screen):
+        counts = {}
+        for item in self._player_stock(filtered=False):
+            counts[self._category_of(item)] = counts.get(self._category_of(item), 0) + 1
+        total = sum(counts.values())
+        rects = self._filter_tab_rects()
+        for key, label in self.SELL_FILTERS:
+            rect = rects[key]
+            active = key == self.sell_filter
+            n = total if key == "all" else counts.get(key, 0)
+            # An empty tab is drawn greyed rather than hidden, so the row does not
+            # reflow under the cursor as the player sells their way through it.
+            if active:
+                pygame.draw.rect(screen, (60, 55, 30), rect)
+                pygame.draw.rect(screen, COLOR_GOLD, rect, 2)
+                color = COLOR_GOLD
+            else:
+                pygame.draw.rect(screen, (26, 26, 33), rect)
+                pygame.draw.rect(screen, (70, 70, 85), rect, 1)
+                color = (170, 170, 180) if n else (95, 95, 105)
+            self.renderer.draw_text(screen, f"{label} {n}", (rect.x + 7, rect.y + 4),
+                                    size="small", color=color)
+
+    def _draw_scrollbar(self, screen, panel_x, total, scroll):
+        """A track and thumb on the panel's right edge, drawn only when there is
+        something off-screen. Without it the wheel works but nothing says so."""
+        if total <= self.VISIBLE_ROWS:
+            return
+        track = pygame.Rect(panel_x + self.PANEL_WIDTH - 9, self.PANEL_Y + 3,
+                            6, self.PANEL_HEIGHT - 6)
+        pygame.draw.rect(screen, (20, 20, 26), track)
+        thumb_h = max(24, int(track.height * self.VISIBLE_ROWS / total))
+        span = track.height - thumb_h
+        top = track.y + int(span * scroll / max(1, self._max_scroll(total)))
+        pygame.draw.rect(screen, (110, 110, 130), pygame.Rect(track.x, top, track.width, thumb_h))
 
     def _row_rect(self, panel_x, row_index):
         y = self.PANEL_Y + row_index * self.ITEM_ROW_HEIGHT
