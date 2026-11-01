@@ -9704,6 +9704,555 @@
       "is_boss": true,
       "ability_kit": "captain_ardessa_rake",
       "boss_multiplier": 2.6
+    },
+    "Syndicate Footpad": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "syndicate_footpad"
+    },
+    "Syndicate Watchman": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        29,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "syndicate_watchman"
+    },
+    "Syndicate Shadowmage": {
+      "template": "humanoid_caster",
+      "level_range": [
+        29,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "syndicate_shadowmage"
+    },
+    "Syndicate Prowler": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        30,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "syndicate_prowler"
+    },
+    "Boulderfist Ogre": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        29,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "boulderfist_ogre"
+    },
+    "Boulderfist Brute": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        30,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "boulderfist_brute"
+    },
+    "Witherbark Headhunter": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        29,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "witherbark_headhunter"
+    },
+    "Witherbark Shadowcaster": {
+      "template": "humanoid_caster",
+      "level_range": [
+        30,
+        33
+      ],
+      "is_boss": false,
+      "ability_kit": "witherbark_shadowcaster"
+    },
+    "Highland Fleshripper": {
+      "template": "beast_fast",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "highland_fleshripper"
+    },
+    "Moor Adder": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "moor_adder"
+    },
+    "Carrion Kite": {
+      "template": "beast_fast",
+      "level_range": [
+        29,
+        32
+      ],
+      "is_boss": false,
+      "ability_kit": "carrion_kite"
+    },
+    "Highland Stag": {
+      "template": "beast_large",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "highland_stag"
+    },
+    "Gruln Stonejaw": {
+      "template": "beast_large",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "gruln_stonejaw"
+    },
+    "Harbinger Veska": {
+      "template": "humanoid_caster",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "witherbark_hollow_rare"
+    },
+    "Overseer Mull": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "goshek_overseer"
+    },
+    "Boulderfist Mauler": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        34,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "boulderfist_mauler"
+    },
+    "Boulderfist Shaman": {
+      "template": "humanoid_caster",
+      "level_range": [
+        33,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "boulderfist_shaman"
+    },
+    "Witherbark Berserker": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        34,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "witherbark_berserker"
+    },
+    "Witherbark Venomweaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        33,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "witherbark_venomweaver"
+    },
+    "Bound Sentinel": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        34,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "bound_sentinel"
+    },
+    "Ring Wisp": {
+      "template": "elemental_caster",
+      "level_range": [
+        33,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "ring_wisp"
+    },
+    "Mere Crawler": {
+      "template": "aquatic_basic",
+      "level_range": [
+        33,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "mere_crawler"
+    },
+    "Drywhisker Digger": {
+      "template": "vermin_swarm",
+      "level_range": [
+        34,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "drywhisker_digger"
+    },
+    "The Ring Warden": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "ring_warden"
+    },
+    "Silt-Mother Ooga": {
+      "template": "aquatic_basic",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "mere_matriarch"
+    },
+    "Wrackline Cutter": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "wrackline_cutter"
+    },
+    "Wrackline Gunner": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "wrackline_gunner"
+    },
+    "Wrackline Bosun": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "wrackline_bosun"
+    },
+    "Wrackline Wrecklamp": {
+      "template": "humanoid_caster",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "wrackline_wrecklamp"
+    },
+    "Tidecrawler": {
+      "template": "aquatic_basic",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "tidecrawler"
+    },
+    "Reefmaw": {
+      "template": "aquatic_basic",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "reefmaw"
+    },
+    "Storm Petrel Swarm": {
+      "template": "vermin_swarm",
+      "level_range": [
+        37,
+        39
+      ],
+      "is_boss": false,
+      "ability_kit": "storm_petrel_swarm"
+    },
+    "Barrow Shade": {
+      "template": "undead_basic",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "barrow_shade"
+    },
+    "Arathor Revenant": {
+      "template": "undead_basic",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "arathor_revenant"
+    },
+    "The Saltquern": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "saltquern_rare"
+    },
+    "Old Bonepicker": {
+      "template": "beast_fast",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "bonepicker_rare"
+    },
+    "Gor'mok the Pit Chief": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "gormok_pit_chief"
+    },
+    "Boulderfist Hal'dun": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        36,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "boulderfist_haldun"
+    },
+    "Mauler Krakk": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        35,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "mauler_krakk"
+    },
+    "The Barrow Warden": {
+      "template": "undead_basic",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "the_barrow_warden"
+    },
+    "Thane Aldric's Shade": {
+      "template": "undead_basic",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "thane_aldrics_shade"
+    },
+    "Captain Mory Vane": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_mory_vane"
+    },
+    "Ledger-Keeper Ashkin": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "ledger_keeper_ashkin"
+    },
+    "The Wrack-Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "the_wrack_drowned"
+    },
+    "Brinemaw": {
+      "template": "aquatic_basic",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "brinemaw"
+    },
+    "Cursed Vaultkeeper": {
+      "template": "undead_basic",
+      "level_range": [
+        32,
+        34
+      ],
+      "is_boss": false,
+      "ability_kit": "cursed_vaultkeeper"
+    },
+    "Grevan the Gatekeeper": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        32,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "grevan_gatekeeper"
+    },
+    "Sister Mollis": {
+      "template": "humanoid_caster",
+      "level_range": [
+        33,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "sister_mollis"
+    },
+    "Lord Falconcrest": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "lord_falconcrest"
+    },
+    "The Vault-Thing": {
+      "template": "undead_basic",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "the_vault_thing"
+    },
+    "Drywhisker Tunneler": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        37,
+        39
+      ],
+      "is_boss": false,
+      "ability_kit": "drywhisker_tunneler"
+    },
+    "Drywhisker Geomancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        37,
+        39
+      ],
+      "is_boss": false,
+      "ability_kit": "drywhisker_geomancer"
+    },
+    "Brine-Choked Digger": {
+      "template": "undead_basic",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "brine_choked_digger"
+    },
+    "Deep Seep": {
+      "template": "elemental_caster",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "deep_seep"
+    },
+    "Grubbis Tallow": {
+      "template": "humanoid_caster",
+      "level_range": [
+        37,
+        38
+      ],
+      "is_boss": true,
+      "ability_kit": "grubbis_tallow"
+    },
+    "Overseer Ratch": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        39
+      ],
+      "is_boss": true,
+      "ability_kit": "overseer_ratch"
+    },
+    "The Pick-Mother": {
+      "template": "vermin_swarm",
+      "level_range": [
+        39,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "the_pick_mother"
+    },
+    "What They Dug Into": {
+      "template": "elemental_caster",
+      "level_range": [
+        40,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "what_they_dug_into"
+    },
+    "Highland Elk": {
+      "template": "beast_large",
+      "level_range": [
+        33,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "highland_elk"
+    },
+    "Coastal Erne": {
+      "template": "beast_fast",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "coastal_erne"
+    },
+    "Shorewrack Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        37,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "shorewrack_hound"
     }
   }
 }

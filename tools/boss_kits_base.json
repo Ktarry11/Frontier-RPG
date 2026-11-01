@@ -11653,5 +11653,829 @@
    },
    "self_only": true
   }
+ ],
+ "gruln_stonejaw": [
+  {
+   "name": "Jawbreaker",
+   "kind": "damage",
+   "amount": 86,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Hurl Milestone",
+   "kind": "damage",
+   "amount": 72,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Stone Skin",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 72
+   },
+   "self_only": true
+  }
+ ],
+ "witherbark_hollow_rare": [
+  {
+   "name": "Hexed Spear",
+   "kind": "damage",
+   "amount": 84,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Soul Shackle",
+   "kind": "dot",
+   "amount": 32,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Loa's Favour",
+   "kind": "heal",
+   "amount": 86,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic"
+  }
+ ],
+ "goshek_overseer": [
+  {
+   "name": "Driver's Lash",
+   "kind": "damage",
+   "amount": 82,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Work Them Harder",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 44
+   }
+  },
+  {
+   "name": "Break the Idle",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "ring_warden": [
+  {
+   "name": "Binding Strike",
+   "kind": "damage",
+   "amount": 96,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Close the Circle",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -52,
+    "intellect": -40
+   }
+  },
+  {
+   "name": "What the Stones Hold",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  }
+ ],
+ "mere_matriarch": [
+  {
+   "name": "Silt Lash",
+   "kind": "damage",
+   "amount": 90,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Drag Under",
+   "kind": "dot",
+   "amount": 36,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  },
+  {
+   "name": "Shell Up",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 84
+   },
+   "self_only": true
+  }
+ ],
+ "saltquern_rare": [
+  {
+   "name": "Millstone Fist",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Grind Them Down",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4
+  }
+ ],
+ "bonepicker_rare": [
+  {
+   "name": "Stooping Talons",
+   "kind": "damage",
+   "amount": 110,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Scatter the Flock",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -48
+   }
+  },
+  {
+   "name": "Carrion Feast",
+   "kind": "heal",
+   "amount": 92,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "gormok_pit_chief": [
+  {
+   "name": "Chieftain's Club",
+   "kind": "damage",
+   "amount": 98,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Pit Roar",
+   "kind": "debuff",
+   "amount": 34,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -36
+   }
+  },
+  {
+   "name": "Eat the Weak",
+   "kind": "heal",
+   "amount": 90,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Crushing Blow",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "boulderfist_haldun": [
+  {
+   "name": "Hal'dun's Maul",
+   "kind": "damage",
+   "amount": 110,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Throw the Table",
+   "kind": "damage",
+   "amount": 92,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Ogre Lord's Hide",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "armor": 92
+   },
+   "self_only": true
+  },
+  {
+   "name": "Two-Fisted",
+   "kind": "damage",
+   "amount": 128,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "mauler_krakk": [
+  {
+   "name": "Bone Flail",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Marrow Feast",
+   "kind": "heal",
+   "amount": 92,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Crack the Yard",
+   "kind": "debuff",
+   "amount": 36,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -62
+   }
+  }
+ ],
+ "the_barrow_warden": [
+  {
+   "name": "Warden's Halberd",
+   "kind": "damage",
+   "amount": 114,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "None Shall Pass",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 94
+   },
+   "self_only": true
+  },
+  {
+   "name": "Grave Cold",
+   "kind": "dot",
+   "amount": 40,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  }
+ ],
+ "thane_aldrics_shade": [
+  {
+   "name": "Shade of a Blade",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Thirty Years of Silt",
+   "kind": "debuff",
+   "amount": 38,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "armor": -68,
+    "magic_resistance": -50
+   }
+  },
+  {
+   "name": "Still My Land",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 56
+   },
+   "self_only": true
+  }
+ ],
+ "captain_mory_vane": [
+  {
+   "name": "Captain's Cutlass",
+   "kind": "damage",
+   "amount": 118,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Cut the Lines",
+   "kind": "debuff",
+   "amount": 38,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "agility": -54
+   }
+  },
+  {
+   "name": "Share and Share Alike",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 60
+   }
+  },
+  {
+   "name": "Over the Side",
+   "kind": "damage",
+   "amount": 142,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "ledger_keeper_ashkin": [
+  {
+   "name": "Tally Hook",
+   "kind": "damage",
+   "amount": 100,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Mark the Debt",
+   "kind": "dot",
+   "amount": 38,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Call the Account",
+   "kind": "debuff",
+   "amount": 36,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "magic_resistance": -62
+   }
+  }
+ ],
+ "the_wrack_drowned": [
+  {
+   "name": "Weed-Choked Grasp",
+   "kind": "damage",
+   "amount": 122,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "What the Tide Keeps",
+   "kind": "dot",
+   "amount": 44,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 5
+  },
+  {
+   "name": "Pull Them Under",
+   "kind": "debuff",
+   "amount": 40,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": -52
+   }
+  },
+  {
+   "name": "Rise With the Water",
+   "kind": "heal",
+   "amount": 124,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic"
+  }
+ ],
+ "brinemaw": [
+  {
+   "name": "Brine Bite",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Thrash the Shallows",
+   "kind": "damage",
+   "amount": 94,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Scent of Blood",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 62
+   },
+   "self_only": true
+  }
+ ],
+ "grevan_gatekeeper": [
+  {
+   "name": "Gate Halberd",
+   "kind": "damage",
+   "amount": 92,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Barred Way",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "armor": 86
+   },
+   "self_only": true
+  },
+  {
+   "name": "Shove Back",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "sister_mollis": [
+  {
+   "name": "Censer Swing",
+   "kind": "damage",
+   "amount": 80,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Benediction of Ash",
+   "kind": "dot",
+   "amount": 34,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "False Absolution",
+   "kind": "heal",
+   "amount": 104,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Silence the Choir",
+   "kind": "debuff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 3,
+   "stat_mods": {
+    "intellect": -44
+   }
+  }
+ ],
+ "lord_falconcrest": [
+  {
+   "name": "Falconcrest Blade",
+   "kind": "damage",
+   "amount": 108,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Noble Disdain",
+   "kind": "debuff",
+   "amount": 36,
+   "cooldown": 4,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "armor": -56
+   }
+  },
+  {
+   "name": "Last Son of Alterac",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 54,
+    "armor": 46
+   },
+   "self_only": true
+  },
+  {
+   "name": "Executioner's Cut",
+   "kind": "damage",
+   "amount": 134,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical"
+  }
+ ],
+ "the_vault_thing": [
+  {
+   "name": "Grasp From Below",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "What Was Kept Here",
+   "kind": "dot",
+   "amount": 42,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Older Than Arathor",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "magic_resistance": 80
+   },
+   "self_only": true
+  },
+  {
+   "name": "Reclaim",
+   "kind": "heal",
+   "amount": 112,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic"
+  }
+ ],
+ "grubbis_tallow": [
+  {
+   "name": "Tallow Torch",
+   "kind": "damage",
+   "amount": 96,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Light the Seam",
+   "kind": "dot",
+   "amount": 36,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4
+  },
+  {
+   "name": "Scurry",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "agility": 48
+   },
+   "self_only": true
+  }
+ ],
+ "overseer_ratch": [
+  {
+   "name": "Overseer's Pick",
+   "kind": "damage",
+   "amount": 104,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Quota",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 4,
+   "stat_mods": {
+    "attack_power": 52
+   }
+  },
+  {
+   "name": "Down Tools",
+   "kind": "debuff",
+   "amount": 34,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 3,
+   "stat_mods": {
+    "attack_power": -46
+   }
+  }
+ ],
+ "the_pick_mother": [
+  {
+   "name": "Brood Pick",
+   "kind": "damage",
+   "amount": 112,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Clutch Fury",
+   "kind": "damage",
+   "amount": 96,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Feed the Brood",
+   "kind": "heal",
+   "amount": 110,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "physical"
+  },
+  {
+   "name": "Every One of Them Mine",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "physical",
+   "duration": 5,
+   "stat_mods": {
+    "attack_power": 58,
+    "armor": 50
+   },
+   "self_only": true
+  }
+ ],
+ "what_they_dug_into": [
+  {
+   "name": "Reaching Dark",
+   "kind": "damage",
+   "amount": 126,
+   "cooldown": 0,
+   "mana_cost": 0,
+   "school": "magic"
+  },
+  {
+   "name": "Below the Waterline",
+   "kind": "dot",
+   "amount": 46,
+   "cooldown": 3,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 5
+  },
+  {
+   "name": "Flood the Workings",
+   "kind": "debuff",
+   "amount": 40,
+   "cooldown": 5,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 4,
+   "stat_mods": {
+    "agility": -58,
+    "attack_power": -44
+   }
+  },
+  {
+   "name": "It Was Sealed",
+   "kind": "buff",
+   "amount": 0,
+   "cooldown": 6,
+   "mana_cost": 0,
+   "school": "magic",
+   "duration": 5,
+   "stat_mods": {
+    "magic_resistance": 96
+   },
+   "self_only": true
+  }
  ]
 }

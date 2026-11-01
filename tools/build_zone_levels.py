@@ -100,6 +100,22 @@ def main():
     from world.zone_generator import create_all_zones
     built = create_all_zones()
 
+    # A FIXED-SPAWN DUNGEON KNOWS ITS OWN LEVELS. Its trash is hand-placed with an explicit level per
+    # mob, so the encounter table is only a "what lives here" list for the quest locator and may name
+    # creatures whose own level_range spans several zones - a Syndicate Footpad is 28-31 on the Arathi
+    # moor and level 31-34 standing in Stromgarde's outer ward. Deriving the banner from the table
+    # gave Stromgarde 28-33 and Drywhisker Deeps 33-37, both a whole band low. Where the authored
+    # spawns exist, they are the better answer and they override.
+    for zname, z in built.items():
+        spawns = getattr(z, "authored_trash_spawns", None) or getattr(z, "trash_spawns", None)
+        if not getattr(z, "fixed_spawns", False) or not spawns:
+            continue
+        # Older dungeons leave the level slot None and let the creature's own level_range answer -
+        # those fall through to the table-derived band rather than crashing the whole file out.
+        lv = [int(s[3]) for s in spawns if len(s) > 3 and isinstance(s[3], (int, float))]
+        if lv:
+            bands[zname] = [min(lv), max(lv)]
+
     # SAME REGION ONLY, and that filter is doing real work. Taking the union of everything that
     # portals into a town gave Booty Bay 12-50 and the Grom'gol zeppelin tower 6-34, because boats
     # and zeppelins link places a continent apart and a town is not the range of everywhere you

@@ -6272,6 +6272,408 @@ LASHINGS_KITS = {
 }
 
 
+ARATHI_KITS = {
+    # ==================================================================
+    # ARATHI HIGHLANDS. Faithful inland, original at sea (Kyle's call).
+    # Three bands across three zones: West 28-33, Central 33-37, East 37-40.
+    # ==================================================================
+
+    # ---- THE SYNDICATE: dispossessed Alterac nobility turned brigand. They
+    # fight like soldiers who still have the training and none of the supply.
+    "syndicate_footpad": [
+        ("Gutting Knife", "damage", 42, 0, 0, "physical", {}),
+        ("Hamstring", "debuff", 18, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -14}}),
+        ("Cheap Shot", "damage", 54, 4, 0, "physical", {}),
+    ],
+    "syndicate_watchman": [
+        ("Pike Thrust", "damage", 50, 0, 0, "physical", {}),
+        ("Shield Wall", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": 44}, "self_only": True}),
+        ("Sound the Horn", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 26}}),
+    ],
+    "syndicate_shadowmage": [
+        ("Shadow Lance", "damage", 46, 0, 18, "magic", {}),
+        ("Curse of Alterac", "debuff", 20, 4, 24, "magic",
+         {"duration": 3, "stat_mods": {"magic_resistance": -30}}),
+        ("Siphon Warmth", "dot", 20, 3, 20, "magic", {"duration": 3}),
+    ],
+    "syndicate_prowler": [
+        ("Back Slash", "damage", 56, 0, 0, "physical", {}),
+        ("Throw Sand", "debuff", 0, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"attack_power": -24}}),
+        ("Opportunist", "buff", 0, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 26}, "self_only": True}),
+    ],
+    "cursed_vaultkeeper": [
+        ("Stone Fist", "damage", 62, 0, 0, "physical", {}),
+        ("Dust of Ages", "debuff", 24, 4, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -22}}),
+        ("Hold the Door", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 56}, "self_only": True}),
+    ],
+
+    # ---- BOULDERFIST OGRES: the moor is theirs because nobody argued.
+    "boulderfist_ogre": [
+        ("Club Swing", "damage", 58, 0, 0, "physical", {}),
+        ("Hurl Boulder", "damage", 48, 3, 0, "physical", {}),
+    ],
+    "boulderfist_brute": [
+        ("Two-Hand Smash", "damage", 68, 0, 0, "physical", {}),
+        ("Ground Slam", "debuff", 30, 4, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -24}}),
+        ("Bellow", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 34}, "self_only": True}),
+    ],
+    "boulderfist_mauler": [
+        ("Maul", "damage", 74, 0, 0, "physical", {}),
+        ("Crushing Grip", "dot", 24, 4, 0, "physical", {"duration": 3}),
+        ("Thick Hide", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 60}, "self_only": True}),
+    ],
+    "boulderfist_shaman": [
+        ("Spirit Bolt", "damage", 52, 0, 20, "magic", {}),
+        ("Mend Kin", "heal", 70, 4, 26, "magic", {}),
+        ("Rock Ward", "buff", 0, 5, 22, "magic",
+         {"duration": 4, "stat_mods": {"armor": 48}}),
+    ],
+
+    # ---- WITHERBARK TROLLS: forest trolls who came up out of the Hinterlands
+    # and found the highlands empty enough to keep.
+    "witherbark_headhunter": [
+        ("Barbed Spear", "damage", 54, 0, 0, "physical", {}),
+        ("Thrown Axe", "damage", 44, 2, 0, "physical", {}),
+        ("Blood Frenzy", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 30}, "self_only": True}),
+    ],
+    "witherbark_berserker": [
+        ("Twin Axes", "damage", 66, 0, 0, "physical", {}),
+        ("Reckless Charge", "damage", 78, 4, 0, "physical", {}),
+        ("Troll Regeneration", "heal", 48, 5, 0, "physical", {}),
+    ],
+    "witherbark_shadowcaster": [
+        ("Hex Bolt", "damage", 50, 0, 20, "magic", {}),
+        ("Withering Hex", "dot", 24, 3, 24, "magic", {"duration": 4}),
+        ("Mojo Ward", "buff", 0, 5, 22, "magic",
+         {"duration": 4, "stat_mods": {"magic_resistance": 44}}),
+    ],
+    "witherbark_venomweaver": [
+        ("Venom Dart", "damage", 46, 0, 18, "magic", {}),
+        ("Creeping Venom", "dot", 30, 3, 26, "magic", {"duration": 4}),
+        ("Numbing Toxin", "debuff", 0, 5, 22, "magic",
+         {"duration": 3, "stat_mods": {"agility": -30}}),
+    ],
+
+    # ---- DRYWHISKER KOBOLDS: a working crew, not a warren. They have tools.
+    "drywhisker_digger": [
+        ("Pick Swing", "damage", 52, 0, 0, "physical", {}),
+        ("Throw Spoil", "debuff", 12, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -16}}),
+    ],
+    "drywhisker_tunneler": [
+        ("Shoring Hammer", "damage", 64, 0, 0, "physical", {}),
+        ("Collapse the Face", "damage", 72, 4, 0, "physical", {}),
+        ("Brace the Roof", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 50}, "self_only": True}),
+    ],
+    "drywhisker_geomancer": [
+        ("Stone Shard", "damage", 54, 0, 20, "magic", {}),
+        ("Seam of Rot", "dot", 26, 3, 24, "magic", {"duration": 4}),
+        ("Candle Light", "heal", 60, 5, 26, "magic", {}),
+    ],
+    "brine_choked_digger": [
+        ("Drowned Pick", "damage", 70, 0, 0, "physical", {}),
+        ("Lungful of Brine", "dot", 28, 3, 0, "magic", {"duration": 3}),
+    ],
+    "deep_seep": [
+        ("Cold Flood", "damage", 58, 0, 0, "magic", {}),
+        ("Undertow", "debuff", 22, 4, 0, "magic",
+         {"duration": 3, "stat_mods": {"attack_power": -30}}),
+        ("Rising Water", "dot", 26, 4, 0, "magic", {"duration": 4}),
+    ],
+
+    # ---- THE WRACKLINE: Arathi coast people whose own villages went under,
+    # working the drowned ones. Sailors first, fighters second - they fight
+    # with what is on a boat.
+    "wrackline_cutter": [
+        ("Gutting Hook", "damage", 62, 0, 0, "physical", {}),
+        ("Tangle Net", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -34}}),
+        ("Boarding Rush", "damage", 76, 5, 0, "physical", {}),
+    ],
+    "wrackline_gunner": [
+        ("Swivel Shot", "damage", 68, 0, 0, "physical", {}),
+        ("Grapeshot", "damage", 56, 3, 0, "physical", {}),
+        ("Powder Burn", "dot", 26, 4, 0, "magic", {"duration": 3}),
+    ],
+    "wrackline_bosun": [
+        ("Belaying Pin", "damage", 70, 0, 0, "physical", {}),
+        ("Rope's End", "debuff", 26, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -32}}),
+        ("Haul Together", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 36, "armor": 30}}),
+    ],
+    "wrackline_wrecklamp": [
+        ("Lantern Swing", "damage", 58, 0, 0, "physical", {}),
+        ("False Light", "debuff", 0, 4, 20, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -30}}),
+        ("Salvage Rights", "heal", 66, 5, 24, "magic", {}),
+    ],
+
+    # ---- THE DROWNED BARROW: Arathor dead, and what came in with the sea.
+    "barrow_shade": [
+        ("Grave Chill", "damage", 60, 0, 0, "magic", {}),
+        ("Clutch of the Buried", "dot", 28, 3, 0, "magic", {"duration": 4}),
+    ],
+    "arathor_revenant": [
+        ("Rusted Blade", "damage", 72, 0, 0, "physical", {}),
+        ("Oath Unbroken", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 54, "attack_power": 28}, "self_only": True}),
+        ("Grave Dust", "debuff", 24, 4, 0, "magic",
+         {"duration": 3, "stat_mods": {"magic_resistance": -34}}),
+    ],
+
+    # ---- THE RINGS. Nobody will tell you what the Circle of Inner Binding is
+    # for, and the things standing in it do not explain either.
+    "bound_sentinel": [
+        ("Standing Blow", "damage", 66, 0, 0, "physical", {}),
+        ("Binding Circle", "debuff", 0, 5, 0, "magic",
+         {"duration": 3, "stat_mods": {"agility": -36}}),
+        ("Older Than Stone", "buff", 0, 6, 0, "magic",
+         {"duration": 4, "stat_mods": {"magic_resistance": 56}, "self_only": True}),
+    ],
+    "ring_wisp": [
+        ("Cold Light", "damage", 54, 0, 0, "magic", {}),
+        ("Drawn Thin", "dot", 24, 3, 0, "magic", {"duration": 3}),
+    ],
+
+    # ---- HIGHLAND WILDLIFE. Open moor: nothing hides, everything runs fast.
+    "highland_fleshripper": [
+        ("Rending Bite", "damage", 56, 0, 0, "physical", {}),
+        ("Carrion Stench", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -22}}),
+    ],
+    "moor_adder": [
+        ("Fang Strike", "damage", 48, 0, 0, "physical", {}),
+        ("Moor Venom", "dot", 26, 3, 0, "magic", {"duration": 4}),
+    ],
+    "carrion_kite": [
+        ("Stoop", "damage", 60, 0, 0, "physical", {}),
+        ("Harrying Dive", "debuff", 16, 3, 0, "physical",
+         {"duration": 2, "stat_mods": {"agility": -20}}),
+    ],
+    "highland_stag": [
+        ("Antler Gore", "damage", 62, 0, 0, "physical", {}),
+        ("Stamp", "damage", 50, 3, 0, "physical", {}),
+    ],
+    "mere_crawler": [
+        ("Pincer", "damage", 58, 0, 0, "physical", {}),
+        ("Silt Cloud", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -26}}),
+    ],
+    "tidecrawler": [
+        ("Shell Crush", "damage", 70, 0, 0, "physical", {}),
+        ("Barnacle Hide", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 58}, "self_only": True}),
+    ],
+    "reefmaw": [
+        ("Lunge", "damage", 76, 0, 0, "physical", {}),
+        ("Thrash", "damage", 64, 3, 0, "physical", {}),
+        ("Blood in the Water", "buff", 0, 6, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 40}, "self_only": True}),
+    ],
+    "storm_petrel_swarm": [
+        ("Wingbeat", "damage", 52, 0, 0, "physical", {}),
+        ("Mobbing", "dot", 22, 3, 0, "physical", {"duration": 3}),
+    ],
+
+    # ---- higher-band wildlife. Arathi Central and East were borrowing West's 28-31 beasts, which
+    # dragged their derived level banners down to 28 - a level 37 basin does not have level 28 stags
+    # in it. Same niches, their own kits: no reskins (playbook).
+    "highland_elk": [
+        ("Antler Charge", "damage", 74, 0, 0, "physical", {}),
+        ("Trample", "damage", 62, 3, 0, "physical", {}),
+        ("Rut Fury", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 38}, "self_only": True}),
+    ],
+    "coastal_erne": [
+        ("Talon Strike", "damage", 80, 0, 0, "physical", {}),
+        ("Ride the Gale", "buff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": 44}, "self_only": True}),
+        ("Snatch and Drop", "damage", 92, 5, 0, "physical", {}),
+    ],
+    "shorewrack_hound": [
+        ("Salt-Crusted Bite", "damage", 78, 0, 0, "physical", {}),
+        ("Run It Down", "debuff", 28, 3, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -34}}),
+    ],
+
+    # ==================================================================
+    # BOSSES AND NAMED RARES. Stronger and stranger the deeper you go.
+    # ==================================================================
+    # --- Arathi West rares
+    "gruln_stonejaw": [
+        ("Jawbreaker", "damage", 86, 0, 0, "physical", {}),
+        ("Hurl Milestone", "damage", 72, 3, 0, "physical", {}),
+        ("Stone Skin", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 72}, "self_only": True}),
+    ],
+    "gormok_pit_chief": [
+        ("Chieftain's Club", "damage", 98, 0, 0, "physical", {}),
+        ("Pit Roar", "debuff", 34, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -36}}),
+        ("Eat the Weak", "heal", 90, 5, 0, "physical", {}),
+        ("Crushing Blow", "damage", 118, 6, 0, "physical", {}),
+    ],
+    "grevan_gatekeeper": [
+        ("Gate Halberd", "damage", 92, 0, 0, "physical", {}),
+        ("Barred Way", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 86}, "self_only": True}),
+        ("Shove Back", "damage", 104, 5, 0, "physical", {}),
+    ],
+    "sister_mollis": [
+        ("Censer Swing", "damage", 80, 0, 0, "magic", {}),
+        ("Benediction of Ash", "dot", 34, 3, 0, "magic", {"duration": 4}),
+        ("False Absolution", "heal", 104, 4, 0, "magic", {}),
+        ("Silence the Choir", "debuff", 0, 5, 0, "magic",
+         {"duration": 3, "stat_mods": {"intellect": -44}}),
+    ],
+    "lord_falconcrest": [
+        ("Falconcrest Blade", "damage", 108, 0, 0, "physical", {}),
+        ("Noble Disdain", "debuff", 36, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -56}}),
+        ("Last Son of Alterac", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 54, "armor": 46}, "self_only": True}),
+        ("Executioner's Cut", "damage", 134, 6, 0, "physical", {}),
+    ],
+    "the_vault_thing": [
+        ("Grasp From Below", "damage", 112, 0, 0, "magic", {}),
+        ("What Was Kept Here", "dot", 42, 3, 0, "magic", {"duration": 4}),
+        ("Older Than Arathor", "buff", 0, 6, 0, "magic",
+         {"duration": 4, "stat_mods": {"magic_resistance": 80}, "self_only": True}),
+        ("Reclaim", "heal", 112, 5, 0, "magic", {}),
+    ],
+    "witherbark_hollow_rare": [
+        ("Hexed Spear", "damage", 84, 0, 0, "physical", {}),
+        ("Soul Shackle", "dot", 32, 3, 0, "magic", {"duration": 4}),
+        ("Loa's Favour", "heal", 86, 5, 0, "magic", {}),
+    ],
+    "goshek_overseer": [
+        ("Driver's Lash", "damage", 82, 0, 0, "physical", {}),
+        ("Work Them Harder", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 44}}),
+        ("Break the Idle", "damage", 100, 5, 0, "physical", {}),
+    ],
+    # --- Arathi Central rares and bosses
+    "boulderfist_haldun": [
+        ("Hal'dun's Maul", "damage", 110, 0, 0, "physical", {}),
+        ("Throw the Table", "damage", 92, 3, 0, "physical", {}),
+        ("Ogre Lord's Hide", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"armor": 92}, "self_only": True}),
+        ("Two-Fisted", "damage", 128, 6, 0, "physical", {}),
+    ],
+    "mauler_krakk": [
+        ("Bone Flail", "damage", 94, 0, 0, "physical", {}),
+        ("Marrow Feast", "heal", 92, 4, 0, "physical", {}),
+        ("Crack the Yard", "debuff", 36, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"armor": -62}}),
+    ],
+    "ring_warden": [
+        ("Binding Strike", "damage", 96, 0, 0, "magic", {}),
+        ("Close the Circle", "debuff", 0, 5, 0, "magic",
+         {"duration": 4, "stat_mods": {"agility": -52, "intellect": -40}}),
+        ("What the Stones Hold", "dot", 38, 4, 0, "magic", {"duration": 4}),
+    ],
+    "mere_matriarch": [
+        ("Silt Lash", "damage", 90, 0, 0, "physical", {}),
+        ("Drag Under", "dot", 36, 3, 0, "physical", {"duration": 4}),
+        ("Shell Up", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 84}, "self_only": True}),
+    ],
+    # --- Drywhisker Deeps bosses
+    "grubbis_tallow": [
+        ("Tallow Torch", "damage", 96, 0, 0, "magic", {}),
+        ("Light the Seam", "dot", 36, 3, 0, "magic", {"duration": 4}),
+        ("Scurry", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"agility": 48}, "self_only": True}),
+    ],
+    "overseer_ratch": [
+        ("Overseer's Pick", "damage", 104, 0, 0, "physical", {}),
+        ("Quota", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 52}}),
+        ("Down Tools", "debuff", 34, 5, 0, "physical",
+         {"duration": 3, "stat_mods": {"attack_power": -46}}),
+    ],
+    "the_pick_mother": [
+        ("Brood Pick", "damage", 112, 0, 0, "physical", {}),
+        ("Clutch Fury", "damage", 96, 3, 0, "physical", {}),
+        ("Feed the Brood", "heal", 110, 5, 0, "physical", {}),
+        ("Every One of Them Mine", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 58, "armor": 50}, "self_only": True}),
+    ],
+    "what_they_dug_into": [
+        ("Reaching Dark", "damage", 126, 0, 0, "magic", {}),
+        ("Below the Waterline", "dot", 46, 3, 0, "magic", {"duration": 5}),
+        ("Flood the Workings", "debuff", 40, 5, 0, "magic",
+         {"duration": 4, "stat_mods": {"agility": -58, "attack_power": -44}}),
+        ("It Was Sealed", "buff", 0, 6, 0, "magic",
+         {"duration": 5, "stat_mods": {"magic_resistance": 96}, "self_only": True}),
+    ],
+    # --- Arathi East rares and sea-cave bosses
+    "captain_mory_vane": [
+        ("Captain's Cutlass", "damage", 118, 0, 0, "physical", {}),
+        ("Cut the Lines", "debuff", 38, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -54}}),
+        ("Share and Share Alike", "buff", 0, 6, 0, "physical",
+         {"duration": 5, "stat_mods": {"attack_power": 60}}),
+        ("Over the Side", "damage", 142, 6, 0, "physical", {}),
+    ],
+    "ledger_keeper_ashkin": [
+        ("Tally Hook", "damage", 100, 0, 0, "physical", {}),
+        ("Mark the Debt", "dot", 38, 3, 0, "magic", {"duration": 4}),
+        ("Call the Account", "debuff", 36, 5, 0, "magic",
+         {"duration": 3, "stat_mods": {"magic_resistance": -62}}),
+    ],
+    "the_wrack_drowned": [
+        ("Weed-Choked Grasp", "damage", 122, 0, 0, "magic", {}),
+        ("What the Tide Keeps", "dot", 44, 3, 0, "magic", {"duration": 5}),
+        ("Pull Them Under", "debuff", 40, 5, 0, "magic",
+         {"duration": 4, "stat_mods": {"attack_power": -52}}),
+        ("Rise With the Water", "heal", 124, 5, 0, "magic", {}),
+    ],
+    "brinemaw": [
+        ("Brine Bite", "damage", 108, 0, 0, "physical", {}),
+        ("Thrash the Shallows", "damage", 94, 3, 0, "physical", {}),
+        ("Scent of Blood", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"attack_power": 62}, "self_only": True}),
+    ],
+    "the_barrow_warden": [
+        ("Warden's Halberd", "damage", 114, 0, 0, "physical", {}),
+        ("None Shall Pass", "buff", 0, 5, 0, "physical",
+         {"duration": 4, "stat_mods": {"armor": 94}, "self_only": True}),
+        ("Grave Cold", "dot", 40, 4, 0, "magic", {"duration": 4}),
+    ],
+    "thane_aldrics_shade": [
+        ("Shade of a Blade", "damage", 118, 0, 0, "magic", {}),
+        ("Thirty Years of Silt", "debuff", 38, 4, 0, "magic",
+         {"duration": 4, "stat_mods": {"armor": -68, "magic_resistance": -50}}),
+        ("Still My Land", "buff", 0, 6, 0, "magic",
+         {"duration": 5, "stat_mods": {"attack_power": 56}, "self_only": True}),
+    ],
+    "saltquern_rare": [
+        ("Millstone Fist", "damage", 104, 0, 0, "physical", {}),
+        ("Grind Them Down", "dot", 38, 3, 0, "physical", {"duration": 4}),
+    ],
+    "bonepicker_rare": [
+        ("Stooping Talons", "damage", 110, 0, 0, "physical", {}),
+        ("Scatter the Flock", "debuff", 0, 4, 0, "physical",
+         {"duration": 3, "stat_mods": {"agility": -48}}),
+        ("Carrion Feast", "heal", 92, 5, 0, "physical", {}),
+    ],
+}
+
+
 for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                TROLL_KITS, TROGG_KITS, HARPY_KITS, HUMANOID_KITS, SCARLET_KITS,
                CULTIST_KITS, RAGEFIRE_BOSS_KITS, ECHO_ISLES_KITS, VALLEY_OF_TRIALS_KITS,
@@ -6282,7 +6684,7 @@ for _group in (BEAST_KITS, VERMIN_KITS, CENTAUR_KITS, QUILBOAR_KITS,
                ELEMENTAL_KITS, AQUATIC_KITS, UNDEAD_KITS,
                SILVERPINE_DUNGEON_KITS, ASHENVALE_DUNGEON_KITS, DEATHKNELL_KITS, TIRISFAL_REBUILD_KITS, PLAGUE_DEPTHS_KITS, SILVERPINE_NORTH_KITS, SILVERPINE_SOUTH_KITS, SILVERPINE_DUNGEON_KITS_2, SILVERPINE_FENRIS_KITS, HILLSBRAD_KITS, UNDERDARK_KITS, ASPEN_KITS, DROWNING_FLOOR_KITS, SOUTHERN_NEEDLES_KITS, GURBASHI_KITS, STRANGLETHORN_CAVE_KITS,
                STRANGLETHORN_KITS, FLATS_KITS, TANARIS_KITS, ABYSSAL_KITS,
-               GLITTERVEIN_KITS, LASHINGS_KITS):
+               GLITTERVEIN_KITS, LASHINGS_KITS, ARATHI_KITS):
     for _k, _v in _group.items():
         if _k in ALL_KITS:
             raise ValueError(f"Duplicate kit id: {_k}")
