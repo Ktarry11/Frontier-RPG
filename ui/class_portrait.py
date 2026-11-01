@@ -20,6 +20,21 @@ _ICON_DIR = "assets/ui/class_icons"
 _icon_cache = {}
 
 
+def _icon_key(char_class):
+    """Maps whatever spelling of a class a caller has to the icon filename.
+
+    Classes are spelled TWO ways in this codebase and both reach here. The player's
+    char_class and the ability/talent data use the file-safe id ("sun_cleric"); every
+    recruit in data/npcs/recruits.json stores the display name ("Sun Cleric"). Only the
+    first spelling used to resolve, so Elias and the other 7 recruits in the four
+    two-word classes - Sun Cleric, Witch Doctor, Witch Hunter, Knight of Xoroth - fell
+    through to "no icon" even though their icon file was sitting right there.
+
+    One-word classes hid this for months because "Paladin".lower() already matched.
+    """
+    return "_".join(str(char_class).lower().split())
+
+
 def get_class_icon(char_class, size=None):
     """Returns a pygame.Surface for the class's icon, optionally scaled to
     (size, size), or None if no icon exists for this class (custom CoA
@@ -32,7 +47,7 @@ def get_class_icon(char_class, size=None):
     """
     if not char_class:
         return None
-    key = str(char_class).lower()
+    key = _icon_key(char_class)
     if key not in _icon_cache:
         path = os.path.join(_ICON_DIR, f"{key}.png")
         surf = None
