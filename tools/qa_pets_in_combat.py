@@ -179,6 +179,21 @@ def main():
           len(e2.living_allies()) == len(p2.members) + 8,
           f"{len(e2.living_allies())}")
 
+    # ---- the pet screen must offer a roster to everyone who has one ---------
+    from ui.screens.pet_screen import PetScreen
+    from combat.pet_templates import PET_TEMPLATES
+    import glob as _glob
+    ps = PetScreen.__new__(PetScreen)
+    all_classes = [os.path.basename(x)[:-5] for x in _glob.glob("data/abilities/*.json")]
+    all_classes = [c for c in all_classes if not c.startswith("_") and c != "asher_unique"]
+    with_templates = {t["pet_type"] for t in PET_TEMPLATES.values()}
+    unreachable = sorted(with_templates - {ps._pet_type_for_class(c) for c in all_classes})
+    check("every class with pet templates can reach them from the pet screen",
+          not unreachable, str(unreachable))
+    # Negative control: a class with no templates must still get nothing.
+    check("a class with no pet templates is offered none",
+          ps._pet_type_for_class("warrior") is None)
+
     for n in (1, 5, 9, 13, 25):
         rects = cs._target_row_rects(n, 40, 400)
         check(f"{n} target rows all fit on screen",

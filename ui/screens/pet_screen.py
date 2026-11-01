@@ -22,17 +22,25 @@ class PetScreen(BaseScreen):
         self._row_rects = []
 
     def _pet_type_for_class(self, char_class):
-        if char_class == "Hunter":
-            return "hunter"
-        if char_class == "Warlock":
-            return "warlock"
-        if char_class == "Primalist":
-            # Wildwalker's Spirit Beast Master: "Primalist tames beasts
-            # like hunter, not elementals" (Kyle, Oct 2026) - same real
-            # Hunter-style taming flow, own pet_type/template roster
-            # (see combat/pet_templates.py's "raptor") rather than sharing
-            # Hunter's Wolf outright.
-            return "primalist"
+        # Compared against the DISPLAY name while char_class holds the id, so every
+        # branch fell through to None and this screen offered nobody a pet at all.
+        # Seventh instance of the same mismatch - see core/class_names.py.
+        from core.class_names import class_key
+        from combat.pet_templates import PET_TEMPLATES
+        key = class_key(char_class)
+        # pet_type in combat/pet_templates.py IS the class id - "necromancer",
+        # "witch_hunter", "knight_of_xoroth" - so the roster answers this itself
+        # and a hand-written branch per class can only fall behind it. It had:
+        # three classes listed out of the THIRTEEN that have templates, so
+        # Necromancer, Tinker, Witch Hunter, Reaper, Cultist, Felsworn, Knight
+        # of Xoroth, Stormbringer, Barbarian and Ranger each had pets authored
+        # and no way to reach them from here.
+        #
+        # (Primalist earns its own pet_type rather than sharing Hunter's Wolf:
+        # Wildwalker's Spirit Beast Master "tames beasts like hunter, not
+        # elementals" - Kyle, Oct 2026 - same flow, its own roster.)
+        if any(t.get("pet_type") == key for t in PET_TEMPLATES.values()):
+            return key
         return None
 
     def handle_event(self, event):
