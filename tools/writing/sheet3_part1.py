@@ -108,8 +108,8 @@ BATCH = {
         "since and he has never been able to explain why, given that nobody died."),
     forward=(
         "Control. Not power. He has plenty of power and it is the whole problem.\n\n"
-        "He has started going out alone to practise where there is nothing to break, which the "
-        "people who care about him regard as the worst possible way to handle this, and they "
+        "He has started going out alone to practise where there is nothing to break. The "
+        "people who care about him regard that as the worst possible way to handle this, and they "
         "are probably right."),
     now=(
         "The high open ground, where he can see weather coming for an hour before it arrives.\n\n"
@@ -131,8 +131,8 @@ BATCH = {
         "A surgery with his name on the door for eleven months, and a loan with thirty years "
         "left on it.\n\n"
         "An enormous family, all of them in Izmir, all of them loud. He says he will find them. "
-        "He says it the way you say a thing you have decided to believe, and he has not stopped "
-        "saying it in three years."),
+        "He says it the way you say a thing you have decided to believe, and he says it still, "
+        "three years on."),
     adjustment=(
         "Two months, and most of that was the language.\n\n"
         "He arrived with better hands than almost anybody and no idea what to do with the rest "
@@ -167,8 +167,8 @@ BATCH = {
         "brother were in Santiago. He does not talk about any of this and has told exactly one "
         "person, at night, while on watch."),
     adjustment=(
-        "Bad. Very bad, and he will say so plainly if asked directly, which almost nobody "
-        "does.\n\n"
+        "Bad. Very bad, and he will say so plainly if asked directly. Almost nobody "
+        "asks.\n\n"
         "He stopped speaking for most of the first year. Not deliberately. He simply ran out of "
         "things that were worth the effort of translating, and the quiet got comfortable, and "
         "then it got difficult to leave."),
@@ -185,11 +185,11 @@ BATCH = {
 
 # 6 ---- GIORGI, Georgian, mid 30s. STEADY, became more himself here. Warm, limited English.
 "giorgi_primalist": dict(
-    greeting="You walk too fast for the ground. Slow. The mountain is not going anywhere and "
-             "neither are you, if you listen.",
+    greeting="You walk too fast for the ground. Slow. The mountain will wait and so will "
+             "you, if you listen.",
     backstory=(
         "Twenty years of high summer pasture above Kazbegi, moving sheep up and down a mountain "
-        "on a calendar his family did not write down because nobody needed to. He is physically "
+        "on a calendar his family never wrote down because nobody needed to. He is physically "
         "enormous and completely unhurried. His English is small and he uses every word of it "
         "deliberately, and what comes out is often better than what a fluent man would have "
         "said, because he has no spare words to hide behind."),
@@ -204,7 +204,7 @@ BATCH = {
         "something others worry about on your behalf. He finds that exhausting and touching at "
         "the same time."),
     forward=(
-        "A herd. He is serious and nobody takes him seriously, which irritates him more than he "
+        "A herd. He is serious and nobody takes him seriously. It irritates him more than he "
         "lets on.\n\n"
         "He has found grazing he says is as good as anything at home, and a tauren who has "
         "begun to argue with him about it. He enjoys this enormously."),
@@ -262,7 +262,7 @@ BATCH = {
         "Two chairs, a radio always on, and a Tuesday regular called Don Beni who came in for "
         "nineteen years and never once needed a haircut.\n\n"
         "His whole family were on the island. He says they are fine. He has a reason he believes "
-        "this and he will tell you the reason and the reason is not very good, and everybody "
+        "this and he will tell you the reason and the reason is thin, and everybody "
         "lets him have it."),
     adjustment=(
         "He was running a chair inside a month, in a tent, with a borrowed blade.\n\n"
@@ -275,7 +275,7 @@ BATCH = {
         "and cannot explain why to anybody including himself, and his hands shook on the last "
         "one."),
     now=(
-        "Wherever the party stops, which becomes a shop for as long as they are there.\n\n"
+        "Wherever the party stops. That place becomes a shop for as long as they are there.\n\n"
         "He will cut anybody's hair, any race, free, and he has never been refused twice by the "
         "same person."),
 ),

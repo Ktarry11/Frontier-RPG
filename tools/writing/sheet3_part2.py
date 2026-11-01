@@ -215,7 +215,7 @@ BATCH = {
         "A brigade. Actual volunteers, actual training, actual kit, for a world that burns "
         "constantly and has nobody organised about it.\n\n"
         "She has six people. Four of them turn up. She describes this as going extremely well "
-        "and she is not being sarcastic."),
+        "and she means it."),
     now=(
         "Out where the burning is, so in this world, most places.\n\n"
         "The helmet torch is still clipped to her belt and the battery died two and a half "

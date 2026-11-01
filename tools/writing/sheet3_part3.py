@@ -155,7 +155,7 @@ BATCH = {
              "because I am older than you and this is how it works.",
     backstory=(
         "A pharmacist in Basra for nineteen years, in a shop where half the job was medicine and "
-        "the other half was listening to people who could not afford a doctor. He knows doses, "
+        "the other half was listening to people with no money for a doctor. He knows doses, "
         "he knows poisons, and he knows exactly how much of the truth a frightened person can "
         "take at once. He is enormously warm and completely unsentimental, and those two things "
         "together are rarer than either."),
@@ -229,7 +229,7 @@ BATCH = {
         "afternoon before the set. He has said one sentence about her in three years."),
     adjustment=(
         "He stopped playing. There was nothing to play and nobody to play with, and he put it "
-        "down and found he could not pick it up again.\n\n"
+        "down, and it stayed down.\n\n"
         "The fire came after that, and he will tell you the order matters. He was already empty "
         "when he went looking, and he thinks that is the only reason it took."),
     forward=(
