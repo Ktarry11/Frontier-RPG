@@ -351,6 +351,36 @@
         150
       ],
       "continent": "kalimdor"
+    },
+    "refuge_pointe": {
+      "name": "Refuge Pointe",
+      "zone": "Arathi West",
+      "master": "arathi_refuge_flightmaster",
+      "pos": [
+        4,
+        100
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "hammerfall": {
+      "name": "Hammerfall",
+      "zone": "Arathi Central",
+      "master": "hammerfall_windrider_master",
+      "pos": [
+        22,
+        104
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "saltspur_landing": {
+      "name": "Saltspur Landing",
+      "zone": "Arathi East",
+      "master": "saltspur_windrider_master",
+      "pos": [
+        44,
+        110
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -509,6 +539,28 @@
     ],
     "uc_beastmaster": [
       "mounts"
+    ],
+    "arathi_refuge_innkeeper": [
+      "inn"
+    ],
+    "arathi_refuge_flightmaster": [
+      "flight"
+    ],
+    "hammerfall_innkeeper": [
+      "inn"
+    ],
+    "hammerfall_windrider_master": [
+      "flight"
+    ],
+    "hammerfall_stablemaster": [
+      "mounts",
+      "riding"
+    ],
+    "saltspur_innkeeper": [
+      "inn"
+    ],
+    "saltspur_windrider_master": [
+      "flight"
     ]
   }
 }

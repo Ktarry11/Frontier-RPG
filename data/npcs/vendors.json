@@ -4253,6 +4253,50 @@
       "gender": "male",
       "appearance_variant": 5,
       "greeting": "Six wrecks on the flats and the tide only lets you at them twice a day. I know which two. That knowledge is the business."
+    },
+    {
+      "vendor_id": "saltspur_innkeeper",
+      "name": "Innkeeper Vara Dunn",
+      "zone": "arathi_east",
+      "x": 47,
+      "y": 98,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_river_fish",
+        "drink_spring_flask",
+        "bread_and_cheese",
+        "spiced_wine",
+        "meal_spiced_haunch",
+        "salt"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "forsaken",
+      "gender": "female",
+      "appearance_variant": 15,
+      "greeting": "One room, four bunks and a fire that works. It is an inn because I say it is an inn and because there is nowhere else on this coast to say it about."
+    },
+    {
+      "vendor_id": "saltspur_windrider_master",
+      "name": "Wind Rider Keeper Ozra",
+      "zone": "arathi_east",
+      "x": 51,
+      "y": 92,
+      "tile_sprite": "npc",
+      "sells": [
+        "meal_tough_jerky",
+        "drink_waterskin"
+      ],
+      "buys_from_player": true,
+      "faction": "horde",
+      "gear_level": 22,
+      "sells_gear": false,
+      "race": "orc",
+      "gender": "female",
+      "appearance_variant": 24,
+      "greeting": "One wyvern, one route, straight back to Hammerfall. If you want to go anywhere else from here you are going by water, and the water out there is Bloodsail."
     }
   ]
 }

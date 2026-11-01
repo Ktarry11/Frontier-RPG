@@ -355,6 +355,12 @@ NPC_POSITIONS = {
     "saltspur_quartermaster": (50, 98),
     "saltspur_shipwright": (42, 100),
     "saltspur_scout": (54, 92),
+    # Saltspur is a beachhead, not a town, but it is the ONLY settlement in the 37-40 band and it
+    # is across an archipelago from everywhere else. A player who dies out on the flats with no
+    # hearth here and no wyvern out of here walks the whole east coast back, so the standing rule
+    # that every town gets an inn and a flight master applies to this one too.
+    "saltspur_innkeeper": (47, 98),
+    "saltspur_windrider_master": (51, 92),     # roost up the slope, clear of the jetty
     "arathi_barrow_warden": (38, 50),          # outside the barrow, not going in
     "arathi_wreck_salvager": (82, 108),        # working the shore south of the jetty
     "arathi_bothy_hermit": (120, 105),         # on Bothy Rock, the only soul out there

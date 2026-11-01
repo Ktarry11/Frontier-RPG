@@ -207,6 +207,17 @@ EAST_VENDORS = {
          "whetstone", "vial_leaded"], True,
         "Landed stores. Everything here came off a boat and some of it came off somebody "
         "else's boat, and I am not going to pretend otherwise."),
+    "saltspur_innkeeper": (
+        "Innkeeper Vara Dunn", "forsaken", "female", 15,
+        ["meal_river_fish", "drink_spring_flask", "bread_and_cheese", "spiced_wine",
+         "meal_spiced_haunch", "salt"], False,
+        "One room, four bunks and a fire that works. It is an inn because I say it is an inn and "
+        "because there is nowhere else on this coast to say it about."),
+    "saltspur_windrider_master": (
+        "Wind Rider Keeper Ozra", "orc", "female", 24,
+        ["meal_tough_jerky", "drink_waterskin"], False,
+        "One wyvern, one route, straight back to Hammerfall. If you want to go anywhere else "
+        "from here you are going by water, and the water out there is Bloodsail."),
     "arathi_wreck_salvager": (
         "Salvager Pik Bronzewhistle", "goblin", "male", 5,
         ["parchment", "resin", "glue", "component_string", "fletching", "sinew",

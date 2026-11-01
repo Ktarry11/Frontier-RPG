@@ -55,6 +55,11 @@ TOWNS = {
     # everywhere else - it would be strange for the biggest tauren settlement in the world to
     # be the one place you cannot learn anything.
     "Freewind Post": ("freewind", "fw_innkeeper"),
+    # Hammerfall is the only full town between Tarren Mill and the far side of Arathi, and it is
+    # the hub of a 28-40 region. Refuge Pointe and Saltspur deliberately get none - a forward camp
+    # and a beachhead do not teach, and making the player come back to the hold to train is the
+    # thing that makes Hammerfall feel like the middle of the region rather than one more camp.
+    "Arathi Central": ("hammerfall", "hammerfall_innkeeper"),
 }
 
 CLASS_TITLE = {c: c for c in CLASSES}
