@@ -170,6 +170,27 @@ class InventoryScreen(BaseScreen):
         player = self.state_manager.player
         return player if subject is not player else subject
 
+    def _consumable_source(self, subject):
+        """Whose consumable list the Consumables tab draws from: ALWAYS the player's.
+
+        Kyle, 2026-10-31: "we cant make party members consume stuff. when i buy
+        food, freja cant eat it as its not in her inventory."
+
+        Exactly the same shape as _bag_source above, and for the same reason.
+        Every path that acquires a consumable - the vendor, loot, crafting -
+        puts it in the PLAYER's list, and nothing anywhere puts one in a
+        companion's. So a companion's list is not "empty right now", it is
+        empty permanently and by construction; drawing the tab from it meant
+        the tab could only ever be blank for five of your six characters.
+
+        Food and potions are party stores, the way currency already is (see the
+        note on Character.add_currency about moving gold onto the party for
+        this same reason). The subject still has to be ABLE to use the thing -
+        level, cooldown and buff-slot checks all run against them, not the
+        player - only the stack it comes out of is shared.
+        """
+        return self.state_manager.player
+
     def _equip_on_subject(self, subject, item):
         """Equip an item from the bag source (see _bag_source) onto the
         subject. Returns True on success. If the subject isn't the bag's
@@ -302,8 +323,9 @@ class InventoryScreen(BaseScreen):
             self.equip_error = f"Used {consumable.name}."
             # use() decrements the stack; an empty one leaves a dead slot in the
             # grid that still hovers and still accepts clicks, so it goes here.
-            if consumable.quantity <= 0 and consumable in subject.consumables:
-                subject.consumables.remove(consumable)
+            pool = self._consumable_source(subject).consumables
+            if consumable.quantity <= 0 and consumable in pool:
+                pool.remove(consumable)
         else:
             self.equip_error = f"{consumable.name} had no effect."
         self.equip_error_timer = 3.0
@@ -362,8 +384,9 @@ class InventoryScreen(BaseScreen):
             # tab existing - see _use_consumable.
             if self.active_tab == "consumables":
                 for i, rect in enumerate(self.consumables_rects):
-                    if rect.collidepoint(mouse_pos) and i < len(subject.consumables):
-                        self._use_consumable(subject, subject.consumables[i])
+                    pool = self._consumable_source(subject).consumables
+                    if rect.collidepoint(mouse_pos) and i < len(pool):
+                        self._use_consumable(subject, pool[i])
                         return
                 return
 
@@ -691,7 +714,7 @@ class InventoryScreen(BaseScreen):
         already have a food buff' and can_use refusing silently was how that
         read as a broken item.
         """
-        self._build_consumables_rects(len(subject.consumables))
+        self._build_consumables_rects(len(self._consumable_source(subject).consumables))
 
         # What is already running, in the same place the materials tab puts the
         # profession line - these four slots are what can_use() checks against.
@@ -711,12 +734,13 @@ class InventoryScreen(BaseScreen):
                                 "   ".join(active) if active else "No consumable buffs active.",
                                 (20, 60), color=COLOR_LIGHT_GRAY)
 
-        if not subject.consumables:
+        pool = self._consumable_source(subject).consumables
+        if not pool:
             self.renderer.draw_text(
                 screen, "No consumables - buy food, drink and potions from a vendor.",
                 (MATERIALS_START_X, MATERIALS_START_Y), color=(150, 150, 150))
         else:
-            for i, cons in enumerate(subject.consumables):
+            for i, cons in enumerate(pool):
                 rect = self.consumables_rects[i]
                 usable = cons.required_level <= subject.level and cons.can_use(subject)
                 self.renderer.draw_rect(screen, rect, (35, 35, 40))
@@ -749,8 +773,9 @@ class InventoryScreen(BaseScreen):
 
         mouse_pos = pygame.mouse.get_pos()
         for i, rect in enumerate(self.consumables_rects):
-            if rect.collidepoint(mouse_pos) and i < len(subject.consumables):
-                self._draw_consumable_tooltip(screen, subject.consumables[i], mouse_pos, subject)
+            pool = self._consumable_source(subject).consumables
+            if rect.collidepoint(mouse_pos) and i < len(pool):
+                self._draw_consumable_tooltip(screen, pool[i], mouse_pos, subject)
                 break
 
     def _draw_consumable_icon(self, screen, consumable, rect, size=None):
