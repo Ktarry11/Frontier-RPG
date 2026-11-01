@@ -300,7 +300,10 @@ class ZoneManager:
     #: Per-step chance of a random encounter, by where you are standing.  Subzones are the themed hunting
     #: grounds quests send you to, so they roll much more often than the open zone (2% per step meant
     #: ~170 steps per Marsh Skimmer - quest targets simply never seemed to spawn).
-    ENCOUNTER_CHANCE = {"open_zone": 0.02, "subzone": 0.05, "cave": 0.03}
+    #: Kyle, 2026-10-31: "turn down encounter rate in caves by about 20%". 0.030 -> 0.024, which is
+    #: ~42 steps between ambushes instead of ~33. Only the random-roll caves (Skull Rock, Dustwind
+    #: and friends) feel this: a real dungeon has has_fixed_spawns() True and never rolls at all.
+    ENCOUNTER_CHANCE = {"open_zone": 0.02, "subzone": 0.05, "cave": 0.024}
 
     def encounter_chance(self):
         """Per-step random-encounter chance for the player's current tile."""
