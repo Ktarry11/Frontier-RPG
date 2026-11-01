@@ -87,6 +87,40 @@ def _carve(zone, spec):
     return L
 
 
+
+def _place(L, name, x, y, height, rad=6, **kw):
+    """Put a prop on the nearest tile that is actually floor AND clear of the pinned markers.
+
+    Hand-written cave props are placed against a mental picture of the floorplan, and the floorplan is
+    generated - a spine tube four tiles wide does not reach the x the author imagined, and a sarcophagus
+    written at the same spot as a chest is refused for crowding it. The first build of these five caves
+    skipped 22 props between them for exactly those two reasons, silently, leaving rooms bare.
+
+    So: search outward for a tile that is walkable, is dry, and is further than `avoid` from every
+    critical marker, and place there. Returns False only if nothing within `rad` qualifies, which is a
+    real authoring error rather than a near miss.
+    """
+    z = L.z
+    avoid = kw.get("avoid", 2)
+    best = None
+    for dy in range(-rad, rad + 1):
+        for dx in range(-rad, rad + 1):
+            nx, ny = int(x) + dx, int(y) + dy
+            if not z.is_walkable(nx, ny):
+                continue
+            if z.base_layer[ny][nx] in ("shallow_water", "deep_water", "lava"):
+                continue
+            if any(max(abs(qx - nx), abs(qy - ny)) <= avoid for (qx, qy) in L.critical):
+                continue
+            d = dx * dx + dy * dy
+            if best is None or d < best[0]:
+                best = (d, nx, ny)
+    if best is None:
+        L.skipped.append((name, x, y, "no floor within radius"))
+        return False
+    return L.prop(name, best[1], best[2], height, **kw)
+
+
 # =====================================================================================================
 # BOULDER'GOR - DUMBBELL. Ogres, Arathi West's moor.
 # Two halls and one crawl, and that is the whole cave. The crawl is deliberately long and narrow: an
@@ -114,7 +148,7 @@ BOULDERGOR = dict(
 
 
 def _dress_bouldergor(zone, L):
-    P = L.prop
+    P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
     # mouth: the toll they take off the Go'Shek road
     P("vot_broken_cart", 25, 45, 4)
     P("vot_crate_stack", 35, 45, 3)
@@ -170,7 +204,7 @@ BOULDERFIST = dict(
 
 
 def _dress_boulderfist(zone, L):
-    P = L.prop
+    P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
     P("vot_palisade", 28, 49, 4)
     P("skull_pile", 37, 48, 2)
     # the feast hall - the one room the whole hold shares
@@ -237,7 +271,7 @@ BARROW = dict(
 
 
 def _dress_barrow(zone, L):
-    P = L.prop
+    P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
     P("gothic_gate", 30, 49, 6, solid="core", avoid=1)
     P("broken_column", 25, 51, 5, solid="core")
     # the ribs: a sarcophagus in each, getting worse as you go in
@@ -287,7 +321,7 @@ WRACKLINE = dict(
 
 
 def _dress_wrackline(zone, L):
-    P = L.prop
+    P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
     # the boat floor - what the tide reaches
     P("grotto_ship_bow", 18, 43, 7, solid="core", avoid=1)
     P("grotto_anchor", 36, 43, 4)
@@ -324,7 +358,9 @@ TIDEWRACK = dict(
         "mouth": ([(34, 50), (33, 47), (32, 44)], 5.0, 5.0),
         "ring_w": ([(28, 42), (16, 36), (12, 26), (18, 16), (28, 11)], 4.2, 4.2),
         "ring_e": ([(36, 42), (48, 36), (52, 26), (46, 16), (36, 11)], 4.2, 4.2),
-        "causeway": ([(32, 11), (32, 18)], 3.4, 3.4),         # the only way onto the island
+        # MUST overlap the sump disc, not stop at its rim. At (32,18) it ended one row short and
+        # the island was a sealed pocket of floor with the boss standing on it.
+        "causeway": ([(32, 10), (32, 22)], 3.4, 3.4),         # the only way onto the island
     },
     ROOMS={
         "mouth":  (33, 48, 6.5, 3.8, 0, 0.5, "The Tide Gate"),
@@ -340,7 +376,7 @@ TIDEWRACK = dict(
 
 
 def _dress_tidewrack(zone, L):
-    P = L.prop
+    P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
     P("grotto_barnacle_pillar", 29, 49, 6, solid="core")
     P("grotto_crab_molt", 37, 49, 3)
     # the island in the sump - everything the tide has brought in, piled on the one dry spot
