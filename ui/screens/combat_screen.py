@@ -328,32 +328,37 @@ class CombatScreen(BaseScreen):
                 self._use_hotbar_slot(slot_index)
 
     def _get_hovered_target(self, mouse_pos):
-        """Which target is under the mouse, if any."""
-        for combatant in self.targeting_valid_targets:
-            # Render is responsible for drawing targets; we need their rects.
-            # For now, use a simple heuristic: if this is an ally, it's on
-            # the left panel; if an enemy, on the right. Later this should
-            # compute actual rects from the render layout.
-            is_ally = self.combat_engine.is_ally(combatant)
-            # Ally rects are roughly on the left, enemies on the right.
-            # This is a placeholder - render() should mark the actual rects.
-            if is_ally and mouse_pos[0] < 400:
-                if self._rect_for_combatant(combatant).collidepoint(mouse_pos):
-                    return combatant
-            elif not is_ally and mouse_pos[0] > 600:
-                if self._rect_for_combatant(combatant).collidepoint(mouse_pos):
-                    return combatant
+        """Which target is under the mouse, if any.
+
+        Reads the rects the targeting overlay ACTUALLY drew (_targeting_rects,
+        appended row by row in _render_targeting_overlay). It used to re-derive
+        them from a position guess instead - left half means ally, index into
+        combat_engine.allies - which was wrong twice over:
+
+          - it crashed on a pet. is_ally() counts pets, combat_engine.allies
+            does not (pets live in .pets), so .index() raised ValueError and
+            took the whole game down the moment you hovered a summon while
+            picking a heal target. That is the traceback Kyle hit casting a
+            Chronomancer heal with a pet out.
+          - even for a party member it was a second, drifting copy of a layout
+            the renderer already knows exactly.
+        """
+        for combatant, rect in getattr(self, "_targeting_rects", ()):
+            if combatant in self.targeting_valid_targets and rect.collidepoint(mouse_pos):
+                return combatant
         return None
 
     def _rect_for_combatant(self, combatant):
-        """Approximate rect for a combatant's healthbar on screen.
-        This is a placeholder - render() will need to provide actual rects."""
-        is_ally = self.combat_engine.is_ally(combatant)
-        index = (self.combat_engine.allies if is_ally else self.combat_engine.enemies).index(combatant)
-        if is_ally:
-            return pygame.Rect(20, 80 + index * 80, 360, 70)
-        else:
-            return pygame.Rect(SCREEN_WIDTH - 380, 80 + index * 80, 360, 70)
+        """The rect this combatant was last drawn at, or None if it was not drawn.
+
+        Returns None rather than guessing. A caller that cannot find a rect has
+        nothing to hit-test and should skip the combatant; inventing a rectangle
+        for something off-screen is how the old version turned a pet into a crash.
+        """
+        for drawn, rect in getattr(self, "_targeting_rects", ()):
+            if drawn is combatant:
+                return rect
+        return None
 
     def _acting_member(self):
         """
@@ -990,7 +995,53 @@ class CombatScreen(BaseScreen):
         party = self.state_manager.get_party()
         if not party or not party.members:
             return self._hotbar_panel_top()
-        return self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+        top = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+        if self._living_pets():
+            top -= self.PET_CHIP_H + 6
+        return top
+
+    #: Height of one pet chip. Pets get a compact row above the party cards rather than a full
+    #: card: they have no gear, no talents and no resource bar worth the space, and a sixth
+    #: full-width card would squeeze a five-person party's cards below readable.
+    PET_CHIP_H = 30
+
+    def _living_pets(self):
+        engine = getattr(self, "combat_engine", None)
+        if engine is None:
+            return []
+        return [p for p in getattr(engine, "pets", []) if p.is_alive()]
+
+    def _draw_pet_chips(self, screen, acting):
+        """Name, level and an HP bar for each active summon.
+
+        Kyle, 2026-10-31: "so pets dont show anything, tried warlock." They never
+        did. A pet is an ally everywhere that matters - turn order, is_ally,
+        living_allies, a valid heal target - but every piece of combat UI read
+        either party.members or combat_engine.allies, and a pet is in neither
+        (they live in combat_engine.pets). So the Imp took turns, took damage and
+        could die with nothing on screen ever mentioning it.
+        """
+        pets = self._living_pets()
+        if not pets:
+            return
+        y = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H - self.PET_CHIP_H - 6
+        chip_w = min(240, (SCREEN_WIDTH - 40 - (len(pets) - 1) * 12) // max(1, len(pets)))
+        total_w = len(pets) * chip_w + (len(pets) - 1) * 12
+        x0 = max(20, (SCREEN_WIDTH - total_w) // 2)
+        for i, pet in enumerate(pets):
+            rect = pygame.Rect(x0 + i * (chip_w + 12), y, chip_w, self.PET_CHIP_H)
+            is_acting = pet is acting
+            pygame.draw.rect(screen, (26, 34, 28), rect)
+            pygame.draw.rect(screen, COLOR_GOLD if is_acting else (90, 120, 95), rect,
+                             3 if is_acting else 1)
+            label = f"{pet.name}  Lv {pet.level}"
+            self.renderer.draw_text(screen, label, (rect.x + 7, rect.y + 2),
+                                    font_size=13,
+                                    color=COLOR_GREEN if is_acting else (170, 200, 175))
+            self.renderer.draw_health_bar(screen, (rect.x + 7, rect.y + 17),
+                                          pet.current_health, pet.health,
+                                          width=rect.width - 14, height=10,
+                                          bar_color=COLOR_GREEN)
 
     def _draw_party_strip(self, screen, acting):
         """
@@ -1212,6 +1263,7 @@ class CombatScreen(BaseScreen):
         
         # ===== PARTY STRIP: sits directly above the hotbar (Ryu/Phoebe style) =====
         self._draw_party_strip(screen, player)
+        self._draw_pet_chips(screen, self.combat_engine.current_actor)
 
         # Hotbar background - sized to actually contain the two button rows
         # plus a small margin, rather than the old fixed 160px box. The old
@@ -1649,7 +1701,13 @@ class CombatScreen(BaseScreen):
         # horizontal length. Name text is "small" - the "large" name label
         # was visually dominating a row that's mostly meant to show HP/buffs.
         y = 120
-        for ally in self.combat_engine.allies:
+        # PETS ARE ALLIES AND HAVE TO BE DRAWN LIKE ONE. combat_engine.is_ally()
+        # counts them, living_allies() counts them, a heal can validly target one -
+        # but this loop read combat_engine.allies, which is party.members only, so a
+        # summon was targetable and invisible at the same time. Kyle: "so pets dont
+        # show anything, tried warlock."
+        for ally in self.combat_engine.allies + [p for p in self.combat_engine.pets
+                                                 if p.is_alive()]:
             is_valid = ally in self.targeting_valid_targets
             is_hovered = ally is self.targeting_hovered
             color = COLOR_GOLD if is_hovered else (COLOR_GREEN if is_valid else COLOR_DARK_GRAY)

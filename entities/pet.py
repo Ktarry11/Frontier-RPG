@@ -164,6 +164,20 @@ class Pet(StatusEffectMixin):
         self.crit_chance_physical = t.get("crit_chance", 5.0)
         self.crit_chance_spell = t.get("crit_chance", 5.0)
 
+    #: A Character's maximum health is .health and a Monster's is .max_health, and a Pet is
+    #: treated as a party member by combat (is_ally, living_allies, the turn order) while being
+    #: built like a monster. Every piece of ally-side UI reads .health, so a Pet reaching one
+    #: raised AttributeError - which is part of why pets never appeared in a combat screen at
+    #: all. Aliased rather than renamed: the template loader and the monster-shaped code paths
+    #: write max_health, so both spellings have to keep working and stay the same number.
+    @property
+    def health(self):
+        return self.max_health
+
+    @health.setter
+    def health(self, value):
+        self.max_health = value
+
     def sync_to_owner_level(self):
         """Call when the owner levels up so the pet doesn't fall behind -
         real WoW pets level up automatically alongside their Hunter/Warlock.

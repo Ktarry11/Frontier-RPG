@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+"""A pet is an ally. Everything ally-shaped has to survive being handed one.
+
+    PYTHONPATH=. python3 tools/qa_pets_in_combat.py
+
+Kyle, 2026-10-31: "so pets dont show anything, tried warlock. also did
+chronomancer heal and got this" - ValueError: Pet is not in list, out of
+combat_screen._rect_for_combatant.
+
+Both halves are one fact. combat_engine.is_ally() counts pets, living_allies()
+counts pets, the turn order runs them, a heal can validly target one - but
+combat_engine.allies is party.members and nothing else, because pets live in
+combat_engine.pets. Every piece of combat UI read allies or party.members, so a
+summon was a valid target that was never drawn, and the moment the targeting
+code tried to locate one it did .index() on a list it was never in.
+
+The crash case is the important one here: it is reachable from ordinary play
+(have a pet out, cast any targeted heal, move the mouse) and it takes the whole
+process down, so it gets a direct reproduction rather than a proxy.
+"""
+import os
+import sys
+
+os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
+os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+FAILS = []
+
+
+def check(label, cond, detail=""):
+    if cond:
+        print(f"  ok   {label}")
+    else:
+        FAILS.append(label)
+        print(f"  FAIL {label}  {detail}")
+
+
+def main():
+    import pygame
+    pygame.init()
+    screen = pygame.display.set_mode((1280, 720))
+
+    from entities.character import Character
+    from entities.pet import Pet
+
+    # ---- 1. the attribute that made a pet unrenderable -----------------------
+    owner = Character("Kyle", "warlock", level=20)
+    pet = Pet("Imp", "imp", owner)
+    check("a pet reports .health like a party member does",
+          getattr(pet, "health", None) == pet.max_health, f"{getattr(pet, 'health', None)}")
+    pet.health = 999
+    check("and writing it keeps both spellings the same number",
+          pet.max_health == 999 and pet.health == 999)
+    pet.health = pet.max_health = 539
+    pet.current_health = 539
+
+    # ---- 2. the crash, reproduced through the real screen -------------------
+    from combat.combat_engine import CombatEngine
+    from entities.party import Party
+    from ui.screens.combat_screen import CombatScreen
+
+    party = Party(owner)
+
+    from entities.monster import Monster
+    foe = Monster("Target Dummy", "beast_basic", level=20)
+
+    class _SM:
+        pass
+    sm = _SM()
+    sm.player = owner
+    sm.get_party = lambda: party
+    sm.transition_to = lambda s: None
+    sm.current_enemies = [foe]
+    sm.current_enemy = foe
+
+    engine = CombatEngine(owner, foe, enemies=[foe], party=party)
+    engine.pets = [pet]
+    engine.combatants = engine.allies + engine.pets + engine.enemies
+
+    check("the engine calls the pet an ally", engine.is_ally(pet))
+    check("but the pet is NOT in engine.allies - the mismatch that caused it",
+          pet not in engine.allies)
+
+    cs = CombatScreen.__new__(CombatScreen)
+    cs.combat_engine = engine
+    cs.targeting_valid_targets = engine.living_allies()
+    cs.targeting_hovered = None
+    cs._targeting_rects = []
+
+    check("the pet is a valid heal target", pet in cs.targeting_valid_targets)
+
+    # With nothing drawn yet, hovering anywhere must be a quiet miss, not a throw.
+    try:
+        got = cs._get_hovered_target((200, 200))
+        ok = got is None
+        err = ""
+    except Exception as exc:  # noqa: BLE001 - the point is that nothing escapes
+        ok, err = False, f"{type(exc).__name__}: {exc}"
+    check("hovering before anything is drawn does not raise", ok, err)
+
+    try:
+        ok = cs._rect_for_combatant(pet) is None
+        err = ""
+    except Exception as exc:  # noqa: BLE001
+        ok, err = False, f"{type(exc).__name__}: {exc}"
+    check("asking for an undrawn pet's rect returns None instead of raising", ok, err)
+
+    # ---- 3. once the overlay HAS drawn, the pet is findable -----------------
+    pet_rect = pygame.Rect(40, 300, 400, 80)
+    cs._targeting_rects = [(owner, pygame.Rect(40, 120, 400, 80)), (pet, pet_rect)]
+    check("hovering the pet's drawn rect returns the pet",
+          cs._get_hovered_target(pet_rect.center) is pet)
+    check("and its rect is the one that was drawn",
+          cs._rect_for_combatant(pet) == pet_rect)
+    # Negative control: a point in no row must still return nothing.
+    check("hovering empty space returns nothing",
+          cs._get_hovered_target((900, 650)) is None)
+    # A combatant that is drawn but NOT a valid target must not be hoverable.
+    cs.targeting_valid_targets = [owner]
+    check("a drawn but invalid target is not hoverable",
+          cs._get_hovered_target(pet_rect.center) is None)
+
+    # ---- 4. the pet is actually put on screen -------------------------------
+    cs.renderer = __import__("ui.renderer", fromlist=["Renderer"]).Renderer()
+    cs.state_manager = sm
+    cs.hotbar_positions = []   # a bare screen has drawn no buttons yet
+    drawn = []
+    real_bar = cs.renderer.draw_health_bar
+    cs.renderer.draw_health_bar = lambda *a, **k: (drawn.append(a), real_bar(*a, **k))[1]
+    try:
+        cs._draw_pet_chips(screen, pet)
+        ok, err = len(drawn) == 1, ""
+    except Exception as exc:  # noqa: BLE001
+        ok, err = False, f"{type(exc).__name__}: {exc}"
+    check("the pet chip row draws one health bar per living pet", ok, err or f"{len(drawn)} bars")
+
+    pet.current_health = 0
+    drawn.clear()
+    cs._draw_pet_chips(screen, None)
+    check("a dead pet is not drawn", not drawn)
+
+    print(f"\n{len(FAILS)} failed" if FAILS else "\npets survive the combat screen")
+    return 1 if FAILS else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
