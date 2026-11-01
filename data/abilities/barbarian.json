@@ -1428,7 +1428,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Ancestral Fury and Frozen Blades stay up passively. Position so the whole group sits in your haste and crit auras.' An always-on aura, so it keeps the default wall-clock buff_scope rather than expiring with the fight.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "barbarian_breath_of_the_north",
@@ -1499,7 +1500,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Critical strikes now grant party and raid members 5% critical strike chance'. The crit-triggered half is flattened into a standing aura, which is how the spec page describes playing it anyway ('stay up passively').",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "barbarian_frozen_tankard",
@@ -1631,7 +1633,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: \"Cheers! on the squishiest party member, or the healer. It redirects part of their incoming damage onto yourself and cuts what they take.\" The redirect has no hook - nothing reroutes damage between combatants - so only the reduction is real, and it is small because of it.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "barbarian_war_cry",

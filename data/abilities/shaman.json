@@ -604,7 +604,8 @@
         "icd": 2,
         "heal_flat": 300
       },
-      "_design_note": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature."
+      "_design_note": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature.",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "shaman_cleanse_spirit",
@@ -698,7 +699,7 @@
         }
       ],
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead."
@@ -786,7 +787,7 @@
         }
       ],
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "_design_note": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists."
@@ -830,7 +831,7 @@
         }
       ],
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "proc": {
@@ -1532,7 +1533,7 @@
         }
       ],
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
@@ -1591,7 +1592,7 @@
       "effect_type": "buff",
       "duration": 5,
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "ranks": [
@@ -1634,7 +1635,7 @@
       "effect_type": "buff",
       "duration": 5,
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "ranks": [
@@ -1677,7 +1678,7 @@
       "effect_type": "buff",
       "duration": 5,
       "target_type": "party",
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
       "ranks": [

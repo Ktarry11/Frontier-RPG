@@ -18,7 +18,7 @@ class Item:
                  block_value=0, bag_capacity=0, icon_id=None,
                  is_crafted=False, crafting_material=None,
                  upgrade_count=0, upgrade_deltas=None, attachment=None,
-                 recipe_id=None, recipe_profession=None):
+                 recipe_id=None, recipe_profession=None, vendor_price=None):
         self.item_id = item_id
         self.name = name
         self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
@@ -56,6 +56,14 @@ class Item:
         # bag adds while equipped. 0 for every non-bag item. See
         # Character.inventory_capacity for how this gets summed.
         self.bag_capacity = bag_capacity
+        #: What a SHOP charges for this, when the catalog says so. None means "work it
+        #: out from sell_price", which is what every procedurally generated item does.
+        #: Bags are hand-authored and priced in data/items/bags.json, and that figure was
+        #: being thrown away - generate_bag never passed it, so the shop fell back to
+        #: sell_price * 4 and a 6-slot bag cost 60 copper instead of its listed price.
+        #: Kyle: "we need to make bags way more expensive....6 slot bags for 60c is fuck
+        #: all. a 6 slot bag should start around 10s."
+        self.vendor_price = vendor_price
 
         # Optional: real icon art (assets/icons/bags/<icon_id>.png,
         # IconRenderer.BAG_ICON_DIR). Procedural armor/weapons don't set

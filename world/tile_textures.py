@@ -1843,9 +1843,24 @@ WORLD_ANCHORED = {
 #: A boat is a boat in every biome, so this is global rather than sixty copies in sixty biome
 #: dicts. A biome that genuinely wants its own (an ice-locked dock, a fel portal) still wins,
 #: because the biome is asked first.
+#: PORTAL WAS A ROWBOAT. Kyle, 31 Oct 2026: "why is the portal out of the den a boat? lol" and
+#: then "omg why is every thing a boat". Both correct. The entry below used to read
+#: "portal": ("stv_rowboat", ...), so EVERY portal tile in the game rendered as a Stranglethorn
+#: rowboat: 201 tiles across all 100 zones, which is every cave mouth, zone transition and
+#: dungeon entrance there is.
+#:
+#: That came from fixing the right bug the wrong way. The complaint being answered was "the
+#: portal from ratchet is there, its just red" - portals had no texture at all and fell through
+#: to tiles.py's flat colour. Giving them one fixed the colour and never checked the sprite, and
+#: a boat is plausible enough at a Ratchet dock that it looked fine in the one place it was
+#: tested. Everywhere else it was a rowboat parked in a cave.
+#:
+#: cave_entrance.png is purpose-built entrance art and reads as "go through here", which is what
+#: a portal tile means. 66 of the 201 already sit on their zone's own cave-mouth landmark, where
+#: this just sits in the doorway; the other 135 are bare and now have something to show.
 UNIVERSAL_TILES = {
     "boat": ("stv_gangplank", (0, 0, 195, 137), True),
-    "portal": ("stv_rowboat", (0, 0, 181, 138), True),
+    "portal": ("cave_entrance_deco", (0, 0, 128, 128), True),
 }
 
 

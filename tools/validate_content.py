@@ -213,6 +213,19 @@ def main():
         obtainable |= set(zone.get("table", {}))    # gathered from a node
     for v in load("data/npcs/vendors.json")["vendors"]:
         obtainable |= set(v.get("sells", []))       # bought
+    # Prised out of an ore vein. Kyle, 31 Oct 2026: "remove the gemstones as a gathering
+    # node bro. we have 40 sprites for wood, ore, and herbs. dont use random shit." The five
+    # crystals stopped being their own node type that day, so nothing in node_pools produces
+    # them any more and this check correctly started reporting them as unobtainable. They are
+    # not: a vein rolls one as a bonus. Read that table rather than hardcoding the ids, so
+    # this stays true if the pools change.
+    try:
+        from world.gathering_manager import GatheringNodeManager
+        for pool in GatheringNodeManager.CRYSTAL_FROM_VEIN.values():
+            obtainable |= set(pool)
+    except Exception as exc:
+        fail("vein-crystal-table-unreadable", str(exc))
+
     # Dropped off creatures - read the real drop tables rather than guessing.
     for mod_name, attr in (("entities.cloth_drops", "BANDS"),
                            ("entities.skinning_drops", "BANDS")):

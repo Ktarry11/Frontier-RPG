@@ -547,7 +547,8 @@
       "icon_id": null,
       "_source": "CoA: 'Create a magical veil around an ally, absorbing 50% of incoming damage'. absorb_pct_max_health is the engine's shield field, same as Cultist's Void Shield.",
       "target_type": "ally",
-      "absorb_pct_max_health": 0.18
+      "absorb_pct_max_health": 0.18,
+      "buff_scope": "raid"
     },
     {
       "ability_id": "bloodmage_blood_rite",
@@ -2685,7 +2686,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Bloodthorns on whoever takes the hits'. physical_damage_taken_pct in a status effect's stat_mods is percent POINTS, unlike the plain damage_taken_pct beside it, which is read raw.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "buff_scope": "raid"
     }
   ]
 }

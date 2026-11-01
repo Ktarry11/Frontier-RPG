@@ -382,6 +382,15 @@ class PartyScreen(BaseScreen):
         frame = pygame.Rect(rect.x + 4, rect.y + (rect.height - FACE) // 2, FACE, FACE)
         self.renderer.draw_rect(screen, frame, (22, 22, 28))
         face = get_recruit_face(getattr(member, "recruit_id", None), FACE)
+        if face is None:
+            # THE HERO HAS NO PORTRAIT. Kyle, twice: "For player - since we dont have
+            # character portaits you can use the class icon", and again on the roster
+            # specifically: "for 'active party' this needs to be a class icon for the
+            # main character." The first pass only reached the overworld frame, so the
+            # party roster still drew an empty black box next to your own name.
+            # Companions without art fall back the same way rather than showing a hole.
+            from ui.class_portrait import get_class_icon
+            face = get_class_icon(getattr(member, "char_class", None), FACE)
         if face is not None:
             if benched:
                 face = face.copy()
@@ -515,8 +524,12 @@ class PartyScreen(BaseScreen):
         x = panel.x + 16
         y = panel.y + 14
 
-        # Recruit portrait (top-right of the panel); the player has none.
+        # Recruit portrait (top-right of the panel), or the class icon for anyone
+        # without one - which is the hero, and any companion whose art has not landed.
         portrait = get_recruit_portrait(getattr(member, "recruit_id", None), 130)
+        if portrait is None:
+            from ui.class_portrait import get_class_icon
+            portrait = get_class_icon(getattr(member, "char_class", None), 130)
         pw = portrait.get_width() if portrait is not None else 118
         pframe = pygame.Rect(panel.right - pw - 14, panel.y + 10, pw, 130)
         self.renderer.draw_rect(screen, pframe, (22, 22, 28))

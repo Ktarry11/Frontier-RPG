@@ -600,7 +600,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "tinker_module"
+      "exclusive_group": "tinker_module",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "tinker_nanobot_reconstruction",
@@ -657,7 +658,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "raid"
     },
     {
       "ability_id": "tinker_emergency_heal",
@@ -907,7 +909,7 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat",
+      "buff_scope": "raid",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
@@ -1040,7 +1042,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "tinker_module"
+      "exclusive_group": "tinker_module",
+      "buff_scope": "raid"
     },
     {
       "ability_id": "tinker_build_clockwork_assistant",
@@ -1273,7 +1276,7 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "raid"
     },
     {
       "ability_id": "tinker_strength_bionics",

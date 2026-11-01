@@ -256,6 +256,7 @@ class LootGenerator:
             bag_capacity=data["bag_capacity"],
             required_level=data["required_level"],
             sell_price=data["sell_price"],
+            vendor_price=data.get("vendor_price"),
             flavor_text=data.get("flavor_text", ""),
             icon_id=data.get("icon_id"),
         )

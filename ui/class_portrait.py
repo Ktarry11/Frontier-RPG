@@ -23,8 +23,16 @@ _icon_cache = {}
 def get_class_icon(char_class, size=None):
     """Returns a pygame.Surface for the class's icon, optionally scaled to
     (size, size), or None if no icon exists for this class (custom CoA
-    classes) or the file is missing."""
-    key = char_class.lower()
+    classes) or the file is missing.
+
+    A missing char_class returns None rather than raising. Callers use this as a
+    FALLBACK for a character with no portrait, so it is reached precisely when
+    something is already absent, and a crash there would be the worst possible
+    response to "this person has no picture".
+    """
+    if not char_class:
+        return None
+    key = str(char_class).lower()
     if key not in _icon_cache:
         path = os.path.join(_ICON_DIR, f"{key}.png")
         surf = None
