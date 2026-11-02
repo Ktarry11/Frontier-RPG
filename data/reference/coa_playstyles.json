@@ -1,5 +1,5 @@
 {
- "_notes": "CoA spec -> closest retail WoW equivalent, from allthingscoa.com/classpicker.html. This is the IDENTITY reference for the class audit: what each spec is meant to PLAY like. Not game data; nothing reads it at runtime.",
+ "_notes": "CoA spec -> closest retail WoW equivalent, from allthingscoa.com/classpicker.html. This is the IDENTITY reference for the class audit: what each spec is meant to PLAY like. Not game data; nothing reads it at runtime. Enriched 2026-11-01 with weapon and resource signals DERIVED from the talent text itself (what the talents require/reward), not assumed from the retail comparison.",
  "pattern": "Every CoA class fuses two or three retail kits into one spec, wrapped in a class-unique flavor. Tanks blend a Warrior/DK/Druid/Paladin/Monk chassis with the class theme; healers lean Disc Priest, Resto Shaman/Druid or Holy Paladin/Priest; support specs are almost always Augmentation Evoker or Enhancement Shaman style.",
  "specs": [
   {
@@ -273,6 +273,861 @@
   {
    "spec": "Witch Hunter (Black Knight)",
    "plays_like": "Survival Hunter + Blood Death Knight"
+  }
+ ],
+ "derived": [
+  {
+   "class": "Barbarian",
+   "spec": "Ancestry",
+   "role": "Support",
+   "plays_like": "Warrior + Enhancement Shaman",
+   "weapons_named_in_talents": [
+    "shield",
+    "two-handed weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "fury",
+    "rage"
+   ]
+  },
+  {
+   "class": "Barbarian",
+   "spec": "Brutality",
+   "role": "DPS",
+   "plays_like": "Fury Warrior",
+   "weapons_named_in_talents": [
+    "two-handed weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "fury",
+    "rage"
+   ]
+  },
+  {
+   "class": "Barbarian",
+   "spec": "Headhunting",
+   "role": "DPS",
+   "plays_like": "Survival Hunter + Feral Druid",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "rage"
+   ]
+  },
+  {
+   "class": "Bloodmage",
+   "spec": "Accursed",
+   "role": "DPS",
+   "plays_like": "Feral Druid + Rogue + Blood Death Knight",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Bloodmage",
+   "spec": "Eternal",
+   "role": "Tank",
+   "plays_like": "Druid Tank + Blood DK",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Bloodmage",
+   "spec": "Fleshweaver",
+   "role": "Healer",
+   "plays_like": "Discipline Priest + Blood DK",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Bloodmage",
+   "spec": "Sanguine",
+   "role": "DPS",
+   "plays_like": "Warlock + Death Knight",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Chronomancer",
+   "spec": "Artificer",
+   "role": "DPS",
+   "plays_like": "Primarily Priest-like, with some Mage elements",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "focus",
+    "mana"
+   ]
+  },
+  {
+   "class": "Chronomancer",
+   "spec": "Infinite",
+   "role": "DPS",
+   "plays_like": "Affliction Warlock + Mage",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Chronomancer",
+   "spec": "Time",
+   "role": "Healer",
+   "plays_like": "Primarily Holy Priest, with some Restoration Shaman and a touch of Mage",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Cultist",
+   "spec": "Corruption",
+   "role": "DPS",
+   "plays_like": "Shadow Priest + Affliction Warlock",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Cultist",
+   "spec": "Dreadnought",
+   "role": "Tank",
+   "plays_like": "Blood DK + Protection Paladin-style self-sustain",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Cultist",
+   "spec": "Godblade",
+   "role": "DPS",
+   "plays_like": "Retribution Paladin + Shadow Priest",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Cultist",
+   "spec": "Heretic",
+   "role": "Healer",
+   "plays_like": "An even blend of Fistweaver Monk and Discipline Priest",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Felsworn",
+   "spec": "Infernal",
+   "role": "DPS",
+   "plays_like": "Destruction Warlock + Demon Hunter",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Felsworn",
+   "spec": "Slayer",
+   "role": "DPS",
+   "plays_like": "Demon Hunter",
+   "weapons_named_in_talents": [
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "fury",
+    "rage"
+   ]
+  },
+  {
+   "class": "Felsworn",
+   "spec": "Tyrant",
+   "role": "Tank",
+   "plays_like": "Vengeance Demon Hunter",
+   "weapons_named_in_talents": [
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "rage"
+   ]
+  },
+  {
+   "class": "Guardian",
+   "spec": "Gladiator",
+   "role": "DPS",
+   "plays_like": "Gladiator Stance Warrior",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy"
+   ]
+  },
+  {
+   "class": "Guardian",
+   "spec": "Inspiration",
+   "role": "Support",
+   "plays_like": "Warrior + Augmentation Evoker",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy"
+   ]
+  },
+  {
+   "class": "Guardian",
+   "spec": "Vanguard",
+   "role": "Tank",
+   "plays_like": "Protection Warrior",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy"
+   ]
+  },
+  {
+   "class": "Knight of Xoroth",
+   "spec": "Defiance",
+   "role": "Tank",
+   "plays_like": "Blood DK",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Knight of Xoroth",
+   "spec": "Hellfire",
+   "role": "DPS",
+   "plays_like": "Death Knight + Demonology Warlock",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "fury",
+    "rage"
+   ]
+  },
+  {
+   "class": "Knight of Xoroth",
+   "spec": "War",
+   "role": "DPS",
+   "plays_like": "Death Knight + Fury Warrior",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "rage"
+   ]
+  },
+  {
+   "class": "Necromancer",
+   "spec": "Animation",
+   "role": "DPS",
+   "plays_like": "Demonology Warlock + Unholy Death Knight",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Necromancer",
+   "spec": "Death",
+   "role": "DPS",
+   "plays_like": "Affliction Warlock + Unholy Death Knight",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Necromancer",
+   "spec": "Rime",
+   "role": "DPS",
+   "plays_like": "Warlock + Frost Death Knight",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Primalist",
+   "spec": "Geomancy",
+   "role": "DPS",
+   "plays_like": "Elemental Shaman, single-target build",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Primalist",
+   "spec": "Grovekeeper",
+   "role": "Support",
+   "plays_like": "Enhancement Shaman + Mistweaver Monk — a support that also does high DPS and healing",
+   "weapons_named_in_talents": [
+    "two-handed weapon"
+   ],
+   "resources_named_in_talents": [
+    "fury",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Primalist",
+   "spec": "Mountain King",
+   "role": "Tank",
+   "plays_like": "Enhancement Shaman",
+   "weapons_named_in_talents": [
+    "off hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "fury",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Primalist",
+   "spec": "Wildwalker",
+   "role": "DPS",
+   "plays_like": null,
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "focus",
+    "fury",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Pyromancer",
+   "spec": "Draconic",
+   "role": "DPS",
+   "plays_like": "Fire Mage tied to a Dracthyr dragon form",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "fury",
+    "heat",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Pyromancer",
+   "spec": "Flameweaving",
+   "role": "Healer",
+   "plays_like": "Primarily Discipline Priest, with some Fire Mage elements",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "heat",
+    "mana"
+   ]
+  },
+  {
+   "class": "Pyromancer",
+   "spec": "Incineration",
+   "role": "DPS",
+   "plays_like": "Fire Mage",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "heat",
+    "mana"
+   ]
+  },
+  {
+   "class": "Ranger",
+   "spec": "Archery",
+   "role": "DPS",
+   "plays_like": "Marksmanship Hunter + Rogue",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "focus"
+   ]
+  },
+  {
+   "class": "Ranger",
+   "spec": "Brigand",
+   "role": "DPS",
+   "plays_like": "Outlaw Rogue + Survival Hunter",
+   "weapons_named_in_talents": [
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "focus"
+   ]
+  },
+  {
+   "class": "Ranger",
+   "spec": "Farstrider",
+   "role": "Support",
+   "plays_like": "Hunter + Augmentation Evoker",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "focus"
+   ]
+  },
+  {
+   "class": "Reaper",
+   "spec": "Domination",
+   "role": "Tank",
+   "plays_like": "Arms Warrior + Blood DK",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "fury",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Reaper",
+   "spec": "Harvest",
+   "role": "DPS",
+   "plays_like": "Arms Warrior (better single-target)",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "runic power"
+   ]
+  },
+  {
+   "class": "Reaper",
+   "spec": "Soul",
+   "role": "DPS",
+   "plays_like": "Rogue (better AoE)",
+   "weapons_named_in_talents": [
+    "dual-wielding",
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "runic power"
+   ]
+  },
+  {
+   "class": "Runemaster",
+   "spec": "Arcane",
+   "role": "DPS",
+   "plays_like": null,
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Runemaster",
+   "spec": "Riftblade",
+   "role": "DPS",
+   "plays_like": "Rogue + Mage, stronger single-target damage",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "fury",
+    "mana"
+   ]
+  },
+  {
+   "class": "Runemaster",
+   "spec": "Runic",
+   "role": "DPS",
+   "plays_like": null,
+   "weapons_named_in_talents": [
+    "offhand weapon",
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Starcaller",
+   "spec": "Moon Guard",
+   "role": "Tank",
+   "plays_like": "Protection Warrior + Moonkin Druid",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "fury",
+    "mana"
+   ]
+  },
+  {
+   "class": "Starcaller",
+   "spec": "Moon Priest",
+   "role": "DPS",
+   "plays_like": "Discipline Priest + Holy Paladin",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Starcaller",
+   "spec": "Sentinel",
+   "role": "DPS",
+   "plays_like": "Marksmanship Hunter + Moonkin Druid",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "focus",
+    "mana"
+   ]
+  },
+  {
+   "class": "Starcaller",
+   "spec": "Warden",
+   "role": "DPS",
+   "plays_like": "Subtlety Rogue + Moonkin Druid",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Stormbringer",
+   "spec": "Lightning",
+   "role": "DPS",
+   "plays_like": "Elemental Shaman",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Stormbringer",
+   "spec": "Maelstrom",
+   "role": "DPS",
+   "plays_like": "Elemental Shaman",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Stormbringer",
+   "spec": "Wind",
+   "role": "Support",
+   "plays_like": "Elemental Shaman + Augmentation Evoker",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Sun Cleric",
+   "spec": "Blessings",
+   "role": "Healer",
+   "plays_like": "Holy Paladin",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "mana"
+   ]
+  },
+  {
+   "class": "Sun Cleric",
+   "spec": "Piety",
+   "role": "DPS",
+   "plays_like": "Moonkin Druid + Retribution Paladin",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "focus",
+    "mana",
+    "rage",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Sun Cleric",
+   "spec": "Seraphim",
+   "role": "Tank",
+   "plays_like": "Protection Paladin",
+   "weapons_named_in_talents": [
+    "ranged weapon",
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "heat",
+    "mana"
+   ]
+  },
+  {
+   "class": "Sun Cleric",
+   "spec": "Valkyrie",
+   "role": "DPS",
+   "plays_like": "Fury Warrior + Retribution Paladin",
+   "weapons_named_in_talents": [
+    "dual wield",
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Templar",
+   "spec": "Crusader",
+   "role": "DPS",
+   "plays_like": "Retribution Paladin",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "focus"
+   ]
+  },
+  {
+   "class": "Templar",
+   "spec": "Oathkeeper",
+   "role": "Tank",
+   "plays_like": "Brewmaster Monk",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy"
+   ]
+  },
+  {
+   "class": "Templar",
+   "spec": "Zealot",
+   "role": "DPS",
+   "plays_like": "Retribution Paladin + Warrior",
+   "weapons_named_in_talents": [
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "fury"
+   ]
+  },
+  {
+   "class": "Tinker",
+   "spec": "Demolition",
+   "role": "DPS",
+   "plays_like": "Destruction Warlock + Hunter",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Tinker",
+   "spec": "Invention",
+   "role": "Healer",
+   "plays_like": "Restoration Shaman + Holy Paladin",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "focus",
+    "mana",
+    "rage",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Tinker",
+   "spec": "Mechanics",
+   "role": "DPS",
+   "plays_like": "Beast Mastery Hunter",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Venomancer",
+   "spec": "Fortitude",
+   "role": "Tank",
+   "plays_like": "Guardian Druid + Brewmaster Monk",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Venomancer",
+   "spec": "Stalking",
+   "role": "DPS",
+   "plays_like": "Feral Druid + Assassination Rogue",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy"
+   ]
+  },
+  {
+   "class": "Venomancer",
+   "spec": "Venom",
+   "role": "DPS",
+   "plays_like": "Affliction Warlock + Shadow Priest",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Venomancer",
+   "spec": "Vizier",
+   "role": "Healer",
+   "plays_like": "Restoration Druid",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "energy",
+    "focus",
+    "mana",
+    "rage",
+    "runic power"
+   ]
+  },
+  {
+   "class": "Witch Doctor",
+   "spec": "Brewing",
+   "role": "Healer",
+   "plays_like": "Primarily Restoration Shaman, with Mistweaver Monk and a touch of Warlock",
+   "weapons_named_in_talents": [
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "focus",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Witch Doctor",
+   "spec": "Shadow Hunting",
+   "role": "DPS",
+   "plays_like": "Predominantly Marksmanship Hunter, with minor Shaman and Warlock touches",
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Witch Doctor",
+   "spec": "Voodoo",
+   "role": "DPS",
+   "plays_like": "Shadow Priest + Destruction Warlock",
+   "weapons_named_in_talents": [],
+   "resources_named_in_talents": [
+    "mana"
+   ]
+  },
+  {
+   "class": "Witch Hunter",
+   "spec": "Black Knight",
+   "role": "DPS",
+   "plays_like": "Survival Hunter + Blood Death Knight",
+   "weapons_named_in_talents": [
+    "shield",
+    "two-handed weapon"
+   ],
+   "resources_named_in_talents": [
+    "energy",
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Witch Hunter",
+   "spec": "Boltslinger",
+   "role": "DPS",
+   "plays_like": "Survival Hunter + Diablo 3 Demon Hunter",
+   "weapons_named_in_talents": [
+    "ranged weapon",
+    "shield"
+   ],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Witch Hunter",
+   "spec": "Houndmaster",
+   "role": "DPS",
+   "plays_like": null,
+   "weapons_named_in_talents": [
+    "ranged weapon"
+   ],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
+  },
+  {
+   "class": "Witch Hunter",
+   "spec": "Inquisition",
+   "role": "DPS",
+   "plays_like": "Predominantly Enhancement Shaman, with a touch of Assassination Rogue",
+   "weapons_named_in_talents": [
+    "off-hand weapon"
+   ],
+   "resources_named_in_talents": [
+    "mana",
+    "rage"
+   ]
   }
  ]
 }
