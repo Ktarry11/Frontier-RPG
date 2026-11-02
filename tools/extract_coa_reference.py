@@ -382,6 +382,59 @@ def parse_tip(text):
     return rec
 
 
+def spec_from_requires(im, box, specs, cls=None):
+    """The spec, read off the trainer's 'Requires:' line under the tooltip.
+
+    The trainer window prints "Requires: Level 16, Wildwalker (1), Wildclaw (Rank 2)" in a detail
+    panel below the hovered entry, and the tree name in the middle of that is the spec. This is
+    DIRECT evidence, unlike the ordering, so it is tried first and the ordering fills the gaps.
+
+    The level number is usually lost - it is drawn in gold and thresholds away - but the spec
+    name is plain text and comes through.
+    """
+    reg = (14, box[3], min(320, box[2] + 50), box[3] + 80)
+    if reg[3] > im.height or reg[1] >= reg[3]:
+        return None
+    text = _ocr(im.crop(reg), psm="6", thresh=150, scale=5)
+    m = re.search(r"Requires?\s*:(.{0,90})", text, re.I | re.S)
+    if not m:
+        return None
+    # Only consider this class's own trees when the class is known - "Wildwalker" is unique but
+    # "Holy" and "Protection" are not, and a cross-class match would be worse than no answer.
+    pool = [s for s in specs if not cls or s.lower().startswith(cls.lower())] or specs
+    for chunk in re.split(r"[,.()]", m.group(1)):
+        chunk = chunk.strip()
+        if len(chunk) < 4 or re.match(r"(?i)level", chunk):
+            continue
+        hit = _best(chunk, pool, floor=0.6)
+        if hit:
+            return hit
+    return None
+
+
+def fill_by_order(seq):
+    """Give every shot a spec by CONTIGUITY, from the ones that read a Requires line.
+
+    Kyle, 2026-11-01: "we can SEE what is what based on the order. like it goes through each
+    tree, then into things like wildwalker. then the next series are wildwalker skills" - and he
+    is right. The trainer list is expanded ONE TREE AT A TIME (Geomancy, Grovekeeper, Mountain
+    King, Wildwalker) and every entry under it is screenshotted before the next is opened, so a
+    run of consecutive shots is a single tree.
+
+    So: anchors come from the Requires line, and a shot between two anchors that agree inherits
+    their spec. A shot between two anchors that DISAGREE is a tree boundary and is left alone,
+    because a boundary is exactly where a guess would be wrong.
+    """
+    anchors = [(i, s) for i, (_sh, s) in enumerate(seq) if s]
+    out = [s for _sh, s in seq]
+    for a, (i, si) in enumerate(anchors):
+        j, sj = anchors[a + 1] if a + 1 < len(anchors) else (len(seq) - 1, si)
+        if si == sj:
+            for k in range(i, j + 1):
+                out[k] = si
+    return out
+
+
 def class_blocks(index, all_names):
     """Infer each shot's class from the sampled index by CONTIGUITY.
 
@@ -448,9 +501,19 @@ def stage_tips(only_class=None, limit=None):
             missed += 1
             continue
         rec.update(shot=name, **{k: index[name].get(k) for k in ("class", "spec")})
+        if not rec.get("spec"):
+            rec["spec"] = spec_from_requires(im, box, _vocab()[1], rec.get("class"))
         out.append(rec)
         if i % 25 == 0:
             print(f"  {i}/{len(names)}  {rec['name'][:40]}", flush=True)
+
+    # THE ORDER IS EVIDENCE. Fill the specs the Requires line could not read from the shots
+    # around them, which works because the capture walks one tree at a time.
+    out.sort(key=lambda r: r["shot"])
+    filled = fill_by_order([(r["shot"], r.get("spec")) for r in out])
+    for r, s in zip(out, filled):
+        r["spec"] = s
+    direct = sum(1 for r in out if r.get("spec"))
 
     # One screenshot per talent RANK means the same ability appears many times. Keep the richest
     # version of each (class, spec, name): the one with the most fields filled in.
@@ -467,10 +530,14 @@ def stage_tips(only_class=None, limit=None):
                      "by tools/extract_coa_reference.py. Reference material for the class audit - "
                      "NOT game data, and nothing reads it at runtime.",
            "entries": sorted(recs, key=lambda r: (str(r.get("class")), str(r.get("spec")),
-                                                  r["name"]))}
+                                                  r["name"])),
+           # The capture order, kept because it is the evidence the spec inference rests on -
+           # if a tree boundary ever looks wrong, this is where you check it.
+           "sequence": [{"shot": r["shot"], "spec": r.get("spec"), "name": r["name"]}
+                        for r in out]}
     OUT.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
     print(f"{len(out)} tooltips read, {missed} with no tooltip found, "
-          f"{len(recs)} unique -> {OUT.relative_to(ROOT)}")
+          f"{len(recs)} unique, {direct} with a spec -> {OUT.relative_to(ROOT)}")
     return 0
 
 
