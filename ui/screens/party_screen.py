@@ -54,6 +54,8 @@ COLOR_HEADER = (200, 200, 110)
 class PartyScreen(BaseScreen):
     """Roster management: rows, bench, gearing, talents."""
 
+    TABS = (("details", "Details"), ("stats", "Stats"), ("buffs", "Party Buffs"))
+
     def __init__(self, state_manager):
         super().__init__(state_manager)
 
@@ -78,9 +80,20 @@ class PartyScreen(BaseScreen):
         self.asher_refusal_line = None
         self.asher_refusal_timer = 0.0
 
+        # Which detail tab is showing. BUFFS is deliberately party-wide rather
+        # than per-member - Kyle asked for it twice in one session and the
+        # second phrasing was the specific one: "a brand new tab that has party
+        # buffs in one. So we can click on it and see everyone's buff and
+        # duration." A buff block on each member's own page answers "is HIS
+        # Fortitude up", which the Details tab already did. The question being
+        # asked is "who is MISSING one", and that one can only be answered by
+        # putting the whole party on screen at once.
+        self.tab = "details"
+
         # Rebuilt every render so hit-testing always matches what's drawn.
         self.member_rects = []   # [(character, rect), ...]
         self.action_rects = []   # [(action_name, rect), ...]
+        self.tab_rects = []      # [(tab_name, rect), ...]
 
     # ------------------------------------------------------------------
     # Helpers
@@ -226,6 +239,10 @@ class PartyScreen(BaseScreen):
         if event.type == pygame.KEYDOWN:
             if event.key in (pygame.K_ESCAPE, pygame.K_p):
                 self.state_manager.transition_to(GameState.OVERWORLD)
+            elif event.key == pygame.K_TAB:
+                order = [t for t, _label in self.TABS]
+                self.tab = order[(order.index(self.tab) + 1) % len(order)]
+                self.confirm_dismiss = False
             return
 
         if event.type != pygame.MOUSEBUTTONDOWN or event.button != 1:
@@ -236,6 +253,12 @@ class PartyScreen(BaseScreen):
         if self.close_button.collidepoint(mouse_pos):
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
+
+        for name, rect in self.tab_rects:
+            if rect.collidepoint(mouse_pos):
+                self.tab = name
+                self.confirm_dismiss = False
+                return
 
         for character, rect in self.member_rects:
             if rect.collidepoint(mouse_pos):
@@ -510,6 +533,64 @@ class PartyScreen(BaseScreen):
 
         return y + 8
 
+    # ------------------------------------------------------------------
+    # Stat reading
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _eff(member, stat):
+        """A core stat WITH gear on it.
+
+        Character keeps `strength` as the BASE value and `effective_strength` as
+        base-plus-gear, and says so in a comment right above the field: "this is
+        what UI should display." This screen was reading the base one, so a
+        party member whose gear took them from 50 Intellect to 150 showed 50
+        here and 150 on their gear page - Kyle, 2 Nov: "their player profile
+        only shows 50 until their gear tab is opened."
+
+        Nothing was stale and no recalc was missing. Two fields exist, one is
+        correct for display, and the wrong one was being read - the same "one
+        rule, two implementations" shape as thirteen of the 31 Oct fixes. Going
+        through one accessor means the next panel cannot pick the wrong field.
+        """
+        val = getattr(member, f"effective_{stat}", None)
+        return int(val) if val else int(getattr(member, stat, 0) or 0)
+
+    @staticmethod
+    def _num(val, pct=False):
+        """Format a stat for display - no 13.22s. See backlog item 7."""
+        if pct:
+            return f"{round(float(val or 0) * 4) / 4:g}%"
+        return f"{int(round(float(val or 0)))}"
+
+    #: Per-school spell power, which the data has always carried separately and
+    #: the UI collapsed into one number. Kyle, 2 Nov: "We have + elemental spell
+    #: power vs + spell power....yet no way to see differences in players or
+    #: party." A caster with 40 generic and 60 shadow is a different character
+    #: from one with 100 generic, and until now they read identically.
+    SCHOOLS = (("Fire", "fire_spell_power"), ("Frost", "frost_spell_power"),
+               ("Arcane", "arcane_spell_power"), ("Shadow", "shadow_spell_power"),
+               ("Nature", "nature_spell_power"), ("Holy", "holy_spell_power"))
+
+    def _render_tabs(self, screen, panel):
+        self.tab_rects = []
+        x = panel.x + 10
+        y = panel.y + 8
+        for name, label in self.TABS:
+            w = self.renderer._get_font(font_size=14).size(label)[0] + 22
+            rect = pygame.Rect(x, y, w, 26)
+            active = name == self.tab
+            self.renderer.draw_rect(screen, rect,
+                                    COLOR_PANEL_SEL if active else (30, 30, 36))
+            self.renderer.draw_rect(screen, rect,
+                                    COLOR_GOLD if active else (70, 70, 80), fill=False)
+            self.renderer.draw_text(screen, label, (rect.x + 11, rect.y + 5),
+                                    font_size=14,
+                                    color=COLOR_GOLD if active else COLOR_MUTED)
+            self.tab_rects.append((name, rect))
+            x += w + 6
+        return y + 34
+
     def _render_detail(self, screen, party):
         self.action_rects = []
         member = self.selected
@@ -521,8 +602,16 @@ class PartyScreen(BaseScreen):
         self.renderer.draw_rect(screen, panel, COLOR_PANEL)
         self.renderer.draw_rect(screen, panel, (80, 80, 90), fill=False)
 
+        top = self._render_tabs(screen, panel)
+        if self.tab == "buffs":
+            self._render_party_buffs(screen, party, panel, top)
+            return
+        if self.tab == "stats":
+            self._render_stats(screen, member, panel, top)
+            return
+
         x = panel.x + 16
-        y = panel.y + 14
+        y = top
 
         # Recruit portrait (top-right of the panel), or the class icon for anyone
         # without one - which is the hero, and any companion whose art has not landed.
@@ -564,11 +653,13 @@ class PartyScreen(BaseScreen):
         y = self._render_resource(screen, member, x, y)
         y += 12
 
-        # Core stats, two per line to keep the panel compact.
+        # Core stats, two per line to keep the panel compact. WITH gear - see
+        # _eff(); these used to read the base fields and under-report anyone
+        # who was wearing anything.
         stats = [
-            ("STR", member.strength), ("AGI", member.agility),
-            ("STA", member.stamina), ("INT", member.intellect),
-            ("SPI", member.spirit), ("ARMOR", getattr(member, "armor", 0)),
+            ("STR", self._eff(member, "strength")), ("AGI", self._eff(member, "agility")),
+            ("STA", self._eff(member, "stamina")), ("INT", self._eff(member, "intellect")),
+            ("SPI", self._eff(member, "spirit")), ("ARMOR", int(getattr(member, "armor", 0) or 0)),
         ]
         for i in range(0, len(stats), 2):
             line = "   ".join(f"{n}: {v}" for n, v in stats[i:i + 2])
@@ -605,6 +696,148 @@ class PartyScreen(BaseScreen):
             y += 10
 
         self._render_actions(screen, member, party, panel, y)
+
+    def _render_stats(self, screen, member, panel, top):
+        """The full stat sheet for one member, gear included.
+
+        Two columns so the whole thing fits without scrolling. Only the spell
+        schools the member actually has are listed - printing six zeroes under
+        every warrior would bury the two lines that matter for a caster.
+        """
+        x, y = panel.x + 16, top
+        col2 = panel.x + panel.width // 2 + 8
+
+        self.renderer.draw_text(screen, f"{member.name} - full stats", (x, y),
+                                font_size=15, color=COLOR_GOLD)
+        y += 26
+        self.renderer.draw_text(screen, "Gear included.", (x, y),
+                                font_size=13, color=COLOR_MUTED)
+        y += 24
+        start = y
+
+        def block(title, rows, cx, cy):
+            self.renderer.draw_text(screen, title, (cx, cy), font_size=14,
+                                    color=COLOR_HEADER)
+            cy += 22
+            for label, value in rows:
+                self.renderer.draw_text(screen, label, (cx, cy), font_size=14,
+                                        color=COLOR_MUTED)
+                vw = self.renderer._get_font(font_size=14).size(value)[0]
+                self.renderer.draw_text(screen, value,
+                                        (cx + 200 - vw, cy), font_size=14)
+                cy += 20
+            return cy + 10
+
+        y = block("ATTRIBUTES", [
+            ("Strength", self._num(self._eff(member, "strength"))),
+            ("Agility", self._num(self._eff(member, "agility"))),
+            ("Stamina", self._num(self._eff(member, "stamina"))),
+            ("Intellect", self._num(self._eff(member, "intellect"))),
+            ("Spirit", self._num(self._eff(member, "spirit"))),
+            ("Armor", self._num(getattr(member, "armor", 0))),
+        ], x, y)
+
+        y = block("OFFENCE", [
+            ("Attack power", self._num(getattr(member, "attack_power", 0))),
+            ("Ranged AP", self._num(getattr(member, "ranged_attack_power", 0))),
+            ("Spell power", self._num(getattr(member, "spell_power", 0))),
+            ("Healing power", self._num(getattr(member, "healing_power", 0))),
+            ("Crit (phys)", self._num(getattr(member, "crit_chance_physical", 0), pct=True)),
+            ("Crit (spell)", self._num(getattr(member, "crit_chance_spell", 0), pct=True)),
+            ("Haste", self._num(getattr(member, "haste", 0), pct=True)),
+        ], x, y)
+
+        y2 = block("DEFENCE", [
+            ("Dodge", self._num(getattr(member, "dodge", 0), pct=True)),
+            ("Parry", self._num(getattr(member, "parry", 0), pct=True)),
+            ("Block chance", self._num(getattr(member, "block_chance", 0), pct=True)),
+            ("Block value", self._num(getattr(member, "block_value", 0))),
+            ("mp5", self._num(getattr(member, "mp5", 0))),
+            ("Spell pen.", self._num(getattr(member, "spell_penetration", 0))),
+        ], col2, start)
+
+        schools = [(n, getattr(member, a, 0) or 0) for n, a in self.SCHOOLS]
+        live = [(n, v) for n, v in schools if v]
+        if live:
+            y2 = block("SPELL POWER BY SCHOOL",
+                       [(n, "+" + self._num(v)) for n, v in live], col2, y2)
+        else:
+            self.renderer.draw_text(screen, "No school-specific spell power.",
+                                    (col2, y2), font_size=13, color=COLOR_MUTED)
+
+    def _render_party_buffs(self, screen, party, panel, top):
+        """Every member's buffs on one page, so a missing one is visible.
+
+        The Details tab already showed one member's effects. This answers the
+        other question - who has NOT got Fortitude - which needs them side by
+        side. Duration handling is shared with _render_active_effects and has
+        the same two cases: a turn-scoped effect counts down in turns, a raid
+        buff in wall-clock seconds, and reading `duration` on the second kind
+        prints a meaningless number.
+        """
+        from combat.status_effects import EffectType, is_displayable_buff
+
+        x, y = panel.x + 16, top
+        self.renderer.draw_text(screen, "ACTIVE BUFFS - WHOLE PARTY", (x, y),
+                                font_size=15, color=COLOR_GOLD)
+        y += 26
+
+        everyone = list(getattr(party, "members", []) or [])
+        for extra in (getattr(party, "bench", None) or []):
+            if extra not in everyone:
+                everyone.append(extra)
+        if not everyone:
+            self.renderer.draw_text(screen, "Nobody in the party.", (x, y),
+                                    font_size=14, color=COLOR_MUTED)
+            return
+
+        bottom = panel.bottom - 16
+        for member in everyone:
+            if y > bottom - 40:
+                self.renderer.draw_text(screen, "...", (x, y), font_size=13,
+                                        color=COLOR_MUTED)
+                return
+            effects = [e for e in member._effects() if is_displayable_buff(e)]
+            tag = " (you)" if member is getattr(party, "player", None) else ""
+            self.renderer.draw_text(screen, f"{member.name}{tag}", (x, y),
+                                    font_size=14, color=COLOR_WHITE)
+            count = f"{len(effects)}" if effects else "none"
+            cw = self.renderer._get_font(font_size=13).size(count)[0]
+            self.renderer.draw_text(screen, count,
+                                    (panel.right - 20 - cw, y + 1),
+                                    font_size=13, color=COLOR_MUTED)
+            y += 20
+
+            if not effects:
+                self.renderer.draw_text(screen, "  no active buffs", (x + 10, y),
+                                        font_size=13, color=(120, 120, 130))
+                y += 22
+                continue
+
+            for effect in effects:
+                if y > bottom - 20:
+                    break
+                is_buff = effect.effect_type == EffectType.BUFF
+                label = effect.name
+                stacks = getattr(effect, "stacks", 1)
+                if stacks > 1:
+                    label += f" x{stacks}"
+                secs = getattr(effect, "real_time_seconds", None)
+                if secs is not None:
+                    remaining = (f"{int(secs // 60)}m" if secs >= 60
+                                 else f"{max(0, int(secs))}s")
+                else:
+                    remaining = f"{max(0, int(getattr(effect, 'duration', 0)))}t"
+                self.renderer.draw_text(screen, "  " + label, (x + 10, y),
+                                        font_size=13,
+                                        color=self._BUFF_COLOR if is_buff
+                                        else self._DEBUFF_COLOR)
+                rw = self.renderer._get_font(font_size=13).size(remaining)[0]
+                self.renderer.draw_text(screen, remaining,
+                                        (panel.right - 20 - rw, y),
+                                        font_size=13, color=COLOR_MUTED)
+                y += 19
+            y += 8
 
     def _render_resource(self, screen, member, x, y):
         """Draw the member's class resource bar under their HP."""
