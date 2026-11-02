@@ -421,18 +421,50 @@ def fill_by_order(seq):
     King, Wildwalker) and every entry under it is screenshotted before the next is opened, so a
     run of consecutive shots is a single tree.
 
-    So: anchors come from the Requires line, and a shot between two anchors that agree inherits
-    their spec. A shot between two anchors that DISAGREE is a tree boundary and is left alone,
-    because a boundary is exactly where a guess would be wrong.
+    THE ORDER IS THE PRIMARY SIGNAL AND THE REQUIRES LINE IS THE NOISY ONE, which is the
+    opposite of how this was first built. The Requires line lists PREREQUISITES, and in CoA a
+    talent in one tree can require points in another - so a Mountain King entry whose line reads
+    "Geomancy (1)" is not mislabelled by OCR, it is correctly reporting a prerequisite that is
+    not its own tree. Trusting it per-shot produced a stretch of Primalist alternating
+    Geomancy/Mountain King one or two shots at a time, which no real capture would do.
+
+    So: segment the sequence into runs by Kyle's ordering, then let each run VOTE on its tree
+    using whatever Requires lines fall inside it. A run is one tree by construction; the
+    majority reading inside it is that tree, and a single contrary prerequisite cannot outvote
+    the rest of the run.
     """
-    anchors = [(i, s) for i, (_sh, s) in enumerate(seq) if s]
-    out = [s for _sh, s in seq]
-    for a, (i, si) in enumerate(anchors):
-        j, sj = anchors[a + 1] if a + 1 < len(anchors) else (len(seq) - 1, si)
-        if si == sj:
-            for k in range(i, j + 1):
-                out[k] = si
-    return out
+    # Segment on long gaps in the shot timestamps - a new tree means the capturer stopped to
+    # collapse one list and expand the next, which leaves a pause the stream does not otherwise
+    # contain.
+    import collections
+    runs, cur = [], []
+    def gap(a, b):
+        da = re.search(r"(\d{6})-(\d{6})", a)
+        db = re.search(r"(\d{6})-(\d{6})", b)
+        if not (da and db) or da.group(1) != db.group(1):
+            return True
+        t = lambda m: int(m.group(2)[:2]) * 3600 + int(m.group(2)[2:4]) * 60 + int(m.group(2)[4:])
+        return (t(db) - t(da)) > 25
+    for i, (shot, _s) in enumerate(seq):
+        if cur and gap(seq[i - 1][0], shot):
+            runs.append(cur)
+            cur = []
+        cur.append(i)
+    if cur:
+        runs.append(cur)
+
+    out = [None] * len(seq)
+    for run in runs:
+        votes = collections.Counter(seq[i][1] for i in run if seq[i][1])
+        if votes:
+            winner, n = votes.most_common(1)[0]
+            # Only claim the run when the winner is a real plurality; a 1-1 split means the run
+            # straddles a boundary the timestamp gap did not catch.
+            if n > sum(votes.values()) / 2:
+                for i in run:
+                    out[i] = winner
+    # Anything a run could not name keeps whatever its own Requires line said, if anything.
+    return [o or seq[i][1] for i, o in enumerate(out)]
 
 
 def class_blocks(index, all_names):
