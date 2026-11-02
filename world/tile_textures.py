@@ -245,6 +245,7 @@ SHEETS = {
     "cave_dark_totem": "assets/tiles/cave_landmarks/dark_totem.png",
     "cave_fire_gate": "assets/tiles/cave_landmarks/fire_gate.png",
     "cave_entrance_deco": "assets/tiles/cave_landmarks/cave_entrance.png",
+    "portal_frame_purple": "assets/buildings/bud_portal_frame.png",
     "cave_statue_head": "assets/tiles/cave_landmarks/statue_head.png",
     "cave_dragon_bones": "assets/tiles/cave_landmarks/dragon_bones.png",
     "cave_dino_skeleton": "assets/tiles/cave_landmarks/dino_skeleton.png",
@@ -1858,9 +1859,22 @@ WORLD_ANCHORED = {
 #: cave_entrance.png is purpose-built entrance art and reads as "go through here", which is what
 #: a portal tile means. 66 of the 201 already sit on their zone's own cave-mouth landmark, where
 #: this just sits in the doorway; the other 135 are bare and now have something to show.
+#: ONE PURPLE PORTAL FOR EVERYTHING, BOATS INCLUDED. Kyle, 2 Nov 2026: "the portal icons are
+#: horrible, I think we should keep the purple portal icons for everything (including boat)."
+#:
+#: This is the third answer to the same question and the first one that is a decision rather
+#: than a patch. The sequence: portals had no texture and fell through to a flat magenta square;
+#: that was fixed by pointing them at a Stranglethorn rowboat, which put a boat in every cave
+#: mouth in the game; that was fixed by pointing them at cave-entrance art, which reads as a
+#: cave rather than a door and looks wrong at a zone border or a dock.
+#:
+#: A portal tile means "go through here" and nothing else, so it gets one unmistakable glyph
+#: everywhere instead of art that tries to describe the local fiction. The boat shares it for
+#: the same reason - the player is being told a transition exists, not what vehicle it is.
+#: The crop takes the bottom 128px square of the frame, which is the arch and the lit swirl.
 UNIVERSAL_TILES = {
-    "boat": ("stv_gangplank", (0, 0, 195, 137), True),
-    "portal": ("cave_entrance_deco", (0, 0, 128, 128), True),
+    "boat": ("portal_frame_purple", (0, 37, 128, 165), True),
+    "portal": ("portal_frame_purple", (0, 37, 128, 165), True),
 }
 
 

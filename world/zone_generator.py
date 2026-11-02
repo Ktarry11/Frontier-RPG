@@ -5936,4 +5936,40 @@ def create_all_zones():
     from world.dungeon_packs import apply_packs
     apply_packs(zones)
 
+    _mark_portal_tiles(zones)
     return zones
+
+
+def _mark_portal_tiles(zones):
+    """Every registered portal gets a portal tile on the interaction layer.
+
+    Kyle, 2 Nov 2026: "there is no visible portal to arathi highlands from hillsbrand foothill."
+
+    The link was fine - registered both ways and walkable. What was missing was the interaction
+    tile, so the renderer had nothing to draw and the player saw bare grass. Ten of the game's
+    231 portals were in that state, and they were all in zones built by a handbuilt_* module
+    that registers its doors in PortalManager and never calls set_tile for them.
+
+    THE REAL BUG IS THAT THIS WAS EVER TWO LISTS. PortalManager._links decides where you can
+    walk through; set_tile decides where you can SEE a door. Nothing forced them to agree, so a
+    zone author had to remember both, and ten times somebody did not - which is the same "one
+    rule, two implementations" shape as thirteen of the 31 Oct fixes. Deriving the marks from
+    the links means a new portal cannot be invisible again: register it and it shows up.
+
+    Only fills gaps. A zone that marks its own tile - a boat berth, a fel gate with its own
+    art - keeps whatever it set.
+    """
+    from world.portal_manager import PortalManager
+    marked = 0
+    for src, doors in PortalManager()._links.items():
+        zone = zones.get(src)
+        if zone is None:
+            continue
+        for (x, y) in doors:
+            if not (0 <= x < zone.width and 0 <= y < zone.height):
+                continue
+            if zone.get_tile(x, y, "interaction") in ("portal", "boat"):
+                continue
+            zone.set_tile(x, y, "portal", "interaction")
+            marked += 1
+    return marked
