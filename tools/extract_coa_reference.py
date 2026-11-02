@@ -476,39 +476,26 @@ def fill_by_order(seq):
     using whatever Requires lines fall inside it. A run is one tree by construction; the
     majority reading inside it is that tree, and a single contrary prerequisite cannot outvote
     the rest of the run.
-    """
-    # Segment on long gaps in the shot timestamps - a new tree means the capturer stopped to
-    # collapse one list and expand the next, which leaves a pause the stream does not otherwise
-    # contain.
-    import collections
-    runs, cur = [], []
-    def gap(a, b):
-        da = re.search(r"(\d{6})-(\d{6})", a)
-        db = re.search(r"(\d{6})-(\d{6})", b)
-        if not (da and db) or da.group(1) != db.group(1):
-            return True
-        t = lambda m: int(m.group(2)[:2]) * 3600 + int(m.group(2)[2:4]) * 60 + int(m.group(2)[4:])
-        return (t(db) - t(da)) > 25
-    for i, (shot, _s) in enumerate(seq):
-        if cur and gap(seq[i - 1][0], shot):
-            runs.append(cur)
-            cur = []
-        cur.append(i)
-    if cur:
-        runs.append(cur)
 
-    out = [None] * len(seq)
-    for run in runs:
-        votes = collections.Counter(seq[i][1] for i in run if seq[i][1])
-        if votes:
-            winner, n = votes.most_common(1)[0]
-            # Only claim the run when the winner is a real plurality; a 1-1 split means the run
-            # straddles a boundary the timestamp gap did not catch.
-            if n > sum(votes.values()) / 2:
-                for i in run:
-                    out[i] = winner
-    # Anything a run could not name keeps whatever its own Requires line said, if anything.
-    return [o or seq[i][1] for i, o in enumerate(out)]
+    A MODE FILTER, NOT GAP DETECTION. The first attempt segmented on pauses in the shot
+    timestamps, on the theory that changing tree means stopping to collapse one list and expand
+    the next. It splits far too often - the capturer also pauses mid-tree - and shattered each
+    tree into a dozen fragments separated by unlabelled shots.
+
+    The signal's real shape is piecewise-constant with isolated noise: long stretches of one
+    tree, with the occasional shot misread or unread. That is exactly what a sliding-window mode
+    filter is for. Each position takes the most common direct reading within +/-W of it, so a
+    lone contrary shot is outvoted by its neighbours and a gap is filled by whatever surrounds
+    it, without anyone having to guess where the boundaries are.
+    """
+    import collections
+    W = 8
+    direct = [s for _sh, s in seq]
+    out = []
+    for i in range(len(direct)):
+        window = [s for s in direct[max(0, i - W):i + W + 1] if s]
+        out.append(collections.Counter(window).most_common(1)[0][0] if window else None)
+    return out
 
 
 def class_blocks(index, all_names):
@@ -583,6 +570,9 @@ def stage_tips(only_class=None, limit=None):
             # name a different tree than the talent's own.
             rec["spec"] = (spec_from_list(im, _vocab()[1], rec.get("class"))
                            or spec_from_requires(im, box, _vocab()[1], rec.get("class")))
+        # Keep what this shot ITSELF read, before any smoothing. Tuning the fill is otherwise a
+        # full re-OCR of the class every time, which is 5 minutes a go for no reason.
+        rec["raw_spec"] = rec.get("spec")
         out.append(rec)
         if i % 25 == 0:
             print(f"  {i}/{len(names)}  {rec['name'][:40]}", flush=True)
@@ -590,7 +580,7 @@ def stage_tips(only_class=None, limit=None):
     # THE ORDER IS EVIDENCE. Fill the specs the Requires line could not read from the shots
     # around them, which works because the capture walks one tree at a time.
     out.sort(key=lambda r: r["shot"])
-    filled = fill_by_order([(r["shot"], r.get("spec")) for r in out])
+    filled = fill_by_order([(r["shot"], r.get("raw_spec")) for r in out])
     for r, s in zip(out, filled):
         r["spec"] = s
     direct = sum(1 for r in out if r.get("spec"))
@@ -613,7 +603,8 @@ def stage_tips(only_class=None, limit=None):
                                                   r["name"])),
            # The capture order, kept because it is the evidence the spec inference rests on -
            # if a tree boundary ever looks wrong, this is where you check it.
-           "sequence": [{"shot": r["shot"], "spec": r.get("spec"), "name": r["name"]}
+           "sequence": [{"shot": r["shot"], "spec": r.get("spec"),
+                         "raw_spec": r.get("raw_spec"), "name": r["name"]}
                         for r in out]}
     OUT.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
     print(f"{len(out)} tooltips read, {missed} with no tooltip found, "
