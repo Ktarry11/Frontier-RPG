@@ -644,6 +644,35 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_text(screen, f"{bag_label} ({used}/{capacity})",
                                 (INV_START_X, 30), color=cap_color)
 
+        # MONEY LIVES HERE TOO, NOT ONLY AT A VENDOR. Kyle, 2 Nov: "we need to
+        # be able to see our copper, silver, and gold in our inventory
+        # (currently its only seen in vendors)." Knowing what you can afford is
+        # a thing you want while looking at your bags and deciding what to keep,
+        # which is the one place it was not shown.
+        #
+        # The purse is Party.copper - ONE shared pool, not a wallet per
+        # character - so this reads the same number whoever's bag is on screen.
+        # Showing a companion's own total here would invent a second wallet
+        # that does not exist.
+        #
+        # format_coins is the UI's shared g/s/c formatter, the one the vendor
+        # panel uses. This screen must not grow its own: two formatters is how
+        # 300c comes to print as "300c" in one place and "3s" in another.
+        from ui.coin_format import format_coins
+        party = getattr(self.state_manager, "get_party", lambda: None)()
+        purse = getattr(party, "copper", None)
+        if purse is None:
+            purse = getattr(self.state_manager.player, "copper", 0) or 0
+        text = format_coins(purse)
+        tw = self.renderer._get_font(font_size=16).size(text)[0]
+        # BELOW the tab row, not beside it. The three tabs span y=20..56 from
+        # x=SCREEN_WIDTH-560 to -170 and the Close button takes -120 onward, so
+        # the whole of that line is already spoken for - drawing the purse at
+        # y=30 put "12g 34s 56c" straight through the Consumables tab. The band
+        # between the tabs and the item grid (INV_START_Y=100) is empty.
+        self.renderer.draw_text(screen, text, (SCREEN_WIDTH - 30 - tw, 66),
+                                font_size=16, color=COLOR_GOLD)
+
         if not bag.inventory:
             self.renderer.draw_text(screen, "No items yet - defeat creatures to find loot.", (INV_START_X, INV_START_Y), color=(150, 150, 150))
         else:

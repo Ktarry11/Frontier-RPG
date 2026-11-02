@@ -163,15 +163,32 @@ class GameStateManager:
         from entities.guild_bank import set_host_saver
         set_host_saver(lambda: self.save_game(self.current_save_file))
 
-    def save_game(self, filename="character.json"):
+    def save_game(self, filename=None):
         """
         Persist everything. Returns True on success.
 
         Refuses to write when there's no player, so a stray keypress at the
         main menu can't blank an existing save with an empty file.
+
+        FILENAME DEFAULTS TO THE SLOT YOU ARE PLAYING, NOT SLOT 1. It used to
+        default to the literal "character.json", which config.save_slot_filename
+        maps to slot 1 - so every call site that did not pass a filename wrote
+        over slot 1 regardless of which slot had been loaded. Three did: the F5
+        quicksave, the post-combat autosave, and the character screen.
+
+        Kyle, 2 Nov: "When I go to save anything in another file, like Save 2,
+        or 3 etc - it saves in that slot AND overrides save 1." Exactly that -
+        the menu wrote slot 3 because the menu passes a filename, and the next
+        quicksave wrote the same character into slot 1 because it did not.
+        Two saves, one of them silently destroying an unrelated character.
+
+        self.current_save_file already tracked the right answer and was set on
+        both load and save; nothing read it on the default path.
         """
         if self.player is None:
             return False
+        if filename is None:
+            filename = self.current_save_file or "character.json"
         from world.recruit_manager import get_recruit_manager
         from world.quest_manager import get_quest_manager
         from world.travel_manager import get_travel_manager

@@ -171,6 +171,14 @@ class QuestDialogScreen(BaseScreen):
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
+        # Shop / Bank / services, reachable from any mode. Checked before the
+        # per-mode handlers so a quest offer cannot swallow the click, which is
+        # the whole point - see _side_service_buttons.
+        for _label, action, rect in self._side_service_buttons():
+            if rect.collidepoint(mouse_pos):
+                self._do_greeting_action(action)
+                return
+
         if self.mode == "turn_in" and self.gear_choice_stage:
             for i, rect in enumerate(self.gear_choice_rects):
                 if rect.collidepoint(mouse_pos):
@@ -281,6 +289,49 @@ class QuestDialogScreen(BaseScreen):
         """Vendors (Shop/Leave) and travel-service NPCs get a row of action buttons instead of a lone Close."""
         return self.is_vendor or self.is_banker or bool(self.services)
 
+    def _side_service_buttons(self):
+        """Shop / Bank / services, available in EVERY mode - not just greeting.
+
+        Kyle, 2 Nov 2026: "vendors who are also quest givers need a quick
+        overhaul. Right now we can't use a shop keeper unless we accept all
+        their quests."
+
+        _refresh() puts the screen in "offer" mode whenever the NPC has a quest
+        the player has not taken, and Shop was only drawn in "greeting" mode -
+        which a quest-giving vendor only reaches once nothing is offerable. So
+        the shop was gated behind accepting (or exhausting) every quest they
+        had, and declining does not clear the offer, so accepting was the only
+        way through. The quartermasters at Hammerfall and Refuge Pointe both
+        sell AND give quests, so this was about to get worse.
+
+        Drawn as a compact column on the left rather than folded into the
+        accept/decline row: that row is the quest decision and stays exactly as
+        it was, so nothing about taking a quest changes shape. Shopping is a
+        separate errand and now reads as one.
+        """
+        if self.mode == "greeting":
+            return []           # greeting already lays these out across the bottom
+        entries = [(self.SERVICE_LABELS[s], s) for s in self.services
+                   if s in self.SERVICE_LABELS]
+        if self.is_vendor:
+            entries.insert(0, ("Shop", "shop"))
+        if self.is_banker:
+            entries.append(("Bank", "bank"))
+        if not entries:
+            return []
+        # Stacked UPWARD from above the bottom row. Sitting at SCREEN_HEIGHT-90
+        # put the first button exactly on top of dialogue mode's Back button,
+        # which lives at (40, SCREEN_HEIGHT-90, 160, 44) - two buttons on the
+        # same pixels, with whichever drew last winning the click.
+        w, h, gap = 150, 36, 8
+        x = 40
+        y = SCREEN_HEIGHT - 150 - (len(entries) - 1) * (h + gap)
+        out = []
+        for label, action in entries:
+            out.append((label, action, pygame.Rect(x, y, w, h)))
+            y += h + gap
+        return out
+
     def _greeting_buttons(self):
         """[(label, action, rect)] - service buttons, then Shop for vendors, then Leave; centred in one row."""
         entries = [(self.SERVICE_LABELS[s], s) for s in self.services if s in self.SERVICE_LABELS]
@@ -344,6 +395,11 @@ class QuestDialogScreen(BaseScreen):
         # drawing Close too would be a redundant third exit option.
         if not (self.mode == "greeting" and self._has_action_row()):
             self.renderer.draw_button(screen, self.close_button, "Close")
+
+        # Shop / Bank / services alongside the quest, in every non-greeting
+        # mode. Drawn last so nothing a mode renderer draws can cover them.
+        for label, _action, rect in self._side_service_buttons():
+            self.renderer.draw_button(screen, rect, label)
 
     def _render_greeting(self, screen):
         greeting = getattr(self.npc, "greeting", "") or f"{self.npc.name} has nothing more to say right now."
