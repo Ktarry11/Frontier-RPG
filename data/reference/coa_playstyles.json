@@ -1,0 +1,278 @@
+{
+ "_notes": "CoA spec -> closest retail WoW equivalent, from allthingscoa.com/classpicker.html. This is the IDENTITY reference for the class audit: what each spec is meant to PLAY like. Not game data; nothing reads it at runtime.",
+ "pattern": "Every CoA class fuses two or three retail kits into one spec, wrapped in a class-unique flavor. Tanks blend a Warrior/DK/Druid/Paladin/Monk chassis with the class theme; healers lean Disc Priest, Resto Shaman/Druid or Holy Paladin/Priest; support specs are almost always Augmentation Evoker or Enhancement Shaman style.",
+ "specs": [
+  {
+   "spec": "Reaper (Soul)",
+   "plays_like": "Rogue (better AoE)"
+  },
+  {
+   "spec": "Reaper (Harvest)",
+   "plays_like": "Arms Warrior (better single-target)"
+  },
+  {
+   "spec": "Reaper (Domination) — Tank",
+   "plays_like": "Arms Warrior + Blood DK"
+  },
+  {
+   "spec": "Primalist (Grovekeeper) — Support",
+   "plays_like": "Enhancement Shaman + Mistweaver Monk — a support that also does high DPS and healing"
+  },
+  {
+   "spec": "Primalist (Mountain King) — Tank",
+   "plays_like": "Enhancement Shaman"
+  },
+  {
+   "spec": "Primalist (Geomancy)",
+   "plays_like": "Elemental Shaman, single-target build"
+  },
+  {
+   "spec": "Runemaster (Glyphic)",
+   "plays_like": "Frost Mage, Arcane Mage, Fire Mage (frostfire bolt elementalist kit), more single-target"
+  },
+  {
+   "spec": "Runemaster (Engraving)",
+   "plays_like": "Rogue + Mage, stronger AoE damage"
+  },
+  {
+   "spec": "Runemaster (Riftblade)",
+   "plays_like": "Rogue + Mage, stronger single-target damage"
+  },
+  {
+   "spec": "Bloodmage (Sanguine)",
+   "plays_like": "Warlock + Death Knight"
+  },
+  {
+   "spec": "Bloodmage (Accursed)",
+   "plays_like": "Feral Druid + Rogue + Blood Death Knight"
+  },
+  {
+   "spec": "Bloodmage (Eternal) — Tank",
+   "plays_like": "Druid Tank + Blood DK"
+  },
+  {
+   "spec": "Bloodmage (Fleshweaver) — Healer",
+   "plays_like": "Discipline Priest + Blood DK"
+  },
+  {
+   "spec": "Barbarian (Brutality)",
+   "plays_like": "Fury Warrior"
+  },
+  {
+   "spec": "Barbarian (Headhunting)",
+   "plays_like": "Survival Hunter + Feral Druid"
+  },
+  {
+   "spec": "Barbarian (Ancestry) — Support",
+   "plays_like": "Warrior + Enhancement Shaman"
+  },
+  {
+   "spec": "Stormbringer (Lightning)",
+   "plays_like": "Elemental Shaman"
+  },
+  {
+   "spec": "Stormbringer (Wind) — Support",
+   "plays_like": "Elemental Shaman + Augmentation Evoker"
+  },
+  {
+   "spec": "Stormbringer (Maelstrom)",
+   "plays_like": "Elemental Shaman"
+  },
+  {
+   "spec": "Pyromancer (Incineration)",
+   "plays_like": "Fire Mage"
+  },
+  {
+   "spec": "Pyromancer (Draconic)",
+   "plays_like": "Fire Mage tied to a Dracthyr dragon form"
+  },
+  {
+   "spec": "Pyromancer (Flameweaving) — Healer",
+   "plays_like": "Primarily Discipline Priest, with some Fire Mage elements"
+  },
+  {
+   "spec": "Tinker (Demolition)",
+   "plays_like": "Destruction Warlock + Hunter"
+  },
+  {
+   "spec": "Tinker (Invention) — Healer",
+   "plays_like": "Restoration Shaman + Holy Paladin"
+  },
+  {
+   "spec": "Tinker (Mechanics)",
+   "plays_like": "Beast Mastery Hunter"
+  },
+  {
+   "spec": "Felsworn (Slayer)",
+   "plays_like": "Demon Hunter"
+  },
+  {
+   "spec": "Felsworn (Infernal)",
+   "plays_like": "Destruction Warlock + Demon Hunter"
+  },
+  {
+   "spec": "Felsworn (Tyrant)",
+   "plays_like": "Vengeance Demon Hunter"
+  },
+  {
+   "spec": "Starcaller (Moon Guard) — Tank",
+   "plays_like": "Protection Warrior + Moonkin Druid"
+  },
+  {
+   "spec": "Starcaller (Sentinel)",
+   "plays_like": "Marksmanship Hunter + Moonkin Druid"
+  },
+  {
+   "spec": "Starcaller (Moon Priest)",
+   "plays_like": "Discipline Priest + Holy Paladin"
+  },
+  {
+   "spec": "Starcaller (Warden)",
+   "plays_like": "Subtlety Rogue + Moonkin Druid"
+  },
+  {
+   "spec": "Knight of Xoroth (War)",
+   "plays_like": "Death Knight + Fury Warrior"
+  },
+  {
+   "spec": "Knight of Xoroth (Hellfire)",
+   "plays_like": "Death Knight + Demonology Warlock"
+  },
+  {
+   "spec": "Knight of Xoroth (Defiance) — Tank",
+   "plays_like": "Blood DK"
+  },
+  {
+   "spec": "Venomancer (Venom)",
+   "plays_like": "Affliction Warlock + Shadow Priest"
+  },
+  {
+   "spec": "Venomancer (Stalking)",
+   "plays_like": "Feral Druid + Assassination Rogue"
+  },
+  {
+   "spec": "Venomancer (Fortitude) — Tank",
+   "plays_like": "Guardian Druid + Brewmaster Monk"
+  },
+  {
+   "spec": "Venomancer (Vizier) — Healer",
+   "plays_like": "Restoration Druid"
+  },
+  {
+   "spec": "Templar (Zealot)",
+   "plays_like": "Retribution Paladin + Warrior"
+  },
+  {
+   "spec": "Templar (Oathkeeper) — Tank",
+   "plays_like": "Brewmaster Monk"
+  },
+  {
+   "spec": "Templar (Crusader)",
+   "plays_like": "Retribution Paladin"
+  },
+  {
+   "spec": "Sun Cleric (Piety)",
+   "plays_like": "Moonkin Druid + Retribution Paladin"
+  },
+  {
+   "spec": "Sun Cleric (Blessings)",
+   "plays_like": "Holy Paladin"
+  },
+  {
+   "spec": "Sun Cleric (Valkyrie)",
+   "plays_like": "Fury Warrior + Retribution Paladin"
+  },
+  {
+   "spec": "Sun Cleric (Seraphim) — Tank",
+   "plays_like": "Protection Paladin"
+  },
+  {
+   "spec": "Chronomancer (Infinite)",
+   "plays_like": "Affliction Warlock + Mage"
+  },
+  {
+   "spec": "Chronomancer (Time) — Healer",
+   "plays_like": "Primarily Holy Priest, with some Restoration Shaman and a touch of Mage"
+  },
+  {
+   "spec": "Chronomancer (Artificer)",
+   "plays_like": "Primarily Priest-like, with some Mage elements"
+  },
+  {
+   "spec": "Witch Doctor (Shadow Hunting)",
+   "plays_like": "Predominantly Marksmanship Hunter, with minor Shaman and Warlock touches"
+  },
+  {
+   "spec": "Witch Doctor (Voodoo)",
+   "plays_like": "Shadow Priest + Destruction Warlock"
+  },
+  {
+   "spec": "Witch Doctor (Brewing)",
+   "plays_like": "Primarily Restoration Shaman, with Mistweaver Monk and a touch of Warlock"
+  },
+  {
+   "spec": "Guardian (Vanguard) — Tank",
+   "plays_like": "Protection Warrior"
+  },
+  {
+   "spec": "Guardian (Inspiration) — Support",
+   "plays_like": "Warrior + Augmentation Evoker"
+  },
+  {
+   "spec": "Guardian (Gladiator)",
+   "plays_like": "Gladiator Stance Warrior"
+  },
+  {
+   "spec": "Ranger (Archery)",
+   "plays_like": "Marksmanship Hunter + Rogue"
+  },
+  {
+   "spec": "Ranger (Brigand)",
+   "plays_like": "Outlaw Rogue + Survival Hunter"
+  },
+  {
+   "spec": "Ranger (Farstrider) — Support",
+   "plays_like": "Hunter + Augmentation Evoker"
+  },
+  {
+   "spec": "Cultist (Godblade)",
+   "plays_like": "Retribution Paladin + Shadow Priest"
+  },
+  {
+   "spec": "Cultist (Corruption)",
+   "plays_like": "Shadow Priest + Affliction Warlock"
+  },
+  {
+   "spec": "Cultist (Dreadnought) — Tank",
+   "plays_like": "Blood DK + Protection Paladin-style self-sustain"
+  },
+  {
+   "spec": "Cultist (Heretic) — Healer",
+   "plays_like": "An even blend of Fistweaver Monk and Discipline Priest"
+  },
+  {
+   "spec": "Necromancer (Death)",
+   "plays_like": "Affliction Warlock + Unholy Death Knight"
+  },
+  {
+   "spec": "Necromancer (Rime)",
+   "plays_like": "Warlock + Frost Death Knight"
+  },
+  {
+   "spec": "Necromancer (Animation)",
+   "plays_like": "Demonology Warlock + Unholy Death Knight"
+  },
+  {
+   "spec": "Witch Hunter (Boltslinger)",
+   "plays_like": "Survival Hunter + Diablo 3 Demon Hunter"
+  },
+  {
+   "spec": "Witch Hunter (Inquisition)",
+   "plays_like": "Predominantly Enhancement Shaman, with a touch of Assassination Rogue"
+  },
+  {
+   "spec": "Witch Hunter (Black Knight)",
+   "plays_like": "Survival Hunter + Blood Death Knight"
+  }
+ ]
+}

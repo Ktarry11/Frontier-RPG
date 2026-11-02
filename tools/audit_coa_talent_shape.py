@@ -86,7 +86,16 @@ def coa_rows():
     out = []
     for p in sorted(COA.glob("*.json")):
         slug = p.stem
+        # EVERY NODE APPEARS TWICE, byte-identical, in these files - Primalist Mountain King is
+        # 80 rows and 40 talents. Counting rows doubles every total. The RATIO survives it
+        # (mechanical and scalar duplicate equally) but the headline "5,622 CoA talents against
+        # our 2,306" was wrong and implied they carry 2.4x what we do, when deduped it is
+        # ~2,811 against 2,306 - roughly the same size. Dedupe on node id per file.
+        seen = set()
         for n in json.loads(p.read_text()):
+            if n.get("id") in seen:
+                continue
+            seen.add(n.get("id"))
             hit = tabmap.get((slug, n.get("tabId")))
             if not hit:
                 continue                      # the shared class tree, or an unmapped tab
