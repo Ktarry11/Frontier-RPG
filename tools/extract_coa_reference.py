@@ -299,7 +299,8 @@ def find_tooltip(im):
 #: from this gallery includes "1S yd range" and "1O Heat Each Tick". Every numeric pattern below
 #: therefore accepts the letters too, and _num puts them back before the value is stored -
 #: writing the regexes with \d alone silently dropped about a third of the ranges and costs.
-_DC = r"0-9OISl"          # the CONTENT of a digit character class, no brackets
+_DC = r"0-9OISl|iB"       # the CONTENT of a digit character class, no brackets. The pipe and
+                          # the lowercase i are how this font's "1" comes back; B is its "8".
 _D = f"[{_DC}]"           # ...and the class itself. Nesting the second inside another [...]
                           # builds "[[0-9OISl],]", which Python warns about and matches wrong.
 _COST = re.compile(rf"({_D}[{_DC},]*)\s*(Mana|Rage|Energy|Focus|Runic Power|Fury)\b", re.I)
@@ -307,18 +308,29 @@ _RANGE = re.compile(rf"({_D}+)\s*yd\s*range", re.I)
 _CAST = re.compile(rf"(Instant cast|Channeled|[{_DC}.]+\s*sec cast)", re.I)
 _CD = re.compile(rf"([{_DC}.]+\s*(?:sec|min|hr)s?)\s*cooldown", re.I)
 _RANK = re.compile(rf"Rank\s*({_D}+)\s*/\s*({_D}+)", re.I)
-#: The fl/fi ligatures come back as a single glyph tesseract reads as 'th' or 'ti'.
-_LIG = ((" thames", " flames"), ("thame", "flame"), ("Thame", "Flame"))
+#: SUBSTITUTIONS THIS FONT FORCES. The percent sign is the one that matters: tesseract reads it
+#: as a degree sign almost every time, and "increases your damage by 20°" is the exact sentence
+#: this whole extraction exists to count. Losing it would have made every scaling talent in the
+#: archive unreadable to a grep for '%'.
+_SUBS = ((" thames", " flames"), ("thame", "flame"), ("Thame", "Flame"),
+         ("°", "%"), ("º", "%"), ("•", "%"))
 
 
 def _num(s):
-    return (s or "").replace("O", "0").replace("I", "1").replace("l", "1").replace("S", "5")
+    out = (s or "")
+    for a, b in (("O", "0"), ("I", "1"), ("l", "1"), ("|", "1"), ("i", "1"),
+                 ("S", "5"), ("B", "8")):
+        out = out.replace(a, b)
+    return out
 
 
 def parse_tip(text):
     """The tooltip's fields. Everything is optional - a talent has no cost or range."""
-    for bad, good in _LIG:
+    for bad, good in _SUBS:
         text = text.replace(bad, good)
+    # "Rank 0/1" is often the LAST thing on a line rather than its own line, and the OCR spaces
+    # it oddly ("Rank O/ |"). Pull it out wherever it sits so it stops polluting the effect text.
+    text = _RANK.sub(lambda m: f"\nRank {_num(m.group(1))}/{_num(m.group(2))}\n", text)
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     # Drop OCR crust: lines that are mostly punctuation are crop-edge noise, not content.
     lines = [l for l in lines if sum(c.isalnum() for c in l) >= max(3, len(l) * 0.5)]
@@ -336,10 +348,21 @@ def parse_tip(text):
             rec["range"] = f"{_num(m.group(1))} yd"
         m = _CAST.search(l)
         if m:
-            rec["cast"] = _num(m.group(1)) if "sec" in m.group(1).lower() else m.group(1)
+            cast = m.group(1).strip()
+            # "Instant" and "Channeled" are WORDS, not numbers. Repairing them turned "Instant
+            # cast" into "1nstant cast", because I is how this font writes 1.
+            if re.match(r"(?i)instant|channel", cast):
+                rec["cast"] = cast
+            else:
+                head = re.match(rf"[{_DC}.]+", cast)
+                rec["cast"] = (_num(head.group(0)) + cast[head.end():]) if head else cast
         m = _CD.search(l)
         if m:
-            rec["cooldown"] = _num(m.group(1))
+            # REPAIR THE NUMBER, NOT THE UNIT. _num maps i->1 because this font renders 1 that
+            # way, so running it over the whole capture turned "2.5 min" into "2.5 m1n".
+            cd = m.group(1).strip()
+            head = re.match(rf"[{_DC}.]+", cd)
+            rec["cooldown"] = (_num(head.group(0)) + cd[head.end():]) if head else cd
         m = _RANK.search(l)
         if m:
             rec["rank"] = f"{_num(m.group(1))}/{_num(m.group(2))}"
