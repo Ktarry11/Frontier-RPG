@@ -568,7 +568,15 @@ def stage_tips(only_class=None, limit=None):
             # The expanded tree header first - it STATES the tree. The Requires line is a
             # fallback only, and a poor one: it lists prerequisites, which in CoA routinely
             # name a different tree than the talent's own.
+            # THREE SOURCES, AND EACH SCREEN HAS A DIFFERENT ONE. The trainer window states the
+            # tree in its expanded list; the TALENT PANEL has no list and states it in the
+            # header instead; the Requires line is the last resort and the weakest, since it
+            # names prerequisites rather than the owning tree. Reading only the trainer left
+            # the whole talent-panel half of the capture unlabelled.
+            pool = [s for s in _vocab()[1]
+                    if not rec.get("class") or s.lower().startswith(rec["class"].lower())]
             rec["spec"] = (spec_from_list(im, _vocab()[1], rec.get("class"))
+                           or _best(_ocr(im.crop(SPEC_BOX)), pool or _vocab()[1], floor=0.55)
                            or spec_from_requires(im, box, _vocab()[1], rec.get("class")))
         # Keep what this shot ITSELF read, before any smoothing. Tuning the fill is otherwise a
         # full re-OCR of the class every time, which is 5 minutes a go for no reason.
