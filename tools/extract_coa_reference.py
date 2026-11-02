@@ -382,6 +382,50 @@ def parse_tip(text):
     return rec
 
 
+#: The trainer's collapsible tree list, top-left. Fixed position - the window does not move.
+TREE_LIST = (18, 160, 290, 320)
+
+
+def spec_from_list(im, specs, cls=None):
+    """The spec, read off the trainer's tree list - the ONE place that actually states it.
+
+    The list shows every tree with a +/- marker and exactly one of them expanded:
+
+        + Geomancy
+        + Grovekeeper
+        - Mountain King          <- the open one, and the one these entries belong to
+          Mountain Hammer ...
+
+    This replaces reading the "Requires:" line, which was the wrong field and said so in the
+    data: in CoA a talent in one tree can require points in ANOTHER, so Mountain King entries
+    cite "Geomancy (1)" perfectly correctly and the inference came out with 9 Mountain King
+    talents against 76 Geomancy ones. Prerequisites describe what you need; the expanded header
+    describes where you are.
+    """
+    text = _ocr(im.crop(TREE_LIST), psm="6", thresh=150, scale=4)
+    pool = [s for s in specs if not cls or s.lower().startswith(cls.lower())] or specs
+    expanded, collapsed = None, set()
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # The marker is the first glyph; OCR renders minus as -, em dash or ~, plus as + or *.
+        mark, rest = line[0], line[1:].strip()
+        hit = _best(rest, pool, floor=0.7)
+        if not hit:
+            continue
+        if mark in "+*":
+            collapsed.add(hit)
+        elif mark in "-—–~_" and expanded is None:
+            expanded = hit
+    if expanded:
+        return expanded
+    # Only one tree is ever open, so if every tree but one read as collapsed, the remaining one
+    # is the open one even when its own marker was lost to OCR.
+    rest = [s for s in pool if s not in collapsed]
+    return rest[0] if len(rest) == 1 and collapsed else None
+
+
 def spec_from_requires(im, box, specs, cls=None):
     """The spec, read off the trainer's 'Requires:' line under the tooltip.
 
@@ -534,7 +578,11 @@ def stage_tips(only_class=None, limit=None):
             continue
         rec.update(shot=name, **{k: index[name].get(k) for k in ("class", "spec")})
         if not rec.get("spec"):
-            rec["spec"] = spec_from_requires(im, box, _vocab()[1], rec.get("class"))
+            # The expanded tree header first - it STATES the tree. The Requires line is a
+            # fallback only, and a poor one: it lists prerequisites, which in CoA routinely
+            # name a different tree than the talent's own.
+            rec["spec"] = (spec_from_list(im, _vocab()[1], rec.get("class"))
+                           or spec_from_requires(im, box, _vocab()[1], rec.get("class")))
         out.append(rec)
         if i % 25 == 0:
             print(f"  {i}/{len(names)}  {rec['name'][:40]}", flush=True)
