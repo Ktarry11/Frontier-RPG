@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+
+# SAVE FILES ARE THE PLAYER'S, NOT THE REPO'S.
+# data/saves/character.json was tracked, so every `git pull` or fresh ZIP
+# download overwrote slot 1 with whatever save happened to be committed -
+# there was no way to take an update without losing your character. The
+# directory is kept (.gitkeep) because SaveSystem writes into it; what is in
+# it is yours.
+data/saves/*.json
+data/saves/**/*.json
+!data/saves/.gitkeep
