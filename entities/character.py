@@ -3226,18 +3226,49 @@ class Character(StatusEffectMixin):
         self._recalculate_derived_stats()
         return True
 
-    def unequip_item(self, slot):
-        """Unequip an item from a slot back into inventory."""
+    def unequip_item(self, slot, into=None):
+        """Unequip an item from a slot into a bag. Returns True on success.
+
+        `into` is WHOSE bag it lands in, and defaults to this character's own.
+        The inventory screen passes the player, because that is the bag it
+        draws and the bag it equips out of.
+
+        KYLE, 2 NOV 2026: "when i unequip party gear its lost in the void."
+        Not destroyed - parked somewhere with no UI. Unequipping a companion's
+        item appended it to the COMPANION's inventory, and that screen's
+        _bag_source always shows the PLAYER's bag when gearing a companion, so
+        the item existed and nothing could ever display it again.
+
+        Both halves were deliberate and they contradicted each other: you equip
+        a companion OUT of the player's bag, and unequipped it back INTO
+        theirs. One-way. The round trip has to be symmetric or the item falls
+        out of the world.
+
+        CAPACITY IS CHECKED, and a failed unequip puts the item BACK rather
+        than dropping it. The old code appended straight to the list, bypassing
+        inventory_capacity - so unequipping into a full bag silently overflowed
+        it, which is the same class of mistake in the other direction.
+        """
         # Same lock as equip_item above - Asher's gear can't be removed
         # either, not just "can't be replaced".
         if getattr(self, "recruit_id", None) == "asher_coleman":
             return False
+        bag = into if into is not None else self
         item = self.equipment.unequip(slot)
-        if item:
-            self.inventory.append(item)
-            self._recalculate_derived_stats()
-            return True
-        return False
+        if not item:
+            return False
+        if not bag.add_to_inventory(item):
+            # Straight back into the slot it came out of. NOT equip(), which
+            # takes an item rather than a slot and carries the two-handed /
+            # off-hand displacement rules with it - putting a shield back
+            # through that path could evict the main hand. This is the exact
+            # inverse of the unequip above and nothing else has changed.
+            self.equipment.slots[slot] = item
+            return False
+        self._recalculate_derived_stats()
+        if bag is not self:
+            bag._recalculate_derived_stats()
+        return True
 
     @property
     def inventory_capacity(self):

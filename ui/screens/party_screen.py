@@ -465,74 +465,6 @@ class PartyScreen(BaseScreen):
     _BUFF_COLOR = (150, 205, 150)
     _DEBUFF_COLOR = (215, 120, 120)
 
-    def _render_active_effects(self, screen, member, x, y, panel):
-        """Current buffs and debuffs on this member, with time remaining.
-
-        Kyle: "the party screen here would be a good place to have current
-        buffs!" - and it is the natural home for them, because this is the
-        screen you open to check on somebody between fights, which is exactly
-        when you want to know whether their Fortitude is still up.
-
-        Filtered to BUFF/DEBUFF the same way the Cast screen's roster already
-        filters, so the two screens agree on what counts as a "buff". DOT and
-        HOT effects are deliberately excluded: they are combat bookkeeping
-        rather than a status you track out here.
-
-        Durations come in two flavours and both have to read correctly. A
-        turn-based effect stores whole turns in `duration`; a "raid" scope
-        buff (Fortitude, Mark of the Wild) stores wall-clock seconds in
-        `real_time_seconds` and ignores `duration` entirely - showing its raw
-        `duration` would print a meaningless number, which is the trap
-        get_effects_summary falls into by flattening both into one field.
-        """
-        from combat.status_effects import EffectType, is_displayable_buff
-
-        effects = [e for e in member._effects() if is_displayable_buff(e)]
-
-        self.renderer.draw_text(screen, "ACTIVE EFFECTS", (x, y),
-                                font_size=14, color=COLOR_GOLD)
-        y += 24
-
-        if not effects:
-            self.renderer.draw_text(screen, "None", (x, y),
-                                    font_size=14, color=COLOR_MUTED)
-            return y + 26
-
-        # Cap the list so a heavily-buffed character cannot push the action
-        # buttons off the bottom of the panel - the same reason the backstory
-        # below is truncated rather than wrapped forever.
-        MAX_ROWS = 5
-        for effect in effects[:MAX_ROWS]:
-            is_buff = effect.effect_type == EffectType.BUFF
-            color = self._BUFF_COLOR if is_buff else self._DEBUFF_COLOR
-
-            label = effect.name
-            stacks = getattr(effect, "stacks", 1)
-            if stacks > 1:
-                label += f" x{stacks}"
-
-            secs = getattr(effect, "real_time_seconds", None)
-            if secs is not None:
-                remaining = (f"{int(secs // 60)}m" if secs >= 60
-                             else f"{max(0, int(secs))}s")
-            else:
-                turns = max(0, int(getattr(effect, "duration", 0)))
-                remaining = f"{turns}t"
-
-            self.renderer.draw_text(screen, label, (x, y), font_size=14, color=color)
-            rem_w = self.renderer._get_font(font_size=13).size(remaining)[0]
-            self.renderer.draw_text(screen, remaining,
-                                    (x + panel.width - 32 - rem_w, y + 1),
-                                    font_size=13, color=COLOR_MUTED)
-            y += 22
-
-        if len(effects) > MAX_ROWS:
-            self.renderer.draw_text(screen, f"+{len(effects) - MAX_ROWS} more",
-                                    (x, y), font_size=13, color=COLOR_MUTED)
-            y += 22
-
-        return y + 8
-
     # ------------------------------------------------------------------
     # Stat reading
     # ------------------------------------------------------------------
@@ -541,17 +473,16 @@ class PartyScreen(BaseScreen):
     def _eff(member, stat):
         """A core stat WITH gear on it.
 
-        Character keeps `strength` as the BASE value and `effective_strength` as
-        base-plus-gear, and says so in a comment right above the field: "this is
-        what UI should display." This screen was reading the base one, so a
-        party member whose gear took them from 50 Intellect to 150 showed 50
-        here and 150 on their gear page - Kyle, 2 Nov: "their player profile
-        only shows 50 until their gear tab is opened."
+        Character keeps `strength` as the BASE value and `effective_strength`
+        as base-plus-gear, and says so in a comment right above the field:
+        "this is what UI should display." This screen was reading the base
+        one, so a party member whose gear took them from 50 Intellect to 150
+        showed 50 here and 150 on their gear page - Kyle, 2 Nov: "their player
+        profile only shows 50 until their gear tab is opened."
 
         Nothing was stale and no recalc was missing. Two fields exist, one is
-        correct for display, and the wrong one was being read - the same "one
-        rule, two implementations" shape as thirteen of the 31 Oct fixes. Going
-        through one accessor means the next panel cannot pick the wrong field.
+        correct for display, and the wrong one was being read. Going through
+        one accessor means the next panel cannot pick the wrong field.
         """
         val = getattr(member, f"effective_{stat}", None)
         return int(val) if val else int(getattr(member, stat, 0) or 0)
@@ -563,11 +494,12 @@ class PartyScreen(BaseScreen):
             return f"{round(float(val or 0) * 4) / 4:g}%"
         return f"{int(round(float(val or 0)))}"
 
-    #: Per-school spell power, which the data has always carried separately and
-    #: the UI collapsed into one number. Kyle, 2 Nov: "We have + elemental spell
-    #: power vs + spell power....yet no way to see differences in players or
-    #: party." A caster with 40 generic and 60 shadow is a different character
-    #: from one with 100 generic, and until now they read identically.
+    #: Per-school spell power, which the data has always carried separately
+    #: and the UI collapsed into one number. Kyle, 2 Nov: "We have + elemental
+    #: spell power vs + spell power....yet no way to see differences in
+    #: players or party." A caster with 40 generic and 60 shadow is a
+    #: different character from one with 100 generic, and until now they read
+    #: identically.
     SCHOOLS = (("Fire", "fire_spell_power"), ("Frost", "frost_spell_power"),
                ("Arcane", "arcane_spell_power"), ("Shadow", "shadow_spell_power"),
                ("Nature", "nature_spell_power"), ("Holy", "holy_spell_power"))
@@ -678,7 +610,13 @@ class PartyScreen(BaseScreen):
                                 (x, y), font_size=14, color=COLOR_MUTED)
         y += 30
 
-        y = self._render_active_effects(screen, member, x, y, panel)
+        # ACTIVE EFFECTS used to be drawn here. It moved to the Party Buffs
+        # tab, which shows the same information for EVERYONE at once - Kyle,
+        # 2 Nov: "we need to remove from here 'active effects' as we have
+        # party buffs now." Two places showing one member's buffs is two
+        # places to keep in step for no extra answer, and this one was the
+        # weaker of the two: it could only ever tell you about the person you
+        # had already selected.
 
         backstory = getattr(member, "backstory", "")
         if backstory:
@@ -768,12 +706,17 @@ class PartyScreen(BaseScreen):
     def _render_party_buffs(self, screen, party, panel, top):
         """Every member's buffs on one page, so a missing one is visible.
 
-        The Details tab already showed one member's effects. This answers the
-        other question - who has NOT got Fortitude - which needs them side by
-        side. Duration handling is shared with _render_active_effects and has
-        the same two cases: a turn-scoped effect counts down in turns, a raid
-        buff in wall-clock seconds, and reading `duration` on the second kind
-        prints a meaningless number.
+        The Details tab used to show one member's effects and no longer does -
+        this replaced it rather than sitting beside it, because two places
+        showing one member's buffs is two things to keep in step for no extra
+        answer. The question this one can answer and that one could not is who
+        has NOT got Fortitude, which needs everyone side by side.
+
+        Durations come in two flavours and both have to read correctly. A
+        turn-scoped effect counts down in whole turns; a "raid" scope buff
+        (Fortitude, Mark of the Wild) stores wall-clock seconds in
+        `real_time_seconds` and ignores `duration` entirely, so printing its
+        raw `duration` would be a meaningless number.
         """
         from combat.status_effects import EffectType, is_displayable_buff
 

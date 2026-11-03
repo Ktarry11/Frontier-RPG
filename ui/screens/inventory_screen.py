@@ -399,14 +399,25 @@ class InventoryScreen(BaseScreen):
             if self.active_tab == "materials":
                 return
 
-            # Click an equipped slot -> unequip, back into the SUBJECT's
-            # own bag (unequipped gear stays theirs, even if it was
-            # originally handed to them from the player's bag).
+            # Click an equipped slot -> unequip, back into the SAME bag this
+            # screen equips out of (_bag_source: the player's, when gearing a
+            # companion). It used to go into the companion's own inventory,
+            # which this screen never draws - Kyle, 2 Nov: "when i unequip
+            # party gear its lost in the void." Equip and unequip have to use
+            # the same bag or the item makes a one-way trip.
             for slot_key, rect in self.slot_rects.items():
                 if rect.collidepoint(mouse_pos):
                     item = subject.equipment.get_equipped(slot_key)
                     if item:
-                        subject.unequip_item(slot_key)
+                        if not subject.unequip_item(slot_key, into=self._bag_source(subject)):
+                            # A refused unequip has to SAY so. The old code
+                            # appended past inventory_capacity and silently
+                            # overflowed; it refuses now, and a refusal the
+                            # player cannot see is the void bug in a new hat.
+                            # Reuses the screen's existing error toast rather
+                            # than adding a second one beside it.
+                            self.equip_error = "Backpack is full - make room first."
+                            self.equip_error_timer = 3.0
                         self.selected_item = None
                     return
 
