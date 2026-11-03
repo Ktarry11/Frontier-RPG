@@ -1132,6 +1132,17 @@ class InventoryScreen(BaseScreen):
         lines = [item.name, header]
         if item.armor_type and item.armor_type not in ("accessory", "weapon"):
             lines.append(item.armor_type.capitalize())
+        # ARMOR IS SHOWN FOR ANYTHING THAT HAS IT, not only things with an
+        # armor_type. Kyle, 2 Nov: "also shields need armor." They have it -
+        # all 95 hand-authored shields carry an armor_value, the Dun Garok
+        # Gate-Shield included - but a shield is weapon_type "shield" with NO
+        # armor_type, so this line was gated behind a field shields do not
+        # have and the number never reached the screen.
+        #
+        # The vendor and quest-reward tooltips both already test armor_value
+        # directly and showed it correctly. This was the one place out of
+        # three doing it the other way.
+        if item.armor_value:
             lines.append(f"Armor: {item.armor_value}{self._armor_reduction_note(item)}")
         if item.weapon_damage_max > 0:
             # A fitted attachment's bonus is already baked into these numbers
