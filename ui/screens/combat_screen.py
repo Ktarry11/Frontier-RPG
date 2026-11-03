@@ -30,6 +30,8 @@ class CombatScreen(BaseScreen):
         self._init_hotbar_positions()
         self.stance_positions = {}  # stance_id -> Rect, Warrior-only selector
         self._init_stance_positions()
+        self.action_positions = {}  # Attack/Pass/Flee - always available, every class
+        self._init_action_positions()
 
         # Manual targeting mode. When a hotbar slot is clicked, we enter
         # targeting mode and let the player pick who the ability lands on.
@@ -112,6 +114,90 @@ class CombatScreen(BaseScreen):
                 )
                 self.extra_slot_positions.append(rect)
 
+    #: ALWAYS-AVAILABLE COMBAT ACTIONS, and why they are not hotbar slots.
+    #:
+    #: Kyle's friend, 2 Nov 2026: "Had to close the game couldn't do anything in combat. Had bear
+    #: form but took regular attack off my bar." The hotbar is a convenience the player rearranges
+    #: freely; it must never be the only route to a legal action. Attack is also the game's only
+    #: rage-generating action, so dragging it off the bar removed a Bear-form druid's entire
+    #: economy - and Flee and Pass existed in the engine (CombatAction.FLEE, execute_defend) with
+    #: no UI at all, so there was no exit either.
+    #:
+    #: These sit in the 40px strip BELOW the hotbar row, the one piece of screen nothing else
+    #: claims. The right-hand column is not usable for this: the stance buttons own y>=536 there,
+    #: and a full party's cards are centred and span x=16..1264, so anything parked at x=1100
+    #: above the stances lands under a party card the moment the party is full.
+    ACTION_BTN_W = 110
+    ACTION_BTN_H = 26
+    ACTION_BTN_GAP = 8
+
+    def _init_action_positions(self):
+        """Attack / Pass / Flee, laid out left to right under the hotbar.
+
+        Sat 2px off the bottom edge rather than 6: the hotbar panel's own
+        bottom border runs at y~690, and a taller button started on top of
+        it, drawing the row as if it were clipping the panel.
+        """
+        y = SCREEN_HEIGHT - self.ACTION_BTN_H - 2
+        self.action_positions = {}
+        for i, action in enumerate(("attack", "pass", "flee")):
+            self.action_positions[action] = pygame.Rect(
+                self.HOTBAR_X_START + i * (self.ACTION_BTN_W + self.ACTION_BTN_GAP),
+                y, self.ACTION_BTN_W, self.ACTION_BTN_H,
+            )
+
+    #: Keybinds for the three, so a player who never finds the buttons still has a way out.
+    ACTION_KEYS = {pygame.K_a: "attack", pygame.K_s: "pass", pygame.K_f: "flee"}
+    ACTION_LABELS = {"attack": "Attack [A]", "pass": "Pass [S]", "flee": "Flee [F]"}
+
+    def _do_action(self, action):
+        """Run one of the always-available actions for whoever is acting."""
+        actor = self._acting_member()
+        if actor is None:
+            self.message_log.append("It's not your party's turn!")
+            return
+
+        if action == "flee":
+            fled, msg = self.combat_engine.execute_flee(actor)
+            self.message_log.append(msg)
+            return
+
+        if action == "pass":
+            self.combat_engine.execute_defend(actor)
+            self.message_log.append(f"{actor.name} waits.")
+            return
+
+        basic = actor.get_basic_attack_id() if hasattr(actor, "get_basic_attack_id") else None
+        if not basic:
+            self.message_log.append(f"{actor.name} has no basic attack!")
+            return
+        target = self.combat_engine.default_target_for(actor)
+        if target is None:
+            self.message_log.append("Nothing to attack!")
+            return
+        ok, msg = self.combat_engine.execute_ability(actor, basic, target)
+        self.message_log.append(msg)
+
+    def _draw_action_buttons(self, screen):
+        """Always drawn, for every class, every turn - that is the point."""
+        actor = self._acting_member()
+        enabled = actor is not None
+        for action, rect in self.action_positions.items():
+            if action == "flee":
+                bg, border = ((50, 30, 30), (200, 120, 120)) if enabled else ((22, 18, 18), (70, 50, 50))
+            else:
+                bg, border = ((30, 34, 44), COLOR_WHITE) if enabled else ((20, 20, 24), (70, 70, 70))
+            pygame.draw.rect(screen, bg, rect)
+            pygame.draw.rect(screen, border, rect, 1)
+            label = self.ACTION_LABELS[action]
+            tw = self.renderer.font_small.size(label)[0]
+            self.renderer.draw_text(
+                screen, label,
+                (rect.centerx - tw // 2, rect.y + 6),
+                size="small",
+                color=COLOR_WHITE if enabled else (110, 110, 110),
+            )
+
     def _init_stance_positions(self):
         """Three stacked buttons on the right edge, clear of the hotbar
         (which only spans x=40 to ~890) and the enemy/log area above it.
@@ -190,7 +276,8 @@ class CombatScreen(BaseScreen):
             self.message_log.append("Auto-slotted abilities! Edit them on the Skills screen.")
         
         # Reset overworld movement keys (prevent continued movement in combat)
-        if hasattr(self.state_manager.states[GameState.OVERWORLD], 'keys_pressed'):
+        overworld = self.state_manager.states.get(GameState.OVERWORLD)
+        if hasattr(overworld, 'keys_pressed'):
             self.state_manager.states[GameState.OVERWORLD].keys_pressed = {
                 'W': False, 'S': False, 'A': False, 'D': False
             }
@@ -287,6 +374,13 @@ class CombatScreen(BaseScreen):
                 self.message_log.append("It's not your party's turn!")
                 return
             
+            # Attack/Pass/Flee first - these have to work even when every
+            # other route is blocked, which is the whole reason they exist.
+            for action, rect in self.action_positions.items():
+                if rect.collidepoint(mouse_pos):
+                    self._do_action(action)
+                    return
+
             # Check hotbar clicks
             for i, rect in enumerate(self.hotbar_positions):
                 if rect.collidepoint(mouse_pos):
@@ -320,6 +414,10 @@ class CombatScreen(BaseScreen):
             # Shift+1-0 trigger the upper row (slots 10-19). "0" maps to the
             # 10th slot in each row (index 9 / 19), matching standard keyboard
             # number-row convention (1,2,...,9,0).
+            if event.key in self.ACTION_KEYS:
+                self._do_action(self.ACTION_KEYS[event.key])
+                return
+
             slot_index = self._key_to_hotbar_slot(event.key, shift_held=(event.mod & pygame.KMOD_SHIFT))
             if slot_index is not None:
                 if not self._acting_member():
@@ -1464,6 +1562,7 @@ class CombatScreen(BaseScreen):
                 pygame.draw.rect(screen, (90, 80, 60), rect, 1)
 
         self._draw_stance_selector(screen, player)
+        self._draw_action_buttons(screen)
 
         # Real hover tooltip for hotbar abilities - per Kyle's ask, same
         # shared Ability.get_tooltip_lines() cast_screen.py's tooltip
@@ -1491,8 +1590,15 @@ class CombatScreen(BaseScreen):
             scrim.fill((8, 8, 12, 205))
             screen.blit(scrim, (0, 0))
 
-            result = "Victory!" if player.is_alive() else "Defeat!"
-            color = COLOR_GREEN if player.is_alive() else COLOR_RED
+            # A flee is its own outcome. Reading it off is_alive() alone
+            # would have shown "Victory!" for walking away from a fight
+            # that is still standing behind you.
+            if getattr(self.combat_engine, "fled", False):
+                result, color = "Fled!", COLOR_YELLOW
+            elif player.is_alive():
+                result, color = "Victory!", COLOR_GREEN
+            else:
+                result, color = "Defeat!", COLOR_RED
             result_width = self.renderer.font_large.size(result)[0]
             result_center_y = SCREEN_HEIGHT // 2 - 100
 

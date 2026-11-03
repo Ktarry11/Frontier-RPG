@@ -952,11 +952,22 @@ class Character(StatusEffectMixin):
         multiple fights until they explicitly revert_form() or shift
         again.
 
-        Resets current_mana/rage/energy to 0 on shift, matching the real
-        WOTLK behavior confirmed via Druid form guides: "shifting resets
-        your current resource unless talented otherwise" - the "unless
-        talented" exception isn't modeled here (no such talent exists in
-        this engine's data yet), so every shift is a hard reset.
+        Resets RAGE and ENERGY to 0 on shift. Mana is deliberately NOT
+        reset, and that distinction is the whole fix for the 2 Nov hard
+        lock (tools/qa_druid_form_lock.py).
+
+        The rule this used to cite - "shifting resets your current
+        resource unless talented otherwise" - is about the Rage and
+        Energy pools. Mana persists across a shift in real WoW; that is
+        exactly what makes shifting out to cast a heal possible. Zeroing
+        all three meant a druid who shifted into Bear had 0 rage
+        (correct) and 0 mana (wrong), leaving no resource anywhere in the
+        character to spend on anything at all. The symptom got noticed
+        once before and patched in the wrong place - combat/abilities.py
+        still carries a comment reading "shifting wipes the mana pool, so
+        a charge here would trap a Bear-form Druid in Bear Form", which
+        made shifting free rather than asking why the pool was being
+        wiped.
         """
         if not self.can_use_form(form_id):
             return False, f"{self.name} cannot use that form."
@@ -965,23 +976,79 @@ class Character(StatusEffectMixin):
 
         from combat.forms import get_form
         form = get_form(form_id)
+        old_max_health, old_current_health = self.health, self.current_health
         self.current_form = form_id
-        self.current_mana = 0
         self.current_rage = 0
         self.current_energy = 0
         self._recalculate_derived_stats()
+        self._carry_health_through_max_change(old_max_health, old_current_health)
         return True, f"{self.name} shifts into {form['name']}."
 
+    def _carry_health_through_max_change(self, old_max_health, old_current_health):
+        """Keep the health BAR where it was when a form changes max health.
+
+        Bear Form's +25 Stamina takes a level 15 druid from 244 max health
+        to 444. Leaving current_health alone meant a full-health druid
+        shifted into bear and immediately read 244/444 - 55% - which is
+        what Kyle's friend reported as "bear form has separate health from
+        caster with no way to heal it". It was never a second pool; it
+        just looked like one, because the bar dropped by half the moment
+        he shifted and no heal he could reach would move it.
+
+        Matching WoW: a Stamina gain hands you the health with it, and
+        losing it takes the same amount back. Carrying the DELTA rather
+        than the percentage is what makes shift -> revert -> shift a no-op
+        instead of a slow drain or a free heal.
+
+        The delta is applied to the current health from BEFORE the recalc,
+        not to whatever is on the character now. _recalculate_derived_stats
+        ends with `current_health = min(current_health, health)`, so on the
+        way DOWN out of a form it has already taken the lost maximum off -
+        adding the negative delta on top of that subtracted it twice. A
+        full-health level 60 druid round-tripping bear went 420 -> 620 ->
+        220, losing half its health for shifting and shifting back. The
+        single shift looked perfect, which is why only the round trip
+        caught it.
+        """
+        delta = self.health - old_max_health
+        if delta and old_current_health > 0:
+            self.current_health = max(1, min(self.health, old_current_health + delta))
+
     def revert_form(self):
-        """Return to base Humanoid form. Returns (success, message)."""
+        """Return to base Humanoid form. Returns (success, message).
+
+        Mana survives the trip back for the same reason it survives the
+        trip out (see shift_form) - a druid who shifts out of Bear to heal
+        and finds an empty mana pool waiting is in the same trap by a
+        different door. Rage and Energy reset, since the form that used
+        them is gone.
+        """
         if self.current_form is None:
             return False, f"{self.name} is not shapeshifted."
+        old_max_health, old_current_health = self.health, self.current_health
         self.current_form = None
-        self.current_mana = 0
         self.current_rage = 0
         self.current_energy = 0
         self._recalculate_derived_stats()
+        self._carry_health_through_max_change(old_max_health, old_current_health)
         return True, f"{self.name} reverts to normal form."
+
+    def get_basic_attack_id(self):
+        """This class's basic attack, by the "<class_prefix>_attack"
+        convention every class's ability file already follows.
+
+        Exists so combat can offer the basic attack as a permanent action
+        rather than trusting it to be on the hotbar. Kyle's friend took it
+        off his bar, which removed the only rage-generating action in the
+        game from a class that needs rage to do anything - the hotbar is a
+        convenience, and the game must not become unplayable because
+        someone rearranged it.
+        """
+        from combat.abilities import _class_file_prefix
+        if not getattr(self, "ability_book", None):
+            return None
+        ability_id = f"{_class_file_prefix(self.char_class)}_attack"
+        return ability_id if self.ability_book.get_ability(ability_id) else None
 
     def toggle_guardian_stance(self):
         """Flip Earthen Guardian on/off (Shaman Tank). Returns (success,
@@ -1331,8 +1398,23 @@ class Character(StatusEffectMixin):
         # Warrior silently carried around a nonzero, unused Mana pool
         # (computed from their small INT/Spirit stats) that never showed in
         # the UI but existed in memory/save data for no reason.
-        from combat.abilities import get_class_resource, ResourceType
-        if get_class_resource(self.char_class, self) == ResourceType.MANA:
+        # The gate is the class's BASE resource, deliberately not
+        # get_class_resource(), which returns the FORM's resource while
+        # shapeshifted. Asking the form meant a Druid in Bear Form was
+        # judged a Rage class and had their Mana pool recomputed to zero -
+        # the pool did not just stop being spendable, it ceased to exist,
+        # and current_mana got clamped to 0 against it a line later.
+        #
+        # That is what made Bear Form a prison on 2 Nov 2026: 0 rage
+        # (correct on a fresh shift) and 0 mana (because the pool was
+        # gone), so nothing in the character could pay for anything,
+        # including shifting back out. A form changes which pool you DRAW
+        # FROM - see combat/forms.py - it does not delete the others. A
+        # real bear still has its mana underneath, which is precisely what
+        # it spends to shift out and heal.
+        from combat.abilities import _lookup_class_resource, ResourceType
+        base_resource, _ = _lookup_class_resource(self.char_class)
+        if base_resource == ResourceType.MANA:
             self.mana = int((100 + eff_intellect * 15 + eff_spirit * 5)
                             * (1.0 + bonuses.get("max_mana_pct", 0)))
         else:

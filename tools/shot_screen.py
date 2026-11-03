@@ -31,6 +31,9 @@ class StubSM:
         self._party = party
         self.states = {}
         self.current_state = None
+        self.current_enemy = None
+        self.current_enemies = []
+        self.current_zone = None
 
     def get_party(self):
         return self._party
@@ -66,6 +69,16 @@ def main():
         scr.selected = player
         if hasattr(scr, "selected_member"):
             scr.selected_member = player
+    elif which == "combat":
+        # Needs a real fight behind it, or the screen renders its "combat
+        # over" scrim instead of the thing we want to look at.
+        from entities.monster import Monster
+        from ui.screens.combat_screen import CombatScreen
+        sm.current_enemy = Monster("Mangy Wolf", "beast_basic", level=max(1, lvl))
+        sm.current_enemies = [sm.current_enemy]
+        sm.current_zone = None
+        scr = CombatScreen(sm)
+        scr._init_combat()
     else:
         raise SystemExit(f"unknown screen {which!r}")
 

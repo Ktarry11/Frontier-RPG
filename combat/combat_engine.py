@@ -105,6 +105,10 @@ class CombatEngine:
         self.trash_gained = 0      # vendor trash items picked up this fight
         self.trash_value = 0       # their total sell value in copper
         self.victory = False
+        #: Set by execute_flee. Distinct from `victory` being False, which
+        #: otherwise means a wipe - the result screen has to tell "you ran"
+        #: apart from "you died", and only one of those should offer loot.
+        self.fled = False
 
         # Threat table: {enemy: {ally: threat_value}}. Per-enemy rather than
         # one shared pool, since two different monsters in the same fight
@@ -329,6 +333,35 @@ class CombatEngine:
         # funnels through, same as the form check above it.
         if hasattr(ability, "is_ranged_weapon_ready") and not ability.is_ranged_weapon_ready(actor):
             return False, f"{ability.name} requires the right weapon equipped."
+
+        # CASTING BREAKS A NON-MANA FORM. Kyle, 3 Nov 2026: "in classic wow,
+        # when a druid goes to cast it pulls them out of bear form (so we can
+        # have it that if someone casts in bear form they will cast, but will
+        # need to shift back into bear form and be at 0 rage when they're
+        # back)."
+        #
+        # Only real spells break the form - the gate is "costs mana" and NOT
+        # "is a mana ability", because every class's basic attack is itself
+        # typed mana with a cost of 0 (druid_attack, warrior_attack, ...).
+        # Gating on the type alone would have made swinging a paw in Bear Form
+        # drop you out of it, which is both wrong and a different way to lose
+        # a turn.
+        #
+        # Shapeshift abilities are exempt or shifting between forms would
+        # revert you first and land you in Humanoid instead of Cat.
+        if getattr(actor, "current_form", None) and hasattr(actor, "revert_form"):
+            from combat.abilities import ResourceType
+            from combat.forms import resource_for_form
+            form_resource = resource_for_form(actor.current_form)
+            cost = ability.talented_cost(actor) if hasattr(ability, "talented_cost") else 0
+            if (form_resource is not None
+                    and form_resource != ResourceType.MANA
+                    and getattr(ability, "resource_type", None) == ResourceType.MANA
+                    and cost > 0
+                    and getattr(ability, "effect_type", None) != "shapeshift"):
+                reverted, revert_msg = actor.revert_form()
+                if reverted:
+                    self.combat_log.append(revert_msg)
 
         # enemy_aoe abilities (Arcane Explosion, Chain Lightning,
         # Consecration, Multi-Shot, ...) hit every living enemy regardless
@@ -647,6 +680,34 @@ class CombatEngine:
         log_entry = f"{actor.name} takes a defensive stance!"
         self.combat_log.append(log_entry)
         self._end_turn(actor)
+
+    def execute_flee(self, actor):
+        """Leave the fight. Returns (fled, message).
+
+        100% success, per Kyle on 3 Nov 2026: "We can have fleeing from
+        combat at 100% chance." CombatAction.FLEE had been an enum member
+        since the engine was written and nothing ever implemented it, so
+        there was no way out of a fight at all - which is why a druid who
+        could not act had to kill the process.
+
+        No XP, no loot, no quest credit: _resolve_victory is deliberately
+        not called. The enemies stay alive and keep whatever damage they
+        took, matching the overworld's expectation that a fight you walked
+        away from is a fight that did not happen.
+
+        A full party flees together - one member running while the rest
+        stay in combat is not a state anything else in the engine models.
+        """
+        if not self.is_active:
+            return False, "The fight is already over."
+
+        name = getattr(actor, "name", "The party")
+        self.combat_log.append(f"{name} flees from combat!")
+        self.is_active = False
+        self.fled = True
+        self.combat_phase = "fled"
+        self.current_actor = None
+        return True, f"{name} flees from combat!"
     
     def _end_turn(self, actor):
         """Shared turn-end logic: consume turn, decrement cooldowns, restore resources."""
