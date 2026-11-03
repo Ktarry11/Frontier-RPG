@@ -190,6 +190,43 @@ def main():
         fails.append("HARD LOCK: bear form, 0 rage, empty hotbar - no legal "
                      "action exists. This is the close-the-game bug.")
 
+    # ---- 6. EVERY party member gets these, not just the hero
+    #
+    # Kyle, 3 Nov 2026: "Turn skip works for party members too? As does flee. I
+    # dont want it exclusive on the main character."
+    #
+    # The player drives all five members FF-style, so a companion stuck on their
+    # turn is the same hard lock as the hero stuck on theirs - and a companion is
+    # likelier to be the one shapeshifted, since recruits are spec locked. The
+    # screen routes every action through _acting_member() ("whoever's turn it is")
+    # rather than through state_manager.player, and this pins that down.
+    from entities.party import Party
+
+    hero = Character(name="Hero", char_class="Warrior", level=20)
+    roster = [("Mend", "Priest"), ("Bruin", "Druid"), ("Sneak", "Rogue"), ("Boom", "Mage")]
+    party = Party(hero)
+    for mate_name, mate_class in roster:
+        party.add_member(Character(name=mate_name, char_class=mate_class, level=20))
+
+    for member in party.members:
+        if not member.get_basic_attack_id():
+            fails.append(f"{member.name} ({member.char_class}) has no basic attack")
+
+        eng = CombatEngine(hero, Monster("Wolf", "beast_basic", level=20),
+                           party=party, enemies=[Monster("Wolf", "beast_basic", level=20)])
+        eng.current_actor = member
+        eng.combat_phase = "action"
+        eng.execute_defend(member)
+        if eng.current_actor is not None:
+            fails.append(f"{member.name} could not pass their turn")
+
+        eng2 = CombatEngine(hero, Monster("Wolf", "beast_basic", level=20),
+                            party=party, enemies=[Monster("Wolf", "beast_basic", level=20)])
+        eng2.current_actor = member
+        fled, _ = eng2.execute_flee(member)
+        if not fled or eng2.is_active:
+            fails.append(f"{member.name} could not flee - flee must not be hero-only")
+
     if fails:
         for f in fails:
             print(f"  FAIL  {f}")
@@ -200,6 +237,7 @@ def main():
     print("basic attack always reachable and builds rage")
     print("flee implemented, 100% success, ends combat")
     print(f"no-rage bear with an empty bar can still: {', '.join(escapes)}")
+    print("attack/pass/flee work for every party member, not just the hero")
     print("\nPASS")
     return 0
 
