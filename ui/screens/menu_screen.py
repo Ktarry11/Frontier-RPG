@@ -68,6 +68,18 @@ class MenuScreen(BaseScreen):
         self.slot_rects = []
         self.slot_close_button = pygame.Rect(SCREEN_WIDTH - 140, 20, 110, 40)
 
+        #: Parallax Valley of Trials vista behind the menu, and the New Game
+        #: push-in (ui/parallax.py). Built here rather than as a replacement
+        #: TitleScreen deliberately: all the save-slot handling above is real,
+        #: load-bearing and already debugged once this week, and a new screen
+        #: would have had to grow its own copy of it.
+        from ui.parallax import ParallaxBackdrop
+        self.backdrop = ParallaxBackdrop()
+        #: Set when New Game is clicked. The transition does not fire until the
+        #: dolly finishes, so the camera move is the transition rather than
+        #: something that plays before one.
+        self._pending_state = None
+
     def _build_slot_rects(self):
         """One clickable Rect per save slot, stacked in a column centered
         on screen. Rebuilt each time the picker opens rather than cached
@@ -128,7 +140,14 @@ class MenuScreen(BaseScreen):
             return
 
         if self.buttons["new_game"].collidepoint(mouse_pos):
-            self.state_manager.transition_to(GameState.CHARACTER_CREATION)
+            # Kyle: "The player clicks New Game. The camera slowly moves
+            # toward the valley, the logo fades away." The transition is
+            # deferred to update() so the dolly IS the transition.
+            if self.backdrop.loaded:
+                self.backdrop.start_push_in()
+                self._pending_state = GameState.CHARACTER_CREATION
+            else:
+                self.state_manager.transition_to(GameState.CHARACTER_CREATION)
         elif self.buttons["load_game"].collidepoint(mouse_pos):
             self.slot_mode = "load"
             self.slot_rects = self._build_slot_rects()
@@ -138,6 +157,28 @@ class MenuScreen(BaseScreen):
             self.slot_rects = self._build_slot_rects()
         elif self.buttons["quit"].collidepoint(mouse_pos):
             self.state_manager.transition_to(GameState.QUIT)
+
+    def _render_title_text(self, screen, alpha):
+        """The logo, with a drop shadow so it survives a bright sunset.
+
+        Rendered to its own surface and blitted with alpha rather than drawn
+        with a faded colour: fading the colour toward the background only
+        works on a background that holds still, and this one is moving and
+        changing brightness underneath the text the whole time.
+        """
+        if alpha <= 0:
+            return
+        title = "FRONTIER RPG"
+        font = self.renderer.font_large
+        shadow = font.render(title, True, (20, 8, 4))
+        body = font.render(title, True, (255, 232, 196))
+
+        layer = pygame.Surface(
+            (body.get_width() + 6, body.get_height() + 6), pygame.SRCALPHA)
+        layer.blit(shadow, (4, 4))
+        layer.blit(body, (0, 0))
+        layer.set_alpha(max(0, min(255, int(alpha))))
+        screen.blit(layer, (SCREEN_WIDTH // 2 - layer.get_width() // 2, 86))
 
     def _handle_slot_click(self, slot_number):
         """Save into or load from the clicked slot number (1-indexed),
@@ -160,23 +201,57 @@ class MenuScreen(BaseScreen):
                 self._notify("Save failed.", (230, 140, 140))
     
     def update(self, dt):
-        """Tick down the transient save/load message."""
+        """Tick down the transient save/load message, and drive the vista."""
         if self.message_timer > 0:
             self.message_timer -= dt
             if self.message_timer <= 0:
                 self.message = None
+
+        self.backdrop.update(dt)
+
+        if self._pending_state is not None:
+            if self.backdrop.push_complete:
+                nxt, self._pending_state = self._pending_state, None
+                self.state_manager.transition_to(nxt)
+        elif self.backdrop.push > 0.0:
+            # Re-arm on the way back in. There is no on_enter hook anywhere in
+            # this codebase - BaseScreen has none and GameStateManager calls
+            # none - so a tidy-looking on_enter() would simply never run, and
+            # returning to the menu after a New Game would show the frozen
+            # white-out forever.
+            #
+            # Safe to key off update() instead: this method only runs while
+            # the menu is the active state, so push > 0 with nothing pending
+            # means we pushed, left, and have now come back. The main loop
+            # updates before it renders, so the reset lands before the first
+            # frame is drawn and no white flash is visible.
+            self.backdrop.reset()
     
     def render(self, screen):
         """Draw menu."""
+        # Vista first, under everything, including the slot picker - the
+        # picker used to sit on a flat fill and would look like a different
+        # application next to the title.
+        self.backdrop.draw(screen)
+
         if self.slot_mode is not None:
+            # Darken behind the picker so slot text stays readable over a
+            # bright sunset.
+            scrim = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+            scrim.fill((6, 4, 10, 200))
+            screen.blit(scrim, (0, 0))
             self._render_slot_picker(screen)
             return
 
-        # Title
-        self.renderer.draw_text(
-            screen, "FRONTIER RPG", (SCREEN_WIDTH // 2 - 150, 100),
-            color=COLOR_WHITE, size="large"
-        )
+        # Once the camera starts moving, the menu is gone - buttons included.
+        # Leaving them on screen during the push is what would make this read
+        # as a menu with an animated wallpaper instead of an opening shot.
+        if self._pending_state is not None:
+            self._render_title_text(screen, self.backdrop.logo_alpha())
+            self.backdrop.draw_bloom(screen)
+            return
+
+        self._render_title_text(screen, 255)
         
         # Back button - only show if there's an active character to return to
         if self.state_manager.player:
