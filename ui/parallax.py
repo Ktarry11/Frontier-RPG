@@ -81,17 +81,19 @@ TITLE_DIR = os.path.join("assets", "backgrounds", "title")
 #: because the offset is SUBTRACTED from y - the intuitive negative-is-up sign
 #: makes them fall, and worse, Python's modulo on a negative start makes the
 #: layer jump a full height on the first frame before drifting the wrong way.
-#: The fifth field is HAZE - how far this layer is blended toward the colour
-#: of the sky at the horizon. See _apply_haze.
+#: Fifth field is HAZE - how far this layer blends toward the sky's horizon
+#: colour. Sixth is COOL_BOOST - extra haze applied only to pixels that are
+#: blue relative to red, which rescues the lavender formations inside an
+#: otherwise warm layer without touching the warm parts. See _apply_haze.
 LAYERS = (
-    ("1_sky.png",           0.00,  0.00, 1.00, 0.00),
-    ("2_clouds.png",        0.45,  0.00, 1.06, 0.00),
-    ("3_far_mesas.png",     0.05,  0.00, 1.12, 0.70),
-    ("4_mid_walls.png",     0.15,  0.00, 1.38, 0.14),
-    ("5_valley.png",        0.25,  0.00, 1.72, 0.00),
-    ("6_near_outcrops.png", 0.55,  0.00, 2.30, 0.00),
-    ("7_fg_lip.png",        1.00,  0.00, 2.90, 0.00),
-    ("8_dust.png",          0.60,  0.22, 1.50, 0.00),
+    ("1_sky.png",           0.00,  0.00, 1.00, 0.00, 0.00),
+    ("2_clouds.png",        0.45,  0.00, 1.06, 0.00, 0.00),
+    ("3_far_mesas.png",     0.05,  0.00, 1.12, 0.70, 0.25),
+    ("4_mid_walls.png",     0.15,  0.00, 1.38, 0.22, 0.90),
+    ("5_valley.png",        0.25,  0.00, 1.72, 0.00, 0.55),
+    ("6_near_outcrops.png", 0.55,  0.00, 2.30, 0.00, 0.00),
+    ("7_fg_lip.png",        1.00,  0.00, 2.90, 0.00, 0.00),
+    ("8_dust.png",          0.60,  0.22, 1.50, 0.00, 0.00),
 )
 
 #: How far a pixel can sit from the sampled magenta and still be cut. Below
@@ -300,7 +302,7 @@ def _sky_horizon_color(path):
     return tuple(float(v) * _HAZE_VALUE for v in mean)
 
 
-def _apply_haze(surface, color, strength):
+def _apply_haze(surface, color, strength, cool_boost=0.0):
     """Blend a layer toward the colour of the air in front of it.
 
     Kyle, 4 Nov 2026: "The background is still weirdly hazy bro. See how it's
@@ -322,7 +324,7 @@ def _apply_haze(surface, color, strength):
     the far mesas lose contrast and sink back, and the depth improves rather
     than merely the colour matching.
     """
-    if strength <= 0.0:
+    if strength <= 0.0 and cool_boost <= 0.0:
         return surface
     try:
         import numpy as np
@@ -332,7 +334,33 @@ def _apply_haze(surface, color, strength):
     surface = surface.convert_alpha()
     rgb = pygame.surfarray.pixels3d(surface)
     target = np.array(color, dtype="float32").reshape(1, 1, 3)
-    blended = rgb.astype("float32") * (1.0 - strength) + target * strength
+    src = rgb.astype("float32")
+
+    # PER-PIXEL STRENGTH, DRIVEN BY HOW COOL THE PIXEL IS.
+    #
+    # Kyle, 4 Nov 2026, on the mid-distance ridges: "I'm still uneasy about
+    # this garbage here."
+    #
+    # A single flat strength cannot fix that layer. 4_mid_walls holds BOTH the
+    # warm orange canyon walls at the frame edges and a set of lavender
+    # formations in the middle distance - measured, 12.3% of its rock is
+    # purple at (177, 72, 120) against warm rock at (184, 63, 56), better than
+    # double the blue. Hazing the whole layer hard enough to fix the purple
+    # would wash out the warm rock that is already correct.
+    #
+    # So the correction is selective: blue relative to red says how cool a
+    # pixel is, and only cool pixels get pulled toward the sunset haze. Warm
+    # rock scores zero and is left exactly as painted. This is also what real
+    # aerial perspective does - it acts on what is far away, and in this art
+    # the cool pixels ARE the far ones, which is why the generator painted
+    # them cool in the first place.
+    if cool_boost > 0.0:
+        coolness = np.clip((src[:, :, 2] - 0.45 * src[:, :, 0]) / 80.0, 0.0, 1.0)
+        eff = np.clip(strength + cool_boost * coolness, 0.0, 1.0)[:, :, None]
+    else:
+        eff = strength
+
+    blended = src * (1.0 - eff) + target * eff
     rgb[:, :, :] = np.clip(blended, 0, 255).astype("uint8")
     del rgb
     return surface
@@ -360,7 +388,7 @@ class ParallaxBackdrop:
     def _load(self):
         base_h = int(SCREEN_HEIGHT * _OVERSCAN)
         haze_color = _sky_horizon_color(os.path.join(self.root, LAYERS[0][0]))
-        for filename, drift_x, drift_y, scale, haze in LAYERS:
+        for filename, drift_x, drift_y, scale, haze, cool in LAYERS:
             path = os.path.join(self.root, filename)
             if not os.path.exists(path):
                 continue
@@ -375,7 +403,7 @@ class ParallaxBackdrop:
                 surf = raw.convert_alpha()
             surf = _clamp_faint_alpha(surf)
             surf = _soften_hard_bottom_edge(surf)
-            surf = _apply_haze(surf, haze_color, haze)
+            surf = _apply_haze(surf, haze_color, haze, cool_boost=cool)
 
             # Scale to a common height so every layer shares one horizon.
             w, h = surf.get_size()
