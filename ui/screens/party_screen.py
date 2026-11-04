@@ -535,6 +535,24 @@ class PartyScreen(BaseScreen):
         self.renderer.draw_rect(screen, panel, (80, 80, 90), fill=False)
 
         top = self._render_tabs(screen, panel)
+
+        # ACTION BUTTONS BELONG TO THE MEMBER, NOT TO A TAB.
+        #
+        # Kyle, 4 Nov 2026: "i can't equip my party members. I need the option
+        # to do that." He could - but only from the Details tab. The Stats and
+        # Party Buffs tabs (added 2 Nov) each return early, and the button row
+        # was drawn after those returns, so action_rects stayed EMPTY and Gear,
+        # Talents, Skills, Background, Bench and Dismiss all ceased to exist on
+        # two of the three tabs.
+        #
+        # Stats is the worst possible tab to lose the Gear button on: it is the
+        # screen you are reading when you decide what someone needs to equip.
+        #
+        # Drawn before the tab branches so every tab gets them. They anchor to
+        # panel.bottom - 110 regardless of the `y` passed in, so tab content
+        # above cannot push them around.
+        self._render_actions(screen, member, party, panel, top)
+
         if self.tab == "buffs":
             self._render_party_buffs(screen, party, panel, top)
             return
@@ -633,7 +651,10 @@ class PartyScreen(BaseScreen):
                                         color=(170, 170, 185))
             y += 10
 
-        self._render_actions(screen, member, party, panel, y)
+        # NOTE: _render_actions is deliberately NOT called here any more. It
+        # now runs once in _render_detail before the tab branches, so every
+        # tab gets the buttons. Calling it again here would append a second
+        # copy of every rect to action_rects and draw the row twice.
 
     def _render_stats(self, screen, member, panel, top):
         """The full stat sheet for one member, gear included.

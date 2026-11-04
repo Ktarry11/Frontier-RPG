@@ -118,6 +118,35 @@ def main():
     if len(screen.tab_rects) != len(PartyScreen.TABS):
         fails.append(f"{len(screen.tab_rects)} tab rects, want {len(PartyScreen.TABS)}")
 
+    # ---- ACTION BUTTONS MUST EXIST ON EVERY TAB
+    #
+    # Kyle, 4 Nov 2026: "i can't equip my party members. I need the option to
+    # do that." He could - from the Details tab only. Stats and Party Buffs
+    # (both added 2 Nov, in this same file's feature) each returned early from
+    # _render_detail BEFORE the button row was drawn, so action_rects came back
+    # empty and Gear, Talents, Skills, Background, Bench and Dismiss simply did
+    # not exist on two of the three tabs.
+    #
+    # Losing it on Stats is the worst case: that is the tab you are reading
+    # when you work out what someone needs to equip.
+    #
+    # Asserted per tab rather than once, because the failure was per tab and a
+    # single check on the default tab would have passed throughout.
+    for tab_name, _label in PartyScreen.TABS:
+        screen.tab = tab_name
+        screen.selected = mate
+        screen.render(surf)
+        actions = {a for a, _r in screen.action_rects}
+        for required in ("gear", "talents", "skills"):
+            if required not in actions:
+                fails.append(f"'{tab_name}' tab has no {required.upper()} button "
+                             f"(found: {sorted(actions) or 'nothing'})")
+        # Drawn once per render, not once per tab branch - a duplicated call
+        # would stack two rects per action in the same place.
+        if len(screen.action_rects) != len(actions):
+            fails.append(f"'{tab_name}' tab registered {len(screen.action_rects)} "
+                         f"rects for {len(actions)} actions - duplicated draw")
+
     print(f"tabs drawn: {[t for t, _ in PartyScreen.TABS]}")
     print(f"tab hit-rects: {len(screen.tab_rects)}")
     if fails:

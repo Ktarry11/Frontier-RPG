@@ -63,12 +63,17 @@ def main():
         from ui.screens.cast_screen import CastScreen
         scr = CastScreen(sm)
         scr.selected_caster = player
-    elif which == "party":
+    elif which.startswith("party"):
+        from entities.character import Character as _C
         from ui.screens.party_screen import PartyScreen
+        mate = _C("Mate", "Priest", max(1, lvl))
+        party.add_member(mate)
         scr = PartyScreen(sm)
-        scr.selected = player
+        scr.selected = mate
         if hasattr(scr, "selected_member"):
-            scr.selected_member = player
+            scr.selected_member = mate
+        if "_" in which:
+            scr.tab = which.split("_", 1)[1]
     elif which in ("inventory", "inventory_discard", "inventory_confirm"):
         from entities.loot_generator import LootGenerator
         from entities.loot_item import LootItem
