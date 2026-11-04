@@ -295,7 +295,18 @@ class QuestJournalScreen(BaseScreen):
                                         font_size=16, color=(240, 200, 140))
 
     def _render_list(self, screen):
+        from combat import difficulty
         self._render_tabs(screen)
+
+        # One party average for the whole list - every row cons against the
+        # same number, and the same one the turn-in will pay at.
+        party_level = difficulty.party_average_level(
+            self.state_manager.get_party(),
+            fallback=getattr(self.state_manager.player, "level", 1))
+
+        #: The exact font the row's secondary text is drawn in, resolved once so
+        #: measurement and rendering cannot disagree (see the badge comment).
+        row_font = self.renderer._get_font(size="normal", font_size=16)
 
         quests = self._current_list()
         self.quest_row_rects = []
@@ -358,18 +369,46 @@ class QuestJournalScreen(BaseScreen):
                 pygame.draw.rect(screen, (24, 24, 30), row_rect)
                 pygame.draw.rect(screen, (70, 70, 80), row_rect, 1)
 
-                title_color = COLOR_WHITE
+                # Title takes the quest's con colour, as WoW's own log does.
+                # "Ready to turn in" still wins, because that is the thing the
+                # player is scanning the list FOR - and difficulty is not lost
+                # when it does, since the badge on the right always carries it.
+                band = difficulty.band_for(quest.quest_level, party_level)
+                title_color = difficulty.BAND_COLORS[band]
                 if self.active_tab == "active" and quest.status == QuestStatus.READY_TO_TURN_IN:
                     title_color = COLOR_GOLD
                 self.renderer.draw_text(screen, quest.title, (row_rect.x + 12, row_rect.y + 8), color=title_color)
 
+                # Difficulty badge, right-aligned: "Lv 24  Normal", in the band
+                # colour. Kyle, 4 Nov: the journal has to show difficulty and
+                # zone. The level is spelled out rather than left implicit in
+                # the colour, so a player can tell a green quest two levels
+                # under them from one eight levels under.
+                badge = f"Lv {quest.quest_level}  {difficulty.BAND_LABELS[band]}"
+                # Measure with the SAME font the text is drawn in. font_small is
+                # not the font_size=16 font, so measuring with one and drawing
+                # with the other pushed the badge off the right edge ("Very Ha")
+                # and ran the zone label straight through the objective summary.
+                badge_w = row_font.size(badge)[0]
+                self.renderer.draw_text(screen, badge,
+                                        (row_rect.right - 12 - badge_w, row_rect.y + 10),
+                                        color=difficulty.BAND_COLORS[band], font_size=16)
+
+                # Second line: zone on BOTH tabs now. It used to appear only on
+                # the completed tab, which is the tab where it matters least -
+                # "where do I go for this" is an active-quest question.
+                zone_text = quest.zone.replace("_", " ").title()
                 if self.active_tab == "active":
                     summary = self._objective_summary(quest)
                     status_note = "  (ready to turn in)" if quest.status == QuestStatus.READY_TO_TURN_IN else ""
-                    self.renderer.draw_text(screen, summary + status_note, (row_rect.x + 12, row_rect.y + 32),
+                    self.renderer.draw_text(screen, zone_text, (row_rect.x + 12, row_rect.y + 32),
+                                            color=(190, 170, 120), font_size=16)
+                    zone_w = row_font.size(zone_text)[0]
+                    self.renderer.draw_text(screen, "  -  " + summary + status_note,
+                                            (row_rect.x + 12 + zone_w, row_rect.y + 32),
                                             color=(170, 170, 170), font_size=16)
                 else:
-                    self.renderer.draw_text(screen, quest.zone.replace("_", " ").title(),
+                    self.renderer.draw_text(screen, zone_text,
                                             (row_rect.x + 12, row_rect.y + 32), color=(140, 140, 140), font_size=16)
 
             y += row_h
@@ -707,8 +746,11 @@ class QuestJournalScreen(BaseScreen):
         """Right column: XP/gold, then the real gear choices (same fixed set the turn-in screen will offer)."""
         x = self.RIGHT_X
         y = 130
+        from combat.difficulty import party_average_level
         player = self.state_manager.player
-        player_level = player.level if player else 1
+        # Party average, matching what the turn-in will actually pay.
+        player_level = party_average_level(
+            self.state_manager.get_party(), fallback=player.level if player else 1)
         self.renderer.draw_text(screen, "Rewards:", (x, y), color=COLOR_GOLD, size="large")
         y += 36
         line = f"{quest.get_scaled_exp_reward(player_level)} XP"

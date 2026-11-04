@@ -333,17 +333,23 @@ class Quest:
         return all(o.is_complete() for o in self.objectives)
 
     def get_scaled_exp_reward(self, player_level):
-        """XP reward scaled by how far above/below the quest's intended
-        level the player actually is - mirrors combat's exact level_diff
-        formula (see combat/combat_engine.py _calculate_exp_reward) so
-        quest and kill XP scale consistently instead of two different
-        curves. Gold and gear rewards are NEVER scaled - Kyle's explicit
-        ruling: only EXP adjusts for level difference.
+        """XP reward scaled by the quest's difficulty band against the
+        party's average level - the same WoW con-colour system kills use
+        (combat/difficulty.py), so a yellow quest and a yellow mob mean
+        the same thing. Gold and gear rewards are NEVER scaled - Kyle's
+        explicit ruling: only EXP adjusts for level difference.
 
-        The "quest's level" for this comparison is level_max if set,
-        else level_min - level_max represents where the quest stops
-        being a real challenge, which is the more meaningful anchor for
-        "was this a stretch for you" than the minimum entry level.
+        `player_level` is a misnomer kept for call compatibility: callers
+        pass the PARTY AVERAGE (see QuestManager.turn_in). Kyle, 4 Nov:
+        "this should be based on the average party level to simplify
+        stuff."
+
+        This used to hand-roll its own +-5 breakpoints and its docstring
+        said they mirrored combat's. They are now one shared function
+        instead of two copies that agreed by convention.
+
+        A grey quest still pays difficulty.GREY_QUEST_MULTIPLIER rather
+        than nothing - unlike a grey kill, which pays zero.
 
         The global QUEST_EXP_MULTIPLIER rate is applied once at the end,
         for the same reason combat applies its own at the end: so the
@@ -352,18 +358,25 @@ class Quest:
         three separate returns meant three places to remember to apply it.
         """
         from config import QUEST_EXP_MULTIPLIER
+        from combat.difficulty import quest_xp_multiplier
 
-        quest_level = self.level_max if self.level_max is not None else self.level_min
-        level_diff = player_level - quest_level
-
-        if level_diff > 5:
-            reward = self.reward_exp * 0.5
-        elif level_diff < -5:
-            reward = self.reward_exp * (1.5 + min(1.0, (-level_diff - 5) * 0.1))
-        else:
-            reward = self.reward_exp
-
+        reward = self.reward_exp * quest_xp_multiplier(self.quest_level, player_level)
         return max(1, int(reward * QUEST_EXP_MULTIPLIER))
+
+    @property
+    def quest_level(self):
+        """The level this quest cons at.
+
+        level_max where set, else level_min - level_max represents where the
+        quest stops being a real challenge, which is the more meaningful
+        anchor for "was this a stretch for you" than the entry level.
+
+        A property rather than a local, because the quest journal needs the
+        same number to draw the same colour the XP was paid at. Two places
+        deciding separately what level a quest "is" would let the badge and
+        the payout disagree.
+        """
+        return self.level_max if self.level_max is not None else self.level_min
 
     def get_gear_choices(self, loot_generator, char_class):
         """Lazily build and cache this quest's fixed gear reward options.

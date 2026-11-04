@@ -594,8 +594,13 @@ class QuestDialogScreen(BaseScreen):
         self.renderer.draw_text(screen, hint, (40, y + 10), font_size=16, color=(160, 160, 170))
 
     def _render_turn_in(self, screen):
+        from combat.difficulty import party_average_level
         quest = self.active_quest
-        player_level = self.state_manager.player.level
+        # Party average, matching what turn_in will actually pay. Reading
+        # player.level here would show one number and award another.
+        player_level = party_average_level(
+            self.state_manager.get_party(),
+            fallback=self.state_manager.player.level)
 
         self.renderer.draw_text(screen, quest.title, (40, 90), color=COLOR_WHITE)
         self._draw_wrapped_text(screen, quest.turn_in_text, (40, 130), max_width=SCREEN_WIDTH - 80)

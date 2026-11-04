@@ -329,7 +329,12 @@ class QuestManager:
                     f"{scroll.name} could not fit in your bags - make room and speak to them again.")
 
         if quest.reward_exp:
-            scaled_exp = quest.get_scaled_exp_reward(player.level)
+            # Party average, not player.level - the difficulty band a quest
+            # pays at has to be the same one the journal drew its colour
+            # from, and the journal cons against the party (Kyle, 4 Nov).
+            from combat.difficulty import party_average_level
+            scaled_exp = quest.get_scaled_exp_reward(
+                party_average_level(party, fallback=player.level))
             party.award_experience(scaled_exp)
         if quest.reward_gold:
             # Gold is NEVER scaled by level, per Kyle's explicit ruling -

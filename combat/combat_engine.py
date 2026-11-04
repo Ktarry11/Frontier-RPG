@@ -1138,7 +1138,8 @@ class CombatEngine:
     def _calculate_exp_reward(self, enemy=None):
         """
         Calculate XP from enemy, scaled by monster level, with bonuses for:
-          - Fighting above your level (existing level_diff scaling)
+          - Difficulty band vs the PARTY AVERAGE level, WoW con-colour style
+            (combat/difficulty.py) - grey enemies pay nothing at all
           - Boss/elite creatures (is_boss flag, set by CreatureManager)
           - Cave/subzone encounters (location_type tag, set by CreatureManager) -
             NOTE: currently only ever fires for "open_zone" in practice, since
@@ -1146,18 +1147,26 @@ class CombatEngine:
             wired in now so it activates automatically once that traversal
             exists, without needing to touch this method again.
         """
+        from combat.difficulty import kill_xp_multiplier, party_average_level
+
         enemy = enemy or self.enemy
         base_exp = enemy.get_exp_reward()
-        level_diff = self.player.level - enemy.level
-        
-        if level_diff > 5:
-            reward = max(10, int(base_exp * 0.5))
-        elif level_diff < -5:
-            # Fighting well above your level - bigger bonus than the old flat 1.5x,
-            # scaling a bit further with how far above you the enemy actually is
-            reward = int(base_exp * (1.5 + min(1.0, (-level_diff - 5) * 0.1)))
-        else:
-            reward = base_exp
+
+        # WoW con colours, against the PARTY AVERAGE rather than the player's
+        # own level (Kyle, 4 Nov: "this should be based on the average party
+        # level to simplify stuff"). A grey enemy returns 0.0 here and the whole
+        # reward collapses to nothing, which is the point of the system.
+        #
+        # This REPLACES the old hand-rolled +-5 breakpoints rather than sitting
+        # beside them. That block and world/quest.py's copy of it were written
+        # to mirror each other by hand and each said so in its docstring - two
+        # statements of one rule, which is the shape most of this project's
+        # bugs have taken. Both now call combat/difficulty.py.
+        party_level = party_average_level(self.party, fallback=self.player.level)
+        multiplier = kill_xp_multiplier(enemy.level, party_level)
+        if multiplier <= 0.0:
+            return 0  # grey: no XP, and no boss/cave bonus on top of nothing
+        reward = base_exp * multiplier
 
         # Boss/elite bonus - a beefed-up cave/subzone boss should feel like a
         # real event, not just "a slightly tankier trash mob"

@@ -69,6 +69,24 @@ def main():
         scr.selected = player
         if hasattr(scr, "selected_member"):
             scr.selected_member = player
+    elif which == "journal":
+        # Real quests from the real manager - the point is to see the con
+        # colours against a real spread of quest levels, which a stub cannot
+        # give. Accepts a handful regardless of level gating so the list has
+        # rows in several bands at once.
+        from world.quest_manager import get_quest_manager
+        from ui.screens.quest_journal_screen import QuestJournalScreen
+        qm = get_quest_manager()
+        picked = sorted(qm.quests.values(), key=lambda q: (q.quest_level, q.quest_id))
+        spread = []
+        for want in (lvl - 14, lvl - 6, lvl - 2, lvl, lvl + 3, lvl + 6):
+            best = min(picked, key=lambda q: abs(q.quest_level - want), default=None)
+            if best is not None and best not in spread:
+                spread.append(best)
+        from world.quest import QuestStatus
+        for q in spread:
+            q.status = QuestStatus.ACTIVE
+        scr = QuestJournalScreen(sm)
     elif which == "combat":
         # Needs a real fight behind it, or the screen renders its "combat
         # over" scrim instead of the thing we want to look at.
