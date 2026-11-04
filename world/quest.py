@@ -344,15 +344,26 @@ class Quest:
         else level_min - level_max represents where the quest stops
         being a real challenge, which is the more meaningful anchor for
         "was this a stretch for you" than the minimum entry level.
+
+        The global QUEST_EXP_MULTIPLIER rate is applied once at the end,
+        for the same reason combat applies its own at the end: so the
+        level-difference bonus is scaled along with the base rather than
+        escaping it. Restructured to a single return for that reason -
+        three separate returns meant three places to remember to apply it.
         """
+        from config import QUEST_EXP_MULTIPLIER
+
         quest_level = self.level_max if self.level_max is not None else self.level_min
         level_diff = player_level - quest_level
 
         if level_diff > 5:
-            return max(1, int(self.reward_exp * 0.5))
+            reward = self.reward_exp * 0.5
         elif level_diff < -5:
-            return int(self.reward_exp * (1.5 + min(1.0, (-level_diff - 5) * 0.1)))
-        return self.reward_exp
+            reward = self.reward_exp * (1.5 + min(1.0, (-level_diff - 5) * 0.1))
+        else:
+            reward = self.reward_exp
+
+        return max(1, int(reward * QUEST_EXP_MULTIPLIER))
 
     def get_gear_choices(self, loot_generator, char_class):
         """Lazily build and cache this quest's fixed gear reward options.

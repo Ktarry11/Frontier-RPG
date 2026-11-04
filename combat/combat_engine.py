@@ -1171,7 +1171,12 @@ class CombatEngine:
         elif location_type == "subzone":
             reward = int(reward * 1.2)
 
-        return reward
+        # Global kill-XP rate, applied LAST so it scales the finished reward -
+        # level difference, boss bonus and location bonus all included. Putting
+        # it on base_exp instead would have let the 1.75x boss and 1.5x cave
+        # multipliers claw part of the reduction back.
+        from config import KILL_EXP_MULTIPLIER
+        return max(1, int(reward * KILL_EXP_MULTIPLIER))
     
     def get_recent_log(self, count=5):
         """Get last N log entries."""

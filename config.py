@@ -105,6 +105,24 @@ EXP_CURVE_ACCEL_MULT = 2.6
 EXP_CURVE_REDUCTION = 0.10  # flat 10% reduction, confirmed in design discussion
 EXP_CURVE_ACCEL_SPAN_TOP = 59  # accel ramps fully in by level 59 (base game level cap = 60)
 
+#: HOW MUCH XP THE WORLD ACTUALLY HANDS OUT, as a multiplier on the calculated
+#: reward. These are levelling-SPEED dials and are deliberately separate from
+#: the EXP_CURVE_* values above, which set how much XP a level COSTS.
+#:
+#: Two knobs for the same outcome, and they are not interchangeable: changing
+#: the curve re-prices every level the player has already earned, so a character
+#: mid-game can find their bar has moved. Changing these only affects XP earned
+#: from here on, which is what "levelling is too fast" actually asks for.
+#:
+#: Kyle, 4 Nov 2026, relaying his friend's playtest: "exp rate is too high. Let's
+#: drop kill exp by 60% and quest exp by 50%."
+#:
+#: Applied ONCE, at the end of each source's own calculation, so every bonus
+#: that feeds into them (level difference, boss, cave/subzone) is scaled with
+#: them rather than around them.
+KILL_EXP_MULTIPLIER = 0.40    # -60% from kills
+QUEST_EXP_MULTIPLIER = 0.50   # -50% from quest turn-ins
+
 
 # Consumables (Phase 6)
 POTION_COOLDOWN_SECONDS = 5.0  # Shared potion cooldown (WoW-style)
