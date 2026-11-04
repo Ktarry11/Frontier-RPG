@@ -74,7 +74,8 @@ def main():
             scr.selected_member = mate
         if "_" in which:
             scr.tab = which.split("_", 1)[1]
-    elif which in ("inventory", "inventory_discard", "inventory_confirm"):
+    elif which in ("inventory", "inventory_discard", "inventory_confirm",
+                   "inventory_companion"):
         from entities.loot_generator import LootGenerator
         from entities.loot_item import LootItem
         from ui.screens.inventory_screen import InventoryScreen
@@ -86,7 +87,13 @@ def main():
         player.inventory.append(LootItem("qi", "Sister Mollis's Ledger",
                                          category="quest", quest_id="q1"))
         scr = InventoryScreen(sm)
-        scr.set_subject(player)
+        if which == "inventory_companion":
+            from entities.character import Character as _C2
+            _mate = _C2("Mate", "Priest", max(1, lvl))
+            party.add_member(_mate)
+            scr.set_subject(_mate)
+        else:
+            scr.set_subject(player)
         if which == "inventory_discard":
             scr.discard_mode = True
         if which == "inventory_confirm":

@@ -707,8 +707,23 @@ class InventoryScreen(BaseScreen):
         capacity = bag.inventory_capacity
         cap_color = (220, 120, 90) if used >= capacity else COLOR_GOLD
         bag_label = "Backpack" if bag is subject else f"{bag.name}'s Backpack"
-        self.renderer.draw_text(screen, f"{bag_label} ({used}/{capacity})",
-                                (INV_START_X, 30), color=cap_color)
+        # Truncated to the gap before the Gear tab. Gearing a companion makes
+        # this label carry the owner's NAME, and the longer string ran straight
+        # under the tab button - "Hero's Backpack (6/24)" already overlapped,
+        # and recruits with real names ("Codex-Master Ilarien Duskwaking") are
+        # far longer than that. Measured against the tab's actual left edge
+        # rather than a guessed width, so moving the tabs cannot re-break it.
+        # Sits on the Discard row, not above it. At y=30 there are only ~110px
+        # before the Gear tab, which fits "Backpack (6/24)" and nothing longer
+        # - and truncating to fit ate the "(6/24)", which is the one number
+        # that matters when the bag is filling up mid-dungeon. Beside the
+        # Discard button there is three times the room, so the count survives
+        # even for a recruit with a long name.
+        bag_text = f"{bag_label} ({used}/{capacity})"
+        bag_x = self.discard_button.right + 14
+        bag_text = self.renderer.truncate(bag_text, max(80, SCREEN_WIDTH - 200 - bag_x))
+        self.renderer.draw_text(screen, bag_text, (bag_x, self.discard_button.y + 6),
+                                color=cap_color)
 
         # Discard toggle. Red and obviously armed when active, because the
         # next bag click destroys something and the player must be able to
