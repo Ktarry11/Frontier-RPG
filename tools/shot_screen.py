@@ -69,6 +69,23 @@ def main():
         scr.selected = player
         if hasattr(scr, "selected_member"):
             scr.selected_member = player
+    elif which in ("inventory", "inventory_discard", "inventory_confirm"):
+        from entities.loot_generator import LootGenerator
+        from entities.loot_item import LootItem
+        from ui.screens.inventory_screen import InventoryScreen
+        gen = LootGenerator()
+        for slot in ("chest", "legs", "head", "hands", "feet"):
+            it = gen.generate_item_for_class(cls, max(1, lvl), slot=slot)
+            if it is not None:
+                player.inventory.append(it)
+        player.inventory.append(LootItem("qi", "Sister Mollis's Ledger",
+                                         category="quest", quest_id="q1"))
+        scr = InventoryScreen(sm)
+        scr.set_subject(player)
+        if which == "inventory_discard":
+            scr.discard_mode = True
+        if which == "inventory_confirm":
+            scr.pending_destroy_item = player.inventory[-1]
     elif which == "journal":
         # Real quests from the real manager - the point is to see the con
         # colours against a real spread of quest levels, which a stub cannot

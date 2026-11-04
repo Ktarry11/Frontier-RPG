@@ -108,6 +108,25 @@ class InventoryScreen(BaseScreen):
         self.destroy_yes_button = pygame.Rect(SCREEN_WIDTH // 2 - 180, SCREEN_HEIGHT // 2 + 40, 160, 50)
         self.destroy_no_button = pygame.Rect(SCREEN_WIDTH // 2 + 20, SCREEN_HEIGHT // 2 + 40, 160, 50)
 
+        #: DISCARD MODE. Kyle, 4 Nov 2026: "We need a discard button for items
+        #: so we can trash them. Like if our bags fill up mid dungeon", and
+        #: then: "Allow quest items to be destroyed too."
+        #:
+        #: A MODE rather than a per-item button, because a plain click on a bag
+        #: slot already means four different things depending on what is in it -
+        #: equip the gear, learn the recipe scroll, open the quest offer on a
+        #: starter item, or confirm-destroy anything else. Hanging discard off
+        #: that click would need a fifth special case per type, and the two
+        #: types that already steal the click (recipe scrolls and quest
+        #: starters) could never be discarded at all - which is exactly the gap
+        #: Kyle hit on quest items.
+        #:
+        #: With a mode, ONE check at the top of the slot handler covers every
+        #: item in the bag uniformly, and nothing needs to know what type it is.
+        #: It clears itself after a single discard so it cannot be left armed.
+        self.discard_mode = False
+        self.discard_button = pygame.Rect(INV_START_X, 62, 150, 30)
+
         # Gear/Materials tab toggle (Gathering Phase 1). Materials get
         # their own tab rather than sharing the gear backpack grid -
         # they're a different List (Character.materials, not .inventory),
@@ -143,6 +162,7 @@ class InventoryScreen(BaseScreen):
         self.equip_error = None
         self.selected_item = None
         self.pending_destroy_item = None
+        self.discard_mode = False
         self.active_tab = "gear"
         if return_state is not None:
             self.return_state = return_state
@@ -337,6 +357,12 @@ class InventoryScreen(BaseScreen):
             if self.pending_destroy_item is not None:
                 self.pending_destroy_item = None
                 return
+            if self.discard_mode:
+                # Escape disarms rather than closing the bag - leaving the
+                # screen with discard still armed is how an accidental
+                # destroy happens on the next visit.
+                self.discard_mode = False
+                return
             self._close()
             return
 
@@ -350,7 +376,17 @@ class InventoryScreen(BaseScreen):
             if self.pending_destroy_item is not None:
                 if self.destroy_yes_button.collidepoint(mouse_pos):
                     item = self.pending_destroy_item
-                    if item in subject.inventory:
+                    # Remove from the bag the GRID DREW FROM, not from
+                    # subject.inventory. Gearing a companion draws the PLAYER's
+                    # bag (see _bag_source), so removing from the subject found
+                    # nothing, left the item sitting in the player's bag, and
+                    # still reported "destroyed." A silent no-op with a success
+                    # message - the same two-lists-one-job shape as the unequip
+                    # void bug on 2 Nov.
+                    bag = self._bag_source(subject)
+                    if item in bag.inventory:
+                        bag.inventory.remove(item)
+                    elif item in subject.inventory:
                         subject.inventory.remove(item)
                     self.pending_destroy_item = None
                     self.equip_error = f"{item.name} destroyed."
@@ -363,20 +399,28 @@ class InventoryScreen(BaseScreen):
                 self._close()
                 return
 
+            if self.discard_button.collidepoint(mouse_pos) and self.active_tab == "gear":
+                self.discard_mode = not self.discard_mode
+                self.selected_item = None
+                return
+
             # Tab toggle - checked before any gear/bag click handling
             # below, and returns immediately either way so a tab click
             # never also falls through and hits a gear slot underneath it.
             if self.gear_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "gear"
                 self.selected_item = None
+                self.discard_mode = False
                 return
             if self.materials_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "materials"
                 self.selected_item = None
+                self.discard_mode = False
                 return
             if self.consumables_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "consumables"
                 self.selected_item = None
+                self.discard_mode = False
                 return
 
             # Consumables tab: a click USES the thing, unlike the materials
@@ -435,6 +479,17 @@ class InventoryScreen(BaseScreen):
             for i, rect in enumerate(self.inventory_rects):
                 if rect.collidepoint(mouse_pos) and i < len(bag.inventory):
                     item = bag.inventory[i]
+
+                    # DISCARD MODE WINS, before any type-specific handling.
+                    # This single line is what makes gear, recipe scrolls and
+                    # quest-starter items discardable - all three previously
+                    # consumed the click for something else and could never be
+                    # trashed. Kyle: "Allow quest items to be destroyed too."
+                    if self.discard_mode:
+                        self.pending_destroy_item = item
+                        self.discard_mode = False
+                        return
+
                     if not getattr(item, "is_gear", True):
                         # Recipe scroll: right-click to learn the recipe it contains.
                         if getattr(item, "recipe_id", None):
@@ -654,6 +709,23 @@ class InventoryScreen(BaseScreen):
         bag_label = "Backpack" if bag is subject else f"{bag.name}'s Backpack"
         self.renderer.draw_text(screen, f"{bag_label} ({used}/{capacity})",
                                 (INV_START_X, 30), color=cap_color)
+
+        # Discard toggle. Red and obviously armed when active, because the
+        # next bag click destroys something and the player must be able to
+        # tell at a glance that the bag is in that state.
+        if self.discard_mode:
+            btn_bg, btn_border, btn_fg = (90, 30, 30), (230, 110, 110), (255, 220, 220)
+            btn_label = "Click an item"
+        else:
+            btn_bg, btn_border, btn_fg = (40, 30, 30), (140, 100, 100), (210, 170, 170)
+            btn_label = "Discard"
+        pygame.draw.rect(screen, btn_bg, self.discard_button)
+        pygame.draw.rect(screen, btn_border, self.discard_button, 2 if self.discard_mode else 1)
+        lw = self.renderer._get_font(font_size=16).size(btn_label)[0]
+        self.renderer.draw_text(screen, btn_label,
+                                (self.discard_button.centerx - lw // 2,
+                                 self.discard_button.y + 7),
+                                color=btn_fg, font_size=16)
 
         # MONEY LIVES HERE TOO, NOT ONLY AT A VENDOR. Kyle, 2 Nov: "we need to
         # be able to see our copper, silver, and gold in our inventory
@@ -988,6 +1060,19 @@ class InventoryScreen(BaseScreen):
                                 color=item.get_rarity_color())
         self.renderer.draw_text(screen, "This cannot be undone.", (box.x + 20, box.y + 90),
                                 color=(200, 140, 140), size="small")
+
+        # Quest items ARE destroyable, per Kyle, but silently letting one go
+        # can stall a quest the player is carrying - so the warning is shown
+        # rather than the action being blocked. Covers both a turn-in
+        # objective (quest_id) and a drop that would have STARTED a quest
+        # (starts_quest_id), which is the one that cannot be re-offered from
+        # the bag once it is gone.
+        if getattr(item, "starts_quest_id", None):
+            self.renderer.draw_text(screen, "This item would start a quest.",
+                                    (box.x + 20, box.y + 112), color=COLOR_GOLD, size="small")
+        elif getattr(item, "quest_id", None) or getattr(item, "category", None) == "quest":
+            self.renderer.draw_text(screen, "Quest item - you may need to find another.",
+                                    (box.x + 20, box.y + 112), color=COLOR_GOLD, size="small")
 
         self.renderer.draw_button(screen, self.destroy_yes_button, "Destroy")
         self.renderer.draw_button(screen, self.destroy_no_button, "Cancel")
