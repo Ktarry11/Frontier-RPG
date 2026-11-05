@@ -1,8 +1,8 @@
 {
   "spec_name": "Venomancer Vizier",
   "tree_id": "venomancer_vizier",
-  "description": "Restorative caster - mends allies with venom-born medicine. Tree of Life-equivalent spec; Vizier Form is this spec's shapeshift.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 10 confirmed Vizier nodes expanded slightly to a 12-node tree (a couple class-wide-flavored 'Other' bucket abilities folded in, matching Storm Ascendance's precedent from Stormbringer) since Vizier's real source list was noticeably smaller than the other 3 specs. Shadra's Vigil confirmed via tooltip as the capstone: 'Healing done by Serpent's Fang now applies Shadra's Vigil to allies. The next 5 instances of periodic healing by you on this target will heal them for an additional 10% of the value.'",
+  "description": "Shadra's grace - a healer who turns Intellect into crit and healing power both.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 39 real CoA Vizier talents (role Healer), completing Venomancer - the worst-measuring class of the 14 that remained, at 88.9% scalar-only across four specs. Spiritual Healing ports whole: crit_chance_spell and healing_power are both legal conversion targets from intellect. Almost every ability this tree names already exists in Frontier (only Shadra's Aid is missing), so it needed far less re-pointing than Wind or Stalking. Not buildable: CHARGES (Alkahest is charge-based in CoA and four talents refresh one - every such talent becomes a cooldown reset), 'your next N casts are free', per-stack reads, and Ritual Healing's four-resource timer.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,449 +14,620 @@
   },
   "nodes": [
     {
-      "talent_id": "venomancer_vizier_worship",
-      "name": "Worship",
-      "description": "Increases healing done by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
-      "connected_to": [
-        "venomancer_vizier_venom_glands"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_extraction",
-      "name": "Extraction",
-      "description": "Reduces the Mana cost of Serpent's Fang and Green Salve by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_venomancer_serpents_fang_cost_pct": 0.03,
-        "ability_venomancer_green_salve_cost_pct": 0.03
-      },
-      "connected_to": [
-        "venomancer_vizier_mending_mist"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_shadras_presence",
-      "name": "Shadra's Presence",
-      "description": "Increases maximum Mana by 2% per rank.",
+      "talent_id": "venomancer_vizier_spiritual_healing",
+      "name": "Spiritual Healing",
+      "description": "Increases your spell critical strike chance by 20% of your Intellect and your healing power by 20% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 5,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.02
+        "crit_chance_spell_from_intellect_pct": 0.0667,
+        "healing_power_from_intellect_pct": 0.0667
       },
       "connected_to": [
-        "venomancer_vizier_blight_antidote"
-      ]
+        "venomancer_vizier_fang_blessing"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your spell critical strike rating and your healing power by 20% of your Intellect.' PORTS WHOLE - crit_chance_spell and healing_power are both in STAT_CONVERSION_TARGETS and intellect is in STAT_CONVERSION_SOURCES, so both halves are legal and CoA's 20% is kept exactly. Both are FRACTIONS. The same pairing that made the Witch Doctor's Spirit Healer the cleanest node in Brewing."
+    },
+    {
+      "talent_id": "venomancer_vizier_fang_blessing",
+      "name": "Fang Blessing",
+      "description": "Increases your spell critical strike chance by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_spell": 2
+      },
+      "connected_to": [
+        "venomancer_vizier_bountiful_gifts"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your critical strike chance by 3%.' Doubled for the two ranks and routed to the spell side, which is every ability this spec casts. PERCENT, unlike the conversion above it which is a fraction."
+    },
+    {
+      "talent_id": "venomancer_vizier_bountiful_gifts",
+      "name": "Bountiful Gifts",
+      "description": "Increases the healing of Shadra's Prayer, Green Salve and Alkahest by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_shadras_prayer_healing": 0.0667,
+        "ability_venomancer_green_salve_healing": 0.0667,
+        "ability_venomancer_alkahest_healing": 0.0667
+      },
+      "connected_to": [
+        "venomancer_vizier_advisors_perfidy"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the healing of Shadra's Prayer, Green Salve, and Alkahest by 10%.' Doubled for the two ranks. All three abilities exist in Frontier - CoA names this trio together repeatedly, so they are kept as a group."
+    },
+    {
+      "talent_id": "venomancer_vizier_advisors_perfidy",
+      "name": "Advisor's Perfidy",
+      "description": "Increases the healing of Serpent's Fang, Mending Mist and Shadra's Balm by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_serpents_fang_healing": 0.0667,
+        "ability_venomancer_mending_mist_healing": 0.0667,
+        "ability_venomancer_shadras_balm_healing": 0.0667
+      },
+      "connected_to": [
+        "venomancer_vizier_venom_glands"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the bonus healing scaling of Serpent's Fang, Mending Mist, and Shadra's Balm by 10%.' Doubled for the two ranks. There is no key for how much an ability scales with healing power - the coefficients live on the abilities - so it is expressed as healing. CoA's second trio, kept as a group."
     },
     {
       "talent_id": "venomancer_vizier_venom_glands",
       "name": "Venom Glands",
-      "description": "Increases Serpent's Fang healing by 4% per rank.",
+      "description": "Increases your healing done by 15%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 5
+      },
+      "connected_to": [
+        "venomancer_vizier_fangbinder"
+      ],
+      "_source": "CoA verbatim: 'Increases your healing done by 15% on allies below 35% health or if they are Poisoned.' NEITHER CONDITION CAN BE READ - no effect key reads a target's health percentage, and none reads whether a target carries a debuff - so CoA's 15% applies always. healing_power_pct takes percentage POINTS (character.py:1295), unlike max_mana_pct which is raw."
+    },
+    {
+      "talent_id": "venomancer_vizier_fangbinder",
+      "name": "Fangbinder",
+      "description": "Increases the healing of Serpent's Fang by 50%.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_venomancer_serpents_fang_healing": 0.1667
+      },
+      "connected_to": [
+        "venomancer_vizier_mycelial_healing"
+      ],
+      "_source": "CoA verbatim: 'Increases the healing of Serpent's Fang by 50% and Serpent's Fang can no longer miss.' The healing half ports exactly. 'Can no longer miss' has no key - there is no per-ability hit guarantee, only the attacker's hit_rating - so it is dropped. Serpent's Fang is the spec's attack-that-heals, which is why a healer tree keeps buffing it."
+    },
+    {
+      "talent_id": "venomancer_vizier_mycelial_healing",
+      "name": "Mycelial Healing",
+      "description": "Your heals build mycelium, raising your healing done by 1% per stack for 10 turns, stacking 8 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_soothing_venoms"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomancer_mycelial_healing",
+          "name": "Mycelial Healing",
+          "effect_type": "buff",
+          "duration": 10,
+          "max_stacks": 8,
+          "stat_mods": {
+            "healing_power_pct": 1.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'All effective healing done now increases your periodic healing done to an ally by 1% for 30 seconds, stacking 8 times.' PORTS CLOSELY - on_heal_cast is the right trigger, CoA's 1% and 8 stacks are kept, and 30 sec is 10 turns. The buff lands on the CASTER rather than per-ally, because a proc's apply_effect cannot be tracked per recipient. CoA's Mycelial Replenishment consumes these stacks for a burst, which needs a stack count read and a consume payload - neither exists - so that node is rebuilt differently at tier 5."
+    },
+    {
+      "talent_id": "venomancer_vizier_soothing_venoms",
+      "name": "Soothing Venoms",
+      "description": "Increases the critical healing of Shadra's Prayer by 50%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_serpents_fang_healing": 0.04
+        "ability_venomancer_shadras_prayer_crit_damage": 0.1667
       },
       "connected_to": [
-        "venomancer_vizier_worship"
-      ]
+        "venomancer_vizier_the_antidote"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical healing of Shadra's Prayer by 25%.' Doubled for the two ranks. ability_*_crit_damage is the key that scales a critical heal as well as a critical hit - there is no separate crit_healing key - and it is a FRACTION."
     },
     {
-      "talent_id": "venomancer_vizier_mending_mist",
-      "name": "Mending Mist",
-      "description": "Learn Mending Mist, a party-wide heal-over-time cloud.",
-      "node_type": "active",
+      "talent_id": "venomancer_vizier_the_antidote",
+      "name": "The Antidote",
+      "description": "Increases the duration of Rejuvenating Venom by 1 turn and its healing by 20%.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "venomancer_mending_mist"
+        "ability_venomancer_rejuvenating_venom_duration": 1,
+        "ability_venomancer_rejuvenating_venom_healing": 0.2
       },
       "connected_to": [
-        "venomancer_vizier_extraction",
-        "venomancer_vizier_serpent_lords_ritual"
-      ]
+        "venomancer_vizier_ritualistic"
+      ],
+      "_source": "CoA verbatim: 'Increases the duration of Rejuvenating Venom by 2 sec and increases its tick rate by -30%.' 2 sec is a turn. Tick rate has no meaning per-turn, so that 30% becomes healing - what a faster tick delivers. The small integer duration keeps this node out of the rank policy's reach."
     },
     {
-      "talent_id": "venomancer_vizier_blight_antidote",
-      "name": "Blight Antidote",
-      "description": "Learn Blight Antidote, removing a Poison or Disease effect from an ally.",
-      "node_type": "active",
+      "talent_id": "venomancer_vizier_ritualistic",
+      "name": "Ritualistic",
+      "description": "Casting Green Salve restores some of your mana.",
+      "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_blight_antidote"
-      },
+      "effects": {},
       "connected_to": [
-        "venomancer_vizier_shadras_presence"
-      ]
+        "venomancer_vizier_alkahest_mastery"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_green_salve"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Green Salve now also refunds you 20% of your base mana.' grant_resource takes a FLAT `amount` only - there is no percentage-of-maximum form - so 20% cannot scale with level. 60 is roughly 20% of a mid-level Venomancer's pool and less at 60, the same compromise made on the Witch Doctor's Spiritual Devotee."
     },
     {
-      "talent_id": "venomancer_vizier_serpent_lords_ritual",
-      "name": "Serpent Lord's Ritual",
-      "description": "Learn Vizier Form, a shapeshift that increases healing done and reduces healing costs.",
-      "node_type": "active",
+      "talent_id": "venomancer_vizier_alkahest_mastery",
+      "name": "Alkahest",
+      "description": "Increases the healing of Alkahest by 40% and reduces its cooldown by 25%.",
+      "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_alkahest_healing": 0.1333,
+        "ability_venomancer_alkahest_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "venomancer_vizier_good_venom"
+      ],
+      "_source": "CoA verbatim: 'Bless an ally with Shadra's grace, healing them and extending the duration of Shadra's Prayer on them by 9 sec. 2 Charges, 12 sec recharge.' Frontier HAS Alkahest, so this is not its unlock - the shipped tree's unlock node for it did nothing, since Alkahest is not requires_talent. THERE IS NO CHARGE SYSTEM, so the two charges become a shorter cooldown, and the duration extension on another effect has no payload. POSITIVE on a _cooldown_pct reduces."
+    },
+    {
+      "talent_id": "venomancer_vizier_good_venom",
+      "name": "Good Venom",
+      "description": "Rejuvenating Venom splashes 50% of its healing onto the worst-off ally.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_worship"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_rejuvenating_venom"
+        ],
+        "splash_heal": {
+          "pct": 0.5,
+          "max_targets": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Rejuvenating Venom will now affect 1 additional nearby ally.' NO KEY ADDS TARGETS TO AN ABILITY, so it becomes splash_heal at CoA's one extra ally. splash_heal already prioritises the worst-off ally, which is what a healer wants. CoA's Spirit of the Jungle ('increases the proc chance of Rejuvenating Venom by 10%') modifies the ability's own internal proc rate, which no key reaches, and is not built."
+    },
+    {
+      "talent_id": "venomancer_vizier_worship",
+      "name": "Worship",
+      "description": "Your critical heals raise your healing done by 10% for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_shadras_presence"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomancer_worship",
+          "name": "Worship",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "healing_power_pct": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Allows all critical heals to increase periodic healing the target receives from you by 10% for 5 sec.' on_crit fires on a critical HEAL as well as a hit, so the trigger is right. The buff lands on the caster rather than per-target, since a proc cannot track a per-recipient modifier. CoA's 10% kept; 5 sec is 2 turns. INSIDE A STATUS EFFECT healing_power_pct is still percentage POINTS, same as on a talent - unlike healing_taken_pct below, which flips."
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_presence",
+      "name": "Shadra's Presence",
+      "description": "Increases the healing you receive by 6%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "venomancer_vizier_form_ability"
+        "healing_taken_pct": 0.02
       },
       "connected_to": [
-        "venomancer_vizier_mending_mist",
+        "venomancer_vizier_melioration"
+      ],
+      "_source": "CoA verbatim: 'Allies within 100 yds receive 6% more healing. Does not stack with similar effects. In addition, your Antivenom now dispels 1 additional effect.' A TALENT CANNOT REACH AN ALLY - get_talent_effects() reads only the character's own trees - so the 6% lands on the Venomancer and the description says 'you'. No key changes how many effects a dispel removes. AS A TALENT EFFECT healing_taken_pct is a FRACTION, so 6% is 0.06; inside a status effect the same key is percentage POINTS, which is the flip that briefly shipped 1000% on Bloodmage Eternal."
+    },
+    {
+      "talent_id": "venomancer_vizier_melioration",
+      "name": "Melioration",
+      "description": "Serpent's Fang resets the cooldown of Alkahest.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_lifemender"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "reset_cooldown": [
+          "venomancer_alkahest"
+        ]
+      },
+      "_source": "CoA verbatim: 'Your Serpent's Fang now refreshes a charge of Alkahest.' There is no charge system, so refreshing a charge becomes a full cooldown reset - the single-charge equivalent, the same translation as Guardian Gladiator's Supremacy. reset_cooldown as a BARE LIST means a full reset. on_damage_cast because Serpent's Fang is an attack that happens to heal."
+    },
+    {
+      "talent_id": "venomancer_vizier_lifemender",
+      "name": "Lifemender",
+      "description": "Serpent's Fang splashes 45% of its healing across up to 3 of the worst-off allies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_venomcult_scrolls"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "splash_heal": {
+          "pct": 0.45,
+          "max_targets": 3
+        }
+      },
+      "_source": "CoA verbatim: 'Your Serpent's Fang now heals up to 5 additional nearby allies and Alkahest now heals an additional nearby target.' splash_heal carries the first half; 3 targets rather than CoA's 5, because a flat-percentage splash across five is the strongest raid heal in the tree and this is only tier 3. The Alkahest half would need a second proc on a different filter and is dropped rather than merged, since one proc's splash fires on its own trigger."
+    },
+    {
+      "talent_id": "venomancer_vizier_venomcult_scrolls",
+      "name": "Venomcult Scrolls",
+      "description": "Increases the healing of Green Salve by 50% and reduces its cooldown by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_green_salve_healing": 0.1667,
+        "ability_venomancer_green_salve_cooldown_pct": 0.0667
+      },
+      "connected_to": [
         "venomancer_vizier_widows_watch"
-      ]
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of Green Salve by -2 sec and increases the healing done at the end of the duration by 50%.' The 50% ports; there is no key for healing 'at the end of the duration' specifically, so it applies to the ability's healing. 2 sec is expressed as 20% against its own cooldown. CoA's Book of Shadra ('doubles the duration, cooldown and healing of Green Salve, and it now seeks another ally every 6 sec') needs a periodic retarget and is not built."
     },
     {
       "talent_id": "venomancer_vizier_widows_watch",
       "name": "Widow's Watch",
-      "description": "Increases Mending Mist healing by 8% per rank.",
+      "description": "Increases the healing of Mending Mist by 40%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_mending_mist_healing": 0.08
+        "ability_venomancer_mending_mist_healing": 0.1333
       },
       "connected_to": [
-        "venomancer_vizier_serpent_lords_ritual",
-        "venomancer_vizier_alkahest"
-      ]
+        "venomancer_vizier_sage"
+      ],
+      "_source": "CoA verbatim: 'Allies affected by Shadra's Balm now have a 20% increased chance to resist poison and curse effects.' THERE IS NO RESIST-CHANCE KEY for a debuff school - the only duration-reduction key is stun_duration_reduction_pct, read solely against is_stun effects - so nothing of this talent is buildable as written. Re-pointed at Mending Mist, the spec's party heal (target_type 'party', so it genuinely reaches every ally), keeping the node in the raid-support half of the tree."
     },
     {
-      "talent_id": "venomancer_vizier_alkahest",
-      "name": "Alkahest Infusion",
-      "description": "While in Vizier Form, increases all healing you do by 2% per rank.",
+      "talent_id": "venomancer_vizier_sage",
+      "name": "Sage",
+      "description": "Alkahest splashes 40% of its healing onto the worst-off ally.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_toxic_communion"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_alkahest"
+        ],
+        "splash_heal": {
+          "pct": 0.4,
+          "max_targets": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Direct healing done by Alkahest now spreads an active Shadra's Balm from the primary target to a nearby ally.' SPREADING AN EXISTING EFFECT TO A NEW TARGET IS NOT A PAYLOAD - apply_effect lands on the trigger's own target - the same wall that turned the Witch Doctor's Malignant into a splash. Built as the extra healing the spread delivered."
+    },
+    {
+      "talent_id": "venomancer_vizier_toxic_communion",
+      "name": "Toxic Communion",
+      "description": "Increases the duration of Shadra's Balm and Mending Mist by 1 turn.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_venomancer_shadras_balm_duration": 1,
+        "ability_venomancer_mending_mist_duration": 1
+      },
+      "connected_to": [
+        "venomancer_vizier_venom_fanatic"
+      ],
+      "_source": "CoA verbatim: 'Extend the duration of Shadra's Balm and Mending Mist by 15 sec on all allies within 30 yds.' No payload extends a live effect, so it is built as a flat duration bonus on both abilities - which, because Mending Mist is target_type 'party', does reach every ally. 15 sec would be 5 turns; held to 1 so one node is not worth more than the rest of the tier combined. The small integers keep this node out of the rank policy."
+    },
+    {
+      "talent_id": "venomancer_vizier_venom_fanatic",
+      "name": "Venom Fanatic",
+      "description": "Serpent's Fang splashes 50% of its damage onto up to 2 nearby enemies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "healing_done": 0.02
-      },
+      "effects": {},
       "connected_to": [
-        "venomancer_vizier_widows_watch",
-        "venomancer_vizier_shadras_vigil"
+        "venomancer_vizier_sublime_extraction"
       ],
-      "require_form": [
-        "vizier_form"
-      ]
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "splash_damage": {
+          "pct": 0.5,
+          "max_targets": 2,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Serpent's Fang now strikes 2 additional nearby enemies.' No key adds targets, so splash_damage at CoA's two. A healer tree carrying a damage node is correct here: Serpent's Fang both damages and heals, and three other nodes in this tree already buff it."
     },
     {
-      "talent_id": "venomancer_vizier_shadras_vigil",
-      "name": "Shadra's Vigil",
-      "description": "Healing with Serpent's Fang grants Shadra's Vigil, increasing your healing done by 10% for 4 turns.",
+      "talent_id": "venomancer_vizier_sublime_extraction",
+      "name": "Sublime Extraction",
+      "description": "Casting Green Salve resets the cooldown of Serpent's Fang.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_occultist"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_green_salve"
+        ],
+        "reset_cooldown": [
+          "venomancer_serpents_fang"
+        ]
+      },
+      "_source": "CoA verbatim: 'Casting Green Salve now resets the cooldown of Serpent's Fang and removes the cost of your next Serpent's Fang for 8 seconds.' The reset ports exactly. The free-next-cast half needs a charge counter, which does not exist - the same wall as Venom Weaving and Cycle of Rebirth, neither of which is built."
+    },
+    {
+      "talent_id": "venomancer_vizier_occultist",
+      "name": "Occultist",
+      "description": "Your heals have a 30% chance to reset the cooldown of Alkahest.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_mycelial_replenishment"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 10,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_green_salve",
+          "venomancer_serpents_fang"
+        ],
+        "reset_cooldown": [
+          "venomancer_alkahest"
+        ]
+      },
+      "_source": "CoA's level 40 passive: 'Casting Green Salve or Serpent's Fang now has a 30% chance to refresh a charge of Alkahest.' PORTS ALMOST EXACTLY - CoA's 30% and both named abilities, with the charge refresh becoming a cooldown reset as elsewhere. Deliberately stacks with Melioration at tier 3, which resets it outright off Serpent's Fang, as CoA's two do."
+    },
+    {
+      "talent_id": "venomancer_vizier_mycelial_replenishment",
+      "name": "Mycelial Replenishment",
+      "description": "Your critical heals restore mana and raise your critical healing by 20% for 3 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_vizier_serpent_lords_ritual"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 2,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 80
+        },
+        "apply_effect": {
+          "effect_id": "venomancer_mycelial_replenishment",
+          "name": "Mycelial Replenishment",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "crit_chance_spell": 20.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Increases your critical strike chance and critical healing done by 20% for 20 seconds and instantly restore 30% of your maximum mana, but consumes all stacks of Mycelial Healing on all nearby allies. While active, all periodic critical strikes heal for an additional 20% of the healing done.' The cost - consuming Mycelial Healing stacks - cannot be expressed, because no payload consumes stacks of an arbitrary effect and nothing reads the count. So the upside is granted without the trade, which is stated rather than hidden, and held behind a 2-turn internal cooldown so it is a cooldown rather than permanent. The mana is flat, since grant_resource has no percentage form."
+    },
+    {
+      "talent_id": "venomancer_vizier_shadras_aid",
+      "name": "Shadra's Aid",
+      "description": "Reduces all damage you take by 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "damage_taken_pct": -0.05
+      },
+      "connected_to": [
+        "venomancer_vizier_serpent_lords_ritual"
+      ],
+      "_source": "CoA verbatim: 'Envelop an ally in Shadra's grace, reducing all damage taken by -20% and causing direct damage taken to restore 3% maximum health for 15 seconds.' FRONTIER HAS NO SHADRA'S AID ABILITY - the only Vizier ability CoA names that does not exist - so this cannot be its unlock, and a talent cannot apply a buff to an ally. The mitigation lands on the Venomancer at a reduced 15%, which is the spec's only defensive node. BARE damage_taken_pct IS READ RAW, so 15% is -0.15 - authoring -15.0 would be a 1500% reduction, the immortality bug from Boltslinger's Evasive. CoA's Mycelial Synchronization ('casting Shadra's Aid on an ally also casts it on yourself') is moot once the ability does not exist."
+    },
+    {
+      "talent_id": "venomancer_vizier_serpent_lords_ritual",
+      "name": "Serpent Lord's Ritual",
+      "description": "Your heals have a 20% chance to draw on the Serpent Lord's Amulet, raising your haste by 20% for 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "venomancer_vizier_alkahest"
-      ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Vizier capstone.",
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 100,
-        "icd": 1,
-        "ability_filter": [
-          "venomancer_serpents_fang"
-        ],
-        "apply_effect": {
-          "effect_id": "shadras_vigil",
-          "name": "Shadra's Vigil",
-          "effect_type": "buff",
-          "duration": 4,
-          "stat_mods": {
-            "healing_done_pct": 10
-          },
-          "on_target": false,
-          "real_time_seconds": null
-        }
-      }
-    },
-    {
-      "talent_id": "venomancer_vizier_green_salve_mastery",
-      "name": "Green Salve Mastery",
-      "description": "Increases Green Salve healing by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -2,
       "effects": {
-        "ability_venomancer_green_salve_healing": 0.06
+        "ability_venomancer_mending_mist_healing": 0.3
       },
-      "connected_to": [
-        "venomancer_vizier_blight_antidote"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_lifeblood_mastery",
-      "name": "Lifeblood Mastery",
-      "description": "Increases the healing of Green Salve by 5% per rank and its duration by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_venomancer_green_salve_healing": 0.05,
-        "ability_venomancer_green_salve_duration": 1
-      },
-      "connected_to": [
-        "venomancer_vizier_green_salve_mastery"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_mending_venom",
-      "name": "Mending Venom",
-      "description": "Increases healing done by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
-      "connected_to": [
-        "venomancer_vizier_worship"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_restorative_glands",
-      "name": "Restorative Glands",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "venomancer_vizier_shadras_presence"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_swift_mending",
-      "name": "Swift Mending",
-      "description": "Reduces the Mana cost of your healing spells by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -4,
-      "effects": {
-        "heal_cost_pct": 0.03
-      },
-      "connected_to": [
-        "venomancer_vizier_extraction"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_venom_ward",
-      "name": "Venom Ward",
-      "description": "Increases your resistance to Nature damage by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "nature_resist_pct": 0.05
-      },
-      "connected_to": [
-        "venomancer_vizier_venom_glands"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_attuned_mending",
-      "name": "Attuned Mending",
-      "description": "Increases the healing of Mending Mist by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -2,
-      "effects": {
-        "ability_venomancer_mending_mist_healing": 0.05
-      },
-      "connected_to": [
-        "venomancer_vizier_mending_mist"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_shadras_grace",
-      "name": "Shadra's Grace",
-      "description": "Reduces Mana cost of your heals by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "heal_cost_pct": 0.02
-      },
-      "connected_to": [
-        "venomancer_vizier_widows_watch"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_communal_healing",
-      "name": "Communal Healing",
-      "description": "Your healing spells have a 20% chance per rank to also mend your most wounded ally for 80.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "venomancer_vizier_alkahest"
-      ],
+      "connected_to": [],
       "proc": {
         "trigger": "on_heal_cast",
         "chance": 20,
         "icd": 1,
-        "smart_heal": 80
-      }
-    },
-    {
-      "talent_id": "venomancer_vizier_venom_transmutation",
-      "name": "Venom Transmutation",
-      "description": "Increases healing done by 2% per rank while below 50% Mana.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
-      "effects": {
-        "low_mana_healing_pct": 0.02
+        "apply_effect": {
+          "effect_id": "venomancer_serpent_lords_amulet",
+          "name": "Serpent Lord's Amulet",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "on_target": false
+        }
       },
-      "connected_to": [
-        "venomancer_vizier_blight_antidote"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_serpents_grace",
-      "name": "Serpent's Grace",
-      "description": "While in Vizier Form, increases the healing of Serpent's Fang by 4% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_venomancer_serpents_fang_healing": 0.04
-      },
-      "connected_to": [
-        "venomancer_vizier_shadras_vigil"
-      ],
-      "require_form": [
-        "vizier_form"
-      ]
-    },
-    {
-      "talent_id": "venomancer_vizier_shadras_prayer",
-      "name": "Shadra's Prayer",
-      "description": "Learn Shadra's Prayer, bringing the glory of Shadra to an ally, healing them immediately and over time.",
-      "node_type": "active",
-      "tier": 0,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "unlock_ability": "venomancer_shadras_prayer"
-      },
-      "connected_to": [
-        "venomancer_vizier_worship"
-      ],
-      "_source": "Confirmed screenshot: Lvl 2, Vizier(1), 'healing them for 32, plus 5 every 3 sec for 24 sec.' Moved here from the class-wide kit - confirmed Vizier-locked, not class-wide as an earlier pass assumed. Vizier's real early-game heal."
-    },
-    {
-      "talent_id": "venomancer_vizier_alkahest_active",
-      "name": "Alkahest",
-      "description": "Learn Alkahest, blessing an ally with Shadra's grace, healing them and extending Shadra's Prayer.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "venomancer_alkahest"
-      },
-      "connected_to": [
-        "venomancer_vizier_serpent_lords_ritual"
-      ],
-      "_source": "Confirmed screenshot: Lvl 20, 2 Charges, 12 sec recharge, 'healing them for 152 and extending the duration of Shadra's Prayer on them by 9 sec.'"
-    },
-    {
-      "talent_id": "venomancer_vizier_shadras_balm",
-      "name": "Shadra's Balm",
-      "description": "Learn Shadra's Balm, enveloping an ally with a restorative balm that heals them over time.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "venomancer_shadras_balm"
-      },
-      "connected_to": [
-        "venomancer_vizier_widows_watch"
-      ],
-      "_source": "Confirmed screenshot: Lvl 24, 'healing them for 41 every 3 sec for 21 sec.'"
+      "_source": "CoA verbatim: 'Direct healing done now has a 5% chance to grant you 5 sec of Serpent Lord's Amulet. If already active, triggering this will instead extend its duration by 5 seconds. This cannot extend it past its maximum duration. Serpent Lord's Amulet increases your spell haste by 20% and reduces your mana costs by -50%.' CoA's 20% haste ports exactly. The mana-cost half is NOT built as part of the buff: there is no all-spell cost reduction key readable from a status effect, and halving every cost from a proc would be the strongest node in the class - so the capstone pays flat Mending Mist healing instead. No payload extends a live effect, so re-triggering refreshes rather than extends. The chance is raised from CoA's 5% to 20% because a 5% proc on a 3-turn buff would almost never be up in a turn-based fight."
     }
   ]
 }
