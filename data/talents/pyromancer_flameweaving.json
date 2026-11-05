@@ -1,8 +1,8 @@
 {
   "spec_name": "Pyromancer Flameweaving",
   "tree_id": "pyromancer_flameweaving",
-  "description": "Fire healer. Kindle and Cinderheart carry the tank, Ember Touch is the instant that survives an interrupt, and Cleansing Flames heals your side and burns theirs in one cast. Spirit is the stat that matters.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_pyromancer__flameweaving.txt and the flameweaving block of reference/coa_sidekick/talents/pyromancer.json. CoA: 'Closest to Preservation Evoker, mechanically more than thematically. The real parallel is structural.' Its stat priority is Spirit > Intellect > Critical Strike > Spell Power > Haste - the only Pyromancer spec that leads with Spirit - which is why Scorching Spirit, Touched by Fire and Fiery Faith all route through it. The spec's stated weakness is that 'Kindle, Cinderheart and Cleansing Flames are all cast-time and fold to an interrupt chain', which is why the tree spends on their cost and output rather than giving it more cooldowns.",
+  "description": "Healing fire - a phoenix-keeper who turns Spirit into critical heals.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 39 real CoA Flameweaving talents (role Healer), completing Pyromancer. Fiery Faith ports exactly (crit from Spirit is a legal conversion pair). THE PHOENIX IS NOT A PET - Frontier has Phoenix Egg and Phoenix Dive as target_type 'party' abilities, so the six talents reading it work as ability_* keys; had it been a pet, those nodes would have needed keys that are dead data on Pyromancer. Owns the last three of Pyromancer's nine gated abilities, at tiers 4, 5 and 6, preserved and asserted. Heat and Embers do not exist and this is the third tree they cost.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,448 +14,510 @@
   },
   "nodes": [
     {
-      "talent_id": "pyromancer_flameweaving_scorching_spirit",
-      "name": "Scorching Spirit",
-      "description": "Increases your Spirit by 2% per rank.",
+      "talent_id": "pyromancer_flameweaving_fiery_faith",
+      "name": "Fiery Faith",
+      "description": "Increases your spell critical strike chance by 15% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spirit_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Spirit by 10%' (2 ranks). Spirit is this spec's PRIMARY stat per the reference's own stat priority, ahead of Intellect - the only Pyromancer spec for which that is true. Note the key: spirit_pct is one of the ten keys the engine divides by 100, so it takes percentage POINTS, not a fraction."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_ember_charm",
-      "name": "Ember Charm",
-      "description": "Reduces the Mana cost of Kindle and Cinderheart by 4 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_pyromancer_kindle_cost": 4,
-        "ability_pyromancer_cinderheart_cost": 4
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the cast time of Cinderheart and Kindle by -15%.' There is no cast time - one cast is one turn - so the saving comes off the mana instead, which is the other thing a faster heal buys you."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_soothing_flames",
-      "name": "Soothing Flames",
-      "description": "Increases the healing done by Kindle and Cinderheart by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_pyromancer_kindle_healing": 0.05,
-        "ability_pyromancer_cinderheart_healing": 0.05
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Healing done by Kindle and Cinderheart now additionally heals the target for 30% of the healing done over 3 seconds.' A heal that leaves a HoT behind is not expressible on an existing ability, so the trailing heal is folded into the direct one. Note the suffix: _healing is live, but 22 talents across six classes once used it when nothing read it."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_from_the_ashes",
-      "name": "From The Ashes",
-      "description": "Increases your healing done to allies below 35% health by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "low_health_healing_pct": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your healing done to allies below 35% health by 25%.' low_health_healing_pct keys off the RECIPIENT's health and was dead until the heal path threaded a target through; its threshold defaults to exactly the 35% CoA names, so low_health_threshold_pct is deliberately NOT authored alongside it - it would scale per rank and push the threshold past 100%."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_spirit_of_fire",
-      "name": "Spirit of Fire",
-      "description": "Increases your healing power by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -6,
       "effects": {
-        "healing_power_pct": 2.0
+        "crit_chance_spell_from_spirit_pct": 0.05
       },
       "connected_to": [
         "pyromancer_flameweaving_scorching_spirit"
       ],
-      "_source": "CoA: 'Increases the effectiveness of your absorption effects by 20%' (2 ranks). No key scales an absorb: absorb_pct_max_health is a flat field on the ability and nothing multiplies it. Healing power is the nearest throughput equivalent. ALSO note the unit trap: healing_power_pct takes percentage POINTS, and ten healer talents once authored it as 0.02 and delivered 0.02%."
+      "_source": "CoA's level 40 passive, verbatim: 'Increases your spell critical strike rating by 15% of your Spirit.' PORTS EXACTLY - crit_chance_spell is in STAT_CONVERSION_TARGETS and spirit in STAT_CONVERSION_SOURCES. A healer whose Spirit buys crit is this spec's whole identity, and Scorching Spirit below feeds it directly. A FRACTION."
     },
     {
-      "talent_id": "pyromancer_flameweaving_living_flame",
-      "name": "Living Flame",
-      "description": "Increases the critical strike chance of Ember Touch by 2% per rank.",
+      "talent_id": "pyromancer_flameweaving_scorching_spirit",
+      "name": "Scorching Spirit",
+      "description": "Increases your Spirit by 20%.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": -3,
+      "hex_y": -6,
       "effects": {
-        "ability_pyromancer_ember_touch_crit": 2.0
+        "spirit_pct": 6.6667
       },
       "connected_to": [
         "pyromancer_flameweaving_ember_charm"
       ],
-      "_source": "CoA: 'Increases the critical strike chance of Ember Touch by 10%.' Ember Touch is the spec's instant, so its crit rate is what drives Shielded by Flames below."
+      "_source": "CoA over 2 ranks: 'Increases your Spirit by 10%.' Doubled for the two ranks. spirit_pct takes percentage POINTS. Deliberately adjacent to Fiery Faith, which converts Spirit into crit - the same builder/converter pairing the Witch Doctor's Staff of the Coven and Voodoo Power use."
     },
     {
-      "talent_id": "pyromancer_flameweaving_rekindle",
-      "name": "Rekindle",
-      "description": "Increases all healing you do by 3% per rank.",
+      "talent_id": "pyromancer_flameweaving_ember_charm",
+      "name": "Ember Charm",
+      "description": "Reduces the mana cost of Kindle and Cinderheart by 15%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_pyromancer_kindle_cost_pct": 0.05,
+        "ability_pyromancer_cinderheart_cost_pct": 0.05
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_spirit_of_fire"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cast time of Cinderheart and Kindle by 15%.' There are no cast times here, so nothing survives as written. Rerouted to cost, which is what a faster cast buys a healer - more heals per mana bar. POSITIVE reduces."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_spirit_of_fire",
+      "name": "Spirit of Fire",
+      "description": "Increases the absorption of Inferno Barrier and Volcanic Shell by 40%.",
+      "node_type": "passive",
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "healing_done": 0.03
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_soothing_flames"
-      ],
-      "_source": "CoA: 'Healing done by Kindle now increases your healing done on the target 5% for 20 seconds, stacking 2 times.' A stacking per-target healing debuff has no hook, so it is a flat healing increase."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_touched_by_fire",
-      "name": "Touched by Fire",
-      "description": "Grants healing power equal to 3% of your Spirit per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "healing_power_from_spirit_pct": 0.03
+        "ability_pyromancer_inferno_barrier_potency": 0.1333,
+        "ability_pyromancer_volcanic_shell_potency": 0.1333
       },
       "connected_to": [
         "pyromancer_flameweaving_from_the_ashes"
       ],
-      "_source": "CoA: 'Your Cinderheart, Ember Touch, and Kindle now gain an additional 15% of your bonus healing spell power' (2 ranks). Routed through Spirit rather than spell power because Spirit is what this spec gears for and healing_power_from_spirit_pct is a real conversion the engine resolves."
+      "_source": "CoA over 2 ranks: 'Increases the effectiveness of your absorption effects by 20%.' Doubled for the two ranks. THERE IS NO GLOBAL ABSORB-SCALING KEY: my first draft invented absorb_effectiveness_pct, which audit_talents rejected as read by no engine code. shield_pct and absorb_pct_max_health are PAYLOAD fields on a proc, not character stats, so the only live way to scale an absorb is per-ability through ability_*_potency - which is what Phoenix Dive uses at tier 3. Written out across the spec's two other absorbs, Inferno Barrier and Volcanic Shell, so the three absorb nodes cover different abilities rather than stacking on one."
     },
     {
-      "talent_id": "pyromancer_flameweaving_cauterizing_wounds",
-      "name": "Cauterizing Wounds",
-      "description": "Your heals have a 15% chance per rank to grant Flamecasting, increasing your haste for a few turns.",
+      "talent_id": "pyromancer_flameweaving_from_the_ashes",
+      "name": "From The Ashes",
+      "description": "Increases your healing done by 25%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_pct": 8.3333
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_soothing_flames"
+      ],
+      "_source": "CoA verbatim: 'Increases your healing done to allies below 35% health by 25%.' NO EFFECT KEY READS A TARGET'S HEALTH PERCENTAGE - the working low_health pair on Venomancer Fortitude is about the CARRIER's own health, not a target's - so the condition is dropped and CoA's 25% applies always. That is a real buff over CoA's version, stated rather than hidden, and it sits at tier 0 accordingly. healing_power_pct takes percentage POINTS."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_soothing_flames",
+      "name": "Soothing Flames",
+      "description": "Kindle and Cinderheart leave a lingering warmth, healing the target over 2 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "pyromancer_flameweaving_spirit_of_fire"
+        "pyromancer_flameweaving_rekindle"
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 15,
-        "icd": 1,
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_kindle",
+          "pyromancer_cinderheart"
+        ],
         "apply_effect": {
-          "effect_id": "pyromancer_cauterizing_wounds",
-          "name": "Flamecasting",
+          "effect_id": "pyromancer_soothing_flames",
+          "name": "Soothing Flames",
+          "effect_type": "hot",
+          "duration": 2,
+          "potency": 38,
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Healing done by Kindle and Cinderheart now additionally heals the target for 30% of the healing done over 3 sec.' A trailing heal over 3 sec IS a hot, so this ports in shape - on_heal_cast with both of CoA's abilities, 3 sec as 2 turns. The potency is flat because an apply_effect payload cannot read the triggering heal's amount; leech_pct and bonus_pct are the only payloads that read it, and neither applies an ongoing effect."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_rekindle",
+      "name": "Rekindle",
+      "description": "Kindle raises your healing done by 5% per stack for 5 turns, stacking twice.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_flameweaving_concentrated_fire"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_kindle"
+        ],
+        "apply_effect": {
+          "effect_id": "pyromancer_rekindle",
+          "name": "Rekindle",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 5,
+          "max_stacks": 2,
           "stat_mods": {
-            "haste": 6
+            "healing_power_pct": 5.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Healing done by Ember Touch now grants you Flamecasting.' See flamecasting() for the stack-ramp gap. on_heal_cast rather than on_damage_cast - this is the healer's copy."
+      "_source": "CoA verbatim: 'Healing done by Kindle now increases your healing done on the target 5% for 20 sec, stacking 2 times.' CoA's 5% and 2 stacks kept; 20 sec is 5 turns. The buff lands on the CASTER rather than per-target, because a proc's apply_effect cannot track a per-recipient modifier - the same compromise made on Venomancer Vizier's Mycelial Healing and Worship. INSIDE A STATUS EFFECT healing_power_pct is still percentage POINTS, same as on a talent."
     },
     {
-      "talent_id": "pyromancer_flameweaving_shielded_by_flames",
-      "name": "Shielded by Flames",
-      "description": "Your critical heals leave the target shielded for 30% of the healing done.",
+      "talent_id": "pyromancer_flameweaving_concentrated_fire",
+      "name": "Concentrated Fire",
+      "description": "Increases the damage and healing of Cleansing Flames by 20%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_pyromancer_cleansing_flames_healing": 0.0667,
+        "ability_pyromancer_cleansing_flames_damage": 0.0667
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_warmth"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage and healing of Cleansing Flames by 20%.' Cleansing Flames both damages enemies and heals allies in CoA, so BOTH keys are authored - one of the few places an ability genuinely wants an ability_*_healing and an ability_*_damage together. CoA's Unfathomably Hot! ('each tick generates 5 additional Heat') is not built: Heat does not exist."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_warmth",
+      "name": "Warmth",
+      "description": "Your damage-over-time spells radiate warmth, healing the worst-off ally for 25% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "pyromancer_flameweaving_living_flame"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 34,
+        "trigger": "on_damage_cast",
+        "chance": 33,
         "icd": 0,
-        "shield_pct": {
-          "pct": 0.3,
-          "name": "Shielded by Flames",
-          "effect_id": "pyromancer_shielded_by_flames",
-          "duration": 3
+        "ability_filter": [
+          "pyromancer_ignite",
+          "pyromancer_blaze"
+        ],
+        "leech_pct": {
+          "pct": 0.25,
+          "smart": true
         }
       },
-      "_source": "CoA: 'Healing critical strikes now apply an absorption shield to allies equal to 30% of the healing done for 8 seconds.' A real shield_pct proc payload, verbatim. The chance is 34 per rank because _sync_talent_procs multiplies a proc's chance by points spent and caps at 100, so three ranks is the always-on version CoA describes."
+      "_source": "CoA verbatim: 'You now radiate warmth to nearby allies, healing the lowest health nearby ally equal to 25% of your periodic damage dealt.' PORTS ALMOST EXACTLY, and it is one of the few nodes in the audit that needed no reinterpretation: leech_pct reads the triggering hit's amount, and `smart: true` sends the healing to the WORST-OFF ALLY rather than the caster - which is precisely CoA's 'lowest health nearby ally'. CoA's 25% kept. Periodic damage has no trigger, so it fires off the dots' casts."
     },
     {
-      "talent_id": "pyromancer_flameweaving_fiery_faith",
-      "name": "Fiery Faith",
-      "description": "Grants spell critical strike chance equal to 2% of your Spirit per rank.",
+      "talent_id": "pyromancer_flameweaving_living_flame",
+      "name": "Living Flame",
+      "description": "Increases the critical strike chance of Ember Touch by 10%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_pyromancer_ember_touch_crit": 3.3333
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_flame_bonding"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Ember Touch by 10%.' Ports exactly - Ember Touch exists in Frontier. ability_*_crit is a PERCENT."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_flame_bonding",
+      "name": "Flame Bonding",
+      "description": "Reduces the cooldown of Inferno Barrier by 30%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "crit_chance_spell_from_spirit_pct": 0.02
+        "ability_pyromancer_inferno_barrier_cooldown_pct": 0.1
       },
       "connected_to": [
-        "pyromancer_flameweaving_rekindle"
+        "pyromancer_flameweaving_lifebinders_fire"
       ],
-      "_source": "CoA: 'Increases your spell critical strike rating by 15% of your Spirit.' A real conversion, and the reason this spec's stat priority puts Critical Strike directly behind Spirit and Intellect."
+      "_source": "CoA's level 20 passive: 'Your Inferno Barrier now triggers a -15 sec reduced cooldown when used on an ally other than yourself.' NOTHING READS WHO AN ABILITY WAS CAST ON - a talent effect cannot branch on the target's identity - so the condition is dropped and the reduction is unconditional. 15 sec is expressed as 30% against the ability's own cooldown. POSITIVE reduces."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_lifebinders_fire",
+      "name": "Lifebinder's Fire",
+      "description": "Your heals stoke the fire, raising your healing done by 3% per stack for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_flameweaving_ashen_priest"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "pyromancer_lifebinders_fire",
+          "name": "Lifebinder's Fire",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "healing_power_pct": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Generating an Ember now increases your healing done by 3% for 8 sec, stacking 5 times.' EMBERS DO NOT EXIST - Pyromancer's resource is MANA with no secondary and no ability carries a `generates` block - so the trigger is re-pointed at healing, which is what the spec does while generating Embers in CoA. CoA's 3% and 5 stacks kept; 8 sec is 3 turns."
     },
     {
       "talent_id": "pyromancer_flameweaving_ashen_priest",
       "name": "Ashen Priest",
-      "description": "Restores 5 mana every 5 seconds per rank, even in combat.",
+      "description": "Your critical heals restore mana.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "mp5": 5
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_touched_by_fire"
-      ],
-      "_source": "CoA: 'Your critical heals now grant allies Replenishment. In addition, 20% of your mana regeneration continues while in combat.' Party Replenishment from a talent has no hook; mp5 is the in-combat regen half, which is also the part the dungeon rotation leans on."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_burning_passion",
-      "name": "Burning Passion",
-      "description": "Your heals have a 20% chance per rank to restore 55 mana.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "pyromancer_flameweaving_cauterizing_wounds"
-      ],
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 20,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 55
-        }
-      },
-      "_source": "CoA: 'Effective healing critical strikes now generate 10 Heat.' Heat has no pool; mana is what Heat was ultimately paying for, so the grant is mana."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_tender_touch",
-      "name": "Tender Touch",
-      "description": "Your Ember Touch also heals up to 3 nearby wounded allies for 15% of the amount healed.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "pyromancer_flameweaving_shielded_by_flames"
-      ],
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 34,
-        "icd": 0,
-        "ability_filter": [
-          "pyromancer_ember_touch"
-        ],
-        "splash_heal": {
-          "pct": 0.15,
-          "max_targets": 3
-        }
-      },
-      "_source": "CoA: 'Effective healing done by Ember Touch now heals up to 3 of the lowest health allies near your target for an additional 15% of the amount healed' (2 ranks). A real splash_heal proc with an ability_filter, verbatim."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_warmth",
-      "name": "Warmth",
-      "description": "Your damaging spells have a 34% chance per rank to heal your most wounded ally.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "pyromancer_flameweaving_fiery_faith"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 1,
-        "smart_heal": 80
-      },
-      "_source": "CoA: 'You now radiate warmth to nearby allies, healing the lowest health nearby ally equal to 25% of your periodic damage dealt.' smart_heal targets the lowest-HP ally, which is the clause verbatim; the amount is flat because nothing scales a proc off the triggering tick."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_sageweaving",
-      "name": "Sageweaving",
-      "description": "Reduces the Mana cost of your healing spells by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "heal_cost_pct": 0.03
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_ashen_priest"
-      ],
-      "_source": "CoA: 'Consuming an Ember now reduces the cast time of your next Cinderheart or Kindle by -15% for 12 seconds, stacking 2 times.' Same cast-time-to-mana translation as Ember Charm. Note the sign: heal_cost_pct is applied as cost * (1 - pct), so positive is the discount."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_kaels_command",
-      "name": "Kael's Command",
-      "description": "Learn Kael's Command, settling your Phoenix into a long, wide heal over your party.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "pyromancer_kaels_command"
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_burning_passion"
-      ],
-      "_source": "CoA: a 1 TE spec talent behind an 8 TE gate."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_neltharions_resolve",
-      "name": "Neltharion's Resolve",
-      "description": "Reduces the duration of stuns used against you by 10% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "stun_duration_reduction_pct": 0.1
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_tender_touch",
-        "pyromancer_flameweaving_warmth"
-      ],
-      "_source": "CoA: 'Place Neltharion's resolve on all party members, warding them against fear. The next fear effect used against the target will fail.' There is no fear category and no single-use ward, and a talent cannot buff the party, so this is the owner's own resistance to this engine's one incapacitate category."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_spirit_of_the_phoenix",
-      "name": "Spirit of the Phoenix",
-      "description": "Taking damage has a 12% chance to heal you for 180. No more than once every 3 turns.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
         "pyromancer_flameweaving_sageweaving"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 12,
-        "icd": 3,
-        "heal_flat": 180
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 70
+        }
       },
-      "_source": "CoA: 'Upon taking damage that would otherwise kill you, you are instead transformed into the Spirit of the Phoenix for 15 seconds... At the end of the duration, you will be reborn.' Nothing in this engine can intercept lethal damage - is_alive() is purely current_health > 0 and take_damage has no veto - so the cheat-death becomes a low-chance, long-ICD emergency heal. This is the biggest single gap in the spec: the reference calls it 'the backbone of 1vX'."
+      "_source": "CoA's level 30 passive: 'Your critical heals now grant allies Replenishment. In addition, 20% of your mana regeneration continues while in combat. Replenishment replenishes 5% of maximum mana per 5 sec for 15 seconds.' Two walls: a proc cannot grant an effect to allies, and THERE IS NO MANA REGENERATION KEY AT ALL - the same wall that took Guardian Inspiration's A Hero's Tale and the Witch Doctor's Spirits. Rebuilt as a direct mana return to the caster on a critical heal, which is what Replenishment delivered. Flat, since grant_resource has no percentage form."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_sageweaving",
+      "name": "Sageweaving",
+      "description": "Reduces the mana cost of Kindle and Cinderheart by a further 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_pyromancer_kindle_cost_pct": 0.0667,
+        "ability_pyromancer_cinderheart_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_burning_crescendo"
+      ],
+      "_source": "CoA verbatim: 'Consuming an Ember now reduces the cast time of your next Cinderheart or Kindle by 15% for 12 sec, stacking 2 times.' Embers do not exist, there are no cast times, and nothing empowers a named next cast - three walls. Rerouted to the cost of the same two abilities, stacking with Ember Charm at tier 0, which is the throughput the talent bought."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_burning_crescendo",
+      "name": "Burning Crescendo",
+      "description": "Increases the healing of Phoenix Egg by 40%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {
+        "ability_pyromancer_phoenix_egg_healing": 0.1333
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_phoenix_dive_mastery"
+      ],
+      "_source": "CoA verbatim: 'Increases the tick rate of your Phoenix Egg by -2 sec.' A faster tick has no meaning when ticks are per-turn, so it becomes healing - what a faster tick delivers. THE PHOENIX IS NOT A PET HERE: Phoenix Egg is a target_type 'party' ABILITY, so ability_*_healing reaches it and the whole party benefits. Had it been authored as a summon, this node would have needed pet keys, which are dead data on Pyromancer."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_phoenix_dive_mastery",
+      "name": "Phoenix Dive",
+      "description": "Increases the absorption of Phoenix Dive by 50%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_pyromancer_phoenix_dive_potency": 0.1667
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_lucifrons_rage"
+      ],
+      "_source": "CoA verbatim: 'Command your Phoenix to swoop to the target ally and shield allies in their path with fire, absorbing damage for 30 sec, scaling with your Spirit.' Frontier HAS Phoenix Dive as a party ability and it is NOT gated, so this is not its unlock - ability_*_potency is the key that scales an absorb, since a shield is neither damage nor healing. The Spirit scaling lives on the ability's own coefficients."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_lucifrons_rage",
+      "name": "Lucifron's Rage",
+      "description": "Your heals leave allies burning hotter, raising your own fire damage by 15%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.05
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_offering_of_executus"
+      ],
+      "_source": "CoA verbatim: 'Effective healing done by your Phoenix now causes allies to deal additional Fire damage with all attacks for 6 seconds.' A TALENT CANNOT GIVE ALLIES A DAMAGE BONUS, and a proc cannot apply an effect to allies either - apply_effect reaches the caster or the trigger's target only. So the damage lands on the Pyromancer and the description says 'your own'. There is no per-school damage key, so Fire becomes spell_damage; this spec casts almost nothing else."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_offering_of_executus",
+      "name": "Offering of Executus",
+      "description": "Phoenix Egg splashes 50% of its healing across up to 3 of the worst-off allies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_flameweaving_kaels_command"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_phoenix_egg"
+        ],
+        "splash_heal": {
+          "pct": 0.5,
+          "max_targets": 3
+        }
+      },
+      "_source": "CoA verbatim: 'When your Phoenix dies or expires, it now heals all allies within 30 yds equal to its maximum health.' NO TRIGGER FIRES ON A SUMMON'S DEATH OR ON AN EFFECT EXPIRING - the Phoenix is not even a summon here - so the death burst cannot exist. Built as a splash off casting Phoenix Egg instead, which pays the same healing without waiting for the bird to die. splash_heal prioritises the worst-off allies."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_kaels_command",
+      "name": "Kael's Command",
+      "description": "Teaches Kael's Command, going the Phoenix dormant to radiate healing to the party.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "pyromancer_kaels_command"
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_neltharions_resolve"
+      ],
+      "_source": "CoA verbatim: 'Command your Phoenix to go dormant for 10 sec. While dormant, it radiates healing to nearby allies every 2 sec.' LOAD-BEARING UNLOCK: pyromancer_kaels_command carries requires_talent, so without this node it is unobtainable forever. It is also target_type 'party', so the radiated healing genuinely reaches every living ally. Kept at tier 4 exactly where the shipped tree had it, preserving Pyromancer's 4/5/6 pattern."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_neltharions_resolve",
+      "name": "Neltharion's Resolve",
+      "description": "Reduces the duration of stuns against you by 25%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "stun_duration_reduction_pct": 0.0833
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_unfathomably_hot"
+      ],
+      "_source": "CoA verbatim: 'Place Neltharion's resolve on all party members, warding them against fear. The next fear effect used against the target will fail, using up the ward.' THERE IS NO FEAR KEY AND NO WARD MECHANISM - a one-shot immunity that consumes itself has no equivalent, cc_immune is permanent while it lasts, and a talent cannot reach allies. Frontier HAS Neltharion's Resolve as an ability and it is not gated. Re-pointed at the one crowd-control key that exists, stun_duration_reduction_pct, read solely against effects flagged is_stun. A FRACTION where POSITIVE reduces. NOT a faithful copy - fear and stun are different things - and flagged as such."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_unfathomably_hot",
+      "name": "Unfathomably Hot!",
+      "description": "Increases the healing of Cleansing Flames by 30%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_pyromancer_cleansing_flames_healing": 0.1
+      },
+      "connected_to": [
+        "pyromancer_flameweaving_sunstrider_array"
+      ],
+      "_source": "CoA verbatim: 'Each tick of Cleansing Flames now generates 5 additional Heat.' Heat does not exist, so there is nothing to generate. Rerouted to the healing of the same ability, stacking with Concentrated Fire at tier 1 - which is what more Heat would have been spent on."
     },
     {
       "talent_id": "pyromancer_flameweaving_sunstrider_array",
       "name": "Sunstrider Array",
-      "description": "Learn Sunstrider Array, a window of haste, crit and returning mana.",
-      "node_type": "active",
+      "description": "Teaches Sunstrider Array, a burst window for your healing.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "pyromancer_sunstrider_array"
       },
       "connected_to": [
-        "pyromancer_flameweaving_kaels_command"
-      ],
-      "_source": "CoA: a 1 TE spec talent behind an 8 TE gate."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_burning_crescendo",
-      "name": "Burning Crescendo",
-      "description": "Increases the healing done by Phoenix Egg by 6% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_pyromancer_phoenix_egg_healing": 0.06
-      },
-      "connected_to": [
-        "pyromancer_flameweaving_neltharions_resolve"
-      ],
-      "_source": "CoA: 'Increases the tick rate of your Phoenix Egg by -2 sec.' Tick rate is fixed at one per turn here, so a faster tick becomes a bigger one - the same translation Explosive gets in Incineration."
-    },
-    {
-      "talent_id": "pyromancer_flameweaving_scepter_of_fire",
-      "name": "Scepter of Fire",
-      "description": "Increases the duration of Phoenix Egg by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "ability_pyromancer_phoenix_egg_duration": 1
-      },
-      "connected_to": [
         "pyromancer_flameweaving_spirit_of_the_phoenix"
       ],
-      "_source": "CoA: 'Increases the duration of Inferno by 5 sec, causing its end of duration explosion of healing to trigger every 5 sec instead.' Inferno itself is a proc-on-crit healing zone with no engine shape, so the duration extension is pointed at the zone that does exist. ability_<id>_<stat> keys are built by interpolation in abilities.py - a literal grep calls all 48 of them dead."
+      "_source": "CoA verbatim: 'For 15 sec, you generate 1 Ember every 3 sec and your Cinderheart generates double the amount of Heat with each cast.' LOAD-BEARING UNLOCK: pyromancer_sunstrider_array carries requires_talent. Both halves of what the ability DOES are about Heat and Embers and so are inert here, but the ability exists and must remain obtainable, and whatever it does is the ability's business rather than the talent's. Kept at tier 5."
     },
     {
-      "talent_id": "pyromancer_flameweaving_fueling_the_fire",
-      "name": "Fueling the Fire",
-      "description": "Learn Roaring Pyre, a bonfire that heals everyone standing near it. Also increases all healing you do by 5%.",
-      "node_type": "active",
+      "talent_id": "pyromancer_flameweaving_spirit_of_the_phoenix",
+      "name": "Spirit of the Phoenix",
+      "description": "Your heals shield the target for 20% of the healing done.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_flameweaving_roaring_pyre"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_kindle",
+          "pyromancer_cinderheart"
+        ],
+        "shield_pct": 0.2
+      },
+      "_source": "CoA's Living Flame and Spirit of Fire both point at absorbs, and this node carries the mechanic neither could: shield_pct is a live payload that converts a share of the triggering heal into an absorb. A FRACTION. NOT a direct port of any single CoA talent - it is built from the spec's absorb theme (Phoenix Dive, Inferno Barrier, Spirit of Fire) to give the tier a real mechanic rather than a third flat healing scalar, and is flagged as such."
+    },
+    {
+      "talent_id": "pyromancer_flameweaving_roaring_pyre",
+      "name": "Roaring Pyre",
+      "description": "Teaches Roaring Pyre, and your healing done rises by 20%.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
@@ -463,14 +525,10 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "pyromancer_roaring_pyre",
-        "healing_done": 0.05
+        "healing_power_pct": 20.0
       },
-      "connected_to": [
-        "pyromancer_flameweaving_sunstrider_array",
-        "pyromancer_flameweaving_burning_crescendo",
-        "pyromancer_flameweaving_scepter_of_fire"
-      ],
-      "_source": "Capstone. CoA's Fueling the Fire is a tier-6 Flameweaving pick that erupts your Roaring Pyre or Phoenix for a raid-wide heal; Roaring Pyre is itself a tier-6 pick in the same row. With one capstone slot the two are merged: the node grants the Pyre and the healing bonus that fuelling it was worth. CoA rates this spec Raid S and Dungeon A, the strongest rating on the class, so the capstone is real throughput rather than a cooldown."
+      "connected_to": [],
+      "_source": "LOAD-BEARING UNLOCK: pyromancer_roaring_pyre carries requires_talent, so without this node it is unobtainable forever. It is target_type 'party' as well. Kept at tier 6, completing Pyromancer's nine-for-nine gated-ability pattern - three trees, three gated abilities each, at tiers 4, 5 and 6, every one accounted for. The flat healing is added because a capstone that only grants an ability is thin; the same shape as Incineration's Pyroclasm and Draconic's Death From Above. The shipped tree's node for this was called Fueling the Fire; renamed to match the ability it grants, as every other unlock node in this class does."
     }
   ]
 }
