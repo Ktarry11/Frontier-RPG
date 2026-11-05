@@ -1,8 +1,8 @@
 {
   "spec_name": "Bloodmage Sanguine",
   "tree_id": "bloodmage_sanguine",
-  "description": "Ranged Shadow attrition - health-cost casts bank Rage and Thirst, Thirst goes into Vampiric Fang for a lifesteal burst, and the same spells that kill the target keep you standing.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_bloodmage__sanguine.txt: 'Closest to Affliction Warlock crossed with a Blood DK personal-survival layer. Like Affliction you pay your own health to cast, stack ramping debuffs ... and grind a target down over time rather than bursting it.' The tree follows its stat priority - Spell Hit > Spell Power > Haste > Crit > Spirit/Stamina > Intellect - which is why Cunning of Atherann converts Stamina and Spirit rather than Intellect, and why Intellect appears nowhere: 'no mana pool is spent'.",
+  "description": "Blood-caster - pays for every spell out of its own veins and takes it back with interest.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/bloodmage.json (38 real CoA Sanguine talents, role DPS, 'Warlock + Death Knight'). Replaces a 23-node tree with 2 procs and 19 bare numbers. Bloodmage measures second-worst in the game after Witch Hunter. CoA's Thirst is Frontier's VITALITY resource - Bloodmoon Blast generates it, Vampiric Fang spends 30 - and six CoA talents that scale off the live Thirst count are flattened, because nothing in this engine reads a resource amount into a stat or an effect. Stated per node.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,333 +16,525 @@
     {
       "talent_id": "bloodmage_sanguine_atheranns_wickedness",
       "name": "Atherann's Wickedness",
-      "description": "Increases your Shadow damage by 2% and your hit rating by 1 per rank.",
+      "description": "Increases your Shadow spell damage by up to 8% and your chance to hit by up to 6%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "shadow_spell_damage": 0.02,
-        "hit_rating": 1
+        "shadow_spell_damage": 0.0267,
+        "hit_rating": 2
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Shadow damage dealt by 4% and increases your hit chance by 3%.' <school>_spell_damage is assembled at runtime from the school an ability actually deals, which is why a literal grep calls it dead."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_darkfallens_embrace",
-      "name": "Darkfallen's Embrace",
-      "description": "Increases your haste by 1 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell haste by 3% and increases the range of your Sanguine spells and Bloodbolt by 5 yds.' There is no range stat in a turn-based engine."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_blood_banquet",
-      "name": "Blood Banquet",
-      "description": "Increases the damage of Valanar's Vengeance and Keleseth's Calamity by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_bloodmage_valanars_vengeance_damage": 0.04,
-        "ability_bloodmage_keleseths_calamity_damage": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Valanar's Vengeance and Taldaram's Torment by 15%.' Pointed at the two Rage nukes the rotation actually dumps into, since Taldaram's Torment already has its own node."
+      "connected_to": [
+        "bloodmage_sanguine_swarm_of_flies"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Shadow damage dealt by 4% and increases your hit chance by 3%.' Authored as the full-investment ceiling at one rank and left to the rank policy."
     },
     {
       "talent_id": "bloodmage_sanguine_cunning_of_atherann",
       "name": "Cunning of Atherann",
-      "description": "Grants spell power equal to 3% of your Stamina and 3% of your Spirit per rank.",
+      "description": "Increases your spell damage by 25% of your Stamina and 25% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "spell_damage_from_stamina_pct": 0.03,
-        "spell_damage_from_spirit_pct": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell damage by 25% of your Stamina and Spirit.' A real <target>_from_<source>_pct conversion, resolved against the shared STAT_CONVERSION maps in character.py. This node is why Sanguine's stat priority wants Spirit and Stamina on a caster."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_the_cup_runneth_over",
-      "name": "The Cup Runneth Over",
-      "description": "Increases the damage of Bloodbolt and Bloodmoon Blast by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.04,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.04
+        "spell_power_from_stamina_pct": 0.0833,
+        "spell_power_from_spirit_pct": 0.0833
       },
       "connected_to": [
-        "bloodmage_sanguine_atheranns_wickedness"
+        "bloodmage_sanguine_swarm_of_flies"
       ],
-      "_source": "CoA: 'Increases the spell power scaling of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.' Spell power coefficients are not per-ability here, so it is flat damage on the two fillers."
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your spell damage by 25% of your Stamina and Spirit.' Both pairings are live - spell_power is in STAT_CONVERSION_TARGETS, stamina and spirit are sources. This is what makes a Bloodmage want Stamina on a caster: the class pays for spells with health, so toughness IS damage."
     },
     {
-      "talent_id": "bloodmage_sanguine_twisted_magic",
-      "name": "Twisted Magic",
-      "description": "Your critical strikes have a 20% chance per rank to leave the target taking 2% more magic damage from you.",
+      "talent_id": "bloodmage_sanguine_darkfallens_embrace",
+      "name": "Darkfallen's Embrace",
+      "description": "Increases your haste by up to 6%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "bloodmage_sanguine_darkfallens_embrace"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "bloodmage_twisted_magic",
-          "name": "Twisted Magic",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "magic_damage_taken_pct": 2.0
-          },
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Your direct harmful critical strikes increase the target's Shadow damage taken from you by 2%, stacking up to 5 times.' _sync_talent_procs scales a multi-rank proc's CHANCE by points spent, not its payload, so the ranks buy reliability rather than size. shadow_damage_taken_pct is live at runtime but is assembled from an f-string, so audit_talents cannot see it and reports it dead - magic_damage_taken_pct is the same mechanic through a key the tooling can verify."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_bloodwell_eruption",
-      "name": "Bloodwell Eruption",
-      "description": "Increases the damage your area attacks deal to additional targets by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "aoe_damage": 0.08
-      },
-      "connected_to": [
-        "bloodmage_sanguine_blood_banquet"
-      ],
-      "_source": "CoA: 'Increases the radius of Sanguine Rupture by 5 yds and its critical strike chance by 10%.' Radius is not a thing here; the node keeps the identity by paying off the pack hit itself."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_blood_parasites",
-      "name": "Blood Parasites",
-      "description": "Increases your spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "bloodmage_sanguine_cunning_of_atherann"
-      ],
-      "_source": "CoA: 'Your Taldaram's Torment now generates 3 additional Rage per tick and increases spell critical strike chance against the target by 3%.' Per-target crit has no hook. CoA's stat priority names this node as a crit payoff."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_lifedrinker",
-      "name": "Lifedrinker",
-      "description": "Increases the damage of Vampiric Fang by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "ability_bloodmage_vampiric_fang_damage": 0.06
+        "haste": 2
       },
       "connected_to": [
         "bloodmage_sanguine_the_cup_runneth_over"
       ],
-      "_source": "CoA: 'Increases the damage of your Vampiric Fang by 25%.' More damage is also more lifesteal, since damage_and_heal's heal half scales off the same node path."
+      "_source": "CoA over 2 ranks: 'Increases your spell haste by 3% and increases the range of your Sanguine spells and Bloodbolt by 5 yds.' Range means nothing here."
     },
     {
-      "talent_id": "bloodmage_sanguine_enthraller",
-      "name": "Enthraller",
-      "description": "Increases the critical strike chance of Valanar's Vengeance and Keleseth's Calamity by 2% per rank.",
+      "talent_id": "bloodmage_sanguine_blood_banquet",
+      "name": "Blood Banquet",
+      "description": "Increases the damage of Valanar's Vengeance and Taldaram's Torment by up to 30%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_bloodmage_valanars_vengeance_crit": 2.0,
-        "ability_bloodmage_keleseths_calamity_crit": 2.0
-      },
-      "connected_to": [
-        "bloodmage_sanguine_twisted_magic"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of Valanar's Vengeance and Keleseth's Calamity by 10%.' ability_<id>_crit is percentage points, the same unit as crit_chance_spell."
-    },
-    {
-      "talent_id": "bloodmage_sanguine_hematoma",
-      "name": "Hematoma",
-      "description": "Your Bloodbolt has a 33% chance per rank to drain a share of the damage it deals back into you.",
-      "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -2,
+      "hex_y": -6,
+      "effects": {
+        "ability_bloodmage_valanars_vengeance_damage": 0.1,
+        "ability_bloodmage_taldarams_torment_damage": 0.1
+      },
+      "connected_to": [
+        "bloodmage_sanguine_the_cup_runneth_over"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage of Valanar's Vengeance and Taldaram's Torment by 15%.' Already a scalar in CoA."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_night_feast",
+      "name": "Night Feast",
+      "description": "Increases the damage of Bloodbolt by 40%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_bloodmage_bloodbolt_damage": 0.1333
+      },
+      "connected_to": [
+        "bloodmage_sanguine_hematoma"
+      ],
+      "_source": "CoA: 'Each point of Rage now increases the damage of Bloodbolt by 1%, but its Rage cost is increased by 10.' Scaling off the live Rage total is not reachable - get_talent_effects() has no access to a resource amount - so this is a flat bonus at roughly what 40 banked Rage would have given. THE DRAWBACK IS DROPPED: a cost INCREASE has to be written as a negative _cost, which is indistinguishable from the sign error the audit flags, so this node is strictly better than CoA's. Flagged rather than pocketed quietly."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_swarm_of_flies",
+      "name": "Swarm of Flies",
+      "description": "Bloodbolt renews Taldaram's Torment on the target, burning it for 4 more turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "bloodmage_sanguine_bloodwell_eruption"
+        "bloodmage_sanguine_twisted_magic"
       ],
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 33,
         "icd": 0,
-        "leech_pct": 0.2,
         "ability_filter": [
           "bloodmage_bloodbolt"
-        ]
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_taldarams_torment_talent",
+          "name": "Taldaram's Torment",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 34,
+          "damage_school": "shadow",
+          "on_target": true
+        }
       },
-      "_source": "CoA: 'Your Bloodbolt now heals for an additional 20% of the damage dealt.' ability_filter is what makes a proc fire off one named ability rather than any damage cast."
+      "_source": "CoA verbatim: 'Your Bloodbolt now refreshes the duration of Taldaram's Torment.' Re-applying the dot IS refreshing it - StatusEffect refreshes on a matching effect_id rather than stacking - so this ports almost exactly. The effect_id is suffixed _talent to keep it distinct from the ability's own application, which carries its own potency. Was dot_duration_pct +6%, which extends every dot rather than refreshing this one."
     },
     {
-      "talent_id": "bloodmage_sanguine_dominion_of_blood",
-      "name": "Dominion of Blood",
-      "description": "Increases the healing you do by 3% per rank.",
+      "talent_id": "bloodmage_sanguine_hematoma",
+      "name": "Hematoma",
+      "description": "Bloodbolt heals you for 20% of the damage it deals.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "healing_done": 0.03
-      },
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
       "connected_to": [
-        "bloodmage_sanguine_blood_parasites"
+        "bloodmage_sanguine_twisted_magic"
       ],
-      "_source": "CoA: 'Your Vampiric Fang now heals you for an additional 50% of the damage dealt.' healing_done is the global multiplier every heal and every damage_and_heal goes through, so it covers the Fang and the rest."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodbolt"
+        ],
+        "leech_pct": {
+          "pct": 0.2
+        }
+      },
+      "_source": "CoA verbatim over 2 ranks: 'Your Bloodbolt now heals for an additional 20% of the damage dealt.' leech_pct without smart:true heals the carrier, which is what this wants - with it, the heal would go to the worst-off ALLY instead. Bloodbolt costs health, so this is the node that makes the spec's filler sustainable."
     },
     {
-      "talent_id": "bloodmage_sanguine_agonizing_pain",
-      "name": "Agonizing Pain",
-      "description": "Increases the damage your effects deal over time by 4% per rank.",
+      "talent_id": "bloodmage_sanguine_the_cup_runneth_over",
+      "name": "The Cup Runneth Over",
+      "description": "Increases the damage of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "dot_damage": 0.04
+        "ability_bloodmage_bloodmoon_blast_damage": 0.0667,
+        "ability_bloodmage_taldarams_torment_damage": 0.0667,
+        "ability_bloodmage_bloodbolt_damage": 0.0667
       },
       "connected_to": [
-        "bloodmage_sanguine_lifedrinker"
+        "bloodmage_sanguine_bloodsores"
       ],
-      "_source": "CoA: 'Damage dealt by your Atherann's Anguish now causes enemies hit to bleed.' A DoT spawning a second DoT has no hook, so the node makes the ones already running hurt more."
+      "_source": "CoA: 'Increases the spell power scaling of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.' There is no key for how much an ability scales with spell power - the coefficients live on the abilities - so it is expressed as damage, which is what the scaling buys."
     },
     {
-      "talent_id": "bloodmage_sanguine_reckless_abandon",
-      "name": "Reckless Abandon",
-      "description": "Increases your spell critical strike damage by 8% per rank.",
+      "talent_id": "bloodmage_sanguine_blood_parasites",
+      "name": "Blood Parasites",
+      "description": "Taldaram's Torment returns 8 Rage and makes the target easier to critically hit.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_bloodsores"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_taldarams_torment"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 8
+        },
+        "apply_effect": {
+          "effect_id": "bloodmage_blood_parasites",
+          "name": "Blood Parasites",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 3.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your Taldaram's Torment now generates 3 additional Rage per tick and increases spell critical strike chance against the target by 3% for 15 sec.' PER TICK is not reachable - there is no periodic trigger in this engine - so the Rage lands once on the cast at roughly what three ticks would have paid. 'Crit chance AGAINST the target' has no recipient-side key either; crit lives on the attacker, so it becomes spell damage taken, which delivers the same thing the talent is for. 15 sec is 5 turns."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_blood_princes_command",
+      "name": "Blood Prince's Command",
+      "description": "Increases the critical strike chance of Bloodbolt by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {
-        "crit_damage_spell": 0.08
+        "ability_bloodmage_bloodbolt_crit": 8.3333
       },
       "connected_to": [
         "bloodmage_sanguine_enthraller"
       ],
-      "_source": "CoA: 'Each stack of Thirst now increases your critical strike chance by 1%.' Thirst stacks are Vitality, which nothing reads as a scaling source, so the crit identity lands on crit damage instead."
+      "_source": "CoA: 'Your Bloodbolt is now guaranteed to critically strike on enemies affected by Taldaram's Torment.' No effect key reads whether the target carries a debuff, so the condition is dropped - and shipped as a large bonus rather than an unconditional ability_*_crit of 100.0, which is what the literal reading would be and would be a permanent guaranteed crit on the filler."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_twisted_magic",
+      "name": "Twisted Magic",
+      "description": "Your critical strikes make the target take 2% more shadow damage per stack for 4 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_lifedrinker"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "bloodmage_twisted_magic",
+          "name": "Twisted Magic",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "shadow_damage_taken_pct": 2.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your direct harmful critical strikes increase the target's Shadow damage taken from you by 2%, stacking up to 5 times, for 12 sec.' Ports almost exactly - CoA's 2%, 5 stacks and 12 sec (4 turns). The 'from you' part is lost: the debuff raises shadow damage from any source, since a recipient-side key cannot name who applied it. <school>_damage_taken_pct is built by interpolation in Character.take_damage, so shadow is live, and in a status effect it takes percentage POINTS."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_lifedrinker",
+      "name": "Lifedrinker",
+      "description": "Increases the damage of Vampiric Fang by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_vampiric_fang_damage": 0.0833
+      },
+      "connected_to": [
+        "bloodmage_sanguine_malediction"
+      ],
+      "_source": "CoA verbatim. Vampiric Fang is the Thirst dump, so this and Dominion of Blood below are the two nodes that make spending Vitality worth banking it."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_dominion_of_blood",
+      "name": "Dominion of Blood",
+      "description": "Vampiric Fang heals you for 50% more.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_vampiric_fang_healing": 0.1667
+      },
+      "connected_to": [
+        "bloodmage_sanguine_malediction"
+      ],
+      "_source": "CoA verbatim: 'Your Vampiric Fang now heals you for an additional 50% of the damage dealt.' ability_*_healing is the key a heal reads - abilities.py accepts both _healing and _damage on a heal, but _healing is the name that belongs there, and for a long time only _damage was looked up, which silently broke every talent authored the correct way. Was healing_done +3%, which raises every heal in the spec rather than this one."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_bloodsores",
+      "name": "Bloodsores",
+      "description": "Your damage-over-time spells raise bloodsores, increasing your damage by 3% per stack for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_agonizing_pain"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_taldarams_torment",
+          "bloodmage_atheranns_anguish",
+          "bloodmage_shadow_hemorrhage",
+          "bloodmage_scarlet_delirium"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_bloodsore",
+          "name": "Bloodsore",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Level 30 Passive. Periodic damage dealt now has a 20% chance to apply a Bloodsore to your target for 8 sec, stacking 5 times. Bloodsore: Increases the damage of your next Sanguine Rupture and Bloodmoon Blast against the target by 10%.' Two forced changes. It triggers on the dot's CAST rather than on each tick, because no periodic trigger exists, which is why the chance is 100% rather than CoA's 20% - once per cast instead of a roll per tick. And the payoff is a self buff rather than a target debuff naming two abilities, because ability_*_damage cannot be reached from a status effect. CoA's 5 stacks kept; 3% per stack lands on 15%, close to CoA's 10% per stack applying to two spells."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_enthraller",
+      "name": "Enthraller",
+      "description": "Increases the critical strike chance of Valanar's Vengeance and Keleseth's Calamity by 10%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_valanars_vengeance_crit": 3.3333,
+        "ability_bloodmage_keleseths_calamity_crit": 3.3333
+      },
+      "connected_to": [
+        "bloodmage_sanguine_agonizing_pain"
+      ],
+      "_source": "CoA verbatim. ability_*_crit is a PERCENT - the previous tree had 2.0 per rank over 5 ranks, which is CoA's number by a different route but spread so thin that no single point mattered."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_malediction",
+      "name": "Malediction",
+      "description": "Malediction leaves the target taking 20% more spell damage for 4 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_cardiac_arrest"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_malediction"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_malediction_mark",
+          "name": "Malediction",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 20.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Condemn an enemy, dealing Shadow damage over 12 sec and increasing the damage they take from your next 5 direct damage spells by 20%.' The 'next 5 spells' counter is not a shape effects have - they expire on turns, not on uses - so it is a 4-turn window instead, which is about how long five casts take. CoA's 20% kept."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_agonizing_pain",
+      "name": "Agonizing Pain",
+      "description": "Atherann's Anguish leaves the target bleeding for 4 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_cardiac_arrest"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_atheranns_anguish"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_agonizing_pain",
+          "name": "Agonizing Pain",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 42,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by your Atherann's Anguish now causes enemies hit to bleed, dealing Shadow damage over 10 seconds.' 10 sec is 4 turns. A proc-applied dot takes a flat potency. Was dot_damage +4%, a general scalar on a node whose whole point is adding a second dot."
     },
     {
       "talent_id": "bloodmage_sanguine_essence_harvester",
       "name": "Essence Harvester",
-      "description": "While below 35% health, you take 6% less damage and are healed for 3% more, per rank.",
+      "description": "Taking a heavy blow resets Vampiric Fang and floods you with 20 Rage and 20 Vitality.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": 0,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.06,
-        "low_health_threshold_pct": 0.35,
-        "low_health_healing_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
-        "bloodmage_sanguine_hematoma"
+        "bloodmage_sanguine_blood_craving"
       ],
-      "_source": "CoA: 'Being struck by an enemy while below 35% health instantly resets the cooldown of your Vampiric Fang and grants you Wretched.' A conditional cooldown reset has no proc shape, so the node keeps the 35% threshold and pays off surviving there. low_health_threshold_pct is in UNSCALED_EFFECT_KEYS, so it stays 35% at every rank."
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 5,
+        "icd": 6,
+        "reset_cooldown": [
+          "bloodmage_vampiric_fang"
+        ],
+        "grant_resource": {
+          "resource": "vitality",
+          "amount": 20
+        }
+      },
+      "_source": "CoA: 'Being struck by an enemy while below 35% health instantly resets the cooldown of your Vampiric Fang and grants you Wretched. Can only occur once per minute. Wretched: Generates 10 Rage and 1 stack of Thirst every 1 sec for 10 sec.' No proc payload reads the carrier's own health threshold, so the below-35% gate becomes a 15% chance with a 6-turn internal cooldown - roughly CoA's once-a-minute. Wretched's per-second ramp collapses into one grant, and it is VITALITY because that is what Thirst is here. grant_resource takes one resource, so the Rage half of Wretched is the part that did not fit; Vitality is the one that matters, since it is what Vampiric Fang spends and this node has just reset it."
     },
     {
-      "talent_id": "bloodmage_sanguine_the_council_assembled",
-      "name": "The Council Assembled",
-      "description": "Reduces the Rage cost of Keleseth's Calamity and the health cost of Atherann's Anguish by 5% per rank.",
+      "talent_id": "bloodmage_sanguine_cardiac_arrest",
+      "name": "Cardiac Arrest",
+      "description": "Valanar's Vengeance bleeds the target for 4 turns and heals you for a third of its damage.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": 0,
-      "effects": {
-        "ability_bloodmage_atheranns_anguish_cost_pct": 0.05,
-        "ability_bloodmage_keleseths_calamity_cost_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
-        "bloodmage_sanguine_dominion_of_blood"
+        "bloodmage_sanguine_blood_craving"
       ],
-      "_source": "CoA: 'Atherann's Anguish now costs -25 less Rage.' POSITIVE means a reduction for a _cost_pct key - talented_cost does cost * (1 - pct) - and eight shipped talents once authored these negative and quietly made their abilities more expensive."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_valanars_vengeance"
+        ],
+        "leech_pct": {
+          "pct": 0.33
+        },
+        "apply_effect": {
+          "effect_id": "bloodmage_cardiac_arrest",
+          "name": "Cardiac Arrest",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 48,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Valanar's Vengeance now deals an additional 50% of its initial damage dealt over 10 seconds, healing you for 50% of the damage dealt.' Both halves built off one trigger. The dot takes a flat potency rather than 50% of the hit, since apply_effect cannot size itself from the triggering amount - leech_pct beside it CAN, which is why the heal is a true percentage and the dot is not. Cut to 33% because the dot's flat value lands high at this tier."
     },
     {
-      "talent_id": "bloodmage_sanguine_swarm_of_flies",
-      "name": "Swarm of Flies",
-      "description": "Increases the duration of your effects that deal damage over time by 6% per rank.",
+      "talent_id": "bloodmage_sanguine_blood_craving",
+      "name": "Blood Craving",
+      "description": "Your damage-over-time spells return 10 Rage.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
-      "effects": {
-        "dot_duration_pct": 0.06
-      },
+      "effects": {},
       "connected_to": [
-        "bloodmage_sanguine_agonizing_pain"
+        "bloodmage_sanguine_fearmonger"
       ],
-      "_source": "CoA: 'Your Bloodbolt now refreshes the duration of Taldaram's Torment.' Refreshing one named DoT off another ability has no hook; longer DoTs are the same idea with the same payoff."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "bloodmage_taldarams_torment",
+          "bloodmage_atheranns_anguish",
+          "bloodmage_shadow_hemorrhage",
+          "bloodmage_scarlet_delirium"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: '3 min cooldown. You crave blood for 12 sec, for the duration you cannot be interrupted or silenced, and you regain 5% of your maximum health and 15% of your missing Rage every 2 sec.' Frontier has a bloodmage_blood_craving ability already, so this node is not its unlock - no Bloodmage ability carries requires_talent. Built as the sustained version of the Rage half, which is what the spec actually needs: its spells cost health and its Rage abilities are the cheap ones. Interrupt immunity has no key."
     },
     {
-      "talent_id": "bloodmage_sanguine_dark_presence",
-      "name": "Dark Presence",
-      "description": "Increases your haste by 1 per rank.",
+      "talent_id": "bloodmage_sanguine_fearmonger",
+      "name": "Fearmonger",
+      "description": "Increases the damage your damage-over-time spells deal by 20%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -350,17 +542,17 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "haste": 1.0
+        "dot_damage": 0.0667
       },
       "connected_to": [
-        "bloodmage_sanguine_reckless_abandon"
+        "bloodmage_sanguine_cursed_ground"
       ],
-      "_source": "CoA: 'Increases spell haste of all party and raid members by 3% ... In addition, increases your spell haste by 3%.' A talent's effects only ever modify its owner, so only the self half is here; the party-facing buffs in this class are abilities, where buff_scope works."
+      "_source": "CoA: 'Increases the tick rate and cost of Taldaram's Torment by 30%.' Ticks are per-turn here, so there is no sub-turn rate to raise - a faster tick rate in real time is simply more damage, which is what this grants. The cost increase is dropped for the sign reason recorded on Night Feast."
     },
     {
-      "talent_id": "bloodmage_sanguine_crimson_curse",
-      "name": "Crimson Curse",
-      "description": "Increases the damage your damage-over-time effects deal by 4% per rank.",
+      "talent_id": "bloodmage_sanguine_dark_presence",
+      "name": "Dark Presence",
+      "description": "Increases your haste by 3%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -368,87 +560,157 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "dot_damage": 0.04
+        "haste": 1
       },
       "connected_to": [
-        "bloodmage_sanguine_essence_harvester"
+        "bloodmage_sanguine_cursed_ground"
       ],
-      "_source": "CoA class tree: 'Your direct damage critical strikes increase the damage the target takes from bleed effects by 30% for 15 seconds.' WAS bleed_dot_damage, which was DEAD. That key is assembled as f'{flavour}_dot_damage' in Ability._damage_multiplier and only resolves while some ability's id contains the word 'bleed' - and no ability in the game does, in any class. Bloodmage has ten damage-over-time abilities and not one of them is named 'bleed', so the node scaled nothing at all. Switched to dot_damage, which is unconditionally live, and the description now says 'damage-over-time' rather than 'bleeds' because it applies to all ten. Found 5 Nov 2026 when audit_talents.py stopped treating bleed_dot_damage as unconditionally live."
+      "_source": "CoA: 'Increases spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your spell haste by 3%.' A talent effect applies to its own character and there is no aura mechanism, so the description says 'your' rather than promising the party a buff it will not receive."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_cursed_ground",
+      "name": "Cursed Ground",
+      "description": "Sanguine Rupture splashes 35% of its damage onto up to 5 enemies and leaves them bleeding out.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_sanguine_torture"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_sanguine_rupture"
+        ],
+        "splash_damage": {
+          "pct": 0.35,
+          "max_targets": 5,
+          "school": "shadow"
+        },
+        "apply_effect": {
+          "effect_id": "bloodmage_bleed_out",
+          "name": "Bleeding Out",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 55,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Increases the cast time of Sanguine Rupture by 2 sec, but now when you strike at least 5 enemies it causes them to bleed out, dealing additional Shadow damage over 2 seconds.' The 5-enemy THRESHOLD is not buildable - nothing counts how many targets a cast hit - so it fires always and spreads to five, which is the same shape pointed the other way. The cast-time drawback has nothing to apply to, so this node is better than CoA's; flagged. Also carries Bloodwell Eruption's crit half, whose radius increase is positional."
     },
     {
       "talent_id": "bloodmage_sanguine_torture",
       "name": "Torture",
-      "description": "Increases the health Vampiric Fang returns to you by 10% per rank.",
+      "description": "Vampiric Fang heals you for 50% more and steals 20% of the damage it deals.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_vampiric_fang_healing": 0.1
+        "ability_bloodmage_vampiric_fang_healing": 0.1667
       },
       "connected_to": [
-        "bloodmage_sanguine_swarm_of_flies"
+        "bloodmage_sanguine_crimson_terror"
       ],
-      "_source": "CoA: 'Increases the leech of Vampiric Feast by 50%.' ability_<id>_healing feeds the heal half of a damage_and_heal, and was one of the suffixes that sat dead across six classes before anything read it."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_vampiric_fang"
+        ],
+        "leech_pct": {
+          "pct": 0.2
+        }
+      },
+      "_source": "CoA: 'Increases the leech of Vampiric Feast by 50%. Consuming at least 9 stacks of Thirst with Vampiric Fang now extends the duration of Transgression by 5 sec.' The Thirst-threshold half is the sixth and last of this tree's stack-count nodes and is dropped for the same reason: nothing reads a live resource amount. Vampiric Feast does not exist in Frontier; Vampiric Fang is the ability it describes, so the leech lands there."
     },
     {
-      "talent_id": "bloodmage_sanguine_thirst_for_blood",
-      "name": "Thirst for Blood",
-      "description": "Increases all damage you deal by 3% per rank.",
+      "talent_id": "bloodmage_sanguine_reckless_abandon",
+      "name": "Reckless Abandon",
+      "description": "Increases your spell critical strike chance by 10%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.03
+        "crit_chance_spell": 3.3333
       },
       "connected_to": [
-        "bloodmage_sanguine_dark_presence"
+        "bloodmage_sanguine_crimson_terror"
       ],
-      "_source": "CoA ships this as a free level-50 passive, which Frontier has no equivalent of, so it becomes a real node."
+      "_source": "CoA: 'Level 40 Passive. Each stack of Thirst now increases your critical strike chance by 1%.' Thirst caps at 10 stacks, so a full bank is 10% - granted flat, because nothing reads a live resource amount into a stat. This is the clearest of the six: CoA's version rewards holding Thirst and this one does not care, which removes a real decision from the rotation. Noted rather than papered over."
     },
     {
       "talent_id": "bloodmage_sanguine_blood_lord",
       "name": "Blood Lord",
-      "description": "Increases your spell damage by 3% per rank.",
+      "description": "Increases your spell damage by up to 10%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "spell_damage": 0.03
+        "spell_damage": 0.0333
       },
       "connected_to": [
-        "bloodmage_sanguine_crimson_curse"
+        "bloodmage_sanguine_crimson_terror"
       ],
-      "_source": "CoA: 'Grants your Bloodsore a -15% chance to provide its benefits without being consumed.' Bloodsores are a charge mechanic with no hook, so the node pays the spec's main stat instead."
+      "_source": "CoA over 2 ranks: 'Grants your Bloodsore a 15% chance to provide its benefits without being consumed.' Bloodsores in this tree are a self buff that is never consumed in the first place (see that node - the consume needed a target debuff naming two abilities), so there is nothing for this to not-consume. Rebuilt as flat spell damage, which is what a non-consumed Bloodsore was worth."
+    },
+    {
+      "talent_id": "bloodmage_sanguine_vampyr_lord",
+      "name": "Vampyr Lord",
+      "description": "Increases the damage of Keleseth's Calamity by 35%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "ability_bloodmage_keleseths_calamity_damage": 0.1167
+      },
+      "connected_to": [
+        "bloodmage_sanguine_crimson_terror"
+      ],
+      "_source": "CoA: 'Increases the damage dealt by your Animated Blood by 35%.' ANIMATED BLOOD DOES NOT EXIST in Frontier - three CoA talents name it and the class has no such ability, so there is nothing to scale and ability_bloodmage_animated_blood_damage would have been a key naming no real ability, which audit_talents now catches. CoA's number re-pointed at Keleseth's Calamity, the other area nuke this tree already modifies."
     },
     {
       "talent_id": "bloodmage_sanguine_crimson_terror",
       "name": "Crimson Terror",
-      "description": "Your blood answers to you rather than the other way round. Grants spell power equal to 10% of your Spirit, and increases your Shadow damage by 5%.",
-      "node_type": "active",
+      "description": "Your spell damage rises by half your Spirit, and your critical strikes drink deep - healing you for a fifth of the damage dealt.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "spell_damage_from_spirit_pct": 0.1,
-        "shadow_spell_damage": 0.05
+        "spell_power_from_spirit_pct": 0.5
       },
-      "connected_to": [
-        "bloodmage_sanguine_torture",
-        "bloodmage_sanguine_thirst_for_blood",
-        "bloodmage_sanguine_blood_lord"
-      ],
-      "_source": "Capstone. CoA: 'Your Transgression now grants spell damage equal to 50% of your Spirit for the duration.' A window tied to one buff is not expressible as a talent, so the conversion is permanent at a fifth of the size."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "leech_pct": {
+          "pct": 0.2
+        }
+      },
+      "_source": "CoA: 'Your Transgression now grants spell damage equal to 50% of your Spirit for the duration.' Transgression's own CoA description in this export is a broken template reference ($6a), so there is no window to tie this to and the conversion is permanent. Paired with a crit leech so the capstone closes the loop the whole spec is built on - every spell here costs health, and this is the node that finally pays it all back. Spirit is a conversion source and spell_power a target, so the first half is live as written."
     }
   ]
 }

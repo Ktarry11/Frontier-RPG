@@ -427,6 +427,30 @@ def main():
     LIVE = live_effect_keys() | scale_talent_keys() | live_flavour_dot_keys()
     ABILITIES = known_ability_ids()
 
+    # A proc that FILTERS on an ability that does not exist never fires, and
+    # one that resets or casts a missing ability does nothing when it does.
+    # Neither is visible: the proc is well-formed, the id is a plausible
+    # string, and the talent simply sits there. Checked here because nothing
+    # else validates these three fields - 513 references across the game,
+    # and a single typo in one is a silently dead talent.
+    for tid, n in T.items():
+        proc = n.get("proc") or {}
+        refs = []
+        flt = proc.get("ability_filter")
+        refs += [(a, "ability_filter") for a in
+                 (flt if isinstance(flt, list) else [flt] if flt else [])]
+        rc = proc.get("reset_cooldown")
+        ids = (rc.get("abilities") or rc.get("ability")) if isinstance(rc, dict) else rc
+        refs += [(a, "reset_cooldown") for a in
+                 (ids if isinstance(ids, list) else [ids] if ids else [])]
+        if proc.get("cast_ability"):
+            refs.append((proc["cast_ability"], "cast_ability"))
+        for aid, field in refs:
+            if isinstance(aid, str) and aid not in ABILITIES:
+                findings["dead-effect-key"].append(
+                    f"{tid} ({n.get('name')!r}): proc {field} names {aid!r}, "
+                    f"which is not a real ability")
+
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
             if not (_DYNAMIC_KEY.match(key) or key in LIVE
