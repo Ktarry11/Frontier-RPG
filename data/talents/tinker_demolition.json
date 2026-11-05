@@ -175,20 +175,20 @@
     {
       "talent_id": "tinker_demolition_i_need_more_explosions",
       "name": "I Need More Explosions!",
-      "description": "Increases the damage of Sticky Bomb by 15%.",
+      "description": "Increases the damage of Sticky Bomb by 5% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.15
+        "ability_tinker_sticky_bomb_damage": 0.05
       },
       "connected_to": [
         "tinker_demolition_target_acquired"
       ],
-      "_source": "CoA verbatim. Was already a scalar in CoA, so it stays one."
+      "_source": "CoA verbatim. Was already a scalar in CoA, so it stays one. SPLIT from 1 rank of 15% into 3 ranks of 5% - the same ceiling, not a buff. The tree needed more points in its lower tiers to make its own top tiers reachable at all: tier_requirements gate tier 5 at 25 points and tier 6 at 30, and the rebuilt tree held 27 points in total with 24 below tier 5, so both tiers were dead. See tools/qa_talent_tiers_reachable.py."
     },
     {
       "talent_id": "tinker_demolition_machine_synergy",
@@ -294,16 +294,16 @@
     {
       "talent_id": "tinker_demolition_target_acquired",
       "name": "Target Acquired",
-      "description": "Your Sticky Bomb and Spider Bomb deal 30% more damage to a lone target.",
+      "description": "Your Sticky Bomb and Spider Bomb deal 15% more damage per rank to a lone target.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.3,
-        "ability_tinker_spider_bomb_damage": 0.3
+        "ability_tinker_sticky_bomb_damage": 0.15,
+        "ability_tinker_spider_bomb_damage": 0.15
       },
       "connected_to": [
         "tinker_demolition_bombastic"
@@ -456,15 +456,15 @@
     {
       "talent_id": "tinker_demolition_the_big_guns",
       "name": "The BIG Guns!",
-      "description": "Increases your attack power by 5% and your party's by 5%.",
+      "description": "Increases your attack power by 2.5% per rank.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "attack_power_pct": 5.0
+        "attack_power_pct": 2.5
       },
       "connected_to": [
         "tinker_demolition_rockadier"

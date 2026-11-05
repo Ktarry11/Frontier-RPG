@@ -262,13 +262,17 @@ N.append(node(
 # ---- tier 2 -------------------------------------------------------------
 N.append(node(
     "turbo_guns", "Turbo Guns",
-    "Increases the damage of Mechsuit: Combustion by 20%.",
-    2, 2, -2,
-    effects={"ability_tinker_mechsuit_combustion_damage": 0.20},
+    "Increases the damage of Mechsuit: Combustion by 10% per rank.",
+    2, 2, -2, ranks=2,
+    effects={"ability_tinker_mechsuit_combustion_damage": 0.10},
     connect=["overload"],
     source="CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 "
            "sec and its damage is increased by 20%.' Cast time is meaningless "
-           "here, so only the damage half ports."))
+           "here, so only the damage half ports. SPLIT from 1 rank of 20% "
+           "into 2 ranks of 10% - the same ceiling, not a buff. The rebuilt "
+           "tree held 29 points with only 28 below tier 6, against a gate of "
+           "30, so its capstone was unreachable at any level. See "
+           "tools/qa_talent_tiers_reachable.py."))
 
 N.append(node(
     "flak_guns", "Flak Guns",
@@ -311,9 +315,9 @@ N.append(node(
 # ---- tier 3 -------------------------------------------------------------
 N.append(node(
     "bombs_bombs", "Bombs? BOMBS!",
-    "Reduces the cooldown of Sticky Bomb by 35%.",
-    3, -3, 0,
-    effects={"ability_tinker_sticky_bomb_cooldown_pct": 0.35},
+    "Reduces the cooldown of Sticky Bomb by 17.5% per rank.",
+    3, -3, 0, ranks=2,
+    effects={"ability_tinker_sticky_bomb_cooldown_pct": 0.175},
     connect=["arclight_core"],
     source="CoA: 'Increases the detonation speed of Sticky Bomb by -1 sec and "
            "reduces its cooldown by -2 sec.' Detonation delay does not exist "

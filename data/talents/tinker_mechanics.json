@@ -246,20 +246,20 @@
     {
       "talent_id": "tinker_mechanics_turbo_guns",
       "name": "Turbo Guns",
-      "description": "Increases the damage of Mechsuit: Combustion by 20%.",
+      "description": "Increases the damage of Mechsuit: Combustion by 10% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_damage": 0.2
+        "ability_tinker_mechsuit_combustion_damage": 0.1
       },
       "connected_to": [
         "tinker_mechanics_overload"
       ],
-      "_source": "CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.' Cast time is meaningless here, so only the damage half ports."
+      "_source": "CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.' Cast time is meaningless here, so only the damage half ports. SPLIT from 1 rank of 20% into 2 ranks of 10% - the same ceiling, not a buff. The rebuilt tree held 29 points with only 28 below tier 6, against a gate of 30, so its capstone was unreachable at any level. See tools/qa_talent_tiers_reachable.py."
     },
     {
       "talent_id": "tinker_mechanics_flak_guns",
@@ -327,15 +327,15 @@
     {
       "talent_id": "tinker_mechanics_bombs_bombs",
       "name": "Bombs? BOMBS!",
-      "description": "Reduces the cooldown of Sticky Bomb by 35%.",
+      "description": "Reduces the cooldown of Sticky Bomb by 17.5% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_tinker_sticky_bomb_cooldown_pct": 0.35
+        "ability_tinker_sticky_bomb_cooldown_pct": 0.175
       },
       "connected_to": [
         "tinker_mechanics_arclight_core"

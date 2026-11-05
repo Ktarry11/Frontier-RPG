@@ -194,11 +194,17 @@ N.append(node(
 
 N.append(node(
     "i_need_more_explosions", "I Need More Explosions!",
-    "Increases the damage of Sticky Bomb by 15%.",
-    1, 1, -4,
-    effects={"ability_tinker_sticky_bomb_damage": 0.15},
+    "Increases the damage of Sticky Bomb by 5% per rank.",
+    1, 1, -4, ranks=3,
+    effects={"ability_tinker_sticky_bomb_damage": 0.05},
     connect=["target_acquired"],
-    source="CoA verbatim. Was already a scalar in CoA, so it stays one."))
+    source="CoA verbatim. Was already a scalar in CoA, so it stays one. "
+           "SPLIT from 1 rank of 15% into 3 ranks of 5% - the same ceiling, "
+           "not a buff. The tree needed more points in its lower tiers to "
+           "make its own top tiers reachable at all: tier_requirements gate "
+           "tier 5 at 25 points and tier 6 at 30, and the rebuilt tree held "
+           "27 points in total with 24 below tier 5, so both tiers were "
+           "dead. See tools/qa_talent_tiers_reachable.py."))
 
 N.append(node(
     "machine_synergy", "Machine Synergy",
@@ -257,10 +263,11 @@ N.append(node(
 
 N.append(node(
     "target_acquired", "Target Acquired",
-    "Your Sticky Bomb and Spider Bomb deal 30% more damage to a lone target.",
-    2, 0, -2,
-    effects={"ability_tinker_sticky_bomb_damage": 0.30,
-             "ability_tinker_spider_bomb_damage": 0.30},
+    "Your Sticky Bomb and Spider Bomb deal 15% more damage per rank to a "
+    "lone target.",
+    2, 0, -2, ranks=2,
+    effects={"ability_tinker_sticky_bomb_damage": 0.15,
+             "ability_tinker_spider_bomb_damage": 0.15},
     connect=["bombastic"],
     source="CoA: '...30% increased damage when it strikes only 1 target.' "
            "There is no single-target conditional on an ability's damage here, "
@@ -347,9 +354,9 @@ N.append(node(
 
 N.append(node(
     "the_big_guns", "The BIG Guns!",
-    "Increases your attack power by 5% and your party's by 5%.",
-    4, 2, 2,
-    effects={"attack_power_pct": 5.0},
+    "Increases your attack power by 2.5% per rank.",
+    4, 2, 2, ranks=2,
+    effects={"attack_power_pct": 2.5},
     connect=["rockadier"],
     source="CoA: 'Increases the attack power of all party and raid members 5%. "
            "Does not stack with similar effects. In addition, increases your "

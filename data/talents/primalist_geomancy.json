@@ -1,8 +1,8 @@
 {
   "spec_name": "Primalist Geomancy",
   "tree_id": "primalist_geomancy",
-  "description": "Elemental caster DPS - earth and fire spells channeled through Geode Barrage and Earthquake.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 10 confirmed Geomancy nodes expanded to a 12-node tree (2 class-wide-flavored additions, matching the Storm Ascendance/Vizier precedent) since this was the smallest of the 4 real spec lists. Earthshaping confirmed as capstone: 'Casting Geode Barrage and your Seismic abilities now generate Earthshaping. Empowers some of your abilities and increases your spell haste by 1% for 20 seconds, stacking 15 times.'",
+  "description": "Stone-caller - shapes the earth into a rising stack of momentum and spends it on one target.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/primalist.json (39 real CoA Geomancy talents, role DPS, 'Elemental Shaman single-target build'). Replaces a 23-node tree of 18 pure scalars and 1 proc. The big structural change: Earthshaping, which CoA makes a level 10 passive and which every other talent here reads, was the tier 6 capstone and is now tier 0. All 4 unlock nodes are preserved - see tools/qa_abilities_obtainable.py for why that is not optional.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,422 +14,571 @@
   },
   "nodes": [
     {
-      "talent_id": "primalist_geomancy_magmatism",
-      "name": "Magmatism",
-      "description": "Increases Spell Power by 5 per rank.",
+      "talent_id": "primalist_geomancy_earthshaping",
+      "name": "Earthshaping",
+      "description": "Geode Barrage and your Seismic spells shape the earth around you, increasing your haste by 1% for 6 turns, stacking 15 times.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
-      "effects": {
-        "spell_power": 5
-      },
-      "connected_to": [
-        "primalist_geomancy_heavy_earth"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_therazanes_might",
-      "name": "Therazane's Might",
-      "description": "Increases Geode Barrage damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_primalist_geode_barrage_damage": 0.03
-      },
-      "connected_to": [
-        "primalist_geomancy_primal_shamans_mask"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_one_with_the_earth",
-      "name": "One With The Earth",
-      "description": "Increases spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "primalist_geomancy_magma_fissure"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_cave_dweller",
-      "name": "Cave Dweller",
-      "description": "Learn Golem Form, a shapeshift into an earthen golem that increases Armor and reduces spell cast time.",
-      "node_type": "active",
-      "tier": 0,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "unlock_ability": "primalist_golem_form"
-      },
-      "connected_to": [
-        "primalist_geomancy_earths_embrace"
-      ],
-      "_source": "CoA tags this 'Specialization' - a form-flavored capstone-tier ability, but unlike Venomancer's forms it doesn't change resource type (still Mana+Rage), so implemented as a strong self-buff via is_instant rather than the full forms.py shapeshift system."
-    },
-    {
-      "talent_id": "primalist_geomancy_heavy_earth",
-      "name": "Heavy Earth",
-      "description": "Reduces the Mana cost of Geode Barrage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_geode_barrage_cost_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_geomancy_magmatism"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_primal_shamans_mask",
-      "name": "Primal Shaman's Mask",
-      "description": "Increases Quake damage by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_quake_damage": 0.06
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_damage - the real ability is primalist_quake ('Quake'), not 'Earthquake'. Found by a full ability-reference sweep across every talent file after 3 similar bugs turned up in Mage/Hunter. _damage is a real, engine-consumed per-ability suffix (Ability._damage_multiplier), so this fix makes the talent fully functional, unlike the radius_pct/threat_pct siblings below.",
-      "connected_to": [
-        "primalist_geomancy_therazanes_might"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_magma_fissure",
-      "name": "Magma Fissure",
-      "description": "Learn Magma Fissure, a Fire damage spell that leaves a burning DoT.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "primalist_magma_fissure"
-      },
-      "connected_to": [
-        "primalist_geomancy_one_with_the_earth"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_earths_embrace",
-      "name": "Earth's Embrace",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_geomancy_cave_dweller"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_eruption",
-      "name": "Eruption",
-      "description": "Increases Magma Fissure damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {
-        "ability_primalist_magma_fissure_damage": 0.08
-      },
-      "connected_to": [
-        "primalist_geomancy_magma_fissure",
-        "primalist_geomancy_golem_might"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_golem_might",
-      "name": "Golem Might",
-      "description": "Increases all Nature and Fire spell damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "nature_fire_spell_damage": 0.02
-      },
-      "connected_to": [
-        "primalist_geomancy_eruption",
-        "primalist_geomancy_earthshaping"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_earthshaping",
-      "name": "Earthshaping",
-      "description": "Your Geode Barrage and Quake casts grant Earthshaping, increasing haste by 3% for 4 turns, stacking up to 5 times.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 6,
       "effects": {},
       "connected_to": [
-        "primalist_geomancy_golem_might"
+        "primalist_geomancy_one_with_the_earth",
+        "primalist_geomancy_blessing_of_therazane"
       ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Geomancy capstone.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 0,
         "ability_filter": [
           "primalist_geode_barrage",
-          "primalist_quake"
+          "primalist_seismic_crash",
+          "primalist_seismic_tremor",
+          "primalist_seismic_wave"
         ],
         "apply_effect": {
           "effect_id": "earthshaping",
           "name": "Earthshaping",
           "effect_type": "buff",
-          "duration": 4,
-          "max_stacks": 5,
+          "duration": 6,
+          "max_stacks": 15,
           "stat_mods": {
-            "haste": 3.0
+            "haste": 1.0
           },
           "on_target": false,
           "real_time_seconds": null
         }
-      }
+      },
+      "_source": "CoA verbatim: 'Level 10 Passive. Casting Geode Barrage and your Seismic abilities now generate Earthshaping. Earthshaping: Empowers some of your abilities and increases your spell haste by 1% for 20 seconds, stacking 15 times.' MOVED FROM TIER 6 TO TIER 0. It is a level 10 passive in CoA and every other talent in this tree reads it; as the capstone you could take all of them before you could take this. The old node generated off Geode Barrage and Quake at 5 stacks of 3%; CoA's generator list is Geode Barrage plus the Seismic abilities, and CoA's ramp is 15 stacks of 1% - same +15% ceiling, longer climb. 20 sec is 6 turns."
     },
     {
-      "talent_id": "primalist_geomancy_molten_core",
-      "name": "Molten Core",
-      "description": "Increases Spell Power by 4 per rank.",
+      "talent_id": "primalist_geomancy_stoneskin",
+      "name": "Stoneskin",
+      "description": "Increases your Armor by 100% of your Intellect per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 4,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -5,
+      "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "spell_power": 4
-      },
-      "connected_to": [
-        "primalist_geomancy_magmatism"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_stone_skin",
-      "name": "Stone Skin",
-      "description": "Increases Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -4,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [
-        "primalist_geomancy_earths_embrace"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_seismic_focus",
-      "name": "Seismic Focus",
-      "description": "Reduces the Mana cost of Geode Barrage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_geode_barrage_cost_pct": 0.04
-      },
-      "connected_to": [
-        "primalist_geomancy_heavy_earth"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_igneous_rock",
-      "name": "Igneous Rock",
-      "description": "Increases Stamina by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "stamina": 3
+        "armor_from_intellect_pct": 1.0
       },
       "connected_to": [
         "primalist_geomancy_one_with_the_earth"
-      ]
+      ],
+      "_source": "CoA verbatim: 'Increases your Armor by 200% of your Intellect.' Split across CoA's 2 ranks, so a full investment is the 200% CoA states. This conversion is live: 'armor' is in STAT_CONVERSION_TARGETS and 'intellect' in STAT_CONVERSION_SOURCES. Fraction, so 1.00 per rank. Was armor_pct 3.0."
     },
     {
-      "talent_id": "primalist_geomancy_tectonic_shift",
-      "name": "Tectonic Shift",
-      "description": "Increases the damage of Quake by 8% per rank.",
+      "talent_id": "primalist_geomancy_trembling_rage",
+      "name": "Trembling Rage",
+      "description": "Seismic Tremor generates 2 additional Rage.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
+      "tier": 0,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
-      "effects": {
-        "ability_primalist_quake_damage": 0.08
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to a nonexistent ability_primalist_earthquake_radius_pct - the real ability is primalist_quake ('Quake'). Retargeted the ability_id, but left as a genuinely inert key like this: _radius_pct is not one of the engine's real per-ability talent suffixes (only _cost/_cooldown/_damage/_potency are read anywhere in Ability, see combat/abilities.py) and this engine has no positional/range system at all (same documented gap as ranged_ability_range in claude/balance_pass_buffs_cc_stats.md) - Quake already hits every present enemy via target_type=enemy_aoe regardless of a 'radius', so a radius increase has no real mechanic to attach to. Harmless, does nothing, same 'left inert, not silently broken' category as that doc's other one-off gaps.",
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {},
       "connected_to": [
-        "primalist_geomancy_primal_shamans_mask"
-      ]
+        "primalist_geomancy_seismic_tremor"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_tremor"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 2
+        }
+      },
+      "_source": "CoA verbatim: 'Increases the amount of Rage generated by Seismic Tremor by 2.' Primalist is a dual-resource class (mana and Rage) and Terrasurge costs Rage while the Geomancy spells cost mana, so this is the bridge between the two halves of the kit."
     },
     {
-      "talent_id": "primalist_geomancy_magma_flow",
-      "name": "Magma Flow",
-      "description": "Increases the damage of Magma Fissure by 6% per rank.",
+      "talent_id": "primalist_geomancy_molten_fervor",
+      "name": "Molten Fervor",
+      "description": "Increases your haste by 2.5% per rank.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "ability_primalist_magma_fissure_damage": 0.06
-      },
-      "connected_to": [
-        "primalist_geomancy_eruption"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_earthen_will",
-      "name": "Earthen Will",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_geomancy_golem_might"
-      ]
-    },
-    {
-      "talent_id": "primalist_geomancy_volcanic_surge",
-      "name": "Volcanic Surge",
-      "description": "Increases spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -2,
+      "hex_x": 5,
+      "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.0
+        "haste": 2.5
       },
       "connected_to": [
-        "primalist_geomancy_primal_shamans_mask"
-      ]
+        "primalist_geomancy_volcanic_blast"
+      ],
+      "_source": "CoA: 'Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your spell haste by 5%.' A talent effect applies to its own character only - there is no party-aura mechanism - so the raid-wide half is dropped and the description says 'your' rather than promising the party a buff it will not get. Haste here means acting more often on the turn meter, not casting faster."
     },
     {
-      "talent_id": "primalist_geomancy_basalt_ward",
-      "name": "Basalt Ward",
-      "description": "Reduces Fire and Nature damage taken by 2% per rank.",
+      "talent_id": "primalist_geomancy_one_with_the_earth",
+      "name": "One With The Earth",
+      "description": "Increases the damage of Stoneshard and Geode Barrage by 20%, and Stoneshard restores 4% of your maximum mana.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {
-        "fire_nature_resist_pct": 0.02
+        "ability_primalist_stoneshard_damage": 0.2,
+        "ability_primalist_geode_barrage_damage": 0.2
       },
       "connected_to": [
-        "primalist_geomancy_earthshaping"
-      ]
+        "primalist_geomancy_rockslide"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_stoneshard"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "pct_max": 0.04
+        }
+      },
+      "_source": "CoA verbatim: 'Increases the damage of Stoneshard and Geode Barrage by 20% and Stoneshard now restores 4% of your maximum mana.' Both halves built. Was crit_chance_spell 1.0, which is neither half."
     },
     {
-      "talent_id": "primalist_geomancy_cave_dwellers_focus",
-      "name": "Cave Dweller's Focus",
-      "description": "Increases the Armor granted by Golem Form by 8%.",
+      "talent_id": "primalist_geomancy_blessing_of_therazane",
+      "name": "Blessing of Therazane",
+      "description": "Shaping the earth also sharpens your aim, increasing your spell critical strike chance by 1% per stack.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_cataclysm"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_geode_barrage",
+          "primalist_seismic_crash",
+          "primalist_seismic_tremor",
+          "primalist_seismic_wave"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_therazanes_blessing",
+          "name": "Blessing of Therazane",
+          "effect_type": "buff",
+          "duration": 6,
+          "max_stacks": 15,
+          "stat_mods": {
+            "crit_chance_spell": 1.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Each stack of Earthshaping now increases your critical damage dealt by 5%.' Nothing reads another effect's stack count, so this is built as a PARALLEL stacking buff on the same trigger - it climbs in lockstep with Earthshaping, which is what 'per stack of Earthshaping' means in practice. The stat is crit CHANCE, not CoA's crit DAMAGE, because crit_damage_spell is read through get_talent_effects() and that never includes status effects: a proc-applied crit-damage buff would be dead data. A status effect's stat_mods ARE multiplied by stacks, which is what makes the per-stack part real."
+    },
+    {
+      "talent_id": "primalist_geomancy_primal_shamans_mask",
+      "name": "Primal Shaman's Mask",
+      "description": "Your direct damage has a 10% chance to hurl a geode at the enemy, dealing extra damage and generating 5 Rage.",
+      "node_type": "passive",
+      "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_cataclysm"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "damage_flat": 120,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 5
+        },
+        "school": "physical"
+      },
+      "_source": "CoA verbatim: 'Direct damage dealt now has a 10% chance to launch a Geode at the enemy. Geode: Hurl an enchanted stone at the target, dealing Physical Damage and generating 5 Rage.' There is no primalist_geode ability to cast_ability into, so the geode is priced as damage_flat on the same trigger. 120 is in line with Frontier's other flat proc damage at this depth. Rage amount is CoA's. Was ability_primalist_quake_damage +6%."
+    },
+    {
+      "talent_id": "primalist_geomancy_magma_fissure",
+      "name": "Magma Fissure",
+      "description": "Learn Magma Fissure. Stomp the ground and send a wave of molten stone through the enemy line.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {
-        "ability_primalist_golem_form_potency": 0.08
+        "unlock_ability": "primalist_magma_fissure"
       },
       "connected_to": [
-        "primalist_geomancy_eruption"
-      ]
+        "primalist_geomancy_volcanic_blast"
+      ],
+      "_source": "CoA: 'Stomp the ground and unleash a wave of earth and stone in a 20 yd line that knocks all enemies to the side and deals Fire damage, piercing absorption effects. Your next spell within 6 seconds is instant cast.' The line, the knockback and the instant-cast rider are all gone - no positioning, no cast times. Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_geomancy_everlasting_rage",
+      "name": "Everlasting Rage",
+      "description": "Increases the duration of Seismic Tremor by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_seismic_tremor_duration": 1
+      },
+      "connected_to": [
+        "primalist_geomancy_geomolding"
+      ],
+      "_source": "CoA: 'Increases the duration of Seismic Tremor by 5 sec and its tick rate by -10%.' 5 sec is under 2 turns, rounded up to 2 since 1 would be a smaller buff than CoA's. The tick-rate half is dropped: ticks are per-turn here, so there is no sub-turn rate to speed up."
+    },
+    {
+      "talent_id": "primalist_geomancy_cataclysm",
+      "name": "Cataclysm",
+      "description": "Casting Stoneshard has a 10% chance to make your Seismic spells ready again at once.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_therazanes_might"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "ability_filter": [
+          "primalist_stoneshard"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_seismic_crash",
+            "primalist_seismic_tremor",
+            "primalist_seismic_wave"
+          ]
+        }
+      },
+      "_source": "CoA verbatim: 'Generating Earthshaping or casting Stoneshard now has a 10% chance to reset the cooldown of your Seismic abilities.' Only the Stoneshard half is built: 'generating Earthshaping' would mean a proc that fires off another proc's application, and no trigger expresses that. 10% is CoA's, with a 1-turn internal cooldown so it cannot chain. Omitting `turns` from reset_cooldown is a FULL reset, which is what CoA says."
+    },
+    {
+      "talent_id": "primalist_geomancy_rockslide",
+      "name": "Rockslide",
+      "description": "Stoneshard has a 15% chance to cast a second time.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_therazanes_might"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_stoneshard"
+        ],
+        "cast_ability": "primalist_stoneshard"
+      },
+      "_source": "CoA verbatim: 'Stoneshard now has a 15% chance to cast an additional time. This effect can trigger itself.' cast_ability takes a bare ability id. The self-triggering part comes free: the re-cast is itself a damage cast, so it rolls again, which is exactly what CoA describes - no icd, deliberately."
     },
     {
       "talent_id": "primalist_geomancy_quake",
       "name": "Quake",
-      "description": "Learn Quake, stomping the ground to damage and slow nearby enemies.",
+      "description": "Learn Quake. Shake the ground under a whole group of enemies.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 1,
       "hex_y": -2,
       "effects": {
         "unlock_ability": "primalist_quake"
       },
       "connected_to": [
-        "primalist_geomancy_magma_fissure"
+        "primalist_geomancy_stone_tosser"
       ],
-      "_source": "Confirmed screenshot: Geomancy-locked (not Mountain King as an earlier pass guessed from the name), Lvl 20 (Rank 1 shown), 2 Charges, 8 sec recharge, 'Stomp the ground, dealing Weapon Damage plus 28 Nature damage to enemies within 8 yds and reducing their melee and ranged haste by 20% for 10 sec.'"
+      "_source": "Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_geomancy_volcanic_blast",
+      "name": "Volcanic Blast",
+      "description": "Your critical strikes splash 10% of the damage onto up to 3 nearby enemies as Fire damage per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_geomolding"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "splash_damage": {
+          "pct": 0.1,
+          "max_targets": 3,
+          "school": "fire"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Physical or Nature damaging critical strikes now deal an additional 10% of the damage dealt as Fire damage to the target and enemies nearby.' splash_damage is the live payload for exactly this and takes a school, so the Fire conversion is real rather than cosmetic. The Physical-or-Nature restriction on the TRIGGER is dropped: on_crit cannot filter by the school of the crit, and Geomancy's damage is almost entirely those two schools anyway."
+    },
+    {
+      "talent_id": "primalist_geomancy_therazanes_might",
+      "name": "Therazane's Might",
+      "description": "Increases the critical strike chance of Terrasurge by 20% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_terrasurge_crit": 20.0
+      },
+      "connected_to": [
+        "primalist_geomancy_golem_form"
+      ],
+      "_source": "CoA: 'Your Terrasurge will now always critically strike against targets affected by your Seismic Tremor.' The condition is what balances it and no effect key reads whether the target carries a specific DoT, so this is a large crit bonus rather than an unconditional ability_*_crit of 100.0 - which is what the literal reading would be and would be a permanent guaranteed crit on the spec's hardest hit. ability_*_crit is a PERCENT. Was ability_primalist_geode_barrage_damage +3%."
+    },
+    {
+      "talent_id": "primalist_geomancy_stone_tosser",
+      "name": "Stone Tosser",
+      "description": "Increases your spell power by 12.5% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "spell_power_from_intellect_pct": 0.125
+      },
+      "connected_to": [
+        "primalist_geomancy_golem_form"
+      ],
+      "_source": "CoA: 'Increases spell bonus damage scaling of Geode Barrage, Stoneshard, and Seismic Crash by 25%.' There is no key for 'how much an ability scales with spell power' - the scaling coefficients live on the abilities themselves - so this is built as the spell power those abilities consume, which raises them all by the same mechanism. Also carries CoA's Crushing the Earth ('spell power equal to 50% of your armor penetration rating'), which is not buildable: armor_penetration is not in STAT_CONVERSION_SOURCES, and an unknown pairing is skipped in silence."
+    },
+    {
+      "talent_id": "primalist_geomancy_geomolding",
+      "name": "Geomolding",
+      "description": "Seismic Tremor's damage over time builds Geomolding, increasing your damage dealt by 3% per stack.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_tremor"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_geomolding",
+          "name": "Geomolding",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 20,
+          "stat_mods": {
+            "damage_dealt_pct": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Periodic damage dealt by Seismic Tremor now grants Geomolding for 15 seconds. Geomolding: Your next Terrasurge costs 2 additional Rage and deals 3% increased damage. Stacks 20 times.' Two departures. It triggers on the CAST rather than on each periodic tick, because no periodic-tick trigger exists in this engine. And the bonus is general damage rather than Terrasurge-only, because ability_*_damage is read through get_talent_effects() and a status effect cannot reach it - damage_dealt_pct is the status-effect route, and it is percentage POINTS, so 3.0. CoA's Rage surcharge is dropped: cost keys are reduction-signed, so a surcharge must be written negative, which is indistinguishable from the sign error the audit now flags. CoA's 20 stacks kept."
+    },
+    {
+      "talent_id": "primalist_geomancy_magmatism",
+      "name": "Magmatism",
+      "description": "Increases the damage of Magma Fissure by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_magma_fissure_damage": 0.2
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Eruption by 15 sec and causes Magma Geodes to deal 30% more damage to enemies above 75% health.' Frontier has no Eruption ability, so that half is dropped, and Magma Geodes are routed to Magma Fissure, the Fire area spell we do have. The above-75%-health CONDITION is dropped too: there is no high-health damage key - low_health_healing_pct is the only recipient-health conditional in the engine and it is heal-side - and the first draft invented high_health_damage_threshold_pct, which the audit correctly called dead. Repriced 30% -> 20% because it now applies unconditionally."
+    },
+    {
+      "talent_id": "primalist_geomancy_golem_form",
+      "name": "Golem Form",
+      "description": "Learn Golem Form. Become stone, slower to hurt and quicker to act.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "primalist_golem_form"
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "_source": "CoA: '15% of base mana, 2 min cooldown. Transform into a being made of stone and earth for 20 sec, increasing your haste by 20% and your Armor by 50%, and allowing you to cast damaging spells while moving.' The casting-while-moving clause is meaningless here. Kept from the previous tree, where this unlock was confusingly named Cave Dweller."
+    },
+    {
+      "talent_id": "primalist_geomancy_cave_dweller",
+      "name": "Cave Dweller",
+      "description": "Increases your maximum mana by 3% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "max_mana_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "_source": "CoA has TWO talents named Cave Dweller. This is the second: 'Increases your maximum Rage by 15 and reduces spell pushback suffered from damaging attacks by 50%.' Pushback does not exist - no cast bars - so that half is dropped. The FIRST Cave Dweller ('armor penetration rating equal to 50% of your Intellect') is not built at all: armor_penetration is not in STAT_CONVERSION_TARGETS, so the pairing would be skipped in silence. The Rage half is not buildable either, which is why this node grants mana instead: max_rage is a hardcoded 100 in Character.__init__ and no code reads a talent bonus into it, so 'rage_max' was a dead key and 'increases your maximum Rage' is not something a talent can do here. Rerouted to mana headroom, which is live and serves the same purpose for a spec whose damage spells are all mana-costed."
+    },
+    {
+      "talent_id": "primalist_geomancy_earth_pummeling",
+      "name": "Earth Pummeling",
+      "description": "Geode Barrage makes the target 3% easier to critically hit with spells for 4 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_geode_barrage"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_earth_pummeling",
+          "name": "Earth Pummeling",
+          "effect_type": "debuff",
+          "duration": 4,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 3.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Geode Barrage and Geodes to increase the chance for the enemy to be critically hit with spells by 3% for 12 seconds.' There is no recipient-side 'chance to be crit' key - crit chance lives on the attacker - so this is built as spell damage taken, which is the live recipient-side key and delivers the same thing the talent is for: your spells hurt this target more. 12 sec is 4 turns."
     },
     {
       "talent_id": "primalist_geomancy_seismic_tremor",
       "name": "Seismic Tremor",
-      "description": "Learn Seismic Tremor, sending an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells.",
+      "description": "Learn Seismic Tremor. Send a tremor through the ground that builds as it travels.",
       "node_type": "active",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "primalist_seismic_tremor"
       },
       "connected_to": [
-        "primalist_geomancy_golem_might"
+        "primalist_geomancy_heavy_earth"
       ],
-      "_source": "Confirmed screenshot: Geomancy-locked, Lvl 26, '157 Physical damage, plus an additional 1080 over 24 sec. Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage.'"
+      "_source": "CoA: 'Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage. Generates 2 stacks of Earthshaping.' Kept from the previous tree. Three nodes here modify it (Trembling Rage, Everlasting Rage, Geomolding), which is an argument for moving it earlier - left at tier 5 because it is a capstone-adjacent ability in CoA too and the modifiers are all spread across tiers 0-3 where they can be banked first."
+    },
+    {
+      "talent_id": "primalist_geomancy_therazanes_blessing",
+      "name": "Therazane's Blessing",
+      "description": "Increases the damage your damage-over-time effects deal by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.05
+      },
+      "connected_to": [
+        "primalist_geomancy_heavy_earth"
+      ],
+      "_source": "CoA: 'Level 50 Passive. Allows the periodic damage dealt by Seismic Tremor, Seismic Crash, and Earthquake to critically strike.' Whether DoT ticks can crit is an engine-wide rule, not a per-character bonus, so it is not a talent effect at all. Rebuilt as DoT damage, which is the same intent - make this spec's periodic damage matter - through a key that is live. dot_damage is unconditionally live, unlike the flavour-specific bleed_dot_damage, which resolves for no ability in the game."
+    },
+    {
+      "talent_id": "primalist_geomancy_heavy_earth",
+      "name": "Heavy Earth",
+      "description": "Terrasurge spends the shaped earth, dealing 60% more damage and leaving you unable to shape more for 3 turns.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_primalist_terrasurge_damage": 0.6
+      },
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_terrasurge"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_heavy_earth",
+          "name": "Heavy Earth",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Your Terrasurge now consumes all stacks of Earthshaping to refresh the duration of Golem Form and grant you Heavy Earth. Each stack consumed grants 5% additional damage dealt with Stoneshard and Geode Barrage as Nature Damage while this is active. Lasts 8 sec. While active you cannot generate Earthshaping.' The consume-and-scale core is the thing this engine cannot do: consumes_stacks_of reads the caster's own stacks but only extends a DoT's duration, and Terrasurge is a direct damage ability. So the capstone pays out as a flat Terrasurge bonus plus a fixed window of extra damage, and the description says 'spends the shaped earth' rather than quoting a per-stack number it cannot honour. The 'cannot generate Earthshaping while active' lockout is also unbuildable - no payload suppresses another proc - and the description's 'unable to shape more' is kept as flavour that does not promise a number. Flagged rather than faked."
     }
   ]
 }
