@@ -1,0 +1,672 @@
+# Primalist - CoA reference vs ours
+
+- CoA talents: **179**
+- already in our data by name: **57** (of those, **32** are pure scalars on our side)
+- not in our data at all: **122**
+- single-clause scalars in CoA's own tree: **36** (20%)
+- carry real-time assumptions needing translation: **95** (53%)
+
+Source: data/reference/coa/primalist.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Wildwalker  (DPS) - 39 talents, 1 abilities
+
+- **Rylak's Bite** (1 rank) - MATCH primalist_wildwalker
+  - needs: charges, cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rylak's Bite Rank 1 20 Rage Instant Requires Melee Weapon 2 Charges, 10 sec recharge You and your pet rush towards an enemy and strike them, dealing 120% Weapon Damage plus 8.
+- **Fury of the Wild** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: pet-summon
+  - CoA: Fury of the Wild Passive Instant cast When you cast a Boon , you cast the same Boon on your pet at 50% effectiveness.
+- **Totemic Smash** (1 rank) - MATCH primalist_wildwalker
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Totemic Smash Rank 1 35 Rage Instant 6 sec cooldown Smash an enemy for 140% Weapon Damage plus 20. Deals an additional 10+ AP *0.35 damage to up to 5 enemies within 8 yds.
+- **Primal Shred** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Command your pet to shred up to 5 enemies within 8 yds, causing them to bleed, dealing 53 + 35% AP Physical damage over 21 seconds.
+- **Primal Weapons** (1 rank) - NEW - we have no talent of this name
+  - CoA: $c8
+- **Pulverize** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Pulverize Rank 1 Instant Increases the critical strike chance of Totemic Smash by 10%.
+- **Wild At Heart** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
+  - CoA: Reduces the global cooldown of Wildclaw by 0.-25 sec.
+- **Raptor Talons** (2 ranks) - MATCH primalist_wildwalker  [ours is scalar]
+  - CoA: Raptor Talons Rank 1 Instant Increases your Strength by 5% and your expertise by 4.
+- **Torn to Shreds** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: transforms-ability, stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Torn to Shreds Passive Instant Totemic Smash and Rylak's Bite now causes enemies to bleed for 155*$ + AP *0.045 over 12 sec, stacking 2 times.
+- **Pulverize** (1 rank) - NEW - we have no talent of this name
+  - CoA: Critical strikes with Totemic Smash now trigger the area of effect portion of its damage an additional time.
+- **Rips and Tears** (1 rank) - MATCH primalist_wildwalker
+  - needs: resource-grant, pet-summon, dot-hot
+  - CoA: Rips and Tears Passive Instant Periodic damage dealt by you or your pet now generates 2 Rage for you and 5 Focus for your pet.
+- **Primal Resurgence** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Seismic Crash now generates an additional 10 Rage and Seismic Spike now generates 3 additional Rage.
+- **Wild Rage** (1 rank) - NEW - we have no talent of this name
+  - CoA: Removes the Rage cost of Rylak's Bite.
+- **Primal Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - CoA: Casting Totemic Smash now refreshes a charge of Rylak's Bite.
+- **Bring Me Their Bones** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bring Me Their Bones 8% of base mana Instant 1 min cooldown Mark an enemy for 15 sec, causing damage dealt by your pet's abilities to the target to add a stack of Bring Me Their Bones . At 5 stacks, your pet consumes this buff to deal 310+ AP *0.5 damage to the target, ignoring Armor.
+- **Lacerations** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Melee critical strikes now increase the effectiveness of bleed effects on the target by 30% for 15 seconds. Does not stack with similar effects.
+- **Tremors** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 30 Passive Periodic damage now has a 10% chance to reset the cooldown of your Seismic abilties and cause your next cast within 10 seconds to be free of cost.
+- **Elemental Berserker** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - CoA: Elemental Berserker Passive Instant Increases the area damage dealt by Totemic Smash by 30%, but it now costs 5 additional Rage.
+- **Earthshaker** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - CoA: Increases the damage dealt by Seismic abilities by 10% and allows their periodic damage to critically strike.
+- **Savage Frenzy** (1 rank) - MATCH primalist_wildwalker
+  - needs: cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Savage Frenzy 15% of base mana Instant 3 min cooldown Enrage you and your pet for 18 sec, increasing damage dealt by 20%, and attack speed and movement speed by 30%.
+- **Wild Rampage** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your attack power by 5% and your chance to hit by 2%.
+- **Spiritual Frenzy** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Primal Shred now empowers your pet, causing its auto attacks to strike up to 4 nearby enemies for 21 seconds.
+- **Throat Clamp** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Command your pet to dash forward a short distance towards your target, interrupting spellcasting and preventing any spell in that school from being cast for 3 seconds.
+- **Bloody Claws** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by your pet now reduces the enemies periodic healing received by -10% for 15 seconds, stacking 3 times.
+- **Sharpened Claws** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your direct critical strikes now increase your and your pet's Armor penetration by 5% for 10 seconds, stacking 3 times.
+- **Wild Carnage** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Seismic Spike now causes your Wildclaws to strike up to 4 additional nearby targets, dealing reduced damage with each additional enemy struck. Lasts 6 seconds.
+- **Spinebreaker** (1 rank) - MATCH primalist_wildwalker
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Spinebreaker Passive Instant Your Seismic Grasp now roots enemies for 3.5 sec.
+- **Rush of the Hunt** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Wildclaw and Rylak's Bite by 15% against bleeding enemies.
+- **Spirit Stable** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Call forth a stabled animal spirit to replace your current one. Lasts 10 seconds.
+- **Killer's Path** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Killer's Path Passive Instant Increases the attack power of party and raid members by 5%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.
+- **Bestial Wrath** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you critically strike, your pet restores 10 Focus. When your pet critically strikes, you restore 2% maximum mana and increase the target's Physical damage taken by 4% for 10 seconds.
+- **Rylak's Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Rylak's Bite now increases your pet's damage and critical strike chance by 2%, stacking 2 times, for 10 seconds.
+- **Totem Warrior** (1 rank) - MATCH primalist_wildwalker
+  - CoA: Totem Warrior Passive Instant cast While you have Boon of the Bear active, Wildclaw will now strike an additional time for 40% of the damage dealt with both weapons.
+- **Totemic Echoes** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Totemic Smash now applies Totemic Crash to an enemy for 2 seconds. At the end of the duration, if you are within 5 yds of the target, you cast Totemic Smash against them for free.
+- **Frenzied Roar** (1 rank) - MATCH primalist_wildwalker
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Frenzied Roar 8% of base mana Instant 1 min cooldown Roar with bestial fervor, generating 20 Rage and granting you 20% increased attack speed for 15 sec.
+- **Rexxar's Might** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rexxar's Might Passive Instant Your physical critical strikes now cause your pet's next attack to apply a bleed, dealing 92+1.7 Points Per Level+ AP *0.15 Physical damage every 2 sec for 6 sec.
+- **Empowered Boons** (1 rank) - NEW - we have no talent of this name
+  - CoA: $c6
+- **Son of Ursoc** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: transforms-ability, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Son of Ursoc Passive Instant Your Savage Frenzy now transforms you into a fierce beast, freeing you of all movement impairing effects. In addition, increases the effectiveness of Savage Frenzy by 50%, and reduces its cooldown by 60 sec.
+- **Legacy of Rexxar** (1 rank) - MATCH primalist_wildwalker  [ours is scalar]
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Legacy of Rexxar Passive Instant Critical strikes with Primal Shred grant you and your pet Misha's Rage for 12 sec, causing auto attacks to deal an additional 85+ AP *0.125 Physical damage. Critical strikes with Rylak's Bite grant you and your pet Leokk's Fury , increasing melee haste by 2% for 12 sec, stacking 3 times. Critical strikes with Wildclaw grant you and your pet Huffer's Speed , increas
+
+### Wildwalker abilities
+- **Spirit Beast Master**: Level 10 Passive You may now tame beasts in Azeroth to aid you as a companion.
+
+## Geomancy  (DPS) - 39 talents, 1 abilities
+
+- **Seismic Tremor** (1 rank) - MATCH primalist_geomancy
+  - needs: stacking-buff, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Send a tremor through the earth at an enemy, dealing 54 + 50% nature SP Physical damage, plus an additional 336 over 24 seconds. Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage. Generates 2 stacks of Earthshaping.
+- **Whispers of the Earth** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces the cast time of Geode Barrage and Stoneshard by 0.3 sec.
+- **Gaze of Therazane** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the range of your Geomancy spells by 10% and of Seismic spells by 8 yds.
+- **Stoneskin** (2 ranks) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Armor by 200% of your Intellect.
+- **Terrasurge** (1 rank) - MATCH primalist_mountain_king
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Unleash a massive globule of earth at an enemy, dealing 140 + 130% nature SP Physical damage and reducing their Armor by -50% for 10 sec. Pierces through absorption, deflection, and reflection effects. Deals 5% additional damage for each Earthshaping stack.
+- **Cataclysm** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown, resource-grant
+  - CoA: Generating Earthshaping or casting Stoneshard now has a 10% chance to reset the cooldown of your Seismic abilities.
+- **Lithic Lance** (1 rank) - NEW - we have no talent of this name
+  - CoA: $cc
+- **Primal Shaman's Mask** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: proc-chance, resource-grant
+  - CoA: Primal Shaman's Mask Passive Instant Direct damage dealt now has a 10% chance to launch a Geode at the enemy. Geode Hurl an enchanted stone at the target, dealing 173*$ +SP*0.349+AP*.085 Physical Damage and generating 5 Rage.
+- **Rockslide** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Stoneshard now has a 15% chance to cast an additional time. This effect can trigger itself.
+- **One With The Earth** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: resource-grant
+  - CoA: One With The Earth Passive Instant cast Increases the damage of Stoneshard and Geode Barrage by 20% and Stoneshard now restores 4% of your maximum mana.
+- **Volcanic Blast** (2 ranks) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Your Physical or Nature damaging critical strikes now deal an additional 10% of the damage dealt as Fire damage to the target and enemies nearby.
+- **Dream** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Generating Earthshaping while at or above 10 stacks now grants Dream.Dream Increases the critical strike chance of your Seismic abilities and Lithic Lance by 10% for 3 seconds.
+- **Golem Form** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Golem Form 15% of base mana Instant 2 min cooldown Transform into a being made of stone and earth for 20 sec, increasing your haste by 20% and your Armor by 50%, and allowing you to cast damaging spells while moving.
+- **Nature's Will** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Seismic spells now extends the duration of Earthshaping by 4 sec.
+- **Therazane's Might** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - CoA: Therazane's Might Passive Instant Your Terrasurge will now always critically strike against targets affected by your Seismic Tremor .
+- **Cave Dweller** (1 rank) - MATCH primalist_geomancy
+  - CoA: Cave Dweller Specialization Instant Level 30 Passive Increases your armor penetration rating by 50% of your Intellect.
+- **Cracking the Earth** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Striking at least 5 enemies with Volcanic Blast now grants you Cracking the Earth for 10 seconds.Cracking the Earth (Proc) Your Seismic Spike strikes 1 additional enemy. Stacks 5 times.
+- **Stone Tosser** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases spell bonus damage scaling of Geode Barrage, Stoneshard, and Seismic Crash by 25%.
+- **Earth Pummeling** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Geode Barrage and Geodes to increase the chance for the enemy to be critically hit with spells by 3% for 12 seconds.
+- **Trembling Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Increases the amount of Rage generated by Seismic Tremor by 2.
+- **Everlasting Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Seismic Tremor by 5 sec and its tick rate by -10%.
+- **Earth's Embrace** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Earth's Embrace 33% of base mana Instant cast 5 min cooldown Encapsulate your body in amber, becoming immune to all Physical attacks and spells for 8 sec, and healing you for 300+0+ SP *.5 every 2 sec, but making you unable to move or act. Usable while stunned, feared, or polymorphed.
+- **Molten Fervor** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your spell haste by 5%.
+- **Magma Fissure** (1 rank) - MATCH primalist_geomancy
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Stomp the ground and unleash a wave of earth and stone in a 20 yd line that knocks all enemies to the side and deals cond(gt(SPFI, SPN), 684+0+SPFI*1, 684+0+SPN*1) Fire damage, piercing absorption effects. Your next spell within 6 seconds is instant cast.
+- **Crushing the Earth** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 40 Passive You now gain spell power equal to 50% of your armor penetration rating.
+- **Tectonic Power** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration Earthquake by 3 sec and increases its damage dealt by 25%.
+- **Tectonic Resonance** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the amount that Earthquake slows enemies by -30%.
+- **Embraced By Earth!** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: At the end of the duration of Earth's Embrace, you now disorient all nearby enemies for 6 seconds. Damage dealt will end the effect.
+- **Cragforming** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Earth's Embrace by 4 sec.
+- **Cave In** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cave in your target, interrupting spellcasting and preventing any spell in that school from being cast for 4 seconds. Successfully interrupting a target generates 1 stack of Earthshaping.
+- **Cave Dweller** (2 ranks) - MATCH primalist_geomancy
+  - needs: scalar
+  - CoA: Increases your maximum Rage by 15 and reduces spell pushback suffered from damaging attacks by 50%.
+- **Blessing of Therazane** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Each stack of Earthshaping now increases your critical damage dealt by 5%.
+- **Eruption** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Eruption 20% of base mana Instant cast 30 sec cooldown Launch 1 Magma Geode at your target every 0.2 sec for 0.2 sec, dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FireP , NatP ), 58+5.0 Points Per Level+ FireP *0.2, 58+5.0 Points Per Level+ NatP *0.2) Firestorm Damage. Duration increased by 0.2 sec for each stack of Earthshaping .
+- **Journey To The Core** (1 rank) - NEW - we have no talent of this name
+  - CoA: $ce
+- **Geomolding** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Periodic damage dealt by Seismic Tremor now grants Geomolding for 15 seconds.Geomolding (Proc) Your next Terrasurge costs 2 additional Rage and deals 3% increased damage. Stacks 20 times.
+- **Therazane's Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - CoA: Level 50 Passive Allows the periodic damage dealt by Seismic Tremor, Seismic Crash, and Earthquake to critically strike.
+- **Magmatism** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: cooldown, hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Magmatism Passive Instant Reduces the cooldown of Eruption by 15 sec and causes Magma Geodes to deal 30% more damage to enemies above 75% health.
+- **Heavy Earth** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - needs: stacking-buff, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Heavy Earth Passive Instant Your Terrasurge now consumes all stacks of Earthshaping to refresh the duration of Golem Form and grant you Heavy Earth . Heavy Earth Each stack of Earthshaping consumed grants you 5% additional damage dealt with Stoneshard and Geode Barrage as Nature Damage while this is active. Lasts 8 sec. While active you cannot generate Earthshaping .
+- **Rupturer** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Seismic Spike or Seismic Crash now generates a stack of Geomolding. Critically striking with Seismic Spike or Seismic Crash now generates an additional stack of Geomolding plus a stack of Earthshaping. Casting Lithic Lance now reduces the cooldown of Terrasurge by -4 sec.
+
+### Geomancy abilities
+- **Earthshaping**: Level 10 Passive Casting Geode Barrage and your Seismic abilities now generate Earthshaping.Earthshaping Empowers some of your abilities and increases your spell haste by 1% for 20 seconds, stacking 15 times. Additional applications do not refresh duration.
+
+## Grovekeeper  (Support) - 45 talents, 1 abilities
+
+- **Hammer of Life** (1 rank) - MATCH primalist_grovekeeper
+  - needs: aoe-cleave
+  - CoA: Hammer of Life Passive Instant Your melee attacks and abilities now heal up to 3 nearby allies and damage up to 3 nearby enemies equal to 20% of the damage dealt.
+- **Seismic Wave** (1 rank) - MATCH primalist_grovekeeper
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Seismic Wave Rank 1 40 Rage Instant cast 8 sec cooldown Create a seismic wave of healing water around you, healing for 27+0+ Heal *.3+ AP *.28+ Heal *.3 health to up to 8 allies and dealing 47+0+ AP *0.28+ Heal *.3 Nature damage to enemies in a 25 yd radius. Shares a cooldown with other Seismic spells.
+- **Spirit Charge** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Spirit Charge Rank 1 16% of base mana Instant cast 30 sec cooldown Charge to an ally's aid, healing them for 53+0+ Heal *0.2+ AP *.2 and dealing 67+0+ Heal *0.2+ AP *.2 Nature damage to enemies within 5 yds of them.
+- **Tranquil Mind** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your damage and healing done by 4%.
+- **Nature's Fury** (1 rank) - MATCH primalist_grovekeeper
+  - needs: proc-chance, resource-grant
+  - CoA: Auto attacks now have a 20% chance to deal Weapon Damage and restore 5% of your maximum mana.
+- **Spiritual Warrior** (1 rank) - NEW - we have no talent of this name
+  - needs: charges
+  - CoA: Increases the critical strike chance of Spirit Charge by 25%.
+- **Vitality Surge** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: All effective healing done now has a 25% chance to increase the haste of party and raid members by 5% for 20 seconds. Does not stack with similar effects.
+- **Grovekeeper's Presence** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Grovekeeper's Presence Passive Instant Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.
+- **Blessing of Neptulon** (1 rank) - NEW - we have no talent of this name
+  - CoA: Blessing of Neptulon Passive Instant Your Hand of the Earthmother now bounces to 1 ally near the primary target.
+- **Hand of a God** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the Rage cost of Hand of the Earthmother by -5.
+- **Power Hammer** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: You now generate 10% more Rage from damage dealt, increased by 15% while a two-handed weapon is equipped.
+- **Ancient Power** (2 ranks) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Strength by 5% and your hit chance by 3%.
+- **Battleweaver** (1 rank) - MATCH primalist_grovekeeper
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Effective healing now increases your melee haste and damage by 2% for 5 seconds, stacking 3 times.
+- **Elemental Cascade** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Critical strikes with Wildclaw now unleash an Elemental Cascade.Elemental Cascade Restores 32 + 10% AP + 10% healing health to allies in a 12 yd radius around you.
+- **Thorns** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Physical damage dealt or taken now has a 10% chance to unleash Thorns on an enemy.Thorns (Talent) Create thorns around an enemy, rooting them and dealing 270 Nature Damage over 6 seconds. Direct damage taken may end this effect.
+- **Earth's Guidance** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage and healing done by Seismic spells now has a 20% chance to reduce the cooldown of all Seismic spells by -1 sec.
+- **Crashing Out** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Seismic Crash by 30%.
+- **Tears of the Earthmother** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the amount of targets hit by Seismic Spike by 4.
+- **Protector's Hand** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: You now emanate an aura around you, increasing the Armor of party and raid members by 390. Does not stack with similar effects.
+- **Infused With Power** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Effectively healing allies with Hammer of Life or Hand of the Earthmother now has a 20% chance to apply Infused With Power.Infused With Power Increases the critical strike chance of all party and raid members by 5% for 10 seconds. Does not stack with similar effects.
+- **Primal Power** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Primal Power Passive Instant Casting Seismic Wave now causes your next Hand of the Earthmother within 8 sec to cost 50% less Rage.
+- **Ring of Life** (1 rank) - MATCH primalist_grovekeeper
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Ring of Life Instant Allies within 40 yds receive 6% increased healing. Does not stack with similar effects. In addition, your Magic damage taken is reduced by 10%.
+- **Sacred Grove** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Sacred Grove 35% of base mana Instant cast 3 min cooldown Create a Sacred Grove in a 15 yd radius around you for 16 sec, instantly healing all nearby party and raid members for 2002+0+ AP *1. While active, up to 12 allies in the grove receive 25% increased healing, and regain 3% of their missing health, Rage, and mana every 2 sec.
+- **Keeper of the Grove** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Keeper of the Grove Passive Instant 1.5 sec cooldown Reduces the cooldown of Bramblepatch by 30 sec.
+- **Running on Instinct** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Passing through allies with Primal Rush now heals up to 5 of them for 166 + 25% AP + 35% SP and grants a stack of Running on Instinct.Running on Instinct (Proc) Damage of Wildclaw and Seismic spells is increased by 5% for 20 seconds, stacking 5 times.
+- **Earthmother's Binding** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Earthmother's Binding 22% of base mana Instant cast 1 min cooldown Envelop a target in the Earthmother's love, healing them for 501+0+ Heal *1+ AP *1. If used on an ally, 30% of their damage taken is redirected to you for 6 sec.
+- **Verdant Warrior** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Wildclaw by 15%.
+- **Grove Tender** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: cooldown
+  - CoA: Grove Tender Passive Instant While inside your Bramblepatch your Seismic abilities now have a 80% reduced cooldown. In addition, the duration of Bramblepatch is doubled.
+- **Earthmother's Warden** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of your Seismic abilities by -2 sec.
+- **Flourishing Growth** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: stacking-buff, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Flourishing Growth Rank 1 20% of base mana Instant cast 10 sec cooldown Empower party and raid members within 40 yds with verdant strength, increasing their attack or spell power by 95 for 20 sec. Does not stack with similar effects.
+- **Douse** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Striking an enemy with Seismic spells now deals an additional 1 + 8% AP Frost damage and reduces all resistances by 75 and increases their Magic damage taken by -2% for 10 seconds.
+- **Nature's Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Healing allies with Seismic Wave now heals them for an additional 20% of the healing done every 3 sec for 9 sec.
+- **Ride the Wave** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Seismic Wave now increases the movement speed of affected allies by 30% for 4 seconds.
+- **Infusion of Neptulon** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critically healing an ally now increases your attack power by 15% for your next 3 attacks. Lasts 12 seconds.
+- **Earthmother's Empowerment** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hand of the Earthmother now increases the target's dodge chance by 15% for 5 seconds.
+- **Earthmother's Roar** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Protective Roar now also heals allies equal to 20% of their missing health.
+- **Druid Training** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Your Geode Barrage now heals all allies within 20 yds equal to 10% of the damage dealt.
+- **Shaman Training** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Shaman Training Passive Instant Damage dealt by Wildclaw now reduces the enemy's armor by 4% for 20 sec, stacking up to 5 times.
+- **Primordial Earth** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: charges, pet-summon, aoe-cleave
+  - CoA: Primordial Earth Passive Instant Critical strikes with melee attacks now summon 1 Spirit of Life that immediately casts a lesser Spirit Charge on a nearby ally, healing them for 55+30.0 Points Per Level+ NatP *.2+ AP *.2 and dealing 62+10.0 Points Per Level+ NatP *.2+ AP *.2 Nature damage to nearby enemies.
+- **Verdant Chase** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - CoA: Your Spirit Charge and Primal Rush now cooldown faster.
+- **Neptulon's Wrath** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Emanate an aura for 15 seconds, causing allied players to deal 35% AP additional damage as Froststorm Damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.
+- **Primal Awakening** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Enrage all nearby allies, increasing their haste by 30% for 20 seconds. After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.
+- **Ancient of Lore** (1 rank) - MATCH primalist_grovekeeper  [ours is scalar]
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Ancient of Lore Instant cast 2 min cooldown Funnel nature's energies into yourself, transforming into an Ancient of Lore for 20 sec. While active, your stats are increased by 20% and nearby party members have their costs reduced by 30%. While transformed, your movement speed is reduced by 30%.
+- **Ancient of War** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Funnel nature's fury into yourself, transforming into an Ancient of War for 20 seconds. While active, your Hammer of Life effectiveness is increased by 30% and nearby party members have their critical strike chance increased by 20%. While transformed, your movement speed is reduced by -30%.
+- **Eternally Chosen** (1 rank) - MATCH primalist_grovekeeper
+  - needs: transforms-ability, charges, pet-summon, aoe-cleave
+  - CoA: Eternally Chosen Passive Instant cast Spirit Charge and Primal Rush now summons 2 Spirits of Life that immediately cast a lesser Spirit Charge on the nearest ally, healing them for 55+30.0 Points Per Level+ NatP *.2+ AP *.2 and dealing 62+10.0 Points Per Level+ NatP *.2+ AP *.2 Nature damage to nearby enemies.
+
+### Grovekeeper abilities
+- **Grove Training**: Level 10 Passive All melee damage, or healing done, now has a 10% chance to grant you Aftershock for 15 seconds.Aftershock Your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.
+
+## Mountain King  (Tank) - 39 talents, 1 abilities
+
+- **Quake** (1 rank) - MATCH primalist_mountain_king
+  - needs: charges, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Quake Rank 1 5% of base mana Instant Requires Weapon 2 Charges, 8 sec recharge Stomp the ground, dealing Weapon Damage plus 13+0+ NatP *.2+ AP *.1 Nature damage to enemies within 8 yds and reduces their melee and ranged haste by 20% for 10 sec.
+- **Unyielding Form** (2 ranks) - MATCH primalist_mountain_king  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your parry and dodge chance by 3% and your Armor contribution from mail and plate by 25%.
+- **Seismically Efficient** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Increases the Rage generated from Seismic Crash by 5 and Seismic Spike by 2.
+- **Stone Soldier** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of your off hand weapon by 30% and your chance to hit by 3%.
+- **King of the Mountain** (1 rank) - MATCH primalist_mountain_king  [ours is scalar]
+  - CoA: Level 20 Passive Increases your parry, dodge, and haste rating by 15% of your Strength.
+- **Spiritbound** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Avoiding attacks now grants you 5 Rage and reduces the cooldown of your Seismic abilities by -1 sec.
+- **Mountain Hammer** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Throw a hammer at an enemy dealing 49 + 35.5% nature SP + 15.5% AP Physical damage and stunning them for 5 seconds.
+- **Blessed by the Earth** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Damage dealt by Primal Rush and Quake now grant Earth's Rage.Earth&#39;s Rage Increases movement speed by 4% and haste by 2% for 8 seconds, stacking 5 times.
+- **Bash** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your auto attacks have a 30% chance to deal 50% Weapon Damage and stun them for 1 seconds.
+- **Hammer Time!** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Mountain Hammer now strikes up to 5 enemies.
+- **Everythings A Nail** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Mountain Hammer by 50%.
+- **Thane's Guidance** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Auto attacks now reduce the cooldown of Mountain Hammer by -1 sec.
+- **Stonebound** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Boon of the Turtle and Earth's Rage by 50%.
+- **Stone Skin** (1 rank) - MATCH primalist_geomancy  [ours is scalar]
+  - CoA: Level 30 Passive You are now immune to bleeds and your Geode Barrage and Seismic ability damage now additionally scales with your parry rating.
+- **Tilling the Earth** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the chance to trigger Bash by 3% and increases your expertise by 5.
+- **Raging Earth** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Quake now creates a fissure beneath you that deals an additional 73 + 8% AP Nature damage every 2 sec for 6 seconds.
+- **Earthen Avatar** (1 rank) - MATCH primalist_mountain_king
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Become an avatar of the earth, increasing your damage dealt and reducing your damage taken by 15%, and increasing your melee haste by 20% for 20 seconds. Immune to stuns, roots, and snares for the duration. Usable while stunned.
+- **Terrasmash** (1 rank) - MATCH primalist_mountain_king  [ours is scalar]
+  - needs: proc-chance, resource-grant
+  - CoA: Terrasmash Passive Instant Damage dealt by your off hand weapon now has a 30% chance to launch a Geode at the enemy. Geode Hurl an enchanted stone at the target, dealing 173*$ +SP*0.349+AP*.085 Physical Damage and generating 5 Rage.
+- **Mountain Thane** (2 ranks) - MATCH primalist_mountain_king  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Increases your Stamina by 5% and causes Earth's Rage to stack 1 additional time.
+- **Earthbreaker** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your melee haste by 10%.
+- **Primal Guardian** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When Earthen Avatar, Bearskin or Rock Barrier is removed or expires, you now gain 10% melee haste and parry chance for 15 seconds.
+- **Rock Solid** (1 rank) - NEW - we have no talent of this name
+  - needs: charges
+  - CoA: Increases the amount of charges of Rock Barrier by 5.
+- **Earthenforged Barrier** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases the Armor provided by Rock Barrier by 50% and it now reduces the cost of your spells and abilities by -25% for the duration.
+- **Call of the Mountain** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - CoA: Level 40 Passive Reaching 5 stacks of Earth's Rage now grants Call of the Mountain.Call of the Mountain Increases your parry chance by 5% and reduces damage taken by -5%.
+- **Quakeformer** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, proc-chance, cooldown
+  - CoA: Casting Wildclaw and Seismic abilities now has a 25% chance to refresh a charge of Quake.
+- **Resources of the Earth** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Resources of the Earth Passive Instant cast Critical strikes now grant allies Replenishment . Replenishment Restores 1% maximum mana every 5 sec to allies within 100 yds for 15 sec.
+- **Mountain Mover** (1 rank) - MATCH primalist_mountain_king
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mountain Mover Passive Instant Avoiding an attack grants a stack of Mountain Mover for 10 sec, stacking 5 times. Wildclaw consumes Mountain Mover stacks to cost 10% less Rage per stack.
+- **Improved Ursoc's Bellow** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Ursoc's Bellow by 40%.
+- **Fury of the Earthmother** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, proc-chance, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Geode Barrage or Geodes now generates increased threat and have a 15% chance to add 1 charge to an active Rock Barrier and extend its duration by 1 sec.
+- **Earthmother's Protection** (1 rank) - MATCH primalist_mountain_king  [ours is scalar]
+  - CoA: While your Rock Barrier is active, the Rage cost of Hand of the Earthmother is reduced by -50%.
+- **Judgement of The Three Hammers** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While active, dealing direct damage has a 20% chance to hurl 3 hammers over 2 seconds, each dealing 100 + 32.5% SP + 27.8% AP Physical damage. Lasts for 15 seconds. Damage scales with damage modifiers to Mountain Hammer.
+- **Legacy of the Bronzebeards** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Earthen Avatar by 100%.
+- **Mountain Fury** (1 rank) - MATCH primalist_mountain_king
+  - needs: stacking-buff, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Mountain Fury 30 Rage Instant 45 sec cooldown Move the earth, dealing 492+20.2 Points Per Level+ SP *.65+ AP *.17+ Sta *1.25 Physical damage to up to 12 enemies in a 10 yd frontal cone, pulling them toward you, repeating every 2 sec for 4 sec. Each time an enemy is pulled toward you, you gain 2% reduced damage taken for 3 sec, stacking 5 times.
+- **Mountain Avatar** (1 rank) - MATCH primalist_mountain_king
+  - CoA: $d2
+- **Shattering** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by each hammer triggered by Judgment of The Three Hammers now grants you 1% increased critical strike chance and damage for 10 seconds, stacking up to 10 times.
+- **Quaking Thane** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Striking at least 5 enemies with Quake or casting Mountain Hammer now grants you Thane's Rage.Thane&#39;s Rage Increases your attack power by 20% of your Stamina and your Stamina by 10% of your Strength for 15 seconds.
+- **Seismic Smash** (1 rank) - NEW - we have no talent of this name
+  - CoA: $d4
+- **Earthmaker** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Seismic abilities and Quake now reduces the cooldown of Earthen Avatar by -1 sec. Additionally, the cooldown of Seismic abilities is reduced by -3 sec.
+- **Earth Destroyer** (1 rank) - MATCH primalist_mountain_king  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Mountain Fury by -20 sec and increases the duration by 4 sec.
+
+### Mountain King abilities
+- **Mountain Giant**: Level 10 Passive Auto attacks now have a 20% chance to grant you Aftershock.Aftershock Your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.
+
+## Class (shared)  (ALL) - 17 talents, 20 abilities
+
+- **Primal Rush** (1 rank) - MATCH primalist_wildwalker
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Primal Rush Rank 1 10% of base mana Instant cast 25 sec cooldown R ush forward 20 yd through enemies in a line, dealing 40 Nature damage. Generates 20 Rage.
+- **Tectonic Flow** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Reduces the cooldown of Primal Rush and Boulder Dash by -20%.
+- **Bountiful Boons** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Boons and Instincts by 10%.
+- **Focus** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your Intellect and Stamina by 5%.
+- **Primal Convergence** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Primal Convergence 33% of base mana Instant 3 min cooldown Ascend into a primal convergence, increasing the effectiveness of your Boons by 100% for 30 sec.
+- **Rock Barrier** (1 rank) - MATCH primalist_mountain_king
+  - needs: charges, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rock Barrier 15% of base mana Instant cast 2 Charges, 20 sec recharge Raise rocks from beneath you, increasing your Armor by 100+ Sta *3, scaling with your Stamina. Lasts for 10 attacks or 10 sec. Expending a charge of Rock Barrier launches a Geode at the enemy. Geode Hurl an enchanted stone at the target, dealing 173*$ +SP*0.349+AP*.085 Physical Damage and generating 5 Rage.
+- **Untamed** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the range of Primal Rush by 3 yds.
+- **Fury of the Elements** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Your Primal Rush now generates 10 additional Rage.
+- **Nature's Call** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Nature's Call Rank 1 Instant Increases your healing done and received by 6%.
+- **Protective Roar** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Roar with noble tenacity, generating 20 Rage and granting 10% increased maximum health to all party and raid members for 12 seconds.
+- **Stone Cold** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your maximum health by 4%.
+- **Dreamslip** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dreamslip 33% of base mana 2 sec cast 3 min cooldown Shifts a party member into the Emerald Dream for 15 sec, making them immune to damage and unable to attack or cast spells. While active, the target quickly regenerates health and mana and cannot be seen by other players or creatures. Cannot be used on self.
+- **Emerald Will** (1 rank) - NEW - we have no talent of this name
+  - CoA: Emerald Will Passive Instant Successfully dispelling a poison or disease effect with Soothing Touch now heals for 4% maximum health.
+- **Mending Touch** (1 rank) - NEW - we have no talent of this name
+  - CoA: Soothing Touch now dispels an additional poison and disease effect.
+- **Mineralization** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While at or below 35% health, your spells and abilities will increase your healing received by 10% for 6 seconds.
+- **Earthmother's Blessing** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Attacks which would otherwise kill you now instead reform you in stone, healing for 30% maximum health and reducing your Physical damage taken by -70% for 3 seconds. Can only occur once every 2 min.
+- **Protector of the Grove** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Dealing direct damage now reduces the cooldown of Bearskin, Primal Convergence, and Boulder Dash by -1 sec.
+
+### Class (shared) abilities
+- **Grip**: Grip 8% of base mana 1.5 sec cast Summon a stone hand to grip the target, incapacitating them for 40 sec (8 sec vs. players). Damage dealt will break the effect.
+- **Boulder Dash**: Boulder Dash 35% of base mana Instant cast 3 min cooldown Raise a boulder out of the ground and encase yourself within it, preventing you from attacking or casting spells. For 10 sec, you roll forward at 70% increased movement speed, dealing 1+1.0 Points Per Level+ AP *.5+ SP *1 Physical damage to e
+- **Heavy Handed**: Heavy Handed Passive Instant Hand of the Earthmother now increases the Armor of yourself and your target by 10% for 10 sec.
+- **Environmentalist**: Reduces the cost of your spells and abilities by -5%.
+- **Rage Rolling**: Casting Boulder Dash now instantly generates 50 Rage.
+- **Rolling Momentum**: Increases the movement speed granted by Boulder Dash by 30%.
+- **Keen Senses**: Keen Senses Passive Instant Increases your critical strike chance and haste by 3%.
+- **Bramblepatch**: Bramblepatch 18% of base mana Instant 2 min cooldown Grow a patch of brambles at your location for 12 sec. Allies in the area are immune to grip and knockback effects. Enemies in the area are unable to leap, dash, or charge.
+- **Primal Strikes**: Primal Strikes Passive Instant Critical strikes with abilities that deal Physical damage now generate 3 Rage.
+- **Primal Fury**: You now passively generate 4 Rage every 5 sec.
+- **Earthmother's Precision**: Seismic Crash now increases the chance for allies to hit with all spells against the enemy by 3% for 15 seconds.
+- **Stonefaced**: Stonefaced Passive Instant Casting Seismic abilities now also grants 2 stacks of Earth's Rage . Earth's Rage Increases movement speed by 4% and haste by 2% for 8 sec, stacking 5 times.
+- **Bearskin**: Bearskin 24% of base mana Instant cast 5 min cooldown Reduces all damage taken by 60% and reduces the duration of root, stun, and incapacitate effects on you by 30% for 10 sec.
+- **Fae Presence**: Removes the reagent cost from Fae Dust and causes it to increase the target's stealth detection.
+- **Therazane's Gift**: Therazane's Gift Passive Instant Therazane's Rage now generates an additional 5 Rage and 5% additional mana.
+- **Natural Efficiency**: Whenever you are struck by a root, stun, or incapacitate effect you are now instantly healed for 4% of your maximum health.
+- **Grove Guardian**: Grove Guardian 20% of base mana Instant cast 1 min cooldown Mark a location as your Grove for 20 sec. Allies within gain 30% movement speed and are healed for 404+8.0 Points Per Level+ AP *.25 every 5 sec, removing 1 poison and disease effect. Enemies within are slowed by 30% and take 504+8.0 Points
+- **Earthmother's Pendant**: Earthmother's Pendant Passive Instant cast With every strike, the Earthmother’s pendant restores what was lost, healing you equal to 10% of your damage dealt. Can only occur once every 0.5 sec.
+- **Primal Totem**: Primal Totem 20 Rage Instant 10 min cooldown Summon a Primal Totem that increases the primary stats of party and raid members by 20% within 40 yds for 15 sec.
+- **Wildheart**: Wildheart 15% of base mana Instant cast 5 min cooldown The Earthmother marks you as her chosen one, reducing the cooldown of all other non-damaging spells and abilities by 5%, repeating every 1.5 sec for 15 sec. Instantly restores 5% missing health, mana, and Rage to you, repeating every 3 sec.
+

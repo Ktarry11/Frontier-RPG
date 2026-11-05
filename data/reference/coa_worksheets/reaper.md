@@ -1,0 +1,452 @@
+# Reaper - CoA reference vs ours
+
+- CoA talents: **121**
+- already in our data by name: **67** (of those, **46** are pure scalars on our side)
+- not in our data at all: **54**
+- single-clause scalars in CoA's own tree: **18** (14%)
+- carry real-time assumptions needing translation: **52** (42%)
+
+Source: data/reference/coa/reaper.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Harvest  (DPS) - 39 talents, 1 abilities
+
+- **Doomrend** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Doomrend Rank 1 Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Rend an enemy dealing 140% Weapon Damage plus 17+0+ AP *.35, causing you to apply a dark shield to them that absorbs the next 75+ Str *1 healing done to them for 5 sec, and generates Runic Power.
+- **Maw Knight** (2 ranks) - MATCH reaper_harvest  [ours is scalar]
+  - CoA: Maw Knight Rank 1 Instant Increases the critical strike chance of Doomrend by 5%.
+- **Bountiful Harvest** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Reap and Murder by 25%.
+- **Crow's Harvest** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Crow's Harvest Rank 1 30 Runic Power Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Strike all nearby enemies for 65% Weapon Damage plus 6. Damage dealt harvests a Soul Fragment , up to a maximum of 3.
+- **Slaughter** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, hp-threshold
+  - CoA: Generates 1 Reaped Soul Eradicate an enemy with your scythe, dealing 130% Weapon Damage plus 14. Only usable on enemies below 35% health.
+- **Haunter** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Haunter Passive Instant Increases the duration of Soulrend by 10 sec.
+- **Extinction** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 20 Passive Direct Physical damage dealt now has a 5% chance to grant you Extinction for 10 seconds. Chance to trigger this effect is increased by 10% for each Reaped Soul active.Extinction Your next Slaughter is usable regardless of the target's health and costs -10 less Runic Power.
+- **Dark Fate** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the cost of Crow's Harvest by -10 Runic Power.
+- **Red Wake** (1 rank) - MATCH reaper_harvest
+  - needs: resource-grant
+  - CoA: Direct damage critical strikes now generate an additional Soul Fragment.
+- **Crimson Death** (1 rank) - MATCH reaper_harvest
+  - needs: proc-chance
+  - CoA: Your Slaughter now has a 20% chance to cast an additional time free of cost.
+- **Callous Soul** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the amount of armor Soulrend causes you to ignore by 10%.
+- **Hungering Scythe** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hungering Scythe Passive Instant cast Increases the duration of Deathwind by 4 sec and Crow's Harvest now deals 15% additional damage to enemies inside.
+- **Blood Fueled** (1 rank) - MATCH reaper_harvest
+  - CoA: Blood Fueled Passive Instant Increases the healing absorbed by Doomrend by 30%.
+- **Genocide** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical damage and critical strike chance of Slaughter by 10%.
+- **Hemorrhage** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Increases the damage and critical strike chance of your abilities by 10% against enemies below 35% health.
+- **Sanguine Harvester** (2 ranks) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your melee haste by 10%.
+- **Mortal's End** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Level 30 Passive Allows Extinction to stack an additional time and allows Wraithblade to grant you Extinction.Extinction Your next Slaughter is usable regardless of the target's health and costs -10 less Runic Power.
+- **Crimson Wraith** (2 ranks) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your critical stike damage by 10%.
+- **Harvest Time** (1 rank) - MATCH reaper_harvest
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Harvest Time Instant cast 3 min cooldown Increases your damage and critical strike chance by 15% and gives your spells that require Soul Infusion a 50% to not consume the effect for 15 sec.
+- **Souls for the Slaughter** (1 rank) - MATCH reaper_harvest
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Souls for the Slaughter Passive Instant Critical strikes with Slaughter now cause your auto attacks to deal an additional 85% Shadow damage for 5 sec.
+- **Harvesting Grounds** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Harvesting Grounds Instant cast 2 min cooldown Create a harvesting ground at the target location for 10 sec, enemies inside have their melee and ranged haste and movement speed reduced by 20% For the duration, enemies that try to exit the harvesting ground will be pulled back to its center.
+- **The Time Has Come** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - CoA: Your abilities now deal 10% more damage against slowed targets.
+- **Blood Harvester** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.
+- **Sever** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Siphon Essence Rank 1 Instant cast 20 sec cooldown Attempt to drain an enemies vitals, leeching 22+0+ AP *0.310294 health, interrupting casting and preventing any spell from that school from being cast for 3 sec.
+- **Executioner** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: Level 40 Passive Increases your critical strike rating by 20% of your Strength. In addition, increases your Armor penetration by 30% against enemies below 35% health.
+- **Blood Knight** (1 rank) - NEW - we have no talent of this name
+  - CoA: Critical strikes with Doomrend now refund a Reaped Soul.
+- **Blood Wraith** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Wraithblade now deals an additional 100% Weapon Damage and its Runic Power cost is reduced by -20.
+- **Doomer** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Doomrend and Slaughter by 30%.
+- **Unbound** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: Your Reliquary of the Lost is now guaranteed to critically strike for 25% increased damage on enemies below 20% health.
+- **Ravenous Thirst** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - CoA: Ravenous Thirst Passive Instant Reduces the Runic Power cost of Ghastly Screech and Soul Strike by 10.
+- **The Grim Reaper** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, charges, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Your Ghost Claw transforms into Wraith Claw and now has 2 charges.Wraith Claw 2 Charges,15 sec recharge Chill an enemy with a ghostly claw, slowing and stealing -50% of their movement speed for 8 seconds. Whenever you kill an enemy, refund a charge of this ability. Scales with modifiers to Ghost Claw.
+- **Darkrend Scythe** (1 rank) - MATCH reaper_harvest
+  - needs: transforms-ability, stacking-buff, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Darkrend Scythe Passive Instant Damage dealt by Doomrend and Crow's Harvest now applies a bleed, dealing 56*$ + AP *0.085 Physical damage every 2 sec for 10 sec, stacking 5 times. Additional applications do not refresh the duration.
+- **Blood Frenzy** (1 rank) - MATCH reaper_harvest
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Harvest Time with an enemy targeted within 20 yds of you now unleashes a Blood Frenzy.Blood Frenzy Deals 1 + 36% AP Shadow Damage to your target every 0.75 sec for 7.5 seconds. At the end of the duration, the target takes an additional 457 + 45% AP Shadow Damage.
+- **Ruin** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Ruin Passive Instant Damage dealt by Murder now applies Ruin to enemies for 10 sec. Ruin Increases damage taken by Doomrend and Slaughter by 25% for 10 sec. Using Doomrend on a target afflicted by Ruin will increase your haste by 15% for 5 sec.
+- **This Is My Domain** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 50 Passive Increases the amount healed through the Harvest - Level 10 Passive by 10% and causes being in your Harvesting Grounds to increase this effect by an additional 75%.
+- **Redshade** (1 rank) - NEW - we have no talent of this name
+  - CoA: $be
+- **Deathbringer** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - CoA: Doubles the duration of Blood Frenzy, Harvest Time, and Harvesting Grounds.
+- **Shudder Scythe** (1 rank) - MATCH reaper_harvest  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Shudder Scythe Passive Instant Your Murder is transformed into Shudder Scythe , which costs additional Runic Power but deals increased damage and generates Soul Fragments . Shudder Scythe Strike an enemy 5 times, each dealing 30+1.0 Points Per Level% Weapon Damage, scaling with level, and granting you a Soul Fragment with each strike.
+- **Crimson Thirst** (1 rank) - MATCH reaper_harvest
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Physical damage dealt to enemies now grants Crimson Thirst for 20 seconds, stacking 5 times.Crimson Thirst (Stacks) Your next Murder within 15 seconds deals 10% increased damage and costs -10% less Runic Power per stack. At 5 stacks, it also heals you equal to 50% of the damage dealt.
+
+### Harvest abilities
+- **Harvester**: Level 10 Passive You now heal yourself equal to 15% of all damage dealt.
+
+## Soul  (DPS) - 38 talents, 1 abilities
+
+- **Deathchaser** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Deathchaser Rank 1 Instant Requires Melee Weapon Force death upon an enemy, dealing 13+0+ AP *.08 Shadowfrost Damage, repeating every 0.25 sec for 1 sec, and generates Runic Power.
+- **Soulforged Weaponry** (2 ranks) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Increases your off-hand weapon damage by 25%. While dual-wielding, your auto attacks now have a 8% chance to make your next Murder free of cost.
+- **Mark of Death** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage dealt by Deathchaser by 15% and your hit chance by 3%.
+- **Dirge** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Dirge Rank 1 Instant Requires One-Handed Melee Weapon Generates 2 Soul Fragments Strike the enemy with both weapons, dealing 70% (130% if a dagger is equipped) Weapon Damage as Shadowfrost Damage with each, and generates Runic Power.
+- **Ghostly Weapon** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Ghostly Weapon 20 Runic Power Instant 2 Charges, 40 sec recharge Imbue your weapon with ghostly power for 15 sec, causing melee attacks to deal 25% additional damage as Frost damage.
+- **Shattered Souls** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: transforms-ability
+  - CoA: Shattered Souls Passive Instant Your Wraithblade now deals double damage to enemies affected by Soulrend .
+- **Spirit Render** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - CoA: Level 20 Passive Increases your spell penetration by 20, scaling with your level.
+- **Soul Generator** (1 rank) - MATCH reaper_soul
+  - needs: resource-grant
+  - CoA: Critical strikes with Dirge now generate 10 Runic Power. Critical strikes with Murder now generate 1 additional Reaped Soul.
+- **Lamenting** (1 rank) - NEW - we have no talent of this name
+  - CoA: Lamenting Passive Instant Damage dealt by Ghostly Weapon now heals for 50% of the damage dealt.
+- **Death Dealer** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Death Dealer Passive Instant Increases the duration of Ghostly Weapon and Soulrend by 5 sec.
+- **Deathwail** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Runic Power cost of Wraithblade by -50%.
+- **Ghostly Magic** (2 ranks) - MATCH reaper_soul  [ours is scalar]
+  - CoA: Ghostly Magic Rank 1 Instant Increases the damage of Reap , Dirge , and Reliquary of the Lost by 10%.
+- **Ghastly Hilt** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Ghostly Weapon now causes your melee abilities to strike up to 2 additional targets near the primary target.
+- **Soulbender** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Soulbender Passive Instant Significantly increases the Runic Power generated by Deathchaser .
+- **Spectre** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Level 30 Passive Reduces the cooldown of Underwalk by -10 sec. In addition, Withering Touch will now always apply Ghost Claw to the target.Ghost Claw (Speed) Chill an enemy with a ghostly claw, slowing and stealing -50% of their movement speed for 8 seconds.
+- **Anima Ambusher** (1 rank) - MATCH reaper_soul
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Anima Ambusher Passive Instant Spectre Stride now deals an additional 125000% of its damage dealt over 5 sec.
+- **Fleeting Soul** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Soulslam by -15 sec.
+- **Soul Piercer** (1 rank) - MATCH reaper_soul
+  - CoA: Striking at least 1 enemy with Soulslam now refunds its Reaped Souls.
+- **Reaver** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Deathstalker, Soul Shear, and Soulstone Lure by -50%.
+- **Essence Harvest** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the additional Frost damage dealt by Ghostly Weapon by 10%.
+- **Chasing Death** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Deathchaser used against a target below 20% health will now reapply itself at the end of its duration until they die or until 5 seconds passes.
+- **Spirit Chaser** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance and critical damage of Reap, Deathchaser, and Wraithblade by 10%.
+- **Apparition** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - CoA: Apparition Passive Instant Increases the damage of Spectre Stride by 30% and reduces the chance for enemies to see you while stealthed.
+- **Shade** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Become a shade, entering an improved stealth mode for 10 seconds and entering Underwalk. Removes all movement impairing effects.
+- **Purgatory** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you gain Soul Infusion, the damage of your Soulrend and Reliquary of the Lost is increased by 20% for 6 seconds, stacking 2 times.
+- **Soul Bane** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Soul Bane Passive Instant Reduces the cooldown of Reliquary of the Lost by 5 sec.
+- **Beyond the Veil** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: transforms-ability
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Beyond the Veil Specialization Instant Level 40 Passive Entering Underwalk now grants you Beyond the Veil , increasing movement speed by 30% and allowing you to walk on water.
+- **The Jailer's Call** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: The Jailer's Call Passive Instant Attacks against enemies below 20% health deal an additional 140*$ + AP *0.18 Shadow damage.
+- **Spiritual Reflexes** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Spiritual Reflexes Passive Instant While below 35% maximum health, your chance to dodge attacks is increased by 25% and dodging an attack unleashes Soul Harvest on the target. Soul Harvest Blasts your target for 1+0+AP*0.05+ShaP*0.1 Shadow Damage, healing for 100% of the damage dealt.
+- **Death's Presence** (1 rank) - MATCH reaper_soul
+  - needs: stacking-buff
+  - CoA: Death's Presence Passive Instant Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.
+- **Spectre's Call** (2 ranks) - MATCH reaper_soul  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Deathwind, Murder, and Soul Strike by 15%.
+- **Endbringer** (1 rank) - MATCH reaper_soul
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Endbringer Instant 3 min cooldown Become an Endbringer for 15 sec, increasing the damage of Dirge by 30%, the range by 20 yds, and causes it to generate 3 Reaped Souls . For the duration, Dirge will heal you for 75% of its damage dealt.
+- **The End Is Near** (1 rank) - MATCH reaper_soul
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Wraithblade now creates a spectral version of yourself for 12 seconds that casts Dirge and Murder on enemies.
+- **Lord of Death** (1 rank) - MATCH reaper_soul  [ours is scalar]
+  - CoA: Lord of Death Passive Instant Abilities affected by Ghostly Weapon now deal 25% more damage per additional target.
+- **Sepulchral Renewal** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Resets the cooldown of Limbo, Soulslam, and Shade. Usable while stealthed.
+- **Gravesite** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Endbringer now marks the ground beneath you as your Gravesite for 15 seconds. Direct critical strikes made against enemies within a Gravesite now deals 530 + 36% AP Shadow damage.
+- **Soulrot** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Soulrot Passive Instant Damage dealt by Deathchaser now applies Soulrot . Soulrot Rot the soul of your target, cursing them for 15 sec. At the end of the duration the enemy will take damage based on the number of stacks accrued. Each instance of damage from Deathchaser adds 1 stack to this effect, up to 20 stacks. Dispelling this effect causes the dispeller to instantly take 1200+AP*2 Shadow Damag
+- **Beyond Death** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Dealing damage with Reliquary of the Lost now has a 8% chance to launch an additional Soul Bolt.
+
+### Soul abilities
+- **Weakened Souls**: Level 10 Passive Your Soulrend now also applies Weakened Soul, increasing the target's Shadow and Frost damage taken from you by 10%.
+
+## Domination  (Tank) - 37 talents, 2 abilities
+
+- **Dreadwake** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Dreadwake Rank 1 30 Runic Power Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Generates 1 Reaped Soul Unleash a wave of souls upon enemies in a 12 yd cone, causing 80% Weapon Damage plus 5 Frost damage.
+- **Empyrean Fortitude** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Increases your parry chance by 5% and parrying an attack now generates 2 Runic Power.
+- **Dark Soldier** (2 ranks) - MATCH reaper_domination  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your hit chance and reduces your Magic damage taken by -3%.
+- **Soultaker** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt with Dreadwake now reduces the cooldown of Tormented Souls by -1 sec.
+- **Requiem** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Requiem Rank 1 Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Swing at enemies around you in a fury of souls, dealing 67+0+ AP *0.4 Shadowfrost Damage, reducing their melee and ranged attack speed by 20% for 15 sec, and generating Runic Power.
+- **Lifestealer** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Increases the missing health generated by Soul Strike by 3%.
+- **Dominator** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - CoA: Reduces the Runic Power cost of Soul Strike by $/10s;s1.
+- **Behemoth** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - CoA: Level 20 Passive Increases your Stamina by 20% and your Armor penetration by 10% of your Strength.
+- **Dreadknight** (2 ranks) - MATCH reaper_domination  [ours is scalar]
+  - CoA: Increases your armor contribution from mail and plate items by 20% and reduces the chance for spells to hit you by -2%.
+- **Spectral Scythe** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Summons 1 Spectral Scythe for each Reaped Soul active which attack a nearby enemy for 20 seconds. Striking enemies with Soul Strike causes the Spectral Scythe to attack that enemy and 5 nearby enemies. Consumes Reaped Souls and Soul Infusion.
+- **Intimidating Presence** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bolstered Form now increases the damage nearby enemies take from you by 15% for 15 seconds.
+- **Essence Binder** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Soul Strike now steals some of the target's health and Strength for 12 seconds, granting it to you at increased value.
+- **Soulsight** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, resource-grant
+  - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, dealing direct damage now has a 15% chance to generate a Soul Fragment.
+- **Well of Souls** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Soul Strike and Murder now reduces the cooldown of Spectral Scythe by -1 sec.
+- **Well of Eternity** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of your Spectral Scythes by 10 sec.
+- **Soul Slip** (1 rank) - MATCH reaper_domination
+  - needs: proc-chance
+  - CoA: Soul Slip Specialization Instant Level 30 Passive Avoiding attacks now has a 50% chance to harvest a Soul Fragment from the attacker.
+- **Harnessed Life** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff
+  - CoA: Harnessed Life Passive Instant Your Tormented Souls now has a 25% chance to not consume a stack from damage taken.
+- **Ethereal Guard** (1 rank) - MATCH reaper_domination
+  - needs: stacking-buff
+  - CoA: Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.
+- **Fatesealer** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: stacking-buff, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fatesealer Passive Instant Generating a Reaped Soul now reduces damage taken by 2% for 15 sec, stacking 3 times.
+- **Jailer's Will** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: transforms-ability
+  - CoA: Soul Strike now deals 30% Strength increased damage, scaling with Strength.
+- **To The Shadowlands** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Soulslam by 1 sec.
+- **Spirit Realm** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - CoA: Spirit Realm Passive Instant Your Deathwind now also increases your healing taken by 10% while you stand within its radius.
+- **Spectral Warden** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Spectral Warden 20 Runic Power Instant 3 min cooldown Summon a spectral guardian to fight along side you for 20 sec and apply an absorption shield to up to 8 allies within 20 yds, absorbing 199+0+ Sta *1.5 damage. Threat generated by the Spectral Warden is redirected to the Reaper.
+- **Dark Soul** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 40 Passive Increases your Stamina equal to your Armor penetration rating.
+- **Hard Bargain** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - CoA: While Tormented Souls is active on you, your melee attack speed is increased by 30% and your Dreadwake costs -5 less Runic Power.
+- **Final Requiem** (2 ranks) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: Increases your critical strike chance with abilities that deal Shadow damage by 15% against enemies below 20% health.
+- **Soulstorm** (1 rank) - MATCH reaper_domination
+  - needs: proc-chance
+  - CoA: Soulstorm Passive Instant Requiem and Soulrend now have a 40% chance to refund a Reaped Soul .
+- **Life Tap** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Spectral Warden by -60 sec and it now heals you equal to 200% of the damage it deals.
+- **Spirit Army** (1 rank) - MATCH reaper_domination
+  - needs: transforms-ability, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Spectral Warden now causes you to summon 2 additional Spectral Wardens, but their duration is reduced by -8 sec. In addition, increases the amount absorbed by the shield granted by Spectral Warden by 100%.
+- **Soul Splinters** (1 rank) - MATCH reaper_domination
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Soul Splinters Passive Instant Erupt with ghastly force whenever you harvest a Reaped Soul , dealing (6*1000/2)*(4+1.4 Points Per Level+ Sta *0.035+ AP *0.05) Spellshadow Damage to nearby enemies over 6 sec.
+- **Soul Knight** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your successful parries and dodges increase all healing you receive by 2% and reduce all Magic damage taken by -2% for 10 seconds, stacking 5 times.
+- **Warden of the Lost** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Spectral Scythes and Spectral Wardens now reduces the cooldown of Spectral Warden by -0.5 sec.
+- **Siphon Anima** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you summon a Spectral Scythe, you now heal for 5% of your damage dealt for 10 seconds.
+- **Decimation** (1 rank) - NEW - we have no talent of this name
+  - CoA: $c2
+- **Painmail** (1 rank) - MATCH reaper_domination
+  - needs: transforms-ability, stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Painmail Passive Instant Dealing damage with Reap , Dreadwake and Soul Strike now grants a stack of Painmail for 15 sec, stacking up to 8 times. Additional applications do not refresh the effect. When Painmail stacks expire naturally, you are healed for 2% of your maximum health and reduce the cooldown of Bolstered Form by 0.5 sec for each stack.
+- **Spirit Culling** (1 rank) - MATCH reaper_domination  [ours is scalar]
+  - needs: proc-chance, resource-grant, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: For the duration of Spectral Scythe, the damage of Soul Strike is increased by 20%. In addition, generating a Reaped Soul now has a 10% chance to summon a Spectral Scythe to fight alongside you for 10 sec.
+- **Eater of Souls** (1 rank) - MATCH reaper_domination
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Eater of Souls Passive Instant Reaching 3 Reaped Souls now reduces your Physical damage taken by 10% and you regain 1% of your maximum health every 2 sec for 10 sec. This will not trigger while already active. In addition, the healing done by Deathwind is increased by 10%.
+
+### Domination abilities
+- **Tormentor**: Level 10 Passive Consuming Soul Infusion now reduces the cooldown of Tormented Souls by -3 sec.
+- **Bolstered Form**: Assume a bolstered form for 15 seconds, generating 30 Runic Power, increasing your Armor and your parry chance by 30%.
+
+## Class (shared)  (ALL) - 7 talents, 28 abilities
+
+- **Soulfused Constitution** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Tormented Souls now creates 1 additional soul for each Reaped Soul active.
+- **From the Shadows** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Exiting Underwalk increases your critical strike chance by 10% for 5 seconds.
+- **Dominion** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dominion Passive Instant Gaining Soul Infusion now increases your Armor by 55+12.5 Points Per Level for 6 sec.
+- **Spectre Strength** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Spectre Strength Rank 1 Instant Increases your Strength by 5%.
+- **Damned** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you gain Soul Infusion, you are protected from being slowed below 100% of normal speed for 5 seconds.
+- **Sinister Litany** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Sinister Litany Instant Embrace your sinister thoughts, instantly generating 3 Reaped Souls .
+- **Ghost** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Ghost Passive Instant Sinister Litany now increases the damage of your next spell or ability within 10 sec by 50% and casting it now grants you Ghost for 3 sec. Ghost Enter an enhanced stealth mode that does not break on damage dealt or taken.
+
+### Class (shared) abilities
+- **Wraithblade**: Wraithblade Rank 1 40 Runic Power Instant 30 sec cooldown Requires Melee Weapon Generates 3 Reaped Souls Strike for 150% Weapon Damage plus 36+0+ SP *0.625+ AP *0.18 Shadow damage, ignoring resistances, absorption, and invulnerability effects.
+- **Scythe Rush**: Scythe Rush Instant Rush towards an enemy and generate 15 Runic Power. Cannot be used on the same target more than once every 20 sec.
+- **Tormented Souls**: Create 1 Tormented Soul and generate Runic Power for each Reaped Soul active. Consumes Reaped Souls and Soul Infusion. Tormented Souls Reduces all direct damage you take by -10% and heals you for 35 + 5.8% AP + 24% Stamina, removing 1 stack. Lasts 20 seconds.
+- **Mysterious Omen**: Increases the range of Murder and Soul Shock by 5 yds.
+- **Backswing**: Increases the Runic Power generated by Reap by 5.
+- **Soul Harvester**: Soul Harvester Passive Instant Landing the killing blow on a target that yields experience or honor now grants Soul Harvester for 10 sec. Soul Harvester After killing an enemy you generate 2 Runic Power every 1 sec.
+- **Veilwalk**: Veilwalk Instant 2 Charges, 60 sec recharge Move with spectral agility, gaining 50% increased movement speed for 5 sec, stacking 2 times. Removes all movement impairing effects. Usable while stealthed.
+- **Soul Warden**: Increases your melee attack power by 1 for every 100 Armor you have.
+- **Jailer's Bargain**: Jailer's Bargain Instant 2 min cooldown Beckon the jailer, gaining a shield that absorbs damage equal to 30% of your maximum health for 10 sec. While this is active you are considered Undead and are immune to fear, sleep, and charm effects.
+- **Ghastly Form**: After using Spectre Stride, Scythe Rush, or Veilwalk you now gain a shield that absorbs 114 + 33% AP damage for 6 seconds.
+- **Withering Touch**: Your touch rots armor and resolve, reducing the target’s armor by -20% and increasing their Magic damage taken by 10% for 1 minute, and generates Runic Power.
+- **Harvester's Scythe**: Harvester's Scythe Passive Instant Increases the amount leeched by Soul Strike by 15%.
+- **Soulstrider**: Increases the movement speed granted by Veilwalk by 20%.
+- **Burial Rites**: Increases the effectiveness of your Rites by 20%.
+- **Ghastly Screech**: Ghastly Screech Rank 1 20 Runic Power Instant cast 1 min cooldown Screech with ghastly intent, silencing all nearby enemies for 4 sec, and dealing 90+0+ AP *.25 Shadowfrost Damage at the end of the duration.
+- **Limbo**: Limbo Instant 3 min cooldown Rip out of your mortal shell for 5 sec, making you immune to all harmful spell effects and instantly restoring 30% of your maximum health and Runic Power. Usable while stunned, feared, or polymorphed.
+- **Ghastly Advance**: Ghastly Advance Rank 1 Instant Increases the range of Spectre Stride by 5 yds and causes it to generate 5 more Runic Power.
+- **Soul Tap**: Chip away at the very essence of your own soul, generating 50 Runic Power. Usable while stealthed.
+- **Soul Protector**: Increases Armor contribution from items by 25% and increases your magic resistances by 21.
+- **Dark Passage**: Dealing direct critical strikes with Shadow damage reduce the cooldown of Limbo by -2 sec.
+- **Between Shadows**: Casting Spectre Stride now generates 1 Reaped Soul.
+- **Into The Shadow Realm**: Reduces the cooldown of Deathstalker, Soulstone Lure, and Soul Shear by -25%.
+- **Mawborn**: Mawborn Passive Instant cast Reduces the duration of disarm and incapacitate effects against you by 20%.
+- **Essence Invigoration**: Essence Invigoration Passive Instant Casting abilities that require Soul Infusion now has a 50% chance to restore 5% of your missing health.
+- **Masochistic Rage**: Masochistic Rage Instant cast 1 min cooldown After a 1 sec delay, you suffer 420+9.0 Points Per Level+ AP *0.36 damage, enraging you and increasing your damage dealt by 20% for 15 sec.
+- **Soul Harvest**: Generating Reaped Souls now triggers Soul Harvest. Soul Harvest (Damage) Blasts your target for 1 + 5% AP + 10% shadow SP Shadow Damage, healing for 100% of the damage dealt.
+- **Painbringer**: Generating Reaped Souls now has a 10% chance to trigger Masochistic Rage for 5 sec. If Masochistic Rage is already active, it will instead extend the duration by 3 sec.
+- **Soul Furnace**: Soul Furnace Passive Instant Increases the amount leeched from Soul Harvest by an additional 50%.
+

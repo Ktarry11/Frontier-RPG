@@ -1,0 +1,606 @@
+# Witch Hunter - CoA reference vs ours
+
+- CoA talents: **167**
+- already in our data by name: **90** (of those, **85** are pure scalars on our side)
+- not in our data at all: **77**
+- single-clause scalars in CoA's own tree: **33** (19%)
+- carry real-time assumptions needing translation: **76** (45%)
+
+Source: data/reference/coa/witch-hunter.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Boltslinger  (DPS) - 38 talents, 1 abilities
+
+- **Witchbane** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Unleash a series of devastating shots dealing 60 + 45% ranged AP Physical damage over 3 seconds.
+- **Mechanized Crossbows** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your ranged attack power by 10% and the range of your ranged abilities by 5 yds.
+- **My Trusty Arbalest** (2 ranks) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Rage cost of Witchbane and Shadowblast by -10% and increases your chance to hit by 2%.
+- **Heartseeking Bolt** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Charge up a powerful bolt that deals 200% Ranged Weapon Damage plus 40 + 50% ranged AP + 30% shadow SP to an enemy and reduces their healing received by -30% for 10 seconds. Generates Rage based on the damage dealt.
+- **Kingdom Hearts** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, hp-threshold
+  - CoA: Level 20 Passive Your Heartseeking Bolt is now guaranteed to critically strike on enemies below 20% health and it now restores 10% of your maximum mana.
+- **Damnation** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: Deplete your rage to shoot a powerful bolt dealing 130% Weapon Damage plus 6 Twilight Damage and converting each point of Rage into additional damage. Only usable on enemies below 35% health.
+- **Rapid Reload** (3 ranks) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your ranged haste by 8%.
+- **Tormentor** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fire a deadly bolt dealing cond(gt(SPS, SPH), 5+0+SPS*0.175, 5+0+SPH*0.175) Twilight Damage plus 63 + 87.5% ranged AP over 14 seconds.
+- **Witching Bolt** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Damnation against Undead and Demons by 25%.
+- **Resourceful Pursuit** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Rage cost of Tormentor and Damnation by -20%.
+- **Neverending Pursuit** (1 rank) - MATCH witch_hunter_boltslinger
+  - CoA: Critically striking with Damnation now refunds 40 Rage.
+- **One Shot** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Heartseeking Bolt by 20%.
+- **Bane of Witches** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bane of Witches Passive Instant Casting Heartseeking Bolt now increases your Physical damage dealt by 10% for 8 sec.
+- **Relentless** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Allows Witchbane to hit an additional nearby enemy.
+- **Rapid** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Witchbane now deals its full damage over -1 second shorter period.
+- **Strafing Shot** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Strafing Shot Passive Instant Critical strikes with ranged abilities now spread Tormentor to a nearby enemy.
+- **Arbalist** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 30 Passive Increases your attack power by 100% of your Intellect.
+- **Daring Escape** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Daring Escape 21% of base mana Instant cast 30 sec cooldown Jump backwards, causing all ranged attacks to miss you for 2 sec.
+- **Heartless** (2 ranks) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Physical ranged critical damage by 15%.
+- **Twilight Frenzy** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Twilight Frenzy 10 Rage, plus 100 per sec Channeled Requires Ranged Weapon Spin around, unable to stop moving for 5 sec, firing shots at nearby enemies for 50% Ranged Weapon Damage plus a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( ShaP , HolP ), 15+2.0 Points Per Level+ ShaP *.2+ RAP *.1, 15+2.0 Points Per Level+ HolP *.2+ RAP *.1) as Twilight Damage. Can dodge and parry
+- **Escape Artist** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: cooldown, resource-grant
+  - CoA: Escape Artist Passive Instant Your Daring Escape now resets the cooldown of Vault and generates 10 Rage.
+- **Bringing the Law** (1 rank) - NEW - we have no talent of this name
+  - CoA: Bringing the Law Passive Instant Increases the critical strike chance of Shadowblast by 10%.
+- **Enchanted Bolts** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Magic damage dealt by 5% and your Armor penetration by 10%.
+- **Crossbow Frenzy** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Crossbow Frenzy Passive Instant While Twilight Frenzy is active, your movement speed is now increased by 40%.
+- **Evasive** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: transforms-ability
+  - CoA: Evasive Passive Instant Twilight Frenzy now grants you 20% reduced damage taken while active.
+- **Slinging Bolts** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Slinging Bolts Instant Level 40 Passive Direct ranged damage dealt now has an 8% chance to grant you Slinging Bolts . Can only occur once every 5 sec. Slinging Bolts Your next Damnation is usable regardless of the target's current health. Lasts 20 sec.
+- **Silver Bolts** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - CoA: Silver Bolts Passive Instant Damage dealt by Heartseeking Bolt and Damnation is increased by 15%, doubled against Undead or Demons or enemies affected by Shadow Trap .
+- **Arbalest Mastery** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - CoA: Each subsequent shot of a Witchbane cast deals 15% more damage, up to a maximum of 150%.
+- **Slayer** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.
+- **Crossbow Expert** (2 ranks) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Shadowblast by 10% and Witchbane by 5%.
+- **Contract Killing** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Contract Killing Instant Increases damage dealt against enemies above 75% health and below 35% health by 15%.
+- **Pavise Crossbowman** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Teaches you how to use Shields and teaches you Pavise.Pavise Slam your shield into the ground, forming a pavise for 10 sec. While you remain near it, hostile spells targeting you are deflected.
+- **Bolt and Dash** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Your next Heartseeking Bolt within 10 seconds deals 25% more damage and incurs no cooldown. When this buff is consumed you gain 50% increased movement speed for 3 seconds.
+- **Everything You Have** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Twilight Frenzy by 5 sec, and gives damage dealt by it a 15% chance to strike again.
+- **Tormenting the Tormented** (1 rank) - NEW - we have no talent of this name
+  - CoA: Tormenting the Tormented Passive Instant Level 50 Passive Your Tormentor can now critically strike.
+- **Bounty Hunter** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bounty Hunter Passive Instant Casting Darkslayer or Witchbane now applies a stack of Bounty Hunter to you for 8 sec, which can be consumed by casting Heartseeking Bolt to deal an additional 299+4.0 Points Per Level+ SP *.45+ RAP *.3 Physical damage, stacking 2 times.
+- **Dead and Gone** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Your Bolt and Dash now affects an additional use of a Heartseeking Bolt. Your Pavise now lasts 2 additional sec and has a -30 sec reduced cooldown.
+- **Heavy Crossbows** (1 rank) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Increases the damage of Darkslayer by 50%, but increases its cast time by 0.5 sec. Your Heartseeking Bolt and Darkslayer now have a 25% chance to strike an additional time.
+
+### Boltslinger abilities
+- **Boltslinger**: Level 10 Passive You may now cast Darkslayer while moving. Ranged attacks and abilities now have a 25% chance to shoot an additional shot, dealing 20% ranged AP Physical damage and generating 5 Rage.
+
+## Houndmaster  (DPS) - 37 talents, 1 abilities
+
+- **Unleash the Hounds** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Summon 1 Lesser Shadow Hound to aid you in combat for 20 seconds.
+- **Houndmaster's Call** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Houndmaster's Call 15% of base mana Instant cast 20 sec cooldown Command your Shadow Hounds to leap upon an enemy target, dealing two strikes for 97*$ 2+ RAP *0.3 Shadow damage.
+- **Expert Shot** (2 ranks) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Expert Shot Rank 1 Instant cast Increases the damage of Shadowblast by 10% and your hit chance by 2%.
+- **Shadow Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Shadow Rage Passive Instant cast Casting Shadowblast now grants Shadow Rage to your Shadow Hound . Shadow Rage Auto attacks have a 50% chance to deal an additional 57*$ +AP*0.07t Shadow Damage. Lasts 15 sec.
+- **Sharpshooter ** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 20 Passive Casting Shadowblast now regenerates 5% of your maximum mana.
+- **Quickdraw** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Quickdraw Rank 1 15 Rage Instant 10 sec cooldown Requires Ranged Weapon Unleash a quick shot, dealing 175% Ranged Weapon Damage plus 16+0+ RAP *0.2 Physical damage. Only usable after critically striking with an ability.
+- **Trapper** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: cooldown
+  - CoA: Reduces the cooldown of your Trap spells by -25%.
+- **Expulsion of Evil** (1 rank) - MATCH witch_hunter_houndmaster
+  - needs: proc-chance, cooldown
+  - CoA: Expulsion of Evil Passive Instant Direct ranged attacks and abilities now have a 5% chance to reset the cooldown of Houndmaster's Call .
+- **Dark Ranger** (2 ranks) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the Shadow damage dealt by your Shadow Hounds by 5%.
+- **Pure Agony** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical damage of Quickdraw by 50%.
+- **Darkrider** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Rage cost of Shadowblast, Vault, and Unleash the Hounds by -10.
+- **Decimate** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Decimate 15% of base mana Instant 2 min cooldown Empowers your Shadow Hounds for 20 sec, granting them 30% increased damage and haste and allowing them to ignore Armor.
+- **Houndfeeder** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Houndfeeder Passive Instant cast Increases the critical strike chance of you and your Shadow Hound by 4%.
+- **Darkflock** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Darkflock Rank 1 21% of base mana Channeled Channel for 8 sec, commanding a flock of crows to deal 50+0+ RAP *.15+ SP *.85 Shadow damage to enemies in a wide cone every 2 sec. Can channel while moving.
+- **Dark Mind** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Level 30 Passive Increases your critical strike rating by 25% of your Intellect.
+- **Reload** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reload Passive Instant Reduces the cooldown of Quickdraw by 4 sec.
+- **Darkhunter** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Quickdraw now additionally causes your next Darkslayer within 15 seconds to be instant cast.
+- **Hail of Gunfire** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Hail of Gunfire Passive Instant Increases your ranged haste by 10%.
+- **Kennel Master** (2 ranks) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: proc-chance, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Kennel Master Rank 1 Instant Casting Unleash The Hounds now has a 25% chance to summon an additional Lesser Shadow Hound for 15 sec.
+- **Defender of Darkshire** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Defender of Darkshire Passive Instant Critical strikes with ranged auto attacks now increase the melee haste of your Shadow Hounds by 10% for 5 sec.
+- **Anguish** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Your Shadow damage dealt now has a 5% chance to reduce the channel time of your next Darkflock within 15 seconds by -50%.
+- **Repulse** (1 rank) - NEW - we have no talent of this name
+  - CoA: Emit a burst of shadow from your musket that strikes enemies in front of you, dealing 57 Shadow damage and knocking all affected targets back.
+- **Houndmaster** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Houndmaster Passive Instant cast Using Houndmaster's Call summons 1 Lesser Shadow Hound for 15 sec that leaps at the target and deals 97+( PL *2) Shadow damage.
+- **Loksey's Journal** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Increases the damage of Shadow Rage by 20% of your ranged attack power.
+- **Daredevil** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: cooldown, pet-summon
+  - CoA: Level 40 Passive When you take damage that would reduce your health to 35% or less, you summon 3 lesser Shadow Hounds and reset the cooldown of Vault. Can only occur once every 2 min.
+- **Bringer of Darkness** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Bringer of Darkness Passive Instant cast Your Repulse now resets the cooldown of Vault and makes your next Vault within 6 sec free of cost.
+- **Silver Bullets** (2 ranks) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Increases the damage of Darkslayer by 10%, increased by an additional 10% against Undead.
+- **Veiled in Darkness** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: stacking-buff, aoe-cleave
+  - CoA: A veil of dark magic encircles you at all times, granting 5% increased Attack Power to party and raid members within 100 yds. Does not stack with similar effects.
+- **Scent of Magic** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Scent of Magic Passive Instant Critical strikes now apply Scent of Magic for 15 sec, causing your Shadow Hound's next Shadow Leap to incur a 10 sec reduced cooldown.
+- **Rampaging Hounds** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Your Shadow Hounds melee attacks now cleave 1 additional nearby enemy.
+- **Rearmament** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Rearmament 22% of base mana Instant 5 min cooldown Arm yourself against evil, resetting the cooldown of all Traps and Decimate .
+- **Low Dawn** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Increases the damage of Sixfold Shot by 25% and causes it to channel 0.5 sec quicker.
+- **Coordinated Killing** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Coordinated Killing Passive Instant cast Casting Unleash the Hounds now casts Shadow Rage on you for 10 sec. Shadow Rage Ranged auto attacks deal an additional 50+0) Shadow Damage.
+- **Sixfold Shot** (1 rank) - NEW - we have no talent of this name
+  - CoA: $48
+- **Deal With The Devil** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - CoA: Your and your Shadow Hounds critical damage dealt with Shadow damage is increased by 50%, but the cost of your spells and abilities is increased by 25%.
+- **Lethal Pursuit** (1 rank) - MATCH witch_hunter_houndmaster  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Shadow Rage now also grants your Shadow Hounds 10% increased haste and it now stacks 3 additional times.
+- **Feast of Talons** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Feast of Talons Passive Instant Striking at least 5 enemies with Darkflock now causes you to unleash a flock of crows around each enemy struck, dealing (9*1000/1.5)*(95+3.2 Points Per Level+ SP *.175+ RAP *0.1) Twilight Damage over 9 sec.
+
+### Houndmaster abilities
+- **Houndmaster**: Level 10 Passive Your ranged auto attacks now generate Rage. In addition, teaches you Houndmaster's Whistle.Houndmaster&#39;s Whistle Summons a permanent Shadowhound companion to aid you in combat. Your Shadowhound receives 25% of healing done to you.
+
+## Inquisition  (DPS) - 39 talents, 1 abilities
+
+- **Hunt** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Hunt 12% of base mana Instant 2 Charges, 25 sec recharge Charge an enemy, slowing their movement speed by 70% for 2 sec and generating 20 Rage.
+- **Dusk Blade** (1 rank) - NEW - we have no talent of this name
+  - CoA: Strike an enemy with both weapons, dealing Weapon Damage plus 10 + 15% shadow SP Shadow damage, piercing resistances. Heals for 25% of damage dealt.
+- **Sermon of Flame** (2 ranks) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Fire damage dealt by 5%.
+- **Brooding Hatred** (2 ranks) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your off-hand Weapon Damage by 20% and increases your chance to hit by 3%.
+- **Interrogator** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Interrogator Passive Instant Level 20 Passive Damage dealt by Dawn Blade now deals an additional 100% of the damage dealt over 10 sec as Fire damage.
+- **Purifier's Edge** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Purifier's Edge Rank 1 9% of base mana Instant 6 sec cooldown Requires One-Handed Melee Weapon Strike an enemy with searing blades, dealing Weapon Damage plus 20 with both weapons as Fire damage. Grants Flames of Sin or increases the duration by 3 sec.
+- **Flexible Fighter** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Agility by 6%.
+- **Protector of Darkshire** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Dawn Blade and Dusk Blade by 15%.
+- **Refined Combatant** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your expertise by 10.
+- **Smite Evil** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Strike an enemy with your blade, dealing Weapon Damage plus 25 as Holy damage to them and 5 nearby enemies.
+- **Searing Hilt** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Searing Hilt Passive Instant Purifier's Edge now grants you Searing Hilt for 10 sec. Searing Hilt Increases your melee attack speed by 10% for 10 sec.
+- **Fiery Judgement** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fiery Judgement Rank 1 15% of base mana Instant 30 sec cooldown Judge an enemy, dealing 361+0+ AP *0.4+ FireP *1 Fire damage to them and nearby enemies. Grants Flames of Sin or increases the duration by 3 sec.
+- **Duskwood Renegade** (2 ranks) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Burrow Bolt by -5 sec.
+- **Brushin' Off The Dusk** (2 ranks) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Your off-hand auto attacks now have a 10% chance to strike 2 additional times.
+- **Darkslayer's Lantern** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Darkslayer's Lantern 30% of base mana Instant cast 2 min cooldown Empower a lantern with your Flames of Sin and let it shine, dealing 291+0+ AP *.15 Fire damage and stunning all enemies within 5 yds for 5 sec.
+- **Flames of the Sinned** (1 rank) - MATCH witch_hunter_inquisition
+  - needs: proc-chance
+  - CoA: Your Smite Evil now has a 25% chance to strike again. While you have Flames of Sin active, the chance to trigger this effect is increased by 10%.
+- **Malice** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - CoA: Level 30 Passive Increases your Fire spell damage by 50% of your Agility and your attack power by 100% of your Intellect.
+- **Cinder and Ashes** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the spell power scaling of Purifier's Edge and Fiery Judgement by 25%.
+- **Scarlet Inquisitor** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the mana cost of your Traps and Brands by -50%.
+- **Pyro Tonic** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pyro Tonic Instant cast 2 min cooldown Drink a fiery tonic, increasing your Fire damage dealt by 20% and your critical damage by 10% for 15 sec. Only 1 Tonic can be active at a time.
+- **The Hunt Continues** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Hunt now generates an additional 15 Rage and the mana cost is reduced by -15%.
+- **Evil Never Sleeps** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Hunt now slows movement speed by an additional 2 sec.
+- **Flourish** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Flourish 10% of base mana Instant 1 min cooldown Perform an advanced flourish, dealing 79+19.0 Points Per Level+ AP *1 Fire damage to nearby enemies, repeating every 4 sec, and causing your Flames of Sin to cleave up to 3 additional enemies for 20 sec. Grants you Flames of Sin and increases the duration by 10 sec.
+- **Torchlight** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Torchlight 5% of base mana Instant 20 sec cooldown Throw a torch at an enemy, dealing 166+ AP *0.3+ FireP *0.45 Fire damage, and causing up to 5 of the next attacks you make against them to grant you Flames of Sin and increasing the duration by 2 sec.
+- **Holy Frenzy** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your melee haste by 15%.
+- **Stake** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Drive a stake through the chest of an injured enemy, dealing 186 + 67.5% AP Physical damage, ignoring enemy armor. Grants Flames of Sin and increases the duration by 3 sec. Only usable on enemies at or below 35% health.
+- **Heartstopper** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 40 Passive Casting Purifier's Edge or Fiery Judgement now has a 30% chance to allow the use of Stake within 8 seconds regardless of the target's health percentage.
+- **Sinner** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Torchlight by 100%.
+- **Sin Eater** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the amount of next attacks that grant Flames of Sin through Torchlight by 5.
+- **Dawn** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dealing Fire damage now increases the damage dealt by Torchlight and Dusk Blade by 2% for 5 seconds, stacking 10 times.
+- **Dusk** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dealing Physical damage now increases the damage dealt by Stake and Dawn Blade by 2% for 5 seconds, stacking 10 times.
+- **Monster Hunting** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Increases melee and ranged haste of party and raid members within 100 yds by 10%. Does not stack with similar effects. In addition, increases your damage dealt against Undead and Demons by 10%.
+- **Lightbringer** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: proc-chance
+  - CoA: Damage dealt by Dusk Blade now has a 15% chance to reduce the mana cost of your next Purifier's Edge by -100%. This effect has a 25% chance to not be consumed by Purifier's Edge.
+- **Torch the Wicked!** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: transforms-ability, stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dealing damage with Flames of Sin now grants 2% attack speed, stacking up to 12 times for 6 seconds. Application of this effect does not refresh the duration. Additionally, Pyro Tonic now also resets the cooldown of Torchlight.
+- **Burned Alive** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Burned Alive Passive Instant cast Increases your critical strike chance by 25% on enemies below 20% health.
+- **Evil Doers, Beware!** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - CoA: Level 50 Passive Stake is now guaranteed to critically strike enemies above 75% health.
+- **Purity & Wickedness** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Main-hand auto attacks now apply a stack of Purity to the target, increasing the Fire and Holy damage you deal to them by 2% per stack, stacking 6 times. Off-hand auto attacks now apply a stack of Wickedness to the target, increasing the Shadow and Physical damage you deal to them by 2% per stack, stacking 6 times. Torchlight can now consume these stacks to deal 1028 + 25% holy SP + 45% AP Holyfla
+- **Cycle of Despair** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Increases the amount of stacks of Dawn and Dusk by 10. In addition, reaching 20 stacks with both buffs will consume them to grant you 20% increased damage, melee haste, movement speed, and critical strike chance for 6 seconds.
+- **Hatred & Vitriol** (1 rank) - MATCH witch_hunter_inquisition  [ours is scalar]
+  - CoA: Damage dealt by Stake now ignores enemy armor and its critical strikes refund half of its cost.
+
+### Inquisition abilities
+- **Flames of Sin**: Level 10 Passive Using Dawn Blade now grants you Flames of Sin for 3 sec, causing your auto attacks to deal an additional 30% of the damage dealt as Fire damage. Granting yourself Flames of Sin in this way while it's already active will increase the current duration by 3 sec.
+
+## Black Knight  (DPS) - 38 talents, 0 abilities
+
+- **Noctis Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Noctis Blade Rank 1 7% of base mana Instant 6 sec cooldown Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Strike an enemy, dealing 100% Weapon Damage plus 26, scaling with your parry rating, and healing you for 50% of the damage dealt.
+- **Grasp of the Undying** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Level 10 Passive Auto attacks while wielding a two-handed weapon now have a 25% chance to unleash Grasp of the Undying, leeching 20 + 15% SP + 10% AP health from the target.
+- **Shadow Brand** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct ability damage now applies Shadow Brand to enemies.Shadow Brand Marks the target for 12 seconds, dealing 36 High Threat Shadow Damage over 12 seconds.
+- **Dark Chivalry** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Armor contribution from mail items by 100%.
+- **Dark Penance** (2 ranks) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Dark Penance Rank 1 Instant Increases your Agility and your chance to parry and dodge by 2%.
+- **Dusk Knight** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Level 20 Passive Increases your parry rating by 40% of your Agility and your dodge rating by 25% of your Intellect.
+- **March of the Black King** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Expel darkness from within you, dealing 55 Shadow damage to nearby enemies over 10 seconds. Generates 5 Rage every 2 sec.
+- **Shadow Order** (2 ranks) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Shadow Brand by 20% and your hit rating by 3% of your Agility.
+- **Wide Swings** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Increases the damage of Noctis Blade and Grasp of the Undying by 20% on enemies affected by Shadow Brand.
+- **Desecrate** (1 rank) - NEW - we have no talent of this name
+  - CoA: Desecrate up to 8 enemies in front of you, dealing Weapon Damage plus 18 as Shadow damage, piercing resistances. Only usable after avoiding an attack.
+- **No Regrets** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Your March of the Black King now increases your Armor by 15%.
+- **Witchblight** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Explode with dark energy, dealing 51 + 50% shadow SP + 20% AP Shadow damage to up to to 10 nearby enemies and healing you for 20% of your maximum health. Each target struck is guaranteed to miss their next instance of damage within 6 seconds.
+- **Knight's Seal** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Curse an enemy, dealing 144 + 19.2% shadow SP + 14.6% AP Shadow damage every 3 sec and applying Dark Oath to you, reducing all damage taken by -20% for 8 seconds. Your next Desecrate within 8 seconds now restores 15% of your maximum health and mana.
+- **Dark Power** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Level 30 Passive You now gain 1 Stamina for every 2 Agility.
+- **Dark Riposte** (1 rank) - MATCH witch_hunter_black_knight
+  - needs: resource-grant
+  - CoA: Parrying enemy attacks now restores 5% of your missing health and Rage.
+- **Guard Strike** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bash an enemy with your weapon's hilt, interrupting them and preventing any spell from that school of magic from being cast for 3 seconds.
+- **Noctis Protection** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Noctis Blade now applies a shield absorbing 266 + 200% Stamina + 10% AP damage for 4 seconds.
+- **Secret Society** (2 ranks) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Shadow critical strike chance and Shadow damage dealt by 4% and your expertise by 5.
+- **Dark Juggernaut** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Desecrate now restores 10 + 20% shadow SP + 10% AP health plus an additional 1% maximum health for each target struck affected by Shadow Brand.
+- **Wicked Intent** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown
+  - CoA: Casting Desecrate now has a 15% chance to reset the cooldown of Noctis Blade.
+- **Bulwark of Darkness** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Damage dealt by Dawn Blade is now increased by 5% for each stack of Pommel Smash on the target.
+- **Clinch Fighting** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Attacks which would otherwise kill you now heal you for 50% maximum health and increases the damage of Noctis Blade by 50% for 6 seconds. Can only occur once every 2 min.
+- **Calm Under Pressure** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Stoicism by -30 sec and Burrow Bolt by -5 sec.
+- **Dark Barrier** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Stoicism by 5 sec.
+- **Shadowy Tendrils** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Your Grasp of the Undying now strikes 2 additional nearby enemies.
+- **Guardbreaker** (2 ranks) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Your Pommel Smash now strikes an additional nearby enemy.
+- **Witching Idol** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Witching Idol 25% of base mana Instant cast Drop a Witching Idol that periodically dispels fear, sleep, and charm effects every 2.5 sec from party members within 20 yds.
+- **Destroyer of Evil** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Dawn Blade now deals an additional 20% of the damage dealt as Twilight Damage every 1 sec for 3 seconds.Shadow Brand Marks the target for 12 seconds, dealing 36 High Threat Shadow Damage over 12 seconds.
+- **Foresight** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your direct Physical critical strikes now grant allies Replenishment. In addition, Dawn Blade is now guaranteed to critically strike against Undead or Demons.Replenishment Replenishes 5% of maximum mana per 5 sec for 15 seconds.
+- **Chains of Darkness** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pull all nearby enemies to you, dealing 84 + 55% shadow SP + 15% AP Shadow damage and taunting them for 3 seconds.
+- **Undying** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While below 75% maximum health, Dawn Blade now increases the critical strike chance of Noctis Blade by 40% for 10 seconds.
+- **Witch Knight** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Witch Knight Passive Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Direct ability damage with a two-handed weapon now reduces the remaining cooldown of your Tonics by 1 sec and grants Witching . Witching Increases magic resistances by 10%, and melee haste by 10% for 8 sec, stacking 3 times.
+- **Shadowstorm** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: proc-chance, aoe-cleave
+  - CoA: Shadowstorm Passive Instant Damage dealt by Pommel Smash now has a 20% chance to trigger a Shadowstorm . Shadowstorm Leeches 350*$ +SP*0.3+AP*.1 health from enemies within 8 yds.
+- **Night King** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - CoA: Noctis Blade now consumes Shadow Brand to deal 50% increased damage.
+- **Dawn Knight** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 50 Passive Avoiding damage or dealing damage with auto attacks now has a 40% chance to grant you Dawn Knight.Dawn Knight Your next Dawn Blade within 15 seconds is free of cost and deals 25% increased damage.
+- **Secret of Raven Hill** (1 rank) - NEW - we have no talent of this name
+  - CoA: $4a
+- **Gaze of the Black Knight** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: cooldown, hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Gaze of the Black Knight 27% of base mana Instant 3 min cooldown Apply a dark shield to yourself, absorbing 3255+0+ Sta *7+ AP *.41 damage and then gaze upon your party members, causing 25% of the damage they take to be transferred to you for 12 sec. Damage which reduces your health below 20% will break the effect. Usable while stunned.
+- **Blade of the Misbegotten** (1 rank) - MATCH witch_hunter_black_knight  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Dawn Blade now increases your health by 15% of the damage dealt for 8 seconds, stacking 3 times.
+
+## Class (shared)  (ALL) - 15 talents, 21 abilities
+
+- **Shadow Trap** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Place a dark trap on the ground lasting 30 seconds that will curse the first enemy to approach it and up to 5 enemies within 3 yds, stunning them for 4 seconds and dealing 461 + 136% AP Shadow damage over 8 seconds.
+- **Night Stalker** (2 ranks) - MATCH witch_hunter_boltslinger  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your critical strike chance by 3%.
+- **Plagueland Survivalist** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the duration of disease effects on you by -30%.
+- **Brimming Hatred** (1 rank) - MATCH witch_hunter_boltslinger
+  - needs: resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Brimming Hatred Passive Instant Your critical strikes now generate 10 Rage. Can only occur every 3 sec.
+- **Vishas' Memoir** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of your Brand spells by -25%.
+- **Inquisitor's Trap** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Place a cruel trap on the ground lasting 1 minute that will curse the first enemy to approach it silencing them and all enemies in a 5 yd radius for 6 seconds.
+- **Evil Never Sleeps** (1 rank) - NEW - we have no talent of this name
+  - CoA: Evil Never Sleeps Passive Instant In the night time, your Agility is increased by 4%. In the day time, your haste is increased by 3%.
+- **Follow The Edict** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of your Edicts by 20%.
+- **Just A Sip** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Just A Sip Passive Instant Drinking Tonics now also restores 5% of your maximum health and mana.
+- **Witching Shroud** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Witching Shroud 15% of base mana Instant 1 min cooldown Enter a powerful stealth mode for 3 sec, granting immunity to all harmful magic effects. Only usable for 10 sec after being hit by a magical critical strike. Usable while stunned or feared.
+- **Three Sevens** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration that Traps last on the ground by 7 sec, reduces the cooldown of Burrow Bolt by -7 sec, and reduces the cost of Dawn Blade by -7.
+- **Strategist** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Vault now regenerates 5% maximum mana.
+- **Alertness** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Witching Shroud by -10 sec when you are struck by a Shadow or Arcane critical strike.
+- **Renegade** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: You now drop caltrops below you each time you use Vault that last 6 seconds.
+- **Tonic Supply** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Tonic Supply Passive Instant Using a Tonic now reduces the cooldown of all other Tonics by 10 sec.
+
+### Class (shared) abilities
+- **Vault**: Dash in the direction you are moving. Distance scales with movement speed. Not usable while rooted.
+- **Burrow Bolt**: Burrow Bolt 13% of base mana Instant 40 sec cooldown Requires Ranged Weapon Shoot a bolt with a rope attached to it at an enemy dealing 6+0+ AP *.25 Physical damage and pulling them to you.
+- **Night Walker**: Increases the base range of Vault by 3 yds.
+- **Combat Training**: Increases your Physical damage dealt and parry chance by 3%.
+- **Witchblood Tonic**: Witchblood Tonic Instant cast 2 min cooldown Drink a shadowy tonic, removing all curse effects from you and reducing all Magic damage taken by 40% for 10 sec. Only 1 Tonic can be active at a time.
+- **Trap Card**: Increases the duration of your Traps by 50%.
+- **Vengeful Intent**: Vengeful Intent Passive Instant Whenever you take direct damage you have a 10% chance to strike back for 75% Weapon Damage.
+- **Regenerative Elixirs**: Regenerative Elixirs Passive Instant Drinking Tonics now also restores 30 Rage.
+- **Death Trap**: Place a death trap on the ground lasting 1 minute that will curse the first enemy to approach it, marking them for death, causing them to take 3100 + 100% AP Shadow damage after 1 minute.
+- **Brand of the Unworthy**: Brand of the Unworthy 7% of base mana Instant cast 1 min cooldown Expose an enemy's darkest faults, disorienting them for 40 sec (8 sec vs players). Damage caused will end this effect. Only usable on Humanoids, Demons, and Undead. You can only have 1 Brand on an enemy at a time|r.
+- **Vampire Hunter**: When an enemy applies a curse to you, your Magic damage taken is reduced by -10% for 8 seconds. The damage reduction is increased by 5% and duration is increased by 2 seconds for every curse active.
+- **Dark Intuition**: Dark Intuition Passive Instant Whenever you parry or dodge an attack, your attack speed is increased by 5%, and your parry chance by 2% for 15 sec, stacking 2 times.
+- **Resilient to Darkness**: Direct Magic damage taken now heals you and restores mana to you equal to 3% of the damage done.
+- **Alchemical Research**: Alchemical Research Rank 1 Instant Increases the effectiveness of your Tonics by 25%.
+- **Dark Souls**: Dark Souls Passive Instant cast Increases the duration of Tonics by 5 sec.
+- **Smoke Grenade**: Smoke Grenade 11% of base mana Instant 2 min cooldown Throw down a smoke grenade, enemies are unable to target into or out of the Smoke for 8 sec. Any damage caused will remove the effect. All allies in the Smoke area gain 40% increased movement speed and all enemies have their movement speed slowed
+- **Purified Bola**: Your Bola Throw now has 2 charges, deals additional damage, and lasts 2 additional sec, but now costs 10 Rage instead of mana.Purified Bola Throw 2 Charges, 15 sec recharge Throw a bola at an enemy, dealing 348 + 40% AP Holy damage and slowing movement speed by -60% for 8 seconds.
+- **Slayer of Darkness**: Slayer of Darkness Passive Instant Increases damage dealt by 5% when fighting Demons or Undead. Additionally, direct damage dealt with spells or abilities now has a 10% chance to deal 151*$ Holy damage.
+- **Vampiric Tonic**: Vampiric Tonic Instant cast 2 min cooldown Drink a vampiric tonic, allowing Physical damage dealt to heal you equal to 20% of the damage dealt for 10 sec. Only 1 Tonic can be active at a time.
+- **Trickster**: Trickster Passive Instant Reduces the cooldown of Smoke Grenade by 30 sec and increases its duration by 1 sec.
+- **Slayer's Mark**: Mark an enemy, increasing the attack power of all attackers against that target by 150 and your critical strike chance against them by 3%, increasing by 3% every 1 sec for 8 seconds. For the duration, the enemy is unable to stealth.
+

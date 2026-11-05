@@ -1,0 +1,563 @@
+# Starcaller - CoA reference vs ours
+
+- CoA talents: **160**
+- already in our data by name: **52** (of those, **8** are pure scalars on our side)
+- not in our data at all: **108**
+- single-clause scalars in CoA's own tree: **30** (18%)
+- carry real-time assumptions needing translation: **61** (38%)
+
+Source: data/reference/coa/starcaller.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Moon Guard  (Tank) - 35 talents, 1 abilities
+
+- **Starburst** (1 rank) - MATCH starcaller_moon_guard
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Starburst 10% of base mana Instant 20 sec cooldown Applies 1 Scattered Star Per Hit Smash up to 8 enemies, dealing 2+ ArcP *0.3+ AP *0.15+0 Arcane damage, scaling with block value and maximum mana and reducing their attack speed by 20% for 10 sec. Consuming a Scattered Star reduces the remaining cooldown of Starburst by 2 sec.
+- **Blanket of Stars** (1 rank) - MATCH starcaller_moon_guard  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Blanket of Stars Instant 35 sec cooldown Requires Shields Cover your shield in a blanket of stars for 8 sec, increasing your block chance and block value by 100%.
+- **Starsweep** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Starsweep Rank 1 5% of base mana Instant cast 20 sec cooldown Requires Melee Weapon Consumes Scattered Stars Sweep an enemy and all nearby enemies with your astral blade, dealing 30+0+ AP *0.3+ SP *0.35) Arcane damage. Every Scattered Star consumed reduces the cooldown of this spell by 3 sec. Consume Scattered Stars Deals 7+SP*0.182183 Arcane Damage and restores 8% maximum mana for each Scattered 
+- **Improved Eclipse of Fury** (1 rank) - NEW - we have no talent of this name
+  - CoA: Improved Eclipse of Fury Passive Instant Increases the effectiveness of Eclipse of Fury by 40%.
+- **Moonstone Hilt** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your parry chance by 2% and block value by 15%.
+- **Nebula** (1 rank) - MATCH starcaller_moon_guard
+  - needs: transforms-ability
+  - CoA: Blocking enemy attacks now applies Scattered Stars to the attacker.
+- **Asteroid Belt** (1 rank) - MATCH starcaller_moon_guard
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 20 Passive Every 15 sec, you now gain Asteroid Belt. In addition, your hit rating is increased by 5% of your Intellect and your expertise is increased by 8.Asteroid Belt Block rating, parry rating, and block value increased based on how much mana you had when this was applied for 15 seconds.
+- **Dance In The Starlight** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Blanket of Stars by -10 sec.
+- **Starlit Finesse** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your hit and critical strike chance by 3%.
+- **Celestial Divination** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your chance to dodge by 5%.
+- **Tyrande's Guidance** (1 rank) - NEW - we have no talent of this name
+  - CoA: Tyrande's Guidance Passive Instant Increases the critical strike chance of your Starburst by 10%.
+- **Astral Reconstitution** (1 rank) - MATCH starcaller_moon_guard
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Astral Reconstitution 13% of base mana Instant cast 1 min cooldown Surround yourself with lunar light, causing 30% of damage taken to be converted into mana for 10 sec.
+- **Moonflares** (1 rank) - MATCH starcaller_moon_guard
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Avoiding melee attacks will call down a Moonflare at the attacker, dealing 66 Arcane damage. Can occur only once per second.
+- **Crystal Shield** (1 rank) - MATCH starcaller_moon_guard  [ours is scalar]
+  - CoA: Level 30 Passive Increases your Stamina by 10% and increases your spell damage by 25% of your attack power.
+- **Starcovered Night** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Blanket of Stars by 4 sec.
+- **Pulsar Explosion** (2 ranks) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Pulsar Explosion Rank 1 Instant Increases the damage of Celestial Cleave by 10% and allows it to affect 1 additional enemies.
+- **Shrouded Stars** (1 rank) - MATCH starcaller_moon_guard
+  - needs: stacking-buff
+  - CoA: Shrouded Stars Passive Instant Reduces damage taken by all party and raid members by 3%. Does not stack with similar effects.
+- **Moonveil Screen** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Starsunder and Moonflare by 20%.
+- **Blade of the Moon** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Consuming Scattered Stars now has a 15% chance to transform Celestial Strike into Moonblade for 8 seconds.Moonblade Devastate an enemy, dealing 130% Weapon Damage plus 100% Intellect Arcane damage and regenerating 15% missing mana.
+- **Starburst Invigoration** (1 rank) - MATCH starcaller_moon_guard
+  - CoA: Starburst Invigoration Passive Instant Increases your Energy regeneration by 15%.
+- **Cosmic Crown** (2 ranks) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cosmic Crown Rank 1 Instant Requires Armor Increases the duration of Aegis spells by 3 sec.
+- **Enduring Moon** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critical strikes now increase the target's spell damage taken by 10% for 15 seconds.
+- **Vengeful Inspiration** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases your attack speed by 10% and causes critical strikes with melee attacks to apply a Scattered Star.
+- **Celestial Guard** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 40 Passive Increases the effectiveness of consuming Scattered Stars by 50%.
+- **Will of Elune** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Damage dealt by Aspect of the Stars now strikes 2 additional nearby enemies.
+- **Starbound** (1 rank) - MATCH starcaller_moon_guard
+  - needs: hp-threshold
+  - CoA: Starbound Passive Instant Increases your healing done and received by 10%, doubled while below 20% health.
+- **Enchanted Aegis** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Enchanted Aegis Passive Instant Your successful blocks now have a 50% chance to critically block for twice the normal amount.
+- **Starlight Duelist** (1 rank) - MATCH starcaller_moon_guard
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Starlight Duelist Passive Instant Blocking or parrying an attack now increases your damage dealt by 10% for 6 sec.
+- **Coalesced Resilience** (1 rank) - MATCH starcaller_moon_guard  [ours is scalar]
+  - CoA: Reduces your damage taken by an amount equal to 1% of your maximum mana.
+- **Font of Magic** (1 rank) - NEW - we have no talent of this name
+  - CoA: Each time you spend a cumulative 100% of your maximum mana, you heal for 4% of your maximum health.
+- **Lunar Knight** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of your Moonblade and Starsweep by 50% and their chance to critically strike by 20%.
+- **Dancing in the Moonlight** (1 rank) - MATCH starcaller_moon_guard
+  - CoA: Level 50 Passive Parrying an attack now regenerates 15 of your Energy and deals 65% Weapon Damage to the attacker.
+- **Chosen of the Moon** (1 rank) - MATCH starcaller_moon_guard
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Become the chosen of the moon, reducing all Physical damage taken by -60% and taunting all enemies within 8 yds for 10 seconds.
+- **Moonlit Bulwark** (1 rank) - MATCH starcaller_moon_guard
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Moonlit Bulwark Instant cast 3 min cooldown Grants you a shield for an amount equal to your maximum mana for 10 sec. Usable while stunned.
+- **Mooncharged Blades** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Blocking an attack allows your next Starsunder to hit an additional nearby enemy and cost -30% less mana.
+
+### Moon Guard abilities
+- **Moon Guard**: Level 10 Passive You now gain Intellect equal to your Strength.
+
+## Sentinel  (DPS) - 37 talents, 1 abilities
+
+- **Starfire Shot** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Consumes Scattered Stars Fire an enchanted arrow, dealing 100% Ranged Weapon Damage plus 62+66+POWER1*0.01 Arcane damage, scaling further based on your maximum mana.Consume Scattered Stars Deals 7 + 18.22% SP Arcane Damage and restores 8% maximum mana for each Scattered Star.
+- **Huntress of Elune** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Increases your damage dealt by 5% on enemies further than 30 yds.
+- **Starcrash** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage dealt by consuming Scattered Stars by 10%.
+- **Drawstring of Elune** (1 rank) - MATCH starcaller_sentinel
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Huntress Shot and Starcall apply an additional stack of Scattered Stars and your ranged ability attack range is increased to 50 yds for 20 seconds.
+- **Starcall** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Starcall Rank 1 11% of base mana 1.5 sec cast 12 sec cooldown Blast the target enemy and all enemies near them with lunar fire that deals 70+0+ ArcP *0.33 Arcane damage, applying Scattered Stars . Consuming a Scattered Star reduces the remaining cooldown by 1.5 sec. Scattered Stars Can be consumed by spells to deal additional Arcane Damage. Lasts 30 sec, stacking 4 times.
+- **Astral Lancer** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 20 Passive Increases the critical damage of Lunar Lance by 50%.
+- **Tyrande's Training** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical strike chance and critical damage of Starfire Shot by 10% against Burning targets.
+- **Exemplary Draw** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Moon Arrow deals 20% more damage and increases the target's spell damage taken by 10% for 12 seconds.
+- **Cascade** (1 rank) - MATCH starcaller_sentinel
+  - needs: every-nth-cast
+  - CoA: Cascade Passive Instant Every 8th Scattered Star you consume increases the damage of your next Starcall by 50%.
+- **Sentinel's Focus** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Sentinel's Focus Passive Instant Starfire Shot now has a 20% chance to fire a free Huntress Shot at the target.
+- **Tyrande's Vigilance** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces the cast time of Starfire Shot by -0.5 sec. Reduces the pushback suffered from damaging attacks while casting ranged abilities by 75%.
+- **Elune's Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases party and raid member's melee and ranged haste by 10%. Does not stack with similar effects.
+- **Eye of Elune** (1 rank) - MATCH starcaller_sentinel  [ours is scalar]
+  - CoA: Eye of Elune Passive Instant Increases your critical strike chance by 5%.
+- **Ishnu-alah** (1 rank) - NEW - we have no talent of this name
+  - CoA: Moon Arrow restores an additional 4% of your maximum mana.
+- **Explosive Moonlight** (1 rank) - MATCH starcaller_sentinel
+  - CoA: Explosive Moonlight Specialization Instant Level 30 Passive Increases your ranged attack power by 30% of your Intellect and your hit rating by 3% of your Intellect.
+- **Hunter's Sight** (1 rank) - NEW - we have no talent of this name
+  - CoA: Aspect of the Huntress now increases your chance to hit by 3%.
+- **Tyrande's Guidance** (1 rank) - NEW - we have no talent of this name
+  - CoA: Tyrande's Guidance Passive Instant cast Increases the critical damage dealt by Starfire Shot by 20%.
+- **Trueshot** (1 rank) - NEW - we have no talent of this name
+  - CoA: $98
+- **Omnipresent Moon** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Your Lunar Lances now strikes an additional nearby enemy.
+- **Cosmic Strides** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Aspect of the Cosmos no longer slows enemy movement speed. Instead, your melee and ranged attacks now grant you 5% increased movement speed for 4 seconds, stacking 3 times.
+- **Moon Runner** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases the movement slowing effect of Aspect of the Cosmos by -5% per stack.
+- **Enduring Hunt** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the mana cost of Huntress Shot and Trueshot by -15%.
+- **Star-Guided Arrows** (1 rank) - MATCH starcaller_sentinel
+  - needs: charges, proc-chance, cooldown
+  - CoA: Damage dealt by Scattered Stars now has a 25% chance to refresh a charge of Trueshot.
+- **Celestial Prowess** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Lunar Lance and Starfire Shot by 5%.
+- **Celestial Shot** (1 rank) - MATCH starcaller_sentinel
+  - CoA: Level 40 Passive Increases the effectiveness of consuming Scattered Stars by 40%.
+- **Shattered Stars** (1 rank) - NEW - we have no talent of this name
+  - CoA: Shattered Stars Passive Instant Increases the range of Starshatter by 10 yds.
+- **On The Hunt** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Starfire Shot now increases the damage the enemy takes from your Huntress Shot by 10% for 8 seconds, stacking 2 times.
+- **Arrows In The Night** (1 rank) - MATCH starcaller_sentinel
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Arrows In The Night 12% of base mana Instant 1 min cooldown Your Huntress Shots now strike 3 additional enemies and explode with astral energy for 10 sec, dealing 30*$ + ArcP *0.081429+ RAP *0.03 Arcane damage. Damage dealt by Starcall reduces the cooldown of this ability by 2 sec.
+- **Lunar Splinters** (1 rank) - MATCH starcaller_sentinel  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of consuming Scattered Stars by 10%.
+- **Moonmancer** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Starcall by -50%.
+- **Starfire Power** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Starfire Shot now has a 20% chance to grant you Drawstring of Elune for 5 sec.Drawstring of Elune (SLS) Huntress Shot and Starcall apply an additional stack of Scattered Stars and your ranged ability attack range is increased to 50 yds.
+- **Night Hunter** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Night Hunter Instant Reduces the cooldown of Huntress Saber by 60 sec.
+- **Lunar Amplification** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Trueshot by 25%.
+- **Lo'sho Amplification** (1 rank) - MATCH starcaller_sentinel
+  - CoA: Lo'sho Amplification Passive Instant Level 50 Passive Scattered Stars now burn enemy mana equal to 10% of the damage dealt.
+- **Starfire Barrage** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, every-nth-cast
+  - CoA: Starfire Barrage Passive Instant Every 3rd Starfire Shot transforms Starfire Shot into Starfire Barrage .
+- **Arrow of the Goddess** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fire a star-infused arrow hitting enemies in a line, dealing 400% Ranged Weapon Damage plus POWER1*0.45 Arcane damage, scaling with maximum mana and applying Scattered Stars to them.Scattered Stars Can be consumed by spells to deal additional Arcane Damage. Lasts 30 seconds, stacking 4 times.
+- **Unleashed Wisps** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, aoe-cleave
+  - CoA: Unleashed Wisps Passive Instant cast Dealing damage with Scattered Stars has a 30% chance to launch a Wisp at your target, dealing 80*$ + ArcP *0.135 Arcane damage to nearby enemies.
+
+### Sentinel abilities
+- **Huntress Training**: Level 10 Passive Increases your haste rating by 8% of your Intellect.
+
+## Moon Priest  (DPS) - 38 talents, 1 abilities
+
+- **Aspect of the Goddess** (1 rank) - MATCH starcaller_moon_priest
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Aspect of the Goddess 5% of base mana Instant cast 10 sec cooldown While active, your healing done is increased by 10% and your spells and abilities will not be able to miss. In addition, consuming Scattered Stars now heals up to 5 allies around the target for 31+2.9 Points Per Level+ Heal *0.149749. Shares a cooldown with other Aspects .
+- **Moonflow** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, aoe-cleave
+  - CoA: Send forth moonwell waters to all nearby party and raid members, healing them for 49 + 18.29% healing. Lunar Eclipse: Triggers with no cooldown and consumes Scattered Stars from enemies you are in combat with within 40 yds.Consume Scattered Stars Deals 7 + 18.22% SP Arcane Damage and restores 8% maximum mana for each Scattered Star.
+- **Lunar Blessing** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Lunar Blessing Rank 1 Instant Increases your healing done by 3%, plus an additional 3% on Poisoned or Diseased targets.
+- **Prayer of Elune** (1 rank) - MATCH starcaller_moon_priest
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Prayer of Elune Rank 1 33% of base mana 1.5 sec cast 30 sec cooldown Say a prayer to Elune, healing up to 12 allies within 40 yds for 77+0+ Heal *0.275697, and dispel 1 harmful magic effect from them.
+- **Lunar Resplendence** (1 rank) - MATCH starcaller_moon_priest  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Lunar Resplendence Passive Instant cast Increases your healing done to allies below 20% health by 30%.
+- **Celestial Mind** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 20 Passive You now passively gain 1 stack of Lunar Phase 1 sec faster.
+- **Lunar Swiftness** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Moon Arrow now reduces the cast time of the next Hand of Elune within 8 seconds by -20%, stacking 5 times.
+- **Eclipsing Arrows** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Eclipsing Arrows Passive Instant Healing done by Hand of Elune or Touch of Moonlight now marks allies for 20 sec. Casting Huntress Shot now heals marked allies for 55+5.0 Points Per Level+ SP *.3.
+- **Enchanted Water** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Enchanted Water Rank 1 Instant Increases the healing of Touch of Moonlight by 10% and reduces spell pushback suffered from damaging attacks by 35%.
+- **Moonlit Slumber** (1 rank) - MATCH starcaller_moon_priest
+  - needs: cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Moonlit Slumber Instant 1 min cooldown Put an enemy to sleep for 30 sec (6 sec vs players). Damage dealt will end the effect. While sleeping, you drain 10+3.0 Points Per Level mana from them every 3 sec.
+- **Lunar Revelation** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Moonflow by 10%.
+- **Stellar Convergence** (1 rank) - MATCH starcaller_moon_priest
+  - needs: aoe-cleave
+  - CoA: Applies Eclipsing Arrows to all party and raid members within 40 yds.
+- **Goddess Watch Over** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Aspect of the Goddess by 25%.
+- **Cycle of the Moon** (1 rank) - MATCH starcaller_moon_priest
+  - needs: proc-chance, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cycle of the Moon Passive Instant Every 10 sec, you cycle between Full Moon and New Moon . Full Moon Increases your critical strike chance by 5%. New Moon Damage dealt has a 25% chance to apply Scattered Stars .
+- **Moonwell Acuity** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Level 30 Passive The Lunar Eclipse effect of Moonwell Splash now causes it to affect 3 targets.
+- **Tear Drops** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Healing through Aspect of the Goddess now increases the target's healing taken from you by 1% for 10 sec, stacking up to 10 times.
+- **Rapid Cycle** (1 rank) - MATCH starcaller_moon_priest
+  - needs: stacking-buff
+  - CoA: Lunar Phase now increases your ranged haste by 4% per stack.
+- **Mending Surge** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mending Surge Passive Instant Reduces the cooldown of Stellar Convergence by 30 sec.
+- **Last Prayer** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Casting Stellar Convergence now resets the cooldown of Prayer of Elune.
+- **Lunar Prophecy** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Lunar Prophecy Passive Instant Casting Moon Arrow now reduces the cooldown of Prayer of Elune by 3 sec.
+- **Teachings of Elune** (2 ranks) - MATCH starcaller_moon_priest  [ours is scalar]
+  - CoA: Teachings of Elune Rank 1 Instant Increases the healing of Hand of Elune and Moonflow by 10%.
+- **Blessed By The Stars** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Blessed By The Stars Passive Instant Your ranged damage dealt now has a 15% chance to unleash a Scattered Star .
+- **Elune's Grace** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critical heals with Hand of Elune now increase the target's armor by 10% for 10 seconds.
+- **Healing Prayers** (1 rank) - NEW - we have no talent of this name
+  - CoA: Prayer of Elune gains an additional 20% of your bonus healing effects.
+- **Phase Guider** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases the bonus healing scaling of Moonwell Splash and the healing done through Aspect of the Goddess by 20%.
+- **Full Cycle** (1 rank) - NEW - we have no talent of this name
+  - CoA: Full Cycle Passive Instant Hand of Elune gains the following Full Moon and New Moon effects. Full Moon: Healing increased by 10%. New Moon: Cost reduced by 10%.
+- **Moon Gazing** (1 rank) - MATCH starcaller_moon_priest
+  - needs: stacking-buff, resource-grant
+  - CoA: Level 40 Passive Your critical strikes now generate a stack of Lunar Phase. Can only occur once per sec.
+- **Elune's Favor** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hand of Elune and Touch of Moonlight now heal for an additional 50% of their value over 10 seconds.
+- **Enchanted Stream** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical healing of Hand of Elune and Moonflow by 15%.
+- **Flow of Waters** (1 rank) - MATCH starcaller_moon_priest
+  - needs: stacking-buff
+  - CoA: Flow of Waters Passive Instant Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.
+- **Final Prayer** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Prayer of Elune now dispels 1 additional effect.
+- **Cosmic Shift** (1 rank) - MATCH starcaller_moon_priest
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cosmic Shift 35% of base mana Instant cast 3 min cooldown Shift the target ally out of the physical plane, granting improved stealth for 10 sec. Does not break on damage taken.
+- **Rampaging Waters** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Scattered Stars now increases your healing by 1% and critical strike chance by 1% for 10 seconds, stacking 10 times.
+- **Lunar Cascade** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Lunar Cascade Passive Instant Critical strikes with Moonflow and Prayer of Elune now apply Eclipsing Arrows to the target for 20 sec. Casting Huntress Shot heals marked allies for 55+5.0 Points Per Level+ SP *.3.
+- **Elune's Blessing** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 50 Passive Your Hand of Elune now gains an additional 30% of your bonus healing.
+- **Lunar Phasing** (1 rank) - NEW - we have no talent of this name
+  - CoA: Cosmic Shift now dispels all harmful effects from the target.
+- **Celestial Form** (1 rank) - MATCH starcaller_moon_priest
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Celestial Form 20% of base mana Instant cast 1 min cooldown Ascend into a celestial form for 15 sec, increasing your critical strike chance by 10%. While active, critical strikes now reduce the remaining cooldown of all healing spells by 10% and apply a Scattered Star to your target and up to 4 enemies within 5 yds of them.
+- **Rippling Moonwater** (1 rank) - MATCH starcaller_moon_priest
+  - needs: stacking-buff
+  - CoA: Rippling Moonwater Passive Instant Your healing effects now apply Moonwater to the target, stacking 5 times. Moonwater Dealing damage will consume a stack to heal you.
+
+### Moon Priest abilities
+- **Moon Priest**: Level 10 Passive Your Huntress Shot now has a Lunar Eclipse effect. Huntress Shot: Applies 2 additional Scattered Stars.
+
+## Warden  (DPS) - 39 talents, 1 abilities
+
+- **Fan of Knives** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Applies 1 Scattered Star Per Hit Unleash hidden blades upon nearby enemies, dealing 10+0+POWER1*0.03+SP*0.3 Arcane damage scaling with maximum mana. Consuming a Scattered Star reduces the remaining cooldown of Fan of Knives by -2 sec.Scattered Stars Can be consumed by spells to deal additional Arcane Damage. Lasts 30 seconds, stacking 4 times.
+- **Astral Blade** (1 rank) - MATCH starcaller_warden
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Astral Blade Instant 20 sec cooldown Requires Melee Weapon Drains 25% Maximum Mana Strike an enemy with precision, dealing (106+0+0*0.1*4)+ SP *1+ AP *1 Arcane damage, increased further based on your maximum mana. Increases your dealt to the enemy by 15% for 5 sec.
+- **Fury of the Stars** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Astral Blade by 10%.
+- **Lethal Pursuit** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Fan of Knives by -5 sec.
+- **Moonlit Impaler** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your Arcane damage by 5% and your hit chance by 2%.
+- **Maiev's Discipline** (1 rank) - MATCH starcaller_warden  [ours is scalar]
+  - CoA: Level 20 Passive Increases your critical strike rating by 12% of your Intellect and your expertise by 10% of your Intellect.
+- **Astral Finesse** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Astral Blade by -4 sec.
+- **Astral Onslaught** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Astral Onslaught Passive Instant Increases the duration of Astral Blade by 7 sec.
+- **Umbral Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Consumes Scattered Stars Slash an enemy, dealing 97 + 63.5% arcane SP + 20% AP Arcane damage to them and nearby enemies. Each additional enemy beyond the first takes 20% less damage.
+- **Sentinel Glaive** (1 rank) - MATCH starcaller_warden
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Sentinel Glaive Instant cast 15 sec cooldown Requires Melee Weapon Throw a sentinel glaive at an enemy, dealing Weapon Damage plus 53 as Arcane damage, increased further based on your maximum mana, and increasing their resource costs by 15% for 8 sec.
+- **Halt** (1 rank) - MATCH starcaller_warden
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Teleport to a target location, silencing all enemies around you for 4 seconds.
+- **Moonstone** (1 rank) - NEW - we have no talent of this name
+  - CoA: Moonstone Passive Instant Increases the damage of Lunar Lance by 20%.
+- **Celestial Surge** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage dealt by consuming Scattered Stars by 10%.
+- **Warden Training** (1 rank) - MATCH starcaller_warden
+  - needs: cooldown
+  - CoA: Warden Training Passive Instant Reduces the cooldown of Warden's Blade by 25%.
+- **Rally The Sentinels** (1 rank) - MATCH starcaller_warden
+  - needs: resource-grant
+  - CoA: Rally The Sentinels Instant Sentinel Glaive now restores 20% of your maximum mana and applies a Scattered Star to the enemy.
+- **Celestial Glaives** (1 rank) - MATCH starcaller_warden
+  - needs: stacking-buff
+  - CoA: Celestial Glaives Specialization Instant Level 30 Passive Your Scattered Stars can now stack 2 additional times.
+- **Star Pupil** (1 rank) - MATCH starcaller_moon_guard
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Star Pupil Passive Instant cast Your damaging critical strikes now grant you a stack of Star Pupil . Star Pupil Reduces the cast time of Moonwell Splash by 25% for 8 sec, stacking 4 times. While this is active, Moonwell Splash is castable while moving. Stacks are not removed while Lunar Eclipse is active.
+- **Maiev's Guard** (1 rank) - NEW - we have no talent of this name
+  - CoA: Critical strikes with Astral Blade now strike 2 additional times, one for 40% of the damage dealt and the other for 20% of the damage dealt.
+- **Astral Combatant** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Astral Combatant Passive Instant cast Lunar Lance and Umbral Blade increase the enemy damage taken from Scattered Stars by 10% for 10 sec.
+- **Bonds of Justice** (1 rank) - MATCH starcaller_warden
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Send forth bonds of justice to an enemy, tethering them to you for 8 seconds. If the tether is broken through expiration or the target runs at least 10 yds from you, they are gripped back towards you, taking 441 + 120% arcane SP Arcane damage.
+- **Aspect Mastery** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Aspect Mastery Rank 1 Instant Increases the effectiveness of your Aspects by 10% and their chance to trigger by 5%.
+- **Wrath of Elune** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Wrath of Elune Instant Reduces the cooldown of Sentinel Glaive by 5 sec.
+- **Vigil of the Watchers** (1 rank) - MATCH starcaller_warden
+  - needs: stacking-buff
+  - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.
+- **Stellar Amplification** (1 rank) - MATCH starcaller_warden
+  - needs: proc-chance
+  - CoA: Stellar Amplification Passive Instant Dealing damage with Scattered Stars now has a 15% chance to make your next Astral Blade free of cost.
+- **Scattering Blades** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Warden's Blade now increases the chance to trigger Aspect of the Warden by 10% for 8 seconds.
+- **Warrior of Elune** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Warrior of Elune Passive Instant Requires Weapon Increases your melee haste by 5% and movement speed by 10%. Movement speed granted by this talent stacks with Moonwalk .
+- **Lunar Combatant** (1 rank) - NEW - we have no talent of this name
+  - CoA: Lunar Combatant Specialization Instant Level 40 Passive Increases the effectiveness of consuming Scattered Stars by 50%.
+- **Lunar Charge** (1 rank) - NEW - we have no talent of this name
+  - CoA: After using Shooting Star, your next Celestial Strike, Starsunder or auto attack ends the effect to deal 450 + 28.75% SP + 5% AP Arcane damage, increased based on distance travelled.
+- **Wrath of the Moon** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your Arcane critical damage dealt by 20%.
+- **Infused Blades** (1 rank) - MATCH starcaller_warden
+  - needs: proc-chance, cooldown
+  - CoA: Your Astral Blade now has a 30% chance to reset its own cooldown and refund its maximum mana cost.
+- **Warden's Precision** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Warden's Blade now launches an additional 2 blades at the target, dealing 49 + 24.5% SP Spellstrike Damage.
+- **Pierce The Night** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - CoA: Your Fan of Knives now applies an additional stack of Scattered Stars to each enemy struck.
+- **Moontouched Weapons** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases the damage of Aspect of the Warden by POWER1*0.01, scaling with maximum mana.
+- **Spirit of Vengeance** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Fan of Knives now marks enemies with Vengeance for 10 seconds. Successfully marking an enemy increases the range of your next Astral Blade by 25 yards. Casting Astral Blade on a marked enemy causes it to deal 30% more damage.
+- **Shadowsong's Mandate** (1 rank) - MATCH starcaller_warden
+  - needs: proc-chance, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Shadowsong's Mandate Instant cast 2 min cooldown Increases your critical strike chance by 15% for 10 sec. While active, your damaging critical strikes have a 40% chance to trigger Warden's Blade .
+- **Astral Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Astral Blessing Specialization Instant Level 50 Passive Damaging critical strikes now reduce the cooldown of Warden's Blade by 1 sec.
+- **Pulverizing Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Pulverizing Blade Passive Instant Casting Warden's Blade now grants you Pulverizing Blade . Pulverizing Blade Next 5 Starsunders within 20 sec deal increasing damage, scaling with 10% of Intellect, with each subsequent use, stacking 5 times.
+- **Avatar of Vengeance** (1 rank) - MATCH starcaller_warden
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Transform into an Avatar of Vengeance, teleporting to your target and increasing your Intellect by 25% for 30 seconds. For the duration, the range of Astral Blade is increased by 30 yards and will teleport you to your target. If your target is an enemy, you strike them dealing 50 + 22% Intellect + 6.5% arcane SP Arcane damage per 1 sec for 8 seconds, scaling with Intellect.
+- **Highest Order** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Shadowsong's Mandate by -25% and increases the chance to trigger Warden's Blade by 60%.
+
+### Warden abilities
+- **Warden Training**: Level 10 Passive Critically striking with Starsunder now applies an additional stack of Scattered Stars.Scattered Stars Can be consumed by spells to deal additional Arcane Damage. Lasts 30 seconds, stacking 4 times.
+
+## Class (shared)  (ALL) - 11 talents, 28 abilities
+
+- **Astral Projection** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the Energy cost of Celestial Strike and Moon Arrow by -10.
+- **Star Citizen** (1 rank) - NEW - we have no talent of this name
+  - CoA: Star Citizen Passive Instant cast Increases effectiveness of Celestial Mind by 20%.
+- **Flow of Mana** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your Intellect and Strength by 5%.
+- **Galaxy** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Galaxy Passive Instant Your Scattered Stars can now stack 2 additional times.
+- **Protected by the Stars** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases your Armor by 300% of your Intellect and reduces the duration of stuns and disarms against you by -25%.
+- **Enchanted Well** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces the cast time of Moonwell Splash by -0.3 sec.
+- **Aspect of the Cosmos** (1 rank) - MATCH starcaller_sentinel
+  - needs: proc-chance, stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Aspect of the Cosmos 5% of base mana Instant cast 10 sec cooldown Melee and ranged damage dealt has a 40% chance to slow enemy movement speed by 20% for 10 sec, stacking 2 times and apply Scattered Stars . Shares a cooldown with other Aspects . Scattered Stars Can be consumed by spells to deal additional Arcane Damage. Lasts 30 sec, stacking 4 times.
+- **The Stars Align** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your maximum mana by 10%.
+- **Moonwell Tides** (1 rank) - NEW - we have no talent of this name
+  - CoA: Casting Vial of Moonwell Water now additionally heals you equal to 25% of your current mana.
+- **Guided Blades** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Warden's Blade by -5 sec.
+- **Glaive Tossing** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the range of Warden's Blade by 20 yds.
+
+### Class (shared) abilities
+- **Touch of Moonlight**: Drains 10% Maximum Mana Quickly heal an ally with Elune's touch, scaling with maximum mana.
+- **Shooting Star**: Shooting Star Rank 1 12% of base mana Instant cast 1 min cooldown Sprint forward with astral magic at your feet, increasing your movement speed by 60% for 4 sec. While active, you cannot be slowed and cannot stop moving.
+- **Warden's Blade**: $9a
+- **Infused Aegis**: Infused Aegis Instant cast 30 sec cooldown Drains 30% Maximum Mana Instantly counterattack any enemy that strikes you from the front in melee for Arcane damage, lasting 10 sec. Can only occur once per sec per enemy. Shares a cooldown with other Aegis spells.
+- **Bright Moon**: Allows Lunar Phase to stack 4 additional times.
+- **Starbarian**: Increases your haste by 4%.
+- **Astral Aegis**: Astral Aegis 19% of base mana Instant cast 30 sec cooldown Drains 30% Maximum Mana For 10 sec, direct Magic damage taken will silence the attacker for 1 sec and deal 57*$ + ArcP *.18 Arcane damage to them. Shares a cooldown with other Aegis spells.
+- **Moonlight Ripple**: Moonlight Ripple Passive Instant Reduces the mana cost of your Aegis spells by 10%.
+- **Universal Power**: Your Aspect of the Cosmos now stacks 1 additional time.
+- **Lunar Anomaly**: Increases the damage of Lunar Lance by 50%.
+- **Moonlit Lancer**: Moonlit Lancer Passive Instant Your Lunar Lance now deals additional Arcane damage over 20 sec.
+- **Mu'sha's Resilience**: Reduces Arcane damage taken by -15%.
+- **Vial of Moonwell Water**: Vial of Moonwell Water 40% of base mana Instant cast 3 min cooldown Drink from your enchanted moonwell vial, instantly removing all crowd control effects and making you immune to them for 3 sec. Usable while stunned, feared, or polymorphed.
+- **Starshatter**: Starshatter 6% of base mana Instant cast 1 min cooldown Call down the power of the stars, sending forth Elune’s astral light in a line outward from you, stunning enemies struck for 5 sec and applying a Scattered Star .
+- **Reverse Magic**: Reverse the next spell cast on you within 3 seconds, reflecting it back to its caster. Reversing a spell in this way drains 600 + 20% SP of the attacker's mana.
+- **Star-Charged**: Reduces the cooldown of your Aspects by -5 sec.
+- **Moonwalk**: Increases your movement speed by 20% at night.
+- **Twinkle Toes**: Twinkle Toes Passive Instant cast Increases the movement speed granted by Shooting Star by 20%.
+- **Constellation Barrier**: Reduces all Magic damage taken by -5%.
+- **Moonblessed Aspects**: Increases the effectiveness of Aspects by 15%.
+- **Way of the Goddess**: Way of the Goddess Passive Instant Reduces the duration of harmful magic effects on you by 25%.
+- **Cosmic Duality**: Dealing damage grants you Cosmic Harmony, increasing the healing of your next ability within 6 seconds by 5%. Effective healing grants you Cosmic Wrath, increasing the damage of your next ability within 6 seconds by 5%.
+- **Pouch of Stardust**: Increases the critical strike chance and critical damage of consumed Scattered Stars by 10%.
+- **Continual Starfall**: Continual Starfall Passive Instant Astral Flares called down by Aspect of the Stars now increase your haste by 3% for 5 sec, stacking 3 times.
+- **Nightborne Armaments**: While below 35% health, your damage taken is reduced by -10%.
+- **Moonwell**: Moonwell 35% of base mana 2 sec cast 2 min cooldown Creates a zone blessed by moonwell waters for 15 sec at the target location. All allied players standing within the well receive 25% more healing, and their mana regeneration is increased by 100%.
+- **Second Moon**: Every 10th Scattered Star consumed now launches a comet at an enemy dealing 304 + 30% arcane SP Arcane damage to 5 enemies within 5 yds.
+- **Elune's Presence**: Gain the blessing of a goddess, granting all party or raid members within 40 yds 20% temporary maximum health for 10 seconds.
+

@@ -1,0 +1,469 @@
+# Knight of Xoroth - CoA reference vs ours
+
+- CoA talents: **129**
+- already in our data by name: **65** (of those, **48** are pure scalars on our side)
+- not in our data at all: **64**
+- single-clause scalars in CoA's own tree: **15** (11%)
+- carry real-time assumptions needing translation: **57** (44%)
+
+Source: data/reference/coa/knight-of-xoroth.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## War  (DPS) - 38 talents, 1 abilities
+
+- **Warbringer** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Transforms your Flames of Xoroth into Warbringer.Warbringer Slam the ground, dealing 65% Weapon Damage plus 2 to nearby enemies, reducing the effectiveness of any healing by -50% for 10 seconds. Deals increased damage per Demonfire consumed.
+- **Gore** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: charges, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Gore Rank 1 30 Rage Instant Requires Melee Weapon 2 Charges, 8 sec recharge Generates 1 Demonfire Quickly gore an enemy, dealing 100% Weapon Damage plus 15.
+- **Mutilation** (3 ranks) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - CoA: Mutilation Rank 1 Instant Increases the damage of Gore and Sever by 10%.
+- **Gored** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Gored Passive Instant Damage dealt by Gore and Meatsaw now increases your target's damage taken from Skulltaker and Warbringer by 15% for 10 sec, stacking 2 times.
+- **Consuming Blade** (2 ranks) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Gore by 25% and your expertise by 5.
+- **Ripper** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - CoA: Ripper Specialization Instant Level 20 Passive Damaging abilities that spend Demonfire now refresh a charge of Gore .
+- **Fiend** (1 rank) - NEW - we have no talent of this name
+  - CoA: Casting Sever now removes the cost of your next Infernal Strike.
+- **Hellfire Striker** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your critical strike and hit chance by 3%.
+- **Pestilence of Death** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pestilence of Death Instant 4 sec cooldown Emanate a pestilence, increasing your critical damage by 10%.
+- **Burning Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Burning Blade Instant 1 min cooldown Ignite your weapon, causing you to send out searing fire with each melee critical strike, dealing 110+6.0 Points Per Level+ AP *0.325 Fire damage in a line and increasing your Armor penetration by 30% while active. Lasts for 6 attacks. Lasts for 1 additional attack per Demonfire consumed.
+- **Burning Blade** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Skulltaker now ignores -25% of the target's Armor.
+- **Bringer of Destruction** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critical damage taken now grants you 1 Demonfire and 5 Rage. Can only occur once every 3 sec.
+- **Absolutism** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - CoA: Damage dealt by Meatsaw now ignores -10% of the target's Armor.
+- **Boundless Fury** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of the unleash effect from Pestilence of Death by 30%.
+- **Carver** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Level 30 Passive Critical strikes with Gore now generate 1 additional Demonfire.
+- **Murderous Might** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the base damage of abilities that spend Demonfire by 25%.
+- **Decimation** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your next Skulltaker or Warbringer is guaranteed to critically strike for 25% increased damage. Lasts 30 seconds.
+- **Screamin' Demon** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Screamin' Demon Passive Instant Reduces the cooldown of Unleash Pestilence by 15 sec.
+- **Hellsmelted** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: scalar
+  - CoA: Increases the critical strike chance and damage of Burning Blade by 30%.
+- **Burning Swings** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Burning Blade now affects 4 additional attacks.
+- **Hand of Doom** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - CoA: Increases the Weapon Damage dealt by Sever by 10%, increased by 10% for each Demonfire you have active.
+- **Conqueror's Will** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Conqueror's Will Passive Instant Increases the critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, Physical critical strikes now increase the target's Physical damage taken by 4% for 20 sec.
+- **Hellborn** (2 ranks) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, resource-grant
+  - CoA: Generating a stack of Demon's Blood now has a 5% chance to unleash your active Pestilence at half of their effectiveness.
+- **Chop Shop** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Chop Shop Passive Instant Each stack of Demon's Blood now increases the critical strike chance of Sever and Meatsaw by 1%.
+- **Render** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - CoA: Render Specialization Instant Level 40 Passive Increases your melee haste rating by 30% of your Strength.
+- **Domination** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Domination Passive Instant Melee critical strikes now reduce the cooldown of Burning Blade by 1 sec.
+- **Hook, Line, and Sinker** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Flesh Hook and Chainwhip by -5 sec.
+- **Demonic Frenzy** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Demonic Frenzy Passive Instant Casting Sever now increases your attack speed by 20% for 10 sec. Casting Gore extends the duration of this effect by 3 sec.
+- **Jagged Edge** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: resource-grant
+  - CoA: Increases your Rage generated from damage dealt by 20%.
+- **Knight of Pestilence** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - CoA: Knight of Pestilence Passive Instant Increases the critical damage of your Pestilences by 50%.
+- **The Butcher** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
+  - CoA: The Butcher Passive Instant Damage dealt by Meatsaw now increases the damage dealt by subsequent Meatsaws by 10% and reduces its global cooldown by 5% for 10 sec, stacking 5 times.
+- **Brimstone Bludgeon** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: transforms-ability, resource-grant, aoe-cleave
+  - CoA: Transforms your Sever into Brimstone Bludgeon.Brimstone Bludgeon Generates 1 Demonfire Bludgeon an enemy and all nearby enemies, dealing 250% Weapon Damage. Unleashes your active Pestilence to trigger a powerful effect. Scales with modifiers to Sever.
+- **Blood Frenzy** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Abilities that spend Demonfire now refund 1 Demonfire when used with at least 4 stacks.
+- **Pestilence Unbound** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: When you use an ability that consumes Demonfire with 6 stacks, you now unleash your active Pestilence at half of their effectiveness.
+- **Knight of the Apocalypse** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 50 Passive Unleash Pestilence now triggers no cooldown on it's first use. Unleash Pestilence can only be reset this way once every 30 sec.
+- **Demonic Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Demonic Blade Passive Instant Damaging abilities that spend Demonfire now increase the damage and cost of your next 2 Gores by 25% for 12 sec. At the end of the duration, or when all stacks are consumed, you instantly cast Meatsaw free of cost.
+- **Gorged** (1 rank) - MATCH knight_of_xoroth_war
+  - needs: stacking-buff, cooldown, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Gore now heals you for 50% of the damage dealt over 3 sec and grants a stack of Gorged for 30 seconds. At 3 stacks, your next Sever will consume the stacks to leech an additional 200% of the damage dealt by it from up to 5 enemies within 5 yds. In addition, Sever now strikes an additional time after 1 sec but has a 2 increased cooldown.
+- **Hellknight** (1 rank) - MATCH knight_of_xoroth_war  [ours is scalar]
+  - needs: stacking-buff, hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Hellknight Passive Instant cast While above 75% health, all direct Physical damage dealt will grant a stack of Hellknight . Hellknight Movement speed increased and global cooldowns reduced by 5%. Physical Damage and critical strike chance increased by 1%, stacking 5 times. Lasts 20 sec.
+
+### War abilities
+- **Crusher**: Level 10 Passive Doubles the base Weapon Damage dealt by Infernal Strike and increases all critical damage dealt by 25%.
+
+## Hellfire  (DPS) - 36 talents, 2 abilities
+
+- **Hellmaw** (1 rank) - MATCH knight_of_xoroth_hellfire
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Burn an enemy with a fiery strike, dealing 18 + 10% AP + 18% SP Shadowflame Damage, plus an additional 72 + 56% AP + 57.2% SP over 12 seconds. Deals 20% increased damage per Demonfire consumed.
+- **Combusting Blade** (2 ranks) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Combusting Blade Rank 1 Instant Increases your Intellect by 5% and reduces the Rage cost of Infernal Strike by 5.
+- **Invasion** (2 ranks) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: All Fire damage dealt is increased by 10% to enemies above 80% health.
+- **Pestilence of Apocalypse** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pestilence of Apocalypse Instant 4 sec cooldown Emanate the Pestilence of Apocalypse , causing nearby enemies to take 10% increased Fire damage from you.
+- **Seeking Flame** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Seeking Flame Rank 1 20 Rage Instant cast 6 sec cooldown Generates 1 Demonfire Sear an enemy, dealing 63+0+ FireP *0.336188+ AP *0.33 Fire damage .
+- **Burning Power** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Burning Power Specialization Instant Level 20 Passive Increases your attack power by 100% of your Intellect and your spell damage by 50% of your Strength.
+- **To Ashes** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: To Ashes Passive Instant Increases the critical strike chance of abilities that spend Demonfire by 5%.
+- **Hellfire Embers** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Increases the Fire damage dealt by your Hellfire Imp by 30% against enemies above 80% maximum health.
+- **Flamewrath** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Seeking Flame by 20%.
+- **Claws of Hell** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - CoA: Claws of Hell Passive Instant When you spend at least 4 Demonfire stacks you now refresh the duration of your Unleash Apocalypse on the target.
+- **Calamity** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the damage of the Unleash effect of Pestilence of Apocalypse by 25% and its duration is increased by 5 sec.
+- **Hellfire Form** (1 rank) - MATCH knight_of_xoroth_hellfire
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hellfire Form Instant cast 2 min cooldown Enter your Hellfire Form , increasing your Fire damage dealt by 20% and Fire critical strike chance by 15% for 15 sec.
+- **Doom** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Transforms your Greater Imp into a Doomguard for 12 seconds. While transformed, your Doomguard deals 20% more damage, and its auto attacks ignite the target, dealing 10% of the damage dealt as Fire damage over 6 seconds, stacking 6 times.
+- **Seething Strikes** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the damage of Sever by 30% against Burning targets and it now increases the targets chance to be critically struck by 3% for 12 seconds.
+- **Cinderblade** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Cinderblade Specialization Instant Level 30 Passive Increases your critical strike rating by 20% of your Intellect and your spell hit chance by 6%.
+- **Rain of Chaos** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rain of Chaos Passive Instant Casting Flames of Xoroth with 6 Demonfire now calls down a Rain of Chaos . Rain of Chaos Molten rain burns enemies in the area causing 225 to 231 Fire Damage over 9 sec.
+- **Grotesque** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - CoA: While Hellfire Form is active, your Seeking Flame now has no cooldown and generates an additional Demonfire.
+- **Hellfire Rituals** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critical strikes with Skulltaker now increases the haste of your Greater Imp by 15% for 8 seconds.
+- **Indiscriminate** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Indiscriminate Passive Instant Seeking Flame now spreads Hellmaw and Melt from the target to up to 3 enemies within 6 yds.
+- **Inferno Blast** (2 ranks) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Inferno Blast Rank 1 Instant Increases your critical damage against Burning targets by 20%.
+- **Infernal Pummeling** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Melt now increases the damage your target takes from Flames of Xoroth and Skulltaker by 10%.
+- **Hellbringer** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects.
+- **Xorothian Empowerment** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases the attack power of all party and raid members 5%. Does not stack with similar effects.
+- **Infernal Pursuit** (2 ranks) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Infernal Pursuit Rank 1 Instant Increases your melee haste by 3% and reduces the duration of root effects against you by 15%.
+- **Impish Pestilence** (1 rank) - NEW - we have no talent of this name
+  - CoA: $5a
+- **Partners in Flames** (1 rank) - MATCH knight_of_xoroth_hellfire
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fire damage dealt by your Greater Imp now has a 25% chance to empower you, increasing your damage dealt by 5% for 10 seconds.
+- **Unbound Inferno** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Your Infernal Strikes against enemies affected by your Flames of Xoroth now blasts nearby enemies for 75 + 10% fire SP + 5% AP Fire damage.
+- **Brimstone Flames** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Damage dealt by Seeking Flame is increased by 20% on enemies affected by Pestilence of Apocalypse. Damage dealt is increased by an additional 10% for each Demonfire you have active.
+- **Brimstone Splinters** (1 rank) - MATCH knight_of_xoroth_hellfire
+  - needs: proc-chance, resource-grant
+  - CoA: Brimstone Splinters Passive Instant Grants Seeking Flame a 30% chance to generate 1 additional Demonfire when it deals damage. Chance to trigger is increased by 5% for each Demonfire you have active.
+- **Shadowflame Forge** (2 ranks) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Shadowflame Forge Rank 1 Instant Increases the duration of Hellmaw by 3 sec.
+- **Into the Maw** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Hellmaw causes a Hellfire Explosion at the end of its duration, dealing additional Fire damage to all nearby enemies within 5 yards equal to 50% of the periodic damage dealt over the duration.
+- **Punisher** (1 rank) - MATCH knight_of_xoroth_hellfire  [ours is scalar]
+  - CoA: Punisher Passive Instant Increases the attack power and spell power scaling of Seeking Flame by 25%.
+- **Evil Duo** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Evil Duo Specialization Instant Level 50 Passive Unleashing a Pestilence now causes your Greater Imp to unleash it's Pestilence . The Imp 's unleash effect is equivalent to your own unleash effect for the equivalent Pestilence .
+- **Hellstorm** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hellstorm 40 Rage Instant cast 30 sec cooldown Create a hellstorm, dealing 75+3.2 Points Per Level+ FireP *0.320357+ AP *0.08 Fire damage to up to 8 nearby enemies. Embers then flare every 1 sec for 2 sec, dealing 3+2.4 Points Per Level+ FireP *0.025+ AP *0.025 Fire damage. Duration is increased by 100% for each stack of Demonfire consumed.
+- **Ascended Warlock** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Skulltaker used with 6 stacks of Demonfire now reduces the cooldown of Doom by -5 seconds. In addition, while Doom is active, your Doomguard will now copy your Skulltaker, dealing reduced damage.
+- **Fury of Xoroth** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Infernal Strike now grants you a stack of Xorothian Fury, increasing the chance for your next Skulltaker within 10 seconds to critically strike by 10% per stack, up to 3 stacks. Additionally, using Skulltaker with 6 stacks of Demonfire grants you Xorothian Rage, causing your next Infernal Strike within 10 seconds to be guaranteed to critically strike.
+
+### Hellfire abilities
+- **Greater Imp**: Level 10 Passive Teaches you Summon: Greater Imp and increases your expertise by 10. Summon: Greater Imp Summon a Greater Imp to aid you in combat. Greater Imp has various combat abilities that provide excellent single target damage and control.
+- **Infernal Steel**: Infernal Steel Passive Instant Casting Skulltaker with 6 Demonfire stacks now causes your next Hellmaw within 15 sec to tick 25% faster and cost 50% less Rage.
+
+## Defiance  (Tank) - 41 talents, 1 abilities
+
+- **Shieldgore** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: transforms-ability, resource-grant
+  - CoA: Transforms your Infernal Strike into Shieldgore.Shieldgore Generates 2 Demonfire Gore the target with your spiked shield, causing 21 + 35% AP High Threat Fire Damage, scaling with your block value.
+- **Call: Hellfire Imp** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Call: Hellfire Imp Instant 10 sec cooldown Generates 2 Demonfire Beckon 1 Hellfire Imp to aid you in battle for 12 sec and generate 20 Rage. Threat generated by Hellfire Imps is transferred to you.
+- **A Gift from Hell** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Rage cost of Infernal Strike, Meatsaw, and Melt by -10.
+- **Imp Gang Boss** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: transforms-ability, pet-summon
+  - CoA: Your Call: Hellfire Imp now summons 2 additional imps.
+- **Impcaller** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Transforms your Call: Hellfire Imp into Impcaller.Impcaller (Aura) Your Infernal Strike now summons a Hellfire Imp to aid you in combat for 10 seconds, but its Rage cost is increased by 10. In addition, the maximum health of your imps is increased by 30%.
+- **Hellsmelted Armor** (2 ranks) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Each Hellfire Imp active now increases your chance to block by 1%.
+- **Imp Guards** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Imp Guards Specialization Instant Level 20 Passive Each Hellfire Imp now reduces your Physical damage taken by 1%.
+- **Bulwark of Xoroth** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Shieldgore will now apply Torn Flesh, causing the target to bleed for 105 over 15 seconds.
+- **Warden of Hellfire** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Warden of Hellfire Passive Instant Increases the damage dealt by Skulltaker and Flames of Xoroth by 20%.
+- **Hellfire Forgemaster** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your block value by 20%.
+- **Sacrificial Circle** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - CoA: Sacrificial Circle Instant cast 1 min cooldown Sacrifice your Hellfire Imps within 15 yds, healing you 15% of your maximum health, plus an additional amount equal to 25% of each of your Hellfire Imp's maximum health. Hellfire Imps sacrificed in this way leave behind corpses.
+- **Demonfire Retaliation** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: proc-chance, stacking-buff, resource-grant
+  - CoA: Grants you a 30% chance to generate a stack of Demonfire when attacked.
+- **Hellish Rebuke** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, resource-grant, aoe-cleave
+  - CoA: Generating a stack of Demon's Blood now has a 15% chance to trigger a fiery explosion on up to 5 nearby enemies, dealing 96 Fire damage.
+- **Implosion** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Implosion Instant cast 40 sec cooldown Explode with hellish fire, dealing 51+0+ Str *0.25+ FireP *.5+ AP *.1 Fire damage to nearby enemies, beckoning Hellfire Imps to aid you in battle for 12 sec, and generating 30 Rage. Deals increased damage and increases the amount of imps summoned by 1 for each Demonfire consumed.
+- **Hellfire Reprimand** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hellfire Reprimand Passive Instant Your Hellfire Imps now have a 20% chance on hit to launch a firebolt dealing 58*1.0 Points Per Level+ Str *.4 Fire damage and reducing enemy attack power by -(-15+ -2.5 Points Per Level) for 10 sec.
+- **Soul Furnace** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Sacrificial Circle now grants you a damage absorption shield equal to 15% of the total health of each destroyed imp for 10 sec.
+- **Hellfire Resolve** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Level 30 Passive Increases your block rating by 15% of your Strength and increases your hit rating by 5% of your Strength.
+- **Demon's Breath** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Demon's Breath Passive Instant Critical strikes with Shieldgore now unleash an eruption of hellfire, causing 111*$ + AP *0.2 Fire damage and generating 1 additional Demonfire .
+- **Demonfire Command** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Implosion by -10 sec and its Rage cost by -5.
+- **Infernal Bulwark** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: stacking-buff, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Infernal Bulwark Passive Instant Casting Unleash Pestilence now generates 4 stacks of Demonfire and grants Infernal Bulwark . Infernal Bulwark Increases block value by 20% for 18 sec.
+- **Stoke the Flames** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Stoke the Flames Passive Instant Your Skulltaker and Melt used with 6 Demonfire now refund 2 Demonfire . Skulltaker used with 6 Demonfire now deals an additional 30% Fire damage.
+- **Speed Demon** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Your Suffuse now increases your movement speed by 20%.
+- **Brimstone Knight** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Brimstone Knight Passive Instant Increases your Fire damage dealt by 3% and dealing Fire damage increases the enemy spell damage taken by 10% for 15 sec.
+- **Chains of Xoroth** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Chains of Xoroth Instant 1 min cooldown Create demonic chains at target location that slow enemies inside by 80% for 5 sec. At the end of the duration, it pulls all affected enemies to it.
+- **Pestilent Retaliation** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pestilent Retaliation Passive Instant When you block an attack you now have a 5% chance to unleash your active Pestilence at half of its effectiveness. Can only occur once every 5 sec.
+- **Forgefiend's Bulwark** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Forgefiend's Bulwark Passive Instant Successful blocks, parries and dodges now have a 30% chance to Enrage you, increasing your damage dealt by 10% for 10 sec.
+- **Imp Aura** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Imp Aura Specialization Instant Level 40 Passive Each Hellfire Imp now reduces your Magic damage taken by 1%.
+- **Brimstone Striker** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Stoke the Flames now reduces the cooldown of Sever and Juggernaut by -4 sec.
+- **Hellfire Sieger** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Doubles the absorption of Black Shield while below 35% health.
+- **Demolisher** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Flesh Hook or Chainwhip now taunts the target for 2 seconds and reduces your Physical damage taken by -5% for 10 seconds.
+- **Hellfire Bellows** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Transforms your Flames of Xoroth into Hellfire Bellows.Hellfire Bellows Bellow fire on all enemies in a 6 yd cone in front of and behind you, dealing 552 + 27.63% AP + 40% fire SP Fire damage and reducing the cooldown of Chains of Xoroth by -4 sec per enemy hit. Cooldown is reduced by -3 sec for each Demonfire consumed.
+- **Black Skull Shield** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - CoA: Black Skull Shield Passive Instant Reduces the Rage cost of Shieldgore by 5 and increases its damage by 25%.
+- **Demonic Grit** (2 ranks) - NEW - we have no talent of this name
+  - needs: cooldown, pet-summon
+  - CoA: Demonic Grit Rank 1 Instant 3 min cooldown Grant your summons demonic grit, increasing their total health by 15% and reducing their damage taken by by 10%.
+- **Fiend of Forges** (1 rank) - NEW - we have no talent of this name
+  - CoA: Forgefiend's Bulwark now also increases your critical strike chance by 10%.
+- **Hellwrath** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Hellwrath Passive Instant Your Demon's Blood can now stack 5 additional times and each stack now increases the absorption amount of Black Shield by 1%.
+- **Curse of Xoroth** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Curse of Xoroth Instant cast 1 min cooldown Curse an enemy for 15 sec, dealing (15*1000/3)*(315+0+ AP *0.2) Shadowflame Damage over 15 sec. Your next Shieldgore within 12 sec grants you Black Shield , absorbing 500+9.0 Points Per Level+ Sta *2 damage for 30 sec.
+- **Fiery Retribution** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fiery Retribution Passive Instant Each time a Hellfire Imp dies, you reduce the cooldown of Sacrificial Circle by 2 sec and Implosion by 1 sec.
+- **Demonic Bulwark** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: proc-chance
+  - CoA: Level 50 Passive Your successful blocks now have a 30% chance to critically block for twice the normal amount. Chance to trigger is increased by 2% for each Hellfire Imp you have active.
+- **Call: Hellfire Abyssal** (1 rank) - MATCH knight_of_xoroth_defiance
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Call: Hellfire Abyssal 100 Rage Instant cast 45 sec cooldown Call down a Hellfire Abyssal from the sky to crash down upon the targeted 8 yd area, dealing 1500+0+ SP *1+ AP *1 Fire damage. The abyssal remains to aid you in battle for 15 sec and emits an aura that reduces the damage taken by party and raid members within 40 yds by 5%. Costs 15 less Rage for each active Hellfire Imp .
+- **A Curse from Hell** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Periodic damage dealt now has a 15% chance to reduce the cooldown of Curse of Xoroth by -3 sec. Chance to trigger is increased by 2% for each stack of Demonfire active.
+- **Legion's Presence** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Legion's Presence Instant cast 3 min cooldown Emanate an aura to all party and raid members within 25 yds for 15 sec, increasing their damage dealt by 10%. Fire damage dealt by Hellfire Imps is increased by 150% and total health increased by 50% while this effect is active on them.
+
+### Defiance abilities
+- **Brimstone Buckler**: Level 10 Passive Successful blocks now have a 30% chance to summon 1 Hellfire Imp to aid you in battle for 12 seconds. Can only occur once every 3 sec.
+
+## Class (shared)  (ALL) - 14 talents, 23 abilities
+
+- **Chainwhip** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Chainwhip Rank 1 10 Rage Instant 20 sec cooldown Swing a chain at an enemy dealing 8+0+ AP *0.45+ SP *0.25 Physical damage and silencing them for 2 sec, generating a large amount of threat. If you successfully interrupt an enemy, this will refund 20% of the cooldown.
+- **Demonfire Plating** (2 ranks) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces your damage taken by -2% and increases your Stamina by 3%.
+- **Bloodied Blade** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, resource-grant
+  - CoA: Bloodied Blade Instant Melee Physical damage dealt now generates a stack of Demon's Blood .
+- **Hell Blender** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Hell Blender Passive Instant Casting Meatsaw now has a 40% chance to refund 10 Rage.
+- **Darkrider** (1 rank) - NEW - we have no talent of this name
+  - CoA: Darkrider Passive Instant Increases the duration of your Mark spells by 50%.
+- **Demonic Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, resource-grant
+  - CoA: Generating Demon's Blood stacks now generates 1 additional Rage.
+- **Burning Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Burning Rage Instant 1 min cooldown Enrage, generating 15 Rage every 1 sec and making you immune to incapacitate, banish, and polymorph effects for 6 sec. Usable while incapacitated, banished, or polymorphed.
+- **Dismemberment** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dismemberment Passive Instant Damaging abilities that spend Demonfire now reduces the target's healing received by 20% for 8 sec.
+- **Warpath** (1 rank) - NEW - we have no talent of this name
+  - needs: hp-threshold
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Warpath Passive Instant While Unleash Pestilence is active it now protects your movement speed from being reduced below 90% of normal speed.
+- **Xorothian Finesse** (1 rank) - MATCH knight_of_xoroth_defiance  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your chance to parry by 5%.
+- **Mounted Champion** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Xorothian Warsteed is now instant cast and prevents roots and slows for 2 sec when cast, but now has a 10 sec cooldown.
+- **Mounted Reaver** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of all Mounted Combat abilities by -20%.
+- **Taskmaster** (1 rank) - NEW - we have no talent of this name
+  - CoA: Taskmaster Passive Instant Increases your critical strike chance by 3% plus an additional 15% against Demons.
+- **Harbinger of Pestilence** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of your Pestilences by 50%.
+
+### Class (shared) abilities
+- **Suffuse**: Suffuse Instant cast Embrace your mortal body, restoring (10+3.9 Points Per Level)+( Sta *0.1) health every 3 sec, scaling with Stamina and defense rating. Lasts 3 sec for each Demonfire consumed.
+- **Chains of Malice**: Chains of Malice Instant 1 min cooldown Lock an enemy down with magical chains, stunning them and dragging them with you for 5 sec. Every 1 sec, the enemy will suffer 16 Physical damage. Enemies that cannot be stunned or rooted cannot be dragged.
+- **Xorothian Strength**: Increases your Strength by 5%.
+- **War Pig**: War Pig Passive Instant Increases your Physical damage dealt by 4%.
+- **Spiked Chains**: Spiked Chains Passive Instant Your Chainwhip now deals 321*$ + AP *.3 additional Physical damage, increased by 100% on Humanoids.
+- **Boiling Blood**: Casting Suffuse now increases your healing received by 25% for the first 6 seconds of it's duration.
+- **Suffusion of Essence**: Suffusion of Essence Passive Instant Increases the duration of Suffuse by 2 sec for each Demonfire consumed.
+- **Black Shield**: Consume all of your Demon's Blood stacks to create a demonic shield that absorbs 860 damage, increased by 20% per Demon's Blood stack, for 30 seconds.
+- **Omen of Rage**: Omen of Rage Passive Instant Periodic damage and healing done has a 10% chance to grant a stack of Demonfire .
+- **Demon Heart**: Demon Heart Instant 1 min cooldown Embrace your inner demon, instantly generating 6 stacks of Demonfire and 50 Rage.
+- **Brimstone's Blood**: Increases the chance of gaining a stack of Demon's Blood by 25%.
+- **Ragefist**: Increases your maximum Rage by 10 and reduces the duration of disarm effects against you by -15%.
+- **Juggernaut**: Juggernaut Instant 2 min cooldown Consume all of your Demon's Blood to become a juggernaut, reducing all damage taken by 30% for 10 sec. For the duration, you heal every 2.5 sec for 6+0+ AP *.1, increased per Demon's Blood stack consumed.
+- **Hellstriker**: Hellstriker Passive Instant Direct critical strikes now increase the duration of Hellrider on you by 2 sec. Duration cannot exceed maximum duration.
+- **Demonskin**: Each stack of Demon's Blood also increases your Armor by 1%.
+- **Hellbound Charge**: 2 Charges, 60 sec recharge Briefly jump atop your Xorothian Warsteed, increasing your movement speed by 70% for 3 seconds. Usable while indoors, but you cannot use your Mounted Combat abilities while riding your Warsteed in this way.
+- **Hellbreaker**: Casting Unleash Pestilence now removes all active movement impairing effects from you.
+- **Rage of Xoroth**: Your critical strikes now enrage you, increasing your melee attack speed by 15%.
+- **Heart of Xoroth**: Heart of Xoroth Passive Instant Allows Demon's Blood to stack 5 additional times.
+- **Brute Strength**: Increases your critical damage dealt with Physical attacks by 10% and increases the range of Flesh Hook, Chains of Malice, and Chainwhip by 5 yds.
+- **Dread**: $5c
+- **Xorothian Sigil**: Xorothian Sigil Instant cast 1 min cooldown Create a demonic sigil that protects party members within 20 yds of you, causing them to deflect the next harmful spell cast against them within 3 sec.
+- **Chain Warden**: Reduces the cooldown of Chains of Malice by -30 sec, and allows Flesh Hook and Chainwhip to strike up to 2 additional enemies near your primary target.
+

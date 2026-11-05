@@ -1,0 +1,458 @@
+# Felsworn - CoA reference vs ours
+
+- CoA talents: **123**
+- already in our data by name: **66** (of those, **49** are pure scalars on our side)
+- not in our data at all: **57**
+- single-clause scalars in CoA's own tree: **14** (11%)
+- carry real-time assumptions needing translation: **57** (46%)
+
+Source: data/reference/coa/felsworn.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Slayer  (DPS) - 38 talents, 1 abilities
+
+- **Azzinoth's Assault** (1 rank) - NEW - we have no talent of this name
+  - CoA: Azzinoth's Assault Rank 1 20 Energy Instant Requires One-Handed Melee Weapon Consumes 2 Felfury Strike an enemy for Weapon Damage plus 15+0+ AP *.1 with both weapons, additionally scaling with your attack power.
+- **Slice & Dice** (2 ranks) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your off-hand weapon damage by 25% and reduces the Energy cost of Twin Slice by -5.
+- **Annihilan Strike** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Annihilan Strike Rank 1 40 Energy Instant 10 sec cooldown Requires One-Handed Melee Weapon Generates 2 Felfury Unleash a devastating attack, dealing 145% Weapon Damage to your target with both weapons. This ability is guaranteed to critically strike against enemies above 75% health.
+- **Immolation Aura** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Immolation Aura Rank 1 10 , plus 10 per sec Instant Wreathe yourself in fire for up to 1 min, dealing 23+0+ FireP *.3+ AP *.23 Fire Damage to nearby enemies every 3 sec.
+- **True Self** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: transforms-ability
+  - CoA: Level 20 Passive Your Inner Demon now grants 10% increased dodge chance and critical damage dealt while active.
+- **Twin Fury** (1 rank) - MATCH felsworn_slayer
+  - needs: resource-grant
+  - CoA: Twin Fury Passive Instant Critically striking with Twin Slice or Annihilan Strike now generates an additional 1 Felfury .
+- **Azzinoth's Rage** (3 ranks) - MATCH felsworn_slayer  [ours is scalar]
+  - CoA: Azzinoth's Rage Rank 1 Instant Increases your Armor penetration by 10% and your expertise by 4.
+- **Chaos Soldier** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - CoA: Chaos Soldier Passive Instant Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 5%.
+- **Legionfall** (1 rank) - MATCH felsworn_slayer
+  - needs: proc-chance, cooldown
+  - CoA: Legionfall Passive Instant cast Melee ability damage now has a 15% chance to reset the cooldown of Annihilan Strike .
+- **Fel Blades** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Azzinoth's Assault now reduces the enemy's armor by -4% for 10 seconds, stacking 5 times.
+- **Scars of Suffering** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Azzinoth's Assault now scars the enemy, increasing your allies' attack power against them by 15% Agility for 10 seconds.
+- **Pit Lord's Strength** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Pit Lord's Strength Rank 1 Instant Your Annihilation now affects 1 additional attack.
+- **Burning Rage** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage and reduces the cost of Sunder and Immolation Aura by 20%.
+- **Unbound** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - CoA: Level 30 Passive Increases your dodge by 15% of your Agility and your hit rating by 6% of your Agility.
+- **Spite** (2 ranks) - MATCH felsworn_slayer  [ours is scalar]
+  - CoA: Spite Rank 1 Instant Increases your Agility by 8% and dodge chance by 3%.
+- **Felhoof Charge** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Felhoof Charge Rank 1 Instant 20 sec cooldown Generates 1 Felfury Charge an enemy, dealing 60+0+ AP *0.285 Physical damage.
+- **You Cheat, Gul'dan!** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Increases your critical damage by 50% against enemies above 75% health.
+- **Demonic Machinations** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Demonic Machinations Passive Instant Critical strikes with Sargeron Smite now cause the target to bleed for an additional 50% of the damage dealt over 5 sec.
+- **Nether Champion** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Nether Champion Passive Instant Triggering Dancing Blades now increases the damage of next Sargeron Smite by 8% for 20 sec, stacking 5 times.
+- **Consumed By Fel** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the tick rate of Immolation Aura by -25%.
+- **A Thousand Cuts** (1 rank) - MATCH felsworn_slayer
+  - needs: proc-chance
+  - CoA: A Thousand Cuts Passive Instant Azzinoth's Assault now has a 30% chance to hit an additional time with your main-hand Weapon.
+- **Scars of the Past** (1 rank) - NEW - we have no talent of this name
+  - CoA: Reduces the Energy cost of Chaos Rush by -5 and casting Chaos Rush now heals you for 81 + 20% Stamina + 33% AP.
+- **Blighted Strikes** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While Inner Demon is active your melee attacks reduce the target's healing received by -20% for 8 seconds, stacking 2 times.
+- **Fury Unleashed** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Spin your glaives for 5 seconds, increasing movement speed by 30% and dealing 200% Weapon Damage every 1 sec with both weapons to all nearby enemies. You are immune to movement impairing and loss of control effects.
+- **Chaotic** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 40 Passive While Inner Demon is active, direct melee ability critical strikes now refund 3 Energy.
+- **Fel Instincts** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the damage of Azzinoth's Assault by 10% and causes it to increase your melee haste by 20% for 5 seconds.
+- **Reckless Assault** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - CoA: Reckless Assault Passive Instant Increases the damage of Azzinoth's Assault , Annihilan Strike , and Twin Slice by 15% against slowed enemies.
+- **Fel Haze** (1 rank) - NEW - we have no talent of this name
+  - CoA: While active, Blood of Mannoroth now also causes you to ignore all enemy Armor.
+- **Felguard** (1 rank) - MATCH felsworn_slayer
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Felguard Passive Instant Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects. In addition, while Inner Demon is active, you now heal for 15% of all melee damage dealt.
+- **Glaiving** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage dealt and reduces the Energy cost of Fury Unleashed by 50%.
+- **Perpetual Fury** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dealing damage with Dancing Blades reduces the cooldown of Fury Unleashed by -1 sec.
+- **Reachwalker** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reachwalker Passive Instant Casting Chaos Rush now reduces the cooldown of Felhoof Charge by 2 sec.
+- **Azzinoth's Battery** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Azzinoth's Battery Passive Instant Your Azzinoth's Assault now has a 30% chance to not consume Felfury .
+- **Oblivion** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critically striking now increases your damage dealt by 1% for 4 seconds, stacking 10 times.
+- **Felcaked Blades** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 50 Passive Twin Slice and Sargeron Smite now additionally scale with your Agility.
+- **Pit Lord's Rage** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: charges
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pit Lord's Rage Passive Instant Casting Chaos Rush now increases your Physical damage by 15% for 10 sec. Casting Felhoof Charge increases your critical strike chance by 6% for 15 sec.
+- **Fury of the Illidari** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: 2 Charges, 1.5 min recharge Move quickly from enemy to enemy, attacking them every 1 sec with both weapons until 6 assaults are made, generating 1 Felfury with each strike. While active you are immune to crowd control effects. Can hit the same target multiple times. Cannot hit invisible or stealthed targets.
+- **Whirling Vengeance** (1 rank) - MATCH felsworn_slayer  [ours is scalar]
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Fury Unleashed by -60 sec. When Fury Unleashed ends, you strike all nearby enemies for 757 + 56.14% AP Shadowflame Damage and increase their damage taken from Sunder by 100% for 15 seconds.
+
+### Slayer abilities
+- **Dancing Blades**: Level 10 Passive Critical strikes with melee abilities now trigger Dancing Blades, dealing off-hand Weapon Damage to up to 5 nearby enemies.
+
+## Infernal  (DPS) - 38 talents, 1 abilities
+
+- **Ruin** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Ruin Rank 1 30 Energy 2.5 sec cast Consumes 2 Felfury Bring doom upon an enemy, dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FireP , ShaP ), 116+0+ FireP *1, 116+0+ ShaP *1.32) Shadowflame Damage to an enemy, piercing all absorption effects. Inner Demon : Deals an additional 30% of the damage dealt over 3 sec.
+- **Dark Magician** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: While Inner Demon is active, casting Ruin, Sunder, or Felwrath now refunds 20 Energy.
+- **Wrath of Sargeras** (2 ranks) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Wrath of Sargeras Rank 1 Instant cast Increases your Magic damage dealt by 3% and your spell hit chance by 2%.
+- **Bane of Chaos** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bane of Chaos Rank 1 40 Energy Instant cast Generates 1 Felfury Unleash fel magic on an enemy, dealing 108 Chaos damage over 18 sec. Inner Demon : The enemy takes an additional 13+2.0 Points Per Level+ SP *1 Chaos Damage every 6 sec. Can only have 1 Bane active on a target at a time. Periodic damage dealt by this effect can critically strike.
+- **Felfire Adept** (2 ranks) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Sargeron Smite by 10%.
+- **Gul'dan's Prodigy** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: scalar
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces Energy cost and cast time of Fel Fireball by -15%.
+- **Hidden Power** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Hidden Power Specialization Instant Level 20 Passive Increases your spell damage by 15% of your Intellect and Spirit. In addition, Inner Demon now increases your spell damage and critical strike chance by an additional 20% of your Spirit.
+- **Felforged** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Periodic damage dealt now has a 15% chance to grant you Felforged for 8 seconds.Felforged (Proc) Your next 3 Fel Fireballs have a -30% reduced cast time for 8 seconds.
+- **Fel Cannon** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Fel Cannon Passive Instant Increases the critical strike chance of Fel Fireball and Ruin by 15% on enemies above 75% health.
+- **Felwrath** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Felwrath Rank 1 30 Energy 1.5 sec cast Consumes 2 Felfury Blast an enemy and all enemies near them with fel magic, dealing 69+0+ SP *0.4 Shadowflame Damage. Inner Demon : Striking at least 5 enemies with this spell causes it to deal an additional 8+3.0 Points Per Level+ SP *.1 Shadowflame Damage over 6 sec, stacking 3 times.
+- **Withering** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Your Fel Fireballs used with Felforged active now deal 30% increased damage.
+- **Black Magic** (2 ranks) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of your Bane of Chaos and Ruin by 10%.
+- **Cursed Flames** (1 rank) - MATCH felsworn_infernal
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critically striking with Fel Fireball now increases the critical strike chance of your next Fel Fireball within 10 seconds by 20%.
+- **Illidari Magi** (1 rank) - MATCH felsworn_infernal
+  - needs: proc-chance, resource-grant, dot-hot
+  - CoA: Your periodic damage now has a 20% chance to generate 1 Felfury.
+- **Sculptor of Doom** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Sculptor of Doom Specialization Instant Landing 3 direct critical strikes now grants Sculptor of Doom . Sculptor of Doom Your next Ruin within 8 sec is instant cast.
+- **Felbreak** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Interrupt a spell from being cast, preventing the target from casting spells of that school for 3 seconds and draining mana from the target based on your Spirit. Usable while moving.
+- **Shadow Magi** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Annihilation by -15 sec and Sunder by -4 sec.
+- **Infernal** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Drop an infernal from the sky with grotesque magic, dealing 102 + 105% fire SP Fire damage to enemies in the radius, horrifying them for 3 seconds, and spawning an Infernal to fight by your side for 15 seconds. Inner Demon: Lasts 1 additional sec.
+- **Illidari Smiter** (1 rank) - MATCH felsworn_infernal
+  - needs: resource-grant
+  - CoA: Critical strikes with Fel Fireball now generate 1 Felfury.
+- **Herald of the Legion** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Damage dealt by Bane of Chaos now radiates fel energy around the enemy, dealing 50% of the damage dealt to up to 8 nearby enemies.
+- **Fel Flamecasting** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Damage dealt by Sargeron Smite now spreads your Cripple to 2 nearby enemies.
+- **The True Blessing** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Annihilation now grants you Sculptor of Doom.Sculptor of Doom Your next Ruin within 8 seconds is instant cast.
+- **Doomsayer** (1 rank) - MATCH felsworn_infernal
+  - needs: transforms-ability, hp-threshold
+  - CoA: Critical strikes with Sargeron Smite now refund 1 Felfury. In addition, Sargeron Smite now deals 25% increased damage to enemies above 75% of their maximum health.
+- **Infernal Summoner** (1 rank) - MATCH felsworn_infernal
+  - needs: proc-chance, cooldown
+  - CoA: Direct damage dealt now has a 5% chance to reset the cooldown of Infernal.
+- **Oppressive Ruin** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Ruin now absorbs the next 99 healing on the target based on rank, up to 226 at rank 7, for 8 sec.
+- **Infernal Ruin** (1 rank) - NEW - we have no talent of this name
+  - needs: every-nth-cast
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Every 3rd Ruin or Felwrath now spawns an Infernal to fight by your side for 15 seconds.
+- **Unphased** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Level 40 Passive Increases your spell penetration by 20, scaling with your level. In addition, reduces spell pushback suffered from damaging attacks by 50% while Inner Demon is active.
+- **Curse of Argus** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Each time Bane of Chaos deals damage its damage is increased on the target by 1% for 6 seconds, stacking 20 times.
+- **Felshock** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Felshock Passive Instant Direct critical strikes with Felfury spenders now extend the duration of Inner Demon by 1 sec and cause enemies struck to have a 3% increased chance to be hit by spells for 12 sec.
+- **Fel Infusion** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Fel Infusion Passive Instant Increases critical strike chance of all party and raid members within 100 by 3%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.
+- **Archimonde's Wrath** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Increases the critical strike chance of your Felfury spenders by 1% for every 10 points of Energy you have at the time of casting.
+- **Infernal Doom** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Infernal Doom Passive Instant Ruin now has a 25% chance not to consume Felfury .
+- **Nether Spirit** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your spell critical strike rating by 20% of your Spirit.
+- **Chaotic Intuition** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Felstrikes now extends the duration of Cripple on the target by 1 sec and grants you 1% increased spell critical damage for 6 seconds, stacking 10 times.
+- **Man'ari Teachings** (1 rank) - MATCH felsworn_infernal  [ours is scalar]
+  - CoA: Man'ari Teachings Passive Instant Level 50 Passive Increases your critical damage dealt by 100%.
+- **Sargeras Embrace** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Sargeras Embrace 30 Energy, plus 30 per sec Channeled 1 min cooldown Channel a beam of fel magic upon an enemy, slowing your target's movement speed by 60% for 5.5 sec and dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FireP , ShaP ), 695+0+ FireP *0.85, 695+0+ ShaP *0.85) Shadowflame Damage at the end of the duration. For the duration, you may instant cast Fel Fir
+- **Malice of Gul'dan** (1 rank) - MATCH felsworn_infernal
+  - needs: proc-chance, stacking-buff, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Malice of Gul'dan Passive Instant Direct critical strikes now have a 60% chance to trigger a Felstrike and generate a Fragment of Malice . Felstrike Burn an enemy for (6*1000/1)*(9+0+SP*.05) Shadowflame Damage over 6 sec, stacking 3 times. Fragment of Malice Restores 5 Energy and increases your critical strike chance by 10% for 5 sec.
+- **Fury of Archimonde** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: After generating 10 Felfury, your next Sargeron Smite within 15 seconds gains 50% increased critical strike chance and damage.
+
+### Infernal abilities
+- **Fel Apprentice**: Level 10 Passive While Inner Demon is active, your Fel Fireball will now unleash a Felstrike on your target.Felstrike Burn an enemy for 54 + 30% SP Shadowflame Damage over 6 seconds, stacking 3 times.
+
+## Tyrant  (Tank) - 42 talents, 1 abilities
+
+- **Carve** (1 rank) - NEW - we have no talent of this name
+  - needs: charges
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Carve 20 Energy Channeled Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Consumes 2 Felfury Charge up a powerful attack over 2.5 sec. Upon ending the channel, slash in front of you, dealing increased Weapon Damage with both weapons based on how long you channel, dealing less damage with each target struck. Inner Demon : Reduces affected enemies melee and ranged has
+- **Demonic Will** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Demonic Will Instant 45 sec cooldown Generates 1 Felfury Strengthen your will, reducing Physical damage taken by 30% for 10 sec. While active, direct damaging abilities heal you for 3% of your maximum health. Can only occur once every 0.5 sec.
+- **Annihilan Rituals** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Fully channeling Carve now refunds 1 Felfury.
+- **Quick Carving** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Carve now channels 1 sec faster.
+- **Nether Disciple** (2 ranks) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your dodge and parry chance by 4%.
+- **Demon Hide** (2 ranks) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: While Inner Demon is active, your Armor contribution from cloth and leather items is increased by 120%.
+- **Hulking Demon** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Hulking Demon Specialization Instant Level 20 Passive Increases your attack power by 30% of your Stamina and your hit rating by 6% of your Agility.
+- **Felrend** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, aoe-cleave
+  - CoA: Generates 1 Felfury Erupt in a whirlwind of felfury, striking all enemies within 6 yds with both weapons, dealing Weapon Damage plus 5.
+- **Pure Hatred** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Your Hateforged Barrier now also scales with your maximum health.
+- **Burning Legionnaire** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Energy cost of Twin Slice and Sunder by -10.
+- **Outland Slaver** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Outland Slaver Rank 1 Instant Reduces the cost of your Felrend and Fel Fireball by 3 and increases their damage dealt by 15%.
+- **Battle Finesse** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Battle Finesse Passive Instant While channeling Carve , your chance to dodge is now increased by 1% based on how long you channel, up to a maximum of 10%.
+- **Unholy Endurance** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: resource-grant
+  - CoA: Increases the damage and threat generated from Carve by 15%.
+- **Felspill** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, aoe-cleave
+  - CoA: Felspill Passive Instant Generating Felfury now leeches AP *0.1 health from 3 nearby enemies within 6 yds, scaling with your attack power.
+- **Infernal Constitution** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Infernal Constitution Passive Instant Increases your maximum health by 10% and increases your off-hand weapon damage by 30%.
+- **Abyssal Conditioning** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Felfury spenders now increases your Energy regeneration by 5% for 10 seconds, stacking up to 4 times.
+- **Illidari Training** (1 rank) - MATCH felsworn_tyrant
+  - needs: resource-grant
+  - CoA: Illidari Training Passive Instant Dodging an attack now generates 3 Energy.
+- **Hellfire Carver** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Level 30 Passive Casting Carve now makes your next Fel Fireball instant cast and causes it to strike 1 additional enemy near the primary target based on how long you channeled, up to a maximum of 10 enemies, dealing less damage with each target struck.
+- **Vengeance** (1 rank) - MATCH felsworn_tyrant
+  - needs: proc-chance, resource-grant
+  - CoA: Your Twin Slice and Felrend now have a 60% chance to generate 1 additional Felfury.
+- **Bulwark of Azzinoth** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Bulwark of Azzinoth Passive Instant Inner Demon now also reduces your damage taken by 10%.
+- **Burning Hatred** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Burning Hatred Instant cast 2 min cooldown Enrages you, instantly generating 6 Felfury and causing your melee damage to leech health to you equal to 50% of the damage dealt as Chaos damage for 15 sec.
+- **Betrayer** (1 rank) - MATCH felsworn_tyrant
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Dodging attacks causes 40% off-hand Weapon Damage to attackers and enrages your party and raid members within 20 yds, increasing their critical strike chance by 2% for 10 seconds.
+- **Tyrant's Gaze** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, hp-threshold, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Tyrant's Gaze Rank 1 30 Energy Instant cast 10 sec cooldown Set your fiery gaze upon an enemy and all enemies nearby, intimidating them and causing them to combust, dealing 220+0+ AP *0.35 Shadowflame Damage to them. Damaging an enemy in this way heals you for 146+ AP *.5 and generates 1 Felfury . Only usable on enemies below 35% health.
+- **Straight to the Nether** (1 rank) - MATCH felsworn_tyrant
+  - CoA: While Inner Demon is active, Carve and Sargeron Smite now leeches 20% of the damage dealt from the initial strike as Shadowflame Damage.
+- **Fel Torpedo** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, resource-grant
+  - CoA: Transforms your Chaos Rush into Fel Torpedo.Fel Torpedo Generates 1 Felfury Torpedo forward in the direction you're running and deal 195 + 35% AP Shadowflame Damage to enemies in your path. Generates a large amount of threat. Scales with modifiers to Chaos Rush
+- **Illidan's Favor** (1 rank) - NEW - we have no talent of this name
+  - CoA: Removes the Energy cost of your Felbane and Manaburn and your Manaburn now strikes 4 additional enemies near the primary target.
+- **Nether Strength** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Felfury spenders now reduces the cooldown of Burning Hatred, Hateforged Barrier, and Demonic Will by -1 sec.
+- **Demonic Blood** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Generating Felfury now extends the duration of Inner Demon by 0.5 sec.
+- **Demonic Fortitude** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: proc-chance, resource-grant
+  - CoA: Demonic Fortitude Passive Instant While Demonic Will or Hateforged Barrier are active, all damage taken or avoided now has a 20% chance to generate 1 Felfury .
+- **Expose** (1 rank) - MATCH felsworn_tyrant
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct Fire and Shadow spell damage dealt now applies Expose to enemies.Expose (Proc) Damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3% for 8 seconds.
+- **Felblade** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Level 40 Passive Damage dealt by Fel Fireball, Sargeron Smite, and Twin Slice now additionally scales with your Agility.
+- **Doomscarring** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Twin Slice now deals an additional 1 + 30% AP Physical damage and scars enemies for 12 seconds, increasing your allies' attack power against them by 45 + 15% Agility.
+- **Fel Daze** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Fel Daze Passive Instant Increases the critical strike chance of Fel Fireball by 10% and it's damage dealt now reduces the enemy's chance to hit by 3% for 6 sec.
+- **Dark Lord** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: While above 75% health, your damage taken is reduced by -5% and damage dealt is increased by 5%.
+- **Eye of the Tyrant** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Eye of the Tyrant Passive Instant Grant 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects. In addition, your Stamina and attack power is increased by 4%.
+- **Vengeance Is Mine** (1 rank) - MATCH felsworn_tyrant
+  - needs: proc-chance, resource-grant
+  - CoA: Vengeance Is Mine Passive Instant Dodging or parrying an attack now gives you a 10% chance to make your next 10 instances of damage with Twin Slice deal 30% increased damage and generate 1 Felfury .
+- **Mannoroth's Rage** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mannoroth's Rage Passive Instant Reduces the cooldown of Burning Hatred by 60 sec.
+- **Infernal Whipcrack** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Infernal Whipcrack Instant cast 1 min cooldown Enrage up to 8 allies within 20 yds, reducing their damage taken by 15% and increasing their haste by 10% for 10 sec.
+- **Fel Monstrosity** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - CoA: Fel Monstrosity Specialization Instant Level 50 Passive Increases your Stamina by 25% and size by 10%.
+- **Tyrannical Resolve** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds, up to 100% of your maximum health. When this ends, you unleash a Felfire Blast that leeches health from nearby enemies based on how many times you took damage with the effect active.
+- **Grommash's Folly** (1 rank) - MATCH felsworn_tyrant
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Grommash's Folly Passive Instant cast While Inner Demon is active, your melee haste is now increased by 15% and you now heal equal to 50% of all damage dealt by critical strikes with auto attacks. In addition, critical strikes with Carve deal 5% increased damage, increasing up to 60% with each strike based on how long you channel.
+- **Taskmaster's Army** (1 rank) - MATCH felsworn_tyrant  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Taskmaster's Army Passive Instant Reduces the cooldown of Infernal Whipcrack by 30 sec and it now affects all allies and its radius is increased by 15 yds.
+
+### Tyrant abilities
+- **Burning Commander**: Level 10 Passive Allows you to wield a Two-Handed Axe, Mace, Polearm or Sword in each hand and grants you additional Armor and magic resistance based on your attack power.
+
+## Class (shared)  (ALL) - 5 talents, 32 abilities
+
+- **Cruelty** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Increases your critical strike chance by 2% and an additional 3% against Demons.
+- **Focused Hatred** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - CoA: Direct magical critical strikes now generate 5 Energy.
+- **Infernal Armor** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of your Hateforged Barrier by -10 sec.
+- **Embracing Evil** (1 rank) - NEW - we have no talent of this name
+  - CoA: Embracing Evil Passive Instant Increases the duration and reduces the Energy cost of Banes by 20%.
+- **Warlock Training** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cripple now causes the enemy target to be unable to critically strike for 4 seconds.
+
+### Class (shared) abilities
+- **Annihilation**: Gorge on fel energy, guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health. Lasts for 5 attacks or 12 seconds.
+- **Manaburn**: Manaburn Instant cast 20 sec cooldown Burn an enemy's mana equal to 200% of your Stamina. Deals damage equal to the mana drained.
+- **Hateforged Barrier**: Hateforged Barrier Rank 1 Instant cast 30 sec cooldown Manifest a barrier of pure hatred, absorbing 177+0+ Sta *2 damage, scaling with your Stamina, for 30 sec. While the barrier holds, you regenerate 2% of your maximum health every 2 sec.
+- **Demonborn**: Demonborn Rank 1 Instant Increases your Energy regeneration by 15%.
+- **Demonic Evasion**: Demonic Evasion Passive Instant Increases your chance to dodge by 5%.
+- **Felwracked**: Felwracked Passive Instant Every 3rd Twin Slice or Fel Fireball within 15 sec now generates 1 additional Felfury .
+- **Whispers of the Pit**: Whispers of the Pit Instant cast 1 min cooldown Unleash fel energy upon enemies at target location, fearing them and slowing their movement speed by 80% for 8 sec. Damage caused may interrupt the effect.
+- **Skull of Gul'dan**: Skull of Gul'dan Instant 1 min cooldown Consume the essence of the skull of Gul'dan, increasing your maximum health and Energy by 25% for 10 sec.
+- **Felgorged**: Reduces the Energy cost of Cripple and Consume Magic by -10.
+- **Felheart**: Each Felfury active now increases your haste by 1%.
+- **Doomstride**: Doomstride Passive Instant Using Chaos Rush twice in a row now refreshes a charge of Chaos Rush .
+- **Demonic Embrace**: Casting Inner Demon with at least 6 Felfury now restores 50 Energy.
+- **Illidan's Guile**: Illidan's Guile Instant 5 min cooldown Gorge on fel energy, becoming immune to all physical attacks and spells for 8 sec, but during that time you cannot attack, move or cast spells. At the end of the duration, your next Chaos Rush within 5 sec now dashes an additional 20 yds.
+- **Dark Teachings**: Increases the effectiveness of your Intuitions by 20%.
+- **Legion March**: Legion March Passive Instant Increases the range of Chaos Rush by 3 yds .
+- **Felbane**: Curse an enemy, causing the next spell they cast within 4 seconds to be reflected onto them.
+- **Warden's End**: Warden's End Passive Instant Reduces the cooldown of Mana Burn and Illidan's Guile by 20%.
+- **Cunning**: Reduces the duration of movement impairing effects on you by -20%.
+- **Pact Hunter**: Increases the effectiveness of your Pacts by 50%.
+- **Suffering**: Increases the duration of Skull of Gul'dan by 5 sec.
+- **Gul'dan's Gift**: Increases the effectiveness of your Skull of Gul'dan by 50%, but its cooldown is increased by 30 sec.
+- **Elemental Bane**: Increases your critical damage by 10% and additionally increases your critical strike chance by 15% while fighting Elementals.
+- **Magic Fiend**: Magic Fiend Passive Instant Increases the amount of beneficial magic effects stolen by your Consume Magic by 1.
+- **Fel Communion**: Fel Communion Passive Instant Increases your maximum Energy by 30.
+- **Felguard**: Your Chaos Rush now reduces all damage taken by -3% for 5 seconds, stacking 2 times.
+- **Felstrider**: Your Chaos Rush now increases your Energy regeneration by 10% for 5 seconds, stacking 2 times.
+- **Armaments of the Legion**: Armaments of the Legion Rank 1 Instant Reduces your chance to be hit by spells by 2% and increases the absorption value of Hateforged Barrier by 10%.
+- **Chaotic**: Dealing damage now has an 8% chance to increase your damage by 3% for 8 seconds, stacking 3 times.
+- **Anti-Magic**: When Hateforged Barrier is removed from you, you now reduce -10% of all Magic damage taken for 8 seconds. In addition, Hateforged Barrier now heals for an additional 2% of your maximum health each tick.
+- **Reckoning**: Reckoning Instant cast 2 min cooldown For 10 sec, your Fel Fireball is free of cost, instant cast, and strikes up to 4 targets. For the duration, your falling speed is slowed and damage dealt by your Fel Fireball increases your damage dealt by 4% for 15 sec, stacking 4 times.
+- **Mark of Chaos**: Mark of Chaos Passive Instant Using Chaos Rush increases the next instance of direct spell or ability damage within 5 sec by 25%.
+- **Illidari Barrier**: Casting Hateforged Barrier now also creates a damage absorption shield on all nearby allies within 15 yds, absorbing 328 + 100% Stamina + 20% SP + 8% AP damage for 5 seconds.
+

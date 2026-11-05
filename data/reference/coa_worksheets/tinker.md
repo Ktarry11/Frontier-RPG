@@ -1,0 +1,503 @@
+# Tinker - CoA reference vs ours
+
+- CoA talents: **129**
+- already in our data by name: **29** (of those, **17** are pure scalars on our side)
+- not in our data at all: **100**
+- single-clause scalars in CoA's own tree: **23** (17%)
+- carry real-time assumptions needing translation: **66** (51%)
+
+Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Demolition  (DPS) - 38 talents, 2 abilities
+
+- **Bomb Toss** (1 rank) - MATCH tinker_demolition
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bomb Toss Rank 1 6% of base mana Instant 8 sec cooldown Lob a bomb at an enemy, dealing 36+0+ RAP *.3+ FireP *.5 Fire damage and reducing their armor by 5% for 15 sec, stacking 4 times.
+- **Build: Spider Bomb** (1 rank) - MATCH tinker_demolition
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Build a Spider Bomb that will immediately run towards your target and detonate dealing 250 + 30% ranged AP Fire damage in an 8 yd radius. Using Scrap Shot will redirect the Spider Bombs to your new target.
+- **Incendiary Bullets** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the damage of Scrap Shot by 15% and increases your chance to hit by 2%.
+- **Sparked and Ready!** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Sparked and Ready! Specialization Instant Level 20 Passive Fire damage dealt has a 5% chance to grant you Sparked and Ready! . Sparked and Ready! Causes your next Rocket Launcher , within 10 sec, to be instant cast and deal 20% increased damage.
+- **I Need More Explosions!** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Sticky Bomb Explosions by 15%.
+- **Target Acquired** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Sticky Bomb Explosions and Spider Bomb now deal 30% increased damage when it strikes only 1 target.
+- **Boom Hour** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical strike chance of Bomb Toss and Firepot Drone by 10%.
+- **Build: Firepot Drone** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: 3 Charges, 10 sec recharge Build a Firepot Drone that flies towards your target, dropping a bomb along its path and exploding upon landing, dealing 182 + 17.5% ranged AP + 55% fire SP Fire damage in a 5 yd radius, leaving oil on the ground for 6 seconds that slows enemies within by -30%.
+- **Duobombers** (1 rank) - NEW - we have no talent of this name
+  - CoA: Build: Spider Bomb now creates an additional Spider Bomb that rushes towards your target.
+- **Aftermath** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.
+- **Explosives Expert** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: resource-grant, pet-summon
+  - CoA: Explosives Expert Passive Instant Direct harmful ability critical strikes from you or your summons now restores 4% of your maximum mana.
+- **Drone Striker** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.Napalm (Damage) Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.
+- **Grenadier** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, stacking-buff, cooldown
+  - CoA: When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.
+- **Bombastic** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
+  - CoA: Level 30 Passive Casting Build: Spider Bomb now resets the cooldown of Bomb Toss and causes your next Bomb Toss within 15 seconds to trigger no cooldown, global cooldown, or cost.
+- **Flamethrowing** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: When you Bomb Toss, your Sentry Turret unleashes flames on your target, dealing 89+18+ranged AP*0.12+SPFI*0.4. Fire damage to enemies in a 30 yd line.
+- **Tank Buster** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Scrap Shot now ignores 25% of the target's Armor when damaging Burning targets.
+- **War Crimes** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm to enemies.Napalm (Damage) Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.
+- **Build: Oil-Spill Pylon** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Build an Oil-Spill Pylon at target location for 10 seconds, spilling oil in an 8 yd radius that reduces enemies movement speed by -60% and increases their Fire damage taken by you by 15%. Sticky Bomb Explosions and Firepot Drone deal 20% increased damage to enemies inside.
+- **Surprise Launch!** (1 rank) - NEW - we have no talent of this name
+  - CoA: When Rocket Launcher is used on enemies affected by Sticky Bomb it is now guaranteed to critically strike.
+- **Bomb Builder** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases your and your summons Fire Damage dealt by 5%.
+- **Tracer Augmentation** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Add a Tracer Augmentation to your gun for 1 hour, causing your ranged attacks to mark enemies for 5 seconds, stacking 5 times. After the duration they explode for 80 + 8% ranged AP + 15% fire SP Fire damage, increased based on stacks. Marked enemies are prevented from entering stealth or invisibility for 20 seconds.
+- **Buster Scope** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical damage of Rocket Launcher by 10%.
+- **Mega Scope** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the range of Rocket Launcher by 10 yds.
+- **The BIG Guns!** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: The BIG Guns! Instant Increases the attack power of all party and raid members 5%. Does not stack with similar effects. In addition, increases your ranged attack power by 3%.
+- **Rockadier** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Rockadier 12% of base mana Instant 3 min cooldown Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.
+- **Bomb Squad** (1 rank) - NEW - we have no talent of this name
+  - CoA: Level 40 Passive Increases your Fire spell power by 50% of Agility.
+- **Machine Synergy** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret.Machine Synergy Increases damage dealt by 5% and haste by 3%, stacking 3 times, for 6 seconds.
+- **Rocket Engineering** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target while active on the enemy.
+- **Gazlowe's Wisdom** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Gazlowe's Wisdom Passive Instant You now spawn 2 Shrapnel Mines under your target when Sticky Bomb explodes. Shrapnel Mine When you use Remote Detonation , deal AP*0.25+SP*0.385+186+2.5 Points Per Level Physical damage to up to 5 enemies within 10 yds. The mine lasts 1 min.
+- **Rocket Pack** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rocket Pack Passive Instant Fire critical strikes now reduce the remaining cooldown of Rockadier by 3 sec.
+- **Boomshot** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, every-nth-cast
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Every 4th Scrap Shot now causes your next Scrap Shot within 15 seconds to deal 25% increased damage.
+- **Short Fuse** (1 rank) - NEW - we have no talent of this name
+  - CoA: Sparked and Ready now also increases the critical strike chance of Rocket Launcher by 20%.
+- **Build: Spider Bomb Factory** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Build: Spider Bomb Factory 35% of base mana Instant cast 1 min cooldown Build a Spider Bomb Factory in front of you for 20 sec. For the duration, Bomb Toss and Rocket Launcher will summon 3 Spider Bombs , that will immediately run towards your target and detonate dealing 29+5.5 Points Per Level+ RAP *.3 Fire damage. Using Scrap Shot will redirect the Spider Bombs to your new target.
+- **Rocket Turrets** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Allows Machine Synergy to stack 2 additional times and using Rocket Launcher now causes your Sentry Turret to also cast Rocket Launcher.Machine Synergy Increases damage dealt by 5% and haste by 3%, stacking 3 times, for 6 seconds.
+- **Bomber Man** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 30 Passive While Bombastic is active, your Bomb Tosses will additionally reduce the cooldown of Sticky Bomb by -1 sec.
+- **Rocket Barrage** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Rocket Barrage Passive Instant Increases the amount of stacks of Tracer Augmentation by 5, and its duration by 7 sec, and causes damage dealt by Bomb Toss on enemies with 10 stacks to launch a Rocket Barrage at their location. Rocket Barrage Deals 1290+0+AP*0.175+FireP*.11 Fire Damage to nearby enemies after 5 sec.
+- **Explosive Inventor** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Spider Bomb Factory now also summons a Heavy Spider Bomb. Heavy Spider Bombs move slowly, and deal 1231 + 55% ranged AP Fire damage when they reach their target and slow their movement speed by -70% for 2 seconds.
+- **Hyperblast Barrage** (1 rank) - MATCH tinker_demolition
+  - needs: cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hyperblast Barrage 18% of base mana 2 sec cast 30 sec cooldown Unleash a barrage of shrapnel, dealing 831+0+ RAP *.36+ FireP *.55 Fire damage to enemies in a line, applying a lesser Sticky Bomb to each target struck that deals 271+125.9 Points Per Level+ FireP *.1+ AP *0.5 Fire damage after 3 sec. After 3 sec, your active Sentry Turret will also fire a Hyperblast Barrage .
+
+### Demolition abilities
+- **Napalm**: Level 10 Passive Dealing direct Fire damage now applies Napalm to your target.Napalm (Damage) Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.
+- **Rocket Launcher**: Rocket Launcher Rank 1 8% of base mana 3 sec cast Fire a powerful rocket at an enemy that deals 126+0+ RAP *0.35+ FireP *.35 Fire damage.
+
+## Invention  (Healer) - 37 talents, 2 abilities
+
+- **Build: Restorative Beacon** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Build: Restorative Beacon 25% of base mana Instant 3 Charges, 15 sec recharge Throw down a restorative beacon for 15 sec which projects a field that heals raid and party members in the area for 18+3.5 Points Per Level+ SP *0.12 every 3 sec. Shares a cooldown with other Beacons
+- **Over-Repaired** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the healing done by Repair Shot by 15%.
+- **Field Medic** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases your and your summons critical strike chance by 5%.
+- **Master Builder** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the mana cost of all Build abilities by -25%.
+- **Stim Augmentation** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Add a Stim Augmentation to your gun for 1 hour, causing your direct healing abilities to heal up to 3 nearby allies for an additional 20% of the amount healed. Healing done by this can critically strike.
+- **Technician** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces spell pushback suffered from damaging attacks by 35% and increases your critical healing by 10%.
+- **Scientific Nature** (1 rank) - MATCH tinker_invention  [ours is scalar]
+  - CoA: Scientific Nature Specialization Instant cast Level 20 Passive Increases your healing power by 20% of your Intellect and your critical strike rating by 15% of your Intellect.
+- **Macro Designer** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of your Beacons by 5 sec and Med Pack by 3 sec.
+- **Inventor's Tool Belt** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases your and your pet's Intellect by 10% and you are both now unable to miss your attacks.
+- **Eureka!** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct healing critical strikes now increase the healing done by your next Repair Shot or Emergency Heal by 30% for 10 seconds.
+- **Nanobot Swarm** (1 rank) - MATCH tinker_invention
+  - needs: resource-grant, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Nanobot Swarm Rank 1 20% of base mana Instant cast Send Nanobots to an ally, dealing 15+0+ SP *0.171 damage to nearby enemies every 4 sec for 1 min. All threat generated by you is redirected to the target. Nanobot Swarm can only be sent to 1 target at time and cannot be dispelled.
+- **Stim Pack** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Effective healing with Stim Augmentation now reduces the cooldown of Med Pack by -3 sec.
+- **Bandage Gun** (1 rank) - MATCH tinker_invention  [ours is scalar]
+  - CoA: Bandage Gun Passive Instant cast Healing from Stim Augmentation now affects 2 additional allies near the primary target.
+- **Stim Shots** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Stim Augmentation now heals for an additional 10% of the amount healed.
+- **Improved Emergency Heal** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the healing and reduces the mana cost of Emergency Heal by -20%.
+- **Beacon Charging** (1 rank) - NEW - we have no talent of this name
+  - CoA: $a6
+- **Healing Radiator** (1 rank) - MATCH tinker_invention
+  - needs: resource-grant, aoe-cleave, dot-hot
+  - CoA: Healing Radiator Passive Instant cast Periodic healing done by Nanobot Reconstruction now restores 3+2.5 Points Per Level+ Heal *0.0402857 health to 5 allied players within 10 yds of the affected target.
+- **Fine Tuning** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, not critically healing now increases your critical strike chance by 1%, stacking 10 times, until your next effective critical heal.
+- **Zap!** (1 rank) - MATCH tinker_invention
+  - CoA: Fires a long range zap of electricity that heals an ally for 254 + 150% healing. Scales with modifiers to Repair Shot.
+- **J27 Upgrade** (1 rank) - NEW - we have no talent of this name
+  - CoA: Reduces the mana cost of your Nanobots by -10% and they now last 10 additional sec.
+- **Electromagnetic Resistors** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Nanobots now grant a 30% chance to resist movement impairing effects for 15 seconds.
+- **Cybernetic Revivification** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Cybernetic Revivification Passive Instant All nearby allies receive 6% more healing. Does not stack with similar effects. In addition, your Alarm Beacon now dispels fear, charm, and sleep effects from 1 additional ally.
+- **Build: Battery Recharge Station** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Build: Battery Recharge Station 30% of base mana 1.5 sec cast 2 min cooldown Build a Battery Recharge Station for 30 sec that allies can interact with once to replenish 15% maximum health and mana, and 50% maximum Rage, Energy, Focus, and Runic Power. Applies Depleting Battery to party and raid members within 40 yds. Depleting Battery Movement speed increased by 10% for 30 sec. Run to the Battery 
+- **Build: Noise Box** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Build a Noise Box for 15 seconds that periodically unleashes screeching noise on nearby enemies, interrupting spellcasts and preventing spells of that school from being cast for 3 seconds.
+- **Rejuvenating Gadget** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Rejuvenating Gadget Passive Instant cast Critical strikes with Zap! now apply Rejuvenating Gas to up to 12 allies within 8 yards of your target that restores 15% of the value of the shot as health every 2 sec for 10 sec.
+- **Trust the Science!** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Zap! by -5 sec.
+- **Graftbolts** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, resource-grant, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Level 40 Passive Effective healing done now has a 25% chance to grant your mechanical pet GraftboltsGraftbolts Restores 15% maximum mana to your pet and increases the damage and healing done by your summons by a percentage equal to 10% of your healing spell power for 6 seconds, stacking 3 times. .
+- **Nanobot Cleanser** (1 rank) - MATCH tinker_invention
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Nanobot Cleanser 30% of base mana Instant cast Send Nanobots to an ally removing 1 poison and disease effect every 3 sec for up to 15 sec. Nanobot Cleanser can only be sent to 1 target at a time and can't be dispelled.
+- **Rapid Fire Healing** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, proc-chance, cooldown
+  - CoA: Casting Repair Shot or Emergency Heal now has a 15% chance to refresh a charge of Beacons.
+- **Mana Capacitors** (2 ranks) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cost of Overcharge by -15% and reduces its cooldown by -10%.
+- **Resourceful Tech** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Zap! is now guaranteed to critically strike allies affected by Nanobots.
+- **Self-Sustaining Technology** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Self-Sustaining Technology Passive Instant Damage or healing done by your pet or summons now heals you equal to 15% of the value. In addition, damage or healing done by you now restores health and mana to your pet equal to 15% of the value. Each of these effects can only occur once per sec.
+- **Emergency Circumvented** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - CoA: Increases the critical strike chance of Emergency Heal by 15% and allows the periodic healing done by Med Pack to critically strike.
+- **Improved Graftbolts** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: Level 50 Passive Effective healing done by Stim Augmentation now applies a shield to the target equal to 50% of the healing done. Up to 10% of their maximum health.
+- **Epiphany!** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Beacon abilities now reduces the cooldown of My Greatest Invention! by -20 sec.
+- **Combat Symbiosis** (1 rank) - MATCH tinker_invention
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Combat Symbiosis 24% of base mana 1 sec cast 1 min cooldown Electrify an allies' body, increasing their haste by 20% and causing damage dealt by them to heal nearby allies for 15% of the value. Lasts for 15 sec, or 20 attacks.
+- **Emergency Enhancer** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, aoe-cleave
+  - CoA: Zap! now causes your active Build abilities to zap the lowest health nearby ally, healing them for 990 + 90% healing.
+
+### Invention abilities
+- **Build: ZIGGI-6K**: Level 10 Passive Teaches you Build: ZIGGI-6K.Build: ZIGGI-6K Build ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.
+- **My Greatest Invention!**: My Greatest Invention! 22% of base mana Instant 3 min cooldown Show off your Greatest Invention , healing party and raid members in a 30 yd radius for 34.2 Points Per Level+751+ Heal *.65 every 1.5 sec for 9 sec.
+
+## Mechanics  (DPS) - 42 talents, 1 abilities
+
+- **Makeshift Dynamite** (1 rank) - MATCH tinker_mechanics
+  - needs: charges, cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Makeshift Dynamite Rank 1 5% of base mana 2 sec cast 2 Charges, 8 sec recharge Generates 10 Scrap Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 12 as Fire damage. Usable while moving.
+- **Mechsuit: Laser Beam** (1 rank) - MATCH tinker_mechanics
+  - needs: charges, pet-summon
+  - CoA: Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 18 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage.
+- **Slam the Cogs!** (2 ranks) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases the damage dealt by you and your summons by 4%.
+- **Sprocket Loaded** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, pet-summon
+  - CoA: Casting Makeshift Dynamite now resets the cooldown of your Mechsuit abilities.
+- **Mechanical Synergy** (2 ranks) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases the damage of Sticky Bomb Explosion and Mechsuit abilities by 15%.
+- **Bombs? BOMBS!** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the detonation speed of Sticky Bomb by -1 sec and reduces its cooldown by -2 sec.
+- **Combat Crafter** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, pet-summon
+  - CoA: Level 20 Passive While in your Mechsuit, damage dealt by your summons now has a 20% chance to grant you 5 Scrap and 2% of your maximum mana.
+- **Mechsuit: Combustion** (1 rank) - MATCH tinker_mechanics
+  - needs: cooldown, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mechsuit: Combustion Rank 1 5% of base mana 1.5 sec cast 10 sec cooldown Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 70+0+ RAP *.2 Fire damage. Usable while moving. Shares a cooldown with other Mechsuit abilities.
+- **Fine Tuned** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Increases the critical strike and hit chance of you and your summons by 4%.
+- **Mechsuit: Activate Jets** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mechsuit: Activate Jets 30% of base mana Instant 10 sec cooldown Launch forward and slow your falling speed. When you hit the ground you blast nearby enemies for 45+16.0 Points Per Level Fire damage based on time in the air. Shares a cooldown with other Mechsuit abilities.
+- **Turbo Guns** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.
+- **Flak Guns** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Your Mechsuit: Combustion now has 10% increased critical strike chance and 15% increased critical damage.
+- **Regeneration Enhancement** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you enter your Mechsuit, it now refunds 20% of your base mana, repeating every 20 sec while inside.
+- **Junker** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Junker Passive Instant cast Casting Spanner Smash and Scrap Shot now increases your pet's attack power by 5% for 15 sec, stacking 2 times.
+- **Build: Scrapmaw** (1 rank) - MATCH tinker_mechanics
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Build: Scrapmaw 15% of base mana 6 sec cast Build a Scrapmaw to accompany the Tinker until dismissed.
+- **Battle Engineer** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: charges, proc-chance, cooldown
+  - CoA: Battle Engineer Specialization Instant Level 30 Passive Your ranged damage dealt now has a 20% chance to refresh a charge of Makeshift Dynamite .
+- **Overload** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, pet-summon
+  - CoA: Damage dealt by Mechsuit: Combustion and Mechsuit: Laser Beam now have a 40% chance to strike 2 additional times for 30% of the damage dealt.
+- **Scrapper** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Search and rummage through nearby debris, gaining 10 Scrap and 25 mana every 1 sec for 5 seconds. Not usable in combat.
+- **Offensive Utility** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: While in your Mechsuit, casting Sticky Bomb reduces the channel time of your next Gatling Gun within 5 seconds by -30%.
+- **Defensive Utility** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Defensive Utility Passive Instant 5 sec cooldown Your Mechsuit will now increase your armor by an additional 50%.
+- **Nano-Repair Tech** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: You and your pet now regenerate 3% of your maximum health every 8 sec.
+- **Augmechtation** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Your Mechsuit now increases your damage by an additional 10% while active.
+- **Engine Augmentation** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: For 8 seconds after activating your Mechsuit, all damage dealt will now generate 3 Scrap.
+- **Mechanical Extender** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Scrap Shot and Mechsuit abilities now increases the chance to trigger Overload by 3% for 10 seconds, stacking 10 times. When Overload triggers, all stacks are consumed.
+- **Mechanical Enhancements** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Mechanical Enhancements Passive Instant Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects. In addition, the range of your offensive ranged abilities and Auto Shot is increased by 10 yds.
+- **Upgrade!** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: cooldown, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Upgrade! 8% of base mana Instant 2 min cooldown Upgrade nearby Sentry Turrets to a Molten Grenade Turret for 1 min. Molten Grenade Turret Upgrades the Sentry Turret to fire grenades, increasing its attack speed significantly and causing it to deal 26+3.5 Points Per Level Fire Damage in an 8 yd radius, plus an additional 11+3.0 Points Per Level+FireP*.15+AP*0.085 Fire Damage over 1.5 sec.
+- **Master Builder** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Reduces the cast time of Build abilities by -50%.
+- **Arclight Core** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Arclight Core Passive Instant Makeshift Dynamite now marks enemies for 6 sec. The next damaging ability used on this target by your pet consumes the mark to deal 62+10.3 Points Per Level+ FireP *.2+ RAP *.2 Fire damage.
+- **Turbo Upgrade!** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - CoA: Level 40 Passive Increases the effectiveness of your Mechsuit by 100%.
+- **Arclight Adept** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - needs: pet-summon
+  - CoA: Arclight Adept Passive Instant cast Increases the critical damage of your Mechsuit abilities by 15%.
+- **Cogmaster** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, resource-grant
+  - CoA: Increases your critical strike chance by 2% and gives ranged critical strikes a 50% chance to generate 3 Scrap.
+- **Junkyard Loiter** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: When you deal damage with Mechsuit: Laser Beam or Mechsuit: Combustion you now launch a Lesser Sticky Bomb on each target struck.Lesser Sticky Bomb Throws a bomb that sticks to the enemy for 3 sec. At the end of the duration the bomb will explode, dealing 17 + 5% fire SP + 2.5% AP Fire Damage to the target.
+- **Augmentor** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+  - CoA: Augmentor Passive Instant While Piercing Augmentation or Aether Augmentation is active, your ranged haste is increased by 10%.
+- **Hacking the Enemy** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Piercing Augmentation now ignores an additional 10% of your target's armor and grants you -10 increased spell penetration.
+- **Turret Upgrade Z-15** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Sentry Turrets now has a 30% chance to cause 47 + 20% AP additional Nature damage and increase critical strike chance of the turret by 1%, stacking 5 times, for 8 seconds.
+- **Flame Jets** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff, pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While inside your Mechsuit, damage dealt by your Scrap Shot and Makeshift Dynamite now applies Living Flame to the target.Living Flame (Damage) Deals 32 Fire Damage every 2 sec and increases the damage the target takes from your Mechsuit: Combustion by 10% for 4.5 seconds, stacking 5 times.
+- **Master Technician** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff, pet-summon
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Scrap Shot and Mechsuit abilities now grants your Sentry Turret a stack of Master Technician, stacking 10 times. At 10 stacks, your Sentry Turret will unleash a beam dealing 725 + 75% fire SP + 40% AP Fire damage in a 25 yd line, piercing invulnerabilities.
+- **Overclocked Machine** (1 rank) - NEW - we have no talent of this name
+  - needs: pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Overclock your pet for for 20 seconds, increasing its damage dealt by 20% and allowing it's attacks to trigger Hardwired Haymaker on the target enemy. Additionally, your pet will trigger Overclocked Smash every 5 sec.
+- **Gear Grind** (1 rank) - NEW - we have no talent of this name
+  - CoA: $ac
+- **Blazewrought Titan** (1 rank) - NEW - we have no talent of this name
+  - CoA: $ae
+- **Haywired State!** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, pet-summon, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Mechsuit abilities now causes your pet to enter a haywired state for 6 seconds.Haywired State! Auto attacks now zap up to 10 nearby enemies for 159 + 35% AP Stormstrike Damage and damaged enemies take 20% increased damage from your summons.
+- **Clockwork Guardians** (1 rank) - NEW - we have no talent of this name
+  - CoA: $aa
+
+### Mechanics abilities
+- **Build: Mechsuit**: $a8
+
+## Class (shared)  (ALL) - 12 talents, 24 abilities
+
+- **Backup Fuel** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown, hp-threshold
+  - CoA: Backup Fuel Passive Instant Falling below 35% health now refreshes all charges of Rocket Boots . Can occur only once every 3 min.
+- **Hasty Tech** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Hasty Tech Passive Instant cast Reduces the cast time of Scrap Shot and Repair Shot by 15%.
+- **Macro-Gravity Zone** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Create a macro-gravity zone at target location for 8 seconds. Enemies within the zone have their movement speed slowed by -50% and gain 1 stack of Macro-Gravity every 1 sec.Macro-Gravity At 6 stacks, the affected enemy will be stunned for 6 seconds.
+- **Maniacal** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Sticky Bomb and Deploy Blast Mine by -2 sec.
+- **Medical Degree** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the cooldown of Med Pack by 30 sec, but allows it to affect up to 4 additional targets around your ally.
+- **Enhanced Procedures** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the duration of Med Pack by 100% and it's healing by 75%.
+- **Innate Brilliance** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, every-nth-cast
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While Aether Augmentation is active, every 4th Scrap Shot now grants you Innate Brilliance.Innate Brilliance (Buff) Your next Scrap Shot has 5 yds increased range, deals 15% increased damage, and drains 125 + 10% ranged AP of your target's mana. Lasts 10 seconds.
+- **Function Over Form** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Aether Augmentation by 50%.
+- **Mechaplating** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mechaplating Passive Instant Whenever your summons critically strike, reduce your and your pet's damage taken by 2% for 15 sec, stacking 4 times.
+- **Modulator** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of your Modules by 20%.
+- **Ventilation** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct magic damage taken now has a 50% chance to increase all magic resistances of allies within 8 yds of you by 15 for 6 seconds.
+- **Mechanosoldier** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Mechanosoldier Passive Instant Increases the damage reduced by Kinetic Shield by 10% and its duration by 2 sec.
+
+### Class (shared) abilities
+- **Rocket Boots**: Rocket Boots 14% of base mana Instant 3 Charges, 30 sec recharge Activate your Rocket Boots , dispelling root effects and launching you forward.
+- **Build: Destructo-Bot**: Build: Destructo-Bot 20% of base mana Channeled 45 sec cooldown Build a Destructo-Bot that you can see through and directly control. The bot is capable of exploding, dealing massive Fire damage to enemies nearby and disorienting them for 3 sec.
+- **Nanobot Reconstruction**: Nanobot Reconstruction Rank 1 17% of base mana Instant cast Send Nanobots to an ally, healing them for 360 over 1 min. Nanobot Reconstruction can only be sent to 1 target at a time and cannot be dispelled.
+- **Explosive Personality**: Explosive Personality Rank 1 Instant cast Increases your ranged attack power by 50% of your Intellect.
+- **Refined Gunpowder**: Refined Gunpowder Rank 1 Instant cast Increases your haste and your damage dealt against Mechanical creatures by 3%.
+- **Clockwork Ingenuity**: Increases the maximum health of your summons by 10%.
+- **Flexible Thinking**: Increases Agility and Intellect by 4%.
+- **Med Pack**: Med Pack Rank 1 30% of base mana Instant cast 1 min cooldown Toss a med pack to an ally, healing for (6*1000/1)*(34+ SP *.2) over 6 sec and cleanses all bleed, poison and disease effects.
+- **Frozen Bomb Launcher**: Damage dealt by your Sentry Turrets will now slow enemy movement speed by -15% for 10 seconds, stacking 3 times.
+- **Efficiency**: Reduces the mana cost of all spells and abilities by -10%.
+- **Concussive Spanner**: Concussive Spanner Passive Instant cast Your Spanner Smash will now apply Concussion to the target. Concussion Your target is unable to critically strike and their total primary attributes are reduced by 5% for 8 sec.
+- **Kinetic Shield**: Kinetic Shield 38% of base mana Instant cast 5 min cooldown Create magnetic shields of kinetic energy on an ally target for 8 sec, reducing damage taken by 40% and making them immune to stun effects. Usable while stunned.
+- **Build: Repulsion Unit**: Build a Repulsion Unit that periodically knocks nearby enemies back every 5 sec for 20 seconds.
+- **I'm The Creator Now**: Damage dealt by your summons now has a 40% chance to increase your attack power and spell power by 9 for 30 seconds, stacking 3 times.
+- **Rocket Bombardment**: Casting Sticky Bomb now causes your Sentry Turret to fire a rocket cluster on its next attack, causing 126 Fire damage to enemies within 5 yds of the target.
+- **Cutting Edge Technology**: Increases the tick rate and healing done of Nanobot Reconstruction by 20%.
+- **Build: Alarm Beacon**: Build: Alarm Beacon 30% of base mana Instant 3 Charges, 15 sec recharge Throw down an alarm beacon for 10 sec, removing fear, charm and sleep effects from up to 1 all y within 20 yds every 1 sec.
+- **Mechanical Enhancements**: Reduces your damage taken from bleed effects by -10% and the duration of bleed effects on you by -20%.
+- **Bunker Operative**: Bunker Operative Passive Instant Reduces the cooldown of Kinetic Shield , Discombobulate! , and Repulsion Unit by 20%.
+- **Air Strike**: Air Strike 25% of base mana Instant 1 min cooldown Mark the target location for an Air Strike . After 7 sec, it deals 1226+55.0 Points Per Level Fire damage to up to 12 enemies caught within the blast. This ability always critically strikes.
+- **Scrapshielding**: Scrapshielding Passive Instant Your critical strikes now grant you a shield that absorbs 12+9.0 Points Per Level+ AP *.15+ SP *.6 damage.
+- **Deathball**: Deathball 20% of base mana Instant 2 min cooldown Launch 3 Deathballs in a line, increasing in speed the further they travel. They explode when they come into contact with an enemy, dealing 1026+6.1 Points Per Level+ RAP *.35 Fire damage to nearby enemies, increased based on distance traveled. Bot a
+- **Goblin Depravity**: Air Strike now drops Tear Gas, dealing 132 + 11% nature SP + 100% AP Nature damage every 2 sec for 12 seconds.
+- **Auto Resuscitation Device**: Attach a resuscitation device to your target ally for 20 seconds. When the target would otherwise die, they are instead healed for 50% of their maximum health.
+

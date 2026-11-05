@@ -1,0 +1,440 @@
+# Guardian - CoA reference vs ours
+
+- CoA talents: **117**
+- already in our data by name: **60** (of those, **51** are pure scalars on our side)
+- not in our data at all: **57**
+- single-clause scalars in CoA's own tree: **19** (16%)
+- carry real-time assumptions needing translation: **48** (41%)
+
+Source: data/reference/coa/guardian.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Vanguard  (Tank) - 33 talents, 5 abilities
+
+- **Heavy Blow** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Heavy Blow Rank 1 Instant 10 sec cooldown Requires Melee Weapon Smash an enemy and enemies behind them in a line, dealing 23+0+ AP *0.45 High Threat Physical damage, scaling with defense rating.
+- **Iron Guardian** (3 ranks) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: pet-summon
+  - CoA: Iron Guardian Rank 1 Instant Increases your Stamina by 5%.
+- **Heavy Expert** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - CoA: Heavy Expert Passive Instant Increases your chance to parry and dodge by 4% and increase your Armor contribution from mail and plate items by 20%.
+- **With Honor** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Ram by -4 sec.
+- **Honorbound** (1 rank) - NEW - we have no talent of this name
+  - CoA: Removes the Energy cost of Shield Challenge.
+- **Shieldbound** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Your Shield Challenge no longer has a cooldown, but now costs 10 additional Energy.
+- **Knight's Conviction** (2 ranks) - MATCH guardian_vanguard  [ours is scalar]
+  - CoA: Knight's Conviction Rank 1 Instant Increases the block value provided by Raise Shield by 25% and your block chance by 1%.
+- **Footman's Call** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - CoA: Footman's Call Passive Instant Damage dealt by Pulverize is increased by 15, plus an additional amount scaling with your block value.
+- **Seasoned Fighter** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - CoA: Seasoned Fighter Passive Instant Reduces the Energy cost of Pulverize , Ram , and Broad Sweep by 10%.
+- **Vanguard's Might** (1 rank) - MATCH guardian_vanguard
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Vanguard's Might Passive Instant Your Heavy Blow now causes you to emanate an aura for 5 sec that reduces all damage taken by 5% for party members.
+- **Bring Down The Hammer!** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: transforms-ability, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Heavy Blow now deals an additional 20% of the damage dealt every 1 sec for 3 seconds.
+- **Vanguard's Shield** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: transforms-ability, stacking-buff
+  - CoA: Vanguard's Shield Passive Instant Blocking an attack or landing an auto attack now grants a stack of Vanguard for 1 min, stacking 10 times. Vanguard's Shield Magic Damage taken reduced by 2%. Whenever you are hit by a spell, you lose 1 stack of this effect.
+- **Hold the Line** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Command nearby allies to hold the line, making them immune to incapacitate, disorient, knockback, and grip effects for 15 seconds.
+- **Hammer of the Law** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hammer of the Law Rank 1 40 Energy Instant 40 sec cooldown Smash an enemy and enemies behind them in a line, dealing 90+0+ AP *1 High Threat Physical damage and silencing them for 3.5 sec.
+- **Battle Wary** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Battle Wary Passive Instant Reduces the cooldown of your Advance and Battle Rush by 30%.
+- **Retaliation** (1 rank) - MATCH guardian_vanguard
+  - CoA: Successful blocks now deal 51 + 5% AP Physical damage to the attacker, scaling with defense rating. Can only occur once per sec.
+- **Plate Buster** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Plate Buster Passive Instant Critical strikes with Ram now reduces the remaining cooldown of Hold the Line by 4 sec.
+- **Stalwart** (2 ranks) - MATCH guardian_vanguard  [ours is scalar]
+  - CoA: Stalwart Rank 1 Instant Increases your block value by 10% and your expertise by 4.
+- **Unscuffable** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - CoA: Allies within 30 yds now take -10% less Magic damage from area of effect attacks.
+- **Order In The Court** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Hammer of the Law now reduces the damage dealt by affected enemies by -10% for 8 seconds.
+- **The Green Tower** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Energy cost of your Formations and increases their effectiveness by 25%.
+- **Valorous Strikes** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Auto attacks now have a 10% chance to strike an additional time and reduce your target's chance to hit by -3% for 15 seconds.
+- **Resilient** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Blocking an attack while Raise Shield is active now increases your maximum health by 308 + 10% Stamina + 11% AP for 15 seconds.
+- **Forceful Impact** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Forceful Impact Passive Instant Casting Raise Shield and Heavy Blow now extends the duration of your Brace by 1 sec. Brace cannot be extended beyond it's maximum duration.
+- **Lionheart** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Shield of Denial now strikes 1 additional enemy.
+- **Valiant Defender** (1 rank) - MATCH guardian_vanguard  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your maximum Energy by 15 and increases the damage of Pulverize and Broad Sweep by 10%.
+- **Valiant Knight** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Melee ability critical strikes now cause your next Pulverize within 6 seconds to be free of cost and deal 25% increased damage.
+- **King's Guard** (1 rank) - MATCH guardian_vanguard
+  - needs: proc-chance, cooldown
+  - CoA: King's Guard Passive Instant cast Your Pulverize and Ram now have a 10% chance to reset the cooldown of Raise Shield .
+- **Shield Unit** (1 rank) - MATCH guardian_vanguard
+  - CoA: Shield Unit Passive Instant Each time you take damage, you gain 5% of the damage taken as attack power for 1 min.
+- **Wreck Formation** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Wreck Formation Passive Instant Melee critical strikes now have a 50% chance to reset the cooldown of Hammer of the Law . Casting Standard of Valiance now increases your attack power by 10% for 6 sec.
+- **Paragon** (1 rank) - NEW - we have no talent of this name
+  - CoA: $32
+- **Bastion** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bastion 40 Energy Instant 5 min cooldown Requires Shields Raise your shield and lead your allies within 12 yds, reducing their damage taken by 40% for 10 sec.
+- **Shieldlord’s Strength** (1 rank) - NEW - we have no talent of this name
+  - CoA: You may now use two-handed Maces and can now equip two-handed Maces with a shield. Your Heavy Blow and Hammer of the Law now deal additional damage scaling with your Stamina and your Stamina is increased by 15%.
+
+### Vanguard abilities
+- **Footman's Calling**: Level 10 Passive Your damage taken is reduced by -10% while Tower Formation or Line Formation is active. In addition, your threat generated from Physical Damage dealt is increased significantly while Tower Formation or Line Formation is active.
+- **Bulwark**: Bulwark Specialization Instant Level 20 Passive Increases your block value by 25% and your hit rating by 5% of your Stamina.
+- **Iron Barrier**: Iron Barrier Specialization Instant Level 30 Passive Your successful blocks now have a 50% chance to critically block for twice the normal amount.
+- **Experienced Soldier**: Level 40 Passive Melee attacks now reduce the cooldown of Brace by -1 sec.
+- **High Guard**: Level 50 Passive After using Raise Shield, Advance or Battle Rush, you are granted High Guard.High Guard (Buff) Your next Heavy Blow within 15 seconds triggers no cooldown.
+
+## Inspiration  (Support) - 42 talents, 3 abilities
+
+- **Inspiring Leader** (1 rank) - NEW - we have no talent of this name
+  - CoA: You pledge to inspire your allies in the midst of battle, transforming your Pulverize and your Broad Sweep into Ballads.
+- **A Hero's Tale** (2 ranks) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Energy regeneration by 10%.
+- **Leading the March** (2 ranks) - MATCH guardian_inspiration  [ours is scalar]
+  - CoA: Leading the March Rank 1 Instant Increases your attack power and total Armor by 4%.
+- **Strength In Unison** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Increases your melee haste by 1% for each ally within 20 yds, up to a maximum of 20%.
+- **Veteran of the Third War** (1 rank) - MATCH guardian_inspiration
+  - needs: resource-grant
+  - CoA: You now restore 3% of your base health whenever you block an attack.
+- **Dragonslayer** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - CoA: Dragonslayer Passive Instant Increases your Agility by 5%.
+- **Into The Fray** (1 rank) - MATCH guardian_inspiration
+  - needs: transforms-ability
+  - CoA: Into The Fray Passive Instant Triggering a Sound of War now grants you an additional auto attack on your next swing.
+- **Spirit of Battle** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.
+- **Banner of Conquest** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: stacking-buff, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Banner of Conquest 25 Energy Instant 20 sec cooldown Attach a Banner of Conquest to your back, increasing the critical strike chance of party and raid members within 40 yds by 5%. Does not stack with similar effects.
+- **Battle Bard** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - CoA: Battle Bard Passive Instant Increases the damage of your Ballads by 15%.
+- **Soundwave** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage dealt by Sound of War by 15%.
+- **Harrowing Melody** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Play a harrowing melody, dealing 191 + 42% AP Magic damage and reducing all healing received by enemies within 10 yds by -30% for 10 seconds. In addition, your next Ballad within 10 seconds is free of cost and deals 50% increased damage.
+- **Liberation** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Liberation 30 Energy Instant 2 min cooldown Instantly breaks an ally free of any stun, fear, or polymorph effects and grants immunity to such effects for 5 sec. Dispels 2 harmful magic effects from the ally. Usable while stunned, feared, or polymorphed.
+- **Banner of Swiftness** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Banner of Swiftness 25 Energy Instant 20 sec cooldown Attach a Banner of Swiftness to your back, increasing the haste of party and raid members within 40 yds by 5%. Does not stack with similar effects.
+- **Knight's Song** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting a Ballad now grants allies Knight's Song.Knight&#39;s Song Emanate an aura for 10 seconds that increases the Armor of party and raid members by 400. Does not stack with similar effects.
+- **Minstrel** (1 rank) - MATCH guardian_inspiration
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Minstrel Passive Instant Casting a Ballad now increases your haste by 3%, stacking 3 times, for 8 sec.
+- **Pied Piper** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pied Piper Passive Instant Triggering a Sound of War now increases damage of your next Ram by 20% for 15 sec.
+- **Frontliner** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Triggering a Sound of War now increases your movement speed by 40% and allies' within 20 yds movement speed by 20% for 2 seconds.
+- **Bard's Manuscript** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Hero's March by -60 sec.
+- **Warbringer's Manuscript** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Critical strikes now reduce the cooldown of Hero's March by -1 sec.
+- **Reverberations** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Ram now causes your next 3 melee attacks to deal an additional 30 + 10% AP Magic damage for 10 seconds.
+- **Show of Force** (1 rank) - NEW - we have no talent of this name
+  - CoA: Dealing damage with Ram now dispels 1 magic effect from the target.
+- **Powerful Voice** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical strike chance of your Ballads by 10%.
+- **Little Drummer** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, aoe-cleave
+  - CoA: Allies within 20 yds of you now gain 20% chance to resist curses.
+- **Elegant Combat** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Elegant Combat Passive Instant Casting a Ballad has a 20% chance to remove the cost of the next Ram and increase its critical chance by 10%.
+- **Banner Boy** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Increases your haste by 5% and the movement speed granted by Line Formation by 8%.
+- **Song of Steel** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Boost the morale of party and raid members, increasing their attack or spell power by 95 for 15 seconds. Does not stack with similar effects.
+- **Dissonance** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Sound of War now has a 25% chance to reduce enemies' resistances by 75 and increases their Magic damage taken by -2% for 8 seconds.
+- **War's Muse** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your critical damage by 20%.
+- **Stand Your Ground!** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - CoA: Stand Your Ground! Passive Instant While standing in your Standard of Valiance , your allies' Physical damage taken is reduced by 10%.
+- **You Shall Not Fall!** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - CoA: While standing in your Standard of Valiance, allies have a -20% increased chance to resist stun and grip effects.
+- **Fearless** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Each nearby enemy within 10 yds now reduces your damage taken by 1%, up to a maximum of 10%.
+- **Cavalry Tactics** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of your Cavalry Charge by -30 sec and it now prevents root and slow effects on allies.
+- **Legion Commander** (1 rank) - NEW - we have no talent of this name
+  - CoA: Legion Commander Passive Instant cast The damage increase of Harrowing Melody now affects an additional 2 Ballad casts and guarantees them to critically strike and deal 100% more damage.
+- **Echoes of War** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Echoes of War Passive Instant Triggering a Sound of War now grants Echoes of War to nearby allies for 8 sec. Echoes of War Next direct ability or spell deals 15% of their damage as additional Magic Damage.
+- **Song of Battle** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Song of Battle Instant cast 1 min cooldown Every 1.5 sec you emanate Sounds of War , dealing 71+1.0 Points Per Level+ AP *0.127449 Physical damage to all enemies within 8 yds. Lasts 15 sec. Upon expiration, stun all enemies within 8 yds for 4 sec. Does not work with Into The Fray .
+- **Bannerman** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - CoA: While affected by your Banner of Swiftness or Banner of Conquest, the initial damage dealt by your Standard of Valiance now deals 150% more damage.
+- **Inspiring Presence** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 35% AP additional damage as Holy damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.
+- **Champion's Presence** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Enrage all nearby allies, increasing their haste by 30% for 20 seconds. After being affected by this spell, allies cannot benefit from similar effects for 5 minutes.
+- **Voice of an Angel** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Voice of an Angel Instant 5 min cooldown Sing a beautiful song, instantly resetting the cooldown of Liberation , Harrowing Melody , and Hero's March .
+- **War Drums** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: War Drums Passive Instant Adds 5% to the value of Echoes of War . In addition, performing a Sound of War now has a 40% chance to echo, striking an additional time after 0.5 sec. Can only occur once per sec.
+- **Field Commander** (1 rank) - MATCH guardian_inspiration  [ours is scalar]
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Field Commander Passive Instant Placing a Standard causes your next Song of Steel to unleash an additional unique effect. Spellwarding Increases the magic resistance of party and raid members within 100 yds by 20 for 10 sec. Might Reduces the Armor of enemies within 100 yds by 15% for 10 sec. Rallying Increases the movement speed of party and raid members within 100 yds by 15% for 10 sec. Recovery
+
+### Inspiration abilities
+- **Tempo**: $5e
+- **Hero's March**: Hero's March Instant 2 min cooldown Beat the drums of war, causing your auto attacks to trigger a Sound of War and increasing your haste by 15% for 15 sec. In addition, allies within 10 yds of you have a 5% chance to trigger a Sound of War on any damage dealt. Does not work with Into the Fray.
+- **Battle Drums**: Place down 3 Battle Drums around you for 1 minute. Allies may click on the drums to increase their critical strike chance, haste, damage, and healing done by 10% and causes their damage dealt to trigger a Sound of War for their next 5 instances of damage or 30 seconds.
+
+## Gladiator  (DPS) - 33 talents, 5 abilities
+
+- **Centurion Strike** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Centurion Strike Rank 1 25 Energy Instant 15 sec cooldown Requires Melee Weapon Stab an enemy, dealing 110% Weapon Damage plus an additional effect based on your weapon. Sword: Triggers 3 additional auto attacks. Axe: Guaranteed to critically strike for 25% increased damage. Mace: Ignores 50% of your target's Armor. Polearm: Stabs the target and enemies behind them an additional time.
+- **Might** (2 ranks) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your attack power by 5%.
+- **Legionnaire** (2 ranks) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the critical damage of Centurion Strike and Reprisal by 10%.
+- **Sword Training** (3 ranks) - MATCH guardian_gladiator  [ours is scalar]
+  - CoA: Sword Training Rank 1 Instant cast Requires One-Handed Swords While a sword is equipped, your melee haste is increased by 10%.
+- **Supremacy** (1 rank) - NEW - we have no talent of this name
+  - needs: charges, cooldown
+  - CoA: Casting Centurion Strike now refreshes a charge of Reprisal.
+- **Axe Training** (3 ranks) - NEW - we have no talent of this name
+  - CoA: While an axe is equipped, your critical strike chance is increased by 2% and critical damage increased by 5%.
+- **Polearm Training** (3 ranks) - NEW - we have no talent of this name
+  - CoA: Polearm Training Rank 1 Instant Allows you to wield polearms and to wield them with a shield equipped. While a polearm is equipped, your melee abilities have 2 yds increased range.
+- **Upper Hand** (1 rank) - MATCH guardian_gladiator
+  - needs: proc-chance
+  - CoA: Upper Hand Passive Instant Your melee auto attacks now have a 20% chance to strike 2 additional times.
+- **Built Different** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Strength and Stamina by 4%.
+- **Mace Training** (3 ranks) - NEW - we have no talent of this name
+  - CoA: Mace Training Rank 1 Instant Requires One-Handed Maces While a mace is equipped, your armor penetration is increased by 8%.
+- **Double Duty** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your hit chance by 5% and expertise by 4.
+- **Champion** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Centurion Strike now extends the duration of Raise Shield on you by 3 sec.
+- **Crashing Force** (2 ranks) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of your Centurion Strike and Reprisal by 15%.
+- **Spear Throw** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Throw a massive spear at an enemy, dealing 45 + 35% AP Physical damage, reducing the effectiveness of any healing by -50% for 10 seconds.
+- **Tactical Combat** (2 ranks) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your block value by 8% and chance to block by 2%.
+- **Heroic Effort** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - CoA: Casting Centurion Strike now grants 1 stack of Glory.
+- **Bulwark Rush** (1 rank) - MATCH guardian_gladiator
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Battle Rush increases your block rating by 25% of Strength for 6 seconds.
+- **No Escape** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: No Escape Passive Instant cast Ram now reduces the cooldown of your Battle Rush by 10 sec when used against a rooted enemy.
+- **No Retreating!** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While in combat, every 2 sec, increase the range and Energy cost of your next Spear Throw by 1 and its damage dealt by 3%, stacking up to 15 times.
+- **Waste No Movement** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Energy cost of Broad Sweep, Spear Throw, and Centurion Strike by -5.
+- **Overwhelming Presence** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Increases the attack power of all party and raid members 5%. Does not stack with similar effects. In addition, increases your Agility by 10%.
+- **Momentum** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Melee damage dealt now reduces the cooldown of your Chivlary by -2 sec.
+- **Myrmidon** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Ram and Broad Sweep by 25%.
+- **Clinch Brawler** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - CoA: Centurion Strike is now guaranteed to critically strike against enemies affected by Net Throw.
+- **Pinned Down!** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Damage dealt by Spear Throw now refreshes the duration of Net Throw on your target.
+- **Deadly Blow** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Centurion Strike and Broad Sweep now bleed an additional 20% of the damage dealt over 2 seconds.
+- **Retiarius** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - CoA: Retiarius Passive Instant Increases your maximum Energy by 25.
+- **Close Combat** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Removes the shared cooldown of your Standards and reduces the cooldown of Guard by -10 sec.
+- **Heroism** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Whenever you reach 3 stacks of Glory or 20 stacks of Favor, your next 2 Pulverizes or Broad Sweeps within 10 seconds are free of cost.
+- **One-Handed Mastery** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - CoA: Increases your damage dealt by 10% while a one-handed weapon is equipped.
+- **Calculated Strike** (1 rank) - MATCH guardian_gladiator  [ours is scalar]
+  - CoA: Calculated Strike Passive Instant Your Reprisal , Broad Sweep , and Spear Throw now deal an additional 2% Weapon Damage for each Energy point you have upon casting it.
+- **Final Verdict** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Final Verdict 50 Energy Instant 30 sec cooldown Give the final verdict to your target, dealing 1195+0+ AP *1 Physical damage and healing you for 15% of your maximum health. Only usable on enemies below 20% health. Killing blows reset the cooldown of this ability.
+- **Earthsplitter** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Earthsplitter Passive Instant Casting Broad Sweep now increases the amount of enemies struck by your next Broad Sweep by 1 and reduces its Energy cost by 10% for 6 sec, stacking 3 times.
+
+### Gladiator abilities
+- **Glory**: Level 10 Passive Your Ram now grants you a stack of Glory for 30 seconds. At 3 stacks, your next Ram within 30 seconds deals 150% increased damage.
+- **Shield Training**: Shield Training Specialization Instant Level 20 Passive Increases your block rating by 10% of your Strength.
+- **Experienced Combatant**: Level 30 Passive Increases your attack power by 20% of your Strength.
+- **Shield Combat**: Level 40 Passive Casting Ram and Pulverize now increases your attack power based on your block rating for 6 seconds.
+- **Favor**: Level 50 Passive Critical strikes and killing blows now grant you Favor for 1 minute, stacking 20 times. At 20 stacks, your next auto attack deals an additional 500% Weapon Damage, consuming the stacks.
+
+## Class (shared)  (ALL) - 9 talents, 31 abilities
+
+- **Knightly Demeanor** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your attack power is increased by 1 for every 50 Armor you have.
+- **Gallant** (2 ranks) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your Strength by 4% and expertise by 2.
+- **Guardbreaker** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance, cooldown
+  - CoA: Casting Pulverize now has a 20% chance to reset the cooldown of Ram.
+- **Valiant Effort** (1 rank) - NEW - we have no talent of this name
+  - needs: proc-chance
+  - CoA: Your auto attacks now have a 15% chance to allow the use of Reprisal as if you had recently blocked an attack.
+- **Glorious Arena** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Create a 10 yd ring beneath you for 15 seconds. Enemies who stand inside will gain Peril every 1 sec. Peril Each stack can be consumed by Pulverize to deal an additional 10% AP Physical Damage and reduce the cooldown of Glorious Arena by 10%. Upon reaching 5 stacks, the stacks are instantly consumed to stun the enemy for 5 seconds.
+- **Lord of the Arena** (1 rank) - NEW - we have no talent of this name
+  - CoA: Lord of the Arena Passive Instant Reduces the Energy cost of Pulverize and Broad Sweep by 5.
+- **Bloodletter** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Avoiding an attack now reduces the remaining cooldown of Glorious Arena by 10%. Can only occur once per sec.
+- **Valiance** (1 rank) - NEW - we have no talent of this name
+  - CoA: Valiance Passive Instant Reprisal now regenerates an additional 20 Energy.
+- **Steel Riposte** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Counter Stance and Turn the Blade by -25%.
+
+### Class (shared) abilities
+- **Net Throw**: Net Throw 15 Energy Instant 15 sec cooldown Requires Armor Toss a weighted net at an enemy that roots them for 4 sec. While active, the target cannot dodge attacks.
+- **Standard of Rallying**: Standard of Rallying 25 Energy Instant 5 sec cooldown Tools: Water Totem Throw down a Standard of Rallying for 5 min, reducing damage taken by 3% and the duration of stun effects on them by 30% on all allies within 30 yds. Only 1 Standard can be active at a time.
+- **Brace**: Brace Instant 3 min cooldown Fortify your defenses, reducing all damage taken by 50% and gaining immunity to stun effects for 10 sec.
+- **Sturdy**: Increases your maximum health by 6%.
+- **Light Nets**: Light Nets Instant Increases the range of your Net Throw by 15 yds.
+- **Deflector**: Reduces the cooldown of your Raise Shield by -5 sec and reduces its Energy cost by -10%.
+- **Resolve**: Increases the duration of your Raise Shield by 1 sec.
+- **Shrug It Off**: Shrug It Off 25 Energy Instant 30 sec cooldown Instantly escape the effects of any root or slow and become immune to movement slowing effects for 3 sec.
+- **Press the Line!**: While Line Formation is active, your movement speed cannot be reduced below 115%, but its cost is increased by 30 Energy.
+- **Shield Wall**: Shield Wall Rank 1 Instant Increases your Armor contribution from your shield by 20%.
+- **Unstoppable**: Reduces the cooldown of Battle Rush by -5 sec and Advance by -30 sec.
+- **Heroic Deeds**: Heroic Deeds Passive Instant Increases the reputation gains of your allies within 30 yds by 5% and reduces damage you take by 3%.
+- **Reflective Shield**: Raise your shield and reflect the next harmful spell cast on you within 3 seconds. While active, being hit by a spell restores 20 Energy.
+- **Myrmidon**: Myrmidon Passive Instant Removes the Energy cost of Glorious Arena and increases its damage dealt by 25%.
+- **Counter Stance**: Counter Stance Instant 3 min cooldown You automatically parry the next attack against you. Lasts for 5 attacks or 15 sec. When you expend a charge you deal 275 damage to attackers and heal for 239+7.3 Points Per Level+ AP *1 health.
+- **Standard Bearer**: Standard Bearer Passive Instant Increases the range of Standards by 10 yds and increases the effectiveness of your Honor by 20%.
+- **Recuperation**: Recuperation Passive Instant Taking Physical damage or blocking a physical attack now restores 2 Energy.
+- **Energetic**: Energetic Passive Instant Restores 5 of your Energy every 3 sec.
+- **Knight's Advantage**: Knight's Advantage Passive Instant Increases your damage dealt against Humanoids by 6%.
+- **Pit Fighter**: Pit Fighter Passive Instant cast Increases the movement speed slow of your Standard of Valiance by 15%.
+- **Warstopper**: Warstopper Passive Instant Reduces the Energy cost of Standard of Valiance by 20.
+- **Thick Shields**: Increases your block value by 10%.
+- **Knight's Calling**: Knight's Calling Instant 2 min cooldown Embrace your calling, restoring 15% of your maximum health and Energy, repeating every 5 sec for 10 sec.
+- **Make Room! I'm Here.**: Increases the duration of Standard of Valiance and Broad Sweep by 50%.
+- **Master of Arms**: Master of Arms Passive Instant Your Turn the Blade now guarantees you to parry 1 additional attack and the duration of its parry window is increased by 1 sec.
+- **Relentless**: Relentless Passive Instant Your Pulverizes or Rams now ignores 15% of the target's Armor.
+- **Honorable Demeanor**: Honorable Demeanor Passive Instant Whenever you block an attack your Strength and Stamina are increased by 2% for 10 sec, stacking 3 times.
+- **Refuse To Die**: Refuse To Die Passive Instant Casting Advance now resets the cooldown of Raise Shield .
+- **Grand Entrance**: Grand Entrance 20 Energy Instant 45 sec cooldown Leap into the air, becoming immune to crowd control effects, and then crash back down with incredible speed at your enemy. Upon landing, deal 400% Weapon Damage to enemies in the impact area, plus an additional (6*1000/2)*(203+1.8 Points Per Level+ AP
+- **Valiant Warrior**: Critical strikes with Ram now have a 50% chance to strike again for 100% of the damage dealt.
+- **Press the Attack**: Press the Attack Instant 1 min cooldown Requires Shields Raise your shield and press the attack, dealing 75% Weapon Damage plus 18+2.8 Points Per Level to enemies in front of you and draining 10 Energy every 0.5 sec. Lasts 5 sec. While active you gain 100% increased block chance and you may block, d
+

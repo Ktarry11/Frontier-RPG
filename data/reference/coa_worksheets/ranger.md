@@ -1,0 +1,516 @@
+# Ranger - CoA reference vs ours
+
+- CoA talents: **135**
+- already in our data by name: **64** (of those, **50** are pure scalars on our side)
+- not in our data at all: **71**
+- single-clause scalars in CoA's own tree: **31** (22%)
+- carry real-time assumptions needing translation: **70** (51%)
+
+Source: data/reference/coa/ranger.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic CoA's version wants; every one listed is a system this engine already has.
+
+## Archery  (DPS) - 35 talents, 5 abilities
+
+- **Precision Shot** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Precision Shot Rank 1 40 Focus 3 sec cast Requires Bows, Crossbows Precisely shoot an enemy from a great distance, inflicting 38+ RAP *0.485 Physical damage. Damage increased for each stack of Advantage . Usable while in Elude .
+- **Devastating Shots** (2 ranks) - MATCH ranger_archery  [ours is scalar]
+  - CoA: Devastating Shots Rank 1 Instant Increases your critical strike chance by 2% and your hit chance by 1%.
+- **Deadeye** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the range of your ranged abilities and Auto Shot by 5 yds.
+- **Improved Serrated Shot** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Serrated Shot by 30%.
+- **Swiftshot** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Swiftshot Passive Instant Damage dealt by Precision Shot now increases enemy Physical damage taken by 11% for 10 sec.
+- **Superb Shot** (1 rank) - MATCH ranger_archery
+  - needs: resource-grant
+  - CoA: Damage dealt by Auto Shot now restores 4 Focus.
+- **Boots of Elvenkind** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Agility by 5% and reduces the duration of movement slowing effects on you by -20%.
+- **Studded Arrows** (2 ranks) - MATCH ranger_archery  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the ranged weapon damage dealt by Quick Shot by 10%.
+- **Hunting Shot** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, resource-grant
+  - CoA: Hunting Shot Rank 1 40 Focus Instant Requires Bows, Crossbows Fire a shot that ricochets between 3 enemies, dealing Ranged Weapon Damage plus 6 to each enemy. Generates 1 stack of Advantage for each enemy hit.
+- **A Quick Demise** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Auto shots now have a 20% chance to extend the duration of your Serrated Shot by 2 sec.
+- **Skirmish** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Skirmish Instant cast Increases your critical strike chance by 15% and reduces your Focus costs by 25%. Lasts 4 sec for each stack of Advantage .
+- **Deadshot** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant, hp-threshold
+  - CoA: Deadshot Rank 1 50 Focus Instant Requires Ranged Weapon Generates 2 Advantage Shoot a powerful arrow at the target dealing 250% Ranged Weapon Damage plus 14. Only usable on enemies below 20% health.
+- **Neurotoxin Arrow** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Neurotoxin Arrow 30 Focus Instant 2 min cooldown Requires Bows, Crossbows Shoot at an enemy's throat with a toxin-laced arrow, dealing 25+0+ RAP *0.360687 Nature damage and silencing them for 1 sec. Duration increased by 1 sec per stack of Advantage .
+- **Hunting with Precision** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: transforms-ability
+  - CoA: Your Hunting Shot now deals 25% increased damage for each subsequent target it ricochets to.
+- **Serrations** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Serrations Rank 1 Instant Increases your damage against bleeding or Poisoned targets by 5%.
+- **Maximum Power** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Abilities used with 5 stacks of Advantage now refresh the duration of your active Skirmish by 5 sec.
+- **Corrosive Poison** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - CoA: Your ranged abilities against Poisoned targets now ignores 25% of enemy armor.
+- **Opportunist** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Increases the critical strike chance of Precision Shot by 50% on enemies above 80% health.
+- **Lethal Wounds** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: dot-hot
+  - CoA: Increases the tick rate of your periodic damage effects by -20%.
+- **Mortal Shots** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Crippling Shot by -4 sec.
+- **An Arrow for Everything** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Quivers by 25%.
+- **New-Age Archery** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Skullpiercer and Precision Shot by 20%.
+- **Hawkeye** (1 rank) - MATCH ranger_archery
+  - needs: aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hawkeye Passive Instant You now fire an arrow every 3 sec at enemies within 30 yds affected by your Hunting Shot , dealing 75+1.0 Points Per Level% Ranged Weapon Damage. Scales with Hunting Shot modifiers.
+- **Strike Where It Hurts** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Strike Where It Hurts Passive Instant Your ability critical strikes now increase the damage the target takes from bleeds by 30% for 15 sec.
+- **Archery Master** (1 rank) - MATCH ranger_archery
+  - needs: stacking-buff, resource-grant
+  - CoA: Archery Master Passive Instant Critical strikes with Quick Shot now generate an additional stack of Advantage .
+- **Light Arrows** (1 rank) - NEW - we have no talent of this name
+  - CoA: Increases the damage of Precision Shot by 20% when used from 40 yds or further away from your target.
+- **Masterful Archery** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: transforms-ability, stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While in Elude, gain a stack of Masterful Archery every 2 sec.Masterful Archery (Aura) Your next Precision Shot now deals 10% increased damage for 10 seconds, stacking up to 5 times.
+- **Pierced** (1 rank) - MATCH ranger_archery
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Pierced Passive Instant Critical strikes with Skullpiercer and Precision Shot cause the enemy to bleed for an additional 50% damage of the damage dealt over 4 sec.
+- **Incendiary Shot** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Incendiary Shot 20 Focus 2 sec cast 15 sec cooldown Requires Bows, Crossbows Shoot a burning arrow dealing 791+0+ RAP *0.35+ FireP *0.45 Fire damage to an enemy and up to 5 enemies within 6 yds, and causing your next 3 direct damage Advantage spenders to deal 50% of their damage to nearby enemies. Direct damage increased by 20% for each stack of Advantage .
+- **Pathfinder** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - CoA: Pathfinder Passive Instant Your Adrenaline Rush now incurs a 90% reduced cooldown when used while Elude is active.
+- **Headshots Only** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Periodic damage dealt with Serrated Shot and Toxic Dart now increases the damage of your next Precision Shot within 8 seconds by 10%, stacking 10 times.
+- **Elven Enchantments** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - CoA: Elven Enchantments Passive Instant Increases the damage dealt by your Searing and Poison Quivers by 25%. In addition, dealing damage with Searing or Poison Quiver now grants a stack of Elven Enchantments . Elven Enchantments Cast time of the next Incendiary Shot within 10 sec is reduced by 10% and critical strike chance increased by 10%, stacking 10 times.
+- **Silent, But Deadly** (1 rank) - MATCH ranger_archery
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct Physical damage dealt now has an 8% chance to allow you to use Deadshot regardless of the targets health for 8 seconds.
+- **One Shot, One Kill** (1 rank) - MATCH ranger_archery  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage of Deadshot by 75%.
+- **Brutal Shot** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Brutal Shot 45 Focus 2 sec cast 25 sec cooldown Requires Bows, Crossbows Fire a volley of powerful shots that pierce through Armor, dealing 450% Ranged Weapon Damage plus 300 to all targets in a 40 yd line. While Skirmish is active this ability is guaranteed to critically strike.
+
+### Archery abilities
+- **Skirmisher**: Level 10 Passive Increases the damage and tick rate of Toxic Dart by -30%, but reduces the duration of its damaging effect by -30%.
+- **Sniper's Focus**: Consuming Advantage now has a 20% chance per Advantage spent to refund 20 Focus.
+- **Nimble**: Level 30 Passive Increases your ranged haste by 20% of your Agility.
+- **Bleeding Edge**: Level 40 Passive Allows the periodic damage dealt by Serrated Shot to critically strike.
+- **Sharpshooter**: Level 50 Passive Adds 25% to the bonuses that your stacks of Advantage provide.
+
+## Brigand  (DPS) - 39 talents, 1 abilities
+
+- **Ravage** (1 rank) - NEW - we have no talent of this name
+  - needs: resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Generates 1 Advantage Ravage an enemy, causing them to bleed out dealing 112 + 23.72% AP Physical damage over 12 seconds.
+- **Banditry** (2 ranks) - MATCH ranger_brigand  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your critical strike chance by 2% and Focus regeneration by 15%.
+- **Knuckleduster** (1 rank) - MATCH ranger_brigand
+  - needs: resource-grant, dot-hot
+  - CoA: Periodic damage dealt now generates 5 Focus.
+- **Jagged Cuts** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the damage and duration of Toxic Dart and Ravage by 25%.
+- **Assassin** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Knockout and Crippling Shot by 1 sec.
+- **Excessive But Necessary** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Excessive But Necessary Passive Instant Reduces the cooldown of Elude and Knockout by 4 sec.
+- **Close Quarters** (2 ranks) - MATCH ranger_brigand  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your attack power and Agility by 3%.
+- **Beatdown** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: proc-chance
+  - CoA: Beatdown Passive Instant Level 20 Passive Auto attacks now have a 5% chance to reveal a fault in the enemy's defenses, causing your next instance of Physical ability damage to ignore Armor. Chance increased by 15% while wielding a polearm.
+- **Assault** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, hp-threshold
+  - CoA: Assault Rank 1 55 Focus Instant Requires Melee Weapon Assault a low health enemy, dealing 100% Weapon Damage (175% with a dagger equipped) plus an additional 8+0+ AP *1 Physical damage. If the target is bleeding, this deals 50% increased damage. Damage increased for each stack of Advantage . Only usable on enemies below 20% health.
+- **Dirty Blades** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: For 4 seconds, your melee auto attacks deal an additional 30% (doubled with a dagger equipped) of the damage dealt as Nature damage and reduces your target's healing received by -20% for 8 seconds, stacking 2 times. Duration increased by 4 sec for each stack of Advantage. Usable while in Elude.
+- **Bounty Hunter** (1 rank) - MATCH ranger_brigand
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Bounty Hunter Passive Instant Damage dealt by Flank and Rusty Shiv now increases the target's damage taken from your Advantage spenders by 25% for 8 sec.
+- **Dice Games** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - CoA: Dice Games Passive Instant Increases the critical strike chance of Wild Strike and Assault by 5%.
+- **Hookshot** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Hookshot Rank 1 25 Focus Instant 25 sec cooldown Launch a hook at a target attempting to lodge it into an open wound, dealing 66+0+ AP *1 Physical damage. If the target is bleeding, you can reactivate this to pull yourself to them, dealing 150% Weapon Damage and generating 2 Advantage
+- **Highwayman** (1 rank) - MATCH ranger_brigand
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Direct critical strikes while behind your target increase your haste by 15% for 5 seconds, or for your next 2 attacks.
+- **Ambuscade** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - CoA: Increases the base damage of Skullpiercer and Flank by 20%, plus an additional 35% if you have a polearm equipped.
+- **Rub It In** (1 rank) - MATCH ranger_brigand
+  - needs: proc-chance, stacking-buff
+  - CoA: Rub It In Passive Instant Level 30 Passive Each stack of Advantage spent now gives you a 20% chance to refund 1 stack of Advantage .
+- **Throatpunch** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Punch an enemy in the throat, interrupting the enemy's spellcast, preventing any spell from that school of magic from being cast for 2 seconds.
+- **Trueshot Lodge Training** (2 ranks) - NEW - we have no talent of this name
+  - CoA: Trueshot Lodge Training Rank 1 Instant Increases your off-hand weapon damage by 25%. While wielding a polearm, your Physical damage dealt is increased by 3%.
+- **Wild Man** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: aoe-cleave
+  - CoA: Your Wild Strike now strikes 2 additional nearby enemies, but deals reduced damage with each enemy struck.
+- **Focused Fighter** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: scalar
+  - CoA: Reduces the Focus cost of Flank, Blackjack, and Wild Strike by -10%.
+- **Assassin** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the effectiveness of Instinct by 25%.
+- **Stalker** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Cutthroat by -15 sec, but reduces the range of Cutthroat by -10 yds.
+- **'Tactical' Advantage** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Knockout and Bushwhack now increases your damage dealt against the target by 10% for 5 seconds.
+- **Quills** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - CoA: Launch darts at up to 5 nearby enemies, dealing 15 + 30% AP Ranged Physical damage. Damage increased and strikes 1 additional target for each stack of Advantage.
+- **Underhanded** (2 ranks) - MATCH ranger_brigand  [ours is scalar]
+  - CoA: Underhanded Rank 1 Instant Increases the attack power scaling of Skullpiercer by 15%.
+- **Polearm Craft** (1 rank) - NEW - we have no talent of this name
+  - CoA: While a polearm is equipped, your chance to trigger your Weapon Crafts and their damage dealt is increased by 25%.
+- **Pilfering** (1 rank) - MATCH ranger_brigand
+  - CoA: Pilfering Passive Instant Adds 10% to the damage dealt by Dirty Blades and causes its damage dealt to heal you equal to 50% of the value.
+- **Lacerations** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: dot-hot
+  - CoA: Level 40 Passive Allows the periodic damage dealt by Ravage to critically strike.
+- **Quick-Witted** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Avoiding an attack now causes you to quickly stab an enemy with one of the arrows from your quiver, dealing 1 + 100% AP Physical damage and reducing their attack speed by -20% for 8 seconds.
+- **Tip of the Spear** (1 rank) - MATCH ranger_brigand
+  - needs: proc-chance
+  - CoA: While you have a polearm equipped, your Wild Strike now has a 15% chance to strike 3 additional times.
+- **Marked for Death** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: hp-threshold
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: While you have daggers equipped, direct critical strikes on enemies below 35% health now have a chance to allow the use of abilities as if you were in Elude for 5 seconds.
+- **Guile of the Cutthroat** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Guile of the Cutthroat Passive Instant Increases party and raid member's melee and ranged attack power by 5%. Does not stack with similar effects. In addition, increases your damage dealt by 3%.
+- **Dirty Fighter** (1 rank) - NEW - we have no talent of this name
+  - CoA: $80
+- **Outmaneuver** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Teleport to an enemy, summon a decoy beneath them, and mark them for 8 seconds. Dealing melee damage to them adds a stack to this effect, up to 20 stacks. Reactivating this ability within 8 seconds deals 851 + 55% AP Physical damage to your target, increased by 30% for each stack on the target, and then teleports you back to your decoy. Usable while in Elude.
+- **Stonemason's Secret** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your Skullpiercer used with 5 stacks of Advantage now extends the duration of Dirty Blades by 6 sec.
+- **Dastardly** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: hp-threshold
+  - CoA: Level 50 Passive Increases your critical damage dealt by 15% on enemies above 80% health or below 20% health.
+- **Viper's Bite** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Viper's Bite 60 Focus Instant 20 sec cooldown Requires Melee Weapon Generates 2 Advantage Unleash 4 quick strikes over 1 sec to an enemy, each dealing 85% Weapon Damage. If the target is bleeding, each strike deals an additional 400+3.2 Points Per Level+ AP *.25 Physical damage. If the target is poisoned, each strike deals Nature damage instead of Physical damage.
+- **Instinctual Combatant** (1 rank) - MATCH ranger_brigand  [ours is scalar]
+  - needs: transforms-ability, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Casting Instinct now also restores 40 extra Focus and guarantees your next 3 Skullpiercers or Assaults within 20 seconds to critically strike. In addition, Instinct now grants you an additional 10% of your Agility as melee attack power.
+- **Barbed Quills** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Barbed Quills Passive Instant Damage dealt by Wild Strike and Quills will now tear into enemies, causing them to bleed for 69 to 75 Physical damage over 9 sec, stacking 4 times. Damage dealt by Quills now spreads your periodic effects to 5 enemies within 10 yds and extends their duration by 2 sec.
+
+### Brigand abilities
+- **Ravager**: Level 10 Passive Your Wild Strike now generates 1 additional Advantage. Removes the minimum range of your ranged abilities.
+
+## Farstrider  (Support) - 44 talents, 1 abilities
+
+- **Falconstrike** (1 rank) - NEW - we have no talent of this name
+  - CoA: $36
+- **Cunning** (2 ranks) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases your Focus regeneration by 15%.
+- **Blow the Horns!** (2 ranks) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Horn spells by -25%.
+- **Falcon's Call** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Falcon's Call 30 Focus Instant 1 min cooldown Call down war falcons upon a targeted area, slowing up to 8 enemies within the area by 60% for 5 sec. A Falcon is summoned for each enemy affected for 12 sec.
+- **Backstep** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Backstep 20 Focus Instant 20 sec cooldown Leap backwards up to 10 yds.
+- **Woodland Arrow** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Woodland Arrow Rank 1 25 Focus 2 sec cast 15 sec cooldown Shoot a magical arrow, dealing 38+0+ RAP *0.35 Physical damage and reducing the cooldown of active Horn spells by 15 sec. Damage increased for each stack of Advantage .
+- **Horn of War** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Horn of War Instant 1 min cooldown Generates 1 Advantage Emanate an aura for 30 sec that grants 5% increased critical strike chance to party and raid members. Does not stack with similar effects. While active, you generate 3 Focus every 1 sec. All Ranger's Horn spells share a cooldown.
+- **Battle Prowess** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Battle Prowess Passive Instant Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.
+- **Falcon Charmer** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Falcon Charmer Instant Increases the duration of War Falcons by 3 sec.
+- **Survivalist** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: cooldown
+  - CoA: Reduces the cooldown of Survival Potion by -25%.
+- **Quel'dorei Poison** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Woodland Arrow and Emerald Arrow now poison enemies for 3 seconds, dealing 91 + 10% ranged AP Nature damage every 1 sec.
+- **War Falconer** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldowns of Falcon's Call by -30 sec.
+- **Aerial Assault** (1 rank) - NEW - we have no talent of this name
+  - CoA: Removes the Focus cost of Falcon's Call, allows it to strike 2 additional targets, and increases its range by 10 yds.
+- **Falcon Guide** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Falconstrike and Battle Screech now increase your movement speed by 30% for 3 seconds.
+- **Scavenger** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Increases the duration of Battle Screech and reduces the cooldown of Snapseed by 5 sec.
+- **Emerald Arrow** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Set up a powerful magical arrow and then shoot it, dealing 10 + 20% ranged AP Nature damage to the target, increased for each stack of Advantage. Creates an enchanted flare on the ground, causing nearby enemies to take 224 + 20% ranged AP Nature damage every 2 sec, lasting 2 sec for each stack of Advantage.
+- **Falcon Diving** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Killing an enemy that yields experience or honor now summons a War Falcon to aid you in combat for 12 seconds. Can only occur once every 4 sec.
+- **Forest Fighter** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Forest Fighter Passive Instant Your Skullpiercers or Emerald Arrows used with 5 stacks of Advantage now reduce the cooldown of Woodland Arrow by 5 sec.
+- **Gutpiercer** (1 rank) - MATCH ranger_farstrider
+  - needs: proc-chance
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by War Falcons and Dragonhawks now has a 15% chance to reduce the enemy's resistances by 75 and increase their Magic damage taken by -2% for 15 seconds.
+- **Battle Screech** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Empower party and raid members within 40 yds, increasing their attack or spell power by 65 for 15 seconds. Does not stack with similar effects.
+- **Dragonhawk Tamer** (1 rank) - NEW - we have no talent of this name
+  - needs: transforms-ability, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Using a Horn now summons a Dragonhawk to assist you in combat for 15 seconds.
+- **Windrunner's Reach** (2 ranks) - MATCH ranger_farstrider  [ours is scalar]
+  - CoA: Increases the range of your ranged abilities by 5 yds. In addition, your critical strike chance against Undead, Beasts, and Dragonkin is increased by 2%.
+- **Forest Herald** (1 rank) - MATCH ranger_farstrider
+  - needs: proc-chance, stacking-buff, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Forest Herald Passive Instant Casting Toxic Dart and abilities that spend stacks of Advantage now have a 20% chance to spawn a green Dreamflower at a random location nearby within 15 yds of you. You can only spawn Dreamflowers while in combat. Dream Flower When an ally runs over the flower, they consume it to heal for 3% maximum health and gain 40% increased movement speed for 5 sec.
+- **Wingman** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - CoA: Wingman Passive Instant Reduces all damage taken by 2% for each War Falcon or Dragonhawk you have active.
+- **Guidance** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - CoA: Increases your Physical and Nature damage dealt by 1% for each War Falcon or Dragonhawk you have active.
+- **Venom-Coated Seeds** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Damage dealt by Snapseed now reduces the enemy's chance to hit by -15% for 10 seconds.
+- **Freedom** (1 rank) - NEW - we have no talent of this name
+  - needs: aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Free up to 10 nearby allies within 15 yds of you for 8 seconds, causing them to become immune to roots and snares, and allowing their critical strikes to increase their movement speed by 30% for 5 seconds.
+- **Falcon's Aid** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: proc-chance, pet-summon, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Falcon's Aid Passive Instant Periodic damage dealt now has a 10% chance to summon a War Falcon to aid you in battle for 6 sec.
+- **Highlander** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Each time you spawn a green Dreamflower you are granted 1 stack of Highlander.Highlander (Stacks) At 3 stacks, your next Falconstrike within 10 seconds deals 25% increased damage and reduces the enemy's healing received by -40% for 8 seconds.
+- **Defense of the Ancients** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: stacking-buff
+  - CoA: Defense of the Ancients Passive Instant You now emanate an aura around you, increasing the Armor of party and raid members by 390. Does not stack with similar effects.
+- **Horn of Alacrity** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown, resource-grant, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Horn of Alacrity Instant 1 min cooldown Generates 1 Advantage Emanate an aura for 30 sec that grants 5% increased haste to party and raid members. Does not stack with similar effects. While active, you generate 3 Focus every 1 sec. All Ranger's Horn spells share a cooldown.
+- **Phoenix Plumes** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, resource-grant, pet-summon
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Phoenix Plumes Passive Instant Your Skullpiercers and Woodland Arrows used with 5 stacks of Advantage now restore 3% Focus and summon a War Falcon for 6 sec.
+- **Razorquills** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: scalar
+  - CoA: Increases the tick rate of Toxic Dart and Emerald Arrows by -20%.
+- **Thread The Needle** (1 rank) - MATCH ranger_farstrider
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - CoA: Critical strikes with Quick Shot or Falconstrike now reduce the cast time and cost of your next ability that consumes Advantage by -34% for 15 seconds, stacking 3 times.
+- **To The Skies!** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Bushcraft Glider by -30 sec.
+- **Hunting Tactics** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - CoA: Damage dealt by Skullpiercer is increased by 30% against Poisoned targets.
+- **Pecking** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: proc-chance, aoe-cleave
+  - CoA: Your War Falcons and Dragonhawks now have a 25% chance to deal additional Physical damage to 3 nearby enemies.
+- **Plumes of War** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Plumes of War Passive Instant Increases the critical strike chance of Falconstrike and Emerald Arrow by 15%. In addition, critical strikes with Falconstrike now increase the damage of subsequent Falconstrikes by 5% for 15 sec, stacking 5 times.
+- **Whipvine Arrow** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Launch an arrow with magical vines attached to it at your target, dealing 78 + 33% ranged AP Nature damage and rooting them for 40 seconds (8 sec vs players). Damage caused may interrupt the effect. Hits 1 additional nearby target per stack of Advantage.
+- **Frenzy** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: cooldown, aoe-cleave
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Frenzy 25 Focus Instant 5 min cooldown Enrage all nearby allies, increasing their haste by 30% for 20 sec. After being affected by this spell, allies cannot benefit from similar effects for 5 min.
+- **Command Aura** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Emanate an aura for 15 seconds, causing allied players to deal 35% ranged AP additional damage as Stormstrike Damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.
+- **Coordination** (1 rank) - MATCH ranger_farstrider  [ours is scalar]
+  - needs: stacking-buff
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Your War Falcons and Dragonhawks now grant you a stack of Coordination when they deal damage. Coordination (Proc) Increases your critical strike chance and critical damage by 1% for 15 seconds, stacking 10 times.
+- **Thalassian Brand** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Thalassian Brand 30 Focus Instant 2 min cooldown Mark an enemy for total destruction, increasing your allies ranged attack power against the target by 300+ and dealing 1115 Nature damage every 3 sec for 15 sec. The marked target can always be seen by the Ranger whether it stealths or turns invisible A Branded target cannot be affected by Thalassian Brand again for 1 min.
+- **Petalkeeper** (1 rank) - NEW - we have no talent of this name
+  - CoA: $34
+
+### Farstrider abilities
+- **Dream Flowers**: Level 10 Passive Your damaging critical strikes now spawn a green Dream Flower at a random location within 15 yds of you. Dream Flower (Spawner) When an ally runs over the flower, they consume it to heal for 3% maximum health and gain 40% increased movement speed for 5 seconds. Can only occur once p
+
+## Class (shared)  (ALL) - 17 talents, 22 abilities
+
+- **Survival Kit** (1 rank) - NEW - we have no talent of this name
+  - CoA: Your Survival Potion now also heals you for 10% of your maximum health with each tick.
+- **Cutthroat** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Cutthroat 10 Focus Instant 1 min cooldown Requires Ranged Weapon Shoot a powerful arrow that deals Weapon Damage plus 40 and stuns the target for 1 sec. Duration increased by 1 sec per stack of Advantage .
+- **Deft Hands** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your melee and ranged haste by 5%.
+- **Survival Expert** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the dodge chance provided by Briar Veil by 25%.
+- **Woodland Adept** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Woodland Adept Instant 3 min cooldown Slip into the shadows, entering an improved stealth mode, increases your movement speed by 25% for 10 sec, and applies Elude .
+- **Bloody Focus** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Reduces the Focus cost of Toxic Dart by -15.
+- **No Mercy** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases the critical damage of Flank by 10%.
+- **Blur** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your chance to dodge and parry by 4%.
+- **Sly** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff, cooldown
+  - CoA: Your Woodland Adept now triggers a -10% reduced cooldown for each stack of Advantage active when cast.
+- **Endurance Training** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - CoA: Increases your maximum Focus by 20.
+- **Adrenaline Rush** (1 rank) - NEW - we have no talent of this name
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Surge with vitality, dispeling all harmful effects from yourself and increasing your movement speed by 40% for 10 seconds. Usable while stealthed.
+- **Double The Pace** (1 rank) - NEW - we have no talent of this name
+  - needs: stacking-buff
+  - CoA: Double The Pace Passive Instant Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects. In addition, increases your critical strike chance by 2%.
+- **Surefooted** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Reduces the cooldown of Adrenaline Rush by -30 sec.
+- **Heightened Senses** (1 rank) - NEW - we have no talent of this name
+  - needs: scalar
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: Reduces the Focus cost Adrenaline Rush by -50% and increases the movement speed granted by 20%.
+- **Woodland Stalker** (1 rank) - NEW - we have no talent of this name
+  - CoA: While in Elude, your critical strike chance is now increased by 20%.
+- **Forest Dweller** (1 rank) - NEW - we have no talent of this name
+  - needs: dot-hot
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - CoA: While in Elude, gain 20% increased movement speed and regenerate 3% maximum health every 3 sec.
+- **Onslaught** (1 rank) - NEW - we have no talent of this name
+  - needs: cooldown, resource-grant
+  - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - CoA: Onslaught Instant 3 min cooldown Your senses heighten, causing you to instantly generate 5 Advantage and allowing the use of abilities that require Elude for 15 sec.
+
+### Class (shared) abilities
+- **Crippling Shot**: Crippling Shot 25 Focus Instant 10 sec cooldown Fire a crippling shot at an enemy slowing movement speed by 50% and knocking them off their mounts, making them unable to mount again for 5 sec.
+- **Survival Potion**: Survival Potion Instant cast 1 min cooldown Drink a survival potion, dispelling all poison and disease effects and removing 1 poison and disease effect every 3 sec for 9 sec.
+- **Knockout**: Knockout 25 Focus Instant 18 sec cooldown Knock an enemy out, incapacitating them for 4 sec and removing bleed and poison effects from them. Damage caused will interrupt this effect. Usable while in Elude .
+- **Improved Waterskins**: Increases the effectiveness of your Waterskins by 25%.
+- **Elusive Character**: Increases your damage dealt by 10% for 12 seconds after leaving Elude.
+- **Snapseed**: Snapseed Rank 1 35 Focus Instant 20 sec cooldown Toss a snapseed at an enemy, dealing 27+0+ RAP *.3 Physical damage and knocking them back.
+- **Grace**: Grace Rank 1 Instant Increases your Agility and movement speed by 4%.
+- **Resourceful**: Reduces the cooldown of Crippling Shot and Snapseed by -20%.
+- **Briar Veil**: Briar Veil Instant 2 min cooldown Thorns and leaves swirl around you, masking your movements for 10 sec, increasing your dodge chance by 50% and causing dodging attacks to restore 2% maximum health and 5 Focus.
+- **Camper**: Camper Passive Instant Reduces the cast time of your Bushcraft abilities by 50%.
+- **Pinpoint Accuracy**: Pinpoint Accuracy Passive Instant Critical strikes with direct damaging abilities now generate 4 Focus.
+- **Dirty Fighter**: Dirty Fighter Passive Instant Increases the chance for Flank to critically strike by 50% and increases your chance to resist root effects by 25%.
+- **Outlaw**: Increases the effectiveness of your Adaptations by 20%.
+- **Snatch**: Snatch an enemy's melee weapons, disarming them for 4 seconds. If you are disarmed, you also return your weapon to yourself.
+- **Lethal Cunning**: Entering Elude generates 1 stack of Advantage and 10 Focus every 5 sec for 30 seconds.
+- **Guise**: Instantly generates 5 stacks of Advantage and allows you see nearby stealthed enemies for 5 seconds. Usable while stealthed.
+- **Whats Yours Is Mine**: Removes the Focus cost of Snatch.
+- **Grappling Arrows**: Increases the range of Snatch by 15 yds.
+- **Natural Disguise**: Instantly dispels all movement slowing effects from allies within 30 yds and transforms them into a bush, stealthing them for 20 seconds.
+- **Guile of the Ranger**: Guile of the Ranger Passive Instant Your Instinct now additionally increases your critical strike rating by 20% of your Agility.
+- **Elven Tactics**: You now have a -20% chance to not consume Advantage on cast.
+- **Rapid Strikes**: Melee and ranged auto attacks now have a 25% chance to strike an additional time for 50% of the damage dealt. Can only occur once per sec.
+
