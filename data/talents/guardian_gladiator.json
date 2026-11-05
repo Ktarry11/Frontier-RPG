@@ -1,8 +1,8 @@
 {
   "spec_name": "Guardian Gladiator",
   "tree_id": "guardian_gladiator",
-  "description": "Offensive shield melee - Strength converts into block rating, blocks feed Reprisal, and Centurion Strike changes with the weapon in hand.",
-  "_source_note": "Rebuilt from reference/coa_sidekick/talents/guardian.json. CoA: 'retail Protection Warrior played in an offensive/PvP posture, a DPS-Prot hybrid'. Two real stat conversions carry it - Shield Training turning Strength into block value and Experienced Combatant turning Strength into attack power - which is why its stat priority puts Strength and block rating together. Block is an offensive stat for this spec alone.",
+  "description": "Sword, shield and spear - a duellist who turns block rating into attack power.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 33 real CoA Gladiator talents (role DPS), completing Guardian - the worst-measuring class of the 16 that remained, at 84% scalar-only nodes. NO 'WHILE X IS EQUIPPED' GATE EXISTS, so CoA's four weapon Training nodes are built unconditional at roughly half value. Dead keys it wanted: `expertise` (half of Double Duty, the second CoA tree in a row to want it) and `max_energy` for a character (all of Retiarius). armor_penetration_pct IS live, which saves Mace Training.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,443 +16,603 @@
     {
       "talent_id": "guardian_gladiator_might",
       "name": "Might",
-      "description": "Increases your attack power by 5% per rank.",
+      "description": "Increases your attack power by 10%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 5.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your attack power by 5%. (up to 2 ranks)'"
-    },
-    {
-      "talent_id": "guardian_gladiator_built_different",
-      "name": "Built Different",
-      "description": "Increases your Strength and Stamina by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "strength_pct": 2.0,
-        "stamina_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Strength and Stamina by 4%.'"
-    },
-    {
-      "talent_id": "guardian_gladiator_sword_training",
-      "name": "Sword Training",
-      "description": "While a sword is equipped, increases your haste by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "haste": 3.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'While a sword is equipped, your melee haste is increased by 10%. (up to 3 ranks)'. Weapon-type conditions have no hook, so it applies always - noted rather than renamed, because the whole weapon-training row is part of this spec's identity."
-    },
-    {
-      "talent_id": "guardian_gladiator_legionnaire",
-      "name": "Legionnaire",
-      "description": "Increases your critical strike damage by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "crit_damage_physical": 0.05
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the critical damage of Centurion Strike and Reprisal by 10%. (up to 2 ranks)'"
-    },
-    {
-      "talent_id": "guardian_gladiator_shield_training",
-      "name": "Shield Training",
-      "description": "Grants block value equal to 3% of your Strength per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "block_value_from_strength_pct": 0.03
-      },
-      "connected_to": [
-        "guardian_gladiator_might"
-      ],
-      "_source": "CoA: 'Level 20 Passive. Increases your block rating by 10% of your Strength.' A REAL stat conversion through the shared STAT_CONVERSION maps, and the spec's signature: Strength is its damage stat and its mitigation stat at once."
-    },
-    {
-      "talent_id": "guardian_gladiator_tactical_combat",
-      "name": "Tactical Combat",
-      "description": "Increases the damage your blocks absorb by 4% and your block chance by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "block_value_pct": 0.04,
-        "block": 2.0
+        "attack_power_pct": 3.3333
       },
       "connected_to": [
         "guardian_gladiator_built_different"
       ],
-      "_source": "CoA: 'Increases your block value by 8% and chance to block by 2%. (up to 2 ranks)'"
+      "_source": "CoA over 2 ranks: 'Increases your attack power by 5%.' Doubled for the two ranks and authored as the full-investment ceiling. Percentage POINTS."
     },
     {
-      "talent_id": "guardian_gladiator_waste_no_movement",
-      "name": "Waste No Movement",
-      "description": "Reduces the Energy cost of your abilities by 2% per rank.",
+      "talent_id": "guardian_gladiator_built_different",
+      "name": "Built Different",
+      "description": "Increases your Strength and Stamina by 4%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
+      "hex_x": -3,
+      "hex_y": -6,
       "effects": {
-        "all_ability_cost_pct": 0.02
+        "strength_pct": 1.3333,
+        "stamina_pct": 1.3333
       },
       "connected_to": [
         "guardian_gladiator_sword_training"
       ],
-      "_source": "CoA: 'Reduces the Energy cost of Broad Sweep, Spear Throw, and Centurion Strike by -5.'"
+      "_source": "CoA verbatim: 'Increases your Strength and Stamina by 4%.' Both keys take percentage POINTS. Strength matters doubly here - the spec's level 20 passive turns it into block rating and its level 40 passive turns block rating back into attack power."
     },
     {
-      "talent_id": "guardian_gladiator_upper_hand",
-      "name": "Upper Hand",
-      "description": "Your weapon swings have a 20% chance per rank to strike again for 55 damage.",
+      "talent_id": "guardian_gladiator_sword_training",
+      "name": "Sword Training",
+      "description": "Increases your melee haste by 15%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "haste": 5
+      },
+      "connected_to": [
+        "guardian_gladiator_axe_training"
+      ],
+      "_source": "CoA over 3 ranks: 'While a sword is equipped, your melee haste is increased by 10%.' NO WEAPON-TYPE GATE EXISTS, so this is unconditional. CoA's three ranks would be 30% haste; priced at 15% because CoA charges for a bonus that stops working when you swap weapons and this one never does. Authored as the CEILING at one rank and spread to 3 by the rank policy - hand-authoring ranks=3 would have kept 15.0 per rank and delivered 45%, since get_effective_effects() multiplies by points spent. PERCENT."
+    },
+    {
+      "talent_id": "guardian_gladiator_axe_training",
+      "name": "Axe Training",
+      "description": "Increases your critical strike chance by 3% and your critical strike damage by 8%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1,
+        "crit_damage_physical": 0.0267
+      },
+      "connected_to": [
+        "guardian_gladiator_mace_training"
+      ],
+      "_source": "CoA over 3 ranks: 'While an axe is equipped, your critical strike chance is increased by 2% and critical damage increased by 5%.' Unconditional and halved, as Sword Training above - CoA's three ranks would be 6% and 15%. TWO UNITS IN ONE BLOCK: crit_chance_physical is a PERCENT, crit_damage_physical a FRACTION."
+    },
+    {
+      "talent_id": "guardian_gladiator_mace_training",
+      "name": "Mace Training",
+      "description": "Increases your armour penetration by 12%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "armor_penetration_pct": 4
+      },
+      "connected_to": [
+        "guardian_gladiator_polearm_training"
+      ],
+      "_source": "CoA over 3 ranks: 'While a mace is equipped, your armor penetration is increased by 8%.' Unconditional and halved - CoA's three ranks would be 24%. armor_penetration_pct IS live, read in entities/monster.py, which is the only reason this node survives at all; it takes percentage POINTS."
+    },
+    {
+      "talent_id": "guardian_gladiator_polearm_training",
+      "name": "Polearm Training",
+      "description": "Increases your physical damage by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "guardian_gladiator_legionnaire"
-      ],
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 20,
-        "icd": 0,
-        "damage_flat": 55
-      },
-      "_source": "CoA: 'Your melee auto attacks now have a 20% chance to strike 2 additional times.'"
-    },
-    {
-      "talent_id": "guardian_gladiator_crashing_force",
-      "name": "Crashing Force",
-      "description": "Increases the damage of Reprisal by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
       "effects": {
-        "ability_guardian_reprisal_damage": 0.08
-      },
-      "connected_to": [
-        "guardian_gladiator_shield_training"
-      ],
-      "_source": "CoA: 'Increases the damage of your Centurion Strike and Reprisal by 15%. (up to 2 ranks)'"
-    },
-    {
-      "talent_id": "guardian_gladiator_myrmidon",
-      "name": "Myrmidon",
-      "description": "Increases the damage of Ram by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_guardian_ram_damage": 0.08
-      },
-      "connected_to": [
-        "guardian_gladiator_tactical_combat"
-      ],
-      "_source": "CoA: 'Increases the damage of Ram and Broad Sweep by 25%.'"
-    },
-    {
-      "talent_id": "guardian_gladiator_double_duty",
-      "name": "Double Duty",
-      "description": "Grants 2 hit rating per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "hit_rating": 2
-      },
-      "connected_to": [
-        "guardian_gladiator_waste_no_movement"
-      ],
-      "_source": "CoA: 'Increases your hit chance by 5% and expertise by 4.' No expertise key exists."
-    },
-    {
-      "talent_id": "guardian_gladiator_retiarius",
-      "name": "Retiarius",
-      "description": "Increases your maximum Energy by 8 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "energy_max": 8
+        "physical_damage": 0.03
       },
       "connected_to": [
         "guardian_gladiator_upper_hand"
       ],
-      "_source": "CoA: 'Increases your maximum Energy by 25.'"
+      "_source": "CoA over 3 ranks: 'Allows you to wield polearms and to wield them with a shield equipped. While a polearm is equipped, your melee abilities have 2 yds increased range.' BOTH HALVES ARE UNBUILDABLE: equip rules live on items, not talents, and there is no positioning in this engine, so increased range means nothing. Rerouted to flat physical damage so the node is worth a point at all - the one Training node whose CoA bonus had nothing behind it, rather than just no gate."
     },
     {
-      "talent_id": "guardian_gladiator_experienced_combatant",
-      "name": "Experienced Combatant",
-      "description": "Grants attack power equal to 5% of your Strength per rank.",
+      "talent_id": "guardian_gladiator_legionnaire",
+      "name": "Legionnaire",
+      "description": "Increases the critical strike damage of Centurion Strike and Reprisal by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_centurion_strike_crit_damage": 0.0667,
+        "ability_guardian_reprisal_crit_damage": 0.0667
+      },
+      "connected_to": [
+        "guardian_gladiator_upper_hand"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical damage of Centurion Strike and Reprisal by 10%.' Doubled for the two ranks. Both abilities exist in Frontier. ability_*_crit_damage is a FRACTION, unlike ability_*_crit beside it in other nodes, which is a PERCENT."
+    },
+    {
+      "talent_id": "guardian_gladiator_crashing_force",
+      "name": "Crashing Force",
+      "description": "Increases the damage of Centurion Strike and Reprisal by 30%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_centurion_strike_damage": 0.1,
+        "ability_guardian_reprisal_damage": 0.1
+      },
+      "connected_to": [
+        "guardian_gladiator_tactical_combat"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage of your Centurion Strike and Reprisal by 15%.' Doubled for the two ranks."
+    },
+    {
+      "talent_id": "guardian_gladiator_double_duty",
+      "name": "Double Duty",
+      "description": "Increases your chance to hit by 5%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "hit_rating": 1.6667
+      },
+      "connected_to": [
+        "guardian_gladiator_tactical_combat"
+      ],
+      "_source": "CoA verbatim: 'Increases your hit chance by 5% and expertise by 4.' THE EXPERTISE HALF IS DROPPED: `expertise` is read by no engine code. This is the second CoA tree in a row to want it - Vanguard's Stalwart lost the same half - so it is worth noting as a pattern rather than a one-off: CoA leans on expertise and Frontier has no equivalent at all."
+    },
+    {
+      "talent_id": "guardian_gladiator_upper_hand",
+      "name": "Upper Hand",
+      "description": "Your weapon swings have a 20% chance to strike an extra time.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "guardian_gladiator_waste_no_movement"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 7,
+        "icd": 0,
+        "extra_attack": true
+      },
+      "_source": "CoA verbatim: 'Your melee auto attacks now have a 20% chance to strike 2 additional times.' on_weapon_swing is the live auto-attack trigger and extra_attack is a live BOOLEAN payload - it grants one extra attack, not a count, so CoA's '2 additional times' cannot be expressed. CoA's 20% kept."
+    },
+    {
+      "talent_id": "guardian_gladiator_tactical_combat",
+      "name": "Tactical Combat",
+      "description": "Increases your block value by 16% and your chance to block by 4%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "block_value_pct": 0.0533,
+        "block": 1.3333
+      },
+      "connected_to": [
+        "guardian_gladiator_supremacy"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your block value by 8% and chance to block by 2%.' Doubled for the two ranks. A DPS spec wanting block is not a mistake here - Shield Combat, the spec's level 40 passive, turns block rating into attack power. TWO UNITS: block_value_pct is a raw FRACTION on both sides of the talent/status divide, while `block` is a PERCENT added to the base chance; block_chance is DEAD."
+    },
+    {
+      "talent_id": "guardian_gladiator_waste_no_movement",
+      "name": "Waste No Movement",
+      "description": "Reduces the Energy cost of Broad Sweep, Spear Throw and Centurion Strike by 15%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_guardian_broad_sweep_cost_pct": 0.05,
+        "ability_guardian_spear_throw_cost_pct": 0.05,
+        "ability_guardian_centurion_strike_cost_pct": 0.05
+      },
+      "connected_to": [
+        "guardian_gladiator_champion"
+      ],
+      "_source": "CoA verbatim: 'Reduces the Energy cost of Broad Sweep, Spear Throw, and Centurion Strike by -5.' A flat 5 Energy is expressed as a percentage because costs differ per ability and per rank. POSITIVE reduces, so CoA's minus sign is dropped."
+    },
+    {
+      "talent_id": "guardian_gladiator_myrmidon",
+      "name": "Myrmidon",
+      "description": "Increases the damage of Ram and Broad Sweep by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_guardian_ram_damage": 0.0833,
+        "ability_guardian_broad_sweep_damage": 0.0833
+      },
+      "connected_to": [
+        "guardian_gladiator_bulwark_rush"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Ram and Broad Sweep by 25%.' Ports exactly."
+    },
+    {
+      "talent_id": "guardian_gladiator_one_handed_mastery",
+      "name": "One-Handed Mastery",
+      "description": "Increases all damage you deal by 10%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.0333
+      },
+      "connected_to": [
+        "guardian_gladiator_deadly_blow"
+      ],
+      "_source": "CoA verbatim: 'Increases your damage dealt by 10% while a one-handed weapon is equipped.' No weapon-type gate exists, as with the four Training nodes, so this is unconditional. Kept at CoA's full 10% rather than halved, because a sword-and-board DPS is holding a one-hander in every build this tree supports - the condition was nearly always true rather than a real choice."
+    },
+    {
+      "talent_id": "guardian_gladiator_supremacy",
+      "name": "Supremacy",
+      "description": "Centurion Strike resets the cooldown of Reprisal.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
       "hex_y": 0,
-      "effects": {
-        "ap_from_strength_pct": 0.05
-      },
+      "effects": {},
       "connected_to": [
-        "guardian_gladiator_crashing_force"
+        "guardian_gladiator_momentum"
       ],
-      "_source": "CoA: 'Level 30 Passive. Increases your attack power by 20% of your Strength.' The second real conversion in this tree."
-    },
-    {
-      "talent_id": "guardian_gladiator_deadly_blow",
-      "name": "Deadly Blow",
-      "description": "Increases your physical damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "physical_damage": 0.02
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_centurion_strike"
+        ],
+        "reset_cooldown": [
+          "guardian_reprisal"
+        ]
       },
-      "connected_to": [
-        "guardian_gladiator_myrmidon"
-      ],
-      "_source": "CoA: 'Your Centurion Strike and Broad Sweep now bleed an additional 15% of the damage dealt over 3 seconds.'"
+      "_source": "CoA verbatim: 'Casting Centurion Strike now refreshes a charge of Reprisal.' THERE IS NO CHARGE SYSTEM - abilities have a cooldown, not a pool of charges - so refreshing a charge becomes a full cooldown reset, which is the single-charge equivalent. reset_cooldown as a BARE LIST means a full reset."
     },
     {
       "talent_id": "guardian_gladiator_champion",
       "name": "Champion",
-      "description": "Centurion Strike extends Raise Shield by 1 turn per rank.",
+      "description": "Increases the duration of Raise Shield by 1 turn.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
         "ability_guardian_raise_shield_duration": 1
       },
       "connected_to": [
-        "guardian_gladiator_double_duty"
+        "guardian_gladiator_momentum"
       ],
-      "_source": "CoA: 'Your Centurion Strike now extends the duration of Raise Shield on you by 3 sec.'"
+      "_source": "CoA verbatim: 'Your Centurion Strike now extends the duration of Raise Shield on you by 3 sec.' No payload extends a live effect's duration, so it is built as a flat duration bonus on Raise Shield itself - the same outcome without the trigger. 3 sec is a turn. The small integer keeps this node out of the rank policy's reach."
     },
     {
       "talent_id": "guardian_gladiator_bulwark_rush",
       "name": "Bulwark Rush",
-      "description": "Charging in puts your shield where it needs to be.",
+      "description": "Battle Rush braces you, raising your block value by 20% for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 0,
       "hex_y": 0,
       "effects": {},
       "connected_to": [
-        "guardian_gladiator_retiarius"
+        "guardian_gladiator_deadly_blow"
       ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
-        "icd": 2,
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_battle_rush"
+        ],
         "apply_effect": {
           "effect_id": "guardian_bulwark_rush",
           "name": "Bulwark Rush",
           "effect_type": "buff",
           "duration": 2,
+          "max_stacks": 1,
           "stat_mods": {
-            "block": 12.0
+            "block_value_pct": 0.2
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Casting Battle Rush increases your block rating by 25% of Strength for 6 seconds.'"
+      "_source": "CoA verbatim: 'Casting Battle Rush increases your block rating by 25% of Strength for 6 seconds.' A payload cannot read a stat into a stat_mod, so the Strength scaling becomes a flat percentage. 6 sec is 2 turns. block_value_pct IS READ RAW INSIDE A STATUS EFFECT as well as outside it, so 20% is 0.20 - authoring 20.0 would be 2000%, which is exactly what audit_talents caught on Vanguard's Iron Barrier earlier today."
     },
     {
-      "talent_id": "guardian_gladiator_shield_combat",
-      "name": "Shield Combat",
-      "description": "Increases your attack power by 3% per rank.",
+      "talent_id": "guardian_gladiator_deadly_blow",
+      "name": "Deadly Blow",
+      "description": "Centurion Strike and Broad Sweep leave the enemy bleeding for physical damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "guardian_gladiator_no_retreating"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_centurion_strike",
+          "guardian_broad_sweep"
+        ],
+        "apply_effect": {
+          "effect_id": "guardian_deadly_blow",
+          "name": "Deadly Blow",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 36,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Centurion Strike and Broad Sweep now bleed an additional 20% of the damage dealt over 2 seconds.' A bleed IS a dot, so this ports closely. The potency is flat rather than a share of the hit, because an apply_effect payload cannot read the triggering ability's damage. NOTE the effect is a dot with a physical school rather than anything named 'bleed' - `bleed_dot_damage` is a dead key, confirmed earlier this session when no ability id contained 'bleed'."
+    },
+    {
+      "talent_id": "guardian_gladiator_momentum",
+      "name": "Momentum",
+      "description": "Your strikes bring Centurion Strike a turn closer to ready.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
-      "effects": {
-        "attack_power_pct": 3.0
-      },
+      "effects": {},
       "connected_to": [
-        "guardian_gladiator_experienced_combatant"
+        "guardian_gladiator_heroic_effort"
       ],
-      "_source": "CoA: 'Level 40 Passive. Casting Ram and Pulverize now increases your attack power based on your block rating for 6 seconds.' Block-rating-into-AP is not a conversion the engine offers in that direction."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "guardian_pulverize",
+          "guardian_ram",
+          "guardian_broad_sweep"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "guardian_centurion_strike"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Melee damage dealt now reduces the cooldown of your Chivlary by -2 sec.' FRONTIER HAS NO CHIVALRY ABILITY (CoA's own spelling), so the target cannot exist. Re-pointed at Centurion Strike, this spec's engine ability and the thing every other node in the tree feeds. 2 sec is a turn, with a 1-turn internal cooldown so a multi-hit turn does not stack reductions."
     },
     {
-      "talent_id": "guardian_gladiator_clinch_brawler",
-      "name": "Clinch Brawler",
-      "description": "Increases your critical strike chance by 2% per rank.",
+      "talent_id": "guardian_gladiator_no_escape",
+      "name": "No Escape",
+      "description": "Ram brings Battle Rush three turns closer to ready.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "crit_chance_physical": 2.0
-      },
+      "effects": {},
       "connected_to": [
-        "guardian_gladiator_deadly_blow"
+        "guardian_gladiator_heroic_effort"
       ],
-      "_source": "CoA: 'Centurion Strike is now guaranteed to critically strike against enemies affected by Net Throw.' A guaranteed crit against a debuffed target has no hook."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_ram"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "guardian_battle_rush"
+          ],
+          "turns": 3
+        }
+      },
+      "_source": "CoA verbatim: 'Ram now reduces the cooldown of your Battle Rush by 10 sec when used against a rooted enemy.' THE ROOTED CONDITION CANNOT BE READ - no effect key asks whether a target carries an effect, the same wall that took seven Witch Doctor talents - so it fires on any Ram. 10 sec is 3 turns."
     },
     {
-      "talent_id": "guardian_gladiator_momentum",
-      "name": "Momentum",
-      "description": "Increases your haste by 2 per rank.",
+      "talent_id": "guardian_gladiator_pinned_down",
+      "name": "Pinned Down!",
+      "description": "Spear Throw pins the target, reducing the healing they receive by 30% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "haste": 2.0
-      },
-      "connected_to": [
-        "guardian_gladiator_champion"
-      ],
-      "_source": "CoA: 'Melee damage dealt now reduces the cooldown of your Chivalry by -2 sec.'"
-    },
-    {
-      "talent_id": "guardian_gladiator_favor",
-      "name": "Favor",
-      "description": "Crits and kills stack in your favour.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
       "effects": {},
       "connected_to": [
-        "guardian_gladiator_shield_combat"
+        "guardian_gladiator_clinch_brawler"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 100,
-        "icd": 1,
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_spear_throw"
+        ],
         "apply_effect": {
-          "effect_id": "guardian_favor",
-          "name": "Favor",
-          "effect_type": "buff",
-          "duration": 4,
+          "effect_id": "guardian_pinned_down",
+          "name": "Pinned Down!",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
           "stat_mods": {
-            "physical_damage": 0.04
+            "healing_taken_pct": -30.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Spear Throw now refreshes the duration of Net Throw on your target.' No payload extends or refreshes an existing effect on a target. Rebuilt from CoA's own Spear Throw ability text instead - 'reducing the effectiveness of any healing by -50% for 10 seconds' - which is the same tool (Spear Throw locking a target down) expressed with a live key. Priced at 30% rather than 50% because it is permanent here rather than a 10-second window. INSIDE A STATUS EFFECT healing_taken_pct is percentage POINTS, so -30% is -30.0; as a talent effect the same key is a FRACTION."
+    },
+    {
+      "talent_id": "guardian_gladiator_heroic_effort",
+      "name": "Heroic Effort",
+      "description": "Centurion Strike grants Glory, raising your damage by 4% per stack for 5 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "guardian_gladiator_clinch_brawler"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_centurion_strike"
+        ],
+        "apply_effect": {
+          "effect_id": "guardian_glory",
+          "name": "Glory",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 4.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Level 50 Passive. Critical strikes and killing blows now grant you Favor for 1 minute, stacking 20 times.'"
+      "_source": "CoA verbatim: 'Casting Centurion Strike now grants 1 stack of Glory.' Glory is the spec's level 10 passive in CoA ('Your Ram now grants you a stack of Glory. At 3 stacks, your next Ram deals 150% increased damage'). THE 3-STACK THRESHOLD CANNOT BE READ - nothing reads another effect's stack count - so Glory is built as a plain ramp: 3 stacks of 4% is 12% damage at cap, reached by casting rather than by a payoff cast. CoA's Heroism node, which keys on 'whenever you reach 3 stacks of Glory or 20 stacks of Favor', is NOT built for the same reason - two stack thresholds and a free-next-cast, none of which exist."
     },
     {
-      "talent_id": "guardian_gladiator_one_handed_mastery",
-      "name": "One-Handed Mastery",
-      "description": "Increases all damage you deal by 3% per rank.",
+      "talent_id": "guardian_gladiator_clinch_brawler",
+      "name": "Clinch Brawler",
+      "description": "Increases the critical strike chance of Centurion Strike by 25%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.03
+        "ability_guardian_centurion_strike_crit": 8.3333
       },
       "connected_to": [
-        "guardian_gladiator_clinch_brawler"
+        "guardian_gladiator_final_verdict_mastery"
       ],
-      "_source": "CoA: 'Increases your damage dealt by 10% while a one-handed weapon is equipped.'"
+      "_source": "CoA verbatim: 'Centurion Strike is now guaranteed to critically strike against enemies affected by Net Throw.' A GUARANTEED CRIT HAS NO KEY and the debuff condition cannot be read, so a flat crit bonus is the honest nearest thing. Priced at 25% rather than 100%, since it applies always rather than only after a Net Throw. ability_*_crit is a PERCENT."
     },
     {
-      "talent_id": "guardian_gladiator_calculated_strike",
-      "name": "Calculated Strike",
-      "description": "Increases your physical damage by 3% per rank.",
+      "talent_id": "guardian_gladiator_no_retreating",
+      "name": "No Retreating!",
+      "description": "Increases the damage of Spear Throw by 45%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "physical_damage": 0.03
+        "ability_guardian_spear_throw_damage": 0.15
       },
       "connected_to": [
-        "guardian_gladiator_momentum"
+        "guardian_gladiator_final_verdict_mastery"
       ],
-      "_source": "CoA: 'Your Reprisal, Broad Sweep, and Spear Throw now deal an additional 2% Weapon Damage for each Energy point you have upon [casting].' Scaling off current Energy has no hook."
+      "_source": "CoA verbatim: 'While in combat, every 2 sec, increase the range and Energy cost of your next Spear Throw by 1 and its damage dealt by 3%, stacking up to 15 times.' Three walls: there is no periodic trigger to tick a stack on, no key adds to a cost, and range means nothing. Fifteen stacks of 3% is 45%, granted flat - the same ceiling a full ramp would have reached, without the wind-up or the rising cost."
     },
     {
-      "talent_id": "guardian_gladiator_heroism",
-      "name": "Heroism",
-      "description": "The crowd has already decided how this ends. +15% physical damage and +4% physical critical strike chance.",
-      "node_type": "active",
+      "talent_id": "guardian_gladiator_earthsplitter",
+      "name": "Earthsplitter",
+      "description": "Broad Sweep splits the ground, splashing 40% of its damage onto up to 3 nearby enemies, and costs 20% less.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_guardian_broad_sweep_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "guardian_gladiator_final_verdict_mastery"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_broad_sweep"
+        ],
+        "splash_damage": {
+          "pct": 0.4,
+          "max_targets": 3,
+          "school": "physical"
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Broad Sweep now increases the amount of enemies struck by your next Broad Sweep by 1 and reduces its Energy cost by 10% for 6 sec, stacking 3 times.' NO KEY ADDS TARGETS TO AN ABILITY - the count lives on the ability - so the growing cleave becomes splash_damage, which is how every added-targets talent in this audit has been built. Three stacks of 10% cost is 20% (held below the full 30% because it is permanent rather than a 6-second window), and three stacks of one extra target is 3 splash targets."
+    },
+    {
+      "talent_id": "guardian_gladiator_final_verdict_mastery",
+      "name": "Final Verdict",
+      "description": "Increases the damage of Final Verdict by 50%, and a killing blow readies it again.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "physical_damage": 0.15,
-        "crit_chance_physical": 4.0
+        "ability_guardian_final_verdict_damage": 0.5
       },
-      "connected_to": [
-        "guardian_gladiator_favor",
-        "guardian_gladiator_one_handed_mastery",
-        "guardian_gladiator_calculated_strike"
-      ],
-      "_source": "Capstone, a real CoA tier-6 Gladiator node: 'Whenever you reach 3 stacks of Glory or 20 stacks of Favor, your next 2 Pulverizes or Broad Sweeps within 10 seconds are [free].' CoA rates the spec 'Weak sustained single-target DPS ... high throughput ceiling', so the payoff is a burst window."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 100,
+        "icd": 0,
+        "reset_cooldown": [
+          "guardian_final_verdict"
+        ]
+      },
+      "_source": "CoA verbatim: 'Give the final verdict to your target, dealing Physical damage and healing you for 15% of your maximum health. Only usable on enemies below 20% health. Killing blows reset the cooldown of this ability.' Frontier HAS Final Verdict as an ability, so this is not its unlock and the execute threshold lives on the ability rather than here. BOTH HALVES OF THIS CAPSTONE ARE REAL: on_kill is a live trigger and reset_cooldown as a bare list is a full reset, so the chain-execute CoA describes - kill, reset, kill again - works exactly as written. That makes it one of the few capstones in this whole audit that needed no reinterpretation at all. The self-heal is on the ability, not the talent."
     }
   ]
 }

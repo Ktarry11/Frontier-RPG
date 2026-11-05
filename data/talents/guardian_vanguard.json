@@ -24,12 +24,12 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 15.0
+        "stamina_pct": 5
       },
       "connected_to": [
         "guardian_vanguard_heavy_expert"
       ],
-      "_source": "CoA over 3 ranks: 'Increases your Stamina by 5%.' Authored at the full-investment ceiling with CoA's own 3 ranks, so the rank policy leaves it alone. stamina_pct takes percentage POINTS. The worksheet tagged this 'needs: pet-summon', which is wrong - there is no Iron Guardian pet in CoA's text, and the Guardian summons nothing (see tools/qa_pet_keys.py)."
+      "_source": "CoA over 3 ranks: 'Increases your Stamina by 5%.' Authored as the full-investment CEILING at one rank and left to the rank policy to spread - NOT hand-authored at ranks=3, which would have kept 15.0 per rank and delivered 45% at full investment, because get_effective_effects() multiplies every numeric effect by points spent. stamina_pct takes percentage POINTS. The worksheet tagged this 'needs: pet-summon', which is wrong - there is no Iron Guardian pet in CoA's text, and the Guardian summons nothing (see tools/qa_pet_keys.py)."
     },
     {
       "talent_id": "guardian_vanguard_heavy_expert",

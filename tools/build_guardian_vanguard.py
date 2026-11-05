@@ -114,12 +114,15 @@ N = TREE["nodes"]
 N.append(node(
     "iron_guardian", "Iron Guardian",
     "Increases your Stamina by 15%.",
-    0, -5, ranks=3,
+    0, -5,
     effects={"stamina_pct": 15.0},
     connect=["heavy_expert"],
-    source="CoA over 3 ranks: 'Increases your Stamina by 5%.' Authored at "
-           "the full-investment ceiling with CoA's own 3 ranks, so the rank "
-           "policy leaves it alone. stamina_pct takes percentage POINTS. The "
+    source="CoA over 3 ranks: 'Increases your Stamina by 5%.' Authored as the "
+           "full-investment CEILING at one rank and left to the rank policy to "
+           "spread - NOT hand-authored at ranks=3, which would have kept 15.0 "
+           "per rank and delivered 45% at full investment, because "
+           "get_effective_effects() multiplies every numeric effect by points "
+           "spent. stamina_pct takes percentage POINTS. The "
            "worksheet tagged this 'needs: pet-summon', which is wrong - "
            "there is no Iron Guardian pet in CoA's text, and the Guardian "
            "summons nothing (see tools/qa_pet_keys.py)."))
