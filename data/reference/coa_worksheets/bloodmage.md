@@ -5,6 +5,7 @@
 - not in our data at all: **82**
 - single-clause scalars in CoA's own tree: **28** (17%)
 - carry real-time assumptions needing translation: **74** (46%)
+- without an extracted CoA icon: **1**
 
 Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -13,116 +14,150 @@ Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the sa
 ## Sanguine  (DPS) - 34 talents, 6 abilities
 
 - **Transgression** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/transgression.png
   - CoA: $6a
 - **Valanar's Vengeance** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/valanar_s_vengeance.png
   - CoA: Valanar's Vengeance Rank 1 30% of base 6 sec cast Requires Mortal Form Launch a powerful blood bolt at an enemy, dealing 188+ SP *1.2775 Shadow damage. Each stack of Thirst reduces the cast time of this ability and increases its damage.
 - **Atherann's Wickedness** (2 ranks) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/atherann_s_wickedness.png
   - CoA: Increases your Shadow damage dealt by 4% and increases your hit chance by 3%.
 - **Fearmonger** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/fearmonger.png
   - CoA: Fearmonger Passive Instant Increases the tick rate and cost of Taldaram's Torment by 30%.
 - **Blood Constructor** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blood_constructor.png
   - CoA: Increases the duration of Animated Blood by 1 sec per stack of Thirst.
 - **Aneurysm** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aneurysm.png
   - CoA: Aneurysm 10% of base Instant cast 24 sec cooldown Counter the enemy's spellcast, preventing any spell from that school of magic from being cast for 4 sec. Successfully interrupting an enemy heals you for 5% of your maximum health.
 - **Darkfallen's Embrace** (2 ranks) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/darkfallen_s_embrace.png
   - CoA: Increases your spell haste by 3% and increases the range of your Sanguine spells and Bloodbolt by 5 yds.
 - **Blood Banquet** (2 ranks) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/blood_banquet.png
   - CoA: Increases the damage of Valanar's Vengeance and Taldaram's Torment by 15%.
 - **The Cup Runneth Over** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/the_cup_runneth_over.png
   - CoA: Increases the spell power scaling of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.
 - **Lifedrinker** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/lifedrinker.png
   - CoA: Increases the damage of your Vampiric Fang by 25%.
 - **Essence Harvester** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: stacking-buff, cooldown, resource-grant, hp-threshold, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/essence_harvester.png
   - CoA: Essence Harvester Passive Instant Being struck by an enemy while below 35% health instantly resets the cooldown of your Vampiric Fang and grants you Wretched . Can only occur once per minute. Wretched Generates 10 Rage and 1 stack of Thirst every 1 sec for 10 sec. Vampiric Fang removes this effect.
 - **Night Feast** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/night_feast.png
   - CoA: Each point of Rage now increases the damage of Bloodbolt by 1%, but its Rage cost is increased by 10.
 - **Swarm of Flies** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/swarm_of_flies.png
   - CoA: Swarm of Flies Passive Instant Your Bloodbolt now refreshes the duration of Taldaram's Torment .
 - **Blood Prince's Command** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blood_prince_s_command.png
   - CoA: Blood Prince's Command Passive Instant Your Bloodbolt is now guaranteed to critically strike on enemies affected by Taldaram's Torment .
 - **Malediction** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/malediction.png
   - CoA: Malediction 25 Rage Instant cast 30 sec cooldown Condemn an enemy, dealing (12*1000/3)*(50+2.2 Points Per Level+ ShaP *0.193333) Shadow damage over 12 sec and increasing the damage they take from your next 5 direct damage spells by 20%.
 - **Atherann's Anguish** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/atherann_s_anguish.png
   - CoA: Unleash a hemoplague upon the target area, accumulating 30% of the damage you deal to affected enemies for 10 seconds, and then exploding for that amount of Shadow damage. Damage caused by this ability cannot critically strike.
 - **Keleseth's Calamity** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/keleseth_s_calamity.png
   - CoA: Keleseth's Calamity Rank 1 27% of base 6 sec cast Requires Mortal Form Bend blood in an area, dealing 177+0+ ShaP *0.69 Shadow damage to enemies. Each stack of Thirst reduces the cast time of this ability and increases its damage.
 - **Hematoma** (2 ranks) - MATCH bloodmage_sanguine
+  - icon: assets/icons/coa/hematoma.png
   - CoA: Your Bloodbolt now heals for an additional 20% of the damage dealt.
 - **Dominion of Blood** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
+  - icon: assets/icons/coa/dominion_of_blood.png
   - CoA: Your Vampiric Fang now heals you for an additional 50% of the damage dealt.
 - **Dark Presence** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/dark_presence.png
   - CoA: Increases spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your spell haste by 3%.
 - **Twisted Magic** (1 rank) - MATCH bloodmage_sanguine
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/twisted_magic.png
   - CoA: Twisted Magic Passive Instant Your direct harmful critical strikes increase the target's Shadow damage taken from you by 2%, stacking up to 5 times, for 12 sec.
 - **Bloodwell Eruption** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/bloodwell_eruption.png
   - CoA: Increases the radius of Sanguine Rupture by 5 yds and its critical strike chance by 10%.
 - **Cursed Ground** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/cursed_ground.png
   - CoA: Increases the cast time of Sanguine Rupture by 2 sec, but now when you strike at least 5 enemies it causes them to bleed out, dealing an additional 352 Shadow damage over 2 seconds.
 - **Blood Parasites** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blood_parasites.png
   - CoA: Blood Parasites Passive Instant Your Taldaram's Torment now generates 3 additional Rage per tick and increases spell critical strike chance against the target by 3% for 15 sec.
 - **Blood Craving** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blood_craving.png
   - CoA: Blood Craving Instant cast 3 min cooldown Requires Mortal Form You crave blood for 12 sec, for the duration you cannot be interrupted or silenced, and you regain 5% of your maximum health and 15% of your missing Rage every 2 sec.
 - **Vampyr Lord** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/vampyr_lord.png
   - CoA: Increases the damage dealt by your Animated Blood by 35%.
 - **Enthraller** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
+  - icon: assets/icons/coa/enthraller.png
   - CoA: Enthraller Passive Instant Increases the critical strike chance of Valanar's Vengeance and Keleseth's Calamity by 10%.
 - **Blood Lord** (2 ranks) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: proc-chance
+  - icon: assets/icons/coa/blood_lord.png
   - CoA: Blood Lord Rank 1 Instant Grants your Bloodsore a 15% chance to provide its benefits without being consumed.
 - **Cardiac Arrest** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cardiac_arrest.png
   - CoA: Your Valanar's Vengeance now deals an additional 50% of its initial damage dealt over 10 seconds, healing you for 50% of the damage dealt.
 - **Agonizing Pain** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/agonizing_pain.png
   - CoA: Damage dealt by your Atherann's Anguish now causes enemies hit to bleed, dealing 1405 + 100% shadow SP Shadow damage over 10 seconds.
 - **Crimson Terror** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: transforms-ability
+  - icon: assets/icons/coa/crimson_terror.png
   - CoA: Your Transgression now grants spell damage equal to 50% of your Spirit for the duration.
 - **The Council Assembled** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/the_council_assembled.png
   - CoA: Atherann's Anguish now costs -25 less Rage. Taldaram's Torment now increases the damage of your next Valanar's Vengeance or Keleseth's Calamity by 3% per tick for 10 seconds, stacking 5 times. Valanar's Vengeance and Keleseth's Calamity now reduce the cooldown of Malediction by -5 sec.
 - **Sacrificial Rite** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sacrificial_rite.png
   - CoA: Sacrificial Rite 250 , plus 50 per sec 1 sec cast 2 min cooldown Requires Mortal Form Invoke a dark ritual, increasing your haste by 20% for 15 sec. While active, attackers are afflicted with Cursed Blood . Can only occur once per sec. At the end of the duration, your healing done is increased by 15% and you are healed for (15*1000/1.5)*(102+3.0 Points Per Level+ SP *.2) over 15 sec. Cursed Blood 
 - **Torture** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/torture.png
   - CoA: Increases the leech of Vampiric Feast by 50%. Consuming at least 9 stacks of Thirst with Vampiric Fang now extends the duration of Transgression by 5 sec.
 
 ### Sanguine abilities
@@ -138,124 +173,162 @@ Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the sa
 - **Accursed Form** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/accursed_form.png
   - CoA: Transforms your Blood Curse into Accursed Form.Accursed Form (Cursed Form) Embrace your demonic curse for 30 seconds, entering an improved Cursed Form, increasing your attack power by 50% of your Agility and causing your melee attacks to reduce all healing done to the target by -20% for 10 seconds, stacking 2 times.
 - **Reave** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/reave.png
   - CoA: Reave Rank 1 35 Rage Instant 15 sec cooldown Requires Melee Weapon Lacerate an enemy, dealing 125% Weapon Damage plus 26. If the enemy is bleeding, below 35% health, or if you are behind them, deal 100% additional Shadow damage for each condition met.
 - **Puncturing Fangs** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/puncturing_fangs.png
   - CoA: Puncturing Fangs Passive Instant Your Bloodmoon Blast now generates 3 additional Rage per hit.
 - **Fang Over Fang** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/fang_over_fang.png
   - CoA: Casting Bloodfang Bite now has a 20% chance to reset the cooldown of Reave.
 - **Barely Human** (2 ranks) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/barely_human.png
   - CoA: Increases your armor penetration and the damage of spells that cost health by 15%.
 - **Veinburst** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/veinburst.png
   - CoA: Veinburst Rank 1 30 Rage 2 sec cast 15 sec cooldown Requires Mortal Form Blast an enemy, dealing 123+0+ AP *.25+ ShaP *0.85) Shadow damage. Deals 25% increased damage to bleeding targets.
 - **Shadow Pact** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/shadow_pact.png
   - CoA: Increases the effectiveness of your Shields by 50%.
 - **Blood Pact** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blood_pact.png
   - CoA: Increases your maximum Rage by 20 and you now regenerate 4 Rage every 5 sec.
 - **Rage** (2 ranks) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/rage.png
   - CoA: Increases your spell damage by 15% of your attack power and the damage dealt by Reave by 10%.
 - **Aortic Assault** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/aortic_assault.png
   - CoA: Aortic Assault Rank 1 25% of base Channeled 20 sec cooldown Extend the duration of your active Cursed Form by 3 sec and strike nearby enemies every 0.5 sec for 3 sec, each strike causing 20+0+ AP *0.12 Physical damage.
 - **Terrorizer** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/terrorizer.png
   - CoA: Terrorizer Passive Instant Increases the damage of Veinburst , Bloodfang Bite , and Claw Sweep on enemies below 35% health by 25%.
 - **Sanguine Scripture** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/sanguine_scripture.png
   - CoA: Sanguine Scripture Passive Instant Upon exiting Accursed Form , you gain 70% movement speed and spell haste for 5 sec.
 - **Dark Hunt** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
+  - icon: assets/icons/coa/dark_hunt.png
   - CoA: Dark Hunt Passive Instant Increases your Shadow damage dealt by 10% against bleeding targets.
 - **Gore Tome** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gore_tome.png
   - CoA: For the first 5 sec after activating a Cursed Form, your Bloodfang Bite is now guaranteed to critically strike.
 - **Leeching Tome** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/leeching_tome.png
   - CoA: Your Bloodbolt now leeches 50% more health, but it now costs 5 additional Rage.
 - **Dark Intent** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/dark_intent.png
   - CoA: When you Lunge at an enemy you now heal for 5% of your maximum health.
 - **Cruel Intent** (1 rank) - MATCH bloodmage_accursed
+  - icon: assets/icons/coa/cruel_intent.png
   - CoA: Cruel Intent Passive Instant When you Lunge at an enemy you now strike them 3 times with auto attacks.
 - **Corrupted Blood** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/corrupted_blood.png
   - CoA: Corrupted Blood Passive Instant When you use Taldaram's Torment on a Humanoid or Beast it now corrupts their blood, increasing your damage dealt against them by 10%.
 - **Cursed Blood** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/cursed_blood.png
   - CoA: Damage dealt by Taldaram's Torment now has a 20% chance to internally rupture, causing it to deal its damage an additional time to all enemies near the target.
 - **Bloodsurge** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bloodsurge.png
   - CoA: Bloodsurge 20% of base Instant 3 min cooldown Requires Mortal Form Enter a bloodsurge, enraging you and increasing your Shadow damage dealt and your spell critical strike chance by 20% for 20 sec. At the end of the duration, or whenever you trigger Accursed Form , gain Bloodchaser instead. Bloodchaser Enrage, increasing your Physical Damage dealt by 20% for 30 sec While active, Bloodfang Bite now 
 - **Dark Sigil** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/dark_sigil.png
   - CoA: Dark Sigil Passive Instant Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, you now heal for 15% of all critical damage dealt.
 - **Gore Barrage** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/gore_barrage.png
   - CoA: Reduces the cost of spells that cost health and Animated Blood by -30%.
 - **Crimson Expedition** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/crimson_expedition.png
   - CoA: Increases the critical strike chance of your Bloodbolt, Blood Shards, and Aortic Assault by 10%.
 - **Killer Instinct** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
+  - icon: assets/icons/coa/killer_instinct.png
   - CoA: Killer Instinct Passive Instant Each point of Rage now increases the critical strike chance of Veinburst and Reave by 0.5%, up to a maximum of 50%.
 - **Crimson Feast** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/crimson_feast.png
   - CoA: Crimson Feast Passive Instant Every 0.01 second you remain in a Cursed Form now reduces the cooldown of your Bloodsurge by 5 sec.
 - **Endure the Curse** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/endure_the_curse.png
   - CoA: Reduce all damage taken by -30% for 10 seconds. While active, taking damage that would reduce your health below 10% will instantly heal you for 30% of your maximum health. Can only occur once.
 - **Dark Frenzy** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/dark_frenzy.png
   - CoA: Dark Frenzy Passive Instant cast Increases spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, while a Cursed Form is active, your global cooldowns are reduced by 25%.
 - **Clotting** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/clotting.png
   - CoA: Clotting Passive Instant At the end of Aortic Assault 's duration, all enemies in a 10 yd frontal cone suffer 600*$ + AP *0.5 Physical damage. Damage dealt by this effect is increased by 25% against bleeding targets.
 - **Everlasting Hunt** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/everlasting_hunt.png
   - CoA: Everlasting Hunt Passive Instant Damage dealt by Blood Shards now reduces the cooldown of Veinburst and Reave by 1.5 sec.
 - **One Man's Curse...** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: resource-grant
+  - icon: assets/icons/coa/one_man_s_curse.png
   - CoA: Removes the health cost of Accursed Form and entering it now instantly restores 15% of your maximum health.
 - **Battleweaver** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: proc-chance, resource-grant
+  - icon: assets/icons/coa/battleweaver.png
   - CoA: Battleweaver Passive Instant Casting Cursed Form abilities now has a 50% chance to generate 1 Blood Shard for 10 min, up to 8. Dealing damage with Bloodbolt will launch 1 Blood Shard , dealing 18+1.0 Points Per Level+ AP *0.15+ SP *.35 Arcane damage to your target.
 - **Inhumane** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/inhumane.png
   - CoA: Dealing damage with Aortic Assault will now launch 1 Blood Shard, dealing 18 + 15% AP + 35% SP Arcane damage to your target.
 - **Night Hunter** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/night_hunter.png
   - CoA: Night Hunter Passive Instant Your Veinburst now has a 40% chance to not trigger a cooldown when cast. Your Bloodbolt now has a 40% chance to refund half of its Rage cost when cast.
 - **Blood Scent** (1 rank) - MATCH bloodmage_accursed
   - needs: hp-threshold
+  - icon: assets/icons/coa/blood_scent.png
   - CoA: Blood Scent Passive Instant While in Accursed Form , you now deal 15% increased damage to targets below 35% maximum health. Dealing direct damage to enemies below 35% maximum health now leeches health equal to 10% of the damage dealt.
 - **Ultra Instinct** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ultra_instinct.png
   - CoA: Direct ability critical strikes now increase your spell and ability critical strike chance and critical damage by 3% for 10 sec, stacking up to 10 times. Each additional critical strike increases this by an additional 3%, but reduces its duration by -1 sec.
 - **Hemoburst** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hemoburst.png
   - CoA: Hemoburst 30 Rage 1.5 sec cast 10 sec cooldown Requires Mortal Form Unleash a powerful burst of blood at an enemy, dealing 1480+0+ AP *.65+ SP *.5 Shadow damage. This ability is guaranteed to critically strike against bleeding targets. Extends the duration of your next Cursed Form by 5 sec for 30 sec, stacking 2 times.
 - **Final Embrace** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/final_embrace.png
   - CoA: Final Embrace 10% of base , plus 30 per sec Instant 3 min cooldown Requires Mortal Form Gorge on blood magic, entering a dramatically improved Cursed Form for 20 sec, transforming your Bloodfang Bite into Crimson Maw , but draining your health over time. While active, every 1 sec you curse enemies within 8 yds, applying Hematoma for 6 sec. Hematoma Deals 55+0+ShaP*.15+AP*.1 Shadow Damage and incre
 - **Darkcasting** (1 rank) - MATCH bloodmage_accursed  [ours is scalar]
   - needs: stacking-buff, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/darkcasting.png
   - CoA: Darkcasting Passive Instant Critical strikes with abilities now spawn a Blood Orb near you for 15 sec. Blood Orb When you run over this, restore 3% of your missing health and 5 Rage and gain a stack of Darkcasting for 1 min, stacking 10 times.
 
 ### Accursed abilities
@@ -270,124 +343,160 @@ Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the sa
 - **Rotclaw** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown, resource-grant, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rotclaw.png
   - CoA: 2 Charges, 6 sec recharge Ravage all nearby enemies, dealing 28 + 10% AP Shadow damage, generating Rage and infecting their wounds, causing them to bleed for 24 + 46% AP Shadow damage over 4 seconds.
 - **Heightened Reflexes** (2 ranks) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/heightened_reflexes.png
   - CoA: Increases your chance to dodge by 4% and your expertise by 5.
 - **Thick Pelt** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/thick_pelt.png
   - CoA: Thick Pelt Passive Instant Physical damage taken now reduces the Physical damage taken from the next attack within 10 sec by (-15+ AP *0.2). Can only occur once every 5 sec.
 - **Eternal Hunt** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
+  - icon: assets/icons/coa/eternal_hunt.png
   - CoA: Eternal Hunt Passive Instant Increases your maximum health and reduces the cost of your spells and abilities by 5%.
 - **Enduring** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/enduring.png
   - CoA: Increases the damage of Bloodbolt by 25%, plus an additional 25% while below 35% health.
 - **Eternal Resolve** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternal_resolve.png
   - CoA: Eternal Resolve 22% of base Instant 3 min cooldown Activate your eternal resolve for 30 sec, sending you into a feral frenzy, increasing your melee attack speed, maximum health, and healing received by 50%.
 - **Blood Howl** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blood_howl.png
   - CoA: Blood Howl 11% of base Instant 2 min cooldown Taunts nearby enemies within 10 yds, forcing them to attack you for 5 sec.
 - **Coated In Blood** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/coated_in_blood.png
   - CoA: Increases the effectiveness of Blood Pact by 50%.
 - **Coated In Darkness** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/coated_in_darkness.png
   - CoA: Coated In Darkness Passive Instant Casting Bloodbolt or Bloodfang Bite now reduces the cooldown of your Blood Pact by 0.5 sec.
 - **Bloodguard** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bloodguard.png
   - CoA: Increases the duration of Blood Pact by 4 sec.
 - **Packleader** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/packleader.png
   - CoA: Casting Howl spell now enrages your summons, increasing their damage dealt by 10% for 8 seconds.
 - **Vitality** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
+  - icon: assets/icons/coa/vitality.png
   - CoA: Vitality Passive Instant cast Increases your Stamina while in Eternal Curse by an additional 10%.
 - **Monstrous Hunger** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
+  - icon: assets/icons/coa/monstrous_hunger.png
   - CoA: Monstrous Hunger 20% of base Instant 45 sec cooldown Enrage for 10 sec, causing the next 6 Bloodfang Bites to have a 50% reduced global cooldown and cost and to trigger Call of the Darkwing . Call of the Darkwing Calls 1 to 2 Shadow Bats to appear from the shadows and strike the target for 5+1.6 Points Per Level+SP*.4+AP*.2 Physical Damage, healing you equal to the damage dealt.
 - **Shadows In The Night** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/shadows_in_the_night.png
   - CoA: While above 75% health, your damage taken is reduced by -5%.
 - **Blood Moon** (1 rank) - MATCH bloodmage_eternal
   - needs: hp-threshold
+  - icon: assets/icons/coa/blood_moon.png
   - CoA: While below 75% health, you now heal for 3% of all damage you deal.
 - **Uncanny Speed** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: scalar
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/uncanny_speed.png
   - CoA: Increases your melee haste by 5% and your movement speed and mounted movement speed by 20%.
 - **Night Hunter's Howl** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/night_hunter_s_howl.png
   - CoA: Night Hunter's Howl Rank 1 25 Rage Instant 8 sec cooldown Howl into the souls of nearby enemies, dealing 71+0+ AP *0.285 Shadow damage and slowing their movement speed by 60% for 6 sec.
 - **Blood Plague** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/blood_plague.png
   - CoA: Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10% against Diseased targets.
 - **Festering Maw** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/festering_maw.png
   - CoA: Healing with Bite Wound now reduces the cooldown of Lunge by 1 sec.
 - **No Mercy** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
+  - icon: assets/icons/coa/no_mercy.png
   - CoA: No Mercy Passive Instant Allows your Thick Pelt to affect an additional hit.
 - **Petrified Legions** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/petrified_legions.png
   - CoA: Petrified Legions Passive Instant Physical damage you deal or take now has a 10% chance to trigger a Call of the Darkwing . Call of the Darkwing Calls 1 to 2 Shadow Bats to appear from the shadows and strike the target for 5+1.6 Points Per Level+SP*.4+AP*.2 Physical Damage, healing you equal to the damage dealt.
 - **Rabid** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/rabid.png
   - CoA: Rabid Passive Instant Reduces the cooldown of Howl spells by 25%.
 - **Appetite for Blood** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
+  - icon: assets/icons/coa/appetite_for_blood.png
   - CoA: Increases the damage dealt by Bloodfang Bite and Claw Sweep by 20% against Humanoids and Beasts.
 - **Blood Mark** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/blood_mark.png
   - CoA: Increases the Physical damage taken by enemies within 5 yds of you by 3%.
 - **Dark Mark** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/dark_mark.png
   - CoA: Reduces the chance to hit for enemies within 5 yds of you by -3%.
 - **Cursed Strikes** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/cursed_strikes.png
   - CoA: Increases the duration of Rotclaw and Hypovolemic Shock by 50%.
 - **Grim Omen** (1 rank) - MATCH bloodmage_eternal
+  - icon: assets/icons/coa/grim_omen.png
   - CoA: Grim Omen Passive Instant Critical strikes with Ravenous Strike or Bloodfang Bite , or using Howl spells, now triggers Call of the Darkwing . Call of the Darkwing Calls 1 to 2 Shadow Bats to appear from the shadows and strike the target for 5+1.6 Points Per Level+SP*.4+AP*.2 Physical Damage, healing you equal to the damage dealt.
 - **Eternal Presence** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternal_presence.png
   - CoA: Increases the attack power of party and raid members by 5%. Does not stack with similar effects. In addition, you now gain attack power equal to 15% of the damage taken for 10 seconds. Can only occur once every 10 sec.
 - **Rejuvenating Shadows** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: stacking-buff, aoe-cleave
+  - icon: assets/icons/coa/rejuvenating_shadows.png
   - CoA: Rejuvenating Shadows Passive Instant Nearby party and raid members receive 6% more healing. Does not stack with similar effects. In addition, increases the health leeched by Bloodbolt by 50%.
 - **Infection** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/infection.png
   - CoA: Infection Passive Instant Auto attacking a bleeding target will now infect the wound, increasing their chance to be critically struck from you by 1% for 6 sec, stacking 10 times.
 - **Screech of the Darkwing** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/screech_of_the_darkwing.png
   - CoA: Your effects that trigger Call of the Darkwing now trigger an additional Call of the Darkwing. Can only occur once per sec.
 - **Enraging Howls** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/enraging_howls.png
   - CoA: Enraging Howls Passive Instant Casting Howl spells now increases the damage dealt and reduces damage taken by nearby party members by 5% for 10 sec.
 - **Iron Claws** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: stacking-buff, dot-hot
+  - icon: assets/icons/coa/iron_claws.png
   - CoA: Allows Rotclaw's periodic effect to stack up 2 additional times for 50% longer duration and cause you to ignore 3% of the target's armor per stack.
 - **Eyes In The Night** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: proc-chance, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eyes_in_the_night.png
   - CoA: Eyes In The Night Passive Instant Allies within 20 yds are protected by Shadow Colony , giving them a 40% chance to trigger a Call of the Darkwing when they take direct damage. Can only occur once every 5 sec. If allies have less health than you when this occurs, generate a large amount of threat against the enemy that triggered it.
 - **Shadow Strength** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadow_strength.png
   - CoA: Shadow Strength Passive Instant Casting Howl spells now deal 65+2.0 Points Per Level+ Sta *.25+ Agi *.25+ AP *.1 Shadow damage to all nearby enemies and triggering Call of the Darkwing now reduces the cooldown of all Howl spells by 1 sec. Can only occur once per sec.
 - **Bloody Claws** (1 rank) - MATCH bloodmage_eternal  [ours is scalar]
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bloody_claws.png
   - CoA: You now generate 20% increased Rage from damage dealt and critical strikes with auto attacks now reduces the cooldown of Animated Blood, Blood Veil, and Blood Pact by 1 sec.
 
 ### Eternal abilities
@@ -400,120 +509,155 @@ Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the sa
 ## Fleshweaver  (Healer) - 35 talents, 9 abilities
 
 - **Sanguine Essence** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/sanguine_essence.png
   - CoA: $7c
 - **Consolidation** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
+  - icon: assets/icons/coa/consolidation.png
   - CoA: Consolidation Passive Instant Increases your haste by 5%.
 - **Raging Hunger** (1 rank) - MATCH bloodmage_fleshweaver
   - needs: resource-grant
+  - icon: assets/icons/coa/raging_hunger.png
   - CoA: Triggering Pooled Vitality now also generates 3 Rage.
 - **Dark Liturgy** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_liturgy.png
   - CoA: Dark Liturgy Rank 1 15% of base 2 sec cast Requires Mortal Form Form a blood bond, healing a friendly target for 77+0+ SP *0.35+ Spi *0.25 and applying Blood Rituals to them, bouncing to up to 10 nearby allies, healing for less for each target struck. Blood Rituals Causes Bloodmoon Blast to heal marked allies for 4+4.7 Points Per Level+Heal*0.07+Sta*0.085.
 - **Gift of Lana'thel** (2 ranks) - MATCH bloodmage_fleshweaver  [ours is scalar]
+  - icon: assets/icons/coa/gift_of_lana_thel.png
   - CoA: Gift of Lana'thel Rank 1 Instant Become blessed by Lana'thel, increasing your spell power by 25% of your Spirit and your hit rating by 4% of your Spirit.
 - **Vampyr's Kiss** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/vampyr_s_kiss.png
   - CoA: Vampyr's Kiss Rank 1 20% of base Instant cast 1 min cooldown Curse an enemy, causing them to bleed for 168 Shadow damage over 30 sec . All periodic damage dealt to an enemy affected by Vampyr's Kiss is replicated on them equal to 25% of the value.
 - **Dark Blood** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/dark_blood.png
   - CoA: Dark Blood Rank 1 Instant Reduces the cost of your abilities that require Cursed Form and increases the healing done by Blood Rituals by 25%.
 - **Organ Orbs** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/organ_orbs.png
   - CoA: Each stack of Pooled Vitality now increases your Spirit by 3%.
 - **Lingering Essence** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lingering_essence.png
   - CoA: Periodic damage and healing done now has a 50% chance to reduce the cooldown of Vampyr's Kiss by -1 sec.
 - **Dark Essence** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_essence.png
   - CoA: Casting Cursed Form abilities or Bloodbolt will now heal allies affected by Blood Rituals for 114 + 10% healing every 1 sec for 3 seconds.
 - **Infuse** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/infuse.png
   - CoA: Accumulates 10% of all damage dealt to the target and unleashes it after 10 seconds, dealing Shadow damage and absorbing healing done to the target equal to the damage done for 10 seconds.
 - **Gruesome Rituals** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/gruesome_rituals.png
   - CoA: Your damage dealt is now increased by 1% for each stack of Pooled Vitality.
 - **Crimson Tide** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/crimson_tide.png
   - CoA: Crimson Tide Rank 1 40 Rage Instant cast Requires Mortal Form Create a pool of blood beneath up to 10 enemies within 10 yds of you, causing them to bleed for (15*1000/3)*(33+0+ SP *.28) Shadow damage over 15 sec. Empowered : Radius increased by 5 yds and costs 100% less Rage.
 - **Black Heart** (1 rank) - MATCH bloodmage_fleshweaver
+  - icon: assets/icons/coa/black_heart.png
   - CoA: Your Vampyr's Kiss now regenerates 20% of your maximum Rage.
 - **Hemal Excision** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hemal_excision.png
   - CoA: Cut into an ally's vital essence, siphoning all curse effects from them. You may reactivate this ability again within 10 seconds to place these curse effects on an enemy.
 - **Universal Donor** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/universal_donor.png
   - CoA: Universal Donor Passive Instant Casting Infuse or Vampyr's Kiss now increases the healing received by all allies by 6% for 10 sec.
 - **Acquired Taste** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, resource-grant
+  - icon: assets/icons/coa/acquired_taste.png
   - CoA: Casting Infuse or Vampyr's Kiss now generates 2 additional stacks of Pooled Vitality.
 - **Aortic Aegis** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/aortic_aegis.png
   - CoA: Aortic Aegis Passive Instant cast Your Blood Veil now applies to the party members of the target.
 - **Sovereignty** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: transforms-ability, stacking-buff, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/sovereignty.png
   - CoA: Sovereignty Passive Instant cast Damage dealt by Crimson Tide now grants you Sovereignty . Sovereignty Reduces the cost of your next Bloodbolt within 12 sec by 10% and causes it to strike 1 additional nearby enemy for each target damaged, stacking up to 5 times.
 - **Arterial Bind** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/arterial_bind.png
   - CoA: Place a pool of blood on the ground, instantly silencing all enemies for 4 seconds and healing allies for 203 + 33% healing every 1 sec for 4 seconds.
 - **Dissipation** (2 ranks) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dissipation.png
   - CoA: Reduces the cooldown of Fleshcraft and the duration of the Sated debuff by -60 sec.
 - **Heart Rupturer** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/heart_rupturer.png
   - CoA: Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 20%.
 - **Vitality For Later** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/vitality_for_later.png
   - CoA: Consuming Pooled Vitality now heals up to 10 allies within 30 yds for 176 + 25% SP + 50% Spirit, scaling with Spirit and healing power.
 - **Waves of Blood** (1 rank) - MATCH bloodmage_fleshweaver
   - needs: proc-chance, aoe-cleave
+  - icon: assets/icons/coa/waves_of_blood.png
   - CoA: Each tick of Crimson Tide now has a 10% chance to heal a nearby ally for 25% of the damage dealt.
 - **Spice of Life** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: proc-chance, stacking-buff, dot-hot
+  - icon: assets/icons/coa/spice_of_life.png
   - CoA: Your periodic damage and healing now has a 10% chance to grant a stack of Pooled Vitality.
 - **Blood Redistribution** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
+  - icon: assets/icons/coa/blood_redistribution.png
   - CoA: Blood Redistribution Passive Instant Increases the maximum health restored by Fleshcraft by 25%.
 - **Crimson Scion** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/crimson_scion.png
   - CoA: Crimson Scion Passive Instant Direct damage dealt now has a 10% chance to make your next Sanguine Mend within 10 sec instant cast.
 - **Sanguine Scion** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/sanguine_scion.png
   - CoA: Increases the critical strike chance of Sanguine Mend and Bloodbolt by 10%.
 - **Excess Blood** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/excess_blood.png
   - CoA: Your healing done now has a 10% chance to heal the target for an additional 240 + 3% healing over 6 seconds.
 - **Flesh Foundry** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flesh_foundry.png
   - CoA: Flesh Foundry Passive Instant Your critical strikes now reduce the cooldown of Fleshcraft and the duration of Sated on the target by 4 sec. In addition, increases your critical strike rating by 15% of your Spirit.
 - **Gorge** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gorge.png
   - CoA: Gorge 20% of base Instant 1 min cooldown Instantly gain 10 stacks of Pooled Vitality every 5 sec for 15 sec.
 - **Darkfallen Lament** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/darkfallen_lament.png
   - CoA: Chant a sinister ritual, healing up to 12 allies affected by Blood Rituals for 648 + 80% healing over 8 seconds and leeching 684 + 800% healing health from enemies within 10 yds over 8 seconds. While active, you are immune to silence and interrupt effects, but cannot move.
 - **Hemoglobe** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hemoglobe.png
   - CoA: Hemoglobe 50% of base Instant cast 3 min cooldown Coalesce a powerful sanguine orb above you, healing up to 12 allies within 20 yds for (15*1000/1.5)*(540+2.0 Points Per Level+ Heal *0.1125+ Spi *0.45+ Sta *0.35) over 15 sec. Generates 2 stacks of Pooled Vitality , and 0.15 Rage every 1.5 sec. Healing scales with Stamina and Spirit
 - **Adrenaline Boost** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, hp-threshold
+  - icon: assets/icons/coa/adrenaline_boost.png
   - CoA: Increases the critical strike chance of abilities that require Cursed Form on enemies above 75% or below 35% health by 20%. In addition, melee critical strikes now have a 50% chance to make your next Dark Liturgy or Bloodmoon Blast instant cast.
 - **Bloodcraft** (1 rank) - MATCH bloodmage_fleshweaver  [ours is scalar]
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bloodcraft.png
   - CoA: Your damage dealt by Darkfallen Lament now applies Bloodcraft to affected enemies, reducing damage dealt by -2% for 5 seconds, stacking 4 times.
 
 ### Fleshweaver abilities
@@ -530,52 +674,68 @@ Source: data/reference/coa/bloodmage.json (Ascension CoA Builder payload, the sa
 ## Class (shared)  (ALL) - 16 talents, 24 abilities
 
 - **Night Stalker** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/night_stalker.png
   - CoA: All damage and healing done is increased by 5% at night.
 - **Blood Runs Cold** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blood_runs_cold.png
   - CoA: Your Blood Pact now also increases your healing received by 20%.
 - **Dark Curse** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/dark_curse.png
   - CoA: Increases critical strike chance by 3%.
 - **Mucking Around** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/mucking_around.png
   - CoA: Reduces the cast time of Scarlet Delirium by -1 sec, but increases the health cost by 100%.
 - **Blood Clot** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/blood_clot.png
   - CoA: Your Scarlet Delirium now deals 100% increased damage.
 - **Bloodbender** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/bloodbender.png
   - CoA: Bloodbender Passive Instant Increases the effectiveness of Offerings by 20%.
 - **Hemostasis** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hemostasis.png
   - CoA: Trap an enemy in a blood orb, horrifying them in place for 4 seconds. Reactivating this ability within 4 seconds, instantly pops the Hemostasis, dealing 137 + 43% AP + 103% shadow SP Shadow damage and reducing their healing received by -60% for 10 seconds.
 - **Bloodbound Etchings** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/bloodbound_etchings.png
   - CoA: Your Blood Shield now increases your health regeneration by an additional 50%.
 - **Crimson Etchings** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/crimson_etchings.png
   - CoA: Removes the health cost of your Blood Shield and Vital Shield.
 - **Dark Mending** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/dark_mending.png
   - CoA: Reduces the cast time of Sanguine Mend by -0.5 sec.
 - **Infected Blood** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/infected_blood.png
   - CoA: Periodic damage dealt now reduces the enemy's movement speed by -30%.
 - **Adrenaline** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/adrenaline.png
   - CoA: Reduces the duration of bleed, root, and movement slowing effects against you by -25%.
 - **Visceral Magic** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/visceral_magic.png
   - CoA: Adds 40% to the Armor contribution from items by Blood Shield.
 - **Coagulation** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Coagulation Passive Instant Your Blood Shield now also dispels 1 bleed effect from you every 5 sec.
 - **Crimson Curse** (1 rank) - MATCH bloodmage_sanguine  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/crimson_curse.png
   - CoA: Your direct damage critical strikes increase the damage the target takes from bleed effects by 30% for 15 seconds.
 - **Everhungry** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/everhungry.png
   - CoA: Everhungry Passive Instant Direct critical strikes now increase your haste by 10% for 5 sec.
 
 ### Class (shared) abilities

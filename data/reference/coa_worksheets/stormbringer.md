@@ -5,6 +5,7 @@
 - not in our data at all: **70**
 - single-clause scalars in CoA's own tree: **18** (14%)
 - carry real-time assumptions needing translation: **58** (47%)
+- without an extracted CoA icon: **2**
 
 Source: data/reference/coa/stormbringer.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -16,105 +17,141 @@ Source: data/reference/coa/stormbringer.json (Ascension CoA Builder payload, the
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/arm_of_thorim.png
   - CoA: Arm of Thorim Rank 1 1 sec cast 20 sec cooldown Depletes All Static Call down a terrible beam of lightning upon an enemy, dealing 135+0+ NatP *1.2 Nature damage and stunning them for 1 sec. Damage and cast time increased based on Static level.
 - **Superconductor** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
+  - icon: assets/icons/coa/superconductor.png
   - CoA: Superconductor Passive Instant Increases the damage of your Arm of Thorim by an additional 1% per Static depleted.
 - **Forked Lightning** (1 rank) - MATCH stormbringer_lightning
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/forked_lightning.png
   - CoA: Forked Lightning Rank 1 37% of base mana 2 sec cast Shoot lightning at an enemy, dealing 69+ SP *0.49 Nature damage, bouncing to up to 4 enemies. Generates 5 Static for each enemy struck.
 - **Volt** (1 rank) - MATCH stormbringer_lightning
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/volt.png
   - CoA: Fuse lightning into an enemy, dealing 150 + 114% nature SP Nature damage over 18 seconds and slowing them by -40%. Generates 2 Static per tick.
 - **Thunderous** (1 rank) - NEW - we have no talent of this name
+  - icon: MISSING - needs art
   - CoA: Level 20 Passive Increases the critical damage of your spells by 150%.
 - **Thorim's Gift** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/thorim_s_gift.png
   - CoA: Your Arm of Thorim now leaves unstable electricity beneath the target, dealing damage equal to 10% of its damage dealt to enemies within every 1 sec for 3 seconds.
 - **Titanic Thunderbolt** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/titanic_thunderbolt.png
   - CoA: Titanic Thunderbolt Rank 1 Instant Increases the critical strike chance of Shock , Conjure Storm , and Eye of the Storm by 4%.
 - **Fulmination** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/fulmination.png
   - CoA: Increases the critical strike chance of Call Lightning and Arm of Thorim by 15% against targets affected by your Volt.
 - **Improved Forked Lightning** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/improved_forked_lightning.png
   - CoA: Your Forked Lightning now affects 1 additional enemy.
 - **Electric Energy** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/electric_energy.png
   - CoA: Increases the damage of your Shock, Call Lightning, and Arm of Thorim by 20%.
 - **Electrifying Aura** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/electrifying_aura.png
   - CoA: Electrifying Aura Instant Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.
 - **Tome of Lightning** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/tome_of_lightning.png
   - CoA: Increases your critical strike chance by 2% and reduces the duration of interrupt and silence effects against you by -20%.
 - **Wicked Storms** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
+  - icon: assets/icons/coa/wicked_storms.png
   - CoA: Wicked Storms Passive Instant Increases your Nature damage dealt by 5%.
 - **Fast as Lightning** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/fast_as_lightning.png
   - CoA: Level 30 Passive While Electrocutioner is active, your Electrocute now gains 20% increased damage.
 - **Stormy Days** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/stormy_days.png
   - CoA: Increases the tick rate of Conjure Storm by -25%.
 - **Invoking Storms** (2 ranks) - MATCH stormbringer_lightning  [ours is scalar]
+  - icon: assets/icons/coa/invoking_storms.png
   - CoA: Invoking Storms Rank 1 Instant Increases the spell power scaling of Shock , Call Lightning , and Arm of Thorim by 15%.
 - **Lightning Cage** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lightning_cage.png
   - CoA: Lightning Cage 47% of base mana Instant cast 3 min cooldown Generates 50 Static Ascend into the air and cage yourself in lightning for 30 sec, locking yourself in place. While inside the cage, damaging spells generate 20 Static and their range is doubled.
 - **Never Strikes Twice?** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: proc-chance
+  - icon: assets/icons/coa/never_strikes_twice.png
   - CoA: Never Strikes Twice? Passive Instant Your Electrocute now has a 25% chance to strike again.
 - **Jolt** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/jolt.png
   - CoA: Increases the damage and critical strike chance of Electrocute by 10%.
 - **Lightning Rod** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/lightning_rod.png
   - CoA: Damage dealt by Forked Lightning now has a 20% chance to spread an active Volt on your target to each affected enemy. Chance increases based on Static level.
 - **Thundershocker** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/thundershocker.png
   - CoA: While rooted by Eye of the Storm, affected enemies now take 30% increased damage from you.
 - **Storm Barrier** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/storm_barrier.png
   - CoA: While Lightning Cage is active your Magic Damage taken is now reduced by -25% and you are unable to be hit by ranged attacks.
 - **Critical Circuit** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/critical_circuit.png
   - CoA: Direct critical strikes with Static spenders now refund 10 Static.
 - **Sparks** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sparks.png
   - CoA: Damage dealt by Electrocute and Arm of Thorim now increase the target's chance to be critically hit by spells by 3% for 10 seconds.
 - **Piercing Lightning** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/piercing_lightning.png
   - CoA: Level 40 Passive Increases your Nature spell penetration by 20, scaling with your level. In addition, Stormbreaker now dispels 1 additional magic effect.
 - **High Voltage** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/high_voltage.png
   - CoA: Increases the duration of Arm of Thorim's stun effect by 1 sec.
 - **Voltaic Bursts** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
+  - icon: MISSING - needs art
   - CoA: Increases the periodic damage of Shock by 50%.
 - **Titanstorm** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/titanstorm.png
   - CoA: Titanstorm Passive Instant Casting Call Lightning or Electrocute now reduces the cooldown of Arm of Thorim and Lightning Cage by 1.5 sec.
 - **Dark Skies** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_skies.png
   - CoA: When your direct damage spells fail to critically strike, your critical strike chance is increased by 2% for 10 seconds, stacking up to 5 times. Critically striking removes this effect.
 - **Flux Arc** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flux_arc.png
   - CoA: Flux Arc Passive Instant Your Forked Lightning and Arm of Thorim now marks enemies for 6 sec. Your Call Lightning against marked enemies deals an additional 15% of its damage to them and nearby enemies.
 - **Crackling Devastation** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
+  - icon: assets/icons/coa/crackling_devastation.png
   - CoA: Crackling Devastation Passive Instant Increases the critical damage of Electrocute by 30%.
 - **Electrical Charge** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: charges, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/electrical_charge.png
   - CoA: Electrical Charge Passive Instant Standing still grants you Electrical Charge every second, increasing your haste by 1%. Upon reaching 20 stacks, your spells dont deplete Static for 10 sec, after which the charges are depleted.
 - **Ascension** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ascension.png
   - CoA: Level 50 Passive Increases the duration of your Storm Ascendance by 10 sec.
 - **Lord of Lightning** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lord_of_lightning.png
   - CoA: Storm Ascendance now additionally grants you Lord of Lightning for 20 seconds.Lord of Lightning Increases the damage dealt by Forked Lightning, Call Lightning, and Electrocute by an additional 30% and allows Electrocute to strike 3 additional enemies.
 - **Ride the Lightning** (1 rank) - MATCH stormbringer_lightning
+  - icon: assets/icons/coa/ride_the_lightning.png
   - CoA: Ride the Lightning Instant cast Depletes 40 Static Infuse yourself with lightning and blink forward a long distance, dealing 540+0+ SP *.5 Nature damage to all enemies in your path. Scales with modifiers to Discharge
 - **Thunder Wave** (1 rank) - MATCH stormbringer_lightning  [ours is scalar]
   - needs: transforms-ability, proc-chance, aoe-cleave
+  - icon: assets/icons/coa/thunder_wave.png
   - CoA: Thunder Wave Passive Instant Damage dealt by Forked Lightning has a 5% chance to transform it into Thunder Wave . Thunder Wave Bring lightning down upon an enemy and nearby enemies, dealing 206+0+ArcP*.65 Spellstorm Damage and refreshing the duration of Volt on enemies struck. Deals 30% increased damage to enemies affected by Volt .
 
 ### Lightning abilities
@@ -123,147 +160,189 @@ Source: data/reference/coa/stormbringer.json (Ascension CoA Builder payload, the
 ## Wind  (Support) - 42 talents, 1 abilities
 
 - **Tempest Calling** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/tempest_calling.png
   - CoA: $4c
 - **Power the Elements** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/power_the_elements.png
   - CoA: Increases the damage dealt by your Air Elemental's spells by 10% and your Nature damage dealt by 2%.
 - **Storm Bond** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/storm_bond.png
   - CoA: Damage dealt by your Air Elemental now generates you 2 Static.
 - **Flow** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/flow.png
   - CoA: Your Invigoration now stacks 5 additional times.
 - **Air Flow** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/air_flow.png
   - CoA: Reduces the cast time of Aeroblast by -0.3 sec.
 - **Invigoration** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/invigoration.png
   - CoA: Your Aeroblast now grants your Air Elemental a stack of Invigoration. Invigoration Increases the damage of your Air Elemental by 3% for 15 seconds, stacking 10 times. Additional applications do not refresh duration.
 - **Focal Point** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/focal_point.png
   - CoA: Casting Call Lightning now increases the critical strike chance of party and raid members by 5% for 10 seconds. Does not stack with similar effects.
 - **Clear Skies** (1 rank) - MATCH stormbringer_wind
   - needs: stacking-buff
+  - icon: assets/icons/coa/clear_skies.png
   - CoA: Clear Skies Passive Instant Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.
 - **Quickdraft** (2 ranks) - MATCH stormbringer_wind  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/quickdraft.png
   - CoA: Quickdraft Rank 1 Instant Increases the duration of your Updraft by 3 sec and increases its tick rate by 15%.
 - **Gale** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown, resource-grant, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gale.png
   - CoA: Gale Rank 1 29% of base mana Instant cast 3 Charges, 10 sec recharge Generates 20 Static Blast an enemy and up to 2 nearby enemies with a powerful gust of wind for 53+0+ NatP *0.42 Nature damage.
 - **Everlasting Invigoration** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/everlasting_invigoration.png
   - CoA: Increases the duration of Invigoration by 5 sec.
 - **Kiss of the Clouds** (1 rank) - MATCH stormbringer_wind
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/kiss_of_the_clouds.png
   - CoA: Kiss of the Clouds Rank 1 Instant 30 sec cooldown Depletes 40 Static Grant all party and raid members a shield that absorbs 0+101+ Int *1 damage, scaling with Intellect, for 10 sec. While active, the target suffers no spell pushback from taking damage.
 - **Evergale** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
+  - icon: assets/icons/coa/evergale.png
   - CoA: Casting Call Lightning now refreshes a charge of Gale.
 - **Unrelenting Winds** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
+  - icon: assets/icons/coa/unrelenting_winds.png
   - CoA: Unrelenting Winds Passive Instant Increases the critical strike chance of Gale by 15%.
 - **Master Airbender** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/master_airbender.png
   - CoA: Master Airbender Passive Instant Casting Gale now reduces the cooldown of abilities that deplete Static by 1 sec. This does not affect Updraft or Invigorating Surge .
 - **Unshackle** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/unshackle.png
   - CoA: Depletes 50 Static Transforms your Air Elemental into a more powerful form for 15 seconds, increasing damage dealt by 25% and spell haste by 30%.
 - **Tailwind** (1 rank) - MATCH stormbringer_wind
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tailwind.png
   - CoA: Tailwind Instant Depletes 20 Static Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 sec. Does not stack with similar effects.
 - **Enveloping Winds** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff
+  - icon: assets/icons/coa/enveloping_winds.png
   - CoA: Casting Gale now causes your Air Elemental to cast Gale. Additionally, you now emanate an aura around you, increasing the Armor of party and raid members by 390. Does not stack with similar effects.
 - **Gift of Air** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gift_of_air.png
   - CoA: Gift of Air Passive Instant Casting Kiss of the Clouds now empowers your Air Elemental with Gift of Air for 30 sec. In addition, your critical strikes now extend the duration of your Tailwind by 1.5 sec. Gift of Air Increases damage dealt by 20%, spell haste by 15%, and heals for 50 every 2 sec.
 - **Cyclone's Recharge** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cyclone_s_recharge.png
   - CoA: Casting Shock, Gale or Electrocute now reduces the remaining cooldown of your Kiss of the Clouds by -1 sec.
 - **Cyclone's Embrace** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/cyclone_s_embrace.png
   - CoA: Increases the base amount absorbed by your Kiss of the Clouds by 100%.
 - **Aeromancy** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
+  - icon: assets/icons/coa/aeromancy.png
   - CoA: Aeromancy Passive Instant Casting Updraft will now cause your Air Elemental to cast its own Updraft beneath you.
 - **Windrunner** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/windrunner.png
   - CoA: The wind is always at your back, pushing you to move faster, increasing your movement speed and mounted movement speed by 15%.
 - **Wrath of Al'Akir** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wrath_of_al_akir.png
   - CoA: Depleting Static extends the duration of your Unshackle by 3 sec.
 - **Windsurf** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/windsurf.png
   - CoA: Windsurf 21% of base mana Instant cast 1 min cooldown Command your Air Elemental to windsurf to you, intercepting the next melee or ranged attack made against you, and allowing you to cast Shock and Call Lightning while moving for 15 sec.
 - **Clearsky Pendant** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/clearsky_pendant.png
   - CoA: Clearsky Pendant Passive Instant Ally movement speed is increased by an additional 25% to allies within your Updraft .
 - **Master Elementalist** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
+  - icon: assets/icons/coa/master_elementalist.png
   - CoA: Master Elementalist Passive Instant Increases the spell damage scaling of Shock by 10% and Aeroblast by 20%.
 - **Unbound Elementalist** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/unbound_elementalist.png
   - CoA: Increases the effectiveness of your Unshackle by 20%.
 - **Flurry** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flurry.png
   - CoA: Depletes 10 Static Command your Air Elemental, causing its next instance of damage to unleash a flurry of air on your target, dealing 763 + 140% nature SP Nature damage over 21 seconds, and reducing their resistances by 75, and increasing their Magic damage taken by -2%.
 - **Aerodynamics** (1 rank) - MATCH stormbringer_wind
   - needs: stacking-buff, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aerodynamics.png
   - CoA: Aerodynamics Rank 1 Instant cast Depletes 40 Static Envelop party and raid members within 40 yds in magical mist, increasing their attack or spell power by 95 for 15 sec. Does not stack with similar effects.
 - **Child of the Storm** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/child_of_the_storm.png
   - CoA: Child of the Storm Passive Instant Reduces the cooldown of your Cloudburst and Windsurf by 20%.
 - **Storm Clouds** (1 rank) - MATCH stormbringer_wind
+  - icon: assets/icons/coa/storm_clouds.png
   - CoA: Storm Clouds Passive Instant Your Body of Lightning is now automatically cast on you when you cast it on an ally.
 - **Lexicon of Servitude** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lexicon_of_servitude.png
   - CoA: Lexicon of Servitude Instant 1 min cooldown Read from your ancient lexicon, causing your next Summon: Air Elemental to be instant cast and cost no mana. Lasts 15 sec.
 - **Comforting Winds** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/comforting_winds.png
   - CoA: Comforting Winds Passive Instant Your damage dealt now increases the haste of your Air Elemental by 1% for 10 sec, stacking 5 times. Damage dealt by your Air Elemental now increases your haste by 1% for 10 sec, stacking 5 times.
 - **Hurricanes** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hurricanes.png
   - CoA: Casting Unshackle now unshackles you, increasing your damage dealt by 15% for 15 seconds.
 - **Wind Gate** (1 rank) - MATCH stormbringer_wind
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wind_gate.png
   - CoA: Wind Gate 15% of base mana Instant cast 5 sec cooldown Place a Wind Gate at target location for 1 min. You may cast Wind Gate: Evacuate on an ally to pull them to your Wind Gate .
 - **Skyfall** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/skyfall.png
   - CoA: Depletes 40 Static Command your Air Elemental, causing its next instance of damage within 8 seconds to strike an enemy, dealing 1349 + 100% arcane SP Nature damage and increasing the movement speed of all nearby allies by 30% for 15 seconds.
 - **Tempest's Call** (1 rank) - MATCH stormbringer_wind
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tempest_s_call.png
   - CoA: Tempest's Call 26% of base mana Instant 5 min cooldown Bring the power of wind and storm to all nearby allies, increasing haste by 30% for 20 sec. After being affected by this spell, allies cannot benefit from similar effects for 5 min.
 - **Surge of Might** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/surge_of_might.png
   - CoA: Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 70% nature SP additional damage as Nature damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.
 - **Nimbus** (1 rank) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/nimbus.png
   - CoA: Nimbus 36% of base mana Instant 5 min cooldown Instantly resets the cooldown of your Evacuate , Windsurf , and Unshackle .
 - **Raging Zephyr** (1 rank) - MATCH stormbringer_wind
   - needs: transforms-ability, charges, cooldown, pet-summon, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/raging_zephyr.png
   - CoA: Transforms your Whirlpool into Raging Zephyr.Raging Zephyr 3 Charges, 35 sec recharge Summon a Raging Zephyr at the targeted location for 12 seconds. Every 4 sec, it will pull all enemies within 10 yds inside of it.
 - **Aurat Scripts** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/aurat_scripts.png
   - CoA: Increases the damage gained per stack of Invigoration by 2%.
 
 ### Wind abilities
@@ -273,118 +352,154 @@ Source: data/reference/coa/stormbringer.json (Ascension CoA Builder payload, the
 
 - **Tempest Sovereign** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/tempest_sovereign.png
   - CoA: Tempest Sovereign Passive Instant Enhances some of your spells with the power of the maelstrom, transforming your Shock into Brine and Call Lightning into Torrential Wrath . Brine Generates 25 Static Douse an enemy, dealing COND(GT(FroP, NatP), 89+0+FroP*0.571, 89+0+NatP*0.871) Frost damage, scaling with your critical strike rating. Scales with modifiers to Shock . Torrential Wrath Depletes 50 Sta
 - **Stormflow** (1 rank) - MATCH stormbringer_maelstrom
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/stormflow.png
   - CoA: Stormflow Rank 1 Channeled Depletes 20 Static Channel a storm beam upon an enemy, dealing (8*1000/1)*(14+0+ SP *.2) Frost Damage over 8 sec, scaling with your spell haste. Shock can be instantly cast while channeling .
 - **Torrential Rage** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/torrential_rage.png
   - CoA: Increases the damage of Torrential Wrath and Stormflow by 15%.
 - **Conduit** (1 rank) - MATCH stormbringer_maelstrom
   - needs: proc-chance, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/conduit.png
   - CoA: Conduit Passive Instant Dealing Frost damage now has a 60% chance to increase the damage the target takes from Electrocute by 15% for 10 sec, stacking up to 4 times.
 - **Disciple of Thorim** (3 ranks) - MATCH stormbringer_maelstrom  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/disciple_of_thorim.png
   - CoA: Disciple of Thorim Rank 1 Instant Reduces the cast time of your Torrential Wrath by 0.2 sec and increases your hit chance by 2%.
 - **Whirling Maelstrom** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/whirling_maelstrom.png
   - CoA: Whirling Maelstrom Specialization Instant Level 20 Passive Increases your spell haste by 20% of your Intellect.
 - **Blessing of Lei Shen** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blessing_of_lei_shen.png
   - CoA: Damage dealt by Stormflow now heals you equal to the damage dealt.
 - **Prodigy of Lei Shen** (1 rank) - MATCH stormbringer_maelstrom  [ours is scalar]
+  - icon: assets/icons/coa/prodigy_of_lei_shen.png
   - CoA: Prodigy of Lei Shen Passive Instant Allows your Stormflow to critically strike.
 - **Drown** (1 rank) - MATCH stormbringer_maelstrom
   - needs: stacking-buff, cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/drown.png
   - CoA: Drown Rank 1 31% of base mana Instant cast 1 min cooldown Attempt to drown an enemy, reducing their healing received by 20% for 8 sec. At the end of the duration, unleash a creature from the depths dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FroP , NatP ), 83+0+ FroP *1, 83+0+ NatP *1) Frost Damage. Each time you generate a stack of Conductive you increase their
 - **Raining and Pouring** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/raining_and_pouring.png
   - CoA: Increases the critical damage of your Torrential Wrath and Electrocute by 30%.
 - **Deluge** (1 rank) - MATCH stormbringer_maelstrom
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deluge.png
   - CoA: Deluge Rank 1 Instant cast Depletes 50 Static Consumes Conductive Envelop enemies in the target area in water, dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FroP , NatP ), 106+0+ FroP *0.3, 106+0+ NatP *0.3) Frost damage, triggering Conduction and reducing their attack power by 24 for 10 sec. Conduction Deals COND(GT(FroP, NatP), 202*$ +FroP*.585, 202*$ +NatP*.35)
 - **Flow of Wrath** (1 rank) - MATCH stormbringer_maelstrom  [ours is scalar]
+  - icon: assets/icons/coa/flow_of_wrath.png
   - CoA: Flow of Wrath Passive Instant Increases your critical strike chance by 15% against enemies affected by Drown .
 - **Undertow** (2 ranks) - MATCH stormbringer_maelstrom  [ours is scalar]
+  - icon: assets/icons/coa/undertow.png
   - CoA: Undertow Rank 1 Instant Increases the critical strike chance of Drown by 25%.
 - **Mystic Thunder** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mystic_thunder.png
   - CoA: Interrupt the target's current spell cast and then mark them for 5 seconds. If they cast again while marked they are silenced for 3 seconds.
 - **Unbridled Flow** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/unbridled_flow.png
   - CoA: Level 30 Passive Damage dealt by Shock is now increased by 15% while channeling Stormflow.
 - **Voltaic Mastery** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/voltaic_mastery.png
   - CoA: Damage dealt by Deluge is increased by 5% for each stack of Conductive.
 - **Stormcaller** (2 ranks) - MATCH stormbringer_wind  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/stormcaller.png
   - CoA: Reduces the cooldown and mana cost of Eye of the Storm by -15%.
 - **Washed Away** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/washed_away.png
   - CoA: Reduces the cooldown of Drown by -15 sec.
 - **Bursting** (1 rank) - MATCH stormbringer_maelstrom  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/bursting.png
   - CoA: Bursting Passive Instant Increases the stack value of Drowning by 20%.
 - **Cloudsurfer** (1 rank) - MATCH stormbringer_maelstrom  [ours is scalar]
+  - icon: assets/icons/coa/cloudsurfer.png
   - CoA: Cloudsurfer Passive Instant Increases the damage of Shock by 20%.
 - **Lethal Current** (2 ranks) - MATCH stormbringer_maelstrom  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/lethal_current.png
   - CoA: Lethal Current Rank 1 Instant Increases the critical strike chance of Electrocute by 30% against enemies below 20% health.
 - **Unstable** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/unstable.png
   - CoA: Unstable Passive Instant Your direct damage critical strikes cause your Stormflow to tick 20% faster for 3 sec.
 - **Thunder Ward** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/thunder_ward.png
   - CoA: Thunder Ward Instant cast 5 min cooldown Depletes All Static Encase yourself in an electrical shield, removing and making you immune to all physical attacks and spells for 10 sec. Cannot generate Static for the duration.
 - **Kinetic Energy** (1 rank) - MATCH stormbringer_maelstrom  [ours is scalar]
   - needs: transforms-ability, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/kinetic_energy.png
   - CoA: Kinetic Energy Passive Instant Casting a spell that consumes Conductive now grants you a stack of Kinetic Energy . Kinetic Energy Critical strike chance increased by 2%, stacking 3 times, for 10 sec. Additional applications do not refresh the duration.
 - **Storm Synergy** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/storm_synergy.png
   - CoA: Level 40 Passive Your Electrocute can now be used while channeling Stormflow.
 - **Amped Flow** (1 rank) - MATCH stormbringer_maelstrom
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/amped_flow.png
   - CoA: Amped Flow Passive Instant While channeling Stormflow , your Shock now strikes 1 additional target at 75% value.
 - **Static Electricity** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/static_electricity.png
   - CoA: Critical strikes with Torrential Wrath now spawn an Electrified Water Elemental to aid you in combat for 20 sec. When an Electrified Water Elemental dissipates, the cooldown of your Drown is reduced by -2 sec.
 - **Conductor In Charge** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/conductor_in_charge.png
   - CoA: Increases all damage dealt by party and raid members by 3% and your Frost damage dealt by 5%. Does not stack with similar effects.
 - **Hydro Powered** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/hydro_powered.png
   - CoA: Increases your spell critical damage by 35%.
 - **Binder of Storms** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/binder_of_storms.png
   - CoA: $54
 - **Electrified Waters** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/electrified_waters.png
   - CoA: Your direct critical strikes against an enemy affected by Drown spawn an Electrified Water Elemental to aid you in combat for 20 seconds. When an Electrified Water Elemental dissipates, the cooldown of your Drown is reduced by -2 sec.
 - **Stormfury** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/stormfury.png
   - CoA: Depletes 50 Static Summon a flurry of rain, wind, and lightning from the sky for 20 seconds. Every 2 sec, enemies within 30 yds of the caster are zapped with lightning, dealing 540 + 55% nature SP Nature damage.
 - **Hydromatic** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/hydromatic.png
   - CoA: Level 50 Passive Your Electrocute is now affected by Conductive, increasing its damage by 10% per stack.
 - **Spheres of Power** (1 rank) - MATCH stormbringer_maelstrom
   - needs: proc-chance, pet-summon, aoe-cleave
+  - icon: assets/icons/coa/spheres_of_power.png
   - CoA: Your direct damage dealt now has a 25% chance to summon a Power Sphere that will move towards your target. Can only have 1 Power Sphere up at a time. Power Sphere will redirect its movement towards enemies you cast Stormflow on. Upon reaching the target, it deals cond(gt(SPA, SPN), 697+33+SPA*0.485, 697+33+SPN*0.485) Spellstorm Damage to them and enemies within 5 yds.
 - **Stormcloud** (1 rank) - MATCH stormbringer_maelstrom
   - needs: cooldown, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/stormcloud.png
   - CoA: Stormcloud 42% of base mana Instant 1 min cooldown Summon a cloud above an enemy target's head for 15 sec, causing them to take 20% additional damage from your spells. Using Torrential Wrath on an enemy affected by Stormcloud causes a Geyser to erupt beneath them, dealing 537+98.1 Points Per Level+ FroP *.25 Frost damage and knocking them up slightly.
 - **Shockingly Powerful** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/shockingly_powerful.png
   - CoA: Your Conduction now has a -25% chance to not consume Conductive.
 
 ### Maelstrom abilities
@@ -394,26 +509,34 @@ Source: data/reference/coa/stormbringer.json (Ascension CoA Builder payload, the
 
 - **Arcane Lightning** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/arcane_lightning.png
   - CoA: Increases your Intellect and Spirit by 5%.
 - **Eye of the Tornado** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/eye_of_the_tornado.png
   - CoA: Eye of the Tornado Passive Instant Your damaging critical strikes now refund 5 Static .
 - **Storm Chaser** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/storm_chaser.png
   - CoA: Dealing direct spell damage now has a 33% chance to reduce the cast time of your next Call Lightning by -15% for 10 seconds, stacking 2 times.
 - **Storm Ascendance** (1 rank) - MATCH stormbringer_lightning
   - needs: transforms-ability, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/storm_ascendance.png
   - CoA: Transform into a storm elemental for 15 seconds, increasing your Magic damage dealt by 20% and reducing your Magic damage taken by -50%. In addition, your damaging spells now generate an additional 10 Static. Can only occur once every sec.
 - **Magic Elimination** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/magic_elimination.png
   - CoA: Magic Elimination Passive Instant Increases the amount of beneficial magic effects purged by your Stormbreaker by 1 and its range by 10 yds.
 - **Pulse Conversion** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/pulse_conversion.png
   - CoA: Dispelling a magic effect with Stormbreaker now heals you for 3% of your maximum health.
 - **Residual Power** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/residual_power.png
   - CoA: Residual Power Passive Instant Reduces your Magic damage taken by 10%.
 - **Lingering Storm** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/lingering_storm.png
   - CoA: Increases the duration of your Stormcloak, Conjure Storm and Body of Lightning by 30%.
 
 ### Class (shared) abilities

@@ -5,6 +5,7 @@
 - not in our data at all: **55**
 - single-clause scalars in CoA's own tree: **13** (10%)
 - carry real-time assumptions needing translation: **55** (45%)
+- without an extracted CoA icon: **3**
 
 Source: data/reference/coa/barbarian.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -14,113 +15,151 @@ Source: data/reference/coa/barbarian.json (Ascension CoA Builder payload, the sa
 
 - **Decapitate** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/decapitate.png
   - CoA: Decapitate Rank 1 45 Energy Instant Requires Melee Weapon Attempt to decapitate an injured enemy, dealing 200% Weapon Damage plus 27, and converting each extra point of Energy to deal additional damage (up to a maximum cost of 100 Energy). Only usable on enemies below 35% health.
 - **Beheader** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/beheader.png
   - CoA: Beheader Passive Instant Scoring a kill blow with Decapitate now refunds 100% of your maximum Energy.
 - **Reckless Movements** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/reckless_movements.png
   - CoA: Reckless Movements Passive Instant cast Increases the damage of Ancestral Strike and Barbaric Whirl by 20%.
 - **Killing Spree** (1 rank) - NEW - we have no talent of this name
   - needs: charges
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/killing_spree.png
   - CoA: Charge at an enemy, dealing 25 + 30% AP Physical damage. Can only be used within 6 seconds of scoring a killing blow or applying Born in Blood.
 - **Pure Power** (2 ranks) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/pure_power.png
   - CoA: Pure Power Rank 1 Instant cast Increases the damage of Smash by 15% and your expertise by 5.
 - **Relentless** (1 rank) - MATCH barbarian_brutality
+  - icon: assets/icons/coa/relentless.png
   - CoA: Level 20 Passive Critical strikes with Ancestral Strike and Brutal Swing now refund 10 Energy.
 - **Brutal Swing** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/brutal_swing.png
   - CoA: Brutal Swing Rank 1 45 Energy Instant Requires Melee Weapon Your next attack causes you to swing violently at an enemy and up to 2 nearby enemies, dealing 120% Weapon Damage plus 10.
 - **Overkill** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/overkill.png
   - CoA: Increases the critical strike chance of Decapitate and Headhunter's Spear by 30% against targets below 20% health.
 - **Crush** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Crush enemies in a frontal cone, dealing 275% Weapon Damage plus 30, knocking them down briefly and stunning them for 3 seconds.
 - **Bloody Fighter** (2 ranks) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/bloody_fighter.png
   - CoA: Bloody Fighter Rank 1 Instant Increases the critical strike chance of Brutal Swing and Smash by 5%.
 - **Headlopper** (1 rank) - MATCH barbarian_brutality
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/headlopper.png
   - CoA: Your critical strikes with Decapitate now cause the enemy to bleed, dealing an additional 30% of the damage dealt over 5 seconds.
 - **Spiked Weapons** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: MISSING - needs art
   - CoA: Spiked Weapons Passive Instant Increases the critical damage of Crush , Brutal Swing , and Decapitate by 20%.
 - **Horde Breaker** (1 rank) - MATCH barbarian_brutality
   - needs: transforms-ability, hp-threshold
+  - icon: assets/icons/coa/horde_breaker.png
   - CoA: Horde Breaker Passive Instant Your Crush now applies Wounded to enemies for 1 min and is now guaranteed to critically strike enemies affected by Headbutt . Wounded Increases Physical Damage taken by 4% for 1 min.
 - **Power Swings** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/power_swings.png
   - CoA: Reduces the cooldown of Crush by -5 sec.
 - **Thirst for Battle** (1 rank) - MATCH barbarian_brutality
+  - icon: assets/icons/coa/thirst_for_battle.png
   - CoA: Your Smash now regenerate 25% of your maximum Energy.
 - **Rancor** (1 rank) - MATCH barbarian_brutality
+  - icon: assets/icons/coa/rancor.png
   - CoA: Rancor Passive Instant cast Your Brutal Swing now triggers an additional auto attack on the primary target.
 - **Battering Ram** (2 ranks) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/battering_ram.png
   - CoA: While wielding a two-handed weapon, you bypass 10% of enemy armor.
 - **Hail of Hammers** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/hail_of_hammers.png
   - CoA: Reduces the cast time of Crush by -25%.
 - **Anger Issues** (1 rank) - MATCH barbarian_brutality
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/anger_issues.png
   - CoA: Scoring a critical strike against an enemy now reduces the cooldown of Carnage by -4 sec.
 - **Whirling Assault** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/whirling_assault.png
   - CoA: Increases the damage of Whirling Advance by 300% on enemies above 80% health.
 - **Efficient Killer** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/efficient_killer.png
   - CoA: Efficient Killer Passive Instant cast Reduces the Energy cost of your spells and abilities by 10%.
 - **Mounting Fury** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mounting_fury.png
   - CoA: Mounting Fury Passive Instant Increases the duration of Born in Blood by 2 sec.
 - **Savage** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/savage.png
   - CoA: Unbridled Rage now also increases your critical damage by 10%.
 - **Ancestral Trauma** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/ancestral_trauma.png
   - CoA: Damage dealt by Ancestral Strike and Crush now scales with your Strength.
 - **Ogre's Strength** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/ogre_s_strength.png
   - CoA: Level 40 Passive Increases your Strength by 25%.
 - **Reckful** (2 ranks) - NEW - we have no talent of this name
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/reckful.png
   - CoA: Your Smash now has a 30% chance to not trigger a cooldown.
 - **Incredibly Strong** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/incredibly_strong.png
   - CoA: Incredibly Strong Passive Instant Removes the minimum range from Maiming Spear , but reduces its maximum range by 5 yds.
 - **Giant Tosser** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/giant_tosser.png
   - CoA: Your Headhunter's Spear now generates 50% additional Energy when you strike an enemy that is at least 20 yds away.
 - **Symbol of the Warspear** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/symbol_of_the_warspear.png
   - CoA: Symbol of the Warspear Passive Instant You are marked by the Warspear symbol, granting 10% increased attack power to party and raid members. Does not stack with similar effects. In addition, reduces the cooldown of Spears by 2 sec.
 - **Brutal Spirit** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/brutal_spirit.png
   - CoA: Increases the effectiveness of your Spirit spells by 25%.
 - **Crusher** (2 ranks) - MATCH barbarian_brutality
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/crusher.png
   - CoA: Melee auto attacks now have a 10% chance to reset the cooldown of Crush.
 - **Maximum Carnage** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
   - needs: transforms-ability, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/maximum_carnage.png
   - CoA: Casting Unbridled Rage now causes you to begin swinging your weapon around you dealing 152 + 25% AP Physical damage to up to 5 nearby enemies over 5 seconds.
 - **Storm of Steel** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/storm_of_steel.png
   - CoA: Storm of Steel 25 Energy, plus 25 per sec Instant 25 sec cooldown Requires Melee Weapon Begin striking your target every 0.5 sec for 80% Weapon Damage for 3 sec.
 - **Body Builder** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
+  - icon: assets/icons/coa/body_builder.png
   - CoA: Level 50 Passive Increases your size by 5% and when your Strength is lower than your Agility your melee attack power is further increased by 75% of your Strength.
 - **Steelslinger** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
   - needs: cooldown, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/steelslinger.png
   - CoA: Steelslinger Passive Instant Reduces the cooldown of Barbaric Whirl by 2 sec and increases its damage dealt by 100% on enemies below 35% health.
 - **Utter Devastation** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/utter_devastation.png
   - CoA: Increases the duration of Maximum Carnage by 1 sec and it now grants Utter Devastation for 6 seconds. Utter Devastation Instantly removes all movement impairing effects, increases your movement speed by 25%, and makes you immune to slows. Can be consumed by Decapitate or Crush to guarantee them to critically strike.
 - **Steel Fury** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/steel_fury.png
   - CoA: Steel Fury Passive Instant Dealing damage with Storm of Steel increases the damage of its subsequent strikes by 4%, stacking 10 times. In addition, the duration of Storm of Steel is increased by 2.5 sec.
 - **Sustaining Swings** (1 rank) - MATCH barbarian_brutality
   - needs: proc-chance
+  - icon: assets/icons/coa/sustaining_swings.png
   - CoA: Melee attacks now have an 8% chance to heal you for 10% of the damage dealt and cause your next Ancestral Strike to deal 50% increased damage.
 
 ### Brutality abilities
@@ -130,109 +169,142 @@ Source: data/reference/coa/barbarian.json (Ascension CoA Builder payload, the sa
 
 - **Barbed Spear** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/barbed_spear.png
   - CoA: Throw a heavy spear with precision at an enemy, dealing 160% Ranged Weapon Damage plus 37, and reducing their healing received by -30% for 10 seconds.
 - **Gutspiller** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gutspiller.png
   - CoA: Gutspiller Rank 1 20 Energy Instant Requires Thrown Launch a heavy axe at an enemy, causing them to bleed for 90 damage over 12 sec. Every 6 sec the target has their Guts Spilled , causing them to bleed out for an additional 71+0+ RAP *0.4 damage.
 - **Savage** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/savage.png
   - CoA: Savage Specialization Instant Level 20 Passive Born in Blood now also increases your damage dealt by 5% and its duration is increased by 3 sec.
 - **Puncture Wounds** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/puncture_wounds.png
   - CoA: Puncture Wounds Passive Instant Critical strikes with Spears now causes enemies to bleed for (6*1000/2)*(211*$ + RAP *0.055) over 6 sec.
 - **Strong Arm** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: scalar
+  - icon: MISSING - needs art
   - CoA: Increases the damage of Spears by 15% and your hit chance by 3%.
 - **Vital Spirit** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/vital_spirit.png
   - CoA: Vital Spirit Rank 1 Instant Increases the range of your Spirit spells by 10 yds.
 - **Guts Splatter** (2 ranks) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/guts_splatter.png
   - CoA: Your Gutspiller now allows your abilities to ignore 10% of the enemy's Armor.
 - **Deep Fury** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deep_fury.png
   - CoA: Direct Physical damage dealt now reduces the cooldown of Unbridled Rage by -1 sec.
 - **Headhunting** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/headhunting.png
   - CoA: Headhunting Passive Instant Reduces the cast time of Throw Weapon by 20% and removes your spell pushback suffered from taking damage.
 - **Axe Twirling** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/axe_twirling.png
   - CoA: Axe Twirling Instant 1 min cooldown Display mastery over throwing weapons for 10 sec, causing Throw Weapon , Gutspiller , and Berserker Axe to strike 2 additional nearby enemies.
 - **Spear Thrower** (1 rank) - MATCH barbarian_headhunting
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/spear_thrower.png
   - CoA: Level 30 Passive Casting Throw Weapon now has a 30% chance to reset the cooldown of your Spears.
 - **Frothing Savage** (2 ranks) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/frothing_savage.png
   - CoA: Frothing Savage Rank 1 Instant Increases the critical strike chance of Spears and Berserker Axe by 8% against bleeding targets.
 - **Impaling Spear** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/impaling_spear.png
   - CoA: Hurl a spear in a 30 yd frontal line, dealing 131% Ranged Weapon Damage plus 23, dealing less damage with each enemy struck. At the spear's impact location the spear shatters, dealing 277 + 15% ranged AP Physical damage to nearby enemies.
 - **Time To Kill!** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/time_to_kill.png
   - CoA: Reduces the cooldown of Axe Twirling by -15 sec.
 - **Berserker Rush** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/berserker_rush.png
   - CoA: Berserker Rush Rank 1 Instant 30 sec cooldown Charge an enemy dealing 31+0+ RAP *.35 Physical damage and rooting them for 2 sec, then leap backwards.
 - **Gruesome** (2 ranks) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/gruesome.png
   - CoA: Increases the damage of Throw Weapon, Gutspiller, and Guts Spilled by 10%.
 - **Spear Shards** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/spear_shards.png
   - CoA: Whenever you shatter your Impaling Spear, affected enemies bleed for 100% of the damage dealt over 3 seconds.
 - **Furious Berserker** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/furious_berserker.png
   - CoA: Critical strikes with Barbed Spear now grants Born in Blood.Born in Blood Battle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.
 - **Hunting for Sport** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/hunting_for_sport.png
   - CoA: While Unbridled Rage is active, your attacks now ignore 20% of the target's Armor.
 - **Vengeance For Zul'jin** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/vengeance_for_zul_jin.png
   - CoA: Casting Berserker Rush now grants you Born in Blood.Born in Blood Battle fuels your vitality, restoring 18 health and 12 Energy over 3 seconds.
 - **Bloody Fighter** (1 rank) - MATCH barbarian_brutality  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/bloody_fighter.png
   - CoA: Level 40 Passive Born in Blood now stacks 1 additional time.
 - **Raging Spirit** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability
+  - icon: assets/icons/coa/raging_spirit.png
   - CoA: Casting Unbridled Rage now grants you 30 Energy and it now also removes the Energy cost of your Spirit spells while active.
 - **No Survivors** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/no_survivors.png
   - CoA: Increases the duration of Axe Twirling, Maiming Spear, and Barbed Spear by 5 sec.
 - **Manhunter** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/manhunter.png
   - CoA: Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your damage dealt by 10% against Humanoids.
 - **To The Bone** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/to_the_bone.png
   - CoA: Increases the critical strike chance of Guts Spilled by 10% and it now applies Break to the target and critically striking with it will apply an additional stack.Break Break an enemy's defenses, reducing their armor by -4% for 30 seconds, stacking 5 times.
 - **Skullseeker** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/skullseeker.png
   - CoA: Increases your critical strike chance against enemies above 80% health by 25%.
 - **Brutal Form** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/brutal_form.png
   - CoA: Brutal Form Passive Instant Increases the tick rate of Born in Blood by 25%, allows its healing to scale with your Agility, and it can now critically heal you.
 - **Berserker** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/berserker.png
   - CoA: While enraged, your ranged critical strikes now grant you Berserker. Once applied it cannot be applied again.Berserker Your ranged abilities have a 20% chance to unleash Berserker Throw, dealing 75% Ranged Weapon Damage. Lasts 15 seconds. While active, every offensive ranged ability used increases its chance to trigger by 2%.
 - **Payback** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
+  - icon: assets/icons/coa/payback.png
   - CoA: Payback Passive Instant Increases the damage dealt by your Guts Spilled by 75%.
 - **Power Tosser** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/power_tosser.png
   - CoA: Level 50 Passive Damage dealt by Throw Weapon now scales with your Agility.
 - **Gurubashi Technique** (1 rank) - MATCH barbarian_headhunting
   - needs: transforms-ability, proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/gurubashi_technique.png
   - CoA: Gurubashi Technique Passive Instant Casting Throw Weapon now has a 25% chance to transform your next cast of it within 8 sec into Rapid Throw .
 - **Sen'jin's Guidance** (1 rank) - MATCH barbarian_headhunting  [ours is scalar]
   - needs: transforms-ability
+  - icon: assets/icons/coa/sen_jin_s_guidance.png
   - CoA: Transforms your Throw Weapon into Javelin Toss and increases the critical strike chance of Javelin Toss by 5%.Javelin Toss Take aim and hurl a javelin at an enemy dealing 160% Ranged Weapon Damage plus 241. Scales with damage modifiers to Throw Weapon and Spears. Usable while moving.
 - **Spite** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/spite.png
   - CoA: Quickly unleash 3 Berserker Throws at your target and then fling yourself back a great distance, dealing 125% Ranged Weapon Damage, scaling with modifiers to Berserker Axe.
 
 ### Headhunting abilities
@@ -247,136 +319,178 @@ Source: data/reference/coa/barbarian.json (Ascension CoA Builder payload, the sa
 - **Keg Smash** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/keg_smash.png
   - CoA: Keg Smash Rank 1 30 Energy Instant 10 sec cooldown Smash an enemy for 21+0+ AP *0.15 Physical damage, plus an additional 17+0+ AP *0.25 Frost damage to up to 5 nearby enemies.
 - **Ancestor's Call** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/ancestor_s_call.png
   - CoA: Ancestor's Call Passive Instant Teaches you Ancestor's Call . Ancestor's Call Call an Honored Ancestor to aid you in battle until dismissed that scales with your Agility and attack power. Whenever you use Barbaric Whirl or Whirling Advance , your Honored Ancestor mimics it.
 - **Breath of The North** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/breath_of_the_north.png
   - CoA: Breath of The North Rank 1 50 Energy Instant Unleashes a frost breath, dealing 31+0+ AP *0.2 Frost damage to enemies in a 12 yd cone and slowing them by 30% for 5 sec. Can only be used after emptying your Tankard .
 - **Ale of The God-King** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ale_of_the_god_king.png
   - CoA: Ale of The God-King Rank 1 Instant cast 15 sec cooldown Empower your Honored Ancestor 's melee attacks to deal additional Frost damage scaling with your attack power. Lasts for 20 sec or 10 attacks. This ability consumes Fill Level stacks and triggers a reduced cooldown based on stacks consumed.
 - **Frozen Blades** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frozen_blades.png
   - CoA: Critical strikes now grant party and raid members 5% critical strike chance for 8 seconds. Does not stack with similar effects.
 - **Ancestral Wisdom** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/ancestral_wisdom.png
   - CoA: Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.
 - **Frostbite** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frostbite.png
   - CoA: Frostbite Passive Instant Breath of The North now causes the target to bleed for an additional 30% of its damage over 6 sec as Frost damage.
 - **Ancestral Fury** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, aoe-cleave
+  - icon: assets/icons/coa/ancestral_fury.png
   - CoA: Ancestral Fury Instant Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects.
 - **Ancestral Combat** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ancestral_combat.png
   - CoA: Ancestral Combat 60 Energy Instant cast 30 sec cooldown Empower yourself, granting your Physical damage dealt a 25% chance to trigger an additional main hand attack as Frost damage on your target and grant a stack of Fill Level . Lasts until triggered 20 times.
 - **Trip to the Alehouse** (2 ranks) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/trip_to_the_alehouse.png
   - CoA: Trip to the Alehouse Rank 1 Instant cast Increases the damage of Keg Smash by 10% and its range by 3 yds.
 - **Drinking Frenzy** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: proc-chance, stacking-buff
+  - icon: assets/icons/coa/drinking_frenzy.png
   - CoA: Your melee attacks now have a 15% chance to grant a stack of Fill Level. In addition, your chance to hit is increased by 5%.
 - **Frost Giant's Fury** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frost_giant_s_fury.png
   - CoA: Frost Giant's Fury Passive Instant Casting Breath of the North now grants you 10% melee attack speed, plus an additional 20% when using a two-handed weapon, for 8 sec.
 - **Frozen Tankard** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frozen_tankard.png
   - CoA: Frozen Tankard Rank 1 Instant 30 sec cooldown Throw one of your extra tankards at an enemy, dealing 107 Frost damage and stunning them for 4 sec. Stunned enemies are considered Frozen .
 - **Improved Ancestral Combat** (3 ranks) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/improved_ancestral_combat.png
   - CoA: Reduces the Energy cost of your Ancestral Combat by -10 and allows it to trigger 3 additional times.
 - **Cheers!** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cheers.png
   - CoA: Cheers! 20 Energy Instant 3 sec cooldown Designate an ally as your drinking partner for 30 min, reducing all damage they take by 5%, and causing 10% of all damage they take to be redirected to you. You can only have 1 ally designated at a time.
 - **The Finest Ale** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/the_finest_ale.png
   - CoA: The Finest Ale Passive Instant cast Your Ale of The God-King no longer empties your Tankard .
 - **Crystal Enhancements** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/crystal_enhancements.png
   - CoA: You now emanate an aura around you, increasing the Armor of party and raid members by 390. Does not stack with similar effects.
 - **Uniting Voice** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/uniting_voice.png
   - CoA: Uniting Voice Passive Instant cast Casting Ancestral Roar now increases haste of party and raid members by 5% for 20 sec. Does not stack with similar effects. Critical strikes extend the duration of the buff by 1 sec.
 - **Icebound Ancestry** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/icebound_ancestry.png
   - CoA: Icebound Ancestry Passive Instant cast Increases the critical strike chance of Breath of the North by 10%. In addition, your attacks now ignore Armor against Frozen targets.
 - **Hodir's Revenge** (1 rank) - MATCH barbarian_ancestry
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hodir_s_revenge.png
   - CoA: Enemies damaged by your Frozen Tankard now take 50% increased damage from you for 6 seconds.
 - **Thane's Grip** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/thane_s_grip.png
   - CoA: Allows you to wield a Two-Handed Axe, Mace, or Sword in each hand, but reduces your Physical Damage dealt by -8%.
 - **Thane's Guard** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/thane_s_guard.png
   - CoA: Thane's Guard passive Instant Requires Shields Gain the Shield proficiency and while wearing a shield you gain 40% increased attack speed and 100% increased Armor contribution from your shield.
 - **Liquid Courage** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/liquid_courage.png
   - CoA: Each Fill Level stack now reduces your damage taken by -2%.
 - **Breaking Morale** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/breaking_morale.png
   - CoA: Reduces the Energy cost of Break by -15.
 - **Ice Cold Bubbles** (2 ranks) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/ice_cold_bubbles.png
   - CoA: Ice Cold Bubbles Rank 1 Instant cast Each Fill Level stack now also increases Frost damage dealt by 2%.
 - **Unified Rage** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/unified_rage.png
   - CoA: Unified Rage Passive Instant cast Your Unbridled Rage now increases your chance to trigger Ancestral Combat by 25%.
 - **Blind Stupor** (1 rank) - MATCH barbarian_ancestry
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/blind_stupor.png
   - CoA: Blind Stupor Passive Instant Damage dealt by Keg Smash now reduces enemies' casting speed by 30% for 15 sec.
 - **To The Bone** (1 rank) - MATCH barbarian_headhunting
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/to_the_bone.png
   - CoA: Damage dealt by Breath of the North now reduces enemies' resistances by 75 and increases their Magic damage taken by -2% for 8 seconds.
 - **Splash Zone** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/splash_zone.png
   - CoA: Share a drink from your Tankard with all party and raid members, granting 95 increased attack or spell power for 15 seconds. Does not stack with similar effects.
 - **Drunken Frenzy** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/drunken_frenzy.png
   - CoA: Unbridled Rage now increases your Honored Ancestor's Physical damage by 15% for 10 seconds.
 - **Ancestor's Fury** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/ancestor_s_fury.png
   - CoA: Ancestor's Fury Passive Instant Unbridled Rage now also increases your Frost damage by 10%.
 - **Cold Brew** (1 rank) - MATCH barbarian_ancestry
   - needs: stacking-buff, resource-grant
+  - icon: assets/icons/coa/cold_brew.png
   - CoA: Cold Brew Passive Instant cast Critical strikes with Frost damage now generate a stack of Fill Level . Can only occur once per sec.
 - **Ancestral Spirit** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/ancestral_spirit.png
   - CoA: Reduces the Energy cost of your Spirit spells and increases the duration of your Shouts by -50%.
 - **The Spins** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: transforms-ability, aoe-cleave
+  - icon: assets/icons/coa/the_spins.png
   - CoA: The Spins Passive Instant cast Casting Keg Smash now causes your Honored Ancestor to perform an Ancestral Whirl attack upon nearby enemies.
 - **Ramhorn Rage** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
+  - icon: assets/icons/coa/ramhorn_rage.png
   - CoA: Ramhorn Rage Instant 2 min cooldown Enrage Effect Enrage party and raid members within 8 yds for 3 sec, regenerating 2% of their maximum health every 1.5 sec. Melee auto attacks extend the duration of this effect by 2 sec, up to a maximum of 15 sec. This ability empties your Tankard , consuming Fill Level stacks and triggering with a reduced cooldown based on stacks consumed. Barbaric Rage While e
 - **War Cry** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/war_cry.png
   - CoA: War Cry Instant 3 min cooldown Unleash a blood curdling war cry, increasing melee and ranged attack speed by 20%, and attack power by 150 of party and raid members within 25 yds for 20 sec. Allies cannot benefit from this spell again for 5 min.
 - **Clanlord's Totem** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/clanlord_s_totem.png
   - CoA: Clanlord's Totem 20 Energy Instant 1 min cooldown Drop the Clanlord's Totem at the target location where it will remain for 15 sec. The totem emanates an aura for 15 sec, causing allied players within 100 yds to deal AP *0.35 additional damage as Frost damage when they deal direct damage and gain 50% increased honor. Applies Exhaustion , preventing you from benefiting from similar effects for 1 mi
 - **Tavern Brawl!** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tavern_brawl.png
   - CoA: Tavern Brawl! 25 Energy Instant 5 min cooldown Enrage all nearby allies, increasing their haste by 30% for 20 sec. After being affected by this spell, allies cannot benefit from similar effects for 5 min.
 - **Might of Utgarde** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/might_of_utgarde.png
   - CoA: Might of Utgarde Passive Instant Attacks from your Ancestral Combat now heal your Honored Ancestor for 5% maximum health and cause it to perform an Ancestral Whirl attack.
 - **Rage of the North** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
+  - icon: assets/icons/coa/rage_of_the_north.png
   - CoA: Rage of the North Passive Instant Increases the amount of attacks that can trigger your Ale of The God-King by 10.
 - **Fury of the North** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/fury_of_the_north.png
   - CoA: Increases the duration of the enrage effect from your Ramhorn Rage by 6 sec and causes it to increase your movement speed by 40% for its duration.
 - **Rally Behind Me!** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rally_behind_me.png
   - CoA: Increases the duration of Warband by 3 sec. In addition, your first use of Warband will incur no cooldown. Can only occur once every 1.5 min.
 
 ### Ancestry abilities
@@ -386,31 +500,40 @@ Source: data/reference/coa/barbarian.json (Ascension CoA Builder payload, the sa
 
 - **Savage Strength** (2 ranks) - MATCH barbarian_brutality  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/savage_strength.png
   - CoA: Increases your Agility by 5%.
 - **One With The Ancestors** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/one_with_the_ancestors.png
   - CoA: Increases your critical strike chance by 2%.
 - **War Tales** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/war_tales.png
   - CoA: War Tales Passive Instant cast Increases your chance to resist fear and horrify effects by 25%.
 - **Warband** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/warband.png
   - CoA: Warband 30 Energy Instant 1 min cooldown Bring all nearby allies into the warband for 12 sec, granting them Born in Blood , repeating every 3 sec. Born in Blood Battle fuels your vitality, restoring 15 health and 9 Energy over 3 sec.
 - **Drunken Brawler** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/drunken_brawler.png
   - CoA: Taking direct damage now increases your chance to dodge by 1% for 3 seconds, stacking 10 times.
 - **Powerful Grip** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/powerful_grip.png
   - CoA: Powerful Grip Passive Instant Reduces the duration of disarm effects by 30%.
 - **Bloodthirsty** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/bloodthirsty.png
   - CoA: Increases the effectiveness of your Outrage by 100%.
 - **Mak'Gora** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mak_gora.png
   - CoA: Critical strikes on enemies above 80% or below 20% health now challenges them to a Mak'Gora. Only 1 enemy can be challenged at a time.Mak&#39;gora (20%) Challenge an enemy to a duel to the death for 10 seconds, reducing their healing received by -20% and absorbing the next 1244 + 100% AP healing done to them.
 - **Frozen Warlord** (1 rank) - MATCH barbarian_ancestry  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frozen_warlord.png
   - CoA: Damage dealt by Hodir's Wrath now freezes enemies in place for 0 seconds.
 
 ### Class (shared) abilities

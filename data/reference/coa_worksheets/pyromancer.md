@@ -5,6 +5,7 @@
 - not in our data at all: **65**
 - single-clause scalars in CoA's own tree: **18** (13%)
 - carry real-time assumptions needing translation: **61** (47%)
+- without an extracted CoA icon: **1**
 
 Source: data/reference/coa/pyromancer.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -15,114 +16,150 @@ Source: data/reference/coa/pyromancer.json (Ascension CoA Builder payload, the s
 - **Ignite** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ignite.png
   - CoA: Generates 10 Heat Per Tick Burn an enemy, inflicting 119 Fire damage over 21 seconds. If Ignite is dispelled it will cause 111 + 150% fire SP Fire damage to the dispeller. Castable while moving.
 - **Combustion** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: dot-hot
+  - icon: assets/icons/coa/combustion.png
   - CoA: Damage dealt by Explode is now increased by 15% for each of your Pyromancer periodic effects on the target.
 - **Residual Power** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/residual_power.png
   - CoA: Each active Ember now reduces the cast time of Explode by -8%.
 - **Arsonist** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/arsonist.png
   - CoA: Increases the critical damage of your Ember spenders by 10%.
 - **Magnitude 10** (2 ranks) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/magnitude_10.png
   - CoA: Increases the critical strike chance of Flare Bolt by 5%.
 - **Scorched** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/scorched.png
   - CoA: Scorched Specialization Instant Level 20 Passive Direct critical strikes with Ember spenders now Scorch the target, Burning them for an additional 30% of the damage dealt over 6 sec.
 - **Cataclysmic Power** (3 ranks) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: dot-hot
+  - icon: assets/icons/coa/cataclysmic_power.png
   - CoA: Cataclysmic Power Rank 1 Instant Increases the damage of Flare Bolt by 3% for each periodic effect you have on the target.
 - **Embrace the Fire** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/embrace_the_fire.png
   - CoA: Increases the damage of Blaze and Ignite by 20%.
 - **Fired Up!** (1 rank) - MATCH pyromancer_incineration
   - needs: proc-chance, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fired_up.png
   - CoA: Fired Up! 10% of base mana Instant 1 min cooldown Your Ember spenders are now instant and have a 30% chance to refund their cost and increases your chance to critically strike by 30% for 15 sec.
 - **Searing Power** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/searing_power.png
   - CoA: Increases the spell power scaling of Flare Bolt by 20%.
 - **Pillar of Flame** (1 rank) - MATCH pyromancer_incineration
   - needs: resource-grant
+  - icon: assets/icons/coa/pillar_of_flame.png
   - CoA: Generates 20 Heat Per Target Create a pillar of lava beneath an enemy, dealing 36 + 31.24% fire SP Fire damage. Deals an additional 92 + 34.36% fire SP Fire damage to enemies near the primary target.
 - **Wreath of Flames** (1 rank) - MATCH pyromancer_incineration
   - needs: proc-chance, stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wreath_of_flames.png
   - CoA: Wreath of Flames Instant cast Periodic Fire damage now has a 10% chance to grant a stack of Flamecasting , or 2 stacks if they critically strike. Flamecasting Increases your spell haste by 5% for 15 sec. Stacks 5 times. Additional applications do not refresh duration.
 - **Flamespiller** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flamespiller.png
   - CoA: Flamespiller Passive Instant Critical strikes with Explode or Flames of Neltharion now extend the duration of Fired Up by 0.5 sec.
 - **Melting Point** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/melting_point.png
   - CoA: Increases your critical strike chance by 3% and critical strikes with Fire spells now increases the chance for the enemy to by critically hit with spells by 3% for 12 seconds.
 - **Lighting the Fuse** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: dot-hot
+  - icon: assets/icons/coa/lighting_the_fuse.png
   - CoA: Level 30 Passive Allows your periodic effects to critically strike and increases your spell critical strike rating by 15% of your Intellect.
 - **Magmatic** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/magmatic.png
   - CoA: $8a
 - **To Ashes** (1 rank) - MATCH pyromancer_incineration
   - needs: resource-grant
+  - icon: assets/icons/coa/to_ashes.png
   - CoA: Damaging critical strikes now generate 10 Heat and restore 3% of your base mana.
 - **Roasted Alive** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/roasted_alive.png
   - CoA: Increases the chance to trigger Fired Up by 20%.
 - **Pyromantic Accelerants** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/pyromantic_accelerants.png
   - CoA: Your Flames of Neltharion and Explode now deal 15% increased damage to Burning targets.
 - **Explosive** (2 ranks) - MATCH pyromancer_incineration  [ours is scalar]
+  - icon: assets/icons/coa/explosive.png
   - CoA: Explosive Rank 1 Instant Increases the tick rate of Blaze and Ignite by 10%.
 - **Sizzle** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant, dot-hot
+  - icon: assets/icons/coa/sizzle.png
   - CoA: When Flamecasting expires you launch a Flare Bolt on up to 12 enemies affected by your active Pyromancer periodic effects.Flare Bolt Generates 20 Heat Invoke flames upon an enemy, dealing 19 + 57.1% fire SP Fire damage.
 - **Fiery Passion** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/fiery_passion.png
   - CoA: Fiery Passion Passive Instant Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, your spell haste is increased by 3%.
 - **Incinerator** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/incinerator.png
   - CoA: Level 40 Passive Increases your spell penetration by 30, scaling with your level.
 - **Rapid Incineration** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/rapid_incineration.png
   - CoA: Consuming Embers now reduces the cooldown of Lava Shard and Pillar of Flame by 10%.
 - **Pyromaniac** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
+  - icon: assets/icons/coa/pyromaniac.png
   - CoA: Pyromaniac Passive Instant Increases the critical strike chance of Ember spenders by 5%.
 - **Flames of Focus** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flames_of_focus.png
   - CoA: Adds 1 additional stack to Flamecasting and increases its duration by 5 sec.
 - **Stoke** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/stoke.png
   - CoA: Critical strikes with Ignite and Infernus now extend their own duration on the target by 3 sec, up to a maximum of 12 sec.
 - **Dark Iron Legacy** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
+  - icon: assets/icons/coa/dark_iron_legacy.png
   - CoA: Targets affected by the disorient from Meteor take an additional 40% increased damage from the next Explode or Lava Shard.
 - **Destroyer's Legacy** (1 rank) - MATCH pyromancer_incineration  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/destroyer_s_legacy.png
   - CoA: Destroyer's Legacy Passive Instant Damage dealt by Lava Shard on enemies affected by Blaze now blasts nearby enemies for 50% of the damage dealt as Fire damage.
 - **Pyroclastic Flow** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/pyroclastic_flow.png
   - CoA: Flare Bolt now increases the damage of subsequent Flare Bolts by 4% for 10 seconds, stacking 5 times. Flames of Neltharion and Explode now increase the damage of subsequent Explodes or Flames of Neltharion by 4% for 5 seconds, stacking 5 times.
 - **Heat Wave** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/heat_wave.png
   - CoA: Flamecasting stacks now also increase the damage of Explode and Flames of Neltharion by 4% per stack.
 - **Pyroclasm** (1 rank) - MATCH pyromancer_incineration
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/pyroclasm.png
   - CoA: Pyroclasm 20% of base mana Instant cast 1 min cooldown Consumes 1 Ember Create a pyroclasm instantly consuming your Burning effects on a target to deal the two times total periodic damage plus an additional PL *35 to PL *35+ PL *2 over 10 sec, piercing absorption effects and resistances.
 - **Burned** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/burned.png
   - CoA: Level 50 Passive Direct Fire damage dealt now applies Burned to the target for 15 seconds.Burned (Proc) Increases the targets damage taken from your periodic effects by 3% stacking 5 times.
 - **Flames of the Firelord** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flames_of_the_firelord.png
   - CoA: Your periodic damage dealt now has a 5% chance to grant you Eruption for 5 sec.
 - **Sulfuron Harbinger** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/sulfuron_harbinger.png
   - CoA: $88
 - **Legacy of Ragnaros** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/legacy_of_ragnaros.png
   - CoA: Legacy of Ragnaros Passive Instant Pyroclasm now causes your next 3 Lava Shards within 12 sec to trigger no cooldown and be free of cost.
 
 ### Incineration abilities
@@ -133,129 +170,169 @@ Source: data/reference/coa/pyromancer.json (Ascension CoA Builder payload, the s
 
 - **Echo of Nozdormu** (1 rank) - MATCH pyromancer_draconic
   - needs: transforms-ability
+  - icon: assets/icons/coa/echo_of_nozdormu.png
   - CoA: Transforms your Explode into Echo of Nozdormu.Echo of Nozdormu Obliterate an enemy, dealing 120 + 105% SP Chromatic Damage and reducing all spell and ability cooldowns by 5%.
 - **Alexstrasza's Gift** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/alexstrasza_s_gift.png
   - CoA: Increases the damage and healing of your Ember spenders by 15%.
 - **Agonizing Burns** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/agonizing_burns.png
   - CoA: Increases the duration of Blaze by 20% and allows it to benefit from your spell haste.
 - **Aspect's Blessing** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aspect_s_blessing.png
   - CoA: Aspect's Blessing 15% of base mana Instant cast 1 min cooldown Your next Echo of Nozdormu or Flames of Neltharion is guaranteed to critically strike and triggers Aspect of Time , casting an additional time for 30% of the damage dealt. Lasts 15 sec. Damage dealt in this way can trigger up to 3 additional times.
 - **Critical Pressure** (2 ranks) - MATCH pyromancer_draconic  [ours is scalar]
+  - icon: assets/icons/coa/critical_pressure.png
   - CoA: Critical Pressure Rank 1 Instant Increases your Intellect and critical strike chance by 3%.
 - **Aspect of Time** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/aspect_of_time.png
   - CoA: Level 20 Passive Damage dealt by Echo of Nozdormu and Flames of Neltharion now has a 33% chance to cast an additional time for 30% of the damage dealt. Damage dealt in this way can trigger this effect up to 3 additional times.
 - **Firefall** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/firefall.png
   - CoA: Firefall Rank 1 12% of base mana 1.5 sec cast 8 sec cooldown Generates 10 Heat Per Target Call down streaks of fire upon an enemy and up to 8 enemies within 15 yds of them, dealing 79+0+ FireP *0.3124 Fire damage.
 - **Lifebringer's Blessing** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/lifebringer_s_blessing.png
   - CoA: Damage dealt by Aspect of Time now heals you equal to 200% of the damage dealt.
 - **Flames of Fate** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/flames_of_fate.png
   - CoA: Your Aspect's Blessing now affects 2 additional casts of Echo of Nozdormu, but its cooldown is doubled, and its mana cost is increased by 50%.
 - **Destroyer's Maw** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/destroyer_s_maw.png
   - CoA: Destroyer's Maw Rank 1 9% of base mana 2 sec cast 15 sec cooldown Generates 30 Heat Unleash a vicious draconic maw on an enemy, dealing 103+0+ FireP *1 Fire damage that cannot be resisted.
 - **Cinderstorm** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: resource-grant
+  - icon: assets/icons/coa/cinderstorm.png
   - CoA: Reduces all threat generated by Firefall by -25% and increases its critical strike chance by 10%.
 - **Overwhelming Flames** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/overwhelming_flames.png
   - CoA: Overwhelming Flames Passive Instant Your Lava Shard now spreads Blaze to up to 1 additional enemy within 8 yds of the primary target.
 - **Timed Attacks** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/timed_attacks.png
   - CoA: Timed Attacks Rank 1 Instant Increases your spell haste by 4%.
 - **Searing Flames** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/searing_flames.png
   - CoA: Increases the spell bonus scaling of Lava Shard by 30%.
 - **Mad Aspect's Scepter** (2 ranks) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/mad_aspect_s_scepter.png
   - CoA: Increases the damage of Destroyer's Maw by 20%.
 - **Flames of the Aspects** (1 rank) - MATCH pyromancer_draconic
   - needs: transforms-ability, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flames_of_the_aspects.png
   - CoA: Casting Destroyer's Maw now grants 2 stacks of Flamecasting.Flamecasting Increases your spell haste by 5% for 15 seconds. Stacks 5 times. Additional applications do not refresh duration.
 - **Draconic Aspect** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/draconic_aspect.png
   - CoA: $8e
 - **Ascender** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/ascender.png
   - CoA: Reduces the cooldown of Dragon Leap by -5 sec.
 - **Draconic Invocation** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant
+  - icon: assets/icons/coa/draconic_invocation.png
   - CoA: Draconic Invocation 20% of base mana Instant cast 3 min cooldown Invoke all of the Dragon Aspects, instantly generating 5 Embers .
 - **Fire and Brimstone** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: stacking-buff, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fire_and_brimstone.png
   - CoA: Fire and Brimstone Passive Instant cast Generating an Ember now increases the damage and healing of Ember spenders by 1% for 10 sec, stacking 5 times.
 - **Earthwarder** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/earthwarder.png
   - CoA: Being struck by a melee attack while Draconic Aspect is active now has a 20% chance to make your next Flare Bolt within 8 seconds instant cast.
 - **Expediting Power** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/expediting_power.png
   - CoA: Expediting Power Passive Instant cast Your Echo of Nozdormu now reduces the cooldown of Aspect's Blessing by an additional 5%.
 - **Perpetual Burning** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/perpetual_burning.png
   - CoA: The duration of Blaze is now increased by 1 sec for each Ember you have when you cast it.
 - **Flames of Execution** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/flames_of_execution.png
   - CoA: Damage dealt by Blaze is increased by 25% on enemies below 35% of their maximum health.
 - **Molten Fury** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/molten_fury.png
   - CoA: Molten Fury Passive Instant cast Increases the damage and healing provided by Eruption by 15%, but reduces its duration by 50%.
 - **Blackrock Mountaineer** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blackrock_mountaineer.png
   - CoA: Reduces the cooldown of Eruption by -30 sec.
 - **Draconic Tempest** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/draconic_tempest.png
   - CoA: Draconic Tempest Passive Instant Your Dragon's Wrath now melts enemies, increasing their chance to be hit by spells by 3% for 10 sec.
 - **Soul of the Dragon** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/soul_of_the_dragon.png
   - CoA: Soul of the Dragon Passive Instant Casting Flare Bolt now has a 15% chance to cast it again free of cost.
 - **Inner Flame** (1 rank) - MATCH pyromancer_draconic
   - needs: stacking-buff
+  - icon: assets/icons/coa/inner_flame.png
   - CoA: Inner Flame Instant Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.
 - **Legacy of Deathwing** (1 rank) - MATCH pyromancer_draconic
   - needs: proc-chance, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/legacy_of_deathwing.png
   - CoA: Level 40 Passive Consuming Embers now has a 30% chance to reset the cooldown of Destroyer's Maw and Firefall and grant you Legacy of Deathwing.Legacy of Deathwing Your next Destroyer's Maw or Firefall within 10 seconds is instant cast and free of cost.
 - **Breath of Neltharion** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/breath_of_neltharion.png
   - CoA: Breath superheated flames in a cone in front of you that melts the weapons of affected enemies, disarming their melee and ranged weapons for 6 seconds.
 - **Black Magic** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: cooldown, resource-grant
+  - icon: assets/icons/coa/black_magic.png
   - CoA: Generating Heat now reduces the cooldown of Draconic Invocation and Essence of Malygos by 3%. Can only occur once per sec.
 - **Draconic Rage** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: proc-chance
+  - icon: assets/icons/coa/draconic_rage.png
   - CoA: Draconic Rage Passive Instant Consuming Embers now has a 25% chance to trigger Dragon's Wrath on all enemies affected by Blaze .
 - **Invocation of Flames** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/invocation_of_flames.png
   - CoA: Invocation of Flames Passive Instant Your Draconic Invocation now grants 5 stacks of Flamecasting . In addition, allows Flamecasting to stack 5 additional times and increases its duration by 5 sec.
 - **Death From Above** (1 rank) - MATCH pyromancer_draconic
   - needs: cooldown, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/death_from_above.png
   - CoA: Death From Above 20% of base mana Instant cast 1 min cooldown Root enemies in a line for 3.5 sec and then soar forward in a blaze of glory, dealing 526+16.0 Points Per Level+ FireP *1 Fire damage every 0.5 sec to enemies beneath you for 10 sec.
 - **Wild Magic** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/wild_magic.png
   - CoA: Wild Magic Passive Instant Damage dealt by Dragon's Wrath now has a 50% chance to become unstable, dealing 50+1.0 Points Per Level+ Int *0.165% additional damage as Magic damage, but burning 85+1.0 Points Per Level+ Int *.4 mana. Both the damage dealt and mana burned scale with your Intellect.
 - **Blackflight Resurgence** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
+  - icon: assets/icons/coa/blackflight_resurgence.png
   - CoA: Blackflight Resurgence Specialization Instant Level 50 Passive Legacy of Deathwing now also increases the damage of your next Destroyer's Maw or Firefall by 25%.
 - **Aspect of Eternity** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aspect_of_eternity.png
   - CoA: Allows the periodic damage of Blaze to critically strike. In addition, damage dealt by Echo of Nozdormu or Aspect of Time now has a 20% chance to guarantee your next Blaze within 8 seconds to critically strike and increase its critical damage by 100% and duration by 25%.
 - **Aspect of Earth** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
+  - icon: assets/icons/coa/aspect_of_earth.png
   - CoA: $8c
 - **Aspect of Magic** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aspect_of_magic.png
   - CoA: Damage dealt by Dragon's Wrath now increases your Intellect by 3% for 20 seconds, stacking 10 times. Consuming an Ember now increases your critical strike chance by 2% and your critical damage by 4% for 20 seconds, stacking 5 times.
 
 ### Draconic abilities
@@ -266,128 +343,167 @@ Source: data/reference/coa/pyromancer.json (Ascension CoA Builder payload, the s
 - **Phoenix Egg** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/phoenix_egg.png
   - CoA: Summon a Phoenix for 1 minute at the target location that heals nearby party members for 117 + 15% healing every 5 sec. You may only have 1 Phoenix active at a time.
 - **Phoenix Dive** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/phoenix_dive.png
   - CoA: Phoenix Dive 18% of base mana Instant cast Command your Phoenix to swoop to the target ally and shield allies in their path with fire, absorbing 175+ SP *0.5+ Spi *1 damage for 30 sec, scaling with your Spirit.
 - **Cleansing Flames** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cleansing_flames.png
   - CoA: Generates 10 Heat Each Tick Spread cleansing flames on 5 allies and enemies in front of you, damaging or healing for 69 + 44.4% SP over 3 seconds.
 - **Soothing Flames** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/soothing_flames.png
   - CoA: Soothing Flames Passive Instant Healing done by Kindle and Cinderheart now additionally heals the target for 30% of the healing done over 3 sec.
 - **Ember Charm** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/ember_charm.png
   - CoA: Ember Charm Passive Instant Reduces the cast time of Cinderheart and Kindle by 15%.
 - **Flame Bonding** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flame_bonding.png
   - CoA: Level 20 Passive Your Inferno Barrier now triggers a -15 sec reduced cooldown when used on an ally other than yourself.
 - **Spirit of Fire** (2 ranks) - MATCH pyromancer_flameweaving  [ours is scalar]
+  - icon: assets/icons/coa/spirit_of_fire.png
   - CoA: Spirit of Fire Rank 1 Instant Increases the effectiveness of your absorption effects by 20%.
 - **From The Ashes** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/from_the_ashes.png
   - CoA: From The Ashes Passive Instant Increases your healing done to allies below 35% health by 25%.
 - **Scorching Spirit** (2 ranks) - MATCH pyromancer_flameweaving  [ours is scalar]
+  - icon: assets/icons/coa/scorching_spirit.png
   - CoA: Scorching Spirit Rank 1 Instant Increases your Spirit by 10%.
 - **Unfathomably Hot!** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/unfathomably_hot.png
   - CoA: Each tick of Cleansing Flames now generates 5 additional Heat.
 - **Concentrated Fire** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/concentrated_fire.png
   - CoA: Increases the damage and healing of Cleansing Flames by 20%.
 - **Kael's Command** (1 rank) - MATCH pyromancer_flameweaving
   - needs: cooldown, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/kael_s_command.png
   - CoA: Kael's Command 18% of base mana Instant cast 2 min cooldown Generates 50 Heat Command your Phoenix to go dormant for 10 sec. While dormant, it radiates healing to nearby allies for 205+14.3 Points Per Level+( Heal *1) every 2 sec.
 - **Sunstrider Array** (1 rank) - MATCH pyromancer_flameweaving
   - needs: cooldown, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sunstrider_array.png
   - CoA: Sunstrider Array 15% of base mana Instant cast 1 min cooldown For 15 sec, you generate 1 Ember every 3 sec and your Cinderheart generates double the amount of Heat with each cast.
 - **Burning Crescendo** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/burning_crescendo.png
   - CoA: Increases the tick rate of your Phoenix Egg by -2 sec.
 - **Ashen Priest** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ashen_priest.png
   - CoA: Level 30 Passive Your critical heals now grant allies Replenishment. In addition, 20% of your mana regeneration continues while in combat. Replenishment Replenishes 5% of maximum mana per 5 sec for 15 seconds.
 - **Rekindle** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rekindle.png
   - CoA: Rekindle Passive Instant Healing done by Kindle now increases your healing done on the target 5% for 20 sec, stacking 2 times.
 - **Lucifron's Rage** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lucifron_s_rage.png
   - CoA: Effective healing done by your Phoenix now causes allies to deal additional Fire damage with all attacks for 6 seconds.
 - **Lifebinder's Fire** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Lifebinder's Fire Passive Instant cast Generating an Ember now increases your healing done by 3% for 8 sec, stacking 5 times.
 - **Offering of Executus** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/offering_of_executus.png
   - CoA: When your Phoenix dies or expires, it now heals all allies within 30 yds equal to its maximum health.
 - **Living Flame** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
+  - icon: assets/icons/coa/living_flame.png
   - CoA: Living Flame Instant Increases the critical strike chance of Ember Touch by 10%.
 - **Neltharion's Resolve** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: cooldown
+  - icon: assets/icons/coa/neltharion_s_resolve.png
   - CoA: Neltharion's Resolve 27% of base mana Instant cast 1 min cooldown Place Neltharion's resolve on all party members, warding them against fear. The next fear effect used against the target will fail, using up the ward. Lasts 1 min.
 - **Warmth** (1 rank) - MATCH pyromancer_flameweaving
   - needs: aoe-cleave, dot-hot
+  - icon: assets/icons/coa/warmth.png
   - CoA: You now radiate warmth to nearby allies, healing the lowest health nearby ally equal to 25% of your periodic damage dealt.
 - **Sageweaving** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/sageweaving.png
   - CoA: Sageweaving Passive Instant Consuming an Ember now reduces the cast time of your next Cinderheart or Kindle by 15% for 12 sec, stacking 2 times.
 - **Burn Impurities** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/burn_impurities.png
   - CoA: Burn Impurities 18% of base mana Instant Burn away 1 harmful magic effect and 1 disease effect from an ally.
 - **Fiery Faith** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
+  - icon: assets/icons/coa/fiery_faith.png
   - CoA: Level 40 Passive Increases your spell critical strike rating by 15% of your Spirit.
 - **Touched by Fire** (2 ranks) - MATCH pyromancer_flameweaving  [ours is scalar]
+  - icon: assets/icons/coa/touched_by_fire.png
   - CoA: Your Cinderheart, Ember Touch, and Kindle now gains an additional 15% of your bonus healing spell power.
 - **Invigoration** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/invigoration.png
   - CoA: Invigoration Passive Instant Healing done by your Phoenix now generates you 5 Heat .
 - **Cauterizing Wounds** (1 rank) - MATCH pyromancer_flameweaving
   - needs: transforms-ability, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cauterizing_wounds.png
   - CoA: Cauterizing Wounds Passive Instant cast Healing done by Ember Touch now grants you Flamecasting . Flamecasting Increases your spell haste by 5% for 15 sec. Stacks 5 times. Additional applications do not refresh duration.
 - **Brilliance** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/brilliance.png
   - CoA: Flamecasting can now stack 2 additional times.Flamecasting Increases your spell haste by 5% for 15 seconds. Stacks 5 times. Additional applications do not refresh duration.
 - **Tender Touch** (2 ranks) - MATCH pyromancer_flameweaving
+  - icon: assets/icons/coa/tender_touch.png
   - CoA: Tender Touch Rank 1 Instant Effective healing done by Ember Touch now heals up to 3 of the lowest health allies near your target for an additional 15% of the amount healed.
 - **Shielded by Flames** (1 rank) - MATCH pyromancer_flameweaving
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shielded_by_flames.png
   - CoA: Shielded by Flames Passive Instant Healing critical strikes now apply an absorption shield to allies equal to 30% of the healing done for 8 sec.
 - **Roaring Pyre** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/roaring_pyre.png
   - CoA: Roaring Pyre 18% of base mana Instant 1 min cooldown Conjure a Roaring Pyre at the target location for 20 sec. Allies within 30 yds of the bonfire are healed for 29+3.1 Points Per Level+ Heal *0.1+ Spi *.5, scaling with your Spirit and healing spell power, every 2 sec and their Spirit is increased by 10%.
 - **Veins of Fire** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/veins_of_fire.png
   - CoA: Flamecasting now also grants 3% increased Spirit per stack.
 - **Inferno** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/inferno.png
   - CoA: Direct healing critical strikes have a 50% chance to create an Inferno around the target. Can only occur once every 5 sec.Inferno Engulf an ally in cleansing flames for 5 seconds, healing them for 161 and party and raid members within 40 yds of them for 91 every 1 sec. At the end of the duration, party and raid members are healed for 383 to 403.
 - **Burning Passion** (1 rank) - MATCH pyromancer_flameweaving
   - needs: resource-grant
+  - icon: assets/icons/coa/burning_passion.png
   - CoA: Level 50 Passive Effective healing critical strikes now generate 10 Heat.
 - **Fueling the Fire** (1 rank) - MATCH pyromancer_flameweaving
   - needs: aoe-cleave
+  - icon: assets/icons/coa/fueling_the_fire.png
   - CoA: Using Ember Touch on your Roaring Pyre or Phoenix will cause them to erupt in flames, healing 12 allies within 30 yds for 232 + 100% Spirit, additionally scaling with Spirit. Allied Pyromancers can also fuel the fire with your Roaring Pyre and Phoenix.
 - **Emberheart** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/emberheart.png
   - CoA: $86
 - **Scepter of Fire** (1 rank) - MATCH pyromancer_flameweaving  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/scepter_of_fire.png
   - CoA: Increases the duration of Inferno by 5 sec, causing its end of duration explosion of healing to trigger every 5 sec instead.
 - **Blessing of the Inferno** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/blessing_of_the_inferno.png
   - CoA: Reduces the healing done by Inferno by -20%, but increases its chance to trigger by 50%.
 
 ### Flameweaving abilities
@@ -398,53 +514,67 @@ Source: data/reference/coa/pyromancer.json (Ascension CoA Builder payload, the s
 - **Hellscape** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hellscape.png
   - CoA: Increases the duration of Blaze by 4 sec.
 - **Hasty Incantation** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/hasty_incantation.png
   - CoA: Hasty Incantation Passive Instant cast Increases the range of Flame Step by 10 yds.
 - **Searing Speed** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/searing_speed.png
   - CoA: Dealing periodic damage or healing now has a 15% chance to grant you Searing Speed.Searing Speed Increases your movement speed by 50% for 2 seconds.
 - **Pyromancy** (1 rank) - MATCH pyromancer_draconic  [ours is scalar]
+  - icon: assets/icons/coa/pyromancy.png
   - CoA: Pyromancy Passive Instant Increases your critical damage by 100%.
 - **Fiery Intent** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fiery_intent.png
   - CoA: Reduces the cooldown of Cataclysm by 30 sec.
 - **Grace of Alexstrasza** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/grace_of_alexstrasza.png
   - CoA: Grace of Alexstrasza 18% of base mana Instant cast 5 min cooldown Burns off all movement impairing effects from all party and raid members in a 20 yd radius around you and grants them stun, slow and root immunity for 4 sec.
 - **Gaze of Ysera** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gaze_of_ysera.png
   - CoA: Gaze of Ysera 15% of base mana 1.5 sec cast 1 min cooldown Set Ysera's gaze upon an enemy, putting them to sleep for 40 sec (8 sec vs players). Direct damage dealt may interrupt this effect.
 - **Purifying Flames** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/purifying_flames.png
   - CoA: Increases the duration of Essence of Malygos by 3 sec.
 - **Binding Flames** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/binding_flames.png
   - CoA: When you use Essence of Malygos on an ally other than yourself, you now instantly regenerate 25% of your missing mana.
 - **Constant Burning** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/constant_burning.png
   - CoA: Reduces the cooldown of Spellburn by -4 sec and increases its duration by 1 sec.
 - **Ignis Fatalis** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/ignis_fatalis.png
   - CoA: Ignis Ultimatus is now guaranteed to critically strike, has 20% more critical damage, and channels 0.5 sec faster.
 - **Firestorm** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/firestorm.png
   - CoA: Create a fiery tornado at a location for 10 seconds. Enemies who enter its radius suffer 313 + 40% fire SP Fire damage and are knocked back slightly.
 - **Superheated** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/superheated.png
   - CoA: Consuming or generating an Ember now has a 10% chance to superheat you, increasing all damage and healing done by 10% for 6 sec.
 - **Hot Headed** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hot_headed.png
   - CoA: Reduces the cooldown of Circle of Fire by -30 sec and increases its disorient duration by 1 sec. Enemies disoriented by Circle of Fire cannot receive any healing.
 
 ### Class (shared) abilities

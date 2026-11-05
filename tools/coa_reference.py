@@ -71,6 +71,52 @@ def clean(html):
     return text.strip()
 
 
+COA_ICON_DIR = ROOT / "assets/icons/coa"
+
+_ICON_CACHE = None
+
+
+def _icon_index():
+    global _ICON_CACHE
+    if _ICON_CACHE is None:
+        _ICON_CACHE = {}
+        if COA_ICON_DIR.is_dir():
+            for path in COA_ICON_DIR.iterdir():
+                if path.suffix.lower() == ".png":
+                    _ICON_CACHE[path.stem.lower()] = path.name
+    return _ICON_CACHE
+
+
+def icon_slug(name):
+    """Filename stem the icon extractor used for a talent/ability name.
+
+    Matched on the NAME, not on the node's iconPath. The extractor named its
+    3,478 files after the ability ("a_curse_from_hell.png"), while iconPath
+    holds Blizzard's internal art id ("inv_knife_1h_revendrethquest_b_03").
+    Joining on iconPath matches 13 of 3,612 nodes; joining on the name
+    matches 3,442 of 3,512 - which is the whole difference between having
+    authentic art on new talents and having none.
+    """
+    text = (name or "").lower().replace("'", "_")
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+    return text.strip("_")
+
+
+def icon_for(name):
+    """Icon filename for this talent/ability, or None if we never got one.
+
+    ~70 of CoA's 3,512 names have no extracted icon. They return None rather
+    than a guess, so the caller can fall back deliberately instead of
+    pointing a talent at the wrong art.
+    """
+    index = _icon_index()
+    stem = icon_slug(name)
+    for candidate in (stem, f"a_{stem}", stem.replace("__", "_")):
+        if candidate in index:
+            return index[candidate]
+    return None
+
+
 def nodes_for(slug):
     """Deduped nodes for one class, as {tab_id: [node, ...]}.
 

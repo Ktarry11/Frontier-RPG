@@ -5,6 +5,7 @@
 - not in our data at all: **59**
 - single-clause scalars in CoA's own tree: **18** (14%)
 - carry real-time assumptions needing translation: **53** (41%)
+- without an extracted CoA icon: **2**
 
 Source: data/reference/coa/templar.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -14,132 +15,171 @@ Source: data/reference/coa/templar.json (Ascension CoA Builder payload, the same
 
 - **Vindication** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/vindication.png
   - CoA: Vindication Rank 1 35 Energy Instant Requires One-Handed Melee Weapon Strike an enemy with zeal, dealing 31+0+ AP *0.285+ SP *0.35 Physical damage, triggering Zealotry , and granting an Oath . Oath: Your damaging abilities have a 10% chance to trigger Zealotry . Zealotry Deals 40% off-hand Weapon Damage as Holy Damage.
 - **Righteous Upheaval** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/righteous_upheaval.png
   - CoA: Righteous Upheaval Rank 1 35 Energy Instant 20 sec cooldown Requires One-Handed Melee Weapon Unleash a dominating Oath Breaker , dealing 31+0+ AP *0.45+ SP *0.45 Physical damage, increased by 3% for each time you triggered Zealotry during your Oath Chain . Consumes your Oaths , dealing additional damage for each consumed.
 - **Solemn Soldier** (2 ranks) - MATCH templar_zealot  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/solemn_soldier.png
   - CoA: Increases your melee haste by 5% and expertise by 5.
 - **Combat Training** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/combat_training.png
   - CoA: Increases the effectiveness of Oaths by 20%.
 - **Calm Combatant** (1 rank) - MATCH templar_zealot  [ours is scalar]
+  - icon: assets/icons/coa/calm_combatant.png
   - CoA: Calm Combatant Specialization Instant Level 20 Passive Increases your Holy spell damage by 30% of your attack power.
 - **Oath Flow** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/oath_flow.png
   - CoA: Oath Flow Passive Instant cast Increases the duration of Oath Chain by 2 sec.
 - **Radiance** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/radiance.png
   - CoA: Reduces the Energy cost of Vindication by -5.
 - **Upheave!** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/upheave.png
   - CoA: Increases the critical damage of Righteous Upheaval by 20%.
 - **Battle Hardened** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/battle_hardened.png
   - CoA: Battle Hardened Passive Instant Reduces the cooldown of Righteous Upheaval by 5 sec.
 - **Martial Paladin** (2 ranks) - MATCH templar_zealot  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/martial_paladin.png
   - CoA: Increases your Agility by 5% and your chance to hit by 3%.
 - **Bursting Impact** (1 rank) - MATCH templar_zealot  [ours is scalar]
+  - icon: assets/icons/coa/bursting_impact.png
   - CoA: Bursting Impact Passive Instant Increases your off-hand weapon damage by 25%.
 - **Libram of Zeal** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/libram_of_zeal.png
   - CoA: Libram of Zeal Instant cast 3 min cooldown Read from your Libram of Mortal Abdication , increasing your melee haste by 20% and causes your damaging abilities to reduce the cooldown of Righteous Upheaval by 2 sec for 20 sec. Only 1 Libram spell can be active at a time.
 - **Chakra of Power** (1 rank) - MATCH templar_zealot
   - needs: resource-grant
+  - icon: assets/icons/coa/chakra_of_power.png
   - CoA: Chakra of Power Passive Instant Melee attacks now restore 1 Energy, plus an additional 2 Energy when they critically strike.
 - **Holy Upheaval** (1 rank) - MATCH templar_zealot  [ours is scalar]
+  - icon: assets/icons/coa/holy_upheaval.png
   - CoA: Level 30 Passive Increases the effectiveness Righteous Upheaval gains per trigger of Zealotry by 100%.
 - **Light's Guidance** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/light_s_guidance.png
   - CoA: Healing with Benediction now causes your next Benediction to heal for 25% more for 30 seconds.
 - **Holy Light** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/holy_light.png
   - CoA: Your Benediction now has a 1.5 sec cast time, but now heals for 100% more.
 - **Blade Sermon** (2 ranks) - MATCH templar_zealot  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/blade_sermon.png
   - CoA: Increases the Weapon Damage dealt by Zealotry by 10%.
 - **Priest Training** (1 rank) - MATCH templar_zealot
+  - icon: assets/icons/coa/priest_training.png
   - CoA: Triggering Zealotry now also heals you for 3% of your missing health.Zealotry (Proc) Deals 40% off-hand Weapon Damage as Holy Damage.
 - **Paladin Training** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: proc-chance
+  - icon: assets/icons/coa/paladin_training.png
   - CoA: Triggering Zealotry now has an 8% chance to grant you an additional auto attack on your next strike.Zealotry (Proc) Deals 40% off-hand Weapon Damage as Holy Damage.
 - **One-Punch Man** (1 rank) - MATCH templar_zealot  [ours is scalar]
+  - icon: assets/icons/coa/one_punch_man.png
   - CoA: One-Punch Man Passive Instant cast Increases the the damage of Oath Breakers and Titanstrike by 20%.
 - **Chakra of Light** (2 ranks) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chakra_of_light.png
   - CoA: Chakra of Light Rank 1 Instant Reduces the cooldown of Testaments by 30 sec and Oath Breakers now heal allies around the target for 20+ SP *0.35.
 - **Force of Golganneth** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/force_of_golganneth.png
   - CoA: Force of Golganneth 40 Energy Instant 2 min cooldown Explode with holy power, dealing 54+11.0 Points Per Level+ AP *0.25+ HolP *.25 Holy damage and triggering Zealotry every 0.5 sec to nearby enemies for 5 sec. While active, your Temple Guardian spell has its Energy cost reduced by 50%. Zealotry Deals 40% off-hand Weapon Damage as Holy Damage.
 - **Deliverance** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: transforms-ability
+  - icon: assets/icons/coa/deliverance.png
   - CoA: Deliverance Passive Instant cast Critically striking with Vindication or Righteous Lunge now deals 50% additional Physical damage.
 - **Condemnation** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/condemnation.png
   - CoA: Increases the critical strike chance gained through Condemn by 3%.
 - **Iron Penance** (1 rank) - MATCH templar_zealot
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/iron_penance.png
   - CoA: Dealing damage with Zealotry now applies Iron Penance to the target, increasing their Physical damage taken by you by 1% for 3 seconds, stacking 10 times.
 - **Divine Fury** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/divine_fury.png
   - CoA: $64
 - **Pious Sweep** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/pious_sweep.png
   - CoA: Increases the damage of Chastise by 25% on enemies above 75% health or affected by Tranquil Circle.
 - **Heaven's Finest** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/heaven_s_finest.png
   - CoA: Heaven's Finest Passive Instant Damaging abilities now grant Heaven's Finest for 12 sec, stacking 6 times. Heaven's Finest Increases your movement speed by 5%. At 6 stacks, increases your Energy regeneration by 100% for 8 sec. Additional applications do not refresh the duration.
 - **Transcending Strikes** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/transcending_strikes.png
   - CoA: Transcending Strikes Passive Instant Your Divine Force will now trigger a 30 sec reduced cooldown when used on enemies affected by Blade of Faith .
 - **Devotion of Khaz'goroth** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/devotion_of_khaz_goroth.png
   - CoA: Devotion of Khaz'goroth Passive Instant Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects. Damage dealt with auto attacks reduce the cooldown of Libram spells by 0.5 sec.
 - **Condemnation** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: proc-chance, aoe-cleave
+  - icon: assets/icons/coa/condemnation.png
   - CoA: Condemnation Passive Instant Dealing damage with Condemn , Holy Cleave , or Blade of Faith now has a 15% chance to trigger Zealotry if you are within melee range of your target. Zealotry Deals 40% off-hand Weapon Damage as Holy Damage.
 - **Fervent Castigation** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, aoe-cleave
+  - icon: assets/icons/coa/fervent_castigation.png
   - CoA: Casting Righteous Upheaval or Blade of Faith now grants you Oath: Retribution and starts your Oath Chain.Oath: Retribution Critical damage increased by 5%.
 - **One With The Light** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/one_with_the_light.png
   - CoA: Casting Oath Breakers now triggers Zealotry on your target and reduces the cooldown of Librams, Force of Golganneth, and Mortal Abdication by -1 sec.Zealotry (Proc) Deals 40% off-hand Weapon Damage as Holy Damage.
 - **Might of Aggramar** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: proc-chance, stacking-buff, cooldown
+  - icon: assets/icons/coa/might_of_aggramar.png
   - CoA: Might of Aggramar Passive Instant Physical damage dealt now has a 25% chance to increase the tick rate and reduce cooldown of your next Blade of Faith by 10%, stacking 5 times.
 - **Blessing of Eonar** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blessing_of_eonar.png
   - CoA: Blessing of Eonar Passive Instant cast Using Libram spells now increases your damage dealt and healing done by 10% for 15 sec.
 - **Unbroken Creed** (1 rank) - MATCH templar_zealot
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/unbroken_creed.png
   - CoA: Unbroken Creed Specialization Instant Level 50 Passive Damaging abilities now grants you Unbroken Creed for 15 sec, stacking up to 3 times. When you use a damaging Oath Breaker or Divine Fury you now consume the stacks and auto attack your target an amount of times equal to your stack count.
 - **Norgannon's Wrath** (1 rank) - MATCH templar_zealot
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/norgannon_s_wrath.png
   - CoA: Norgannon's Wrath 30 Energy Instant cast 30 sec cooldown Target an enemy and leap into the air. After a short delay, you blast them with immense holy force, dealing 1500+4.0 Points Per Level+ HolP *1+ AP *1 Holy damage to up to 10 enemies within 5 yds and reduces their damage and healing done by 10% for 5 sec. Damage dealt pierces all immunities, resistances, and damage absorption effects. Scales 
 - **Blessing of Aggramar** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, stacking-buff, resource-grant
+  - icon: assets/icons/coa/blessing_of_aggramar.png
   - CoA: Righteous Lunge now has a 25% chance to generate an additional stack of Oath: Righteous Lunge.
 - **Fury of Aggramar** (1 rank) - MATCH templar_zealot  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fury_of_aggramar.png
   - CoA: Fury of Aggramar Passive Instant cast 1 sec cooldown Increases the damage dealt by Libram of Consecration by 100% and the effectiveness of your Librams by 25%.
 
 ### Zealot abilities
@@ -150,132 +190,171 @@ Source: data/reference/coa/templar.json (Ascension CoA Builder payload, the same
 - **Sacred Swing** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/sacred_swing.png
   - CoA: Sacred Swing Rank 1 20 Energy Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Swing at enemies in front of you, dealing 125% High Threat Weapon Damage plus 9, slowing their attack and movement speed by 20% for 10 sec. Only usable after avoiding an attack.
 - **Staffguard** (1 rank) - MATCH templar_oathkeeper
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/staffguard.png
   - CoA: Staffguard Passive Instant Casting Sacred Swing now grants you Staffguard , absorbing 125+ Sta *.3 damage, scaling with Stamina, parry and dodge rating, for 8 sec.
 - **Paragon** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/paragon.png
   - CoA: Increases your Stamina by 10, plus an additional amount equal to 10% of your Agility.
 - **Reckoning** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/reckoning.png
   - CoA: Reckoning Rank 1 Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Unleash a powerful Oath Breaker , dealing 27+0+ AP *0.175+ Sta *0.5 Holy damage and restoring 15 Energy for each enemy struck. Consumes your Oaths , dealing additional damage for each consumed.
 - **Bells of Light** (2 ranks) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/bells_of_light.png
   - CoA: Bells of Light Rank 1 Instant Increases your Agility, Intellect, and hit chance by 3%
 - **Graceful Fighter** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/graceful_fighter.png
   - CoA: Graceful Fighter Specialization Instant Level 20 Passive Increases your parry rating by 20% of Agility and your dodge rating by 20% of Intellect.
 - **Sacred Oath** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sacred_oath.png
   - CoA: Critical strikes now remove 1 sec from the duration of Oathkeeper when used.Oathkeeper 40% of damage taken is now delayed and dealt to you over 8 seconds.
 - **Sacred Resistance** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sacred_resistance.png
   - CoA: Casting Reckoning now increases your Armor by 15% for 15 seconds.
 - **Grace of Aman'thul** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/grace_of_aman_thul.png
   - CoA: Reduces the Energy cost of Righteous Lunge by -5 and Sacred Swing by -10.
 - **Faith Guard** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/faith_guard.png
   - CoA: Faith Guard Passive Instant While a Libram is active, your Chastise will now unleash a line of holy power, dealing 112*$ + AP *.25 High Threat Holy damage.
 - **Absolution** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/absolution.png
   - CoA: Absolution Instant 2 min cooldown Taunt all enemies within 8 yds for 4 sec and increase your movement speed by 50% for 4 sec.
 - **Conviction** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/conviction.png
   - CoA: Casting Sacred Swing now increases your melee haste by 5% for 15 seconds, stacking 4 times.
 - **Holy Books** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/holy_books.png
   - CoA: Level 30 Passive Using a Libram now removes 70% of the delayed damage from Oathkeeper. Oathkeeper 40% of damage taken is now delayed and dealt to you over 8 seconds.
 - **Disciplined Mind** (2 ranks) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/disciplined_mind.png
   - CoA: Increases the healing of Benediction by 15% and causes it to dispel 1 poison and disease effect.
 - **Disciplined Blows** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/disciplined_blows.png
   - CoA: Your healing done triggers a holy pulse around healed targets, dealing 89 + 5% AP + 20% Agility Holy damage to nearby enemies. Cnly occur once every 0.5 sec.
 - **Call of the Monastery** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/call_of_the_monastery.png
   - CoA: Call of the Monastery Instant Increases the attack power of all party and raid members 5%. Does not stack with similar effects. In addition, increases your attack power by 5%.
 - **Fortified Body** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff, aoe-cleave
+  - icon: assets/icons/coa/fortified_body.png
   - CoA: Allies within 40 yds receive 6% more healing. Does not stack with similar effects. Additionally, increases your maximum health by 6%.
 - **Way of the Monk** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/way_of_the_monk.png
   - CoA: Way of the Monk Passive Instant Damage dealt by Sacred Swing and Reckoning now reduces casting speed by 10% for 10 sec, stacking 2 times.
 - **Holy Warstaff** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/holy_warstaff.png
   - CoA: Holy Warstaff Passive Instant Increases the damage of Reckoning by 20%.
 - **Parry Dance** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/parry_dance.png
   - CoA: Parry Dance Passive Instant When you critically strike with auto attacks or parry an attack, your chance to parry is now increased by 3% for 5 sec, stacking 5 times.
 - **Justicar of the Light** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/justicar_of_the_light.png
   - CoA: Removes the cooldown from Benediction, but increases its Energy cost by 10.
 - **Guardian of the Light** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/guardian_of_the_light.png
   - CoA: Casting Benediction now reduces the cost of your next Temple Guardian by -50% for 6 seconds.
 - **Barrier of Light** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: cooldown, resource-grant, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/barrier_of_light.png
   - CoA: Barrier of Light Instant 1 min cooldown Emit saving light, increasing the healing received by nearby party and raid members by 40% for 15 sec. For the duration, threat generated by your allies is redirected to you.
 - **Duty Calls** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/duty_calls.png
   - CoA: Duty Calls Passive Instant cast Casting abilities that grant an Oath now increases your damage dealt and movement speed by 2% for 15 sec, stacking 5 times.
 - **Lorescribe** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lorescribe.png
   - CoA: Lorescribe Specialization Instant Level 40 Passive Casting Oath Breaker abilities now reduce the cooldown of Librams by 4 sec.
 - **Spiritual Abdicator** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
+  - icon: assets/icons/coa/spiritual_abdicator.png
   - CoA: Your Testament of Hope now reduces damage taken by an additional 0% per copy.
 - **Untainted** (1 rank) - MATCH templar_oathkeeper
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/untainted.png
   - CoA: Untainted Passive Instant Effectively healing yourself now reduces your Physical damage taken by -10+ Sta *0.1 for 8 sec. Can only occur every 15 sec.
 - **Patience** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/patience.png
   - CoA: Increases the duration of Interdict by 2 sec and its cooldown by -5 sec.
 - **Justice** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/justice.png
   - CoA: Your Interdict now strikes 1 additional nearby target.
 - **Uther's Legacy** (1 rank) - MATCH templar_oathkeeper
+  - icon: MISSING - needs art
   - CoA: Your Condemn now heals you for 75% of the damage dealt.
 - **Transcendent Guardian** (1 rank) - NEW - we have no talent of this name
   - needs: charges, proc-chance, cooldown, pet-summon
+  - icon: assets/icons/coa/transcendent_guardian.png
   - CoA: Transcendent Guardian Passive Instant Charging to an ally with Temple Guardian now has a 40% chance to refresh a charge.
 - **Armor of Faith** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/armor_of_faith.png
   - CoA: Armor of Faith Passive Instant Whenever the absorption shield from Staffguard breaks, inflict 166+5.4 Points Per Level+ AP *0.2+ HolP *0.5 High Threat Holy damage to nearby enemies.
 - **Eternal Blessing** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternal_blessing.png
   - CoA: Eternal Blessing Instant 1 min cooldown Increases your Holy damage and healing done by 15% for 30 sec. While active, Oath Breakers deal an additional 141+2.0 Points Per Level+ AP *.12 Holy damage to nearby enemies.
 - **Mending Ward** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: stacking-buff, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mending_ward.png
   - CoA: Oath Breakers now grant you a stack of Mending Ward for 15 seconds, stacking 3 times.Mending Ward Next instance of direct damage taken while below 35% maximum health will consume these stacks to heal you for 395 + 25% Stamina. Healing scales with your Stamina and parry rating.
 - **Battlepriest** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/battlepriest.png
   - CoA: Battlepriest Passive Instant While above 80% health or below 20% health, you now take 20% reduced Magic damage.
 - **Light's Ward** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
+  - icon: assets/icons/coa/light_s_ward.png
   - CoA: Level 50 Passive Increases all magic resistances equal to 10% of your dodge rating and reduces your damage taken from periodic effects by -15%.
 - **Eternally Devoted** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternally_devoted.png
   - CoA: Damage dealt through Eternal Blessing now reduces the cooldown of Libram spells by -4 sec.
 - **Tome of Light** (1 rank) - MATCH templar_oathkeeper
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/tome_of_light.png
   - CoA: Tome of Light Instant 5 min cooldown Grants a shield equal to 100% of your maximum health for 30 sec, resets the cooldown of Barrier of Light and Tranquil Circle , and grants an additional effect for each. Tome of Light: Barrier of Light Your next Barrier of Light within 30 sec removes the Oathkeeper stagger debuff. Tome of Light: Tranquil Circle Your next Tranquil Circle within 30 sec triggers in
 - **Lightkeeper** (1 rank) - MATCH templar_oathkeeper  [ours is scalar]
   - needs: proc-chance, stacking-buff, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lightkeeper.png
   - CoA: Periodic damage dealt by Condemn now has a 15% chance to increase your parry chance by 2% for 8 seconds, stacking 3 times. Periodic damage dealt by Condemn also has a 15% chance to burst, dealing 100 + 22% AP Holy damage to up to 5 enemies within 5 yds of the target.
 
 ### Oathkeeper abilities
@@ -287,110 +366,147 @@ Source: data/reference/coa/templar.json (Ascension CoA Builder payload, the same
 - **Righteous Tempest** (1 rank) - MATCH templar_crusader
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/righteous_tempest.png
   - CoA: Righteous Tempest Rank 1 30 Energy Instant Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Unleash a whirling Oath Breaker , dealing Weapon Damage plus $805410m1u+ SP *0.25 damage to nearby enemies, scaling with spell power, every 1 sec for 3 sec. Consumes your Oaths , dealing additional damage for each consumed.
 - **Argent Blade** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/argent_blade.png
   - CoA: Crush an enemy with argent fervor, dealing 160% Weapon Damage plus 15 + 35% AP + 100% holy SP, healing you equal to the damage dealt, and extending the duration of your Oath Chain by 3 sec.
 - **Aggramar's Rage** (2 ranks) - MATCH templar_crusader  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/aggramar_s_rage.png
   - CoA: Increases your Holy critical strike chance by 3% and your expertise by 5.
 - **Pure Focus** (2 ranks) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/pure_focus.png
   - CoA: Pure Focus Rank 1 Instant cast Increases the chance to trigger Scourgebane by 5% and your chance to hit by 2%.
 - **Light's Chosen** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/light_s_chosen.png
   - CoA: Level 20 Passive Increases your spell power by 30% of your Agility and your critical strike rating by 15% of your Intellect.
 - **Warrior of Tyr** (1 rank) - MATCH templar_crusader
   - needs: proc-chance, resource-grant, dot-hot
+  - icon: assets/icons/coa/warrior_of_tyr.png
   - CoA: Periodic damage dealt now has a 10% chance to generate 5 Energy.
 - **Chivalric** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/chivalric.png
   - CoA: Chivalric Passive Instant cast Increases your critical damage with Holy spells and abilities by 15%.
 - **Warrior of Dawn** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/warrior_of_dawn.png
   - CoA: Melee damage dealt now has a 10% chance to reset the cooldown and reduce the Energy cost of your next Argent Blade by -50%.
 - **Righteousness** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/righteousness.png
   - CoA: Your Chastise now always triggers Scourgebane on your target.
 - **Paladin Training** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/paladin_training.png
   - CoA: Increases the damage of Righteous Lunge and Argent Blade by 20%.
 - **Scarlet Secrets** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, every-nth-cast
+  - icon: assets/icons/coa/scarlet_secrets.png
   - CoA: Every 2nd cast of Argent Blade now grants you Oath: Retribution.Oath: Retribution Critical damage increased by 5%.
 - **Teachings of the Cathedral** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/teachings_of_the_cathedral.png
   - CoA: Your Oath: Condemn now provides 5% additional critical strike chance.
 - **Scourge-Defense Training** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/scourge_defense_training.png
   - CoA: Warrior of Dawn now also increases the damage and critical strike chance of your next Argent Blade by 20%.
 - **Holy Tempest** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/holy_tempest.png
   - CoA: Damage dealt by Righteous Tempest now spreads Condemn on affected enemies to a nearby enemy.
 - **Whirling Tempest** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/whirling_tempest.png
   - CoA: While Righteous Tempest is active you gain 20% increased movement speed.
 - **Scarlet Training** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/scarlet_training.png
   - CoA: $66
 - **Tyr's Blessing** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/tyr_s_blessing.png
   - CoA: Tyr's Blessing Passive Instant cast Condemn now stacks 1 additional time.
 - **Retribution** (1 rank) - MATCH templar_crusader
   - needs: proc-chance
+  - icon: assets/icons/coa/retribution.png
   - CoA: Melee damage dealt now has a 20% chance to strike 2 additional times for 30% of the damage dealt as Holy Damage.
 - **Judgement** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/judgement.png
   - CoA: Increases the damage of Scourgebane, Scarlet Hammer, and Titanstrike by 25% on enemies below 20% health.
 - **Focused** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/focused.png
   - CoA: Increases the damage of Blade of Faith and Righteous Tempest by 25%.
 - **Templar's Might** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/templar_s_might.png
   - CoA: Templar's Might Passive Instant Your Righteous Lunge and Chastise used on enemies affected by your Condemn now deal 6% increased damage per stack.
 - **Crusader's Brand** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/crusader_s_brand.png
   - CoA: Brand an enemy for 20 seconds, preventing them from mounting, fleeing, or increasing their movement speed above normal movement speed and when they deal direct damage they take 243 + 27.5% holy SP + 18.5% AP Holy Damage. While marked enemies can always be seen by the Crusader even while stealthed or invisible.
 - **Light's Echo** (2 ranks) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/light_s_echo.png
   - CoA: Argent Blade now has a 10% chance to strike an additional time.
 - **Divine Charge** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/divine_charge.png
   - CoA: You and your party members leap upon a divine steed, increasing their movement speed by 100% and causing them to trample nearby enemies for 119 + 20% AP + 40% holy SP Holy Damage every 1 sec for 15 seconds. While active, casting does not dismount you or your allies. Can only be used outdoors.
 - **Radiant Blade** (2 ranks) - MATCH templar_crusader  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/radiant_blade.png
   - CoA: Increases the effectiveness of Oath: Righteous Lunge by 25%.
 - **Improved Scarlet Hammer** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/improved_scarlet_hammer.png
   - CoA: Level 40 Passive Casting Scarlet Hammer now generates 30 Energy.
 - **Holy Edge** (2 ranks) - MATCH templar_crusader  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/holy_edge.png
   - CoA: Damage dealt by Scourgebane and Scarlet Hammer now strikes 1 additional nearby enemy.
 - **Holy Combatant** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/holy_combatant.png
   - CoA: Holy Combatant Passive Instant Your Argent Blade now also extends the duration of Interdict on your target by 1 sec.
 - **Serendipity** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/serendipity.png
   - CoA: Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects. In addition, reduces the cost of your spells and abilities by -5%.
 - **Divine Strikes** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/divine_strikes.png
   - CoA: Damage dealt by Scourgebane now increases the damage of Argent Blade by 5% for 6 seconds, stacking 10 times.
 - **Argent Knight** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/argent_knight.png
   - CoA: Increases the damage dealt by Righteous Tempest and Condemn by 30%. Additionally, Righteous Tempest now reduces all damage taken by -20% while active.
 - **Testament of Strength** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: MISSING - needs art
   - CoA: Your next 3 Titanstrikes incur a -50% reduced cooldown, are usable regardless of your target's health percentage, and deal 25% increased damage. Lasts 1 minute. Applies Sacred Restraint for 1 minute.Sacred Restraint Cannot be targeted by Testaments.
 - **Legacy of the Silver Hand** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/legacy_of_the_silver_hand.png
   - CoA: Legacy of the Silver Hand Passive Instant Casting Argent Blade or Scarlet Hammer now guarantees your next 2 instances of damage dealt by Scourgebane to critically strike. Increases the critical damage of Scourgebane by 15%.
 - **Martial Training** (1 rank) - MATCH templar_crusader  [ours is scalar]
   - needs: transforms-ability
+  - icon: assets/icons/coa/martial_training.png
   - CoA: Martial Training Specialization Instant Level 50 Passive Your Chastise now deals an additional 50% Weapon Damage.
 - **Templar Rituals** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, aoe-cleave
+  - icon: assets/icons/coa/templar_rituals.png
   - CoA: Damage dealt by Righteous Tempest now deals an additional 85 + 50% holy SP + 8.5% AP Holy damage, and upon dealing damage, you pull enemies within 15 yds towards you.
 - **Titanfall** (1 rank) - MATCH templar_crusader  [ours is scalar]
+  - icon: assets/icons/coa/titanfall.png
   - CoA: Your Titanstrike now heals you for twice the damage dealt.
 - **Scarlet Champion** (1 rank) - MATCH templar_crusader
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/scarlet_champion.png
   - CoA: Scarlet Champion Passive Instant Your damaging critical strikes now increase your Holy damage dealt by 2% for 20 sec. stacking 5 times. Can only occur once per sec. At 5 stacks, you are granted High General . High General Your next Chastise consumes all stacks of Scarlet Champion to deal 25% increased direct damage, and be guaranteed to critically strike.
 
 ### Crusader abilities
@@ -400,45 +516,58 @@ Source: data/reference/coa/templar.json (Ascension CoA Builder payload, the same
 
 - **Spiritual** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/spiritual.png
   - CoA: Increases your Energy regeneration by 20%.
 - **Deep Meditation** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deep_meditation.png
   - CoA: Increases the duration of your Oath Chain by 5 sec.
 - **Pious** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/pious.png
   - CoA: Increases all primary attributes by 5%.
 - **Testament of Hope** (1 rank) - NEW - we have no talent of this name
   - needs: charges, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/testament_of_hope.png
   - CoA: Summons 2 copies of yourself that charge at a nearby enemy and aid you in combat for 20 seconds. While within 15 yds of you, each copy reduces all damage you take by -25%. Applies Sacred Restraint for 1 minute.Sacred Restraint Cannot be targeted by Testaments.
 - **Interdict** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/interdict.png
   - CoA: Interdict Instant 2 min cooldown Forbid an enemy from sinning, silencing them for 6 sec. If they are an Undead or Demon they are unable to be healed for the duration.
 - **Sacred Candle** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sacred_candle.png
   - CoA: Reduces the cooldown of Testament of Faith by -60 sec and the duration of Sacred Restraint by -30 sec.
 - **Deep Secrets** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deep_secrets.png
   - CoA: Increases the duration of your Librams and Testaments by 10 sec.
 - **Holy Constitution** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/holy_constitution.png
   - CoA: Increases your damage dealt versus Undead by 5, scaling with level, and increases your chance to resist disease effects by 30%.
 - **Testament of Will** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/testament_of_will.png
   - CoA: Testament of Will 50 Energy Instant cast 1 min cooldown Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 sec. Applies Sacred Restraint for 1 min. Sacred Restraint Cannot be targeted by Testaments .
 - **Finesse** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/finesse.png
   - CoA: Finesse Rank 1 Instant cast Increases your critical strike chance by 2% and reduces the duration of disarm effects against you by 15%.
 - **Sacred Defense** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/sacred_defense.png
   - CoA: Sacred Defense Passive Instant When you take Physical damage you now strike back at enemies for 15% of the damage dealt as Holy damage. Can only occur once per sec. Does not work on Bosses.
 - **Sanctify** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sanctify.png
   - CoA: Sanctify Passive Instant Your Libram spells now grant you 10% increased melee haste for 20 sec.
 - **Pulverizing** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, aoe-cleave
+  - icon: assets/icons/coa/pulverizing.png
   - CoA: Damage dealt by Condemn now has a 15% chance to consecrate the earth around you with holy fervor, dealing 91 + 22.5% holy SP + 10% AP Holy damage to nearby enemies.
 
 ### Class (shared) abilities

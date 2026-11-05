@@ -5,6 +5,7 @@
 - not in our data at all: **55**
 - single-clause scalars in CoA's own tree: **15** (12%)
 - carry real-time assumptions needing translation: **72** (59%)
+- without an extracted CoA icon: **2**
 
 Source: data/reference/coa/chronomancer.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -15,129 +16,167 @@ Source: data/reference/coa/chronomancer.json (Ascension CoA Builder payload, the
 - **Timerend** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/timerend.png
   - CoA: Transforms your Wand of Time into Timerend.Timerend Rend the fabric of time, dealing 36 Chromatic Damage over 6 seconds.
 - **Melt Reality** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/melt_reality.png
   - CoA: Melt Reality Rank 1 23% of base mana 2.5 sec cast 40 sec cooldown Melt the target's reality, dealing a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( FroP , ShaP ), 48+0+ FroP *.23, 48+0+ ShaP *.23) Chromatic Damage every 3 sec for 30 sec. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.
 - **Anomaly Spikes** (2 ranks) - MATCH chronomancer_infinite
   - needs: proc-chance, dot-hot
+  - icon: assets/icons/coa/anomaly_spikes.png
   - CoA: Periodic damage dealt now has a 8% chance to launch an Anomaly Spike at your target. Anomaly Spike Deals cond(gt(SPA, SPS), 161*1+SPA*0.25, 161*1+SPS*0.25) Chromatic Damage.
 - **Mind Melt** (1 rank) - MATCH chronomancer_infinite
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mind_melt.png
   - CoA: Damage dealt by Melt Reality now also reduces the target's primary attributes by -3% for 15 sec, stacking 5 times.
 - **Gift of the Infinite Dragonflight** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
+  - icon: assets/icons/coa/gift_of_the_infinite_dragonflight.png
   - CoA: Level 20 Passive Increases your spell damage by 40% of your Spirit and your spell hit rating by 3% of your Spirit.
 - **Chromatic Shard** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/chromatic_shard.png
   - CoA: Fling a shard of chaos at an enemy, dealing 270 + 200% SP Chromatic Damage, piercing immunities and resistances. Dealing damage with Anomaly Spikes reduces the cast time of this ability by -10% for 30 seconds, stacking 10 times.
 - **Deconstruction** (2 ranks) - MATCH chronomancer_infinite  [ours is scalar]
+  - icon: assets/icons/coa/deconstruction.png
   - CoA: Deconstruction Rank 1 Instant Increases the critical strike chance of Unmake by 5%.
 - **Warpstriker** (2 ranks) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: scalar
+  - icon: MISSING - needs art
   - CoA: Reduces the cost of your spells by -5% and the chance for your spells to be dispelled by 10%.
 - **Chronological** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chronological.png
   - CoA: Every 20 sec, your next Discordance within 10 seconds is instant cast.
 - **Unearthed Power** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/unearthed_power.png
   - CoA: Damage dealt by Anomaly Spikes now also increases your damage and critical strike chance with Chromatic Shard by 6% per stack.
 - **Time Means Nothing** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/time_means_nothing.png
   - CoA: Increases your magic damage dealt by 3% and damage dealt by Chromatic Shard now increases the target's spell damage taken by 10% for 30 seconds.
 - **Hourglass of Eternity** (1 rank) - MATCH chronomancer_infinite
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hourglass_of_eternity.png
   - CoA: Hourglass of Eternity Passive Instant Periodic damage dealt now has a 5% chance to grant you 25% increased haste for 5 sec.
 - **Excruciating Discord** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/excruciating_discord.png
   - CoA: Your Discordances used with Chronological are now guaranteed to critically strike.
 - **Timelost Power** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
+  - icon: assets/icons/coa/timelost_power.png
   - CoA: Your Discordance now strikes 3 additional enemies.
 - **Warping Reality** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/warping_reality.png
   - CoA: Level 30 Passive Casting Waves of Time now grants you Warped Reality for 10 seconds. Warped Reality (Proc) Allows you to cast Unmake and Melt Reality while moving for 10 seconds.
 - **Incarnation of Chaos** (1 rank) - MATCH chronomancer_infinite
   - needs: transforms-ability, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/incarnation_of_chaos.png
   - CoA: Transform into an Incarnate of Chaos, instantly resetting the cooldown of Chromatic Shard and causing your next cast to not incur a cooldown. In addition, your damage dealt is increased by 15% for 15 seconds.
 - **Infinity Crash** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/infinity_crash.png
   - CoA: Increases the critical damage of Discordance and Chromatic Shard by 50%.
 - **Destabilize Time** (1 rank) - MATCH chronomancer_infinite
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/destabilize_time.png
   - CoA: Reduces enemy casting speed by -10% for 20 seconds, increasing by -10% every time they cast. Gaining stacks does not extend the duration of the spell.
 - **Black Hole** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/black_hole.png
   - CoA: Increases the damage of Chromatic Shard, Melt Reality and Unmake by 15% against slowed enemies.
 - **Chaos Fusion** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chaos_fusion.png
   - CoA: While Incarnation of Chaos is active, you may now cast Chromatic Shard while moving, but the duration of Incarnation of Chaos is reduced by -3 sec.
 - **Pure Chaos** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/pure_chaos.png
   - CoA: While Incarnation of Chaos is active, all damage dealt now has a 10% chance to lock yourself in a time loop for 3 seconds, making you unable to cast any spells other than Chromatic Shard. While active, you cast Chromatic Shard free of cost, repeating every 1 sec.
 - **Paradox** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/paradox.png
   - CoA: Casting Melt Reality now causes your next Unmake or Reverse Wound within 6 seconds to become instant and cost -100% less mana.
 - **Slipstream** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/slipstream.png
   - CoA: Target an enemy and slip them into a pocket dimension for 5 seconds, banishing them and making them immune to damage. Activate this ability again before the duration expires to choose a new location to place that enemy within 20 yds.
 - **Gift of the Timeways** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/gift_of_the_timeways.png
   - CoA: Gift of the Timeways Passive Instant Casting Melt Reality now causes your Timerend and Unmake 's periodic damage to benefit from haste for 10 sec.
 - **Eternity** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/eternity.png
   - CoA: Eternity Passive Instant Your Clasp of Infinity now increases your damage dealt to the target by 15%.
 - **End of Time** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/end_of_time.png
   - CoA: At the end of the duration of Clasp of Infinity, you launch an Anomaly Spike at affected enemies and their damage dealt is reduced by -10% for 4 seconds.Anomaly Spike Deals cond(gt(SPA, SPS), 161*1+SPA*0.25, 161*1+SPS*0.25) Chromatic Damage.
 - **Distorted Time** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/distorted_time.png
   - CoA: Reduces the cooldown of Timerend by -2 sec and increases the duration of Decomposition by 3 sec.
 - **Infinite Guard** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/infinite_guard.png
   - CoA: Level 40 Passive Increases the effectiveness of your Temporal Resilience, Temporal Swiftness, and Temporal Restoration spells by 100% and reduces their mana costs by -50%.
 - **Shifting Chaos** (1 rank) - MATCH chronomancer_infinite
   - needs: aoe-cleave
+  - icon: MISSING - needs art
   - CoA: Shifting Chaos Passive Instant cast Your Chromatic Shard and Anomaly Spikes now deal an additional 20% their damage dealt as Chromatic Damage all nearby enemies.
 - **Crown of Power** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
+  - icon: assets/icons/coa/crown_of_power.png
   - CoA: Crown of Power Passive Instant Increases the tick rate of Melt Reality by 25%.
 - **Infinite Horizon** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/infinite_horizon.png
   - CoA: Infinite Horizon Passive Instant Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects. In addition, your Unmake and Timerend gain an additional 20% bonus spell scaling.
 - **Magic Erosion** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/magic_erosion.png
   - CoA: Your Decomposition now deals 10% more damage and applies Magic Erosion to the target, increasing attackers chance to hit the target with spells by 3% for 30 seconds.
 - **Erasion** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/erasion.png
   - CoA: Erasion Passive Instant Increases the chance to trigger Anomaly Spikes by 5% and their damage by 20%.
 - **Aeon Rend** (1 rank) - MATCH chronomancer_infinite
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/aeon_rend.png
   - CoA: Your Chromatic Shard now has a 25% chance to strike again and incur no cooldown.
 - **End of Time** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, dot-hot
+  - icon: assets/icons/coa/end_of_time.png
   - CoA: Level 50 Passive Mind Melt now also increases the target's periodic damage taken from you by 6% per stack.
 - **Null Orbs** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/null_orbs.png
   - CoA: Periodic critical damage dealt now has a 20% chance to grant Null Orbs for 8 seconds.Null Orbs (Proc) Increases the critical damage of Chromatic Shard and Anomaly Spikes based on your spell critical strike rating.
 - **Chaotic Time** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chaotic_time.png
   - CoA: While Incarnation of Chaos is active, your Melt Reality deals 30% increased damage and replicates an additional 20% In addition, periodic damage dealt now reduces the cooldown of Incarnation of Chaos by -1 sec.
 - **Infinite Keeper** (1 rank) - MATCH chronomancer_infinite
   - needs: transforms-ability, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/infinite_keeper.png
   - CoA: Infinite Keeper Passive Instant Using Unmake on an enemy affected by your Timerend now causes the enemy to erupt in a vortex of sand, dealing 141+2.5 Points Per Level) SP *0.12 Chromatic Damage every 1 sec to up to 8 enemies for 6 sec in an 8 yd radius.
 
 ### Infinite abilities
@@ -149,145 +188,183 @@ Source: data/reference/coa/chronomancer.json (Ascension CoA Builder payload, the
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/ripple.png
   - CoA: Ripple 40% of base mana Channeled 30 sec cooldown Channel for up to 5 sec. When the channel ends, if you channeled for at least 1.5 sec, allies within 40 yds are healed based on the duration of the channel. While channeling, you are immune to stun effects.
 - **Sands of Life** (2 ranks) - MATCH chronomancer_time  [ours is scalar]
+  - icon: assets/icons/coa/sands_of_life.png
   - CoA: Sands of Life Rank 1 Instant Increases your healing power by 25% of your Spirit.
 - **Endless Sands** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/endless_sands.png
   - CoA: Endless Sands Passive Instant Casting Epoch now grants you Endless Sands . Endless Sands Cast time of your next Reverse Wounds within 15 sec is reduced by 20%, stacking up to 5 times.
 - **Correct the Mistake** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/correct_the_mistake.png
   - CoA: Correct the Mistake Rank 1 36% of base mana 2.5 sec cast Retell the fate of party members within 30 yds, healing them for 91+0+ Heal *0.685704.
 - **Aeon of Protection** (1 rank) - MATCH chronomancer_time
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/aeon_of_protection.png
   - CoA: Aeon of Protection 12% of base mana Instant cast 10 sec cooldown Increases Epoch 's cast time by 15%, healing done by 15%, and causes it to apply a damage absorption shield equal to 30% of the amount healed for 8 sec. Shares a cooldown with other Aeon spells.
 - **Time Wizard** (2 ranks) - MATCH chronomancer_time  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/time_wizard.png
   - CoA: Increases the critical strike chance of your Reverse Wound, Epoch, and Correct the Mistake by 8%.
 - **Keep Accelerating** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/keep_accelerating.png
   - CoA: Your Accelerated Recovery now also applies to the lowest-health nearby target.
 - **Time Beacon** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/time_beacon.png
   - CoA: Increases the duration of effects applied by your Aeons by 4 sec.
 - **Cadence of Time** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cadence_of_time.png
   - CoA: Your critical strikes with Epoch now grant Cadence of Time, increasing the healing of Ripple by 10% for 15 seconds. Stacks 5 times.
 - **Carbon Dating** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/carbon_dating.png
   - CoA: Each stack of Sands of Time now also increases the healing of your Epoch by 10%.
 - **Timeless** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/timeless.png
   - CoA: While Endless Sands is active, the mana costs of your spells and abilities is reduced by -3% per stack.
 - **Fabric of Time** (1 rank) - MATCH chronomancer_time
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/fabric_of_time.png
   - CoA: Fabric of Time Rank 1 18% of base mana Instant cast 15 sec cooldown Alter the fabric of time, healing an ally for 158+0+ Heal *0.64. Your next Aeon used within 8 sec will trigger with no cooldown or cost.
 - **Aeon of Renewal** (1 rank) - MATCH chronomancer_time
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aeon_of_renewal.png
   - CoA: Aeon of Renewal 12% of base mana Instant cast 10 sec cooldown Reduces Epoch 's healing by 30%, but causes it to heal for an additional 50% of the amount healed over 3 sec. Shares a cooldown with other Aeon spells. Healing done by this ability cannot critically hit.
 - **A Ripple In Time** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/a_ripple_in_time.png
   - CoA: A Ripple In Time Passive Instant Your damaging and healing critical strikes now reduce the remaining cooldown of Ripple by 1 sec.
 - **Ideal Time** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ideal_time.png
   - CoA: Every 30 sec, your next ability is guaranteed to critically strike.
 - **Continuum Restoration** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/continuum_restoration.png
   - CoA: Continuum Restoration 60% of base mana 1.5 sec cast 1 min cooldown Restore the continuum at target location for all allies and enemies, removing all beneficial magic effects from enemies and harmful magic effects from allies. This dispel is potent enough to remove magic effects that are normally undispellable
 - **Time Skip** (1 rank) - MATCH chronomancer_time  [ours is scalar]
+  - icon: assets/icons/coa/time_skip.png
   - CoA: Time Skip Passive Instant Your Roll Back now removes 1 additional harmful effect.
 - **Orderly Protector** (1 rank) - MATCH chronomancer_time
   - needs: proc-chance, stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/orderly_protector.png
   - CoA: Orderly Protector Passive Instant Healing done by your Epoch now increases the healing of Fabric of Time by 10% for 10 sec, stacking 10 times. Each stack gives you a 2% chance when you cast Fabric of Time to reset its own cooldown.
 - **Displacement** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/displacement.png
   - CoA: Displaces a party or raid member and pulls them to you, dispelling root and snare effects from them.
 - **Mark of Order** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: transforms-ability, stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mark_of_order.png
   - CoA: Mark of Order Passive Instant Healing done by Fortify Timeline now applies Mark of Order . Mark of Order Increases the healing of your next Reverse Wound on the target by 10% for 20 sec. Every 1 sec for the duration, they gain an additional stack of this effect, up to 5.
 - **Cycling Aeons** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/cycling_aeons.png
   - CoA: Reduces the cooldown of your Aeons by -50%.
 - **Shimmering Shard** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shimmering_shard.png
   - CoA: Shimmering Shard Instant cast Activating Aeon spells now grants you 4% increased damage and healing for 20 sec, stacking 3 times.
 - **Aeon of Oblivion** (1 rank) - MATCH chronomancer_time
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aeon_of_oblivion.png
   - CoA: Aeon of Oblivion 12% of base mana Instant cast 10 sec cooldown Increases Epoch 's mana cost by 30%, critical strike chance by 10%, and healing done by 15%. In addition, healing with Epoch now increases the target's damage dealt by 3% for 15 sec. Shares a cooldown with other Aeon spells.
 - **Nozdormu's Gaze** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/nozdormu_s_gaze.png
   - CoA: Your Time Out! now regenerates -2% less mana per tick, but casting it now instantly restores an additional 15% of your maximum mana.
 - **Titan's Gaze** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/titan_s_gaze.png
   - CoA: Titan's Gaze Passive Instant cast Your Time Out! no longer breaks on damage, but now only reduces damage taken by 15%.
 - **Overcorrection** (1 rank) - MATCH chronomancer_time
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/overcorrection.png
   - CoA: Overhealing done by Correct the Mistake now applies a heal over time effect to the ally equal to 30% of the healing done over 5 seconds.
 - **Bronze Timeways** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/bronze_timeways.png
   - CoA: Casting Correct the Mistake now grants 2 stacks of Endless Sands.Endless Sands Cast time of your next Reverse Wounds within 15 seconds is reduced by -20%, stacking up to 5 times.
 - **Wonders of Time** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: proc-chance, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/wonders_of_time.png
   - CoA: Wonders of Time Passive Instant Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. Additionally, all healing done now has a 10% chance to grant you Endless Sands . Endless Sands Cast time of your next Reverse Wounds within 15 sec is reduced by 20%, stacking up to 5 times.
 - **Through The Aeons** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/through_the_aeons.png
   - CoA: Activating an Aeon now increases your mana regeneration from Spirit by 100% for 8 seconds.
 - **Chronicler** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chronicler.png
   - CoA: Chronicler Passive Instant Casting Fortify Timeline now extends the duration of Accelerated Recovery on all targets within 40 yds by an additional 10 sec.
 - **Timeline Tether** (1 rank) - MATCH chronomancer_time
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/timeline_tether.png
   - CoA: Timeline Tether Passive Instant Your periodic damage and healing reduces the cooldown of your Fortify Timeline by 1 sec.
 - **Shield of the Ages** (1 rank) - MATCH chronomancer_time
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shield_of_the_ages.png
   - CoA: Shield of the Ages Passive Instant cast When hit by a damaging critical strike, your damage taken is reduced by 3%, and healing received is increased by 5% for 3 sec, stacking 3 times.
 - **Converge the Infinite** (1 rank) - MATCH chronomancer_time  [ours is scalar]
   - needs: transforms-ability, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/converge_the_infinite.png
   - CoA: Casting Fortify Timeline now grants you Converge the Infinite.Converge the Infinite Your next Correct the Mistake has a 1 sec increased cast time, but heals for 30% more and is guaranteed to critically strike. Successfully healing an ally in this way reduces the cooldown of Fortify Timeline by 8%.
 - **Epic Recovery** (1 rank) - MATCH chronomancer_time  [ours is scalar]
+  - icon: assets/icons/coa/epic_recovery.png
   - CoA: Epic Recovery Passive Instant When you cast Epoch you now also cast a Rank 1 Epoch on up to 5 allies affected by Accelerated Recovery .
 - **Eternity Warper** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/eternity_warper.png
   - CoA: Eternity Warper Specialization Instant Level 50 Passive Your Ripple channel performs a unique effect based on your active Aeon : Rippling Renewal Ripple periodically heals allies within 0 yds for 36+1.7 Points Per Level+SP*0.125 every 0.5 sec. Rippling Oblivion Ripple deals periodic damage to enemies within 25 yds for 38+3.0 Points Per Level+SP*0.385 every 0.5 sec. Rippling Protection Ripple now p
 - **Timeblender** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/timeblender.png
   - CoA: Guarantees healing done by Fabric of Time to critically strike and gives it an additional charge.Fabric of Time (Timeblender) 2 Charges, 15 sec recharge Alter the fabric of time, healing an ally for 644 + 68% healing. Your next Aeon used within 8 seconds will trigger with no cooldown.
 - **The Vast Infinite** (1 rank) - MATCH chronomancer_time
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/the_vast_infinite.png
   - CoA: The Vast Infinite 30% of base mana Instant cast 5 min cooldown All party and raid members become one, equally sharing 25% of all damage dealt to them for 10 sec, up to a maximum of 100% of their total health. At the end of the duration, all affected allies are healed equal to the total damage shared split evenly amongst all allies.
 - **Buy Time** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/buy_time.png
   - CoA: Put all enemies and allies in an 8 yd radius in target area into a stasis, banishing them for 6 seconds, making them invulnerable to all effects but unable to move. Casting Unmake on a target will remove this effect.
 
 ### Time abilities
@@ -298,137 +375,177 @@ Source: data/reference/coa/chronomancer.json (Ascension CoA Builder payload, the
 - **Shatter Echo** (1 rank) - MATCH chronomancer_artificer
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shatter_echo.png
   - CoA: Shatter Echo Rank 1 19% of base mana Instant 3 sec cooldown Distortion Spell Launch a distorted echo from your wand at an enemy, dealing 90% Ranged Weapon damage plus a , b , c ) a ? b : c " class="w">COND ( a , b ) a > b " class="w">GT ( ArcP , HolP ), 4+0+ ArcP *0.3, 4+0+ HolP *0.3) Arcane damage. Damage increased by 40% for each Echo Fragment consumed.
 - **Artificer's Wand** (1 rank) - MATCH chronomancer_artificer
   - needs: transforms-ability, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/artificer_s_wand.png
   - CoA: Transforms your Unmake into Artificer's Wand.Artificer&#39;s Wand Focus to unleash 2 wand attacks dealing Ranged Weapon damage plus 5 over 1 seconds. Generates 1 Echo Fragment.
 - **Caverns of Time** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: resource-grant
+  - icon: assets/icons/coa/caverns_of_time.png
   - CoA: Your Discordance now generates 1 Echo Fragment.
 - **Artificer's Empowerment** (3 ranks) - MATCH chronomancer_artificer  [ours is scalar]
+  - icon: assets/icons/coa/artificer_s_empowerment.png
   - CoA: Artificer's Empowerment Rank 1 Instant Increases your Spirit by 8%.
 - **Wand Master** (2 ranks) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/wand_master.png
   - CoA: Increases the damage of Wand of Time and Artificer's Wand by 10%.
 - **Wand Expert** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
+  - icon: assets/icons/coa/wand_expert.png
   - CoA: Level 20 Passive Increases your ranged attack power by 100% of your Spirit and your hit rating by 5% of your Spirit.
 - **Discovery** (1 rank) - MATCH chronomancer_artificer
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/discovery.png
   - CoA: Discovery Passive Instant Casting Artificers's Wand and Wand of Time now grants Discovery for 30 sec, stacking 4 times. Discovery At 3 stacks, your next Wand of Time or Artificer's Wand causes an additional 1+ArcP*0.212+Spi*0.25+RAP*0.1 Arcane Damage, scaling with Spirit.
 - **Concentrated Fate** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/concentrated_fate.png
   - CoA: Increases the effectiveness of your Echo Fragments by 20%.
 - **Bronze Echoes** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/bronze_echoes.png
   - CoA: Reduces the cast time of Artificer's Wand by -0.2 sec.
 - **Singularity Core** (1 rank) - MATCH chronomancer_artificer
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/singularity_core.png
   - CoA: Singularity Core 11% of base mana Instant cast 15 sec cooldown Continuum Spell Empower your Wand attacks to deal an additional 50% Ranged Weapon Damage plus 2+ 1.0 Points Per Level+ SP *0.25+ RAP *0.12 additional Arcane damage for 3 sec plus 5 sec per Echo Fragment . Can only have 1 Continuum spell active at a time.
 - **Archaeology** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/archaeology.png
   - CoA: Your Discovery now also generates 3% of your base mana and health.
 - **Hyperwand** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/hyperwand.png
   - CoA: Increases the damage and critical damage of your Shatter Echo by 30%.
 - **Elder Wand** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: proc-chance, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/elder_wand.png
   - CoA: Your Wand attacks now have a 30% chance to increase the damage of Artificer's Wand against the target by 3% for 15 seconds, stacking 10 times.
 - **Temporal Convergence** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/temporal_convergence.png
   - CoA: Your Wand of Time now has a 40% chance to reset its own cooldown.
 - **Conduction Burst** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: transforms-ability
+  - icon: assets/icons/coa/conduction_burst.png
   - CoA: Your Shatter Echo now deals 20% additional damage while a Continuum spell is active.
 - **Crystal Cannon** (1 rank) - MATCH chronomancer_artificer
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/crystal_cannon.png
   - CoA: Crystal Cannon Specialization Instant Level 30 Passive Casting Discordance now unleashes the Crystal Cannon , launching 2 quick lesser Wand attacks at the enemy over 1 sec, scaling with Spirit.
 - **Unstable Chronoglass** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/unstable_chronoglass.png
   - CoA: Unstable Chronoglass 28% of base mana Instant 1 min cooldown Place an Unstable Chronoglass at target location for 30 sec that will redirect the next 3 offensive enemy spell casts onto itself.
 - **Clocked In** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/clocked_in.png
   - CoA: Clocked In Passive Instant Casting Discordance now makes your next Artificer's Wand within 10 sec instant cast and causes it to generate an additional Echo Fragment .
 - **Flux Emitter** (1 rank) - MATCH chronomancer_artificer
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flux_emitter.png
   - CoA: Flux Emitter 11% of base mana Instant cast 15 sec cooldown Continuum Spell Empower Wand attacks to affect up to 2 additional nearby enemies for 3 sec plus 5 sec per Echo Fragment . Affected attacks deal less damage per additional enemy hit. Can only have 1 Continuum spell active at a time.
 - **Hands of Time** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/hands_of_time.png
   - CoA: Increases the effectiveness of your Accelerate and Decelerate spells by 25%.
 - **Paradox Cannon** (1 rank) - MATCH chronomancer_artificer
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/paradox_cannon.png
   - CoA: Paradox Cannon 7% of base mana, plus 14 per sec Instant cast 15 sec cooldown Continuum Spell Generate 1 Echo Fragment every 2.5 sec for 5 sec, plus an additional 5 sec per Echo Fragment consumed. Can only have 1 Continuum spell active at a time.
 - **Borrowed Time** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/borrowed_time.png
   - CoA: Taking Physical damage now heals you equal to 10% of the damage dealt. Can only occur once per sec.
 - **Sporadic Incantations** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/sporadic_incantations.png
   - CoA: Your Flux Emitter now strikes 1 additional enemy.
 - **Tamed Incantations** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tamed_incantations.png
   - CoA: Tamed Incantations Passive Instant Increases the duration of Continuum spells per Echo Fragment consumed by 0.5 sec.
 - **Reverse Engineering** (1 rank) - MATCH chronomancer_artificer
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/reverse_engineering.png
   - CoA: Periodic damage and healing now has a 15% chance to increase your haste by 15% for 6 seconds and grant allies Replenishment.Replenishment Replenishes 5% of maximum mana per 5 sec for 15 seconds.
 - **Erode Armaments** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/erode_armaments.png
   - CoA: Your Wand attacks now reduce enemy attack power by 208 for 5 seconds.
 - **Time Is A Circle** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/time_is_a_circle.png
   - CoA: Level 40 Passive Casting Wand of Time now extends the duration of your Continuum spells by 3 sec. Continuum spells cannot be extended beyond their maximum duration.
 - **Fate Twister** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fate_twister.png
   - CoA: Fate Twister Passive Instant Reduces the cooldown of Unstable Chronoglass by 30 sec.
 - **Magic Sensitivity** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/magic_sensitivity.png
   - CoA: Critical strikes with Shatter Echo now increases the enemy's damage taken from you by 10% for 8 seconds.
 - **Infinity Stone** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/infinity_stone.png
   - CoA: Increases the critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.
 - **Splitting Time** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
   - needs: aoe-cleave
+  - icon: assets/icons/coa/splitting_time.png
   - CoA: Splitting Time Passive Instant Your Crystal Cannon now strikes 2 additional nearby enemies.
 - **Resonance** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/resonance.png
   - CoA: Resonance Passive Instant Casting Artificer's Wand or Crystal Cannon now has a 35% chance to reduce the cooldown of Hasten by 1 sec.
 - **Timemage** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/timemage.png
   - CoA: Reduces the duration of harmful magic effects on you by -30%.
 - **Aether Compression** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/aether_compression.png
   - CoA: Aether Compression 20% of base mana Instant cast 15 sec cooldown Continuum Spell Artificer's Wand and Reverse Wound can be cast while moving for 5 sec. Duration increased by 5 sec per Echo Fragment . Can only have 1 Continuum spell active at a time.
 - **Arc Collision** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/arc_collision.png
   - CoA: Arc Collision 18% of base mana Instant cast Distortion Spell Create a timestorm around an enemy that causes them and up to 2 nearby enemies to take (4*1000/2)*(135+0+ SP *0.12) Arcane damage, repeating over 4 sec. Duration increased by 2 sec for each Echo Fragment consumed.
 - **Pulse Driver** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
+  - icon: assets/icons/coa/pulse_driver.png
   - CoA: Pulse Driver Passive Instant Singularity Core now increases the damage of Shatter Echo while its active by 30% and allows Shatter Echo to trigger its damage.
 - **Intuition** (1 rank) - MATCH chronomancer_artificer  [ours is scalar]
+  - icon: assets/icons/coa/intuition.png
   - CoA: Level 50 Passive Increases your critical damage by 25%.
 - **Cheating Time** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cheating_time.png
   - CoA: Casting Shatter Echo now extends the duration of your Flux Emitter by 4 sec. Cannot be extended beyond maximum duration.
 - **Threads of Eternity** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/threads_of_eternity.png
   - CoA: Threads of Eternity Passive Instant Damage dealt by Discordance now applies Thread of Eternity to enemies. Thread of Eternity Marked for 6 sec. Damage taken from Wand of Time is increased by 30%. You may consume this debuff with Wand of Time to gain an additional effect based on your active Continuum Spell . Singularity Core : Triggers 3 instances of Singularity Core damage. Flux Emitter : Explode
 - **Wand Mastery** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wand_mastery.png
   - CoA: Wand of Time and Shatter Echo now have a 25% chance to unleash Crystal Cannon, launching 2 quick lesser Wand auto attacks at the enemy over 1 seconds, scaling with Spirit. While Paradox Cannon is active, the chance to trigger this effect is increased by 10%.
 
 ### Artificer abilities
@@ -437,21 +554,27 @@ Source: data/reference/coa/chronomancer.json (Ascension CoA Builder payload, the
 ## Class (shared)  (ALL) - 6 talents, 32 abilities
 
 - **Luck** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/luck.png
   - CoA: Luck Rank 1 Instant Allows 40% of your mana regeneration to continue while in combat.
 - **Impeccable Timing** (1 rank) - MATCH chronomancer_infinite  [ours is scalar]
   - needs: dot-hot
+  - icon: assets/icons/coa/impeccable_timing.png
   - CoA: Your periodic damage and healing effects can now critically strike.
 - **Eternal** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternal.png
   - CoA: Increases the duration of your Accelerated Recovery by 6 sec and Decomposition by 3 sec.
 - **Mind Over Matter** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/mind_over_matter.png
   - CoA: Increases the effectiveness of your Wisdom spells by 20%.
 - **Entropy Overload** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/entropy_overload.png
   - CoA: Entropy Overload Passive Instant Increases your chance to resist movement slowing effects by 20%.
 - **Infinity** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/infinity.png
   - CoA: Infinity Passive Instant cast Removes the cooldown of Infinite Shield .
 
 ### Class (shared) abilities

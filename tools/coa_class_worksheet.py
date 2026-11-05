@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools.coa_reference import (  # noqa: E402
-    classes, nodes_for, clean, SHARED_CLASS_TAB,
+    classes, nodes_for, clean, icon_for, SHARED_CLASS_TAB,
 )
 
 OUT_DIR = ROOT / "data/reference/coa_worksheets"
@@ -161,7 +161,7 @@ def build(slug):
     lines.append("")
 
     stats = {"total": 0, "matched": 0, "scalar_ours": 0, "scalar_coa": 0,
-             "new": 0, "turn_risk": 0}
+             "new": 0, "turn_risk": 0, "no_icon": 0}
 
     for spec_name, role, tab in tabs:
         rows = [n for n in by_tab.get(tab, []) if n.get("entryType") == "Talent"]
@@ -205,6 +205,10 @@ def build(slug):
                 stats["turn_risk"] += 1
                 for rname, fix in risks:
                     lines.append(f"  - TURN-BASED [{rname}]: {fix}")
+            icon = icon_for(name)
+            lines.append(f"  - icon: {'assets/icons/coa/' + icon if icon else 'MISSING - needs art'}")
+            if not icon:
+                stats["no_icon"] += 1
             lines.append(f"  - CoA: {flat[:400]}")
         lines.append("")
 
@@ -224,6 +228,7 @@ def build(slug):
         f"({100 * stats['scalar_coa'] // max(1, stats['total'])}%)",
         f"- carry real-time assumptions needing translation: **{stats['turn_risk']}** "
         f"({100 * stats['turn_risk'] // max(1, stats['total'])}%)",
+        f"- without an extracted CoA icon: **{stats['no_icon']}**",
         "",
     ]
     lines[2:2] = header

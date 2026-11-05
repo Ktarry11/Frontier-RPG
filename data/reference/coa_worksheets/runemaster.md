@@ -5,6 +5,7 @@
 - not in our data at all: **64**
 - single-clause scalars in CoA's own tree: **19** (14%)
 - carry real-time assumptions needing translation: **68** (53%)
+- without an extracted CoA icon: **2**
 
 Source: data/reference/coa/runemaster.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -14,136 +15,176 @@ Source: data/reference/coa/runemaster.json (Ascension CoA Builder payload, the s
 
 - **Glyphic Ruin** (1 rank) - MATCH runemaster_glyphic
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/glyphic_ruin.png
   - CoA: Glyphic Ruin Rank 1 10% of base mana 2.5 sec cast Unleash your active Glyph effect on an enemy and deal 82+0+ SP *1 Elemental Damage.
 - **Flame Glyph** (1 rank) - MATCH runemaster_glyphic
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/flame_glyph.png
   - CoA: Using Elemental Burst or Primordial Blast while Frost Glyph is active now grants you a Flame Glyph.Flame Glyph Unleash: Deals 250 + 65% fire SP Fire Damage and an additional 750 + 30% SP Fire Damage over 6 seconds.
 - **Focusing Crystals** (2 ranks) - MATCH runemaster_engravement  [ours is scalar]
+  - icon: assets/icons/coa/focusing_crystals.png
   - CoA: Focusing Crystals Rank 1 Instant Increases your Magic Damage dealt by 3% and allows 30% of your mana regeneration to continue while in combat.
 - **Arcane Glyph** (1 rank) - MATCH runemaster_glyphic
   - needs: transforms-ability
+  - icon: assets/icons/coa/arcane_glyph.png
   - CoA: Using Elemental Burst or Primordial Blast while Flame Glyph is active now grants you Arcane Glyph.Arcane Glyph Unleash: Deals 276 + 18% arcane SP Arcane Damage to up to 0 enemies near the primary target.
 - **Expert Elementalist** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/expert_elementalist.png
   - CoA: Reduces the cast time of Elemental Burst and Glyphic Ruin by 0.5 sec and increases your chance to hit by 3%.
 - **Ley Magician** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
+  - icon: assets/icons/coa/ley_magician.png
   - CoA: Level 20 Passive Increases your spell damage by 30% of Spirit and 10% of your Intellect, and spell hit rating by 6% of your Spirit.
 - **Frigid Blast** (1 rank) - MATCH runemaster_glyphic
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frigid_blast.png
   - CoA: Blast an enemy with frigid runic magic, dealing cond(gt(SPFR, SPA), 40+0+SPFR*0.65, 40+0+SPA*0.65) Frost damage and applying Frigid Fusion. Frigid Fusion (Aura) Accumulate 20% of your damage dealt to the target over 6 seconds. After the duration, deal it as Frost Damage to the target.
 - **Glyphic Overload** (1 rank) - MATCH runemaster_glyphic
   - needs: cooldown, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/glyphic_overload.png
   - CoA: Glyphic Overload 40% of base mana Instant 45 sec cooldown Instantly generate Frost Glyph , Flame Glyph , and Arcane Glyph on yourself and overload, granting all active Glyphs an additional effect the next time you unleash them on an enemy. Lasts 15 sec. Usable while stealthed. Overloaded Arcane Glyph Deals 100% increased damage. Overloaded Flame Glyph Flame Glyph now affects 2 additional enemies, 
 - **Concentrated Magic** (2 ranks) - MATCH runemaster_glyphic  [ours is scalar]
+  - icon: assets/icons/coa/concentrated_magic.png
   - CoA: Concentrated Magic Rank 1 Instant Increases your Spirit by 5% and reduces spell pushback suffered from damaging attacks by 35%.
 - **Frigid Elements** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/frigid_elements.png
   - CoA: Increases the spell power scaling of Frigid Blast by 50%, but the cast time is increased by 1 sec. Additionally, Frigid Fusion now accumulates 10% more damage on the target.
 - **Cold Elements** (1 rank) - MATCH runemaster_glyphic
   - needs: proc-chance, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cold_elements.png
   - CoA: Damage dealt with Elemental Burst and Primordial Blast now has a 20% chance to reset the cooldown of Frigid Blast and make its next use within 10 seconds instant cast.
 - **Primordial Power** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/primordial_power.png
   - CoA: Increases the duration of Frigid Fusion by 2 sec.
 - **Wizardry** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/wizardry.png
   - CoA: Increases your Intellect by 10% and increases the mana gained for each point of Intellect by 10%.
 - **Runeslinger** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runeslinger.png
   - CoA: Runeslinger Passive Instant Direct damage dealt has a 5% chance to increase your spell haste by 20% for 5 sec.
 - **Primordial Salvos** (1 rank) - MATCH runemaster_glyphic
   - needs: transforms-ability, aoe-cleave
+  - icon: assets/icons/coa/primordial_salvos.png
   - CoA: Primordial Salvos Passive Instant cast Unleashing a Glyph now deals an additional 115+ SP *0.06 damage of the same magic school to all enemies within 8 yds of the target.
 - **Primordial Pulse** (1 rank) - MATCH runemaster_glyphic
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/primordial_pulse.png
   - CoA: Inscribe an area with runes for 2 seconds, dealing 23 + 30% SP Elemental Damage every 0 sec to up to 5 enemies inside.
 - **Unleashed Tattoos** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/unleashed_tattoos.png
   - CoA: Level 30 Passive While Runic Tattoos: Fire is active, your Glyphic Ruin now has 30% increased critical damage. While Runic Tattoos: Water is active, the cost of your Glyphic Ruin is now reduced by -50%.
 - **Advanced Magi** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/advanced_magi.png
   - CoA: Increases the spell power scaling of Elemental Burst by 25%.
 - **Silencing Rune** (1 rank) - MATCH runemaster_glyphic
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/silencing_rune.png
   - CoA: Inscribe a rune in a 5 yd radius at target location that activates after 1 sec, silencing all enemies within for 6 seconds.
 - **Thaumaturgy** (1 rank) - MATCH runemaster_glyphic
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/thaumaturgy.png
   - CoA: Thaumaturgy Rank 1 8% of base mana Instant cast 15 sec cooldown Blast an enemy for 67+0+ ArcP *.41+ AP *0.1 Arcane damage and unleash your active Glyph effect.
 - **Terraglyphs** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/terraglyphs.png
   - CoA: Increases the chance to trigger Weapon Engraving: Earth by 4%.
 - **Leyline Magician** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/leyline_magician.png
   - CoA: Casting Primordial Blast now reduces the cooldown of Primordial Pulse by -5 sec.
 - **Glyphic Destruction** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/glyphic_destruction.png
   - CoA: Glyphic Destruction Passive Instant cast 1 sec cooldown Increases the damage of Glyphic Ruin by 100% against Frozen targets.
 - **Arcane Student** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
+  - icon: assets/icons/coa/arcane_student.png
   - CoA: While Glyphic Overload is active, your Glyphic Ruin is guaranteed to critically strike.
 - **Phase Rush** (1 rank) - MATCH runemaster_glyphic
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/phase_rush.png
   - CoA: Phase Rush Passive Instant Casting Thaumaturgy now grants you 25% increased movement speed for 5 sec.
 - **Runes of Quickness** (1 rank) - MATCH runemaster_engravement
   - needs: stacking-buff
+  - icon: assets/icons/coa/runes_of_quickness.png
   - CoA: Runes of Quickness Passive Instant Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, the range of your Glyphic spells is increased by 6 yds.
 - **Bursting Pulses** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bursting_pulses.png
   - CoA: Each weapon enchanted by Weapon Engraving: Earth now reduces the cooldown of Primordial Pulse by -4 sec and increases it's damage by 15%.
 - **Unleashed Power** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/unleashed_power.png
   - CoA: Level 40 Passive Increases the spell power scaling of your Unleashed Glyphs by 10%. In addition, dealing damage with Elemental Burst now increases the target's spell damage taken by 10% for 12 seconds.
 - **Glyph Seeker** (1 rank) - MATCH runemaster_glyphic  [ours is scalar]
+  - icon: assets/icons/coa/glyph_seeker.png
   - CoA: Glyph Seeker Passive Instant Increases the damage of Primordial Blast and Thaumaturgy by 20%.
 - **Cryomagi** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: MISSING - needs art
   - CoA: Increases the range of Cryobrand by 10 yds.
 - **Ley Walker** (1 rank) - MATCH runemaster_glyphic
+  - icon: assets/icons/coa/ley_walker.png
   - CoA: Ley Walker Passive Instant cast Casting or reactivating Warpdagger now removes all root and snare effects from you.
 - **Harnessing Leylines** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/harnessing_leylines.png
   - CoA: You now gain a stack of Harnessed Leylines every 1 sec for until cancelled. After the duration, the stacks reset. Harnessed Leylines (Proc) Increases the damage of your Runeblade and Elemental Burst by 3%, stacking up to 10 times. Additional applications do not refresh the effect.
 - **Burned Etching** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/burned_etching.png
   - CoA: While Weapon Engraving: Fire is active, your Elemental Burst now deals 10% increased damage as Fire damage and your chance to trigger Weapon Engraving: Fire is increased by 5%.
 - **Eye of the Beholder** (1 rank) - MATCH runemaster_glyphic
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eye_of_the_beholder.png
   - CoA: Eye of the Beholder 38% of base mana Instant 3 min cooldown Increases your spell critical strike chance by 25% for 15 sec. While active, the damage of your Glyphic Ruin and Primordial Blast is increased by 25%.
 - **Glyph God** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/glyph_god.png
   - CoA: Reduces the cooldown of Glyphic Overload by -15 sec.
 - **Scroll of Magic** (1 rank) - MATCH runemaster_glyphic
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/scroll_of_magic.png
   - CoA: Scroll of Magic Passive Instant Unleashing a Glyph increases the damage of your Unleashed Glyphs by 5% for 15 sec, stacking 3 times.
 - **Runic Obliteration** (1 rank) - MATCH runemaster_glyphic
   - needs: transforms-ability, proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runic_obliteration.png
   - CoA: Runic Obliteration Specialization Instant Level 50 Passive Using Elemental Burst now has a 100% chance to transform your next Primordial Blast into Runic Obliteration for 10 sec. Runic Obliteration Hurl powerful elemental missiles at an enemy, dealing 250+1.5 Points Per Level+SP*0.44 Elemental Damage every 0.3 sec for 1 sec. Each missile grants you a Glyph . Scales with modifiers to Primordial Bla
 - **Kirin Tor Agent** (1 rank) - MATCH runemaster_glyphic
+  - icon: assets/icons/coa/kirin_tor_agent.png
   - CoA: Kirin Tor Agent Passive Instant Casting Eye of the Beholder now rapidly reduces the coldown of your Rune spells and Phase Out for the duration.
 - **Manuscription** (1 rank) - MATCH runemaster_glyphic
+  - icon: assets/icons/coa/manuscription.png
   - CoA: $d8
 - **Glyph Master** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/glyph_master.png
   - CoA: Scroll of Magic now also increases the critical damage and critical strike chance of Unleashed Glyphs by 5% for 15 seconds, stacking 3 times.
 
 ### Arcane abilities
@@ -154,134 +195,174 @@ Source: data/reference/coa/runemaster.json (Ascension CoA Builder payload, the s
 - **Runic Brand** (1 rank) - MATCH runemaster_engravement
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runic_brand.png
   - CoA: Brand an enemy, dealing 10 + 26% AP Fire damage with each weapon, and marking the enemy for 8 seconds.Marked: Runic Brand Your next Runeblade on the enemy causes a Runic Explosion, dealing an additional 121 + 18.5% AP Spellfire Damage to nearby enemies.
 - **Eternal Magic** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eternal_magic.png
   - CoA: Reduces the cooldown of Primordial Blast by -4 sec and it now refreshes 3 charges of Runeblade.
 - **Leystone Springs** (1 rank) - MATCH runemaster_engravement
   - needs: proc-chance, resource-grant
+  - icon: assets/icons/coa/leystone_springs.png
   - CoA: Your melee auto attacks now have a 15% chance to restore 75 mana. While Runic Tattoos: Water is active, the mana restored is increased by 250%.
 - **Graceful** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/graceful.png
   - CoA: Increases your haste by 5%.
 - **Fist of the Ancients** (1 rank) - MATCH runemaster_engravement
   - needs: aoe-cleave
+  - icon: assets/icons/coa/fist_of_the_ancients.png
   - CoA: Smash an enemy and 1 nearby enemy with your rune-engraved fists, dealing 40 + 40% AP Elemental Damage and triggering your Weapon Engraving.
 - **Alteration** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/alteration.png
   - CoA: Alteration Rank 1 Instant Increases the effectiveness of your Runic Tattoos by 25%.
 - **Primordial Strength** (1 rank) - MATCH runemaster_engravement  [ours is scalar]
+  - icon: assets/icons/coa/primordial_strength.png
   - CoA: Level 20 Passive Increases your spell damage by 25% of your attack power, your chance to hit by 3% of your Agility and your spell hit rating by 3% of your Agility.
 - **Elemental Mastery** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, proc-chance
+  - icon: assets/icons/coa/elemental_mastery.png
   - CoA: Damage dealt by Runic Brand now has a 33% chance to transform your Primordial Blast into a random unique elemental version of itself.
 - **Ancient Warrior** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ancient_warrior.png
   - CoA: Reduces the cooldown of Fist of the Ancients by -2 sec whenever you use Runeblade or Primordial Blast.
 - **Elemental Strikes** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/elemental_strikes.png
   - CoA: Increases your critical strike chance with Fire, Frost, and Nature spells by 3% and your expertise by 4.
 - **Leyborn** (1 rank) - MATCH runemaster_engravement
   - needs: stacking-buff
+  - icon: assets/icons/coa/leyborn.png
   - CoA: Leyborn Passive Instant Your Marked: Runic Brand now stacks 3 times.
 - **Uncovered Engravings** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/uncovered_engravings.png
   - CoA: Using Fist of the Ancients now increases your chance to trigger Weapon Engravings by 20% for 5 sec.
 - **Tempo** (1 rank) - MATCH runemaster_riftblade  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/tempo.png
   - CoA: Increases the damage of Runeblade by 20%.
 - **Elemental Carvings** (1 rank) - MATCH runemaster_engravement
   - needs: resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/elemental_carvings.png
   - CoA: Elemental Carvings Specialization Instant Level 30 Passive Fist of the Ancients now unleashes an elemental carving at random. Fire Carving : Increases your Armor penetration by 15% for 6 sec. Water Carving : Restores 300 mana over 6 sec. Earth Carving : Restores 3% missing health every 1 sec for 6 sec. Air Carving : Increases your melee haste by 10% for 6 sec.
 - **Mark of Strength** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/mark_of_strength.png
   - CoA: Increases the spell power scaling of Primordial Blast by 30%.
 - **Brandmaster** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/brandmaster.png
   - CoA: Increases your critical strike chance with Runic Brand's explosion effect by 10%.
 - **Guarding Rune** (1 rank) - MATCH runemaster_engravement
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/guarding_rune.png
   - CoA: Inscribe a defensive rune beneath you in a 10 yd radius, summoning a barrier that causes allies within the radius to take -40% reduced Magic damage. Lasts 15 seconds.
 - **Volcanic Etching** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/volcanic_etching.png
   - CoA: Increases the chance to trigger Weapon Engraving: Fire and Weapon Engraving: Earth by 5%.
 - **Flowing Rivers** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/flowing_rivers.png
   - CoA: Increases the chance to trigger Replenishment with Weapon Engravement: Water by 10% and the mana restored by Runic Tattoos: Water by 25%.
 - **Wind Surge** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/wind_surge.png
   - CoA: Wind Surge Passive Instant Your Weapon Engraving: Air will now strike 2 additional enemies near its target.
 - **Devastating Flames** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/devastating_flames.png
   - CoA: Increases the damage dealt of Weapon Engraving: Fire by 20%.
 - **Granite Shield** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/granite_shield.png
   - CoA: While Runic Tattoos: Earth is active, you now periodically gain Granite Shield every 20 sec.Granite Shield Absorbs 1260 + 10% AP + 30% SP damage for 20 seconds.
 - **Leyline Disturbance** (1 rank) - MATCH runemaster_engravement
   - needs: stacking-buff, aoe-cleave
+  - icon: assets/icons/coa/leyline_disturbance.png
   - CoA: Increases melee and ranged haste of party and raid members within 100 yds by 10%. Does not stack with similar effects. Additionally, the duration of stun effects on you is reduced by -20%.
 - **Protective Warding** (1 rank) - MATCH runemaster_engravement
   - needs: cooldown
+  - icon: assets/icons/coa/protective_warding.png
   - CoA: Protective Warding Passive Instant Critical damage taken reduces the cooldown of Rune of Guarding by 10%.
 - **Runebound Surge** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/runebound_surge.png
   - CoA: Casting Runeshroud now increases your movement speed by 75% for 3 seconds.
 - **Earth, Wind, and Fire** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, aoe-cleave
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/earth_wind_and_fire.png
   - CoA: Striking at least 5 enemies with Runic Explosion now unleashes Wild Steam.Wild Steam (Transform) Stomp the ground in a 5 yd radius around you and release steam, dealing 128 + 25% AP Frostfire Damage to nearby enemies.
 - **Forbidden Engraving** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/forbidden_engraving.png
   - CoA: Increases the effectiveness of your Weapon Engravings by 20%.
 - **Power Overwhelming** (1 rank) - MATCH runemaster_engravement
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/power_overwhelming.png
   - CoA: Level 40 Passive Your Runeblade and Primordial Blast now have a 35% chance to grant you Power Overwhelming, resetting the cooldown of Runic Brand.
 - **Explosive Runes** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/explosive_runes.png
   - CoA: Your Weapon Engraving: Fire now detonates after 2 sec and its critical damage is increased by 10%.
 - **Magic Etchings** (1 rank) - MATCH runemaster_engravement
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/magic_etchings.png
   - CoA: Dealing damage with Primordial Blast now reduces the affected target's armor by -4% for 12 seconds, stacking 5 times.
 - **Symbols of Power** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/symbols_of_power.png
   - CoA: Increases the damage of Fist of the Ancients while you have Weapon Engraving: Fire active by 15%.
 - **Sky and Stone** (1 rank) - MATCH runemaster_engravement
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sky_and_stone.png
   - CoA: Damage dealt by Weapon Engraving: Air and Weapon Engraving: Earth now have a 10% chance to increase your melee haste for your next 10 attacks within 10 seconds by 10%.
 - **Echoes of Eternity** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/echoes_of_eternity.png
   - CoA: Your Zenith now has 2 charges.Zenith 2 Charges, 45 sec recharge For 6 seconds, your runic tattoos flare up, increasing your chance to trigger your Weapon Engravings by 100%.
 - **Runic Tempest** (1 rank) - MATCH runemaster_engravement
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runic_tempest.png
   - CoA: Harness the power of your runic tattoos, resetting the cooldown of Fist of the Ancients and allowing the use of abilities that require Runeshroud and making them able to be cast while moving for 8 seconds.
 - **Fists of Power** (1 rank) - MATCH runemaster_engravement
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fists_of_power.png
   - CoA: Fists of Power 15% of base mana Instant 45 sec cooldown Engrave your fists for 15 sec, causing auto attacks to grant Earthen Fists for 10 sec, increasing melee haste by 3% and the chance to trigger Weapon Engraving: Earth by 10%, stacking 5 times.
 - **Branded** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/branded.png
   - CoA: Level 50 Passive Gaining Power Overwhelming now also guarantees your next Runic Brand to critically strike.
 - **Runelord** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runelord.png
   - CoA: After activating Zenith, deal 900 + 33% AP Elemental Damage to your target and increase the damage dealt by your Runic Brand and Weapon Engravings by 30% for 8 seconds.
 - **Ley Power** (1 rank) - MATCH runemaster_riftblade
   - needs: stacking-buff, cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ley_power.png
   - CoA: Ley Power 14% of base mana Instant cast 1 min cooldown Divert ley energy into your weapons, drawing power from enemies within 20 yds of you. For each enemy in the radius, your damage dealt deals an additional 10% of the damage as Arcane damage, up to 100%, for 15 sec. While active, melee attacks and abilities grant you Harnessed Leylines . Harnessed Leylines Increases the damage of your Runeblade 
 - **Steam Conjurer** (1 rank) - MATCH runemaster_engravement
   - needs: proc-chance, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/steam_conjurer.png
   - CoA: Steam Conjurer Passive Instant Damage dealt by Weapon Engraving: Earth now has a 5% chance to cast Wild Steam . Can only occur once every 3 sec. Wild Steam Stomp the ground in a 5 yd radius around you and release steam, dealing 128*$ +AP*.25 Frostfire Damage to nearby enemies.
 - **Stone Savant** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/stone_savant.png
   - CoA: While Earthen Fists is active, critical strikes with Weapon Engraving: Earth now causes you to strike twice with your next auto attack.
 
 ### Runic abilities
@@ -292,129 +373,169 @@ Source: data/reference/coa/runemaster.json (Ascension CoA Builder payload, the s
 - **Smolder** (1 rank) - MATCH runemaster_riftblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/smolder.png
   - CoA: Smolder Rank 1 6% of base mana Instant 6 sec cooldown Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Ignite your blade and strike an enemy, dealing 140% Weapon Damage plus 19 Fire Damage.
 - **Runic Omen** (1 rank) - MATCH runemaster_riftblade
   - needs: transforms-ability, every-nth-cast
+  - icon: assets/icons/coa/runic_omen.png
   - CoA: Every 3rd cast of Runeblade now deals 30% increased damage.
 - **Unbound Energy** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/unbound_energy.png
   - CoA: Increases your critical strike chance by 3% and your expertise by 4.
 - **Hurricane** (1 rank) - MATCH runemaster_riftblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hurricane.png
   - CoA: Strike an enemy 5 times over 2 seconds, each strike dealing 150% Weapon Damage as Nature Damage, scaling with level. While striking your target, your chance to dodge is increased by 100%, but you cannot use any spells or abilities.
 - **Cinderstorm Runes** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/cinderstorm_runes.png
   - CoA: Hurricane and Smolder now deal 50% more damage against enemies below 20% maximum health.
 - **Melting Runes** (1 rank) - MATCH runemaster_riftblade
   - needs: transforms-ability
+  - icon: assets/icons/coa/melting_runes.png
   - CoA: Melting Runes Passive Instant Weapon Engraving: Fire now deals 25% increased damage against Frozen enemies.
 - **Hoarfrost** (1 rank) - MATCH runemaster_riftblade
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hoarfrost.png
   - CoA: Slash in a frozen fury in front of you, dealing 13 + 33% AP Frost Damage to up to 3 nearby enemies, plus an additional 13 + 33% AP every 3 sec for 21 seconds. Enemies hit by the initial strike are frozen in place for 3 seconds.
 - **Elemental Assassin** (1 rank) - MATCH runemaster_riftblade  [ours is scalar]
+  - icon: assets/icons/coa/elemental_assassin.png
   - CoA: Level 20 Passive Increases your spell damage by 20% of your Agility, your spell critical strike chance by 10% of your Agility, and your hit rating by 5% of your Agility.
 - **Spellblade** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/spellblade.png
   - CoA: Spellblade Rank 1 Instant Increases your Agility and Intellect by 5%.
 - **Frozen Earth** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/frozen_earth.png
   - CoA: Increases the duration of Ice Rune and the stun effect from Palm Sigil: Earth by 1 sec.
 - **Runic Invocation** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
+  - icon: assets/icons/coa/runic_invocation.png
   - CoA: Increases the critical strike chance of Hoarfrost by 10% and allows its periodic damage to critically strike.
 - **Water Runes** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/water_runes.png
   - CoA: Each strike from Hurricane is now guaranteed to apply Weapon Engraving: Water or Weapon Engraving: Ice to your target while they are active.
 - **Wind Runes** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wind_runes.png
   - CoA: Increases the duration of Hurricane by 1 sec, allowing it to strike 2 additional times.
 - **Residual Power** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/residual_power.png
   - CoA: Residual Power Passive Instant Increases the damage replicated by Weapon Engraving: Air by 15%.
 - **Phaser** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/phaser.png
   - CoA: Reduces the cooldown of Phase Out by -30 sec and removes its mana cost.
 - **Rift Clones** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rift_clones.png
   - CoA: Casting Phase Out now summons 10 clones of yourself that run in a random direction for 5 seconds. Rift Clones periodically explode dealing 1 + 19.5% AP Arcane damage to all enemies within 5 yds of them.
 - **Frost Spectre** (2 ranks) - MATCH runemaster_riftblade  [ours is scalar]
+  - icon: assets/icons/coa/frost_spectre.png
   - CoA: Frost Spectre Rank 1 Instant Increases the critical strike chance and critical damage of Smolder and Primordial Blast against Frozen targets by 25%.
 - **Leyfrost** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/leyfrost.png
   - CoA: Critical strikes with Hoarfrost now cause your next spell within 15 seconds to cast as if the target were Frozen.
 - **Windsage** (1 rank) - MATCH runemaster_riftblade
+  - icon: assets/icons/coa/windsage.png
   - CoA: Windsage Specialization Instant Level 30 Passive Smolder now envelops you in wind, causing your next 3 Runeblades to strike an additional time equal to 30% of the damage dealt as Nature damage.
 - **Echo Rune** (1 rank) - MATCH runemaster_riftblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/echo_rune.png
   - CoA: Echo Rune 24% of base mana Instant 2 min cooldown Mark your current location with an echo rune for 20 sec. At the end of the duration or upon reactivation, warp back to the marked location and heal for 250+16.0 Points Per Level+ AP *1.5 health.
 - **Primordial Fury** (1 rank) - MATCH runemaster_riftblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/primordial_fury.png
   - CoA: Your runic tattoos flare up for 15 seconds, causing Runeblade to strike up to 5 additional enemies. For the duration, your Runic Tattoos have 100% increased effectiveness.
 - **Elements, Heed My Call!** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/elements_heed_my_call.png
   - CoA: Increases the critical damage of Smolder, Hurricane, and Hoarfrost by 15%.
 - **Battle Engravings** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/battle_engravings.png
   - CoA: Removes the cast time from Ley Lock, but reduces its duration by 0.5 sec.
 - **Windbreaker** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/windbreaker.png
   - CoA: While Weapon Engraving: Air is active, the damage of each strike of your Hurricane is increased by 30%.
 - **Magebreaker** (1 rank) - MATCH runemaster_riftblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Magebreaker Passive Instant cast Dealing damage with Hurricane now also reduces the targets Magic damage dealt by 15% for 8 sec and dispels 1 harmful magic effect from you with each strike.
 - **Elemental Acuity** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/elemental_acuity.png
   - CoA: Increases all Fire, Frost, and Nature damage dealt by 5% and adds 15% to the attack power scaling of Runeblade.
 - **Primordial Echoes** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/primordial_echoes.png
   - CoA: Your critical strikes dealt with Primordial Blast now have a 40% chance to strike an additional time.
 - **Earthen Codex** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/earthen_codex.png
   - CoA: When you active a Palm Sigil, you are now guaranteed to critically strike for 20% increased critical damage for 10 seconds or your next 3 attacks.
 - **Glyph of Disappearance** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/glyph_of_disappearance.png
   - CoA: Glyph of Disappearance Specialization Instant Level 40 Passive Your Phase Out can now be used 1 additional time within 15 sec before incurring a cooldown.
 - **Swift Etching** (1 rank) - MATCH runemaster_riftblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/swift_etching.png
   - CoA: Swift Etching Passive Instant After Hurricane ends, your melee attack speed is increased by 15% and critical strike chance by 10% for 10 sec.
 - **Runic Power** (1 rank) - MATCH runemaster_riftblade
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runic_power.png
   - CoA: Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects. In addition, Primordial Blast now increase the chance for the target to be critically struck by your spells by 3% for 20 seconds.
 - **Frostburn** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/frostburn.png
   - CoA: Frostburn Passive Instant Removes the cast time of Glacial Rune and Permafrost Rune .
 - **Freezing Codex** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/freezing_codex.png
   - CoA: Freezing Codex Passive Instant Reduces the cooldown of Ice Rune by 20 sec and increases the mana cost by 50%, but reduces its range by 10 yds.
 - **Fracture** (1 rank) - MATCH runemaster_riftblade
+  - icon: assets/icons/coa/fracture.png
   - CoA: Fracture 10% of base mana Instant Requires Stealth Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Strike an enemy with frozen fury, dealing 921+0+ AP *1.5 Frost damage and burning 25+0+ AP *.35 of the target's mana. Damage dealt is guaranteed to critically strike against frozen targets.
 - **Spellfire Runes** (1 rank) - MATCH runemaster_riftblade
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/spellfire_runes.png
   - CoA: Spellfire Runes Passive Instant Your Runeblade now has a 20% chance, and Warpdagger a 100% chance, to reset the cooldown of Smolder , and increase the damage of your next Smolder by 20%.
 - **Elemental Inscription** (1 rank) - MATCH runemaster_riftblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/elemental_inscription.png
   - CoA: Casting Smolder now reduces the cooldown of Primordial Fury by -10 sec and Zenith by -5 sec.
 - **Surging Slash** (1 rank) - MATCH runemaster_riftblade
   - needs: transforms-ability, every-nth-cast, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/surging_slash.png
   - CoA: Surging Slash Specialization Instant Level 50 Passive Every 3rd cast of Runeblade now transforms your next Runeblade within 15 sec into Surging Slash . Surging Slash Strike an enemy with a rune-infused weapon, dealing 125% Weapon Damage plus 110 Elemental Damage, bouncing to up to 4 additional enemies, dealing less damage with each bounce. Damage dealt by this ability will not chain to crowd contr
 - **Waveforged** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/waveforged.png
   - CoA: Waveforged Passive Instant After Hurricane ends, you may now use abilties that require Runeshroud for 4 sec.
 - **Genesis** (1 rank) - MATCH runemaster_riftblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/genesis.png
   - CoA: Apply a runic brand to an enemy for 8 seconds, accumulating 50% of your damage dealt, and unleashing after 8 seconds as Elemental Damage. When this deals damage, it triggers your Weapon Engraving.
 - **Turbulence** (1 rank) - MATCH runemaster_riftblade
   - needs: cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/turbulence.png
   - CoA: Turbulence 26% of base mana Instant 1 min cooldown Send out a gust of wind from your weapon that strikes nearby enemies in a 6 yd radius for 200% Weapon Damage as Nature damage every 0.5 sec for 3 sec. While active, you leave behind a Turbulent Spiral every 0.5 sec for 6 sec. Turbulent Spiral Enemies in the area take an additional 97+9.0 Points Per Level+AP*0.135 Nature Damage every 1 sec.
 
 ### Riftblade abilities
@@ -424,27 +545,34 @@ Source: data/reference/coa/runemaster.json (Ascension CoA Builder payload, the s
 
 - **Mystical Etchings** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/mystical_etchings.png
   - CoA: Reduces all Fire, Nature, Frost, and Arcane damage taken by -8%.
 - **Runic Tattoos** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/runic_tattoos.png
   - CoA: Runic Tattoos Passive Instant cast Reduces the resource costs of your spells and abilities by 10%.
 - **Phase Out** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/phase_out.png
   - CoA: Phase Out 8% of base mana Instant 2 min cooldown Disappear from sight, entering an improved stealth for 6 sec and applying Runeshroud .
 - **Prismatic Flow** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/prismatic_flow.png
   - CoA: Prismatic Flow Passive Instant Casting Phase Out now increases your movement speed by 40% for the first 2 sec of its duration.
 - **Permafrost Rune** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/permafrost_rune.png
   - CoA: Permafrost Rune 39% of base mana 1 sec cast 1 min cooldown Requires Frozen Target Inscribe a rune of permafrost and unleash it on an enemy, incapacitating them for 40 sec (8 sec vs players). Damage taken will end the effect. Affected enemies are considered Frozen . Using this while in Runeshroud causes it to incur an 80% reduced cooldown.
 - **Stone Petroglyph** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/stone_petroglyph.png
   - CoA: While in Runic Tattoos: Earth, you now heal for 3% of your maximum health every 4 sec and you become immune to knockbacks.
 - **Glyphs of Power** (1 rank) - MATCH runemaster_glyphic
   - needs: proc-chance, resource-grant
+  - icon: assets/icons/coa/glyphs_of_power.png
   - CoA: Your direct damage dealt has a 10% chance to restore 3% of your maximum mana.
 
 ### Class (shared) abilities

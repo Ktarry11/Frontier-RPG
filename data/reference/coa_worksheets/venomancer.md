@@ -5,6 +5,7 @@
 - not in our data at all: **129**
 - single-clause scalars in CoA's own tree: **34** (19%)
 - carry real-time assumptions needing translation: **91** (51%)
+- without an extracted CoA icon: **2**
 
 Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -14,140 +15,178 @@ Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the s
 
 - **Wilt** (1 rank) - MATCH venomancer_venom
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wilt.png
   - CoA: Wilt the life of an enemy with vile poison, dealing 144 Nature damage over 18 seconds.
 - **Spore** (1 rank) - MATCH venomancer_venom
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/spore.png
   - CoA: Spore Rank 1 15% of base mana 1.5 sec cast Inject an enemy with parasitic spores, dealing 20+0+ NatP *.175 Shadow damage, plus an additional 210 to 224 over 21 sec. After 10 sec, drop a Mushroom below the target that explodes after 2 sec, dealing 303*$ + NatP *.25 Nature damage to nearby enemies.
 - **Protraction** (2 ranks) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/protraction.png
   - CoA: Increases the duration of your Venomancer periodic damage effects by 3 sec.
 - **Fungal Growth** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: proc-chance, stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fungal_growth.png
   - CoA: Fungal Growth Passive Instant Shadow and Nature damage dealt now has a 35% chance to increase periodic damage you deal to the target by 2% for 30 sec, stacking 10 times.
 - **Acid Bolt** (3 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/acid_bolt.png
   - CoA: Increases the damage of Venom Bolt by 10% and its critical strike chance by 2%.
 - **Shadra's Gift** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/shadra_s_gift.png
   - CoA: Level 20 Passive Increases your spell damage by 25% of your Intellect and your haste rating by 20% of your Intellect.
 - **Rotting Away** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/rotting_away.png
   - CoA: Your Wilt now has a 15% chance when it deals damage to strike again as Shadow damage.
 - **Wilting Away** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/wilting_away.png
   - CoA: Your Wilt now strikes an additional nearby enemy.
 - **Mycosis** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mycosis.png
   - CoA: Mycosis Rank 1 16% of base mana 2.5 sec cast 15 sec cooldown Fungus grows throughout the body of an enemy, dealing 153+0+ NatP *.65 Nature damage and applying a shield that absorbs the next 100+0+ SP *2 healing done to them for 8 sec. Deals 20% increased damage for each stack of Fungal Growth on the target.
 - **Envenom** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/envenom.png
   - CoA: Reduces the cast time of Venom Bolt by -0.3 sec.
 - **Lethargy** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/lethargy.png
   - CoA: Damage dealt by your Wilt now applies Lethargy to affected enemies.Lethargy (Dummy) Reduces an enemy's chance to hit by -3% and increases their Nature Damage taken from you by 5% for 8 seconds. Dispelling this effect increases the dispeller's resource costs by 100% for 5 seconds.
 - **Rotpriest** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/rotpriest.png
   - CoA: Increases your spell critical damage by 100%.
 - **Captivation** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/captivation.png
   - CoA: Increases Mycosis's damage through Fungal Growth stacks by 5%.
 - **Serpent's Embrace** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/serpent_s_embrace.png
   - CoA: Increases the damage of Serpent's Fang and its spell power scaling by 15%.
 - **Blightfang** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blightfang.png
   - CoA: Casting Serpent's Fang now spawns a Mushroom below the target that will explode after 2 sec, dealing 303 + 12.5% SP Nature damage to nearby enemies.
 - **Weaver Form** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/weaver_form.png
   - CoA: $b4
 - **Decay** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/decay.png
   - CoA: Decay 25% of base mana 2.5 sec cast 45 sec cooldown Apply Wilt to up to 5 enemies at target location and drop a Mushroom that will explode after 2 sec, dealing 303+46.0 Points Per Level+ NatP *.25 Nature damage to nearby enemies.
 - **Necessary Preparations** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/necessary_preparations.png
   - CoA: Increases the damage of Wilt by 20% and it now increases the chance to hit the target with spells by 3% for 20 seconds.
 - **Sepsis Bloom** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sepsis_bloom.png
   - CoA: Create pustules that swell and then burst, disorienting a target enemy for 6 seconds. All of your Venomancer poison effects are purged from the target, dealing damage equal to their remaining duration at the end of the duration.
 - **A Pit of Snakes** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/a_pit_of_snakes.png
   - CoA: A Pit of Snakes Passive Instant Serpent's Fang now increases the damage of subsequent Serpent's Fangs by 15% for 8 sec, stacking up to 3 times.
 - **Fungal Assailant** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: cooldown, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/fungal_assailant.png
   - CoA: Fungal Assailant 12% of base mana Instant 1 min cooldown Summon a Fungarian to attack an enemy, dealing 226*$ + SP *0.65 Nature damage, and instantly apply Debilitating Venom to your target. Lasts 20 sec. Can be used in any form. Debilitating Venom Movement speed slowed by 40% for 8 sec.
 - **Limb Decayer** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/limb_decayer.png
   - CoA: Reduces the cast time and increases the mana cost of Decay by 50%.
 - **Septic Trauma** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/septic_trauma.png
   - CoA: Harmful critical strikes now increase the duration of Wilt by 2 sec.
 - **Venom Saturation** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/venom_saturation.png
   - CoA: Venom Saturation Passive Instant Increases the damage of your poison effects by 25% against enemies above 50% health.
 - **Infestation** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: proc-chance, cooldown, dot-hot
+  - icon: assets/icons/coa/infestation.png
   - CoA: Infestation Passive Instant Periodic damage dealt now has a 10% chance to reduce the cooldown of Serpent's Fang and Fungal Assailant by 20% of the remaining cooldown.
 - **Venoxis Rage** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/venoxis_rage.png
   - CoA: Your Mycosis now enrages your Fungarians for 6 seconds, increasing its damage and attack speed by 30% for 6 seconds.
 - **Intoxicating Venoms** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/intoxicating_venoms.png
   - CoA: Intoxicating Venoms Specialization Instant Level 40 Passive Mycosis is now enhanced based on your currently active Venom . Debilitating Venom : Reduces the cast time by 20%. Blight Venom : Extends the duration of Spore on the target by 4 sec. Adrenal Venom : Strikes 1 additional nearby target.
 - **From Death Comes Life** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/from_death_comes_life.png
   - CoA: Damage dealt by Spore now reduces the cooldown of Decay by -1 sec.
 - **Fungal Link** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, resource-grant
+  - icon: assets/icons/coa/fungal_link.png
   - CoA: Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, the range of your Rot spells is increased by 20% and the threat they generate is reduced by -20%.
 - **Sporelord** (1 rank) - MATCH venomancer_venom
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sporelord.png
   - CoA: Sporelord Passive Instant Fungal Assailant now spawns 3 Mushrooms below the target. Mushroom Drop a Mushroom near the target that explodes after 2 sec, dealing 303*$ +SP*.35 Plague Damage to all nearby enemies.
 - **Fungic** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/fungic.png
   - CoA: You now apply Fungic to enemies affected by Lethargy, dealing an additional 20% of the damage dealt by your Venom Bolt or Serpent's Fang as Nature damage over 3 seconds, stacking up to 2 times.
 - **Prophetic Speaker** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/prophetic_speaker.png
   - CoA: Each time you spawn a Mushroom, you now reduce the cooldown of Decay by -1 sec.
 - **Suffocating Coils** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/suffocating_coils.png
   - CoA: $b0
 - **Serpent Lord's Ring** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/serpent_lord_s_ring.png
   - CoA: Serpent Lord's Ring 23% of base mana Instant 1 min cooldown Draw power from the Serpent Lord's Ring instantly regenerating 20% of your maximum mana and causing your Mycosiss to trigger no cooldown and be free of cost for 15 sec.
 - **Cycle of Decay** (1 rank) - MATCH venomancer_venom
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/cycle_of_decay.png
   - CoA: Cycle of Decay Specialization Instant Level 50 Passive When you cast any spell you now have a 20% chance to gain Cycle of Decay . Cycle of Decay Your Venom Bolt is now castable while moving and casts 30% faster for 6 sec.
 - **Mycelial Ring** (1 rank) - MATCH venomancer_venom  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/mycelial_ring.png
   - CoA: Create an 8 yd ring beneath you for 10 seconds that deals 59 Nature damage every 1 sec to enemies inside and immediately grows 12 Mushrooms in a circle around you. At the end of the duration, up to 15 allies inside are healed for 845 + 65% nature SP. Can be used in any form.
 - **From Life Comes Death** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/from_life_comes_death.png
   - CoA: For 30 seconds, when you kill an enemy that yields experience or honor they now spawn a Mushroom beneath them. Can only occur once per sec.Mushroom (dmg) Drop a Mushroom near the target that explodes after 2 sec, dealing 303 + 35% SP Plague Damage to all nearby enemies.
 - **Fungal Allies** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, pet-summon
+  - icon: assets/icons/coa/fungal_allies.png
   - CoA: Fungal Assailant now summons 2 additional Fungarians.
 
 ### Venom abilities
@@ -157,137 +196,178 @@ Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the s
 
 - **Widowmaker** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/widowmaker.png
   - CoA: Widowmaker Rank 1 20 Energy Instant cast Requires Spider Form Consumes Brood Marks Inject shadow venom into an enemy, dealing Shadow damage and reducing their healing received by 50% for 8 sec. 1 Mark: (44+ ShaP *0.45)*1.25 Shadow damage. 2 Marks: (44+ ShaP *0.45)*1.60 Shadow damage. 3 Marks: (44+ ShaP *0.45)*2.05 Shadow damage. 4 Marks: (44+ ShaP *0.45)*2.60 Shadow damage. 5 Marks: (44+ ShaP *0.4
 - **Widow's Kiss** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, every-nth-cast
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/widow_s_kiss.png
   - CoA: Every 3rd Venom Fang becomes Widow's Kiss, dealing increased damage and granting you increased haste.Widow&#39;s Kiss (Transform) Applies 1 Brood Mark Bite an enemy for 91 + 50% shadow SP + 30% AP Shadow damage, increasing your haste by 20% for 4 seconds. Scales with modifiers to Venom Fang.
 - **Withering Venom** (1 rank) - MATCH venomancer_stalking
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/withering_venom.png
   - CoA: Inject an enemy with a devastating venom, dealing 16 + 20% nature SP Nature damage every 3 sec for 21 seconds. Damage dealt increases over time.
 - **Nerubian Sting** (1 rank) - MATCH venomancer_stalking
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/nerubian_sting.png
   - CoA: Applies 1 Brood Mark Sting an enemy, dealing 26 + 25% shadow SP Shadow damage and an additional 20 + 50% shadow SP over 15 seconds, stacking up to 3 times.
 - **Prowler** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/prowler.png
   - CoA: Prowler Specialization Instant Level 20 Passive Increases your spell damage by 25% of your Intellect and your hit rating by 3% of your Intellect.
 - **Vile Fangs** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, resource-grant, dot-hot
+  - icon: assets/icons/coa/vile_fangs.png
   - CoA: Periodic damage dealt now has a 10% chance to generate a Brood Mark.
 - **Venomagus** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/venomagus.png
   - CoA: Increases the damage of Blight Venom by 20%.
 - **Virulent Resonance** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
+  - icon: assets/icons/coa/virulent_resonance.png
   - CoA: Virulent Resonance Passive Instant Increases the effectiveness of Brood Marks by 10% and your hit chance by 5%.
 - **Boding Dread** (2 ranks) - MATCH venomancer_stalking
+  - icon: assets/icons/coa/boding_dread.png
   - CoA: Boding Dread Rank 1 Instant Increases your Shadow damage dealt and your critical strike chance with Shadow spells by 3%.
 - **Glory To Shadra!** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
+  - icon: assets/icons/coa/glory_to_shadra.png
   - CoA: Glory To Shadra! Passive Instant Increases the critical strike chance of Venom Fang and Nerubian Sting by 10%.
 - **Corrosive Toxin** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/corrosive_toxin.png
   - CoA: Withering Venom now deals an additional 1 + 72.5% shadow SP Shadow damage at the end of its duration.
 - **Withered** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/withered.png
   - CoA: Increases the spell power scaling of Withering Venom by 15%.
 - **Potency** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Increases the damage dealt by Venom Fang by 15% and causes it to increase the target's chance to be critically struck by spells by 3% for 15 seconds.
 - **Essence of Decay** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/essence_of_decay.png
   - CoA: Critical strikes with Widow's Kiss now apply 1 additional Brood Mark.
 - **Rotfang** (1 rank) - MATCH venomancer_stalking
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rotfang.png
   - CoA: Requires Spider Form Consumes Brood Marks Inject venom into an enemy that rots them from the inside out, dealing Plague damage over 24 seconds. 1 Mark: 240 + 220% SP Plague damage. 2 Marks: 307 + 281.6% SP Plague damage. 3 Marks: 394 + 360.8% SP Plague damage. 4 Marks: 499 + 457.6% SP Plague damage. 5 Marks: 672 + 616% SP Plague damage. Damage dealt pierces resistances.
 - **Acidfang** (1 rank) - MATCH venomancer_stalking
   - needs: proc-chance, stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
+  - icon: assets/icons/coa/acidfang.png
   - CoA: Acidfang Specialization Instant Level 30 Passive Periodic damage dealt now has a 40% chance, and critical strikes a 100% chance, to grant a stack of Acidfang . Acidfang The next Rotfang , Withering Venom , or Facemelter within 15 sec has 1% reduced duration and ticks 2% faster, stacking 10 times.
 - **Facemelter** (1 rank) - MATCH venomancer_stalking
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/facemelter.png
   - CoA: Requires Spider Form Consumes Brood Marks Spray poison upon an enemy and nearby enemies, dealing Nature damage over 15 seconds. 1 Mark: 88 + 93.75% nature SP Nature damage. 2 Marks: 112 + 120% nature SP Nature damage. 3 Marks: 144 + 153.75% nature SP Nature damage. 4 Marks: 182 + 195% nature SP Nature damage. 5 Marks: 245 + 262.5% nature SP Nature damage.
 - **Death Spray** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/death_spray.png
   - CoA: Periodic damage dealt now has a 5% chance to remove the Energy cost from your next Venom Fang or Widow's Kiss within 8 seconds and increase its damage by 20%. Can occur only once every 2 sec.
 - **Noxious Empowerment** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/noxious_empowerment.png
   - CoA: Noxious Empowerment Instant cast 3 min cooldown Enrage for 12 sec, increasing your chance to trigger Venoms by 50%, your Energy regeneration by 100%, and increasing your damage dealt by 20% for 12 sec.
 - **Blistering Fangs** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
+  - icon: assets/icons/coa/blistering_fangs.png
   - CoA: Blistering Fangs Passive Instant Casting spells that consume Brood Marks now refunds 30 Energy when used with at least 5 Brood Marks on your target.
 - **Rotting Sores** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
+  - icon: assets/icons/coa/rotting_sores.png
   - CoA: Increases the tick rate of Rotfang by -20% and allows its periodic damage dealt to critically strike.
 - **Shadra's Seance** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/shadra_s_seance.png
   - CoA: Facemelter now ticks -20% faster and the duration is increased by 6 sec.
 - **Virulent Opening** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold, dot-hot
+  - icon: assets/icons/coa/virulent_opening.png
   - CoA: Increases the periodic damage dealt by your Facemelter and Rotfang by 30% while the enemy is above 75% health.
 - **Black Widow** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
   - needs: transforms-ability, cooldown, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/black_widow.png
   - CoA: Black Widow Passive Instant Damage dealt to enemies below 35% health now reduces the cooldown of Noxious Empowerment by 2 sec. In addition, your Widowmaker now deals 20% increased damage to enemies below 35% health.
 - **Caustic** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/caustic.png
   - CoA: Reduces the cooldown of Noxious Empowerment by -60 sec.
 - **Deadly Kiss** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/deadly_kiss.png
   - CoA: Increases critical damage dealt by Widow's Kiss, Widowmaker and Venom Fang by 50% against Poisoned targets.
 - **Lethality** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/lethality.png
   - CoA: Increases the critical strike chance of Widow's Kiss on Diseased targets by 30%.
 - **Vulnerability** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/vulnerability.png
   - CoA: Level 40 Passive While Blight Venom is active, your auto attacks now have a 10% chance to apply it. In addition, your offensive critical strikes now increase the target's spell damage taken by 10% for 15 seconds.
 - **Corrosive Bile** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/corrosive_bile.png
   - CoA: After using Facemelter, your next Widowmaker within 15 seconds now deals 20% increased damage and strikes 2 additional nearby enemies.
 - **Contagion** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/contagion.png
   - CoA: For 15 seconds, all periodic damage dealt now has a 30% chance to burst dealing 92 + 20% shadow SP Shadow damage to 8 enemies within 8 yds.
 - **Bile Eruption** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, resource-grant
+  - icon: assets/icons/coa/bile_eruption.png
   - CoA: Bile Eruption Passive Instant Triggering a Venom now has a 25% chance to generate you 5 Energy.
 - **Tunneler** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tunneler.png
   - CoA: Your Spindlebind now has 2 charges, a 25 sec cooldown, and deals increased damage.Spindlebind (Tunneler) 2 Charges, 25 sec recharge Emit webs at all enemies behind you, rooting them for 4 seconds and inflicting 159 + 65% nature SP Nature damage.
 - **Bugging** (1 rank) - MATCH venomancer_stalking
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/bugging.png
   - CoA: Bugging Passive Instant Harmful spells cast out of Skulk increase the damage you deal to the enemy by 30% for 4 sec.
 - **Nature Against Nature** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/nature_against_nature.png
   - CoA: Each stack of Nerubian Sting now increases the damage dealt to the target by your Widowmaker and Venom Fang by 8%.
 - **Venomous Bite** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/venomous_bite.png
   - CoA: Increases the amount of times Brood Marks can stack by 2.
 - **One Man's Poison...** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/one_man_s_poison.png
   - CoA: Casting spells that consume Brood Marks now has a -25% chance to refund their Brood Mark cost.
 - **Deadly Neurotoxins** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deadly_neurotoxins.png
   - CoA: Critical strikes with Venom Fang and Nerubian Sting now deals an additional 25% of their direct damage instantly as Nature damage. Damage dealt in this way has a 40% chance to extend the duration of Rotfang by 1 sec.
 - **Widow's Fang** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/widow_s_fang.png
   - CoA: Black Widow Specialization Instant Level 50 Passive Your Venom Fang now costs 20% less Energy when while Widow's Kiss is active. Reduces the chance enemies have to detect you while using Skulk .
 - **Serpent Lord** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/serpent_lord.png
   - CoA: $b8
 - **Brood Lord** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/brood_lord.png
   - CoA: Augments Spider Form into a Brood Lord, causing your Brood Mark spenders to launch webs at the target, sticking to them for 10 seconds. Each webbed target has their movement speed slowed by -25%. Critically striking an enemy who is webbed summons 1 to 2 Spiderlings to aid you in combat for 8 seconds.
 - **Cunning of the Nerub'ar** (1 rank) - MATCH venomancer_stalking  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/cunning_of_the_nerub_ar.png
   - CoA: Cunning of the Nerub'ar Passive Instant Augments your Spider Form , increasing your damage dealt by 10% and causing it to allow your Nerubian Sting to stack 1 additional time.
 
 ### Stalking abilities
@@ -298,141 +378,183 @@ Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the s
 - **Expulsion** (1 rank) - MATCH venomancer_fortitude
   - needs: stacking-buff, cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/expulsion.png
   - CoA: Expulsion Rank 1 20 Rage Instant 10 sec cooldown Clears Exposed Flesh stacks to poison nearby enemies for 5 sec, and an additional 1 sec per cleared stack, dealing 15+0+ NatP *0.1+ AP *0.05 Nature damage every 1 sec.
 - **Carapace Regeneration** (1 rank) - NEW - we have no talent of this name
   - needs: charges, stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/carapace_regeneration.png
   - CoA: 3 Charges, 20 sec recharge Regenerate your carapace, reducing your Physical damage taken by -4% and restoring 1% maximum health every 1 sec, draining 10 Rage every tick to remain active, stacking 3 times.
 - **Reinforced Exoskeleton** (2 ranks) - MATCH venomancer_fortitude  [ours is scalar]
+  - icon: assets/icons/coa/reinforced_exoskeleton.png
   - CoA: Reinforced Exoskeleton Rank 1 Instant Increases your maximum health and your dodge chance by 3%.
 - **Vile Fury** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/vile_fury.png
   - CoA: Reduces the Rage cost of Hivebreak and Carapace Crash by -3 and increases your chance to hit by 2%.
 - **Enchanted Chitin** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/enchanted_chitin.png
   - CoA: Increases your Armor contribution from mail by 25%.
 - **Magic Shell** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/magic_shell.png
   - CoA: Magic Shell Specialization Instant Level 20 Passive Increases all primary attributes by 15% while in Beetle Form . In addition, increases your hit rating by 3% of all primary attributes.
 - **Agitation** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
   - needs: resource-grant
+  - icon: assets/icons/coa/agitation.png
   - CoA: Agitation Passive Instant Dodging an attack now generates 3 Rage.
 - **Regrow Exoskeleton** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/regrow_exoskeleton.png
   - CoA: Regrow Exoskeleton Instant 1 min cooldown Clears Exposed Flesh stacks to reduce your damage taken by 20% for 5 sec and an additional 1 sec per stack.
 - **Venomtip Poison** (1 rank) - MATCH venomancer_fortitude
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/venomtip_poison.png
   - CoA: Venomtip Poison Rank 1 20 Rage Instant Spray poison on an enemy and all enemies near them, dealing 30+0+ NatP *0.11+ AP *0.1 Nature damage and reducing their attack speed by 20% for 15 sec.
 - **Slimy Stingers** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/slimy_stingers.png
   - CoA: Slimy Stingers Passive Instant Carapace Crash now creates a pool of Beetle Slime under each enemy struck. Beetle Slime Deals 49 Nature Damage to up to 10 enemies within 5 yds every 2 sec for 8 sec.
 - **Slimy** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/slimy.png
   - CoA: Slimy Passive Instant Direct damage taken now has a 20% chance to create a pool of Beetle Slime under the enemy. Can only occur once every 3 sec. Beetle Slime Deals 49 Nature Damage to up to 10 enemies within 5 yds every 2 sec for 8 sec.
 - **Catalyst** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/catalyst.png
   - CoA: Catalyst Instant 1 min cooldown Generates 15 Rage plus 5 every 1 sec and reduces the cost of all of your spells and abilities by 25% for 10 sec. Prevents out of combat Rage decay for its duration.
 - **Pendo's Charm** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/pendo_s_charm.png
   - CoA: Increases the rage generated by your damage dealt by 15%.
 - **Empowered Exoskeleton** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/empowered_exoskeleton.png
   - CoA: Empowered Exoskeleton Passive Instant Removes the Rage cost of Chitin Rush and increases its range by 5 yds.
 - **Chitinous Surge** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/chitinous_surge.png
   - CoA: Reduces the cooldown of Chitin Rush by -3 sec and increases its damage by 15%.
 - **Natural Weapons** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/natural_weapons.png
   - CoA: Increases the critical strike chance of all Beetle Form abilities by 10%.
 - **Drown In Poison** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/drown_in_poison.png
   - CoA: Increases the damage of Venomtip Poison by 30%.
 - **Poison for Everyone!** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/poison_for_everyone.png
   - CoA: Reduces the Rage cost of Venomtip Poison by -10.
 - **Reformed** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/reformed.png
   - CoA: Reformed Specialization Instant Level 30 Passive Clearing Exposed Flesh stacks inside Beetle Form now restores health based on stacks cleared.
 - **Deadly Sting** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/deadly_sting.png
   - CoA: Dealing periodic damage now has a 10% chance to make your next Hivebreak within 8 seconds free of cost and deal 50% increased damage.
 - **Charmed Plating** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/charmed_plating.png
   - CoA: Reduces damage taken by all party and raid members by -3%. Does not stack with similar effects. In addition, reduces your chance to be hit by spells by -2%.
 - **Wicked Poison** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wicked_poison.png
   - CoA: Wicked Poison Passive Instant Critical strikes with Chitin Rush , Carapace Crash , and Hivebreak now apply Wicked Poison . Wicked Poison Deals 60*$ +ShaP*0.0566667+AP*0.032 Shadow Damage every 1.5 sec for 6 sec.
 - **Barbed Stinger** (1 rank) - MATCH venomancer_fortitude
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Barbed Stinger Instant 20 sec cooldown Clears Exposed Flesh stacks and flings a Barbed Stinger into an enemy for 10 sec, plus an additional 1 sec per cleared stack. Recasting this ability on the same target will rip the stinger out, pulling them to you and dealing Nature damage, scaling based on how long the stinger was left in them.
 - **Potent Expulsion** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/potent_expulsion.png
   - CoA: Increases the damage dealt by Expulsion by 20%.
 - **Charm of Warding** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/charm_of_warding.png
   - CoA: When a stack of Exposed Flesh is applied you are now healed for 1% of your maximum health.
 - **Alacrity** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/alacrity.png
   - CoA: Alacrity Passive Instant Damage dealt by Chitin Rush now increases your dodge chance by 1% for 5 sec, stacking 8 times.
 - **Cunning** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
+  - icon: assets/icons/coa/cunning.png
   - CoA: Cunning Passive Instant Increases the critical strike chance of Chitin Rush by 20% and its critical damage by 10%.
 - **Impale** (1 rank) - MATCH venomancer_fortitude
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/impale.png
   - CoA: Impale 14% of base mana Instant cast 40 sec cooldown Fire spikes through the floor impaling all enemies in a 15 yd line for 83+0+ ShaP *0.510714 Shadow damage and stunning them for 3.5 sec.
 - **Beetle Poison** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/beetle_poison.png
   - CoA: Allows Wicked Poison to stack an additional time.
 - **Wicked Barbs** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/wicked_barbs.png
   - CoA: Your Barbed Stinger and Chitin Rush now applies Wicked Poison.Wicked Poison Deals 60 + 5.67% shadow SP + 3.2% AP Shadow Damage every 2 sec for 6 seconds.
 - **Toxic Expulsion** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/toxic_expulsion.png
   - CoA: Toxic Expulsion Passive Instant Hivebreak now consumes 2 sec of Venomtip Poison's duration to gush toxic slime, dealing 20 Nature damage to 5 enemies within 5 yds.
 - **Poisonous** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
+  - icon: assets/icons/coa/poisonous.png
   - CoA: Level 40 Passive Increases your spell damage by 30% of your attack power and allows periodic damage dealt by Expulsion to critically strike.
 - **Venomics** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/venomics.png
   - CoA: Venomics Passive Instant Increases the effectiveness of your Venoms by 30%.
 - **Cover** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/cover.png
   - CoA: Casting Harden now clears Exposed Flesh.
 - **Shadra's Gift** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadra_s_gift.png
   - CoA: Dealing damage with Barbed Stinger now increases the target's Nature damage taken by 5% for 12 seconds.
 - **Unbreakable** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
   - needs: stacking-buff
+  - icon: assets/icons/coa/unbreakable.png
   - CoA: Unbreakable Passive Instant Allows Exposed Flesh to stack 5 additional times and increase your Physical damage taken by 1% less.
 - **Locust Swarm** (1 rank) - MATCH venomancer_fortitude
   - needs: cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/locust_swarm.png
   - CoA: Locust Swarm 25 Rage Instant 30 sec cooldown Leeches 65+4.0 Points Per Level+ SP *.1+ AP *0.03 health from nearby enemies every 2 sec for 10 sec.
 - **Reconstructive Carapace** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/reconstructive_carapace.png
   - CoA: Reconstructive Carapace Passive Instant Reduces the amount of Rage drained by Carapace Regeneration by 3.
 - **Protogenesis** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/protogenesis.png
   - CoA: Level 50 Passive Critical strikes dealt with direct damage now apply Protogenesis to you, stacking 10 times.Protogenesis Heals for 20 over 10 seconds. At 10 stacks, all stacks are consumed and the cooldown of Expulsion is reduced by -3 sec.
 - **Molt** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/molt.png
   - CoA: Molt Instant 45 sec cooldown Shatters your exoskeleton, instantly applying 15 stacks of Exposed Flesh and increasing your movement speed by 30% for 8 sec.
 - **Spider Lord** (1 rank) - MATCH venomancer_fortitude
   - needs: proc-chance, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/spider_lord.png
   - CoA: Spider Lord Passive Instant Augments Beetle Form into a Spider Lord , reducing damage taken by 5%, and while Locust Swarm is active your summons now gain 30% increased haste and damage. Casting Hivebreak now has a 40% chance, and melee auto attacks now have a 5% chance, to summon 1 Scarab to aid you in combat for 12 sec.
 - **Regenerative Properties** (1 rank) - MATCH venomancer_fortitude  [ours is scalar]
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/regenerative_properties.png
   - CoA: Regenerative Properties Passive Instant cast Reduces all damage taken by 5%, but damage taken now has a 10% chance to shatter your exoskeleton, removing this damage reduction effect. When your exoskeleton shatters you regenerate 8% of your maximum health over 12 sec, after this duration your exoskeleton regenerates.
 
 ### Fortitude abilities
@@ -443,127 +565,166 @@ Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the s
 - **Alkahest** (1 rank) - MATCH venomancer_vizier
   - needs: charges, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/alkahest.png
   - CoA: Alkahest Rank 1 15% of base mana 1.6 sec cast 2 Charges, 12 sec recharge Bless an ally with Shadra's grace, healing them for 85+0+ Heal *0.314397 and extending the duration of Shadra's Prayer on them by 9 sec.
 - **Mycelial Healing** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mycelial_healing.png
   - CoA: All effective healing done now increases your periodic healing done to an ally by 1% for 30 seconds, stacking 8 times.
 - **Mending Mist** (1 rank) - MATCH venomancer_vizier
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mending_mist.png
   - CoA: Mending Mist Rank 1 35% of base mana 1.8 sec cast Spread a precarious mist to up to 8 allies within 30 yds, healing them for 9+0+ Heal *0.15 every 1 sec for 7 sec. After 1.69 sec, all allies within 30 yds are healed for an additional 96+2.5 Points Per Level+ Heal *0.231.
 - **Shadra's Gift** (2 ranks) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/shadra_s_gift.png
   - CoA: Reduces the cast time of Shadra's Prayer by -10% and your spell pushback suffered from damaging attacks by 35%.
 - **Spiritual Healing** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/spiritual_healing.png
   - CoA: Level 20 Passive Increases your spell critical strike rating and your healing power by 20% of your Intellect.
 - **Venom Glands** (1 rank) - MATCH venomancer_vizier  [ours is scalar]
   - needs: hp-threshold
+  - icon: assets/icons/coa/venom_glands.png
   - CoA: Venom Glands Passive Instant Increases your healing done by 15% on allies below 35% health or if they are Poisoned .
 - **Fang Blessing** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/fang_blessing.png
   - CoA: Increases your critical strike chance by 3%.
 - **Fangbinder** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/fangbinder.png
   - CoA: Increases the healing of Serpent's Fang by 50% and Serpent's Fang can no longer miss.
 - **Ritualistic** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/ritualistic.png
   - CoA: Casting Green Salve now also refunds you 20% of your base mana.
 - **The Antidote** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/the_antidote.png
   - CoA: Increases the duration of Rejuvenating Venom by 2 sec and increases its tick rate by -30%.
 - **Good Venom** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/good_venom.png
   - CoA: Rejuvenating Venom will now affect 1 additional nearby ally.
 - **Soothing Venoms** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/soothing_venoms.png
   - CoA: Increases the critical healing of Shadra's Prayer by 25%.
 - **Melioration** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
+  - icon: assets/icons/coa/melioration.png
   - CoA: Your Serpent's Fang now refreshes a charge of Alkahest.
 - **Lifemender** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/lifemender.png
   - CoA: Your Serpent's Fang now heals up to 5 additional nearby allies and Alkahest now heals an additional nearby target.
 - **Venomcult Scrolls** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/venomcult_scrolls.png
   - CoA: Reduces the cooldown of Green Salve by -2 sec and increases the healing done at the end of the duration by 50%.
 - **Book of Shadra** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/book_of_shadra.png
   - CoA: Doubles the duration, cooldown, and healing of Green Salve. In addition, it now seeks another nearby ally to heal every 6 sec, instead of at the end of the duration.
 - **Vizier Form** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/vizier_form.png
   - CoA: $bc
 - **Spirit of the Jungle** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/spirit_of_the_jungle.png
   - CoA: Increases the proc chance of Rejuvenating Venom by 10%.
 - **Worship** (1 rank) - MATCH venomancer_vizier  [ours is scalar]
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/worship.png
   - CoA: Worship Passive Instant Allows all critical heals to increase periodic healing the target receives from you by 10% for 5 sec.
 - **Mycelial Replenishment** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mycelial_replenishment.png
   - CoA: Increases your critical strike chance and critical healing done by 20% for 20 seconds and instantly restore 30% of your maximum mana, but consumes all stacks of Mycelial Healing on all nearby allies. While active, all periodic critical strikes heal for an additional 20% of the healing done.
 - **Sage** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/sage.png
   - CoA: Direct healing done by Alkahest now spreads an active Shadra's Balm from the primary target to a nearby ally.
 - **Bountiful Gifts** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/bountiful_gifts.png
   - CoA: Increases the healing of Shadra's Prayer, Green Salve, and Alkahest by 10%.
 - **Advisor's Perfidy** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/advisor_s_perfidy.png
   - CoA: Increases the bonus healing scaling of Serpent's Fang, Mending Mist, and Shadra's Balm by 10%.
 - **Toxic Communion** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/toxic_communion.png
   - CoA: Extend the duration of Shadra's Balm and Mending Mist by 15 sec on all allies within 30 yds.
 - **Shadra's Presence** (1 rank) - MATCH venomancer_vizier  [ours is scalar]
   - needs: stacking-buff, aoe-cleave
+  - icon: assets/icons/coa/shadra_s_presence.png
   - CoA: Shadra's Presence Instant Allies within 100 yds receive 6% more healing. Does not stack with similar effects. In addition, your Antivenom now dispels 1 additional effect.
 - **Blight Antidote** (1 rank) - MATCH venomancer_vizier
+  - icon: assets/icons/coa/blight_antidote.png
   - CoA: Blight Antidote 14% of base mana Instant cast Inject an ally with a powerful magic antidote, dispelling 2 curse effects from them.
 - **Widow's Watch** (1 rank) - MATCH venomancer_vizier  [ours is scalar]
+  - icon: assets/icons/coa/widow_s_watch.png
   - CoA: Widow's Watch Passive Instant Allies affected by Shadra's Balm now have a 20% increased chance to resist poison and curse effects.
 - **Occultist** (1 rank) - NEW - we have no talent of this name
   - needs: charges, proc-chance, cooldown
+  - icon: assets/icons/coa/occultist.png
   - CoA: Level 40 Passive Casting Green Salve or Serpent's Fang now has a 30% chance to refresh a charge of Alkahest.
 - **Ophidian Renewal** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ophidian_renewal.png
   - CoA: Increases the duration of Shadra's Balm and Mending Mist and Shadra's Prayer by 3 sec.
 - **Extraction** (1 rank) - MATCH venomancer_vizier  [ours is scalar]
   - needs: cooldown, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/extraction.png
   - CoA: Extraction Instant cast 5 min cooldown For 15 sec, your Intellect and Spirit are doubled and all critical periodic healing done by you restores 5% of your missing mana.
 - **Sublime Extraction** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sublime_extraction.png
   - CoA: Casting Green Salve now resets the cooldown of Serpent's Fang and removes the cost of your next Serpent's Fang for 8 seconds.
 - **Venom Fanatic** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/venom_fanatic.png
   - CoA: Your Serpent's Fang now strikes 2 additional nearby enemies.
 - **Shadra's Aid** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadra_s_aid.png
   - CoA: Envelop an ally in Shadra's grace, reducing all damage taken by -20% and causing direct damage taken to restore 3% maximum health for 15 seconds.
 - **Venom Weaving** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/venom_weaving.png
   - CoA: Your Serpent's Fang now increases the healing of your next 2 Alkahests by 25%.
 - **Serpent Lord's Amulet** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/serpent_lord_s_amulet.png
   - CoA: Draw power from the Serpent Lord's Amulet, increasing your spell haste by 20% and reduces your mana costs by -50% for 15 seconds.
 - **Ritual Healing** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ritual_healing.png
   - CoA: Level 50 Passive Every 9 sec, your Shadra's Prayer will now restore 1% of the target's maximum mana, 8 Energy or Focus, 4 Rage and 4 Runic Power.
 - **Mycelial Synchronization** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/mycelial_synchronization.png
   - CoA: Casting Shadra's Aid on an ally now also casts it on yourself.
 - **Cycle of Rebirth** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/cycle_of_rebirth.png
   - CoA: Effective periodic healing with Shadra's Balm now has a 10% chance to make your next Alkahest within 8 seconds is free and instant.
 - **Serpent Lord's Ritual** (1 rank) - MATCH venomancer_vizier
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/serpent_lord_s_ritual.png
   - CoA: Serpent Lord's Ritual Passive Instant Direct healing done now has a 5% chance to grant you 5 sec of Serpent Lord's Amulet . If Serpent Lord's Amulet is already active, triggering this will instead extend its duration by 5 seconds. This cannot extend it past its maximum duration. Serpent Lord's Amulet Draw power from the Serpent Lord's Amulet , increasing your spell haste by 20% and reduces your ma
 
 ### Vizier abilities
@@ -573,61 +734,78 @@ Source: data/reference/coa/venomancer.json (Ascension CoA Builder payload, the s
 
 - **Hive Instinct** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, resource-grant
+  - icon: assets/icons/coa/hive_instinct.png
   - CoA: Hive Instinct Instant cast 2 min cooldown The swarm stirs within you, preparing you for battle, instantly generating 100 Rage or Energy. Usable while Skulking .
 - **Acute Senses** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/acute_senses.png
   - CoA: Increases your Intellect and Agility by 5%.
 - **Hallucinogenic Venom** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/hallucinogenic_venom.png
   - CoA: Allows 50% of your mana to regenerate while in combat.
 - **Shadra's Balm** (1 rank) - MATCH venomancer_vizier
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadra_s_balm.png
   - CoA: Envelop an ally with a restorative balm, healing them for 14 + 25.17% healing every 3 sec for 18 seconds.
 - **Chitinous Spikes** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/chitinous_spikes.png
   - CoA: Chitinous Spikes Passive Instant Taking direct damage has a 20% chance to retaliate for 5% of the damage taken.
 - **Skin Shedder** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/skin_shedder.png
   - CoA: Reduces the cost of shapeshift spells by -50%.
 - **Tome of Ahn'kahet** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tome_of_ahn_kahet.png
   - CoA: Tome of Ahn'kahet Passive Instant Damage and effective healing done now has an 8% chance to grant Tome of Ahn'kahet for 15 sec. Tome of Ahn'kahet The next spell has its costs reduced by 100%.
 - **Blightcap Injestion** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/blightcap_injestion.png
   - CoA: Increases your chance to resist poison and disease effects by 30%.
 - **Runed Carapace** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/runed_carapace.png
   - CoA: Runed Carapace Passive Instant Whenever you take Magic damage, reduce damage taken by that magic school by 10% for 10 sec. Can only occur once every 30 sec per school of magic.
 - **Venomancy Expert** (1 rank) - MATCH venomancer_venom  [ours is scalar]
+  - icon: assets/icons/coa/venomancy_expert.png
   - CoA: Venomancy Expert Passive Instant Reduces the cost of all spells and abilities by 5%.
 - **Celerity** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/celerity.png
   - CoA: Celerity Instant cast 1 min cooldown Increases your movement speed by 60% for 10 sec. Leaving Spider Form will cancel this effect. Usable while Skulking .
 - **Mamba Mentality** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/mamba_mentality.png
   - CoA: Critical strikes with Venom Bolt, Hivebreak, or Venom Fang now increase your movement speed by 20% for 3 seconds.
 - **Relentless** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/relentless.png
   - CoA: Increases your Energy and mana regeneration rate by 20%.
 - **Enduring Exoskeleton** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance, resource-grant
+  - icon: assets/icons/coa/enduring_exoskeleton.png
   - CoA: Direct damage taken now has a 30% chance to generate 2 Rage and 3% base mana. Can only occur once per sec.
 - **Burrow** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/burrow.png
   - CoA: Burrow beneath the ground for 8 seconds, becoming immune to all physical attacks and spells, but unable to move or act for the duration. While burrowed, you can choose a new location within 30 yds to unburrow.
 - **Fury of Shadra** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
+  - icon: assets/icons/coa/fury_of_shadra.png
   - CoA: Increases your damage and healing against targets below 35% health by 15%.
 - **Shadra's Lair** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/shadra_s_lair.png
   - CoA: Shadra's Lair Instant 3 min cooldown Designate the area around you as your Lair for 8 sec. Enemies are unable to target into or out of the Lair and their movement speed is slowed by 60%.
 
 ### Class (shared) abilities

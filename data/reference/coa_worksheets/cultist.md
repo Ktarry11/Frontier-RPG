@@ -5,6 +5,7 @@
 - not in our data at all: **97**
 - single-clause scalars in CoA's own tree: **29** (17%)
 - carry real-time assumptions needing translation: **70** (43%)
+- without an extracted CoA icon: **3**
 
 Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same data allthingscoa.com presents).
 
@@ -15,115 +16,151 @@ Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same
 - **Rift** (1 rank) - MATCH cultist_godblade
   - needs: cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/rift.png
   - CoA: Rift 8% of base mana Instant 45 sec cooldown Apply a dark boon to yourself for 15 sec, causing your next Hammer of Twilight to deal an additional 80% of its damage dealt as Shadow damage. Creates a rift that absorbs the next 200+11.0 Points Per Level+ AP *1.5 healing taken by enemies that step inside and reduces their periodic healing received by 50% for 10 sec while inside.
 - **Hand of N'Zoth** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown
+  - icon: assets/icons/coa/hand_of_n_zoth.png
   - CoA: Your Hammer of Twilight, Entropic Slam, and Gaze of C'Thun now refreshes a charge of Blade of the Empire.
 - **Voidforged Edge** (3 ranks) - MATCH cultist_godblade
+  - icon: assets/icons/coa/voidforged_edge.png
   - CoA: Voidforged Edge Rank 1 Instant cast Your auto attacks now deal an additional 10% of the damage dealt as Shadow damage.
 - **Abyssal Edge** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/abyssal_edge.png
   - CoA: Increases the critical strike chance of Blade of the Empire by 2% and reduces its mana cost by -25%.
 - **Shadow of the Void** (1 rank) - MATCH cultist_godblade
   - needs: resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadow_of_the_void.png
   - CoA: Level 20 Passive While above 40 Insanity, melee attacks and abilities trigger Shadow of the Void.Shadow of the Void Restores 5% of your maximum mana and increases your Shadow Damage dealt by 10% for 8 seconds.
 - **Shadow Strikes** (1 rank) - NEW - we have no talent of this name
   - needs: proc-chance
+  - icon: assets/icons/coa/shadow_strikes.png
   - CoA: Blade of the Empire now has a 30% chance to cause your next auto attack to hit twice.
 - **Netherstrike** (1 rank) - MATCH cultist_godblade
   - needs: cooldown, resource-grant, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/netherstrike.png
   - CoA: Netherstrike Rank 1 10% of base mana Instant 6 sec cooldown Requires Polearms, Staves, Two-Handed Axes, Two-Handed Maces, Two-Handed Swords Generates 10 Insanity Strike an enemy quickly for 125% Weapon Damage plus 48 Shadow damage, purging 1 beneficial magic effect from them. Only usable on enemies below 35% health.
 - **Warrior of the Old Gods** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/warrior_of_the_old_gods.png
   - CoA: Warrior of the Old Gods Passive Instant Increases the Weapon Damage dealt by Hammer of Twilight and Entropic Slam by 20%.
 - **Residual Energy** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/residual_energy.png
   - CoA: Doubles the duration of Shadow of the Void.
 - **Hysterical Momentum** (1 rank) - MATCH cultist_godblade
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hysterical_momentum.png
   - CoA: Damage dealt by Blade of the Empire increases your melee haste by 3% for 8 seconds, stacking 3 times.
 - **Voidseeker** (1 rank) - MATCH cultist_godblade
   - needs: proc-chance, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/voidseeker.png
   - CoA: Melee attacks now have a 10% chance to reset the cooldown of your Netherstrike, allowing the next use regardless of the target's health for 8 seconds.
 - **Touch of the Void** (1 rank) - MATCH cultist_godblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/touch_of_the_void.png
   - CoA: Increases your Magic damage dealt by 3% and Hammer of Twilight now increases the target's spell damage taken by 10% for 15 seconds.
 - **Encroaching Presence** (1 rank) - MATCH cultist_godblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/encroaching_presence.png
   - CoA: Your melee critical strikes reduce the cooldown of Rift and Gaze of C'Thun by -3 sec.
 - **Twilight's Call** (1 rank) - MATCH cultist_godblade
+  - icon: assets/icons/coa/twilight_s_call.png
   - CoA: Level 30 Passive Critical strikes with Hammer of Twilight now refund 10 Insanity.
 - **Teachings of Mythrax** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/teachings_of_mythrax.png
   - CoA: Increases the duration of Presence of N'Zoth and Presence of Y'Shaarj by 25%.
 - **Empire's Grasp** (1 rank) - MATCH cultist_godblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/empire_s_grasp.png
   - CoA: Empire's Grasp 11% of base mana Instant cast 35 sec cooldown Teleport an enemy to your position and slow their movement speed by 60% for 4 sec.
 - **God Blade** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/god_blade.png
   - CoA: Your Rift now guarantees your next Hammer of Twilight to critically strike.
 - **Abyssal Cleave** (2 ranks) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/abyssal_cleave.png
   - CoA: Your Gaze of C'Thun now strikes 1 additional nearby enemy.
 - **Tentacle of N'Zoth** (1 rank) - MATCH cultist_godblade
   - needs: pet-summon, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/tentacle_of_n_zoth.png
   - CoA: Target an enemy and summon a Tentacle of N'Zoth on the ground near them that will silence them and deal 117 + 75% SP Shadow damage every 2 sec for 8 seconds. If your target runs out of range, the tentacle will seek a new target. The tentacle gains health based on your Stamina. If the tentacle dies, the silence effect will end.
 - **Seething Void** (1 rank) - MATCH cultist_godblade
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/seething_void.png
   - CoA: Reduces the cooldown of Empire's Grasp by -5 sec.
 - **End Times** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/end_times.png
   - CoA: End Times 25% of base mana Instant cast 1 min cooldown Increases the range of Blade of the Empire , Netherstrike , and Hammer of Twilight by 25 yds and reduces their mana costs by 50% for 15 sec.
 - **Oblivion's Embrace** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/oblivion_s_embrace.png
   - CoA: Increases the critical damage of your Hammer of Twilight by 25%.
 - **Void Strength** (1 rank) - MATCH cultist_godblade  [ours is scalar]
+  - icon: assets/icons/coa/void_strength.png
   - CoA: Void Strength Specialization Instant cast Level 40 Passive Increases your Shadow spell damage by 50% of your Strength and your spell hit chance by 5% of your Strength.
 - **Eye of N'zoth** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/eye_of_n_zoth.png
   - CoA: Increases the critical strike chance and critical damage of your Tentacles by 10%.
 - **Netherborne** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/netherborne.png
   - CoA: Increases the critical damage of Netherstrike by 25%.
 - **Who Needs Sanity?** (1 rank) - MATCH cultist_godblade
   - needs: stacking-buff
+  - icon: assets/icons/coa/who_needs_sanity.png
   - CoA: Each stack of Insanity increases the critical damage of your Netherstrike by 1%.
 - **Instilling Fear** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/instilling_fear.png
   - CoA: While above 60 Insanity, your Netherstrike and Gaze of C'Thun now gain 10% increased critical strike chance.
 - **Void Rage** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/void_rage.png
   - CoA: Increases the Shadow damage increased through Shadow of the Void by 5%.
 - **Glory to N'Zoth** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/glory_to_n_zoth.png
   - CoA: While Shadow of the Void is active, you now take -15% reduced damage.
 - **Eldritch Obelisk** (1 rank) - MATCH cultist_godblade
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/eldritch_obelisk.png
   - CoA: Create an Eldritch Obelisk beneath you for 20 seconds, increasing the damage of your Tentacles by 100% and the movement speed of allies by 40% while near it.
 - **Nutcase** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/nutcase.png
   - CoA: Nutcase Passive Instant Your Shadow of the Void now also increases your critical damage dealt by 10%.
 - **Voidborne** (1 rank) - MATCH cultist_godblade
   - needs: resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/voidborne.png
   - CoA: Tap into your inner voidborne rage, increasing your damage dealt and critical strike chance by 25%, and granting you immunity to stun effects for 15 seconds. Generates 1 Insanity every 1 sec.
 - **Blessing of N'Zoth** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blessing_of_n_zoth.png
   - CoA: Level 50 Passive Increases your attack power by 100% of your Intellect.
 - **Twilight Domination** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/twilight_domination.png
   - CoA: Damage dealt by your Tentacles reduces the cooldown of Eldritch Obelisk by -2 sec. In addition, increases the effectiveness of Eldritch Obelisk by 25%.
 - **Book of N'Zoth** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: assets/icons/coa/book_of_n_zoth.png
   - CoA: Your Shadow of the Void now stacks 1 additional time.
 - **Shadow Fiend** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/shadow_fiend.png
   - CoA: Reduces the cooldown of your Voidborne by -90 sec and increases its duration by 5 sec.
 
 ### Godblade abilities
@@ -134,132 +171,170 @@ Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same
 - **Darkwither** (1 rank) - MATCH cultist_corruption
   - needs: stacking-buff, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/darkwither.png
   - CoA: Generates 10 Insanity Wither an enemy, dealing 135 Shadow damage over 15 seconds. Each instance of damage reduces their periodic healing taken by -5%, stacking up to 4 times.
 - **Absolute Horror** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/absolute_horror.png
   - CoA: Reduces the cast time of Horrorbolt and Wrath of the Black Empire by 0.3 sec.
 - **Feeding Darkness** (2 ranks) - MATCH cultist_corruption
   - needs: scalar
+  - icon: assets/icons/coa/feeding_darkness.png
   - CoA: Increases the range of your Corruption spells by 3 yds and their chance to critically strike by 2%.
 - **Moment of Clarity** (2 ranks) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/moment_of_clarity.png
   - CoA: Moment of Clarity Rank 1 Instant Reduces spell pushback suffered from damaging attacks by 35% and increases mana generated by Sanity Tap by 5%.
 - **Call of C'Thun** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
+  - icon: MISSING - needs art
   - CoA: Your Darkwither's healing reduction now stacks 3 additional times and its tick rate is increased by -25%.
 - **Call of N'Zoth** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/call_of_n_zoth.png
   - CoA: Increases the duration of Darkwither by 9 sec.
 - **Servant of C'Thun** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/servant_of_c_thun.png
   - CoA: Casting Gaze of C'thun now always triggers your Presence of C'Thun while it is active.Presence of C&#39;Thun (Buff) Increases your haste by 20% for 6 seconds.
 - **Dark Magician** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/dark_magician.png
   - CoA: Level 20 Passive Increases your critical damage dealt by 50% and your spell power by 30% of your Intellect.
 - **Eldritch Devastation** (1 rank) - MATCH cultist_corruption
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/eldritch_devastation.png
   - CoA: Channel upon an enemy, chaining to nearby enemies, dealing 60 + 132% shadow SP Shadow damage over 6 seconds, dealing less damage with each enemy struck.
 - **Obliteration Beam** (1 rank) - MATCH cultist_corruption
   - needs: cooldown, resource-grant, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/obliteration_beam.png
   - CoA: Obliteration Beam Rank 1 19% of base mana Instant cast 20 sec cooldown Generates 10 Insanity Unleash a beam of eldritch energy, dealing 126+0+ ShaP *.65 Shadow damage to an enemy and all nearby enemies. While above 60 Insanity , deals 20% more damage.
 - **Unrelenting Void** (1 rank) - MATCH cultist_corruption
   - needs: stacking-buff, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/unrelenting_void.png
   - CoA: Unrelenting Void Passive Instant Periodic or channeled damage now increases the damage the enemy takes from you by 2% for 10 sec, stacking 10 times.
 - **Mind Rot** (1 rank) - MATCH cultist_corruption
   - needs: proc-chance, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/mind_rot.png
   - CoA: Periodic or channeled damage dealt now has a 25% chance to curse your target, applying Mind Rot.Mind Rot (Trigger) Increases the chance for allies to hit with all spells against the afflicted enemy by 3% for 10 seconds. If this effect is dispelled, your critical strike chance is increased by 30% for 5 seconds.
 - **Cunning Nature** (2 ranks) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/cunning_nature.png
   - CoA: Increases your chance to hit by 3% and reduces threat generated by Shadow damage spells by -15%.
 - **Dark Revelation** (1 rank) - MATCH cultist_corruption
   - needs: proc-chance, cooldown
+  - icon: assets/icons/coa/dark_revelation.png
   - CoA: Grants your Horrorbolt and Wrath of the Black Empire a 20% chance to reset the cooldown of Gaze of C'thun.
 - **Whispers of C'Thun** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/whispers_of_c_thun.png
   - CoA: Level 30 Passive Your Gaze of C'Thun now generates 10 Insanity.
 - **Corruptor's Gaze** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/corruptor_s_gaze.png
   - CoA: Increases the damage of your Tentacles by 20%.
 - **Dread** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/dread.png
   - CoA: Increases the damage of Darkwither by 30%.
 - **Visions** (1 rank) - MATCH cultist_corruption
   - needs: stacking-buff
+  - icon: assets/icons/coa/visions.png
   - CoA: Visions Passive Instant Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, your Shadow damage is increased by 3%.
 - **Worrysome Idol** (1 rank) - NEW - we have no talent of this name
   - needs: dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/worrysome_idol.png
   - CoA: Increases your spell haste by 4% and causes you to regenerate mana equal to 1% of your missing mana every 10 sec.
 - **Horrific Visions** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/horrific_visions.png
   - CoA: While above 40 Insanity, your chance to trigger Dark Revelation is now increased by 10%.
 - **Foulness** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/foulness.png
   - CoA: Foul Play Passive Instant Increases the damage bonus provided by your Corrupting Whispers by 5%.
 - **Terror** (1 rank) - MATCH cultist_corruption  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/terror.png
   - CoA: Increases the spell damage bonus of Horrorbolt by 10% and Wrath of the Empire by 20%.
 - **Psychic Suppression** (1 rank) - MATCH cultist_corruption
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/psychic_suppression.png
   - CoA: Psychic Suppression 17% of base mana Channeled 1 min cooldown Lift an enemy into the air, stunning them and dealing 30+0+ ShaP *.55+ AP *.1 Shadow damage every 0.5 sec for 5 sec. The target takes 15% more spell damage from all sources while you are channeling this spell.
 - **Inner Turmoil** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/inner_turmoil.png
   - CoA: Increases the damage of Wrath of the Black Empire by 25%.
 - **Glimpse of Madness** (2 ranks) - MATCH cultist_corruption
   - needs: transforms-ability, stacking-buff, cooldown
+  - icon: assets/icons/coa/glimpse_of_madness.png
   - CoA: Glimpse of Madness Rank 1 Instant Reduces the cooldown of Obliteration Beam by 20% and it now applies Madness to all targets struck. Madness Your Gaze of C'thun causes 3% increased damage, stacks up to 5 times.
 - **Dark Revelation** (1 rank) - MATCH cultist_corruption
   - needs: proc-chance, cooldown, resource-grant, dot-hot
+  - icon: assets/icons/coa/dark_revelation.png
   - CoA: Level 40 Passive Grants all periodic damage and damage dealt a 6% chance to reset the cooldown of Gaze of C'Thun and generate 5 Insanity.
 - **Yawning Decay** (1 rank) - NEW - we have no talent of this name
   - needs: every-nth-cast
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/yawning_decay.png
   - CoA: Every 3rd Horrorbolt cast causes your next successful Horrorbolt to deal an additional 50% of the initial damage to the target over 3 seconds.
 - **Embrace the Void** (1 rank) - MATCH cultist_corruption
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/embrace_the_void.png
   - CoA: Reaching 60 Insanity increases your damage dealt by 10% for 10 seconds.
 - **Misery** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/misery.png
   - CoA: Casting Gaze of C'Thun now reduces the cooldown of Psychic Suppression and Grasp of Zek'voz by -1 sec.
 - **Occultism** (1 rank) - MATCH cultist_corruption  [ours is scalar]
   - needs: scalar
+  - icon: assets/icons/coa/occultism.png
   - CoA: Increases the critical strike chance of Wrath of the Black Empire by 10%.
 - **Depths of Madness** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/depths_of_madness.png
   - CoA: Damage dealt by Gaze of C'Thun now has a 15% to chance to spawn a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.
 - **Dark Whispers** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_whispers.png
   - CoA: Dark Whispers Passive Instant Casting Horrorbolt now grants Inspired Malice for 12 sec. Inspired Malice Your next Gaze of C'thun , Darkwither or Wrath of the Black Empire will be empowered. Gaze of C'thun: Critical strike chance increased by 20%. Darkwither: Shadow damage dealt increased by 5% and damage of Darkwither by an additional 15% for 10 sec. Wrath of the Black Empire: Deals 25% increased 
 - **Abyssal Destruction** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/abyssal_destruction.png
   - CoA: Periodic or channeled damage dealt now reduces the cooldown of your Obliteration Beam by -1 sec and grants 1 stack of Abyssal Destruction.Abyssal Destruction Increases the damage dealt of your next Obliteration Beam by 5%, stacking 10 times, for 15 seconds.
 - **Apocalyptic Skies** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/apocalyptic_skies.png
   - CoA: Casting Wrath of the Black Empire now spawns a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.
 - **Blessing of C'Thun** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blessing_of_c_thun.png
   - CoA: Level 50 Passive Your Darkwither can now critically strike and your spell hit rating is increased by 5% of your Intellect.
 - **Horrorbolt Volley** (1 rank) - MATCH cultist_corruption
   - needs: transforms-ability, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/horrorbolt_volley.png
   - CoA: Horrorbolt Volley Passive Instant After casting 3 Horrorbolts , it transforms into Horrorbolt Volley for 15 sec. Horrorbolt Volley Generates 10 Insanity Inflict sheer horror on up to 5 enemies, dealing 607+0+ShaP*0.28 Shadow damage.
 - **Ancient Curse** (1 rank) - MATCH cultist_corruption
   - needs: cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/ancient_curse.png
   - CoA: Ancient Curse 19% of base mana Instant cast 30 sec cooldown Generates 20 Insanity Curse an enemy, dealing 326+0+ SP *1 Shadow damage and increasing all Shadow damage they take from you by 10% for 10 sec. Upon expiration, it deals an additional 1211+73.3 Points Per Level+ ShaP *1 Shadow damage to the target.
 - **Sunderer of Realities** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/sunderer_of_realities.png
   - CoA: Casting Wrath of the Black Empire now causes your subsequent Wraths of the Black Empire, within 15 seconds, to deal 15% more damage each and unleash Apocalyptic Skies upon the enemy.Apocalyptic Skies Spawns a void portal that casts either Gaze of C'thun, Horrorbolt, or Obliteration Beam before disappearing.
 
 ### Corruption abilities
@@ -270,129 +345,170 @@ Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same
 - **Malevolence** (1 rank) - MATCH cultist_heretic
   - needs: cooldown, resource-grant, aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Malevolence Rank 1 9% of base mana 1.5 sec cast Requires Melee Weapon Generates 10 Insanity Smash an enemy with eldritch force, dealing 40+0+ AP *0.1+ SP *.52 Shadow damage and applying Black Blood to 5 nearby allies, healing them for 25+0+ AP *0.1, repeating every 3 sec for 15 sec. Usable while moving. Additional applications of Black Blood do not refresh the duration.
 - **Blade of Yogg-Saron** (2 ranks) - MATCH cultist_heretic
+  - icon: assets/icons/coa/blade_of_yogg_saron.png
   - CoA: Damage dealt by Blade of the Empire now heals the lowest health ally for 35% of the damage dealt plus 198 + 20% healing + 5% AP.
 - **Shadow Pennant** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/shadow_pennant.png
   - CoA: You now heal the lowest health ally affected by Black Blood for 50% of your auto attack damage.
 - **Malevolent Power** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, every-nth-cast
+  - icon: assets/icons/coa/malevolent_power.png
   - CoA: Every 3rd melee ability you cast now causes your next Eldritch Mending to become instant cast and cost -20% less mana.
 - **Abyssal Covenant** (1 rank) - MATCH cultist_heretic
+  - icon: assets/icons/coa/abyssal_covenant.png
   - CoA: Link yourself to an ally for 30 minutes, transfering 10% of all damage taken by them to you and causing 20% of all damage you deal to be converted into healing for them. Can only be applied to 1 ally at a time.
 - **Twisted Sanity** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/twisted_sanity.png
   - CoA: Twisted Sanity Passive Instant Allies affected by your Black Blood are now healed for 30% of the damage dealt by your Tentacles .
 - **Shadow Training** (1 rank) - MATCH cultist_heretic  [ours is scalar]
+  - icon: assets/icons/coa/shadow_training.png
   - CoA: Shadow Training Specialization Instant Level 20 Passive Increases the healing done by Eldritch Mending by 50% and Gaze of C'Thun by 100%. In addition, you are now unable to miss your attacks and you cannot be parried or dodged.
 - **Eldritch Eye** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/eldritch_eye.png
   - CoA: Eldritch Eye 35% of base mana Instant cast 1 min cooldown Invoke the Old Gods for 15 sec, removing the cast time of your next 3 Eldritch Mendings or Malevolences and causing them to critically strike.
 - **Dark Protection** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/dark_protection.png
   - CoA: Dark Protection Passive Instant Allies affected by Abyssal Covenant now also take 20% increased healing from you.
 - **Lead the Covenant** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/lead_the_covenant.png
   - CoA: Lead the Covenant Passive Instant 50% of all healing done to allies through Abyssal Covenant is now replicated to you.
 - **Forbidden Ritual** (1 rank) - MATCH cultist_heretic
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/forbidden_ritual.png
   - CoA: Forbidden Ritual Rank 1 30% of base mana 3 sec cast 1 min cooldown Chant a forbidden ritual that places a shield on all nearby party and raid members that absorbs 225+0+ Heal *.5 damage for 10 sec.
 - **Saronite Mind** (2 ranks) - MATCH cultist_heretic
   - needs: charges
+  - icon: assets/icons/coa/saronite_mind.png
   - CoA: Saronite Mind Rank 1 Instant Your Eldritch Eye now has 1 additional charge.
 - **As The Prophecy Foretold** (1 rank) - MATCH cultist_heretic
   - needs: charges, cooldown, resource-grant
+  - icon: assets/icons/coa/as_the_prophecy_foretold.png
   - CoA: Melee critical strikes now refresh a charge of Blade of the Empire and restore 5% of your base mana.
 - **Prophetic Compulsion** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/prophetic_compulsion.png
   - CoA: While Black Blood is active on an ally, healing done to them by your Gaze of C'Thun has a 15% increased chance to critically strike.
 - **Void-Touched** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/void_touched.png
   - CoA: Level 30 Passive Direct healing done now applies Void-Touched.Void-Touched (Stacks) Marks the ally for 30 seconds, stacking 10 times. When you cast Gaze of C'Thun, all stacks are consumed to heal all allies affected by Void-Touched for 304 + 35% healing, increased based on how many stacks were on them.
 - **Dark Rites** (1 rank) - NEW - we have no talent of this name
   - needs: hp-threshold
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/dark_rites.png
   - CoA: While Herald of the Depths is active, your movement speed cannot be reduced below 100% of normal value.
 - **Protection From Light** (1 rank) - MATCH cultist_heretic
+  - icon: assets/icons/coa/protection_from_light.png
   - CoA: Protection From Light Passive Instant Reduces all damage taken by party and raid members by 3%. In addition, your Holy damage taken is reduced by 10%.
 - **Dark Matter** (1 rank) - MATCH cultist_heretic
   - needs: aoe-cleave, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/dark_matter.png
   - CoA: Dark Matter Passive Instant Channeling Satiate now heals all allies within 30 yds for 65+6.5 Points Per Level+ Heal *.2 every 1 sec for 10 sec.
 - **Persistent Prayers** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/persistent_prayers.png
   - CoA: Increases the duration and absorption amount of Void Shield and Forbidden Ritual by 25%.
 - **Yogg-Saron's Embrace** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/yogg_saron_s_embrace.png
   - CoA: Increases your attack power and your maximum mana by 10%.
 - **Forbidden Resilience** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/forbidden_resilience.png
   - CoA: While Herald of the Depths is active, you now take -15% less damage and have a 25% increased chance to resist dispel effects.
 - **Forbidden Strength** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/forbidden_strength.png
   - CoA: While Herald of the Depths is active, the critical strike chance of Blade of the Empire is increased by 10%.
 - **Blade of the Depths** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/blade_of_the_depths.png
   - CoA: While Herald of the Depths is active, your Forbidden Ritual will cooldown faster.
 - **Dark Infusion** (1 rank) - MATCH cultist_heretic
   - needs: charges, cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_infusion.png
   - CoA: Dark Infusion Rank 1 30% of base mana Instant cast 3 Charges, 30 sec recharge Infuse an ally with dark energy, healing them for 66 the next time they take damage. When the heal occurs, Dark Infusion is consumed and expands to the two lowest-health nearby party or raid members. Each secondary infusion heals when triggered, then expands to three nearby allies.
 - **Dark Veil** (1 rank) - MATCH cultist_heretic
   - needs: stacking-buff, cooldown, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/dark_veil.png
   - CoA: Dark Veil 30% of base mana Channeled 2 min cooldown Channel a shield of void energies upon an ally, causing both you and them to absorb 800+4.0 Points Per Level+ Heal *1+ AP *.25 damage, stacking 5 times, every 1 sec for 5 sec. At the end of the duration, if the shield holds, you teleport to them. While channeling you are immune to stuns and silences.
 - **Saronite Cube** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/saronite_cube.png
   - CoA: Melee ability damage now reduces the duration of Wracked Mind by -1 sec on all allies within 30 yds.
 - **Devour Curse** (1 rank) - MATCH cultist_heretic
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/devour_curse.png
   - CoA: Devour Curse 25% of base mana 1 sec cast Devour dark magic on an ally, dispelling 2 curse effects from them and healing you for 90+0+ SP *.65.
 - **Void Power** (1 rank) - MATCH cultist_heretic  [ours is scalar]
+  - icon: assets/icons/coa/void_power.png
   - CoA: Your healing power is increased based on your main-hand weapon damage.
 - **Ancient Rituals** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
+  - icon: assets/icons/coa/ancient_rituals.png
   - CoA: Casting Satiate now refreshes the duration of Black Blood on all allies within 30 yds. Dark Infusion bounces one additional time after its third infusion, expanding to the three lowest-health nearby party or raid members.
 - **Dark Reservoir** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/dark_reservoir.png
   - CoA: Increases the bonus healing power scaling of Eldritch Mending by 25%.
 - **Corrupt Fate** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/corrupt_fate.png
   - CoA: Reduces the cooldown of Dark Veil by -60 sec.
 - **Tales of Woe** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/tales_of_woe.png
   - CoA: Your Dark Veil now performs its effect -50% faster.
 - **Visions of the Empire** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/visions_of_the_empire.png
   - CoA: Visions of the Empire Passive Instant Increases the damage converted into healing through Abyssal Covenant by 10%.
 - **Dark Chants** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
+  - icon: assets/icons/coa/dark_chants.png
   - CoA: Reduces the cast time of Forbidden Ritual by 1 sec and allows Black Blood to stack up to 2 times.
 - **Saronite Blessing** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/saronite_blessing.png
   - CoA: Melee critical strikes now apply Saronite Blessing to you.Saronite Blessing (Buff) Your melee attack speed is increased by 25% and your melee auto attacks heal the lowest health ally for an additional 100% of the damage dealt. Lasts for 15 seconds or 10 attacks.
 - **Hand of Yogg-Saron** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/hand_of_yogg_saron.png
   - CoA: Hand of Yogg-Saron 18% of base mana Instant cast 2 min cooldown Tether yourself to an ally for 15 sec, increasing all damage they deal and reducing all damage they take by 15%.
 - **Void Barrier** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/void_barrier.png
   - CoA: Casting Herald of the Depths now increases the absorption of your next Void Shield within 10 seconds by 100%.
 - **Blessing of Yogg-Saron** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/blessing_of_yogg_saron.png
   - CoA: Power of Yogg-Saron Specialization Instant Level 50 Passive Increases your attack power by an amount equal to 3 times your spell critical strike rating.
 - **Blessing of Yogg-Saron** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/blessing_of_yogg_saron.png
   - CoA: While Herald of the Depths is active, you now transform into a Faceless Monstrosity, increasing your critical healing and critical strike chance by 20%, but reducing its duration by -5 sec. In addition, while active you are now immune to fear, horrify, and polymorph effects.
 - **Horrific Revelations** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, resource-grant, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/horrific_revelations.png
   - CoA: Every 1 sec while Hand of Yogg-Saron is active, you now trigger a Horrific Revelation on the target and generate 5 Insanity.Horrific Revelation Heals a friendly target for 144 + 67.85% SP, scaling with Insanity, and increases their critical strike chance by 1%, stacking 15 times, for 15 seconds.
 - **Dark Prophet** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
+  - icon: assets/icons/coa/dark_prophet.png
   - CoA: Healing done by Abyssal Covenant now heals 5 of the lowest health nearby allies and healing done by Black Blood can now critically strike.
 
 ### Heretic abilities
@@ -403,115 +519,152 @@ Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same
 - **Twilight Shieldtoss** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/twilight_shieldtoss.png
   - CoA: Twilight Shieldtoss Rank 1 15% of base mana Instant 8 sec cooldown Requires Shields Hurl a cursed shield, dealing 40 Shadow damage to up to 3 enemies, reduced by 20% with each jump. Damage increased by 1% for each stack of Insanity .
 - **Adaptive Combatant** (2 ranks) - MATCH cultist_godblade
   - needs: scalar
+  - icon: assets/icons/coa/adaptive_combatant.png
   - CoA: Increases your parry chance by 3% and dodge chance by 2%.
 - **Malignant Armor** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/malignant_armor.png
   - CoA: Increases your attack power by 2 for every 100 armor value you have.
 - **Boon of Y'shaarj** (2 ranks) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/boon_of_y_shaarj.png
   - CoA: You now gain an additional 2 mana per point of Intellect.
 - **Bulwark of Horror** (1 rank) - MATCH cultist_godblade
   - needs: charges, proc-chance, cooldown
+  - icon: assets/icons/coa/bulwark_of_horror.png
   - CoA: Avoiding an attack now has a 40% chance to refresh a charge of Blade of the Empire.
 - **Strength of the Sha** (1 rank) - MATCH cultist_dreadnought  [ours is scalar]
+  - icon: assets/icons/coa/strength_of_the_sha.png
   - CoA: Strength of the Sha Specialization Instant cast Level 20 Passive Increases your spell damage by 25% of your Strength and your spell hit rating by 6% of your Intellect.
 - **Bulwark of Y'shaarj** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/bulwark_of_y_shaarj.png
   - CoA: Increases your block chance by 5%, plus an additional 10% while above 40 Insanity.
 - **Y'Shaarj's Enforcer** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/y_shaarj_s_enforcer.png
   - CoA: Increases the damage dealt by your Twilight Shieldtoss by 100% but it to no longer bounces.
 - **Bouncing Thoughts** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability
+  - icon: assets/icons/coa/bouncing_thoughts.png
   - CoA: Your Twilight Shieldtoss now hits an additional enemy for every 20 Insanity you have.
 - **Tentacle of Y'shaarj** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/tentacle_of_y_shaarj.png
   - CoA: Summon a Tentacle of Y'shaarj near you for 30 seconds. When summoned and whenever Gaze of C'thun is used, it slams the ground dealing Physical damage, scaling with Stamina, to all enemies in a 10 yd frontal cone.
 - **Entropic Retaliation** (1 rank) - MATCH cultist_dreadnought
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/entropic_retaliation.png
   - CoA: Entropic Retaliation Passive Instant cast Blocking an attack now increases your critical strike chance by 2% for 6 sec, stacking up to 5 times.
 - **Inner Darkness** (1 rank) - MATCH cultist_dreadnought
   - needs: resource-grant
+  - icon: assets/icons/coa/inner_darkness.png
   - CoA: Inner Darkness Passive Instant Blocking an attack now generates 3 Insanity .
 - **Twilight Incarnate** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/twilight_incarnate.png
   - CoA: Damage dealt by Twilight Shieldtoss now generates 3 Insanity.
 - **Everpresent** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/everpresent.png
   - CoA: Increases the chance to trigger Presences by 10%.
 - **Eldritch Strength** (1 rank) - NEW - we have no talent of this name
   - needs: resource-grant
+  - icon: assets/icons/coa/eldritch_strength.png
   - CoA: Increases the damage of Hammer of Twilight and Entropic Slam by 25% and they now generates a large amount of threat.
 - **Deep Secrets** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/deep_secrets.png
   - CoA: Level 30 Passive Each point of Insanity now reduces mana costs of your instant cast spells and abilities by 1%.
 - **Dreadfall** (1 rank) - MATCH cultist_godblade
   - needs: charges, cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/dreadfall.png
   - CoA: Dreadfall 12% of base mana Instant 25 sec cooldown Raise your shield and charge towards an enemy, dealing AP *0.5 Shadow damage to enemies you pass through, generating additional threat.
 - **Wavering Hope** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
+  - icon: assets/icons/coa/wavering_hope.png
   - CoA: While above 60 Insanity, the cooldown of your Twilight Shieldtoss and Gaze of C'thun is reduced by -25%.
 - **Eldritch Bastion** (2 ranks) - MATCH cultist_dreadnought
   - needs: scalar
+  - icon: assets/icons/coa/eldritch_bastion.png
   - CoA: Increases your Armor contribution from your shield by 15%.
 - **Crushing Dissonance** (1 rank) - MATCH cultist_dreadnought
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/crushing_dissonance.png
   - CoA: Crushing Dissonance 18% of base mana Instant cast 30 sec cooldown Unleash a wave of maddening resonance, interrupting the current spell cast of all enemies around you and preventing any spell in that school from being cast for 2 sec.
 - **Void-Enhanced Shield** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/void_enhanced_shield.png
   - CoA: Increases your block value by 20%. While above 60 Insanity, the value of this effect is doubled.
 - **Void Reaver** (1 rank) - MATCH cultist_dreadnought
   - needs: proc-chance, aoe-cleave
+  - icon: assets/icons/coa/void_reaver.png
   - CoA: Void Reaver Passive Instant Avoiding or absorbing an attack now has a 20% chance to make your next Blade of the Empire deal 20% more damage and hit an additional nearby enemy.
 - **Voidwarding** (1 rank) - MATCH cultist_dreadnought
   - needs: stacking-buff
+  - icon: assets/icons/coa/voidwarding.png
   - CoA: Voidwarding Passive Instant Reduces damage taken by party and raid members by 3%. Does not stack with similar effects. In addition, increases all of your resistances by 5, scaling with level.
 - **In And Out of Insanity** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/in_and_out_of_insanity.png
   - CoA: Increases the effectiveness of your damage absorption effects by 20%.
 - **Bulwark of Shadow** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/bulwark_of_shadow.png
   - CoA: While above 80 Insanity, your Void Shield has 30% increased value.
 - **Strength of the Black Empire** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/strength_of_the_black_empire.png
   - CoA: Level 40 Passive Dreadnought now sheds your mortal form, transforming you into a void monstrosity, reducing your damage taken by -10%
 - **Shadowy Symbiosis** (1 rank) - MATCH cultist_dreadnought
   - needs: proc-chance
+  - icon: assets/icons/coa/shadowy_symbiosis.png
   - CoA: Your successful blocks now have a 20% chance to critically block for twice the normal amount. This effect is doubled while above 60 Insanity.
 - **Void Strikes** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/void_strikes.png
   - CoA: Damage dealt by Blade of the Empire and Entropic Slam is now increased based on your defense rating.
 - **General of Y'shaarj** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/general_of_y_shaarj.png
   - CoA: Dealing damage with Twilight Shieldtoss now heals you for 10% of the damage dealt.
 - **Eldritch Entities** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eldritch_entities.png
   - CoA: Critical strikes with abilities now summon a Manifestation of Y'shaarj for 10 seconds, which will attack enemies and heal you for 2% of your base health.
 - **Dreadful** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dreadful.png
   - CoA: Increases your critical strike rating equal to your block rating. In addition, critical strikes now reduce the cooldown of Dreadfall and Dreadnought by 1 sec.
 - **Twilight Guardian** (1 rank) - NEW - we have no talent of this name
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/twilight_guardian.png
   - CoA: Twilight Guardian Passive Instant The first instance of damage dealt by Twilight Shieldtoss now shields you for 100% of the damage dealt for 8 sec.
 - **Void Tolerance** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: MISSING - needs art
   - CoA: Reduces the cooldown of Abyssal Ward by -30 sec.
 - **Blessing of Y'Shaarj** (1 rank) - MATCH cultist_dreadnought
+  - icon: assets/icons/coa/blessing_of_y_shaarj.png
   - CoA: Blessing of Y'Shaarj Specialization Instant Level 50 Passive While transformed into a void monstrosity your damage dealt is now also increased by 20%.
 - **Eldritch Force** (1 rank) - MATCH cultist_dreadnought
   - needs: transforms-ability, every-nth-cast, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/eldritch_force.png
   - CoA: Every 5th critical strike with abilities now transforms your next Gaze of C'Thun into Eldritch Force.Eldritch Force Generates 30 Insanity Send out a wave of force, dealing 631 + 76.26% SP + 12.5% AP Shadow damage to enemies in front of you and reducing their movement speed by -30% for 10 seconds.
 - **Void Augmentation** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/void_augmentation.png
   - CoA: While Dreadnought is active, your Twilight Shieldtoss has a -3 sec reduced cooldown.
 - **Embodiment of Y'shaarj** (1 rank) - MATCH cultist_dreadnought
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/embodiment_of_y_shaarj.png
   - CoA: Increases the amount that Void Shield absorbs by 100%. Absorbing damage grants you 20% of the absorbed value as spell power for 8 seconds.
 
 ### Dreadnought abilities
@@ -521,39 +674,49 @@ Source: data/reference/coa/cultist.json (Ascension CoA Builder payload, the same
 
 - **Empire's Blessing** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/empire_s_blessing.png
   - CoA: Reduces the mana cost of Void Shield by -20%.
 - **Mass Nightmare** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mass_nightmare.png
   - CoA: Mass Nightmare 21% of base mana Instant cast 3 min cooldown Spread nightmares of the black empire to up to 5 nearby enemies, horrifying them for 5 sec and interrupting non-player spellcasting for 3 sec.
 - **Gift of C'Thun** (1 rank) - NEW - we have no talent of this name
+  - icon: assets/icons/coa/gift_of_c_thun.png
   - CoA: Gift of C'Thun Rank 1 Instant Increases your Shadow damage dealt by 4% and healing done by 4%.
 - **Overwhelming Void** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/overwhelming_void.png
   - CoA: Your Mass Nightmare now triggers a 60 sec reduced cooldown when used at or above 80 Insanity.
 - **Embrace the Void** (1 rank) - MATCH cultist_corruption
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/embrace_the_void.png
   - CoA: Become one with the void, preventing you from dying for 6 seconds, or until you take damage equal to a maximum of 100% of your total health. When the effect ends you instantly regenerate health equal to 50% of the damage taken while active.
 - **Entropic Singularity** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
+  - icon: assets/icons/coa/entropic_singularity.png
   - CoA: Entropic Singularity 12% of base mana Instant cast 1 min cooldown Create a void zone for 5 sec at target location that slows enemies' movement speed while inside. The slow increases in intensity based on how close to the middle of the zone the enemy is.
 - **Dark Calling** (1 rank) - NEW - we have no talent of this name
   - needs: transforms-ability, pet-summon, hp-threshold
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/dark_calling.png
   - CoA: Taking damage while below 35% health now summons 3 Manifestations of Y'shaarj for 10 sec, which will attack enemies and heal you for 2% of your base health. Can ony occur once every 2 minutes.
 - **Mind Games** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/mind_games.png
   - CoA: Reduces the cooldown of Hallucination by -5 sec and reduces its mana cost by -20%.
 - **Darkward** (2 ranks) - NEW - we have no talent of this name
   - needs: scalar
+  - icon: assets/icons/coa/darkward.png
   - CoA: Increases the effectiveness of your damage absorption effects by 10%.
 - **Eyes of Eternity** (1 rank) - NEW - we have no talent of this name
   - needs: aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
+  - icon: assets/icons/coa/eyes_of_eternity.png
   - CoA: Eyes of Eternity Passive Instant Healing an ally with Gaze of C'Thun now additionally reveals nearby stealthed enemies for 8 sec.
 
 ### Class (shared) abilities
