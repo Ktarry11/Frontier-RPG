@@ -1,8 +1,8 @@
 {
   "spec_name": "Stormbringer Wind",
   "tree_id": "stormbringer_wind",
-  "description": "Support and mobility - calls elemental allies and keeps the party moving and topped up.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 22 real Wind-tagged nodes, condensed and rebalanced to Mage Fire's essence budget. Air Elemental kept as a real summon per Kyle's confirmation pets/forms are coming to the project; stubbed with a simple summon effect for now, ready to extend once the pet system exists. | Oct 2026 CoA-fidelity pass: the tree had no ally-reaching node at all, which contradicts the Sidekick page's entire reading of the spec (\"It stacks group buffs onto allies the way Ebon Might, Prescience and Blessing of the Bronze do\"). Four nodes now grant real party buffs - Clear Skies (hit), Tailwind (haste), Aerodynamics (attack/spell power) and Kiss of the Clouds (absorb) - matching the page's own opener: \"stack Tailwind, Aerodynamics and Clear Skies on your side, add Tempest's Call haste, then drop Kiss of the Clouds as a group shield to eat the opening burst.\" Talents have no ally-facing payload key in this engine (splash_heal and smart_heal are the only two proc keys that reach an ally, and both are heals, which this spec explicitly does not have), so each is a talent-granted target_type \"party\" buff ability instead.",
+  "description": "Air elemental and open sky - a support caster whose winds carry the whole party.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 42 real CoA Wind talents (role Support). FIVE UNLOCK NODES ARE LOAD-BEARING and asserted in main(): clear_skies, tailwind, aerodynamics, kiss_of_the_clouds and summon_air_elemental all carry requires_talent. Unlike Guardian's Inspiration, this Support spec already had real party-targeted abilities, so the talents empower genuine auras. Ten CoA Wind abilities do not exist in Frontier (Gale, Updraft, Windsurf, Wind Gate, Unshackle, Flurry, Skyfall, Nimbus, Cloudburst, Body of Lightning) and a dozen talents name one of them, each re-pointed per node. Stormbringer HAS a pet, so pet_damage/pet_health/pet_armor are live - but pets never fire procs and no proc can apply an effect to a pet, which costs six talents their mechanism.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,429 +14,311 @@
   },
   "nodes": [
     {
-      "talent_id": "stormbringer_wind_aeromancy",
-      "name": "Aeromancy",
-      "description": "Increases Spirit by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spirit": 3
-      },
-      "connected_to": [
-        "stormbringer_wind_gift_of_air"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_gift_of_air",
-      "name": "Gift of Air",
-      "description": "Increases healing done by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
-      "connected_to": [
-        "stormbringer_wind_aeromancy",
-        "stormbringer_wind_clear_skies"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_comforting_winds",
-      "name": "Comforting Winds",
-      "description": "Increases Invigorating Surge healing by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_stormbringer_invigorating_surge_healing": 0.05
-      },
-      "connected_to": [
-        "stormbringer_wind_clear_skies"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_quickdraft",
-      "name": "Quickdraft",
-      "description": "Reduces the cooldown of Invigorating Surge by 1 turn at rank 2.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_stormbringer_invigorating_surge_cooldown": 1
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep (Stormbringer x2 more, Tinker x2). Note left unfixed: the description's 'at rank 2' phrasing implies a non-linear threshold effect (rank 1 does nothing, only rank 2 grants the reduction), but TalentNode.get_effective_effects scales every numeric effect linearly by points_spent - this talent's actual in-game behavior is a flat 1-turn reduction per rank (2 turns at rank 2), not the stated threshold behavior. Flagged, not silently redesigned - fixing the threshold behavior would need new per-talent scaling logic, out of scope for a sign-bug fix.",
-      "connected_to": [
-        "stormbringer_wind_nimbus"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_master_airbender",
-      "name": "Master Airbender",
-      "description": "Increases Haste by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [
-        "stormbringer_wind_raging_zephyr"
-      ]
-    },
-    {
       "talent_id": "stormbringer_wind_clear_skies",
       "name": "Clear Skies",
-      "description": "Learn Clear Skies, calming the air so the whole party's spells and attacks land more often.",
-      "node_type": "active",
-      "tier": 1,
+      "description": "Teaches Clear Skies, a party-wide buff raising everyone's chance to hit.",
+      "node_type": "passive",
+      "tier": 0,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -6,
       "effects": {
         "unlock_ability": "stormbringer_clear_skies"
       },
       "connected_to": [
-        "stormbringer_wind_comforting_winds",
-        "stormbringer_wind_gift_of_air"
+        "stormbringer_wind_power_the_elements"
       ],
-      "_source": "CoA Wind, free node at 'Requires 4 points in this tree (level 15)': \"Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.\" What was here before - a 25%-per-rank chance for Discharge to restore 80 Mana - has no CoA counterpart under this name or any other in the Stormbringer trees; it was invented. CoA's node is a passive aura and Frontier talents cannot reach an ally, so it is authored as a cast raid buff (target_type party), the same shape Ranger's Battle Prowess uses for its hit_rating party buff."
+      "_source": "CoA verbatim: 'Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.' LOAD-BEARING UNLOCK: stormbringer_clear_skies carries requires_talent, so dropping this node makes it unobtainable forever. The ability is already target_type 'party', so it genuinely reaches every living ally - the aura CoA describes exists here, which is not true of Guardian Inspiration's."
     },
     {
-      "talent_id": "stormbringer_wind_nimbus",
-      "name": "Nimbus",
-      "description": "Increases maximum Mana by 2% per rank.",
+      "talent_id": "stormbringer_wind_power_the_elements",
+      "name": "Power the Elements",
+      "description": "Increases the damage your Air Elemental deals by 20% and your spell damage by 4%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -3,
+      "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.02
+        "pet_damage": 0.0667,
+        "spell_damage": 0.0133
       },
       "connected_to": [
-        "stormbringer_wind_quickdraft"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_raging_zephyr",
-      "name": "Raging Zephyr",
-      "description": "Learn Raging Zephyr, a gust of wind that reduces an enemy's accuracy.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "stormbringer_raging_zephyr"
-      },
-      "connected_to": [
-        "stormbringer_wind_master_airbender",
-        "stormbringer_wind_windsurf"
-      ],
-      "_source": "CoA Wind, 'Requires 23 TE in this tree': \"Transforms your Whirlpool into Raging Zephyr. Raging Zephyr - 3 Charges, 35 sec recharge. Summon a Raging Zephyr at the targeted location for 12 seconds. Every 4 sec, it will pull all enemies within 10 yds inside of it.\" This node is where Frontier grants the Raging Zephyr ability. It sits at tier 1 rather than CoA's 23-TE gate because the ability itself is learnable at level 17 and Air Current (tier 2) shortens its cooldown, so the grant has to come first. Renamed from 'Tailwind', which in CoA is a different node entirely (a party haste cast) and is now authored as such at tier 3."
-    },
-    {
-      "talent_id": "stormbringer_wind_windsurf",
-      "name": "Windsurf",
-      "description": "Increases movement-related utility - reduces the cooldown of Freewind by 1 turn.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_stormbringer_freewind_cooldown": 1
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
-      "connected_to": [
-        "stormbringer_wind_raging_zephyr",
-        "stormbringer_wind_unrelenting_winds"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_child_of_the_storm",
-      "name": "Child of the Storm",
-      "description": "Increases your Dodge chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "dodge": 1.0
-      },
-      "connected_to": [
-        "stormbringer_wind_clearsky_pendant"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_clearsky_pendant",
-      "name": "Clearsky Pendant",
-      "description": "Increases Call of the Wind's mana regen by 5% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "ability_stormbringer_call_of_the_wind_potency": 0.05
-      },
-      "connected_to": [
-        "stormbringer_wind_child_of_the_storm",
-        "stormbringer_wind_storm_clouds"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_storm_clouds",
-      "name": "Storm Clouds",
-      "description": "Your spell critical strikes have a 15% chance per rank to generate 15 Static.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "stormbringer_wind_clearsky_pendant",
-        "stormbringer_wind_tempests_call"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "static",
-          "amount": 15
-        }
-      }
-    },
-    {
-      "talent_id": "stormbringer_wind_unrelenting_winds",
-      "name": "Unrelenting Winds",
-      "description": "Increases spell hit chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": 0,
-      "effects": {
-        "hit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "stormbringer_wind_windsurf"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_tempests_call",
-      "name": "Tempest's Call",
-      "description": "Learn Summon: Air Elemental, calling an air elemental ally to fight at your side.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "stormbringer_summon_air_elemental"
-      },
-      "connected_to": [
-        "stormbringer_wind_storm_clouds",
         "stormbringer_wind_master_elementalist"
       ],
-      "_implementation_note": "Real pet summon per Kyle - pets/forms system not built yet. Stub as a self-buff for now (matches Air Elemental's real 'grants Invigoration stacks' tooltip flavor) and revisit with a real pet entity once that system exists."
+      "_source": "CoA over 2 ranks: 'Increases the damage dealt by your Air Elemental's spells by 10% and your Nature damage dealt by 2%.' Doubled for the two ranks. pet_damage is one of only three pet keys the engine reads and it IS live here, because Stormbringer really has a pet (summon_air_elemental). There is no per-school damage key, so the Nature half lands on spell_damage - the spec deals almost nothing else. Both are FRACTIONS."
     },
     {
       "talent_id": "stormbringer_wind_master_elementalist",
       "name": "Master Elementalist",
-      "description": "Increases Nature spell damage by 2% per rank.",
+      "description": "Increases the damage of Shock by 10% and Aeroblast by 20%.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
+      "hex_x": -1,
+      "hex_y": -6,
       "effects": {
-        "nature_spell_damage": 0.02
+        "ability_stormbringer_shock_damage": 0.0333,
+        "ability_stormbringer_aeroblast_damage": 0.0667
       },
       "connected_to": [
-        "stormbringer_wind_tempests_call"
-      ]
+        "stormbringer_wind_air_flow"
+      ],
+      "_source": "CoA verbatim: 'Increases the spell damage scaling of Shock by 10% and Aeroblast by 20%.' There is no key for how much an ability scales with spell power - the coefficients live on the abilities - so it is expressed as damage, which is what the scaling buys. Both abilities exist in Frontier."
     },
     {
-      "talent_id": "stormbringer_wind_lexicon_of_servitude",
-      "name": "Lexicon of Servitude",
-      "description": "Increases your Air Elemental's damage by 6% per rank.",
+      "talent_id": "stormbringer_wind_air_flow",
+      "name": "Air Flow",
+      "description": "Reduces the mana cost of Aeroblast by 20%.",
       "node_type": "passive",
-      "tier": 5,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 4,
+      "hex_y": -6,
       "effects": {
-        "pet_damage": 0.06
+        "ability_stormbringer_aeroblast_cost_pct": 0.0667
       },
       "connected_to": [
-        "stormbringer_wind_tempests_call",
-        "stormbringer_wind_wind_gate"
-      ]
+        "stormbringer_wind_storm_bond"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cast time of Aeroblast by -0.3 sec.' There are no cast times here, so nothing of this talent survives as written. Rerouted to cost, which is what a shorter cast buys - more Aeroblasts per mana bar. POSITIVE reduces."
     },
     {
-      "talent_id": "stormbringer_wind_wind_gate",
-      "name": "Wind Gate",
-      "description": "Being struck has a 15% chance to restore 200 Mana.",
+      "talent_id": "stormbringer_wind_storm_bond",
+      "name": "Storm Bond",
+      "description": "Your Shock, Electrocute and Freewind bank 6 extra Static.",
       "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 6,
+      "hex_x": 3,
+      "hex_y": -6,
       "effects": {},
       "connected_to": [
-        "stormbringer_wind_lexicon_of_servitude"
+        "stormbringer_wind_invigoration"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 3,
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_shock",
+          "stormbringer_electrocute",
+          "stormbringer_freewind"
+        ],
         "grant_resource": {
-          "resource": "mana",
-          "amount": 200
+          "resource": "static",
+          "amount": 6
         }
-      }
-    },
-    {
-      "talent_id": "stormbringer_wind_gale_force",
-      "name": "Gale Force",
-      "description": "Increases Haste by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "haste": 1.0
       },
-      "connected_to": [
-        "stormbringer_wind_aeromancy"
-      ]
+      "_source": "CoA verbatim: 'Damage dealt by your Air Elemental now generates you 2 Static.' PETS NEVER FIRE PROCS - there is no fire_proc_trigger anywhere in entities/pet.py - so a pet's damage cannot trigger anything at all. Re-pointed at the caster's own Static builders, which is the same resource outcome through the one route that works. grant_resource takes a flat `amount` and Static is a real secondary resource, so gain_resource respects its cap."
     },
     {
-      "talent_id": "stormbringer_wind_wind_shear",
-      "name": "Wind Shear",
-      "description": "Increases Spell Power by 4 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -4,
-      "effects": {
-        "spell_power": 4
-      },
-      "connected_to": [
-        "stormbringer_wind_gift_of_air"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_wind_zephyr_step",
-      "name": "Zephyr Step",
-      "description": "Increases Dodge chance by 1% per rank.",
+      "talent_id": "stormbringer_wind_invigoration",
+      "name": "Invigoration",
+      "description": "Increases the damage your Air Elemental deals by a further 30%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "dodge": 1.0
+        "pet_damage": 0.1
       },
       "connected_to": [
-        "stormbringer_wind_master_airbender"
-      ]
+        "stormbringer_wind_tailwind"
+      ],
+      "_source": "CoA verbatim: 'Your Aeroblast now grants your Air Elemental a stack of Invigoration. Increases the damage of your Air Elemental by 3% for 15 seconds, stacking 10 times. Additional applications do not refresh duration.' TWO WALLS: no proc payload can apply an effect to a PET (apply_effect lands on the caster or the trigger's target), and nothing reads another effect's stack count. Ten stacks of 3% is 30%, granted flat - the ceiling a fully-stacked elemental would have reached, without the ramp. CoA's Everlasting Invigoration and Aurat Scripts both modify this stacking buff and so have nothing to modify; their value is folded into the nodes below."
     },
     {
-      "talent_id": "stormbringer_wind_tailwinds_favor",
-      "name": "Tailwind's Favor",
-      "description": "Increases maximum Mana by 2% per rank.",
+      "talent_id": "stormbringer_wind_tailwind",
+      "name": "Tailwind",
+      "description": "Teaches Tailwind, which raises your damage and grants the party haste for 40 Static.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "stormbringer_tailwind"
+      },
+      "connected_to": [
+        "stormbringer_wind_unrelenting_winds"
+      ],
+      "_source": "CoA verbatim: 'Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 sec.' LOAD-BEARING UNLOCK: stormbringer_tailwind carries requires_talent. The ability is target_type 'party', so the ally haste is real. CoA's Gift of Air rider ('your critical strikes now extend the duration of your Tailwind by 1.5 sec') is not built - no payload extends a live effect's duration."
+    },
+    {
+      "talent_id": "stormbringer_wind_unrelenting_winds",
+      "name": "Unrelenting Winds",
+      "description": "Increases the critical strike chance of your wind spells by 15%.",
+      "node_type": "passive",
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "max_mana_pct": 0.02
+        "ability_stormbringer_freewind_crit": 5,
+        "ability_stormbringer_gust_of_wind_crit": 5,
+        "ability_stormbringer_razorwind_crit": 5
       },
       "connected_to": [
-        "stormbringer_wind_quickdraft"
-      ]
+        "stormbringer_wind_comforting_winds"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Gale by 15%.' FRONTIER HAS NO GALE. Re-pointed at the three wind abilities it does have - Freewind, Gust of Wind and Razorwind - which together occupy Gale's slot as the spec's spammable nature damage. CoA's 15% kept. ability_*_crit is a PERCENT."
     },
     {
-      "talent_id": "stormbringer_wind_stormcaller",
-      "name": "Stormcaller",
-      "description": "Increases Freewind damage by 4% per rank.",
+      "talent_id": "stormbringer_wind_quickdraft",
+      "name": "Quickdraft",
+      "description": "Increases the duration of Gust of Wind by 1 turn and the damage of your wind spells by 16%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_stormbringer_gust_of_wind_duration": 1,
+        "ability_stormbringer_freewind_damage": 0.16,
+        "ability_stormbringer_gust_of_wind_damage": 0.16,
+        "ability_stormbringer_razorwind_damage": 0.16
+      },
+      "connected_to": [
+        "stormbringer_wind_comforting_winds"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the duration of your Updraft by 3 sec and increases its tick rate by 15%.' FRONTIER HAS NO UPDRAFT. Gust of Wind is the nearest real ability with a duration to extend; 3 sec is a turn. Tick rate has no meaning per-turn, so that 15% over two ranks becomes 16% damage across the wind spells. The small integer duration keeps this node out of the rank policy's reach."
+    },
+    {
+      "talent_id": "stormbringer_wind_comforting_winds",
+      "name": "Comforting Winds",
+      "description": "Your damage stirs the winds, raising your haste by 1% per stack for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_wind_kiss_of_the_clouds"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "stormbringer_comforting_winds",
+          "name": "Comforting Winds",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "haste": 1.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Your damage dealt now increases the haste of your Air Elemental by 1% for 10 sec, stacking 5 times. Damage dealt by your Air Elemental now increases your haste by 1% for 10 sec, stacking 5 times.' The first half is impossible twice over - PET_HASTE IS READ BY NOTHING, and no proc can apply an effect to a pet. The second half is impossible because pets never fire procs. What survives is the half CoA gives the caster, triggered by the caster's own damage: CoA's 1% and 5 stacks, 10 sec as 3 turns."
+    },
+    {
+      "talent_id": "stormbringer_wind_kiss_of_the_clouds",
+      "name": "Kiss of the Clouds",
+      "description": "Teaches Kiss of the Clouds, shielding the whole party for 40 Static.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "stormbringer_kiss_of_the_clouds"
+      },
+      "connected_to": [
+        "stormbringer_wind_cyclones_embrace"
+      ],
+      "_source": "CoA verbatim: 'Grant all party and raid members a shield that absorbs damage, scaling with Intellect, for 10 sec. While active, the target suffers no spell pushback from taking damage.' LOAD-BEARING UNLOCK: stormbringer_kiss_of_the_clouds carries requires_talent, and it is target_type 'party', so the party shield is real. Spell pushback is not modelled."
+    },
+    {
+      "talent_id": "stormbringer_wind_cyclones_embrace",
+      "name": "Cyclone's Embrace",
+      "description": "Increases the amount Kiss of the Clouds absorbs by 100%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_stormbringer_freewind_damage": 0.04
+        "ability_stormbringer_kiss_of_the_clouds_potency": 0.3333
       },
       "connected_to": [
-        "stormbringer_wind_windsurf"
-      ]
+        "stormbringer_wind_focal_point"
+      ],
+      "_source": "CoA verbatim: 'Increases the base amount absorbed by your Kiss of the Clouds by 100%.' Ports exactly - ability_*_potency is the key that scales an absorb, since the shield is not damage or healing. CoA's 100% kept, which is steep but it is a 30-second cooldown costing 40 Static."
     },
     {
-      "talent_id": "stormbringer_wind_air_current",
-      "name": "Air Current",
-      "description": "Reduces the cooldown of Raging Zephyr by 1 turn per rank.",
+      "talent_id": "stormbringer_wind_cyclones_recharge",
+      "name": "Cyclone's Recharge",
+      "description": "Your Static builders bring Kiss of the Clouds a turn closer to ready.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_wind_focal_point"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "stormbringer_shock",
+          "stormbringer_electrocute",
+          "stormbringer_freewind"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "stormbringer_kiss_of_the_clouds"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Shock, Gale or Electrocute now reduces the remaining cooldown of your Kiss of the Clouds by -1 sec.' Gale does not exist; Freewind takes its place in the builder list. 1 sec becomes a turn, which is a buff relative to CoA, so a 1-turn internal cooldown holds it to once per turn."
+    },
+    {
+      "talent_id": "stormbringer_wind_focal_point",
+      "name": "Focal Point",
+      "description": "Your Tailwind and Clear Skies last a turn longer, and your spell critical strike chance rises by 5%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_stormbringer_raging_zephyr_cooldown": 1
+        "ability_stormbringer_tailwind_duration": 1,
+        "ability_stormbringer_clear_skies_duration": 1,
+        "crit_chance_spell": 5.0
       },
-      "_source": "Fixed during DPS niche audit (Oct 2026): stored value was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
       "connected_to": [
-        "stormbringer_wind_raging_zephyr"
-      ]
+        "stormbringer_wind_aerodynamics"
+      ],
+      "_source": "CoA verbatim: 'Casting Call Lightning now increases the critical strike chance of party and raid members by 5% for 10 seconds.' Frontier has no Call Lightning, and a TALENT cannot grant allies crit - get_talent_effects() reads only the character's own trees. But Tailwind and Clear Skies ARE party abilities, so extending their duration is the real party lever a talent has; the 5% crit lands on the Stormbringer at CoA's own number. Same treatment as Guardian Inspiration's Banner nodes."
     },
     {
       "talent_id": "stormbringer_wind_aerodynamics",
       "name": "Aerodynamics",
-      "description": "Learn Aerodynamics, wrapping the party in charged mist that lends them attack and spell power.",
-      "node_type": "active",
+      "description": "Teaches Aerodynamics, granting the party attack and spell power for 40 Static.",
+      "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
@@ -446,62 +328,244 @@
         "unlock_ability": "stormbringer_aerodynamics"
       },
       "connected_to": [
-        "stormbringer_wind_storm_clouds"
+        "stormbringer_wind_flow"
       ],
-      "_source": "CoA Wind, free node at 'Requires 16 points in this tree (level 40)': \"Depletes 40 Static. Envelop party and raid members within 40 yds in magical mist, increasing their attack or spell power by 95 for 15 seconds. Does not stack with similar effects.\" Replaces 'Resonant Winds' (+3% healing done per rank), which has no CoA counterpart and pointed the wrong way besides - the Sidekick spec page says of Wind, \"No ally heal anywhere in the kit.\" Frontier has no either/or stat branch, so both attack and spell power are granted at a reduced value."
+      "_source": "CoA verbatim: 'Envelop party and raid members within 40 yds in magical mist, increasing their attack or spell power by 95 for 15 sec.' LOAD-BEARING UNLOCK: stormbringer_aerodynamics carries requires_talent, and it is target_type 'party'."
     },
     {
-      "talent_id": "stormbringer_wind_tailwind",
-      "name": "Tailwind",
-      "description": "Learn Tailwind, putting the wind at your party's back so everything they do comes quicker.",
-      "node_type": "active",
+      "talent_id": "stormbringer_wind_flow",
+      "name": "Flow",
+      "description": "Increases the healing of Invigorating Surge by 40%.",
+      "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_invigorating_surge_healing": 0.1333
+      },
+      "connected_to": [
+        "stormbringer_wind_everlasting_invigoration"
+      ],
+      "_source": "CoA verbatim: 'Your Invigoration now stacks 5 additional times.' Invigoration could not be built as a stacking buff at all (see the Invigoration node - no proc can apply an effect to a pet, and nothing reads a stack count), so there are no stacks to add. Re-pointed at Invigorating Surge, the spec's real ally heal, which keeps the node in the support half of the tree rather than making it a third flat pet-damage line."
+    },
+    {
+      "talent_id": "stormbringer_wind_everlasting_invigoration",
+      "name": "Everlasting Invigoration",
+      "description": "Increases the health and armour of your Air Elemental by 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "unlock_ability": "stormbringer_tailwind"
+        "pet_health": 0.1,
+        "pet_armor": 0.1
       },
       "connected_to": [
-        "stormbringer_wind_unrelenting_winds"
+        "stormbringer_wind_tempests_call"
       ],
-      "_source": "CoA Wind, free node at 'Requires 11 points in this tree (level 30)': \"Depletes 20 Static. Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 seconds. Does not stack with similar effects.\" Replaces 'Gusting Focus' (+1% spell crit per rank), which has no CoA counterpart - invented. The self-damage half of the CoA tooltip is dropped: an ability's stat_mods apply to every recipient of a party buff, so a damage_dealt_pct here would buff the whole group instead of only the caster."
+      "_source": "CoA over 2 ranks: 'Increases the duration of Invigoration by 5 sec.' Invigoration is not a live effect here, so its duration cannot be extended. Re-pointed at the other two pet keys the engine reads, which is a longer-lived elemental rather than a longer buff - the same intent through the keys that exist. CoA's Aurat Scripts ('increases the damage gained per stack of Invigoration by 2%') fails for the same reason and is folded into Invigoration's flat 30%."
     },
     {
-      "talent_id": "stormbringer_wind_skybound",
-      "name": "Skybound",
-      "description": "Increases your Air Elemental's health by 6% per rank.",
+      "talent_id": "stormbringer_wind_hurricanes",
+      "name": "Hurricanes",
+      "description": "Increases all damage you deal by 15%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "all_damage": 0.05
+      },
+      "connected_to": [
+        "stormbringer_wind_gift_of_air"
+      ],
+      "_source": "CoA verbatim: 'Casting Unshackle now unshackles you, increasing your damage dealt by 15% for 15 seconds.' FRONTIER HAS NO UNSHACKLE - it is a pet transform, which has no mechanism either - so the trigger cannot exist. CoA's 15% is granted permanently. Stronger than CoA's windowed version, stated rather than hidden."
+    },
+    {
+      "talent_id": "stormbringer_wind_tempests_call",
+      "name": "Tempest's Call",
+      "description": "Teaches Summon: Air Elemental, calling the elemental that this whole spec is built around.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "stormbringer_summon_air_elemental"
+      },
+      "connected_to": [
+        "stormbringer_wind_enveloping_winds"
+      ],
+      "_source": "CoA's Tempest Calling node, whose Builder description is the unresolved token '$4c', paired with its Air Elemental ability ('$4e' - also unresolved). So there is no verbatim text to port and the node is named from CoA's own title. THE MOST LOAD-BEARING UNLOCK IN THE TREE: stormbringer_summon_air_elemental carries requires_talent, so without this node the Air Elemental cannot be summoned at all - and six other nodes here scale it. Kept at tier 4 as the old tree had it, rather than moved earlier, because moving it would change every existing Wind build."
+    },
+    {
+      "talent_id": "stormbringer_wind_enveloping_winds",
+      "name": "Enveloping Winds",
+      "description": "Freewind splashes 45% of its damage onto up to 2 nearby enemies, and your armour rises by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "pet_health": 0.06
+        "armor_pct": 5
       },
       "connected_to": [
-        "stormbringer_wind_tempests_call"
-      ]
+        "stormbringer_wind_unbound_elementalist"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_freewind"
+        ],
+        "splash_damage": {
+          "pct": 0.45,
+          "max_targets": 2,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Gale now causes your Air Elemental to cast Gale. Additionally, you now emanate an aura around you, increasing the Armor of party and raid members by 390.' Three walls: Gale does not exist, nothing makes a pet cast an ability, and a talent cannot grant allies armour. Freewind stands in for Gale, the pet's echo becomes a splash (the same 'it hits twice' outcome through a live payload), and the armour lands on the Stormbringer. armor_pct takes percentage POINTS while splash_damage pct is a FRACTION."
     },
     {
-      "talent_id": "stormbringer_wind_kiss_of_the_clouds",
-      "name": "Kiss of the Clouds",
-      "description": "Learn Kiss of the Clouds, a shared cloud shield that soaks the opening hits and holds your allies' casts steady.",
-      "node_type": "active",
+      "talent_id": "stormbringer_wind_gift_of_air",
+      "name": "Gift of Air",
+      "description": "Kiss of the Clouds fills your sails, raising your haste by 15% and all your damage by 20% for 5 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_wind_unbound_elementalist"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_kiss_of_the_clouds"
+        ],
+        "apply_effect": {
+          "effect_id": "stormbringer_gift_of_air",
+          "name": "Gift of Air",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 15.0,
+            "damage_dealt_pct": 20.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Kiss of the Clouds now empowers your Air Elemental with Gift of Air for 30 sec. Increases damage dealt by 20%, spell haste by 15%, and heals for 50 every 2 sec.' The buff cannot land on the PET - apply_effect goes to the caster or the trigger's target - so it lands on the Stormbringer with CoA's own 20% and 15%. ON_CAST rather than on_damage_cast, because Kiss of the Clouds is a party shield that deals no damage and a damage trigger would never have fired. The periodic heal is dropped: no per-turn regeneration key exists. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "stormbringer_wind_child_of_the_storm",
+      "name": "Child of the Storm",
+      "description": "Reduces the cooldown of Razorwind and Gust of Wind by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_stormbringer_razorwind_cooldown_pct": 0.0667,
+        "ability_stormbringer_gust_of_wind_cooldown_pct": 0.0667
+      },
+      "connected_to": [
+        "stormbringer_wind_raging_zephyr"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of your Cloudburst and Windsurf by 20%.' NEITHER ABILITY EXISTS HERE. Re-pointed at the two real wind abilities that have cooldowns worth cutting. CoA's 20% kept. POSITIVE reduces."
+    },
+    {
+      "talent_id": "stormbringer_wind_unbound_elementalist",
+      "name": "Unbound Elementalist",
+      "description": "Increases the damage your Air Elemental deals by a further 40%.",
+      "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "pet_damage": 0.1333
+      },
+      "connected_to": [
+        "stormbringer_wind_surge_of_might"
+      ],
+      "_source": "CoA verbatim: 'Increases the effectiveness of your Unshackle by 20%.' Unshackle does not exist - it is the pet transform, which has no mechanism - so there is nothing to make more effective. Re-pointed at pet_damage, which is what Unshackle bought (CoA's own text: '+25% damage and +30% spell haste' on the elemental). Priced at 40% as the tier-5 payoff for a pet build, stacking with Power the Elements and Invigoration for a total of 90%."
+    },
+    {
+      "talent_id": "stormbringer_wind_raging_zephyr",
+      "name": "Raging Zephyr",
+      "description": "Increases the damage of Raging Zephyr by 50% and of your damage-over-time spells by 20%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "stormbringer_kiss_of_the_clouds"
+        "ability_stormbringer_raging_zephyr_damage": 0.1667,
+        "dot_damage": 0.0667
       },
       "connected_to": [
-        "stormbringer_wind_lexicon_of_servitude"
+        "stormbringer_wind_surge_of_might"
       ],
-      "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The Sidekick page calls this the whole of the spec's sustain - \"Kiss of the Clouds' absorb and your peels are the whole answer to a focus train.\" Replaces 'Cyclonic Ward' (-3% Nature damage taken per rank), which has no CoA counterpart - invented. The absorb is sized by absorb_pct_max_health rather than Intellect, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive uses it the same way)."
+      "_source": "CoA verbatim: 'Transforms your Whirlpool into Raging Zephyr. Summon a Raging Zephyr at the targeted location for 12 seconds. Every 4 sec, it will pull all enemies within 10 yds inside of it.' Frontier HAS Raging Zephyr as an ability and it is NOT talent-gated, so the old tree's unlock node for it granted something the character already had and did nothing - this replaces it with real mechanics on the same ability. The pull is positional and the charges have no system."
+    },
+    {
+      "talent_id": "stormbringer_wind_aeromancy",
+      "name": "Aeromancy",
+      "description": "Increases the healing of Invigorating Surge by a further 30% and your spell critical strike chance by 5%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_stormbringer_invigorating_surge_healing": 0.1,
+        "crit_chance_spell": 1.6667
+      },
+      "connected_to": [
+        "stormbringer_wind_surge_of_might"
+      ],
+      "_source": "CoA verbatim: 'Casting Updraft will now cause your Air Elemental to cast its own Updraft beneath you.' Updraft does not exist and nothing makes a pet cast an ability, so neither half is buildable. Re-pointed at the support half of the kit - Updraft is CoA's ground heal, and Invigorating Surge is Frontier's real ally heal - so the node keeps its healing identity rather than becoming another damage line."
+    },
+    {
+      "talent_id": "stormbringer_wind_surge_of_might",
+      "name": "Surge of Might",
+      "description": "Every one of your party buffs lasts a turn longer, and your spell damage rises by 20%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_stormbringer_clear_skies_duration": 1,
+        "ability_stormbringer_tailwind_duration": 1,
+        "ability_stormbringer_aerodynamics_duration": 1,
+        "ability_stormbringer_kiss_of_the_clouds_duration": 1,
+        "spell_damage": 0.2
+      },
+      "connected_to": [],
+      "_source": "CoA verbatim: 'Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 70% nature SP additional damage as Nature damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.' A talent cannot make allies deal extra damage. But ALL FOUR of this spec's party auras are real target_type 'party' abilities, so a turn added to each is four party-wide buffs held a third longer - hit chance from Clear Skies, haste from Tailwind, attack and spell power from Aerodynamics, and the absorb from Kiss of the Clouds. That is a genuine support capstone, and the one this spec could already support without any ability conversion, unlike Guardian Inspiration's. Exhaustion has no mechanism and is dropped."
     }
   ]
 }
