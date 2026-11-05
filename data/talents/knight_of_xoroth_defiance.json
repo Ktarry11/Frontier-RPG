@@ -1,8 +1,8 @@
 {
   "spec_name": "Knight of Xoroth Defiance",
   "tree_id": "knight_of_xoroth_defiance",
-  "description": "Plate shield tank. Shieldgore banks Deathfire, Suffuse spends it to heal you, and block, critical block and absorbs stack on top. Every imp you have out is mitigation.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_knight-of-xoroth__defiance.txt and the defiance block of talents/knight-of-xoroth.json. CoA rates it Dungeon A / Raid C and calls it 'Closest to Blood Death Knight, with a strong secondary nod to Vengeance Demon Hunter' - 'the core identifying loop sits close to Death Strike's math: build a stacking resource off your own weapon-swing abilities (Shieldgore to Demonfire), then dump it into a self-heal'. Its stat priority is Defense (to crit-immunity) > Stamina > Dodge > Parry > Block > Strength > Armor, which is why this tree buys avoidance (Xorothian Finesse) and Stamina before block, and why Strength is spent through a conversion (Hellfire Resolve) rather than taken raw. CoA's listed weaknesses are honoured rather than patched: no node here heals or shields an ally, and nothing in it breaks crowd control.",
+  "description": "Shield and imp-swarm - a demon knight who tanks behind a wall of summoned hellfire.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 41 real CoA Defiance talents (role Tank), completing Knight of Xoroth. Hellfire Resolve ports half - block from Strength is a legal conversion pair, hit_rating is not, the seventh time that has cost a node. NOTHING COUNTS HOW MANY PETS ARE ACTIVE and that is the spine of this spec: four CoA talents scale off live imp count and each is granted at a realistic three-imp value, flat. Pets never fire procs either, which takes Hellfire Reprimand entirely. The pet KEYS are live on this class though - it genuinely summons three pets. Owns shieldgore (t1) and call_hellfire_abyssal (t6), both gated, both asserted.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,468 +14,563 @@
   },
   "nodes": [
     {
-      "talent_id": "knight_of_xoroth_defiance_hellsmelted_armor",
-      "name": "Hellsmelted Armor",
-      "description": "Increases your chance to block by 2% per rank.",
+      "talent_id": "knight_of_xoroth_defiance_hellfire_resolve",
+      "name": "Hellfire Resolve",
+      "description": "Increases your chance to block by 15% of your Strength and your chance to hit by 5%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "block": 2.0
+        "block_from_strength_pct": 0.05,
+        "hit_rating": 1.6667
       },
-      "connected_to": [],
-      "_source": "CoA: 'Each Hellfire Imp active now increases your chance to block by 1%.' Per-imp scaling has no hook, so it is flat block chance. Note block is TWO stats here: `block` is the shield-gated CHANCE, block value is the flat amount absorbed (block_value_pct)."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_demonfire_plating",
-      "name": "Demonfire Plating",
-      "description": "Reduces all damage you take by 1% and increases your Stamina by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "damage_taken_pct": -0.01,
-        "stamina_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Reduces your damage taken by -2% and increases your Stamina by 3%.' NOTE the two keys use opposite conventions - damage_taken_pct is a FRACTION (-0.01 = -1%) and stamina_pct is percentage POINTS (2.0 = +2%)."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_a_gift_from_hell",
-      "name": "A Gift from Hell",
-      "description": "Reduces the Rage cost of your abilities by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "all_ability_cost_pct": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the Rage cost of Infernal Strike, Meatsaw, and Melt by -10.' Ability.talented_cost does cost * (1 - pct), so a POSITIVE value is the discount; authored negative it becomes a surcharge."
+      "connected_to": [
+        "knight_of_xoroth_defiance_hellfire_forgemaster"
+      ],
+      "_source": "CoA's level 30 passive: 'Increases your block rating by 15% of your Strength and increases your hit rating by 5% of your Strength.' THE BLOCK CONVERSION PORTS - `block` is in STAT_CONVERSION_TARGETS and strength is a source. THE HIT CONVERSION DOES NOT - hit_rating is not a target, the seventh time in this audit that pairing has cost a node half its text - so it is paid as a flat 5%. `block` is a PERCENT added to BASE_BLOCK_CHANCE and rolled against 0-100; block_chance is a DEAD key."
     },
     {
       "talent_id": "knight_of_xoroth_defiance_hellfire_forgemaster",
       "name": "Hellfire Forgemaster",
-      "description": "Increases the damage your blocks absorb by 4% per rank.",
+      "description": "Increases your block value by 20%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "block_value_pct": 0.0667
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_a_gift_from_hell"
+      ],
+      "_source": "CoA verbatim: 'Increases your block value by 20%.' Ports exactly. block_value_pct is read RAW on BOTH sides of the talent/status divide - a FRACTION either way - unlike max_health_pct and healing_taken_pct which flip. Authoring 20.0 would be 2000%, which is what audit_talents caught on Guardian Vanguard's Iron Barrier earlier today."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_a_gift_from_hell",
+      "name": "A Gift from Hell",
+      "description": "Reduces the Rage cost of Infernal Strike, Meatsaw and Melt by 25%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_knight_of_xoroth_infernal_strike_cost_pct": 0.0833,
+        "ability_knight_of_xoroth_meatsaw_cost_pct": 0.0833,
+        "ability_knight_of_xoroth_melt_cost_pct": 0.0833
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_hellsmelted_armor"
+      ],
+      "_source": "CoA verbatim: 'Reduces the Rage cost of Infernal Strike, Meatsaw, and Melt by -10.' All three abilities exist in Frontier and Rage is the class's real primary resource. A flat 10 is expressed as a percentage because costs differ per rank. POSITIVE reduces, so CoA's minus sign is dropped."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_hellsmelted_armor",
+      "name": "Hellsmelted Armor",
+      "description": "Increases your chance to block by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "block": 2
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_imp_guards"
+      ],
+      "_source": "CoA over 2 ranks: 'Each Hellfire Imp active now increases your chance to block by 1%.' NOTHING COUNTS HOW MANY PETS ARE ACTIVE - pets scale off pet_damage/pet_health/pet_armor and nothing else, and no talent effect or payload reads a live pet count. A realistic field is three imps, so 1% x 3 imps x 2 ranks is 6%, flat. This is the first of four imp-count talents in this tree; each says so on its own node."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_imp_guards",
+      "name": "Imp Guards",
+      "description": "Reduces the physical damage you take by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "block_value_pct": 0.04
+        "physical_damage_taken_pct": -0.02
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your block value by 20%.' Block VALUE, the other half of the two-stat block system - a fraction, not percentage points."
+      "connected_to": [
+        "knight_of_xoroth_defiance_shieldgore"
+      ],
+      "_source": "CoA's level 20 passive: 'Each Hellfire Imp now reduces your Physical damage taken by 1%.' Same wall as Hellsmelted Armor - no live pet count is readable - so three imps at 1% is 3%, doubled to 6% because this is the spec's level 20 passive and should carry a node on its own. AS A TALENT EFFECT physical_damage_taken_pct is a FRACTION where NEGATIVE reduces; inside a status effect the same key is divided by 100 and positive INCREASES damage taken."
     },
     {
       "talent_id": "knight_of_xoroth_defiance_shieldgore",
       "name": "Shieldgore",
-      "description": "Teaches Shieldgore, a high-threat shield strike that burns and banks 20 Deathfire.",
-      "node_type": "active",
+      "description": "Teaches Shieldgore, goring the target with your shield for high threat.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "knight_of_xoroth_shieldgore"
       },
       "connected_to": [
-        "knight_of_xoroth_defiance_hellsmelted_armor"
+        "knight_of_xoroth_defiance_bulwark_of_xoroth"
       ],
-      "_source": "CoA: 'Transforms your Infernal Strike into Shieldgore'. A free spec pick in CoA and the button the entire rotation is built on, so it is the first real node in the tree."
+      "_source": "CoA verbatim: 'Transforms your Infernal Strike into Shieldgore. Generates 2 Demonfire. Gore the target with your spiked shield, causing High Threat Fire Damage, scaling with your block value.' LOAD-BEARING UNLOCK: knight_of_xoroth_shieldgore carries requires_talent, so without this node it is unobtainable forever - and it is also one of the four abilities that generate Deathfire (20 per cast), so losing it would cost the spec its resource engine too. Nothing transforms one ability into another, so it is granted alongside Infernal Strike. Kept at tier 1."
     },
     {
-      "talent_id": "knight_of_xoroth_defiance_imp_guards",
-      "name": "Imp Guards",
-      "description": "Reduces the physical damage you take by 1% per rank.",
+      "talent_id": "knight_of_xoroth_defiance_bulwark_of_xoroth",
+      "name": "Bulwark of Xoroth",
+      "description": "Shieldgore tears the flesh, bleeding the enemy for physical damage over 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
       "hex_y": -4,
-      "effects": {
-        "physical_damage_taken_pct": -0.01
-      },
+      "effects": {},
       "connected_to": [
-        "knight_of_xoroth_defiance_demonfire_plating"
+        "knight_of_xoroth_defiance_demonfire_retaliation"
       ],
-      "_source": "CoA: 'Each Hellfire Imp now reduces your Physical damage taken by 1%.' Flat, since nothing can read a live pet count. CoA gives this free at level 20."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_imp_aura",
-      "name": "Imp Aura",
-      "description": "Reduces the magic damage you take by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "magic_damage_taken_pct": -0.01
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_shieldgore"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_torn_flesh",
+          "name": "Torn Flesh",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 34,
+          "damage_school": "physical",
+          "on_target": true
+        }
       },
-      "connected_to": [
-        "knight_of_xoroth_defiance_a_gift_from_hell"
-      ],
-      "_source": "CoA: 'Each Hellfire Imp now reduces your Magic damage taken by 1%.' The magic half of Imp Guards, and the reason CoA says this tank 'covers magic as well as melee'."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_xorothian_finesse",
-      "name": "Xorothian Finesse",
-      "description": "Increases your chance to parry by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "parry": 1.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_hellfire_forgemaster"
-      ],
-      "_source": "CoA class tree: 'Increases your chance to parry by 5%.' Parry is full avoidance, unlike block, and CoA's stat priority puts Dodge and Parry above Block."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_hellfire_resolve",
-      "name": "Hellfire Resolve",
-      "description": "Grants block value equal to 3% of your Strength, and 1 hit rating, per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "block_value_from_strength_pct": 0.03,
-        "hit_rating": 1
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_shieldgore"
-      ],
-      "_source": "CoA: 'Increases your block rating by 15% of your Strength and increases your hit rating by 5% of your Strength.' The block half is a real <target>_from_<source>_pct conversion resolved against character.py's shared STAT_CONVERSION maps. The hit half cannot be: hit_rating is a local feeding base_miss_chance_*, not a Character attribute, so it is flat hit instead - the same wall Guardian's Bulwark hit."
+      "_source": "CoA verbatim: 'Damage dealt by Shieldgore will now apply Torn Flesh, causing the target to bleed for 105 over 15 seconds.' PORTS CLEANLY - a bleed IS a dot, and 15 sec is 3 turns (held short so a tank's threat dot is not the longest in the class). Note the effect is a dot with a physical school rather than anything named 'bleed': `bleed_dot_damage` is a dead key, confirmed earlier in this audit when no ability id contained 'bleed'."
     },
     {
       "talent_id": "knight_of_xoroth_defiance_demonfire_retaliation",
       "name": "Demonfire Retaliation",
-      "description": "Taking a hit has a 10% chance per rank to bank 8 Deathfire.",
+      "description": "Being attacked has a 30% chance to grant 10 Deathfire.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_defiance_imp_guards"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "deathfire",
-          "amount": 8
-        }
-      },
-      "_source": "CoA: 'Grants you a 30% chance to generate a stack of Demonfire when attacked.' Literal: a real grant_resource proc into the secondary pool. Proc chance is scaled by points_spent on a multi-rank node (Character._sync_talent_procs), so 10 here is 30% at 3 points."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_forgefiends_bulwark",
-      "name": "Forgefiend's Bulwark",
-      "description": "Taking a hit has a 10% chance per rank to enrage you, increasing your damage by 10% for 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_defiance_imp_aura"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "knight_of_xoroth_forgefiends_bulwark",
-          "name": "Forgefiend's Bulwark",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "damage_dealt_pct": 10
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Successful blocks, parries and dodges now have a 30% chance to Enrage you, increasing your damage dealt by 10% for 10 seconds.' There is no on-block trigger, so on_damage_taken stands in for the whole block/parry/dodge set."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_black_skull_shield",
-      "name": "Black Skull Shield",
-      "description": "Increases the damage of Shieldgore by 8% and reduces its Rage cost by 2 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_knight_of_xoroth_shieldgore_damage": 0.08,
-        "ability_knight_of_xoroth_shieldgore_cost": 2
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_xorothian_finesse"
-      ],
-      "_source": "CoA: 'Reduces the Rage cost of Shieldgore by -5 and increases its damage by 25%.' Both halves literal. ability_<id>_<stat> keys are built by interpolation in abilities.py, so a literal grep calls them dead."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_demonic_bulwark",
-      "name": "Demonic Bulwark",
-      "description": "Your blocks absorb an additional 5% of the damage dealt to you, per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "block_bonus_reduction": 0.05
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_hellfire_resolve"
-      ],
-      "_source": "CoA: 'Your successful blocks now have a 30% chance to critically block for twice the normal amount.' block_bonus_reduction is the engine's existing critical-block hook, read in Character.take_damage. The chance roll becomes a flat bonus."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_infernal_bulwark",
-      "name": "Infernal Bulwark",
-      "description": "Unleash Pestilence banks 20 Deathfire and increases the damage your blocks absorb by 20% for 3 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_defiance_imp_guards"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "ability_filter": [
-          "knight_of_xoroth_unleash_pestilence"
-        ],
-        "grant_resource": {
-          "resource": "deathfire",
-          "amount": 20
-        },
-        "apply_effect": {
-          "effect_id": "knight_of_xoroth_infernal_bulwark",
-          "name": "Infernal Bulwark",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "block_value_pct": 0.2
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Casting Unleash Pestilence now generates 4 stacks of Demonfire and grants Infernal Bulwark: increases block value by 20% for 18 seconds.' Both halves literal, with ability_filter restricting the trigger to Unleash Pestilence itself."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_brimstone_buckler",
-      "name": "Brimstone Buckler",
-      "description": "Taking a hit has a 10% chance per rank to call a Hellfire Imp.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_defiance_imp_aura"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 2,
-        "cast_ability": "knight_of_xoroth_call_hellfire_imp"
-      },
-      "_source": "CoA: 'Successful blocks now have a 30% chance to summon 1 Hellfire Imp to aid you in battle for 12 seconds. Can only occur once every 3 sec.' cast_ability fires the real summon, so the imp is a real pet; the icd is the 3-second lockout. on_damage_taken stands in for the missing on-block trigger."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_hellfire_sieger",
-      "name": "Hellfire Sieger",
-      "description": "While below 35% health, you take 8% less damage per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.08,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_black_skull_shield"
-      ],
-      "_source": "CoA: 'Doubles the absorption of Black Shield while below 35% health.' Nothing can double an absorb conditionally, so the node keeps the 35% threshold and pays out as the engine's low-health mitigation pair instead. low_health_threshold_pct is in UNSCALED_EFFECT_KEYS, so it stays 35% at every rank."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_demolisher",
-      "name": "Demolisher",
-      "description": "Increases your threat generation by 8% and reduces the physical damage you take by 1% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {
-        "threat_generation_pct": 0.08,
-        "physical_damage_taken_pct": -0.01
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_demonic_bulwark"
-      ],
-      "_source": "CoA: 'Casting Flesh Hook or Chainwhip now taunts the target for 2 seconds and reduces your Physical damage taken by -5% for 10 seconds.' A talent cannot add a taunt to an existing ability (that is what the kit's Dread is for), so this is the tree's threat node. 8% per rank over 3 ranks is +24%, the same band as Warrior Protection's Defiance and Guardian Vanguard's Footman's Call, so the three plate tanks hold threat equally. Note the key: threat_generation_pct is a FRACTION as a talent effect and percentage POINTS as an ability buff stat_mod."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_soul_furnace",
-      "name": "Soul Furnace",
-      "description": "Your heals have a 34% chance per rank to leave a shield absorbing 15% of the amount healed.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_defiance_infernal_bulwark"
-      ],
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 34,
-        "icd": 1,
-        "shield_pct": {
-          "pct": 0.15,
-          "duration": 3,
-          "effect_id": "knight_of_xoroth_soul_furnace",
-          "name": "Soul Furnace"
-        }
-      },
-      "_source": "CoA: 'Sacrificial Circle now grants you a damage absorption shield equal to 15% of the total health of each destroyed imp for 10 sec.' Imp health is not readable from a proc; shield_pct sizes the absorb off the heal that triggered it, which is the same 'heal, then keep part of it as armour' shape."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_warden_of_hellfire",
-      "name": "Warden of Hellfire",
-      "description": "Increases the damage of Skulltaker and Flames of Xoroth by 8% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.08,
-        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.08
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_brimstone_buckler"
-      ],
-      "_source": "CoA: 'Increases the damage dealt by Skulltaker and Flames of Xoroth by 20%.' Literal."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_imp_gang_boss",
-      "name": "Imp Gang Boss",
-      "description": "Increases your pets' damage and health by 6% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "pet_damage": 0.06,
-        "pet_health": 0.06
-      },
-      "connected_to": [
-        "knight_of_xoroth_defiance_demolisher"
-      ],
-      "_source": "CoA: 'Your Call: Hellfire Imp now summons 2 additional imps', plus Demonic Grit's '+15% total health'. The engine supports one pet at a time, so more imps is not available; a bigger, tougher imp is."
-    },
-    {
-      "talent_id": "knight_of_xoroth_defiance_hellwrath",
-      "name": "Hellwrath",
-      "description": "Increases the amount Black Shield absorbs by 10% and your Stamina by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_knight_of_xoroth_black_shield_potency": 0.1,
-        "stamina_pct": 2.0
-      },
+      "hex_y": -4,
+      "effects": {},
       "connected_to": [
-        "knight_of_xoroth_defiance_soul_furnace"
+        "knight_of_xoroth_defiance_hellish_rebuke"
       ],
-      "_source": "CoA: 'Your Demon's Blood can now stack 5 additional times and each stack now increases the absorption amount of Black Shield by 1%.' Demon's Blood has no engine hook, so the node pays the absorb directly. ability_<id>_potency is the buff-magnitude key, read in the buff branch of Ability._apply_effect."
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "deathfire",
+          "amount": 10
+        }
+      },
+      "_source": "CoA verbatim: 'Grants you a 30% chance to generate a stack of Demonfire when attacked.' PORTS EXACTLY - on_damage_taken is a live trigger, CoA's 30% is kept, and DEATHFIRE IS A REAL SECONDARY RESOURCE (verified through gain_resource on the War tree). CoA's '1 stack' is 10 here because Frontier's generators work in tens - Sever grants 10, Infernal Strike 20 - so one CoA Demonfire is worth roughly ten Deathfire. A tank that makes resource by being hit is the same loop as Venomancer Fortitude's Exposed Flesh."
     },
     {
-      "talent_id": "knight_of_xoroth_defiance_fiery_retribution",
-      "name": "Fiery Retribution",
-      "description": "Taking a hit has a 15% chance per rank to refresh Sacrificial Circle and Implosion.",
+      "talent_id": "knight_of_xoroth_defiance_hellish_rebuke",
+      "name": "Hellish Rebuke",
+      "description": "Being attacked has a 15% chance to erupt, splashing fire onto nearby enemies.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
-      "hex_y": 4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "knight_of_xoroth_defiance_warden_of_hellfire"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 15,
+        "chance": 5,
+        "icd": 1,
+        "damage_flat": 80,
+        "school": "fire"
+      },
+      "_source": "CoA verbatim: 'Generating a stack of Demon's Blood now has a 15% chance to trigger a fiery explosion on up to 5 nearby enemies, dealing Fire damage.' NO TRIGGER FIRES WHEN A RESOURCE IS GENERATED - there is no on-resource-gain hook - so it hangs off the same on_damage_taken that Demonfire Retaliation above uses, which is what generates the stack in practice. The two fire together, exactly as CoA intends. CoA's 15% kept; 1-turn icd."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_warden_of_hellfire",
+      "name": "Warden of Hellfire",
+      "description": "Increases the damage of Skulltaker and Flames of Xoroth by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_knight_of_xoroth_skulltaker_damage": 0.0667,
+        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.0667
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_imp_gang_boss"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage dealt by Skulltaker and Flames of Xoroth by 20%.' Ports exactly - both exist in Frontier."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_imp_gang_boss",
+      "name": "Imp Gang Boss",
+      "description": "Increases the damage and health of your imps by 40%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.1333,
+        "pet_health": 0.1333
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_impcaller"
+      ],
+      "_source": "CoA verbatim: 'Your Call: Hellfire Imp now summons 2 additional imps.' NO KEY CHANGES HOW MANY PETS AN ABILITY SUMMONS - the count lives on the ability - so two more imps cannot be bought. Re-pointed at pet_damage and pet_health, which is a stronger swarm rather than a bigger one. THE KEYS ARE LIVE HERE because this class genuinely summons three pets; the same node on the Witch Doctor or Venomancer would have been dead data (see tools/qa_pet_keys.py)."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_impcaller",
+      "name": "Impcaller",
+      "description": "Infernal Strike has a 25% chance to call a Hellfire Imp to your\nside, once every 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_defiance_hellfire_imp_mastery"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
         "icd": 2,
-        "reset_cooldown": {
-          "abilities": [
-            "knight_of_xoroth_sacrificial_circle",
-            "knight_of_xoroth_implosion"
-          ]
+        "ability_filter": [
+          "knight_of_xoroth_infernal_strike"
+        ],
+        "cast_ability": "knight_of_xoroth_call_hellfire_imp"
+      },
+      "_source": "CoA verbatim: 'Transforms your Call: Hellfire Imp into Impcaller. Your Infernal Strike now summons a Hellfire Imp to aid you in combat for 10 seconds, but its Rage cost is increased by 10. In addition, the maximum health of your imps is increased by 30%.' THE SUMMON HALF PORTS - cast_ability takes a bare ability id, and Call: Hellfire Imp is auto-learned (not requires_talent), so it is in the book and can be cast by a payload. Held to 25% with a 2-turn icd rather than every strike, since a free imp per cast would swarm the field. No key ADDS a cost, so CoA's downside cannot be charged."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_hellfire_imp_mastery",
+      "name": "Hellfire Legion",
+      "description": "Increases the health and armour of your imps by a further 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "pet_health": 0.1,
+        "pet_armor": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_sacrificial_circle"
+      ],
+      "_source": "CoA's Impcaller carries '+30% maximum health of your imps' as its third clause, which does not fit on the Impcaller node once that node is a proc - so it is split out here with armour alongside. CoA's 30% kept. NOT a separate CoA talent and flagged as such; it is the remainder of one."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_sacrificial_circle",
+      "name": "Sacrificial Circle",
+      "description": "Increases the healing of Sacrificial Circle by 50% and reduces its cooldown by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_sacrificial_circle_healing": 0.1667,
+        "ability_knight_of_xoroth_sacrificial_circle_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_soul_furnace"
+      ],
+      "_source": "CoA verbatim: 'Sacrifice your Hellfire Imps within 15 yds, healing you 15% of your maximum health, plus an additional amount equal to 25% of each of your Hellfire Imp's maximum health.' Frontier HAS Sacrificial Circle and it is not gated. The per-imp scaling needs a live pet count, which nothing reads, so it lives on the ability's own coefficients; the talent makes the whole thing bigger and more frequent instead. Corpses are not modelled."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_soul_furnace",
+      "name": "Soul Furnace",
+      "description": "Sacrificial Circle shields you for 20% of the healing it does.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_defiance_demons_breath"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_sacrificial_circle"
+        ],
+        "shield_pct": 0.2
+      },
+      "_source": "CoA verbatim: 'Sacrificial Circle now grants you a damage absorption shield equal to 15% of the total health of each destroyed imp for 10 sec.' The per-imp scaling needs a pet count nothing reads, but shield_pct IS a live payload that converts a share of the triggering HEAL into an absorb - and Sacrificial Circle is a heal, so the shield scales off something real. A FRACTION."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_demons_breath",
+      "name": "Demon's Breath",
+      "description": "Your critical strikes with Shieldgore erupt for fire damage and grant 10 Deathfire.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_defiance_infernal_bulwark"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_shieldgore"
+        ],
+        "damage_flat": 90,
+        "school": "fire",
+        "grant_resource": {
+          "resource": "deathfire",
+          "amount": 10
         }
       },
-      "_source": "CoA: 'Each time a Hellfire Imp dies, you reduce the cooldown of Sacrificial Circle by -2 sec and Implosion by -1 sec.' There is no on-pet-death trigger, so it fires off damage taken instead - which is when an imp would have died. reset_cooldown is a real proc payload and takes a list."
+      "_source": "CoA verbatim: 'Critical strikes with Shieldgore now unleash an eruption of hellfire, causing Fire damage and generating 1 additional Demonfire.' PORTS WHOLE - a proc can carry BOTH a damage_flat payload and a grant_resource, so both halves of CoA's text fire from one node. CoA's '1 Demonfire' is 10 Deathfire, matching Frontier's tens-based generators."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_infernal_bulwark",
+      "name": "Infernal Bulwark",
+      "description": "Unleash Pestilence raises your block value by 20% for 6 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_defiance_stoke_the_flames"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_unleash_pestilence"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_infernal_bulwark",
+          "name": "Infernal Bulwark",
+          "effect_type": "buff",
+          "duration": 6,
+          "max_stacks": 1,
+          "stat_mods": {
+            "block_value_pct": 0.2
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Unleash Pestilence now generates 4 stacks of Demonfire and grants Infernal Bulwark. Increases block value by 20% for 18 sec.' The block buff ports exactly - CoA's 20%, and 18 sec is 6 turns. A proc carries ONE grant_resource and this one spends it on the buff, so the 4 Demonfire is dropped; two other nodes in this tree already grant Deathfire. BLOCK_VALUE_PCT IS READ RAW inside a status effect as well as outside, so 20% is 0.20 - the flip that audit_talents caught on Guardian Vanguard."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_stoke_the_flames",
+      "name": "Stoke the Flames",
+      "description": "Increases the damage of Skulltaker and Melt by 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_skulltaker_damage": 0.1,
+        "ability_knight_of_xoroth_melt_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_implosion"
+      ],
+      "_source": "CoA verbatim: 'Your Skulltaker and Melt used with 6 Demonfire now refund 2 Demonfire. Skulltaker used with 6 Demonfire now deals an additional 30% Fire damage.' NOTHING READS A LIVE RESOURCE AMOUNT, so 'used with 6 Demonfire' cannot gate anything and the refund cannot be conditioned. CoA's 30% is granted unconditionally on both abilities."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_implosion",
+      "name": "Implosion",
+      "description": "Increases the damage of Implosion by 40% and reduces its cooldown by 25%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_knight_of_xoroth_implosion_damage": 0.1333,
+        "ability_knight_of_xoroth_implosion_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_hellfire_reprimand"
+      ],
+      "_source": "CoA verbatim: 'Explode with hellish fire, dealing Fire damage to nearby enemies, beckoning Hellfire Imps to aid you in battle for 12 sec, and generating 30 Rage. Deals increased damage and increases the amount of imps summoned by 1 for each Demonfire consumed.' Frontier HAS Implosion and it is not gated. The per-Demonfire scaling needs a live resource read and the imp count lives on the ability, so neither is buildable. CoA's Demonfire Command ('reduces the cooldown of Implosion by -10 sec and its Rage cost by -5') is folded in as the 25% rather than built as a second node for one ability's cooldown."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_hellfire_reprimand",
+      "name": "Hellfire Reprimand",
+      "description": "Your strikes leave the enemy dealing 15% less damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_defiance_brimstone_knight"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_infernal_strike",
+          "knight_of_xoroth_meatsaw",
+          "knight_of_xoroth_melt"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_hellfire_reprimand",
+          "name": "Hellfire Reprimand",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": -15.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Hellfire Imps now have a 20% chance on hit to launch a firebolt dealing Fire damage and reducing enemy attack power for 10 sec.' PETS NEVER FIRE PROCS - there is no fire_proc_trigger anywhere in entities/pet.py - so an imp cannot have a chance-on-hit at all, which makes this talent unbuildable as written. Re-pointed at the Knight's own strikes carrying the attack-power debuff, which is the mitigation the firebolts bought a tank. 10 sec is 3 turns. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_brimstone_knight",
+      "name": "Brimstone Knight",
+      "description": "Increases your spell damage by 3%, and your strikes leave the enemy taking 10% more spell damage for 5 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.01
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_speed_demon"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_infernal_strike",
+          "knight_of_xoroth_meatsaw",
+          "knight_of_xoroth_melt"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_brimstone_knight",
+          "name": "Brimstone Knight",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 10.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Increases your Fire damage dealt by 3% and dealing Fire damage increases the enemy spell damage taken by 10% for 15 sec.' BOTH HALVES PORT, with the per-school scoping dropped (no per-school damage key, and no trigger-side school filter - proc['school'] only types a damage_flat payload). CoA's 3% and 10% both kept; 15 sec is 5 turns."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_speed_demon",
+      "name": "Speed Demon",
+      "description": "Increases your haste by 10%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "haste": 3.3333
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_call_hellfire_abyssal"
+      ],
+      "_source": "CoA verbatim: 'Your Suffuse now increases your movement speed by 20%.' MOVEMENT SPEED IS NOT MODELLED and there is no 'while Suffuse is active' gate either. Rerouted to haste, which is what speed means in a turn-based fight - acting more often. NOT a faithful copy and flagged as such, the same treatment as Templar Crusader's Whirling Tempest."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_demonic_fortitude",
+      "name": "Demonic Fortitude",
+      "description": "Increases your Stamina by 12% and your armour by 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "stamina_pct": 4,
+        "armor_pct": 5
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_call_hellfire_abyssal"
+      ],
+      "_source": "Built from CoA's Hellsmelted Armor and Imp Guards themes - both of which lost their per-imp scaling - so tier 5 carries a real tank stat node. NOT a port of a specific CoA talent and flagged as such. Both keys take percentage POINTS."
+    },
+    {
+      "talent_id": "knight_of_xoroth_defiance_legions_presence",
+      "name": "Legion's Presence",
+      "description": "Increases the threat you generate by 30% and reduces the physical damage you take by a further 8%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "threat_generation_pct": 0.1,
+        "physical_damage_taken_pct": -0.0267
+      },
+      "connected_to": [
+        "knight_of_xoroth_defiance_call_hellfire_abyssal"
+      ],
+      "_source": "Frontier HAS Legion's Presence as a target_type 'party' ability - the class's only party-targeted one - and it is not gated, so this is not its unlock. Built as the threat and mitigation a tank capstone tier wants, stacking with Imp Guards at tier 0 for 14% physical reduction on a full Defiance build. threat_generation_pct is a FRACTION where POSITIVE increases, the opposite polarity to the _cost_pct family beside it."
     },
     {
       "talent_id": "knight_of_xoroth_defiance_call_hellfire_abyssal",
       "name": "Call: Hellfire Abyssal",
-      "description": "Teaches Call: Hellfire Abyssal. While you fight, you and your allies take 5% less damage.",
-      "node_type": "active",
+      "description": "Teaches Call: Hellfire Abyssal, and your demons hit 40% harder.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
@@ -483,14 +578,10 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "knight_of_xoroth_call_hellfire_abyssal",
-        "damage_taken_pct": -0.05
+        "pet_damage": 0.4
       },
-      "connected_to": [
-        "knight_of_xoroth_defiance_imp_gang_boss",
-        "knight_of_xoroth_defiance_hellwrath",
-        "knight_of_xoroth_defiance_fiery_retribution"
-      ],
-      "_source": "Capstone. CoA: 'Call down a Hellfire Abyssal ... emits an aura that reduces the damage taken by party and raid members within 40 yds by 5%.' A talent's effects apply to the Knight only, so the 5% is personal rather than party-wide - the ally half is the one piece of this node the engine cannot carry."
+      "connected_to": [],
+      "_source": "LOAD-BEARING UNLOCK: knight_of_xoroth_call_hellfire_abyssal carries requires_talent, so without this node it is unobtainable forever. It completes Knight of Xoroth's five gated abilities - Gore and Brimstone Bludgeon in War, Hellmaw in Hellfire, Shieldgore and this in Defiance - and main() asserts both of this tree's. The pet damage is added because a capstone granting only an ability is thin, and it pays off the swarm the whole tree builds: with Imp Gang Boss and Hellfire Legion it reaches 80% pet damage on a full Defiance build. The key is live because this class really summons."
     }
   ]
 }
