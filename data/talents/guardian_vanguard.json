@@ -73,7 +73,7 @@
     {
       "talent_id": "guardian_vanguard_stalwart",
       "name": "Stalwart",
-      "description": "Increases your block value by 20%.",
+      "description": "Increases your block value by 20% and your expertise by 4.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,12 +81,13 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "block_value_pct": 0.0667
+        "block_value_pct": 0.0667,
+        "expertise": 1.3333
       },
       "connected_to": [
         "guardian_vanguard_seasoned_fighter"
       ],
-      "_source": "CoA over 2 ranks: 'Increases your block value by 10% and your expertise by 4.' Doubled for the two ranks. THE EXPERTISE HALF IS DROPPED: `expertise` is read by no engine code, confirmed earlier this session when it turned up dead in another CoA tree. Authoring it would have been a line of text with nothing behind it."
+      "_source": "CoA over 2 ranks: 'Increases your block value by 10% and your expertise by 4.' Doubled for the two ranks - and BOTH HALVES NOW PORT. `expertise` was a dead key when this tree was first rebuilt: it reduces a target's dodge and parry, and monsters had neither, so Monster.take_damage rolled no avoidance at all. Kyle had creature avoidance encoded the same day (dodge on every template, parry on humanoids only, block as a shield hook), which made expertise live, so the half that was dropped is restored. It is in PERCENTAGE POINTS and subtracts from the target's dodge AND parry independently, as in WoW: 4 expertise takes a humanoid_warrior from 13% avoidance to 5%."
     },
     {
       "talent_id": "guardian_vanguard_seasoned_fighter",

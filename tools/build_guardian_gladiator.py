@@ -212,16 +212,21 @@ N.append(node(
 
 N.append(node(
     "double_duty", "Double Duty",
-    "Increases your chance to hit by 5%.",
+    "Increases your chance to hit by 5% and your expertise by 4.",
     1, 2,
-    effects={"hit_rating": 5.0},
+    effects={"hit_rating": 5.0, "expertise": 4.0},
     connect=["tactical_combat"],
     source="CoA verbatim: 'Increases your hit chance by 5% and expertise by "
-           "4.' THE EXPERTISE HALF IS DROPPED: `expertise` is read by no "
-           "engine code. This is the second CoA tree in a row to want it - "
-           "Vanguard's Stalwart lost the same half - so it is worth noting as "
-           "a pattern rather than a one-off: CoA leans on expertise and "
-           "Frontier has no equivalent at all."))
+           "4.' BOTH HALVES NOW PORT. This was the second CoA tree in a row "
+           "to want `expertise` - Vanguard's Stalwart wanted the same 4 - and "
+           "flagging it as a pattern rather than a one-off is what prompted "
+           "Kyle to have creature avoidance encoded (dodge on every creature "
+           "template, parry on humanoids only, block as a hook for "
+           "shield-carrying humanoids). 20 CoA talents across 11 classes want "
+           "the stat, so it is now live for the 8 of those classes still to "
+           "be rebuilt. The two halves are NOT duplicates: hit_rating beats "
+           "the attacker-side hit roll, expertise reduces the target's dodge "
+           "and parry, which are separate checks."))
 
 N.append(node(
     "upper_hand", "Upper Hand",

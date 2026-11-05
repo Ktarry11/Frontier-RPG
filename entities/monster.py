@@ -427,6 +427,31 @@ class Monster(StatusEffectMixin):
 
         level_mult = 1.0 + (level - 1) * 0.15  # +15% per level (conservative)
 
+        # AVOIDANCE. Monsters had none of this: Monster.take_damage rolled no
+        # dodge, parry or block, so avoidance was one-directional for the
+        # whole project - a mob swinging at you could be dodged, you swinging
+        # at a mob could not. That is also what made `expertise` a dead key
+        # (it reduces a target's dodge and parry, and there was none to
+        # reduce), which cost half a node in 11 of the 21 CoA classes.
+        #
+        # Kyle's design, 5 Nov 2026: "So anyone can dodge. Only humanoids can
+        # dodge and parry though. Also we need to ensure there is an option
+        # for some humanoids (with shields) get block chance and block rating
+        # eventually."
+        #
+        # So dodge is on every template, parry only on the humanoid_* ones,
+        # and block is a hook sitting at 0 everywhere - no creature blocks
+        # yet, and giving a shield-carrying humanoid a real chance later is a
+        # data edit on its template or creature entry with no code change.
+        # These are FLAT PERCENTAGE POINTS and deliberately do NOT scale with
+        # level: a level-40 boar should not be harder to hit than a level-4
+        # one, only tougher. Same reason Character's avoidance comes from
+        # gear and talents rather than from levelling.
+        self.dodge = float(template.get("base_dodge", 0) or 0)
+        self.parry = float(template.get("base_parry", 0) or 0)
+        self.block_chance = float(template.get("base_block_chance", 0) or 0)
+        self.block_value = float(template.get("base_block_value", 0) or 0)
+
         self.max_health = int(template["base_hp"] * level_mult)
         self.current_health = self.max_health
 
@@ -642,6 +667,51 @@ class Monster(StatusEffectMixin):
             reduction = Character.mitigation_from(resist, attacker_level)
         else:
             reduction = 0
+
+        # AVOIDANCE (Dodge/Parry/Block), physical only - see the block in
+        # __init__ for the design and why monsters had none of it.
+        #
+        # Deliberately the SAME SHAPE as Character.take_damage: one
+        # uniform(0,100) roll walked down the combat table rather than three
+        # independent rolls, dodge then parry then block, with dodge/parry
+        # negating the hit outright and block SUBTRACTING block_value instead.
+        # A second, disagreeing copy of this resolution would be worse than
+        # none - which is the lesson the armor-mitigation comment above
+        # records - so the order and the units match Character exactly.
+        #
+        # EXPERTISE IS WHAT THIS MAKES LIVE. In WoW expertise reduces the
+        # target's chance to dodge or parry, so it is read off the ATTACKER
+        # here and subtracted from both, floored at 0. It is in PERCENTAGE
+        # POINTS, matching dodge/parry/block themselves: 4 expertise removes 4
+        # points of avoidance, so it cannot reduce block (which is not
+        # avoidance in WoW either) and cannot push avoidance negative into a
+        # bonus. Read from talents and from a plain attribute, so a future
+        # gear roll of the stat works here with no further change.
+        #
+        # Physical-only matches Character: dodge, parry and block have never
+        # been magic mechanics. A physical DoT ticking will roll this, exactly
+        # as it does against a Character - consistent rather than correct, and
+        # noted here rather than silently differing.
+        if damage_type == "physical" and (self.dodge or self.parry
+                                          or self.block_chance):
+            import random
+            expertise = 0.0
+            if attacker is not None:
+                if hasattr(attacker, "get_talent_effect"):
+                    expertise += attacker.get_talent_effect("expertise", 0.0) or 0.0
+                expertise += getattr(attacker, "expertise", 0) or 0
+            dodge = max(0.0, self.dodge - expertise)
+            parry = max(0.0, self.parry - expertise)
+
+            roll = random.uniform(0, 100)
+            if roll < dodge:
+                return 0
+            roll -= dodge
+            if roll < parry:
+                return 0
+            roll -= parry
+            if roll < self.block_chance and self.block_value > 0:
+                amount = max(0, amount - self.block_value)
 
         from combat.abilities import level_diff_multiplier
         level_mult = level_diff_multiplier(attacker_level, self.level)

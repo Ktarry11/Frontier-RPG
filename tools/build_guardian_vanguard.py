@@ -158,16 +158,21 @@ N.append(node(
 
 N.append(node(
     "stalwart", "Stalwart",
-    "Increases your block value by 20%.",
+    "Increases your block value by 20% and your expertise by 4.",
     0, 1,
-    effects={"block_value_pct": 0.20},
+    effects={"block_value_pct": 0.20, "expertise": 4.0},
     connect=["seasoned_fighter"],
     source="CoA over 2 ranks: 'Increases your block value by 10% and your "
-           "expertise by 4.' Doubled for the two ranks. THE EXPERTISE HALF IS "
-           "DROPPED: `expertise` is read by no engine code, confirmed earlier "
-           "this session when it turned up dead in another CoA tree. "
-           "Authoring it would have been a line of text with nothing behind "
-           "it."))
+           "expertise by 4.' Doubled for the two ranks - and BOTH HALVES NOW "
+           "PORT. `expertise` was a dead key when this tree was first "
+           "rebuilt: it reduces a target's dodge and parry, and monsters had "
+           "neither, so Monster.take_damage rolled no avoidance at all. Kyle "
+           "had creature avoidance encoded the same day (dodge on every "
+           "template, parry on humanoids only, block as a shield hook), which "
+           "made expertise live, so the half that was dropped is restored. "
+           "It is in PERCENTAGE POINTS and subtracts from the target's dodge "
+           "AND parry independently, as in WoW: 4 expertise takes a "
+           "humanoid_warrior from 13% avoidance to 5%."))
 
 N.append(node(
     "seasoned_fighter", "Seasoned Fighter",
