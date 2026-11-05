@@ -30,7 +30,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Balanced by someone who threw it a great deal.",
           "weapon_type": "thrown",
           "primary_stats": {
             "agility": 2,
@@ -152,13 +151,14 @@
           "weapon_type": "mace_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
+            "strength": 3,
             "stamina": 2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
           "attack_speed": 3.3,
-          "label": "2H Mace (Str)"
+          "label": "2H Mace (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Thunderhide Bow-Grip Gloves",
@@ -193,7 +193,6 @@
           "item_level": 11,
           "rarity": "uncommon",
           "required_level": 8,
-          "flavor_text": "Issued in threes. Most come back.",
           "weapon_type": "thrown",
           "primary_stats": {
             "agility": 2,
@@ -236,14 +235,14 @@
           "weapon_type": "axe_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 3
+            "strength": 5,
+            "stamina": 2
           },
           "weapon_damage_min": 36,
           "weapon_damage_max": 48,
           "attack_speed": 3.4,
-          "flavor_text": "It still smells faintly of ozone, like the storm that never quite broke over the ridge finally did, once, all at once.",
-          "label": "2H Axe (Str)"
+          "label": "2H Axe (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Stormhide Mantle",
@@ -364,14 +363,14 @@
           "weapon_type": "sword_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
+            "strength": 3,
             "stamina": 2
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
           "attack_speed": 3.3,
-          "flavor_text": "Snapped clean at the haft when he fell. The head's still good, and it's worth more broken than most weapons are whole.",
-          "label": "2H Sword (Str)"
+          "label": "2H Sword (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Warlord's Coinpurse Wrap",

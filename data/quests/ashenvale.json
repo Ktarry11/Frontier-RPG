@@ -51,8 +51,7 @@
           "rarity": "uncommon",
           "primary_stats": {
             "intellect": 8
-          },
-          "flavor_text": "A sliver of the watchpost's own ward-wood, carved into a keepsake."
+          }
         }
       ],
       "_xp_factor": 0.706,
@@ -91,7 +90,6 @@
             "strength": 14,
             "stamina": 5
           },
-          "flavor_text": "Still curved like it was mid-swing when it stopped moving.",
           "secondary_stats": {
             "attack_power": 8.32
           }
@@ -160,8 +158,7 @@
             "agility": 11,
             "stamina": 3
           },
-          "armor_value": 50,
-          "flavor_text": "Shalasyr's own spare set, offered without ceremony. 'Bring it back in one piece, if you can.'"
+          "armor_value": 50
         }
       ],
       "_xp_factor": 1.312,
@@ -221,12 +218,11 @@
           "rarity": "rare",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 17,
-            "spirit": 8
+            "intellect": 15,
+            "spirit": 7
           },
-          "flavor_text": "Still growing, slowly, even broken off from whatever it used to be.",
           "secondary_stats": {
-            "spell_power": 11.0
+            "spell_power": 9
           }
         },
         {
@@ -238,7 +234,6 @@
             "intellect": 4,
             "spirit": 2
           },
-          "flavor_text": "Pennarin's own ring, offered in thanks. 'Rustveil wore one just like it, once.'",
           "secondary_stats": {
             "healing_power": 6.26
           }
@@ -300,8 +295,7 @@
           "primary_stats": {
             "agility": 4,
             "intellect": 4
-          },
-          "flavor_text": "Thessaly insisted you keep a second one she'd had made, 'so someone carries the memory too.'"
+          }
         }
       ],
       "_xp_factor": 0.588,
@@ -386,8 +380,7 @@
             "agility": 7,
             "stamina": 3
           },
-          "armor_value": 53,
-          "flavor_text": "Still smells faintly of smoke no matter how long it airs out."
+          "armor_value": 53
         }
       ],
       "_xp_factor": 1.056,
@@ -451,7 +444,6 @@
             "agility": 8,
             "stamina": 2
           },
-          "flavor_text": "Vashj took this off a satyr who talked eventually. Most of them do.",
           "secondary_stats": {
             "crit_chance_physical": 1.7
           }
@@ -494,7 +486,6 @@
             "intellect": 8,
             "spirit": 2
           },
-          "flavor_text": "Still humming faintly with whatever it was meant to channel.",
           "secondary_stats": {
             "spell_power": 4.92
           }
@@ -510,7 +501,6 @@
             "stamina": 4
           },
           "armor_value": 48,
-          "flavor_text": "Malgan wore this through a dozen raids on the outpost. It's seen better days.",
           "secondary_stats": {
             "crit_chance_physical": 2.32
           }
@@ -576,13 +566,12 @@
           "rarity": "rare",
           "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 9,
-            "intellect": 8,
-            "stamina": 5
+            "strength": 8,
+            "intellect": 7,
+            "stamina": 4
           },
-          "flavor_text": "The wood is void-black clear through, like it was never really wood at all.",
           "secondary_stats": {
-            "spell_power": 11.0
+            "spell_power": 9
           }
         }
       ],
@@ -619,12 +608,11 @@
           "rarity": "uncommon",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 5
+            "strength": 7,
+            "stamina": 3
           },
-          "flavor_text": "Too hot to hold bare-handed even now, days after it stopped moving.",
           "secondary_stats": {
-            "attack_power": 7.2
+            "attack_power": 5
           }
         },
         {
@@ -637,7 +625,6 @@
             "intellect": 4,
             "stamina": 2
           },
-          "flavor_text": "Whatever it was meant to bind, it isn't bound anymore.",
           "secondary_stats": {
             "hit_rating": 2.9
           }
@@ -715,7 +702,6 @@
           "slot": "waist",
           "item_level": 25,
           "rarity": "uncommon",
-          "flavor_text": "She stitched the ward-sigils herself, and she did not do it gently.",
           "primary_stats": {
             "agility": 9,
             "stamina": 6
@@ -878,7 +864,6 @@
           "slot": "hands",
           "item_level": 27,
           "rarity": "uncommon",
-          "flavor_text": "Tarred against the water. Tarred against everything, really.",
           "primary_stats": {
             "stamina": 8,
             "strength": 4
@@ -1017,7 +1002,6 @@
           "slot": "neck",
           "item_level": 24,
           "rarity": "uncommon",
-          "flavor_text": "Knotted for every night that nothing came over the wall.",
           "primary_stats": {
             "agility": 8,
             "stamina": 6
@@ -1059,7 +1043,6 @@
             "strength": 3,
             "stamina": 2
           },
-          "flavor_text": "The haft has been replaced twice and the head once. By now it is a different axe.",
           "label": "Axe 1H (Str)",
           "weapon_damage_min": 25,
           "weapon_damage_max": 35,
@@ -1080,7 +1063,6 @@
           "secondary_stats": {
             "attack_power": 2.0
           },
-          "flavor_text": "For taking branches off a trunk that is already down. Light, and meant to be swung all day.",
           "label": "Axe 1H (Agi)",
           "weapon_damage_min": 21,
           "weapon_damage_max": 30,
@@ -1095,14 +1077,14 @@
           "required_level": 20,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 11,
-            "stamina": 7
+            "strength": 4,
+            "stamina": 3
           },
-          "flavor_text": "Nobody sharpened this for a fight. It is sharp because a dull one wastes the day.",
           "label": "Axe 2H (Str)",
           "weapon_damage_min": 35,
           "weapon_damage_max": 48,
-          "attack_speed": 3.6
+          "attack_speed": 3.6,
+          "secondary_stats": {}
         }
       ]
     },
@@ -1133,12 +1115,12 @@
           "slot": "main_hand",
           "item_level": 25,
           "rarity": "uncommon",
-          "flavor_text": "Heavy as a stump and smells like one.",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 3
+            "strength": 9,
+            "stamina": 4
           },
-          "weapon_type": "mace_2h"
+          "weapon_type": "mace_2h",
+          "secondary_stats": {}
         }
       ]
     },
@@ -1232,7 +1214,6 @@
           "slot": "wrist",
           "item_level": 23,
           "rarity": "uncommon",
-          "flavor_text": "Woven for a night that never ends, and carried through it.",
           "primary_stats": {
             "intellect": 7,
             "spirit": 5

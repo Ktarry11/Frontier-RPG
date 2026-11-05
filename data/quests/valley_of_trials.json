@@ -35,7 +35,6 @@
           "weapon_damage_min": 7,
           "weapon_damage_max": 9,
           "attack_speed": 1.7,
-          "flavor_text": "Smaller than a kitchen knife, yet infinitely more dangerous.",
           "label": "Dagger (Agi)"
         },
         {
@@ -52,7 +51,6 @@
           "weapon_damage_min": 4,
           "weapon_damage_max": 5,
           "attack_speed": 3.0,
-          "flavor_text": "Back home magic didn't exist, but now you harness it freely.",
           "label": "Staff (Int)"
         },
         {
@@ -68,7 +66,6 @@
           "weapon_damage_min": 7,
           "weapon_damage_max": 9,
           "attack_speed": 2.4,
-          "flavor_text": "You've never swung a blade before, but in your hands, this feels right.",
           "label": "Sword (Str)"
         }
       ]
@@ -108,7 +105,6 @@
           "weapon_damage_min": 9,
           "weapon_damage_max": 12,
           "attack_speed": 2.4,
-          "flavor_text": "Back home this was a museum exhibit; here, it's a problem solver.",
           "label": "Mace (Str)"
         },
         {
@@ -124,7 +120,6 @@
           "weapon_damage_min": 7,
           "weapon_damage_max": 10,
           "attack_speed": 1.9,
-          "flavor_text": "You used to think these were just plastic toys at theme parks, until spark came out the tip.",
           "label": "Wand (Int)"
         },
         {
@@ -135,14 +130,14 @@
           "weapon_type": "axe_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 2,
+            "strength": 1,
             "stamina": 1
           },
           "weapon_damage_min": 12,
           "weapon_damage_max": 16,
           "attack_speed": 3.2,
-          "flavor_text": "It lacks the clean balance of a golf club, but it certainly gets the message across.",
-          "label": "2H Axe (Str)"
+          "label": "2H Axe (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Stinger-Studded Bracers",
@@ -150,7 +145,6 @@
           "item_level": 4,
           "rarity": "common",
           "required_level": 2,
-          "flavor_text": "Spikes where the stingers were. Plates where they'd hit.",
           "primary_stats": {
             "strength": 1
           },
@@ -220,7 +214,6 @@
           "weapon_damage_min": 13,
           "weapon_damage_max": 17,
           "attack_speed": 2.6,
-          "flavor_text": "You've only ever used one of these on firewood, but targets are targets.",
           "label": "Axe (Str)"
         },
         {
@@ -231,14 +224,14 @@
           "weapon_type": "sword_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 3,
+            "strength": 2,
             "stamina": 1
           },
           "weapon_damage_min": 17,
           "weapon_damage_max": 24,
           "attack_speed": 3.4,
-          "flavor_text": "In movie props this would weigh forty pounds, but here you lift it like a feather.",
-          "label": "2H Sword (Str)"
+          "label": "2H Sword (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Guardian-Cracked Maul",
@@ -248,14 +241,14 @@
           "weapon_type": "mace_2h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 3,
+            "strength": 2,
             "stamina": 1
           },
           "weapon_damage_min": 17,
           "weapon_damage_max": 24,
           "attack_speed": 3.3,
-          "flavor_text": "You used to struggle with heavy groceries - now you're swinging a cinder block on a stick.",
-          "label": "2H Mace (Str)"
+          "label": "2H Mace (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Carapace Breastplate",
@@ -263,7 +256,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "A guardian's own plating, hammered flat and riveted.",
           "primary_stats": {
             "strength": 3,
             "stamina": 1
@@ -278,7 +270,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Light, flexible, and smells faintly of damp stone.",
           "primary_stats": {
             "agility": 3,
             "intellect": 1
@@ -325,7 +316,6 @@
           "weapon_damage_min": 10,
           "weapon_damage_max": 13,
           "attack_speed": 2.4,
-          "flavor_text": "The fel-etched edge still hasn't cooled all the way down, even wrapped in the sheath.",
           "label": "Sword (Str)"
         },
         {
@@ -341,7 +331,6 @@
           "weapon_damage_min": 10,
           "weapon_damage_max": 13,
           "attack_speed": 1.8,
-          "flavor_text": "Still faintly warm. You try very hard not to think about why.",
           "label": "Fist Weapon (Agi)"
         },
         {
@@ -350,7 +339,6 @@
           "item_level": 5,
           "rarity": "common",
           "required_level": 3,
-          "flavor_text": "Warm to the touch for reasons it won't share.",
           "primary_stats": {},
           "label": "Necklace (Int/Sta)"
         },
@@ -360,7 +348,6 @@
           "item_level": 5,
           "rarity": "common",
           "required_level": 3,
-          "flavor_text": "Stitched with a ward you can't read. It hasn't failed you yet.",
           "primary_stats": {
             "intellect": 1,
             "spirit": 1
@@ -408,7 +395,6 @@
           "weapon_damage_min": 14,
           "weapon_damage_max": 19,
           "attack_speed": 2.4,
-          "flavor_text": "Still warm with fel heat. It shouldn't be - he's been dead a full minute.",
           "label": "Sword (Str)"
         },
         {
@@ -425,7 +411,6 @@
           "weapon_damage_min": 14,
           "weapon_damage_max": 19,
           "attack_speed": 1.7,
-          "flavor_text": "Curved like a fang, and about as friendly.",
           "label": "Dagger (Agi)"
         },
         {
@@ -442,7 +427,6 @@
           "weapon_damage_min": 7,
           "weapon_damage_max": 10,
           "attack_speed": 3.0,
-          "flavor_text": "The fel sigils are already fading now that he's gone. Small mercies.",
           "label": "Staff (Int)"
         },
         {
@@ -451,7 +435,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "The cowl speaks in a language you do not want to learn. It has stopped, for now.",
           "primary_stats": {
             "intellect": 1,
             "stamina": 1
@@ -466,7 +449,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Burned into shape and quenched in something dark.",
           "primary_stats": {
             "strength": 2
           },
@@ -536,7 +518,6 @@
           "weapon_damage_min": 10,
           "weapon_damage_max": 13,
           "attack_speed": 1.7,
-          "flavor_text": "Filed down from something that used to have teeth of its own.",
           "label": "Dagger (Agi)"
         },
         {
@@ -552,7 +533,6 @@
           "weapon_damage_min": 8,
           "weapon_damage_max": 11,
           "attack_speed": 2.0,
-          "flavor_text": "Every pack has a runt that breaks off from the others. This is what you use to make sure it doesn't get back up.",
           "label": "Thrown (Agi)"
         },
         {
@@ -561,7 +541,6 @@
           "item_level": 5,
           "rarity": "common",
           "required_level": 3,
-          "flavor_text": "Scuffed in places no boot should be.",
           "primary_stats": {
             "agility": 1
           },
@@ -575,7 +554,6 @@
           "item_level": 5,
           "rarity": "common",
           "required_level": 3,
-          "flavor_text": "Taken from something with a very bad temper.",
           "primary_stats": {
             "agility": 1
           },
@@ -614,7 +592,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Dust of three trials still caught in the weave.",
           "primary_stats": {
             "stamina": 2
           },
@@ -627,7 +604,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "A feather and a knot of red cord. He tied it himself.",
           "primary_stats": {
             "intellect": 2
           },
@@ -639,7 +615,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Plain, sturdy, and slightly too big. It will fit by Durotar.",
           "primary_stats": {
             "strength": 2
           },
@@ -651,7 +626,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "A flat river stone, marked with a single claw-scratch.",
           "primary_stats": {
             "agility": 2
           },
@@ -691,7 +665,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Two curved tusks, riveted to a strap. Nobody is asking where the third one went.",
           "primary_stats": {
             "strength": 1,
             "stamina": 1
@@ -706,7 +679,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Stiff bristles across the knuckles, soft silk where it counts.",
           "primary_stats": {
             "intellect": 2,
             "spirit": 2
@@ -721,7 +693,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Cut from the part of the hide that doesn't squeak.",
           "primary_stats": {
             "agility": 2,
             "stamina": 2
@@ -736,7 +707,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Heavier than it looks and about as comfortable as it sounds.",
           "primary_stats": {
             "strength": 2,
             "agility": 2
@@ -780,7 +750,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Lighter than air, warmer than it has any right to be.",
           "primary_stats": {},
           "label": "Cloak (Agi/Spi)",
           "armor_value": 3
@@ -791,7 +760,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Everything useful ends up tied to it eventually.",
           "primary_stats": {
             "agility": 2,
             "intellect": 2
@@ -806,7 +774,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Plated with what the birds left behind.",
           "primary_stats": {
             "strength": 3
           },
@@ -820,16 +787,16 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "It has a lot of opinions about leaning.",
           "weapon_type": "staff",
           "primary_stats": {
-            "intellect": 3,
-            "spirit": 3
+            "intellect": 2,
+            "spirit": 2
           },
           "weapon_damage_min": 7,
           "weapon_damage_max": 9,
           "attack_speed": 3.2,
-          "label": "Staff (Int/Spi)"
+          "label": "Staff (Int/Spi)",
+          "secondary_stats": {}
         }
       ],
       "gear_reward_gear_level": 5,
@@ -867,7 +834,6 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "flavor_text": "Waterproof, mostly. Fragrant, definitely.",
           "primary_stats": {},
           "armor_type": "cloth",
           "armor_value": 1,
@@ -879,7 +845,6 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "flavor_text": "Spun from something that spends its life on water. It sheds it beautifully.",
           "primary_stats": {},
           "armor_type": "cloth",
           "armor_value": 1,
@@ -891,7 +856,6 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "flavor_text": "A smooth stone from the lake bottom. It's calmer than you are.",
           "primary_stats": {
             "spirit": 2
           },
@@ -903,7 +867,6 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "flavor_text": "They've never been clean and never will be. They don't slip, either.",
           "primary_stats": {},
           "armor_type": "mail",
           "armor_value": 4,
@@ -943,7 +906,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Smells of pond. Keeps the rain out like nothing else.",
           "primary_stats": {
             "agility": 1,
             "spirit": 1
@@ -958,7 +920,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "You've seen cartoon hammers like this. Now you own one.",
           "weapon_type": "mace_1h",
           "primary_stats": {
             "strength": 2,
@@ -975,7 +936,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Water beads right off. So, honestly, does most criticism.",
           "primary_stats": {
             "intellect": 1,
             "stamina": 1
@@ -990,7 +950,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Surprisingly sturdy for something named after a plant.",
           "weapon_type": "shield",
           "primary_stats": {
             "stamina": 2
@@ -1034,7 +993,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "You wave it, things happen. You're choosing not to ask for details.",
           "weapon_type": "wand",
           "primary_stats": {
             "intellect": 2
@@ -1050,7 +1008,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Woven so tightly even the thorns couldn't find the gaps.",
           "primary_stats": {
             "agility": 1,
             "spirit": 1
@@ -1065,7 +1022,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Grown, not forged. Doesn't mind the weight.",
           "primary_stats": {
             "agility": 1,
             "intellect": 1
@@ -1080,7 +1036,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Warm, and quietly alive.",
           "primary_stats": {
             "intellect": 1,
             "spirit": 1
@@ -1133,7 +1088,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Doesn't fit anyone. Fits you now.",
           "primary_stats": {
             "strength": 1,
             "stamina": 1
@@ -1148,7 +1102,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Sticky on the inside only. Tested.",
           "primary_stats": {
             "agility": 2
           },
@@ -1162,7 +1115,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Chitin plates over a boiled hide.",
           "primary_stats": {
             "strength": 2,
             "spirit": 2
@@ -1177,7 +1129,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "It hums when you stand near anything fragile.",
           "weapon_type": "wand",
           "primary_stats": {},
           "weapon_damage_min": 11,
@@ -1220,7 +1171,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Layered cloth, stained in the shape of a very long road.",
           "primary_stats": {
             "intellect": 1,
             "stamina": 1
@@ -1235,7 +1185,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "The sand inside never finishes falling.",
           "primary_stats": {
             "agility": 2,
             "intellect": 2
@@ -1248,7 +1197,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Lightweight, accurate, and forgiving of sand in the mechanism.",
           "weapon_type": "crossbow",
           "primary_stats": {
             "agility": 2,
@@ -1265,7 +1213,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Heavy. Hot. Excellent against things that bite.",
           "primary_stats": {
             "strength": 1,
             "stamina": 1
@@ -1313,7 +1260,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 5,
-          "flavor_text": "It's a bucket with ambitions. They're mostly justified.",
           "primary_stats": {
             "strength": 3
           },
@@ -1327,7 +1273,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 5,
-          "flavor_text": "Singed in all the right places. Tough in all the others.",
           "primary_stats": {
             "strength": 3,
             "agility": 3
@@ -1342,7 +1287,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 5,
-          "flavor_text": "The seams still glow faintly at night.",
           "primary_stats": {
             "agility": 3,
             "intellect": 3
@@ -1357,7 +1301,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 5,
-          "flavor_text": "A red-hot idea you had once, cooled into metal.",
           "primary_stats": {
             "intellect": 2
           },
@@ -1399,15 +1342,15 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Longer than a shopping cart and nearly as steerable.",
           "weapon_type": "polearm",
           "primary_stats": {
-            "agility": 8
+            "agility": 3
           },
           "weapon_damage_min": 15,
           "weapon_damage_max": 21,
           "attack_speed": 3.3,
-          "label": "Polearm (Str)"
+          "label": "Polearm (Str)",
+          "secondary_stats": {}
         },
         {
           "name": "Trophy-Hunter's Sling",
@@ -1415,7 +1358,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Not exactly a gentleman's weapon. You're not exactly a gentleman.",
           "weapon_type": "thrown",
           "primary_stats": {
             "agility": 2,
@@ -1432,7 +1374,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Sand-coloured, sand-stained, sand-proof.",
           "primary_stats": {
             "agility": 2
           },
@@ -1445,7 +1386,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "He wore them for a day. They did not feel lucky.",
           "primary_stats": {
             "strength": 2,
             "spirit": 2
@@ -1485,7 +1425,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "It clicks. You aren't sure what it measures. You choose to trust it.",
           "weapon_type": "gun",
           "primary_stats": {},
           "weapon_damage_min": 11,
@@ -1499,7 +1438,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Rated for two explosions. You've already worn it through four.",
           "primary_stats": {
             "agility": 1,
             "intellect": 1
@@ -1514,7 +1452,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Tiny crystals hum at the knuckles. Do not make a fist near anything flammable.",
           "primary_stats": {
             "intellect": 2,
             "stamina": 2
@@ -1529,7 +1466,6 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "flavor_text": "Shorter fuse, bigger idea.",
           "primary_stats": {},
           "label": "Ring (Int/Sta)"
         }
@@ -1564,7 +1500,6 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Made by a mother who has worried a lot and sewn better for it.",
           "primary_stats": {
             "stamina": 1,
             "spirit": 1
@@ -1579,7 +1514,6 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "It's not magic. It's just very well made.",
           "primary_stats": {
             "stamina": 2
           },
@@ -1592,7 +1526,6 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "Quiet on stone, soft on blisters.",
           "primary_stats": {},
           "armor_type": "cloth",
           "armor_value": 1,
@@ -1604,7 +1537,6 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "flavor_text": "She added one extra stitch for luck.",
           "primary_stats": {},
           "armor_type": "leather",
           "armor_value": 3,
@@ -1646,7 +1578,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "A real stinger, dried and shaped. Still faintly twitches.",
           "weapon_type": "dagger",
           "primary_stats": {
             "agility": 3
@@ -1662,7 +1593,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "The hide shrugs off everything except compliments.",
           "primary_stats": {
             "agility": 3,
             "stamina": 3
@@ -1677,7 +1607,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Heavy, and it doesn't care.",
           "primary_stats": {
             "strength": 3,
             "stamina": 3
@@ -1692,7 +1621,6 @@
           "item_level": 7,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "A slab of broodmother carapace on a strap.",
           "weapon_type": "shield",
           "primary_stats": {
             "stamina": 2
@@ -1738,7 +1666,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Cracked down the middle and still sharp enough. Both halves are on the wall of your room back home.",
           "weapon_type": "sword_1h",
           "primary_stats": {
             "strength": 3
@@ -1754,7 +1681,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "The sigil on the buckle is facing the wrong way. It's fine.",
           "primary_stats": {
             "intellect": 2,
             "stamina": 2
@@ -1769,7 +1695,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "Blackened but sturdy. Don't kick anything flammable.",
           "primary_stats": {
             "strength": 2,
             "stamina": 2
@@ -1784,7 +1709,6 @@
           "item_level": 6,
           "rarity": "uncommon",
           "required_level": 4,
-          "flavor_text": "The mark has faded. The strength hasn't.",
           "primary_stats": {
             "strength": 2,
             "agility": 2
