@@ -823,8 +823,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Song of Steel and Inspiring Presence scaling off your attack power = Ebon Might scaling off the Evoker'. This is the Augmentation half of the spec.",
-      "target_type": "self",
+      "_source": "CoA: 'Song of Steel and Inspiring Presence scaling off your attack power = Ebon Might scaling off the Evoker'. This is the Augmentation half of the spec. || target_type self -> party, 5 Nov 2026. CoA: 'Boost the morale of party and raid members, increasing their attack or spell power by 95 for 15 seconds.' It is a party buff in CoA and was authored as self, so the Guardian's own support spec buffed nobody but the Guardian. target_type 'party' resolves to every living ally (abilities.py:2064) and degrades to the caster when no party context is supplied, so a 1v1 fight still works.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
@@ -895,8 +895,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA names it alongside Song of Steel as the AP-scaling ally buff pair.",
-      "target_type": "self",
+      "_source": "CoA names it alongside Song of Steel as the AP-scaling ally buff pair. || target_type self -> party, 5 Nov 2026. CoA: 'Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 35% AP additional damage as Holy damage when they deal direct damage.' An ally-facing aura authored as self.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
@@ -920,8 +920,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. NOTE the sibling key is NOT affected: stun_duration_reduction_pct 0.3 is a fraction and is correct, as is the Stand Your Ground! TALENT node's own -0.03 - the same key read as a talent effect IS a fraction.",
-      "target_type": "self",
+      "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. NOTE the sibling key is NOT affected: stun_duration_reduction_pct 0.3 is a fraction and is correct, as is the Stand Your Ground! TALENT node's own -0.03 - the same key read as a talent effect IS a fraction. || target_type self -> party, 5 Nov 2026. CoA's Stand Your Ground!: 'While standing in your Standard of Valiance, your allies' Physical damage taken is reduced by 10%.' The whole point of the standard is that allies benefit. Note physical_damage_taken_pct inside a status effect is divided by 100 and POSITIVE increases damage taken, so the -12 here is a 12% reduction for the party.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
@@ -996,8 +996,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Pop Champion's Presence for a haste burst window'.",
-      "target_type": "self",
+      "_source": "CoA: 'Pop Champion's Presence for a haste burst window'. || target_type self -> party, 5 Nov 2026. CoA: 'Enrage all nearby allies, increasing their haste by 30% for 20 seconds.' Explicitly allies-only in CoA; held at 15% party-wide rather than CoA's 30%.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
