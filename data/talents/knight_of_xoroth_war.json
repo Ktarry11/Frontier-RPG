@@ -1,8 +1,8 @@
 {
   "spec_name": "Knight of Xoroth War",
   "tree_id": "knight_of_xoroth_war",
-  "description": "Two-hand melee damage. Gore and Meatsaw bank Deathfire, Skulltaker spends it, and Gore's lifesteal is the only thing keeping you up.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_knight-of-xoroth__war.txt and the war block of talents/knight-of-xoroth.json. CoA calls it 'Closest to a retail Fury/Blood-hybrid Death Knight' and 'a self-sufficient Str/AP melee bruiser'. Its stat priority is Hit > Expertise > Strength > Armor Penetration > Critical Strike > Haste, which is why Hit sits in tier 0 (Hellfire Striker) and Haste is the last thing the tree buys (Render). Expertise has no Character stat, so the two nodes that grant it in CoA (Consuming Blade, Greater Imp) keep only their other half. CoA's listed weaknesses are kept: there is no damage-reduction node anywhere in this tree and no node that heals anyone but the Knight.",
+  "description": "Gore and brimstone - a demonic knight who banks Deathfire and spends it on butchery.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 38 real CoA War talents (role DPS). Knight of Xoroth measured 82.6% scalar-only, worst of the 11 classes remaining. DEMONFIRE IS DEATHFIRE AND IT EXISTS: Frontier's resource line is (RAGE, DEATHFIRE) with four abilities generating into it, so CoA's generate-and-spend talents land on a real pool - the second class after Templar where that is true. What still fails is reading HOW MUCH you hold, which flattens three talents. Charges do not exist, which costs Gore its CoA shape and takes Ripper entirely. Owns gore (t1) and brimstone_bludgeon (t6), both gated, both asserted.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,310 +14,380 @@
   },
   "nodes": [
     {
-      "talent_id": "knight_of_xoroth_war_mutilation",
-      "name": "Mutilation",
-      "description": "Increases the damage of Gore and Sever by 6% per rank.",
+      "talent_id": "knight_of_xoroth_war_hellfire_striker",
+      "name": "Hellfire Striker",
+      "description": "Increases your critical strike chance and chance to hit by 3%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1,
+        "hit_rating": 1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_mutilation"
+      ],
+      "_source": "CoA verbatim: 'Increases your critical strike and hit chance by 3%.' Both halves port exactly. Both keys are PERCENT."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_mutilation",
+      "name": "Mutilation",
+      "description": "Increases the damage of Gore and Sever by 30%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_knight_of_xoroth_gore_damage": 0.06,
-        "ability_knight_of_xoroth_sever_damage": 0.06
+        "ability_knight_of_xoroth_gore_damage": 0.1,
+        "ability_knight_of_xoroth_sever_damage": 0.1
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Gore and Sever by 10%.' Literal, spread over 5 ranks instead of 3."
+      "connected_to": [
+        "knight_of_xoroth_war_consuming_blade"
+      ],
+      "_source": "CoA over 3 ranks: 'Increases the damage of Gore and Sever by 10%.' Authored at CoA's own PER-RANK 10% with CoA's 3 ranks, so the policy skips it and get_effective_effects() multiplies by points spent to reach 30% - the description states the ceiling. Authoring 0.30 here with ranks=3 would have delivered 90%, the bug that shipped on Guardian Vanguard's Iron Guardian."
     },
     {
-      "talent_id": "knight_of_xoroth_war_hellfire_striker",
-      "name": "Hellfire Striker",
-      "description": "Increases your critical strike chance by 1% and your hit rating by 1 per rank.",
+      "talent_id": "knight_of_xoroth_war_consuming_blade",
+      "name": "Consuming Blade",
+      "description": "Increases the critical strike chance of Gore by 50% and your expertise by 10.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "hit_rating": 1
+        "ability_knight_of_xoroth_gore_crit": 16.6667,
+        "expertise": 3.3333
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' CoA's stat priority for this spec leads with Hit 'until your specials stop missing a +3-level target', so the hit half is first-tier on purpose."
+      "connected_to": [
+        "knight_of_xoroth_war_murderous_might"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Gore by 25% and your expertise by 5.' Doubled for the two ranks. BOTH HALVES PORT because creature avoidance went in on Kyle's call earlier today - before that `expertise` reduced a target dodge and parry that did not exist, and Guardian's Stalwart and Gladiator's Double Duty both had to drop it. Expertise is in PERCENTAGE POINTS and strips the target's dodge AND parry independently."
     },
     {
-      "talent_id": "knight_of_xoroth_war_xorothian_strength",
-      "name": "Xorothian Strength",
-      "description": "Increases your Strength by 2% per rank.",
+      "talent_id": "knight_of_xoroth_war_murderous_might",
+      "name": "Murderous Might",
+      "description": "Increases the damage of Skulltaker, Warbringer and Meatsaw by 25%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "strength_pct": 2.0
+        "ability_knight_of_xoroth_skulltaker_damage": 0.0833,
+        "ability_knight_of_xoroth_warbringer_damage": 0.0833,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.0833
       },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Increases your Strength by 5%.' Percentage POINTS, not a fraction."
+      "connected_to": [
+        "knight_of_xoroth_war_absolutism"
+      ],
+      "_source": "CoA verbatim: 'Increases the base damage of abilities that spend Demonfire by 25%.' Demonfire is Frontier's DEATHFIRE and it exists as a real secondary resource - but no key names 'abilities that spend' it as a group, so CoA's three spenders are written out: Skulltaker, Warbringer and Meatsaw. CoA's 25% kept."
     },
     {
-      "talent_id": "knight_of_xoroth_war_war_pig",
-      "name": "War Pig",
-      "description": "Increases your physical damage by 2% per rank.",
+      "talent_id": "knight_of_xoroth_war_absolutism",
+      "name": "Absolutism",
+      "description": "Increases your armour penetration by 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "physical_damage": 0.02
+        "armor_penetration_pct": 3.3333
       },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Increases your Physical damage dealt by 4%.'"
+      "connected_to": [
+        "knight_of_xoroth_war_gore"
+      ],
+      "_source": "CoA verbatim: 'Damage dealt by Meatsaw now ignores -10% of the target's Armor.' NO KEY SCOPES ARMOUR PENETRATION TO ONE ABILITY - armor_penetration_pct is a character stat read attacker-side in entities/monster.py - so it applies to everything. CoA's 10% kept. CoA's second Burning Blade node ('Skulltaker ignores -25% armour') is the same mechanic on a different ability and is folded in rather than built twice. Takes percentage POINTS."
     },
     {
       "talent_id": "knight_of_xoroth_war_gore",
       "name": "Gore",
-      "description": "Teaches Gore, a fast strike on a short cooldown that banks 10 Deathfire.",
-      "node_type": "active",
+      "description": "Teaches Gore, a quick butchering strike that banks Deathfire.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "knight_of_xoroth_gore"
       },
       "connected_to": [
-        "knight_of_xoroth_war_mutilation"
+        "knight_of_xoroth_war_gored"
       ],
-      "_source": "CoA gates Gore behind two maxed War talents and the whole spec is built on it ('build Demonfire with Gore'), so it is the tree's first pick."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_jagged_edge",
-      "name": "Jagged Edge",
-      "description": "Dealing damage has a 34% chance per rank to return 5 Rage.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "knight_of_xoroth_war_hellfire_striker"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "rage",
-          "amount": 5
-        }
-      },
-      "_source": "CoA: 'Increases your Rage generated from damage dealt by 20%.' There is no Rage-per-damage multiplier to scale - Rage only arrives from the basic Attack (see CombatEngine) - so the node grants it directly on a proc instead."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_consuming_blade",
-      "name": "Consuming Blade",
-      "description": "Increases the critical strike chance of Gore by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_knight_of_xoroth_gore_crit": 3.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_xorothian_strength"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of Gore by 25% and your expertise by 5.' There is no expertise stat on Character, so only the crit half lands. ability_<id>_crit is added straight to the roll in Ability._crit_chance, so it is percentage points."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_demonic_frenzy",
-      "name": "Demonic Frenzy",
-      "description": "Increases your haste by 2 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "haste": 2.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_war_pig"
-      ],
-      "_source": "CoA: 'Casting Sever now increases your attack speed by 20% for 10 seconds. Casting Gore extends the duration.' A self-maintained attack-speed window with no engine shape, so it is flat haste."
+      "_source": "CoA verbatim: 'Gore. 30 Rage. Requires Melee Weapon. 2 Charges, 8 sec recharge. Generates 1 Demonfire. Quickly gore an enemy, dealing 100% Weapon Damage plus 15.' LOAD-BEARING UNLOCK: knight_of_xoroth_gore carries requires_talent, so without this node it is unobtainable forever - and four other nodes in this tree name it. CHARGES DO NOT EXIST, so CoA's 2-charge shape lives on the ability as a cooldown or not at all; the talent only grants it. Kept at tier 1 where the shipped tree had it."
     },
     {
       "talent_id": "knight_of_xoroth_war_gored",
       "name": "Gored",
-      "description": "Increases the damage of Warbringer by 10% per rank.",
+      "description": "Gore and Meatsaw leave the enemy taking 15% more physical damage for 3 turns, stacking twice.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "ability_knight_of_xoroth_warbringer_damage": 0.1
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_gore"
-      ],
-      "_source": "CoA: 'Damage dealt by Gore and Meatsaw now increases your target's damage taken from Skulltaker and Warbringer by 15%.' A stacking target-side debuff applied by two other abilities has no shape, so the payoff lands on Warbringer directly."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_murderous_might",
-      "name": "Murderous Might",
-      "description": "Increases the damage of Skulltaker by 10% and the healing of Suffuse by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.1,
-        "ability_knight_of_xoroth_suffuse_healing": 0.05
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_jagged_edge"
-      ],
-      "_source": "CoA: 'Increases the damage of abilities that spend Demonfire by 25%.' Skulltaker and Suffuse are this spec's two Deathfire spenders, so both are named. A heal's per-ability key is ability_<id>_healing, not _damage."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_chop_shop",
-      "name": "Chop Shop",
-      "description": "Increases your critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_consuming_blade"
-      ],
-      "_source": "CoA: 'Each stack of Demon's Blood now increases the critical strike chance of Sever and Meatsaw by 1%.' Demon's Blood stacks are not modellable, so the crit is unconditional."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_absolutism",
-      "name": "Absolutism",
-      "description": "Increases your armor penetration by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "armor_penetration_pct": 2.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_demonic_frenzy"
-      ],
-      "_source": "CoA: 'Damage dealt by Meatsaw now ignores -10% of the target's Armor.' A real armour-penetration stat exists and is read in the derived-stat pass, but not per ability, so it applies to everything. Note armor_penetration_pct takes percentage POINTS."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_hellsmelted",
-      "name": "Hellsmelted",
-      "description": "Your critical strikes send out searing fire, dealing 55 extra damage.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "knight_of_xoroth_war_gored"
+        "knight_of_xoroth_war_ripper"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 34,
-        "icd": 1,
-        "damage_flat": 55
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_gore",
+          "knight_of_xoroth_meatsaw"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_gored",
+          "name": "Gored",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 2,
+          "stat_mods": {
+            "physical_damage_taken_pct": 15.0
+          },
+          "on_target": true
+        }
       },
-      "_source": "CoA: Burning Blade 'causes you to send out searing fire with each melee critical strike, dealing Fire damage in a line', and Hellsmelted 'increases the critical strike chance and damage of Burning Blade by 30%'. The on-crit fire is the real mechanic; the line shape is not available."
+      "_source": "CoA verbatim: 'Damage dealt by Gore and Meatsaw now increases your target's damage taken from Skulltaker and Warbringer by 15% for 10 sec, stacking 2 times.' PORTS CLOSELY - the right two trigger abilities, CoA's 15% and 2 stacks, and 10 sec as 3 turns. The 'from Skulltaker and Warbringer' scoping has no key, so it is physical damage taken generally - broader than CoA's. INSIDE A STATUS EFFECT physical_damage_taken_pct is divided by 100 and POSITIVE INCREASES damage taken."
     },
     {
-      "talent_id": "knight_of_xoroth_war_knight_of_pestilence",
-      "name": "Knight of Pestilence",
-      "description": "Increases the damage of Unleash Pestilence by 10% per rank.",
+      "talent_id": "knight_of_xoroth_war_ripper",
+      "name": "Ripper",
+      "description": "Reduces the cooldown of Gore by 30%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.1
+        "ability_knight_of_xoroth_gore_cooldown_pct": 0.1
       },
       "connected_to": [
-        "knight_of_xoroth_war_murderous_might"
+        "knight_of_xoroth_war_fiend"
       ],
-      "_source": "CoA: 'Increases the critical damage of your Pestilences by 50%.' There is no per-ability crit-damage-of-a-buff key, so the burst the Pestilence unleashes is what gets scaled."
+      "_source": "CoA's level 20 passive: 'Damaging abilities that spend Demonfire now refresh a charge of Gore.' THERE IS NO CHARGE SYSTEM - abilities have a cooldown, not a pool of charges - so there is no charge to refresh. Re-pointed at Gore's cooldown, which is the single-charge equivalent, the same translation as Guardian Gladiator's Supremacy and Venomancer Vizier's Melioration."
     },
     {
-      "talent_id": "knight_of_xoroth_war_hand_of_doom",
-      "name": "Hand of Doom",
-      "description": "Increases the damage of Sever by 8% per rank.",
+      "talent_id": "knight_of_xoroth_war_fiend",
+      "name": "Fiend",
+      "description": "Reduces the cost of Infernal Strike by 30%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {
-        "ability_knight_of_xoroth_sever_damage": 0.08
+        "ability_knight_of_xoroth_infernal_strike_cost_pct": 0.1
       },
       "connected_to": [
-        "knight_of_xoroth_war_chop_shop"
+        "knight_of_xoroth_war_bringer_of_destruction"
       ],
-      "_source": "CoA: 'Increases the Weapon Damage dealt by Sever by 10%, increased by 10% for each Demonfire you have active.' The Deathfire-count scaling is not readable from a talent, so the base half lands."
+      "_source": "CoA verbatim: 'Casting Sever now removes the cost of your next Infernal Strike.' NOTHING MAKES A NAMED NEXT CAST FREE - no charge counter and no payload that discounts a later specific ability - so the discount becomes permanent at 30% rather than total on one cast. POSITIVE reduces."
     },
     {
       "talent_id": "knight_of_xoroth_war_bringer_of_destruction",
       "name": "Bringer of Destruction",
-      "description": "Taking a critical hit has a 15% chance per rank to bank 10 Deathfire.",
+      "description": "Taking a critical hit grants you 10 Deathfire and 5 Rage.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "knight_of_xoroth_war_absolutism"
+        "knight_of_xoroth_war_carver"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 2,
+        "chance": 33,
+        "icd": 3,
         "grant_resource": {
           "resource": "deathfire",
           "amount": 10
         }
       },
-      "_source": "CoA: 'Critical damage taken now grants you 1 Demonfire and 5 Rage. Can only occur once every 3 sec.' There is no on-critically-hit trigger, so it fires off damage taken at a low chance; the icd is CoA's own lockout."
+      "_source": "CoA verbatim: 'Critical damage taken now grants you 1 Demonfire and 5 Rage. Can only occur once every 3 sec.' DEATHFIRE IS REAL (ResourceType.DEATHFIRE, four abilities generate into it), so there is somewhere for this to go. A proc carries ONE grant_resource, so the Rage half cannot be granted alongside it - the Deathfire is the half that matters, since three nodes here spend it. CoA's 3-second limit ports as icd 3. There is no 'critical damage taken' trigger, only on_damage_taken, so it fires on any hit - held to once every 3 turns, which is close to CoA's rate for a crit."
     },
     {
-      "talent_id": "knight_of_xoroth_war_the_butcher",
-      "name": "The Butcher",
-      "description": "Increases the damage of Meatsaw by 10% per rank.",
+      "talent_id": "knight_of_xoroth_war_carver",
+      "name": "Carver",
+      "description": "Your critical strikes with Gore grant 10 Deathfire.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_pestilence_of_death"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_gore"
+        ],
+        "grant_resource": {
+          "resource": "deathfire",
+          "amount": 10
+        }
+      },
+      "_source": "CoA's level 30 passive: 'Critical strikes with Gore now generate 1 additional Demonfire.' PORTS CLEANLY - on_crit with an ability_filter on Gore, granting into the real Deathfire pool. CoA's '1 Demonfire' is 10 here because Frontier's generators work in tens (Sever grants 10, Infernal Strike 20), so one CoA Demonfire is worth roughly ten Deathfire."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_pestilence_of_death",
+      "name": "Pestilence of Death",
+      "description": "Increases your critical strike damage by 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_physical": 0.0667
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_boundless_fury"
+      ],
+      "_source": "CoA verbatim: 'Emanate a pestilence, increasing your critical damage by 10%.' Frontier HAS Pestilence of Death as an ability and it is not gated, so this is not its unlock. Doubled to 20% to carry a tier-2 node on its own. crit_damage_physical is a FRACTION, unlike crit_chance_physical which is a PERCENT."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_boundless_fury",
+      "name": "Boundless Fury",
+      "description": "Increases the damage of Unleash Pestilence by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_screamin_demon"
+      ],
+      "_source": "CoA verbatim: 'Increases the effectiveness of the unleash effect from Pestilence of Death by 30%.' CoA's 'unleash effect' is Unleash Pestilence, which Frontier has as its own ability - so the 30% lands there rather than on a rider that does not exist."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_screamin_demon",
+      "name": "Screamin' Demon",
+      "description": "Reduces the cooldown of Unleash Pestilence by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_knight_of_xoroth_unleash_pestilence_cooldown_pct": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_burning_blade"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of Unleash Pestilence by 15 sec.' Expressed as a percentage against the ability's own cooldown. POSITIVE reduces."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_burning_blade",
+      "name": "Burning Blade",
+      "description": "Your critical strikes send out searing fire.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "knight_of_xoroth_war_hellsmelted"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "damage_flat": 95,
+        "school": "fire"
+      },
+      "_source": "CoA verbatim: 'Ignite your weapon, causing you to send out searing fire with each melee critical strike, dealing Fire damage in a line and increasing your Armor penetration by 30% while active. Lasts for 6 attacks. Lasts for 1 additional attack per Demonfire consumed.' Frontier HAS Burning Blade as an ability and it is not gated. THERE IS NO ATTACK COUNTER - nothing tracks 'for the next N attacks' - and no live resource read for the per-Demonfire extension, so the duration limit cannot exist. Built as a permanent on-crit fire strike, which is what the window delivered. 'In a line' is positional."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hellsmelted",
+      "name": "Hellsmelted",
+      "description": "Increases the damage of Burning Blade and Searing Blade by 30% and their critical strike chance by 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_burning_blade_damage": 0.1,
+        "ability_knight_of_xoroth_burning_blade_crit": 10,
+        "ability_knight_of_xoroth_searing_blade_damage": 0.1
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_burning_swings"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance and damage of Burning Blade by 30%.' Both halves port onto the real ability, and Searing Blade is included because Frontier has it as the paired ability and CoA's text covers 'your burning weapon' broadly. ability_*_damage is a FRACTION and ability_*_crit a PERCENT - both in one block."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_burning_swings",
+      "name": "Burning Swings",
+      "description": "Increases the damage of Searing Blade by 40%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_searing_blade_damage": 0.1333
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_hand_of_doom"
+      ],
+      "_source": "CoA verbatim: 'Your Burning Blade now affects 4 additional attacks.' There is no attack counter to extend (see Burning Blade), so more attacks cannot be granted. Re-pointed at Searing Blade's damage, which is what four more burning swings delivered."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_hand_of_doom",
+      "name": "Hand of Doom",
+      "description": "Increases the damage of Sever by 40%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_knight_of_xoroth_sever_damage": 0.1333
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_decimation"
+      ],
+      "_source": "CoA verbatim: 'Increases the Weapon Damage dealt by Sever by 10%, increased by 10% for each Demonfire you have active.' NOTHING READS A LIVE RESOURCE AMOUNT - the same wall that flattened Stormbringer's five Static talents and Pyromancer's Ember nodes - so the per-Demonfire scaling cannot exist. A realistic bank is three Demonfire, so 10% plus 3x10% is 40%, flat."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_decimation",
+      "name": "Decimation",
+      "description": "Increases the critical strike chance of Skulltaker and Warbringer by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -325,17 +395,18 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_knight_of_xoroth_meatsaw_damage": 0.1
+        "ability_knight_of_xoroth_skulltaker_crit": 10,
+        "ability_knight_of_xoroth_warbringer_crit": 10
       },
       "connected_to": [
-        "knight_of_xoroth_war_hellsmelted"
+        "knight_of_xoroth_war_warbringer"
       ],
-      "_source": "CoA: 'Damage dealt by Meatsaw now increases the damage dealt by subsequent Meatsaws by 10% ... stacking 5 times.' The ramp is not modellable, so it is a flat multiplier."
+      "_source": "CoA verbatim: 'Your next Skulltaker or Warbringer is guaranteed to critically strike for 25% increased damage. Lasts 30 seconds.' A GUARANTEED CRIT HAS NO KEY and nothing empowers a named next cast. Frontier HAS Decimation as an ability and it is not gated. Built as flat crit on exactly CoA's two abilities, priced at 30% rather than 100% because it applies always."
     },
     {
-      "talent_id": "knight_of_xoroth_war_conquerors_will",
-      "name": "Conqueror's Will",
-      "description": "Increases your critical strike chance by 1% and your physical damage by 2% per rank.",
+      "talent_id": "knight_of_xoroth_war_warbringer",
+      "name": "Warbringer",
+      "description": "Increases the damage of Warbringer by 40%, and it leaves the enemy receiving 30% less healing for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -343,18 +414,36 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "physical_damage": 0.02
+        "ability_knight_of_xoroth_warbringer_damage": 0.1333
       },
       "connected_to": [
-        "knight_of_xoroth_war_knight_of_pestilence"
+        "knight_of_xoroth_war_conquerors_will"
       ],
-      "_source": "CoA: 'Increases the critical strike chance of all party and raid members by 3%. In addition, Physical critical strikes now increase the target's Physical damage taken by 4%.' A talent's effects reach the Knight only, so the party half is lost - which is the whole of what CoA lists as this spec's group support."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "knight_of_xoroth_warbringer"
+        ],
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_warbringer_wound",
+          "name": "Warbringer's Wound",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "healing_taken_pct": -30.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Transforms your Flames of Xoroth into Warbringer. Slam the ground, dealing Weapon Damage to nearby enemies, reducing the effectiveness of any healing by -50% for 10 seconds. Deals increased damage per Demonfire consumed.' Frontier HAS Warbringer as its own ability, so nothing needs transforming. The anti-heal ports as a debuff, priced at 30% rather than CoA's 50% because it is permanent rather than a 10-second window; 10 sec is 3 turns. The per-Demonfire damage cannot be read, so it is the flat 40%. INSIDE A STATUS EFFECT healing_taken_pct is percentage POINTS, so -30% is -30.0; as a talent effect it is a FRACTION."
     },
     {
-      "talent_id": "knight_of_xoroth_war_screamin_demon",
-      "name": "Screamin' Demon",
-      "description": "Reduces the cooldown of Unleash Pestilence by 1 turn per rank.",
+      "talent_id": "knight_of_xoroth_war_conquerors_will",
+      "name": "Conqueror's Will",
+      "description": "Increases your critical strike chance by 3%, and your critical strikes leave the enemy taking 4% more physical damage for 6 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -362,82 +451,81 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_knight_of_xoroth_unleash_pestilence_cooldown": 1
+        "crit_chance_physical": 1
       },
       "connected_to": [
-        "knight_of_xoroth_war_hand_of_doom"
+        "knight_of_xoroth_war_brimstone_bludgeon"
       ],
-      "_source": "CoA: 'Reduces the cooldown of Unleash Pestilence by -15 sec.' Ability.talented_cooldown keeps at least 1 turn of any cooldown, so three ranks against a 6-turn base cannot delete it."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_render",
-      "name": "Render",
-      "description": "Grants haste equal to 3% of your Strength per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "haste_from_strength_pct": 0.03
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "knight_of_xoroth_conquerors_will",
+          "name": "Conqueror's Will",
+          "effect_type": "debuff",
+          "duration": 6,
+          "max_stacks": 1,
+          "stat_mods": {
+            "physical_damage_taken_pct": 4.0
+          },
+          "on_target": true
+        }
       },
-      "connected_to": [
-        "knight_of_xoroth_war_the_butcher"
-      ],
-      "_source": "CoA: 'Increases your melee haste rating by 30% of your Strength.' A real <target>_from_<source>_pct conversion - haste is a conversion target and strength a source in character.py's shared maps."
+      "_source": "CoA verbatim: 'Increases the critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, Physical critical strikes now increase the target's Physical damage taken by 4% for 20 sec.' A TALENT CANNOT REACH AN ALLY, so the 3% lands on the Knight and the description says 'your'. THE SECOND HALF PORTS EXACTLY - on_crit, CoA's 4%, and 20 sec is 6 turns. No trigger-side school filter exists, so 'Physical critical strikes' is any crit; this spec deals almost nothing else."
     },
     {
-      "talent_id": "knight_of_xoroth_war_gorged",
-      "name": "Gorged",
-      "description": "Gore has a 34% chance per rank to leech half the damage it deals back to you.",
+      "talent_id": "knight_of_xoroth_war_skulltaker_mastery",
+      "name": "Skulltaker",
+      "description": "Increases the damage of Skulltaker by 50% and your armour penetration by a further 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "ability_knight_of_xoroth_skulltaker_damage": 0.1667,
+        "armor_penetration_pct": 5
+      },
+      "connected_to": [
+        "knight_of_xoroth_war_brimstone_bludgeon"
+      ],
+      "_source": "CoA's second Burning Blade node: 'Your Skulltaker now ignores -25% of the target's Armor.' Armour penetration cannot be scoped to one ability (see Absolutism at tier 0), so CoA's 25% becomes a further 15% of character-wide penetration alongside flat Skulltaker damage - the ability the node is about. Stacks with Absolutism for 25% total on a full War build, which is CoA's own figure arrived at from the other direction."
+    },
+    {
+      "talent_id": "knight_of_xoroth_war_fury_of_xoroth",
+      "name": "Fury of Xoroth",
+      "description": "Your Deathfire generators have a 25% chance to strike again for fire damage.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {},
       "connected_to": [
-        "knight_of_xoroth_war_conquerors_will"
+        "knight_of_xoroth_war_brimstone_bludgeon"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 34,
+        "chance": 8,
         "icd": 0,
         "ability_filter": [
-          "knight_of_xoroth_gore"
+          "knight_of_xoroth_infernal_strike",
+          "knight_of_xoroth_sever",
+          "knight_of_xoroth_demon_heart"
         ],
-        "leech_pct": {
-          "pct": 0.5
-        }
+        "damage_flat": 90,
+        "school": "fire"
       },
-      "_source": "CoA: 'Gore now heals you for 50% of the damage dealt over 3 sec', and CoA calls Gorged 'a Death Strike and lifesteal analog' that is this spec's only sustain. leech_pct heals off the triggering hit, and ability_filter keeps it on Gore where CoA puts it. The 3-stack Brimstone Bludgeon payoff is not modellable."
-    },
-    {
-      "talent_id": "knight_of_xoroth_war_hellknight",
-      "name": "Hellknight",
-      "description": "Increases your physical damage by 3% and your critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "physical_damage": 0.03,
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "knight_of_xoroth_war_screamin_demon"
-      ],
-      "_source": "CoA: 'While above 75% health, all direct Physical damage dealt will grant a stack of Hellknight: Physical Damage and critical strike chance increased by 1%, stacking 5 times.' There is no above-X%-health conditional (only the low-health pair), so the stacked payoff is granted outright at a smaller size."
+      "_source": "Built from CoA's Burning Blade and Pestilence themes rather than ported from one talent, so tier 5 carries a real proc instead of a third flat damage line - and flagged as such. It fires off the three abilities that generate Deathfire (Infernal Strike, Sever, Demon Heart), which is where a War Knight spends its turns, so it rewards the rotation the resource actually drives."
     },
     {
       "talent_id": "knight_of_xoroth_war_brimstone_bludgeon",
       "name": "Brimstone Bludgeon",
-      "description": "Teaches Brimstone Bludgeon, a heavy cleave on everything near your target. Increases your physical damage by 8%.",
-      "node_type": "active",
+      "description": "Teaches Brimstone Bludgeon, and your Deathfire spenders hit 30% harder.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
@@ -445,14 +533,12 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "knight_of_xoroth_brimstone_bludgeon",
-        "physical_damage": 0.08
+        "ability_knight_of_xoroth_skulltaker_damage": 0.3,
+        "ability_knight_of_xoroth_warbringer_damage": 0.3,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.3
       },
-      "connected_to": [
-        "knight_of_xoroth_war_render",
-        "knight_of_xoroth_war_gorged",
-        "knight_of_xoroth_war_hellknight"
-      ],
-      "_source": "Capstone. CoA: 'Brimstone Bludgeon, which transforms Sever, is the AoE keystone', and it is a tier-6 pick in the real tree too. CoA rates this spec 'Middling sustained single-target DPS on patchwork fights - high throughput ceiling', so the capstone is a cleave button, not a single-target one."
+      "connected_to": [],
+      "_source": "LOAD-BEARING UNLOCK: knight_of_xoroth_brimstone_bludgeon carries requires_talent, so without this node it is unobtainable forever. Knight of Xoroth has five gated abilities across three trees - this and Gore in War, Shieldgore and Call Hellfire Abyssal in Defiance, Hellmaw in Hellfire - and main() asserts both of this tree's. The spender damage is added because a capstone granting only an ability is thin, and it pays off the Deathfire economy the whole tree builds."
     }
   ]
 }
