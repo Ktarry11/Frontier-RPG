@@ -1,8 +1,8 @@
 {
   "spec_name": "Bloodmage Eternal",
   "tree_id": "bloodmage_eternal",
-  "description": "Curse-tank - Eternal Curse trades damage for armour, Stamina and threat, Ravenous Bite heals off the damage it deals, and the whole thing stands up without a healer.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_bloodmage__eternal.txt: 'Closest to a Guardian Druid / Blood Death Knight hybrid ... No single retail spec does both the deep-mitigation tanking and the vampiric self-heal at once.' CoA rates it Dungeon S, which is the gap the tank roster keeps running into. Its stat priority is Defense > Stamina > Hit/Expertise > Armor > Agility > Crit/Haste, so the tree spends its early rows on defense rating, Stamina and Armor and only buys crit where crit turns into healing (Infection into Enraging Wounds). The repeated compromise in this tree is that almost every CoA node is gated on holding Eternal Curse, and nothing can gate a talent on a buff, so the gates are dropped and the magnitudes cut to pay for it.",
+  "description": "The thing that will not die - every blow landed on it makes the next one hurt less.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/bloodmage.json (40 real CoA Eternal talents, role TANK, 'Druid Tank + Blood DK'). Replaces a 23-node tree with 3 procs and 19 bare numbers. Call of the Darkwing - CoA's Shadow Bats, named by three talents - has no ability in Frontier, so each becomes leech_pct on the trigger CoA names. Four CoA talents gate on the Bloodmage's own health and only the defensive direction has a live key (low_health_damage_reduction_pct); a proc cannot read carrier health at all.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,300 +16,462 @@
     {
       "talent_id": "bloodmage_eternal_heightened_reflexes",
       "name": "Heightened Reflexes",
-      "description": "Increases your chance to dodge by 1% and your defense rating by 2 per rank.",
+      "description": "Increases your chance to dodge by up to 8%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "dodge": 1.0,
-        "defense_rating": 2
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your chance to dodge by 4% and your expertise by 5.' Expertise is not a stat here; defense rating is, and CoA's own stat priority leads with 'Defense (to the crit-immunity cap, non-negotiable floor)'."
-    },
-    {
-      "talent_id": "bloodmage_eternal_eternal_hunt",
-      "name": "Eternal Hunt",
-      "description": "Increases your total health by 2% and reduces the cost of your abilities by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "max_health_pct": 0.02,
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your maximum health and reduces the cost of your spells and abilities by 5%.' POSITIVE is the discount on a _cost_pct key. NOTE max_health_pct is a FRACTION - health * (1.0 + value). Shipped at 2.0 on Guardian, it gave that tank 99,156 effective HP against the next tank's 2,987, and validate_class.py now fails a value an order of magnitude off convention."
-    },
-    {
-      "talent_id": "bloodmage_eternal_uncanny_movement",
-      "name": "Uncanny Movement",
-      "description": "Increases your Agility by 2% and your hit rating by 1 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "agility_pct": 2.0,
-        "hit_rating": 1
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Agility by 25% and your hit rating by 5% of your Agility. In addition, Claw Sweep now generates additional threat.' agility_pct is percentage POINTS; hit rating cannot be a conversion target, so it is flat."
-    },
-    {
-      "talent_id": "bloodmage_eternal_thick_pelt",
-      "name": "Thick Pelt",
-      "description": "Increases your Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Physical damage taken now reduces the Physical damage taken from the next attack within 10 seconds.' A one-shot stacking absorb off being hit has no hook, so the mitigation is permanent instead. 'Thick Pelt and Shadows In The Night stack Guardian-style passive mitigation.'"
-    },
-    {
-      "talent_id": "bloodmage_eternal_vitality",
-      "name": "Vitality",
-      "description": "Increases your Stamina by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "stamina_pct": 2.0
-      },
-      "connected_to": [
-        "bloodmage_eternal_heightened_reflexes"
-      ],
-      "_source": "CoA: 'Increases your Stamina while in Eternal Curse by an additional 10%.' The engine cannot gate a talent on a buff, so it is unconditional. CoA's priority: 'Stamina (Eternal Curse grants +25% total Stamina ... so Stamina is doubly amplified)'."
-    },
-    {
-      "talent_id": "bloodmage_eternal_shadows_in_the_night",
-      "name": "Shadows In The Night",
-      "description": "Reduces all damage you take by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -6,
       "effects": {
-        "damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "bloodmage_eternal_eternal_hunt"
-      ],
-      "_source": "CoA: 'While above 75% health, your damage taken is reduced by -5%.' There is no above-threshold conditional to match low_health_damage_reduction_pct, so it is flat and smaller."
-    },
-    {
-      "talent_id": "bloodmage_eternal_feral_strength",
-      "name": "Feral Strength",
-      "description": "Grants attack power equal to 3% of your Agility per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ap_from_agility_pct": 0.03
-      },
-      "connected_to": [
-        "bloodmage_eternal_uncanny_movement"
-      ],
-      "_source": "CoA: 'While in Eternal Curse, you now gain 50% more attack power from Agility and Strength.' A real conversion key; the form gate is dropped, as everywhere else in this tree."
-    },
-    {
-      "talent_id": "bloodmage_eternal_no_mercy",
-      "name": "No Mercy",
-      "description": "Reduces the physical damage you take by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "physical_damage_taken_pct": -0.02
+        "dodge": 2.6667
       },
       "connected_to": [
         "bloodmage_eternal_thick_pelt"
       ],
-      "_source": "CoA: 'Allows your Thick Pelt to affect an additional hit.' Thick Pelt landed as flat physical mitigation, so the node that extends it extends the same thing."
+      "_source": "CoA over 2 ranks: 'Increases your chance to dodge by 4% and your expertise by 5.' 'expertise' is read by no engine code - the fourth time in this rebuild - so the dodge half carries it."
     },
     {
-      "talent_id": "bloodmage_eternal_blood_moon",
-      "name": "Blood Moon",
-      "description": "Your damaging casts have a 33% chance per rank to drain 8% of the damage dealt back into you.",
+      "talent_id": "bloodmage_eternal_eternal_hunt",
+      "name": "Eternal Hunt",
+      "description": "Increases your maximum health by 5% and reduces the cost of your abilities by 5%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "bloodmage_eternal_vitality"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 33,
-        "icd": 1,
-        "leech_pct": 0.08
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 0.0167,
+        "all_ability_cost_pct": 0.0167
       },
-      "_source": "CoA: 'While below 75% health, you now heal for 3% of all damage you deal.' The health gate is not visible to a proc. 'Uncoordinated pressure cannot out-damage that.'"
+      "connected_to": [
+        "bloodmage_eternal_thick_pelt"
+      ],
+      "_source": "CoA verbatim: 'Increases your maximum health and reduces the cost of your spells and abilities by 5%.' Both halves live. BOTH ARE FRACTIONS HERE. max_health_pct takes percentage POINTS inside a STATUS EFFECT - Black Knight's Blade of the Misbegotten uses 5.0 for 5% and the audit confirmed it - but as a TALENT effect it is a fraction, because POINTS_PCT_KEYS lists only all_stats_pct, the five stat_pcts, attack_power_pct, healing_power_pct, armor_pct and armor_penetration_pct, and everything else ending in _pct is a plain fraction. Same key, opposite units depending on where it sits. Authored 5.0 first, which is 500%. POSITIVE reduces for all_ability_cost_pct. On a class whose spells cost health, these two are the same stat twice."
     },
     {
-      "talent_id": "bloodmage_eternal_infection",
-      "name": "Infection",
-      "description": "Increases your critical strike chance by 1% per rank.",
+      "talent_id": "bloodmage_eternal_shadows_in_the_night",
+      "name": "Shadows In The Night",
+      "description": "Reduces the physical damage you take by 5%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0
+        "physical_damage_taken_pct": -0.0167
       },
       "connected_to": [
-        "bloodmage_eternal_shadows_in_the_night"
+        "bloodmage_eternal_coated_in_darkness"
       ],
-      "_source": "CoA: 'Auto attacking a bleeding target will now infect the wound, increasing their chance to be critically struck from you by 1%, stacking 10 times.' A per-target crit-taken debuff has no key, so it is the caster's own crit - which Enraging Wounds then turns into healing."
+      "_source": "CoA: 'While above 75% health, your damage taken is reduced by -5%.' The ABOVE-75% direction has no key - low_health_damage_reduction_pct is the only carrier-health defensive conditional and it points the other way - so this is unconditional. NEGATIVE reduces for physical_damage_taken_pct as a TALENT effect, which is the opposite sign to the same key inside a status effect."
     },
     {
-      "talent_id": "bloodmage_eternal_appetite_for_blood",
-      "name": "Appetite for Blood",
-      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 5% per rank.",
+      "talent_id": "bloodmage_eternal_vitality_talent",
+      "name": "Vitality",
+      "description": "Increases your Stamina by 10%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "ability_bloodmage_bloodfang_bite_damage": 0.05,
-        "ability_bloodmage_claw_sweep_damage": 0.05
+        "stamina_pct": 3.3333
       },
       "connected_to": [
-        "bloodmage_eternal_feral_strength"
+        "bloodmage_eternal_coated_in_darkness"
       ],
-      "_source": "CoA: 'Increases the damage dealt by Bloodfang Bite and Claw Sweep by 20% against Humanoids and Beasts.' Nothing reads creature type in the damage path, so the condition is dropped. These are the tank's two threat buttons, so the node is also a threat node."
+      "_source": "CoA: 'Increases your Stamina while in Eternal Curse by an additional 10%.' Eternal Curse is a self-buff ability here, not a shapeshift - combat/forms.py has no Bloodmage form - and there is no 'while this buff is up' gate for an effect key, so the 10% is permanent. Node id is vitality_talent because 'vitality' alone reads as the resource."
     },
     {
-      "talent_id": "bloodmage_eternal_rejuvenating_shadows",
-      "name": "Rejuvenating Shadows",
-      "description": "Increases the healing you do by 3% per rank.",
+      "talent_id": "bloodmage_eternal_uncanny_speed",
+      "name": "Uncanny Speed",
+      "description": "Increases your haste by 5%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "healing_done": 0.03
+        "haste": 1.6667
       },
       "connected_to": [
-        "bloodmage_eternal_no_mercy"
+        "bloodmage_eternal_rabid"
       ],
-      "_source": "CoA: 'Nearby party and raid members receive 6% more healing ... In addition, increases the health leeched by Bloodbolt by 50%.' The party aura cannot be a talent effect and Bloodbolt has no heal half to scale, so this is the self-healing half - which is what Ravenous Bite and Blood Moon both run through."
+      "_source": "CoA: 'Increases your melee haste by 5% and your movement speed and mounted movement speed by 20%.' Movement speed does not exist; CoA's own haste number is what survives."
     },
     {
-      "talent_id": "bloodmage_eternal_grim_omen",
-      "name": "Grim Omen",
-      "description": "Your critical strikes have a 25% chance per rank to knit you back together.",
+      "talent_id": "bloodmage_eternal_thick_pelt",
+      "name": "Thick Pelt",
+      "description": "Being struck toughens your hide, reducing the physical damage you take by 15% for 2 turns.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "bloodmage_eternal_blood_moon"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 1,
-        "heal_flat": 70
+        "trigger": "on_damage_taken",
+        "chance": 33,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "bloodmage_thick_pelt",
+          "name": "Thick Pelt",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "physical_damage_taken_pct": -15.0
+          },
+          "on_target": false
+        }
       },
-      "_source": "CoA: 'Critical strikes with Ravenous Strike or Bloodfang Bite, or using Howl spells, now triggers Call of the Darkwing ... healing you equal to the damage dealt.' The Shadow Bats need a pet template that does not exist, so the heal lands directly."
+      "_source": "CoA verbatim: 'Physical damage taken now reduces the Physical damage taken from the next attack within 10 sec. Can only occur once every 5 sec.' The spec's mitigation engine, and the old tree had it as a flat scalar. CoA's 5-sec internal cooldown is icd 2. Also carries CoA's No Mercy ('allows your Thick Pelt to affect an additional hit'), which would need a charge counter on the buff. NOTE the unit: inside a status effect the physical_ variant IS divided by 100, unlike bare damage_taken_pct which is read raw - so -15.0 here means -15%."
     },
     {
-      "talent_id": "bloodmage_eternal_iron_claws",
-      "name": "Iron Claws",
-      "description": "Increases your armor penetration by 1% and the damage your effects deal over time by 4% per rank.",
+      "talent_id": "bloodmage_eternal_coated_in_darkness",
+      "name": "Coated In Darkness",
+      "description": "Bloodbolt and Bloodfang Bite bring Blood Pact a turn closer to ready.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_blood_moon"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodbolt",
+          "bloodmage_bloodfang_bite"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "bloodmage_blood_pact"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Bloodbolt or Bloodfang Bite now reduces the cooldown of your Blood Pact by 0.5 sec.' Half a second is under a turn; one turn is the smallest unit here, so it rounds up - which makes this stronger than CoA's and is the honest reading rather than rounding to zero and shipping a node that does nothing."
+    },
+    {
+      "talent_id": "bloodmage_eternal_rotclaw",
+      "name": "Rotclaw",
+      "description": "Rotclaw infects the wound, bleeding the target for 3 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_petrified_legions"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_rotclaw"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_rotclaw_bleed",
+          "name": "Infected Wound",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 30,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: '2 Charges, 6 sec recharge. Ravage all nearby enemies, dealing Shadow damage, generating Rage and infecting their wounds, causing them to bleed over 4 seconds.' Frontier has the ability; this is the bleed rider. Charges are a cooldown here. Also carries CoA's Cursed Strikes ('increases the duration of Rotclaw and Hypovolemic Shock by 50%') in the 3-turn duration."
+    },
+    {
+      "talent_id": "bloodmage_eternal_rabid",
+      "name": "Rabid",
+      "description": "Reduces the cooldown of your Howl spells by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {
-        "armor_penetration_pct": 1.0,
-        "dot_damage": 0.04
+        "ability_bloodmage_blood_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_shadow_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_wicked_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.0833
       },
       "connected_to": [
-        "bloodmage_eternal_infection"
+        "bloodmage_eternal_packleader"
       ],
-      "_source": "CoA: 'Allows Rotclaw's periodic effect to stack up 2 additional times ... and cause you to ignore 3% of the target's armor per stack.' Both halves exist as real keys without the stacking that drove them."
+      "_source": "CoA verbatim: 'Reduces the cooldown of Howl spells by 25%.' All four Howls exist in Frontier - Blood, Shadow, Wicked and Night Hunter's - and they are this spec's threat tools, so this is the node that lets it hold a pull. Written out per ability; no key names a group."
+    },
+    {
+      "talent_id": "bloodmage_eternal_enduring",
+      "name": "Enduring",
+      "description": "Increases the damage of Bloodbolt by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_bloodmage_bloodbolt_damage": 0.0833
+      },
+      "connected_to": [
+        "bloodmage_eternal_blood_mark"
+      ],
+      "_source": "CoA: 'Increases the damage of Bloodbolt by 25%, plus an additional 25% while below 35% health.' The conditional half needs to read the caster's own health into a DAMAGE bonus, and the only carrier-health key is low_health_damage_reduction_pct, which is defensive. CoA's base 25% kept and the conditional dropped rather than folded in, since folding it in would make the node permanently stronger than CoA's best case."
+    },
+    {
+      "talent_id": "bloodmage_eternal_blood_moon",
+      "name": "Blood Moon",
+      "description": "Your strikes heal you for 5% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_grim_omen"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_ravenous_strike",
+          "bloodmage_bloodfang_bite",
+          "bloodmage_claw_sweep",
+          "bloodmage_rotclaw",
+          "bloodmage_crimson_maw"
+        ],
+        "leech_pct": {
+          "pct": 0.05
+        }
+      },
+      "_source": "CoA: 'While below 75% health, you now heal for 3% of all damage you deal.' A proc cannot read the carrier's own health - there is no hp_below gate on a proc payload - so the leech is unconditional. Raised 3% -> 5% would be wrong (CoA's is conditional and therefore cheaper); kept near CoA's number at 5% and filtered to this spec's strikes rather than all damage, which is the trade that keeps it honest."
+    },
+    {
+      "talent_id": "bloodmage_eternal_coated_in_blood",
+      "name": "Coated In Blood",
+      "description": "Increases your armor by 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "armor_pct": 6.6667
+      },
+      "connected_to": [
+        "bloodmage_eternal_grim_omen"
+      ],
+      "_source": "CoA: 'Increases the effectiveness of Blood Pact by 50%.' There is no ability-effectiveness multiplier key, and Blood Pact is a self buff whose stat_mods a talent cannot edit. Rebuilt as armour, which is what Blood Pact grants. Also carries CoA's Bloodguard ('increases the duration of Blood Pact by 4 sec'), which ability_*_duration does not reach on an activated buff."
+    },
+    {
+      "talent_id": "bloodmage_eternal_petrified_legions",
+      "name": "Petrified Legions",
+      "description": "Your strikes have a 10% chance to call the Darkwing, draining 60% of the damage back as health.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_monstrous_hunger"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_ravenous_strike",
+          "bloodmage_bloodfang_bite",
+          "bloodmage_claw_sweep",
+          "bloodmage_rotclaw",
+          "bloodmage_crimson_maw"
+        ],
+        "leech_pct": {
+          "pct": 0.6
+        }
+      },
+      "_source": "CoA verbatim: 'Physical damage you deal or take now has a 10% chance to trigger a Call of the Darkwing. Call of the Darkwing: Calls 1 to 2 Shadow Bats to strike the target, healing you equal to the damage dealt.' There is no Shadow Bat ability in Frontier, so 'damage that heals you for its own value' is leech_pct. Built on damage DEALT only - 'dealt or taken' would need two procs on one node. CoA's 10% kept."
+    },
+    {
+      "talent_id": "bloodmage_eternal_packleader",
+      "name": "Packleader",
+      "description": "Your Howls rally you, increasing your damage by 10% for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_monstrous_hunger"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_blood_howl",
+          "bloodmage_shadow_howl",
+          "bloodmage_wicked_howl",
+          "bloodmage_night_hunters_howl"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_packleader",
+          "name": "Packleader",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Casting Howl spell now enrages your summons, increasing their damage dealt by 10% for 8 seconds.' Eternal has no summons - pet_damage would scale a pet this spec does not have - so the enrage lands on the Bloodmage. on_cast, because Howls are buffs and debuffs that deal no damage, so a damage trigger would never fire. 8 sec is 3 turns."
     },
     {
       "talent_id": "bloodmage_eternal_blood_mark",
       "name": "Blood Mark",
-      "description": "Increases your threat generation by 6% per rank.",
+      "description": "Increases your threat generation by 15% and all damage you deal by 5%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
+      "hex_x": 4,
+      "hex_y": -2,
       "effects": {
-        "threat_generation_pct": 0.06
+        "threat_generation_pct": 0.05,
+        "all_damage": 0.0167
       },
       "connected_to": [
         "bloodmage_eternal_appetite_for_blood"
       ],
-      "_source": "CoA: 'Increases the Physical damage taken by enemies within 5 yds of you by 3%.' There is no aura radius here. Note the key: threat_generation_pct as a TALENT effect is a fraction, and all fifteen threat talents in the game read nothing until 2026-10-28, because combat_engine wanted threat_multiplier."
+      "_source": "CoA's Blood Mark ('increases the Physical damage taken by enemies within 5 yds of you by 3%') and Dark Mark ('reduces the chance to hit for enemies within 5 yds of you by -3%'). Both are PASSIVE AURAS ON NEARBY ENEMIES, which this engine has no mechanism for in either direction - there is no proximity and no ambient debuff. Rebuilt as threat and damage, which is what an aura that makes everything near you worse off buys a tank. threat_generation_pct is a FRACTION as a talent effect."
     },
     {
-      "talent_id": "bloodmage_eternal_dark_mark",
-      "name": "Dark Mark",
-      "description": "Reduces the chance you are critically hit by 1% per rank.",
+      "talent_id": "bloodmage_eternal_grim_omen",
+      "name": "Grim Omen",
+      "description": "Critical strikes and Howls call the Darkwing, draining 40% of the damage back as health.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": 0,
-      "effects": {
-        "crit_taken_reduction": 1.0
-      },
+      "effects": {},
       "connected_to": [
-        "bloodmage_eternal_rejuvenating_shadows"
+        "bloodmage_eternal_eternal_resolve"
       ],
-      "_source": "CoA: 'Reduces the chance to hit for enemies within 5 yds of you by -3%.' An aura is not expressible, and crit_taken_reduction is the tank stat CoA's own priority calls a 'non-negotiable floor'."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "leech_pct": {
+          "pct": 0.4
+        }
+      },
+      "_source": "CoA verbatim: 'Critical strikes with Ravenous Strike or Bloodfang Bite, or using Howl spells, now triggers Call of the Darkwing.' Three triggers in one talent and a proc has one, so this takes the crit - the frequent one - and Packleader at tier 2 already rewards Howls. Unfiltered by ability, so any crit feeds it, which is close enough to 'Ravenous Strike or Bloodfang Bite' on a spec whose crits are mostly those two. 1-turn internal cooldown."
     },
     {
-      "talent_id": "bloodmage_eternal_uncanny_speed",
-      "name": "Uncanny Speed",
-      "description": "Increases your haste by 1 per rank.",
+      "talent_id": "bloodmage_eternal_monstrous_hunger",
+      "name": "Monstrous Hunger",
+      "description": "Bloodfang Bite returns 12 Rage and drains 25% of its damage back as health.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_eternal_resolve"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodfang_bite"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 12
+        },
+        "leech_pct": {
+          "pct": 0.25
+        }
+      },
+      "_source": "CoA: '45 sec cooldown. Enrage for 10 sec, causing the next 6 Bloodfang Bites to have a 50% reduced global cooldown and cost and to trigger Call of the Darkwing.' Frontier has the ability already. There is NO GLOBAL COOLDOWN here so that half is free value, and 'the next 6 casts' is a charge counter effects do not have - so the cost saving becomes a Rage refund and the Darkwing becomes leech, both permanent on the ability CoA names."
+    },
+    {
+      "talent_id": "bloodmage_eternal_appetite_for_blood",
+      "name": "Appetite for Blood",
+      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_bloodmage_bloodfang_bite_damage": 0.0667,
+        "ability_bloodmage_claw_sweep_damage": 0.0667
+      },
+      "connected_to": [
+        "bloodmage_eternal_blood_plague_eternal"
+      ],
+      "_source": "CoA: 'Increases the damage dealt by Bloodfang Bite and Claw Sweep by 20% against Humanoids and Beasts.' No key reads creature type, so it is unconditional at CoA's number - most of what a tank fights is one or the other anyway."
+    },
+    {
+      "talent_id": "bloodmage_eternal_blood_plague_eternal",
+      "name": "Blood Plague",
+      "description": "Increases the damage your damage-over-time effects deal by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "dot_damage": 0.0667
+      },
+      "connected_to": [
+        "bloodmage_eternal_festering_maw"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10% against Diseased targets.' The Diseased condition has no key, and Accursed's tier 5 already takes CoA's Blood Plague as crit on those two abilities - shipping it twice across two specs would be the same pick. Pointed at this spec's own periodic damage instead: Rotclaw's bleed, Hypovolemic Shock and Crimson Tide."
+    },
+    {
+      "talent_id": "bloodmage_eternal_eternal_resolve",
+      "name": "Eternal Resolve",
+      "description": "Increases your maximum health by 10% and the healing you receive by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -317,130 +479,196 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "haste": 1.0
+        "max_health_pct": 0.0333,
+        "healing_taken_pct": 0.05
       },
       "connected_to": [
-        "bloodmage_eternal_grim_omen"
+        "bloodmage_eternal_no_mercy"
       ],
-      "_source": "CoA: 'Increases your melee haste by 5% and your movement speed and mounted movement speed by 20%.' Only the haste half means anything in combat."
+      "_source": "CoA: '3 min cooldown. Activate your eternal resolve for 30 sec, increasing your melee attack speed, maximum health, and healing received by 50%.' Frontier has the ability, so this is not its unlock. Built as the passive version at a fraction of CoA's 50%, since CoA's is a 30-second window on a 3-minute cooldown. healing_taken_pct is the recipient-side key - NOT healing_received_pct, which is what CoA's own tooltips say and which is dead data here, as Tinker's Napalm found out. Both keys are FRACTIONS as talent effects and percentage POINTS inside a status effect, which is why Napalm wrote -3.0 for -3% and this writes 0.15 for 15%. Authored 10.0 and 15.0 first - 1000% and 1500% - and the audit caught both."
     },
     {
-      "talent_id": "bloodmage_eternal_rabid",
-      "name": "Rabid",
-      "description": "Reduces the cooldown of Blood Howl and Night Hunter's Howl by 10% per rank.",
+      "talent_id": "bloodmage_eternal_festering_maw",
+      "name": "Festering Maw",
+      "description": "Your healing brings Lunge a turn closer to ready.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "ability_bloodmage_blood_howl_cooldown_pct": 0.1,
-        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.1
-      },
+      "effects": {},
       "connected_to": [
-        "bloodmage_eternal_iron_claws"
+        "bloodmage_eternal_no_mercy"
       ],
-      "_source": "CoA: 'Reduces the cooldown of Howl spells by -25%.' Both Howls this spec actually presses, by name."
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 1,
+        "reset_cooldown": {
+          "abilities": [
+            "bloodmage_lunge"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Healing with Bite Wound now reduces the cooldown of Lunge by 1 sec.' Bite Wound does not exist in Frontier, so the trigger is healing generally - on_heal_cast, which this spec reaches through Fleshcraft and Transfusion. One second is one turn."
     },
     {
-      "talent_id": "bloodmage_eternal_eternal_presence",
-      "name": "Eternal Presence",
-      "description": "Increases your attack power by 3% per rank.",
+      "talent_id": "bloodmage_eternal_night_hunters_howl",
+      "name": "Night Hunter's Howl",
+      "description": "Your Howls leave nearby enemies taking 10% more damage for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "attack_power_pct": 3.0
-      },
-      "connected_to": [
-        "bloodmage_eternal_blood_mark"
-      ],
-      "_source": "CoA: 'Increases the attack power of party and raid members by 5% ... In addition, you now gain attack power equal to 15% of the damage taken for 10 seconds.' Neither the aura nor the damage-taken scaling is expressible; attack power is threat for this spec, which is why it is here at all. attack_power_pct is percentage POINTS."
-    },
-    {
-      "talent_id": "bloodmage_eternal_bloodmoon_power",
-      "name": "Bloodmoon Power",
-      "description": "Grants dodge equal to 3% of your Agility, and increases the damage your effects deal over time by 4%, per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "dodge_from_agility_pct": 0.03,
-        "dot_damage": 0.04
-      },
-      "connected_to": [
-        "bloodmage_eternal_uncanny_speed"
-      ],
-      "_source": "CoA: 'Periodic damage dealt by Rotclaw now hits -50% more often and your Bloodfang Bite, Claw Sweep, and Bloodbolt additionally scales with dodge rating.' The engine converts stats INTO dodge, not dodge into damage, so the direction is reversed and the DoT half kept."
-    },
-    {
-      "talent_id": "bloodmage_eternal_enraging_wounds",
-      "name": "Enraging Wounds",
-      "description": "Your critical strikes have a 40% chance per rank to leech 20% of the damage dealt.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
       "effects": {},
       "connected_to": [
-        "bloodmage_eternal_rabid"
+        "bloodmage_eternal_blood_howl_mastery"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 40,
+        "trigger": "on_cast",
+        "chance": 33,
         "icd": 0,
-        "leech_pct": 0.2
+        "ability_filter": [
+          "bloodmage_blood_howl",
+          "bloodmage_shadow_howl",
+          "bloodmage_wicked_howl",
+          "bloodmage_night_hunters_howl"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_howl_mark",
+          "name": "Night Hunter's Howl",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "on_target": true
+        }
       },
-      "_source": "CoA: 'Melee critical strikes now leech health from the target, scaling with your Stamina.' Scaling a proc off a stat has no hook, so it scales off the hit instead - which is the same direction, since Stamina is what makes the hits survivable."
+      "_source": "CoA: 'Howl into the souls of nearby enemies, dealing Shadow damage and slowing their movement speed by 60% for 6 sec.' Frontier has the ability. Movement slows do not exist, so the slow becomes a damage-taken mark - which is what a slow is worth to a tank's group in an engine with no positioning. damage_taken_pct is read RAW in a status effect, so 0.10."
     },
     {
-      "talent_id": "bloodmage_eternal_bloody_claws",
-      "name": "Bloody Claws",
-      "description": "Increases your physical damage by 3% per rank.",
+      "talent_id": "bloodmage_eternal_no_mercy",
+      "name": "No Mercy",
+      "description": "Reduces the physical damage you take by a further 8%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "physical_damage_taken_pct": -0.0267
+      },
+      "connected_to": [
+        "bloodmage_eternal_blood_howl_mastery"
+      ],
+      "_source": "CoA: 'Allows your Thick Pelt to affect an additional hit.' A charge counter on another node's buff is not reachable - nothing edits a sibling's payload and effects expire on turns rather than uses. Rebuilt as flat mitigation, which is what a second Thick Pelt hit is worth. Stacks with Shadows In The Night at tier 0 for a -13% physical floor before Thick Pelt's window."
+    },
+    {
+      "talent_id": "bloodmage_eternal_blood_howl_mastery",
+      "name": "Blood Howl",
+      "description": "Reduces the cooldown of your Howls by a further 25% and increases your threat generation by 20%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "physical_damage": 0.03
+        "ability_bloodmage_blood_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_shadow_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_wicked_howl_cooldown_pct": 0.0833,
+        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.0833,
+        "threat_generation_pct": 0.0667
       },
       "connected_to": [
         "bloodmage_eternal_eternal_presence"
       ],
-      "_source": "CoA: 'You now generate 20% increased Rage from damage dealt and critical strikes with auto attacks now reduces the cooldown of Animated Blood, Blood Veil, and Blood Pact by 1 sec.' Rage generation here is an ability's `generates` block, which a talent cannot scale except through a proc's scale_talent_key; the damage half is what remains."
+      "_source": "CoA: '2 min cooldown. Taunts nearby enemies within 10 yds, forcing them to attack you for 5 sec.' Frontier has the ability, so this is not its unlock - and taunt duration is not a talent key. Built as the two things a taunt talent is really for: the Howls come back faster and the tank holds harder. Stacks with Rabid at tier 1."
     },
     {
-      "talent_id": "bloodmage_eternal_eyes_in_the_night",
-      "name": "Eyes In The Night",
-      "description": "Nothing gets behind you. You take 12% less damage, hold 10% more threat, and carry 6% more health.",
-      "node_type": "active",
+      "talent_id": "bloodmage_eternal_shadow_pact_eternal",
+      "name": "Hide of the Eternal",
+      "description": "Being struck shields you for 30% of the damage taken.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_eternal_eternal_presence"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 33,
+        "icd": 2,
+        "shield_pct": {
+          "pct": 0.3,
+          "duration": 2,
+          "effect_id": "bloodmage_eternal_hide",
+          "name": "Hide of the Eternal"
+        }
+      },
+      "_source": "Not a CoA node by this name - it carries CoA's Sanguine Essence, whose description in this export is a broken template reference ($7c), so there was nothing to port. Built as the thing a tank tree is missing at this depth: an absorb that scales off the hit that triggered it, which is what shield_pct does. 2-turn internal cooldown, matching Thick Pelt's cadence so the two read as one mitigation rhythm."
+    },
+    {
+      "talent_id": "bloodmage_eternal_cursed_strikes",
+      "name": "Cursed Strikes",
+      "description": "Increases the damage of Rotclaw and Hypovolemic Shock by up to 50%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_bloodmage_rotclaw_damage": 0.1667,
+        "ability_bloodmage_hypovolemic_shock_damage": 0.1667
+      },
+      "connected_to": [
+        "bloodmage_eternal_eternal_presence"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the duration of Rotclaw and Hypovolemic Shock by 50%.' A percentage DURATION increase is not a shape ability_*_duration takes - that key is flat turns - and 50% of a 3-turn dot is 1.5 turns, which does not exist. Expressed as damage: a dot running half again as long deals half again as much."
+    },
+    {
+      "talent_id": "bloodmage_eternal_eternal_presence",
+      "name": "Eternal Presence",
+      "description": "Increases your attack power by 5%, and being struck feeds your fury - raising your damage by 15% for 3 turns.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "damage_taken_pct": -0.12,
-        "threat_generation_pct": 0.1,
-        "max_health_pct": 0.06
+        "attack_power_pct": 5.0
       },
-      "connected_to": [
-        "bloodmage_eternal_bloodmoon_power",
-        "bloodmage_eternal_enraging_wounds",
-        "bloodmage_eternal_bloody_claws"
-      ],
-      "_source": "Capstone. CoA: 'Allies within 20 yds are protected by Shadow Colony, giving them a 40% chance to trigger a Call of the Darkwing when they take direct damage ... generate a large amount of threat against the enemy that triggered it.' The ally-facing half needs both a pet template and a party-wide talent effect, neither of which exists, so the threat and the survival stay with the tank."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "bloodmage_eternal_presence",
+          "name": "Eternal Presence",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 15.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Increases the attack power of party and raid members by 5%. Does not stack with similar effects. In addition, you now gain attack power equal to 15% of the damage taken for 10 seconds. Can only occur once every 10 sec.' The party aura has no mechanism, so the 5% lands on the Bloodmage. The second half cannot size itself from the hit - apply_effect has no percentage-of-amount form, unlike shield_pct and leech_pct - so CoA's 15% becomes a flat damage buff on the same trigger. The right capstone for this spec: a tank that gets angrier the more it is hit, which is what the whole tree has been building."
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "spec_name": "Bloodmage Accursed",
   "tree_id": "bloodmage_accursed",
-  "description": "Two fighting ranges in one spec - Shadow bolts from range to bank Rage, a lifestealing bruiser in Accursed Form to spend it, and no respec between them.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_bloodmage__accursed.txt: 'Closest to a Feral/Guardian Druid's form-dancing bolted onto a Blood DK self-sustain layer ... No retail spec fuses ranged caster and melee lifesteal natively.' Its stat priority - Hit > Expertise > Agility > Armor Penetration > Crit > Haste - is a melee list on a spec that spends half the fight casting, which is why Rage converts attack power into spell power and Forbidden Power converts Agility into spell crit. The awkward part of the translation is that CoA strips the Rage cost off every transformed ability, and the engine has no way to make a cost conditional on a buff; Reave, Ravenous Strike and Puncturing Fangs all pay full price, and Night Hunter is the tree's apology for it.",
+  "description": "Cursed thing in melee - opens a vein and keeps everything bleeding, including itself.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/bloodmage.json (41 real CoA Accursed talents, role DPS, 'Feral Druid + Rogue + Blood Death Knight'). Replaces a 23-node tree with 3 procs and 19 bare numbers. Cursed Form is a BUFF here, not a shapeshift - combat/forms.py has no Bloodmage entry - so require_form would never match and the six form-gated CoA talents are built as windows off casting it. Five more check whether the target is bleeding, which no key reads; those are unconditional and repriced, stated per node.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,440 +14,723 @@
   },
   "nodes": [
     {
-      "talent_id": "bloodmage_accursed_rage",
-      "name": "Rage",
-      "description": "Grants spell power equal to 2% of your attack power, and increases the damage of Reave by 3%, per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spell_damage_from_ap_pct": 0.02,
-        "ability_bloodmage_reave_damage": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell damage by 15% of your attack power and the damage dealt by Reave by 10%.' The node that makes a spec with a melee stat priority still hit hard with its bolts."
-    },
-    {
       "talent_id": "bloodmage_accursed_barely_human",
       "name": "Barely Human",
-      "description": "Increases your armor penetration by 1% and the damage of Veinburst by 3%, per rank.",
+      "description": "Increases your armor penetration by up to 30% and the damage of spells that cost health by up to 30%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "armor_penetration_pct": 10,
+        "ability_bloodmage_bloodbolt_damage": 0.1,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.1,
+        "ability_bloodmage_veinburst_damage": 0.1,
+        "ability_bloodmage_hemoburst_damage": 0.1
+      },
+      "connected_to": [
+        "bloodmage_accursed_puncturing_fangs"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your armor penetration and the damage of spells that cost health by 15%.' 'Spells that cost health' is not a group any key names, so the four are written out - Bloodbolt, Bloodmoon Blast, Veinburst and Hemoburst all carry resource_type health. Note armor_penetration_pct takes percentage POINTS while the ability_*_damage keys beside it are fractions, in the same effects block."
+    },
+    {
+      "talent_id": "bloodmage_accursed_rage_talent",
+      "name": "Rage",
+      "description": "Increases your spell damage by 15% of your attack power and the damage of Reave by up to 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "spell_power_from_ap_pct": 0.05,
+        "ability_bloodmage_reave_damage": 0.0667
+      },
+      "connected_to": [
+        "bloodmage_accursed_puncturing_fangs"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your spell damage by 15% of your attack power and the damage dealt by Reave by 10%.' The conversion is live - spell_power is a target and 'ap' is in STAT_CONVERSION_SOURCES, which is what makes this spec's melee feed its health-costed spells. Node id is rage_talent because 'rage' alone reads as the resource."
+    },
+    {
+      "talent_id": "bloodmage_accursed_blood_pact_talent",
+      "name": "Blood Pact",
+      "description": "Increases your haste by 6% and the damage you deal by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "armor_penetration_pct": 1.0,
-        "ability_bloodmage_veinburst_damage": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your armor penetration and the damage of spells that cost health by 15%.' Veinburst is this spec's main health-cost spell. armor_penetration_pct is percentage POINTS - it is one of the ten keys _recalculate_derived_stats divides by 100."
-    },
-    {
-      "talent_id": "bloodmage_accursed_forbidden_power",
-      "name": "Forbidden Power",
-      "description": "Grants spell critical strike chance equal to 4% of your Agility per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_spell_from_agility_pct": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell critical strike rating by 30% of your Agility and spell hit rating by 5% of your Agility.' The crit half is a real conversion; hit rating is a local feeding base_miss_chance_*, not a Character attribute, so it cannot be a conversion target - the same wall Guardian's Bulwark hit."
-    },
-    {
-      "talent_id": "bloodmage_accursed_killer_instinct",
-      "name": "Killer Instinct",
-      "description": "Increases your critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Each point of Rage now increases the critical strike chance of Veinburst and Reave by 0.5%.' Rage is not a scaling source anything reads, so it is flat crit. CoA's stat priority names this node: 'Critical Strike (Killer Instinct/Ultra Instinct/Darkcasting are all crit-fed)'."
-    },
-    {
-      "talent_id": "bloodmage_accursed_dark_hunt",
-      "name": "Dark Hunt",
-      "description": "Increases your Shadow damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "shadow_spell_damage": 0.02
-      },
-      "connected_to": [
-        "bloodmage_accursed_rage"
-      ],
-      "_source": "CoA: 'Increases your Shadow damage dealt by 10% against bleeding targets.' Nothing tracks whether a target is bleeding at damage time, so the condition is dropped and the size cut to match."
-    },
-    {
-      "talent_id": "bloodmage_accursed_crimson_expedition",
-      "name": "Crimson Expedition",
-      "description": "Increases the critical strike chance of Bloodbolt and Aortic Assault by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_bloodmage_bloodbolt_crit": 2.0,
-        "ability_bloodmage_aortic_assault_crit": 2.0
-      },
-      "connected_to": [
-        "bloodmage_accursed_barely_human"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of your Bloodbolt, Blood Shards, and Aortic Assault by 10%.' Blood Shards are a charge mechanic with no hook."
-    },
-    {
-      "talent_id": "bloodmage_accursed_one_mans_curse",
-      "name": "One Man's Curse...",
-      "description": "Reduces the health cost of Accursed Form by 12% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_bloodmage_accursed_form_cost_pct": 0.12
-      },
-      "connected_to": [
-        "bloodmage_accursed_forbidden_power"
-      ],
-      "_source": "CoA: 'Removes the health cost of Accursed Form and entering it now instantly restores 15% of your maximum health.' A cost reduction is expressible; the heal on entry is not."
-    },
-    {
-      "talent_id": "bloodmage_accursed_relentless",
-      "name": "Relentless",
-      "description": "Increases your hit rating by 1 and your physical damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "hit_rating": 1,
-        "physical_damage": 0.02
-      },
-      "connected_to": [
-        "bloodmage_accursed_killer_instinct"
-      ],
-      "_source": "CoA ships Relentless as a free level-40 passive, which Frontier has no equivalent of. Pointed at the spec's own stat priority, which leads with Hit and Expertise because 'direct-hit strikes like Reave/Ravenous Strike/Puncturing Fangs must land'."
-    },
-    {
-      "talent_id": "bloodmage_accursed_gore_barrage",
-      "name": "Gore Barrage",
-      "description": "Reduces the health cost of Veinburst and Hemoburst by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "ability_bloodmage_veinburst_cost_pct": 0.06,
-        "ability_bloodmage_hemoburst_cost_pct": 0.06
-      },
-      "connected_to": [
-        "bloodmage_accursed_dark_hunt"
-      ],
-      "_source": "CoA: 'Reduces the cost of spells that cost health and Animated Blood by -30%.' Animated Blood is a summon with no pet template, so only the health-cost half is here."
-    },
-    {
-      "talent_id": "bloodmage_accursed_unchained",
-      "name": "Unchained",
-      "description": "Increases your haste by 1 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [
-        "bloodmage_accursed_crimson_expedition"
-      ],
-      "_source": "CoA: 'Your damaging Mortal Form spells can now be cast while moving.' There is no cast time and no movement in combat here, so the free level-10 passive becomes the nearest real benefit: acting more often."
-    },
-    {
-      "talent_id": "bloodmage_accursed_blood_shards",
-      "name": "Blood Shards",
-      "description": "Your damaging casts have a 20% chance per rank to carry an extra 15% damage.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "bloodmage_accursed_one_mans_curse"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 1,
-        "bonus_pct": 0.15
-      },
-      "_source": "CoA: 'Shadow Damage dealt now generates 1 Blood Shard ... up to 8. Dealing damage with Veinburst will now expend all stacks of Blood Shards.' A banked-charge spender has no hook, so it becomes a chance-based bonus on the same hit - which is what bonus_pct is for."
-    },
-    {
-      "talent_id": "bloodmage_accursed_cruel_intent",
-      "name": "Cruel Intent",
-      "description": "Lunge and Crimson Maw have a 10% chance per rank to be followed by an extra weapon strike.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "bloodmage_accursed_relentless"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 1,
-        "extra_attack": true,
-        "ability_filter": [
-          "bloodmage_lunge",
-          "bloodmage_crimson_maw"
-        ]
-      },
-      "_source": "CoA: 'When you Lunge at an enemy you now strike them 3 times with auto attacks.' extra_attack re-invokes the caster's own bloodmage_attack for a real second swing with its own hit and crit rolls, once - not three times, since the payload is a flag."
-    },
-    {
-      "talent_id": "bloodmage_accursed_everlasting_hunt",
-      "name": "Everlasting Hunt",
-      "description": "Reduces the cooldown of Veinburst and Reave by 12% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_bloodmage_veinburst_cooldown_pct": 0.12,
-        "ability_bloodmage_reave_cooldown_pct": 0.12
-      },
-      "connected_to": [
-        "bloodmage_accursed_gore_barrage"
-      ],
-      "_source": "CoA: 'Damage dealt by Blood Shards now reduces the cooldown of Veinburst and Reave by -1.5 sec.' A cooldown that always has at least one turn left (see talented_cooldown's floor), so this cannot make either spammable."
-    },
-    {
-      "talent_id": "bloodmage_accursed_fang_over_fang",
-      "name": "Fang Over Fang",
-      "description": "Increases the damage of Reave by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "ability_bloodmage_reave_damage": 0.06
-      },
-      "connected_to": [
-        "bloodmage_accursed_unchained"
-      ],
-      "_source": "CoA: 'Casting Bloodfang Bite now has a 20% chance to reset the cooldown of Reave.' A cooldown reset has no proc shape, so the node buys the same thing the reset would have: more Reave damage per fight."
-    },
-    {
-      "talent_id": "bloodmage_accursed_dark_sigil",
-      "name": "Dark Sigil",
-      "description": "Increases your critical strike chance with weapons and spells by 1% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "crit_chance_physical": 1.0,
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "bloodmage_accursed_blood_shards"
-      ],
-      "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3% ... In addition, you now heal for 15% of all critical damage dealt.' The party half cannot be a talent effect; the crit half covers both of this spec's damage types, which is the point of it."
-    },
-    {
-      "talent_id": "bloodmage_accursed_sanguine_scripture",
-      "name": "Sanguine Scripture",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
+        "haste": 2,
         "all_damage": 0.02
-      },
-      "connected_to": [
-        "bloodmage_accursed_cruel_intent"
-      ],
-      "_source": "CoA: 'Upon exiting Accursed Form, you gain 70% movement speed and spell haste for 5 seconds.' Movement speed has no combat meaning here and the form has no exit event to hang a buff on."
-    },
-    {
-      "talent_id": "bloodmage_accursed_battleweaver",
-      "name": "Battleweaver",
-      "description": "Increases your physical and spell damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {
-        "physical_damage": 0.02,
-        "spell_damage": 0.02
-      },
-      "connected_to": [
-        "bloodmage_accursed_everlasting_hunt"
-      ],
-      "_source": "CoA: 'Casting Cursed Form abilities now has a 50% chance to generate 1 Blood Shard ... Dealing damage with Bloodbolt will launch 1 Blood Shard.' The one node in the tree that pays off both halves of the spec at once, which is what it does in CoA too."
-    },
-    {
-      "talent_id": "bloodmage_accursed_crimson_feast",
-      "name": "Crimson Feast",
-      "description": "Reduces the cooldown of Bloodsurge by 10% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_bloodmage_bloodsurge_cooldown_pct": 0.1
       },
       "connected_to": [
         "bloodmage_accursed_fang_over_fang"
       ],
-      "_source": "CoA: 'Every 5 second you remain in a Cursed Form now reduces the cooldown of your Bloodsurge by -5 sec.' The curses here are untimed buffs, so the reduction is unconditional and smaller."
+      "_source": "CoA: 'Increases your maximum Rage by 20 and you now regenerate 4 Rage every 5 sec.' NEITHER half is buildable. max_rage is a hardcoded 100 in Character.__init__ with no talent hook - the same dead end Geomancy's Cave Dweller hit - and there is no per-turn resource regeneration key either. Rebuilt as haste and damage, which is what more Rage and faster Rage actually buy a melee spec."
+    },
+    {
+      "talent_id": "bloodmage_accursed_dark_hunt",
+      "name": "Dark Hunt",
+      "description": "Increases your Shadow spell damage by 10%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "shadow_spell_damage": 0.0333
+      },
+      "connected_to": [
+        "bloodmage_accursed_fang_over_fang"
+      ],
+      "_source": "CoA: 'Increases your Shadow damage dealt by 10% against bleeding targets.' No effect key reads whether the target carries a debuff, so the condition is dropped and CoA's 10% kept - this spec bleeds everything anyway once Rotclaw and the dots are running, so the condition was nearly always true."
+    },
+    {
+      "talent_id": "bloodmage_accursed_heightened_senses",
+      "name": "Heightened Senses",
+      "description": "Increases your physical critical strike chance by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 2
+      },
+      "connected_to": [
+        "bloodmage_accursed_crimson_expedition"
+      ],
+      "_source": "Not a CoA node by this name - it carries CoA's Killer Instinct, 'Each point of Rage now increases the critical strike chance of Veinburst and Reave by 0.5%, up to a maximum of 50%.' Scaling off a live resource amount is not reachable: get_talent_effects() has no access to a resource total. Granted flat, and renamed so the tooltip does not imply a Rage interaction it does not have."
+    },
+    {
+      "talent_id": "bloodmage_accursed_puncturing_fangs",
+      "name": "Puncturing Fangs",
+      "description": "Bloodmoon Blast returns 9 Rage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_cruel_intent"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodmoon_blast"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 9
+        }
+      },
+      "_source": "CoA verbatim: 'Your Bloodmoon Blast now generates 3 additional Rage per hit.' Bloodmoon Blast costs HEALTH and already banks Vitality through its `generates` block, so this makes it the spec's whole economy in one cast: pay in blood, receive Rage and Thirst."
+    },
+    {
+      "talent_id": "bloodmage_accursed_fang_over_fang",
+      "name": "Fang Over Fang",
+      "description": "Bloodfang Bite has a 20% chance to make Reave ready again at once.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_cruel_intent"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 7,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodfang_bite"
+        ],
+        "reset_cooldown": [
+          "bloodmage_reave"
+        ]
+      },
+      "_source": "CoA verbatim: 'Casting Bloodfang Bite now has a 20% chance to reset the cooldown of Reave.' Ports directly. Was a flat scalar."
+    },
+    {
+      "talent_id": "bloodmage_accursed_cruel_intent",
+      "name": "Cruel Intent",
+      "description": "Lunging at an enemy strikes them again and heals you.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_corrupted_blood"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_lunge"
+        ],
+        "extra_attack": true,
+        "heal_flat": 90
+      },
+      "_source": "CoA's Cruel Intent ('When you Lunge at an enemy you now strike them 3 times with auto attacks') plus Dark Intent ('When you Lunge at an enemy you now heal for 5% of your maximum health'). Both hang off the same trigger, so they are one node rather than two that each half-fire. extra_attack is a boolean, not a count, so 'three times' is one extra strike. heal_flat is a number - there is no percentage-of-max-health payload - so 5% is a flat 90."
+    },
+    {
+      "talent_id": "bloodmage_accursed_leeching_tome",
+      "name": "Leeching Tome",
+      "description": "Bloodbolt leeches 30% of the damage it deals back as health.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_corrupted_blood"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_bloodbolt"
+        ],
+        "leech_pct": {
+          "pct": 0.3
+        }
+      },
+      "_source": "CoA: 'Your Bloodbolt now leeches 50% more health, but it now costs 5 additional Rage.' Built as the leech itself rather than a multiplier on one, since Accursed has no Hematoma node to raise - that is Sanguine's. The cost increase is dropped for the sign reason: a surcharge must be written as a negative cost, which is indistinguishable from the error the audit flags."
+    },
+    {
+      "talent_id": "bloodmage_accursed_crimson_expedition",
+      "name": "Crimson Expedition",
+      "description": "Increases the critical strike chance of Bloodbolt and Aortic Assault by 10%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_bloodmage_bloodbolt_crit": 3.3333,
+        "ability_bloodmage_aortic_assault_crit": 3.3333
+      },
+      "connected_to": [
+        "bloodmage_accursed_gore_barrage"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of your Bloodbolt, Blood Shards, and Aortic Assault by 10%.' Blood Shards does not exist in Frontier, so the other two carry it."
+    },
+    {
+      "talent_id": "bloodmage_accursed_accursed_form",
+      "name": "Accursed Form",
+      "description": "Taking a Cursed Form sharpens you for 4 turns, increasing your attack power and leaving your strikes cutting healing on the target.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_terrorizer"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_accursed_form",
+          "bloodmage_blood_curse"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_accursed_form_buff",
+          "name": "Accursed Form",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 1,
+          "stat_mods": {
+            "attack_power_pct": 20.0,
+            "damage_dealt_pct": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Transforms your Blood Curse into Accursed Form. Embrace your demonic curse for 30 seconds, increasing your attack power by 50% of your Agility and causing your melee attacks to reduce all healing done to the target by -20%, stacking 2 times.' The window is built off CASTING either Cursed Form ability, because there is no Bloodmage shapeshift to require_form against and no 'while this buff is up' gate. The healing-reduction half needs a second proc on the target from inside this one, which apply_effect cannot do in both directions at once with different triggers, so the description says 'leaving your strikes cutting healing' as flavour and the numbers it does deliver are the attack power and damage. 50%-of-Agility becomes a flat attack_power_pct, since a status effect cannot carry a conversion."
     },
     {
       "talent_id": "bloodmage_accursed_terrorizer",
       "name": "Terrorizer",
-      "description": "Increases the damage of Puncturing Fangs by 6% and Veinburst by 4% per rank.",
+      "description": "Increases the damage of Veinburst, Bloodfang Bite and Claw Sweep by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_veinburst_damage": 0.0833,
+        "ability_bloodmage_bloodfang_bite_damage": 0.0833,
+        "ability_bloodmage_claw_sweep_damage": 0.0833
+      },
+      "connected_to": [
+        "bloodmage_accursed_cursed_blood"
+      ],
+      "_source": "CoA: 'Increases the damage of Veinburst, Bloodfang Bite, and Claw Sweep on enemies below 35% health by 25%.' A recipient-health condition on damage, and the engine's only recipient-health key is heal-side, so it is unconditional. CoA's 25% kept rather than trimmed, because an execute window is where this spec spends everything anyway."
+    },
+    {
+      "talent_id": "bloodmage_accursed_corrupted_blood",
+      "name": "Corrupted Blood",
+      "description": "Taldaram's Torment corrupts the target's blood, making it take 10% more damage for 5 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_cursed_blood"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_taldarams_torment"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_corrupted_blood",
+          "name": "Corrupted Blood",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'When you use Taldaram's Torment on a Humanoid or Beast it now corrupts their blood, increasing your damage dealt against them by 10%.' No key reads creature type, so it applies to everything. 'Your damage against them' has no attacker-specific recipient key either - damage_taken_pct raises damage from any source - which is a small overreach and the only honest route. NOTE the unit: damage_taken_pct is the ONE status stat_mod read RAW, so 10% is 0.10 here while the school-specific variants would be 10.0."
+    },
+    {
+      "talent_id": "bloodmage_accursed_gore_barrage",
+      "name": "Gore Barrage",
+      "description": "Reduces the health cost of your blood spells by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_bloodmage_bloodbolt_cost_pct": 0.1,
+        "ability_bloodmage_bloodmoon_blast_cost_pct": 0.1,
+        "ability_bloodmage_veinburst_cost_pct": 0.1,
+        "ability_bloodmage_hemoburst_cost_pct": 0.1
+      },
+      "connected_to": [
+        "bloodmage_accursed_bloodsurge"
+      ],
+      "_source": "CoA: 'Reduces the cost of spells that cost health and Animated Blood by -30%.' Animated Blood does not exist in Frontier (three CoA talents name it; the class has no such ability), so the four health-costed spells carry it. POSITIVE reduces. This is the node that makes a health-paying caster survivable in melee."
+    },
+    {
+      "talent_id": "bloodmage_accursed_sanguine_scripture",
+      "name": "Sanguine Scripture",
+      "description": "Increases your haste by 8%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "haste": 2.6667
+      },
+      "connected_to": [
+        "bloodmage_accursed_bloodsurge"
+      ],
+      "_source": "CoA: 'Upon exiting Accursed Form, you gain 70% movement speed and spell haste for 5 sec.' No trigger fires when a buff EXPIRES - the same wall Mountain King's Primal Guardian hit - and movement speed does not exist. The haste half is granted permanently at a fraction of CoA's value, since CoA's is a 5-second burst."
+    },
+    {
+      "talent_id": "bloodmage_accursed_cursed_blood",
+      "name": "Cursed Blood",
+      "description": "Taldaram's Torment has a 20% chance to rupture, splashing 50% of its damage onto up to 4 nearby enemies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_gore_tome"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 7,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_taldarams_torment"
+        ],
+        "splash_damage": {
+          "pct": 0.5,
+          "max_targets": 4,
+          "school": "shadow"
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Taldaram's Torment now has a 20% chance to internally rupture, causing it to deal its damage an additional time to all enemies near the target.' CoA's 20% kept. 'Its damage an additional time' would be extra_attack, but that hits the primary target only - splash_damage is what 'to all enemies near the target' means in an engine with no positions."
+    },
+    {
+      "talent_id": "bloodmage_accursed_shadow_pact",
+      "name": "Shadow Pact",
+      "description": "Your blood spells shield you for 25% of the damage they deal.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_gore_tome"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "bloodmage_bloodbolt",
+          "bloodmage_bloodmoon_blast",
+          "bloodmage_veinburst",
+          "bloodmage_hemoburst"
+        ],
+        "shield_pct": {
+          "pct": 0.25,
+          "duration": 2,
+          "effect_id": "bloodmage_shadow_pact",
+          "name": "Shadow Pact"
+        }
+      },
+      "_source": "CoA: 'Increases the effectiveness of your Shields by 50%.' There is no shield-effectiveness multiplier key, and Accursed has no shield of its own to raise, so there was nothing for CoA's version to multiply. Rebuilt as the shield itself, off the health-costed spells - which is the right place for it on a spec that pays its own HP to cast. 1-turn internal cooldown so a rotation does not keep a permanent absorb up."
+    },
+    {
+      "talent_id": "bloodmage_accursed_aortic_assault",
+      "name": "Aortic Assault",
+      "description": "Aortic Assault strikes everything around it, splashing 40% of its damage onto up to 5 enemies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_dark_sigil"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_aortic_assault"
+        ],
+        "splash_damage": {
+          "pct": 0.4,
+          "max_targets": 5,
+          "school": "physical"
+        }
+      },
+      "_source": "CoA: 'Channeled. Extend the duration of your active Cursed Form by 3 sec and strike nearby enemies every 0.5 sec for 3 sec.' Channels do not exist and neither does extending another effect's duration from a talent, so this is the repeated-strike half as a splash. Also carries CoA's Clotting ('at the end of Aortic Assault's duration, all enemies in a frontal cone suffer damage'), which is the same idea again and would have been this node twice."
+    },
+    {
+      "talent_id": "bloodmage_accursed_gore_tome",
+      "name": "Gore Tome",
+      "description": "Taking a Cursed Form guarantees your next strikes crit for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_dark_sigil"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_accursed_form",
+          "bloodmage_blood_curse"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_gore_tome",
+          "name": "Gore Tome",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "crit_chance_physical": 60.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'For the first 5 sec after activating a Cursed Form, your Bloodfang Bite is now guaranteed to critically strike.' The window ports as a buff off the cast. It is 60% crit rather than a guarantee, and general rather than Bloodfang-only, because a status effect cannot carry ability_bloodmage_bloodfang_bite_crit - per-ability keys are read through get_talent_effects(), which never includes status effects. 5 sec is 2 turns."
+    },
+    {
+      "talent_id": "bloodmage_accursed_bloodsurge",
+      "name": "Bloodsurge",
+      "description": "Taking a Cursed Form enrages you, increasing your Shadow damage and spell critical strike chance by 20% for 4 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_dark_frenzy"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_accursed_form",
+          "bloodmage_blood_curse"
+        ],
+        "apply_effect": {
+          "effect_id": "bloodmage_bloodsurge",
+          "name": "Bloodsurge",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 1,
+          "stat_mods": {
+            "crit_chance_spell": 20.0,
+            "damage_dealt_pct": 20.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: '3 min cooldown. Enter a bloodsurge, increasing your Shadow damage dealt and your spell critical strike chance by 20% for 20 sec. At the end of the duration, or whenever you trigger Accursed Form, gain Bloodchaser instead.' Frontier has a bloodmage_bloodsurge ability already, so this node is not its unlock. The Bloodchaser follow-up needs an on-expiry trigger, which does not exist. Hung off the Cursed Form cast - the same trigger as Accursed Form and Gore Tome, deliberately: taking a form is this spec's one big button and three talents should all reward it. damage_dealt_pct is school-agnostic, so the Shadow restriction is lost."
+    },
+    {
+      "talent_id": "bloodmage_accursed_dark_sigil",
+      "name": "Dark Sigil",
+      "description": "Your critical strikes heal you for 15% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_dark_frenzy"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "leech_pct": {
+          "pct": 0.15
+        }
+      },
+      "_source": "CoA verbatim for the half that is buildable: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, you now heal for 15% of all critical damage dealt.' The party aura has no mechanism; the leech ports exactly, including CoA's 15%."
+    },
+    {
+      "talent_id": "bloodmage_accursed_endure_the_curse",
+      "name": "Endure the Curse",
+      "description": "Taking a heavy blow turns the curse outward, reducing your damage taken by 30% for 3 turns and healing you.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "ability_bloodmage_puncturing_fangs_damage": 0.06,
-        "ability_bloodmage_veinburst_damage": 0.04
-      },
-      "connected_to": [
-        "bloodmage_accursed_dark_sigil"
-      ],
-      "_source": "CoA: 'Increases the damage of Veinburst, Bloodfang Bite, and Claw Sweep on enemies below 35% health by 25%.' Bloodfang Bite and Claw Sweep belong to Eternal, so the node points at this spec's own melee button instead, and the health gate is dropped."
-    },
-    {
-      "talent_id": "bloodmage_accursed_night_hunter",
-      "name": "Night Hunter",
-      "description": "Reduces the Rage and health cost of your abilities by 3% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "all_ability_cost_pct": 0.03
-      },
-      "connected_to": [
-        "bloodmage_accursed_battleweaver"
-      ],
-      "_source": "CoA: 'Your Veinburst now has a 40% chance to not trigger a cooldown ... Your Bloodbolt now has a 40% chance to refund half of its Rage cost.' A refund chance has no hook; a flat discount is the same thing averaged out. POSITIVE is the discount - talented_cost does cost * (1 - pct), and Guardian, Barbarian and Felsworn all ship this key negative, i.e. as a surcharge their tooltips do not mention."
-    },
-    {
-      "talent_id": "bloodmage_accursed_blood_scent",
-      "name": "Blood Scent",
-      "description": "Your damaging casts have a 20% chance per rank to drain 12% of the damage dealt back into you.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
       "effects": {},
       "connected_to": [
         "bloodmage_accursed_crimson_feast"
       ],
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 1,
-        "leech_pct": 0.12
+        "trigger": "on_damage_taken",
+        "chance": 4,
+        "icd": 8,
+        "heal_flat": 350,
+        "apply_effect": {
+          "effect_id": "bloodmage_endure_the_curse",
+          "name": "Endure the Curse",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_taken_pct": -0.3
+          },
+          "on_target": false
+        }
       },
-      "_source": "CoA: 'Dealing direct damage to enemies below 35% maximum health now leeches health equal to 10% of the damage dealt.' The execute window is not visible to a proc, so it leeches all the time at a lower chance - and this spec needs it, since 'Every point of sustain is damage-gated'."
+      "_source": "CoA: 'Reduce all damage taken by -30% for 10 seconds. While active, taking damage that would reduce your health below 10% will instantly heal you for 30% of your maximum health. Can only occur once.' No proc reads the carrier's own health threshold, so the two halves collapse into one roll: a 12% chance on taking damage with an 8-turn internal cooldown. CoA's -30% kept, and damage_taken_pct is read RAW in a status effect so it is -0.30, not -30.0 - the latter being the 3000% reduction Boltslinger's Evasive shipped as before the audit caught it."
     },
     {
-      "talent_id": "bloodmage_accursed_darkcasting",
-      "name": "Darkcasting",
-      "description": "Increases your spell critical strike damage by 8% per rank.",
+      "talent_id": "bloodmage_accursed_dark_frenzy",
+      "name": "Dark Frenzy",
+      "description": "Increases your haste by 3%.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
+      "hex_x": 3,
+      "hex_y": 2,
       "effects": {
-        "crit_damage_spell": 0.08
+        "haste": 1
       },
       "connected_to": [
-        "bloodmage_accursed_terrorizer"
+        "bloodmage_accursed_crimson_feast"
       ],
-      "_source": "CoA lists Darkcasting with Killer Instinct and Ultra Instinct as the spec's crit payoffs."
+      "_source": "CoA: 'Increases spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, while a Cursed Form is active, your global cooldowns are reduced by 25%.' The party aura has no mechanism, and there is NO GLOBAL COOLDOWN in this engine - so the second half is free value with nothing to apply it to and is dropped rather than repriced into unrelated damage. What survives is CoA's own self-haste number."
     },
     {
-      "talent_id": "bloodmage_accursed_ultra_instinct",
-      "name": "Ultra Instinct",
-      "description": "You stop deciding and start landing. Increases your critical strike chance by 3% and your critical strike damage by 10%, with weapons and with spells.",
-      "node_type": "active",
+      "talent_id": "bloodmage_accursed_crimson_feast",
+      "name": "Crimson Feast",
+      "description": "Your strikes bring your Cursed Forms back sooner.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "bloodmage_accursed_crimson_terror_acc"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "bloodmage_reave",
+          "bloodmage_bloodfang_bite",
+          "bloodmage_claw_sweep",
+          "bloodmage_ravenous_strike",
+          "bloodmage_crimson_maw"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "bloodmage_accursed_form",
+            "bloodmage_blood_curse"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA: 'Every 0.01 second you remain in a Cursed Form now reduces the cooldown of your Bloodsurge by 5 sec.' There is no turn-based reading of 'every 0.01 second', and no trigger fires for time spent in a buff. Rebuilt as strikes shortening the FORM cooldowns, which is the loop CoA is after from the other end - stay in the form, get the form back faster. turns:1 knocks one turn off rather than resetting outright."
+    },
+    {
+      "talent_id": "bloodmage_accursed_veinburst_mastery",
+      "name": "Veinburst",
+      "description": "Increases the damage of Veinburst by 50% and its critical strike damage by 25%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_bloodmage_veinburst_damage": 0.1667,
+        "ability_bloodmage_veinburst_crit_damage": 0.0833
+      },
+      "connected_to": [
+        "bloodmage_accursed_crimson_terror_acc"
+      ],
+      "_source": "CoA's Veinburst: 'Blast an enemy, dealing Shadow damage. Deals 25% increased damage to bleeding targets.' Frontier has the ability already, so this is not an unlock. The bleeding condition has no key, so the 25% is moved into crit damage instead of being granted unconditionally on top of the base - which would have been the same number twice. ability_*_crit_damage is a FRACTION while ability_*_crit is a percent."
+    },
+    {
+      "talent_id": "bloodmage_accursed_blood_plague",
+      "name": "Blood Plague",
+      "description": "Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_bloodmage_ravenous_strike_crit": 3.3333,
+        "ability_bloodmage_claw_sweep_crit": 3.3333,
+        "crit_damage_physical": 0.0333
+      },
+      "connected_to": [
+        "bloodmage_accursed_crimson_terror_acc"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10% against Diseased targets.' No key reads a creature or debuff state, so it is unconditional. The crit-damage half is general rather than per-ability, because ability_*_crit_damage exists but splitting 10% across two abilities and also granting it generally would be the same bonus twice."
+    },
+    {
+      "talent_id": "bloodmage_accursed_reave_mastery",
+      "name": "Reave",
+      "description": "Increases the damage of Reave by 60%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "ability_bloodmage_reave_damage": 0.2
+      },
+      "connected_to": [
+        "bloodmage_accursed_crimson_terror_acc"
+      ],
+      "_source": "CoA's Reave: 'Lacerate an enemy, dealing 125% Weapon Damage. If the enemy is bleeding, below 35% health, or if you are behind them, deal 100% additional Shadow damage FOR EACH CONDITION MET.' The worst of this tree's conditional nodes: CoA offers up to +300% from three stacked checks, and not one of the three is readable - no debuff state, no recipient health for damage, and no positioning at all. Priced at a flat +60%, roughly one condition's worth landing reliably rather than three landing sometimes. Flagged because this is the single biggest fidelity gap in the Bloodmage rebuild."
+    },
+    {
+      "talent_id": "bloodmage_accursed_crimson_terror_acc",
+      "name": "Monstrous Appetite",
+      "description": "Your strikes drink deep, healing you for 12% of the damage dealt, and your blood spells hit 25% harder.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "crit_chance_physical": 3.0,
-        "crit_chance_spell": 3.0,
-        "crit_damage_physical": 0.1,
-        "crit_damage_spell": 0.1
+        "ability_bloodmage_bloodbolt_damage": 0.25,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.25,
+        "ability_bloodmage_veinburst_damage": 0.25,
+        "ability_bloodmage_hemoburst_damage": 0.25
       },
-      "connected_to": [
-        "bloodmage_accursed_night_hunter",
-        "bloodmage_accursed_blood_scent",
-        "bloodmage_accursed_darkcasting"
-      ],
-      "_source": "Capstone. CoA: 'Direct ability critical strikes now increase your spell and ability critical strike chance and critical damage by 3% for 10 sec. Each additional critical strike increases this by an additional 3%, but reduces its duration by -1 sec.' A self-shortening stack has no hook, so the first stack is made permanent."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "bloodmage_reave",
+          "bloodmage_bloodfang_bite",
+          "bloodmage_claw_sweep",
+          "bloodmage_ravenous_strike",
+          "bloodmage_crimson_maw"
+        ],
+        "leech_pct": {
+          "pct": 0.12
+        }
+      },
+      "_source": "The capstone, and it closes the loop the whole spec runs on: melee feeds health, health pays for spells, spells hit harder. Named for the ability bloodmage_monstrous_hunger rather than taking a CoA talent name, because the two CoA capstone-depth nodes here are both unbuildable - Crimson Feast's time-in-form counter (used at tier 5 for the half that works) and Dark Frenzy's GCD reduction, in an engine with no GCD. Deliberately distinct from Sanguine's Crimson Terror, which is spell-side; this is the melee answer to it."
     }
   ]
 }
