@@ -1,8 +1,8 @@
 {
   "spec_name": "Templar Oathkeeper",
   "tree_id": "templar_oathkeeper",
-  "description": "Avoidance tank with a damage-into-healing loop. Dodge and parry come off Agility and Intellect rather than a shield, absorbs sit on top, and the Oath Breakers you spend can be heals instead of hits.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_templar__oathkeeper.txt and the oathkeeper half of reference/coa_sidekick/talents/templar.json. CoA calls this 'a Brewmaster Monk fused with Mistweaver fistweaving', rated A in dungeons, A in raids and A in battlegrounds. Two decisions shaped the tree. First, it is an AVOIDANCE tank, not a block tank: its free level-20 passive converts Agility into parry and Intellect into dodge, and its stat priority is Hit > Expertise > Agility > Stamina > Crit > Haste, with no block rating anywhere in it. The Templar carries a shield (weapon_types.json: sword_1h, mace_1h, shield) but this tree deliberately spends nothing on block chance or block value, which is what separates it from the other shield tank in the game. Second, the spec's defining passive is a Stagger clone - 'You now delay 40% of direct damage taken, instead taking it over 8 seconds' - and nothing in this engine delays damage. Every node that touched the stagger pool (Keeping the Oath, Sacred Oath, Holy Books) became flat mitigation instead, and that is the single largest departure from the reference in this class.",
+  "description": "Oath and warstaff - a two-handed tank who turns Intellect into dodge.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 39 real CoA Oathkeeper talents (role Tank). GRACEFUL FIGHTER PORTS WHOLE and is the most unusual conversion in the audit: parry from 20% of Agility AND dodge from 20% of Intellect are both legal pairs, so a tank gearing Intellect for dodge is real exactly as CoA wrote it. OATHKEEPER ITSELF cannot be built - 'damage taken is delayed and dealt over 8 seconds' needs an accumulator that does not exist, the same wall as the Witch Doctor's Puppeteer's Threads - and three talents read it. Staffguard uses absorb_pct_max_health, a payload field for a shield sized off maximum health.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,325 +14,426 @@
   },
   "nodes": [
     {
-      "talent_id": "templar_oathkeeper_bells_of_light",
-      "name": "Bells of Light",
-      "description": "Increases your hit rating by 1 and your Stamina by 2 per rank.",
+      "talent_id": "templar_oathkeeper_graceful_fighter",
+      "name": "Graceful Fighter",
+      "description": "Increases your parry chance by 20% of your Agility and your dodge chance by 20% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1,
-        "stamina": 2
+        "parry_from_agility_pct": 0.0667,
+        "dodge_from_intellect_pct": 0.0667
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your, and hit chance by 3%' (2 ranks - the scrape lost a clause). The spec's stat priority opens 'Hit Rating (until your specials stop missing a +3-level target)', which for a tank is a threat stat."
+      "connected_to": [
+        "templar_oathkeeper_paragon"
+      ],
+      "_source": "CoA's level 20 passive, verbatim: 'Increases your parry rating by 20% of Agility and your dodge rating by 20% of Intellect.' PORTS WHOLE, and it is the most unusual conversion node in this audit: parry AND dodge are both in STAT_CONVERSION_TARGETS, and agility and intellect are both in STAT_CONVERSION_SOURCES, so CoA's cross-pairing works exactly as written. A tank that gears Intellect for dodge is a real build here. Both are FRACTIONS. Note dodge then passes through _diminish() while parry does not, so the Intellect half is worth slightly less per point."
     },
     {
       "talent_id": "templar_oathkeeper_paragon",
       "name": "Paragon",
-      "description": "Increases your Stamina by 3 per rank.",
+      "description": "Increases your Stamina by 10% and your Agility by 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "stamina": 3
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Stamina by 10, plus an additional amount equal to 10% of your Agility'. The Agility half cannot be a conversion: STAT_CONVERSION_TARGETS has no stamina entry, because no Character attribute is written by one, so it is flat Stamina only."
-    },
-    {
-      "talent_id": "templar_oathkeeper_blessed_padding",
-      "name": "Blessed Padding",
-      "description": "Increases your Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Armor contribution from mail items by 50% and reduces damage taken from area of effect attacks by -10%' (2 ranks). The Frontier Templar wears leather, not mail (data/items/armor_types.json), and there is no per-armour-type or AoE-taken key, so it is plain Armor. NOTE armor_pct is percentage POINTS, unlike most _pct keys."
-    },
-    {
-      "talent_id": "templar_oathkeeper_graceful_fighter",
-      "name": "Graceful Fighter",
-      "description": "Grants parry equal to 4% of your Agility and dodge equal to 4% of your Intellect per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "parry_from_agility_pct": 0.04,
-        "dodge_from_intellect_pct": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA free level-20 passive, verbatim: 'Increases your parry rating by 20% of Agility and your dodge rating by 20% of Intellect'. 5 ranks of 4% is exactly that 20%. This is the node that makes Oathkeeper an avoidance tank rather than a block tank, and the reason the tree spends almost nothing on block even though the class carries a shield."
-    },
-    {
-      "talent_id": "templar_oathkeeper_sacred_oath",
-      "name": "Sacred Oath",
-      "description": "Increases your critical strike chance by 1% and reduces all damage you take by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "damage_taken_pct": -0.01
+        "stamina_pct": 3.3333,
+        "agility_pct": 3.3333
       },
       "connected_to": [
         "templar_oathkeeper_bells_of_light"
       ],
-      "_source": "CoA: 'Critical strikes now remove 1 sec from the duration of Oathkeeper when used', where Oathkeeper is the stagger pool. Nothing delays damage in this engine, so shortening the delay becomes taking less of it, and the crit that triggers it is on the same node."
+      "_source": "CoA verbatim: 'Increases your Stamina by 10, plus an additional amount equal to 10% of your Agility.' A FLAT 10 Stamina is meaningless at level 60 scale, and stamina_from_agility_pct is NOT a legal conversion - stamina is not in STAT_CONVERSION_TARGETS, which cost Witch Hunter's Black Knight the same half earlier in this audit. Built as percentage Stamina plus the Agility that Graceful Fighter above converts into parry. Both keys take percentage POINTS."
+    },
+    {
+      "talent_id": "templar_oathkeeper_bells_of_light",
+      "name": "Bells of Light",
+      "description": "Increases your Agility, Intellect and chance to hit by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "agility_pct": 2,
+        "intellect_pct": 2,
+        "hit_rating": 2
+      },
+      "connected_to": [
+        "templar_oathkeeper_graceful_oath"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Agility, Intellect, and hit chance by 3%.' Doubled for the two ranks. All three port, and both stats feed Graceful Fighter - Agility into parry, Intellect into dodge - which is why a Templar tank wants a caster stat at all. agility_pct and intellect_pct take POINTS; hit_rating is a PERCENT."
+    },
+    {
+      "talent_id": "templar_oathkeeper_graceful_oath",
+      "name": "Sacred Oath",
+      "description": "Reduces the physical damage you take by 8%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "physical_damage_taken_pct": -0.0267
+      },
+      "connected_to": [
+        "templar_oathkeeper_grace_of_amanthul"
+      ],
+      "_source": "CoA verbatim: 'Critical strikes now remove 1 sec from the duration of Oathkeeper when used. Oathkeeper: 40% of damage taken is now delayed and dealt to you over 8 seconds.' OATHKEEPER CANNOT BE BUILT: nothing defers incoming damage - take_damage applies it immediately and there is no accumulator to hold a deferred pool - so there is no duration to shorten either. This is the same wall that took the Witch Doctor's Puppeteer's Threads and Brewing's Base: Beast Blood, which is the identical 'damage taken becomes damage over time' idea. Re-pointed at straight physical mitigation, which is what delaying 40% of a hit buys a tank. AS A TALENT EFFECT physical_damage_taken_pct is a FRACTION where NEGATIVE reduces."
+    },
+    {
+      "talent_id": "templar_oathkeeper_grace_of_amanthul",
+      "name": "Grace of Aman'thul",
+      "description": "Reduces the cost of Righteous Lunge and Sacred Swing by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_templar_righteous_lunge_cost_pct": 0.0667,
+        "ability_templar_sacred_swing_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "templar_oathkeeper_staffguard"
+      ],
+      "_source": "CoA verbatim: 'Reduces the Energy cost of Righteous Lunge by -5 and Sacred Swing by -10.' CoA's Templar spends Energy; Frontier's spends COMBO, a real primary pool with six generators (see the Zealot builder), so there is a genuine cost to cut. The two different flat amounts become one percentage, since costs differ per rank anyway. POSITIVE reduces."
     },
     {
       "talent_id": "templar_oathkeeper_staffguard",
       "name": "Staffguard",
-      "description": "Your damage raises a shield for a quarter of what you dealt.",
+      "description": "Sacred Swing raises a guard, absorbing damage equal to 8% of your maximum health for 3 turns.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "templar_oathkeeper_paragon"
+        "templar_oathkeeper_sacred_resistance"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
+        "chance": 33,
+        "icd": 0,
         "ability_filter": [
           "templar_sacred_swing"
         ],
-        "shield_pct": {
-          "pct": 0.25,
+        "apply_effect": {
           "effect_id": "templar_staffguard",
-          "name": "Staffguard"
+          "name": "Staffguard",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "absorb_pct_max_health": 0.08,
+          "on_target": false
         }
       },
-      "_source": "CoA: 'Casting Sacred Swing now grants you Staffguard, absorbing Stamina damage, scaling with Stamina, parry and dodge rating, for 8 seconds'. shield_pct sizes the absorb off the triggering hit rather than off Stamina, which is the closest the payload set gets; ability_filter pins it to Sacred Swing exactly as CoA words it."
-    },
-    {
-      "talent_id": "templar_oathkeeper_conviction",
-      "name": "Conviction",
-      "description": "Increases your haste by 2 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "haste": 2.0
-      },
-      "connected_to": [
-        "templar_oathkeeper_blessed_padding"
-      ],
-      "_source": "CoA: 'Casting Sacred Swing now increases your melee haste by 5% for 15 seconds, stacking 4 times'. A cast-driven stacking buff needs a proc with an apply_effect; as a flat stat it is simply the haste the stack would have reached, always on."
-    },
-    {
-      "talent_id": "templar_oathkeeper_parry_dance",
-      "name": "Parry Dance",
-      "description": "Increases your parry chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "parry": 1.0
-      },
-      "connected_to": [
-        "templar_oathkeeper_graceful_fighter"
-      ],
-      "_source": "CoA: 'When you critically strike with auto attacks or parry an attack, your chance to parry is now increased by 3% for 5 seconds, stacking 5 times'. Parry is full avoidance here, not partial like block, which is why the per-rank number is small."
-    },
-    {
-      "talent_id": "templar_oathkeeper_way_of_the_monk",
-      "name": "Way of the Monk",
-      "description": "Increases your dodge and parry chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "dodge": 1.0,
-        "parry": 1.0
-      },
-      "connected_to": [
-        "templar_oathkeeper_sacred_oath"
-      ],
-      "_source": "CoA: 'Damage dealt by Sacred Swing and Reckoning now reduces casting speed by -10% for 10 seconds'. There is no cast speed to slow, so the node carries the avoidance the spec is built on instead and keeps its name."
-    },
-    {
-      "talent_id": "templar_oathkeeper_uthers_legacy",
-      "name": "Uther's Legacy",
-      "description": "Condemn heals you for a quarter of the damage it deals.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "templar_oathkeeper_staffguard"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "ability_filter": [
-          "templar_condemn"
-        ],
-        "leech_pct": 0.25
-      },
-      "_source": "CoA: 'Your Condemn now heals you for 75% of the damage dealt', and 'Uther's Legacy even makes Condemn heal you off the damage it deals, so the spec both tanks hits and turns those same hits into sustain'. 75% on the full damage of a free builder is more sustain than any shipped leech, so it lands at 25%. leech_pct fires on the cast, so the periodic ticks do not feed it - the ticks run through tick_status_effects, which has no caster reference to proc from."
-    },
-    {
-      "talent_id": "templar_oathkeeper_holy_warstaff",
-      "name": "Holy Warstaff",
-      "description": "Increases the damage of Reckoning by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_templar_reckoning_damage": 0.08
-      },
-      "connected_to": [
-        "templar_oathkeeper_conviction"
-      ],
-      "_source": "CoA: 'Increases the damage of Reckoning by 20%'."
+      "_source": "CoA verbatim: 'Casting Sacred Swing now grants you Staffguard, absorbing damage, scaling with Stamina, parry and dodge rating, for 8 sec.' USES absorb_pct_max_health, a payload field most of this audit has not needed: an apply_effect can carry a shield sized as a percentage of the recipient's maximum health (status_effects.py:1479). That is the one honest way to build 'absorbs, scaling with Stamina' - a payload cannot read a stat, but maximum health already carries Stamina, so the scaling is real rather than faked. 8 sec is 3 turns."
     },
     {
       "talent_id": "templar_oathkeeper_sacred_resistance",
       "name": "Sacred Resistance",
-      "description": "Increases your Armor by 3% per rank.",
+      "description": "Reckoning hardens you, raising your armour by 15% for 5 turns.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [
-        "templar_oathkeeper_parry_dance"
-      ],
-      "_source": "CoA: 'Casting Reckoning now increases your Armor by 15% for 15 seconds', and 'Sacred Resistance bumps your Armor when you cast it'. A cast-triggered window needs a proc with an apply_effect; flat Armor is the always-on version of the same number."
-    },
-    {
-      "talent_id": "templar_oathkeeper_untainted",
-      "name": "Untainted",
-      "description": "Your heals leave you taking 2% less physical damage per rank for 3 turns.",
-      "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "templar_oathkeeper_way_of_the_monk"
+        "templar_oathkeeper_conviction"
       ],
       "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 100,
-        "icd": 2,
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "templar_reckoning"
+        ],
         "apply_effect": {
-          "effect_id": "templar_untainted",
-          "name": "Untainted",
+          "effect_id": "templar_sacred_resistance",
+          "name": "Sacred Resistance",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 5,
+          "max_stacks": 1,
           "stat_mods": {
-            "physical_damage_taken_pct": -2.0
+            "armor_pct": 15.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Effectively healing yourself now reduces your Physical damage taken by Stamina for 8 seconds. Can only occur every 15 sec', and the strengths page names 'the Physical damage reduction Untainted passively procs off its own healing'. The icd carries the real internal cooldown. Units: percentage POINTS inside a proc."
+      "_source": "CoA verbatim: 'Casting Reckoning now increases your Armor by 15% for 15 seconds.' PORTS EXACTLY - CoA's 15%, and 15 sec is 5 turns. armor_pct takes percentage POINTS inside a status effect as well as on a talent, so 15.0 is right on both sides."
+    },
+    {
+      "talent_id": "templar_oathkeeper_conviction",
+      "name": "Conviction",
+      "description": "Sacred Swing quickens you, raising your haste by 5% per stack for 5 turns, stacking 4 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_oathkeeper_holy_warstaff"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "templar_sacred_swing"
+        ],
+        "apply_effect": {
+          "effect_id": "templar_conviction",
+          "name": "Conviction",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 4,
+          "stat_mods": {
+            "haste": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Sacred Swing now increases your melee haste by 5% for 15 seconds, stacking 4 times.' PORTS EXACTLY - CoA's 5% and 4 stacks, 15 sec as 5 turns. One of the cleanest nodes in the tree because it asks for nothing the engine lacks."
+    },
+    {
+      "talent_id": "templar_oathkeeper_holy_warstaff",
+      "name": "Holy Warstaff",
+      "description": "Increases the damage of Reckoning by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_templar_reckoning_damage": 0.0667
+      },
+      "connected_to": [
+        "templar_oathkeeper_parry_dance"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Reckoning by 20%.' Ports exactly. CoA gates Reckoning on two-handed weapons; requires_weapon does not exist as a talent condition, so the weapon requirement lives on the ability or not at all - the same limit that made Guardian Gladiator's four Training nodes unconditional."
+    },
+    {
+      "talent_id": "templar_oathkeeper_parry_dance",
+      "name": "Parry Dance",
+      "description": "Parrying an attack raises your parry chance by 3% per stack for 2 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "templar_oathkeeper_disciplined_mind"
+      ],
+      "proc": {
+        "trigger": "on_parry",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "templar_parry_dance",
+          "name": "Parry Dance",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 5,
+          "stat_mods": {
+            "parry": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'When you critically strike with auto attacks or parry an attack, your chance to parry is now increased by 3% for 5 sec, stacking 5 times.' on_parry IS a live trigger (fired from Character._fire_avoidance_procs), so the parry half ports exactly - CoA's 3% and 5 stacks, 5 sec as 2 turns. The auto-attack-crit half is dropped rather than merged: two triggers would need two procs and would double-stack on a turn where both happen."
     },
     {
       "talent_id": "templar_oathkeeper_disciplined_mind",
       "name": "Disciplined Mind",
-      "description": "Increases the healing done by Benediction by 10% per rank.",
+      "description": "Increases the healing of Benediction by 30%.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": -4,
+      "hex_y": -2,
       "effects": {
         "ability_templar_benediction_healing": 0.1
       },
       "connected_to": [
-        "templar_oathkeeper_uthers_legacy"
+        "templar_oathkeeper_justicar_of_the_light"
       ],
-      "_source": "CoA: 'Increases the healing of Benediction by 15% and causes it to dispel 1 poison and disease effect' (2 ranks). A talent cannot add a dispel to an ability, so the healing half carries the node. ability_<id>_healing is live and was dead for months - eighteen talents were authored on it before only _damage was read."
+      "_source": "CoA over 2 ranks: 'Increases the healing of Benediction by 15% and causes it to dispel 1 poison and disease effect.' Doubled for the two ranks. No key adds a dispel to an ability - dispelling is an effect_type, not a rider - so that half is dropped."
+    },
+    {
+      "talent_id": "templar_oathkeeper_justicar_of_the_light",
+      "name": "Justicar of the Light",
+      "description": "Reduces the cooldown of Benediction by 50%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_templar_benediction_cooldown_pct": 0.1667
+      },
+      "connected_to": [
+        "templar_oathkeeper_guardian_of_the_light"
+      ],
+      "_source": "CoA verbatim: 'Removes the cooldown from Benediction, but increases its Energy cost by 10.' A FULL COOLDOWN REMOVAL is expressible (1.0) but would make the tank's self-heal spammable, and NO KEY ADDS A COST - _cost_pct is positive-reduces, so CoA's downside cannot be charged in either direction. Priced at half the cooldown with no penalty, which is the honest middle."
+    },
+    {
+      "talent_id": "templar_oathkeeper_guardian_of_the_light",
+      "name": "Guardian of the Light",
+      "description": "Reduces the cost of Temple Guardian by 50%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_templar_temple_guardian_cost_pct": 0.1667
+      },
+      "connected_to": [
+        "templar_oathkeeper_way_of_the_monk"
+      ],
+      "_source": "CoA verbatim: 'Casting Benediction now reduces the cost of your next Temple Guardian by -50% for 6 seconds.' Nothing discounts a named next cast, so the 50% is permanent. Temple Guardian is target_type 'party', so making it cheaper is real party value - the same reasoning as Zealot's Force of Golganneth node."
+    },
+    {
+      "talent_id": "templar_oathkeeper_way_of_the_monk",
+      "name": "Way of the Monk",
+      "description": "Sacred Swing and Reckoning leave the enemy dealing 10% less damage for 3 turns, stacking twice.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "templar_oathkeeper_fortified_body"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "templar_sacred_swing",
+          "templar_reckoning"
+        ],
+        "apply_effect": {
+          "effect_id": "templar_way_of_the_monk",
+          "name": "Way of the Monk",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 2,
+          "stat_mods": {
+            "damage_dealt_pct": -10.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Sacred Swing and Reckoning now reduces casting speed by 10% for 10 sec, stacking 2 times.' THERE IS NO CASTER-SIDE SPEED DEBUFF KEY - haste is attacker-side and nothing slows a target's casting - so it becomes a damage reduction, which is the mitigation a slowed caster represents to a tank. CoA's 10% and 2 stacks kept; 10 sec is 3 turns. damage_dealt_pct inside a status effect is percentage POINTS."
     },
     {
       "talent_id": "templar_oathkeeper_fortified_body",
       "name": "Fortified Body",
-      "description": "Increases your total health by 2% and grants healing power equal to 3% of your Stamina per rank.",
+      "description": "Increases your maximum health by 6% and the healing you receive by 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": 0,
       "effects": {
         "max_health_pct": 0.02,
-        "healing_power_from_stamina_pct": 0.03
+        "healing_taken_pct": 0.02
       },
       "connected_to": [
-        "templar_oathkeeper_holy_warstaff"
+        "templar_oathkeeper_call_of_the_monastery"
       ],
-      "_source": "CoA: 'Allies within 40 yds receive 6% more healing ... Additionally, increases your maximum health by 6%', and Benediction 'scales with Stamina'. Allied healing received is not a talent-scoped effect, so the node carries the Stamina-to-healing conversion that makes Benediction work instead. NOTE max_health_pct is a FRACTION: 0.02 is +2%. Guardian shipped 2.0 on this key and measured 99,156 effective HP against the next tank's 2,987."
+      "_source": "CoA verbatim: 'Allies within 40 yds receive 6% more healing. Does not stack with similar effects. Additionally, increases your maximum health by 6%.' A TALENT CANNOT REACH AN ALLY, so the healing-received half lands on the Templar too and the description says 'you'. BOTH KEYS ARE FRACTIONS AS TALENT EFFECTS - max_health_pct and healing_taken_pct each flip to percentage POINTS inside a status effect, which is exactly the pair that shipped 600% and 1000% on earlier trees before being caught."
     },
     {
-      "talent_id": "templar_oathkeeper_duty_calls",
-      "name": "Duty Calls",
-      "description": "Increases all damage you deal by 2% per rank.",
+      "talent_id": "templar_oathkeeper_call_of_the_monastery",
+      "name": "Call of the Monastery",
+      "description": "Increases your attack power by 10%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "all_damage": 0.02
+        "attack_power_pct": 3.3333
       },
       "connected_to": [
-        "templar_oathkeeper_sacred_resistance"
+        "templar_oathkeeper_faith_guard"
       ],
-      "_source": "CoA: 'Casting abilities that grant an Oath now increases your damage dealt and movement speed by 2% for 15 seconds, stacking 5 times'. There is no movement speed key, and the stacking ramp has no hook, so the damage half is flat."
+      "_source": "CoA verbatim: 'Increases the attack power of all party and raid members 5%. Does not stack with similar effects. In addition, increases your attack power by 5%.' A talent cannot reach an ally, so CoA's two 5% halves land on the Templar as a single 10%. attack_power_pct takes percentage POINTS."
     },
     {
-      "talent_id": "templar_oathkeeper_barrier_of_light",
-      "name": "Barrier of Light",
-      "description": "Increases your threat generation by 8% per rank.",
+      "talent_id": "templar_oathkeeper_faith_guard",
+      "name": "Faith Guard",
+      "description": "Increases the damage of Chastise by 30% and the threat you\ngenerate by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_templar_chastise_damage": 0.1,
+        "threat_generation_pct": 0.0667
+      },
+      "connected_to": [
+        "templar_oathkeeper_disciplined_blows"
+      ],
+      "_source": "CoA verbatim: 'While a Libram is active, your Chastise will now unleash a line of holy power, dealing High Threat Holy damage.' The 'while a Libram is active' gate has no key - nothing reads whether a buff is up - and a line is positional. Built as damage plus threat on Chastise, which is what High Threat means for a tank. threat_generation_pct is a FRACTION where POSITIVE increases, the opposite polarity to the _cost_pct keys."
+    },
+    {
+      "talent_id": "templar_oathkeeper_disciplined_blows",
+      "name": "Disciplined Blows",
+      "description": "Your heals pulse holy power, striking the enemy for holy damage.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "templar_oathkeeper_absolution"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 33,
+        "icd": 1,
+        "damage_flat": 70,
+        "school": "holy"
+      },
+      "_source": "CoA verbatim: 'Your healing done triggers a holy pulse around healed targets, dealing Holy damage to nearby enemies. Can only occur once every 0.5 sec.' on_heal_cast with a damage_flat payload is the right shape - a tank healing itself and damaging what it is holding. The pulse lands on the current target rather than around the healed ally, since a payload has no radius. 1-turn icd covers CoA's rate limit."
+    },
+    {
+      "talent_id": "templar_oathkeeper_absolution",
+      "name": "Absolution",
+      "description": "Increases the threat you generate by 30% and your armour by 10%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -340,17 +441,18 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "threat_generation_pct": 0.08
+        "threat_generation_pct": 0.1,
+        "armor_pct": 3.3333
       },
       "connected_to": [
-        "templar_oathkeeper_untainted"
+        "templar_oathkeeper_holy_books"
       ],
-      "_source": "CoA: 'For the duration, threat generated by your allies is redirected to you', and 'Barrier of Light to pull allies' threat onto yourself'. Threat redirection has no hook, but threat generation does, and this is the tree's only threat node - set at Warrior Defiance's 8%/rank so the two tanks hold aggro equally. NOTE the key: threat_generation_pct is a FRACTION in a talent and percentage POINTS in an ability's stat_mods, and the talent side only started working in 992ed62."
+      "_source": "CoA verbatim: 'Taunt all enemies within 8 yds for 4 sec and increase your movement speed by 50% for 4 sec.' Frontier HAS Absolution as an ability and it is not gated, so this is not its unlock. An AoE taunt is the ability's own business and movement speed is positional, so the talent is built as the threat and survivability a taunt node should carry for a tank."
     },
     {
-      "talent_id": "templar_oathkeeper_battlepriest",
-      "name": "Battlepriest",
-      "description": "Reduces the magic damage you take by 2% per rank.",
+      "talent_id": "templar_oathkeeper_holy_books",
+      "name": "Holy Books",
+      "description": "Reduces all damage you take by 7%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -358,107 +460,126 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "magic_damage_taken_pct": -0.02
+        "damage_taken_pct": -0.0233
       },
       "connected_to": [
-        "templar_oathkeeper_disciplined_mind",
-        "templar_oathkeeper_fortified_body"
+        "templar_oathkeeper_duty_calls"
       ],
-      "_source": "CoA: 'While above 80% health or below 20% health, you now take 20% reduced Magic damage'. The two-ended condition cannot be expressed - low_health_damage_reduction_pct covers one end and nothing covers the other - so it is unconditional and much smaller. Talent units: FRACTION."
+      "_source": "CoA's level 30 passive: 'Using a Libram now removes 70% of the delayed damage from Oathkeeper.' OATHKEEPER'S DELAYED DAMAGE DOES NOT EXIST (see Sacred Oath at tier 0 - nothing defers incoming damage), so there is no pool to clear. Re-pointed at flat mitigation, which is what clearing 70% of a deferred hit amounted to. BARE damage_taken_pct IS READ RAW, so 7% is -0.07 - authoring -7.0 would be a 700% reduction, the immortality bug from Boltslinger's Evasive."
     },
     {
-      "talent_id": "templar_oathkeeper_lightkeeper",
-      "name": "Lightkeeper",
-      "description": "Increases your parry chance by 1% and the damage of Condemn by 6% per rank.",
+      "talent_id": "templar_oathkeeper_duty_calls",
+      "name": "Duty Calls",
+      "description": "Your strikes build resolve, raising your damage by 2% per stack for 5 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {
-        "parry": 1.0,
-        "ability_templar_condemn_damage": 0.06
-      },
-      "connected_to": [
-        "templar_oathkeeper_duty_calls"
-      ],
-      "_source": "CoA tier-6: 'Periodic damage dealt by Condemn now has a 15% chance to increase your parry chance by 2% ... stacking 3 times' and 'also has a 15% chance to burst'. Condemn's ticks cannot proc anything (see Uther's Legacy), so both halves become flat: the parry it would have stacked to, and more Condemn damage."
-    },
-    {
-      "talent_id": "templar_oathkeeper_mending_ward",
-      "name": "Mending Ward",
-      "description": "While below 35% health, you take 8% less damage per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.08
-      },
+      "effects": {},
       "connected_to": [
         "templar_oathkeeper_barrier_of_light"
       ],
-      "_source": "CoA tier-6: 'Next instance of direct damage taken while below 35% maximum health will consume these stacks to heal you'. A one-shot consumed heal has no payload shape, so the node carries the engine's low-health mitigation instead. Deliberately WITHOUT low_health_threshold_pct: talent effects are summed per point, so a 2-rank node carrying 0.35 would reach 0.70 and count 70% health as 'low'. take_damage defaults the threshold to 0.35 when the key is absent, which is the number CoA wants anyway."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "templar_righteous_lunge",
+          "templar_condemn",
+          "templar_holy_cleave",
+          "templar_vindication",
+          "templar_sacred_swing",
+          "templar_argent_blade"
+        ],
+        "apply_effect": {
+          "effect_id": "templar_duty_calls",
+          "name": "Duty Calls",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 2.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting abilities that grant an Oath now increases your damage dealt and movement speed by 2% for 15 sec, stacking 5 times.' Oaths do not exist (see the Zealot builder), so it fires off the combo builders - which in CoA are the abilities that grant Oaths, so the stacks build in the same part of the rotation. Movement speed is positional. CoA's 2% and 5 stacks kept; 15 sec is 5 turns."
     },
     {
-      "talent_id": "templar_oathkeeper_eternal_blessing",
-      "name": "Eternal Blessing",
-      "description": "Increases your Holy damage by 4% and your healing done by 4% per rank.",
+      "talent_id": "templar_oathkeeper_barrier_of_light",
+      "name": "Barrier of Light",
+      "description": "Increases the healing you receive by 20% and reduces the cooldown of Barrier of Light by 30%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "holy_spell_damage": 0.04,
-        "healing_done": 0.04
+        "healing_taken_pct": 0.0667,
+        "ability_templar_barrier_of_light_cooldown_pct": 0.1
       },
       "connected_to": [
-        "templar_oathkeeper_battlepriest"
+        "templar_oathkeeper_sacred_swing_mastery"
       ],
-      "_source": "CoA tier-6: 'Increases your Holy damage and healing done by 15% for 30 seconds'. A timed window becomes a passive, which is the usual trade when the mechanic is a cooldown and the slot is a talent."
+      "_source": "CoA verbatim: 'Emit saving light, increasing the healing received by nearby party and raid members by 40% for 15 sec. For the duration, threat generated by your allies is redirected to you.' Frontier HAS Barrier of Light as a target_type 'party' ability and it is not gated, so this is not its unlock - and because the ABILITY is party-targeted, its own healing bonus does reach allies. The talent's own 20% lands on the Templar (a talent cannot reach an ally) at half CoA's figure. Threat redirection has no mechanism. AS A TALENT EFFECT healing_taken_pct is a FRACTION."
     },
     {
-      "talent_id": "templar_oathkeeper_spiritual_abdicator",
-      "name": "Spiritual Abdicator",
-      "description": "Reduces all damage you take by 3% per rank.",
+      "talent_id": "templar_oathkeeper_sacred_swing_mastery",
+      "name": "Sacred Swing",
+      "description": "Increases the damage of Sacred Swing by 40% and the threat you\ngenerate by 15%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "damage_taken_pct": -0.03
+        "ability_templar_sacred_swing_damage": 0.1333,
+        "threat_generation_pct": 0.05
       },
       "connected_to": [
-        "templar_oathkeeper_lightkeeper"
+        "templar_oathkeeper_tome_of_light"
       ],
-      "_source": "CoA: 'Your Spiritual Abdication now reduces damage taken by an additional -5% per copy'. damage_taken_pct is a FRACTION from both talents and buffs, unlike its physical_ and magic_ siblings."
+      "_source": "CoA verbatim: 'Swing at enemies in front of you, dealing 125% High Threat Weapon Damage, slowing their attack and movement speed by 20% for 10 sec. Only usable after avoiding an attack.' Frontier HAS Sacred Swing and it is not gated. The 'only usable after avoiding an attack' condition lives on the ability, not here - no talent key gates usability - and attack speed has no key. Built as damage plus the High Threat the tooltip names."
+    },
+    {
+      "talent_id": "templar_oathkeeper_paragon_of_light",
+      "name": "Paragon of Light",
+      "description": "Increases your dodge and parry chance by 4% each.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "dodge": 1.3333,
+        "parry": 1.3333
+      },
+      "connected_to": [
+        "templar_oathkeeper_tome_of_light"
+      ],
+      "_source": "CoA's Parry Dance and Graceful Fighter both point at avoidance, and this node carries the flat version neither does. NOT a direct port of a single CoA talent - built from the spec's avoidance theme so tier 5 has a defensive stat node rather than a third damage line, and flagged as such. Both keys are PERCENT and both now matter MORE than they did this morning: creature avoidance went in today, which means expertise exists, which means avoidance is a two-sided stat rather than player-only."
     },
     {
       "talent_id": "templar_oathkeeper_tome_of_light",
       "name": "Tome of Light",
-      "description": "Grants Tome of Light, a shield that absorbs 40% of your maximum health.",
-      "node_type": "active",
+      "description": "Teaches Tome of Light, and reduces all damage you take by 8%.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "templar_tome_of_light"
+        "unlock_ability": "templar_tome_of_light",
+        "damage_taken_pct": -0.08
       },
-      "connected_to": [
-        "templar_oathkeeper_mending_ward",
-        "templar_oathkeeper_eternal_blessing",
-        "templar_oathkeeper_spiritual_abdicator"
-      ],
-      "_source": "Capstone, and a real CoA tier-6 TE node. CoA: 'Tome of Light shields for 100% of max health and Staffguard and Untainted absorb repeatedly, which answers burst windows'. The spec's whole case is layers - 'In an extended skirmish you do not die' - and its stated weakness is that 'once Tome of Light and the absorbs are spent you tank the next chain raw', so the capstone is the biggest layer rather than a passive."
+      "connected_to": [],
+      "_source": "LOAD-BEARING UNLOCK: templar_tome_of_light carries requires_talent, so without this node it is unobtainable forever. Templar has exactly three gated abilities, one per tree - Zealot's Norgannon's Wrath, Crusader's Righteous Tempest and this - and main() asserts this one. The mitigation is added because a capstone granting only an ability is thin, and a tank capstone should be defensive. BARE damage_taken_pct IS READ RAW, so 8% is -0.08; it stacks with Holy Books at tier 4 for 15% on a full Oathkeeper build."
     }
   ]
 }
