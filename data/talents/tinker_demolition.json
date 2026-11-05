@@ -16,16 +16,16 @@
     {
       "talent_id": "tinker_demolition_incendiary_bullets",
       "name": "Incendiary Bullets",
-      "description": "Increases the damage of Scrap Shot by 15% per rank and your chance to hit by 2%.",
+      "description": "Increases the damage of Scrap Shot by up to 30% and your chance to hit by\n    up to 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_scrap_shot_damage": 0.15,
-        "hit_rating": 2.0
+        "ability_tinker_scrap_shot_damage": 0.1,
+        "hit_rating": 1.3333
       },
       "connected_to": [
         "tinker_demolition_bomb_builder"
@@ -38,13 +38,13 @@
       "description": "Increases Fire damage dealt by you and your constructs by 5%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "fire_spell_power": 0.05,
-        "pet_damage": 0.05
+        "fire_spell_power": 0.0167,
+        "pet_damage": 0.0167
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -57,13 +57,13 @@
       "description": "Increases the critical strike chance of Bomb Toss by 10% and the critical damage of Rocket Launcher by 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_bomb_toss_crit": 10.0,
-        "ability_tinker_rocket_launcher_crit_damage": 0.1
+        "ability_tinker_bomb_toss_crit": 3.3333,
+        "ability_tinker_rocket_launcher_crit_damage": 0.0333
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -76,7 +76,7 @@
       "description": "Your critical strikes and your constructs' restore mana.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -6,
@@ -86,7 +86,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
@@ -101,12 +101,12 @@
       "description": "Your Scrap Shot ignores 25% of the target's armor.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "armor_penetration_pct": 25.0
+        "armor_penetration_pct": 8.3333
       },
       "connected_to": [
         "tinker_demolition_sparked_and_ready"
@@ -119,7 +119,7 @@
       "description": "Bomb Toss coats the target in napalm, increasing Fire damage it takes by 3% and reducing healing it receives by 3% for 3 turns, stacking 10 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
@@ -129,7 +129,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_bomb_toss"
@@ -154,7 +154,7 @@
       "description": "Your Fire damage has a 15% chance to ready a Rocket Launcher, resetting its cooldown.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
@@ -164,7 +164,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 15,
+        "chance": 5,
         "icd": 1,
         "reset_cooldown": [
           "tinker_rocket_launcher"
@@ -196,7 +196,7 @@
       "description": "Scrap Shot drives your constructs harder, raising their damage by 5% for 2 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
@@ -206,7 +206,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_scrap_shot"
@@ -229,7 +229,7 @@
       "description": "Scrap Shot drives another stack of napalm into the target.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
@@ -239,7 +239,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_scrap_shot"
@@ -264,7 +264,7 @@
       "description": "Casting Sticky Bomb makes your next Scrap Shot hit 25% harder.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -2,
@@ -274,7 +274,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_sticky_bomb"
@@ -297,13 +297,13 @@
       "description": "Your Sticky Bomb and Spider Bomb deal 15% more damage per rank to a lone target.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.15,
-        "ability_tinker_spider_bomb_damage": 0.15
+        "ability_tinker_sticky_bomb_damage": 0.1,
+        "ability_tinker_spider_bomb_damage": 0.1
       },
       "connected_to": [
         "tinker_demolition_bombastic"
@@ -316,12 +316,12 @@
       "description": "Build: Spider Bomb sends out a second bomb, dealing 100% more damage.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_spider_bomb_damage": 1.0
+        "ability_tinker_spider_bomb_damage": 0.3333
       },
       "connected_to": [
         "tinker_demolition_rocket_engineering"
@@ -334,7 +334,7 @@
       "description": "When napalm reaches 5 stacks the target ignites, taking Fire damage over 3 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
@@ -344,7 +344,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 2,
         "apply_effect": {
           "effect_id": "tinker_ignition",
@@ -363,7 +363,7 @@
       "description": "Casting Build: Spider Bomb resets the cooldown of Bomb Toss.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
@@ -373,7 +373,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_spider_bomb"
@@ -390,7 +390,7 @@
       "description": "Your critical strikes drive another stack of napalm into the target.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
@@ -400,7 +400,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "tinker_napalm",
@@ -422,12 +422,12 @@
       "description": "Rocket Launcher always critically strikes targets coated in napalm.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_rocket_launcher_crit": 100.0
+        "ability_tinker_rocket_launcher_crit": 33.3333
       },
       "connected_to": [
         "tinker_demolition_bomb_squad"
@@ -440,13 +440,13 @@
       "description": "Sticky Bomb deals 20% more damage, and all of your area attacks deal 15% more.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.2,
-        "aoe_damage": 0.15
+        "ability_tinker_sticky_bomb_damage": 0.0667,
+        "aoe_damage": 0.05
       },
       "connected_to": [
         "tinker_demolition_bomb_squad"
@@ -456,15 +456,15 @@
     {
       "talent_id": "tinker_demolition_the_big_guns",
       "name": "The BIG Guns!",
-      "description": "Increases your attack power by 2.5% per rank.",
+      "description": "Increases your attack power by up to 5%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "attack_power_pct": 2.5
+        "attack_power_pct": 1.6667
       },
       "connected_to": [
         "tinker_demolition_rockadier"
@@ -477,12 +477,12 @@
       "description": "Increases your spell power by 50% of your Agility.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "spell_power_from_agility_pct": 0.5
+        "spell_power_from_agility_pct": 0.1667
       },
       "connected_to": [
         "tinker_demolition_rockadier"
@@ -495,7 +495,7 @@
       "description": "Your Fire critical strikes cut the cooldown of your heaviest ordnance.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
@@ -505,7 +505,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 1,
         "reset_cooldown": [
           "tinker_hyperblast_barrage"

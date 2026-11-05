@@ -30,8 +30,19 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 
+#: Points a character has at the level cap - 1 per level from level 5
+#: (Character._grant_talent_points), so 56 at level 60. A spec-locked
+#: recruit and any pure-spec player must be able to spend all of them in
+#: ONE tree, so a tree holding fewer than this has a hard dead end.
+#: Recruits cap at level 48 (44 points) per Kyle's standing rule, which is
+#: the number that actually bites first.
+CAP_POINTS = 56
+RECRUIT_CAP_POINTS = 44
+
+
 def main():
     problems = []
+    undersized = []
     checked = 0
     for path in sorted((ROOT / "data/talents").glob("*.json")):
         doc = json.loads(path.read_text())
@@ -62,11 +73,23 @@ def main():
                     f"but only {below} exist below it "
                     f"({total} in the whole tree) - UNREACHABLE")
 
+        # Capacity: a pure-spec build has to have somewhere to put every
+        # point it earns. qa_recruit_talents reports this two steps away,
+        # as a recruit joining with unspent points.
+        if total < RECRUIT_CAP_POINTS:
+            undersized.append(
+                f"[{path.name}] holds {total} points; a level-48 recruit "
+                f"earns {RECRUIT_CAP_POINTS} and a level-60 character "
+                f"{CAP_POINTS}")
+
     print(f"  {checked:5d} talent trees checked")
     print(f"  {len(problems):5d} unreachable tiers")
     for p in problems:
         print(f"      {p}")
-    ok = not problems
+    print(f"  {len(undersized):5d} trees too small to absorb a pure-spec build")
+    for u in undersized:
+        print(f"      {u}")
+    ok = not problems and not undersized
     print("\nPASS" if ok else "\nFAIL")
     return 0 if ok else 1
 

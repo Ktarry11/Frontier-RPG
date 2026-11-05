@@ -19,13 +19,13 @@
       "description": "Increases your healing power by 20% of your Intellect and your spell critical strike chance by 15% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_intellect_pct": 0.2,
-        "crit_chance_spell_from_intellect_pct": 0.15
+        "healing_power_from_intellect_pct": 0.0667,
+        "crit_chance_spell_from_intellect_pct": 0.05
       },
       "connected_to": [
         "tinker_invention_over_repaired"
@@ -38,12 +38,12 @@
       "description": "Increases the healing done by Repair Shot by 15% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_repair_shot_healing": 0.15
+        "ability_tinker_repair_shot_healing": 0.1
       },
       "connected_to": [
         "tinker_invention_eureka"
@@ -56,12 +56,12 @@
       "description": "Increases your spell critical strike chance by 5%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 5.0
+        "crit_chance_spell": 1.6667
       },
       "connected_to": [
         "tinker_invention_eureka"
@@ -71,15 +71,15 @@
     {
       "talent_id": "tinker_invention_technician",
       "name": "Technician",
-      "description": "Increases the healing done by your critical heals by 10% per rank.",
+      "description": "Increases the healing done by your critical heals by up to 20%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "crit_damage_spell": 0.1
+        "crit_damage_spell": 0.0667
       },
       "connected_to": [
         "tinker_invention_triage_protocol"
@@ -128,7 +128,7 @@
       "description": "Your critical heals send a surge of healing to your most wounded ally.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -4,
@@ -138,7 +138,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_repair_shot",
@@ -173,12 +173,12 @@
       "description": "Your healing is 15% stronger on allies below 35% health.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "low_health_healing_pct": 0.15
+        "low_health_healing_pct": 0.05
       },
       "connected_to": [
         "tinker_invention_macro_designer"
@@ -227,12 +227,12 @@
       "description": "Increases your spell critical strike chance by 3%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "crit_chance_spell": 3.0
+        "crit_chance_spell": 1
       },
       "connected_to": [
         "tinker_invention_bandage_gun"
@@ -281,7 +281,7 @@
       "description": "Your Repair Shot splashes 20% of its healing onto up to 3 nearby allies.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
@@ -291,7 +291,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_repair_shot"
@@ -327,7 +327,7 @@
       "description": "Your Emergency Heal and Zap! splash 20% of their healing onto up to 5 nearby allies.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
@@ -337,7 +337,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_emergency_heal",
@@ -356,13 +356,13 @@
       "description": "Increases the healing done by Repair Shot and Emergency Heal by 10%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_tinker_repair_shot_healing": 0.1,
-        "ability_tinker_emergency_heal_healing": 0.1
+        "ability_tinker_repair_shot_healing": 0.0333,
+        "ability_tinker_emergency_heal_healing": 0.0333
       },
       "connected_to": [
         "tinker_invention_trust_the_science"
@@ -411,12 +411,12 @@
       "description": "Reduces the cooldown of Zap! by 20%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_zap_cooldown_pct": 0.2
+        "ability_tinker_zap_cooldown_pct": 0.0667
       },
       "connected_to": [
         "tinker_invention_emergency_circumvented"
@@ -429,12 +429,12 @@
       "description": "Increases the critical strike chance of Zap! by 35%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_zap_crit": 35.0
+        "ability_tinker_zap_crit": 11.6667
       },
       "connected_to": [
         "tinker_invention_emergency_enhancer"
@@ -447,7 +447,7 @@
       "description": "Critical strikes with Zap! leave behind rejuvenating gas, healing the target for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": 2,
@@ -457,7 +457,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_zap"
@@ -497,7 +497,7 @@
       "description": "Your Repair Shot also shields the target for 50% of the healing done.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
@@ -507,7 +507,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_repair_shot"
@@ -527,12 +527,12 @@
       "description": "Increases the critical strike chance of Emergency Heal by 15%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_tinker_emergency_heal_crit": 15.0
+        "ability_tinker_emergency_heal_crit": 5
       },
       "connected_to": [
         "tinker_invention_emergency_enhancer"
@@ -545,7 +545,7 @@
       "description": "15% of the healing you do is also routed to your most wounded ally.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 4,
@@ -555,7 +555,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 1,
         "leech_pct": {
           "pct": 0.15,
@@ -570,12 +570,12 @@
       "description": "While above 65% mana, your healing is 8% stronger.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 5,
       "hex_y": 4,
       "effects": {
-        "high_mana_healing_pct": 0.08
+        "high_mana_healing_pct": 0.0267
       },
       "connected_to": [
         "tinker_invention_emergency_enhancer"

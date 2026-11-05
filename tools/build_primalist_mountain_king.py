@@ -136,7 +136,7 @@ N = TREE["nodes"]
 # ---- tier 0 -------------------------------------------------------------
 N.append(node(
     "unyielding_form", "Unyielding Form",
-    "Increases your parry and dodge chance by 1.5% per rank.",
+    "Increases your parry and dodge chance by up to 3%.",
     0, -5, ranks=2,
     effects={"parry": 1.5, "dodge": 1.5},
     connect=["king_of_the_mountain"],
@@ -393,7 +393,7 @@ N.append(node(
 
 N.append(node(
     "mountain_thane", "Mountain Thane",
-    "Increases your Stamina by 2.5% per rank.",
+    "Increases your Stamina by up to 5%.",
     3, 2, ranks=2,
     effects={"stamina_pct": 2.5},
     connect=["earthen_avatar"],
@@ -551,6 +551,27 @@ N.append(node(
            "The 'at full Earth's Rage' framing is flavour and deliberately "
            "promises no number: nothing reads another effect's stack count, "
            "and a description that quoted one would be lying."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

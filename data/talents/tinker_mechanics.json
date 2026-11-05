@@ -16,16 +16,16 @@
     {
       "talent_id": "tinker_mechanics_slam_the_cogs",
       "name": "Slam the Cogs!",
-      "description": "Increases the damage you and your constructs deal by 4% per rank.",
+      "description": "Increases the damage you and your constructs deal by up to 8%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.04,
-        "pet_damage": 0.04
+        "all_damage": 0.0267,
+        "pet_damage": 0.0267
       },
       "connected_to": [
         "tinker_mechanics_mechanical_synergy"
@@ -38,13 +38,13 @@
       "description": "Increases your critical strike chance by 4% and your constructs' damage by 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 4.0,
-        "pet_damage": 0.04
+        "crit_chance_physical": 1.3333,
+        "pet_damage": 0.0133
       },
       "connected_to": [
         "tinker_mechanics_junker"
@@ -57,19 +57,19 @@
       "description": "Increases your critical strike chance by 2%. Your critical strikes have a 50% chance to scavenge 3 Scrap and restore mana.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 2.0
+        "crit_chance_physical": 0.6667
       },
       "connected_to": [
         "tinker_mechanics_combat_crafter"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 50,
+        "chance": 17,
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
@@ -84,7 +84,7 @@
       "description": "Spanner Smash and Scrap Shot raise your construct's damage by 5% for 5 turns, stacking twice.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -6,
@@ -94,7 +94,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_spanner_smash",
@@ -118,14 +118,14 @@
       "description": "Your Build abilities cost 30% less mana.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_build_sentry_turret_cost_pct": 0.3,
-        "ability_tinker_build_rusthound_cost_pct": 0.3,
-        "ability_tinker_build_battle_turret_x13_cost_pct": 0.3
+        "ability_tinker_build_sentry_turret_cost_pct": 0.1,
+        "ability_tinker_build_rusthound_cost_pct": 0.1,
+        "ability_tinker_build_battle_turret_x13_cost_pct": 0.1
       },
       "connected_to": [
         "tinker_mechanics_mechanical_synergy"
@@ -138,14 +138,14 @@
       "description": "Increases the damage of Sticky Bomb and your Mechsuit abilities by 15% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.15,
-        "ability_tinker_mechsuit_laser_beam_damage": 0.15,
-        "ability_tinker_mechsuit_combustion_damage": 0.15
+        "ability_tinker_sticky_bomb_damage": 0.1,
+        "ability_tinker_mechsuit_laser_beam_damage": 0.1,
+        "ability_tinker_mechsuit_combustion_damage": 0.1
       },
       "connected_to": [
         "tinker_mechanics_arclight_adept"
@@ -158,7 +158,7 @@
       "description": "Casting Makeshift Dynamite resets the cooldown of your Mechsuit abilities.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
@@ -168,7 +168,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_makeshift_dynamite"
@@ -186,7 +186,7 @@
       "description": "While in your Mechsuit, damage dealt by your constructs has a 20% chance to scavenge 5 Scrap and restore mana.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
@@ -196,7 +196,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 20,
+        "chance": 7,
         "icd": 0,
         "require_mechsuit": true,
         "grant_resource": {
@@ -212,13 +212,13 @@
       "description": "Increases the critical damage of your Mechsuit abilities by 15%.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.15,
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.15
+        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.05,
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.05
       },
       "connected_to": [
         "tinker_mechanics_turbo_guns"
@@ -231,12 +231,12 @@
       "description": "Your Mechsuit increases your armor by an additional 50%.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "armor_pct": 50.0
+        "armor_pct": 16.6667
       },
       "connected_to": [
         "tinker_mechanics_augmechtation"
@@ -249,12 +249,12 @@
       "description": "Increases the damage of Mechsuit: Combustion by 10% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_damage": 0.1
+        "ability_tinker_mechsuit_combustion_damage": 0.0667
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -267,13 +267,13 @@
       "description": "Mechsuit: Combustion deals 10% more damage and 15% more critical damage.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.15,
-        "ability_tinker_mechsuit_combustion_damage": 0.1
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.05,
+        "ability_tinker_mechsuit_combustion_damage": 0.0333
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -286,7 +286,7 @@
       "description": "For 3 turns after entering your Mechsuit, all damage you deal scavenges 3 Scrap.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -2,
@@ -296,7 +296,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "require_mechsuit": true,
         "grant_resource": {
@@ -312,12 +312,12 @@
       "description": "While an Augmentation is active, your haste is increased by 10%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "haste": 10.0
+        "haste": 3.3333
       },
       "connected_to": [
         "tinker_mechanics_augmechtation"
@@ -330,12 +330,12 @@
       "description": "Reduces the cooldown of Sticky Bomb by 17.5% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_tinker_sticky_bomb_cooldown_pct": 0.175
+        "ability_tinker_sticky_bomb_cooldown_pct": 0.1167
       },
       "connected_to": [
         "tinker_mechanics_arclight_core"
@@ -348,7 +348,7 @@
       "description": "While in your Mechsuit, Scrap Shot and Makeshift Dynamite set the target alight, burning them for 3 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
@@ -358,7 +358,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "require_mechsuit": true,
         "ability_filter": [
@@ -382,7 +382,7 @@
       "description": "Makeshift Dynamite leaves the target burning with arclight fire for 2 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
@@ -392,7 +392,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "tinker_makeshift_dynamite"
@@ -414,7 +414,7 @@
       "description": "Your Mechsuit abilities have a 40% chance to strike twice more for 30% damage.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
@@ -424,7 +424,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 40,
+        "chance": 13,
         "icd": 0,
         "ability_filter": [
           "tinker_mechsuit_laser_beam",
@@ -441,12 +441,12 @@
       "description": "Your Mechsuit increases your damage by an additional 10% while active.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.1
+        "all_damage": 0.0333
       },
       "connected_to": [
         "tinker_mechanics_haywired_state"
@@ -459,19 +459,19 @@
       "description": "Your attacks patch you up, healing you for a little each time you strike.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "pet_health": 0.03
+        "pet_health": 0.01
       },
       "connected_to": [
         "tinker_mechanics_junkyard_loiter"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 1,
         "heal_flat": 24
       },
@@ -483,7 +483,7 @@
       "description": "Your Mechsuit abilities plant a sticky bomb on the target, at most once every turn.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
@@ -493,7 +493,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 1,
         "ability_filter": [
           "tinker_mechsuit_laser_beam",
@@ -509,7 +509,7 @@
       "description": "Casting a Mechsuit ability sends your construct haywire for 2 turns, making its attacks chain to nearby enemies.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
@@ -519,7 +519,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 2,
         "ability_filter": [
           "tinker_mechsuit_laser_beam",

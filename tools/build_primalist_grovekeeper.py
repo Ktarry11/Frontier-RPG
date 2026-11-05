@@ -164,7 +164,7 @@ N.append(node(
 
 N.append(node(
     "tranquil_mind", "Tranquil Mind",
-    "Increases your damage and healing done by 2% per rank.",
+    "Increases your damage and healing done by up to 4%.",
     0, -1, ranks=2,
     effects={"all_damage": 0.02, "healing_done": 0.02},
     connect=["power_hammer"],
@@ -176,7 +176,7 @@ N.append(node(
 
 N.append(node(
     "ancient_power", "Ancient Power",
-    "Increases your Strength by 2.5% and your chance to hit by 1.5% per rank.",
+    "Increases your Strength by up to 5% and your chance to hit by up to 3%.",
     0, 1, ranks=2,
     effects={"strength_pct": 2.5, "hit_rating": 1.5},
     connect=["verdant_warrior"],
@@ -514,7 +514,7 @@ N.append(node(
 
 N.append(node(
     "ancient_of_lore", "Ancient of Lore",
-    "While below 35% mana, your healing is 6% stronger per rank.",
+    "While below 35% mana, your healing is up to 12% stronger.",
     5, 0, ranks=2,
     effects={"low_mana_healing_pct": 0.06},
     connect=["earthmothers_warden"],
@@ -564,6 +564,27 @@ N.append(node(
            "splash_heal sizes from a heal. Here both are available because "
            "the trigger fires on both. Replaces a proc node of the same "
            "name whose payload was a single flat damage roll."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

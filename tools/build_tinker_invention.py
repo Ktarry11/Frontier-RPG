@@ -160,7 +160,7 @@ N.append(node(
 
 N.append(node(
     "technician", "Technician",
-    "Increases the healing done by your critical heals by 10% per rank.",
+    "Increases the healing done by your critical heals by up to 20%.",
     0, 3, ranks=2,
     effects={"crit_damage_spell": 0.10},
     connect=["triage_protocol"],
@@ -497,6 +497,27 @@ N.append(node(
            "and this is almost a literal port - the only cut is the flat 990, "
            "which is a level-60 raid number. PERCENT, so 90 means 90% of the "
            "Zap! that triggered it."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

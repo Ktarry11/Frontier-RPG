@@ -16,16 +16,16 @@
     {
       "talent_id": "primalist_mountain_king_unyielding_form",
       "name": "Unyielding Form",
-      "description": "Increases your parry and dodge chance by 1.5% per rank.",
+      "description": "Increases your parry and dodge chance by up to 3%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "parry": 1.5,
-        "dodge": 1.5
+        "parry": 1,
+        "dodge": 1
       },
       "connected_to": [
         "primalist_mountain_king_king_of_the_mountain"
@@ -74,7 +74,7 @@
       "description": "Seismic Crash generates 5 additional Rage.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
@@ -84,7 +84,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_seismic_crash"
@@ -102,13 +102,13 @@
       "description": "Increases your attack power by 3% and your chance to hit by 1.5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 3.0,
-        "hit_rating": 1.5
+        "attack_power_pct": 2,
+        "hit_rating": 1
       },
       "connected_to": [
         "primalist_mountain_king_bash"
@@ -121,14 +121,14 @@
       "description": "Increases your parry, dodge and haste by 15% of your Strength.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "parry_from_strength_pct": 0.15,
-        "dodge_from_strength_pct": 0.15,
-        "haste_from_strength_pct": 0.15
+        "parry_from_strength_pct": 0.05,
+        "dodge_from_strength_pct": 0.05,
+        "haste_from_strength_pct": 0.05
       },
       "connected_to": [
         "primalist_mountain_king_mountain_mover"
@@ -159,7 +159,7 @@
       "description": "Primal Rush and Quake grant Earth's Rage, increasing your haste by 2% for 3 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
@@ -169,7 +169,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_primal_rush",
@@ -214,7 +214,7 @@
       "description": "Dodging or parrying an attack grants you 5 Rage and brings your Seismic abilities a turn closer to ready.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
@@ -224,7 +224,7 @@
       ],
       "proc": {
         "trigger": "on_avoid",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "grant_resource": {
           "resource": "rage",
@@ -247,7 +247,7 @@
       "description": "Dodging or parrying an attack grants a stack of Mountain Mover, increasing your parry by 2% for 3 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -2,
@@ -257,7 +257,7 @@
       ],
       "proc": {
         "trigger": "on_avoid",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "primalist_mountain_mover",
@@ -279,7 +279,7 @@
       "description": "Your weapon swings have a 30% chance to stun the target for a turn.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
@@ -289,7 +289,7 @@
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 30,
+        "chance": 10,
         "icd": 2,
         "apply_effect": {
           "effect_id": "primalist_bash_stun",
@@ -309,12 +309,12 @@
       "description": "Increases the damage of Mountain Hammer by 25% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_mountain_hammer_damage": 0.25
+        "ability_primalist_mountain_hammer_damage": 0.1667
       },
       "connected_to": [
         "primalist_mountain_king_earthenforged_barrier"
@@ -327,7 +327,7 @@
       "description": "Your weapon swings bring Mountain Hammer a turn closer to ready.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
@@ -337,7 +337,7 @@
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "reset_cooldown": {
           "abilities": [
@@ -354,7 +354,7 @@
       "description": "Casting Wildclaw or a Seismic ability has a 25% chance to make Quake ready again at once.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
@@ -364,7 +364,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 25,
+        "chance": 8,
         "icd": 1,
         "ability_filter": [
           "primalist_wildclaw",
@@ -402,13 +402,13 @@
       "description": "Increases the armor Rock Barrier provides by 50% and reduces the cost of your abilities by 15% while it holds.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_rock_barrier_potency": 0.5,
-        "all_ability_cost_pct": 0.15
+        "ability_primalist_rock_barrier_potency": 0.1667,
+        "all_ability_cost_pct": 0.05
       },
       "connected_to": [
         "primalist_mountain_king_primal_guardian"
@@ -421,7 +421,7 @@
       "description": "Quake opens a fissure that burns the ground for 2 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
@@ -431,7 +431,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_quake"
@@ -451,15 +451,15 @@
     {
       "talent_id": "primalist_mountain_king_mountain_thane",
       "name": "Mountain Thane",
-      "description": "Increases your Stamina by 2.5% per rank.",
+      "description": "Increases your Stamina by up to 5%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "stamina_pct": 2.5
+        "stamina_pct": 1.6667
       },
       "connected_to": [
         "primalist_mountain_king_earthen_avatar"
@@ -472,12 +472,12 @@
       "description": "Increases the chance for Bash to trigger by 3% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_wildclaw_crit": 3.0
+        "ability_primalist_wildclaw_crit": 2
       },
       "connected_to": [
         "primalist_mountain_king_shattering"
@@ -508,13 +508,13 @@
       "description": "Increases your parry chance by 5% and reduces the physical damage you take by 5%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "parry": 5.0,
-        "physical_damage_taken_pct": -0.05
+        "parry": 1.6667,
+        "physical_damage_taken_pct": -0.0167
       },
       "connected_to": [
         "primalist_mountain_king_mountain_fury"
@@ -527,7 +527,7 @@
       "description": "Taking a heavy blow steels you, increasing your haste and parry by 10% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
@@ -537,7 +537,7 @@
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 20,
+        "chance": 7,
         "icd": 3,
         "apply_effect": {
           "effect_id": "primalist_primal_guardian",
@@ -596,7 +596,7 @@
       "description": "Your critical strikes sharpen you further, increasing your damage by 1% per stack for 3 turns, stacking 10 times.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
@@ -606,7 +606,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "primalist_shattering",
@@ -628,12 +628,12 @@
       "description": "Reduces the cooldown of Judgement of the Three Hammers by 10% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_primalist_judgement_of_the_three_hammers_cooldown_pct": 0.1
+        "ability_primalist_judgement_of_the_three_hammers_cooldown_pct": 0.0667
       },
       "connected_to": [
         "primalist_mountain_king_mountain_avatar"

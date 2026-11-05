@@ -108,7 +108,7 @@ N = TREE["nodes"]
 # ---- tier 0 -------------------------------------------------------------
 N.append(node(
     "incendiary_bullets", "Incendiary Bullets",
-    "Increases the damage of Scrap Shot by 15% per rank and your chance to hit by 2%.",
+    "Increases the damage of Scrap Shot by up to 30% and your chance to hit by\n    up to 4%.",
     0, -4, -6, ranks=2,
     effects={"ability_tinker_scrap_shot_damage": 0.15, "hit_rating": 2.0},
     connect=["bomb_builder"],
@@ -354,7 +354,7 @@ N.append(node(
 
 N.append(node(
     "the_big_guns", "The BIG Guns!",
-    "Increases your attack power by 2.5% per rank.",
+    "Increases your attack power by up to 5%.",
     4, 2, 2, ranks=2,
     effects={"attack_power_pct": 2.5},
     connect=["rockadier"],
@@ -452,6 +452,27 @@ N.append(unlock(
            "tier 5 and its whole effect is resetting this ability's "
            "cooldown; with the unlock at tier 6 you could take the reset two "
            "tiers before you could take the thing being reset."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

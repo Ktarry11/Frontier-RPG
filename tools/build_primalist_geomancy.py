@@ -170,7 +170,7 @@ N.append(node(
 
 N.append(node(
     "stoneskin", "Stoneskin",
-    "Increases your Armor by 100% of your Intellect per rank.",
+    "Increases your Armor by up to 200% of your Intellect.",
     0, 1, ranks=2,
     effects={"armor_from_intellect_pct": 1.00},
     connect=["one_with_the_earth"],
@@ -196,7 +196,7 @@ N.append(node(
 
 N.append(node(
     "molten_fervor", "Molten Fervor",
-    "Increases your haste by 2.5% per rank.",
+    "Increases your haste by up to 5%.",
     0, 5, ranks=2,
     effects={"haste": 2.5},
     connect=["volcanic_blast"],
@@ -363,7 +363,7 @@ N.append(node(
 
 N.append(node(
     "stone_tosser", "Stone Tosser",
-    "Increases your spell power by 12.5% of your Intellect per rank.",
+    "Increases your spell power by up to 25% of your Intellect.",
     3, -1, ranks=2,
     effects={"spell_power_from_intellect_pct": 0.125},
     connect=["golem_form"],
@@ -436,7 +436,7 @@ N.append(unlock(
 
 N.append(node(
     "cave_dweller", "Cave Dweller",
-    "Increases your maximum mana by 3% per rank.",
+    "Increases your maximum mana by up to 6%.",
     4, 0, ranks=2,
     effects={"max_mana_pct": 0.03},
     connect=["heavy_earth"],
@@ -491,7 +491,7 @@ N.append(unlock(
 
 N.append(node(
     "therazanes_blessing", "Therazane's Blessing",
-    "Increases the damage your damage-over-time effects deal by 5% per rank.",
+    "Increases the damage your damage-over-time effects deal by up to 10%.",
     5, 1, ranks=2,
     effects={"dot_damage": 0.05},
     connect=["heavy_earth"],
@@ -534,6 +534,27 @@ N.append(node(
            "payload suppresses another proc - and the description's 'unable "
            "to shape more' is kept as flavour that does not promise a number. "
            "Flagged rather than faked."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

@@ -1,5 +1,5 @@
 {
-  "_notes": "Hand-authored bag catalog - the exception to this project's usual procedural-item rule (see LootGenerator). Bags are a small, fixed, named set, not something that benefits from procedural stat rolls the way armor/weapons do - a bag's only stat is bag_capacity. slot is the generic 'bag' PAIRED_SLOTS key (entities/equipment.py) so any of these fills whichever of bag1-bag4 is open, same convention as 'ring'/'trinket'. icon_id points at assets/icons/bags/<icon_id>.png (IconRenderer.BAG_ICON_DIR) - real WoW Classic icon art (Kyle's 'WoW Vanilla/Classic Icon Pack' upload, INV_Misc_Bag_* series), replacing an earlier hand-cropped fan-art sheet. Capacity/rarity/required_level tiered low-to-high roughly matching WoW's own bag progression, assigned by each icon's visual grandeur - plain sacks read as starter tier, the rune-etched/locked ones read as top tier.",
+  "_notes": "Hand-authored bag catalog - the exception to this project's usual procedural-item rule (see LootGenerator). Bags are a small, fixed, named set, not something that benefits from procedural stat rolls the way armor/weapons do - a bag's only stat is bag_capacity. slot is the generic 'bag' PAIRED_SLOTS key (entities/equipment.py) so any of these fills whichever of bag1-bag4 is open, same convention as 'ring'/'trinket'. icon_id points at assets/icons/bags/<icon_id>.png (IconRenderer.BAG_ICON_DIR) - real WoW Classic icon art (Kyle's 'WoW Vanilla/Classic Icon Pack' upload, INV_Misc_Bag_* series), replacing an earlier hand-cropped fan-art sheet. Capacity/rarity/required_level tiered low-to-high roughly matching WoW's own bag progression, assigned by each icon's visual grandeur - plain sacks read as starter tier, the rune-etched/locked ones read as top tier.\n\nExtended above level 30 on 5 Nov 2026. The ladder stopped at a single level-30 epic, so every vendor in a 44-49 zone could only ever roll that one bag - qa_vendors reported five of them as 'every bag roll returns the same item'. Added in PAIRS at 34/38/42/46 (22/24/26/28 capacity) because the failure was variety, not ceiling: one bag per step would have raised the cap and still read as a vending machine. Pricing continues the catalog's own curve (4g at 16 slots, 8g at 18, 15g at 20) with the growth tapered - doubling every four levels from 30 would have put the best bag past 200g, which this economy does not support; Kyle's level-12 friend had 2.5g. sell_price is vendor/5 throughout, matching every existing entry. All eight icons were checked against assets/icons/bags before being named.",
   "bags": [
     {
       "item_id": "small_burlap_sack",
@@ -143,6 +143,94 @@
       "sell_price": 30000,
       "vendor_price": 150000,
       "flavor_text": "Still smells like the last apothecary who packed it."
+    },
+    {
+      "item_id": "tideworn_bosun_chest",
+      "name": "Tideworn Bosun's Chest",
+      "icon_id": "bag_inv_misc_bag_17",
+      "bag_capacity": 22,
+      "rarity": "rare",
+      "required_level": 34,
+      "sell_price": 48000,
+      "vendor_price": 240000,
+      "flavor_text": "Salt has got into the hinges and it still shuts true."
+    },
+    {
+      "item_id": "ironbound_prospector_case",
+      "name": "Ironbound Prospector's Case",
+      "icon_id": "bag_inv_misc_bag_15",
+      "bag_capacity": 22,
+      "rarity": "rare",
+      "required_level": 34,
+      "sell_price": 48000,
+      "vendor_price": 240000,
+      "flavor_text": "Every dent in it was a decision made quickly."
+    },
+    {
+      "item_id": "duskwoven_carryall",
+      "name": "Duskwoven Carryall",
+      "icon_id": "bag_inv_misc_bag_19",
+      "bag_capacity": 24,
+      "rarity": "rare",
+      "required_level": 38,
+      "sell_price": 68000,
+      "vendor_price": 340000,
+      "flavor_text": "Holds more than it looks like it should, which is the point."
+    },
+    {
+      "item_id": "brass_fitted_haversack",
+      "name": "Brass-Fitted Haversack",
+      "icon_id": "bag_inv_misc_bag_16",
+      "bag_capacity": 24,
+      "rarity": "rare",
+      "required_level": 38,
+      "sell_price": 68000,
+      "vendor_price": 340000,
+      "flavor_text": "Goblin stitching. Twice the straps anyone needs."
+    },
+    {
+      "item_id": "warden_reliquary",
+      "name": "Warden's Reliquary",
+      "icon_id": "bag_inv_misc_bag_20",
+      "bag_capacity": 26,
+      "rarity": "epic",
+      "required_level": 42,
+      "sell_price": 92000,
+      "vendor_price": 460000,
+      "flavor_text": "Whatever it was built to carry, it was not groceries."
+    },
+    {
+      "item_id": "stormglass_strongbox",
+      "name": "Stormglass Strongbox",
+      "icon_id": "bag_inv_misc_bag_21",
+      "bag_capacity": 26,
+      "rarity": "epic",
+      "required_level": 42,
+      "sell_price": 92000,
+      "vendor_price": 460000,
+      "flavor_text": "The glass panels have never once cracked."
+    },
+    {
+      "item_id": "deepdelve_bearer",
+      "name": "Deepdelve Bearer",
+      "icon_id": "bag_inv_misc_bag_22",
+      "bag_capacity": 28,
+      "rarity": "epic",
+      "required_level": 46,
+      "sell_price": 120000,
+      "vendor_price": 600000,
+      "flavor_text": "Came up out of the Underdark with someone who did not."
+    },
+    {
+      "item_id": "sunsteel_quartermaster_trunk",
+      "name": "Sunsteel Quartermaster's Trunk",
+      "icon_id": "bag_inv_misc_bag_10",
+      "bag_capacity": 28,
+      "rarity": "epic",
+      "required_level": 46,
+      "sell_price": 120000,
+      "vendor_price": 600000,
+      "flavor_text": "Issued to people who were expected to come back."
     }
   ]
 }

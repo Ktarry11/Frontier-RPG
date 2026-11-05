@@ -138,7 +138,7 @@ N = TREE["nodes"]
 # ---- tier 0 -------------------------------------------------------------
 N.append(node(
     "wild_rampage", "Wild Rampage",
-    "Increases your attack power by 5% and your chance to hit by 2% per rank.",
+    "Increases your attack power by up to 10% and your chance to hit by up to 4%.",
     0, -5, ranks=2,
     effects={"attack_power_pct": 5.0, "hit_rating": 2.0},
     connect=["rips_and_tears"],
@@ -149,7 +149,7 @@ N.append(node(
 
 N.append(node(
     "raptor_talons_passive", "Raptor Talons",
-    "Increases your Strength by 5% per rank.",
+    "Increases your Strength by up to 10%.",
     0, -3, ranks=2,
     effects={"strength_pct": 5.0},
     connect=["rips_and_tears"],
@@ -497,6 +497,27 @@ N.append(node(
            "whose target_type is enemy_aoe - Totemic Smash and Primal Shred "
            "both are, which is why the description names both instead of "
            "promising a Totemic-Smash-only bonus it cannot deliver."))
+
+
+# ---- rank policy --------------------------------------------------------
+# Kyle's call, 5 Nov 2026, asked directly: multi-rank the real mechanics
+# rather than padding the tree back out with flat scalars.
+#
+# Rebuilding a spec from CoA trades multi-rank scalars for single-rank
+# mechanics, which is the point - but it also cut this tree's POINT
+# CAPACITY to around 31 against a project median of 71, and a character
+# earns 56 points by level 60 that a pure-spec build must be able to spend
+# in ONE tree. See tools/talent_ranks.py, which does the rescaling so a
+# ranked node lands on exactly the ceiling it had at one rank.
+#
+# Three ranks for every node that can take them. Left at one rank:
+#   - unlock nodes, since an ability cannot be learned a third of the way
+#   - the tier 6 capstone, which reads as a single decisive pick
+from tools.talent_ranks import rankable, spread  # noqa: E402
+
+for _n in TREE["nodes"]:
+    if _n["max_points"] < 3 and _n["tier"] < 6 and rankable(_n):
+        spread(_n, 3)
 
 
 def main():

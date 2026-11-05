@@ -16,16 +16,16 @@
     {
       "talent_id": "primalist_wildwalker_wild_rampage",
       "name": "Wild Rampage",
-      "description": "Increases your attack power by 5% and your chance to hit by 2% per rank.",
+      "description": "Increases your attack power by up to 10% and your chance to hit by up to 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 5.0,
-        "hit_rating": 2.0
+        "attack_power_pct": 3.3333,
+        "hit_rating": 1.3333
       },
       "connected_to": [
         "primalist_wildwalker_rips_and_tears"
@@ -35,15 +35,15 @@
     {
       "talent_id": "primalist_wildwalker_raptor_talons_passive",
       "name": "Raptor Talons",
-      "description": "Increases your Strength by 5% per rank.",
+      "description": "Increases your Strength by up to 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "strength_pct": 5.0
+        "strength_pct": 3.3333
       },
       "connected_to": [
         "primalist_wildwalker_rips_and_tears"
@@ -74,12 +74,12 @@
       "description": "Increases the critical strike chance of Totemic Smash by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_primalist_totemic_smash_crit": 10.0
+        "ability_primalist_totemic_smash_crit": 6.6667
       },
       "connected_to": [
         "primalist_wildwalker_totemic_smash"
@@ -92,12 +92,12 @@
       "description": "Rylak's Bite no longer costs Rage.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_primalist_rylaks_bite_cost_pct": 1.0
+        "ability_primalist_rylaks_bite_cost_pct": 0.3333
       },
       "connected_to": [
         "primalist_wildwalker_rylaks_bite"
@@ -128,7 +128,7 @@
       "description": "Your weapon swings generate 2 extra Rage.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
@@ -138,7 +138,7 @@
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "grant_resource": {
           "resource": "rage",
@@ -189,7 +189,7 @@
       "description": "Seismic Crash generates 10 additional Rage.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
@@ -199,7 +199,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_seismic_crash"
@@ -235,7 +235,7 @@
       "description": "Totemic Smash and Rylak's Bite leave the target bleeding for 4 turns, stacking twice.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
@@ -245,7 +245,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_totemic_smash",
@@ -288,14 +288,14 @@
       "description": "Increases the damage dealt by your Seismic abilities by 10%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.1,
-        "ability_primalist_seismic_tremor_damage": 0.1,
-        "ability_primalist_seismic_wave_damage": 0.1
+        "ability_primalist_seismic_crash_damage": 0.0333,
+        "ability_primalist_seismic_tremor_damage": 0.0333,
+        "ability_primalist_seismic_wave_damage": 0.0333
       },
       "connected_to": [
         "primalist_wildwalker_tremors"
@@ -345,7 +345,7 @@
       "description": "Totemic Smash refreshes Rylak's Bite, making it ready again at once.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
@@ -355,7 +355,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_totemic_smash"
@@ -372,7 +372,7 @@
       "description": "Your critical strikes make the target take 15% more physical damage for 3 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
@@ -382,7 +382,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "primalist_laceration",
@@ -422,7 +422,7 @@
       "description": "Landing a critical strike enrages you, increasing your damage by 20% for 2 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
@@ -432,7 +432,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 3,
         "apply_effect": {
           "effect_id": "primalist_savage_frenzy",
@@ -454,7 +454,7 @@
       "description": "Your critical strikes increase your armor penetration by 5% for 3 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
@@ -464,7 +464,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "primalist_sharpened_claws",
@@ -486,7 +486,7 @@
       "description": "Your attacks have a 10% chance to make your Seismic abilities ready again at once.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
@@ -496,7 +496,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 10,
+        "chance": 3,
         "icd": 1,
         "reset_cooldown": {
           "abilities": [
@@ -532,7 +532,7 @@
       "description": "Critical strikes with Totemic Smash deal 50% additional damage.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
@@ -542,7 +542,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_totemic_smash"

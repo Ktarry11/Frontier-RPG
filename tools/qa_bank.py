@@ -24,8 +24,20 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 from entities.bank import Bank, SLOTS_PER_TAB, MAX_TABS, TAB_PRICES, gold_str  # noqa: E402
 
+from world.zone_keys import zone_key  # noqa: E402
+
 #: The cities Kyle said get a banker: "Major cities only should have bankers."
-MAJOR_CITIES = {"orgrimmar": "Orgrimmar", "Undercity": "Undercity", "freewind_post": "Freewind Post"}
+#: Canonical zone keys (see world/zone_keys.py), not display names - this
+#: used to be a hand-written {slug: display name} map, which was a SEVENTH
+#: private answer to the question that file exists to answer once. It also
+#: had "Undercity" capitalised among two lowercase slugs, and it is what
+#: made this check report the Booty Bay banker as standing on an unwalkable
+#: tile: the lookup missed (the real zone key is "Booty Bay", not
+#: "booty_bay"), is_walkable was never called, and `not None` read as "not
+#: walkable". Both sides of the lookup go through zone_key now, which is
+#: the invariant world/zone_keys.py is for, and a lookup miss is reported
+#: as a miss rather than as a different failure.
+MAJOR_CITIES = {zone_key(z) for z in ("Orgrimmar", "Undercity", "Freewind Post")}
 
 
 def main():
@@ -117,21 +129,24 @@ def main():
 
     print("\n== MerchantTusk is in every major city and nowhere else")
     from world.zone_generator import create_all_zones
-    Z = create_all_zones()
+    Z = {zone_key(name): zone for name, zone in create_all_zones().items()}
     npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
     bankers = [n for n in npcs if n.get("is_banker")]
     seen = set()
     for n in bankers:
-        z = Z.get(MAJOR_CITIES.get(n["zone"], n["zone"]))
-        walk = z.is_walkable(n["x"], n["y"]) if z else None
+        z = Z.get(zone_key(n["zone"]))
+        walk = z.is_walkable(n["x"], n["y"]) if z else "NO SUCH ZONE"
         print(f"  {n['npc_id']:<12}{n['name']:<14}{n['zone']:<16}{(n['x'], n['y'])} "
               f"race={n.get('race')} walkable={walk}")
-        seen.add(n["zone"])
+        seen.add(zone_key(n["zone"]))
         if n["name"] != "MerchantTusk":
             fails.append(f"{n['npc_id']} is a banker but is not MerchantTusk")
         if n.get("race") != "troll":
             fails.append(f"{n['npc_id']} is not a troll")
-        if not walk:
+        if z is None:
+            fails.append(f"{n['npc_id']} names zone {n['zone']!r}, which no "
+                         f"generated zone matches")
+        elif not walk:
             fails.append(f"{n['npc_id']} stands on an unwalkable tile - unreachable")
     missing = set(MAJOR_CITIES) - seen
     extra = seen - set(MAJOR_CITIES)

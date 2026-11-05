@@ -104,17 +104,32 @@ def numbers(s):
 FLAG_KEY = re.compile(r"(_proc|^unlock_|_unlock$|^ability_)", re.I)
 
 
-def effect_magnitudes(eff):
+def effect_magnitudes(eff, ranks=1):
     """Every plausible rendering of an effect value, so the comparison is not
     fooled by sign (reductions are negative), by 0-1 vs percent, or by a
-    duration stored in minutes against a description in seconds."""
+    duration stored in minutes against a description in seconds.
+
+    RANKS MATTERS. Effects are authored PER RANK, and this project writes
+    descriptions both ways: "+15% per rank" quotes the per-rank value, while
+    "increases your Armor by 200% of your Intellect" on a 3-rank node quotes
+    the FULL INVESTMENT. Both are correct and both are already in the data,
+    so a check that only knew the per-rank value called 35 correct
+    descriptions contradictory the moment the Tinker and Primalist trees were
+    re-ranked - the values changed, the ceilings did not, and the prose was
+    describing the ceiling. The full-investment rendering is accepted too.
+
+    This deliberately widens what passes. It still catches a number that
+    matches NEITHER reading, which is the failure worth having: a
+    description promising 50% where no rank count produces 50%.
+    """
     vals = set()
+    ranks = max(1, int(ranks or 1))
     for k, v in eff.items():
         if FLAG_KEY.search(k):
             continue
         if isinstance(v, (int, float)) and not isinstance(v, bool):
-            a = abs(float(v))
-            vals |= {a, a * 100, a / 100, a * 60}
+            for a in {abs(float(v)), abs(float(v)) * ranks}:
+                vals |= {a, a * 100, a / 100, a * 60}
     return vals
 
 
@@ -591,7 +606,7 @@ def main():
 
         if eff and desc:
             dn = numbers(desc)
-            vals = effect_magnitudes(eff)
+            vals = effect_magnitudes(eff, n.get('max_points', 1))
             if vals and dn and not any(abs(x - y) <= max(0.011, 0.02 * max(x, y))
                                        for x in dn for y in vals):
                 if VAGUE.search(desc):

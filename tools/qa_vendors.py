@@ -50,6 +50,24 @@ TOWN_REGION = {
     "brill": "Eastern Tirisfal",
     "splintertree_post": "Ashenvale East",
     "ratchet": "Northern Barrens",
+    # Added 5 Nov 2026. Five towns had no entry and no mob band of their
+    # own, so their vendors' tiers could not be checked at all - 14 of this
+    # check's 24 failures were that one gap. Each region below is taken from
+    # the zone's own design doc rather than guessed:
+    #   claude/stranglethorn_design.md  "Home: Booty Bay (Southern
+    #                                    Stranglethorn)"
+    #   claude/tanaris_design.md        "Northern Tanaris 41-44 ·
+    #                                    Steamwheedle Port"
+    #   claude/saltwheel_design.md      portal from Shimmering Flats, and
+    #                                    the companion placed there is 39
+    #   claude/sheet3_placement         Grom'gol 33, Astranaar 24
+    "booty_bay": "Southern Stranglethorn",
+    "gromgol": "Northern Stranglethorn",
+    "steamwheedle_port": "Northern Tanaris",
+    "saltwheel": "The Shimmering Flats",
+    # Astranaar sits at 24 and Ashenvale West is 11-28 against East's 20-32,
+    # so West is the band it actually resupplies for.
+    "astranaar": "Ashenvale West",
 }
 
 #: How far a vendor's tier may sit from the TOP of its band before it is wrong. Slightly under is
@@ -62,10 +80,38 @@ def key(s):
 
 
 def zone_bands():
+    """A zone's OVERLAND level band, authored where one exists.
+
+    AUTHORED FIRST, derived only as a fallback. This used to derive every
+    band from creature level_ranges across open_zone + subzones + CAVES,
+    and including the caves is what made it wrong: a cave sits well above
+    the country around it, so the derived top ran 5-7 levels over the band
+    a player actually walks through. 23 of the 33 zones that appear in both
+    sources disagreed, always in that direction - Northern Tanaris authored
+    41-44 against 41-49 derived, Eastern Hillsbrad 11-27 against 11-34.
+
+    A town vendor stocks for the overland band, not for the bottom of the
+    local dungeon, so measuring against the cave-inclusive figure reported
+    ten correctly-tiered vendors as six and seven levels too low. Acting on
+    that verdict would have raised ten shops ABOVE their zones - the exact
+    failure this check exists to catch, introduced by the check itself.
+    Found 5 Nov 2026 by testing the ten against data/zones/zone_levels.json
+    before changing any of them.
+
+    Caves are still the reason the derived figure is kept as a fallback:
+    not every zone is in zone_levels.json, and a band is better than none.
+    """
+    authored = json.loads((ROOT / "data/zones/zone_levels.json").read_text())["zones"]
+    out = {}
+    for zn, band in authored.items():
+        if isinstance(band, (list, tuple)) and len(band) >= 2:
+            out[key(zn)] = (band[0], band[1])
+
     e = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
     c = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-    out = {}
     for zn, zd in e.items():
+        if key(zn) in out:
+            continue        # authored wins
         lv = []
         tables = [zd.get("open_zone", {})] + list(zd.get("subzones", {}).values()) \
             + list(zd.get("caves", {}).values())

@@ -5107,7 +5107,7 @@
     },
     {
       "npc_id": "gromgol_troll_attache",
-      "name": "Attaché Zul'jana",
+      "name": "Attach\u00e9 Zul'jana",
       "zone": "gromgol",
       "x": 44,
       "y": 26,
@@ -5346,8 +5346,8 @@
       "facing": "down"
     },
     {
-      "npc_id": "bootybay_banker",
-      "name": "MerchantTusk",
+      "npc_id": "bootybay_vaultkeep",
+      "name": "Girzzik Vaultkeep",
       "zone": "booty_bay",
       "x": 26,
       "y": 26,
@@ -5356,8 +5356,8 @@
       "race": "goblin",
       "appearance_variant": 14,
       "facing": "down",
-      "is_banker": true,
-      "sprite_scale": 2.0
+      "sprite_scale": 2.0,
+      "_source": "Was bootybay_banker, a goblin with is_banker set and the name MerchantTusk. Two standing rules said it could not stay: Kyle's 'major cities only should have bankers' (Booty Bay is not one), and MerchantTusk is ONE recurring character - the troll banker in Orgrimmar, Undercity and Freewind Post - so a goblin wearing his name read as a continuity error rather than a second banker. Kept as a plain Booty Bay local instead of deleted, because the greeting is authored flavour worth keeping and Booty Bay having someone who talks about a vault is fine; there is simply no bank to use. Renamed so MerchantTusk stays the troll. Fixed 5 Nov 2026."
     },
     {
       "npc_id": "bootybay_flight_master",

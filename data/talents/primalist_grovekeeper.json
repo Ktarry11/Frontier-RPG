@@ -19,7 +19,7 @@
       "description": "20% of the damage you deal is healed onto your most wounded ally.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -6,
@@ -29,7 +29,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "leech_pct": {
           "pct": 0.2,
@@ -44,7 +44,7 @@
       "description": "Your weapon swings have a 20% chance to restore 5% of your maximum mana.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
@@ -54,7 +54,7 @@
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 20,
+        "chance": 7,
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
@@ -66,16 +66,16 @@
     {
       "talent_id": "primalist_grovekeeper_tranquil_mind",
       "name": "Tranquil Mind",
-      "description": "Increases your damage and healing done by 2% per rank.",
+      "description": "Increases your damage and healing done by up to 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.02,
-        "healing_done": 0.02
+        "all_damage": 0.0133,
+        "healing_done": 0.0133
       },
       "connected_to": [
         "primalist_grovekeeper_power_hammer"
@@ -85,16 +85,16 @@
     {
       "talent_id": "primalist_grovekeeper_ancient_power",
       "name": "Ancient Power",
-      "description": "Increases your Strength by 2.5% and your chance to hit by 1.5% per rank.",
+      "description": "Increases your Strength by up to 5% and your chance to hit by up to 3%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "strength_pct": 2.5,
-        "hit_rating": 1.5
+        "strength_pct": 1.6667,
+        "hit_rating": 1
       },
       "connected_to": [
         "primalist_grovekeeper_verdant_warrior"
@@ -125,7 +125,7 @@
       "description": "Your healing drives you on, increasing your haste and damage by 2% per stack for 2 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -4,
@@ -135,7 +135,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "primalist_battleweaver",
@@ -158,7 +158,7 @@
       "description": "Your damage generates 3 additional Rage, more reliably per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
@@ -168,7 +168,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 67,
         "icd": 0,
         "grant_resource": {
           "resource": "rage",
@@ -183,12 +183,12 @@
       "description": "Reduces the Rage cost of Hand of the Earthmother by 25%.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.25
+        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.0833
       },
       "connected_to": [
         "primalist_grovekeeper_resilient_roots"
@@ -201,12 +201,12 @@
       "description": "Increases the damage of Wildclaw by 7.5% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_wildclaw_damage": 0.075
+        "ability_primalist_wildclaw_damage": 0.05
       },
       "connected_to": [
         "primalist_grovekeeper_elemental_cascade"
@@ -255,7 +255,7 @@
       "description": "Your Seismic spells have a 20% chance to bring all your Seismic spells a turn closer to ready.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
@@ -265,7 +265,7 @@
       ],
       "proc": {
         "trigger": "on_damage_or_heal_cast",
-        "chance": 20,
+        "chance": 7,
         "icd": 1,
         "ability_filter": [
           "primalist_seismic_crash",
@@ -307,7 +307,7 @@
       "description": "Seismic Wave leaves its healing working, mending the target for 3 more turns.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
@@ -317,7 +317,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_seismic_wave"
@@ -339,12 +339,12 @@
       "description": "Increases the damage of Seismic Crash by 30%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.3
+        "ability_primalist_seismic_crash_damage": 0.1
       },
       "connected_to": [
         "primalist_grovekeeper_thorns"
@@ -357,7 +357,7 @@
       "description": "Critical strikes with Wildclaw wash healing over your most wounded ally.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
@@ -367,7 +367,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_wildclaw"
@@ -400,7 +400,7 @@
       "description": "Your Seismic spells leave the enemy taking 4% more magic damage for 3 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 0,
@@ -410,7 +410,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_seismic_crash",
@@ -439,7 +439,7 @@
       "description": "Critically healing an ally increases your attack power by 15% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
@@ -449,7 +449,7 @@
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_hand_of_the_earthmother",
@@ -476,7 +476,7 @@
       "description": "Taking physical damage has a 10% chance to wrap the attacker in thorns, dealing nature damage over 2 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
@@ -486,7 +486,7 @@
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 10,
+        "chance": 3,
         "icd": 1,
         "apply_effect": {
           "effect_id": "primalist_thorns",
@@ -506,13 +506,13 @@
       "description": "Reduces the magic damage you take by 10% and increases your healing done by 6%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "magic_damage_taken_pct": -0.1,
-        "healing_done": 0.06
+        "magic_damage_taken_pct": -0.0333,
+        "healing_done": 0.02
       },
       "connected_to": [
         "primalist_grovekeeper_ancient_of_lore"
@@ -525,7 +525,7 @@
       "description": "Your healing has a 25% chance to quicken you, increasing your haste by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
@@ -535,7 +535,7 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 25,
+        "chance": 8,
         "icd": 2,
         "apply_effect": {
           "effect_id": "primalist_vitality_surge",
@@ -557,7 +557,7 @@
       "description": "Primal Rush builds momentum, increasing your damage by 5% per stack for 4 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
@@ -567,7 +567,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "primalist_primal_rush"
@@ -589,15 +589,15 @@
     {
       "talent_id": "primalist_grovekeeper_ancient_of_lore",
       "name": "Ancient of Lore",
-      "description": "While below 35% mana, your healing is 6% stronger per rank.",
+      "description": "While below 35% mana, your healing is up to 12% stronger.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "low_mana_healing_pct": 0.06
+        "low_mana_healing_pct": 0.04
       },
       "connected_to": [
         "primalist_grovekeeper_earthmothers_warden"
@@ -610,14 +610,14 @@
       "description": "Reduces the cooldown of your Seismic spells by 15% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_primalist_seismic_crash_cooldown_pct": 0.15,
-        "ability_primalist_seismic_tremor_cooldown_pct": 0.15,
-        "ability_primalist_seismic_wave_cooldown_pct": 0.15
+        "ability_primalist_seismic_crash_cooldown_pct": 0.1,
+        "ability_primalist_seismic_tremor_cooldown_pct": 0.1,
+        "ability_primalist_seismic_wave_cooldown_pct": 0.1
       },
       "connected_to": [
         "primalist_grovekeeper_aftershock"
