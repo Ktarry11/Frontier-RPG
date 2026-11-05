@@ -1792,29 +1792,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Shapeshift into Weaver Form, reducing spell pushback and granting periodic mana return.",
-      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'weaver' form data (Lvl 30, Mana resource, no resource-type change since Weaver stays Mana).",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "shapeshift_form": "weaver"
-    },
-    {
-      "ability_id": "venomancer_vizier_form_ability",
-      "name": "Vizier Form",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "shapeshift",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Shapeshift into Vizier Form, increasing healing done and reducing healing costs. Also enables Serpent's Fang to heal instead of damage.",
-      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'vizier_form' form data (Lvl 40, Mana resource). Named venomancer_vizier_form_ability (not venomancer_vizier_form) to avoid colliding with the forms.py dict key 'vizier_form' itself.",
+      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'weaver' form data (Lvl 30, Mana resource, no resource-type change since Weaver stays Mana). || requires_talent set true and level_req raised to 40, 5 Nov 2026. Kyle: 'The healing form can be a lvl 40 talent and the DPS form can be a lvl 40 talent. think of it like Tree of life or moonkin' - and 'beetle form and spider form are like druid forms and learnt via level up'. So Spider Form (6) and Beetle Form (10) stay baseline like Bear and Cat, while the DPS and healing forms become deep talents like Moonkin Form and Tree of Life. Before this, all four Venomancer forms were auto-learned, so every Venomancer had the tank form from level 10 and both caster forms regardless of spec, and the talent nodes that granted them did nothing.",
       "target_type": "self",
       "ranks": [
         {
@@ -1825,7 +1803,31 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "vizier_form"
+      "shapeshift_form": "weaver",
+      "requires_talent": true
+    },
+    {
+      "ability_id": "venomancer_vizier_form_ability",
+      "name": "Vizier Form",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "shapeshift",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Shapeshift into Vizier Form, increasing healing done and reducing healing costs. Also enables Serpent's Fang to heal instead of damage.",
+      "_source": "Real castable shapeshift. Uses the existing combat/forms.py 'vizier_form' form data (Lvl 40, Mana resource). Named venomancer_vizier_form_ability (not venomancer_vizier_form) to avoid colliding with the forms.py dict key 'vizier_form' itself. || requires_talent set true and level_req raised to 40, 5 Nov 2026. Kyle: 'The healing form can be a lvl 40 talent and the DPS form can be a lvl 40 talent. think of it like Tree of life or moonkin' - and 'beetle form and spider form are like druid forms and learnt via level up'. So Spider Form (6) and Beetle Form (10) stay baseline like Bear and Cat, while the DPS and healing forms become deep talents like Moonkin Form and Tree of Life. Before this, all four Venomancer forms were auto-learned, so every Venomancer had the tank form from level 10 and both caster forms regardless of spec, and the talent nodes that granted them did nothing.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 25,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "shapeshift_form": "vizier_form",
+      "requires_talent": true
     }
   ]
 }

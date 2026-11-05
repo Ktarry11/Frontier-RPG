@@ -505,6 +505,26 @@ N.append(node(
            "wall, and is not built."))
 
 N.append(node(
+    "weaver_form", "Weaver Form",
+    "Teaches Weaver Form, the spec's caster shape.",
+    5, -5,
+    effects={"unlock_ability": "venomancer_weaver_form"},
+    connect=["cycle_of_decay"],
+    source="CoA's own description for this node is the unresolved token "
+           "'$b4'. LOAD-BEARING UNLOCK, and newly so: Kyle's call on 5 Nov "
+           "2026 was that the DPS and healing forms should be level-40 "
+           "talents 'like Tree of life or moonkin', while Spider Form and "
+           "Beetle Form stay 'learnt via level up' like Bear and Cat. So "
+           "venomancer_weaver_form now carries requires_talent with level_req "
+           "40, and without this node it is unobtainable forever - "
+           "qa_abilities_obtainable flagged it the moment the ability was "
+           "gated. Placed at tier 5 rather than 6: tier 5 opens at 25 points "
+           "in the tree, which a level-40 Venomancer can reach, whereas tier "
+           "6 needs 30. Before this change all four forms were auto-learned, "
+           "so every Venomancer had the tank form from level 10 and both "
+           "caster forms regardless of spec, and this node did nothing."))
+
+N.append(node(
     "cycle_of_decay", "Cycle of Decay",
     "Your spells have a 20% chance to quicken the cycle, raising your haste "
     "by 20% for 2 turns.",
@@ -593,6 +613,12 @@ def main():
     for n in TREE["nodes"]:
         for c in n["connected_to"]:
             assert c in ids, f"{n['talent_id']} connects to unknown {c}"
+    unlocks = {(n.get("effects") or {}).get("unlock_ability")
+               for n in TREE["nodes"]}
+    assert "venomancer_weaver_form" in unlocks, (
+        "venomancer_weaver_form is requires_talent (Kyle's 5 Nov 2026 call: "
+        "the DPS form is a level-40 talent like Moonkin) and this tree is "
+        "its only unlock - dropping the node makes it unobtainable forever")
     procs = sum(1 for n in TREE["nodes"] if n.get("proc"))
     pts = sum(n["max_points"] for n in TREE["nodes"])
     print(f"Venomancer Venom: {len(ids)} nodes, {procs} with procs, "

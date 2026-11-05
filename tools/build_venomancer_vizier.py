@@ -471,6 +471,24 @@ N.append(node(
            "outright off Serpent's Fang, as CoA's two do."))
 
 N.append(node(
+    "vizier_form", "Vizier Form",
+    "Teaches Vizier Form, the spec's healing shape.",
+    5, -5,
+    effects={"unlock_ability": "venomancer_vizier_form_ability"},
+    connect=["mycelial_replenishment"],
+    source="CoA's own description for this node is the unresolved token "
+           "'$bc'. LOAD-BEARING UNLOCK, and newly so: Kyle's call on 5 Nov "
+           "2026 was that the healing and DPS forms should be level-40 "
+           "talents 'like Tree of life or moonkin', while Spider Form and "
+           "Beetle Form stay 'learnt via level up' like Bear and Cat. So "
+           "venomancer_vizier_form_ability now carries requires_talent at "
+           "level_req 40, and without this node it is unobtainable forever. "
+           "Placed at tier 5, which opens at 25 points and so is reachable at "
+           "level 40; tier 6 needs 30. This is the Tree of Life of the pair - "
+           "a healer's dedicated form, taken deep in the healing tree rather "
+           "than handed to every Venomancer at level 40 as it was before."))
+
+N.append(node(
     "mycelial_replenishment", "Mycelial Replenishment",
     "Your critical heals restore mana and raise your critical healing by 20% "
     "for 3 turns.",
@@ -569,6 +587,13 @@ def main():
     for n in TREE["nodes"]:
         for c in n["connected_to"]:
             assert c in ids, f"{n['talent_id']} connects to unknown {c}"
+    unlocks = {(n.get("effects") or {}).get("unlock_ability")
+               for n in TREE["nodes"]}
+    assert "venomancer_vizier_form_ability" in unlocks, (
+        "venomancer_vizier_form_ability is requires_talent (Kyle's 5 Nov "
+        "2026 call: the healing form is a level-40 talent like Tree of Life) "
+        "and this tree is its only unlock - dropping the node makes it "
+        "unobtainable forever")
     procs = sum(1 for n in TREE["nodes"] if n.get("proc"))
     pts = sum(n["max_points"] for n in TREE["nodes"])
     print(f"Venomancer Vizier: {len(ids)} nodes, {procs} with procs, "
