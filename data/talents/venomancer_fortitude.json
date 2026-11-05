@@ -1,8 +1,8 @@
 {
   "spec_name": "Venomancer Fortitude",
   "tree_id": "venomancer_fortitude",
-  "description": "Armored bulwark - soaks damage behind a hardened exoskeleton. Bear-equivalent spec; Beetle Form is this spec's shapeshift, trading Mana for Rage.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 25 confirmed Fortitude nodes trimmed HARD to a lean 12-node tree per Kyle's bloat direction - this was the single biggest source list of any Venomancer spec, heavy on near-duplicate exoskeleton passives (Empowered/Regrow/Reinforced Exoskeleton, Reconstructive Carapace all did similar armor-stacking things) which were consolidated into fewer, stronger nodes. Exposed Flesh confirmed via tooltip as the Rage-generation mechanic: 'Hostile attacks against you now have a 50% chance to grant a stack of Exposed Flesh. Exposed Flesh generates 10 Rage and increases your Physical Damage taken 3% for 20 seconds, stacking 10 times.'",
+  "description": "Beetle form and bared chitin - a tank that turns being hit into Rage and Rage into retaliation.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 42 real CoA Fortitude talents (role Tank), completing Venomancer. REBUILT BY ADDITION: this tree was the healthiest of the four and already carried working mechanics nothing else in the audit matched - Exposed Flesh's Rage loop (preserved verbatim), Adrenal Carapace scaling it through scale_talent_key, require_form 'beetle', and the real tank keys low_health_damage_reduction_pct and death_threat_retention_pct. The effort went into its SEVEN DEAD UNLOCK NODES, all for non-gated abilities. barbed_stinger is the class's only gated ability and its unlock node is preserved and asserted. Not buildable: Beetle Slime (ground pool), Carapace Regeneration (charges plus a channelled Rage drain), Rage generation as a stat (rage_generation_pct is dead), and the four 'clears Exposed Flesh stacks to do X per stack' talents, which need a payload that consumes and counts stacks of an arbitrary effect.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,29 +14,68 @@
   },
   "nodes": [
     {
-      "talent_id": "venomancer_fortitude_regenerative_properties",
-      "name": "Regenerative Properties",
-      "description": "Increases Stamina by 3 per rank.",
+      "talent_id": "venomancer_fortitude_magic_shell",
+      "name": "Magic Shell",
+      "description": "Increases all your primary attributes by 15% and your chance to hit by 3%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "all_stats_pct": 5,
+        "hit_rating": 1
+      },
+      "connected_to": [
+        "venomancer_fortitude_enchanted_chitin"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases all primary attributes by 15% while in Beetle Form. In addition, increases your hit rating by 3% of all primary attributes.' all_stats_pct is live and takes percentage POINTS, so CoA's 15% ports. THE BEETLE FORM GATE IS DROPPED: require_form works on a proc payload and on an ability, but not as a condition on a flat effects block - so a form-gated stat bonus cannot be expressed. The hit CONVERSION cannot be built either (hit_rating is not a conversion target, the fifth time in this audit), so it is a flat 3%."
+    },
+    {
+      "talent_id": "venomancer_fortitude_enchanted_chitin",
+      "name": "Enchanted Chitin",
+      "description": "Increases your armour by 50%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "stamina": 3
+        "armor_pct": 16.6667
       },
       "connected_to": [
-        "venomancer_fortitude_exposed_flesh"
-      ]
+        "venomancer_fortitude_reinforced_exoskeleton"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Armor contribution from mail by 25%.' Doubled for the two ranks. No key reads armour by item class, so it applies to all armour - the Venomancer wears mail anyway. This is the talent behind Kyle's canon that Beetle Form multiplies armour from mail to compensate for a shieldless tank; the multiplication lives here rather than on the form, since a form cannot gate a flat effect (see Magic Shell). armor_pct takes percentage POINTS."
     },
     {
-      "talent_id": "venomancer_fortitude_cunning",
-      "name": "Cunning",
-      "description": "Increases Armor by 3% per rank.",
+      "talent_id": "venomancer_fortitude_reinforced_exoskeleton",
+      "name": "Reinforced Exoskeleton",
+      "description": "Increases your maximum health by 6% and your dodge chance by 6%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "max_health_pct": 0.02,
+        "dodge": 2
+      },
+      "connected_to": [
+        "venomancer_fortitude_hardened_carapace"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your maximum health and your dodge chance by 3%.' Doubled for the two ranks. TWO UNITS IN ONE BLOCK: AS A TALENT EFFECT max_health_pct is a FRACTION, so 6% is 0.06 - authoring 6.0 would be 600%, which is what shipped briefly on Bloodmage Eternal - while `dodge` is a PERCENT rolled against 0-100. Dodge also passes through _diminish()."
+    },
+    {
+      "talent_id": "venomancer_fortitude_hardened_carapace",
+      "name": "Hardened Carapace",
+      "description": "Increases your armour by a further 12%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
@@ -44,57 +83,52 @@
         "armor_pct": 3.0
       },
       "connected_to": [
-        "venomancer_fortitude_impale"
-      ]
+        "venomancer_fortitude_agitation"
+      ],
+      "_source": "Kept from the shipped tree, which had this at 4 ranks of 3% armor_pct. Authored at the PER-RANK 3.0 with its own 4 ranks, so get_effective_effects() multiplies by points spent to reach 12% - the description states the ceiling. CoA's own near-duplicate exoskeleton passives (Empowered, Regrow, Reconstructive) were consolidated into this and Reinforced Exoskeleton by the Sept 2026 pass, per Kyle's bloat direction, and that consolidation is kept rather than re-expanded."
     },
     {
-      "talent_id": "venomancer_fortitude_alacrity",
-      "name": "Alacrity",
-      "description": "Increases Dodge chance by 1% per rank.",
+      "talent_id": "venomancer_fortitude_agitation",
+      "name": "Agitation",
+      "description": "Dodging an attack generates 3 Rage.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
-      "effects": {
-        "dodge": 1.0
-      },
+      "effects": {},
       "connected_to": [
-        "venomancer_fortitude_hivebreak"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_agitation",
-      "name": "Agitation",
-      "description": "Increases threat generated by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "threat_generation_pct": 0.05
+        "venomancer_fortitude_exposed_flesh"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 3
+        }
       },
-      "connected_to": [
-        "venomancer_fortitude_locust_swarm"
-      ]
+      "_source": "CoA verbatim: 'Dodging an attack now generates 3 Rage.' PORTS EXACTLY - on_avoid is a live trigger (fired from Character._fire_avoidance_procs alongside on_dodge and on_parry) and grant_resource takes a flat amount. CoA's 3 Rage kept. The shipped tree had this node as flat threat_generation_pct instead, which was not what CoA's talent does at all."
     },
     {
       "talent_id": "venomancer_fortitude_exposed_flesh",
       "name": "Exposed Flesh",
-      "description": "Hostile attacks against you have a 50% chance to grant a stack of Exposed Flesh, generating 10 Rage.",
+      "description": "Hostile attacks against you have a 50% chance to bare your flesh, generating 10 Rage and increasing your physical damage taken by 3% for 20 seconds, stacking 10 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {},
+      "connected_to": [
+        "venomancer_fortitude_barbed_stinger"
+      ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 50,
+        "chance": 17,
         "icd": 0,
         "grant_resource": {
           "resource": "rage",
@@ -115,263 +149,169 @@
           "on_target": false
         }
       },
-      "connected_to": [
-        "venomancer_fortitude_regenerative_properties",
-        "venomancer_fortitude_molt"
-      ],
-      "_source2": "unlock_mechanic was a dead flag never read anywhere (the real 'exposed_flesh_stacks' mechanic it was meant to unlock didn't exist in the engine at all) - rebuilt as a real talent-level proc using the new generic stacking support (StatusEffect.max_stacks/stacks, see combat/status_effects.py). on_target=false applies the stacking debuff to the CARRIER (the Venomancer), not the attacker - this is a self-debuff representing exposed armor plating, unlike Venomous Retort's on_target=true poison which hits the attacker. real_time_seconds=20 (an explicit number, not the turn-based-None convention) matches Kyle's tooltip ('for 20 seconds' - a real-world timer, not turn count) - each new stack refreshes this same 20-second window, matching real WoW stacking-debuff behavior where the timer resets off the MOST RECENT application, not the first.",
-      "_source": "CoA tooltip confirmed: 'Hostile attacks against you now have a 50% chance to grant a stack of Exposed Flesh. Exposed Flesh Generates 10 Rage and increases your Physical Damage taken 3% for 20 seconds, stacking 10 times.' This spec's core Rage-generation mechanic - the damage-taken-increase risk/reward clause is kept since it matches real WoW tank Rage generation (taking hits fuels your kit)."
-    },
-    {
-      "talent_id": "venomancer_fortitude_impale",
-      "name": "Impale",
-      "description": "Learn Beetle Form, a shapeshift into an armored beetle, trading Mana for Rage and greatly increasing Armor and Stamina.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_beetle_form"
-      },
-      "connected_to": [
-        "venomancer_fortitude_cunning"
-      ]
+      "_source": "PRESERVED VERBATIM from the shipped tree - this is CoA's real tank loop and it already worked. CoA's tooltip: 'Hostile attacks against you now have a 50% chance to grant a stack of Exposed Flesh. Exposed Flesh generates 10 Rage and increases your Physical Damage taken 3% for 20 seconds, stacking 10 times.' Note the proc carries BOTH a grant_resource and an apply_effect, and the debuff lands on the CARRIER (on_target false) because the downside is yours. INSIDE A STATUS EFFECT physical_damage_taken_pct is divided by 100 and POSITIVE INCREASES damage taken, which is why 3 here is a 3% penalty - the same key on Resilient Shell below is a talent effect where NEGATIVE reduces. Four CoA talents 'clear Exposed Flesh stacks' for an effect scaling per stack cleared; no payload consumes stacks of an arbitrary effect or reads the count, so none of them are built."
     },
     {
       "talent_id": "venomancer_fortitude_barbed_stinger",
       "name": "Barbed Stinger",
-      "description": "Learn Barbed Stinger, a taunt that forces your active Venom to proc against the target.",
-      "node_type": "active",
+      "description": "Teaches Barbed Stinger, flinging a barb that can be ripped back out.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -4,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "venomancer_barbed_stinger"
       },
       "connected_to": [
-        "venomancer_fortitude_regenerative_properties",
-        "venomancer_fortitude_molt",
-        "venomancer_fortitude_staggering_blow"
+        "venomancer_fortitude_vile_fury"
       ],
-      "_source": "Built during the DPS niche audit (Oct 2026) - no talent anywhere unlocked Barbed Stinger even though 2 tier-2 talents (Molt, Staggering Blow) already named it as if it existed. Placed at tier 1 so both of its tier-2 modifiers can sit downstream of it, same shape as Impale (tier 1, unlocks Beetle Form) feeding Hivebreak (tier 1, Beetle-Form-gated) one column over. requires_talent=true on the ability itself (see data/abilities/venomancer.json) means this node is the ONLY way to ever learn Barbed Stinger - without it the ability would be permanently unlearnable, the same mistake caught and fixed for Tinker's Defibrillate earlier this session."
+      "_source": "CoA verbatim: 'Clears Exposed Flesh stacks and flings a Barbed Stinger into an enemy for 10 sec, plus an additional 1 sec per cleared stack. Recasting this ability on the same target will rip the stinger out, pulling them to you and dealing Nature damage, scaling based on how long the stinger was left in them.' THE ONLY LOAD-BEARING UNLOCK IN THE WHOLE CLASS: venomancer_barbed_stinger is the single Venomancer ability carrying requires_talent, so without this node it is unobtainable forever. main() asserts it. The stack-clearing, the pull and the duration-scaled rip all live on the ability's own behaviour or not at all; the talent only grants it."
     },
     {
-      "talent_id": "venomancer_fortitude_hivebreak",
-      "name": "Hivebreak",
-      "description": "Learn Hivebreak, piercing an enemy with your front leg for Nature damage. Requires Beetle Form.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_hivebreak"
-      },
-      "connected_to": [
-        "venomancer_fortitude_alacrity"
-      ],
-      "_source": "Confirmed screenshot: Lvl 10, 'Pierce an enemy with your front leg, dealing 33 Nature damage.' Replaces an earlier unconfirmed guess ('Barbed Stinger')."
-    },
-    {
-      "talent_id": "venomancer_fortitude_locust_swarm",
-      "name": "Locust Swarm",
-      "description": "Learn Locust Swarm, a Rage-spending taunt that hits all nearby enemies.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 6,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_locust_swarm"
-      },
-      "connected_to": [
-        "venomancer_fortitude_agitation"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_reinforced_exoskeleton",
-      "name": "Reinforced Exoskeleton",
-      "description": "While in Beetle Form, increases your total Armor by 2% per rank.",
+      "talent_id": "venomancer_fortitude_vile_fury",
+      "name": "Vile Fury",
+      "description": "Reduces the Rage cost of Hivebreak and Carapace Crash by 20% and increases your chance to hit by 4%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -2,
-      "effects": {
-        "armor_pct": 2.0
-      },
-      "connected_to": [
-        "venomancer_fortitude_impale",
-        "venomancer_fortitude_unbreakable"
-      ],
-      "require_form": [
-        "beetle"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_molt",
-      "name": "Molt",
-      "description": "Increases Barbed Stinger damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": -2,
-      "effects": {
-        "ability_venomancer_barbed_stinger_damage": 0.08
-      },
-      "connected_to": [
-        "venomancer_fortitude_exposed_flesh"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_unbreakable",
-      "name": "Unbreakable",
-      "description": "Reduces all damage taken by 2% per rank while below 35% health.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.02,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "venomancer_fortitude_reinforced_exoskeleton",
-        "venomancer_fortitude_spider_lord"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_spider_lord",
-      "name": "Spider Lord",
-      "description": "While in Beetle Form, generate 2 additional Rage whenever you deal damage.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {},
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "require_form": "beetle",
-        "grant_resource": {
-          "resource": "rage",
-          "amount": 2
-        }
-      },
-      "connected_to": [
-        "venomancer_fortitude_unbreakable"
-      ],
-      "_source": "beetle_rage_on_damage was a dead stat_mods key never read anywhere - converted to a real talent-level proc (TalentNode.proc, synced to a permanent synthetic StatusEffect by Character._sync_talent_procs), the same reactive-behavior mechanism Seal of Command/Earth Shield/Shamanistic Rage already use, since 'generate Rage whenever you deal damage' is a reactive trigger, not a passive stat bonus get_talent_effects() can express."
-    },
-    {
-      "talent_id": "venomancer_fortitude_hardened_carapace",
-      "name": "Hardened Carapace",
-      "description": "Increases Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [
-        "venomancer_fortitude_cunning"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_thick_hide",
-      "name": "Thick Hide",
-      "description": "Increases Stamina by 3 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -6,
       "hex_y": -4,
       "effects": {
-        "stamina": 3
+        "ability_venomancer_hivebreak_cost_pct": 0.0667,
+        "ability_venomancer_carapace_crash_cost_pct": 0.0667,
+        "hit_rating": 1.3333
       },
       "connected_to": [
-        "venomancer_fortitude_regenerative_properties"
-      ]
+        "venomancer_fortitude_resilient_shell"
+      ],
+      "_source": "CoA over 2 ranks: 'Reduces the Rage cost of Hivebreak and Carapace Crash by -3 and increases your chance to hit by 2%.' Doubled for the two ranks. A flat 3 Rage is expressed as a percentage because costs differ per ability and rank. POSITIVE reduces, so CoA's minus sign is dropped."
     },
     {
       "talent_id": "venomancer_fortitude_resilient_shell",
       "name": "Resilient Shell",
-      "description": "Reduces Physical damage taken by 2% per rank.",
+      "description": "Reduces the physical damage you take by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {
         "physical_damage_taken_pct": -0.02
       },
       "connected_to": [
-        "venomancer_fortitude_exposed_flesh"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_venomous_retort",
-      "name": "Venomous Retort",
-      "description": "Melee attacks against you have a 3% chance per rank to poison the attacker.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {},
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 3,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "venomous_retort_poison",
-          "name": "Venomous Retort",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 15,
-          "damage_school": "nature",
-          "dispel_type": "poison",
-          "on_target": true
-        }
-      },
-      "connected_to": [
         "venomancer_fortitude_alacrity"
       ],
-      "_source": "retort_poison_chance was a dead stat_mods key never read anywhere - converted to a real talent-level proc (same mechanism as Spider Lord). chance is the PER-RANK value (3), scaled by Character._sync_talent_procs to the rank actually spent (3/6/9% across 3 ranks) - see that method's new rank-scaling comment. trigger on_damage_taken + apply_effect(on_target=true) applies the poison DoT to the ATTACKER (passed through as the proc's target via take_damage's new attacker parameter), not the Venomancer - this is a retaliation effect, not a self-buff. Fixed potency=15/duration=3 (a modest, non-scaling poison tick) rather than reusing a real damage-dealing spell's own effect_value, since a passive retaliation proc shouldn't scale with the Venomancer's own spell power/gear the way an intentional cast does."
+      "_source": "Kept from the shipped tree at 3 ranks of -0.02. AS A TALENT EFFECT physical_damage_taken_pct is a FRACTION where NEGATIVE reduces, so -0.02 per rank reaches -6% at full investment. The SAME KEY inside Exposed Flesh's status effect above is divided by 100 and positive increases - both polarities of one key, two nodes apart, which is why the convention block at the top of this file spells it out."
     },
     {
-      "talent_id": "venomancer_fortitude_staggering_blow",
-      "name": "Staggering Blow",
-      "description": "Your Barbed Stinger has a 34% chance per rank to stagger the target, reducing its Armor by 150 for 4 turns.",
+      "talent_id": "venomancer_fortitude_alacrity",
+      "name": "Alacrity",
+      "description": "Chitin Rush quickens you, raising your dodge chance by 1% per stack for 2 turns, stacking 8 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_fortitude_adrenal_carapace"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_chitin_rush"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_alacrity",
+          "name": "Alacrity",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 8,
+          "stat_mods": {
+            "dodge": 1.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Chitin Rush now increases your dodge chance by 1% for 5 sec, stacking 8 times.' PORTS ALMOST EXACTLY - CoA's 1% and 8 stacks kept; 5 sec is 2 turns. The shipped tree had this as a flat 3 ranks of 1% dodge, losing the ramp entirely. A tank stacking dodge off its own rotation is the node CoA wrote."
+    },
+    {
+      "talent_id": "venomancer_fortitude_adrenal_carapace",
+      "name": "Adrenal Carapace",
+      "description": "Increases the Rage that Exposed Flesh generates by 20%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
+      "effects": {
+        "exposed_flesh_rage_pct": 0.0667
+      },
+      "connected_to": [
+        "venomancer_fortitude_cunning"
+      ],
+      "_source": "PRESERVED from the shipped tree. `exposed_flesh_rage_pct` is NOT an engine key - it greps as dead - because it is read DYNAMICALLY BY NAME through get_talent_effect, from Exposed Flesh's own grant_resource.scale_talent_key (status_effects.py:1351). So one talent scales another talent's resource grant, read live on every proc, which means spending or unspending points here takes effect on the very next hit with no re-sync. It is the cleanest pattern in the class and trivially broken by 'cleaning up' either half - deleting this node would leave Exposed Flesh reading a key nothing grants, and deleting the scale_talent_key would leave this node dead. Authored at 0.1 over CoA's 2 ranks, which the rank policy then spreads across 3 as 0.0667 - so it still reaches the 20% ceiling the description states, verified at runtime. Writing max_points=2 does NOT keep it at 2 ranks: spread() rescales anything under 3 that it can divide, so the per-rank value shown in this file is not the shipped one. Only nodes already at 3+ ranks, or carrying small integers, are left alone."
+    },
+    {
+      "talent_id": "venomancer_fortitude_cunning",
+      "name": "Cunning",
+      "description": "Increases the critical strike chance of Chitin Rush by 20% and its critical strike damage by 10%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_chitin_rush_crit": 6.6667,
+        "ability_venomancer_chitin_rush_crit_damage": 0.0333
+      },
+      "connected_to": [
+        "venomancer_fortitude_natural_weapons"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Chitin Rush by 20% and its critical damage by 10%.' Ports exactly. The shipped tree had Cunning as 5 ranks of flat armor_pct, which is not what CoA's talent does. Note the units differ in one block: ability_*_crit is a PERCENT, ability_*_crit_damage a FRACTION."
+    },
+    {
+      "talent_id": "venomancer_fortitude_natural_weapons",
+      "name": "Natural Weapons",
+      "description": "Increases the critical strike chance of your Beetle Form strikes by 10%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_hivebreak_crit": 3.3333,
+        "ability_venomancer_carapace_crash_crit": 3.3333,
+        "ability_venomancer_chitin_rush_crit": 3.3333
+      },
+      "connected_to": [
+        "venomancer_fortitude_chitinous_surge"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of all Beetle Form abilities by 10%.' No key names a form's abilities as a group, so the three Rage-spending Beetle strikes are written out. CoA's 10% kept."
+    },
+    {
+      "talent_id": "venomancer_fortitude_staggering_blow",
+      "name": "Staggering Blow",
+      "description": "Barbed Stinger staggers the enemy, reducing the damage they deal.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "venomancer_fortitude_hivebreak"
+        "venomancer_fortitude_chitinous_surge"
       ],
       "proc": {
         "trigger": "on_cast",
@@ -384,18 +324,38 @@
           "effect_id": "staggering_blow",
           "name": "Staggered",
           "effect_type": "debuff",
-          "duration": 4,
+          "duration": 2,
+          "max_stacks": 1,
           "stat_mods": {
-            "armor": -150
+            "damage_dealt_pct": -8.0
           },
           "on_target": true
         }
-      }
+      },
+      "_source": "Kept from the shipped tree, which paired Barbed Stinger with a stagger debuff - a real tank mechanic with no direct CoA equivalent, so it is retained rather than discarded for fidelity. on_cast rather than on_damage_cast so it fires even when the stinger is being planted rather than ripped out. 34% chance over 3 ranks reaches 100% at full investment, the project's standard shape for a guaranteed ranked proc."
     },
     {
       "talent_id": "venomancer_fortitude_stubborn_exoskeleton",
       "name": "Stubborn Exoskeleton",
-      "description": "Reduces the duration of stun effects against you by 5% per rank.",
+      "description": "Reduces the duration of stuns against you by 15%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {
+        "stun_duration_reduction_pct": 0.05
+      },
+      "connected_to": [
+        "venomancer_fortitude_drown_in_poison"
+      ],
+      "_source": "PRESERVED from the shipped tree at 3 ranks of 0.05. stun_duration_reduction_pct is a real tank key, read against effects flagged is_stun (status_effects.py:699) and floored so a stun can be shortened but never negated - cc_immune is what does that. A FRACTION where POSITIVE reduces."
+    },
+    {
+      "talent_id": "venomancer_fortitude_drown_in_poison",
+      "name": "Drown In Poison",
+      "description": "Increases the damage of Venomtip Poison by 30% and of Expulsion by 20%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -403,16 +363,102 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "stun_duration_reduction_pct": 0.05
+        "ability_venomancer_venomtip_poison_damage": 0.1,
+        "ability_venomancer_expulsion_damage": 0.0667
       },
       "connected_to": [
-        "venomancer_fortitude_molt"
-      ]
+        "venomancer_fortitude_wicked_poison"
+      ],
+      "_source": "CoA verbatim for both halves: 'Increases the damage of Venomtip Poison by 30%' and, from Potent Expulsion, 'Increases the damage dealt by Expulsion by 20%.' Both abilities exist in Frontier and both had DEAD UNLOCK NODES in the shipped tree - neither is requires_talent, so those nodes granted abilities the character already had. Merged into one node with real numbers."
+    },
+    {
+      "talent_id": "venomancer_fortitude_wicked_poison",
+      "name": "Wicked Poison",
+      "description": "Your critical strikes with Beetle Form strikes leave wicked poison, dealing shadow damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_fortitude_slimy"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_hivebreak",
+          "venomancer_carapace_crash",
+          "venomancer_chitin_rush"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_wicked_poison",
+          "name": "Wicked Poison",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 40,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Critical strikes with Chitin Rush, Carapace Crash, and Hivebreak now apply Wicked Poison. Deals Shadow Damage every 1.5 sec for 6 sec.' PORTS CLOSELY - on_crit with an ability_filter on exactly CoA's three abilities, and a dot for CoA's 6 sec as 2 turns. CoA's Beetle Poison node ('allows Wicked Poison to stack an additional time') is not built: no key modifies another effect's max_stacks."
+    },
+    {
+      "talent_id": "venomancer_fortitude_slimy",
+      "name": "Slimy",
+      "description": "Taking a hit has a 20% chance to splash slime back, dealing nature damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_fortitude_unbreakable"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 7,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "venomancer_beetle_slime",
+          "name": "Beetle Slime",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 30,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Direct damage taken now has a 20% chance to create a pool of Beetle Slime under the enemy. Can only occur once every 3 sec. Beetle Slime deals Nature Damage to up to 10 enemies within 5 yds every 2 sec for 8 sec.' A GROUND POOL HAS NO MECHANISM - no ground placement - so the slime becomes a dot on the attacker, which is where the pool would have been. CoA's 20% and its 3-second limit both port, the limit as icd 3. CoA's Slimy Stingers ('Carapace Crash creates a pool under each enemy struck') is the same mechanic and is not built twice."
+    },
+    {
+      "talent_id": "venomancer_fortitude_unbreakable",
+      "name": "Unbreakable",
+      "description": "While below 35% health, reduces the damage you take by 6%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.02,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "venomancer_fortitude_beetle_endurance"
+      ],
+      "_source": "PRESERVED from the shipped tree. BOTH KEYS ARE REAL - low_health_damage_reduction_pct is read in entities/character.py and low_health_threshold_pct in entities/talent_node.py - which makes this one of very few conditional effects in the whole project that genuinely works. Health-threshold conditions are otherwise unbuildable (see Stalking's Virulent Opening and Black Widow, Venom's Venom Saturation), so this pair is worth knowing about. The reduction is per-rank and the threshold is not, so the threshold must stay a flat 0.35 rather than being spread - which is why this node is authored at its own 3 ranks instead of going through the rank policy."
     },
     {
       "talent_id": "venomancer_fortitude_beetle_endurance",
       "name": "Beetle Endurance",
-      "description": "While in Beetle Form, increases your maximum Health by 2% per rank.",
+      "description": "Increases your maximum health by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -423,151 +469,147 @@
         "max_health_pct": 0.02
       },
       "connected_to": [
-        "venomancer_fortitude_unbreakable"
+        "venomancer_fortitude_charmed_plating"
       ],
-      "require_form": [
-        "beetle"
-      ]
+      "_source": "PRESERVED from the shipped tree at 3 ranks of 0.02. AS A TALENT EFFECT max_health_pct is a FRACTION, so 0.02 per rank reaches 6% at full investment. Inside a status effect the same key takes percentage POINTS - the flip that put 0.05% instead of 5% on Witch Hunter's Black Knight earlier in this audit."
     },
     {
-      "talent_id": "venomancer_fortitude_adrenal_carapace",
-      "name": "Adrenal Carapace",
-      "description": "Increases the Rage generated by your Exposed Flesh by 10% per rank.",
+      "talent_id": "venomancer_fortitude_charmed_plating",
+      "name": "Charmed Plating",
+      "description": "Reduces all damage you take by 3% and your chance to be hit by spells by 2%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
+      "hex_x": 1,
+      "hex_y": 2,
       "effects": {
-        "exposed_flesh_rage_pct": 0.1
+        "damage_taken_pct": -0.01,
+        "magic_damage_taken_pct": -0.0067
       },
       "connected_to": [
-        "venomancer_fortitude_exposed_flesh"
-      ]
+        "venomancer_fortitude_chitinous_surge"
+      ],
+      "_source": "CoA verbatim: 'Reduces damage taken by all party and raid members by -3%. Does not stack with similar effects. In addition, reduces your chance to be hit by spells by -2%.' A TALENT CANNOT REACH AN ALLY, so the 3% lands on the Venomancer and the description says 'you'. There is no recipient-side 'chance to be hit' key - hit lives on the attacker - so that half becomes magic damage taken, the live equivalent. BARE damage_taken_pct IS READ RAW so 3% is -0.03, while magic_damage_taken_pct as a TALENT effect is also a fraction where negative reduces."
+    },
+    {
+      "talent_id": "venomancer_fortitude_chitinous_surge",
+      "name": "Chitinous Surge",
+      "description": "Reduces the cooldown of Chitin Rush by 25% and increases its damage by 15%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_venomancer_chitin_rush_cooldown_pct": 0.0833,
+        "ability_venomancer_chitin_rush_damage": 0.05
+      },
+      "connected_to": [
+        "venomancer_fortitude_unyielding_will"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of Chitin Rush by -3 sec and increases its damage by 15%.' The damage half ports exactly; 3 sec is expressed as 25% against the ability's own cooldown. CoA's Empowered Exoskeleton ('removes the Rage cost of Chitin Rush and increases its range') is folded in here minus the range, which means nothing. POSITIVE on a _cooldown_pct reduces."
     },
     {
       "talent_id": "venomancer_fortitude_unyielding_will",
       "name": "Unyielding Will",
-      "description": "Reduces threat lost on death by 5% per rank.",
+      "description": "You keep 10% of your threat on death.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "death_threat_retention_pct": 0.0333
+      },
+      "connected_to": [
+        "venomancer_fortitude_carapace_regeneration"
+      ],
+      "_source": "PRESERVED from the shipped tree at 2 ranks of 0.05. death_threat_retention_pct is read in combat/combat_engine.py and is a genuinely unusual tank key - it keeps a share of accumulated threat through a death, so a resurrected tank is not starting from zero against a boss. No CoA equivalent, retained rather than discarded for fidelity."
+    },
+    {
+      "talent_id": "venomancer_fortitude_carapace_regeneration",
+      "name": "Carapace Regeneration",
+      "description": "Taking a hit regrows your carapace, reducing the physical damage you take by 4% per stack for 3 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "death_threat_retention_pct": 0.05
-      },
-      "connected_to": [
-        "venomancer_fortitude_unbreakable"
-      ]
-    },
-    {
-      "talent_id": "venomancer_fortitude_earthen_grip",
-      "name": "Earthen Grip",
-      "description": "Your Locust Swarm grips the target, reducing its haste by 20% for 3 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 0,
       "effects": {},
       "connected_to": [
-        "venomancer_fortitude_locust_swarm"
+        "venomancer_fortitude_charm_of_warding"
       ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
+        "trigger": "on_damage_taken",
+        "chance": 33,
         "icd": 1,
-        "ability_filter": [
-          "venomancer_locust_swarm"
-        ],
         "apply_effect": {
-          "effect_id": "earthen_grip",
-          "name": "Earthen Grip",
-          "effect_type": "debuff",
+          "effect_id": "venomancer_carapace_regeneration",
+          "name": "Carapace Regeneration",
+          "effect_type": "buff",
           "duration": 3,
+          "max_stacks": 3,
           "stat_mods": {
-            "haste": -20.0
+            "physical_damage_taken_pct": -4.0
           },
-          "on_target": true
+          "on_target": false
         }
-      }
-    },
-    {
-      "talent_id": "venomancer_fortitude_carapace_crash",
-      "name": "Carapace Crash",
-      "description": "Learn Carapace Crash, slamming your body against the ground to damage nearby enemies. Requires Beetle Form.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "venomancer_carapace_crash"
       },
-      "connected_to": [
-        "venomancer_fortitude_reinforced_exoskeleton"
-      ],
-      "_source": "Confirmed screenshot: Lvl 16 (Rank 2 shown, 'Fortitude(1)'), 'Slam your body against the ground dealing 45 Nature damage to enemies within 8 yds.'"
+      "_source": "CoA verbatim: '3 Charges, 20 sec recharge. Regenerate your carapace, reducing your Physical damage taken by -4% and restoring 1% maximum health every 1 sec, draining 10 Rage every tick to remain active, stacking 3 times.' THREE WALLS: charges have no system, there is no periodic trigger for the per-second heal, and nothing drains a resource per tick to sustain an effect. Rebuilt as a defensive that stacks from being hit, which is how a tank would have held it up anyway. CoA's 4% and 3 stacks kept; 20 sec is 3 turns, with a 1-turn icd so one turn's hits do not fill all three stacks. INSIDE A STATUS EFFECT physical_damage_taken_pct is divided by 100 and POSITIVE increases damage taken, so a reduction is NEGATIVE here - the opposite sign to Resilient Shell's talent effect."
     },
     {
-      "talent_id": "venomancer_fortitude_expulsion",
-      "name": "Expulsion",
-      "description": "Learn Expulsion, clearing your Exposed Flesh stacks to poison nearby enemies.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "venomancer_expulsion"
-      },
-      "connected_to": [
-        "venomancer_fortitude_carapace_crash",
-        "venomancer_fortitude_stubborn_exoskeleton"
-      ],
-      "_source": "Confirmed screenshot: Lvl 18, 'Clears Exposed Flesh stacks to poison nearby enemies for 5 sec, and an additional 1 sec per cleared stack, dealing 18 Nature damage every 1 sec.'"
-    },
-    {
-      "talent_id": "venomancer_fortitude_venomtip_poison",
-      "name": "Venomtip Poison",
-      "description": "Learn Venomtip Poison, spraying poison on an enemy and nearby enemies, reducing their attack speed.",
-      "node_type": "active",
+      "talent_id": "venomancer_fortitude_charm_of_warding",
+      "name": "Charm of Warding",
+      "description": "Taking a hit heals you.",
+      "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "unlock_ability": "venomancer_venomtip_poison"
-      },
-      "connected_to": [
-        "venomancer_fortitude_unbreakable"
-      ],
-      "_source": "Confirmed screenshot: Lvl 34, 'Spray poison on an enemy and all enemies near them, dealing 38 Nature damage and reducing their attack speed by 20% for 15 sec.'"
-    },
-    {
-      "talent_id": "venomancer_fortitude_harden",
-      "name": "Harden",
-      "description": "Learn Harden, hardening your carapace to reduce damage taken. Requires Beetle Form.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "venomancer_harden"
-      },
+      "effects": {},
       "connected_to": [
         "venomancer_fortitude_spider_lord"
       ],
-      "_source": "Confirmed screenshot: Lvl 30, 3 min cooldown, 'reducing damage taken by 45%, decaying quickly over 10 sec and healing for 1% maximum health each time a stack is removed. Leaving Beetle Form will cancel this effect.' Fortitude's real capstone-tier defensive cooldown."
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 33,
+        "icd": 1,
+        "heal_flat": 55
+      },
+      "_source": "CoA verbatim: 'When a stack of Exposed Flesh is applied you are now healed for 1% of your maximum health.' No trigger fires when an effect is APPLIED, so it hangs off the same on_damage_taken that Exposed Flesh itself uses - which means the two fire together in practice, exactly as CoA intends. heal_flat is a flat amount because no payload reads a percentage of maximum health, the same limit that made Guardian's Veteran of the Third War and the Witch Doctor's Spiritual Devotee flat. CoA's Reformed node ('clearing Exposed Flesh stacks restores health based on stacks cleared') is the per-stack version and is not buildable."
+    },
+    {
+      "talent_id": "venomancer_fortitude_spider_lord",
+      "name": "Spider Lord",
+      "description": "In Beetle Form your strikes generate 2 Rage, and your Beetle Form strikes hit 30% harder.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_venomancer_hivebreak_damage": 0.3,
+        "ability_venomancer_carapace_crash_damage": 0.3,
+        "ability_venomancer_chitin_rush_damage": 0.3
+      },
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "require_form": "beetle",
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 2
+        }
+      },
+      "_source": "PRESERVED and extended from the shipped tree. The proc uses require_form 'beetle', which IS LIVE - one of the few form gates that works, because require_form is a proc-payload condition rather than a flat-effect one (which is why Magic Shell's form gate had to be dropped at tier 0). So this capstone genuinely only pays out in Beetle Form, closing the Rage loop Exposed Flesh opens: you get hit for Rage, you spend Rage in form, and striking in form makes more Rage. The damage half is added here because the shipped capstone granted nothing but 2 Rage, which is thin for a tier-6 node."
     }
   ]
 }
