@@ -1,8 +1,8 @@
 {
-  "spec_name": "Venomancer Rot",
+  "spec_name": "Venomancer Venom",
   "tree_id": "venomancer_venom",
-  "description": "Caster DPS - rot, decay, and fungal spreading damage. Also known as \"Rot\". Moonkin-equivalent spec; Weaver Form is this spec's shapeshift.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 16 confirmed Venom nodes trimmed to a lean 13-node tree per the established bloat-trim pattern from Stormbringer/Tinker. Rot Lich capstone confirmed via tooltip: 'Direct damage dealt now has a 20% chance to reset the cooldown of Serpent's Fang and grant you Rot Lich... your next Serpent's Fang within 15 seconds is free of cost.'",
+  "description": "Rot and spore - a poison caster who turns Intellect into both damage and speed.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 38 real CoA Venom talents (role DPS). Venomancer measured 88.9% scalar-only across its four specs, the worst of the 14 classes remaining; Venom itself was 23 nodes with one proc. Shadra's Gift ports whole - both conversions are legal pairs. Mushrooms (ground objects with a delayed explosion) and Fungarians (pets, and VENOMANCER SUMMONS NO PETS AT ALL) have no mechanism and between them take nine talents. Five CoA abilities this tree names do not exist in Frontier. The old tree's five unlock nodes were all for non-gated abilities and did nothing; the class's only gated ability, barbed_stinger, is unlocked from the Fortitude tree.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,407 +14,633 @@
   },
   "nodes": [
     {
-      "talent_id": "venomancer_venom_venomancy_expert",
-      "name": "Venomancy Expert",
-      "description": "Increases Spell Power by 5 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -6,
-      "effects": {
-        "spell_power": 5
-      },
-      "connected_to": [
-        "venomancer_venom_fungal_growth"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_venom_saturation",
-      "name": "Venom Saturation",
-      "description": "Increases Serpent's Fang damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -6,
-      "effects": {
-        "ability_venomancer_serpents_fang_damage": 0.03
-      },
-      "connected_to": [
-        "venomancer_venom_cycle_of_decay"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_mycosis",
-      "name": "Mycosis",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "talent_id": "venomancer_venom_shadras_gift",
+      "name": "Shadra's Gift",
+      "description": "Increases your spell damage by 25% of your Intellect and your haste by 20% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 4,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.0
+        "spell_damage_from_intellect_pct": 0.0833,
+        "haste_from_intellect_pct": 0.0667
       },
       "connected_to": [
-        "venomancer_venom_spore"
-      ]
+        "venomancer_venom_acid_bolt"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your spell damage by 25% of your Intellect and your haste rating by 20% of your Intellect.' PORTS WHOLE - spell_damage and haste are both in STAT_CONVERSION_TARGETS and intellect is in STAT_CONVERSION_SOURCES, so both halves are legal and CoA's numbers are kept exactly. Both are FRACTIONS."
+    },
+    {
+      "talent_id": "venomancer_venom_acid_bolt",
+      "name": "Acid Bolt",
+      "description": "Increases the damage of Venom Bolt by 30% and its critical strike chance by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_venom_bolt_damage": 0.1,
+        "ability_venomancer_venom_bolt_crit": 2.0
+      },
+      "connected_to": [
+        "venomancer_venom_rotpriest"
+      ],
+      "_source": "CoA over 3 ranks: 'Increases the damage of Venom Bolt by 10% and its critical strike chance by 2%.' Authored at CoA's own PER-RANK values with CoA's 3 ranks, so get_effective_effects() multiplies by points spent to reach 30% and 6% - the description states the ceiling. Authoring the ceiling here with ranks=3 would have delivered 90% and 18%, the bug that shipped on Guardian Vanguard's Iron Guardian. Note the two keys differ in unit: ability_*_damage is a FRACTION, ability_*_crit a PERCENT."
+    },
+    {
+      "talent_id": "venomancer_venom_rotpriest",
+      "name": "Rotpriest",
+      "description": "Increases the critical strike damage of your spells by 50%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "crit_damage_spell": 0.1667
+      },
+      "connected_to": [
+        "venomancer_venom_protraction"
+      ],
+      "_source": "CoA verbatim: 'Increases your spell critical damage by 100%.' Priced at 50%: CoA's figure sits on a different crit-damage baseline, and doubling crit damage from a tier-0 node would make crit the only stat this spec wants. crit_damage_spell is a FRACTION."
+    },
+    {
+      "talent_id": "venomancer_venom_protraction",
+      "name": "Protraction",
+      "description": "Increases the duration of Wilt and Spore by 1 turn.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_wilt_duration": 1,
+        "ability_venomancer_spore_duration": 1
+      },
+      "connected_to": [
+        "venomancer_venom_serpents_embrace"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the duration of your Venomancer periodic damage effects by 3 sec.' No key names a group of effects, so the spec's two real dots are written out. 3 sec is a turn. The small integers keep this node out of the rank policy's reach - a duration cannot be divided across ranks (see tools/talent_ranks.rankable())."
+    },
+    {
+      "talent_id": "venomancer_venom_serpents_embrace",
+      "name": "Serpent's Embrace",
+      "description": "Increases the damage of Serpent's Fang by 30%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_serpents_fang_damage": 0.1
+      },
+      "connected_to": [
+        "venomancer_venom_fungal_growth"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage of Serpent's Fang and its spell power scaling by 15%.' Doubled for the two ranks. There is no key for how much an ability scales with spell power - the coefficients live on the ability - so both halves are expressed as damage."
     },
     {
       "talent_id": "venomancer_venom_fungal_growth",
       "name": "Fungal Growth",
-      "description": "Reduces the Mana cost of Serpent's Fang by 2% per rank.",
+      "description": "Your spells have a 35% chance to leave the target taking 2% more spell damage per stack for 10 turns, stacking 10 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_rotting_away"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomancer_fungal_growth",
+          "name": "Fungal Growth",
+          "effect_type": "debuff",
+          "duration": 10,
+          "max_stacks": 10,
+          "stat_mods": {
+            "spell_damage_taken_pct": 2.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Shadow and Nature damage dealt now has a 35% chance to increase periodic damage you deal to the target by 2% for 30 sec, stacking 10 times.' THERE IS NO TRIGGER-SIDE SCHOOL FILTER (proc['school'] only types a damage_flat payload) and no recipient-side key for 'periodic damage taken' specifically, so it becomes spell damage taken - which covers the dots this spec actually lands. CoA's 35%, 2% and 10 stacks all kept; 30 sec is 10 turns. Two later CoA talents (Mycosis, Captivation) read this stack count and cannot."
+    },
+    {
+      "talent_id": "venomancer_venom_rotting_away",
+      "name": "Rotting Away",
+      "description": "Wilt has a 15% chance to strike again as shadow damage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -4,
-      "effects": {
-        "ability_venomancer_serpents_fang_cost_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
-        "venomancer_venom_venomancy_expert"
-      ]
+        "venomancer_venom_wilting_away"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_wilt"
+        ],
+        "damage_flat": 70,
+        "school": "shadow"
+      },
+      "_source": "CoA verbatim: 'Your Wilt now has a 15% chance when it deals damage to strike again as Shadow damage.' PORTS CLOSELY - damage_flat with a school is a live payload and CoA's 15% is kept. It fires on Wilt's CAST rather than on each of its ticks, because there is no periodic trigger."
     },
     {
-      "talent_id": "venomancer_venom_cycle_of_decay",
-      "name": "Cycle of Decay",
-      "description": "Learn Decay, a Nature damage-over-time spell that spreads to nearby enemies when it expires.",
-      "node_type": "active",
+      "talent_id": "venomancer_venom_wilting_away",
+      "name": "Wilting Away",
+      "description": "Wilt splashes 60% of its damage onto 1 nearby enemy.",
+      "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_necessary_preparations"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_wilt"
+        ],
+        "splash_damage": {
+          "pct": 0.6,
+          "max_targets": 1,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Wilt now strikes an additional nearby enemy.' NO KEY ADDS TARGETS TO AN ABILITY - the count lives on the ability - so it becomes splash_damage at CoA's one extra target. 60% rather than 100% because a splash applies no dot, only damage, so it is strictly weaker than a second full application and should not be priced as one."
+    },
+    {
+      "talent_id": "venomancer_venom_envenom",
+      "name": "Envenom",
+      "description": "Reduces the mana cost of Venom Bolt by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "venomancer_decay"
+        "ability_venomancer_venom_bolt_cost_pct": 0.0667
       },
       "connected_to": [
-        "venomancer_venom_venom_saturation",
-        "venomancer_venom_infestation"
-      ]
+        "venomancer_venom_necessary_preparations"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cast time of Venom Bolt by -0.3 sec.' There are no cast times here, so nothing of this talent survives as written. Rerouted to cost, which is what a shorter cast buys. POSITIVE reduces."
     },
     {
-      "talent_id": "venomancer_venom_spore",
-      "name": "Spore",
-      "description": "Learn Spore, an area Nature damage spell that also weakens enemy Armor.",
-      "node_type": "active",
+      "talent_id": "venomancer_venom_necessary_preparations",
+      "name": "Necessary Preparations",
+      "description": "Increases the damage of Wilt by 20% and your chance to hit by 3%.",
+      "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "venomancer_spore"
+        "ability_venomancer_wilt_damage": 0.0667,
+        "hit_rating": 1
       },
       "connected_to": [
         "venomancer_venom_mycosis"
-      ]
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Wilt by 20% and it now increases the chance to hit the target with spells by 3% for 20 seconds.' The hit bonus is a buff applied by landing Wilt, which would need a proc; folded into the node as a flat 3% instead, since Wilt is on every target in this rotation and the condition was nearly always true. hit_rating is a PERCENT."
     },
     {
-      "talent_id": "venomancer_venom_infestation",
-      "name": "Infestation",
-      "description": "Increases Decay damage by 6% per rank.",
+      "talent_id": "venomancer_venom_mycosis",
+      "name": "Mycosis",
+      "description": "Increases the damage of Mycosis by 50%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_decay_damage": 0.06
+        "ability_venomancer_mycosis_damage": 0.1667
       },
       "connected_to": [
-        "venomancer_venom_cycle_of_decay",
-        "venomancer_venom_fungal_assailant"
-      ]
+        "venomancer_venom_captivation"
+      ],
+      "_source": "CoA verbatim: 'Fungus grows throughout the body of an enemy, dealing Nature damage and applying a shield that absorbs the next healing done to them. Deals 20% increased damage for each stack of Fungal Growth on the target.' Frontier HAS Mycosis as an ability, so this is not its unlock. NOTHING READS ANOTHER EFFECT'S STACK COUNT, so the per-stack scaling off Fungal Growth cannot exist; a realistic stack count mid-fight is 2-3, giving 50% flat rather than CoA's uncapped 20% per stack (which at 10 stacks would be 200%)."
     },
     {
-      "talent_id": "venomancer_venom_fungal_assailant",
-      "name": "Fungal Assailant",
-      "description": "Increases Spore damage by 8% per rank.",
+      "talent_id": "venomancer_venom_captivation",
+      "name": "Captivation",
+      "description": "Increases the damage of Mycosis by a further 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_venomancer_mycosis_damage": 0.0833
+      },
+      "connected_to": [
+        "venomancer_venom_a_pit_of_snakes"
+      ],
+      "_source": "CoA verbatim: 'Increases Mycosis's damage through Fungal Growth stacks by 5%.' A talent modifying how another talent scales off a third effect's stack count fails three ways over. Granted as flat damage on the same ability, deliberately stacking with the node above it, as CoA's two do."
+    },
+    {
+      "talent_id": "venomancer_venom_lethargy",
+      "name": "Lethargy",
+      "description": "Wilt leaves the enemy 3% less likely to hit and taking 5% more damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_a_pit_of_snakes"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_wilt"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_lethargy",
+          "name": "Lethargy",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "hit_rating": -3.0,
+            "damage_taken_pct": 0.05
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by your Wilt now applies Lethargy to affected enemies. Reduces an enemy's chance to hit by -3% and increases their Nature Damage taken from you by 5% for 8 seconds. Dispelling this effect increases the dispeller's resource costs by 100% for 5 seconds.' Both stat halves port - CoA's 3% and 5%, and 8 sec is 3 turns - with the Nature-specific damage becoming general (no per-school taken key beyond the existing siblings). The dispel punishment has no mechanism. TWO UNITS IN ONE STATUS EFFECT: hit_rating is a PERCENT so -3% is -3.0, while BARE damage_taken_pct IS READ RAW so 5% is 0.05."
+    },
+    {
+      "talent_id": "venomancer_venom_a_pit_of_snakes",
+      "name": "A Pit of Snakes",
+      "description": "Serpent's Fang feeds the pit, raising your damage by 5% per stack for 3 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_blightfang"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_pit_of_snakes",
+          "name": "A Pit of Snakes",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Serpent's Fang now increases the damage of subsequent Serpent's Fangs by 15% for 8 sec, stacking up to 3 times.' No key scopes a buff to one named ability, so it raises all damage instead - priced down from CoA's 15% per stack to 5%, because 45% on everything is a different node from 45% on one spell. CoA's 3 stacks kept; 8 sec is 3 turns. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "venomancer_venom_blightfang",
+      "name": "Blightfang",
+      "description": "Serpent's Fang bursts, splashing 40% of its damage onto up to 3 nearby enemies.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_venom_saturation"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_serpents_fang"
+        ],
+        "splash_damage": {
+          "pct": 0.4,
+          "max_targets": 3,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Serpent's Fang now spawns a Mushroom below the target that will explode after 2 sec, dealing Nature damage to nearby enemies.' A MUSHROOM IS A GROUND OBJECT WITH A DELAYED EXPLOSION and this engine has neither ground placement nor a delayed detonation - the same accumulator wall as the Witch Doctor's Puppeteer's Threads. Built as an immediate splash, which is the damage the Mushroom was for. This is the first of five Mushroom talents; the rest are noted on their own nodes."
+    },
+    {
+      "talent_id": "venomancer_venom_venom_saturation",
+      "name": "Venom Saturation",
+      "description": "Increases the damage your damage-over-time spells deal by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "dot_damage": 0.0833
+      },
+      "connected_to": [
+        "venomancer_venom_septic_trauma"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of your poison effects by 25% against enemies above 50% health.' No effect key reads a target's health percentage - high_health_damage_threshold_pct is a dead key, confirmed earlier in this audit - so the condition is dropped and CoA's 25% applies always. dot_damage is the live key for 'poison effects', since nothing names a poison group."
+    },
+    {
+      "talent_id": "venomancer_venom_septic_trauma",
+      "name": "Septic Trauma",
+      "description": "Increases the duration of Wilt by a further 1 turn.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_spore_damage": 0.08
+        "ability_venomancer_wilt_duration": 1
       },
       "connected_to": [
-        "venomancer_venom_infestation",
-        "venomancer_venom_mycelial_ring"
-      ]
+        "venomancer_venom_infestation"
+      ],
+      "_source": "CoA verbatim: 'Harmful critical strikes now increase the duration of Wilt by 2 sec.' NO PAYLOAD EXTENDS A LIVE EFFECT'S DURATION - consumes_stacks_of is the only thing that lengthens a dot and it reads the caster's own stacks - so the on-crit extension cannot exist. Built as a flat turn on Wilt, stacking with Protraction at tier 0. Small integer, so outside the rank policy."
     },
     {
-      "talent_id": "venomancer_venom_mycelial_ring",
-      "name": "Mycelial Ring",
-      "description": "Increases all Nature spell damage by 2% per rank.",
+      "talent_id": "venomancer_venom_infestation",
+      "name": "Infestation",
+      "description": "Your spells have a 10% chance to ready Serpent's Fang again.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_decay_mastery"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 0,
+        "reset_cooldown": [
+          "venomancer_serpents_fang"
+        ]
+      },
+      "_source": "CoA verbatim: 'Periodic damage dealt now has a 10% chance to reduce the cooldown of Serpent's Fang and Fungal Assailant by 20% of the remaining cooldown.' Periodic damage has no trigger, so it fires off casts. Fungal Assailant does not exist in Frontier. A percentage of the REMAINING cooldown is not expressible - reset_cooldown takes whole turns or a full reset - so the 10% buys a full reset, which is cleaner than inventing a turn count. CoA's 10% kept."
+    },
+    {
+      "talent_id": "venomancer_venom_decay_mastery",
+      "name": "Decay",
+      "description": "Increases the damage of Decay by 40% and reduces its cooldown by 25%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "nature_spell_damage": 0.02
+        "ability_venomancer_decay_damage": 0.1333,
+        "ability_venomancer_decay_cooldown_pct": 0.0833
       },
       "connected_to": [
-        "venomancer_venom_fungal_assailant",
+        "venomancer_venom_from_death_comes_life"
+      ],
+      "_source": "CoA verbatim: 'Apply Wilt to up to 5 enemies at target location and drop a Mushroom that will explode after 2 sec.' Frontier HAS Decay as an ability, so this is not its unlock - the old tree's unlock node for it did nothing, since Decay is not requires_talent. Built as damage and cooldown on the real ability. CoA's Limb Decayer node ('reduces the cast time and increases the mana cost of Decay by 50%') is folded in as the cooldown half, its cast time being meaningless and no key adding a cost. POSITIVE on a _cooldown_pct reduces."
+    },
+    {
+      "talent_id": "venomancer_venom_from_death_comes_life",
+      "name": "From Death Comes Life",
+      "description": "Spore brings Decay a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_fungic"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "venomancer_spore"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "venomancer_decay"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Spore now reduces the cooldown of Decay by -1 sec.' Ports in shape; 1 sec becomes a turn, which is a buff relative to CoA because a fraction of a turn cannot be expressed, so a 1-turn internal cooldown holds it to once per turn. CoA's Prophetic Speaker ('each time you spawn a Mushroom, reduce the cooldown of Decay by -1 sec') is the same mechanic keyed on Mushrooms, which do not exist, and is folded in here rather than built twice."
+    },
+    {
+      "talent_id": "venomancer_venom_fungic",
+      "name": "Fungic",
+      "description": "Your direct spells leave fungus in the wound, dealing nature damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
         "venomancer_venom_sporelord"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_venom_bolt",
+          "venomancer_serpents_fang"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_fungic",
+          "name": "Fungic",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 34,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'You now apply Fungic to enemies affected by Lethargy, dealing an additional 20% of the damage dealt by your Venom Bolt or Serpent's Fang as Nature damage over 3 seconds, stacking up to 2 times.' The Lethargy condition cannot be read - no effect key asks whether a target carries a debuff - and Lethargy is applied by Wilt, which is on everything anyway. The potency is flat rather than a share of the hit, because an apply_effect payload cannot read the triggering ability's damage."
+    },
+    {
+      "talent_id": "venomancer_venom_fungal_link",
+      "name": "Fungal Link",
+      "description": "Increases your haste by 3% and reduces the threat your spells generate by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "haste": 1,
+        "threat_generation_pct": -0.0667
+      },
+      "connected_to": [
+        "venomancer_venom_sporelord"
+      ],
+      "_source": "CoA verbatim: 'Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, the range of your Rot spells is increased by 20% and the threat they generate is reduced by -20%.' A TALENT CANNOT REACH AN ALLY, so the haste lands on the Venomancer at CoA's own 3% and the description says 'your'. Range means nothing here. The threat reduction ports exactly - threat_generation_pct is a FRACTION where NEGATIVE reduces, the opposite sign to the _cost_pct family."
     },
     {
       "talent_id": "venomancer_venom_sporelord",
       "name": "Sporelord",
-      "description": "Learn Weaver Form, a shapeshift that reduces spell pushback and grants periodic mana return.",
-      "node_type": "active",
+      "description": "Spore bursts outward, splashing 50% of its damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
       "tier": 5,
-      "max_points": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_cycle_of_decay"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_spore"
+        ],
+        "splash_damage": {
+          "pct": 0.5,
+          "max_targets": 3,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Fungal Assailant now spawns 3 Mushrooms below the target.' TWO WALLS AT ONCE: Fungal Assailant does not exist in Frontier, and Mushrooms have no mechanism. Re-pointed at Spore, the spec's real area dot, with CoA's three Mushrooms becoming three splash targets - which is what three exploding Mushrooms delivered. CoA's Fungal Allies ('Fungal Assailant now summons 2 additional Fungarians') fails for the same reason plus the pet wall, and is not built."
+    },
+    {
+      "talent_id": "venomancer_venom_cycle_of_decay",
+      "name": "Cycle of Decay",
+      "description": "Your spells have a 20% chance to quicken the cycle, raising your haste by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_venom_venoxis_rage"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 7,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomancer_cycle_of_decay",
+          "name": "Cycle of Decay",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA's level 50 passive: 'When you cast any spell you now have a 20% chance to gain Cycle of Decay. Your Venom Bolt is now castable while moving and casts 30% faster for 6 sec.' Casting while moving is positional and there are no cast times, so 'casts 30% faster' becomes haste - acting more often, which is what faster means in a turn-based fight. CoA's 20% chance kept; 6 sec is 2 turns."
+    },
+    {
+      "talent_id": "venomancer_venom_venoxis_rage",
+      "name": "Venoxis Rage",
+      "description": "Mycosis enrages you, raising all your damage by 30% for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {
-        "unlock_ability": "venomancer_weaver_form"
-      },
+      "effects": {},
       "connected_to": [
-        "venomancer_venom_mycelial_ring",
         "venomancer_venom_rot_lich"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_mycosis"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_venoxis_rage",
+          "name": "Venoxis Rage",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 30.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Your Mycosis now enrages your Fungarians for 6 seconds, increasing its damage and attack speed by 30% for 6 seconds.' FUNGARIANS ARE PETS AND VENOMANCER SUMMONS NONE - nothing in its ability file has a summon field, so pet_damage would be dead data here (tools/qa_pet_keys.py guards exactly this). The enrage lands on the Venomancer instead, at CoA's own 30%; 6 sec is 2 turns."
     },
     {
       "talent_id": "venomancer_venom_rot_lich",
       "name": "Rot Lich",
-      "description": "Your damaging spells have a 20% chance to lash out, casting Serpent's Fang at no cost.",
+      "description": "Everything rots: your damage-over-time spells deal 40% more, and Wilt and Spore hit 50% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "venomancer_venom_sporelord"
-      ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Venom capstone.",
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 2,
-        "cast_ability": "venomancer_serpents_fang"
-      }
-    },
-    {
-      "talent_id": "venomancer_venom_wilt",
-      "name": "Wilt",
-      "description": "Learn Wilt, a Nature damage spell that reduces the target's healing received.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
       "effects": {
-        "unlock_ability": "venomancer_wilt"
+        "dot_damage": 0.4,
+        "ability_venomancer_wilt_damage": 0.5,
+        "ability_venomancer_spore_damage": 0.5
       },
-      "connected_to": [
-        "venomancer_venom_mycosis"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_a_pit_of_snakes",
-      "name": "A Pit of Snakes",
-      "description": "Increases Wilt damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {
-        "ability_venomancer_wilt_damage": 0.08
-      },
-      "connected_to": [
-        "venomancer_venom_wilt"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_spore_cloud",
-      "name": "Spore Cloud",
-      "description": "Increases Spell Power by 4 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -6,
-      "effects": {
-        "spell_power": 4
-      },
-      "connected_to": [
-        "venomancer_venom_venomancy_expert"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_toxic_bloom",
-      "name": "Toxic Bloom",
-      "description": "Increases Nature damage-over-time effects by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -4,
-      "effects": {
-        "nature_dot_damage": 0.03
-      },
-      "connected_to": [
-        "venomancer_venom_fungal_growth"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_patient_rot",
-      "name": "Patient Rot",
-      "description": "Increases the duration of your damage-over-time effects by 10% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -4,
-      "effects": {
-        "dot_duration_pct": 0.1
-      },
-      "connected_to": [
-        "venomancer_venom_cycle_of_decay"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_mycotoxin",
-      "name": "Mycotoxin",
-      "description": "Increases spell critical strike damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -6,
-      "effects": {
-        "crit_damage_spell": 0.04
-      },
-      "connected_to": [
-        "venomancer_venom_mycosis"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_spreading_rot",
-      "name": "Spreading Rot",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "venomancer_venom_infestation"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_fungal_resilience",
-      "name": "Fungal Resilience",
-      "description": "Reduces Nature damage taken by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "nature_damage_taken_pct": -0.03
-      },
-      "connected_to": [
-        "venomancer_venom_fungal_assailant"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_necrotic_focus",
-      "name": "Necrotic Focus",
-      "description": "Increases Wilt and Decay damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "ability_venomancer_wilt_damage": 0.04,
-        "ability_venomancer_decay_damage": 0.04
-      },
-      "connected_to": [
-        "venomancer_venom_mycelial_ring"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_spore_burst",
-      "name": "Spore Burst",
-      "description": "Increases the damage of Spore by 10% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_venomancer_spore_damage": 0.1
-      },
-      "connected_to": [
-        "venomancer_venom_spore"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_virulence",
-      "name": "Virulence",
-      "description": "Increases all Nature spell damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "nature_spell_damage": 0.02
-      },
-      "connected_to": [
-        "venomancer_venom_sporelord"
-      ]
-    },
-    {
-      "talent_id": "venomancer_venom_spindlebind",
-      "name": "Spindlebind",
-      "description": "Learn Spindlebind, emitting webs at all enemies behind you to root and damage them.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "venomancer_spindlebind"
-      },
-      "connected_to": [
-        "venomancer_venom_mycelial_ring"
-      ],
-      "_source": "Confirmed screenshot: Lvl 24, 'rooting them for 4 sec and inflicting 83 Nature damage.'"
+      "connected_to": [],
+      "_source": "CoA's own description for the Rot Lich ability is the unresolved token '$b2', and its Suffocating Coils talent is '$b0', so there is no verbatim text for either and this capstone is NOT a faithful copy - it is named from CoA's own title and built as the payoff the tree points at. Flagged so a later pass can correct it if the real text surfaces, the same situation as Brewing's Mixologist ('$40'), Lightning's Umbral Glaive ('$42') and Wind's Tempest Calling ('$4c'). CoA's Mycelial Ring is the other candidate for this slot and is not built: it places a damaging ring with twelve Mushrooms and then heals allies inside it, which needs ground placement, delayed detonation and an area heal, none of which exist."
     }
   ]
 }
