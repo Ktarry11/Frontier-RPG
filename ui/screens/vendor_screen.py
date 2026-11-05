@@ -639,6 +639,16 @@ class VendorScreen(BaseScreen):
             if tag:
                 head += f" — {tag}"
             lines.append(head)
+            # Kyle, 5 Nov 2026: "We should also include a description of how
+            # many slots each bag has when you hover over it." Capacity is the
+            # ONLY thing that separates one bag from another - a shelf now
+            # showing 6, 8 and 10-slot bags at three different prices is
+            # unreadable without it, and the icon art does not say.
+            #
+            # Placed above armor/stats because for a bag it IS the stat line.
+            if getattr(item, "bag_capacity", 0):
+                slots = item.bag_capacity
+                lines.append(f"{slots} Slot Bag")
             if item.armor_value:
                 lines.append(f"Armor: {item.armor_value}")
             for stat, val in item.primary_stats.items():

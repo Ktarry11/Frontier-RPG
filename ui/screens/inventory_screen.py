@@ -1242,6 +1242,11 @@ class InventoryScreen(BaseScreen):
         # The vendor and quest-reward tooltips both already test armor_value
         # directly and showed it correctly. This was the one place out of
         # three doing it the other way.
+        # Bag capacity, same as the vendor tooltip. It is the only thing that
+        # distinguishes one bag from another, and the grid badge ("+10") is
+        # easy to miss and does not say what it counts.
+        if getattr(item, "bag_capacity", 0):
+            lines.append(f"{item.bag_capacity} Slot Bag")
         if item.armor_value:
             lines.append(f"Armor: {item.armor_value}{self._armor_reduction_note(item)}")
         if item.weapon_damage_max > 0:

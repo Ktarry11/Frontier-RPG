@@ -8,6 +8,8 @@
       "y": 20,
       "tile_sprite": "npc",
       "sells": [
+        "green_dyed_sack",
+        "buckled_saddlebag",
         "healing_potion_minor",
         "mana_potion_minor",
         "bread_and_cheese",
@@ -17,11 +19,7 @@
         "thread_coarse",
         "flux_weak",
         "meal_tough_jerky",
-        "drink_waterskin",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_waterskin"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -39,6 +37,9 @@
       "y": 37,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -56,11 +57,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -78,6 +75,9 @@
       "y": 57,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "sage_clasped_bag",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -96,11 +96,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -118,6 +114,9 @@
       "y": 108,
       "tile_sprite": "npc",
       "sells": [
+        "worn_leather_satchel",
+        "clasped_traveling_bag",
+        "sage_clasped_bag",
         "healing_potion_minor",
         "mana_potion_minor",
         "bread_and_cheese",
@@ -129,11 +128,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -151,6 +146,9 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -163,11 +161,7 @@
         "thread_coarse",
         "thread_fine",
         "flux_weak",
-        "salt",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -194,7 +188,8 @@
         "parchment",
         "elixir_of_warding",
         "elixir_of_agility",
-        "arcane_elixir"
+        "arcane_elixir",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -202,7 +197,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -212,6 +207,9 @@
       "y": 110,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "sage_clasped_bag",
         "healing_potion_minor",
         "mana_potion_minor",
         "bread_and_cheese",
@@ -222,11 +220,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -244,6 +238,9 @@
       "y": 43,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -259,11 +256,7 @@
         "meal_trailbread",
         "meal_river_fish",
         "drink_barley_beer",
-        "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_spring_flask"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -281,15 +274,14 @@
       "y": 24,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_standard",
         "mana_potion_standard",
         "guardian_elixir_standard",
         "bread_and_cheese",
-        "spiced_wine",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "spiced_wine"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -322,7 +314,10 @@
         "meal_spiced_haunch",
         "drink_spring_flask",
         "drink_honeyed_mead",
-        "bs_plains_scale_vest"
+        "bs_plains_scale_vest",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -340,14 +335,16 @@
       "y": 10,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "bread_and_cheese",
         "healing_potion_minor",
         "vial_empty",
         "parchment",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -365,17 +362,15 @@
       "y": 41,
       "tile_sprite": "npc",
       "sells": [
+        "green_dyed_sack",
+        "buckled_saddlebag",
         "healing_potion_minor",
         "mana_potion_minor",
         "bread_and_cheese",
         "guardian_elixir_minor",
         "vial_empty",
         "parchment",
-        "thread_coarse",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "thread_coarse"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -393,6 +388,9 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
+        "green_dyed_sack",
+        "buckled_saddlebag",
+        "rose_clasped_bag",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -405,11 +403,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -441,7 +435,10 @@
         "parchment",
         "whetstone",
         "resin",
-        "glue"
+        "glue",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -460,6 +457,9 @@
       "y": 44,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "flux_weak",
         "flux_medium",
         "coal",
@@ -475,10 +475,9 @@
         "bs_stonehoof_mail_boots",
         "bs_bronze_hunter_gauntlets",
         "bs_earthshaker_mace",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -497,15 +496,16 @@
       "y": 31,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "sage_clasped_bag",
         "guardian_elixir_minor",
         "guardian_elixir_standard",
         "bread_and_cheese",
         "roasted_meat",
         "spiced_wine",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -531,7 +531,8 @@
         "healing_potion_standard",
         "mana_potion_standard",
         "elixir_of_greater_agility",
-        "ww_crossroads_shortbow"
+        "ww_crossroads_shortbow",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -540,7 +541,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -550,6 +551,9 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "salt",
         "tanning_reagent",
         "curing_salt",
@@ -564,10 +568,8 @@
         "tai_camp_taurajo_wardrobe",
         "lw_ratchet_goblin_gloves",
         "lw_ratchet_tinker_vest",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -586,16 +588,16 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "roasted_meat",
         "spiced_stew",
         "bread_and_cheese",
         "spiced_wine",
         "healing_potion_minor",
         "healing_potion_standard",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -619,7 +621,9 @@
         "vial_empty",
         "parchment",
         "mushroom_broth",
-        "ww_taurajo_spirit_staff"
+        "ww_taurajo_spirit_staff",
+        "healing_potion_standard",
+        "mana_potion_standard"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -638,16 +642,16 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_standard",
         "spiced_wine",
         "guardian_elixir_standard",
         "salt",
         "sinew",
         "ww_bow_crossroads_vendor",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -675,7 +679,9 @@
         "dye_mild",
         "parchment",
         "healing_potion_minor",
-        "healing_potion_standard"
+        "healing_potion_standard",
+        "mana_potion_minor",
+        "bread_and_cheese"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -694,6 +700,9 @@
       "y": 33,
       "tile_sprite": "npc",
       "sells": [
+        "worn_leather_satchel",
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
         "vial_empty",
         "vial_leaded",
         "parchment",
@@ -705,10 +714,8 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -727,15 +734,15 @@
       "y": 54,
       "tile_sprite": "npc",
       "sells": [
+        "small_burlap_sack",
+        "worn_leather_satchel",
+        "clasped_traveling_bag",
         "roasted_meat",
         "spiced_stew",
         "bread_and_cheese",
         "salt",
         "healing_potion_minor",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -764,7 +771,10 @@
         "tai_razor_hill_traveler",
         "tai_ratchet_felrobe",
         "tai_org_battlemage_robe",
-        "tai_undercity_darkrobe"
+        "tai_undercity_darkrobe",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "forsaken",
@@ -788,7 +798,8 @@
         "parchment",
         "elixir_of_warding",
         "mana_potion_standard",
-        "healing_potion_standard"
+        "healing_potion_standard",
+        "bread_and_cheese"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -807,6 +818,9 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "sage_clasped_bag",
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
@@ -819,10 +833,8 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -841,6 +853,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "green_dyed_sack",
+        "buckled_saddlebag",
+        "rose_clasped_bag",
         "healing_potion_standard",
         "bread_and_cheese",
         "spiced_stew",
@@ -851,10 +866,7 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_minor"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -873,6 +885,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "worn_leather_satchel",
+        "clasped_traveling_bag",
+        "sage_clasped_bag",
         "salt",
         "tanning_reagent",
         "curing_salt",
@@ -883,10 +898,9 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "forsaken",
@@ -905,6 +919,9 @@
       "y": 33,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "flux_medium",
         "flux_strong",
         "coal",
@@ -917,10 +934,9 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -944,7 +960,10 @@
         "flux_medium",
         "coal",
         "whetstone",
-        "eng_gun_ratchet_scattergun"
+        "eng_gun_ratchet_scattergun",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -953,7 +972,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs — close enough business."
+      "greeting": "Explosives, elixirs \u2014 close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -963,6 +982,9 @@
       "y": 21,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_superior",
         "mana_potion_superior",
         "elixir_of_greater_agility",
@@ -972,10 +994,7 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -994,6 +1013,9 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "spiced_wine",
         "roasted_meat",
         "spiced_stew",
@@ -1001,11 +1023,7 @@
         "healing_potion_standard",
         "mana_potion_standard",
         "ww_polearm_ratchet_vendor",
-        "ww_ratchet_blunderbuss",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "ww_ratchet_blunderbuss"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1024,6 +1042,9 @@
       "y": 31,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
@@ -1036,10 +1057,8 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1058,6 +1077,9 @@
       "y": 27,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "roasted_meat",
         "spiced_stew",
         "bread_and_cheese",
@@ -1069,10 +1091,7 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1091,6 +1110,9 @@
       "y": 44,
       "tile_sprite": "npc",
       "sells": [
+        "sage_clasped_bag",
+        "frostward_pack",
+        "runeforged_strongbox",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -1109,10 +1131,7 @@
         "drink_spring_flask",
         "bs_warsong_mail_helm",
         "bs_warsong_plate_spaulders",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1131,6 +1150,9 @@
       "y": 115,
       "tile_sprite": "npc",
       "sells": [
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
         "mana_potion_standard",
         "elixir_of_firepower",
         "vial_empty",
@@ -1140,10 +1162,8 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -1152,7 +1172,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them — no questions."
+      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1162,6 +1182,9 @@
       "y": 32,
       "tile_sprite": "npc",
       "sells": [
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
         "flux_weak",
         "flux_medium",
         "flux_strong",
@@ -1178,10 +1201,8 @@
         "eng_voidglass_bandolier",
         "eng_dev_repair_bot",
         "eng_trinket_tidewrights_astrolabe",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1204,7 +1225,10 @@
         "fletching",
         "resin",
         "healing_potion_minor",
-        "mana_potion_minor"
+        "mana_potion_minor",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -1223,15 +1247,15 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "roasted_meat",
         "spiced_stew",
         "healing_potion_standard",
         "guardian_elixir_standard",
         "spiced_wine",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1250,6 +1274,9 @@
       "y": 50,
       "tile_sprite": "npc",
       "sells": [
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
         "battle_elixir_standard",
         "battle_elixir_minor",
         "guardian_elixir_standard",
@@ -1262,10 +1289,9 @@
         "drink_barley_beer",
         "drink_spring_flask",
         "tai_orgrimmar_felweave",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -1282,6 +1308,9 @@
       "zone": "southern_barrens",
       "tile_sprite": "npc",
       "sells": [
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -1297,10 +1326,7 @@
         "drink_barley_beer",
         "drink_spring_flask",
         "lw_razorfen_tusk_bracers",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1319,6 +1345,9 @@
       "zone": "northern_barrens",
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -1333,10 +1362,7 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1345,7 +1371,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -1355,6 +1381,9 @@
       "zone": "zoram_strand",
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "bread_and_cheese",
@@ -1364,10 +1393,7 @@
         "resin",
         "ww_astranaar_elven_bow",
         "tai_astranaar_moonrobe",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1387,14 +1413,16 @@
       "y": 10,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "bread_and_cheese",
         "healing_potion_minor",
         "vial_empty",
         "parchment",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -1412,6 +1440,9 @@
       "y": 135,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "violet_clasped_bag",
         "bread_and_cheese",
         "roasted_meat",
         "spiced_wine",
@@ -1422,10 +1453,8 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1457,7 +1486,8 @@
         "meal_spiced_haunch",
         "drink_spring_flask",
         "drink_honeyed_mead",
-        "ww_undercity_cursed_wand"
+        "ww_undercity_cursed_wand",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1476,6 +1506,9 @@
       "y": 88,
       "tile_sprite": "npc",
       "sells": [
+        "worn_leather_satchel",
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
         "bread_and_cheese",
         "roasted_meat",
         "spiced_stew",
@@ -1483,10 +1516,8 @@
         "thread_coarse",
         "thread_fine",
         "salt",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1505,6 +1536,9 @@
       "y": 87,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
@@ -1517,10 +1551,8 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1539,6 +1571,9 @@
       "y": 60,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "mana_potion_minor",
         "mana_potion_standard",
         "vial_empty",
@@ -1548,10 +1583,8 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1570,6 +1603,9 @@
       "y": 150,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "battle_elixir_minor",
         "battle_elixir_standard",
         "guardian_elixir_minor",
@@ -1581,10 +1617,9 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1603,6 +1638,9 @@
       "y": 172,
       "tile_sprite": "npc",
       "sells": [
+        "buckled_saddlebag",
+        "rose_clasped_bag",
+        "sage_clasped_bag",
         "thread_fine",
         "thread_silken",
         "dye_mild",
@@ -1617,10 +1655,9 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1639,6 +1676,9 @@
       "y": 128,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "elixir_of_agility",
         "elixir_of_greater_agility",
         "battle_elixir_minor",
@@ -1648,10 +1688,9 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1670,6 +1709,9 @@
       "y": 21,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -1685,10 +1727,7 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1707,6 +1746,9 @@
       "y": 53,
       "tile_sprite": "npc",
       "sells": [
+        "sage_clasped_bag",
+        "frostward_pack",
+        "runeforged_strongbox",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -1723,10 +1765,7 @@
         "drink_barley_beer",
         "drink_spring_flask",
         "tai_silverpine_mournerobe",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1753,7 +1792,8 @@
         "salt",
         "tanning_reagent",
         "component_string",
-        "lw_fenris_mail_spaulders"
+        "lw_fenris_mail_spaulders",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1772,6 +1812,9 @@
       "y": 68,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_standard",
         "mana_potion_standard",
         "bread_and_cheese",
@@ -1782,11 +1825,7 @@
         "meal_tough_jerky",
         "meal_trailbread",
         "drink_waterskin",
-        "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "drink_barley_beer"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1805,6 +1844,9 @@
       "y": 47,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_standard",
         "mana_potion_standard",
         "bread_and_cheese",
@@ -1817,10 +1859,7 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1839,6 +1878,9 @@
       "y": 52,
       "tile_sprite": "npc",
       "sells": [
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "whetstone",
         "flux_medium",
         "flux_strong",
@@ -1851,10 +1893,9 @@
         "bs_bonegraft_mail_spaulders",
         "bs_thunderfist_gauntlets",
         "bs_shroudsteel_helm",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1873,6 +1914,9 @@
       "y": 41,
       "tile_sprite": "npc",
       "sells": [
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "fletching",
         "sinew",
         "component_string",
@@ -1886,10 +1930,9 @@
         "ww_sepulcher_shadow_wand",
         "ww_staff_astranaar_vendor",
         "ww_wand_undercity_vendor",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1908,6 +1951,9 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "sage_clasped_bag",
+        "frostward_pack",
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
@@ -1918,10 +1964,9 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1945,7 +1990,8 @@
         "elixir_of_agility",
         "arcane_elixir",
         "healing_potion_standard",
-        "mana_potion_standard"
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1968,7 +2014,9 @@
         "guardian_elixir_standard",
         "elixir_of_firepower",
         "mushroom_broth",
-        "tanning_reagent"
+        "tanning_reagent",
+        "healing_potion_standard",
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1987,6 +2035,9 @@
       "y": 26,
       "tile_sprite": "npc",
       "sells": [
+        "sage_clasped_bag",
+        "frostward_pack",
+        "runeforged_strongbox",
         "healing_potion_standard",
         "mana_potion_standard",
         "bread_and_cheese",
@@ -1998,10 +2049,7 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -2020,6 +2068,9 @@
       "y": 82,
       "tile_sprite": "npc",
       "sells": [
+        "rose_clasped_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_standard",
         "mana_potion_standard",
         "bread_and_cheese",
@@ -2031,10 +2082,7 @@
         "drink_waterskin",
         "drink_barley_beer",
         "tai_hillsbrad_rustic_robe",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -2053,6 +2101,9 @@
       "y": 34,
       "tile_sprite": "npc",
       "sells": [
+        "frostward_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "healing_potion_standard",
         "mana_potion_standard",
         "roasted_meat",
@@ -2064,10 +2115,8 @@
         "meal_spiced_haunch",
         "drink_spring_flask",
         "drink_honeyed_mead",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -2096,7 +2145,8 @@
         "meal_spiced_haunch",
         "meal_kodo_ribs",
         "drink_honeyed_mead",
-        "drink_birch_wine"
+        "drink_birch_wine",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2115,6 +2165,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_superior",
         "mana_potion_superior",
         "parchment",
@@ -2125,14 +2178,12 @@
         "meal_river_fish",
         "drink_honeyed_mead",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
-      "gear_level": 22,
+      "gear_level": 34,
       "sells_gear": false,
       "race": "blood_elf",
       "gender": "male",
@@ -2156,7 +2207,10 @@
         "drink_honeyed_mead",
         "drink_birch_wine",
         "bs_runescale_leggings",
-        "bs_runeplate_cuirass"
+        "bs_runeplate_cuirass",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2175,6 +2229,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "mana_potion_superior",
         "vial_empty",
         "parchment",
@@ -2183,14 +2240,14 @@
         "meal_river_fish",
         "drink_honeyed_mead",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
-      "gear_level": 22,
+      "gear_level": 34,
       "sells_gear": false,
       "race": "blood_elf",
       "gender": "female",
@@ -2205,6 +2262,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "healing_potion_superior",
@@ -2213,14 +2273,12 @@
         "meal_river_fish",
         "drink_honeyed_mead",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
-      "gear_level": 22,
+      "gear_level": 34,
       "sells_gear": false,
       "race": "blood_elf",
       "gender": "female",
@@ -2244,11 +2302,13 @@
         "alch_elixir_of_greater_nature_ward",
         "alch_elixir_of_greater_warding",
         "alch_potion_invulnerability_vendor",
-        "alch_transmute_iron_gold_vendor"
+        "alch_transmute_iron_gold_vendor",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
-      "gear_level": 22,
+      "gear_level": 34,
       "sells_gear": false,
       "race": "blood_elf",
       "gender": "male",
@@ -2263,19 +2323,22 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_standard",
         "mana_potion_standard",
         "bread_and_cheese",
         "whetstone",
         "vial_empty",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
-      "gear_level": 20,
+      "gear_level": 34,
       "sells_gear": false,
       "race": "blood_elf",
       "gender": "female",
@@ -2290,6 +2353,9 @@
       "y": 82,
       "tile_sprite": "npc",
       "sells": [
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "healing_potion_standard",
         "bread_and_cheese",
         "roasted_meat",
@@ -2298,14 +2364,13 @@
         "meal_trailbread",
         "drink_waterskin",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 17,
+      "gear_level": 28,
       "sells_gear": false,
       "race": "tauren",
       "gender": "male",
@@ -2320,6 +2385,9 @@
       "y": 84,
       "tile_sprite": "npc",
       "sells": [
+        "frostward_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "whetstone",
         "flux_medium",
         "thread_coarse",
@@ -2328,10 +2396,9 @@
         "meal_spiced_haunch",
         "drink_spring_flask",
         "drink_honeyed_mead",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2359,7 +2426,8 @@
         "meal_river_fish",
         "meal_spiced_haunch",
         "drink_spring_flask",
-        "drink_honeyed_mead"
+        "drink_honeyed_mead",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2378,6 +2446,9 @@
       "y": 114,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "healing_potion_superior",
@@ -2385,14 +2456,13 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "male",
@@ -2407,6 +2477,9 @@
       "y": 44,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "whetstone",
@@ -2416,14 +2489,15 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "male",
@@ -2440,11 +2514,17 @@
       "sells": [
         "parchment",
         "vial_empty",
-        "thread_fine"
+        "thread_fine",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "female",
@@ -2459,6 +2539,9 @@
       "y": 118,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_superior",
         "mana_potion_superior",
         "vial_empty",
@@ -2466,14 +2549,12 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "female",
@@ -2501,7 +2582,10 @@
         "lw_taurajo_primalist_vest",
         "lw_splintertree_shaman_helm",
         "lw_wolfhide_helm",
-        "lw_undercity_shade_vest"
+        "lw_undercity_shade_vest",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2520,20 +2604,24 @@
       "y": 134,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "meal_trailbread",
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "female",
@@ -2548,20 +2636,25 @@
       "y": 122,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "parchment",
         "vial_empty",
         "meal_trailbread",
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "male",
@@ -2585,7 +2678,10 @@
         "drink_spring_flask",
         "drink_honeyed_mead",
         "bs_naga_scale_vest",
-        "bs_tidesurge_shield"
+        "bs_tidesurge_shield",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2609,7 +2705,10 @@
         "meal_river_fish",
         "meal_spiced_haunch",
         "drink_spring_flask",
-        "drink_honeyed_mead"
+        "drink_honeyed_mead",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2628,6 +2727,9 @@
       "y": 100,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "mana_potion_superior",
         "vial_empty",
         "parchment",
@@ -2635,14 +2737,14 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 32,
       "sells_gear": false,
       "race": "tauren",
       "gender": "female",
@@ -2662,7 +2764,8 @@
         "healing_potion_superior",
         "mana_potion_superior",
         "thread_fine",
-        "vial_empty"
+        "vial_empty",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2681,16 +2784,17 @@
       "y": 129,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "meal_spiced_haunch",
         "drink_honeyed_mead",
         "healing_potion_superior",
         "vial_empty",
         "curing_salt",
         "flux_strong",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2709,15 +2813,16 @@
       "y": 156,
       "tile_sprite": "npc",
       "sells": [
+        "frostward_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "meal_river_fish",
         "drink_spring_flask",
         "healing_potion_superior",
         "battle_elixir_superior",
         "sturdy_arrows",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2741,7 +2846,8 @@
         "healing_potion_superior",
         "mana_potion_superior",
         "flux_strong",
-        "coal"
+        "coal",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2767,7 +2873,8 @@
         "meal_tough_jerky",
         "drink_honeyed_mead",
         "whetstone",
-        "flux_medium"
+        "flux_medium",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2793,7 +2900,10 @@
         "salt",
         "dye_mild",
         "bleach",
-        "resin"
+        "resin",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2811,6 +2921,9 @@
       "y": 41,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "spiced_stew",
@@ -2821,10 +2934,8 @@
         "drink_honeyed_mead",
         "drink_barley_beer",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2850,7 +2961,10 @@
         "fletching",
         "component_string",
         "heavy_arrows",
-        "heavy_bolts"
+        "heavy_bolts",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2875,7 +2989,10 @@
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
-        "tanning_reagent"
+        "tanning_reagent",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2900,7 +3017,8 @@
         "thread_silken",
         "vial_crystal",
         "parchment",
-        "glue"
+        "glue",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2927,7 +3045,9 @@
         "meal_kodo_ribs",
         "drink_barley_beer",
         "drink_honeyed_mead",
-        "drink_birch_wine"
+        "drink_birch_wine",
+        "healing_potion_superior",
+        "mana_potion_superior"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2953,7 +3073,10 @@
         "tanning_reagent",
         "salt",
         "resin",
-        "vial_leaded"
+        "vial_leaded",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2975,11 +3098,16 @@
         "mushroom_broth",
         "salt",
         "curing_salt",
-        "drink_birch_wine"
+        "drink_birch_wine",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 34,
+      "gear_level": 40,
       "sells_gear": false,
       "race": "troll",
       "appearance_variant": 18,
@@ -3002,7 +3130,10 @@
         "heavy_arrows",
         "shot_charged",
         "flux_strong",
-        "whetstone"
+        "whetstone",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3020,20 +3151,23 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "meal_spiced_haunch",
         "drink_honeyed_mead",
         "drink_waterskin",
         "healing_potion_superior",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3048,6 +3182,9 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_superior",
         "mana_potion_superior",
         "bread_and_cheese",
@@ -3056,14 +3193,12 @@
         "flux_strong",
         "thread_fine",
         "parchment",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3084,11 +3219,13 @@
         "guardian_elixir_superior",
         "elixir_of_greater_endurance",
         "vial_leaded",
-        "vial_empty"
+        "vial_empty",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3103,18 +3240,23 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "salt",
         "curing_salt",
         "meal_spiced_haunch",
         "drink_honeyed_mead",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3129,19 +3271,22 @@
       "y": 38,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "meal_spiced_haunch",
         "drink_honeyed_mead",
         "elixir_of_swiftness",
         "healing_potion_superior",
         "thread_fine",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3162,11 +3307,13 @@
         "flux_strong",
         "coal",
         "heavy_bolts",
-        "shot_charged"
+        "shot_charged",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3186,11 +3333,17 @@
         "coal",
         "device_repair_bot",
         "component_string",
-        "flux_strong"
+        "flux_strong",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3209,11 +3362,17 @@
         "bomb_sapper",
         "eng_bomb_brine",
         "glue",
-        "flux_strong"
+        "flux_strong",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3233,11 +3392,17 @@
         "component_string",
         "thread_fine",
         "whetstone",
-        "parchment"
+        "parchment",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3256,11 +3421,17 @@
         "flux_strong",
         "coal",
         "thread_fine",
-        "glue"
+        "glue",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3275,6 +3446,9 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "meal_kodo_ribs",
@@ -3282,14 +3456,14 @@
         "drink_birch_wine",
         "drink_honeyed_mead",
         "healing_potion_mega",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3304,19 +3478,24 @@
       "y": 26,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "meal_kodo_ribs",
         "meal_trailbread",
         "drink_birch_wine",
         "salt",
         "curing_salt",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3337,11 +3516,13 @@
         "thread_fine",
         "whetstone",
         "healing_potion_mega",
-        "mana_potion_mega"
+        "mana_potion_mega",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3361,11 +3542,17 @@
         "coal",
         "whetstone",
         "flux_strong",
-        "thread_fine"
+        "thread_fine",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3382,11 +3569,17 @@
       "sells": [
         "parchment",
         "vial_empty",
-        "thread_fine"
+        "thread_fine",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3401,6 +3594,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_mega",
         "mana_potion_mega",
         "bread_and_cheese",
@@ -3410,14 +3606,12 @@
         "thread_fine",
         "parchment",
         "meal_kodo_ribs",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3436,11 +3630,17 @@
         "flux_strong",
         "coal",
         "glue",
-        "thread_fine"
+        "thread_fine",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3461,11 +3661,17 @@
         "coal",
         "glue",
         "component_string",
-        "flux_strong"
+        "flux_strong",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3486,11 +3692,13 @@
         "guardian_elixir_superior",
         "elixir_of_greater_endurance",
         "vial_leaded",
-        "vial_empty"
+        "vial_empty",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3509,11 +3717,17 @@
         "glue",
         "component_string",
         "parchment",
-        "whetstone"
+        "whetstone",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3528,18 +3742,21 @@
       "y": 56,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "meal_kodo_ribs",
         "drink_birch_wine",
         "elixir_of_swiftness",
         "healing_potion_mega",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_standard",
+        "mushroom_broth",
+        "mana_potion_mega",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 24,
+      "gear_level": 42,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3554,6 +3771,9 @@
       "y": 95,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "meal_kodo_ribs",
@@ -3561,14 +3781,13 @@
         "drink_birch_wine",
         "drink_waterskin",
         "healing_potion_mega",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_superior",
+        "spiced_stew",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 26,
+      "gear_level": 48,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3583,6 +3802,9 @@
       "y": 92,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_mega",
         "mana_potion_mega",
         "meal_kodo_ribs",
@@ -3593,14 +3815,11 @@
         "glue",
         "parchment",
         "coal",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 26,
+      "gear_level": 48,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3619,11 +3838,16 @@
         "vial_empty",
         "thread_fine",
         "whetstone",
-        "resin"
+        "resin",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 26,
+      "gear_level": 48,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3643,11 +3867,12 @@
         "battle_elixir_superior",
         "guardian_elixir_superior",
         "elixir_of_greater_endurance",
-        "vial_leaded"
+        "vial_leaded",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 26,
+      "gear_level": 48,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3667,11 +3892,16 @@
         "coal",
         "glue",
         "thread_fine",
-        "resin"
+        "resin",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 26,
+      "gear_level": 48,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3686,6 +3916,9 @@
       "y": 29,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_superior",
         "mana_potion_superior",
         "meal_trailbread",
@@ -3696,14 +3929,13 @@
         "parchment",
         "glue",
         "coal",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 25,
+      "gear_level": 46,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -3718,6 +3950,9 @@
       "y": 30,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "roasted_meat",
         "meal_trailbread",
@@ -3725,14 +3960,14 @@
         "drink_barley_beer",
         "drink_waterskin",
         "healing_potion_superior",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mana_potion_superior",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 25,
+      "gear_level": 46,
       "sells_gear": false,
       "race": "goblin",
       "gender": "female",
@@ -3752,11 +3987,16 @@
         "coal",
         "glue",
         "thread_fine",
-        "resin"
+        "resin",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 25,
+      "gear_level": 46,
       "sells_gear": true,
       "race": "goblin",
       "gender": "female",
@@ -3776,11 +4016,14 @@
         "battle_elixir_superior",
         "guardian_elixir_superior",
         "elixir_of_greater_endurance",
-        "vial_empty"
+        "vial_empty",
+        "spiced_stew",
+        "healing_potion_mega",
+        "mana_potion_mega"
       ],
       "buys_from_player": true,
       "faction": "neutral",
-      "gear_level": 25,
+      "gear_level": 46,
       "sells_gear": false,
       "race": "goblin",
       "gender": "male",
@@ -3795,6 +4038,9 @@
       "y": 53,
       "tile_sprite": "npc",
       "sells": [
+        "frostward_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "healing_potion_standard",
         "mana_potion_standard",
         "guardian_elixir_standard",
@@ -3804,10 +4050,9 @@
         "drink_honeyed_mead",
         "sturdy_arrows",
         "rough_arrows",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "alliance",
@@ -3825,6 +4070,9 @@
       "y": 60,
       "tile_sprite": "npc",
       "sells": [
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "vial_empty",
         "thread_coarse",
         "flux_weak",
@@ -3832,10 +4080,9 @@
         "healing_potion_minor",
         "meal_tough_jerky",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "alliance",
@@ -3853,6 +4100,9 @@
       "y": 55,
       "tile_sprite": "npc",
       "sells": [
+        "clasped_traveling_bag",
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -3861,10 +4111,7 @@
         "meal_river_fish",
         "drink_waterskin",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "alliance",
@@ -3882,6 +4129,9 @@
       "y": 43,
       "tile_sprite": "npc",
       "sells": [
+        "frostward_pack",
+        "runeforged_strongbox",
+        "flameward_coffer",
         "healing_potion_standard",
         "mana_potion_standard",
         "guardian_elixir_standard",
@@ -3891,10 +4141,9 @@
         "drink_honeyed_mead",
         "sturdy_arrows",
         "rough_arrows",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -3912,6 +4161,9 @@
       "y": 59,
       "tile_sprite": "npc",
       "sells": [
+        "sage_clasped_bag",
+        "frostward_pack",
+        "runeforged_strongbox",
         "healing_potion_minor",
         "healing_potion_standard",
         "mana_potion_minor",
@@ -3920,14 +4172,11 @@
         "meal_river_fish",
         "drink_waterskin",
         "drink_spring_flask",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 14,
+      "gear_level": 24,
       "sells_gear": false,
       "race": "orc",
       "appearance_variant": 5,
@@ -3941,6 +4190,9 @@
       "y": 45,
       "tile_sprite": "npc",
       "sells": [
+        "violet_clasped_bag",
+        "locked_drawstring_pack",
+        "runeforged_strongbox",
         "vial_empty",
         "thread_coarse",
         "flux_weak",
@@ -3948,10 +4200,9 @@
         "healing_potion_minor",
         "meal_tough_jerky",
         "drink_barley_beer",
-        "small_burlap_sack",
-        "green_dyed_sack",
-        "worn_leather_satchel",
-        "buckled_saddlebag"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -3969,6 +4220,9 @@
       "y": 102,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_standard",
         "mana_potion_standard",
         "meal_trailbread",
@@ -3976,11 +4230,14 @@
         "whetstone",
         "vial_empty",
         "thread_fine",
-        "small_burlap_sack"
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 30,
       "sells_gear": true,
       "race": "orc",
       "gender": "male",
@@ -4000,11 +4257,16 @@
         "bread_and_cheese",
         "spiced_wine",
         "meal_river_fish",
-        "drink_spring_flask"
+        "drink_spring_flask",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 30,
       "sells_gear": false,
       "race": "forsaken",
       "gender": "female",
@@ -4020,11 +4282,17 @@
       "tile_sprite": "npc",
       "sells": [
         "meal_tough_jerky",
-        "drink_waterskin"
+        "drink_waterskin",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 19,
+      "gear_level": 30,
       "sells_gear": false,
       "race": "orc",
       "gender": "male",
@@ -4039,6 +4307,9 @@
       "y": 58,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "healing_potion_standard",
         "mana_potion_standard",
         "guardian_elixir_standard",
@@ -4047,11 +4318,14 @@
         "drink_honeyed_mead",
         "whetstone",
         "flux_medium",
-        "buckled_saddlebag"
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": true,
       "race": "orc",
       "gender": "female",
@@ -4072,11 +4346,17 @@
         "spiced_wine",
         "meal_river_fish",
         "drink_spring_flask",
-        "salt"
+        "salt",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": false,
       "race": "forsaken",
       "gender": "female",
@@ -4092,11 +4372,17 @@
       "tile_sprite": "npc",
       "sells": [
         "meal_tough_jerky",
-        "drink_waterskin"
+        "drink_waterskin",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": false,
       "race": "orc",
       "gender": "female",
@@ -4116,11 +4402,17 @@
         "coal",
         "bs_stonemace",
         "sturdy_arrows",
-        "heavy_bolts"
+        "heavy_bolts",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": true,
       "race": "orc",
       "gender": "male",
@@ -4135,18 +4427,25 @@
       "y": 66,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "bread_and_cheese",
         "drink_barley_beer",
         "parchment",
         "thread_fine",
         "vial_empty",
-        "small_burlap_sack",
-        "worn_leather_satchel",
-        "salt"
+        "salt",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": false,
       "race": "orc",
       "gender": "male",
@@ -4168,11 +4467,17 @@
         "dye_mild",
         "resin",
         "tanning_reagent",
-        "curing_salt"
+        "curing_salt",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": false,
       "race": "forsaken",
       "gender": "female",
@@ -4192,11 +4497,14 @@
         "elixir_of_warding",
         "mushroom_broth",
         "spiced_stew",
-        "resin"
+        "resin",
+        "healing_potion_standard",
+        "healing_potion_superior",
+        "mana_potion_superior"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 21,
+      "gear_level": 35,
       "sells_gear": false,
       "race": "tauren",
       "gender": "male",
@@ -4218,11 +4526,13 @@
         "guardian_elixir_standard",
         "battle_elixir_standard",
         "whetstone",
-        "vial_leaded"
+        "vial_leaded",
+        "mushroom_broth",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "forsaken",
       "gender": "male",
@@ -4237,17 +4547,25 @@
       "y": 108,
       "tile_sprite": "npc",
       "sells": [
+        "runeforged_strongbox",
+        "flameward_coffer",
+        "verdant_reagent_case",
         "parchment",
         "resin",
         "glue",
         "component_string",
         "fletching",
         "sinew",
-        "worn_leather_satchel"
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": true,
       "race": "goblin",
       "gender": "male",
@@ -4267,11 +4585,17 @@
         "bread_and_cheese",
         "spiced_wine",
         "meal_spiced_haunch",
-        "salt"
+        "salt",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "forsaken",
       "gender": "female",
@@ -4287,11 +4611,17 @@
       "tile_sprite": "npc",
       "sells": [
         "meal_tough_jerky",
-        "drink_waterskin"
+        "drink_waterskin",
+        "healing_potion_standard",
+        "mana_potion_standard",
+        "mushroom_broth",
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "spiced_stew"
       ],
       "buys_from_player": true,
       "faction": "horde",
-      "gear_level": 22,
+      "gear_level": 38,
       "sells_gear": false,
       "race": "orc",
       "gender": "female",
