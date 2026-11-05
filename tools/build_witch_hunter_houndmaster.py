@@ -370,11 +370,9 @@ N.append(node(
 
 N.append(node(
     "anguish", "Anguish",
-    "Your shadow damage has a 10% chance to make Darkflock ready again at "
-    "once.",
+    "Your attacks have a 10% chance to make Darkflock ready again at once.",
     3, 2,
     proc={"trigger": "on_damage_cast", "chance": 10, "icd": 1,
-          "school": "shadow",
           "reset_cooldown": ["witch_hunter_darkflock"]},
     connect=["veiled_in_darkness"],
     source="CoA: 'Your Shadow damage dealt now has a 5% chance to reduce the "
@@ -382,7 +380,15 @@ N.append(node(
            "Channels do not exist, so there is no channel time to halve. "
            "Rebuilt as getting Darkflock back sooner, which is what halving "
            "its channel bought in CoA, and raised 5% -> 10% because a "
-           "cooldown reset is worth less than halving a cast."))
+           "cooldown reset is worth less than halving a cast. The Shadow "
+           "RESTRICTION is also gone, and that one is a hard engine limit "
+           "worth recording: proc['school'] only types a damage_flat "
+           "payload (status_effects.py:1190) and there is NO trigger-side "
+           "school filter anywhere - on_damage_cast cannot be narrowed to "
+           "one school. This node carried school:'shadow' with no "
+           "damage_flat beside it, which did nothing at all while the "
+           "description promised it, so the description now says "
+           "'your attacks'."))
 
 N.append(node(
     "bringer_of_darkness", "Bringer of Darkness",

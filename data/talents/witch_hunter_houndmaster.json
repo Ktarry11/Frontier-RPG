@@ -414,7 +414,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_anguish",
       "name": "Anguish",
-      "description": "Your shadow damage has a 10% chance to make Darkflock ready again at once.",
+      "description": "Your attacks have a 10% chance to make Darkflock ready again at once.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -429,12 +429,11 @@
         "trigger": "on_damage_cast",
         "chance": 3,
         "icd": 1,
-        "school": "shadow",
         "reset_cooldown": [
           "witch_hunter_darkflock"
         ]
       },
-      "_source": "CoA: 'Your Shadow damage dealt now has a 5% chance to reduce the channel time of your next Darkflock within 15 seconds by -50%.' Channels do not exist, so there is no channel time to halve. Rebuilt as getting Darkflock back sooner, which is what halving its channel bought in CoA, and raised 5% -> 10% because a cooldown reset is worth less than halving a cast."
+      "_source": "CoA: 'Your Shadow damage dealt now has a 5% chance to reduce the channel time of your next Darkflock within 15 seconds by -50%.' Channels do not exist, so there is no channel time to halve. Rebuilt as getting Darkflock back sooner, which is what halving its channel bought in CoA, and raised 5% -> 10% because a cooldown reset is worth less than halving a cast. The Shadow RESTRICTION is also gone, and that one is a hard engine limit worth recording: proc['school'] only types a damage_flat payload (status_effects.py:1190) and there is NO trigger-side school filter anywhere - on_damage_cast cannot be narrowed to one school. This node carried school:'shadow' with no damage_flat beside it, which did nothing at all while the description promised it, so the description now says 'your attacks'."
     },
     {
       "talent_id": "witch_hunter_houndmaster_bringer_of_darkness",

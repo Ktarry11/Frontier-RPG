@@ -289,6 +289,37 @@ _NAMED_LIVE = frozenset({
 #: the pair together hid the problem.
 _DOT_FLAVOURS = ("bleed", "poison")
 
+#: Per-ability effect key families, LONGEST ALTERNATIVE FIRST. The order
+#: matters: with "damage" ahead of "crit_damage", ability_x_crit_damage
+#: parses as ability_(x_crit)_damage and the check reports nine healthy keys
+#: as naming missing abilities. That is how the first version of
+#: known_ability_ids' caller behaved, and the nine were all _crit_damage.
+_ABILITY_FIELD = (r"(?:crit_damage|cost_pct|cooldown_pct|damage|healing|cost"
+                  r"|cooldown|duration|crit|potency)")
+_ABILITY_KEY = re.compile(rf"^ability_(.+?)_{_ABILITY_FIELD}$")
+
+
+def known_ability_ids():
+    """Every real ability_id, so a per-ability key can be checked for a target.
+
+    _DYNAMIC_KEY accepts any ability_<anything>_damage as live, because the
+    engine resolves those by name at cast time. That makes a TYPO or a
+    renamed ability invisible: ability_witch_hunter_quikdraw_damage is
+    perfectly well-formed and modifies nothing, forever. Cheap to check and
+    the same failure shape as an unlock node naming an ability that does not
+    exist, which qa_abilities_obtainable already guards from the other side.
+    """
+    ids = set()
+    for path in sorted((ROOT / "data/abilities").glob("*.json")):
+        doc = json.loads(path.read_text())
+        block = doc.get("abilities", doc)
+        rows = (list(block.values()) if isinstance(block, dict)
+                else block if isinstance(block, list) else [])
+        for row in rows:
+            if isinstance(row, dict) and row.get("ability_id"):
+                ids.add(row["ability_id"])
+    return ids
+
 
 def live_flavour_dot_keys():
     """{"<flavour>_dot_damage"} for flavours some ability id actually has.
@@ -394,6 +425,7 @@ def main():
     T = load()
     findings = defaultdict(list)
     LIVE = live_effect_keys() | scale_talent_keys() | live_flavour_dot_keys()
+    ABILITIES = known_ability_ids()
 
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():
@@ -403,6 +435,12 @@ def main():
                     or _is_live_school_key(key)):
                 findings["dead-effect-key"].append(
                     f"{tid} ({n.get('name')!r}): {key!r} is read by no engine code")
+            else:
+                m = _ABILITY_KEY.match(key)
+                if m and m.group(1) not in ABILITIES:
+                    findings["dead-effect-key"].append(
+                        f"{tid} ({n.get('name')!r}): {key!r} names no real "
+                        f"ability, so it modifies nothing")
             # Unit convention. These ten keys are the only ones the engine
             # divides by 100 (Character._recalculate_derived_stats), so they
             # take percentage POINTS - all eight ability buffs using them do
