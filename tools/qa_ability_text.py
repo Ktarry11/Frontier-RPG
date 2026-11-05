@@ -38,9 +38,12 @@ TEACHES = re.compile(r'^\s*(Teaches|Learn|Grants|Unlocks)\b', re.I)
 #: Descriptions that state their effect plainly in vocabulary MECH lacks.
 ALLOW = {
     "Call of the Ancestors",
-    # Kyle's standing rule: do NOT touch guardian_vanguard. These two are
-    # terse by authorial choice and are excluded rather than rewritten.
-    "Retaliation", "High Guard",
+    # "Retaliation" and "High Guard" used to be excepted here because
+    # guardian_vanguard was on a no-touch list during the Oct 31 description
+    # rewrite. Kyle confirmed on 5 Nov 2026 that the rule was scoped to that
+    # pass, not to the CoA class audit, so Vanguard was rebuilt and both
+    # descriptions now name their own mechanics. The exceptions are gone;
+    # removing them was verified to leave this check passing.
     # These DO state their effect, in words this check's vocabulary happens not
     # to contain ("an immediate extra attack", "causing them to bleed", a glyph
     # condition). Listed one by one on purpose: loosening MECH to swallow them
