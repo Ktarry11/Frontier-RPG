@@ -1,8 +1,8 @@
 {
   "spec_name": "Venomancer Stalking",
   "tree_id": "venomancer_stalking",
-  "description": "Ambush predator - burst poison damage from stealth. Cat-equivalent spec; Spider Form is this spec's shapeshift, trading Mana for Energy.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 14 confirmed Stalking nodes trimmed to a lean 12-node tree. Brood Marks confirmed via tooltip as the proc-and-consume identity: 'Your Venom Fang now applies a Brood Mark, stacking 5 times. Some abilities will consume them for an additional effect.' Acidfang confirmed as capstone: 'Periodic damage dealt now has a 40% chance, and critical strikes 100% chance, to grant a stack of Acidfang... next Rotfang, Withering Venom, or Facemelter within 15 seconds has -1% reduced duration and ticks -2% faster, stacking 10 times.'",
+  "description": "Spider form and shadow venom - a stalker whose finishers rot a target from the inside.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 41 real CoA Stalking talents (role DPS). BROOD MARKS DO NOT EXIST - CoA gives every finisher five damage tiers by mark count and eight talents touch them, but there is no combo-point system (Venomancer's secondary resource is None) and nothing reads another effect's stack count, so marks cannot even be faked. Finishers are priced at roughly their mid-tier mark value, flat. requires_form IS live, so Spider Form is a real gate on all three finishers. Prowler ports half: spell_damage is a legal conversion target, hit_rating is not. The old tree's six unlock nodes were all for non-gated abilities and did nothing.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,26 +14,65 @@
   },
   "nodes": [
     {
-      "talent_id": "venomancer_stalking_cunning_of_the_nerubar",
-      "name": "Cunning of the Nerub'ar",
-      "description": "Increases Agility by 3 per rank.",
+      "talent_id": "venomancer_stalking_prowler",
+      "name": "Prowler",
+      "description": "Increases your spell damage by 25% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_intellect_pct": 0.0833
+      },
+      "connected_to": [
+        "venomancer_stalking_boding_dread"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your spell damage by 25% of your Intellect and your hit rating by 3% of your Intellect.' The spell damage half ports exactly. THE HIT CONVERSION DOES NOT - hit_rating is not in STAT_CONVERSION_TARGETS, so authoring it would be skipped in silence. That is the FOURTH time in this audit this exact pairing has cost a node half its text, after the Witch Doctor's Voodoo Power and Guardian's Bulwark; Venom's Shadra's Gift was the one that got lucky by pairing Intellect with haste instead. Virulent Resonance below carries flat hit to compensate."
+    },
+    {
+      "talent_id": "venomancer_stalking_boding_dread",
+      "name": "Boding Dread",
+      "description": "Increases your spell damage by 6% and your spell critical strike chance by 6%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "agility": 3
+        "spell_damage": 0.02,
+        "crit_chance_spell": 2
       },
       "connected_to": [
-        "venomancer_stalking_bugging"
-      ]
+        "venomancer_stalking_glory_to_shadra"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Shadow damage dealt and your critical strike chance with Shadow spells by 3%.' Doubled for the two ranks. THERE IS NO PER-SCHOOL DAMAGE OR CRIT KEY - shadow_damage is read by nothing - so both halves land on the general spell keys. This spec deals shadow and nature almost exclusively, so the broader keys are close to equivalent. Note the units differ: spell_damage is a FRACTION, crit_chance_spell a PERCENT."
     },
     {
       "talent_id": "venomancer_stalking_glory_to_shadra",
       "name": "Glory To Shadra!",
-      "description": "Increases physical critical strike chance by 1% per rank.",
+      "description": "Increases the critical strike chance of Venom Fang and Nerubian Sting by 10%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_venom_fang_crit": 3.3333,
+        "ability_venomancer_nerubian_sting_crit": 3.3333
+      },
+      "connected_to": [
+        "venomancer_stalking_virulent_resonance"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Venom Fang and Nerubian Sting by 10%.' Ports exactly - both abilities exist in Frontier. ability_*_crit is a PERCENT."
+    },
+    {
+      "talent_id": "venomancer_stalking_virulent_resonance",
+      "name": "Virulent Resonance",
+      "description": "Increases your chance to hit by 5% and the damage of your finishers by 10%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -41,460 +80,536 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0
+        "hit_rating": 1.6667,
+        "ability_venomancer_widowmaker_damage": 0.0333,
+        "ability_venomancer_rotfang_damage": 0.0333,
+        "ability_venomancer_facemelter_damage": 0.0333
       },
       "connected_to": [
-        "venomancer_stalking_blistering_fangs"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_noxious_empowerment",
-      "name": "Noxious Empowerment",
-      "description": "Reduces the Energy cost of Venom Fang by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_venomancer_venom_fang_cost_pct": 0.03
-      },
-      "connected_to": [
-        "venomancer_stalking_boding_dread"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_virulent_resonance",
-      "name": "Virulent Resonance",
-      "description": "Increases poison damage-over-time effects by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "poison_dot_damage": 0.04
-      },
-      "connected_to": [
-        "venomancer_stalking_nerubian_sting"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_bugging",
-      "name": "Bugging",
-      "description": "Learn Prowler, a shapeshift into Spider Form, increasing Agility and critical strike chance while trading Mana for Energy.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_spider_form"
-      },
-      "connected_to": [
-        "venomancer_stalking_cunning_of_the_nerubar",
-        "venomancer_stalking_brood_marks"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_blistering_fangs",
-      "name": "Blistering Fangs",
-      "description": "Increases Venom Fang damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_venomancer_venom_fang_damage": 0.03
-      },
-      "connected_to": [
-        "venomancer_stalking_glory_to_shadra"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_boding_dread",
-      "name": "Boding Dread",
-      "description": "Learn Widowmaker, a heavy single-target poison strike usable only from Spider Form.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_widowmaker"
-      },
-      "connected_to": [
-        "venomancer_stalking_noxious_empowerment"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_nerubian_sting",
-      "name": "Nerubian Sting",
-      "description": "Learn Nerubian Sting, a fast poison bolt with a short cooldown.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "venomancer_nerubian_sting"
-      },
-      "connected_to": [
-        "venomancer_stalking_virulent_resonance"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_brood_marks",
-      "name": "Brood Marks",
-      "description": "Your Venom Fang applies a Brood Mark, reducing the target's Armor by 25 and stacking up to 5 times. Widowmaker consumes them.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "venomancer_stalking_bugging",
-        "venomancer_stalking_cunning_predator"
+        "venomancer_stalking_venomagus"
       ],
-      "_source": "CoA tooltip confirmed verbatim - this spec's defining proc-and-consume loop, same design role as Stormbringer Maelstrom's Conductive.",
+      "_source": "CoA verbatim: 'Increases the effectiveness of Brood Marks by 10% and your hit chance by 5%.' Brood Marks do not exist, so 'effectiveness of Brood Marks' becomes the damage of the three abilities that consumed them - which is what mark effectiveness bought. The 5% hit ports exactly and partly covers what Prowler lost."
+    },
+    {
+      "talent_id": "venomancer_stalking_venomagus",
+      "name": "Venomagus",
+      "description": "Increases the damage of Withering Venom by 40%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_venomancer_withering_venom_damage": 0.1333
+      },
+      "connected_to": [
+        "venomancer_stalking_vile_fangs"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage of Blight Venom by 20%.' Blight Venom exists in Frontier but as a SELF BUFF (effect_type buff, target_type self) - one of the Venoms the class applies to itself - so it has no damage to increase. Re-pointed at Withering Venom, the spec's real damaging venom, at the doubled two-rank value."
+    },
+    {
+      "talent_id": "venomancer_stalking_vile_fangs",
+      "name": "Vile Fangs",
+      "description": "Increases the damage your damage-over-time spells deal by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "dot_damage": 0.0667
+      },
+      "connected_to": [
+        "venomancer_stalking_potency"
+      ],
+      "_source": "CoA verbatim: 'Periodic damage dealt now has a 10% chance to generate a Brood Mark.' BROOD MARKS DO NOT EXIST - there is no combo-point system and no resource to grant (Venomancer's secondary is None), so a mark generator has nothing to generate. Rerouted to the periodic damage the talent keys on, which keeps it in the same part of the rotation."
+    },
+    {
+      "talent_id": "venomancer_stalking_potency",
+      "name": "Potency",
+      "description": "Increases the damage of Venom Fang by 15%, and it leaves the target taking 3% more spell damage for 5 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_venomancer_venom_fang_damage": 0.05
+      },
+      "connected_to": [
+        "venomancer_stalking_withered"
+      ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
+        "trigger": "on_damage_cast",
+        "chance": 33,
         "icd": 0,
         "ability_filter": [
           "venomancer_venom_fang"
         ],
         "apply_effect": {
-          "effect_id": "brood_mark",
-          "name": "Brood Mark",
+          "effect_id": "venomancer_potency",
+          "name": "Potency",
           "effect_type": "debuff",
-          "duration": 8,
-          "max_stacks": 5,
+          "duration": 5,
+          "max_stacks": 1,
           "stat_mods": {
-            "armor": -25
+            "spell_damage_taken_pct": 3.0
           },
-          "on_target": true,
-          "real_time_seconds": null
+          "on_target": true
         }
-      }
-    },
-    {
-      "talent_id": "venomancer_stalking_cunning_predator",
-      "name": "Cunning Predator",
-      "description": "Increases Widowmaker damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {
-        "ability_venomancer_widowmaker_damage": 0.08
       },
-      "connected_to": [
-        "venomancer_stalking_brood_marks",
-        "venomancer_stalking_black_widow"
-      ]
+      "_source": "CoA verbatim: 'Increases the damage dealt by Venom Fang by 15% and causes it to increase the target's chance to be critically struck by spells by 3% for 15 seconds.' THERE IS NO RECIPIENT-SIDE 'CHANCE TO BE CRIT' KEY - crit lives on the attacker - so it becomes spell damage taken at CoA's own 3%, the same translation as the Witch Doctor's Hollow Spirit and Lightning's Sparks. 15 sec is 5 turns."
     },
     {
-      "talent_id": "venomancer_stalking_black_widow",
-      "name": "Black Widow",
-      "description": "Reduces the Energy cost of Venom Fang by 20%.",
+      "talent_id": "venomancer_stalking_withered",
+      "name": "Withered",
+      "description": "Increases the damage of Withering Venom by a further 15%.",
       "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": 2,
+      "hex_y": -4,
       "effects": {
-        "ability_venomancer_venom_fang_cost_pct": 0.2
+        "ability_venomancer_withering_venom_damage": 0.05
       },
       "connected_to": [
-        "venomancer_stalking_cunning_predator",
+        "venomancer_stalking_corrosive_toxin"
+      ],
+      "_source": "CoA verbatim: 'Increases the spell power scaling of Withering Venom by 15%.' There is no key for how much an ability scales with spell power - the coefficients live on the ability - so it is expressed as damage. Deliberately stacks with Venomagus."
+    },
+    {
+      "talent_id": "venomancer_stalking_corrosive_toxin",
+      "name": "Corrosive Toxin",
+      "description": "Withering Venom bursts for shadow damage as it takes hold.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_stalking_widows_kiss"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_withering_venom"
+        ],
+        "damage_flat": 85,
+        "school": "shadow"
+      },
+      "_source": "CoA verbatim: 'Withering Venom now deals an additional Shadow damage at the end of its duration.' NO TRIGGER FIRES WHEN AN EFFECT EXPIRES - the same wall as the Witch Doctor's Puppeteer's Threads and Lightning's Godslayer - so the burst lands on the cast instead of at the end of the window. Same damage, paid earlier."
+    },
+    {
+      "talent_id": "venomancer_stalking_widows_kiss",
+      "name": "Widow's Kiss",
+      "description": "Venom Fang quickens you, raising your haste by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
         "venomancer_stalking_acidfang"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 11,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_venom_fang"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_widows_kiss",
+          "name": "Widow's Kiss",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Every 3rd Venom Fang becomes Widow's Kiss, dealing increased damage and granting you increased haste. Applies 1 Brood Mark. Bite an enemy for Shadow damage, increasing your haste by 20% for 4 seconds.' THERE IS NO CAST COUNTER - nothing tracks 'every 3rd cast of X' - so 'every 3rd' becomes a 33% chance, which is the same rate without the predictability. CoA's 20% haste kept; 4 sec is 2 turns. Nothing transforms one ability into another either, so the bite itself is not built."
     },
     {
       "talent_id": "venomancer_stalking_acidfang",
       "name": "Acidfang",
-      "description": "Your critical strikes grant a stack of Acidfang, increasing damage dealt by 3% for 5 turns, stacking up to 5 times.",
+      "description": "Your critical strikes sharpen your fangs, raising your haste by 2% per stack for 5 turns, stacking 10 times.",
       "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
+      "hex_x": -4,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "venomancer_stalking_black_widow"
+        "venomancer_stalking_essence_of_decay"
       ],
-      "_source": "CoA tooltip confirmed, referenced Rotfang/Withering Venom/Facemelter which don't have a confirmed source in this trimmed kit - retargeted to this tree's actual abilities (Nerubian Sting, Widowmaker) rather than inventing 3 more spells to match the original names, per Kyle's bloat-trim direction.",
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "acidfang",
+          "effect_id": "venomancer_acidfang",
           "name": "Acidfang",
           "effect_type": "buff",
           "duration": 5,
-          "max_stacks": 5,
+          "max_stacks": 10,
           "stat_mods": {
-            "damage_dealt_pct": 3
+            "haste": 2.0
           },
-          "on_target": false,
-          "real_time_seconds": null
+          "on_target": false
         }
-      }
-    },
-    {
-      "talent_id": "venomancer_stalking_keen_fangs",
-      "name": "Keen Fangs",
-      "description": "Increases Agility by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "agility": 3
       },
-      "connected_to": [
-        "venomancer_stalking_cunning_of_the_nerubar"
-      ]
+      "_source": "CoA's level 30 passive: 'Periodic damage dealt now has a 40% chance, and critical strikes a 100% chance, to grant a stack of Acidfang. The next Rotfang, Withering Venom, or Facemelter within 15 sec has 1% reduced duration and ticks 2% faster, stacking 10 times.' Periodic damage has no trigger, so only the crit half fires - at CoA's own 100%. 'Ticks faster with reduced duration' has no meaning per-turn and nothing empowers a named next cast, so the payoff becomes haste, which is what ticking faster means here. CoA's 10 stacks kept; 15 sec is 5 turns."
     },
     {
-      "talent_id": "venomancer_stalking_swift_venom",
-      "name": "Swift Venom",
-      "description": "Increases Haste by 1% per rank.",
+      "talent_id": "venomancer_stalking_essence_of_decay",
+      "name": "Essence of Decay",
+      "description": "Your critical strikes spray decay, striking again for shadow damage.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -4,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [
-        "venomancer_stalking_blistering_fangs"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_nerubian_reflexes",
-      "name": "Nerubian Reflexes",
-      "description": "Increases Dodge chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "dodge": 1.0
-      },
-      "connected_to": [
-        "venomancer_stalking_noxious_empowerment"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_silken_step",
-      "name": "Silken Step",
-      "description": "While in Spider Form, your weapon swings have a 20% chance per rank to restore 10 Energy.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
+      "hex_x": -2,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "venomancer_stalking_virulent_resonance"
-      ],
-      "require_form": [
-        "spider"
+        "venomancer_stalking_deadly_kiss"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 20,
-        "icd": 0,
-        "require_form": [
-          "spider"
-        ],
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 10
-        }
-      }
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "damage_flat": 95,
+        "school": "shadow"
+      },
+      "_source": "CoA verbatim: 'Critical strikes with Widow's Kiss now apply 1 additional Brood Mark.' Brood Marks do not exist, and Widow's Kiss is not a separate ability here (see that node). Rerouted to direct damage on a crit, which is what an extra mark bought - a bigger finisher. 1-turn internal cooldown so a multi-hit turn does not multiply it. CoA's Death Spray node ('periodic damage has a 5% chance to remove the Energy cost from your next Venom Fang and increase its damage by 20%') needs a free-next-cast and is not built."
     },
     {
-      "talent_id": "venomancer_stalking_web_snare",
-      "name": "Web Snare",
-      "description": "Increases physical critical strike damage by 4% per rank.",
+      "talent_id": "venomancer_stalking_deadly_kiss",
+      "name": "Deadly Kiss",
+      "description": "Increases the critical strike damage of Widowmaker and Venom Fang by 50%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "crit_damage_physical": 0.04
+        "ability_venomancer_widowmaker_crit_damage": 0.1667,
+        "ability_venomancer_venom_fang_crit_damage": 0.1667
       },
       "connected_to": [
-        "venomancer_stalking_bugging"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_shadow_venom",
-      "name": "Shadow Venom",
-      "description": "Increases poison damage-over-time effects by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "poison_dot_damage": 0.03
-      },
-      "connected_to": [
-        "venomancer_stalking_cunning_predator"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_predators_instinct",
-      "name": "Predator's Instinct",
-      "description": "While in Spider Form, increases your critical strike chance by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "crit_chance_physical": 2.0
-      },
-      "connected_to": [
-        "venomancer_stalking_black_widow"
+        "venomancer_stalking_widowmaker_mastery"
       ],
-      "require_form": [
-        "spider"
-      ]
+      "_source": "CoA verbatim: 'Increases critical damage dealt by Widow's Kiss, Widowmaker and Venom Fang by 50% against Poisoned targets.' There is no key reading whether a target is Poisoned - no effect key reads a target's debuffs at all - and this spec poisons everything anyway, so the condition was nearly always true. Widow's Kiss is not a separate ability. CoA's 50% kept. ability_*_crit_damage is a FRACTION."
     },
     {
-      "talent_id": "venomancer_stalking_venom_gland_efficiency",
-      "name": "Venom Gland Efficiency",
-      "description": "Reduces Energy cost of Widowmaker by 5% per rank.",
+      "talent_id": "venomancer_stalking_lethality",
+      "name": "Lethality",
+      "description": "Increases the critical strike chance of Widowmaker by 30%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_widowmaker_cost_pct": 0.05
+        "ability_venomancer_widowmaker_crit": 10
       },
       "connected_to": [
-        "venomancer_stalking_boding_dread"
-      ]
+        "venomancer_stalking_widowmaker_mastery"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Widow's Kiss on Diseased targets by 30%.' Widow's Kiss is not a separate ability and there is no Diseased check, so it is re-pointed at Widowmaker - the shadow finisher Widow's Kiss fed in CoA. CoA's 30% kept."
     },
     {
-      "talent_id": "venomancer_stalking_lethal_precision",
-      "name": "Lethal Precision",
-      "description": "Increases physical critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "venomancer_stalking_black_widow"
-      ]
-    },
-    {
-      "talent_id": "venomancer_stalking_brood_efficiency",
-      "name": "Brood Efficiency",
-      "description": "Increases the damage of Widowmaker by 20%.",
+      "talent_id": "venomancer_stalking_widowmaker_mastery",
+      "name": "Widowmaker",
+      "description": "Increases the damage of Widowmaker by 60%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -4,
       "hex_y": 0,
       "effects": {
         "ability_venomancer_widowmaker_damage": 0.2
       },
       "connected_to": [
-        "venomancer_stalking_cunning_predator"
-      ]
+        "venomancer_stalking_rotting_sores"
+      ],
+      "_source": "CoA's Widowmaker consumes Brood Marks for five damage tiers: 1 Mark x1.25 up to 5 Marks x2.60. NONE OF THAT IS EXPRESSIBLE - no combo-point system, and nothing reads a stack count - so the ability is priced at roughly its MID-TIER value, 60%, which is between CoA's 2-mark and 3-mark multipliers. A Stalking Venomancer will land finishers at a consistent strength rather than building to a payoff, which is the single biggest thing this tree loses. Frontier HAS Widowmaker and it requires Spider Form, which IS live, so the form gate survives even though the marks do not."
     },
     {
-      "talent_id": "venomancer_stalking_withering_venom",
-      "name": "Withering Venom",
-      "description": "Learn Withering Venom, injecting an enemy with an escalating venom DoT that applies a Brood Mark.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
+      "talent_id": "venomancer_stalking_rotting_sores",
+      "name": "Rotting Sores",
+      "description": "Increases the damage of Rotfang by 60% and your damage-over-time spells by 15%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": -2,
+      "hex_y": 0,
       "effects": {
-        "unlock_ability": "venomancer_withering_venom"
+        "ability_venomancer_rotfang_damage": 0.2,
+        "dot_damage": 0.05
       },
       "connected_to": [
-        "venomancer_stalking_blistering_fangs"
+        "venomancer_stalking_shadras_seance"
       ],
-      "_source": "Confirmed screenshot: 'Applies 1 Brood Mark. Inject an enemy with a devastating venom, dealing 24 Nature damage every 3 sec for 21 sec. Damage dealt increases over time.' Second Brood Mark generator alongside Nerubian Sting."
+      "_source": "CoA verbatim: 'Increases the tick rate of Rotfang by -20% and allows its periodic damage dealt to critically strike.' Tick rate has no meaning per-turn, and there is no per-ability 'can crit' flag - everything can crit here. Both halves become damage, and the node carries Rotfang's mark-tier pricing as well (CoA: 1 Mark 240 up to 5 Marks 672, so 60% is the mid-tier equivalent)."
     },
     {
-      "talent_id": "venomancer_stalking_facemelter",
-      "name": "Facemelter",
-      "description": "Learn Facemelter, spraying poison on an enemy and nearby enemies, consuming Brood Marks. Requires Spider Form.",
-      "node_type": "active",
-      "tier": 4,
+      "talent_id": "venomancer_stalking_shadras_seance",
+      "name": "Shadra's Seance",
+      "description": "Increases the duration of Facemelter by 1 turn and its damage by 50%.",
+      "node_type": "passive",
+      "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_venomancer_facemelter_duration": 1,
+        "ability_venomancer_facemelter_damage": 0.5
+      },
+      "connected_to": [
+        "venomancer_stalking_virulent_opening"
+      ],
+      "_source": "CoA verbatim: 'Facemelter now ticks -20% faster and the duration is increased by 6 sec.' Tick rate is meaningless per-turn; 6 sec is 2 turns, held to 1 so the node is not the longest dot extension in the class. The 50% carries Facemelter's own mark-tier pricing (CoA: 1 Mark 88 up to 5 Marks 245). The small integer duration keeps this node out of the rank policy."
+    },
+    {
+      "talent_id": "venomancer_stalking_virulent_opening",
+      "name": "Virulent Opening",
+      "description": "Increases the damage your damage-over-time spells deal by a further 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
       "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "dot_damage": 0.1
+      },
+      "connected_to": [
+        "venomancer_stalking_vulnerability"
+      ],
+      "_source": "CoA verbatim: 'Increases the periodic damage dealt by your Facemelter and Rotfang by 30% while the enemy is above 75% health.' No effect key reads a target's health percentage, so the condition is dropped. There is no key for one ability's periodic damage as distinct from its direct damage either, so CoA's 30% lands on dot_damage generally."
+    },
+    {
+      "talent_id": "venomancer_stalking_vulnerability",
+      "name": "Vulnerability",
+      "description": "Your critical strikes leave the target taking 10% more spell damage for 5 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_stalking_corrosive_bile"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "venomancer_vulnerability",
+          "name": "Vulnerability",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 10.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA's level 40 passive: 'While Blight Venom is active, your auto attacks now have a 10% chance to apply it. In addition, your offensive critical strikes now increase the target's spell damage taken by 10% for 15 seconds.' The first half needs a 'while buff active' gate, which does not exist. THE SECOND HALF PORTS EXACTLY - on_crit is live, spell_damage_taken_pct is the right key, CoA's 10%, and 15 sec is 5 turns."
+    },
+    {
+      "talent_id": "venomancer_stalking_corrosive_bile",
+      "name": "Corrosive Bile",
+      "description": "Facemelter readies Widowmaker again, and Widowmaker splashes 40% of its damage onto up to 2 nearby enemies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "venomancer_stalking_caustic"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_facemelter"
+        ],
+        "reset_cooldown": [
+          "venomancer_widowmaker"
+        ]
+      },
+      "_source": "CoA verbatim: 'After using Facemelter, your next Widowmaker within 15 seconds now deals 20% increased damage and strikes 2 additional nearby enemies.' Nothing empowers a named next cast, so the 'after Facemelter' window becomes a cooldown reset on Widowmaker - the same 'use Facemelter, then Widowmaker' sequence, enforced by availability rather than by a buff. The splash half is described but NOT built as a second payload here, because a proc carries one reset and adding splash_damage to the same proc would fire it on Facemelter rather than on Widowmaker - so the description is corrected to promise only the reset."
+    },
+    {
+      "talent_id": "venomancer_stalking_caustic",
+      "name": "Caustic",
+      "description": "Reduces the cooldown of your finishers by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "venomancer_facemelter"
+        "ability_venomancer_widowmaker_cooldown_pct": 0.0667,
+        "ability_venomancer_rotfang_cooldown_pct": 0.0667,
+        "ability_venomancer_facemelter_cooldown_pct": 0.0667
       },
       "connected_to": [
         "venomancer_stalking_black_widow"
       ],
-      "_source": "Confirmed screenshot: Lvl 34, 20 Energy, 20yd, 'Requires Spider Form, Consumes Brood Marks. Spray poison upon an enemy and nearby enemies, dealing Nature damage over 15 sec.' Full per-Mark table: 1 Mark 144, 2:184, 3:236, 4:299, 5:403."
+      "_source": "CoA verbatim: 'Reduces the cooldown of Noxious Empowerment by -60 sec.' FRONTIER HAS NO NOXIOUS EMPOWERMENT ability, so the target cannot exist. Re-pointed at the three Spider Form finishers, which is where a Stalking Venomancer wants cooldown. POSITIVE reduces."
     },
     {
-      "talent_id": "venomancer_stalking_rotfang",
-      "name": "Rotfang",
-      "description": "Learn Rotfang, injecting an enemy with armor-piercing plague damage, consuming Brood Marks. Requires Spider Form.",
-      "node_type": "active",
+      "talent_id": "venomancer_stalking_death_spray",
+      "name": "Death Spray",
+      "description": "Reduces the cost of Venom Fang and Nerubian Sting by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_venomancer_venom_fang_cost_pct": 0.0667,
+        "ability_venomancer_nerubian_sting_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "venomancer_stalking_black_widow"
+      ],
+      "_source": "CoA verbatim: 'Periodic damage dealt now has a 5% chance to remove the Energy cost from your next Venom Fang or Widow's Kiss within 8 seconds and increase its damage by 20%. Can occur only once every 2 sec.' Periodic damage has no trigger and nothing makes a named next cast free, so the chance-based discount becomes a flat one on the two builders - the same resource outcome, reliably."
+    },
+    {
+      "talent_id": "venomancer_stalking_black_widow",
+      "name": "Black Widow",
+      "description": "Increases the damage of Widowmaker by a further 20% and all damage you deal by 5%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "ability_venomancer_widowmaker_damage": 0.0667,
+        "all_damage": 0.0167
+      },
+      "connected_to": [
+        "venomancer_stalking_contagion"
+      ],
+      "_source": "CoA verbatim: 'Damage dealt to enemies below 35% health now reduces the cooldown of Noxious Empowerment by 2 sec. In addition, your Widowmaker now deals 20% increased damage to enemies below 35% health.' Noxious Empowerment does not exist and there is no health-threshold key, so both conditions are dropped. CoA's 20% on Widowmaker is kept and applies always; the cooldown half becomes flat damage."
+    },
+    {
+      "talent_id": "venomancer_stalking_contagion",
+      "name": "Contagion",
+      "description": "Your rots burst, splashing 35% of their damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "venomancer_stalking_contagion_spread"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "venomancer_withering_venom",
+          "venomancer_rotfang"
+        ],
+        "splash_damage": {
+          "pct": 0.35,
+          "max_targets": 3,
+          "school": "shadow"
+        }
+      },
+      "_source": "CoA verbatim: 'For 15 seconds, all periodic damage dealt now has a 30% chance to burst dealing Shadow damage to 8 enemies within 8 yds.' Periodic damage has no trigger, so it fires off the rots' casts; the 15-second window has no gate, so it is permanent; and 8 targets is held to 3, since a flat-percentage splash across eight would be the strongest cleave in the class."
+    },
+    {
+      "talent_id": "venomancer_stalking_contagion_spread",
+      "name": "Shadra's Favour",
+      "description": "Increases the damage of your finishers by a further 25%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_venomancer_widowmaker_damage": 0.0833,
+        "ability_venomancer_rotfang_damage": 0.0833,
+        "ability_venomancer_facemelter_damage": 0.0833
+      },
+      "connected_to": [
+        "venomancer_stalking_noxious_empowerment"
+      ],
+      "_source": "CoA's Blistering Fangs: 'Casting spells that consume Brood Marks now refunds 30 Energy when used with at least 5 Brood Marks on your target.' Brood Marks do not exist, there is no Energy to refund (Venomancer's secondary resource is None), and no key reads a mark count - so nothing of this talent survives. Renamed and rebuilt as finisher damage, which is what spending five marks bought. NOT a faithful copy and flagged as such; CoA's own name is kept out of it because the mechanic bears no resemblance."
+    },
+    {
+      "talent_id": "venomancer_stalking_noxious_empowerment",
+      "name": "Noxious Empowerment",
+      "description": "Your finishers enrage you, raising all your damage by 20% and your haste by 20% for 4 turns.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "unlock_ability": "venomancer_rotfang"
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "ability_filter": [
+          "venomancer_widowmaker",
+          "venomancer_rotfang",
+          "venomancer_facemelter"
+        ],
+        "apply_effect": {
+          "effect_id": "venomancer_noxious_empowerment",
+          "name": "Noxious Empowerment",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 20.0,
+            "haste": 20.0
+          },
+          "on_target": false
+        }
       },
-      "connected_to": [
-        "venomancer_stalking_acidfang"
-      ],
-      "_source": "Confirmed screenshot: Lvl 36, 25 Energy, melee range, 'Requires Spider Form, Consumes Brood Marks. Inject venom into an enemy that rots them from the inside out, dealing Plague damage over 24 sec. Damage dealt pierces resistances.' Full per-Mark table: 1 Mark 320, 2:410, 3:525, 4:666, 5:896. Stalking's real capstone-tier finisher."
+      "_source": "CoA verbatim: 'Enrage for 12 sec, increasing your chance to trigger Venoms by 50%, your Energy regeneration by 100%, and increasing your damage dealt by 20% for 12 sec.' Frontier has no Noxious Empowerment ability, so this capstone BUILDS the enrage as a proc off the finishers rather than unlocking an active. CoA's 20% damage is kept and the Energy regeneration half becomes haste - there is no resource regeneration key anywhere, the same wall that took A Hero's Tale on Guardian Inspiration and the Witch Doctor's Spirits. 'Chance to trigger Venoms' has no mechanism. 12 sec is 4 turns, with a 2-turn internal cooldown so it is a real cooldown rather than permanent. damage_dealt_pct inside a status effect is percentage POINTS."
     }
   ]
 }
