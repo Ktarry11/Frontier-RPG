@@ -1,8 +1,8 @@
 {
   "spec_name": "Primalist Mountain King",
   "tree_id": "primalist_mountain_king",
-  "description": "Living mountain - unbreakable defense with earth-shaking retaliation.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): only 7 confirmed Mountain King-tagged nodes (the smallest spec list of any class so far), expanded to 12 using the real tooltip-confirmed 'Other' bucket abilities that clearly belong to this spec's identity (Mountain Hammer, Judgement of the Three Hammers, Unyielding Form) rather than inventing new ones. Mountain Avatar confirmed as capstone: 'Damage dealt by Geode Barrage or Geodes now has a 5% chance to grant you Earthen Avatar for 5 sec... Become an avatar of the earth, increasing damage dealt and reducing damage taken by 15%, increasing melee haste by 20%... Immune to stuns, roots, and snares... Usable while stunned.'",
+  "description": "Stone-clad thane - turns every blow dodged into Rage and speeds up the longer the fight runs.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/primalist.json (41 real CoA Mountain King talents, role TANK, 'Enhancement Shaman'). Replaces a 22-node tree of 14 pure scalars and 2 procs, most of the scalars 5 ranks of +2-3% armour or threat. The two things the spec is built on were both absent: Earth's Rage, the stacking haste the whole tree keys off, and avoidance as a resource - this engine has on_avoid, on_parry and on_block as real triggers and the old tree used none of them. All 6 unlock nodes are preserved - see tools/qa_abilities_obtainable.py.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,45 +14,92 @@
   },
   "nodes": [
     {
-      "talent_id": "primalist_mountain_king_earthmothers_protection",
-      "name": "Earthmother's Protection",
-      "description": "Increases your Armor by 3% per rank.",
+      "talent_id": "primalist_mountain_king_unyielding_form",
+      "name": "Unyielding Form",
+      "description": "Increases your parry and dodge chance by 1.5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "parry": 1.5,
+        "dodge": 1.5
+      },
+      "connected_to": [
+        "primalist_mountain_king_king_of_the_mountain"
+      ],
+      "_source": "CoA: 'Increases your parry and dodge chance by 3% and your Armor contribution from mail and plate by 25%.' Armour-by-armour-type is not a key - there is no per-armour-class scaling in this engine - so that half is dropped. Split over CoA's 2 ranks, so a full investment is CoA's 3%. Was armor_pct 6.0, which is neither half of this talent."
+    },
+    {
+      "talent_id": "primalist_mountain_king_granite_hide",
+      "name": "Granite Hide",
+      "description": "Increases your armor by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 4,
+      "cost_per_point": 1,
+      "hex_x": -3,
       "hex_y": -6,
       "effects": {
         "armor_pct": 3.0
       },
       "connected_to": [
-        "primalist_mountain_king_mountain_mover"
+        "primalist_mountain_king_king_of_the_mountain"
       ],
-      "_source": "Self-heal proc REMOVED 2026-10-28 on Kyle's direction to follow the CoA reference over earlier guidance. CoA's Mountain King tree has no self-heal in any of its 40 nodes, and the spec page says so twice: 'There is no self-heal in this kit - rely on mitigation (Rock Barrier, Boon of the Turtle, avoidance) and out-of-combat regen between packs rather than a heal spell.' Every Primalist heal in CoA lives in the class tree, which Frontier does not implement, so there is nowhere legitimate for one here. CoA's own Earthmother's Protection discounts Hand of the Earthmother while Rock Barrier is up; neither Rock Barrier nor that cost hook exists, so it carries flat Armor."
+      "_source": "Not a CoA node - kept from the previous tree. A tank tree needs a plain armour pick and this is it; armor_pct takes percentage POINTS."
     },
     {
-      "talent_id": "primalist_mountain_king_resources_of_the_earth",
-      "name": "Mountain Thane",
-      "description": "Increases your Stamina by 2% per rank.",
+      "talent_id": "primalist_mountain_king_earthen_resolve",
+      "name": "Earthen Resolve",
+      "description": "Increases your threat generation by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "threat_generation_pct": 0.03
+      },
+      "connected_to": [
+        "primalist_mountain_king_blessed_by_the_earth"
+      ],
+      "_source": "Not a CoA node - kept from the previous tree at 2% -> 3%. Threat is how a tank does its job and this is the only node in the tree that supplies it directly. FRACTION as a talent effect, unlike the status-effect buff version the engine divides by 100."
+    },
+    {
+      "talent_id": "primalist_mountain_king_seismically_efficient",
+      "name": "Seismically Efficient",
+      "description": "Seismic Crash generates 5 additional Rage.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
-      "effects": {
-        "stamina_pct": 2.0
-      },
+      "effects": {},
       "connected_to": [
-        "primalist_mountain_king_quake"
+        "primalist_mountain_king_spiritbound"
       ],
-      "_source": "Renamed and re-effected 2026-10-29. The slot held 'Resources of the Earth' granting a flat +3 Stamina a rank - fifteen Stamina at five points, which is nothing at level 60 - and CoA's node of that name is not a Stamina node at all: 'Resources of the Earth - Critical strikes now grant allies Replenishment. Replenishment: Restores 1% maximum mana every 5 sec to allies within 100 yds for 15 seconds.' A mana-battery node on a Rage tank, carrying a Stamina effect. Replaced with the real CoA Mountain King node that does what this slot was reaching for, 'Mountain Thane - Increases your Stamina by 5% and causes Earth's Rage to stack 1 additional time. (up to 2 ranks)'. Only the Stamina half is modelled; Frontier has no Earth's Rage stack mechanic. stamina_pct is PERCENT POINTS, so 2.0 a rank over Frontier's 5 ranks lands at +10%, matching CoA's 2 x 5%. WHY IT MATTERS: with the damage_taken_pct unit bug fixed, this spec read the LOWEST effective HP of all nine tanks and CoA rates it a solid B main tank whose Mountain Fury scales off Stamina - it had no Stamina scaling anywhere in the tree."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_crash"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 5
+        }
+      },
+      "_source": "CoA verbatim: 'Increases the Rage generated from Seismic Crash by 5 and Seismic Spike by 2.' Frontier has no Seismic Spike, so only the Crash half is built. Seismic Crash costs mana and this spec's defensive abilities cost Rage, so this is the bridge between the two halves of a dual-resource class."
     },
     {
-      "talent_id": "primalist_mountain_king_unyielding_form",
-      "name": "Unyielding Form",
-      "description": "Increases your total Armor by 6% per rank.",
+      "talent_id": "primalist_mountain_king_stone_soldier",
+      "name": "Stone Soldier",
+      "description": "Increases your attack power by 3% and your chance to hit by 1.5% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -60,34 +107,38 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 6.0
+        "attack_power_pct": 3.0,
+        "hit_rating": 1.5
       },
       "connected_to": [
-        "primalist_mountain_king_mountain_hammer_mastery"
+        "primalist_mountain_king_bash"
       ],
-      "_source": "CoA tooltip confirmed: 'Increases your parry and dodge chance by 3% and your Armor contribution from mail and plate by 25%' (per rank at 2 max ranks, 12.5% each, totaling the tooltip's 25% at full rank)."
+      "_source": "CoA: 'Increases the damage of your off hand weapon by 30% and your chance to hit by 3%.' Off-hand weapons are not a separate damage source in this engine, so that half becomes general attack power rather than a key that would read as nothing. Hit split over CoA's 2 ranks."
     },
     {
-      "talent_id": "primalist_mountain_king_terrasmash",
-      "name": "Terrasmash",
-      "description": "Increases threat generated by 2% per rank.",
+      "talent_id": "primalist_mountain_king_king_of_the_mountain",
+      "name": "King of the Mountain",
+      "description": "Increases your parry, dodge and haste by 15% of your Strength.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
+      "tier": 1,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
+      "hex_x": -5,
+      "hex_y": -4,
       "effects": {
-        "threat_generation_pct": 0.02
+        "parry_from_strength_pct": 0.15,
+        "dodge_from_strength_pct": 0.15,
+        "haste_from_strength_pct": 0.15
       },
       "connected_to": [
-        "primalist_mountain_king_mountain_fury"
-      ]
+        "primalist_mountain_king_mountain_mover"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your parry, dodge, and haste rating by 15% of your Strength.' All three pairings are live - parry, dodge and haste are all in STAT_CONVERSION_TARGETS and strength is in STAT_CONVERSION_SOURCES. Conversions are FRACTIONS. The previous tree had this at 0.01 per rank over 4 ranks, i.e. 4% against CoA's 15%."
     },
     {
-      "talent_id": "primalist_mountain_king_mountain_mover",
-      "name": "Mountain Mover",
-      "description": "Learn Mountain Hammer, a thrown hammer that deals damage and stuns the target.",
+      "talent_id": "primalist_mountain_king_mountain_hammer",
+      "name": "Mountain Hammer",
+      "description": "Learn Mountain Hammer. Hurl a hammer that leaves the target reeling.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
@@ -98,114 +149,501 @@
         "unlock_ability": "primalist_mountain_hammer"
       },
       "connected_to": [
-        "primalist_mountain_king_earthmothers_protection"
-      ]
+        "primalist_mountain_king_everythings_a_nail"
+      ],
+      "_source": "CoA: 'Throw a hammer at an enemy dealing Physical damage and stunning them for 5 seconds.' Kept from the previous tree, where this unlock was confusingly named Mountain Mover."
+    },
+    {
+      "talent_id": "primalist_mountain_king_blessed_by_the_earth",
+      "name": "Blessed by the Earth",
+      "description": "Primal Rush and Quake grant Earth's Rage, increasing your haste by 2% for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_raging_earth"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_primal_rush",
+          "primalist_quake"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_earths_rage",
+          "name": "Earth's Rage",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "haste": 2.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Primal Rush and Quake now grant Earth's Rage. Earth's Rage: Increases movement speed by 4% and haste by 2% for 8 seconds, stacking 5 times.' This is the mechanic the rest of the tree keys off and the old tree had no form of it. Movement speed is dropped; haste on a turn meter means acting more often, which is what a ramping tank wants. 8 sec is 3 turns. Status stat_mods multiply by stacks, so 5 stacks is +10 haste."
     },
     {
       "talent_id": "primalist_mountain_king_quake",
       "name": "Quake",
-      "description": "Learn Quake, stomping the ground to damage and slow nearby enemies. Each rank also increases its damage by 6%.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "primalist_quake",
-        "ability_primalist_quake_damage": 0.06
-      },
-      "_source": "CoA sidekick, Mountain King tree: 'Quake - 2 Charges, 8 sec recharge. Stomp the ground, dealing Weapon Damage plus nature AP Nature damage to enemies within 8 yds and reduces their melee and ranged haste by 20% for 10 seconds.' Quake is Mountain King's OWN talent in CoA, not Geomancy's (Geomancy's ground AoE is the separate baseline Earthquake, which its Tectonic Resonance/Tectonic Power/Therazane's Blessing nodes modify), and six Mountain King nodes key off it - Blessed by the Earth, Raging Earth, Quakeformer, Earthmaker, Quaking Thane and Mountain Giant's Aftershock. The spec page agrees: 'Nearly every spec-defining tool lives in melee range: Rock Barrier, Quake, Mountain Fury, Mountain Hammer' and 'Keep Quake between attacks for AoE threat/damage and rage back per target.' Frontier merges CoA's Quake and Earthquake into one ability and unlocked it in Geomancy only, which left Mountain Giant and Mountain Avatar in this tree pointing at an ability a Mountain King could never learn, so the unlock is granted here as well (Geomancy keeps its own). This node was previously a third copy of the tree's +2% threat passive (Earthen Resolve and Terrasmash still carry that) under the name 'Quake'; the per-rank Quake damage replaces it so the tree keeps its 58 spendable points.",
-      "connected_to": [
-        "primalist_mountain_king_resources_of_the_earth"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_mountain_hammer_mastery",
-      "name": "Mountain Hammer Mastery",
-      "description": "Increases Mountain Hammer damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_mountain_hammer_damage": 0.08
-      },
-      "connected_to": [
-        "primalist_mountain_king_unyielding_form"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_mountain_fury",
-      "name": "Mountain Fury",
-      "description": "Learn Judgement of the Three Hammers: while active, dealing direct damage has a 20% chance to hurl 3 hammers over 2 seconds, each dealing Physical damage.",
+      "description": "Learn Quake. Stomp the ground and slow everything standing on it.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 5,
+      "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "primalist_judgement_of_the_three_hammers"
+        "unlock_ability": "primalist_quake"
       },
       "connected_to": [
-        "primalist_mountain_king_terrasmash"
+        "primalist_mountain_king_quakeformer"
       ],
-      "_source": "CoA tooltip confirmed: 'While active, dealing direct damage has a 20% chance to hurl 3 hammers over 2 seconds, each dealing 100 + 32.5% SP + 27.8% AP Physical damage. Lasts 15 seconds.' Implemented as a self-buff ability (activate, then benefit from the proc window) since it's tagged Talent/Lvl57 in the original with 'While active' phrasing implying an activated cooldown."
+      "_source": "CoA: 'Stomp the ground, dealing Weapon Damage plus Nature damage to enemies within 8 yds and reduces their melee and ranged haste by 20% for 10 sec.' Kept from the previous tree. One of the two Earth's Rage generators, so it has to be learnable at the same depth as Blessed by the Earth."
     },
     {
-      "talent_id": "primalist_mountain_king_earth_destroyer",
-      "name": "Earth Destroyer",
-      "description": "Reduces the cooldown of Mountain Fury by 4 seconds per rank and increases its duration by 1 second per rank.",
+      "talent_id": "primalist_mountain_king_spiritbound",
+      "name": "Spiritbound",
+      "description": "Dodging or parrying an attack grants you 5 Rage and brings your Seismic abilities a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_mountain_mover"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 5
+        },
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_seismic_crash",
+            "primalist_seismic_tremor",
+            "primalist_seismic_wave"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Avoiding attacks now grants you 5 Rage and reduces the cooldown of your Seismic abilities by -1 sec.' Ports almost exactly: on_avoid is a real trigger, and reset_cooldown with turns:1 knocks one turn off rather than fully resetting. This is the node that makes avoidance a resource instead of just damage the tank did not take."
+    },
+    {
+      "talent_id": "primalist_mountain_king_mountain_mover",
+      "name": "Mountain Mover",
+      "description": "Dodging or parrying an attack grants a stack of Mountain Mover, increasing your parry by 2% for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_call_of_the_mountain"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "primalist_mountain_mover",
+          "name": "Mountain Mover",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "parry": 2.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Avoiding an attack grants a stack of Mountain Mover for 10 sec, stacking 5 times. Wildclaw consumes Mountain Mover stacks to cost 10% less Rage per stack.' The consume-for-cost half is not buildable twice over: nothing reads another effect's stack count, and ability cost keys are read through get_talent_effects() which never includes status effects. So the stacks pay out as parry instead - avoidance begetting avoidance - which keeps the snowball CoA is after through a stat a status effect can actually grant. CoA's 5 stacks and 10 sec (3 turns) kept."
+    },
+    {
+      "talent_id": "primalist_mountain_king_bash",
+      "name": "Bash",
+      "description": "Your weapon swings have a 30% chance to stun the target for a turn.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_tilling_the_earth"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 30,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "primalist_bash_stun",
+          "name": "Bash",
+          "effect_type": "debuff",
+          "duration": 1,
+          "stat_mods": {},
+          "is_stun": true,
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your auto attacks have a 30% chance to deal 50% Weapon Damage and stun them for 1 seconds.' is_stun in an apply_effect payload is live (Mage Fire's Impact uses it). CoA's 30% chance kept, with a 2-turn internal cooldown: a 1-turn stun at 30% per swing with no icd would chain-lock a target in a turn-based fight in a way a 1-second stun never does in real time. The extra 50% weapon damage is dropped - the stun is the talent."
+    },
+    {
+      "talent_id": "primalist_mountain_king_everythings_a_nail",
+      "name": "Everything's A Nail",
+      "description": "Increases the damage of Mountain Hammer by 25% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "ability_primalist_mountain_hammer_damage": 0.25
+      },
+      "connected_to": [
+        "primalist_mountain_king_earthenforged_barrier"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Mountain Hammer by 50%.' Split over 2 ranks at the same ceiling. Replaces the previous tree's Mountain Hammer Mastery, which was 5 ranks of +8%."
+    },
+    {
+      "talent_id": "primalist_mountain_king_thanes_guidance",
+      "name": "Thane's Guidance",
+      "description": "Your weapon swings bring Mountain Hammer a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_raging_earth"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_mountain_hammer"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Auto attacks now reduce the cooldown of Mountain Hammer by -1 sec.' A second of real-time cooldown is a turn here, so this ports directly. Also carries CoA's Hammer Time! ('your Mountain Hammer now strikes up to 5 enemies'), which is not built: primalist_mountain_hammer is single-target, and no talent key converts an ability to enemy_aoe - aoe_damage only applies to abilities already flagged that way."
+    },
+    {
+      "talent_id": "primalist_mountain_king_quakeformer",
+      "name": "Quakeformer",
+      "description": "Casting Wildclaw or a Seismic ability has a 25% chance to make Quake ready again at once.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_tilling_the_earth"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 1,
+        "ability_filter": [
+          "primalist_wildclaw",
+          "primalist_seismic_crash",
+          "primalist_seismic_tremor",
+          "primalist_seismic_wave"
+        ],
+        "reset_cooldown": [
+          "primalist_quake"
+        ]
+      },
+      "_source": "CoA verbatim: 'Casting Wildclaw and Seismic abilities now has a 25% chance to refresh a charge of Quake.' Charges are cooldowns here, so refreshing one is a full reset. CoA's 25% kept, with a 1-turn internal cooldown so it cannot chain. Quake is an Earth's Rage generator, so this feeds the spec's ramp."
+    },
+    {
+      "talent_id": "primalist_mountain_king_rock_barrier",
+      "name": "Rock Barrier",
+      "description": "Learn Rock Barrier. Wrap yourself in stone that soaks up what gets through.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "primalist_rock_barrier"
+      },
+      "connected_to": [
+        "primalist_mountain_king_call_of_the_mountain"
+      ],
+      "_source": "Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_mountain_king_earthenforged_barrier",
+      "name": "Earthenforged Barrier",
+      "description": "Increases the armor Rock Barrier provides by 50% and reduces the cost of your abilities by 15% while it holds.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_rock_barrier_potency": 0.5,
+        "all_ability_cost_pct": 0.15
+      },
+      "connected_to": [
+        "primalist_mountain_king_primal_guardian"
+      ],
+      "_source": "CoA: 'Increases the Armor provided by Rock Barrier by 50% and it now reduces the cost of your spells and abilities by -25% for the duration.' The armour half ports exactly. The cost reduction cannot be conditioned on Rock Barrier being active - there is no 'while this buff is up' gate for an effect key - so it is unconditional and cut from 25% to 15% to pay for that. Positive is the reduction direction for _cost_pct. Also carries CoA's Rock Solid ('+5 charges of Rock Barrier'), which charges do not exist to support."
+    },
+    {
+      "talent_id": "primalist_mountain_king_raging_earth",
+      "name": "Raging Earth",
+      "description": "Quake opens a fissure that burns the ground for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_mountain_king_earthen_avatar"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_quake"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_fissure",
+          "name": "Fissure",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 30,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Quake now creates a fissure beneath you that deals an additional Nature damage every 2 sec for 6 seconds.' 6 sec is 2 turns. 'Beneath you' is positional and means nothing here, so the fissure lands on the target instead of on the ground. A proc-applied dot takes a flat potency - there is no 'percentage of attack power' form for apply_effect - so 30 per turn, in line with Frontier's other mid-level dots."
+    },
+    {
+      "talent_id": "primalist_mountain_king_mountain_thane",
+      "name": "Mountain Thane",
+      "description": "Increases your Stamina by 2.5% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_judgement_of_the_three_hammers_cooldown": 4,
-        "ability_primalist_judgement_of_the_three_hammers_duration": 1
+        "stamina_pct": 2.5
       },
-      "_source": "Fixed during DPS niche audit (Oct 2026): 'Mountain Fury' in the description refers to the sibling talent node (primalist_mountain_king_mountain_fury) that grants Judgement of the Three Hammers - connected_to confirms they're linked, so the ability_id itself was already correct. But the cooldown value was -4, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep. Note: Judgement of the Three Hammers' own base cooldown is currently 0, so even with the sign fixed this talent has nothing to reduce - a separate, pre-existing gap on the ability itself, out of scope for this sign fix.",
       "connected_to": [
-        "primalist_mountain_king_mountain_fury",
-        "primalist_mountain_king_mountain_giant"
-      ]
+        "primalist_mountain_king_earthen_avatar"
+      ],
+      "_source": "CoA: 'Increases your Stamina by 5% and causes Earth's Rage to stack 1 additional time.' Split over CoA's 2 ranks. The extra Earth's Rage stack is dropped: max_stacks lives on the effect Blessed by the Earth applies, and no key edits a sibling node's payload. stamina_pct takes percentage POINTS."
     },
     {
-      "talent_id": "primalist_mountain_king_mountain_giant",
-      "name": "Mountain Giant",
-      "description": "Your weapon swings have a 20% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Quake.",
+      "talent_id": "primalist_mountain_king_tilling_the_earth",
+      "name": "Tilling the Earth",
+      "description": "Increases the chance for Bash to trigger by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 0,
+      "effects": {
+        "ability_primalist_wildclaw_crit": 3.0
+      },
+      "connected_to": [
+        "primalist_mountain_king_shattering"
+      ],
+      "_source": "CoA: 'Increases the chance to trigger Bash by 3% and increases your expertise by 5.' Neither half is buildable as written: 'expertise' is read by no engine code, and a talent cannot raise ANOTHER node's proc chance - the chance lives on Bash's own payload. Rerouted to crit on Wildclaw, the auto-attack-adjacent ability Bash hangs off, so the point still buys more out of swinging. Flagged rather than authored as a key that reads as nothing."
+    },
+    {
+      "talent_id": "primalist_mountain_king_earthen_avatar",
+      "name": "Earthen Avatar",
+      "description": "Learn Earthen Avatar. Become the mountain for a few turns.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "primalist_earthen_avatar"
+      },
+      "connected_to": [
+        "primalist_mountain_king_mountain_fury"
+      ],
+      "_source": "CoA: 'Become an avatar of the earth, increasing your damage dealt and reducing your damage taken by 15%, and increasing your melee haste by 20% for 20 seconds. Immune to stuns, roots, and snares.' Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_mountain_king_call_of_the_mountain",
+      "name": "Call of the Mountain",
+      "description": "Increases your parry chance by 5% and reduces the physical damage you take by 5%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "parry": 5.0,
+        "physical_damage_taken_pct": -0.05
+      },
+      "connected_to": [
+        "primalist_mountain_king_mountain_fury"
+      ],
+      "_source": "CoA: 'Level 40 Passive. Reaching 5 stacks of Earth's Rage now grants Call of the Mountain: increases your parry chance by 5% and reduces damage taken by -5%.' Nothing reads another effect's stack count, so the gate is dropped and the payout is permanent - the same limit Geomancy's Earthshaping payoffs run into. CoA's numbers kept because they are modest enough to stand unconditionally. NEGATIVE is the reduction direction for physical_damage_taken_pct as a talent effect, which is the opposite of the _cost_pct and _cooldown_pct convention - the previous tree's Steadfast Stance had this right."
+    },
+    {
+      "talent_id": "primalist_mountain_king_primal_guardian",
+      "name": "Primal Guardian",
+      "description": "Taking a heavy blow steels you, increasing your haste and parry by 10% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
       "hex_y": 2,
       "effects": {},
       "connected_to": [
-        "primalist_mountain_king_earth_destroyer",
+        "primalist_mountain_king_mountain_fury"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 20,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "primalist_primal_guardian",
+          "name": "Primal Guardian",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 10.0,
+            "parry": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'When Earthen Avatar, Bearskin or Rock Barrier is removed or expires, you now gain 10% melee haste and parry chance for 15 seconds.' NO TRIGGER FIRES WHEN A BUFF EXPIRES - the trigger list is cast, crit, damage dealt, damage taken, weapon swing, kill, block, avoid and parry, and none of them is 'an effect fell off me'. Rerouted onto taking damage at a 20% chance with a 3-turn internal cooldown, which lands it at roughly the cadence a defensive cooldown expiring would. CoA's two stats and 10% kept; 15 sec is 3 turns."
+    },
+    {
+      "talent_id": "primalist_mountain_king_terrasurge",
+      "name": "Terrasurge",
+      "description": "Learn Terrasurge. Hurl a globule of earth that strips the target's armour.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "primalist_terrasurge"
+      },
+      "connected_to": [
+        "primalist_mountain_king_mountain_fury"
+      ],
+      "_source": "CoA: 'Unleash a massive globule of earth at an enemy, dealing Physical damage and reducing their Armor by -50% for 10 sec. Pierces through absorption, deflection, and reflection effects.' Kept from the previous tree. Worth knowing: Geomancy's capstone Heavy Earth buffs Terrasurge, and THIS is the only node in the game that unlocks it - a Geomancer taking that capstone has to reach into this tree for the ability, which is a real cross-spec dependency rather than an oversight."
+    },
+    {
+      "talent_id": "primalist_mountain_king_mountain_fury",
+      "name": "Mountain Fury",
+      "description": "Learn Mountain Fury. Call down the judgement of three hammers.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "primalist_judgement_of_the_three_hammers"
+      },
+      "connected_to": [
+        "primalist_mountain_king_mountain_avatar"
+      ],
+      "_source": "CoA's Judgement of The Three Hammers: 'While active, dealing direct damage has a 20% chance to hurl 3 hammers over 2 seconds, each dealing Physical damage.' Kept from the previous tree, which already paired this name with that ability. CoA's Mountain Fury is a separate frontal-cone pull that Frontier has no ability for; the cone and the pull are both positional anyway."
+    },
+    {
+      "talent_id": "primalist_mountain_king_shattering",
+      "name": "Shattering",
+      "description": "Your critical strikes sharpen you further, increasing your damage by 1% per stack for 3 turns, stacking 10 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
         "primalist_mountain_king_mountain_avatar"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 20,
-        "icd": 2,
-        "reset_cooldown": {
-          "abilities": [
-            "primalist_geode_barrage",
-            "primalist_quake"
-          ]
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "primalist_shattering",
+          "name": "Shattering",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 10,
+          "stat_mods": {
+            "damage_dealt_pct": 1.0
+          },
+          "on_target": false
         }
-      }
+      },
+      "_source": "CoA: 'Damage dealt by each hammer triggered by Judgment of The Three Hammers now grants you 1% increased critical strike chance and damage for 10 seconds, stacking up to 10 times.' The hammers are an ability's internal proc, not something a talent trigger sees, so this hangs off crits instead. The crit-chance half is dropped and the damage half kept, because stacking both would make it self-feeding. damage_dealt_pct is the status-effect route to a damage multiplier and takes percentage POINTS. CoA's 10 stacks and 1% kept."
+    },
+    {
+      "talent_id": "primalist_mountain_king_earth_destroyer",
+      "name": "Earth Destroyer",
+      "description": "Reduces the cooldown of Judgement of the Three Hammers by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_primalist_judgement_of_the_three_hammers_cooldown_pct": 0.1
+      },
+      "connected_to": [
+        "primalist_mountain_king_mountain_avatar"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Mountain Fury by -20 sec and increases the duration by 4 sec.' Routed onto the ability this tree actually unlocks under the Mountain Fury name. Expressed as a percentage because cooldowns are counted in turns here, not seconds. Positive is the reduction direction. The duration half is dropped: ability_*_duration applies to dots and hots, and this is an activated buff window."
     },
     {
       "talent_id": "primalist_mountain_king_mountain_avatar",
       "name": "Mountain Avatar",
-      "description": "Damage dealt by Geode Barrage or Quake has a 5% chance to grant Earthen Avatar for 5 seconds: increases damage dealt, reduces damage taken by 15%, increases melee haste by 20%, and grants immunity to stuns, roots, and snares. Usable while stunned.",
+      "description": "At full Earth's Rage you are the mountain - blocking a blow sheds stone that batters everything around you.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -213,224 +651,22 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {},
+      "connected_to": [],
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 5,
-        "ability_filter": [
-          "primalist_geode_barrage",
-          "primalist_quake"
-        ],
-        "apply_effect": {
-          "on_target": false,
-          "effect_id": "primalist_earthen_avatar",
-          "name": "Earthen Avatar",
-          "effect_type": "buff",
-          "duration": 5,
-          "stat_mods": {
-            "damage_dealt_pct": 15,
-            "damage_taken_pct": -0.15,
-            "haste": 20,
-            "cc_immune": 1
-          }
+        "trigger": "on_block",
+        "chance": 100,
+        "icd": 0,
+        "splash_damage": {
+          "pct": 0.6,
+          "max_targets": 5,
+          "school": "nature"
+        },
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 5
         }
       },
-      "connected_to": [
-        "primalist_mountain_king_mountain_giant"
-      ],
-      "_source": "CoA tooltip confirmed verbatim, kept as the Mountain King capstone - a strong proc-triggered defensive/offensive cooldown with real hard-CC immunity. Wired as a real proc: ability_filter restricts the chance to Geode Barrage/Quake specifically (Quake is this engine's real built ability standing in for the tooltip's 'Earthquake' - no separately-named Earthquake ability exists in data/abilities/primalist.json, and Quake is the closest real Primalist ground-slam AoE). 'Usable while stunned' needs no separate mechanic: nothing in this engine currently blocks a specific ability while stunned (TurnMeter.update() only withholds the TURN itself), and Earthen Avatar's own cc_immune stat_mod keeps the carrier from ever being stunned in the first place while it's up, which already satisfies the tooltip's intent."
-    },
-    {
-      "talent_id": "primalist_mountain_king_granite_hide",
-      "name": "Granite Hide",
-      "description": "Increases Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [
-        "primalist_mountain_king_earthmothers_protection"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_king_of_the_mountain",
-      "name": "King of the Mountain",
-      "description": "Grants parry, dodge and haste equal to 1% of your Strength per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -4,
-      "effects": {
-        "parry_from_strength_pct": 0.01,
-        "dodge_from_strength_pct": 0.01,
-        "haste_from_strength_pct": 0.01
-      },
-      "connected_to": [
-        "primalist_mountain_king_resources_of_the_earth"
-      ],
-      "_source": "Was 'Mountain's Endurance', an invented node carrying a self-heal proc on every weapon swing. Replaced with CoA's real Level 20 free passive, which the spec page calls 'your main avoidance lever': 'King of the Mountain - Increases your parry, dodge, and haste rating by 15% of your Strength.' This is a real <target>_from_<source>_pct conversion through the shared STAT_CONVERSION maps in character.py - parry, dodge and haste are all valid targets and strength a valid source - and it fixes the other half of the audit finding: CoA's stat priority leads Hit > Expertise > STRENGTH, and this tree previously had no Strength node at all, defending purely with +39% armor across three nodes.\n\nMAGNITUDE CORRECTED: CoA's wording is '15% of your Strength', and copying that literally gave +17.5 to BOTH parry and dodge, because a level 60 Primalist in full gear carries 146 Strength here. Total avoidance reached 82.5% (44.8 dodge + 37.8 parry) and the spec stopped dying at all - it survived 908 turns against a field of 5-20. CoA's percentage assumes CoA's stat scales, not Frontier's. 1%/rank lands at ~+5.8 each, in line with the other tanks' avoidance.\n\nWORTH FLAGGING SEPARATELY: dodge and parry are FULL avoidance here and nothing applies diminishing returns to them, so any two sources that stack linearly can walk a tank toward immunity. That is a systemic gap, not a property of this talent."
-    },
-    {
-      "talent_id": "primalist_mountain_king_steadfast_stance",
-      "name": "Steadfast Stance",
-      "description": "Reduces Physical damage taken by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "physical_damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "primalist_mountain_king_unyielding_form"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_earthen_resolve",
-      "name": "Earthen Resolve",
-      "description": "Increases threat generated by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "threat_generation_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_mountain_king_terrasmash"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_boulder_toss",
-      "name": "Boulder Toss",
-      "description": "Increases the duration of Mountain Hammer's stun by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_primalist_mountain_hammer_duration": 1
-      },
-      "connected_to": [
-        "primalist_mountain_king_mountain_mover"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_rock_barrier",
-      "name": "Rock Barrier",
-      "description": "Learn Rock Barrier, pulling stone around you against the next few blows.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "primalist_rock_barrier"
-      },
-      "connected_to": [
-        "primalist_mountain_king_mountain_hammer_mastery"
-      ],
-      "_source": "Was 'Stone Ward', invented (Nature damage taken). Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names."
-    },
-    {
-      "talent_id": "primalist_mountain_king_titans_grip_primalist",
-      "name": "Titan's Grip",
-      "description": "Increases Attack Power by 3 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "attack_power": 3
-      },
-      "connected_to": [
-        "primalist_mountain_king_quake"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_earthen_avatar",
-      "name": "Earthen Avatar",
-      "description": "Learn Earthen Avatar, your great cooldown of stone and fury.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "primalist_earthen_avatar"
-      },
-      "connected_to": [
-        "primalist_mountain_king_earth_destroyer"
-      ],
-      "_source": "Was 'Mountain's Wrath', invented - and it called down HOLY damage on a Nature and Physical earth spec. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA's Mountain King survives on these two and Frontier had neither - the audit found five Mountain King talents referencing Rock Barrier while no primalist_rock_barrier ability existed at all. Removing the spec's invented self-heal procs left it with no sustain and no cooldown, 5 turns alive against a field of 5-21; these are the real tools that gap was asking for. stat_mods on an ability BUFF are percent points, not fractions - following primalist_boon_of_the_turtle's damage_taken_pct of -10 right next door, since talent effects use the opposite convention for the same key names."
-    },
-    {
-      "talent_id": "primalist_mountain_king_unmovable_object",
-      "name": "Unmovable Object",
-      "description": "Reduces the duration of stun effects against you by 5% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "stun_duration_reduction_pct": 0.05
-      },
-      "connected_to": [
-        "primalist_mountain_king_mountain_giant"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_earthen_bulwark",
-      "name": "Earthen Bulwark",
-      "description": "Increases Armor by 4% per rank while Mountain Avatar is active.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 0,
-      "effects": {
-        "conditional_avatar_armor_pct": 0.04
-      },
-      "connected_to": [
-        "primalist_mountain_king_mountain_hammer_mastery"
-      ]
-    },
-    {
-      "talent_id": "primalist_mountain_king_terrasurge",
-      "name": "Terrasurge",
-      "description": "Learn Terrasurge, unleashing a globe of earth that pierces defensive effects and reduces enemy Armor.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "primalist_terrasurge"
-      },
-      "connected_to": [
-        "primalist_mountain_king_mountain_giant"
-      ],
-      "_source": "Confirmed screenshot: Lvl 22 (Rank 2 shown), 45 Rage, 30yd, 2.5s cast, 20 sec cooldown, '271 Physical damage and reducing their Armor by 50% for 10 sec. Pierces through absorption, deflection, and reflection effects. Deals 10% additional damage for each Earthshaping stack.' Real Rage-spender finisher."
+      "_source": "CoA's description for this node in the export is a broken template reference ($d2), so there is no tooltip to port and it is built from its name and its position as the tank capstone. on_block is a live trigger this tree otherwise never uses, which makes the capstone reward the thing a Mountain King does more than anyone else: stand in front. splash_damage carries a school, so the shed stone is really Nature damage rather than cosmetic, and the Rage grant keeps it feeding the spec's resource loop. The 'at full Earth's Rage' framing is flavour and deliberately promises no number: nothing reads another effect's stack count, and a description that quoted one would be lying."
     }
   ]
 }

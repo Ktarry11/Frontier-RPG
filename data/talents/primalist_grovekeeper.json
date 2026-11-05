@@ -1,8 +1,8 @@
 {
   "spec_name": "Primalist Grovekeeper",
   "tree_id": "primalist_grovekeeper",
-  "description": "Nature's caretaker - grove magic and rejuvenating rituals.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 17 confirmed Grovekeeper nodes trimmed to a lean 12-node tree. Grove Training confirmed as capstone: 'All melee damage or healing done now has a 10% chance to grant you Aftershock for 15 seconds. Aftershock: your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.'",
+  "description": "Hammer and grove both - every blow landed is healing for someone, and every heal makes the next blow land harder.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/primalist.json (35 real CoA Grovekeeper talents, role SUPPORT, 'Enhancement Shaman + Mistweaver Monk'). Replaces a 22-node tree of 13 pure scalars, most of them 3-5 ranks of '+5-8% healing' stacked four deep on the same three abilities. The spec's identity is the loop between damage and healing and the old tree had it in two places. All 4 unlock nodes are preserved - see tools/qa_abilities_obtainable.py. NOTE the party-aura problem in this module's docstring: eight CoA talents here are raid-wide buffs with no mechanism in this engine, and each keeps only its self half, with the description worded to match.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,227 +14,9 @@
   },
   "nodes": [
     {
-      "talent_id": "primalist_grovekeeper_primal_power",
-      "name": "Primal Power",
-      "description": "Increases healing done by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
-      "connected_to": [
-        "primalist_grovekeeper_flourishing_growth"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_keeper_of_the_grove",
-      "name": "Keeper of the Grove",
-      "description": "Reduces the Rage cost of Hand of the Earthmother by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.03
-      },
-      "connected_to": [
-        "primalist_grovekeeper_grove_tender"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_primordial_earth",
-      "name": "Primordial Earth",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_grovekeeper_eternally_chosen"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_grove_training",
-      "name": "Grove Training",
-      "description": "Learn Grove Tender, a moderate heal-over-time spell.",
-      "node_type": "active",
-      "tier": 0,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "unlock_ability": "primalist_grove_tender"
-      },
-      "connected_to": [
-        "primalist_grovekeeper_ring_of_life"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_flourishing_growth",
-      "name": "Flourishing Growth",
-      "description": "Increases Hand of the Earthmother healing by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_hand_of_the_earthmother_healing": 0.04
-      },
-      "connected_to": [
-        "primalist_grovekeeper_primal_power"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_grove_tender",
-      "name": "Grove Tender",
-      "description": "Increases Grove Tender's healing over time by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_grove_tender_healing": 0.06
-      },
-      "connected_to": [
-        "primalist_grovekeeper_keeper_of_the_grove"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_eternally_chosen",
-      "name": "Eternally Chosen",
-      "description": "Learn Blessing of Neptulon, a party-wide heal-over-time spell.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "primalist_blessing_of_neptulon"
-      },
-      "connected_to": [
-        "primalist_grovekeeper_primordial_earth"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_ring_of_life",
-      "name": "Ring of Life",
-      "description": "Learn Sacred Grove, a ward that heals the party each turn while active.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "primalist_sacred_grove"
-      },
-      "connected_to": [
-        "primalist_grovekeeper_grove_training",
-        "primalist_grovekeeper_earthmothers_binding"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_earthmothers_binding",
-      "name": "Earthmother's Binding",
-      "description": "Increases Blessing of Neptulon healing by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_primalist_blessing_of_neptulon_healing": 0.08
-      },
-      "connected_to": [
-        "primalist_grovekeeper_ring_of_life",
-        "primalist_grovekeeper_shaman_training"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_shaman_training",
-      "name": "Shaman Training",
-      "description": "Increases Sacred Grove healing by 8% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "ability_primalist_sacred_grove_healing": 0.08
-      },
-      "connected_to": [
-        "primalist_grovekeeper_earthmothers_binding",
-        "primalist_grovekeeper_ancient_of_lore"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_ancient_of_lore",
-      "name": "Ancient of Lore",
-      "description": "Increases all healing done by 2% per rank while below 50% Mana.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "low_mana_healing_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_grovekeeper_shaman_training",
-        "primalist_grovekeeper_grove_training_capstone"
-      ]
-    },
-    {
-      "talent_id": "primalist_grovekeeper_grove_training_capstone",
-      "name": "Aftershock",
-      "description": "Damage or healing you do has a 10% chance to trigger Aftershock, resetting the cooldown of Geode Barrage and Stoneshard.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "primalist_grovekeeper_ancient_of_lore"
-      ],
-      "_source": "CoA tooltip confirmed verbatim as 'Grove Training' - renamed to 'Aftershock' here since that's the actual proc effect's name and 'Grove Training' was already used for the earlier Grove Tender unlock node, avoiding a duplicate node name. CoA: 'All melee damage, or healing done, now has a 10% chance to grant you Aftershock for 15 seconds. Aftershock: Your next Geode Barrage or Earthquake within 15 seconds is now instant cast and costs -75% less.' Both of those are BASELINE Primalist abilities in CoA - no talent in any of the four CoA spec trees grants Earthquake or Geode Barrage; Geomancy's Tectonic Resonance, Tectonic Power and Therazane's Blessing only modify Earthquake - which is why a Grovekeeper can use this at all. Frontier folds CoA's Earthquake and Mountain King's Quake into the single primalist_quake, and that one is talent-gated, so the Quake half of this reset was dead for anyone who actually specced Grovekeeper. Replaced with Stoneshard, the baseline earth nuke every Primalist spec can cast (cooldown 2) and the closest Frontier equivalent of CoA's baseline Earthquake. Geode Barrage stays because the tooltip names it, though Frontier gives it no cooldown of its own, so Stoneshard is the half that does the work.",
-      "proc": {
-        "trigger": "on_damage_or_heal_cast",
-        "chance": 10,
-        "icd": 2,
-        "reset_cooldown": {
-          "abilities": [
-            "primalist_geode_barrage",
-            "primalist_stoneshard"
-          ]
-        }
-      }
-    },
-    {
       "talent_id": "primalist_grovekeeper_hammer_of_life",
       "name": "Hammer of Life",
-      "description": "Your melee swings spill life onto nearby allies and bite nearby enemies, for 20% of the damage dealt.",
+      "description": "20% of the damage you deal is healed onto your most wounded ally.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -243,37 +25,113 @@
       "hex_y": -6,
       "effects": {},
       "connected_to": [
-        "primalist_grovekeeper_primal_power"
+        "primalist_grovekeeper_battleweaver"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "leech_pct": {
+          "pct": 0.2,
+          "smart": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your melee attacks and abilities now heal up to 3 nearby allies and damage up to 3 nearby enemies equal to 20% of the damage dealt.' This is the spec's thesis in one talent. leech_pct with smart:true routes it to the worst-off ally; the 'up to 3 allies' part is not reachable, because splash_heal sizes itself from a HEAL and this fires off damage. The mirrored damage half is dropped rather than doubled up with splash_damage, which would make a support talent a DPS talent. CoA's 20% kept."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_natures_fury",
+      "name": "Nature's Fury",
+      "description": "Your weapon swings have a 20% chance to restore 5% of your maximum mana.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_battleweaver"
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 100,
+        "chance": 20,
         "icd": 0,
-        "splash_heal": {
-          "pct": 0.2,
-          "max_targets": 3
-        },
-        "splash_damage": {
-          "pct": 0.2,
-          "max_targets": 3,
-          "school": "nature"
+        "grant_resource": {
+          "resource": "mana",
+          "pct_max": 0.05
         }
       },
-      "_source": "Was 'Verdant Touch', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Your melee attacks and abilities now heal nearby allies and damage nearby enemies equal to 20% of the damage dealt.' THE keystone node. splash_heal and splash_damage are both real engine payloads and both scale off the triggering amount, so this is faithful."
+      "_source": "CoA verbatim: 'Auto attacks now have a 20% chance to deal Weapon Damage and restore 5% of your maximum mana.' The extra weapon damage is dropped and the mana kept, which is the half that matters: Primalist is dual-resource and a Grovekeeper's heals are mana while its attacks are Rage, so swinging has to pay for casting. CoA's 20% and 5% both kept."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_tranquil_mind",
+      "name": "Tranquil Mind",
+      "description": "Increases your damage and healing done by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "all_damage": 0.02,
+        "healing_done": 0.02
+      },
+      "connected_to": [
+        "primalist_grovekeeper_power_hammer"
+      ],
+      "_source": "CoA verbatim: 'Increases your damage and healing done by 4%.' Split over CoA's 2 ranks. One of the few genuinely scalar talents in this tree, and it is the right one to keep scalar because it is the only node that touches both halves of the spec at once. Both keys are FRACTIONS as talent effects."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_ancient_power",
+      "name": "Ancient Power",
+      "description": "Increases your Strength by 2.5% and your chance to hit by 1.5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "strength_pct": 2.5,
+        "hit_rating": 1.5
+      },
+      "connected_to": [
+        "primalist_grovekeeper_verdant_warrior"
+      ],
+      "_source": "CoA verbatim: 'Increases your Strength by 5% and your hit chance by 3%.' Split over CoA's 2 ranks. Was 3.0/2 per rank, which overshot CoA at full ranks. strength_pct takes percentage POINTS. Also carries CoA's Grovekeeper's Presence ('+1% hit for you AND party and raid members'), whose raid half has no mechanism."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_grove_training",
+      "name": "Grove Training",
+      "description": "Learn Grove Training. A patch of green that keeps mending an ally turn after turn.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "primalist_grove_tender"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_natures_blessing"
+      ],
+      "_source": "Kept from the previous tree. CoA's own Grove Tender talent ('while inside your Bramblepatch your Seismic abilities have 80% reduced cooldown') is not buildable - Bramblepatch does not exist as an ability here - so this node stays what it is, the unlock for the hot."
     },
     {
       "talent_id": "primalist_grovekeeper_battleweaver",
       "name": "Battleweaver",
-      "description": "Healing someone quickens your own hands, increasing your haste and damage by 2% per rank for a few turns.",
+      "description": "Your healing drives you on, increasing your haste and damage by 2% per stack for 2 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -4,
+      "hex_x": -5,
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "primalist_grovekeeper_primordial_earth"
+        "primalist_grovekeeper_earths_guidance"
       ],
       "proc": {
         "trigger": "on_heal_cast",
@@ -283,104 +141,393 @@
           "effect_id": "primalist_battleweaver",
           "name": "Battleweaver",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 2,
           "max_stacks": 3,
           "stat_mods": {
             "haste": 2.0,
-            "physical_damage": 2.0
+            "damage_dealt_pct": 2.0
           },
           "on_target": false
         }
       },
-      "_source": "Was 'Nature Reserve', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Effective healing now increases your melee haste and damage by 2% for 5 seconds, stacking 3 times.' The heal-into-melee half of the loop, which closes the circle with Hammer of Life."
+      "_source": "CoA verbatim: 'Effective healing now increases your melee haste and damage by 2% for 5 seconds, stacking 3 times.' Ports almost exactly - both stats, CoA's 2% and CoA's 3 stacks. 5 sec is 2 turns. damage_dealt_pct is the status-effect route to a damage multiplier (all_damage is read only through get_talent_effects(), which never includes status effects) and takes percentage POINTS, while haste beside it is raw. Status stat_mods multiply by stacks, so 3 stacks is +6 haste and +6% damage."
     },
     {
-      "talent_id": "primalist_grovekeeper_ancient_power",
-      "name": "Ancient Power",
-      "description": "Increases your Strength by 3% and grants 2 hit rating per rank.",
+      "talent_id": "primalist_grovekeeper_power_hammer",
+      "name": "Power Hammer",
+      "description": "Your damage generates 3 additional Rage, more reliably per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -3,
       "hex_y": -4,
-      "effects": {
-        "strength_pct": 3.0,
-        "hit_rating": 2
-      },
+      "effects": {},
       "connected_to": [
-        "primalist_grovekeeper_keeper_of_the_grove"
+        "primalist_grovekeeper_crashing_out"
       ],
-      "_source": "Was 'Grove Wisdom', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Increases your Strength by 5% and your hit chance by 3%.' The spec's only Strength node, and Strength is CoA's #1 stat for it."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 3
+        }
+      },
+      "_source": "CoA: 'You now generate 10% more Rage from damage dealt, increased by 15% while a two-handed weapon is equipped.' The two-hander condition is dropped: there is no 'while wielding X' gate for an effect key. NOT built as a rage-generation multiplier, which was the first draft and was dead: rage generation is hardcoded (Character.take_damage adds actual * 0.2, CombatEngine adds a flat amount on attacks) with no talent hook anywhere, so 'rage_generation_pct' read as nothing. Built instead as a flat grant on the same event, the way Seismically Efficient and Wildwalker's Rips and Tears already do it. The ranks scale the proc CHANCE rather than the amount - that is how a multi-rank proc node works here - so 1 point is a 50% chance and 2 points is every hit, which is why the description says 'more reliably' rather than quoting a bigger number."
     },
     {
-      "talent_id": "primalist_grovekeeper_natures_fury",
-      "name": "Nature's Fury",
-      "description": "Your swings have a 20% chance to tear loose a surge of mana, restoring 60.",
+      "talent_id": "primalist_grovekeeper_hand_of_a_god",
+      "name": "Hand of a God",
+      "description": "Reduces the Rage cost of Hand of the Earthmother by 25%.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.25
+      },
+      "connected_to": [
+        "primalist_grovekeeper_resilient_roots"
+      ],
+      "_source": "CoA: 'Reduces the Rage cost of Hand of the Earthmother by -5.' Expressed as a percentage rather than a flat 5, because a flat number set against one ability's cost goes stale the moment that cost is retuned. POSITIVE is the reduction direction. Also carries CoA's Primal Power ('casting Seismic Wave makes your next Hand of the Earthmother cost 50% less within 8 sec'), which is not buildable: a 'next cast is cheaper' window has to reach an ability cost key from a status effect, and cost keys are read only through get_talent_effects()."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_verdant_warrior",
+      "name": "Verdant Warrior",
+      "description": "Increases the damage of Wildclaw by 7.5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "ability_primalist_wildclaw_damage": 0.075
+      },
+      "connected_to": [
+        "primalist_grovekeeper_elemental_cascade"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Wildclaw by 15%.' Split over CoA's 2 ranks. Wildclaw is this spec's Rage-costed attack and what Elemental Cascade keys off, so it wants a damage node feeding it."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_eternally_chosen",
+      "name": "Eternally Chosen",
+      "description": "Learn Eternally Chosen. A blessing that keeps the whole party mending.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_blessing_of_neptulon"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_natures_blessing"
+      ],
+      "_source": "Kept from the previous tree. CoA's own Blessing of Neptulon talent ('your Hand of the Earthmother now bounces to 1 ally near the primary target') is not buildable - there is no key that adds targets to an ability - so this node stays the unlock for the party hot."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_seismic_wave",
+      "name": "Seismic Wave",
+      "description": "Learn Seismic Wave. A wave that heals everyone it rolls past and hurts everything else.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "primalist_seismic_wave"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_earths_guidance"
+      ],
+      "_source": "CoA: 'Create a seismic wave of healing water around you, healing up to 8 allies and dealing Nature damage to enemies in a 25 yd radius.' The ability is damage_and_heal, which is this spec in one cast. Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_earths_guidance",
+      "name": "Earth's Guidance",
+      "description": "Your Seismic spells have a 20% chance to bring all your Seismic spells a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -6,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "primalist_grovekeeper_grove_training"
+        "primalist_grovekeeper_crashing_out"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
+        "trigger": "on_damage_or_heal_cast",
         "chance": 20,
         "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 60
+        "ability_filter": [
+          "primalist_seismic_crash",
+          "primalist_seismic_tremor",
+          "primalist_seismic_wave"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_seismic_crash",
+            "primalist_seismic_tremor",
+            "primalist_seismic_wave"
+          ],
+          "turns": 1
         }
       },
-      "_source": "Was 'Living Roots', invented. Added 2026-10-28 on Kyle's direction to follow the CoA reference. CoA calls Grovekeeper 'Closest to Mistweaver Monk in Fistweaving mode ... Stand in melee, autoattack, and your damage rotation IS your AoE healing rotation', with stat priority Strength (Attack Power) > Haste > Intellect. Frontier had built all 22 nodes as Intellect/mana heal throughput - zero Strength, zero attack power, zero melee, zero heal-on-damage - so the spec's entire identity was missing and the audit flagged it as the single largest divergence in the class. CoA: 'Auto attacks now have a 20% chance to deal Weapon Damage and restore 5% of your maximum mana.' The auto-attack mana engine - this spec is meant to fund itself by swinging, not by drinking. Flat 60 rather than a percentage because grant_resource takes an amount."
+      "_source": "CoA verbatim: 'Damage and healing done by Seismic spells now has a 20% chance to reduce the cooldown of all Seismic spells by -1 sec.' on_damage_or_heal_cast is the right trigger precisely because Seismic Wave does both, and it is the one trigger in the game that catches either. CoA's 20% kept, 1-turn internal cooldown so it cannot chain."
     },
     {
-      "talent_id": "primalist_grovekeeper_earthmothers_gift",
-      "name": "Earthmother's Gift",
-      "description": "Increases Blessing of Neptulon healing by 5% per rank.",
+      "talent_id": "primalist_grovekeeper_resilient_roots",
+      "name": "Resilient Roots",
+      "description": "Reduces the cost of your healing by 4% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_blessing_of_neptulon_healing": 0.05
+        "heal_cost_pct": 0.04
       },
       "connected_to": [
-        "primalist_grovekeeper_eternally_chosen"
-      ]
+        "primalist_grovekeeper_infusion_of_neptulon"
+      ],
+      "_source": "Not a CoA node - kept from the previous tree at 2% -> 4%. A support that heals on mana while fighting on Rage needs a mana efficiency pick, and this tier is otherwise all procs. heal_cost_pct is the alias of healing_spell_cost_pct and positive is the reduction direction."
     },
     {
-      "talent_id": "primalist_grovekeeper_sacred_bloom",
-      "name": "Sacred Bloom",
-      "description": "Increases Sacred Grove's healing by 5% per rank.",
+      "talent_id": "primalist_grovekeeper_natures_blessing",
+      "name": "Nature's Blessing",
+      "description": "Seismic Wave leaves its healing working, mending the target for 3 more turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_sacred_grove"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_wave"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_natures_blessing",
+          "name": "Nature's Blessing",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 28,
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Healing allies with Seismic Wave now heals them for an additional 20% of the healing done every 3 sec for 9 sec.' 9 sec is 3 turns and 3 sec is one tick, so the shape ports. A proc-applied hot takes a flat potency - there is no 'percentage of the triggering heal' form for apply_effect, unlike shield_pct and splash_heal - so 20% of a Seismic Wave is approximated as 28 per turn."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_crashing_out",
+      "name": "Crashing Out",
+      "description": "Increases the damage of Seismic Crash by 30%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_sacred_grove_healing": 0.05
+        "ability_primalist_seismic_crash_damage": 0.3
       },
       "connected_to": [
-        "primalist_grovekeeper_shaman_training"
-      ]
+        "primalist_grovekeeper_thorns"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Seismic Crash by 30%.' Already a scalar in CoA, so it stays one. Also carries CoA's Tears of the Earthmother ('increases the amount of targets hit by Seismic Spike by 4'), which has no key - target counts are a property of the ability, not a talent bonus - and names an ability Frontier does not have."
     },
     {
-      "talent_id": "primalist_grovekeeper_communal_growth",
-      "name": "Communal Growth",
-      "description": "Your healing spells have a 20% chance per rank to also mend your most wounded ally for 90.",
+      "talent_id": "primalist_grovekeeper_elemental_cascade",
+      "name": "Elemental Cascade",
+      "description": "Critical strikes with Wildclaw wash healing over your most wounded ally.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_infusion_of_neptulon"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_wildclaw"
+        ],
+        "smart_heal_pct": 40
+      },
+      "_source": "CoA verbatim: 'Critical strikes with Wildclaw now unleash an Elemental Cascade: restores health to allies in a 12 yd radius around you.' The radius is gone and the heal routes to the worst-off ally via smart_heal_pct, which is the payload for exactly that. NOTE it is a PERCENT - status_effects.py divides by 100 - unlike splash_heal and leech_pct beside it, which are fractions. 40 means 40% of the crit that triggered it."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_sacred_grove",
+      "name": "Sacred Grove",
+      "description": "Learn Sacred Grove. Raise a grove that mends everyone standing in it.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "primalist_sacred_grove"
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life"
+      ],
+      "_source": "CoA: 'Create a Sacred Grove for 16 sec, instantly healing all nearby party and raid members. While active, up to 12 allies in the grove receive 25% increased healing, and regain 3% of their missing health, Rage, and mana every 2 sec.' The ability itself is a party hot, which covers the healing; the increased-healing aura and the resource regeneration have no mechanism. Kept from the previous tree, where this unlock was confusingly named Ring of Life."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_douse",
+      "name": "Douse",
+      "description": "Your Seismic spells leave the enemy taking 4% more magic damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_ring_of_life"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_crash",
+          "primalist_seismic_tremor",
+          "primalist_seismic_wave"
+        ],
+        "damage_flat": 40,
+        "school": "frost",
+        "apply_effect": {
+          "effect_id": "primalist_douse",
+          "name": "Douse",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "magic_damage_taken_pct": 4.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Striking an enemy with Seismic spells now deals an additional Frost damage and reduces all resistances by 75 and increases their Magic damage taken by -2% for 10 seconds.' The flat Frost damage and the magic-vulnerability both port; the resistance reduction is dropped because there is no recipient-side all-resistance key, and magic damage taken is already the thing that reduction was for. 10 sec is 3 turns. Raised 2% -> 4% because the resistance half is gone. In a status effect this key is percentage POINTS and POSITIVE means MORE damage taken - the opposite sign to the same key as a talent effect, which is the trap Call of the Mountain documents."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_infusion_of_neptulon",
+      "name": "Infusion of Neptulon",
+      "description": "Critically healing an ally increases your attack power by 15% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_running_on_instinct"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_hand_of_the_earthmother",
+          "primalist_seismic_wave",
+          "primalist_grove_tender"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_infusion_of_neptulon",
+          "name": "Infusion of Neptulon",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "attack_power_pct": 15.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Critically healing an ally now increases your attack power by 15% for your next 3 attacks. Lasts 12 seconds.' The 'next 3 attacks' charge counter has no mechanism - effects expire on turns, not on uses - so it is the 12-second window alone, which is 3 turns either way. CoA's 15% kept. This is the other direction of the spec's loop: Hammer of Life turns damage into healing, this turns healing into damage."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_thorns",
+      "name": "Thorns",
+      "description": "Taking physical damage has a 10% chance to wrap the attacker in thorns, dealing nature damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "primalist_grovekeeper_running_on_instinct"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "primalist_thorns",
+          "name": "Thorns",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 45,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Physical damage dealt or taken now has a 10% chance to unleash Thorns on an enemy: create thorns around an enemy, rooting them and dealing Nature Damage over 6 seconds. Direct damage taken may end this effect.' The root is positional and dropped. Built on damage TAKEN only rather than both halves: 'dealt or taken' would need two procs on one node, and the taken side is the one that reads as thorns. CoA's 10% kept with a 1-turn internal cooldown. 6 sec is 2 turns."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_ring_of_life",
+      "name": "Ring of Life",
+      "description": "Reduces the magic damage you take by 10% and increases your healing done by 6%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "magic_damage_taken_pct": -0.1,
+        "healing_done": 0.06
+      },
+      "connected_to": [
+        "primalist_grovekeeper_ancient_of_lore"
+      ],
+      "_source": "CoA verbatim: 'Allies within 40 yds receive 6% increased healing. Does not stack with similar effects. In addition, your Magic damage taken is reduced by 10%.' The aura half has no mechanism, so the 6% applies to the Grovekeeper's own healing done and the description says 'your'. NEGATIVE reduces for magic_damage_taken_pct as a TALENT effect - the opposite sign to the same key inside a status effect, which Douse above uses positively to INCREASE damage taken. Both are correct; the key simply means different directions in the two places."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_vitality_surge",
+      "name": "Vitality Surge",
+      "description": "Your healing has a 25% chance to quicken you, increasing your haste by 5% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
       "hex_y": 2,
       "effects": {},
       "connected_to": [
@@ -388,62 +535,122 @@
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 20,
-        "icd": 1,
-        "smart_heal": 90
-      }
-    },
-    {
-      "talent_id": "primalist_grovekeeper_resilient_roots",
-      "name": "Resilient Roots",
-      "description": "Reduces the Mana cost of all heals by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "heal_cost_pct": 0.02
+        "chance": 25,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "primalist_vitality_surge",
+          "name": "Vitality Surge",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "haste": 5.0
+          },
+          "on_target": false
+        }
       },
-      "connected_to": [
-        "primalist_grovekeeper_ring_of_life"
-      ]
+      "_source": "CoA: 'All effective healing done now has a 25% chance to increase the haste of party and raid members by 5% for 20 seconds. Does not stack with similar effects.' Self-only, for the party-aura reason in this module's docstring, and the description says 'you'. CoA's 25% and 5% kept; 20 sec cut to 3 turns so it is not permanently up at a 25% roll per heal. Also carries CoA's Infused With Power, which is the same talent pointed at crit instead of haste and would be the same node twice."
     },
     {
-      "talent_id": "primalist_grovekeeper_natures_swiftness",
-      "name": "Nature's Swiftness",
-      "description": "Increases healing done by 2% per rank while above 70% Mana.",
+      "talent_id": "primalist_grovekeeper_running_on_instinct",
+      "name": "Running on Instinct",
+      "description": "Primal Rush builds momentum, increasing your damage by 5% per stack for 4 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "high_mana_healing_pct": 0.02
-      },
+      "effects": {},
       "connected_to": [
-        "primalist_grovekeeper_grove_training_capstone"
-      ]
+        "primalist_grovekeeper_earthmothers_warden"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_primal_rush"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_running_on_instinct",
+          "name": "Running on Instinct",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Passing through allies with Primal Rush now heals up to 5 of them and grants a stack of Running on Instinct: damage of Wildclaw and Seismic spells is increased by 5% for 20 seconds, stacking 5 times.' The 'passing through allies' heal is positional and dropped. The stacking damage is built as a parallel buff, which is the pattern for every per-stack payoff in this class - nothing reads another effect's stack count. It is general damage rather than Wildclaw-and-Seismic-only, because ability_*_damage cannot be reached from a status effect. CoA's 5 stacks and 5% kept; 20 sec is 4 turns."
     },
     {
-      "talent_id": "primalist_grovekeeper_seismic_wave",
-      "name": "Seismic Wave",
-      "description": "Learn Seismic Wave, creating a wave of healing water around you that also damages enemies. Shares a cooldown with other Seismic spells.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
+      "talent_id": "primalist_grovekeeper_ancient_of_lore",
+      "name": "Ancient of Lore",
+      "description": "While below 35% mana, your healing is 6% stronger per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": 4,
       "effects": {
-        "unlock_ability": "primalist_seismic_wave"
+        "low_mana_healing_pct": 0.06
       },
       "connected_to": [
-        "primalist_grovekeeper_ring_of_life"
+        "primalist_grovekeeper_earthmothers_warden"
       ],
-      "_source": "Confirmed screenshot: Grovekeeper-locked, Lvl 22, '111 healing to up to 8 allies in a 25 yd radius and 68 Nature damage in a 10 yd radius around you.'"
+      "_source": "Not a CoA node - kept from the previous tree at 2% -> 6% over 2 ranks instead of 4. low_mana_healing_pct is the 'desperate' half of a real conditional the engine reads off the caster's own mana against low_health_threshold_pct's 35% default, and it matters for a spec that spends mana healing while spending Rage fighting."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_earthmothers_warden",
+      "name": "Earthmother's Warden",
+      "description": "Reduces the cooldown of your Seismic spells by 15% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_primalist_seismic_crash_cooldown_pct": 0.15,
+        "ability_primalist_seismic_tremor_cooldown_pct": 0.15,
+        "ability_primalist_seismic_wave_cooldown_pct": 0.15
+      },
+      "connected_to": [
+        "primalist_grovekeeper_aftershock"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of your Seismic abilities by -2 sec.' Expressed as a percentage because cooldowns are counted in turns here. POSITIVE is the reduction direction - authored negative this would make the spec's rotation SLOWER while its tooltip promised faster, which is the mistake eight talents in this project have already made and which the audit now flags. Written out per ability because there is no key for a named group."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_aftershock",
+      "name": "Aftershock",
+      "description": "Every heal you land also strikes your enemies, and every blow you land mends your party.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "splash_heal": {
+          "pct": 0.25,
+          "max_targets": 5
+        },
+        "splash_damage": {
+          "pct": 0.25,
+          "max_targets": 5,
+          "school": "nature"
+        }
+      },
+      "_source": "The capstone, and the only node in the game that fires both splash payloads off one trigger. on_damage_or_heal_cast catches either half, so a heal splashes healing to five allies and a hit splashes Nature damage to five enemies, from the same point. That is Grovekeeper's whole thesis - damage and healing are the same action - made literal, and it is the right shape for the capstone because it is the one place CoA's Hammer of Life ('heal up to 3 nearby allies AND damage up to 3 nearby enemies') can actually be built in full: at tier 0 that talent has to pick one side, because leech_pct sizes from damage and splash_heal sizes from a heal. Here both are available because the trigger fires on both. Replaces a proc node of the same name whose payload was a single flat damage roll."
     }
   ]
 }
