@@ -31,6 +31,21 @@
       "buff_category": null
     },
     {
+      "consumable_id": "healing_potion_greater",
+      "name": "Greater Healing Potion",
+      "consumable_type": "health_potion",
+      "description": "Restores 410 health.",
+      "effect_value": 410,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 18,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 150,
+      "sell_price": 37,
+      "buff_category": null
+    },
+    {
       "consumable_id": "healing_potion_superior",
       "name": "Superior Healing Potion",
       "consumable_type": "health_potion",
@@ -46,6 +61,21 @@
       "buff_category": null
     },
     {
+      "consumable_id": "healing_potion_major",
+      "name": "Major Healing Potion",
+      "consumable_type": "health_potion",
+      "description": "Restores 660 health.",
+      "effect_value": 660,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 33,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": null
+    },
+    {
       "consumable_id": "healing_potion_mega",
       "name": "Mega Healing Potion",
       "consumable_type": "health_potion",
@@ -58,6 +88,36 @@
       "stack_limit": 20,
       "vendor_price": 500,
       "sell_price": 125,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "healing_potion_masterwork",
+      "name": "Masterwork Healing Potion",
+      "consumable_type": "health_potion",
+      "description": "Restores 960 health.",
+      "effect_value": 960,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 48,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 675,
+      "sell_price": 168,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "healing_potion_supreme",
+      "name": "Supreme Healing Potion",
+      "consumable_type": "health_potion",
+      "description": "Restores 1100 health.",
+      "effect_value": 1100,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 55,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 825,
+      "sell_price": 206,
       "buff_category": null
     }
   ],
@@ -93,6 +153,21 @@
       "buff_category": null
     },
     {
+      "consumable_id": "mana_potion_greater",
+      "name": "Greater Mana Potion",
+      "consumable_type": "mana_potion",
+      "description": "Restores 410 mana.",
+      "effect_value": 410,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 18,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 150,
+      "sell_price": 37,
+      "buff_category": null
+    },
+    {
       "consumable_id": "mana_potion_superior",
       "name": "Superior Mana Potion",
       "consumable_type": "mana_potion",
@@ -108,6 +183,21 @@
       "buff_category": null
     },
     {
+      "consumable_id": "mana_potion_major",
+      "name": "Major Mana Potion",
+      "consumable_type": "mana_potion",
+      "description": "Restores 660 mana.",
+      "effect_value": 660,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 33,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 350,
+      "sell_price": 87,
+      "buff_category": null
+    },
+    {
       "consumable_id": "mana_potion_mega",
       "name": "Mega Mana Potion",
       "consumable_type": "mana_potion",
@@ -120,6 +210,36 @@
       "stack_limit": 20,
       "vendor_price": 500,
       "sell_price": 125,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "mana_potion_masterwork",
+      "name": "Masterwork Mana Potion",
+      "consumable_type": "mana_potion",
+      "description": "Restores 960 mana.",
+      "effect_value": 960,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 48,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 675,
+      "sell_price": 168,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "mana_potion_supreme",
+      "name": "Supreme Mana Potion",
+      "consumable_type": "mana_potion",
+      "description": "Restores 1100 mana.",
+      "effect_value": 1100,
+      "effect_duration": 0,
+      "level_multiplier": 2.0,
+      "required_level": 55,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 825,
+      "sell_price": 206,
       "buff_category": null
     }
   ],
@@ -1256,25 +1376,6 @@
       }
     },
     {
-      "consumable_id": "spiced_stew",
-      "name": "Spiced Stew",
-      "consumable_type": "food",
-      "description": "A fragrant stew with exotic spices. Grants +10 Strength and +7 Stamina for 30 minutes.",
-      "effect_value": 0,
-      "effect_duration": 1800,
-      "level_multiplier": 0.0,
-      "required_level": 25,
-      "cooldown_seconds": 5,
-      "stack_limit": 20,
-      "vendor_price": 300,
-      "sell_price": 75,
-      "buff_category": "food",
-      "stat_bonuses": {
-        "strength": 10,
-        "stamina": 7
-      }
-    },
-    {
       "consumable_id": "spiced_wine",
       "name": "Spiced Wine",
       "consumable_type": "food",
@@ -1329,6 +1430,63 @@
       "stat_bonuses": {
         "spirit": 6,
         "healing_power": 3
+      }
+    },
+    {
+      "consumable_id": "spiced_stew",
+      "name": "Spiced Stew",
+      "consumable_type": "food",
+      "description": "A fragrant stew with exotic spices. Grants +10 Strength and +7 Stamina for 30 minutes.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 25,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 300,
+      "sell_price": 75,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "strength": 10,
+        "stamina": 7
+      }
+    },
+    {
+      "consumable_id": "hunters_brace_platter",
+      "name": "Hunter's Brace Platter",
+      "consumable_type": "food",
+      "description": "Heavy enough to walk off. Grants +15 Strength and +11 Stamina for 30 minutes.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 40,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 500,
+      "sell_price": 125,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "strength": 15,
+        "stamina": 11
+      }
+    },
+    {
+      "consumable_id": "high_table_feast",
+      "name": "High Table Feast",
+      "consumable_type": "food",
+      "description": "The kind of meal somebody else paid for. Grants +21 Strength and +16 Stamina for 30 minutes.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 55,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 700,
+      "sell_price": 175,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "strength": 21,
+        "stamina": 16
       }
     }
   ],
@@ -1943,6 +2101,36 @@
       "vendor_price": 420,
       "sell_price": 105,
       "buff_category": null
+    },
+    {
+      "consumable_id": "meal_saltback_roast",
+      "name": "Saltback Roast",
+      "consumable_type": "meal",
+      "description": "Salt-cured and slow-cooked. Restores 870 health over 34 seconds while you rest. Taking damage stops it.",
+      "effect_value": 870,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 650,
+      "sell_price": 162,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "meal_ember_glazed_ribs",
+      "name": "Ember-Glazed Ribs",
+      "consumable_type": "meal",
+      "description": "Glazed over coals until the fat catches. Restores 1060 health over 38 seconds while you rest. Taking damage stops it.",
+      "effect_value": 1060,
+      "effect_duration": 38,
+      "level_multiplier": 0.0,
+      "required_level": 55,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 900,
+      "sell_price": 225,
+      "buff_category": null
     }
   ],
   "drinks": [
@@ -2019,6 +2207,36 @@
       "stack_limit": 20,
       "vendor_price": 420,
       "sell_price": 105,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "drink_deepwell_cordial",
+      "name": "Deepwell Cordial",
+      "consumable_type": "drink",
+      "description": "Cold enough to ache. Restores 1670 mana over 34 seconds while you rest. Taking damage stops it.",
+      "effect_value": 1670,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 650,
+      "sell_price": 162,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "drink_starfall_wine",
+      "name": "Starfall Wine",
+      "consumable_type": "drink",
+      "description": "Bottled the night the sky fell. Restores 2000 mana over 38 seconds while you rest. Taking damage stops it.",
+      "effect_value": 2000,
+      "effect_duration": 38,
+      "level_multiplier": 0.0,
+      "required_level": 55,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 900,
+      "sell_price": 225,
       "buff_category": null
     }
   ],

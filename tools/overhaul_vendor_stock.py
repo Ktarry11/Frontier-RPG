@@ -220,13 +220,21 @@ def main():
         picks = []
         for category in ("health_potions", "mana_potions", "food"):
             in_category = {r["consumable_id"] for r in cons.get(category, [])}
-            best_here = [cons_req[x] for x in sells if x in in_category]
-            if best_here and (tier - max(best_here)) < STALE_GAP:
-                continue
             rows_c = [r for r in cons.get(category, []) if r.get("required_level", 1) <= tier]
             if not rows_c:
                 continue
             rows_c.sort(key=lambda r: r.get("required_level", 1))
+            best_available = rows_c[-1].get("required_level", 1)
+            best_here = [cons_req[x] for x in sells if x in in_category]
+            # "Is anything better available to this vendor" rather than a
+            # fixed staleness window. The window was 10 levels, which was fine
+            # when potions existed only at 1/10/25/40 but is a whole tier of
+            # slack now the ladder runs every 8-9 levels - it left a tier 48
+            # shop selling level 40 potions with a level 48 potion on the
+            # shelf next door. The question was never "how stale", it is
+            # "could this vendor do better".
+            if best_here and max(best_here) >= best_available:
+                continue
             best = rows_c[-1]["consumable_id"]
             if best not in sells:
                 picks.append(best)
