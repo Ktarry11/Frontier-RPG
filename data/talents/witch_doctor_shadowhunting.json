@@ -1,8 +1,8 @@
 {
   "spec_name": "Witch Doctor Shadowhunting",
   "tree_id": "witch_doctor_shadowhunting",
-  "description": "Ranged weapon and Serpent Wards. Banks Spirit off Reclamation into Spirit Eclipse, shuts a target off with Spirit Shock and Hex of Death, and carries party auras on a shamanic chassis.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_witch-doctor__shadowhunting.txt and the 'shadowhunting' tree in reference/coa_sidekick/talents/witch-doctor.json. CoA: 'Closest to a Survival Hunter built on a shamanic support chassis ... Mechanically it's a support-flavored chassis that was talented into being a real ranged-hybrid combatant, spending most of its buttons on Spirit-fueled ranged damage rather than on healing.' Its stat priority is Attack Power > Crit > Agility > Intellect/Spirit > Spell Power, which is why this is the one Witch Doctor tree that spends on attack power and physical crit at all, and why Sen'jin's Apprentice - which pays Intellect into ranged attack power and Agility into spell damage - is its keystone. Its stated weakness is CC: 'Shadowstalker wipes harmful effects on its own timer and that is the entire answer to CC', and nothing in this tree pretends otherwise.",
+  "description": "Bow, glaive and serpent - a ranged hunter who turns Intellect into attack power and spends Spirits.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 40 real CoA Shadow Hunting talents (role DPS, 'Predominantly Marksmanship Hunter, with minor Shaman and Warlock touches'). Replaces a 23-node tree with 3 procs. Sen'jin's Apprentice ports whole - all three conversions are legal pairs. Five talents buff Serpent Wards and hit the pet wall: pets scale off pet_damage/pet_health/pet_armor only and NEVER fire procs, so Ward proc chances and Ward haste cannot exist. No per-school damage key is read by anything, so Nature and Shadow bonuses land on all_damage or spell_damage.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,447 +14,676 @@
   },
   "nodes": [
     {
-      "talent_id": "witch_doctor_shadowhunting_loas_strength",
-      "name": "Loa's Strength",
-      "description": "Increases your Agility by 2% and the Nature and Shadow damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "agility_pct": 2.0,
-        "nature_shadow_damage_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Agility and your Nature and Shadow damage dealt by 3%' at 2 ranks. nature_shadow_damage_pct is a combined school key - the engine resolves it per underscore component against the real school set, so it covers both."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_improved_malefic_arrow",
-      "name": "Improved Malefic Arrow",
-      "description": "Increases the damage of Malefic Arrow by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_witch_doctor_malefic_arrow_damage": 0.05
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the cooldown of Malefic Arrow by -2 sec' at 2 ranks. Malefic Arrow is already on a 2-turn cooldown here, which a flat reduction would erase entirely, so the node pays throughput instead."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_village_wisdom",
-      "name": "Village Wisdom",
-      "description": "Increases your hit chance by 1% and the damage of Reclamation by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "hit_rating": 1,
-        "ability_witch_doctor_reclamation_damage": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your hit chance by 5% and the damage of Reclamation by 15%.' Both halves, per rank."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_shadowhunter",
-      "name": "Shadowhunter",
-      "description": "Reduces the Mana cost of all your abilities by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Allows you to auto shoot with a ranged weapon. In addition, reduces the mana cost of all spells and abilities by -25%.' Auto-shoot already exists for every class through data/abilities/_universal.json, so the cost cut is the live half. POSITIVE is the discount here - talented_cost does cost * (1 - pct)."
-    },
-    {
       "talent_id": "witch_doctor_shadowhunting_senjins_apprentice",
       "name": "Sen'jin's Apprentice",
-      "description": "Grants ranged attack power equal to 2% of your Intellect and spell damage equal to 2% of your Agility, per rank.",
+      "description": "Increases your ranged attack power by 100% of your Intellect, and your ranged attack power and spell power by 25% of your Agility.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -6,
       "effects": {
-        "ranged_ap_from_intellect_pct": 0.02,
-        "spell_damage_from_agility_pct": 0.02
+        "ranged_ap_from_intellect_pct": 0.3333,
+        "ranged_ap_from_agility_pct": 0.0833,
+        "spell_power_from_agility_pct": 0.0833
       },
       "connected_to": [
         "witch_doctor_shadowhunting_loas_strength"
       ],
-      "_source": "CoA: 'Increases your ranged attack power by 100% of your Intellect and your ranged attack power and spell power by 25% of your Agility.' Two real stat conversions, and the reason CoA says 'your shots scale off both'."
+      "_source": "CoA verbatim: 'Level 40 Passive. Increases your ranged attack power by 100% of your Intellect and your ranged attack power and spell power by 25% of your Agility.' PORTS WHOLE - all three conversions are legal: ranged_ap and spell_power are both in STAT_CONVERSION_TARGETS, intellect and agility both in STAT_CONVERSION_SOURCES. This is what makes the spec coherent - a bow user who gears Intellect. All FRACTIONS."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_spiritual_devotee",
-      "name": "Spiritual Devotee",
-      "description": "Increases your maximum Mana by 2% and restores 2 Mana every 5 seconds, per rank.",
+      "talent_id": "witch_doctor_shadowhunting_loas_strength",
+      "name": "Loa's Strength",
+      "description": "Increases your Agility by 6% and all damage you deal by 6%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": -3,
+      "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.02,
-        "mp5": 2
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_improved_malefic_arrow"
-      ],
-      "_source": "CoA: 'Collecting a Spirit now instantly restores 3% of your maximum mana.' Spirits are not a resource here (see the module docstring), so the refund becomes a real pool and a real regen rate."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_shadow_enchantments",
-      "name": "Shadow Enchantments",
-      "description": "Increases the damage of Hex of Malice by 5% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_witch_doctor_hex_of_malice_damage": 0.05
+        "agility_pct": 2,
+        "all_damage": 0.02
       },
       "connected_to": [
         "witch_doctor_shadowhunting_village_wisdom"
       ],
-      "_source": "CoA: 'Increases the duration and effectiveness of your Jinxes by 25%' at 2 ranks. Hex of Malice is the Jinx this spec actually keeps rolling."
+      "_source": "CoA over 2 ranks: 'Increases your Agility and your Nature and Shadow damage dealt by 3%.' Doubled for the two ranks and authored as the full-investment ceiling. THERE IS NO PER-SCHOOL DAMAGE KEY - nature_damage, shadow_damage and magic_damage are read by nothing, and ranged_damage is an ability effect type, not a bonus - so it lands on all_damage. That is broader than CoA's, which is noted rather than hidden; this spec deals almost nothing outside those two schools anyway. agility_pct takes percentage POINTS, all_damage a FRACTION."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_eye_of_kimbul",
-      "name": "Eye of Kimbul",
-      "description": "Increases your critical strike chance by 1% per rank, with both weapons and spells.",
+      "talent_id": "witch_doctor_shadowhunting_village_wisdom",
+      "name": "Village Wisdom",
+      "description": "Increases your chance to hit by 5% and the damage of Reclamation by 15%.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "crit_chance_physical": 1.0,
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_shadowhunter"
-      ],
-      "_source": "CoA: 'Critical strikes now apply Eye of Kimbul to enemies. Increases damage dealt and critical strike chance against this target by 1%, stacking 5 times.' Crit is second in this spec's stat priority and its damage is split between ranged weapon and spells, so the node covers both."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_spirit_hunting",
-      "name": "Spirit Hunting",
-      "description": "Your damaging abilities have a 25% chance to restore 20 Mana, per rank.",
-      "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "witch_doctor_shadowhunting_senjins_apprentice"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 20
-        }
-      },
-      "_source": "CoA: 'Each active Spirit gives you a 15% chance when you cast Malefic Arrow to generate an additional Spirit.' A Spirit is health and Mana back, so the proc grants Mana."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_berserking",
-      "name": "Berserking",
-      "description": "Increases your haste by 1 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "haste": 1.0
+        "hit_rating": 1.6667,
+        "ability_witch_doctor_reclamation_damage": 0.05
       },
       "connected_to": [
-        "witch_doctor_shadowhunting_spiritual_devotee"
+        "witch_doctor_shadowhunting_improved_malefic_arrow"
       ],
-      "_source": "CoA: 'Periodic damage dealt now has a 25% chance to increase the haste of your Serpent Wards by 3% for 15 seconds, stacking up to 3 times.' Wards are not separate actors here, so the haste is yours."
+      "_source": "CoA verbatim. Both halves live and Reclamation is a real Frontier ability - the spec's Spirit-collecting shot. hit_rating is a PERCENT; note it works as a flat stat here even though it is NOT a valid conversion target, which is what killed the spell-hit half of Voodoo Power on the DPS tree."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_godslayer",
-      "name": "Godslayer",
-      "description": "Increases the damage of Spirit Glaive by 6% per rank.",
+      "talent_id": "witch_doctor_shadowhunting_improved_malefic_arrow",
+      "name": "Improved Malefic Arrow",
+      "description": "Reduces the cooldown of Malefic Arrow by 20%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_spirit_glaive_damage": 0.06
+        "ability_witch_doctor_malefic_arrow_cooldown_pct": 0.0667
       },
       "connected_to": [
         "witch_doctor_shadowhunting_shadow_enchantments"
       ],
-      "_source": "CoA: 'Your Spirit Glaive now deals an additional shadow damage to up to 5 nearby enemies at the end of its duration.'"
+      "_source": "CoA over 2 ranks: 'Reduces the cooldown of Malefic Arrow by -2 sec.' Expressed as a percentage because a flat second is below a turn; 20% is the two ranks' worth against the ability's own cooldown. POSITIVE reduces, so CoA's minus sign is dropped - authoring -0.20 would have LENGTHENED the cooldown."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_hex_of_death",
-      "name": "Hex of Death",
-      "description": "Your damaging abilities cut the healing the target receives by 6% per rank for three turns.",
+      "talent_id": "witch_doctor_shadowhunting_shadow_enchantments",
+      "name": "Shadow Enchantments",
+      "description": "Increases the duration of your Jinxes by 1 turn and the damage of Hex of Malice by 50%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
+      "tier": 0,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": -2,
+      "hex_y": -6,
+      "effects": {
+        "ability_witch_doctor_shrinking_jinx_duration": 1,
+        "ability_witch_doctor_lethargy_jinx_duration": 1,
+        "ability_witch_doctor_malignant_jinx_duration": 1,
+        "ability_witch_doctor_hex_of_malice_damage": 0.5
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_hex_of_death"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the duration and effectiveness of your Jinxes by 25%.' All three Jinxes written out because no key names a group. 'Effectiveness' has no key for a Jinx - they are control, not damage - so the 25% over two ranks is paid on Hex of Malice, the curse this spec actually scales. The small integer durations keep this node out of the rank policy's reach."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_soul_feeder",
+      "name": "Soul Feeder",
+      "description": "Increases the damage of Malefic Arrow by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_doctor_malefic_arrow_damage": 0.0833
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_spirit_hunting"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage dealt by Malefic Arrow by 5% for each active Spirit on you.' NOTHING READS ANOTHER EFFECT'S STACK COUNT - the same wall as Voodoo's Loa Spirits and Soul Marionette, Geomancy's Earthshaping and Bloodmage's Thirst. Five Spirits at 5% is 25%, granted flat, which loses the build-up but lands on the same ceiling a Spirit-capped Witch Doctor would have had."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_spiritual_devotee",
+      "name": "Spiritual Devotee",
+      "description": "Reclamation restores 30 mana.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_spirit_hunting"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_reclamation"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 30
+        }
+      },
+      "_source": "CoA verbatim: 'Collecting a Spirit now instantly restores 3% of your maximum mana.' No trigger fires when an effect is applied, so it hangs off Reclamation instead - the ability whose whole purpose is collecting a Spirit, so the two fire together in practice. GRANT_RESOURCE TAKES A FLAT `amount` ONLY (status_effects.py:1337) - there is no percentage-of-maximum form, and my first draft used an invented `pct_max` field, which would have been read as amount=0 and granted NOTHING while passing every check. So CoA's 3% cannot scale with level: 30 is roughly 3% of a level-40 Witch Doctor's mana and nearer 2% at 60. Verified gain_resource('mana', n) works at runtime."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_umbral_glaive",
+      "name": "Umbral Glaive",
+      "description": "Increases the damage of Spirit Glaive by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_witch_doctor_spirit_glaive_damage": 0.0667
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_eye_of_kimbul"
+      ],
+      "_source": "CoA's own description for this node is the unresolved token '$42' - the Builder payload never expands it, so there is no verbatim text to port and this is NOT a faithful copy. Named for Spirit Glaive and built as its damage, which is what every other Glaive talent in the tree does. Flagged so a later pass can correct it if the real text surfaces. Same situation as Brewing's Mixologist ('$40') and Spirit Volley ('$44') below."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_serpents_guile",
+      "name": "Serpent's Guile",
+      "description": "Malefic Arrow leaves venom in the wound, dealing nature damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "witch_doctor_shadowhunting_eye_of_kimbul"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_malefic_arrow"
+        ],
         "apply_effect": {
-          "effect_id": "witch_doctor_hex_of_death",
-          "name": "Hex of Death",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "healing_taken_pct": -6
-          },
+          "effect_id": "witch_doctor_serpents_guile",
+          "name": "Serpent's Guile",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 32,
+          "damage_school": "nature",
           "on_target": true
         }
       },
-      "_source": "CoA: 'Damage dealt by Malefic Arrow now reduces the targets healing received by -20% for 10 seconds, stacking 2 times'; 'Hex of Death cuts a target's healing received via Malefic Arrow. You shut a target off, not just damage it.' healing_taken_pct inside a status effect takes percentage POINTS."
+      "_source": "CoA verbatim: 'Your Malefic Arrow now deals an additional 15% of its damage dealt every 1 sec for 4 seconds as Nature damage.' A repeated strike over 4 sec IS a dot, so this ports closely. The dot's potency is flat rather than a percentage of the hit, because an apply_effect payload cannot read the triggering ability's damage."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_the_true_spirit",
-      "name": "The True Spirit",
-      "description": "Increases the damage of Spirit Eclipse by 6% per rank.",
+      "talent_id": "witch_doctor_shadowhunting_hex_of_death",
+      "name": "Hex of Death",
+      "description": "Malefic Arrow curses the target, reducing the healing they receive by 20% for 3 turns, stacking twice.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_doctor_spirit_eclipse_damage": 0.06
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_spirit_hunting"
-      ],
-      "_source": "CoA: 'Summoning a Serpent Ward or Spirit now increases the damage of your next Spirit Glaive or Spirit Eclipse by 6% for 10 seconds, stacking 5 times.' The stacking condition has no hook; the 6% is real."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_serpents_guile",
-      "name": "Serpent's Guile",
-      "description": "Increases the damage of your Nature damage-over-time effects by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "nature_dot_damage": 0.03
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_berserking"
-      ],
-      "_source": "CoA: 'Your Malefic Arrow now deals an additional 15% of its damage dealt every 1 sec for 4 seconds as Nature damage.' Adding a DoT to a direct-damage ability is not expressible, so the node scales the Nature DoTs the spec already has - Call of Sseratus above all."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_voodoo_fire",
-      "name": "Voodoo Fire",
-      "description": "Increases the damage of Call of Sseratus by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_doctor_call_of_sseratus_damage": 0.06
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_godslayer"
-      ],
-      "_source": "CoA: 'Your Serpent Ward's attacks now have a 20% chance to shoot Voodoo Fire, dealing Fire damage to up to 3 nearby enemies' at 2 ranks, plus 'Spirit Striker - Increases the proc chance of Voodoo Fire by 10%.' Two nodes' worth of ward damage, folded into one."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_umbral_glaive",
-      "name": "Umbral Glaive",
-      "description": "Reduces the cooldown of Spirit Glaive by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_doctor_spirit_glaive_cooldown": 1
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_hex_of_death"
-      ],
-      "_source": "CoA ships Umbral Glaive with no tooltip ('see builder tooltip'), but the rotation says what it does: 'Keep Hex of Malice rolling with Umbral Glaive. Its glaive refreshes Hex of Malice's duration and leeches health, so you re-up the dot without re-casting it.' A refresh-on-hit has no hook, so more glaives is the honest version."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_strength_of_da_loa",
-      "name": "Strength of Da Loa",
-      "description": "Increases your attack power by 3% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "attack_power_pct": 3.0
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_the_true_spirit"
-      ],
-      "_source": "CoA: 'Increases the attack power of party and raid members by 5%.' GAP: a talent reaches its owner only, so the party half is lost. Attack power still matters here - it leads this spec's stat priority, ahead of Agility."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_darkspear_traditionalist",
-      "name": "Darkspear Traditionalist",
-      "description": "Increases your haste by 1 and all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "haste": 1.0,
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_serpents_guile"
-      ],
-      "_source": "CoA: 'Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members.' Same party-reach gap as Strength of Da Loa above."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_bwonsamdis_edge",
-      "name": "Bwonsamdi's Edge",
-      "description": "Increases the damage your abilities deal to additional targets by 6% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "aoe_damage": 0.06
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_voodoo_fire"
-      ],
-      "_source": "CoA: 'Your Spirit Eclipse now deals 40% increased damage when it explodes on impact' - the explosion is what hits the enemies around the target."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_dambalas_lethality",
-      "name": "Dambala's Lethality",
-      "description": "Increases your critical strike damage by 4% per rank, with both weapons and spells.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "crit_damage_physical": 0.04,
-        "crit_damage_spell": 0.04
-      },
-      "connected_to": [
-        "witch_doctor_shadowhunting_strength_of_da_loa"
-      ],
-      "_source": "CoA: 'After using Spirit Eclipse, the damage of your next Shadowflare within 15 seconds is increased by 50%.' A one-cast window off another cast has no hook, so the node becomes burst of the kind the spec can actually keep - crit damage, on both of its damage types."
-    },
-    {
-      "talent_id": "witch_doctor_shadowhunting_a_price_to_pay",
-      "name": "A Price To Pay",
-      "description": "Your critical strikes have a 30% chance to reset the cooldown of Spirit Glaive, per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "witch_doctor_shadowhunting_darkspear_traditionalist"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 30,
-        "icd": 1,
-        "reset_cooldown": {
-          "ability": "witch_doctor_spirit_glaive"
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_malefic_arrow"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_hex_of_death",
+          "name": "Hex of Death",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 2,
+          "stat_mods": {
+            "healing_taken_pct": -20.0
+          },
+          "on_target": true
         }
       },
-      "_source": "CoA: 'Casting Spirit Eclipse with 5 Spirits now resets the cooldown of Spirit Glaive and causes your next cast within 8 seconds to be guaranteed to critically strike.' reset_cooldown is a real proc payload, so the reset half is literal; the guaranteed crit is not expressible, so the proc fires off crits instead of granting one."
+      "_source": "CoA verbatim: 'Damage dealt by Malefic Arrow now reduces the targets healing received by -20% for 10 seconds, stacking 2 times.' Ports exactly - CoA's 20% and 2 stacks, and 10 sec is 3 turns. INSIDE A STATUS EFFECT healing_taken_pct is percentage POINTS, so -20% is -20.0; as a TALENT effect the same key is a FRACTION, where -20.0 would have been -2000%. Both units appear in the Brewing tree on adjacent nodes."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_viper_ward",
-      "name": "Viper Ward",
-      "description": "Increases the Fire damage you deal by 3% per rank.",
+      "talent_id": "witch_doctor_shadowhunting_spirit_hunting",
+      "name": "Spirit Hunting",
+      "description": "Malefic Arrow has a 15% chance to collect a Spirit, each raising your Spirit by 2% for 4 turns, stacking 5 times.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_godslayer"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_malefic_arrow"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_spirit",
+          "name": "Spirit",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "spirit_pct": 2.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      },
+      "_source": "CoA verbatim: 'Each active Spirit gives you a 15% chance when you cast Malefic Arrow to generate an additional Spirit.' The per-Spirit scaling cannot be read (see Soul Feeder), so the 15% is flat rather than per stack. CoA's own Spirit buff - 5 stacks, 12 sec - becomes 5 stacks over 4 turns carrying spirit_pct; the health and mana regeneration has no per-turn key, which is the same trim made on the Voodoo tree."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_darkspear_traditionalist",
+      "name": "Darkspear Traditionalist",
+      "description": "Increases your haste by 10%, and Hex of Malice has a 20% chance to collect a Spirit.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "haste": 3.3333
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_dambalas_lethality"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 7,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_hex_of_malice"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_spirit",
+          "name": "Spirit",
+          "effect_type": "buff",
+          "duration": 4,
+          "max_stacks": 5,
+          "stat_mods": {
+            "spirit_pct": 2.0
+          },
+          "on_target": false,
+          "real_time_seconds": null
+        }
+      },
+      "_source": "CoA verbatim: 'Emanate a powerful aura, granting 10% increased melee and ranged haste to party and raid members. Does not stack with similar effects. Periodic damage dealt by Hex of Malice now has a 20% chance to collect a Spirit.' The aura has no party mechanism, so the 10% lands on the Witch Doctor and the description says 'your'. Periodic damage has no trigger, so the Spirit chance fires off Hex of Malice's CAST rather than its ticks - CoA's 20% kept."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_eye_of_kimbul",
+      "name": "Eye of Kimbul",
+      "description": "Your critical strikes mark the target, making it take 1% more damage per mark for 5 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_bwonsamdis_edge"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "witch_doctor_eye_of_kimbul",
+          "name": "Eye of Kimbul",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_taken_pct": 0.01
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Critical strikes now apply Eye of Kimbul to enemies for 15 sec. Increases damage dealt and critical strike chance against this target by 1%, stacking 5 times. While affected, enemies cannot stealth or turn invisible.' CoA's 1% and 5 stacks kept, 15 sec is 5 turns. BARE damage_taken_pct IS READ RAW, so 1% is 0.01 - authoring 1.0 would be +100% damage taken per stack, 500% at cap. The 'cannot be crit against' half has no recipient-side key, and stealth is not modelled."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_dambalas_lethality",
+      "name": "Dambala's Lethality",
+      "description": "Increases the damage of Shadowflare by 50%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
-      "hex_y": 4,
+      "hex_y": -2,
       "effects": {
-        "fire_spell_damage": 0.03
+        "ability_witch_doctor_shadowflare_damage": 0.1667
       },
       "connected_to": [
         "witch_doctor_shadowhunting_bwonsamdis_edge"
       ],
-      "_source": "CoA: 'Transforms Call of Sseratus into Viper Ward ... Viper Wards have a 50% chance to unleash a Hexfire Blast, dealing Fire damage to an enemy.' Replacing one ability with another needs an unlock_ability and a second ward spell; the Fire damage the transformation is for is the honest single-node version."
+      "_source": "CoA verbatim: 'After using Spirit Eclipse, the damage of your next Shadowflare within 15 seconds is increased by 50%.' No payload discounts or empowers a later specific cast, and nothing reads whether a buff is up, so the condition is dropped and CoA's 50% is permanent. Stronger than CoA's, stated rather than hidden."
     },
     {
-      "talent_id": "witch_doctor_shadowhunting_frenzied_spirits",
-      "name": "Frenzied Spirits",
-      "description": "You spend every spirit you were carrying at once. +4% physical critical strike chance, +4% spell critical strike chance and +8% physical critical damage.",
-      "node_type": "active",
+      "talent_id": "witch_doctor_shadowhunting_godslayer",
+      "name": "Godslayer",
+      "description": "Spirit Glaive carries through, splashing 45% of its damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_the_true_spirit"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_spirit_glaive"
+        ],
+        "splash_damage": {
+          "pct": 0.45,
+          "max_targets": 3,
+          "school": "shadow"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Spirit Glaive now deals an additional 54 + 19% shadow SP + 14% ranged AP Shadow damage to up to 5 nearby enemies at the end of its duration.' No trigger fires when an effect expires, so the extra damage lands on the cast instead of at the end of the window. max_targets 3 rather than CoA's 5, because a flat-percentage splash across five is the strongest cleave in the tree and this is only tier 3."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_bwonsamdis_edge",
+      "name": "Bwonsamdi's Edge",
+      "description": "Increases the damage of Spirit Eclipse by 40%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_doctor_spirit_eclipse_damage": 0.1333
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_the_true_spirit"
+      ],
+      "_source": "CoA verbatim: 'Your Spirit Eclipse now deals 40% increased damage when it explodes on impact.' The on-impact explosion is not a separable component here - Spirit Eclipse is one enemy_aoe ability - so the 40% applies to the whole thing."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_the_true_spirit",
+      "name": "The True Spirit",
+      "description": "Increases the damage of Spirit Glaive and Spirit Eclipse by 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_doctor_spirit_glaive_damage": 0.1,
+        "ability_witch_doctor_spirit_eclipse_damage": 0.1
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_residual_energy"
+      ],
+      "_source": "CoA verbatim: 'Summoning a Serpent Ward or Spirit now increases the damage of your next Spirit Glaive or Spirit Eclipse by 6% for 10 sec, stacking 5 times.' Two walls at once: no trigger fires on a summon, and nothing empowers a 'next' specific cast. Five stacks of 6% is 30%, granted flat to both spenders - the same ceiling, without the ramp."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_voodoo_fire",
+      "name": "Voodoo Fire",
+      "description": "Call of Sseratus splashes 35% of its damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_berserking"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_call_of_sseratus"
+        ],
+        "splash_damage": {
+          "pct": 0.35,
+          "max_targets": 3,
+          "school": "fire"
+        }
+      },
+      "_source": "CoA over 2 ranks: 'Your Serpent Ward's attacks now have a 20% chance to shoot Voodoo Fire, dealing Fire damage to up to 3 nearby enemies.' TWO WALLS. First, pets never fire procs - there is no fire_proc_trigger anywhere in entities/pet.py - so a Ward cannot have a proc chance at all. Second and decisive: THE WITCH DOCTOR HAS NO PETS. Nothing in data/abilities/witch_doctor.json summons one, and Call of Sseratus - CoA's 'summon 4 Serpent Wards' - was already translated by an earlier pass into an enemy_aoe spell_dot. So pet_damage/pet_health/pet_armor are DEAD DATA on this class: live engine keys with nothing to apply them to, which audit_talents cannot catch because the keys are read somewhere. My first draft used pet_damage here and on two other nodes. Rerouted to a splash off Call of Sseratus, which is the Ward ability as Frontier actually has it. CoA's 3 targets kept; its own numbers were a mangled COND/GT expression in the Builder payload and were not portable regardless."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_residual_energy",
+      "name": "Residual Energy",
+      "description": "Increases your spell damage by 10% and reduces the cooldown of Spirit Glaive by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.0333,
+        "ability_witch_doctor_spirit_glaive_cooldown_pct": 0.0667
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_a_price_to_pay"
+      ],
+      "_source": "CoA verbatim: 'At the end of Shadow Avatar's duration you become a Lesser Shadow Avatar. Increases magic damage dealt by 10% and reduces the cooldown of Spirit Glaive by 20% every 1 sec. Lasts for 8 seconds.' Three walls: no on-expiry trigger, no periodic trigger for the per-second drain, and no magic_damage key - spell_damage is the live equivalent. Both halves granted permanently at CoA's own numbers, read once rather than once a second. POSITIVE on a _cooldown_pct reduces."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_berserking",
+      "name": "Berserking",
+      "description": "Your damage-over-time spells send you into a frenzy, raising your haste by 3% per stack for 5 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_a_price_to_pay"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_hex_of_malice",
+          "witch_doctor_call_of_sseratus"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_berserking",
+          "name": "Berserking",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 3,
+          "stat_mods": {
+            "haste": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Periodic damage dealt now has a 25% chance to increase the haste of your Serpent Wards by 3% for 15 sec, stacking up to 3 times.' Three walls: no periodic trigger, pet_haste is read by nothing, and the Witch Doctor has no pets at all (see Voodoo Fire). So the haste lands on the Witch Doctor and fires off the dots' casts rather than their ticks. CoA's 25% chance, 3% per stack and 3 stacks all kept; 15 sec is 5 turns."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_strength_of_da_loa",
+      "name": "Strength of Da Loa",
+      "description": "Increases your attack power by 5% and your Spirit by 10%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "attack_power_pct": 1.6667,
+        "spirit_pct": 3.3333
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_voodoo_hunger"
+      ],
+      "_source": "CoA verbatim: 'Increases the attack power of party and raid members by 5%. Does not stack with similar effects. In addition, health and mana restoration provided by your Spirits now occurs -50% more often.' The aura has no mechanism, so the 5% lands on the Witch Doctor. The Spirit regeneration half cannot be made more frequent - the regeneration itself is not built (no per-turn key), so 'more often' has nothing to act on - and is paid as Spirit instead, which every Witch Doctor spec scales. Both keys take percentage POINTS."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_hexfire_mass",
+      "name": "Hexfire Mass",
+      "description": "Hex of Malice has a 30% chance to call the serpents, dealing nature damage to several enemies over time.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_voodoo_hunger"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 3,
+        "ability_filter": [
+          "witch_doctor_hex_of_malice"
+        ],
+        "cast_ability": "witch_doctor_call_of_sseratus"
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Hex of Malice now has a 30% chance to summon a Serpent Ward on top of your enemy for 10 seconds to aid you in combat. Can only occur once every 3 sec.' CoA's 30% and its one-in-three-seconds limit both port - the limit as a 1-turn internal cooldown would be too loose, so icd 3 holds it to CoA's rate. Periodic damage has no trigger, so it fires off the cast. cast_ability takes a bare ability id, and the ability must be in the caster's own book - Call of Sseratus is auto-learned at 26, not talent-gated, so it is. The description says what the ability ACTUALLY does: Frontier's Call of Sseratus is an enemy_aoe spell_dot, not a pet summon, so promising 'a Serpent Ward at your side' would have been text with nothing behind it."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_a_price_to_pay",
+      "name": "A Price To Pay",
+      "description": "Spirit Eclipse resets Spirit Glaive and leaves you striking 25% harder with it for 3 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_bwonsamdis_gift"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_spirit_eclipse"
+        ],
+        "reset_cooldown": [
+          "witch_doctor_spirit_glaive"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_a_price_to_pay",
+          "name": "A Price To Pay",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 25.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Spirit Eclipse with 5 Spirits now resets the cooldown of Spirit Glaive and causes your next cast within 8 sec to be guaranteed to critically strike. Spirit Glaives used in this way will reduce the cooldown of Shadowstalker by 15 sec.' The 5-Spirit condition cannot be read (see Soul Feeder). A GUARANTEED CRIT HAS NO KEY - crit_chance_physical at 100 would be a permanent stat, not a one-shot - so the window pays flat damage instead. reset_cooldown as a BARE LIST means a full reset, which is CoA's. The Shadowstalker rider is dropped: that ability is stealth and movement, neither of which is modelled."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_voodoo_hunger",
+      "name": "Voodoo Hunger",
+      "description": "Your shots feed the hunger, raising the damage of your next shots by 3% per stack for 3 turns, stacking 10 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_doctor_shadowhunting_bwonsamdis_gift"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_reclamation",
+          "witch_doctor_malefic_arrow"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_doctor_voodoo_hunger",
+          "name": "Voodoo Hunger",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 10,
+          "stat_mods": {
+            "damage_dealt_pct": 3.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'While Shadowstalker or Mirage is active, every 0.5 sec you now gain a stack of Voodoo Hunger. Increases the damage of your next Malefic Arrow by 10%, stacking 10 times. Lasts 8 sec.' Three walls: no 'while active' gate, no periodic trigger to tick the stacks on, and no 'next cast' empowerment. Rebuilt so the shots themselves build the stacks, which is the same ramp reached by playing rather than by standing in stealth. CoA's 10 stacks kept; 10% per stack would be 100% damage, so it is priced at 3% for 30% at cap. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_serpent_handler",
+      "name": "Serpent Handler",
+      "description": "Increases the damage of Call of Sseratus by 40% and the damage your damage-over-time spells deal by 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_witch_doctor_call_of_sseratus_damage": 0.1333,
+        "dot_damage": 0.05
+      },
+      "connected_to": [
+        "witch_doctor_shadowhunting_bwonsamdis_gift"
+      ],
+      "_source": "CoA verbatim: 'Increases the cooldown of Call of Sseratus by 5 sec, but increases the amount of Serpent Wards summoned by it by 2.' Two more Wards cannot be bought: no key changes how many targets or summons an ability has, and the Witch Doctor has no pets regardless (see Voodoo Fire). Without the upside the downside should not be charged either, so the longer cooldown is dropped too. Rerouted to the damage of the same ability plus the spec's dots, which is what two more pulsing Wards would have delivered. CoA's trade-off is lost, stated rather than hidden."
+    },
+    {
+      "talent_id": "witch_doctor_shadowhunting_bwonsamdis_gift",
+      "name": "Bwonsamdi's Gift",
+      "description": "Bwonsamdi's favour: your haste rises by 15%, Reclamation strikes 60% harder, and your shots bring Mimic Ward a turn closer to ready.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "crit_chance_physical": 4.0,
-        "crit_chance_spell": 4.0,
-        "crit_damage_physical": 0.08
+        "haste": 15.0,
+        "ability_witch_doctor_reclamation_damage": 0.6
       },
-      "connected_to": [
-        "witch_doctor_shadowhunting_dambalas_lethality",
-        "witch_doctor_shadowhunting_a_price_to_pay",
-        "witch_doctor_shadowhunting_viper_ward"
-      ],
-      "_source": "Capstone. CoA: 'Consumes your Spirits to increase your ranged critical strike rating by 10, critical damage by 5%, and causing you to heal for 2% of all damage dealt for each Spirit consumed.' The leech half is already on the ability of the same name, so the talent carries the crit."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "witch_doctor_reclamation",
+          "witch_doctor_malefic_arrow"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "witch_doctor_mimic_ward"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'While Mimic Ward is active, you now gain 15% increased ranged haste and your Reclamation transforms into Spirit Volley. Each Spirit now increases the damage of Spirit Volley by 3%. In addition, direct ranged abilty damage dealt now reduces the cooldown of Mimic Ward by -0.5 sec.' Four things fail: the 'while active' gate, transforming one ability into another, the per-Spirit scaling, and CoA's own Spirit Volley node whose description is the unresolved token '$44'. Rebuilt as the three parts that do work - CoA's 15% haste, the Reclamation empowerment that Spirit Volley was meant to be, and the Mimic Ward cooldown feed at a turn rather than half a second. Five Spirits at 3% is the 15% folded into the 60%."
     }
   ]
 }
