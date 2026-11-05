@@ -1,8 +1,8 @@
 {
   "spec_name": "Witch Hunter Black Knight",
   "tree_id": "witch_hunter_black_knight",
-  "description": "Avoidance tank - parry is its mitigation, its damage and its healing all at once, because Noctis Blade scales off it.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_witch-hunter__black-knight.txt and the black-knight spec tree in reference/coa_sidekick/talents/witch-hunter.json. CoA: 'It plays like a sticky avoidance tank rather than an anti-caster bruiser.' The tree spends far more on parry and dodge than on block because its stat priority reads Hit > Expertise > Agility > PARRY RATING > Armor Penetration > Crit > Haste, and parry there is explicitly an offensive and healing stat as well as an avoidance one. Block appears only twice, because Frontier gives this class a shield even though CoA's Black Knight is a two-hander spec - the reverse of Guardian, whose whole chassis is block. TWO THINGS DO NOT SURVIVE TRANSLATION: Guard Strike's interrupt and school lockout, which CoA calls 'the kit's only caster answer', and Gaze of the Black Knight's party damage redirection. Neither has an engine hook, and both are called out on their own abilities.",
+  "description": "Two-hander and a blood price - brands everything and drinks its way back up.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/witch-hunter.json (38 real CoA Black Knight talents, role DPS, playing as an off-tank). Replaces a 23-node tree with 2 procs and 20 bare numbers. Fourth and last Witch Hunter spec: the class went from 6 procs across 92 nodes to 44 across 114. Half of CoA's talents here are gated on wielding a two-handed weapon and this engine has no 'while wielding X' condition, so those apply unconditionally. Every CoA reference to Rage is translated to Focus.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,166 +14,178 @@
   },
   "nodes": [
     {
-      "talent_id": "witch_hunter_black_knight_dark_penance",
-      "name": "Dark Penance",
-      "description": "Increases your Agility by 2% and your chance to parry and dodge by 1% per rank.",
+      "talent_id": "witch_hunter_black_knight_shadow_brand",
+      "name": "Shadow Brand",
+      "description": "Your ability damage brands the target, burning it with shadow for 4 turns.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_shadow_order"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_noctis_blade",
+          "witch_hunter_desecrate",
+          "witch_hunter_pommel_smash",
+          "witch_hunter_dawn_blade",
+          "witch_hunter_witchblight",
+          "witch_hunter_guard_strike"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_hunter_shadow_brand",
+          "name": "Shadow Brand",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 22,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Direct ability damage now applies Shadow Brand to enemies. Shadow Brand: Marks the target for 12 seconds, dealing High Threat Shadow Damage over 12 seconds.' 12 sec is 4 turns. This is the mark three other nodes in the tree read, and the old tree had no form of it. 'High Threat' is not a property a dot carries here - threat_generation_pct is a character stat - so the threat half is lost."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_dark_penance",
+      "name": "Dark Penance",
+      "description": "Increases your Agility by up to 4% and your parry and dodge by up to 4%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 2.0,
-        "parry": 1.0,
-        "dodge": 1.0
+        "agility_pct": 1.3333,
+        "parry": 1.3333,
+        "dodge": 1.3333
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Agility and your chance to parry and dodge by 2%.' Both parry and dodge are real full-avoidance stats here, additive off the same bonus pool as gear."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_shadow_order",
-      "name": "Shadow Order",
-      "description": "Increases the damage of Shadow Brand by 8% and grants 1 hit rating per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_witch_hunter_shadow_brand_damage": 0.08,
-        "hit_rating": 1
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Shadow Brand by 20% and your hit rating by 3% of your Agility.' hit_rating is a local feeding base_miss_chance_*, not a Character attribute, so it cannot be a <target>_from_<source>_pct conversion target - the same wall Guardian's Bulwark hit. Flat hit rating instead, which is what this spec's stat priority leads with anyway."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_dark_chivalry",
-      "name": "Dark Chivalry",
-      "description": "Increases your Armor by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 3.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Armor contribution from mail items by 100%', which the class page calls 'doubled mail armor'. There is no armor-from-mail key (armor_multiplier exists only in loot_generator and is never read as a talent), so it is flat Armor percent. NOTE armor_pct is PERCENT POINTS (3.0 = +3%), unlike max_health_pct below."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_wide_swings",
-      "name": "Wide Swings",
-      "description": "Increases the damage of Noctis Blade by 6% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_witch_hunter_noctis_blade_damage": 0.06
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Noctis Blade and Grasp of the Undying by 20% on enemies affected by Shadow Brand.' No debuff-conditional hook, so flat - and since Noctis Blade is damage_and_heal, every point here also raises the self-heal."
+      "connected_to": [
+        "witch_hunter_black_knight_dark_riposte"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Agility and your chance to parry and dodge by 2%.' Authored as the full-investment ceiling at one rank and left to the rank policy. agility_pct takes percentage POINTS; parry and dodge are read raw."
     },
     {
       "talent_id": "witch_hunter_black_knight_dusk_knight",
       "name": "Dusk Knight",
-      "description": "Grants parry equal to 3% of your Agility and dodge equal to 2% of your Intellect per rank.",
+      "description": "Increases your parry by 40% of your Agility and your dodge by 25% of your Intellect.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
+      "hex_x": -1,
+      "hex_y": -6,
       "effects": {
-        "parry_from_agility_pct": 0.03,
-        "dodge_from_intellect_pct": 0.02
+        "parry_from_agility_pct": 0.1333,
+        "dodge_from_intellect_pct": 0.0833
       },
       "connected_to": [
-        "witch_hunter_black_knight_dark_penance"
+        "witch_hunter_black_knight_dark_riposte"
       ],
-      "_source": "CoA level-20 passive: 'Increases your parry rating by 40% of your Agility and your dodge rating by 25% of your Intellect.' Two real conversions, both pairings valid against STAT_CONVERSION_TARGETS/SOURCES. This is the single most important node in the tree: CoA's stat priority says parry rating 'scales Noctis Blade's damage AND its 150%-of-damage self-heal', so parry is this spec's offence, sustain and mitigation at once."
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your parry rating by 40% of your Agility and your dodge rating by 25% of your Intellect.' Both pairings are live - parry and dodge are in STAT_CONVERSION_TARGETS, agility and intellect are sources. Conversions are FRACTIONS. This is the third Witch Hunter node that makes Intellect matter on a physical kit, after Boltslinger's Arbalist and Houndmaster's Dark Mind."
     },
     {
       "talent_id": "witch_hunter_black_knight_dark_power",
       "name": "Dark Power",
-      "description": "Increases your Stamina by 2% and reduces the chance you are critically hit by 1% per rank.",
+      "description": "Increases your Stamina by 12%.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "stamina_pct": 2.0,
-        "crit_taken_reduction": 1.0
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_shadow_order"
-      ],
-      "_source": "CoA level-30 passive: 'You now gain 1 Stamina for every 2 Agility.' stamina_from_agility_pct is DEAD - STAT_CONVERSION_TARGETS has no stamina entry, so the pairing fails silently - hence flat stamina_pct. The crit-taken reduction rides here because every tank tree needs a path to crit immunity and this is the tree's one survivability-stat node; CoA's own stat priority opens with the hit and expertise caps rather than Defense, so there is no better home for it."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_no_regrets",
-      "name": "No Regrets",
-      "description": "Increases your Armor by 3%, your chance to block by 2%, and the damage your blocks absorb by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "armor_pct": 3.0,
-        "block": 2.0,
-        "block_value_pct": 0.04
+        "stamina_pct": 4
       },
       "connected_to": [
-        "witch_hunter_black_knight_dark_chivalry"
+        "witch_hunter_black_knight_no_regrets"
       ],
-      "_source": "CoA: 'Your March of the Black King now increases your Armor by 15%.' Conditioning Armor on a cooldown being up is not expressible, so it is passive. Block comes with it because weapon_types.json gives Witch Hunter shields, and BLOCK IS TWO STATS: `block` is the shield-gated CHANCE in percentage points (it stays 0 with no shield equipped) and block_value_pct is a FRACTION scaling how much a blocked hit loses. This is the tree's only block node, because CoA's Black Knight is a two-hander spec and block is Frontier's addition, not CoA's."
+      "_source": "CoA: 'Level 30 Passive. You now gain 1 Stamina for every 2 Agility.' NOT buildable as the conversion it is. STAMINA IS NOT A CONVERSION TARGET - STAT_CONVERSION_TARGETS holds attack_power, ranged_ap, spell_power, healing_power, armor, block_value, parry, dodge, haste and the two crit chances, and nothing else - so stamina_from_agility_pct is skipped in silence by character.py, the Clarity of the Heavens failure recorded in that dict's own comment. Authored that way first and the audit caught it. Rebuilt as a flat Stamina percentage, which is what the conversion was for on a spec that stacks Agility anyway. stamina_pct takes percentage POINTS."
     },
     {
-      "talent_id": "witch_hunter_black_knight_secret_society",
-      "name": "Secret Society",
-      "description": "Increases your Shadow spell damage by 3% and your spell critical strike chance by 1% per rank.",
+      "talent_id": "witch_hunter_black_knight_dark_chivalry",
+      "name": "Dark Chivalry",
+      "description": "Increases your armor by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "armor_pct": 6.6667
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_secret_society"
+      ],
+      "_source": "CoA: 'Increases your Armor contribution from mail items by 100%.' There is no per-armour-type scaling in this engine - armour is one number by the time a talent sees it - so the mail condition is dropped and 100% cut to 20%, since it now applies to every piece rather than to one armour class. armor_pct takes percentage POINTS."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_grasp_of_the_undying",
+      "name": "Grasp of the Undying",
+      "description": "Your weapon swings have a 25% chance to leech 20% of the damage back as health.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_noctis_protection"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 8,
+        "icd": 0,
+        "leech_pct": {
+          "pct": 0.2
+        }
+      },
+      "_source": "CoA verbatim: 'Level 10 Passive. Auto attacks while wielding a two-handed weapon now have a 25% chance to unleash Grasp of the Undying, leeching health from the target.' The two-handed gate is dropped - no 'while wielding X' condition exists. leech_pct without smart:true heals the carrier, which is what this is for; with it, the heal would go to the worst-off ALLY instead, which is a different talent. Also carries CoA's Shadowy Tendrils ('strikes 2 additional nearby enemies'), which no key can add."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_shadow_order",
+      "name": "Shadow Order",
+      "description": "Increases the damage of Shadow Brand by up to 40% and the damage of your damage-over-time effects by up to 10%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "shadow_spell_damage": 0.03,
-        "crit_chance_spell": 1.0
+        "ability_witch_hunter_shadow_brand_damage": 0.1333,
+        "dot_damage": 0.0333
       },
       "connected_to": [
         "witch_hunter_black_knight_wide_swings"
       ],
-      "_source": "CoA: 'Increases your Shadow critical strike chance and Shadow damage dealt by 4% and your expertise by 5.' Expertise has no key in this engine; the Shadow halves are both real."
+      "_source": "CoA over 2 ranks: 'Increases the damage of Shadow Brand by 20% and your hit rating by 3% of your Agility.' The hit conversion is NOT built: hit_rating is not in STAT_CONVERSION_TARGETS, so hit_rating_from_agility_pct would be skipped in silence - the Clarity of the Heavens failure. Replaced with dot_damage, which raises the brand the same way and is live. Note the brand applied by this tree's tier 0 node is a proc-applied dot and is NOT affected by ability_witch_hunter_shadow_brand_damage, which keys off the ABILITY of that id - both exist, so the key is not dead, but it reaches the cast version only."
     },
     {
       "talent_id": "witch_hunter_black_knight_dark_riposte",
       "name": "Dark Riposte",
-      "description": "Blows you turn aside knit you back together and return 10 Focus.",
+      "description": "Parrying an attack restores health and 10 Focus.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "witch_hunter_black_knight_dusk_knight"
+        "witch_hunter_black_knight_wicked_intent"
       ],
       "proc": {
         "trigger": "on_parry",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "heal_flat": 60,
         "grant_resource": {
@@ -181,278 +193,557 @@
           "amount": 10
         }
       },
-      "_source": "CoA: 'Parrying enemy attacks now restores 5% of your missing health and Rage.' on_parry is a real trigger (Character.take_damage fires ('on_parry', 'on_avoid') off its avoidance roll), so this is CoA's node literally - every parry, not a chance on every hit. The 5%-of-missing shape has no payload key, so it is a flat heal plus a flat Focus grant. The Focus half matters: this is the tank's second income stream alongside March of the Black King, and it keys off the stat the whole spec already gears for."
+      "_source": "CoA verbatim but for the resource: 'Parrying enemy attacks now restores 5% of your missing health and Rage.' Rage -> Focus. '5% of missing health' is not a payload shape - heal_flat is a number and there is no percentage-of-missing form - so it is a flat 60. on_parry is a live trigger this class otherwise never uses, and the whole avoidance half of the spec hangs off it."
     },
     {
-      "talent_id": "witch_hunter_black_knight_clinch_fighting",
-      "name": "Clinch Fighting",
-      "description": "While below 35% health, you take 6% less damage per rank.",
+      "talent_id": "witch_hunter_black_knight_no_regrets",
+      "name": "No Regrets",
+      "description": "March of the Black King hardens you, increasing your armor by 15% for 3 turns.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.06,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_dark_power"
-      ],
-      "_source": "CoA: 'Attacks which would otherwise kill you now heal you for 50% maximum health and increases the damage of Noctis Blade by 50% for 6 seconds.' A cheat-death has no engine hook; the low-health mitigation pair is the honest version of surviving the hit that was going to land."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_bulwark_of_darkness",
-      "name": "Bulwark of Darkness",
-      "description": "Increases the damage of Dawn Blade by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_witch_hunter_dawn_blade_damage": 0.06
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_no_regrets"
-      ],
-      "_source": "CoA: 'Damage dealt by Dawn Blade is now increased by 5% for each stack of Pommel Smash on the target.' Stack counting is not expressible, so the flat equivalent."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_destroyer_of_evil",
-      "name": "Destroyer of Evil",
-      "description": "Increases the damage of your Shadow damage-over-time effects by 4% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "shadow_dot_damage": 0.04
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_secret_society"
-      ],
-      "_source": "CoA: 'Damage dealt by Dawn Blade now deals an additional 20% of the damage dealt as Twilight Damage every 1 sec for 3 seconds.' Appending a DoT to another ability's hit is what applies_dot_pct does on an ABILITY, not a talent, so the node scales the Shadow DoTs the spec already has (Shadow Brand, Knight's Seal, Death Trap). <school>_dot_damage is built at runtime in _damage_multiplier."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_guardbreaker",
-      "name": "Guardbreaker",
-      "description": "Increases the damage your abilities deal to additional targets by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "aoe_damage": 0.08
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_dark_riposte"
-      ],
-      "_source": "CoA: 'Your Pommel Smash now strikes an additional nearby enemy.' Target counts live on the ability, not the talent, so this raises what Desecrate and Witchblight do to the pack - which is what this spec's dungeon rating is built on ('AoE pulls and threat')."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_undying",
-      "name": "Undying",
-      "description": "Increases the critical strike chance of Noctis Blade by 4% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_hunter_noctis_blade_crit": 4.0
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_clinch_fighting"
-      ],
-      "_source": "CoA: 'While below 75% maximum health, Dawn Blade now increases the critical strike chance of Noctis Blade by 40% for 10 seconds.' The condition and the chain have no hooks; the crit does, and a bigger Noctis Blade crit is also a bigger heal."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_dark_barrier",
-      "name": "Dark Barrier",
-      "description": "Stoicism lasts 1 turn longer per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_hunter_stoicism_duration": 1
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_bulwark_of_darkness"
-      ],
-      "_source": "CoA: 'Increases the duration of Stoicism by 5 sec.'"
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_foresight",
-      "name": "Foresight",
-      "description": "Increases the critical strike chance of Dawn Blade by 4% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "ability_witch_hunter_dawn_blade_crit": 4.0
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_destroyer_of_evil"
-      ],
-      "_source": "CoA: 'Your direct Physical critical strikes now grant allies Replenishment... In addition, Dawn Blade is now guaranteed to critically strike against Undead or Demons.' The ally mana regen cannot be granted by a talent (talent effects never leave their own character) and mp5 would do nothing for a class with no Mana pool, so what survives is the guaranteed-crit half, as a real crit chance on Dawn Blade. CoA sells the spec's raid rating on this node ('brings mana replenish (Foresight)'), so it is the biggest party-facing loss in the tree."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_witch_knight",
-      "name": "Witch Knight",
-      "description": "Increases your Shadow resistance by 2% and your haste by 1 per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "shadow_resist_pct": 0.02,
-        "haste": 1.0
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_guardbreaker"
-      ],
-      "_source": "CoA: 'Direct ability damage with a two-handed weapon now reduces the remaining cooldown of your Tonics by -1 sec and grants Witching. Witching: increases magic resistances by 10%, and melee haste by 10% for 8 seconds, stacking 3 times.' Both halves of Witching are real keys; the stacking and the tonic-cooldown rider are not. Frontier also gives Witch Hunter no two-handed proficiency at all (weapon_types.json: sword_1h, axe_1h, thrown, shield, gun, crossbow), so CoA's whole two-hander framing for this spec is gone - it is a one-hand-and-shield tank here."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_night_king",
-      "name": "Night King",
-      "description": "Increases the damage of Noctis Blade by 6% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "ability_witch_hunter_noctis_blade_damage": 0.06
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_undying"
-      ],
-      "_source": "CoA: 'Noctis Blade now consumes Shadow Brand to deal 50% increased damage.' Consuming a debuff for a bonus is not expressible; the bonus is."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_dark_juggernaut",
-      "name": "Dark Juggernaut",
-      "description": "Increases your threat generation by 6% per rank.",
-      "node_type": "passive",
-      "tier": 4,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "threat_generation_pct": 0.06
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_dark_barrier"
-      ],
-      "_source": "CoA: 'Desecrate now restores shadow AP health plus an additional 1% maximum health for each target struck affected by Shadow Brand.' Per-target conditional self-healing has no hook, and this tree had no threat node at all, which a main tank cannot ship without. NOTE the key: threat_generation_pct as a TALENT effect is a FRACTION (0.06), while the same name in an ability's stat_mods is PERCENT POINTS (180, 200 - see Shadow Brand and Chains of Darkness above)."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_shadowstorm",
-      "name": "Shadowstorm",
-      "description": "Increases your Shadow spell damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "shadow_spell_damage": 0.03
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_witch_knight"
-      ],
-      "_source": "CoA: 'Damage dealt by Pommel Smash now has a 20% chance to trigger a Shadowstorm. Shadowstorm: leeches AP health from enemies within 8 yds.' A chained AoE leech is not a proc payload shape; the school it deals in is real."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_blade_of_the_misbegotten",
-      "name": "Blade of the Misbegotten",
-      "description": "Increases your total health by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "max_health_pct": 0.02
-      },
-      "connected_to": [
-        "witch_hunter_black_knight_night_king"
-      ],
-      "_source": "CoA: 'Damage dealt by Dawn Blade now increases your health by 15% of the damage dealt for 8 seconds, stacking 3 times.' A stacking temporary health pool is not expressible. NOTE max_health_pct is a FRACTION - health * (1.0 + value) - not percent points like armor_pct. Guardian shipped it at 2.0 (+200% a rank), reached 26,700 health and 99,156 effective HP against the next tank's 2,987, and validate_class.py passed it with zero errors before the magnitude check existed."
-    },
-    {
-      "talent_id": "witch_hunter_black_knight_dark_intuition",
-      "name": "Dark Intuition",
-      "description": "Turning an attack aside sharpens you: your parry rises by 4% and your haste by 4 for a few turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "witch_hunter_black_knight_dark_juggernaut"
       ],
       "proc": {
-        "trigger": "on_avoid",
-        "chance": 100,
+        "trigger": "on_cast",
+        "chance": 33,
         "icd": 0,
+        "ability_filter": [
+          "witch_hunter_march_of_the_black_king"
+        ],
         "apply_effect": {
-          "effect_id": "witch_hunter_dark_intuition",
-          "name": "Dark Intuition",
+          "effect_id": "witch_hunter_no_regrets",
+          "name": "No Regrets",
           "effect_type": "buff",
           "duration": 3,
+          "max_stacks": 1,
           "stat_mods": {
-            "parry": 4.0,
-            "haste": 4.0
+            "armor_pct": 15.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA class tree: 'Whenever you parry or dodge an attack, your attack speed is increased by 5%, and your parry chance by 2% for 15 seconds, stacking 2 times.' on_avoid is exactly 'parry or dodge' - the trigger fires from both branches of take_damage's avoidance roll - so this node is CoA's wording with nothing approximated except the stack count, which is folded into one larger application. It replaces Secret of Raven Hill, the one Black Knight talent CoA prints no tooltip for at all ('see builder tooltip'), because a real avoidance payoff is the heart of a spec CoA calls 'a sticky avoidance tank'."
+      "_source": "CoA verbatim: 'Your March of the Black King now increases your Armor by 15%.' on_cast rather than on_damage_cast: March of the Black King is restore_resource and deals no damage, so a damage trigger would never have fired on it - the same trap Coordinated Killing avoided in Houndmaster."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_secret_society",
+      "name": "Secret Society",
+      "description": "Increases your Shadow spell damage by up to 8% and your spell critical strike chance by up to 8%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "shadow_spell_damage": 0.0267,
+        "crit_chance_spell": 2.6667
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_witch_knight"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Shadow critical strike chance and Shadow damage dealt by 4% and your expertise by 5.' 'expertise' is read by no engine code, so that half is dropped - third time in this rebuild. Crit chance is not school-specific here, so the Shadow restriction survives only on the damage half. shadow_spell_damage is a <school>_spell_damage key the engine builds by interpolation."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_noctis_protection",
+      "name": "Noctis Protection",
+      "description": "Noctis Blade shields you for 60% of the damage it deals.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_witch_knight"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_noctis_blade"
+        ],
+        "shield_pct": {
+          "pct": 0.6,
+          "duration": 2,
+          "effect_id": "witch_hunter_noctis_shield",
+          "name": "Noctis Protection"
+        }
+      },
+      "_source": "CoA: 'Casting Noctis Blade now applies a shield absorbing 266 + 200% Stamina + 10% AP damage for 4 seconds.' shield_pct sizes the absorb from the TRIGGERING amount rather than from a stat formula, which is the only form the payload has - so it is 60% of the hit instead of a Stamina-scaled number. 4 sec is 2 turns. Noctis Blade already heals for half its damage, so this makes it the spec's whole defensive turn."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_wide_swings",
+      "name": "Wide Swings",
+      "description": "Increases the damage of Noctis Blade by 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_noctis_blade_damage": 0.0667
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_bulwark_of_darkness"
+      ],
+      "_source": "CoA: 'Increases the damage of Noctis Blade and Grasp of the Undying by 20% on enemies affected by Shadow Brand.' No effect key reads whether the target carries a debuff, so the condition is dropped; CoA's 20% is kept because Shadow Brand is on everything anyway once tier 0 is taken. Grasp of the Undying is a proc rather than an ability, so there is no ability_*_damage key for it."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_wicked_intent",
+      "name": "Wicked Intent",
+      "description": "Desecrate has a 15% chance to make Noctis Blade ready again at once.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_shadowstorm"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 5,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_desecrate"
+        ],
+        "reset_cooldown": [
+          "witch_hunter_noctis_blade"
+        ]
+      },
+      "_source": "CoA verbatim: 'Casting Desecrate now has a 15% chance to reset the cooldown of Noctis Blade.' Ports directly."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_dark_juggernaut",
+      "name": "Dark Juggernaut",
+      "description": "Desecrate restores health.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_shadowstorm"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_desecrate"
+        ],
+        "heal_flat": 110
+      },
+      "_source": "CoA: 'Desecrate now restores health plus an additional 1% maximum health for each target struck affected by Shadow Brand.' Nothing counts how many targets a cast hit, and nothing reads how many of them carry a debuff, so the per-target scaling is dropped and the base heal kept as a flat amount."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_calm_under_pressure",
+      "name": "Calm Under Pressure",
+      "description": "Reduces the cooldown of Stoicism by 40% and Burrow Bolt by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "ability_witch_hunter_stoicism_cooldown_pct": 0.1333,
+        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_dark_barrier"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Stoicism by -30 sec and Burrow Bolt by -5 sec.' Both expressed as percentages because cooldowns are counted in turns here. POSITIVE reduces."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_witch_knight",
+      "name": "Witch Knight",
+      "description": "Your ability damage grants Witching, increasing your haste by 10% and your magic resistance for 3 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_undying"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_noctis_blade",
+          "witch_hunter_desecrate",
+          "witch_hunter_pommel_smash",
+          "witch_hunter_dawn_blade",
+          "witch_hunter_witchblight",
+          "witch_hunter_guard_strike"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_hunter_witching",
+          "name": "Witching",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "haste": 10.0,
+            "magic_resistance": 10.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Direct ability damage with a two-handed weapon now reduces the remaining cooldown of your Tonics by 1 sec and grants Witching. Witching: Increases magic resistances by 10%, and melee haste by 10% for 8 sec, stacking 3 times.' The two-handed gate is dropped. The Tonic cooldown rider is dropped too: a proc can reset_cooldown, but doing that AND applying a stacking buff off one trigger would make this node the whole tier. CoA's numbers and 3 stacks kept; 8 sec is 3 turns."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_shadowstorm",
+      "name": "Shadowstorm",
+      "description": "Pommel Smash has a 20% chance to leech 35% of its damage back as health.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_undying"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 7,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_pommel_smash"
+        ],
+        "leech_pct": {
+          "pct": 0.35
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Pommel Smash now has a 20% chance to trigger a Shadowstorm. Shadowstorm: Leeches health from enemies within 8 yds.' The radius is gone; the leech is the talent. CoA's 20% kept."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_bulwark_of_darkness",
+      "name": "Bulwark of Darkness",
+      "description": "Increases the damage of Dawn Blade by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_dawn_blade_damage": 0.0833
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_clinch_fighting"
+      ],
+      "_source": "CoA: 'Damage dealt by Dawn Blade is now increased by 5% for each stack of Pommel Smash on the target.' Pommel Smash leaves no stacks in Frontier, and nothing reads another effect's stack count in any case, so the per-stack scaling is dropped and priced as a flat 25% - five stacks' worth of CoA's bonus."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_dark_barrier",
+      "name": "Dark Barrier",
+      "description": "Increases the duration of Stoicism by 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_witch_hunter_stoicism_duration": 2
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_guardbreaker"
+      ],
+      "_source": "CoA: 'Increases the duration of Stoicism by 5 sec.' 5 sec is under 2 turns, rounded up since 1 would be less than CoA's. NOTE this node is deliberately left OUT of the rank policy's reach by carrying a small integer effect - a duration cannot be divided across ranks, so tools/talent_ranks.rankable() refuses it. See that function for why: re-ranking a +1 turn node multiplied the ceiling instead of splitting it."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_undying",
+      "name": "Undying",
+      "description": "Dawn Blade sharpens your next Noctis Blade, increasing its critical strike chance by 40% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_night_king"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_dawn_blade"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_hunter_undying",
+          "name": "Undying",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "crit_chance_physical": 40.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'While below 75% maximum health, Dawn Blade now increases the critical strike chance of Noctis Blade by 40% for 10 seconds.' Two losses. No proc payload reads the carrier's own health, so the below-75% gate is dropped. And a status effect cannot carry ability_witch_hunter_noctis_blade_crit, because per-ability keys are read through get_talent_effects() which never includes status effects - so the 40% is general physical crit for the window instead of Noctis-only. CoA's number and 10 sec (3 turns) kept."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_clinch_fighting",
+      "name": "Clinch Fighting",
+      "description": "Taking a heavy blow steadies you, healing you and increasing the damage of Noctis Blade by 50% for 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_night_king"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 3,
+        "icd": 8,
+        "heal_flat": 400,
+        "apply_effect": {
+          "effect_id": "witch_hunter_clinch_fighting",
+          "name": "Clinch Fighting",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 25.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Attacks which would otherwise kill you now heal you for 50% maximum health and increases the damage of Noctis Blade by 50% for 6 seconds. Can only occur once every 2 min.' A cheat-death trigger does not exist - no proc reads 'this hit would have killed me' - so it is a 10% chance on taking damage with an 8-turn internal cooldown, which is roughly CoA's once-every-2-minutes. The damage half is general rather than Noctis-only for the same status-effect reason as Undying, and is halved to 25% because it now applies to everything."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_guardbreaker",
+      "name": "Guardbreaker",
+      "description": "Increases the damage of Pommel Smash by up to 40%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_witch_hunter_pommel_smash_damage": 0.1333
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_blade_of_the_misbegotten"
+      ],
+      "_source": "CoA over 2 ranks: 'Your Pommel Smash now strikes an additional nearby enemy.' No key adds a target to an ability, so this is repriced as damage - the same call as Boltslinger's Relentless, and made the same way rather than authoring an aoe_damage bonus that would apply to nothing (pommel_smash is single-target)."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_foresight",
+      "name": "Foresight",
+      "description": "Your critical strikes restore 12 Focus.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_blade_of_the_misbegotten"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "focus",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Your direct Physical critical strikes now grant allies Replenishment. In addition, Dawn Blade is now guaranteed to critically strike against Undead or Demons. Replenishment: Replenishes 5% of maximum mana per 5 sec for 15 seconds.' There is no mechanism that grants ALLIES a resource effect from a proc - grant_resource pays the carrier - and no key reads creature type, so both halves land on the Witch Hunter as Focus. 1-turn internal cooldown so a crit streak does not refill the bar."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_night_king",
+      "name": "Night King",
+      "description": "Increases the damage of Noctis Blade by 50%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "ability_witch_hunter_noctis_blade_damage": 0.1667
+      },
+      "connected_to": [
+        "witch_hunter_black_knight_gaze_of_the_black_knight"
+      ],
+      "_source": "CoA: 'Noctis Blade now consumes Shadow Brand to deal 50% increased damage.' THE CONSUME IS THE ONE REAL LOSS IN THIS TREE. Consuming a target's stacks is a live mechanism - consumes_target_stacks_of, which Starcaller's whole class is built on - but it is a property of the ABILITY, set in data/abilities/, and no talent effect switches it on. Tinker's Drone Striker hit the identical wall and is documented there. So the 50% is granted flat and the description does not promise a consume that will not happen."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_blade_of_the_misbegotten",
+      "name": "Blade of the Misbegotten",
+      "description": "Dawn Blade feeds you, increasing your maximum health by 5% per stack for 3 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_gaze_of_the_black_knight"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_dawn_blade"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_hunter_misbegotten",
+          "name": "Blade of the Misbegotten",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "max_health_pct": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Dawn Blade now increases your health by 15% of the damage dealt for 8 seconds, stacking 3 times.' A status effect cannot size itself from the triggering amount unless the payload does it (shield_pct and leech_pct can; apply_effect cannot), so the gain is a percentage of max health instead of a percentage of the hit. CoA's 3 stacks and 8 sec (3 turns) kept. max_health_pct takes percentage POINTS inside a status effect, so 5.0 - authored 0.05 first, which is 0.05% and would have been a node that did visibly nothing. The audit caught it; a status stat_mod of 0.05 is perfectly valid and simply too small to notice in play, which is the worst kind of wrong."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_destroyer_of_evil",
+      "name": "Destroyer of Evil",
+      "description": "Dawn Blade leaves the target burning with twilight for 3 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_gaze_of_the_black_knight"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_dawn_blade"
+        ],
+        "apply_effect": {
+          "effect_id": "witch_hunter_twilight_burn",
+          "name": "Destroyer of Evil",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 30,
+          "damage_school": "shadow",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Dawn Blade now deals an additional 20% of the damage dealt as Twilight Damage every 1 sec for 3 seconds.' Twilight is not one of this engine's six schools (arcane, fire, frost, nature, shadow, holy), so it is shadow - the half of CoA's Twilight this spec is built on. A proc-applied dot takes a flat potency, so 20% of a Dawn Blade is approximated at 30 a turn."
+    },
+    {
+      "talent_id": "witch_hunter_black_knight_dawn_knight",
+      "name": "Dawn Knight",
+      "description": "Avoiding an attack has a 40% chance to make your next hits 25% stronger for 3 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "witch_hunter_black_knight_gaze_of_the_black_knight"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 13,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "witch_hunter_dawn_knight",
+          "name": "Dawn Knight",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": 25.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Level 50 Passive. Avoiding damage or dealing damage with auto attacks now has a 40% chance to grant you Dawn Knight. Dawn Knight: Your next Dawn Blade within 15 seconds is free of cost and deals 25% increased damage.' Built on the AVOID half only - one proc, one trigger, and avoidance is this spec's theme. Making a cast free is not reachable from a status effect (cost keys go through get_talent_effects()), and the 25% applies generally rather than to Dawn Blade alone for the same reason. CoA's 40% and 15 sec (3 turns) kept."
     },
     {
       "talent_id": "witch_hunter_black_knight_gaze_of_the_black_knight",
       "name": "Gaze of the Black Knight",
-      "description": "You take the attention and the damage both, and you keep standing. +15% threat generated and 12% less damage taken.",
-      "node_type": "active",
+      "description": "Your ability damage wraps you in a shield absorbing 40% of it, and your critical strikes make you 15% harder to hurt for 2 turns.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
-      "effects": {
-        "damage_taken_pct": -0.12,
-        "threat_generation_pct": 0.15
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "witch_hunter_noctis_blade",
+          "witch_hunter_desecrate",
+          "witch_hunter_pommel_smash",
+          "witch_hunter_dawn_blade",
+          "witch_hunter_witchblight",
+          "witch_hunter_guard_strike"
+        ],
+        "shield_pct": {
+          "pct": 0.4,
+          "duration": 2,
+          "effect_id": "witch_hunter_black_gaze",
+          "name": "Gaze of the Black Knight"
+        },
+        "apply_effect": {
+          "effect_id": "witch_hunter_dark_oath",
+          "name": "Dark Oath",
+          "effect_type": "buff",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_taken_pct": -0.15
+          },
+          "on_target": false
+        }
       },
-      "connected_to": [
-        "witch_hunter_black_knight_shadowstorm",
-        "witch_hunter_black_knight_blade_of_the_misbegotten",
-        "witch_hunter_black_knight_dark_intuition"
-      ],
-      "_source": "Capstone, sharing its name with the ABILITY of the same name - CoA's capstone IS that spell, and Frontier needs it castable, so the ability carries the absorb and the node carries the permanent version of what the gaze was for. CoA: Black Knight is 'a solid main-tank for raid bosses' with 'high throughput ceiling'."
+      "_source": "CoA: '3 min cooldown. Apply a dark shield to yourself, absorbing damage and then gaze upon your party members, causing 25% of the damage they take to be transferred to you for 12 sec.' The TRANSFER is not buildable at all: nothing in this engine redirects damage from one character to another, and inventing it from a talent is not a thing a payload can do. So the capstone keeps the half that works - the absorb - and pairs it with Dark Oath, which CoA attaches to Knight's Seal ('reducing all damage taken by -20% for 8 seconds'), because a capstone that only absorbed would read as a weaker Noctis Protection. damage_taken_pct is read RAW in a status effect, so -0.15 is -15%; the physical_ and magic_ variants beside it would be -15.0, and getting that backwards is a 1500% reduction - which is exactly what Boltslinger's Evasive shipped as before the audit caught it."
     }
   ]
 }
