@@ -554,6 +554,76 @@
       },
       "connected_to": [],
       "_source": "CoA: 'Level 40 Passive. Increases the effectiveness of your Mechsuit by 100%.' CoA does not say what 'effectiveness' covers; read here as the two Mechsuit abilities' damage and the form's own duration, which is the reading that makes it a capstone rather than a stat stick."
+    },
+    {
+      "talent_id": "tinker_mechanics_makeshift_dynamite",
+      "name": "Makeshift Dynamite",
+      "description": "Learn Makeshift Dynamite. A stick of something you threw together, and it burns.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "tinker_makeshift_dynamite"
+      },
+      "connected_to": [
+        "tinker_mechanics_bombs_bombs"
+      ],
+      "_source": "Same tier as before the rebuild."
+    },
+    {
+      "talent_id": "tinker_mechanics_build_mechsuit",
+      "name": "Build: Mechsuit",
+      "description": "Learn Build: Mechsuit. Climb into the suit. Your abilities change while you are in it.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_mechsuit_form"
+      },
+      "connected_to": [
+        "tinker_mechanics_mechsuit_laser_beam"
+      ],
+      "_source": "The gateway for the whole mechsuit kit: the two abilities below require the form, and several nodes in this tree carry require_mechsuit. Same tier as before the rebuild."
+    },
+    {
+      "talent_id": "tinker_mechanics_mechsuit_laser_beam",
+      "name": "Mechsuit: Laser Beam",
+      "description": "Learn Mechsuit: Laser Beam. A sustained fire beam, available only from inside the suit.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_mechsuit_laser_beam"
+      },
+      "connected_to": [
+        "tinker_mechanics_mechsuit_combustion"
+      ],
+      "_source": "Requires the Mechsuit form, so it hangs off Build: Mechsuit rather than sitting loose in the tree."
+    },
+    {
+      "talent_id": "tinker_mechanics_mechsuit_combustion",
+      "name": "Mechsuit: Combustion",
+      "description": "Learn Mechsuit: Combustion. Vents the whole reactor into everything around you.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "tinker_mechsuit_combustion"
+      },
+      "connected_to": [],
+      "_source": "The suit's area attack and the deepest of the three, so it is the last of the kit you can reach. Was tier 4."
     }
   ]
 }

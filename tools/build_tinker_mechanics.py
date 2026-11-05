@@ -91,12 +91,12 @@ TREE = {
 
 
 def node(nid, name, desc, tier, x, y, *, ranks=1, effects=None, proc=None,
-         connect=None, source=""):
+         connect=None, source="", active=False):
     entry = {
         "talent_id": f"tinker_mechanics_{nid}",
         "name": name,
         "description": desc,
-        "node_type": "passive",
+        "node_type": "active" if active else "passive",
         "tier": tier,
         "max_points": ranks,
         "cost_per_point": 1,
@@ -110,6 +110,21 @@ def node(nid, name, desc, tier, x, y, *, ranks=1, effects=None, proc=None,
     if source:
         entry["_source"] = source
     return entry
+
+
+def unlock(nid, name, ability, blurb, tier, x, y, *, connect=None, source=""):
+    """A node whose job is to TEACH an ability.
+
+    Every ability below carries "requires_talent": true, which tells
+    combat/abilities.py not to learn it from level_req alone - so an ability
+    with no unlock node anywhere is unobtainable forever. The first version
+    of this rebuild dropped all four and stranded the entire mechsuit kit
+    plus Makeshift Dynamite. tools/qa_abilities_obtainable.py now fails the
+    build if that happens again.
+    """
+    return node(nid, name, f"Learn {name.rstrip('!')}. {blurb}", tier, x, y,
+                effects={"unlock_ability": ability}, connect=connect,
+                source=source, active=True)
 
 
 N = TREE["nodes"]
@@ -425,6 +440,39 @@ N.append(node(
            "read here as the two Mechsuit abilities' damage and the form's own "
            "duration, which is the reading that makes it a capstone rather "
            "than a stat stick."))
+
+
+# ---- the ability unlocks ------------------------------------------------
+# Restored after the first version of this rebuild dropped them. See
+# unlock()'s docstring: without these four nodes the abilities cannot be
+# learned at any level, which stranded the whole mechsuit kit.
+N.append(unlock(
+    "makeshift_dynamite", "Makeshift Dynamite", "tinker_makeshift_dynamite",
+    "A stick of something you threw together, and it burns.",
+    2, 4, -2, connect=["bombs_bombs"],
+    source="Same tier as before the rebuild."))
+
+N.append(unlock(
+    "build_mechsuit", "Build: Mechsuit", "tinker_mechsuit_form",
+    "Climb into the suit. Your abilities change while you are in it.",
+    3, 3, 0, connect=["mechsuit_laser_beam"],
+    source="The gateway for the whole mechsuit kit: the two abilities below "
+           "require the form, and several nodes in this tree carry "
+           "require_mechsuit. Same tier as before the rebuild."))
+
+N.append(unlock(
+    "mechsuit_laser_beam", "Mechsuit: Laser Beam", "tinker_mechsuit_laser_beam",
+    "A sustained fire beam, available only from inside the suit.",
+    4, 5, 2, connect=["mechsuit_combustion"],
+    source="Requires the Mechsuit form, so it hangs off Build: Mechsuit "
+           "rather than sitting loose in the tree."))
+
+N.append(unlock(
+    "mechsuit_combustion", "Mechsuit: Combustion", "tinker_mechsuit_combustion",
+    "Vents the whole reactor into everything around you.",
+    5, 3, 4,
+    source="The suit's area attack and the deepest of the three, so it is "
+           "the last of the kit you can reach. Was tier 4."))
 
 
 def main():

@@ -66,12 +66,12 @@ NAPALM = {
 
 
 def node(nid, name, desc, tier, x, y, *, ranks=1, effects=None, proc=None,
-         connect=None, source=""):
+         connect=None, source="", active=False):
     entry = {
         "talent_id": f"tinker_demolition_{nid}",
         "name": name,
         "description": desc,
-        "node_type": "passive",
+        "node_type": "active" if active else "passive",
         "tier": tier,
         "max_points": ranks,
         "cost_per_point": 1,
@@ -85,6 +85,22 @@ def node(nid, name, desc, tier, x, y, *, ranks=1, effects=None, proc=None,
     if source:
         entry["_source"] = source
     return entry
+
+
+def unlock(nid, name, ability, blurb, tier, x, y, *, connect=None, source=""):
+    """A node whose job is to TEACH an ability.
+
+    These are not optional decoration. Every ability below carries
+    "requires_talent": true, which tells combat/abilities.py not to learn it
+    from level_req alone - so an ability with no unlock node anywhere is
+    unobtainable forever. The first version of this rebuild dropped all four
+    and stranded Bomb Toss, Spider Bomb, Rocket Launcher and Hyperblast
+    Barrage. tools/qa_abilities_obtainable.py now fails the build if that
+    happens again.
+    """
+    return node(nid, name, f"Learn {name.rstrip('!')}. {blurb}", tier, x, y,
+                effects={"unlock_ability": ability}, connect=connect,
+                source=source, active=True)
 
 
 N = TREE["nodes"]
@@ -392,6 +408,43 @@ N.append(node(
            "other abilities entirely, while the prose promised a splash that "
            "never happened. 'Nearby enemies' is also positional language in "
            "an engine with no positions."))
+
+
+# ---- the ability unlocks ------------------------------------------------
+# Restored after the first version of this rebuild dropped them. See
+# unlock()'s docstring: without these four nodes the abilities cannot be
+# learned at any level.
+N.append(unlock(
+    "bomb_toss", "Bomb Toss", "tinker_bomb_toss",
+    "Lob a bomb that burns the target over several turns.",
+    0, -6, -6, connect=["war_crimes"],
+    source="Placed at tier 0 and wired into War Crimes on purpose: War "
+           "Crimes procs Napalm off Bomb Toss, so the ability has to be "
+           "learnable before the node that cashes it in. Was tier 1."))
+
+N.append(unlock(
+    "rocket_launcher", "Rocket Launcher", "tinker_rocket_launcher",
+    "A heavy fire rocket aimed at one target.",
+    1, 5, -4, connect=["rocket_engineering"],
+    source="Also unlocked by the old Invention tree, which is wrong for a "
+           "healer spec - it is a fire damage ability and Demolition is the "
+           "ranged DPS tree, so it lives here only."))
+
+N.append(unlock(
+    "spider_bomb", "Build: Spider Bomb", "tinker_spider_bomb",
+    "Builds a walking bomb that detonates among several enemies.",
+    3, 3, 0, connect=["the_big_guns"],
+    source="Duobombers doubles this ability's damage, so it has to be "
+           "learnable in the same tree. Same tier as before."))
+
+N.append(unlock(
+    "hyperblast_barrage", "Hyperblast Barrage", "tinker_hyperblast_barrage",
+    "Empties everything you have into a crowd at once.",
+    4, 4, 2, connect=["rocket_pack"],
+    source="Moved from tier 6 to tier 4 deliberately. Rocket Pack sits at "
+           "tier 5 and its whole effect is resetting this ability's "
+           "cooldown; with the unlock at tier 6 you could take the reset two "
+           "tiers before you could take the thing being reset."))
 
 
 def main():

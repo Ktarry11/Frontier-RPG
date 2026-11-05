@@ -1,8 +1,8 @@
 {
   "spec_name": "Tinker Invention",
   "tree_id": "tinker_invention",
-  "description": "Field medic - gadgets and bots that keep the party alive.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 13 confirmed Invention nodes trimmed to a lean 12-node tree per Kyle's bloat direction. Build: ZIGGI-6K confirmed via tooltip as a real healing-bot summon ('the latest in regenerative technology, to aid you in healing allies until dismissed') - kept as the capstone since this matches Kyle's own played experience (Healing Tinkerer). Stubbed as a strong party-wide HoT rather than a full pet entity since the pet system doesn't exist yet - revisit once it does.",
+  "description": "Field engineer healer - patches one ally and lets the overflow wash across the rest of the party.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/tinker.json tab 74 (37 real CoA Invention talents) with identity from data/reference/coa_playstyles.json ('Restoration Shaman + Holy Paladin', Healer). Replaces a 27-node tree that carried real CoA names on fifteen 2-4% scalars and had exactly one proc in it. The twelve unlock_ability nodes were already correct and are kept. Every node below records the CoA text it came from and what was changed for a turn-based engine.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,75 +16,98 @@
     {
       "talent_id": "tinker_invention_scientific_nature",
       "name": "Scientific Nature",
-      "description": "Increases healing done by 2% per rank.",
+      "description": "Increases your healing power by 20% of your Intellect and your spell critical strike chance by 15% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "healing_power_from_intellect_pct": 0.2,
+        "crit_chance_spell_from_intellect_pct": 0.15
+      },
+      "connected_to": [
+        "tinker_invention_over_repaired"
+      ],
+      "_source": "CoA verbatim: 'Level 20 Passive. Increases your healing power by 20% of your Intellect and your critical strike rating by 15% of your Intellect.' Built as the real stat conversion it is - both pairings are in STAT_CONVERSION_TARGETS/SOURCES, so both are live. Was healing_power_pct 2.0 per rank over 5 ranks, which is a flat 10% and not this talent at all."
+    },
+    {
+      "talent_id": "tinker_invention_over_repaired",
+      "name": "Over-Repaired",
+      "description": "Increases the healing done by Repair Shot by 15% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 2.0
+        "ability_tinker_repair_shot_healing": 0.15
       },
       "connected_to": [
-        "tinker_invention_healing_radiator"
-      ]
+        "tinker_invention_eureka"
+      ],
+      "_source": "CoA verbatim: 'Increases the healing done by Repair Shot by 15%.' 2 ranks, as CoA has it."
     },
     {
-      "talent_id": "tinker_invention_bandage_gun",
-      "name": "Bandage Gun",
-      "description": "Reduces the Mana cost of Repair Shot by 3% per rank.",
+      "talent_id": "tinker_invention_field_medic",
+      "name": "Field Medic",
+      "description": "Increases your spell critical strike chance by 5%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_repair_shot_cost_pct": 0.03
+        "crit_chance_spell": 5.0
       },
       "connected_to": [
-        "tinker_invention_cybernetic_revival"
-      ]
+        "tinker_invention_eureka"
+      ],
+      "_source": "CoA: 'Increases your and your summons critical strike chance by 5%.' The summon half is dropped: no talent key reaches a pet's crit. crit_chance_spell is a PERCENT here, so 5.0."
     },
     {
-      "talent_id": "tinker_invention_self_sustaining_tech",
-      "name": "Self-Sustaining Tech",
-      "description": "Increases maximum Mana by 2% per rank.",
+      "talent_id": "tinker_invention_technician",
+      "name": "Technician",
+      "description": "Increases the healing done by your critical heals by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.02
+        "crit_damage_spell": 0.1
       },
       "connected_to": [
-        "tinker_invention_combat_symbiosis"
-      ]
+        "tinker_invention_triage_protocol"
+      ],
+      "_source": "CoA: 'Reduces spell pushback suffered from damaging attacks by 35% and increases your critical healing by 10%.' Pushback does not exist in a turn-based engine with no cast bars, so that half is dropped rather than repriced. crit_damage_spell is the key a heal crit reads (abilities.py routes anything non-physical there) and it is a FRACTION, so 0.10."
     },
     {
-      "talent_id": "tinker_invention_rejuvenating_gadgetry",
-      "name": "Rejuvenating Gadgetry",
-      "description": "Increases Repair Shot healing by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
+      "talent_id": "tinker_invention_ziggi",
+      "name": "Build: ZIGGI-6K",
+      "description": "Learn Build: ZIGGI-6K. A regenerative drone that heals your allies until dismissed.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {
-        "ability_tinker_repair_shot_healing": 0.04
+        "unlock_ability": "tinker_build_ziggi_6k"
       },
       "connected_to": [
         "tinker_invention_nanobot_swarm"
-      ]
+      ],
+      "_source": "CoA: 'Level 10 Passive. Teaches you Build: ZIGGI-6K.' Kept from the previous tree - the unlock nodes were already right."
     },
     {
       "talent_id": "tinker_invention_healing_radiator",
       "name": "Healing Radiator",
-      "description": "Learn Healing Radiator, deploying a small device that heals the whole party for a moderate amount over several turns.",
+      "description": "Learn Healing Radiator. Periodic healing from Nanobot Reconstruction leaks out to the rest of the party.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
@@ -95,415 +118,492 @@
         "unlock_ability": "tinker_healing_radiator"
       },
       "connected_to": [
-        "tinker_invention_scientific_nature",
-        "tinker_invention_nanobot_cleanser"
-      ]
+        "tinker_invention_nanobot_reconstruction"
+      ],
+      "_source": "CoA: 'Periodic healing done by Nanobot Reconstruction now restores health to 5 allied players within 10 yds of the affected target.' The yard radius is dropped; the ability itself already targets the party. Kept from the previous tree."
     },
     {
-      "talent_id": "tinker_invention_cybernetic_revival",
-      "name": "Cybernetic Revival",
-      "description": "Reduces the cooldown of Defibrillate by 1 turn per rank.",
+      "talent_id": "tinker_invention_eureka",
+      "name": "Eureka!",
+      "description": "Your critical heals send a surge of healing to your most wounded ally.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -4,
-      "effects": {
-        "ability_tinker_defibrillate_cooldown": 1
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): keyed to ability_tinker_defibrillate_cooldown, but no Defibrillate ability ever existed in data/abilities/tinker.json - built it as a real revive-type ability (see tinker_defibrillate's own _source note). Also fixed the stored value's sign: was -1, which INCREASES cooldown under talented_cooldown's formula (cooldown - reduction) instead of reducing it as the description says - same sign-flip bug found on 4 other talents in this sweep.",
-      "connected_to": [
-        "tinker_invention_bandage_gun"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_combat_symbiosis",
-      "name": "Combat Symbiosis",
-      "description": "Being struck has a 25% chance per rank to engage your plating, granting 150 Armor for 3 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 4,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "tinker_invention_self_sustaining_tech"
+        "tinker_invention_fine_tuning"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 25,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "combat_symbiosis",
-          "name": "Combat Symbiosis",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "armor": 150
-          },
-          "on_target": false
-        }
-      }
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_repair_shot",
+          "tinker_emergency_heal",
+          "tinker_zap"
+        ],
+        "smart_heal_pct": 30
+      },
+      "_source": "CoA: 'Direct healing critical strikes now increase the healing done by your next Repair Shot or Emergency Heal by 30% for 10 seconds.' NOT buildable as written, and this is the one node in the tree where that is worth spelling out. A 'your next cast is stronger' buff has to reach ability_tinker_repair_shot_healing, which is read ONLY through get_talent_effects() - and that aggregates talent trees, stances, forms and the guardian stance, never status effects. A proc applying that buff is dead data. So the 30% is spent where it does fire: smart_heal_pct, which heals the lowest-health ally off the crit that triggered it. Note smart_heal_pct is a PERCENT (status_effects.py divides by 100), unlike every other heal payload here, which are fractions."
     },
     {
       "talent_id": "tinker_invention_nanobot_swarm",
       "name": "Nanobot Swarm",
-      "description": "Learn Nanobot Swarm, releasing nanobots that heal the lowest-health ally over time.",
+      "description": "Learn Nanobot Swarm. Nanobots ride an ally, damaging nearby enemies and pulling your threat onto the host.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 6,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "tinker_nanobot_swarm"
       },
       "connected_to": [
-        "tinker_invention_rejuvenating_gadgetry"
-      ]
+        "tinker_invention_nanobot_cleanser"
+      ],
+      "_source": "CoA: 'Send Nanobots to an ally, dealing damage to nearby enemies every 4 sec for 1 min. All threat generated by you is redirected to the target.' Kept from the previous tree."
+    },
+    {
+      "talent_id": "tinker_invention_triage_protocol",
+      "name": "Triage Protocol",
+      "description": "Your healing is 15% stronger on allies below 35% health.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "low_health_healing_pct": 0.15
+      },
+      "connected_to": [
+        "tinker_invention_macro_designer"
+      ],
+      "_source": "Not a CoA node - kept from the previous tree, where it was 3%, because it is one of the few things in that tree that was a real mechanic rather than a flat number. low_health_healing_pct keys off the RECIPIENT's health and was genuinely dead for a while; it was wired up at abilities.py:1574 once the heal path started passing the recipient through, and audit_talents.py's docstring still says otherwise. Threshold is the engine-wide low_health_threshold_pct default of 35%."
     },
     {
       "talent_id": "tinker_invention_nanobot_cleanser",
       "name": "Nanobot Cleanser",
-      "description": "Learn Nanobot Cleanser, removing a harmful Poison or Disease effect from an ally.",
+      "description": "Learn Nanobot Cleanser. Nanobots strip a poison and a disease from an ally each turn.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -3,
       "hex_y": -2,
       "effects": {
         "unlock_ability": "tinker_nanobot_cleanser"
       },
       "connected_to": [
-        "tinker_invention_healing_radiator",
-        "tinker_invention_stim_rounds"
-      ]
+        "tinker_invention_stim_augmentation"
+      ],
+      "_source": "CoA: 'Send Nanobots to an ally removing 1 poison and disease effect every 3 sec for up to 15 sec.' Kept from the previous tree; 3 sec per tick is already one turn."
     },
     {
       "talent_id": "tinker_invention_nanobot_reconstruction",
       "name": "Nanobot Reconstruction",
-      "description": "Learn Nanobot Reconstruction. Send Nanobots to an ally, healing them for 600 over 1 min. Can only be sent to 1 target at a time and cannot be dispelled.",
+      "description": "Learn Nanobot Reconstruction. A sustained repair patch that mends an ally over several turns.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -1,
       "hex_y": -2,
       "effects": {
         "unlock_ability": "tinker_nanobot_reconstruction"
       },
       "connected_to": [
-        "tinker_invention_nanobot_cleanser"
+        "tinker_invention_stim_augmentation"
       ],
-      "_source": "Real screenshot: Requires Level 16, Nanobot Reconstruction (Rank 1) - real self-rank gate, Kyle-confirmed."
+      "_source": "Kept from the previous tree. The ability Healing Radiator spreads, so it has to be learnable before it."
+    },
+    {
+      "talent_id": "tinker_invention_fine_tuning",
+      "name": "Fine Tuning",
+      "description": "Increases your spell critical strike chance by 3%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell": 3.0
+      },
+      "connected_to": [
+        "tinker_invention_bandage_gun"
+      ],
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects. In addition, not critically healing now increases your critical strike chance by 1%, stacking 10 times, until your next effective critical heal.' Two halves, neither portable as written. A talent effect applies to its own character, so the party-wide aura becomes self-only and the description says 'your' rather than promising the party a buff it will not get. The stacking half needs a 'healed and did NOT crit' trigger, which no trigger in this engine expresses - on_heal_cast cannot see the crit result - so it is dropped rather than approximated."
+    },
+    {
+      "talent_id": "tinker_invention_macro_designer",
+      "name": "Macro Designer",
+      "description": "Increases the duration of Med Pack by 1 turn.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_tinker_med_pack_duration": 1
+      },
+      "connected_to": [
+        "tinker_invention_trust_the_science"
+      ],
+      "_source": "CoA: 'Increases the duration of your Beacons by 5 sec and Med Pack by 3 sec.' 3 sec is one turn. The Beacon half is dropped: Frontier's Beacons are party buffs whose duration no ability_*_duration key reaches, while Med Pack is a hot and does take one."
     },
     {
       "talent_id": "tinker_invention_stim_rounds",
       "name": "Stim Rounds",
-      "description": "Learn Stim Rounds. Load Stim Rounds, causing Repair Shot to also heal the 2 lowest-HP party members for 30% of the amount healed.",
+      "description": "Learn Stim Rounds. Load stim rounds into your gun, so your shots carry a dose of medicine.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -5,
       "hex_y": 0,
       "effects": {
         "unlock_ability": "tinker_stim_rounds"
       },
       "connected_to": [
-        "tinker_invention_nanobot_cleanser"
-      ]
+        "tinker_invention_stim_augmentation"
+      ],
+      "_source": "Kept from the previous tree. tinker_stim_rounds carries requires_talent, so this node is the ONLY way the ability can be learned - dropping it would strand the ability at every level. Paired deliberately with Stim Augmentation, which is what makes the dose splash."
+    },
+    {
+      "talent_id": "tinker_invention_stim_augmentation",
+      "name": "Stim Augmentation",
+      "description": "Your Repair Shot splashes 20% of its healing onto up to 3 nearby allies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "tinker_invention_med_pack"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_repair_shot"
+        ],
+        "splash_heal": {
+          "pct": 0.2,
+          "max_targets": 3
+        }
+      },
+      "_source": "CoA verbatim: 'Add a Stim Augmentation to your gun for 1 hour, causing your direct healing abilities to heal up to 3 nearby allies for an additional 20% of the amount healed.' This is the spec's defining mechanic and the old tree had no form of it. splash_heal is a live proc payload with a max_targets field, so CoA's number goes in directly. The 1-hour self-buff framing is dropped - a weapon augmentation lasting an hour is a passive in this engine. pct is a FRACTION."
     },
     {
       "talent_id": "tinker_invention_med_pack",
       "name": "Med Pack",
-      "description": "Learn Med Pack. Toss a med pack to an ally, healing for 354 over 6 sec and cleanses all bleed, poison and disease effects.",
+      "description": "Learn Med Pack. A pack that keeps mending an ally for several turns.",
       "node_type": "active",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
       "hex_y": 0,
       "effects": {
         "unlock_ability": "tinker_med_pack"
       },
       "connected_to": [
-        "tinker_invention_nanobot_reconstruction",
-        "tinker_invention_stim_rounds"
+        "tinker_invention_improved_graftbolts"
       ],
-      "_source": "Real screenshot: Requires Level 26, Med Pack (Rank 1) - real self-rank gate, Kyle-confirmed."
+      "_source": "Kept from the previous tree."
     },
     {
-      "talent_id": "tinker_invention_build_battery_reclaimer",
-      "name": "Build: Battery Reclaimer",
-      "description": "Learn Battery Reclaimer, a device that restores mana to the party over several turns.",
+      "talent_id": "tinker_invention_bandage_gun",
+      "name": "Bandage Gun",
+      "description": "Your Emergency Heal and Zap! splash 20% of their healing onto up to 5 nearby allies.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "tinker_invention_zap"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_emergency_heal",
+          "tinker_zap"
+        ],
+        "splash_heal": {
+          "pct": 0.2,
+          "max_targets": 5
+        }
+      },
+      "_source": "CoA verbatim: 'Healing from Stim Augmentation now affects 2 additional allies near the primary target.' A talent cannot widen ANOTHER talent's proc - there is no key that edits a sibling node's max_targets - so instead of faking that, this node carries its own splash at CoA's widened count (3 + 2 = 5) over the other two direct heals. Net effect matches what the pair is for: spending both points means the whole direct-heal kit splashes, and widely. Was a 3% cost reduction."
+    },
+    {
+      "talent_id": "tinker_invention_stim_shots",
+      "name": "Stim Shots",
+      "description": "Increases the healing done by Repair Shot and Emergency Heal by 10%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "ability_tinker_repair_shot_healing": 0.1,
+        "ability_tinker_emergency_heal_healing": 0.1
+      },
+      "connected_to": [
+        "tinker_invention_trust_the_science"
+      ],
+      "_source": "CoA: 'Your Stim Augmentation now heals for an additional 10% of the amount healed.' Routed onto the heals themselves rather than onto the splash: the splash is sized from the triggering heal, so raising the heal raises the splash with it, and there is no key that reaches a proc's own pct."
+    },
+    {
+      "talent_id": "tinker_invention_zap",
+      "name": "Zap!",
+      "description": "Learn Zap. A long jolt of current that mends an ally. Scales with Repair Shot.",
       "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_zap"
+      },
+      "connected_to": [
+        "tinker_invention_rejuvenating_gadget"
+      ],
+      "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed. Kept from the previous tree."
+    },
+    {
+      "talent_id": "tinker_invention_battery_reclaimer",
+      "name": "Build: Battery Reclaimer",
+      "description": "Learn Build: Battery Reclaimer. A station that gives the party back health and resources.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_battery_reclaimer"
+      },
+      "connected_to": [
+        "tinker_invention_self_sustaining_technology"
+      ],
+      "_source": "CoA: 'Build a Battery Recharge Station for 30 sec that allies can interact with once to replenish 15% maximum health and mana, and 50% maximum Rage, Energy, Focus and Runic Power. Applies Depleting Battery to party and raid members within 40 yds.' The movement-speed aura and the 'run to the battery' interaction are both positional and both dropped. Kept from the previous tree."
+    },
+    {
+      "talent_id": "tinker_invention_trust_the_science",
+      "name": "Trust the Science!",
+      "description": "Reduces the cooldown of Zap! by 20%.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "tinker_battery_reclaimer"
+        "ability_tinker_zap_cooldown_pct": 0.2
       },
       "connected_to": [
-        "tinker_invention_stim_rounds",
-        "tinker_invention_build_restorative_field"
-      ]
+        "tinker_invention_emergency_circumvented"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Zap! by -5 sec.' Expressed as a percentage because a flat 5 sec is under two turns and would round to nothing useful. NOTE the sign convention: _cooldown_pct is POSITIVE for a reduction here, so 0.20 makes Zap! cheaper to come back to, not slower."
     },
     {
-      "talent_id": "tinker_invention_zap",
-      "name": "Zap!",
-      "description": "Learn Zap! Fires a long range zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
-      "node_type": "active",
+      "talent_id": "tinker_invention_resourceful_tech",
+      "name": "Resourceful Tech",
+      "description": "Increases the critical strike chance of Zap! by 35%.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "tinker_zap"
+        "ability_tinker_zap_crit": 35.0
       },
       "connected_to": [
-        "tinker_invention_med_pack"
+        "tinker_invention_emergency_enhancer"
       ],
-      "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed."
+      "_source": "CoA: 'Your Zap! is now guaranteed to critically strike allies affected by Nanobots.' The condition is what balances it, and no effect key can read whether the heal target carries a specific buff. Shipped as a large but not guaranteed crit bonus instead of an unconditional ability_tinker_zap_crit of 100.0, which is what the literal reading would have been and would have been a permanent free crit. ability_*_crit is a PERCENT."
     },
     {
-      "talent_id": "tinker_invention_build_restorative_field",
-      "name": "Build: Restorative Field",
-      "description": "Increases the healing of Repair Shot by 10% per rank.",
+      "talent_id": "tinker_invention_rejuvenating_gadget",
+      "name": "Rejuvenating Gadget",
+      "description": "Critical strikes with Zap! leave behind rejuvenating gas, healing the target for 3 turns.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
+      "tier": 4,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "ability_tinker_repair_shot_healing": 0.1
-      },
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {},
       "connected_to": [
-        "tinker_invention_build_battery_reclaimer",
         "tinker_invention_my_greatest_invention"
-      ]
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_zap"
+        ],
+        "apply_effect": {
+          "effect_id": "tinker_rejuvenating_gas",
+          "name": "Rejuvenating Gas",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 24,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Zap! now apply Rejuvenating Gas to up to 12 allies within 8 yards of your target that restores 15% of the value of the shot as health every 2 sec for 10 sec.' The 12-ally yard radius is dropped (no positioning) and the hot lands on the heal target. A proc-applied hot has a flat potency - there is no 'percentage of the triggering amount' form for apply_effect - so 15% of a Zap! is approximated as a flat 24 per turn, in the same range as Frontier's other mid-level hots."
     },
     {
       "talent_id": "tinker_invention_my_greatest_invention",
-      "name": "My Greatest Invention",
-      "description": "Learn My Greatest Invention, instantly healing your entire party for a massive amount.",
+      "name": "My Greatest Invention!",
+      "description": "Learn My Greatest Invention. Show off the masterpiece, healing the whole party over several turns.",
       "node_type": "active",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "tinker_my_greatest_invention"
       },
       "connected_to": [
-        "tinker_invention_stim_rounds"
+        "tinker_invention_emergency_enhancer"
       ],
-      "_source": "Kyle: 'basically an end game talent unlock... on par with shit like wild growth or circle of healing', 'unlocks around lvl 50 (in talent tree - so near the very bottom)'. PROMOTED to the tree's tier-6 capstone slot (Oct 2026, pet-system push) after Build: ZIGGI-6K was moved down to tier 1 - see that node's own _source for why. My Greatest Invention's own 'near the very bottom' framing already fit a capstone slot even before this move."
+      "_source": "Kept from the previous tree."
     },
     {
-      "talent_id": "tinker_invention_build_ziggi_6k",
-      "name": "Build: ZIGGI-6K",
-      "description": "Deploy ZIGGI-6K, a pet that helps heal with Wrench Toss - small damage plus a smart heal - until dismissed.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -6,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "tinker_build_ziggi_6k"
-      },
-      "connected_to": [
-        "tinker_invention_healing_radiator"
-      ],
-      "_source": "CoA tooltip confirmed: 'Teaches you Build: ZIGGI-6K, the latest in regenerative technology, to aid you in healing allies until dismissed.' Originally modeled as the tree's real screenshot-confirmed tier-6 capstone - matches Kyle's own Healing Tinkerer experience. MOVED to tier 1 (Oct 2026, pet-system push) per Kyle's explicit direction: 'Ziggi should unlock at lvl 10 since tinkerer has weaker natural heals' - a deliberate divergence from the confirmed real-game capstone placement for this game's own balance reasons, not a correction of a mistake. My Greatest Invention promoted to the vacated tier-6 slot. The pet's own kit (Wrench Toss at tame, a party-wide heal and an Evocation-like resource-restore added as the owner levels) is still gated at the ability level - see tinker.json."
-    },
-    {
-      "talent_id": "tinker_invention_field_medicine",
-      "name": "Field Medicine",
-      "description": "Increases healing done by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "healing_power_pct": 2.0
-      },
-      "connected_to": [
-        "tinker_invention_scientific_nature"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_stabilizing_agents",
-      "name": "Stabilizing Agents",
-      "description": "Increases maximum Mana by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -4,
-      "effects": {
-        "max_mana_pct": 0.02
-      },
-      "connected_to": [
-        "tinker_invention_self_sustaining_tech"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_triage_protocol",
-      "name": "Triage Protocol",
-      "description": "Increases healing done to targets below 35% health by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -4,
-      "effects": {
-        "low_health_healing_pct": 0.03
-      },
-      "connected_to": [
-        "tinker_invention_bandage_gun"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_efficient_dosing",
-      "name": "Efficient Dosing",
-      "description": "Reduces Mana cost of Repair Shot by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "ability_tinker_repair_shot_cost_pct": 0.02
-      },
-      "connected_to": [
-        "tinker_invention_rejuvenating_gadgetry"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_field_repair",
-      "name": "Field Repair",
-      "description": "Reduces the Mana cost of Repair Shot and Med Pack by 8 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "ability_tinker_repair_shot_cost": 8,
-        "ability_tinker_med_pack_cost": 8
-      },
-      "connected_to": [
-        "tinker_invention_healing_radiator"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_rocket_launcher",
-      "name": "Rocket Launcher",
-      "description": "Learn Rocket Launcher, a heavy single-target Fire nuke.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "tinker_rocket_launcher"
-      },
-      "connected_to": [
-        "tinker_invention_nanobot_swarm"
-      ],
-      "_source": "Real screenshot: Rocket Launcher's real requirement text reads 'Invention (1)' despite the ability's own Demolition-adjacent Fire-nuke flavor - real cross-tree case, Kyle-confirmed. Moved here from tinker_demolition.json where it previously (incorrectly) lived."
-    },
-    {
-      "talent_id": "tinker_invention_gadgeteer",
-      "name": "Gadgeteer",
-      "description": "Reduces the cooldown of your Build: abilities by 5% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "ability_tinker_build_sentry_turret_cooldown_pct": 0.05,
-        "ability_tinker_build_shield_beacon_cooldown_pct": 0.05,
-        "ability_tinker_build_replenishment_beacon_cooldown_pct": 0.05,
-        "ability_tinker_build_clockwork_assistant_cooldown_pct": 0.05,
-        "ability_tinker_build_mechano_bear_cooldown_pct": 0.05,
-        "ability_tinker_build_rusthound_cooldown_pct": 0.05,
-        "ability_tinker_build_battle_turret_x13_cooldown_pct": 0.05,
-        "ability_tinker_build_ziggi_6k_cooldown_pct": 0.05
-      },
-      "connected_to": [
-        "tinker_invention_antitoxin_coating"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_antitoxin_coating",
-      "name": "Antitoxin Coating",
-      "description": "Increases your resistance to Nature damage by 5% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "nature_resist_pct": 0.05
-      },
-      "connected_to": [
-        "tinker_invention_nanobot_cleanser"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_battery_efficiency",
-      "name": "Battery Efficiency",
-      "description": "Restores 5 Mana every 5 seconds per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 4,
-      "effects": {
-        "mp5": 5
-      },
-      "connected_to": [
-        "tinker_invention_build_restorative_field"
-      ]
-    },
-    {
-      "talent_id": "tinker_invention_surge_protector",
-      "name": "Surge Protector",
-      "description": "Increases healing done by 3% per rank while above 80% Mana.",
+      "talent_id": "tinker_invention_improved_graftbolts",
+      "name": "Improved Graftbolts",
+      "description": "Your Repair Shot also shields the target for 50% of the healing done.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "tinker_invention_emergency_enhancer"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_repair_shot"
+        ],
+        "shield_pct": {
+          "pct": 0.5,
+          "duration": 3,
+          "effect_id": "tinker_graftbolt_shield",
+          "name": "Graftbolt Shield"
+        }
+      },
+      "_source": "CoA: 'Level 50 Passive. Effective healing done by Stim Augmentation now applies a shield to the target equal to 50% of the healing done. Up to 10% of their maximum health.' shield_pct is a live payload sized from the triggering heal, which is exactly this. The 10%-max-health cap is NOT modelled: shield_pct has no cap field, and absorb_pct_max_health sizes off max health instead of off the heal, so it is the wrong mechanism. Flagged rather than faked - this node is slightly stronger than CoA's on a very large heal. CoA's base Graftbolts (a pet mana/damage buff off a 25% chance) is not built at all: it hangs entirely on a mechanical pet's own output, which no talent key reaches."
+    },
+    {
+      "talent_id": "tinker_invention_emergency_circumvented",
+      "name": "Emergency Circumvented",
+      "description": "Increases the critical strike chance of Emergency Heal by 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
       "effects": {
-        "high_mana_healing_pct": 0.03
+        "ability_tinker_emergency_heal_crit": 15.0
       },
       "connected_to": [
-        "tinker_invention_build_restorative_field"
-      ]
+        "tinker_invention_emergency_enhancer"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Emergency Heal by 15% and allows the periodic healing done by Med Pack to critically strike.' The second half is an engine-wide rule about whether hot ticks can crit, not a per-character bonus, so it is not a talent effect at all and is dropped."
+    },
+    {
+      "talent_id": "tinker_invention_self_sustaining_technology",
+      "name": "Self-Sustaining Technology",
+      "description": "15% of the healing you do is also routed to your most wounded ally.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "tinker_invention_emergency_enhancer"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 1,
+        "leech_pct": {
+          "pct": 0.15,
+          "smart": true
+        }
+      },
+      "_source": "CoA: 'Damage or healing done by your pet or summons now heals you equal to 15% of the value. In addition, damage or healing done by you now restores health and mana to your pet equal to 15% of the value. Each of these effects can only occur once per sec.' Both halves of CoA's version are pet-side and unreachable. The identity worth keeping is 'your output feeds back into the group', so leech_pct with smart:true sends it to the worst-off ally. CoA's once-per-second becomes icd 1, i.e. once a turn. Was max_mana_pct 0.02."
+    },
+    {
+      "talent_id": "tinker_invention_surge_protector",
+      "name": "Surge Protector",
+      "description": "While above 65% mana, your healing is 8% stronger.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 4,
+      "effects": {
+        "high_mana_healing_pct": 0.08
+      },
+      "connected_to": [
+        "tinker_invention_emergency_enhancer"
+      ],
+      "_source": "Not a CoA node - kept from the previous tree (where it was 3%) for the same reason as Triage Protocol: it is a real conditional rather than a flat number. high_mana_healing_pct fires above 1 - low_health_threshold_pct of max mana, i.e. 65%, and pairs with Triage Protocol's low-health window."
+    },
+    {
+      "talent_id": "tinker_invention_emergency_enhancer",
+      "name": "Emergency Enhancer",
+      "description": "Zap! now also fires from your active constructions, healing your most wounded ally for 90% of the amount.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {},
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_zap"
+        ],
+        "smart_heal_pct": 90
+      },
+      "_source": "CoA: 'Zap! now causes your active Build abilities to zap the lowest health nearby ally, healing them for 990 + 90% healing.' smart_heal_pct is the payload for 'heal the lowest-health ally' and this is almost a literal port - the only cut is the flat 990, which is a level-60 raid number. PERCENT, so 90 means 90% of the Zap! that triggered it."
     }
   ]
 }

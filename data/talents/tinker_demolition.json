@@ -529,6 +529,78 @@
       },
       "connected_to": [],
       "_source": "CoA: 'Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec to deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.' A 3-minute cooldown window is not a talent shape this tree supports, so the capstone grants the empowerment permanently at the cost of being the last pick. Replaces a pure-scalar node of the same name. The splash half is DROPPED, not approximated: aoe_damage was on this node and did nothing for it, because neither tinker_scrap_shot nor tinker_rocket_launcher is is_aoe - aoe_damage would have buffed other abilities entirely, while the prose promised a splash that never happened. 'Nearby enemies' is also positional language in an engine with no positions."
+    },
+    {
+      "talent_id": "tinker_demolition_bomb_toss",
+      "name": "Bomb Toss",
+      "description": "Learn Bomb Toss. Lob a bomb that burns the target over several turns.",
+      "node_type": "active",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -6,
+      "effects": {
+        "unlock_ability": "tinker_bomb_toss"
+      },
+      "connected_to": [
+        "tinker_demolition_war_crimes"
+      ],
+      "_source": "Placed at tier 0 and wired into War Crimes on purpose: War Crimes procs Napalm off Bomb Toss, so the ability has to be learnable before the node that cashes it in. Was tier 1."
+    },
+    {
+      "talent_id": "tinker_demolition_rocket_launcher",
+      "name": "Rocket Launcher",
+      "description": "Learn Rocket Launcher. A heavy fire rocket aimed at one target.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "tinker_rocket_launcher"
+      },
+      "connected_to": [
+        "tinker_demolition_rocket_engineering"
+      ],
+      "_source": "Also unlocked by the old Invention tree, which is wrong for a healer spec - it is a fire damage ability and Demolition is the ranged DPS tree, so it lives here only."
+    },
+    {
+      "talent_id": "tinker_demolition_spider_bomb",
+      "name": "Build: Spider Bomb",
+      "description": "Learn Build: Spider Bomb. Builds a walking bomb that detonates among several enemies.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_spider_bomb"
+      },
+      "connected_to": [
+        "tinker_demolition_the_big_guns"
+      ],
+      "_source": "Duobombers doubles this ability's damage, so it has to be learnable in the same tree. Same tier as before."
+    },
+    {
+      "talent_id": "tinker_demolition_hyperblast_barrage",
+      "name": "Hyperblast Barrage",
+      "description": "Learn Hyperblast Barrage. Empties everything you have into a crowd at once.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_hyperblast_barrage"
+      },
+      "connected_to": [
+        "tinker_demolition_rocket_pack"
+      ],
+      "_source": "Moved from tier 6 to tier 4 deliberately. Rocket Pack sits at tier 5 and its whole effect is resetting this ability's cooldown; with the unlock at tier 6 you could take the reset two tiers before you could take the thing being reset."
     }
   ]
 }
