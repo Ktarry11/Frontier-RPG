@@ -1,8 +1,8 @@
 {
   "spec_name": "Guardian Vanguard",
   "tree_id": "guardian_vanguard",
-  "description": "Block-centric plate tank - mitigation stacks off blocks rather than avoidance, Formations trade speed for damage reduction, and Raise Shield resets off your own strikes.",
-  "_source_note": "Rebuilt from reference/coa_sidekick/talents/guardian.json, the real CoA Vanguard tree (38 nodes behind 3 point gates plus five free level-gated passives). Every node here is a real CoA node carrying CoA's own effect. Its stat priority is Defense > Stamina > Expertise > Block Rating/Value > Strength > Dodge/Parry, which is why the tree spends far more on block chance and block value than on avoidance.",
+  "description": "Shield and formation - a tank that turns every block into threat, armour and retaliation.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 33 real CoA Vanguard talents (role Tank). Guardian measured the worst of the 16 classes remaining at 84% scalar-only nodes. ON_BLOCK is a live trigger and all four of CoA's blocking talents port. Dead keys this tree wanted and did not get: expertise, max_energy_bonus, block_chance, parry_chance, dodge_chance - the live names are block, parry, dodge. No critical-block mechanic exists (Iron Barrier re-pointed) and no immunity key (Hold the Line dropped; Frontier has no such ability either).",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,476 +16,633 @@
     {
       "talent_id": "guardian_vanguard_iron_guardian",
       "name": "Iron Guardian",
-      "description": "Increases your Stamina by 5% per rank.",
+      "description": "Increases your Stamina by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 5.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Stamina by 5%. (up to 3 ranks)'. The first pass had this as max_health_pct, which is a FRACTION in this engine - authored as 2.0 it granted +200% a rank."
-    },
-    {
-      "talent_id": "guardian_vanguard_heavy_expert",
-      "name": "Heavy Expert",
-      "description": "Increases your chance to parry and dodge by 1.5% and your Armor by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "parry": 1.5,
-        "dodge": 1.5,
-        "armor_pct": 4.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your chance to parry and dodge by 4% and increase your Armor contribution from mail and plate items by 20%.' Armour-by-item-type has no engine hook, so it lands as flat Armor; spread over 3 ranks rather than CoA's single point to fit Frontier's tier budget."
-    },
-    {
-      "talent_id": "guardian_vanguard_footmans_call",
-      "name": "Footman's Call",
-      "description": "Increases the damage of Pulverize by 8% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_guardian_pulverize_damage": 0.08
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Damage dealt by Pulverize is increased by 15, plus an additional amount scaling with your block value.' The block-value scaling has no hook. NOT a threat talent - the first pass used this name for threat."
-    },
-    {
-      "talent_id": "guardian_vanguard_with_honor",
-      "name": "With Honor",
-      "description": "Reduces the cooldown of Ram by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_guardian_ram_cooldown": -1
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the cooldown of Ram by -4 sec.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_knights_conviction",
-      "name": "Knight's Conviction",
-      "description": "Increases the damage your blocks absorb by 8% and your block chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "block_value_pct": 0.08,
-        "block": 1.0
-      },
-      "connected_to": [
-        "guardian_vanguard_iron_guardian"
-      ],
-      "_source": "CoA: 'Increases the block value provided by Raise Shield by 25% and your block chance by 1%. (up to 2 ranks)'"
-    },
-    {
-      "talent_id": "guardian_vanguard_seasoned_fighter",
-      "name": "Seasoned Fighter",
-      "description": "Reduces the Energy cost of your abilities by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "all_ability_cost_pct": 0.03
+        "stamina_pct": 15.0
       },
       "connected_to": [
         "guardian_vanguard_heavy_expert"
       ],
-      "_source": "CoA: 'Reduces the Energy cost of Pulverize, Ram, and Broad Sweep by -10%.' Engine-wide rather than per ability - there is no per-ability cost key for three abilities at once."
+      "_source": "CoA over 3 ranks: 'Increases your Stamina by 5%.' Authored at the full-investment ceiling with CoA's own 3 ranks, so the rank policy leaves it alone. stamina_pct takes percentage POINTS. The worksheet tagged this 'needs: pet-summon', which is wrong - there is no Iron Guardian pet in CoA's text, and the Guardian summons nothing (see tools/qa_pet_keys.py)."
     },
     {
-      "talent_id": "guardian_vanguard_stalwart",
-      "name": "Stalwart",
-      "description": "Increases the damage your blocks absorb by 5% and grants 2 hit rating per rank.",
+      "talent_id": "guardian_vanguard_heavy_expert",
+      "name": "Heavy Expert",
+      "description": "Increases your chance to parry and dodge by 4% and your armour by 20%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "block_value_pct": 0.05,
-        "hit_rating": 2
-      },
-      "connected_to": [
-        "guardian_vanguard_footmans_call"
-      ],
-      "_source": "CoA: 'Increases your block value by 10% and your expertise by 4. (up to 2 ranks)'. No expertise key exists; hit rating is the nearest live stat."
-    },
-    {
-      "talent_id": "guardian_vanguard_valiant_defender",
-      "name": "Valiant Defender",
-      "description": "Increases your maximum Energy by 5 and the damage of Pulverize by 5% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "energy_max": 5,
-        "ability_guardian_pulverize_damage": 0.05
-      },
-      "connected_to": [
-        "guardian_vanguard_with_honor"
-      ],
-      "_source": "CoA: 'Increases your maximum Energy by 15 and increases the damage of Pulverize and Broad Sweep by 10%.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_bulwark",
-      "name": "Bulwark",
-      "description": "Increases the damage your blocks absorb by 25% and grants 5 hit rating.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -2,
+      "hex_y": -6,
       "effects": {
-        "block_value_pct": 0.25,
-        "hit_rating": 5
+        "parry": 1.3333,
+        "dodge": 1.3333,
+        "armor_pct": 6.6667
       },
       "connected_to": [
         "guardian_vanguard_knights_conviction"
       ],
-      "_source": "CoA: 'Level 20 Passive. Increases your block value by 25% and your hit rating by 5% of your Stamina.' The Stamina-into-hit conversion is real in CoA and cannot be expressed here: hit_rating is a local feeding base_miss_chance_*, not a Character attribute, so it cannot be a <target>_from_<source>_pct target without restructuring that loop. Flat hit instead."
+      "_source": "CoA verbatim: 'Increases your chance to parry and dodge by 4% and increase your Armor contribution from mail and plate items by 20%.' No key reads armour by item class, so the 20% applies to all armour - the Guardian wears plate anyway. THE LIVE KEYS ARE `parry` AND `dodge`, both PERCENT; parry_chance and dodge_chance read plausibly and are read by nothing. Dodge passes through _diminish() (character.py:1332), so 4% dodge is worth slightly less than 4% parry."
     },
     {
-      "talent_id": "guardian_vanguard_retaliation",
-      "name": "Retaliation",
-      "description": "Blows you block are answered in kind.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "guardian_vanguard_seasoned_fighter"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 30,
-        "icd": 1,
-        "damage_flat": 70
-      },
-      "_source": "CoA: 'Successful blocks now deal AP Physical damage to the attacker, scaling with defense rating. Can only occur once per sec.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_vanguards_shield",
-      "name": "Vanguard's Shield",
-      "description": "Reduces the Magic damage you take by 2% per rank.",
+      "talent_id": "guardian_vanguard_knights_conviction",
+      "name": "Knight's Conviction",
+      "description": "Increases your block value by 50% and your chance to block by 2%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "magic_damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "guardian_vanguard_stalwart"
-      ],
-      "_source": "CoA: 'Blocking an attack or landing an auto attack now grants a stack of Vanguard ... Magic Damage taken reduced.' The stacking half has no hook, so it is a flat reduction - and it is the only magic mitigation in the tree, which matters because the tank sweep flags Guardian as scoring zero there."
-    },
-    {
-      "talent_id": "guardian_vanguard_bring_down_the_hammer",
-      "name": "Bring Down The Hammer!",
-      "description": "Increases the damage of Heavy Blow by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_guardian_heavy_blow_damage": 0.08
-      },
-      "connected_to": [
-        "guardian_vanguard_valiant_defender"
-      ],
-      "_source": "CoA: 'Damage dealt by Heavy Blow now deals an additional 20% of the damage dealt every 1 sec for 3 seconds.' A bleed-on-hit has no shape here, so the damage lands up front."
-    },
-    {
-      "talent_id": "guardian_vanguard_iron_barrier",
-      "name": "Iron Barrier",
-      "description": "Your blocks absorb an additional 5% of the damage dealt to you, per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "block_bonus_reduction": 0.05
-      },
-      "connected_to": [
-        "guardian_vanguard_bulwark"
-      ],
-      "_source": "CoA: 'Level 30 Passive. Your successful blocks now have a 50% chance to critically block for twice the normal amount.' block_bonus_reduction is the engine's existing critical-block hook, read in Character.take_damage."
-    },
-    {
-      "talent_id": "guardian_vanguard_forceful_impact",
-      "name": "Forceful Impact",
-      "description": "Brace lasts 1 turn longer per rank.",
-      "node_type": "passive",
-      "tier": 3,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": 0,
+      "hex_y": -6,
       "effects": {
-        "ability_guardian_brace_duration": 1
+        "block_value_pct": 0.1667,
+        "block": 0.6667
+      },
+      "connected_to": [
+        "guardian_vanguard_seasoned_fighter"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the block value provided by Raise Shield by 25% and your block chance by 1%.' Doubled for the two ranks. 'Provided by Raise Shield' cannot be scoped - block value is a character stat, not an ability's - so it applies always. TWO UNITS IN ONE EFFECTS BLOCK: block_value_pct is a raw FRACTION (0.50 is +50%) and `block` is a PERCENT added to the base chance and rolled against 0-100 (2.0 is +2 points)."
+    },
+    {
+      "talent_id": "guardian_vanguard_stalwart",
+      "name": "Stalwart",
+      "description": "Increases your block value by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "block_value_pct": 0.0667
+      },
+      "connected_to": [
+        "guardian_vanguard_seasoned_fighter"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your block value by 10% and your expertise by 4.' Doubled for the two ranks. THE EXPERTISE HALF IS DROPPED: `expertise` is read by no engine code, confirmed earlier this session when it turned up dead in another CoA tree. Authoring it would have been a line of text with nothing behind it."
+    },
+    {
+      "talent_id": "guardian_vanguard_seasoned_fighter",
+      "name": "Seasoned Fighter",
+      "description": "Reduces the Energy cost of Pulverize, Ram and Broad Sweep by 10%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_guardian_pulverize_cost_pct": 0.0333,
+        "ability_guardian_ram_cost_pct": 0.0333,
+        "ability_guardian_broad_sweep_cost_pct": 0.0333
+      },
+      "connected_to": [
+        "guardian_vanguard_footmans_call"
+      ],
+      "_source": "CoA verbatim. All three abilities exist in Frontier and the Guardian's resource is Energy (abilities.py:153), so the costs are real. POSITIVE reduces."
+    },
+    {
+      "talent_id": "guardian_vanguard_bulwark",
+      "name": "Bulwark",
+      "description": "Increases your block value by 25% and your chance to hit by 5%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "block_value_pct": 0.0833,
+        "hit_rating": 1.6667
       },
       "connected_to": [
         "guardian_vanguard_retaliation"
       ],
-      "_source": "CoA: 'Casting Raise Shield and Heavy Blow now extends the duration of your Brace by 1 sec.'"
+      "_source": "CoA's level 20 passive: 'Increases your block value by 25% and your hit rating by 5% of your Stamina.' The block half ports exactly. The hit conversion does NOT - hit_rating is not in STAT_CONVERSION_TARGETS, the same wall that took the spell-hit half of the Witch Doctor's Voodoo Power - so it is paid as a flat 5% hit instead, which works as a direct stat even though it cannot be a conversion target."
+    },
+    {
+      "talent_id": "guardian_vanguard_footmans_call",
+      "name": "Footman's Call",
+      "description": "Increases the damage of Pulverize by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_pulverize_damage": 0.0667
+      },
+      "connected_to": [
+        "guardian_vanguard_retaliation"
+      ],
+      "_source": "CoA verbatim: 'Damage dealt by Pulverize is increased by 15, plus an additional amount scaling with your block value.' No key makes an ability's damage scale off a defensive stat - the coefficients live on the ability - so the whole thing is expressed as damage, which is what a block-value rider would have delivered on a tank already stacking block value from three nodes in tier 0."
+    },
+    {
+      "talent_id": "guardian_vanguard_with_honor",
+      "name": "With Honor",
+      "description": "Reduces the cooldown of Ram by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_ram_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "guardian_vanguard_vanguards_shield"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of Ram by -4 sec.' Expressed as a percentage because a flat second count is below a turn. POSITIVE reduces, so CoA's minus sign is dropped - authoring -0.25 would have LENGTHENED the cooldown."
+    },
+    {
+      "talent_id": "guardian_vanguard_honorbound",
+      "name": "Honorbound",
+      "description": "Reduces the Energy cost of Shield Challenge by 50%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_guardian_shield_challenge_cost_pct": 0.1667
+      },
+      "connected_to": [
+        "guardian_vanguard_vanguards_shield"
+      ],
+      "_source": "CoA verbatim: 'Removes the Energy cost of Shield Challenge.' A full cost removal is expressible (1.0) but makes the ability free forever from a tier-1 node, so it is priced at half. CoA pairs this with Shieldbound ('no longer has a cooldown, but costs 10 additional Energy'), which is NOT built: nothing removes an ability's cooldown outright, and no key adds to a cost - _cost_pct is positive-reduces, so the trade-off cannot be expressed in either direction."
+    },
+    {
+      "talent_id": "guardian_vanguard_retaliation",
+      "name": "Retaliation",
+      "description": "Blocking an attack strikes the attacker back for physical damage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_iron_barrier"
+      ],
+      "proc": {
+        "trigger": "on_block",
+        "chance": 33,
+        "icd": 0,
+        "damage_flat": 55,
+        "school": "physical"
+      },
+      "_source": "CoA verbatim: 'Successful blocks now deal 51 + 5% AP Physical damage to the attacker, scaling with defense rating. Can only occur once per sec.' PORTS ALMOST EXACTLY - on_block is a live trigger and damage_flat with a school is a live payload. CoA's 51 becomes 55 flat; the AP and defense-rating riders cannot be read into a payload, which is why it is flat. 'Once per sec' needs no internal cooldown when a turn is three seconds."
+    },
+    {
+      "talent_id": "guardian_vanguard_iron_barrier",
+      "name": "Iron Barrier",
+      "description": "Blocking an attack hardens your guard, raising your block value by 15% for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_vanguards_might"
+      ],
+      "proc": {
+        "trigger": "on_block",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "guardian_iron_barrier",
+          "name": "Iron Barrier",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "block_value_pct": 0.15
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA's level 30 passive: 'Your successful blocks now have a 50% chance to critically block for twice the normal amount.' THERE IS NO CRITICAL BLOCK MECHANIC - blocking resolves as a flat value against the hit, with no crit roll anywhere in that path - so a doubled block cannot happen. Rebuilt as a block that makes the next blocks bigger, which is the same outcome spread over turns instead of landing at random. block_value_pct IS READ RAW ON BOTH SIDES - a fraction as a talent effect AND inside a status effect, unlike max_health_pct and healing_taken_pct, which flip between the two. My first draft authored 15.0 here on the assumption it flipped, which audit_talents reported as 1500%; 15% is 0.15."
+    },
+    {
+      "talent_id": "guardian_vanguard_vanguards_shield",
+      "name": "Vanguard's Shield",
+      "description": "Blocking or striking builds your guard, reducing magic damage taken by 2% per stack for 10 turns, stacking 10 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_resilient"
+      ],
+      "proc": {
+        "trigger": "on_block",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "guardian_vanguards_shield",
+          "name": "Vanguard's Shield",
+          "effect_type": "buff",
+          "duration": 10,
+          "max_stacks": 10,
+          "stat_mods": {
+            "magic_damage_taken_pct": -2.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Blocking an attack or landing an auto attack now grants a stack of Vanguard for 1 min, stacking 10 times. Magic Damage taken reduced by 2%. Whenever you are hit by a spell, you lose 1 stack of this effect.' CoA's 2% and 10 stacks kept, and 1 min is 10 turns. THE SPEND-ON-SPELL-HIT HALF IS DROPPED: no payload removes a stack of an effect, so the ramp has no drain and this is stronger than CoA's. The auto-attack half is dropped too, so the stacks come from blocking alone rather than from two triggers - a second proc would double-stack on a turn where both happen. INSIDE A STATUS EFFECT magic_damage_taken_pct is divided by 100 and POSITIVE INCREASES damage taken, so a reduction is NEGATIVE here; as a talent effect it is a raw fraction where negative also reduces."
+    },
+    {
+      "talent_id": "guardian_vanguard_resilient",
+      "name": "Resilient",
+      "description": "Blocking an attack steadies you, raising your maximum health by 8% for 5 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_battle_wary"
+      ],
+      "proc": {
+        "trigger": "on_block",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "guardian_resilient",
+          "name": "Resilient",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "max_health_pct": 8.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Blocking an attack while Raise Shield is active now increases your maximum health by 308 + 10% Stamina + 11% AP for 15 seconds.' The 'while Raise Shield is active' gate does not exist - nothing reads whether a buff is up - so it fires on any block, with a 1-turn internal cooldown so a multi-hit turn does not refresh it repeatedly. The flat-plus-scaling number becomes a percentage, which is what it amounts to on a stamina-stacking tank. INSIDE A STATUS EFFECT max_health_pct takes percentage POINTS, so 8% is 8.0 - 0.08 would have been 0.08%, which is the mistake that shipped briefly on Witch Hunter's Black Knight."
+    },
+    {
+      "talent_id": "guardian_vanguard_battle_wary",
+      "name": "Battle Wary",
+      "description": "Reduces the cooldown of Advance and Battle Rush by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_guardian_advance_cooldown_pct": 0.1,
+        "ability_guardian_battle_rush_cooldown_pct": 0.1
+      },
+      "connected_to": [
+        "guardian_vanguard_kings_guard"
+      ],
+      "_source": "CoA verbatim. Both abilities exist in Frontier. POSITIVE reduces."
     },
     {
       "talent_id": "guardian_vanguard_vanguards_might",
       "name": "Vanguard's Might",
-      "description": "Heavy Blow leaves your allies taking 5% less damage per rank.",
+      "description": "Heavy Blow steels you, reducing all damage you take by 5% for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": 0,
       "effects": {},
       "connected_to": [
-        "guardian_vanguard_vanguards_shield"
+        "guardian_vanguard_bring_down_the_hammer"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
+        "ability_filter": [
+          "guardian_heavy_blow"
+        ],
         "apply_effect": {
           "effect_id": "guardian_vanguards_might",
           "name": "Vanguard's Might",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 2,
+          "max_stacks": 1,
           "stat_mods": {
             "damage_taken_pct": -0.05
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Your Heavy Blow now causes you to emanate an aura for 5 seconds that reduces all damage taken by -5% for party members.'"
+      "_source": "CoA verbatim: 'Your Heavy Blow now causes you to emanate an aura for 5 sec that reduces all damage taken by 5% for party members.' There is no party-aura mechanism, so the 5% lands on the Guardian and the description says 'you'. BARE damage_taken_pct IS READ RAW, so 5% is -0.05 - authoring -5.0 would be a 500% damage reduction, which is the immortality bug that shipped briefly on Boltslinger's Evasive at -20.0."
     },
     {
-      "talent_id": "guardian_vanguard_resilient",
-      "name": "Resilient",
-      "description": "Increases your total health by 3% per rank.",
+      "talent_id": "guardian_vanguard_bring_down_the_hammer",
+      "name": "Bring Down The Hammer!",
+      "description": "Heavy Blow leaves the enemy reeling, dealing physical damage over 2 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.03
-      },
+      "effects": {},
       "connected_to": [
-        "guardian_vanguard_bring_down_the_hammer"
+        "guardian_vanguard_valorous_strikes"
       ],
-      "_source": "CoA: 'Blocking an attack while Raise Shield is active now increases your maximum health by AP for 15 seconds.' Conditional max-health has no hook; flat."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_heavy_blow"
+        ],
+        "apply_effect": {
+          "effect_id": "guardian_bring_down_the_hammer",
+          "name": "Bring Down The Hammer!",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 34,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Heavy Blow now deals an additional 20% of the damage dealt every 1 sec for 3 seconds.' A repeated strike over 3 sec IS a dot, so this ports closely. The potency is flat rather than a share of the hit, because an apply_effect payload cannot read the triggering ability's damage."
     },
     {
-      "talent_id": "guardian_vanguard_footmans_calling",
-      "name": "Footman's Calling",
-      "description": "While holding a Formation you take 2% less damage and generate 6% more threat, per rank.",
+      "talent_id": "guardian_vanguard_kings_guard",
+      "name": "King's Guard",
+      "description": "Pulverize and Ram have a 10% chance to ready Raise Shield again.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_shield_unit"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_pulverize",
+          "guardian_ram"
+        ],
+        "reset_cooldown": [
+          "guardian_raise_shield"
+        ]
+      },
+      "_source": "CoA verbatim: 'Your Pulverize and Ram now have a 10% chance to reset the cooldown of Raise Shield.' PORTS EXACTLY - CoA's 10%, and reset_cooldown as a BARE LIST is a full reset, which is what 'reset the cooldown' means. Note the chance is authored at 10 and the rank policy will spread it: at 3 ranks it becomes 3, reaching 9% at full investment rather than 10, which the description rounds to 10% as the ceiling."
+    },
+    {
+      "talent_id": "guardian_vanguard_valorous_strikes",
+      "name": "Valorous Strikes",
+      "description": "Your weapon swings have a 10% chance to strike twice and leave the target 3% less likely to hit you for 5 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_order_in_the_court"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 3,
+        "icd": 0,
+        "extra_attack": true,
+        "apply_effect": {
+          "effect_id": "guardian_valorous_strikes",
+          "name": "Valorous Strikes",
+          "effect_type": "debuff",
+          "duration": 5,
+          "max_stacks": 1,
+          "stat_mods": {
+            "hit_rating": -3.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Auto attacks now have a 10% chance to strike an additional time and reduce your target's chance to hit by -3% for 15 seconds.' PORTS EXACTLY - on_weapon_swing is the live auto-attack trigger, extra_attack is a live boolean payload, and 15 sec is 5 turns. CoA's 10% and 3% both kept. A tank reducing the boss's hit chance is real mitigation here because hit_rating is rolled on the attacker's side."
+    },
+    {
+      "talent_id": "guardian_vanguard_shield_unit",
+      "name": "Shield Unit",
+      "description": "Taking damage stokes your fury, raising your attack power by 3% per stack for 10 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
-      "effects": {
-        "damage_taken_pct": -0.02,
-        "threat_generation_pct": 0.06
-      },
-      "connected_to": [
-        "guardian_vanguard_iron_barrier"
-      ],
-      "_source": "CoA: 'Level 10 Passive. Your damage taken is reduced by -10% while Tower Formation or Line Formation is active. In addition, your threat generated from Physical [damage is increased].' THE tree's threat talent - 3 ranks give +18%, just under Warrior Defiance's 24%, since Guardian trades threat for the best mitigation in the game. Note threat_generation_pct is a FRACTION as a talent effect and percent POINTS as an ability buff stat_mod."
-    },
-    {
-      "talent_id": "guardian_vanguard_experienced_soldier",
-      "name": "Experienced Soldier",
-      "description": "Reduces the cooldown of Brace by 1 turn.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_guardian_brace_cooldown": -1
-      },
-      "connected_to": [
-        "guardian_vanguard_forceful_impact"
-      ],
-      "_source": "CoA: 'Level 40 Passive. Melee attacks now reduce the cooldown of Brace by -1 sec.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_the_green_tower",
-      "name": "The Green Tower",
-      "description": "Increases your Armor by 3% per rank and cheapens your Formations.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "armor_pct": 3.0,
-        "all_ability_cost_pct": 0.01
-      },
-      "connected_to": [
-        "guardian_vanguard_vanguards_might"
-      ],
-      "_source": "CoA: 'Reduces the Energy cost of your Formations and increases their effectiveness by 25%.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_hold_the_line",
-      "name": "Hold the Line",
-      "description": "Reduces the duration of stuns used against you by 15% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "stun_duration_reduction_pct": 0.15
-      },
-      "connected_to": [
-        "guardian_vanguard_footmans_calling"
-      ],
-      "_source": "CoA: 'Command nearby allies to hold the line, making them immune to incapacitate, disorient, knockback, and grip effects for 15 seconds.' Party immunity has no hook, so it shortens stuns on the Guardian instead."
-    },
-    {
-      "talent_id": "guardian_vanguard_high_guard",
-      "name": "High Guard",
-      "description": "After you strike, your guard comes back up harder.",
-      "node_type": "active",
-      "tier": 5,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
       "effects": {},
       "connected_to": [
-        "guardian_vanguard_experienced_soldier"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 35,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "guardian_high_guard",
-          "name": "High Guard",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "block": 10.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Level 50 Passive. After using Raise Shield, Advance or Battle Rush, you are granted High Guard.'"
-    },
-    {
-      "talent_id": "guardian_vanguard_shield_unit",
-      "name": "Shield Unit",
-      "description": "Each hit you take grants you attack power, 4% of the damage per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "guardian_vanguard_the_green_tower"
+        "guardian_vanguard_plate_buster"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 100,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "guardian_shield_unit",
           "name": "Shield Unit",
           "effect_type": "buff",
-          "duration": 4,
+          "duration": 10,
+          "max_stacks": 5,
           "stat_mods": {
-            "attack_power": 25
+            "attack_power_pct": 3.0
           },
           "on_target": false
         }
       },
-      "_source": "CoA: 'Each time you take damage, you gain 5% of the damage taken as attack power for 1 minute.'"
+      "_source": "CoA verbatim: 'Each time you take damage, you gain 5% of the damage taken as attack power for 1 min.' NOTHING CONVERTS AN EVENT'S AMOUNT INTO A STAT - a payload cannot read the hit's size into a stat_mod - so an uncapped percentage of damage taken is not expressible, and it would be unbounded on a tank regardless. Rebuilt as a stacking percentage with a ceiling: 5 stacks of 3% is 15% attack power at cap, and 1 min is 10 turns. attack_power_pct takes percentage POINTS."
     },
     {
-      "talent_id": "guardian_vanguard_kings_guard",
-      "name": "King's Guard",
-      "description": "Your Pulverize and Ram throw your shield back up before you need it. 10% less damage taken.",
-      "node_type": "active",
+      "talent_id": "guardian_vanguard_order_in_the_court",
+      "name": "Order In The Court",
+      "description": "Hammer of the Law cows the enemy, reducing the damage they deal by 10% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_the_green_tower"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_hammer_of_the_law"
+        ],
+        "apply_effect": {
+          "effect_id": "guardian_order_in_the_court",
+          "name": "Order In The Court",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_dealt_pct": -10.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Hammer of the Law now reduces the damage dealt by affected enemies by -10% for 8 seconds.' Ports exactly - CoA's 10%, and 8 sec is 3 turns. Hammer of the Law exists in Frontier; CoA's silence rider on the ability itself is not a talent and has no key anyway. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "guardian_vanguard_the_green_tower",
+      "name": "The Green Tower",
+      "description": "Reduces the Energy cost of your Formations by 25% and raises the threat they generate by 25%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "ability_guardian_tower_formation_cost_pct": 0.0833,
+        "ability_guardian_line_formation_cost_pct": 0.0833,
+        "threat_generation_pct": 0.0833
+      },
+      "connected_to": [
+        "guardian_vanguard_wreck_formation"
+      ],
+      "_source": "CoA verbatim: 'Reduces the Energy cost of your Formations and increases their effectiveness by 25%.' Both Formations exist in Frontier. 'Effectiveness' has no single key for a Formation - they are stances, not damage - so the 25% is paid as threat, which is what a tank's Formation is for and what the spec's own level 10 passive already keys on. threat_generation_pct is a FRACTION where POSITIVE increases, the opposite polarity to the _cost_pct keys beside it in the same block."
+    },
+    {
+      "talent_id": "guardian_vanguard_valiant_defender",
+      "name": "Valiant Defender",
+      "description": "Increases the damage of Pulverize and Broad Sweep by 10%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_guardian_pulverize_damage": 0.0333,
+        "ability_guardian_broad_sweep_damage": 0.0333
+      },
+      "connected_to": [
+        "guardian_vanguard_wreck_formation"
+      ],
+      "_source": "CoA verbatim: 'Increases your maximum Energy by 15 and increases the damage of Pulverize and Broad Sweep by 10%.' THE MAXIMUM ENERGY HALF IS DROPPED: max_energy_bonus is read by nothing, and the primary resource pool is not talent-settable - the same shape as max_rage being hardcoded at 100. The damage half ports exactly."
+    },
+    {
+      "talent_id": "guardian_vanguard_plate_buster",
+      "name": "Plate Buster",
+      "description": "Critical strikes with Ram bring Bastion a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_shieldlords_strength"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "guardian_ram"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "guardian_bastion"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Critical strikes with Ram now reduces the remaining cooldown of Hold the Line by 4 sec.' FRONTIER HAS NO HOLD THE LINE ABILITY, and CoA's version is an immunity to incapacitate, disorient, knockback and grip - none of which have a key here - so the target cannot exist either. Re-pointed at Bastion, the spec's real long-cooldown defensive, which is what Hold the Line occupies in CoA's kit. 4 sec is a turn."
+    },
+    {
+      "talent_id": "guardian_vanguard_wreck_formation",
+      "name": "Wreck Formation",
+      "description": "Melee critical strikes have a 50% chance to ready Hammer of the Law again.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "guardian_vanguard_shieldlords_strength"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 17,
+        "icd": 0,
+        "reset_cooldown": [
+          "guardian_hammer_of_the_law"
+        ]
+      },
+      "_source": "CoA verbatim: 'Melee critical strikes now have a 50% chance to reset the cooldown of Hammer of the Law. Casting Standard of Valiance now increases your attack power by 10% for 6 sec.' The first half ports exactly - CoA's 50%, bare-list reset_cooldown for a full reset. The second half would need a second proc on a different trigger; it is dropped rather than merged, because on_crit would not have fired on Standard of Valiance, a self buff that deals no damage. THERE IS NO TRIGGER-SIDE MELEE FILTER - proc school only types a damage_flat payload - so this fires on any crit, which on a shield tank is almost always melee."
+    },
+    {
+      "talent_id": "guardian_vanguard_forceful_impact",
+      "name": "Forceful Impact",
+      "description": "Raise Shield and Heavy Blow extend Brace by 1 turn.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_guardian_brace_duration": 1
+      },
+      "connected_to": [
+        "guardian_vanguard_shieldlords_strength"
+      ],
+      "_source": "CoA verbatim: 'Casting Raise Shield and Heavy Blow now extends the duration of your Brace by 1 sec. Brace cannot be extended beyond its maximum duration.' No payload extends a live effect's duration - consumes_stacks_of is the only thing that does and it reads the caster's own stacks to lengthen a DoT - so this is built as a flat duration bonus on Brace itself, which is the same outcome without the trigger. The small integer keeps this node out of the rank policy's reach."
+    },
+    {
+      "talent_id": "guardian_vanguard_shieldlords_strength",
+      "name": "Shieldlord's Strength",
+      "description": "Increases your Stamina by 15% and the damage of Heavy Blow and Hammer of the Law by 40%.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "damage_taken_pct": -0.1
+        "stamina_pct": 15.0,
+        "ability_guardian_heavy_blow_damage": 0.4,
+        "ability_guardian_hammer_of_the_law_damage": 0.4
       },
-      "connected_to": [
-        "guardian_vanguard_hold_the_line",
-        "guardian_vanguard_high_guard",
-        "guardian_vanguard_shield_unit"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "guardian_kings_guard",
-          "name": "King's Guard",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "block": 15.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "Capstone. CoA: 'Your Pulverize and Ram now have a 10% chance to reset the cooldown of Raise Shield.' A proc cannot reset a cooldown, so it grants the block window the reset would have bought, plus the flat mitigation that makes it a capstone. CoA rates Vanguard 'the safest tank in COA ... Nearly unkillable, just slower kills'."
+      "connected_to": [],
+      "_source": "CoA verbatim: 'You may now use two-handed Maces and can now equip two-handed Maces with a shield. Your Heavy Blow and Hammer of the Law now deal additional damage scaling with your Stamina and your Stamina is increased by 15%.' The weapon-rule half is not a talent effect - equip rules live on items, and a two-hander with a shield would need the slot system changed, which is well outside a talent. Stamina-scaling damage has no key (coefficients live on the ability), so it is paid as flat damage. CoA's 15% Stamina ports exactly, and stacks with Iron Guardian at tier 0 for 30% on a pure-Vanguard build. CoA's own Paragon node at this tier is the unresolved token '$32' and is not built."
     }
   ]
 }
