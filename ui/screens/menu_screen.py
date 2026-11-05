@@ -75,10 +75,7 @@ class MenuScreen(BaseScreen):
         #: would have had to grow its own copy of it.
         from ui.parallax import ParallaxBackdrop
         self.backdrop = ParallaxBackdrop()
-        #: Set when New Game is clicked. The transition does not fire until the
-        #: dolly finishes, so the camera move is the transition rather than
-        #: something that plays before one.
-        self._pending_state = None
+
 
     def _build_slot_rects(self):
         """One clickable Rect per save slot, stacked in a column centered
@@ -140,14 +137,10 @@ class MenuScreen(BaseScreen):
             return
 
         if self.buttons["new_game"].collidepoint(mouse_pos):
-            # Kyle: "The player clicks New Game. The camera slowly moves
-            # toward the valley, the logo fades away." The transition is
-            # deferred to update() so the dolly IS the transition.
-            if self.backdrop.loaded:
-                self.backdrop.start_push_in()
-                self._pending_state = GameState.CHARACTER_CREATION
-            else:
-                self.state_manager.transition_to(GameState.CHARACTER_CREATION)
+            # Straight through. Kyle, 5 Nov: "no zoom in with white flash on
+            # new game either" - the dolly came apart in motion, so it is gone
+            # along with the bloom that handed off from it.
+            self.state_manager.transition_to(GameState.CHARACTER_CREATION)
         elif self.buttons["load_game"].collidepoint(mouse_pos):
             self.slot_mode = "load"
             self.slot_rects = self._build_slot_rects()
@@ -208,24 +201,6 @@ class MenuScreen(BaseScreen):
                 self.message = None
 
         self.backdrop.update(dt)
-
-        if self._pending_state is not None:
-            if self.backdrop.push_complete:
-                nxt, self._pending_state = self._pending_state, None
-                self.state_manager.transition_to(nxt)
-        elif self.backdrop.push > 0.0:
-            # Re-arm on the way back in. There is no on_enter hook anywhere in
-            # this codebase - BaseScreen has none and GameStateManager calls
-            # none - so a tidy-looking on_enter() would simply never run, and
-            # returning to the menu after a New Game would show the frozen
-            # white-out forever.
-            #
-            # Safe to key off update() instead: this method only runs while
-            # the menu is the active state, so push > 0 with nothing pending
-            # means we pushed, left, and have now come back. The main loop
-            # updates before it renders, so the reset lands before the first
-            # frame is drawn and no white flash is visible.
-            self.backdrop.reset()
     
     def render(self, screen):
         """Draw menu."""
@@ -241,14 +216,6 @@ class MenuScreen(BaseScreen):
             scrim.fill((6, 4, 10, 200))
             screen.blit(scrim, (0, 0))
             self._render_slot_picker(screen)
-            return
-
-        # Once the camera starts moving, the menu is gone - buttons included.
-        # Leaving them on screen during the push is what would make this read
-        # as a menu with an animated wallpaper instead of an opening shot.
-        if self._pending_state is not None:
-            self._render_title_text(screen, self.backdrop.logo_alpha())
-            self.backdrop.draw_bloom(screen)
             return
 
         self._render_title_text(screen, 255)
