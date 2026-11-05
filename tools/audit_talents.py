@@ -251,12 +251,48 @@ def _is_live_school_key(key):
 #: healing_pct is read through the heal path's recipient branch.
 _NAMED_LIVE = frozenset({
     "low_mana_healing_pct", "high_mana_healing_pct", "spell_damage_taken_pct",
-    "block_value_pct", "aoe_damage", "dot_damage", "bleed_dot_damage",
-    "poison_dot_damage", "low_health_healing_pct",
+    "block_value_pct", "aoe_damage", "dot_damage",
+    "low_health_healing_pct",
     "pet_damage", "pet_health", "pet_armor",
     "static_max", "energy_max", "insanity_max", "runes_max",
     "solar_power_max",
 })
+
+#: The flavour halves of f"{flavour}_dot_damage" that the engine assembles.
+#: Ability._damage_multiplier does this:
+#:
+#:     for flavour in ("bleed", "poison"):
+#:         if flavour in self.ability_id:
+#:             global_key += self._talent(caster, f"{flavour}_dot_damage")
+#:
+#: so the key is live ONLY while some ability's id contains that word. That
+#: is not a given, and it was not true: bleed_dot_damage sat in _NAMED_LIVE
+#: as unconditionally live while NO ability id in the game contained
+#: "bleed", which made Primalist's Rending Claws and Bloodmage's Crimson
+#: Curse dead and kept them passing this audit. poison_dot_damage was fine
+#: all along - five abilities match it - which is exactly why hardcoding
+#: the pair together hid the problem.
+_DOT_FLAVOURS = ("bleed", "poison")
+
+
+def live_flavour_dot_keys():
+    """{"<flavour>_dot_damage"} for flavours some ability id actually has.
+
+    Computed from the ability data rather than listed, so naming a new
+    ability "..._bleed_..." turns bleed_dot_damage live by itself, and
+    removing the last matching ability turns it dead again and says so.
+    """
+    ids = []
+    for path in sorted((ROOT / "data/abilities").glob("*.json")):
+        doc = json.loads(path.read_text())
+        block = doc.get("abilities", doc)
+        rows = (list(block.values()) if isinstance(block, dict)
+                else block if isinstance(block, list) else [])
+        for row in rows:
+            if isinstance(row, dict) and row.get("ability_id"):
+                ids.append(row["ability_id"])
+    return {f"{f}_dot_damage" for f in _DOT_FLAVOURS
+            if any(f in aid for aid in ids)}
 
 
 def scale_talent_keys():
@@ -342,7 +378,7 @@ def main():
     verbose = "--verbose" in sys.argv
     T = load()
     findings = defaultdict(list)
-    LIVE = live_effect_keys() | scale_talent_keys()
+    LIVE = live_effect_keys() | scale_talent_keys() | live_flavour_dot_keys()
 
     for tid, n in T.items():
         for key, val in (n.get("effects") or {}).items():

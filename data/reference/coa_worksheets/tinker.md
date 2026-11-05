@@ -1,8 +1,8 @@
 # Tinker - CoA reference vs ours
 
 - CoA talents: **129**
-- already in our data by name: **29** (of those, **17** are pure scalars on our side)
-- not in our data at all: **100**
+- already in our data by name: **53** (of those, **27** are pure scalars on our side)
+- not in our data at all: **76**
 - single-clause scalars in CoA's own tree: **23** (17%)
 - carry real-time assumptions needing translation: **66** (51%)
 - without an extracted CoA icon: **7**
@@ -13,20 +13,20 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
 
 ## Demolition  (DPS) - 38 talents, 2 abilities
 
-- **Bomb Toss** (1 rank) - MATCH tinker_demolition
+- **Bomb Toss** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff, cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/bomb_toss.png
   - CoA: Bomb Toss Rank 1 6% of base mana Instant 8 sec cooldown Lob a bomb at an enemy, dealing 36+0+ RAP *.3+ FireP *.5 Fire damage and reducing their armor by 5% for 15 sec, stacking 4 times.
-- **Build: Spider Bomb** (1 rank) - MATCH tinker_demolition
+- **Build: Spider Bomb** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/build_spider_bomb.png
   - CoA: Build a Spider Bomb that will immediately run towards your target and detonate dealing 250 + 30% ranged AP Fire damage in an 8 yd radius. Using Scrap Shot will redirect the Spider Bombs to your new target.
-- **Incendiary Bullets** (2 ranks) - NEW - we have no talent of this name
+- **Incendiary Bullets** (2 ranks) - MATCH tinker_demolition  [ours is scalar]
   - needs: scalar
   - icon: assets/icons/coa/incendiary_bullets.png
   - CoA: Increases the damage of Scrap Shot by 15% and increases your chance to hit by 2%.
-- **Sparked and Ready!** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+- **Sparked and Ready!** (1 rank) - MATCH tinker_demolition
   - needs: proc-chance
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
@@ -36,10 +36,10 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - needs: scalar
   - icon: assets/icons/coa/i_need_more_explosions.png
   - CoA: Increases the damage of Sticky Bomb Explosions by 15%.
-- **Target Acquired** (1 rank) - NEW - we have no talent of this name
+- **Target Acquired** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - icon: assets/icons/coa/target_acquired.png
   - CoA: Your Sticky Bomb Explosions and Spider Bomb now deal 30% increased damage when it strikes only 1 target.
-- **Boom Hour** (1 rank) - NEW - we have no talent of this name
+- **Boom Hour** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - needs: scalar
   - icon: assets/icons/coa/boom_hour.png
   - CoA: Increases the critical strike chance of Bomb Toss and Firepot Drone by 10%.
@@ -49,29 +49,29 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/build_firepot_drone.png
   - CoA: 3 Charges, 10 sec recharge Build a Firepot Drone that flies towards your target, dropping a bomb along its path and exploding upon landing, dealing 182 + 17.5% ranged AP + 55% fire SP Fire damage in a 5 yd radius, leaving oil on the ground for 6 seconds that slows enemies within by -30%.
-- **Duobombers** (1 rank) - NEW - we have no talent of this name
+- **Duobombers** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - icon: assets/icons/coa/duobombers.png
   - CoA: Build: Spider Bomb now creates an additional Spider Bomb that rushes towards your target.
-- **Aftermath** (1 rank) - NEW - we have no talent of this name
+- **Aftermath** (1 rank) - MATCH tinker_demolition
   - needs: transforms-ability
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - icon: assets/icons/coa/aftermath.png
   - CoA: Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.
-- **Explosives Expert** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+- **Explosives Expert** (1 rank) - MATCH tinker_demolition
   - needs: resource-grant, pet-summon
   - icon: assets/icons/coa/explosives_expert.png
   - CoA: Explosives Expert Passive Instant Direct harmful ability critical strikes from you or your summons now restores 4% of your maximum mana.
-- **Drone Striker** (1 rank) - NEW - we have no talent of this name
+- **Drone Striker** (1 rank) - MATCH tinker_demolition
   - needs: stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/drone_striker.png
   - CoA: Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.Napalm (Damage) Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.
-- **Grenadier** (1 rank) - NEW - we have no talent of this name
+- **Grenadier** (1 rank) - MATCH tinker_demolition
   - needs: charges, stacking-buff, cooldown
   - icon: assets/icons/coa/grenadier.png
   - CoA: When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.
-- **Bombastic** (1 rank) - NEW - we have no talent of this name
+- **Bombastic** (1 rank) - MATCH tinker_demolition
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [gcd]: no GCD exists - usually means the talent is free value, so drop or reprice
@@ -82,10 +82,10 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/flamethrowing.png
   - CoA: When you Bomb Toss, your Sentry Turret unleashes flames on your target, dealing 89+18+ranged AP*0.12+SPFI*0.4. Fire damage to enemies in a 30 yd line.
-- **Tank Buster** (1 rank) - NEW - we have no talent of this name
+- **Tank Buster** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - icon: assets/icons/coa/tank_buster.png
   - CoA: Your Scrap Shot now ignores 25% of the target's Armor when damaging Burning targets.
-- **War Crimes** (1 rank) - NEW - we have no talent of this name
+- **War Crimes** (1 rank) - MATCH tinker_demolition
   - needs: proc-chance, stacking-buff
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/war_crimes.png
@@ -95,10 +95,10 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/build_oil_spill_pylon.png
   - CoA: Build an Oil-Spill Pylon at target location for 10 seconds, spilling oil in an 8 yd radius that reduces enemies movement speed by -60% and increases their Fire damage taken by you by 15%. Sticky Bomb Explosions and Firepot Drone deal 20% increased damage to enemies inside.
-- **Surprise Launch!** (1 rank) - NEW - we have no talent of this name
+- **Surprise Launch!** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - icon: assets/icons/coa/surprise_launch.png
   - CoA: When Rocket Launcher is used on enemies affected by Sticky Bomb it is now guaranteed to critically strike.
-- **Bomb Builder** (1 rank) - NEW - we have no talent of this name
+- **Bomb Builder** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/bomb_builder.png
   - CoA: Increases your and your summons Fire Damage dealt by 5%.
@@ -107,7 +107,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/tracer_augmentation.png
   - CoA: Add a Tracer Augmentation to your gun for 1 hour, causing your ranged attacks to mark enemies for 5 seconds, stacking 5 times. After the duration they explode for 80 + 8% ranged AP + 15% fire SP Fire damage, increased based on stacks. Marked enemies are prevented from entering stealth or invisibility for 20 seconds.
-- **Buster Scope** (1 rank) - MATCH tinker_demolition  [ours is scalar]
+- **Buster Scope** (1 rank) - NEW - we have no talent of this name
   - needs: scalar
   - icon: assets/icons/coa/buster_scope.png
   - CoA: Increases the critical damage of Rocket Launcher by 10%.
@@ -125,15 +125,15 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [real-time-window]: becomes a turn window - state how many TURNS
   - icon: assets/icons/coa/rockadier.png
   - CoA: Rockadier 12% of base mana Instant 3 min cooldown Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.
-- **Bomb Squad** (1 rank) - NEW - we have no talent of this name
+- **Bomb Squad** (1 rank) - MATCH tinker_demolition  [ours is scalar]
   - icon: assets/icons/coa/bomb_squad.png
   - CoA: Level 40 Passive Increases your Fire spell power by 50% of Agility.
-- **Machine Synergy** (1 rank) - NEW - we have no talent of this name
+- **Machine Synergy** (1 rank) - MATCH tinker_demolition
   - needs: stacking-buff, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/machine_synergy.png
   - CoA: Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret.Machine Synergy Increases damage dealt by 5% and haste by 3%, stacking 3 times, for 6 seconds.
-- **Rocket Engineering** (1 rank) - NEW - we have no talent of this name
+- **Rocket Engineering** (1 rank) - MATCH tinker_demolition
   - needs: stacking-buff
   - icon: assets/icons/coa/rocket_engineering.png
   - CoA: Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target while active on the enemy.
@@ -141,7 +141,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - needs: aoe-cleave
   - icon: assets/icons/coa/gazlowe_s_wisdom.png
   - CoA: Gazlowe's Wisdom Passive Instant You now spawn 2 Shrapnel Mines under your target when Sticky Bomb explodes. Shrapnel Mine When you use Remote Detonation , deal AP*0.25+SP*0.385+186+2.5 Points Per Level Physical damage to up to 5 enemies within 10 yds. The mine lasts 1 min.
-- **Rocket Pack** (1 rank) - NEW - we have no talent of this name
+- **Rocket Pack** (1 rank) - MATCH tinker_demolition
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/rocket_pack.png
@@ -180,7 +180,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/explosive_inventor.png
   - CoA: Spider Bomb Factory now also summons a Heavy Spider Bomb. Heavy Spider Bombs move slowly, and deal 1231 + 55% ranged AP Fire damage when they reach their target and slow their movement speed by -70% for 2 seconds.
-- **Hyperblast Barrage** (1 rank) - MATCH tinker_demolition
+- **Hyperblast Barrage** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/hyperblast_barrage.png
@@ -205,7 +205,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - needs: pet-summon
   - icon: MISSING - needs art
   - CoA: Increases your and your summons critical strike chance by 5%.
-- **Master Builder** (1 rank) - NEW - we have no talent of this name
+- **Master Builder** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: scalar
   - icon: assets/icons/coa/master_builder.png
   - CoA: Reduces the mana cost of all Build abilities by -25%.
@@ -355,42 +355,42 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
 
 ## Mechanics  (DPS) - 42 talents, 1 abilities
 
-- **Makeshift Dynamite** (1 rank) - MATCH tinker_mechanics
+- **Makeshift Dynamite** (1 rank) - NEW - we have no talent of this name
   - needs: charges, cooldown, resource-grant
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/makeshift_dynamite.png
   - CoA: Makeshift Dynamite Rank 1 5% of base mana 2 sec cast 2 Charges, 8 sec recharge Generates 10 Scrap Load dynamite into your gun and launch it at an enemy, dealing 100% Ranged Weapon Damage plus 12 as Fire damage. Usable while moving.
-- **Mechsuit: Laser Beam** (1 rank) - MATCH tinker_mechanics
+- **Mechsuit: Laser Beam** (1 rank) - NEW - we have no talent of this name
   - needs: charges, pet-summon
   - icon: assets/icons/coa/mechsuit_laser_beam.png
   - CoA: Blast an enemy with a laser, dealing 100% Ranged Weapon Damage plus 18 as Fire Damage and forcing your pet to charge to the enemy for 24 Physical Damage.
-- **Slam the Cogs!** (2 ranks) - NEW - we have no talent of this name
+- **Slam the Cogs!** (2 ranks) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/slam_the_cogs.png
   - CoA: Increases the damage dealt by you and your summons by 4%.
-- **Sprocket Loaded** (1 rank) - NEW - we have no talent of this name
+- **Sprocket Loaded** (1 rank) - MATCH tinker_mechanics
   - needs: cooldown, pet-summon
   - icon: assets/icons/coa/sprocket_loaded.png
   - CoA: Casting Makeshift Dynamite now resets the cooldown of your Mechsuit abilities.
-- **Mechanical Synergy** (2 ranks) - NEW - we have no talent of this name
+- **Mechanical Synergy** (2 ranks) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/mechanical_synergy.png
   - CoA: Increases the damage of Sticky Bomb Explosion and Mechsuit abilities by 15%.
-- **Bombs? BOMBS!** (1 rank) - NEW - we have no talent of this name
+- **Bombs? BOMBS!** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: cooldown
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/bombs_bombs.png
   - CoA: Increases the detonation speed of Sticky Bomb by -1 sec and reduces its cooldown by -2 sec.
-- **Combat Crafter** (1 rank) - NEW - we have no talent of this name
+- **Combat Crafter** (1 rank) - MATCH tinker_mechanics
   - needs: proc-chance, pet-summon
   - icon: assets/icons/coa/combat_crafter.png
   - CoA: Level 20 Passive While in your Mechsuit, damage dealt by your summons now has a 20% chance to grant you 5 Scrap and 2% of your maximum mana.
-- **Mechsuit: Combustion** (1 rank) - MATCH tinker_mechanics
+- **Mechsuit: Combustion** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/mechsuit_combustion.png
   - CoA: Mechsuit: Combustion Rank 1 5% of base mana 1.5 sec cast 10 sec cooldown Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 70+0+ RAP *.2 Fire damage. Usable while moving. Shares a cooldown with other Mechsuit abilities.
-- **Fine Tuned** (1 rank) - NEW - we have no talent of this name
+- **Fine Tuned** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/fine_tuned.png
   - CoA: Increases the critical strike and hit chance of you and your summons by 4%.
@@ -399,13 +399,13 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/mechsuit_activate_jets.png
   - CoA: Mechsuit: Activate Jets 30% of base mana Instant 10 sec cooldown Launch forward and slow your falling speed. When you hit the ground you blast nearby enemies for 45+16.0 Points Per Level Fire damage based on time in the air. Shares a cooldown with other Mechsuit abilities.
-- **Turbo Guns** (1 rank) - NEW - we have no talent of this name
+- **Turbo Guns** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - icon: assets/icons/coa/turbo_guns.png
   - CoA: Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.
-- **Flak Guns** (1 rank) - NEW - we have no talent of this name
+- **Flak Guns** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/flak_guns.png
   - CoA: Your Mechsuit: Combustion now has 10% increased critical strike chance and 15% increased critical damage.
@@ -414,20 +414,20 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: MISSING - needs art
   - CoA: When you enter your Mechsuit, it now refunds 20% of your base mana, repeating every 20 sec while inside.
-- **Junker** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+- **Junker** (1 rank) - MATCH tinker_mechanics
   - needs: stacking-buff, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/junker.png
   - CoA: Junker Passive Instant cast Casting Spanner Smash and Scrap Shot now increases your pet's attack power by 5% for 15 sec, stacking 2 times.
-- **Build: Scrapmaw** (1 rank) - MATCH tinker_mechanics
+- **Build: Scrapmaw** (1 rank) - NEW - we have no talent of this name
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/build_scrapmaw.png
   - CoA: Build: Scrapmaw 15% of base mana 6 sec cast Build a Scrapmaw to accompany the Tinker until dismissed.
-- **Battle Engineer** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+- **Battle Engineer** (1 rank) - NEW - we have no talent of this name
   - needs: charges, proc-chance, cooldown
   - icon: assets/icons/coa/battle_engineer.png
   - CoA: Battle Engineer Specialization Instant Level 30 Passive Your ranged damage dealt now has a 20% chance to refresh a charge of Makeshift Dynamite .
-- **Overload** (1 rank) - NEW - we have no talent of this name
+- **Overload** (1 rank) - MATCH tinker_mechanics
   - needs: proc-chance, pet-summon
   - icon: assets/icons/coa/overload.png
   - CoA: Damage dealt by Mechsuit: Combustion and Mechsuit: Laser Beam now have a 40% chance to strike 2 additional times for 30% of the damage dealt.
@@ -447,16 +447,16 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/defensive_utility.png
   - CoA: Defensive Utility Passive Instant 5 sec cooldown Your Mechsuit will now increase your armor by an additional 50%.
-- **Nano-Repair Tech** (1 rank) - NEW - we have no talent of this name
+- **Nano-Repair Tech** (1 rank) - MATCH tinker_mechanics
   - needs: pet-summon, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/nano_repair_tech.png
   - CoA: You and your pet now regenerate 3% of your maximum health every 8 sec.
-- **Augmechtation** (1 rank) - NEW - we have no talent of this name
+- **Augmechtation** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/augmechtation.png
   - CoA: Your Mechsuit now increases your damage by an additional 10% while active.
-- **Engine Augmentation** (1 rank) - NEW - we have no talent of this name
+- **Engine Augmentation** (1 rank) - MATCH tinker_mechanics
   - needs: resource-grant, pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/engine_augmentation.png
@@ -466,27 +466,27 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: MISSING - needs art
   - CoA: Casting Scrap Shot and Mechsuit abilities now increases the chance to trigger Overload by 3% for 10 seconds, stacking 10 times. When Overload triggers, all stacks are consumed.
-- **Mechanical Enhancements** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+- **Mechanical Enhancements** (1 rank) - NEW - we have no talent of this name
   - needs: stacking-buff
   - icon: assets/icons/coa/mechanical_enhancements.png
   - CoA: Mechanical Enhancements Passive Instant Increases all party and raid member's melee and ranged haste by 10%. Does not stack with similar effects. In addition, the range of your offensive ranged abilities and Auto Shot is increased by 10 yds.
-- **Upgrade!** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+- **Upgrade!** (1 rank) - NEW - we have no talent of this name
   - needs: cooldown, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - TURN-BASED [range-or-movement]: no positioning in this engine - reprice as damage, a debuff, or drop it
   - icon: assets/icons/coa/upgrade.png
   - CoA: Upgrade! 8% of base mana Instant 2 min cooldown Upgrade nearby Sentry Turrets to a Molten Grenade Turret for 1 min. Molten Grenade Turret Upgrades the Sentry Turret to fire grenades, increasing its attack speed significantly and causing it to deal 26+3.5 Points Per Level Fire Damage in an 8 yd radius, plus an additional 11+3.0 Points Per Level+FireP*.15+AP*0.085 Fire Damage over 1.5 sec.
-- **Master Builder** (1 rank) - NEW - we have no talent of this name
+- **Master Builder** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: scalar
   - TURN-BASED [cast-speed]: no cast times - haste here means acting more often, so route to turn_speed
   - icon: assets/icons/coa/master_builder.png
   - CoA: Reduces the cast time of Build abilities by -50%.
-- **Arclight Core** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
+- **Arclight Core** (1 rank) - MATCH tinker_mechanics
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/arclight_core.png
   - CoA: Arclight Core Passive Instant Makeshift Dynamite now marks enemies for 6 sec. The next damaging ability used on this target by your pet consumes the mark to deal 62+10.3 Points Per Level+ FireP *.2+ RAP *.2 Fire damage.
-- **Turbo Upgrade!** (1 rank) - NEW - we have no talent of this name
+- **Turbo Upgrade!** (1 rank) - MATCH tinker_mechanics  [ours is scalar]
   - needs: pet-summon
   - icon: assets/icons/coa/turbo_upgrade.png
   - CoA: Level 40 Passive Increases the effectiveness of your Mechsuit by 100%.
@@ -494,11 +494,11 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - needs: pet-summon
   - icon: assets/icons/coa/arclight_adept.png
   - CoA: Arclight Adept Passive Instant cast Increases the critical damage of your Mechsuit abilities by 15%.
-- **Cogmaster** (1 rank) - NEW - we have no talent of this name
+- **Cogmaster** (1 rank) - MATCH tinker_mechanics
   - needs: proc-chance, resource-grant
   - icon: assets/icons/coa/cogmaster.png
   - CoA: Increases your critical strike chance by 2% and gives ranged critical strikes a 50% chance to generate 3 Scrap.
-- **Junkyard Loiter** (1 rank) - NEW - we have no talent of this name
+- **Junkyard Loiter** (1 rank) - MATCH tinker_mechanics
   - needs: pet-summon
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: MISSING - needs art
@@ -514,7 +514,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/turret_upgrade_z_15.png
   - CoA: Damage dealt by Sentry Turrets now has a 30% chance to cause 47 + 20% AP additional Nature damage and increase critical strike chance of the turret by 1%, stacking 5 times, for 8 seconds.
-- **Flame Jets** (1 rank) - NEW - we have no talent of this name
+- **Flame Jets** (1 rank) - MATCH tinker_mechanics
   - needs: transforms-ability, stacking-buff, pet-summon, dot-hot
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/flame_jets.png
@@ -535,7 +535,7 @@ Source: data/reference/coa/tinker.json (Ascension CoA Builder payload, the same 
 - **Blazewrought Titan** (1 rank) - NEW - we have no talent of this name
   - icon: assets/icons/coa/blazewrought_titan.png
   - CoA: $ae
-- **Haywired State!** (1 rank) - NEW - we have no talent of this name
+- **Haywired State!** (1 rank) - MATCH tinker_mechanics
   - needs: transforms-ability, pet-summon, aoe-cleave
   - TURN-BASED [duration-in-seconds]: seconds -> turns (roughly 3 sec per turn)
   - icon: assets/icons/coa/haywired_state.png

@@ -1,8 +1,8 @@
 {
   "spec_name": "Primalist Wildwalker",
   "tree_id": "primalist_wildwalker",
-  "description": "Feral melee DPS - dual-wielding beast-fury damage, with a tamed companion.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026): 18 confirmed Wildwalker nodes trimmed to a lean 13-node tree. Spirit Beast Master confirmed via tooltip: 'Level 10 Passive. You may now tame beasts in Azeroth to aid you as a companion.' Stubbed as a self-buff rather than a full pet-taming system (no pet entity system to hook into yet - see Stormbringer's Air Elemental / Tinker's ZIGGI-6K for the same pattern).",
+  "description": "Beast-master in the thick of it - opens wounds with a pet at your heel and turns the bleeding into Rage.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/primalist.json (39 real CoA Wildwalker talents, role DPS). Replaces a 26-node tree of 18 pure scalars and 1 proc, several of them real CoA names on a +2% stat. All 7 unlock nodes are preserved - see tools/qa_abilities_obtainable.py for why that is not optional. Fourteen of CoA's talents are pet-side and this engine gives a pet three scaling keys and no procs, so those are rerouted or dropped per node rather than faked.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,95 +14,161 @@
   },
   "nodes": [
     {
-      "talent_id": "primalist_wildwalker_rexxars_might",
-      "name": "Rexxar's Might",
-      "description": "Increases Attack Power by 4 per rank.",
+      "talent_id": "primalist_wildwalker_wild_rampage",
+      "name": "Wild Rampage",
+      "description": "Increases your attack power by 5% and your chance to hit by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -6,
+      "effects": {
+        "attack_power_pct": 5.0,
+        "hit_rating": 2.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_rips_and_tears"
+      ],
+      "_source": "CoA verbatim: 'Increases your attack power by 5% and your chance to hit by 2%.' One of the few CoA Wildwalker talents that really is a flat scalar, so it stays one. attack_power_pct takes percentage POINTS, so 5.0."
+    },
+    {
+      "talent_id": "primalist_wildwalker_raptor_talons_passive",
+      "name": "Raptor Talons",
+      "description": "Increases your Strength by 5% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "attack_power": 4
+        "strength_pct": 5.0
       },
       "connected_to": [
         "primalist_wildwalker_rips_and_tears"
-      ]
+      ],
+      "_source": "CoA: 'Increases your Strength by 5% and your expertise by 4.' The expertise half is dropped: 'expertise' is read by no engine code, so authoring it would have been a dead key. strength_pct takes percentage POINTS."
     },
     {
-      "talent_id": "primalist_wildwalker_killers_path",
-      "name": "Killer's Path",
-      "description": "Increases physical critical strike chance by 1% per rank.",
+      "talent_id": "primalist_wildwalker_rending_claws",
+      "name": "Rending Claws",
+      "description": "Increases the damage your damage-over-time effects deal by 4% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "dot_damage": 0.04
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds"
+      ],
+      "_source": "WAS bleed_dot_damage, which was DEAD. The engine assembles that key as f'{flavour}_dot_damage' in Ability._damage_multiplier and only reads it while some ability's id contains 'bleed' - and no ability in the game does, in any class, so this node scaled nothing. dot_damage is unconditionally live. The description now says 'damage-over-time' rather than 'bleeds' because that is what it applies to."
+    },
+    {
+      "talent_id": "primalist_wildwalker_pulverize",
+      "name": "Pulverize",
+      "description": "Increases the critical strike chance of Totemic Smash by 10% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0
+        "ability_primalist_totemic_smash_crit": 10.0
       },
       "connected_to": [
-        "primalist_wildwalker_spinebreaker"
-      ]
+        "primalist_wildwalker_totemic_smash"
+      ],
+      "_source": "CoA verbatim: 'Increases the critical strike chance of Totemic Smash by 10%.' ability_*_crit is a PERCENT. CoA has a second, different talent also called Pulverize - see pulverizing_strikes below, renamed so the tree does not show the word twice."
     },
     {
-      "talent_id": "primalist_wildwalker_fury_of_the_wild",
-      "name": "Fury of the Wild",
-      "description": "Increases Wildclaw damage by 3% per rank.",
+      "talent_id": "primalist_wildwalker_wild_rage",
+      "name": "Wild Rage",
+      "description": "Rylak's Bite no longer costs Rage.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_primalist_wildclaw_damage": 0.03
+        "ability_primalist_rylaks_bite_cost_pct": 1.0
       },
       "connected_to": [
-        "primalist_wildwalker_raptor_talons"
-      ]
+        "primalist_wildwalker_rylaks_bite"
+      ],
+      "_source": "CoA verbatim: 'Removes the Rage cost of Rylak's Bite.' A full 1.0 reduction, and POSITIVE is the reduction direction - talented_cost does cost * (1 - pct). Authored negative it would have DOUBLED the cost, which is the mistake eight talents in this project already made."
     },
     {
-      "talent_id": "primalist_wildwalker_legacy_of_rexxar",
-      "name": "Legacy of Rexxar",
-      "description": "Reduces the Rage cost of Wildclaw by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -6,
-      "effects": {
-        "ability_primalist_wildclaw_cost_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_wildwalker_totem_warrior"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_rips_and_tears",
-      "name": "Rips and Tears",
-      "description": "Learn Primal Shred, a bleeding melee strike that deals extra damage over time.",
+      "talent_id": "primalist_wildwalker_primal_shred",
+      "name": "Primal Shred",
+      "description": "Learn Primal Shred. Your pet tears into several enemies at once, leaving them bleeding.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "primalist_primal_shred"
       },
       "connected_to": [
-        "primalist_wildwalker_rexxars_might",
-        "primalist_wildwalker_torn_to_shreds"
-      ]
+        "primalist_wildwalker_primal_resurgence"
+      ],
+      "_source": "CoA: 'Command your pet to shred up to 5 enemies within 8 yds, causing them to bleed over 21 seconds.' Kept from the previous tree. The yard radius is dropped; the ability is already enemy_aoe."
     },
     {
-      "talent_id": "primalist_wildwalker_spinebreaker",
-      "name": "Spinebreaker",
-      "description": "Learn Raptor Talons, a leaping strike that deals bonus damage to a target below 50% health.",
+      "talent_id": "primalist_wildwalker_rips_and_tears",
+      "name": "Rips and Tears",
+      "description": "Your weapon swings generate 2 extra Rage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_primal_resurgence"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 2
+        }
+      },
+      "_source": "CoA: 'Periodic damage dealt by you or your pet now generates 2 Rage for you and 5 Focus for your pet.' Rerouted off periodic damage onto weapon swings, because there is no periodic-tick trigger in this engine - the trigger list is on_damage_cast, on_crit, on_damage_taken, on_cast, on_heal_cast, on_weapon_swing, on_kill, on_block, on_damage_or_heal_cast, on_avoid, on_parry, and a DoT tick fires none of them. The pet's Focus half is dropped: a pet has no resource a talent can reach. Rage per swing keeps the intent, which is that sustained damage pays for the next Rylak's Bite. Was the Primal Shred unlock, which is now its own node."
+    },
+    {
+      "talent_id": "primalist_wildwalker_rylaks_bite",
+      "name": "Rylak's Bite",
+      "description": "Learn Rylak's Bite. You and your pet close on an enemy together and maul it.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "primalist_rylaks_bite"
+      },
+      "connected_to": [
+        "primalist_wildwalker_torn_to_shreds"
+      ],
+      "_source": "CoA: '20 Rage, 2 charges, 10 sec recharge. You and your pet rush towards an enemy and strike them for 120% Weapon Damage.' Charges have no engine support and are already a cooldown on the ability. MOVED from tier 4 to tier 1: four nodes in this tree reference this ability (Wild Rage, Torn to Shreds, Primal Rage, Lacerations) and with the unlock at tier 4 you could take all of them before you could take the thing they modify."
+    },
+    {
+      "talent_id": "primalist_wildwalker_totem_warrior",
+      "name": "Totem Warrior",
+      "description": "Learn Totem Warrior. Call a spirit beast to fight alongside you.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
@@ -110,139 +176,403 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "primalist_raptor_talons"
-      },
-      "connected_to": [
-        "primalist_wildwalker_killers_path"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_raptor_talons",
-      "name": "Raptor Talons",
-      "description": "Increases Raptor Talons damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "ability_primalist_raptor_talons_damage": 0.08
-      },
-      "connected_to": [
-        "primalist_wildwalker_fury_of_the_wild"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_totem_warrior",
-      "name": "Totem Warrior",
-      "description": "Learn Spirit Beast Master, allowing you to tame a beast companion.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 5,
-      "hex_y": -4,
-      "effects": {
         "unlock_ability": "primalist_spirit_beast_master"
       },
       "connected_to": [
-        "primalist_wildwalker_legacy_of_rexxar"
+        "primalist_wildwalker_packmaster"
       ],
-      "_source": "CoA tooltip confirmed: 'You may now tame beasts in Azeroth to aid you as a companion.'"
+      "_source": "The pet itself, so everything pet-side in this tree depends on it. Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_resurgence",
+      "name": "Primal Resurgence",
+      "description": "Seismic Crash generates 10 additional Rage.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_earthshaker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_seismic_crash"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 10
+        }
+      },
+      "_source": "CoA verbatim: 'Seismic Crash now generates an additional 10 Rage and Seismic Spike now generates 3 additional Rage.' Frontier has no Seismic Spike, so only the Crash half is built. This is the mana-to-Rage bridge the spec needs: Seismic Crash costs mana and Wildwalker's openers cost Rage."
+    },
+    {
+      "talent_id": "primalist_wildwalker_totemic_smash",
+      "name": "Totemic Smash",
+      "description": "Learn Totemic Smash. Smash the ground, striking your target and everything near it.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "primalist_totemic_smash"
+      },
+      "connected_to": [
+        "primalist_wildwalker_elemental_berserker"
+      ],
+      "_source": "MOVED from tier 5 to tier 2 for the same reason as Rylak's Bite: Pulverize, Torn to Shreds, Primal Rage, Elemental Berserker and Pulverizing Strikes all modify it."
     },
     {
       "talent_id": "primalist_wildwalker_torn_to_shreds",
       "name": "Torn to Shreds",
-      "description": "Increases Primal Shred damage by 8% per rank.",
+      "description": "Totemic Smash and Rylak's Bite leave the target bleeding for 4 turns, stacking twice.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 4,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_lacerations"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_totemic_smash",
+          "primalist_rylaks_bite"
+        ],
+        "apply_effect": {
+          "effect_id": "primalist_rend",
+          "name": "Rent Flesh",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 18,
+          "max_stacks": 2,
+          "damage_school": "physical",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Totemic Smash and Rylak's Bite now causes enemies to bleed over 12 sec, stacking 2 times.' 12 sec is 4 turns and the stack count is CoA's. This is the node that gives the spec its bleeds; the old tree's version was ability_primalist_primal_shred_damage +8%, a flat number on a different ability entirely."
+    },
+    {
+      "talent_id": "primalist_wildwalker_spinebreaker",
+      "name": "Spinebreaker",
+      "description": "Learn Spinebreaker. A heavy strike aimed at the spine.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_primal_shred_damage": 0.08
+        "unlock_ability": "primalist_raptor_talons"
       },
       "connected_to": [
-        "primalist_wildwalker_rips_and_tears",
+        "primalist_wildwalker_primal_rage"
+      ],
+      "_source": "Kept from the previous tree, which already paired this name with the raptor_talons ability. CoA's own Spinebreaker text is one of several entries in this export whose description is a broken template reference, so there is nothing to port from it."
+    },
+    {
+      "talent_id": "primalist_wildwalker_earthshaker",
+      "name": "Earthshaker",
+      "description": "Increases the damage dealt by your Seismic abilities by 10%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_primalist_seismic_crash_damage": 0.1,
+        "ability_primalist_seismic_tremor_damage": 0.1,
+        "ability_primalist_seismic_wave_damage": 0.1
+      },
+      "connected_to": [
+        "primalist_wildwalker_tremors"
+      ],
+      "_source": "CoA: 'Increases the damage dealt by Seismic abilities by 10% and allows their periodic damage to critically strike.' The crit half is an engine-wide rule about whether DoT ticks can crit, not a per-character bonus, so it is not a talent effect and is dropped. Written out per ability because there is no key for a named group of abilities."
+    },
+    {
+      "talent_id": "primalist_wildwalker_packmaster",
+      "name": "Packmaster",
+      "description": "Increases your pet's damage by 6% and its health by 6% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.06,
+        "pet_health": 0.06
+      },
+      "connected_to": [
         "primalist_wildwalker_savage_frenzy"
-      ]
+      ],
+      "_source": "Not a CoA node by this name, but it is the shape every one of CoA's pet-scaling talents has to take here: pet_damage, pet_health and pet_armor are the only three keys entities/pet.py reads off its owner. Carries CoA's Fury of the Wild ('when you cast a Boon, you cast it on your pet at 50% effectiveness'), which is not buildable as written - a talent cannot make an ability fire twice at different targets. Fractions, not points."
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_rush",
+      "name": "Primal Rush",
+      "description": "Learn Primal Rush. Charge through a group, hitting everything in reach.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "primalist_primal_rush"
+      },
+      "connected_to": [
+        "primalist_wildwalker_bring_me_their_bones"
+      ],
+      "_source": "Kept from the previous tree."
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_rage",
+      "name": "Primal Rage",
+      "description": "Totemic Smash refreshes Rylak's Bite, making it ready again at once.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_pulverizing_strikes"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_totemic_smash"
+        ],
+        "reset_cooldown": [
+          "primalist_rylaks_bite"
+        ]
+      },
+      "_source": "CoA verbatim: 'Casting Totemic Smash now refreshes a charge of Rylak's Bite.' Charges are cooldowns here, so refreshing a charge is a cooldown reset. reset_cooldown takes a bare list as well as a dict (status_effects.py wraps it), and omitting `turns` is a FULL reset, which is what refreshing a charge means."
+    },
+    {
+      "talent_id": "primalist_wildwalker_lacerations",
+      "name": "Lacerations",
+      "description": "Your critical strikes make the target take 15% more physical damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_sharpened_claws"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "primalist_laceration",
+          "name": "Laceration",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "physical_damage_taken_pct": 15.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Melee critical strikes now increase the effectiveness of bleed effects on the target by 30% for 15 seconds.' There is no key for 'bleed effectiveness on this target' - the only live recipient-side damage key is <school>_damage_taken_pct - so this becomes physical damage taken, which raises the bleeds AND the melee that applied them. Halved from 30% to 15% for exactly that reason: it now covers more than CoA's version did. That key is percentage POINTS inside a status effect, so 15.0. 15 sec is 5 turns, cut to 3 so it has to be re-earned."
+    },
+    {
+      "talent_id": "primalist_wildwalker_wild_vigor",
+      "name": "Wild Vigor",
+      "description": "Increases your maximum health by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "max_health_pct": 0.02
+      },
+      "connected_to": [
+        "primalist_wildwalker_savage_frenzy"
+      ],
+      "_source": "Not a CoA node - kept from the previous tree. A melee spec with a pet needs somewhere to put points that is not more damage, and this tier is otherwise all offence."
     },
     {
       "talent_id": "primalist_wildwalker_savage_frenzy",
       "name": "Savage Frenzy",
-      "description": "Your Wildclaw casts have a 25% chance per rank to grant 15% haste for 2 turns.",
+      "description": "Landing a critical strike enrages you, increasing your damage by 20% for 2 turns.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
+      "tier": 4,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": -3,
+      "hex_y": 2,
       "effects": {},
       "connected_to": [
-        "primalist_wildwalker_torn_to_shreds",
-        "primalist_wildwalker_son_of_ursoc"
+        "primalist_wildwalker_elemental_berserker"
       ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 25,
-        "icd": 1,
-        "ability_filter": [
-          "primalist_wildclaw"
-        ],
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 3,
         "apply_effect": {
-          "effect_id": "savage_frenzy",
+          "effect_id": "primalist_savage_frenzy",
           "name": "Savage Frenzy",
           "effect_type": "buff",
           "duration": 2,
+          "max_stacks": 1,
           "stat_mods": {
-            "haste": 15.0
+            "damage_dealt_pct": 20.0
           },
           "on_target": false
         }
-      }
+      },
+      "_source": "CoA: '15% of base mana, 3 min cooldown. Enrage you and your pet for 18 sec, increasing damage dealt by 20%, and attack speed and movement speed by 30%.' Movement speed is dropped (no positioning) and attack speed with it - haste here means acting more often, which is not what a 30% attack-speed buff on top of 20% damage is for. The pet half is dropped. Built as a crit proc on a 3-turn internal cooldown rather than an activated ability, because Frontier has no primalist_savage_frenzy ability to unlock and a 3-minute cooldown is not a shape this tree has. The key is damage_dealt_pct, NOT all_damage: a proc-applied buff cannot reach all_damage, which abilities.py looks up through get_talent_effects() and that never includes status effects. damage_dealt_pct is the status-effect route to the same multiplier, read through get_status_stat_mod, and it takes percentage POINTS, so 20.0."
     },
     {
-      "talent_id": "primalist_wildwalker_son_of_ursoc",
-      "name": "Son of Ursoc",
-      "description": "Increases all physical damage by 2% per rank.",
+      "talent_id": "primalist_wildwalker_sharpened_claws",
+      "name": "Sharpened Claws",
+      "description": "Your critical strikes increase your armor penetration by 5% for 3 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 4,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -1,
       "hex_y": 2,
-      "effects": {
-        "physical_damage": 0.02
-      },
+      "effects": {},
       "connected_to": [
-        "primalist_wildwalker_savage_frenzy",
-        "primalist_wildwalker_frenzied_roar"
-      ]
+        "primalist_wildwalker_pulverizing_strikes"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "primalist_sharpened_claws",
+          "name": "Sharpened Claws",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 3,
+          "stat_mods": {
+            "armor_penetration_pct": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Your direct critical strikes now increase your and your pet's Armor penetration by 5% for 10 seconds, stacking 3 times.' The pet half is dropped - pet_armor is the pet's own armour, not its penetration, and there is no pet-penetration key. armor_penetration_pct is percentage POINTS and is read off the attacker by Monster.take_damage; a status effect reaches it because _recalculate_derived_stats folds status stat_mods into the same bonus pool as gear and talents, scaled by stacks."
     },
     {
-      "talent_id": "primalist_wildwalker_frenzied_roar",
-      "name": "Frenzied Roar",
-      "description": "Learn Bring Me Their Bones, a devastating execute usable against targets below 25% health.",
+      "talent_id": "primalist_wildwalker_tremors",
+      "name": "Tremors",
+      "description": "Your attacks have a 10% chance to make your Seismic abilities ready again at once.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_elemental_berserker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 1,
+        "reset_cooldown": {
+          "abilities": [
+            "primalist_seismic_crash",
+            "primalist_seismic_tremor",
+            "primalist_seismic_wave"
+          ]
+        }
+      },
+      "_source": "CoA: 'Level 30 Passive. Periodic damage now has a 10% chance to reset the cooldown of your Seismic abilties and cause your next cast within 10 seconds to be free of cost.' Rerouted off periodic damage onto casts, same reason as Rips and Tears - no periodic-tick trigger exists. The free-cast rider is dropped: there is no 'next cast is free' payload, and a cost reduction would be a different talent. CoA's 10% chance is kept exactly, with a 1-turn internal cooldown so it cannot chain."
+    },
+    {
+      "talent_id": "primalist_wildwalker_bring_me_their_bones",
+      "name": "Bring Me Their Bones",
+      "description": "Learn Bring Me Their Bones. Mark an enemy, then break it open.",
       "node_type": "active",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "primalist_bring_me_their_bones"
       },
       "connected_to": [
-        "primalist_wildwalker_son_of_ursoc",
         "primalist_wildwalker_elemental_berserker"
-      ]
+      ],
+      "_source": "CoA: 'Mark an enemy for 15 sec, causing damage dealt by your pet's abilities to the target to add a stack. At 5 stacks, your pet consumes this buff to deal damage ignoring Armor.' The whole stack-and-consume wrapper is pet-proc driven and therefore not buildable; the ability itself exists in Frontier and is unlocked here, which is the part that works. Kept from the previous tree, where it was named Frenzied Roar."
+    },
+    {
+      "talent_id": "primalist_wildwalker_pulverizing_strikes",
+      "name": "Pulverizing Strikes",
+      "description": "Critical strikes with Totemic Smash deal 50% additional damage.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "primalist_wildwalker_elemental_berserker"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "primalist_totemic_smash"
+        ],
+        "bonus_pct": 0.5
+      },
+      "_source": "CoA's SECOND Pulverize: 'Critical strikes with Totemic Smash now trigger the area of effect portion of its damage an additional time.' Renamed because CoA ships two different talents under the one name and a tree showing Pulverize twice reads like a bug. There is no payload that re-fires one component of an ability, so it is priced as bonus_pct, which adds to the SAME hit rather than staging a phantom follow-up - the closest honest equivalent of 'that portion lands twice'."
+    },
+    {
+      "talent_id": "primalist_wildwalker_primal_instincts",
+      "name": "Primal Instincts",
+      "description": "Increases your physical critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "connected_to": [
+        "primalist_wildwalker_elemental_berserker"
+      ],
+      "_source": "Not a CoA node - carries the two scalar crit nodes the previous tree had under different names (Killer's Path, Hunter's Focus) into one place, because everything else at this depth is a proc and the tier needs a plain pick. crit_chance_physical is a PERCENT."
     },
     {
       "talent_id": "primalist_wildwalker_elemental_berserker",
       "name": "Elemental Berserker",
-      "description": "Increases Bring Me Their Bones damage by 12% per rank.",
+      "description": "Increases the area damage dealt by Totemic Smash and Primal Shred by 30%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -250,236 +580,10 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_primalist_bring_me_their_bones_damage": 0.12
+        "aoe_damage": 0.3
       },
-      "connected_to": [
-        "primalist_wildwalker_frenzied_roar"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_primal_ferocity",
-      "name": "Primal Ferocity",
-      "description": "Increases Attack Power by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -6,
-      "effects": {
-        "attack_power": 3
-      },
-      "connected_to": [
-        "primalist_wildwalker_rexxars_might"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_beast_reflexes",
-      "name": "Beast Reflexes",
-      "description": "Increases Dodge chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": -5,
-      "hex_y": -4,
-      "effects": {
-        "dodge": 1.0
-      },
-      "connected_to": [
-        "primalist_wildwalker_killers_path"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_savage_instincts",
-      "name": "Savage Instincts",
-      "description": "Increases Haste by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [
-        "primalist_wildwalker_fury_of_the_wild"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_thick_fur",
-      "name": "Thick Fur",
-      "description": "Increases Stamina by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "stamina": 3
-      },
-      "connected_to": [
-        "primalist_wildwalker_legacy_of_rexxar"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_rending_claws",
-      "name": "Rending Claws",
-      "description": "Increases bleed damage-over-time effects by 4% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
-      "effects": {
-        "bleed_dot_damage": 0.04
-      },
-      "connected_to": [
-        "primalist_wildwalker_rips_and_tears"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_hunters_focus",
-      "name": "Hunter's Focus",
-      "description": "Increases physical critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "primalist_wildwalker_torn_to_shreds"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_packmaster",
-      "name": "Packmaster",
-      "description": "Increases your beast companion's damage by 6% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "pet_damage": 0.06
-      },
-      "connected_to": [
-        "primalist_wildwalker_son_of_ursoc"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_bloodscent",
-      "name": "Bloodscent",
-      "description": "Increases the damage of Primal Shred and Rylak's Bite by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -2,
-      "effects": {
-        "ability_primalist_primal_shred_damage": 0.06,
-        "ability_primalist_rylaks_bite_damage": 0.06
-      },
-      "connected_to": [
-        "primalist_wildwalker_spinebreaker"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_relentless_assault",
-      "name": "Relentless Assault",
-      "description": "Reduces the Rage cost of Raptor Talons by 5% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "ability_primalist_raptor_talons_cost_pct": 0.05
-      },
-      "connected_to": [
-        "primalist_wildwalker_elemental_berserker"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_wild_vigor",
-      "name": "Wild Vigor",
-      "description": "Increases maximum Health by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.02
-      },
-      "connected_to": [
-        "primalist_wildwalker_torn_to_shreds"
-      ]
-    },
-    {
-      "talent_id": "primalist_wildwalker_primal_rush",
-      "name": "Primal Rush",
-      "description": "Learn Primal Rush, rushing forward through enemies in a line.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "primalist_primal_rush"
-      },
-      "connected_to": [
-        "primalist_wildwalker_torn_to_shreds"
-      ],
-      "_source": "Confirmed screenshot: Lvl 18, 'Rush forward 20 yd through enemies in a line, dealing 102 Nature damage. Generates 20 Rage.'"
-    },
-    {
-      "talent_id": "primalist_wildwalker_rylaks_bite",
-      "name": "Rylak's Bite",
-      "description": "Learn Rylak's Bite, rushing an enemy alongside your pet to strike them.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "primalist_rylaks_bite"
-      },
-      "connected_to": [
-        "primalist_wildwalker_son_of_ursoc"
-      ],
-      "_source": "Confirmed screenshot: Lvl 20, 2 Charges, 10 sec recharge, 'you and your pet rush towards an enemy and strike them, dealing 120% Weapon Damage plus 14.' Real pet-combo ability."
-    },
-    {
-      "talent_id": "primalist_wildwalker_totemic_smash",
-      "name": "Totemic Smash",
-      "description": "Learn Totemic Smash, a heavy weapon strike that also hits nearby enemies.",
-      "node_type": "active",
-      "tier": 5,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "unlock_ability": "primalist_totemic_smash"
-      },
-      "connected_to": [
-        "primalist_wildwalker_frenzied_roar"
-      ],
-      "_source": "Confirmed screenshot: Lvl 22, '140% Weapon Damage plus 51. Deals an additional 30 damage to up to 5 enemies within 8 yds.'"
+      "connected_to": [],
+      "_source": "CoA verbatim: 'Increases the area damage dealt by Totemic Smash by 30%, but it now costs 5 additional Rage.' The Rage surcharge is dropped rather than authored as a negative _cost: the flat and percentage cost keys are both reduction-signed, so a surcharge has to be written negative, which is indistinguishable from the sign error eight talents in this project have already made and which the audit now flags. aoe_damage only applies to abilities whose target_type is enemy_aoe - Totemic Smash and Primal Shred both are, which is why the description names both instead of promising a Totemic-Smash-only bonus it cannot deliver."
     }
   ]
 }

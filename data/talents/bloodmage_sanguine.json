@@ -360,7 +360,7 @@
     {
       "talent_id": "bloodmage_sanguine_crimson_curse",
       "name": "Crimson Curse",
-      "description": "Increases the damage your bleeds deal by 4% per rank.",
+      "description": "Increases the damage your damage-over-time effects deal by 4% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -368,12 +368,12 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "bleed_dot_damage": 0.04
+        "dot_damage": 0.04
       },
       "connected_to": [
         "bloodmage_sanguine_essence_harvester"
       ],
-      "_source": "CoA class tree: 'Your direct damage critical strikes increase the damage the target takes from bleed effects by 30% for 15 seconds.' bleed_dot_damage is assembled as f'{flavour}_dot_damage' in Ability._damage_multiplier."
+      "_source": "CoA class tree: 'Your direct damage critical strikes increase the damage the target takes from bleed effects by 30% for 15 seconds.' WAS bleed_dot_damage, which was DEAD. That key is assembled as f'{flavour}_dot_damage' in Ability._damage_multiplier and only resolves while some ability's id contains the word 'bleed' - and no ability in the game does, in any class. Bloodmage has ten damage-over-time abilities and not one of them is named 'bleed', so the node scaled nothing at all. Switched to dot_damage, which is unconditionally live, and the description now says 'damage-over-time' rather than 'bleeds' because it applies to all ten. Found 5 Nov 2026 when audit_talents.py stopped treating bleed_dot_damage as unconditionally live."
     },
     {
       "talent_id": "bloodmage_sanguine_torture",
