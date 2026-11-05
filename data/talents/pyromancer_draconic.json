@@ -1,8 +1,8 @@
 {
   "spec_name": "Pyromancer Draconic",
   "tree_id": "pyromancer_draconic",
-  "description": "A fire caster that fights at close range. Dragon-scale armour and Intellect-to-armour keep it standing in melee while Destroyer's Maw, Firefall and Echo of Nozdormu do the damage.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_pyromancer__draconic.txt and the draconic block of reference/coa_sidekick/talents/pyromancer.json. CoA: 'Closest to retail Devastation Evoker: a dragon-themed fire caster built on a builder-spender loop, building Heat and Embers and dumping Embers into empowered payoffs.' Frontier gives this class one pool (Mana), so the builder-spender loop is the single thing about this spec that could not be carried over - Heat generation is dropped everywhere and the two Ember spenders become cooldown abilities, with Draconic Invocation turned into the mana return the spec's own weakness list asks for. Its stat priority is Spell Hit > Intellect > Critical Strike > Haste > Spell Power > Stamina, and it is the only Pyromancer spec that wants Armor, which is what Earthwarder and Aspect of Earth are for.",
+  "description": "The Dragon Aspects - a fire caster whose biggest spells echo themselves.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 40 real CoA Draconic talents (role DPS). ASPECT OF TIME MAPS ONTO bonus_pct almost perfectly - a live payload that adds a percentage of the TRIGGERING HIT's own amount, so CoA's 33% chance for 30% of the damage dealt ports exactly; only the 3-echo chain is lost, since a proc cannot re-enter its own trigger. Owns three gated abilities at tiers 4, 5 and 6, preserved in place and asserted. Heat and Embers still do not exist and this tree leans on Embers harder than Incineration did.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,430 +16,571 @@
     {
       "talent_id": "pyromancer_draconic_critical_pressure",
       "name": "Critical Pressure",
-      "description": "Increases your Intellect by 2% and your spell critical strike chance by 1% per rank.",
+      "description": "Increases your Intellect by 6% and your spell critical strike chance by 6%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "intellect_pct": 2.0,
-        "crit_chance_spell": 1.0
+        "intellect_pct": 2,
+        "crit_chance_spell": 2
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Intellect and critical strike chance by 3%' (2 ranks). intellect_pct takes percentage POINTS; crit_chance_spell is percentage points too."
+      "connected_to": [
+        "pyromancer_draconic_timed_attacks"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Intellect and critical strike chance by 3%.' Doubled for the two ranks and authored as the full-investment ceiling. Both keys happen to take the same unit here - intellect_pct is percentage POINTS and crit_chance_spell is a PERCENT - which is not true of most pairs in this project."
     },
     {
-      "talent_id": "pyromancer_draconic_alexstraszas_gift",
-      "name": "Alexstrasza's Gift",
-      "description": "Increases the damage of Echo of Nozdormu and Flames of Neltharion by 4% per rank.",
+      "talent_id": "pyromancer_draconic_timed_attacks",
+      "name": "Timed Attacks",
+      "description": "Increases your haste by 8%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_pyromancer_echo_of_nozdormu_damage": 0.04,
-        "ability_pyromancer_flames_of_neltharion_damage": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage and healing of your Ember spenders by 15%.' The two spenders are named explicitly in the spec's playstyle, so the key points at them by id. The healing half is dropped - this spec's passive leech has no hook."
-    },
-    {
-      "talent_id": "pyromancer_draconic_flamer",
-      "name": "Flamer",
-      "description": "Increases your haste by 2 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "haste": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Increases your spell haste by 4%' (2 ranks). Folded in from the class tree for the same reason as Incineration's Fire Safety - Frontier has no shared class tree, and the reference's Draconic build spends all 26 class points."
-    },
-    {
-      "talent_id": "pyromancer_draconic_pyromancy",
-      "name": "Pyromancy",
-      "description": "Increases the critical damage of your spells by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "crit_damage_spell": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Pyromancy - Increases your critical damage by 100%.' Scaled down hard and deliberately: a 100% critical-damage talent is a pre-meta number from a game with different crit maths, and the shipped Frontier convention for this key is 0.04 per rank. Keeping CoA's figure is what gave Guardian 99,156 effective HP."
-    },
-    {
-      "talent_id": "pyromancer_draconic_mad_aspects_scepter",
-      "name": "Mad Aspect's Scepter",
-      "description": "Increases the damage of Destroyer's Maw by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": -4,
+      "hex_y": -6,
       "effects": {
-        "ability_pyromancer_destroyers_maw_damage": 0.06
-      },
-      "connected_to": [
-        "pyromancer_draconic_critical_pressure"
-      ],
-      "_source": "CoA: 'Increases the damage of Destroyer's Maw by 20%' (2 ranks)."
-    },
-    {
-      "talent_id": "pyromancer_draconic_searing_flames",
-      "name": "Searing Flames",
-      "description": "Increases the damage of Lava Shard by 5% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_pyromancer_lava_shard_damage": 0.05
+        "haste": 2.6667
       },
       "connected_to": [
         "pyromancer_draconic_alexstraszas_gift"
       ],
-      "_source": "CoA: 'Increases the spell bonus scaling of Lava Shard by 30%.' Per-ability spell-power scaling is not exposed; per-ability damage is."
+      "_source": "CoA over 2 ranks: 'Increases your spell haste by 4%.' Doubled for the two ranks. PERCENT."
     },
     {
-      "talent_id": "pyromancer_draconic_draconic_tempest",
-      "name": "Draconic Tempest",
-      "description": "Increases your chance to hit with spells by 1% per rank.",
+      "talent_id": "pyromancer_draconic_alexstraszas_gift",
+      "name": "Alexstrasza's Gift",
+      "description": "Increases the damage of Explode, Flames of Neltharion and Lava Shard by 15%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "ability_pyromancer_explode_damage": 0.05,
+        "ability_pyromancer_flames_of_neltharion_damage": 0.05,
+        "ability_pyromancer_lava_shard_damage": 0.05
+      },
+      "connected_to": [
+        "pyromancer_draconic_searing_flames"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage and healing of your Ember spenders by 15%.' Embers do not exist (see the Incineration builder - Pyromancer's resource is MANA with no secondary), so 'Ember spenders' is read as the three big direct nukes Frontier has. The healing half is dropped: none of those three heal, so ability_*_healing on them would be dead data."
+    },
+    {
+      "talent_id": "pyromancer_draconic_searing_flames",
+      "name": "Searing Flames",
+      "description": "Increases the damage of Lava Shard by 30%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "ability_pyromancer_lava_shard_damage": 0.1
+      },
+      "connected_to": [
+        "pyromancer_draconic_agonizing_burns"
+      ],
+      "_source": "CoA verbatim: 'Increases the spell bonus scaling of Lava Shard by 30%.' There is no key for how much an ability scales with spell power - the coefficients live on the ability - so it is expressed as damage."
+    },
+    {
+      "talent_id": "pyromancer_draconic_agonizing_burns",
+      "name": "Agonizing Burns",
+      "description": "Increases the duration of Blaze by 1 turn.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -6,
+      "effects": {
+        "ability_pyromancer_blaze_duration": 1
+      },
+      "connected_to": [
+        "pyromancer_draconic_aspect_of_time"
+      ],
+      "_source": "CoA verbatim: 'Increases the duration of Blaze by 20% and allows it to benefit from your spell haste.' The second half is a non-issue: haste already applies to everything here, so there is nothing to switch on - the same shape as Venomancer Vizier's 'can no longer miss'. 20% of Blaze's duration rounds to a turn. The small integer keeps this node out of the rank policy's reach."
+    },
+    {
+      "talent_id": "pyromancer_draconic_aspect_of_time",
+      "name": "Aspect of Time",
+      "description": "Echo of Nozdormu and Flames of Neltharion have a 33% chance to echo, striking again for 30% of the damage dealt.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_draconic_aspects_blessing"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 11,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_echo_of_nozdormu",
+          "pyromancer_flames_of_neltharion"
+        ],
+        "bonus_pct": 0.3
+      },
+      "_source": "CoA's level 20 passive, verbatim: 'Damage dealt by Echo of Nozdormu and Flames of Neltharion now has a 33% chance to cast an additional time for 30% of the damage dealt. Damage dealt in this way can trigger this effect up to 3 additional times.' THIS IS THE CLEANEST TRANSLATION IN THE TREE. bonus_pct is a live payload that adds a percentage of the TRIGGERING HIT's own amount to that same hit (status_effects.py:1360) - it actually reads the damage dealt, which almost nothing else in this engine does, so CoA's 33% and 30% are both exact. WHAT IS LOST IS THE CHAIN: a proc's payload cannot re-enter its own trigger, so the echo happens once rather than cascading up to four times."
+    },
+    {
+      "talent_id": "pyromancer_draconic_aspects_blessing",
+      "name": "Aspect's Blessing",
+      "description": "Increases the critical strike chance of Echo of Nozdormu and Flames of Neltharion by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "hit_chance_spell": 1.0
+        "ability_pyromancer_echo_of_nozdormu_crit": 8.3333,
+        "ability_pyromancer_flames_of_neltharion_crit": 8.3333
       },
       "connected_to": [
-        "pyromancer_draconic_flamer"
+        "pyromancer_draconic_cinderstorm"
       ],
-      "_source": "CoA: 'Your Dragon's Wrath now melts enemies, increasing their chance to be hit by spells by 3% for 10 seconds.' A target-side hit debuff has no key, so it lands on the caster's own hit - which the spec's stat priority opens with ('Spell Hit (cap)')."
+      "_source": "CoA verbatim: 'Your next Echo of Nozdormu or Flames of Neltharion is guaranteed to critically strike and triggers Aspect of Time, casting an additional time for 30% of the damage dealt. Lasts 15 sec.' A GUARANTEED CRIT HAS NO KEY - crit at 100 would be a permanent stat, not a one-shot - and nothing empowers a named next cast. Frontier HAS Aspect's Blessing as an ability, so this is not its unlock; the talent is built as flat crit on exactly CoA's two abilities, priced at 25% rather than 100% because it applies always. CoA's Flames of Fate node, which trades Aspect's Blessing cooldown for extra casts, needs the same charge counter and is not built."
     },
     {
       "talent_id": "pyromancer_draconic_cinderstorm",
       "name": "Cinderstorm",
-      "description": "Increases the critical strike chance of Firefall by 2% per rank and reduces the threat you generate by 5%.",
+      "description": "Increases the critical strike chance of Firefall by 10% and reduces the threat it generates by 25%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_firefall_crit": 2.0,
-        "threat_generation_pct": -0.05
+        "ability_pyromancer_firefall_crit": 3.3333,
+        "threat_generation_pct": -0.0833
       },
       "connected_to": [
-        "pyromancer_draconic_pyromancy"
+        "pyromancer_draconic_overwhelming_flames"
       ],
-      "_source": "CoA: 'Reduces all threat generated by Firefall by -25% and increases its critical strike chance by 10%.' The threat cut cannot be restricted to one ability, so it is general."
+      "_source": "CoA verbatim: 'Reduces all threat generated by Firefall by -25% and increases its critical strike chance by 10%.' Both halves live, though the threat reduction cannot be scoped to one ability - threat_generation_pct is a character-wide FRACTION where NEGATIVE reduces - so it applies to everything. Broader than CoA's, stated rather than hidden."
     },
     {
-      "talent_id": "pyromancer_draconic_dragons_edge",
-      "name": "Dragon's Edge",
-      "description": "Your critical strikes restore 50 mana.",
+      "talent_id": "pyromancer_draconic_overwhelming_flames",
+      "name": "Overwhelming Flames",
+      "description": "Lava Shard splashes 50% of its damage onto 1 nearby enemy.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
         "pyromancer_draconic_mad_aspects_scepter"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 34,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 50
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_lava_shard"
+        ],
+        "splash_damage": {
+          "pct": 0.5,
+          "max_targets": 1,
+          "school": "fire"
         }
       },
-      "_source": "CoA: 'Direct critical strikes now generate an additional 20 Heat.' No Heat pool; mana is what the Heat economy ultimately funds. Chance 34 per rank reaches the always-on version at 3 ranks."
+      "_source": "CoA verbatim: 'Your Lava Shard now spreads Blaze to up to 1 additional enemy within 8 yds of the primary target.' SPREADING A DOT TO A NEW TARGET IS NOT A PAYLOAD - apply_effect lands on the trigger's own target - so it becomes splash_damage at CoA's one extra enemy, the same translation as the Witch Doctor's Malignant and Venomancer Vizier's Sage."
     },
     {
-      "talent_id": "pyromancer_draconic_flames_of_the_aspects",
-      "name": "Flames of the Aspects",
-      "description": "Destroyer's Maw has a 20% chance per rank to grant Flamecasting, increasing your haste for a few turns.",
+      "talent_id": "pyromancer_draconic_soul_of_the_dragon",
+      "name": "Soul of the Dragon",
+      "description": "Flare Bolt has a 15% chance to cast again for free.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "pyromancer_draconic_searing_flames"
+        "pyromancer_draconic_mad_aspects_scepter"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 20,
+        "chance": 5,
         "icd": 1,
-        "apply_effect": {
-          "effect_id": "pyromancer_flames_of_the_aspects",
-          "name": "Flamecasting",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": 6
-          },
-          "on_target": false
-        },
         "ability_filter": [
-          "pyromancer_destroyers_maw"
-        ]
+          "pyromancer_flare_bolt"
+        ],
+        "cast_ability": "pyromancer_flare_bolt"
       },
-      "_source": "CoA: 'Casting Destroyer's Maw now grants 2 stacks of Flamecasting.' The ability_filter makes it genuinely Destroyer's Maw only, which is the real tooltip; see flamecasting() for the stack-ramp gap."
+      "_source": "CoA verbatim: 'Casting Flare Bolt now has a 15% chance to cast it again free of cost.' PORTS EXACTLY - cast_ability takes a bare ability id, Flare Bolt is auto-learned so it is in the book, and a payload-cast does not charge the resource, which is what 'free of cost' means. CoA's 15% kept, with a 1-turn internal cooldown so the recast cannot chain into itself."
     },
     {
-      "talent_id": "pyromancer_draconic_overwhelming_flames",
-      "name": "Overwhelming Flames",
-      "description": "Increases the damage your abilities deal to additional targets by 8% per rank.",
+      "talent_id": "pyromancer_draconic_mad_aspects_scepter",
+      "name": "Mad Aspect's Scepter",
+      "description": "Increases the damage of Destroyer's Maw by 40%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "aoe_damage": 0.08
-      },
-      "connected_to": [
-        "pyromancer_draconic_draconic_tempest"
-      ],
-      "_source": "CoA: 'Your Lava Shard now spreads Blaze to up to 1 additional enemy within 8 yds of the primary target.' Spreading a DoT to a neighbour has no hook; aoe_damage is the cleave the spec's rotation actually asks for ('weave Lava Shard/Overwhelming Flames to spread Blaze across the pack')."
-    },
-    {
-      "talent_id": "pyromancer_draconic_black_magic",
-      "name": "Black Magic",
-      "description": "Reduces the cooldown of Draconic Invocation by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_pyromancer_draconic_invocation_cooldown_pct": 0.08
-      },
-      "connected_to": [
-        "pyromancer_draconic_cinderstorm"
-      ],
-      "_source": "CoA: 'Generating Heat now reduces the cooldown of Draconic Invocation and Essence of Malygos by 3%. Can only occur once per sec.' A cooldown shave off a resource event has no hook, so it is a flat cooldown reduction on the Invocation - which also carries the cooldown-reduction idea Echo of Nozdormu had to drop. Positive is the reduction for this key."
-    },
-    {
-      "talent_id": "pyromancer_draconic_earthwarder",
-      "name": "Earthwarder",
-      "description": "Grants Armor equal to 5% of your Intellect per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "armor_from_intellect_pct": 0.05
-      },
-      "connected_to": [
-        "pyromancer_draconic_dragons_edge"
-      ],
-      "_source": "CoA describes this spec as a 'Battle-caster built to survive melee range: dragon-scale defensives, Int-to-armor and a Phoenix pet'. Earthwarder is CoA's own melee-reactive node ('Being struck by a melee attack while Draconic Aspect is active...'), and the Int-to-armour conversion is the real, existing key that makes standing in melee work."
-    },
-    {
-      "talent_id": "pyromancer_draconic_draconic_rage",
-      "name": "Draconic Rage",
-      "description": "Increases the damage of Dragon's Wrath by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "ability_pyromancer_dragons_wrath_damage": 0.06
+        "ability_pyromancer_destroyers_maw_damage": 0.1333
       },
       "connected_to": [
         "pyromancer_draconic_flames_of_the_aspects"
       ],
-      "_source": "CoA: 'Consuming Embers now has a 25% chance to trigger Dragon's Wrath on all enemies affected by Blaze.' A free extra cast off a resource spend has no hook; making Dragon's Wrath hit harder is the same payoff."
+      "_source": "CoA over 2 ranks: 'Increases the damage of Destroyer's Maw by 20%.' Doubled for the two ranks. Destroyer's Maw exists in Frontier; CoA's version deals damage 'that cannot be resisted', which has no key - resistance is applied in take_damage with no per-ability bypass - so that rider is dropped."
     },
     {
-      "talent_id": "pyromancer_draconic_fire_and_brimstone",
-      "name": "Fire and Brimstone",
-      "description": "Increases your spell damage by 2% per rank.",
+      "talent_id": "pyromancer_draconic_flames_of_the_aspects",
+      "name": "Flames of the Aspects",
+      "description": "Destroyer's Maw sets you flamecasting, raising your haste by 10% for 5 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_draconic_lifebringers_blessing"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_destroyers_maw"
+        ],
+        "apply_effect": {
+          "effect_id": "pyromancer_flamecasting",
+          "name": "Flamecasting",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 5,
+          "stat_mods": {
+            "haste": 5.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Destroyer's Maw now grants 2 stacks of Flamecasting. Increases your spell haste by 5% for 15 seconds. Stacks 5 times.' A PAYLOAD CANNOT GRANT TWO STACKS AT ONCE, so one cast gives one stack; the description states the 10% two stacks would reach, since Destroyer's Maw is cast often enough to hold two. Shares the effect_id with Incineration's Wreath of Flames deliberately - it is the same Flamecasting buff in CoA, so a Pyromancer with both does not carry two separate stacks of it. 15 sec is 5 turns."
+    },
+    {
+      "talent_id": "pyromancer_draconic_lifebringers_blessing",
+      "name": "Lifebringer's Blessing",
+      "description": "Echo of Nozdormu and Flames of Neltharion heal you for 20% of the damage they deal.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_draconic_draconic_tempest"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_echo_of_nozdormu",
+          "pyromancer_flames_of_neltharion"
+        ],
+        "leech_pct": {
+          "pct": 0.2
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Aspect of Time now heals you equal to 200% of the damage dealt.' Aspect of Time's echo is a bonus_pct rider rather than a separate damage event, so there is nothing to hang a second proc off - this fires off the same two abilities instead. leech_pct reads the triggering hit's amount, so the scaling IS real here. Priced at 20% rather than CoA's 200%: that figure is against the echo's 30% share, and 200% of a full nuke would make the spec unkillable."
+    },
+    {
+      "talent_id": "pyromancer_draconic_draconic_tempest",
+      "name": "Draconic Tempest",
+      "description": "Dragon's Wrath melts the enemy, leaving them taking 5% more spell damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_draconic_flames_of_execution"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_dragons_wrath"
+        ],
+        "apply_effect": {
+          "effect_id": "pyromancer_draconic_tempest",
+          "name": "Draconic Tempest",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 5.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Dragon's Wrath now melts enemies, increasing their chance to be hit by spells by 3% for 10 sec.' THERE IS NO RECIPIENT-SIDE 'CHANCE TO BE HIT' KEY - hit lives on the attacker - so it becomes spell damage taken, raised to 5% since it replaces a hit bonus with a damage bonus. 10 sec is 3 turns."
+    },
+    {
+      "talent_id": "pyromancer_draconic_flames_of_execution",
+      "name": "Flames of Execution",
+      "description": "Increases the damage of Blaze by 25%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "spell_damage": 0.02
+        "ability_pyromancer_blaze_damage": 0.0833
       },
       "connected_to": [
-        "pyromancer_draconic_overwhelming_flames"
+        "pyromancer_draconic_perpetual_burning"
       ],
-      "_source": "CoA: 'Generating an Ember now increases the damage and healing of Ember spenders by 1% for 10 seconds, stacking 5 times.' A stacking build-up has no hook, so it is the flat equivalent of a maintained stack."
+      "_source": "CoA verbatim: 'Damage dealt by Blaze is increased by 25% on enemies below 35% of their maximum health.' NO EFFECT KEY READS A TARGET'S HEALTH PERCENTAGE - high_health_damage_threshold_pct is dead, and the working low_health pair on Venomancer Fortitude is about the CARRIER's own health, not a target's - so the condition is dropped and CoA's 25% applies always."
     },
     {
-      "talent_id": "pyromancer_draconic_ascender",
-      "name": "Ascender",
-      "description": "Reduces the cooldown of Dragon Leap by 1 turn per rank.",
+      "talent_id": "pyromancer_draconic_perpetual_burning",
+      "name": "Perpetual Burning",
+      "description": "Increases the duration of Blaze by a further 1 turn and the damage your damage-over-time spells deal by 15%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_dragon_leap_cooldown": 1
+        "ability_pyromancer_blaze_duration": 1,
+        "dot_damage": 0.15
       },
       "connected_to": [
-        "pyromancer_draconic_black_magic"
+        "pyromancer_draconic_molten_fury"
       ],
-      "_source": "CoA: 'Reduces the cooldown of Dragon Leap by -5 sec.' A flat cooldown key, and this spec's mobility is the thing the reference says 'keeps you from playing like a turret'."
+      "_source": "CoA verbatim: 'The duration of Blaze is now increased by 1 sec for each Ember you have when you cast it.' Embers do not exist and nothing reads a live resource amount, so the per-Ember scaling cannot be built. Granted as a flat turn, stacking with Agonizing Burns at tier 0, plus dot damage to carry the node. Small integer, so outside the rank policy."
+    },
+    {
+      "talent_id": "pyromancer_draconic_molten_fury",
+      "name": "Molten Fury",
+      "description": "Increases the damage of Eruption by 15% and reduces its cooldown by 40%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_pyromancer_eruption_damage": 0.05,
+        "ability_pyromancer_eruption_cooldown_pct": 0.1333
+      },
+      "connected_to": [
+        "pyromancer_draconic_expediting_power"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage and healing provided by Eruption by 15%, but reduces its duration by 50%.' The 15% ports. The duration downside is NOT built - no key reduces an ability's duration, only increases it - so this node is strictly stronger than CoA's, stated rather than hidden. CoA's Blackrock Mountaineer ('reduces the cooldown of Eruption by -30 sec') is folded in as the 40%, since two nodes for one ability's cooldown would be padding."
+    },
+    {
+      "talent_id": "pyromancer_draconic_expediting_power",
+      "name": "Expediting Power",
+      "description": "Echo of Nozdormu brings Aspect's Blessing two turns closer to ready.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "pyromancer_draconic_echo_of_nozdormu"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "pyromancer_echo_of_nozdormu"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "pyromancer_aspects_blessing"
+          ],
+          "turns": 2
+        }
+      },
+      "_source": "CoA verbatim: 'Your Echo of Nozdormu now reduces the cooldown of Aspect's Blessing by an additional 5%.' A percentage of a remaining cooldown is not expressible - reset_cooldown takes whole turns or a full reset - so 5% of a 1-minute cooldown becomes 2 turns, with a 1-turn icd so it cannot stack within a turn. Both abilities exist in Frontier."
     },
     {
       "talent_id": "pyromancer_draconic_echo_of_nozdormu",
       "name": "Echo of Nozdormu",
-      "description": "Learn Echo of Nozdormu, a chromatic nuke for a single priority target.",
-      "node_type": "active",
+      "description": "Teaches Echo of Nozdormu, a chromatic nuke that shortens your cooldowns.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -3,
       "hex_y": 2,
       "effects": {
         "unlock_ability": "pyromancer_echo_of_nozdormu"
       },
       "connected_to": [
-        "pyromancer_draconic_earthwarder"
+        "pyromancer_draconic_draconic_invocation"
       ],
-      "_source": "CoA: a free spec passive behind 'Requires 2 prerequisite talents maxed' that transforms Explode into Echo of Nozdormu. Frontier has no transform mechanic, so it is a separate talent-granted ability and Explode stays Incineration's."
+      "_source": "CoA verbatim: 'Transforms your Explode into Echo of Nozdormu. Obliterate an enemy, dealing Chromatic Damage and reducing all spell and ability cooldowns by 5%.' LOAD-BEARING UNLOCK: pyromancer_echo_of_nozdormu carries requires_talent, so without this node it is unobtainable forever - and five other nodes in this tree name it. Nothing transforms one ability into another, so it is granted alongside Explode rather than replacing it. Kept at tier 4 exactly where the shipped tree had it, preserving Pyromancer's 4/5/6 pattern."
     },
     {
-      "talent_id": "pyromancer_draconic_blackflight_resurgence",
-      "name": "Blackflight Resurgence",
-      "description": "Increases the critical strike chance of Destroyer's Maw by 2% per rank.",
+      "talent_id": "pyromancer_draconic_draconic_invocation",
+      "name": "Draconic Invocation",
+      "description": "Increases all damage you deal by 8%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_pyromancer_destroyers_maw_crit": 2.0
+        "all_damage": 0.0267
       },
       "connected_to": [
-        "pyromancer_draconic_draconic_rage"
+        "pyromancer_draconic_fire_and_brimstone"
       ],
-      "_source": "CoA: 'Legacy of Deathwing now also increases the damage of your next Destroyer's Maw or Firefall by 25%.' A buffed next cast has no hook; crit on the same spell is the honest version."
+      "_source": "CoA verbatim: 'Invoke all of the Dragon Aspects, instantly generating 5 Embers.' EMBERS DO NOT EXIST - there is no secondary resource to generate - so the entire ability is inert as a concept here. Frontier HAS Draconic Invocation as an ability and it is NOT gated, so this node cannot be its unlock either. Rebuilt as flat damage, which is what five Embers would have been spent on. NOT a faithful copy and flagged as such."
     },
     {
-      "talent_id": "pyromancer_draconic_legacy_of_deathwing",
-      "name": "Legacy of Deathwing",
-      "description": "Your spells have a 15% chance per rank to reset the cooldown of Destroyer's Maw.",
+      "talent_id": "pyromancer_draconic_fire_and_brimstone",
+      "name": "Fire and Brimstone",
+      "description": "Your nukes stoke the fire, raising your damage by 1% per stack for 3 turns, stacking 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 1,
       "hex_y": 2,
       "effects": {},
       "connected_to": [
-        "pyromancer_draconic_fire_and_brimstone",
         "pyromancer_draconic_ascender"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 1,
-        "reset_cooldown": {
-          "ability": "pyromancer_destroyers_maw"
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "pyromancer_explode",
+          "pyromancer_flames_of_neltharion",
+          "pyromancer_lava_shard"
+        ],
+        "apply_effect": {
+          "effect_id": "pyromancer_fire_and_brimstone",
+          "name": "Fire and Brimstone",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "damage_dealt_pct": 1.0
+          },
+          "on_target": false
         }
       },
-      "_source": "CoA: 'Consuming Embers now has a 30% chance to reset the cooldown of Destroyer's Maw and Firefall and grant you Legacy of Deathwing.' reset_cooldown is a real proc payload and takes one ability, so it names the single-target half - which is also the half the rotation fishes for ('keep Destroyer's Maw and Firefall on cooldown to fish for Legacy of Deathwing resets')."
+      "_source": "CoA verbatim: 'Generating an Ember now increases the damage and healing of Ember spenders by 1% for 10 sec, stacking 5 times.' There is no Ember to generate, so the trigger is re-pointed at casting the spenders themselves - which in CoA is what consumed them, so the stacks build in the same part of the rotation. CoA's 1% and 5 stacks kept; 10 sec is 3 turns. damage_dealt_pct inside a status effect is percentage POINTS."
+    },
+    {
+      "talent_id": "pyromancer_draconic_ascender",
+      "name": "Ascender",
+      "description": "Reduces the cooldown of Dragon Leap by 30%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_pyromancer_dragon_leap_cooldown_pct": 0.1
+      },
+      "connected_to": [
+        "pyromancer_draconic_inner_flame"
+      ],
+      "_source": "CoA verbatim: 'Reduces the cooldown of Dragon Leap by -5 sec.' Expressed as a percentage against the ability's own cooldown. POSITIVE reduces, so CoA's minus sign is dropped."
     },
     {
       "talent_id": "pyromancer_draconic_inner_flame",
       "name": "Inner Flame",
-      "description": "Learn Inner Flame, raising your party's spell critical strike chance.",
-      "node_type": "active",
+      "description": "Teaches Inner Flame, a party-wide draconic blessing.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -3,
       "hex_y": 4,
       "effects": {
         "unlock_ability": "pyromancer_inner_flame"
       },
       "connected_to": [
-        "pyromancer_draconic_echo_of_nozdormu"
+        "pyromancer_draconic_earthwarder"
       ],
-      "_source": "CoA: a 1 TE spec talent behind an 8 TE gate, and the pre-pull buff both of this spec's rotations open with."
+      "_source": "LOAD-BEARING UNLOCK: pyromancer_inner_flame carries requires_talent, so without this node it is unobtainable forever. It is also target_type 'party', so it genuinely reaches every living ally - one of only six party-targeted Pyromancer abilities. Kept at tier 5 where the shipped tree had it."
     },
     {
-      "talent_id": "pyromancer_draconic_aspect_of_eternity",
-      "name": "Aspect of Eternity",
-      "description": "Increases the damage of your periodic effects by 5% per rank.",
+      "talent_id": "pyromancer_draconic_earthwarder",
+      "name": "Earthwarder",
+      "description": "Taking a hit has a 20% chance to make your next Flare Bolt strike for fire damage.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
+      "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "dot_damage": 0.05
-      },
+      "effects": {},
       "connected_to": [
-        "pyromancer_draconic_blackflight_resurgence"
+        "pyromancer_draconic_draconic_aspect"
       ],
-      "_source": "CoA tier 6: 'Allows the periodic damage of Blaze to critically strike. In addition, damage dealt by Echo of Nozdormu or Aspect of Time now has a 20% chance to guarantee your next Blaze... to critically strike.' DoT crit is already on here, and a guaranteed next crit has no hook, so the node carries periodic damage instead."
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 7,
+        "icd": 2,
+        "damage_flat": 95,
+        "school": "fire"
+      },
+      "_source": "CoA verbatim: 'Being struck by a melee attack while Draconic Aspect is active now has a 20% chance to make your next Flare Bolt within 8 seconds instant cast.' Three walls: no 'while buff active' gate, no trigger-side melee filter, and no cast times to make instant. Rebuilt as retaliation damage on being hit, keeping CoA's 20%, with a 2-turn internal cooldown so a heavy incoming turn does not fire it repeatedly."
     },
     {
-      "talent_id": "pyromancer_draconic_aspect_of_earth",
-      "name": "Aspect of Earth",
-      "description": "Increases your Armor by 3% per rank and reduces the magic damage you take by 2%.",
+      "talent_id": "pyromancer_draconic_draconic_aspect",
+      "name": "Draconic Aspect",
+      "description": "Increases your spell damage by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "armor_pct": 3.0,
-        "magic_damage_taken_pct": -0.02
+        "spell_damage": 0.05
       },
       "connected_to": [
-        "pyromancer_draconic_legacy_of_deathwing"
+        "pyromancer_draconic_death_from_above"
       ],
-      "_source": "CoA tier 6: Aspect of Earth, one of the four mutually exclusive Aspect capstones, whose own builder tooltip the scrape did not capture ('see builder tooltip'). Authored as the defensive Aspect the name and the spec's stated weakness both point at: 'No absorb and no mitigation cooldown in the spec.' Note the units - armor_pct is percentage POINTS, magic_damage_taken_pct is a fraction."
+      "_source": "CoA's own description for this node is the unresolved token '$8e' - the Builder payload never expands it - so there is no verbatim text and this is NOT a faithful copy. Frontier HAS Draconic Aspect as an ability and it is not gated, so this cannot be its unlock. Named from CoA's own title and built as flat spell damage. Flagged so a later pass can correct it, the same situation as Incineration's Magmatic ('$8a')."
     },
     {
       "talent_id": "pyromancer_draconic_death_from_above",
       "name": "Death From Above",
-      "description": "Learn Death From Above, soaring across a pack on fire. Also increases all damage you deal by 6%.",
-      "node_type": "active",
+      "description": "Teaches Death From Above, and Echo of Nozdormu and Flames of Neltharion hit 35% harder.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
@@ -447,14 +588,11 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "pyromancer_death_from_above",
-        "all_damage": 0.06
+        "ability_pyromancer_echo_of_nozdormu_damage": 0.35,
+        "ability_pyromancer_flames_of_neltharion_damage": 0.35
       },
-      "connected_to": [
-        "pyromancer_draconic_inner_flame",
-        "pyromancer_draconic_aspect_of_eternity",
-        "pyromancer_draconic_aspect_of_earth"
-      ],
-      "_source": "Capstone. CoA's own Draconic tier-6 pick, and the one the spec's strengths page leads with: 'Dragon Leap and Death From Above's root line into a blaze-forward soar move you through CC and terrain that would pin a normal caster. Kiting this is work.' CoA rates Draconic Raid C and Dungeon B - 'moderate throughput ceiling' - so the capstone carries a flat damage bonus as well as the ability, rather than being mobility alone."
+      "connected_to": [],
+      "_source": "LOAD-BEARING UNLOCK: pyromancer_death_from_above carries requires_talent, so without this node it is unobtainable forever. Kept at tier 6, completing Pyromancer's 4/5/6 gated-ability pattern across all three trees. The damage on the two Aspect nukes is added because a capstone that only grants an ability is thin, and it pays off Aspect of Time at tier 1 - the bigger the nuke, the bigger its echo, since bonus_pct is a share of the hit. Same shape as Incineration's Pyroclasm capstone."
     }
   ]
 }
