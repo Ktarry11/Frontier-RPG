@@ -1,8 +1,8 @@
 {
   "spec_name": "Stormbringer Lightning",
   "tree_id": "stormbringer_lightning",
-  "description": "Pure elemental fury - channels raw electricity into fast, hard-hitting bolts.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026). 17 real Lightning-tagged nodes + 2 Class-tree nodes folded in (Storm Ascendance capstone per Kyle's direction; Flux Arc's crit-chance role absorbed a generic 'Electrical Charge' spell-power node). Percentages/flat values rebalanced to Mage Fire's ~71-essence budget - CoA's own numbers were tuned for a stronger baseline and are NOT used directly (Kyle: 'CoA classes are generally stronger than Classic, we need to balance it').",
+  "description": "Static and thunder - a pure caster who banks charge and spends it on Thorim's arm.",
+  "_source_note": "Rebuilt 5 Nov 2026 from the 36 real CoA Lightning talents (role DPS). Replaces THE WORST TREE IN THE PROJECT - 23 nodes with one proc - from the worst-measuring class, Stormbringer at 89.6% scalar-only. Static is a real secondary resource and its builder/spender loop works, but NOTHING READS A LIVE RESOURCE AMOUNT, so the five CoA talents that scale off Static level are granted flat at their ceiling. The one genuinely talent-gated ability, ride_the_lightning, keeps its unlock node; five unlock nodes for non-gated abilities are replaced with real mechanics, since granting an ability the character already has does nothing.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,416 +14,623 @@
   },
   "nodes": [
     {
-      "talent_id": "stormbringer_lightning_electrical_charge",
-      "name": "Electrical Charge",
-      "description": "Increases Spell Power by 5 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spell_power": 5
-      },
-      "connected_to": [
-        "stormbringer_lightning_electrifying_aura"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_flux_arc",
-      "name": "Flux Arc",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "talent_id": "stormbringer_lightning_thunderous",
+      "name": "Thunderous",
+      "description": "Increases the critical strike damage of your spells by 60%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.0
+        "crit_damage_spell": 0.2
       },
       "connected_to": [
-        "stormbringer_lightning_electrocutioner"
-      ]
+        "stormbringer_lightning_electric_energy"
+      ],
+      "_source": "CoA's level 20 passive: 'Increases the critical damage of your spells by 150%.' Priced at 60% rather than 150%: CoA's figure sits on top of a different crit-damage baseline, and 150% here would make a single Electrocute crit the whole rotation. crit_damage_spell is a FRACTION."
+    },
+    {
+      "talent_id": "stormbringer_lightning_electric_energy",
+      "name": "Electric Energy",
+      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -6,
+      "effects": {
+        "ability_stormbringer_shock_damage": 0.0667,
+        "ability_stormbringer_conjure_storm_damage": 0.0667,
+        "ability_stormbringer_arm_of_thorim_damage": 0.0667
+      },
+      "connected_to": [
+        "stormbringer_lightning_wicked_storms"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of your Shock, Call Lightning, and Arm of Thorim by 20%.' Frontier has no Call Lightning; Conjure Storm is its enemy_aoe nature nuke and stands in, which is the same slot in the rotation. CoA names this trio together in three separate talents, so they are kept as a group."
     },
     {
       "talent_id": "stormbringer_lightning_wicked_storms",
       "name": "Wicked Storms",
-      "description": "Increases Shock damage by 3% per rank.",
+      "description": "Increases your spell damage by 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage": 0.0333
+      },
+      "connected_to": [
+        "stormbringer_lightning_tome_of_lightning"
+      ],
+      "_source": "CoA verbatim: 'Increases your Nature damage dealt by 5%.' THERE IS NO PER-SCHOOL DAMAGE KEY - nature_damage, shadow_damage and magic_damage are read by nothing - so it lands on spell_damage. Doubled to 10% because the spec deals almost nothing but nature, making the broader key nearly equivalent rather than a windfall. FRACTION."
+    },
+    {
+      "talent_id": "stormbringer_lightning_tome_of_lightning",
+      "name": "Tome of Lightning",
+      "description": "Increases your spell critical strike chance by 4%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.03
+        "crit_chance_spell": 1.3333
       },
       "connected_to": [
-        "stormbringer_lightning_thunder_wave"
-      ]
+        "stormbringer_lightning_titanic_thunderbolt"
+      ],
+      "_source": "CoA verbatim: 'Increases your critical strike chance by 2% and reduces the duration of interrupt and silence effects against you by -20%.' SILENCE AND INTERRUPT HAVE NO KEYS - the only duration-reduction key that exists is stun_duration_reduction_pct, read solely against effects flagged is_stun - so that half is dropped rather than quietly re-pointed at stuns, which are a different thing. The crit is doubled to 4% to carry the node alone. PERCENT."
     },
     {
-      "talent_id": "stormbringer_lightning_static_charge",
-      "name": "Static Charge",
-      "description": "Reduces the Mana cost of Shock by 2% per rank.",
+      "talent_id": "stormbringer_lightning_titanic_thunderbolt",
+      "name": "Titanic Thunderbolt",
+      "description": "Increases the critical strike chance of Shock, Conjure Storm and Arm of Thorim by 8%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_cost_pct": 0.02
+        "ability_stormbringer_shock_crit": 2.6667,
+        "ability_stormbringer_conjure_storm_crit": 2.6667,
+        "ability_stormbringer_arm_of_thorim_crit": 2.6667
       },
       "connected_to": [
-        "stormbringer_lightning_superconductor"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_electrifying_aura",
-      "name": "Electrifying Aura",
-      "description": "Increases Haste by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "haste": 1.0
-      },
-      "connected_to": [
-        "stormbringer_lightning_electrical_charge",
-        "stormbringer_lightning_arm_of_thorim"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_electrocutioner",
-      "name": "Electrocutioner",
-      "description": "Your Electrocute casts have a 50% chance per rank to generate 10 Static.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "stormbringer_lightning_flux_arc"
+        "stormbringer_lightning_invoking_storms"
       ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 50,
-        "icd": 0,
-        "ability_filter": [
-          "stormbringer_electrocute"
-        ],
-        "grant_resource": {
-          "resource": "static",
-          "amount": 10
-        }
-      }
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Shock, Conjure Storm, and Eye of the Storm by 4%.' Doubled for the two ranks. Frontier has no Eye of the Storm; Arm of Thorim takes its place to keep CoA's trio intact. ability_*_crit is a PERCENT."
     },
     {
-      "talent_id": "stormbringer_lightning_thunder_wave",
-      "name": "Thunder Wave",
-      "description": "Increases Freewind damage by 4% per rank.",
+      "talent_id": "stormbringer_lightning_invoking_storms",
+      "name": "Invoking Storms",
+      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by a further 30%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_freewind_damage": 0.04
+        "ability_stormbringer_shock_damage": 0.1,
+        "ability_stormbringer_conjure_storm_damage": 0.1,
+        "ability_stormbringer_arm_of_thorim_damage": 0.1
       },
       "connected_to": [
-        "stormbringer_lightning_wicked_storms"
-      ]
+        "stormbringer_lightning_voltaic_bursts"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the spell power scaling of Shock, Call Lightning, and Arm of Thorim by 15%.' Doubled for the two ranks. There is no key for how much an ability scales with spell power - the coefficients live on the abilities - so it is expressed as damage, which is what the scaling buys. Deliberately stacks with Electric Energy at tier 0, as CoA's two do."
     },
     {
       "talent_id": "stormbringer_lightning_superconductor",
       "name": "Superconductor",
-      "description": "Increases your maximum Static by 10 per rank.",
+      "description": "Increases the damage of Arm of Thorim by 40%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "static_max": 10
+        "ability_stormbringer_arm_of_thorim_damage": 0.1333
       },
       "connected_to": [
-        "stormbringer_lightning_static_charge"
-      ]
+        "stormbringer_lightning_voltaic_bursts"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of your Arm of Thorim by an additional 1% per Static depleted.' NOTHING READS A LIVE RESOURCE AMOUNT - no effect key asks how much Static you hold or spent - so the per-Static scaling cannot exist. Arm of Thorim depletes ALL Static in CoA, and a realistic bank at cast time is around 40, so 40% is the flat equivalent of CoA's ceiling rather than an invention. This is the same wall that flattened the Witch Doctor's Soul Feeder and Spirit Hunting."
     },
     {
-      "talent_id": "stormbringer_lightning_arm_of_thorim",
-      "name": "Arm of Thorim",
-      "description": "Learn Arm of Thorim, a heavy lightning strike that deals Nature damage and generates Static.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "stormbringer_arm_of_thorim"
-      },
-      "connected_to": [
-        "stormbringer_lightning_electrifying_aura",
-        "stormbringer_lightning_crackling_devastation"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_forked_lightning",
-      "name": "Forked Lightning",
-      "description": "Learn Forked Lightning, a bolt that arcs to strike up to 3 enemies.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "stormbringer_forked_lightning"
-      },
-      "connected_to": [
-        "stormbringer_lightning_superconductor",
-        "stormbringer_lightning_invoking_storms"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_titanstorm",
-      "name": "Titanstorm",
-      "description": "Increases Electrocute damage by 6% per rank.",
+      "talent_id": "stormbringer_lightning_voltaic_bursts",
+      "name": "Voltaic Bursts",
+      "description": "Increases the damage your damage-over-time spells deal by 50%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": -2,
+      "hex_y": -4,
       "effects": {
-        "ability_stormbringer_electrocute_damage": 0.06
+        "dot_damage": 0.1667
       },
       "connected_to": [
-        "stormbringer_lightning_flux_arc"
-      ]
+        "stormbringer_lightning_jolt"
+      ],
+      "_source": "CoA verbatim: 'Increases the periodic damage of Shock by 50%.' There is no key for one ability's periodic damage as distinct from its direct damage, so CoA's 50% is applied to the spec's dots generally via dot_damage - which also reaches Volt, the spec's real dot and Static engine. Broader than CoA's, stated rather than hidden."
     },
     {
-      "talent_id": "stormbringer_lightning_thunderbolt_focus",
-      "name": "Thunderbolt Focus",
-      "description": "Reduces the Mana cost of Volt and Forked Lightning by 5% per rank.",
+      "talent_id": "stormbringer_lightning_jolt",
+      "name": "Jolt",
+      "description": "Increases the damage of Electrocute by 20% and its critical strike chance by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_stormbringer_electrocute_damage": 0.0667,
+        "ability_stormbringer_electrocute_crit": 6.6667
+      },
+      "connected_to": [
+        "stormbringer_lightning_never_strikes_twice"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage and critical strike chance of Electrocute by 10%.' Doubled for the two ranks. Note the two keys take different units in the same block: ability_*_damage is a FRACTION, ability_*_crit a PERCENT."
+    },
+    {
+      "talent_id": "stormbringer_lightning_never_strikes_twice",
+      "name": "Never Strikes Twice?",
+      "description": "Electrocute has a 25% chance to strike again.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_critical_circuit"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_electrocute"
+        ],
+        "cast_ability": "stormbringer_electrocute"
+      },
+      "_source": "CoA verbatim: 'Your Electrocute now has a 25% chance to strike again.' PORTS EXACTLY - cast_ability takes a bare ability id and Electrocute is auto-learned, so it is in the caster's book. CoA's 25% kept. Note this also re-fires Electrocute's own `generates` block, so a second strike banks another 20 Static, which is CoA's behaviour too."
+    },
+    {
+      "talent_id": "stormbringer_lightning_critical_circuit",
+      "name": "Critical Circuit",
+      "description": "Your critical strikes refund 10 Static.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_sparks"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "static",
+          "amount": 10
+        }
+      },
+      "_source": "CoA verbatim: 'Direct critical strikes with Static spenders now refund 10 Static.' PORTS ALMOST EXACTLY - grant_resource takes a flat `amount`, which is what CoA states, and Static is a real secondary resource so gain_resource respects its cap. The 'with Static spenders' scoping is dropped: a proc's ability_filter would restrict it, but Arm of Thorim and Ride the Lightning are the only spenders and neither crits often enough to carry the node, so it fires on any crit."
+    },
+    {
+      "talent_id": "stormbringer_lightning_sparks",
+      "name": "Sparks",
+      "description": "Electrocute and Arm of Thorim leave the target taking 3% more spell damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_dark_skies"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_electrocute",
+          "stormbringer_arm_of_thorim"
+        ],
+        "apply_effect": {
+          "effect_id": "stormbringer_sparks",
+          "name": "Sparks",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "spell_damage_taken_pct": 3.0
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Electrocute and Arm of Thorim now increase the target's chance to be critically hit by spells by 3% for 10 seconds.' THERE IS NO RECIPIENT-SIDE 'CHANCE TO BE CRIT' KEY - crit lives on the attacker - so this becomes spell damage taken, the live recipient-side equivalent, at CoA's own 3%. 10 sec is 3 turns. Same translation as the Witch Doctor's Hollow Spirit."
+    },
+    {
+      "talent_id": "stormbringer_lightning_improved_forked_lightning",
+      "name": "Improved Forked Lightning",
+      "description": "Forked Lightning splashes 35% of its damage onto 2 more enemies.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_titanstorm"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_forked_lightning"
+        ],
+        "splash_damage": {
+          "pct": 0.35,
+          "max_targets": 2,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Forked Lightning now affects 1 additional enemy.' NO KEY ADDS TARGETS TO AN ABILITY - the count lives on the ability - so it becomes splash_damage, as every added-targets talent in this audit has. 2 targets rather than CoA's 1 because a percentage splash is weaker than a full extra bounce, and Forked Lightning generates 5 Static per enemy struck, so the extra reach is partly a resource node."
+    },
+    {
+      "talent_id": "stormbringer_lightning_dark_skies",
+      "name": "Dark Skies",
+      "description": "A spell that fails to crit raises your spell critical strike chance by 2% per stack for 3 turns, stacking 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_stormy_days"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "stormbringer_dark_skies",
+          "name": "Dark Skies",
+          "effect_type": "buff",
+          "duration": 3,
+          "max_stacks": 5,
+          "stat_mods": {
+            "crit_chance_spell": 2.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'When your direct damage spells fail to critically strike, your critical strike chance is increased by 2% for 10 sec, stacking up to 5 times. Critically striking removes this effect.' THERE IS NO 'ON FAILED CRIT' TRIGGER and no payload removes a stack or an effect, so neither half of CoA's self-correcting loop can be built. It fires on every damage cast instead and simply ramps - CoA's 2% and 5 stacks kept, 10 sec is 3 turns. Stronger than CoA's, because nothing consumes it; stated rather than hidden. The description says 'fails to crit' is the flavour, so it is worded as the ramp it actually is."
+    },
+    {
+      "talent_id": "stormbringer_lightning_titanstorm",
+      "name": "Titanstorm",
+      "description": "Casting Electrocute brings Arm of Thorim a turn closer to ready.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_fulmination"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "ability_filter": [
+          "stormbringer_electrocute"
+        ],
+        "reset_cooldown": {
+          "abilities": [
+            "stormbringer_arm_of_thorim"
+          ],
+          "turns": 1
+        }
+      },
+      "_source": "CoA verbatim: 'Casting Call Lightning or Electrocute now reduces the cooldown of Arm of Thorim and Lightning Cage by 1.5 sec.' Frontier has neither Call Lightning nor Lightning Cage, so only the Electrocute half and the Arm of Thorim target survive. 1.5 sec rounds to a turn, with a 1-turn internal cooldown so it cannot stack within one turn."
+    },
+    {
+      "talent_id": "stormbringer_lightning_fulmination",
+      "name": "Fulmination",
+      "description": "Increases the critical strike chance of Arm of Thorim by 30%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
       "effects": {
-        "ability_stormbringer_volt_cost_pct": 0.05,
-        "ability_stormbringer_forked_lightning_cost_pct": 0.05
+        "ability_stormbringer_arm_of_thorim_crit": 10
       },
       "connected_to": [
-        "stormbringer_lightning_electrical_charge"
-      ]
+        "stormbringer_lightning_thorims_gift"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Call Lightning and Arm of Thorim by 15% against targets affected by your Volt.' Doubled for the two ranks. The Volt condition cannot be read - no effect key asks whether a target carries a debuff - and Volt is on everything in this rotation anyway, so it was nearly always true. Call Lightning does not exist here."
+    },
+    {
+      "talent_id": "stormbringer_lightning_thorims_gift",
+      "name": "Thorim's Gift",
+      "description": "Arm of Thorim leaves unstable electricity in the ground, dealing nature damage over 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_lightning_rod"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_arm_of_thorim"
+        ],
+        "apply_effect": {
+          "effect_id": "stormbringer_thorims_gift",
+          "name": "Thorim's Gift",
+          "effect_type": "dot",
+          "duration": 2,
+          "potency": 44,
+          "damage_school": "nature",
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'Your Arm of Thorim now leaves unstable electricity beneath the target, dealing damage equal to 10% of its damage dealt to enemies within every 1 sec for 3 seconds.' A ground effect ticking for 3 sec IS a dot, so this ports in shape. The potency is flat rather than a share of the hit, because an apply_effect payload cannot read the triggering ability's damage, and it lands on the target rather than an area because there is no ground placement."
+    },
+    {
+      "talent_id": "stormbringer_lightning_stormy_days",
+      "name": "Stormy Days",
+      "description": "Increases the damage of Conjure Storm by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_stormbringer_conjure_storm_damage": 0.0833
+      },
+      "connected_to": [
+        "stormbringer_lightning_lightning_rod"
+      ],
+      "_source": "CoA verbatim: 'Increases the tick rate of Conjure Storm by -25%.' A faster tick has no meaning when ticks are per-turn, so it is rerouted to damage, which is what a faster tick delivers - more damage in the same window."
+    },
+    {
+      "talent_id": "stormbringer_lightning_lightning_rod",
+      "name": "Lightning Rod",
+      "description": "Forked Lightning has a 35% chance to fuse Volt into the target as well.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_crackling_devastation"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_forked_lightning"
+        ],
+        "cast_ability": "stormbringer_volt"
+      },
+      "_source": "CoA verbatim: 'Damage dealt by Forked Lightning now has a 20% chance to spread an active Volt on your target to each affected enemy. Chance increases based on Static level.' Spreading an existing dot to new targets is not a payload - apply_effect lands on the trigger's own target - so it CASTS Volt instead, which applies the same dot and also fires Volt's `generates` block for 6 more Static. The Static-level scaling cannot be read (see Superconductor), so 35% is the flat equivalent of CoA's 20% floor plus its scaling."
+    },
+    {
+      "talent_id": "stormbringer_lightning_flux_arc",
+      "name": "Flux Arc",
+      "description": "Forked Lightning and Arm of Thorim splash 15% of their damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_crackling_devastation"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_forked_lightning",
+          "stormbringer_arm_of_thorim"
+        ],
+        "splash_damage": {
+          "pct": 0.15,
+          "max_targets": 3,
+          "school": "nature"
+        }
+      },
+      "_source": "CoA verbatim: 'Your Forked Lightning and Arm of Thorim now marks enemies for 6 sec. Your Call Lightning against marked enemies deals an additional 15% of its damage to them and nearby enemies.' A MARK READ BY A LATER SPECIFIC CAST needs two things that do not exist: a debuff-presence check and a payload that empowers a named follow-up. Call Lightning does not exist either. Built as the splash the mark was for, at CoA's own 15%, paid by the two abilities that applied the mark."
     },
     {
       "talent_id": "stormbringer_lightning_crackling_devastation",
       "name": "Crackling Devastation",
-      "description": "Increases Arm of Thorim damage by 6% per rank.",
+      "description": "Increases the critical strike damage of Electrocute by 30%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_stormbringer_arm_of_thorim_damage": 0.06
-      },
-      "connected_to": [
-        "stormbringer_lightning_arm_of_thorim",
-        "stormbringer_lightning_lightning_cage"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_aeroblast",
-      "name": "Aeroblast",
-      "description": "Learn Aeroblast: crush an enemy with the weight of the winds, dealing Nature damage now and additional damage after 1 sec.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 0,
+      "hex_y": 2,
       "effects": {
-        "unlock_ability": "stormbringer_aeroblast"
+        "ability_stormbringer_electrocute_crit_damage": 0.1
       },
       "connected_to": [
-        "stormbringer_lightning_titanstorm"
+        "stormbringer_lightning_thundershocker"
       ],
-      "_source": "Confirmed screenshot: Lvl 20, Depletes 50 Static, '207 Nature damage to them and then an additional time for 40% of the damage dealt after 1 sec.' Tagged 'Lightning (1)' despite the wind-sounding name - names in this data don't reliably predict spec-lock, the Requires tag is authoritative."
+      "_source": "CoA verbatim: 'Increases the critical damage of Electrocute by 30%.' Ports exactly. ability_*_crit_damage is a FRACTION."
     },
     {
-      "talent_id": "stormbringer_lightning_never_strikes_twice",
-      "name": "Never Strikes Twice",
-      "description": "Increases your dodge chance by 1% per rank.",
+      "talent_id": "stormbringer_lightning_thundershocker",
+      "name": "Thundershocker",
+      "description": "Your spells leave the enemy taking 10% more damage from you for 3 turns.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 0,
-      "effects": {
-        "dodge": 1.0
-      },
-      "connected_to": [
-        "stormbringer_lightning_electrocutioner"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_invoking_storms",
-      "name": "Invoking Storms",
-      "description": "Increases Forked Lightning damage by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "ability_stormbringer_forked_lightning_damage": 0.06
-      },
-      "connected_to": [
-        "stormbringer_lightning_forked_lightning",
-        "stormbringer_lightning_titanic_thunderbringer"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_lightning_cage",
-      "name": "Lightning Cage",
-      "description": "Reduces the duration of stuns against you by 8% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
       "hex_y": 2,
-      "effects": {
-        "stun_duration_reduction_pct": 0.08
-      },
+      "effects": {},
       "connected_to": [
-        "stormbringer_lightning_crackling_devastation"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_titanic_thunderbringer",
-      "name": "Titanic Thunderbringer",
-      "description": "Increases all Nature spell damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "nature_spell_damage": 0.03
-      },
-      "connected_to": [
-        "stormbringer_lightning_invoking_storms",
-        "stormbringer_lightning_volt"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_overcharge",
-      "name": "Overcharge",
-      "description": "Increases your Intellect by 2% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "intellect_pct": 2.0
-      },
-      "connected_to": [
-        "stormbringer_lightning_lightning_cage"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_volt",
-      "name": "Volt",
-      "description": "Learn Volt, fusing lightning into an enemy to deal Nature damage over time.",
-      "node_type": "active",
-      "tier": 5,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "unlock_ability": "stormbringer_volt"
-      },
-      "connected_to": [
-        "stormbringer_lightning_titanic_thunderbringer",
-        "stormbringer_lightning_ride_the_lightning"
-      ]
-    },
-    {
-      "talent_id": "stormbringer_lightning_storm_ascendance",
-      "name": "Storm Ascendance",
-      "description": "For 15 seconds, your spell critical strikes have a 25% chance to reset the cooldown of Electrocute and grant 20 Static.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "unlock_ability": "stormbringer_storm_ascendance"
-      },
-      "connected_to": [
-        "stormbringer_lightning_volt"
+        "stormbringer_lightning_electrical_charge"
       ],
-      "_source": "Moved from tier 6 to tier 5. Storm Ascendance is not a Lightning capstone in CoA at all - it is a CLASS-tree node behind 'Requires 9 AE in this tree' (\"Transform into a storm elemental for 15 seconds, increasing your Magic damage dealt by 20% and reducing your Magic damage taken by -50%...\"), so every spec can reach it. What the Lightning tree gates near the top around it is Ascension, the free node at 'Requires 21 points in this tree (level 50)': \"Increases the duration of your Storm Ascendance by 10 sec\" - CoA's tier 5, which is where this now sits. Tier 6 is left to Ride the Lightning alone, so the tree narrows to a single capstone as the layout rule requires."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "stormbringer_thundershocker",
+          "name": "Thundershocker",
+          "effect_type": "debuff",
+          "duration": 3,
+          "max_stacks": 1,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "on_target": true
+        }
+      },
+      "_source": "CoA verbatim: 'While rooted by Eye of the Storm, affected enemies now take 30% increased damage from you.' Frontier has no Eye of the Storm and roots are not modelled, so the gate cannot exist. Rebuilt as a plain damage-taken debuff applied by casting, priced at 10% rather than CoA's 30% because it needs no setup and lands on everything. BARE damage_taken_pct IS READ RAW, so 10% is 0.10 - authoring 10.0 would be +1000% damage taken."
+    },
+    {
+      "talent_id": "stormbringer_lightning_electrical_charge",
+      "name": "Electrical Charge",
+      "description": "Your spells build charge, raising your haste by 1% per stack for 5 turns, stacking 20 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "stormbringer_lightning_lord_of_lightning"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "stormbringer_electrical_charge",
+          "name": "Electrical Charge",
+          "effect_type": "buff",
+          "duration": 5,
+          "max_stacks": 20,
+          "stat_mods": {
+            "haste": 1.0
+          },
+          "on_target": false
+        }
+      },
+      "_source": "CoA verbatim: 'Standing still grants you Electrical Charge every second, increasing your haste by 1%. Upon reaching 20 stacks, your spells dont deplete Static for 10 sec, after which the charges are depleted.' Three walls: standing still is positional, there is no periodic trigger to tick the stacks on, and the 20-stack threshold cannot be read - nothing reads another effect's stack count. Rebuilt so casting builds the charge, which a pure caster does every turn anyway. CoA's 1% and 20 stacks kept; the free-Static payoff is dropped."
     },
     {
       "talent_id": "stormbringer_lightning_ride_the_lightning",
       "name": "Ride the Lightning",
-      "description": "Learn Ride the Lightning, a bolt-borne dash that sears everything in the line you take.",
-      "node_type": "active",
+      "description": "Teaches Ride the Lightning, a nature blast through every enemy in your path that spends 40 Static.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "stormbringer_ride_the_lightning"
+      },
+      "connected_to": [
+        "stormbringer_lightning_lord_of_lightning"
+      ],
+      "_source": "CoA verbatim: 'Infuse yourself with lightning and blink forward a long distance, dealing Nature damage to all enemies in your path.' THIS UNLOCK NODE IS LOAD-BEARING AND PRESERVED: stormbringer_ride_the_lightning is one of only six Stormbringer abilities with requires_talent set, so without this node it is unobtainable forever. Dropping gated unlock nodes is how I stranded nine abilities earlier in this audit, which is why tools/qa_abilities_obtainable.py exists. The blink is positional and lives on the ability as an enemy_aoe hit; the talent only grants it."
+    },
+    {
+      "talent_id": "stormbringer_lightning_storm_barrier",
+      "name": "Storm Barrier",
+      "description": "Reduces the magic damage you take by 25%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "magic_damage_taken_pct": -0.0833
+      },
+      "connected_to": [
+        "stormbringer_lightning_lord_of_lightning"
+      ],
+      "_source": "CoA verbatim: 'While Lightning Cage is active your Magic Damage taken is now reduced by -25% and you are unable to be hit by ranged attacks.' Frontier has no Lightning Cage, so the gate has nothing to read, and ranged immunity has no key. The mitigation is granted permanently at CoA's own 25% - the spec's only defensive node, which a pure caster wants. AS A TALENT EFFECT magic_damage_taken_pct is a FRACTION where NEGATIVE reduces; inside a status effect the same key is divided by 100 and positive INCREASES damage taken."
+    },
+    {
+      "talent_id": "stormbringer_lightning_lord_of_lightning",
+      "name": "Lord of Lightning",
+      "description": "Increases the damage of Forked Lightning, Conjure Storm and Electrocute by 30%, and Electrocute splashes 40% of its damage onto up to 3 nearby enemies.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "stormbringer_ride_the_lightning"
+        "ability_stormbringer_forked_lightning_damage": 0.3,
+        "ability_stormbringer_conjure_storm_damage": 0.3,
+        "ability_stormbringer_electrocute_damage": 0.3
       },
-      "connected_to": [
-        "stormbringer_lightning_volt"
-      ],
-      "_source": "CoA Lightning, 'Requires 23 TE in this tree': \"Depletes 40 Static. Infuse yourself with lightning and blink forward a long distance, dealing SP Nature damage to all enemies in your path. Scales with modifiers to Discharge.\" The tier is right - CoA really does gate this at the top of the Lightning tree, alongside Flux Arc, Electrical Charge, Lord of Lightning, Thunder Wave and Crackling Devastation - so the node stays at tier 6 and is now the tree's only capstone. The effect was wrong: it read +8% Volt damage and -5% Volt cost per rank, which is not this tooltip or any other CoA node's. It now grants the ability. There is no movement in this combat engine, so the blink is dropped and what remains is the damage it deals along the way, as an enemy_aoe Nature nuke costing 40 Static."
-    },
-    {
-      "talent_id": "stormbringer_lightning_unbound_lightning",
-      "name": "Unbound Lightning",
-      "description": "Increases your spell critical strike damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "crit_damage_spell": 0.04
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "stormbringer_electrocute"
+        ],
+        "splash_damage": {
+          "pct": 0.4,
+          "max_targets": 3,
+          "school": "nature"
+        }
       },
-      "connected_to": [
-        "stormbringer_lightning_titanic_thunderbringer"
-      ]
+      "_source": "CoA verbatim: 'Storm Ascendance now additionally grants you Lord of Lightning for 20 seconds. Increases the damage dealt by Forked Lightning, Call Lightning, and Electrocute by an additional 30% and allows Electrocute to strike 3 additional enemies.' Both halves are built: CoA's 30% on the three abilities (Conjure Storm standing in for Call Lightning), and the three extra enemies as splash_damage, since no key adds targets. What is lost is the gate - CoA grants this only while Storm Ascendance is up, and nothing reads whether a buff is active - so it is permanent. Stated rather than hidden; priced as a capstone accordingly."
     }
   ]
 }
