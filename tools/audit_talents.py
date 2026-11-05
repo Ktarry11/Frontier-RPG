@@ -395,6 +395,26 @@ def main():
                 findings["proc-bad-trigger"].append(
                     f"{tid} ({n.get('name')!r}): trigger {proc.get('trigger')!r} "
                     f"is not one the engine dispatches")
+            # UNKNOWN proc keys, not just missing ones. The no-payload check
+            # below asks whether AT LEAST ONE known key is present, which a
+            # proc passes while carrying any number of invented keys beside
+            # it. On 5 Nov a Tinker proc shipped `restore_mana_pct` alongside
+            # a valid grant_resource: the proc fired, the grant worked, and
+            # the half the talent was named for did nothing. Nothing flagged
+            # it, because something in the dict was recognised.
+            #
+            # PROC_PAYLOADS is scanned out of the engine's own handler, so
+            # this cannot drift from what the engine really reads.
+            if PROC_PAYLOADS is not None:
+                known = set(PROC_PAYLOADS) | {
+                    "trigger", "chance", "icd", "ability_filter",
+                    "require_form", "require_mechsuit", "school",
+                }
+                for key in proc:
+                    if key not in known:
+                        findings["dead-effect-key"].append(
+                            f"{tid} ({n.get('name')!r}): proc key {key!r} is read "
+                            f"by no engine code")
             if PROC_PAYLOADS is not None and not any(k in proc for k in PROC_PAYLOADS):
                 findings["proc-no-payload"].append(
                     f"{tid} ({n.get('name')!r}): proc has a trigger but no payload, "

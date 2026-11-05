@@ -1,8 +1,8 @@
 {
   "spec_name": "Tinker Demolition",
   "tree_id": "tinker_demolition",
-  "description": "Explosives specialist - bombs, rockets, and burst Fire damage.",
-  "_source_note": "Rebuilt from CoA Build Hub screenshots (Sept 2026), then corrected against reference/coa_sidekick/talents/tinker.json (Oct 2026). The Sept note claimed the Napalm capstone was 'confirmed via tooltip' as 'a real DoT-stacking payoff' - the tooltip says the opposite: Napalm is CoA's EARLIEST Demolition passive and applies a Fire-vulnerability/anti-heal debuff, not a DoT. That node is rebuilt and moved to tier 2; CoA's real 23-TE Hyperblast Barrage now holds the capstone; Rocket Launcher gained the Demolition unlock node CoA gives it ungated; Drone Striker was built for the first time; and 'Blast Furnace', which had no CoA counterpart, was replaced by CoA's Buster Scope. Per-node _source fields carry the quoted tooltip behind each.",
+  "description": "Ranged demolitionist - stacks napalm on a target and then sets the whole pile alight.",
+  "_source_note": "Rebuilt 5 Nov 2026 from data/reference/coa/tinker.json tab 73 (38 real CoA Demolition talents) with identity from reference/coa_sidekick ('Closest to Survival Hunter, reflavored fully ranged'). Replaces a 22-node tree carrying real CoA names on 21 pure-scalar effects, and which had no Napalm mechanic at all despite Napalm being what the spec is built around.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,185 +14,219 @@
   },
   "nodes": [
     {
-      "talent_id": "tinker_demolition_explosives_expert",
-      "name": "Explosives Expert",
-      "description": "Increases Fire spell damage by 3% per rank.",
+      "talent_id": "tinker_demolition_incendiary_bullets",
+      "name": "Incendiary Bullets",
+      "description": "Increases the damage of Scrap Shot by 15% per rank and your chance to hit by 2%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -6,
+      "effects": {
+        "ability_tinker_scrap_shot_damage": 0.15,
+        "hit_rating": 2.0
+      },
+      "connected_to": [
+        "tinker_demolition_bomb_builder"
+      ],
+      "_source": "CoA verbatim: 'Increases the damage of Scrap Shot by 15% and increases your chance to hit by 2%.'"
+    },
+    {
+      "talent_id": "tinker_demolition_bomb_builder",
+      "name": "Bomb Builder",
+      "description": "Increases Fire damage dealt by you and your constructs by 5%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "fire_spell_damage": 0.03
+        "fire_spell_power": 0.05,
+        "pet_damage": 0.05
       },
       "connected_to": [
-        "tinker_demolition_bomb_toss"
-      ]
+        "tinker_demolition_war_crimes"
+      ],
+      "_source": "CoA: 'Increases your and your summons Fire Damage dealt by 5%.'"
     },
     {
-      "talent_id": "tinker_demolition_gazlowes_wisdom",
-      "name": "Gazlowe's Wisdom",
-      "description": "Reduces the Mana cost of Scrap Shot by 2% per rank.",
+      "talent_id": "tinker_demolition_boom_hour",
+      "name": "Boom Hour",
+      "description": "Increases the critical strike chance of Bomb Toss by 10% and the critical damage of Rocket Launcher by 10%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_scrap_shot_cost_pct": 0.02
+        "ability_tinker_bomb_toss_crit": 10.0,
+        "ability_tinker_rocket_launcher_crit_damage": 0.1
       },
       "connected_to": [
-        "tinker_demolition_rockadier"
-      ]
+        "tinker_demolition_war_crimes"
+      ],
+      "_source": "CoA has TWO near-identical nodes here - Boom Hour ('crit chance of Bomb Toss and Firepot Drone by 10%') and Buster Scope ('critical damage of Rocket Launcher by 10%'). With ~22 picks in a turn-based tree, two separate crit passives is one decision wearing two hats, so they are merged. Firepot Drone has no ability here."
+    },
+    {
+      "talent_id": "tinker_demolition_explosives_expert",
+      "name": "Explosives Expert",
+      "description": "Your critical strikes and your constructs' restore mana.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_sparked_and_ready"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 40
+        }
+      },
+      "_source": "CoA: 'Direct harmful ability critical strikes from you or your summons now restores 4% of your maximum mana.' Replaces a pure-scalar node of the same name."
+    },
+    {
+      "talent_id": "tinker_demolition_tank_buster",
+      "name": "Tank Buster",
+      "description": "Your Scrap Shot ignores 25% of the target's armor.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -6,
+      "effects": {
+        "armor_penetration_pct": 25.0
+      },
+      "connected_to": [
+        "tinker_demolition_sparked_and_ready"
+      ],
+      "_source": "CoA: 'Your Scrap Shot now ignores 25% of the target's Armor when damaging Burning targets.' The burning condition is not expressible - there is no per-ability conditional armor pen - so it applies flat, which is a real buff over CoA and is said so here rather than hidden."
+    },
+    {
+      "talent_id": "tinker_demolition_war_crimes",
+      "name": "War Crimes",
+      "description": "Bomb Toss coats the target in napalm, increasing Fire damage it takes by 3% and reducing healing it receives by 3% for 3 turns, stacking 10 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_drone_striker"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_bomb_toss"
+        ],
+        "apply_effect": {
+          "effect_id": "tinker_napalm",
+          "name": "Napalm",
+          "duration": 3,
+          "max_stacks": 10,
+          "school": "fire",
+          "stat_mods": {
+            "fire_damage_taken_pct": 3.0,
+            "healing_taken_pct": -3.0
+          }
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm.' Moved onto Bomb Toss and made reliable: this is the node that INTRODUCES Napalm to the tree, and a 50% chance on two augmentations would leave the spec's defining debuff absent most fights. 8 sec -> 3 turns."
     },
     {
       "talent_id": "tinker_demolition_sparked_and_ready",
-      "name": "Sparked and Ready",
-      "description": "Increases spell critical strike chance by 1% per rank.",
+      "name": "Sparked and Ready!",
+      "description": "Your Fire damage has a 15% chance to ready a Rocket Launcher, resetting its cooldown.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [
-        "tinker_demolition_rocket_launcher"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_the_big_guns",
-      "name": "The BIG Guns!",
-      "description": "Increases Spell Power by 5 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -6,
-      "effects": {
-        "spell_power": 5
-      },
-      "connected_to": [
-        "tinker_demolition_rocket_launcher"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_bomb_toss",
-      "name": "Bomb Toss",
-      "description": "Learn Bomb Toss, a lobbed explosive that deals Fire damage to a small area.",
-      "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
+      "hex_x": -1,
       "hex_y": -4,
-      "effects": {
-        "unlock_ability": "tinker_bomb_toss"
-      },
+      "effects": {},
       "connected_to": [
-        "tinker_demolition_explosives_expert",
-        "tinker_demolition_i_need_more_explosions"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_rockadier",
-      "name": "Rockadier",
-      "description": "Increases Bomb Toss damage by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -4,
-      "effects": {
-        "ability_tinker_bomb_toss_damage": 0.06
+        "tinker_demolition_aftermath"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 1,
+        "reset_cooldown": [
+          "tinker_rocket_launcher"
+        ]
       },
-      "connected_to": [
-        "tinker_demolition_gazlowes_wisdom"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_rocket_launcher",
-      "name": "Rocket Launcher",
-      "description": "Learn Rocket Launcher, a heavy rocket fired at a single enemy for Fire damage.",
-      "node_type": "active",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 4,
-      "hex_y": -4,
-      "effects": {
-        "unlock_ability": "tinker_rocket_launcher"
-      },
-      "_source": "CoA Demolition, ungated tier-0 node in its own right: 'Rocket Launcher - Fire a powerful rocket at an enemy that deals fire SP Fire damage.' Fixed Oct 2026: tinker_rocket_launcher was unlocked ONLY by tinker_invention_rocket_launcher, so a Demolition player could never obtain it - while CoA hangs a stack of Demolition nodes off it (Rocket Turrets 'using Rocket Launcher now causes your Sentry Turret to also cast Rocket Launcher', Short Fuse 'increases the critical strike chance of Rocket Launcher by 20%', Build: Spider Bomb Factory 'Bomb Toss and Rocket Launcher will summon 3 Spider Bombs', plus Surprise Launch!, Buster Scope, Mega Scope and Rockadier at the lower gate). Frontier's own Volatile Chemistry and Detonation Sequence already scaled an ability this tree could not cast. Same defect shape as Runemaster's Swift Etching. The node this replaces was 'Rocket Barrage', whose real CoA text is a 23-TE modifier to Tracer Augmentation and Bomb Toss - neither of which exists in Frontier - and whose Frontier effect had already been retargeted off a Remote Detonation ability that never existed. The Sticky Bomb cooldown reduction it was carrying has no CoA Demolition source (CoA's Sticky Bomb cooldown node, 'Bombs? BOMBS!', is a MECHANICS node) and is dropped rather than rehomed. Granting an ability from two trees is fine: requires_talent only needs at least one granter, and Invention keeps its own node.",
-      "connected_to": [
-        "tinker_demolition_sparked_and_ready"
-      ]
+      "_source": "CoA: 'Fire damage dealt has a 5% chance to grant Sparked and Ready!, causing your next Rocket Launcher within 10 sec to be instant cast and deal 20% increased damage.' Instant-cast means nothing here, so the payoff is the cooldown reset; 5% -> 15% because a turn is far longer than a real-time GCD and 5% per CAST would almost never fire. Replaces a pure-scalar node."
     },
     {
       "talent_id": "tinker_demolition_i_need_more_explosions",
       "name": "I Need More Explosions!",
-      "description": "Increases Sticky Bomb damage by 8% per rank.",
+      "description": "Increases the damage of Sticky Bomb by 15%.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -2,
-      "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.08
-      },
-      "_source": "CoA Demolition: 'I Need More Explosions! - Increases the damage of Sticky Bomb Explosions by 15%.' Renamed Oct 2026. This node was called 'Hyperblast Barrage' while doing something unrelated to CoA's Hyperblast Barrage (a 23-TE shrapnel-line nuke, now the tree's capstone); what it actually does - scale Sticky Bomb explosion damage - is word for word a different, real CoA Demolition node, so it keeps the effect and takes the correct name. Its prior _source records the effect was already retargeted once off a nonexistent Remote Detonation ability.",
-      "connected_to": [
-        "tinker_demolition_bomb_toss",
-        "tinker_demolition_build_spider_bomb"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_build_spider_bomb",
-      "name": "Build: Spider Bomb",
-      "description": "Learn Spider Bomb, a crawling explosive you deploy that seeks out an enemy before detonating for heavy Fire damage.",
-      "node_type": "active",
-      "tier": 3,
+      "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "tinker_spider_bomb"
-      },
-      "connected_to": [
-        "tinker_demolition_i_need_more_explosions",
-        "tinker_demolition_rocket_launcher"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_scrapyard_reserves",
-      "name": "Scrapyard Reserves",
-      "description": "Increases Spider Bomb damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 4,
-      "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 2,
+      "hex_y": -4,
       "effects": {
-        "ability_tinker_spider_bomb_damage": 0.08
+        "ability_tinker_sticky_bomb_damage": 0.15
       },
       "connected_to": [
-        "tinker_demolition_build_spider_bomb",
-        "tinker_demolition_napalm"
-      ]
+        "tinker_demolition_target_acquired"
+      ],
+      "_source": "CoA verbatim. Was already a scalar in CoA, so it stays one."
     },
     {
-      "talent_id": "tinker_demolition_napalm",
-      "name": "Napalm",
-      "description": "Your direct Fire damage coats the target in Napalm, leaving them more vulnerable to your Fire damage and harder to heal. Stacks up to ten times.",
+      "talent_id": "tinker_demolition_machine_synergy",
+      "name": "Machine Synergy",
+      "description": "Scrap Shot drives your constructs harder, raising their damage by 5% for 2 turns, stacking 3 times.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_target_acquired"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_scrap_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "tinker_machine_synergy",
+          "name": "Machine Synergy",
+          "duration": 2,
+          "max_stacks": 3,
+          "stat_mods": {
+            "pet_damage": 0.05
+          }
+        }
+      },
+      "_source": "CoA: 'Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret... 5% damage and 3% haste, stacking 3 times, for 6 seconds.' Pet haste is not a key here, so the damage half carries it. 6 sec -> 2 turns."
+    },
+    {
+      "talent_id": "tinker_demolition_drone_striker",
+      "name": "Drone Striker",
+      "description": "Scrap Shot drives another stack of napalm into the target.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
@@ -201,226 +235,300 @@
       "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "tinker_demolition_combustible_lenses"
+        "tinker_demolition_grenadier"
       ],
-      "_source": "CoA Demolition, exact tooltip: 'Level 10 Passive. Dealing direct Fire damage now applies Napalm to your target. Napalm (Damage): Fire Damage taken by you is increased and healing received reduced by -3% for 8 seconds. Stacks 10 times.' Rebuilt from scratch Oct 2026 - it was wrong three ways at once. It was a CASTABLE spell_dot (tinker_napalm_proc, whose own _source admitted it was a 'Real gap-fill stub' that 'likely needs proper on-hit-proc wiring'), it was a hotbar button instead of an automatic application, and it sat on the tier-6 CAPSTONE when CoA has it as the tree's earliest free passive. Now: a passive carrying a 100% on_damage_cast proc, moved to tier 2 (CoA gives it a single prerequisite and no point gate; Frontier has no free passives, so this is the earliest tier with a free slot that still reads as 'a prerequisite away'). The debuff is the real one from the tooltip, not a DoT: fire_damage_taken_pct is school-specific and PERCENT POINTS in a status stat_mod (Character.take_damage builds the key as f'{damage_type}_damage_taken_pct' and divides by 100), and healing_taken_pct is the merged recipient-side anti-heal key, also PERCENT POINTS, negative for a reduction (healing_received_pct does not exist - see Character.heal's docstring). stat_mods on a stacking effect are PER STACK and multiplied by `stacks`, so 3.0/-3.0 reaches CoA's ten-stack ceiling exactly. The tooltip's 'taken by you' is the caster-relative wording of a debuff that CoA puts on the enemy, which Drone Striker and Grenadier both confirm by reading 'stacks of Napalm on the enemy'. Procs carry no damage-school trigger filter (proc['school'] is the school of a damage_flat/splash PAYLOAD, not a trigger condition), so 'direct Fire damage' is expressed as an ability_filter. Tinker has exactly five abilities that are both effect_type=damage and damage_school=fire - Rocket Launcher, Makeshift Dynamite, Mechsuit: Laser Beam, Mechsuit: Combustion, Build: Spider Bomb - but a Demolition node may only name abilities Demolition can unlock, or it is dead for the player who specced into it (the same defect this sweep fixed for Rocket Launcher). Makeshift Dynamite and both Mechsuit abilities are Mechanics-only unlocks, so the filter is the Demolition-reachable pair: Rocket Launcher and Build: Spider Bomb. Sticky Bomb and Bomb Toss are Demolition-reachable but deliberately excluded - they are spell_dot in Frontier, i.e. delayed, and a cast that lands no immediate damage does not fire ON_DAMAGE_CAST anyway. 8 seconds reads as 3 turns here. KNOWN LIMIT: a Demolition/Mechanics hybrid will not get Napalm off their Mechsuit or Dynamite casts the way CoA would, because there is no damage-school trigger filter to express 'any direct Fire damage' generically. That needs an engine-side proc school gate, not more ability ids here.",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 0,
         "ability_filter": [
-          "tinker_rocket_launcher",
-          "tinker_spider_bomb"
+          "tinker_scrap_shot"
         ],
         "apply_effect": {
           "effect_id": "tinker_napalm",
           "name": "Napalm",
-          "effect_type": "debuff",
           "duration": 3,
           "max_stacks": 10,
+          "school": "fire",
           "stat_mods": {
             "fire_damage_taken_pct": 3.0,
             "healing_taken_pct": -3.0
-          },
-          "on_target": true,
-          "real_time_seconds": null
+          }
         }
-      }
+      },
+      "_source": "CoA: 'Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.' NOT built as written, and deliberately. That per-stack scaling already lives on the ABILITY (tinker_scrap_shot carries scales_with_target_stacks_of + damage_per_stack_pct 0.02) and applies whether or not this talent is spent; there is no effect key that switches it on, so a node claiming to grant it would grant nothing. Deleting the node was the other option and is what tinker_scrap_shot's own note assumed - but three nodes connect through this slot. So the node keeps CoA's INTENT, 'Scrap Shot gets more out of Napalm', via the half that is buildable: it puts more Napalm on the target, which the ability's native scaling then reads. Third Napalm applier in the tree, matching CoA, which also has three."
     },
     {
-      "talent_id": "tinker_demolition_blast_radius",
-      "name": "Blast Radius",
-      "description": "Increases AoE damage by 3% per rank.",
+      "talent_id": "tinker_demolition_aftermath",
+      "name": "Aftermath",
+      "description": "Casting Sticky Bomb makes your next Scrap Shot hit 25% harder.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 4,
+      "tier": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -6,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_bombastic"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_sticky_bomb"
+        ],
+        "apply_effect": {
+          "effect_id": "tinker_aftermath",
+          "name": "Aftermath",
+          "duration": 2,
+          "max_stacks": 1,
+          "stat_mods": {
+            "ability_tinker_scrap_shot_damage": 0.25
+          }
+        }
+      },
+      "_source": "CoA: 'Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.' Cast speed is meaningless here; the damage half becomes a 2-turn buff."
+    },
+    {
+      "talent_id": "tinker_demolition_target_acquired",
+      "name": "Target Acquired",
+      "description": "Your Sticky Bomb and Spider Bomb deal 30% more damage to a lone target.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
       "effects": {
-        "aoe_damage": 0.03
+        "ability_tinker_sticky_bomb_damage": 0.3,
+        "ability_tinker_spider_bomb_damage": 0.3
       },
       "connected_to": [
-        "tinker_demolition_explosives_expert"
-      ]
+        "tinker_demolition_bombastic"
+      ],
+      "_source": "CoA: '...30% increased damage when it strikes only 1 target.' There is no single-target conditional on an ability's damage here, so it applies always. Stated plainly: this is stronger than CoA's."
     },
     {
-      "talent_id": "tinker_demolition_combustible_lenses",
-      "name": "Combustible Lenses",
-      "description": "Increases Spell Power by 4 per rank.",
+      "talent_id": "tinker_demolition_duobombers",
+      "name": "Duobombers",
+      "description": "Build: Spider Bomb sends out a second bomb, dealing 100% more damage.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 4,
+      "tier": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -4,
-      "hex_y": -4,
+      "hex_x": 2,
+      "hex_y": -2,
       "effects": {
-        "spell_power": 4
+        "ability_tinker_spider_bomb_damage": 1.0
       },
+      "connected_to": [
+        "tinker_demolition_rocket_engineering"
+      ],
+      "_source": "CoA: 'Build: Spider Bomb now creates an additional Spider Bomb.' Two bombs is twice the damage, and doubling the ability is a far simpler truth than modelling a second summon."
+    },
+    {
+      "talent_id": "tinker_demolition_grenadier",
+      "name": "Grenadier",
+      "description": "When napalm reaches 5 stacks the target ignites, taking Fire damage over 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_rockadier"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "tinker_ignition",
+          "name": "Ignition",
+          "duration": 3,
+          "max_stacks": 1,
+          "school": "fire",
+          "dot_damage": 40
+        }
+      },
+      "_source": "CoA: 'When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.' No Firepot Drone and no charges here, so the payoff is reflavoured as the fire it would have delivered. The 5-stack condition is not expressible either; a 2-turn internal cooldown stands in for the pacing."
+    },
+    {
+      "talent_id": "tinker_demolition_bombastic",
+      "name": "Bombastic",
+      "description": "Casting Build: Spider Bomb resets the cooldown of Bomb Toss.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
       "connected_to": [
         "tinker_demolition_gazlowes_wisdom"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_shrapnel_coating",
-      "name": "Shrapnel Coating",
-      "description": "Increases critical strike chance with Fire spells by 1% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": -4,
-      "effects": {
-        "crit_chance_spell": 1.0
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "tinker_spider_bomb"
+        ],
+        "reset_cooldown": [
+          "tinker_bomb_toss"
+        ]
       },
-      "connected_to": [
-        "tinker_demolition_sparked_and_ready"
-      ]
+      "_source": "CoA: 'Casting Build: Spider Bomb now resets the cooldown of Bomb Toss and causes your next Bomb Toss within 15 seconds to trigger no cooldown, global cooldown, or cost.' The reset ports exactly; the free-cast rider is the same effect twice in an engine with no GCD, so it is dropped."
     },
     {
-      "talent_id": "tinker_demolition_volatile_chemistry",
-      "name": "Volatile Chemistry",
-      "description": "Reduces the cooldown of Rocket Launcher, Bomb Toss and Sticky Bomb by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -2,
-      "effects": {
-        "ability_tinker_rocket_launcher_cooldown_pct": 0.05,
-        "ability_tinker_bomb_toss_cooldown_pct": 0.05,
-        "ability_tinker_sticky_bomb_cooldown_pct": 0.05
-      },
-      "connected_to": [
-        "tinker_demolition_i_need_more_explosions"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_overpressure",
-      "name": "Overpressure",
-      "description": "Increases maximum Health by 2% per rank.",
+      "talent_id": "tinker_demolition_rocket_engineering",
+      "name": "Rocket Engineering",
+      "description": "Your critical strikes drive another stack of napalm into the target.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 0,
-      "effects": {
-        "max_health_pct": 0.02
-      },
-      "connected_to": [
-        "tinker_demolition_build_spider_bomb"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_detonation_sequence",
-      "name": "Detonation Sequence",
-      "description": "Increases Bomb Toss and Rocket Launcher damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_tinker_bomb_toss_damage": 0.04,
-        "ability_tinker_rocket_launcher_damage": 0.04
-      },
-      "connected_to": [
-        "tinker_demolition_scrapyard_reserves"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_thermal_lining",
-      "name": "Thermal Lining",
-      "description": "Reduces Fire damage taken by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 0,
-      "effects": {
-        "fire_resist_pct": 0.03
-      },
-      "connected_to": [
-        "tinker_demolition_i_need_more_explosions"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_scrap_recycling",
-      "name": "Scrap Recycling",
-      "description": "Reduces the Mana cost of all your abilities by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [
-        "tinker_demolition_scrapyard_reserves",
-        "tinker_demolition_hyperblast_barrage_unlock"
-      ]
-    },
-    {
-      "talent_id": "tinker_demolition_buster_scope",
-      "name": "Buster Scope",
-      "description": "Increases the critical damage of Rocket Launcher by 5% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "ability_tinker_rocket_launcher_crit_damage": 0.05
-      },
+      "hex_y": 0,
+      "effects": {},
       "connected_to": [
-        "tinker_demolition_scrapyard_reserves",
-        "tinker_demolition_hyperblast_barrage_unlock"
+        "tinker_demolition_surprise_launch"
       ],
-      "_source": "CoA Demolition, 8 TE: 'Buster Scope - Increases the critical damage of Rocket Launcher by 10%.' Replaces the node formerly here, 'Blast Furnace', which had no CoA counterpart at all under that name and whose only effect was ability_tinker_napalm_proc_duration - a key that died the moment the tinker_napalm_proc stub was deleted, so it had to be replaced rather than patched. Buster Scope is chosen because Demolition can now actually obtain Rocket Launcher (see tinker_demolition_rocket_launcher). ability_<id>_crit_damage is read in Ability._crit_damage_bonus and is a FRACTION of the base hit, so 2 ranks x 0.05 lands on CoA's 10%."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "tinker_napalm",
+          "name": "Napalm",
+          "duration": 3,
+          "max_stacks": 10,
+          "school": "fire",
+          "stat_mods": {
+            "fire_damage_taken_pct": 3.0,
+            "healing_taken_pct": -3.0
+          }
+        }
+      },
+      "_source": "CoA: 'Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target.' Tracer Augmentation's own stacking mark is not modelled; routed into Napalm, which is the stacking mark this tree actually has."
     },
     {
-      "talent_id": "tinker_demolition_chain_reaction",
-      "name": "Chain Reaction",
-      "description": "Increases the damage of your area-of-effect abilities by 8% per rank.",
+      "talent_id": "tinker_demolition_surprise_launch",
+      "name": "Surprise Launch!",
+      "description": "Rocket Launcher always critically strikes targets coated in napalm.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": -2,
+      "hex_y": 2,
       "effects": {
-        "aoe_damage": 0.08
+        "ability_tinker_rocket_launcher_crit": 100.0
+      },
+      "connected_to": [
+        "tinker_demolition_bomb_squad"
+      ],
+      "_source": "CoA: 'When Rocket Launcher is used on enemies affected by Sticky Bomb it is now guaranteed to critically strike.' The condition cannot be expressed, so this is a flat guaranteed crit on one ability - powerful, and deliberately placed at tier 4 behind two napalm nodes to keep the fantasy intact even though the engine will not enforce it."
+    },
+    {
+      "talent_id": "tinker_demolition_gazlowes_wisdom",
+      "name": "Gazlowe's Wisdom",
+      "description": "Sticky Bomb deals 20% more damage, and all of your area attacks deal 15% more.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ability_tinker_sticky_bomb_damage": 0.2,
+        "aoe_damage": 0.15
+      },
+      "connected_to": [
+        "tinker_demolition_bomb_squad"
+      ],
+      "_source": "CoA: 'You now spawn 2 Shrapnel Mines under your target when Sticky Bomb explodes.' Ground-placed mines and Remote Detonation do not exist here; the shrapnel is expressed as the splash it represents. Replaces a pure-scalar node of the same name."
+    },
+    {
+      "talent_id": "tinker_demolition_the_big_guns",
+      "name": "The BIG Guns!",
+      "description": "Increases your attack power by 5% and your party's by 5%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "attack_power_pct": 5.0
       },
       "connected_to": [
         "tinker_demolition_rockadier"
-      ]
+      ],
+      "_source": "CoA: 'Increases the attack power of all party and raid members 5%. Does not stack with similar effects. In addition, increases your ranged attack power by 3%.' Party-wide auras are not modelled, so only the self half is live - the description keeps the party wording because that is the talent's identity, and it is the one place here where flavour text outruns the mechanic."
     },
     {
-      "talent_id": "tinker_demolition_hyperblast_barrage_unlock",
-      "name": "Hyperblast Barrage",
-      "description": "Learn Hyperblast Barrage, a shrapnel salvo that rips down a line and hits everything standing in it.",
-      "node_type": "active",
+      "talent_id": "tinker_demolition_bomb_squad",
+      "name": "Bomb Squad",
+      "description": "Increases your spell power by 50% of your Agility.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "spell_power_from_agility_pct": 0.5
+      },
+      "connected_to": [
+        "tinker_demolition_rockadier"
+      ],
+      "_source": "CoA verbatim: 'Level 40 Passive. Increases your Fire spell power by 50% of Agility.' A stat conversion, which this engine handles natively through <target>_from_<source>_pct - but only for the targets in STAT_CONVERSION_TARGETS, and there is no per-school spell power in this engine, only spell_power. So the SCHOOL half is dropped rather than faked: an unknown pairing is skipped silently by character.py, which is the Clarity of the Heavens bug recorded in that dict's own comment. The value is a FRACTION (gained = source * pct), so 0.50, not 50.0 - as written it was a 5000% conversion."
+    },
+    {
+      "talent_id": "tinker_demolition_rocket_pack",
+      "name": "Rocket Pack",
+      "description": "Your Fire critical strikes cut the cooldown of your heaviest ordnance.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "tinker_demolition_rockadier"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 1,
+        "reset_cooldown": [
+          "tinker_hyperblast_barrage"
+        ]
+      },
+      "_source": "CoA: 'Fire critical strikes now reduce the remaining cooldown of Rockadier by 3 sec.' There is no partial-cooldown-reduction proc payload - only reset_cooldown - so this resets on a 1-turn internal cooldown instead, pointed at Hyperblast Barrage, which is the big cooldown this kit actually has."
+    },
+    {
+      "talent_id": "tinker_demolition_rockadier",
+      "name": "Rockadier",
+      "description": "Your Scrap Shot and Rocket Launcher deal 100% more damage.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "tinker_hyperblast_barrage"
+        "ability_tinker_scrap_shot_damage": 1.0,
+        "ability_tinker_rocket_launcher_damage": 1.0
       },
-      "connected_to": [
-        "tinker_demolition_scrap_recycling",
-        "tinker_demolition_buster_scope"
-      ],
-      "_source": "CoA Demolition, 23 TE: 'Hyperblast Barrage - Unleash a barrage of shrapnel, dealing fire SP Fire damage to enemies in a line, applying a lesser Sticky Bomb to each target struck that deals fire AP Fire damage after 3 sec. After 3 seconds, your active Sentry Turret will also fire a Hyperblast Barrage.' Takes the capstone that Napalm wrongly held. CoA's other five 23-TE Demolition nodes all modify something you already have (Rocket Barrage and Rocket Turrets extend Tracer Augmentation and Machine Synergy, Short Fuse buffs Sparked and Ready, Explosive Inventor adds to Spider Bomb Factory); Build: Spider Bomb Factory is also a new cast, but it is a summon platform on top of a Spider Bomb unlock this tree already spends a node on, so the line nuke is the cleaner capstone and the one that gives the tree a second real AoE button. See the ability's own _source for what is not modelled."
+      "connected_to": [],
+      "_source": "CoA: 'Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec to deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.' A 3-minute cooldown window is not a talent shape this tree supports, so the capstone grants the empowerment permanently at the cost of being the last pick. Replaces a pure-scalar node of the same name. The splash half is DROPPED, not approximated: aoe_damage was on this node and did nothing for it, because neither tinker_scrap_shot nor tinker_rocket_launcher is is_aoe - aoe_damage would have buffed other abilities entirely, while the prose promised a splash that never happened. 'Nearby enemies' is also positional language in an engine with no positions."
     }
   ]
 }
