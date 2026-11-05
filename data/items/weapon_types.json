@@ -22,10 +22,11 @@
         "str_physical",
         "agi_physical"
       ],
-      "budget_multiplier": 2.24,
+      "budget_multiplier": 1.0,
       "base_attack_speed": 3.4,
       "icon_id": "rarity_common",
-      "damage_tier": "two_hand"
+      "damage_tier": "two_hand",
+      "_budget_note": "1.0, the same as a 1H of the same family. Two-handedness is paid for in the damage tier (1.35x dps and a 3.4s swing), not again in stats - it used to be 2.24 here AND 1.5 in the slot weight. Verified against a real WoW reference Kyle supplied: Morbid Dawn, ilvl 35 2H sword, +10 Str +15 Sta = 25 points. Ours was 72."
     },
     "axe_1h": {
       "display_name": "Axe",
@@ -48,7 +49,7 @@
         "str_physical",
         "agi_physical"
       ],
-      "budget_multiplier": 2.24,
+      "budget_multiplier": 1.0,
       "base_attack_speed": 3.6,
       "icon_id": "rarity_common",
       "damage_tier": "two_hand"
@@ -77,7 +78,7 @@
         "agi_physical",
         "int_caster"
       ],
-      "budget_multiplier": 2.24,
+      "budget_multiplier": 1.0,
       "base_attack_speed": 3.6,
       "icon_id": "rarity_common",
       "damage_tier": "two_hand"
@@ -116,10 +117,11 @@
         "str_int_hybrid",
         "spi_healer"
       ],
-      "budget_multiplier": 2.24,
+      "budget_multiplier": 1.8,
       "base_attack_speed": 3.2,
       "icon_id": "rarity_common",
-      "damage_tier": "staff"
+      "damage_tier": "staff",
+      "_budget_note": "1.80 while the other two-handers are 1.0, because a staff's damage_tier is 'staff' (0.55 dps multiplier) rather than 'two_hand' (1.35). It is a caster weapon that deliberately does almost no damage, so its value has to arrive as stats instead. Targets parity with a caster's 1H + off-hand tome (1.089 + 0.99 = 2.08 vs this 1.96)."
     },
     "wand": {
       "display_name": "Wand",
@@ -206,7 +208,7 @@
         "str_physical",
         "agi_physical"
       ],
-      "budget_multiplier": 2.24,
+      "budget_multiplier": 1.0,
       "base_attack_speed": 3.3,
       "icon_id": "rarity_common",
       "damage_tier": "two_hand"

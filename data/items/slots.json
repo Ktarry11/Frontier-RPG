@@ -85,6 +85,9 @@
     "accessory": 0.792,
     "trinket": 0.792,
     "weapon_medium": 1.089,
-    "weapon_two_hand": 1.5
+    "weapon_two_hand": 1.089
+  },
+  "_notes": {
+    "weapon_two_hand": "Equal to weapon_medium ON PURPOSE (Kyle, 2 Nov: '+51 str from a lvl 28? Fuck no'). Two-handedness was being charged twice: this tier was 1.5 AND every two-hand weapon carried budget_multiplier 2.24, so a 2H got 3.09x a 1H's STAT budget - on top of the damage it already gets from its damage_tier (1.35x dps) and its slow swing. Weapon damage is computed separately in the budget formula and consumes NONE of the stat budget, so the damage tier is where two-handedness is already paid for. See data/items/weapon_types.json budget_multiplier for the other half."
   }
 }
