@@ -104,6 +104,45 @@ def main():
         scr._refresh = lambda *a, **k: None
         scr.mode = "offer"
         scr.active_quest = quest
+    elif which == "quest_menu":
+        # The multi-quest PICK LIST, built from every quest a given NPC
+        # offers. Added 6 Nov 2026 with the list itself: 263 of the game's
+        # 450 quest givers offer more than one quest and the worst offer
+        # twelve, and the screen used to show only offerable[0].
+        import json, glob, types
+        from world.quest import Quest
+        from ui.screens.quest_dialog_screen import QuestDialogScreen
+        who = sys.argv[sys.argv.index("--npc") + 1] if "--npc" in sys.argv else None
+        found = []
+        for f in sorted(glob.glob("data/quests/*.json")):
+            raw = json.load(open(f))
+            block = raw if isinstance(raw, list) else raw.get("quests", raw)
+            items = block if isinstance(block, list) else list(block.values())
+            for it in items:
+                if isinstance(it, dict) and it.get("giver_npc_id") == who:
+                    found.append(it)
+        quests = [Quest(**{k: v for k, v in q.items()
+                           if k in Quest.__init__.__code__.co_varnames})
+                  for q in found]
+        gname = who
+        for nf in sorted(glob.glob("data/npcs/*.json")):
+            blob = json.load(open(nf))
+            rows = blob if isinstance(blob, list) else list(blob.values())
+            flat = []
+            for r in rows:
+                flat.extend(r if isinstance(r, list) else [r])
+            for r in flat:
+                rid = (r.get("npc_id") or r.get("vendor_id")) if isinstance(r, dict) else None
+                if rid == who and r.get("name"):
+                    gname = r["name"]
+        npc = types.SimpleNamespace(name=gname, npc_id=who,
+                                    greeting="Plenty needs doing. Pick your poison.")
+        scr = QuestDialogScreen(sm, npc)
+        scr._refresh = lambda *a, **k: None
+        scr.mode = "menu"
+        # first two shown as ready to hand in, to exercise both markers
+        scr.menu_entries = ([("turn_in", q) for q in quests[:2]]
+                            + [("offer", q) for q in quests[2:]])
     elif which == "cast":
         from ui.screens.cast_screen import CastScreen
         scr = CastScreen(sm)

@@ -86,8 +86,19 @@ class QuestDialogScreen(BaseScreen):
         # _refresh() rather than decided once in __init__, since turning
         # a quest in can immediately reveal a next-chain quest to offer
         # within the same NPC conversation (see module docstring).
-        self.mode = None       # "turn_in" | "offer" | "greeting" | "dialogue"
+        self.mode = None       # "menu" | "turn_in" | "offer" | "greeting" | "dialogue"
         self.active_quest = None
+        # The pick list shown when this NPC has more than one thing to do.
+        # menu_entries is [(kind, quest)] with kind "turn_in" or "offer";
+        # came_from_menu drives the Back button, so drilling into a quest
+        # and backing out returns to the list rather than the overworld.
+        self.menu_entries = []
+        self.menu_rects = []
+        self.menu_visible = []
+        self.menu_scroll = 0
+        self.menu_max_scroll = 0
+        self.came_from_menu = False
+        self.back_button = pygame.Rect(40, SCREEN_HEIGHT - 70, 150, 44)
         self.gear_choice_stage = False  # True = showing the 4-way gear picker instead of the summary
         self.selected_gear_index = None
         self.result_message = None  # transient confirmation text ("You received...")
@@ -143,6 +154,32 @@ class QuestDialogScreen(BaseScreen):
             self.quest_mgr.refresh_gather_progress(player)
 
         turn_ins = self.quest_mgr.get_turn_in_ready_quests(self.npc_id)
+        offerable_now = self.quest_mgr.get_offerable_quests(self.npc_id)
+
+        # A GIVER WITH SEVERAL QUESTS USED TO SHOW EXACTLY ONE. This method
+        # took turn_ins[0] / offerable[0] and dropped the rest on the floor,
+        # so a player had to accept, walk away, and re-open the dialog once
+        # per quest to discover there was more. 263 of the game's 450 quest
+        # givers offer more than one quest and the worst offer TWELVE, so
+        # that is not an edge case - it is most of them.
+        #
+        # When there is more than one thing to do here, the screen now opens
+        # on a pick list instead (Kyle, 6 Nov: "build a UI for when a quest
+        # giver offers multiple quests so the player can choose"). Turn-ins
+        # are listed above offers, because handing in finished work before
+        # taking more is what a player expects and what WoW does.
+        self.menu_entries = ([("turn_in", q) for q in turn_ins]
+                             + [("offer", q) for q in offerable_now])
+        if len(self.menu_entries) > 1:
+            self.mode = "menu"
+            self.active_quest = None
+            self.came_from_menu = False
+            return
+
+        # Only one thing left here, so there is no list to go back to -
+        # clear the flag or the Back button lingers and does nothing.
+        self.came_from_menu = False
+
         if turn_ins:
             self.mode = "turn_in"
             self.active_quest = turn_ins[0]
@@ -199,6 +236,17 @@ class QuestDialogScreen(BaseScreen):
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
+        # Wheel scrolling for the pick list. pygame sends the wheel as
+        # MOUSEBUTTONDOWN buttons 4/5, so this has to run before the
+        # button-4/5 events fall through to the click handlers below
+        # and get treated as a click on whatever is under the cursor.
+        if self.mode == "menu" and event.type == pygame.MOUSEBUTTONDOWN \
+                and event.button in (4, 5):
+            self.menu_scroll = max(
+                0, min(self.menu_max_scroll,
+                       self.menu_scroll + (-1 if event.button == 4 else 1)))
+            return
+
         if event.type != pygame.MOUSEBUTTONDOWN:
             return
         mouse_pos = event.pos
@@ -214,6 +262,23 @@ class QuestDialogScreen(BaseScreen):
             if rect.collidepoint(mouse_pos):
                 self._do_greeting_action(action)
                 return
+
+        # Pick list first: clicking a row drills into that quest, and Back
+        # returns here rather than to the overworld.
+        if self.mode == "menu":
+            for (kind, quest), rect in zip(self.menu_visible, self.menu_rects):
+                if rect.collidepoint(mouse_pos):
+                    self.mode = kind
+                    self.active_quest = quest
+                    self.came_from_menu = True
+                    self.gear_choice_stage = False
+                    self.result_message = None
+                    return
+            return
+
+        if self.came_from_menu and self.back_button.collidepoint(mouse_pos):
+            self._return_to_menu()
+            return
 
         if self.mode == "turn_in" and self.gear_choice_stage:
             for i, rect in enumerate(self.gear_choice_rects):
@@ -415,7 +480,9 @@ class QuestDialogScreen(BaseScreen):
         # NPC name banner
         self.renderer.draw_text(screen, self.npc.name, (40, 30), size="large", color=COLOR_GOLD)
 
-        if self.mode == "turn_in" and self.gear_choice_stage:
+        if self.mode == "menu":
+            self._render_menu(screen)
+        elif self.mode == "turn_in" and self.gear_choice_stage:
             self._render_gear_choice(screen)
         elif self.mode == "turn_in":
             self._render_turn_in(screen)
@@ -432,10 +499,106 @@ class QuestDialogScreen(BaseScreen):
         if not (self.mode == "greeting" and self._has_action_row()):
             self.renderer.draw_button(screen, self.close_button, "Close")
 
+        # Back to the pick list, drawn only when there is a list to go back
+        # to. Without it the only way out of a quest opened from the list
+        # is Close, which drops the player to the overworld and makes them
+        # walk back into the NPC to see the other quests.
+        if self.came_from_menu and self.mode in ("offer", "turn_in", "dialogue"):
+            self.renderer.draw_button(screen, self.back_button, "< Back")
+
         # Shop / Bank / services alongside the quest, in every non-greeting
         # mode. Drawn last so nothing a mode renderer draws can cover them.
         for label, _action, rect in self._side_service_buttons():
             self.renderer.draw_button(screen, rect, label)
+
+    def _return_to_menu(self):
+        """Back out of a quest to the pick list, recomputing it first.
+
+        Recomputed rather than restored, because the list can have changed
+        while the player was inside it - accepting a quest removes it from
+        the offers, and turning one in can reveal the next link of a chain
+        on the same NPC (the reason _refresh exists at all). _refresh falls
+        through to a single-quest mode on its own when only one thing is
+        left, so backing out of the last entry lands somewhere sensible
+        instead of on an empty list.
+        """
+        self.came_from_menu = False
+        self._refresh()
+
+    def _render_menu(self, screen):
+        """The pick list for an NPC with several quests.
+
+        Modelled on WoW's gossip window: a line of greeting, then one row
+        per quest, each marked with its state. A quest ready to hand in
+        gets a gold "?" and a quest on offer a yellow "!", which is the
+        marker players already read above an NPC's head, so the list needs
+        no legend.
+        """
+        y = 84
+        greeting = (getattr(self.npc, "greeting", "") or "").strip()
+        if greeting:
+            y = self._draw_wrapped_text(screen, greeting, (40, y),
+                                        max_width=SCREEN_WIDTH - 80,
+                                        color=(190, 186, 172))
+            y += 14
+
+        ready = sum(1 for kind, _ in self.menu_entries if kind == "turn_in")
+        header = (f"{len(self.menu_entries)} things to discuss"
+                  if not ready else
+                  f"{len(self.menu_entries)} things to discuss "
+                  f"({ready} ready to hand in)")
+        self.renderer.draw_text(screen, header, (40, y), color=COLOR_GOLD,
+                                font_size=18)
+        y += 30
+
+        # SCROLLED, because the longest list in the game is twelve entries
+        # and twelve rows at 46px run off the bottom of a 720px screen -
+        # the last two were drawn under the Close button and past the edge.
+        ROW_H = 46
+        bottom = SCREEN_HEIGHT - 90          # clear of Close / Back
+        visible = max(1, (bottom - y) // ROW_H)
+        total = len(self.menu_entries)
+        self.menu_max_scroll = max(0, total - visible)
+        self.menu_scroll = max(0, min(self.menu_scroll, self.menu_max_scroll))
+        shown = self.menu_entries[self.menu_scroll:self.menu_scroll + visible]
+
+        self.menu_rects = []
+        self.menu_visible = shown
+        player = getattr(self.state_manager, "player", None)
+        for kind, quest in shown:
+            rect = pygame.Rect(40, y, SCREEN_WIDTH - 420, 40)
+            hovered = rect.collidepoint(pygame.mouse.get_pos())
+            pygame.draw.rect(screen, (30, 30, 38) if hovered else (20, 20, 26), rect)
+            pygame.draw.rect(screen, (90, 82, 60), rect, 1)
+
+            mark, mark_col = ("?", (255, 214, 92)) if kind == "turn_in" else ("!", (240, 196, 48))
+            self.renderer.draw_text(screen, mark, (rect.x + 12, rect.y + 8), color=mark_col)
+
+            # Grey the title when the player cannot take it yet, so the
+            # list never offers something that will be refused on click.
+            too_low = (player is not None
+                       and kind == "offer"
+                       and getattr(player, "level", 1) < getattr(quest, "level_min", 1))
+            title_col = (150, 150, 150) if too_low else COLOR_WHITE
+            self.renderer.draw_text(screen, quest.title, (rect.x + 36, rect.y + 8),
+                                    color=title_col)
+
+            right = f"lvl {quest.level_min}" if kind == "offer" else "Complete"
+            right_col = (200, 90, 90) if too_low else (
+                (120, 220, 120) if kind == "turn_in" else (160, 160, 160))
+            self.renderer.draw_text(screen, right,
+                                    (rect.right - 90, rect.y + 10),
+                                    color=right_col, font_size=16)
+
+            self.menu_rects.append(rect)
+            y += ROW_H
+
+        if self.menu_max_scroll:
+            self.renderer.draw_text(
+                screen,
+                f"{self.menu_scroll + 1}-{self.menu_scroll + len(shown)} of {total}"
+                "   (scroll)",
+                (40, y + 4), color=(140, 140, 140), font_size=16)
 
     def _render_greeting(self, screen):
         greeting = getattr(self.npc, "greeting", "") or f"{self.npc.name} has nothing more to say right now."
