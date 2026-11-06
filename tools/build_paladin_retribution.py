@@ -44,6 +44,18 @@ requires_talent so no unlock node is needed.
 
 Judgements of the Just has moved OUT of this tree to Protection, where the
 real game puts it.
+
+THE DAMAGE KEY INSIDE A PROC'S stat_mods MUST BE damage_dealt_pct, IN
+PERCENTAGE POINTS. all_damage, physical_damage, spell_damage and the
+per-school <school>_spell_damage keys are read through
+get_talent_effect (abilities.py:1606-1610), which sums TALENTS AND THE
+CURRENT STANCE and nothing else - a status effect's stat_mods go to
+get_status_stat_mod instead, and the damage path reads exactly one key
+from there: damage_dealt_pct (abilities.py:1680-1683, divided by 100).
+So a proc-applied buff carrying all_damage is SILENT DEAD DATA. Stances
+look like a counter-example and are not: stance stat_mods are folded
+into get_talent_effects (character.py:628), so they reach the talent
+bus. Proc-applied buffs are not.
 """
 
 import sys
@@ -231,7 +243,7 @@ T.node("vengeance", "Vengeance",
        proc={"trigger": "on_crit", "chance": 33, "icd": 0,
              "apply_effect": {"effect_id": "vengeance", "name": "Vengeance",
                               "effect_type": "buff", "duration": 4,
-                              "stat_mods": {"all_damage": 0.03},
+                              "stat_mods": {"damage_dealt_pct": 3.0},
                               "on_target": False}},
        connected_to=["conviction"],
        source="WotLK row 3: 'Gives you a 1%-3% bonus to Physical and Holy "

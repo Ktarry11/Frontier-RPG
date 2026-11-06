@@ -54,8 +54,17 @@ TREE = {
 }
 
 NAPALM = {
+    # damage_school, NOT "school". StatusEffect's field is damage_school;
+    # passing "school" raises TypeError AT PROC TIME, mid-fight, which is
+    # the worst failure shape in this project - the talent loads, the
+    # audit passes, the tooltip reads correctly, the point spends, and
+    # combat dies the first time it fires. Six Tinker nodes shipped that
+    # way. THEY WERE FIXED IN THE JSON AND NOT IN THIS BUILDER, so
+    # re-running it on 5 Nov 2026 reverted all four surviving cases -
+    # which is why a data-only fix is never safe for a generated file.
+    # effect_type is also REQUIRED by the constructor.
     "effect_id": "tinker_napalm", "name": "Napalm", "duration": 3,
-    "max_stacks": 10, "school": "fire",
+    "max_stacks": 10, "damage_school": "fire", "effect_type": "debuff",
     # healing_taken_pct, NOT healing_received_pct. CoA's own tooltips say
     # "healing received", and character.py:2895 names that wording as the
     # CoA-side alias - but the key the engine reads is healing_taken_pct,
@@ -215,7 +224,14 @@ N.append(node(
           "ability_filter": ["tinker_scrap_shot"],
           "apply_effect": {"effect_id": "tinker_machine_synergy",
                            "name": "Machine Synergy", "duration": 2,
-                           "max_stacks": 3,
+                           # effect_type is REQUIRED by StatusEffect's
+                           # constructor - omitting it raises TypeError at
+                           # proc time, the same mid-fight crash as passing
+                           # "school" instead of damage_school. Both
+                           # shapes were fixed in the JSON and not in this
+                           # builder, so re-running it reverted them.
+                           "effect_type": "buff",
+                           "max_stacks": 3, "on_target": False,
                            "stat_mods": {"pet_damage": 0.05}}},
     connect=["target_acquired"],
     source="CoA: 'Casting Scrap Shot now adds a stack of Machine Synergy to "
@@ -248,13 +264,14 @@ N.append(node(
 
 N.append(node(
     "aftermath", "Aftermath",
-    "Casting Sticky Bomb makes your next Scrap Shot hit 25% harder.",
+    "Casting Sticky Bomb makes your next attacks hit 25% harder.",
     2, -2, -2,
     proc={"trigger": "on_damage_cast", "chance": 100, "icd": 0,
           "ability_filter": ["tinker_sticky_bomb"],
           "apply_effect": {"effect_id": "tinker_aftermath", "name": "Aftermath",
                            "duration": 2, "max_stacks": 1,
-                           "stat_mods": {"ability_tinker_scrap_shot_damage": 0.25}}},
+                           "effect_type": "buff", "on_target": False,
+                           "stat_mods": {"damage_dealt_pct": 25.0}}},
     connect=["bombastic"],
     source="CoA: 'Casting Sticky Bomb now causes your next 2 Scrap Shots "
            "within 10 seconds to cast -50% faster and deal 25% increased "
@@ -291,8 +308,14 @@ N.append(node(
     3, -3, 0,
     proc={"trigger": "on_damage_cast", "chance": 100, "icd": 2,
           "apply_effect": {"effect_id": "tinker_ignition", "name": "Ignition",
-                           "duration": 3, "max_stacks": 1, "school": "fire",
-                           "dot_damage": 40}},
+                           "duration": 3, "max_stacks": 1,
+                           # damage_school not "school"; and a proc-applied
+                           # dot states PER-TURN damage as `potency` with
+                           # effect_type "dot" - dot_damage is a TALENT key
+                           # and not a StatusEffect field at all, so it
+                           # raised TypeError at proc time.
+                           "damage_school": "fire",
+                           "effect_type": "dot", "potency": 40}},
     connect=["rockadier"],
     source="CoA: 'When you reach 5 stacks of Napalm on a target you refresh 1 "
            "charge of Build: Firepot Drone.' No Firepot Drone and no charges "

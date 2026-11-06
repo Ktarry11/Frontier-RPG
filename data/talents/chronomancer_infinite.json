@@ -373,7 +373,7 @@
     {
       "talent_id": "chronomancer_infinite_null_orbs",
       "name": "Null Orbs",
-      "description": "Your critical strikes have a 35% chance to grant Null Orbs, increasing your spell critical damage by 40% for 3 turns.",
+      "description": "Your critical strikes have a 35% chance to grant Null Orbs, increasing your spell critical strike chance by 15% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -394,7 +394,7 @@
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "crit_damage_spell": 40
+            "crit_chance_spell": 15.0
           },
           "dispel_type": null,
           "on_target": false

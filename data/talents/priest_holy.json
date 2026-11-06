@@ -1,7 +1,7 @@
 {
   "spec_name": "Priest Holy",
   "tree_id": "priest_holy",
-  "description": "Pure restorative power channeled through the Light.",
+  "description": "The Light's own healer - throughput, Renew and group restoration.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,174 +15,171 @@
     {
       "talent_id": "priest_holy_healing_focus",
       "name": "Healing Focus",
-      "description": "Prayer of Healing and Circle of Healing cost 8 less Mana each per rank.",
+      "description": "Reduces the cost of your Heal by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_priest_prayer_of_healing_cost": 8,
-        "ability_priest_circle_of_healing_cost": 8
+        "ability_priest_heal_cost_pct": 0.05
       },
-      "connected_to": [
-        "priest_holy_desperate_prayer"
-      ]
+      "_source": "WotLK row 0: 'Reduces the pushback suffered from damaging attacks while casting any healing spell by 35%/70%.' DEPARTURE - there are no cast times and so no pushback. The talent exists so a healer keeps healing under fire; delivered as cost. _cost_pct is a FRACTION where POSITIVE IS A REDUCTION. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
+      "connected_to": []
     },
     {
       "talent_id": "priest_holy_improved_renew",
       "name": "Improved Renew",
-      "description": "Renew heals for 5% more and costs 3 less Mana per rank.",
+      "description": "Increases the healing of your Renew by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_priest_renew_healing": 0.05,
-        "ability_priest_renew_cost": 3
+        "ability_priest_renew_healing": 0.05
       },
-      "connected_to": [
-        "priest_holy_blessed_recovery"
-      ]
+      "_source": "WotLK row 0: 'Increases the amount healed by your Renew spell by 5%/10%/15%.' Built verbatim over the real 3 ranks; the outgoing version had 5 ranks. USES _healing, not _damage.",
+      "connected_to": []
     },
     {
       "talent_id": "priest_holy_holy_specialization",
       "name": "Holy Specialization",
-      "description": "Grants 1% spell critical strike chance per rank.",
+      "description": "Increases your spell critical chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
         "crit_chance_spell": 1.0
       },
-      "connected_to": [
-        "priest_holy_spiritual_guidance"
-      ]
-    },
-    {
-      "talent_id": "priest_holy_divine_fury",
-      "name": "Divine Fury",
-      "description": "Smite and Holy Fire deal 4% more damage each per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_priest_smite_damage": 0.04,
-        "ability_priest_holy_fire_damage": 0.04
-      },
-      "connected_to": [
-        "priest_holy_inspiration"
-      ]
+      "_source": "WotLK row 0: 'Increases the critical effect chance of your Holy spells by 1%-5%.' Built verbatim - crit_chance_spell covers all spells rather than one school, and every Priest heal here is Holy. Kept from the outgoing tree.",
+      "connected_to": []
     },
     {
       "talent_id": "priest_holy_desperate_prayer",
       "name": "Desperate Prayer",
-      "description": "Increases your maximum health by 5%, and attacks against you have a 10% chance to answer with an instant 180-point heal. Cannot happen more than once every 4 turns.",
+      "description": "Being struck hard mends you, healing over 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "max_health_pct": 0.05
-      },
-      "connected_to": [
-        "priest_holy_healing_focus",
-        "priest_holy_holy_reach"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 4,
-        "heal_flat": 180
-      }
-    },
-    {
-      "talent_id": "priest_holy_blessed_recovery",
-      "name": "Blessed Recovery",
-      "description": "After you take damage you have a 15% chance per rank to begin recovering, healing 30 per turn for 3 turns. Cannot happen more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -6,
       "hex_y": -4,
       "effects": {},
-      "connected_to": [
-        "priest_holy_improved_renew",
-        "priest_holy_improved_healing"
-      ],
+      "_source": "WotLK row 1: 'Instantly heals the caster for 263 to 325.' DEPARTURE - there is no priest_desperate_prayer ability to unlock. Delivered as a reactive self-heal with icd 4, which keeps it a cooldown rather than constant healing. A proc-applied hot states PER-TURN healing as `potency`. The outgoing version granted max_health_pct, which is not this talent.",
+      "connected_to": [],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 2,
+        "chance": 100,
+        "icd": 4,
         "apply_effect": {
-          "effect_id": "priest_blessed_recovery",
-          "name": "Blessed Recovery",
+          "effect_id": "desperate_prayer",
+          "name": "Desperate Prayer",
           "effect_type": "hot",
-          "duration": 3,
-          "potency": 30,
+          "duration": 2,
+          "potency": 60,
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "priest_holy_spiritual_guidance",
-      "name": "Spiritual Guidance",
-      "description": "Grants 4 Spirit and 5 Healing Power per rank.",
+      "talent_id": "priest_holy_spell_warding",
+      "name": "Spell Warding",
+      "description": "Reduces all spell damage taken by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "spirit": 4,
-        "healing_power": 5
+        "spell_damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim: 'Reduces all spell damage taken by 2%-10%.' spell_damage_taken_pct is a FRACTION as a talent effect and NEGATIVE reduces - the opposite sign to its meaning inside a status effect.",
       "connected_to": [
-        "priest_holy_holy_specialization",
-        "priest_holy_searing_light"
+        "priest_holy_healing_focus"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_blessed_recovery",
+      "name": "Blessed Recovery",
+      "description": "Being critically struck heals you over 2 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1: 'After being struck by a melee or ranged critical hit, Blessed Recovery heals you for 5%/10%/15% of the damage taken over 6 sec.' DEPARTURE on the trigger - there is no on-crit-TAKEN event, so on_damage_taken with icd 1 stands in. Healing as a percentage of the damage taken is also unavailable: of the payloads that read the triggering amount, none applies a hot. 6 seconds is 2 turns. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "priest_holy_improved_renew"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "blessed_recovery",
+          "name": "Blessed Recovery",
+          "effect_type": "hot",
+          "duration": 2,
+          "potency": 35,
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "priest_holy_divine_fury",
+      "name": "Divine Fury",
+      "description": "Increases the damage of your Smite and Holy Fire and the healing of your Heal by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_priest_smite_damage": 0.03,
+        "ability_priest_holy_fire_damage": 0.03,
+        "ability_priest_heal_healing": 0.03
+      },
+      "_source": "WotLK row 1: 'Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by 0.1-0.5 sec.' DEPARTURE - no cast times. A shorter cast is more throughput, so it is delivered as throughput on the three named spells that exist. NOTE the Heal clause uses _healing and the damage clauses use _damage - mixing them on one node is correct and getting it wrong is the 18-dead-talents mistake. Kept from the outgoing tree. It is Searing Light's prerequisite in the real tree, preserved below.",
+      "connected_to": [
+        "priest_holy_improved_renew"
       ]
     },
     {
       "talent_id": "priest_holy_inspiration",
       "name": "Inspiration",
-      "description": "Your heals have a 30% chance per rank to inspire you, granting 200 Armor and reducing physical damage you take by 5% for 4 turns.",
+      "description": "Your critical heals harden the target against physical damage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Reduces your target's physical damage taken by 5%/10% for 15 sec after getting a critical effect from your Flash Heal, Heal or Greater Heal.' Built with the real 10% and 15 seconds as 4 turns. on_target is False because a talent-sourced effect cannot be aimed at the heal's recipient, so the priest carries it - a real departure. MIND THE UNIT: inside a status effect physical_damage_taken_pct is PERCENTAGE POINTS (-10.0), unlike the BARE damage_taken_pct in the same position, which is read raw. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "priest_holy_divine_fury",
-        "priest_holy_healing_prayers"
+        "priest_holy_holy_specialization"
       ],
       "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 30,
+        "trigger": "on_crit",
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "priest_inspiration",
+          "effect_id": "inspiration",
           "name": "Inspiration",
           "effect_type": "buff",
           "duration": 4,
-          "real_time_seconds": null,
           "stat_mods": {
-            "armor": 200,
-            "physical_damage_taken_pct": -5
+            "physical_damage_taken_pct": -10.0
           },
           "on_target": false
         }
@@ -191,7 +188,26 @@
     {
       "talent_id": "priest_holy_holy_reach",
       "name": "Holy Reach",
-      "description": "Circle of Healing heals for 8% more per rank, and its cooldown is 1 turn shorter per rank.",
+      "description": "Increases the healing of your Circle of Healing and Prayer of Healing by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "ability_priest_circle_of_healing_healing": 0.05,
+        "ability_priest_prayer_of_healing_healing": 0.05
+      },
+      "_source": "WotLK row 2: 'Increases the range of your Smite and Holy Fire spells and the radius of your Prayer of Healing, Holy Nova, Divine Hymn and Circle of Healing spells by 10%/20%.' DEPARTURE - there is no range or radius in this engine. A wider heal reaches more people, so it is delivered as healing on the two group heals that exist. Kept from the outgoing tree.",
+      "connected_to": [
+        "priest_holy_spell_warding"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_healing_prayers",
+      "name": "Healing Prayers",
+      "description": "Reduces the cost of your Prayer of Healing by 10% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -199,18 +215,17 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_priest_circle_of_healing_healing": 0.08,
-        "ability_priest_circle_of_healing_cooldown": 1
+        "ability_priest_prayer_of_healing_cost_pct": 0.1
       },
+      "_source": "WotLK row 2: 'Reduces the mana cost of your Prayer of Healing and Prayer of Mending spell by 10%/20%.' Prayer of Mending does not exist. Kept from the outgoing tree, which used the FLAT _cost key.",
       "connected_to": [
-        "priest_holy_desperate_prayer",
-        "priest_holy_empowered_healing"
+        "priest_holy_spell_warding"
       ]
     },
     {
       "talent_id": "priest_holy_improved_healing",
       "name": "Improved Healing",
-      "description": "Heal costs 8 less Mana per rank.",
+      "description": "Reduces the cost of your Heal and Penance by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -218,192 +233,184 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_priest_heal_cost": 8
+        "ability_priest_heal_cost_pct": 0.05,
+        "ability_priest_penance_cost_pct": 0.05
       },
+      "_source": "WotLK row 2: 'Reduces the mana cost of your Lesser Heal, Heal, Greater Heal, Divine Hymn and Penance spells by 5%/10%/15%.' Built verbatim for the two that exist. Stacks with Healing Focus on priest_heal. Kept from the outgoing tree.",
       "connected_to": [
-        "priest_holy_blessed_recovery",
-        "priest_holy_circle_of_healing"
+        "priest_holy_blessed_recovery"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_spirit_of_redemption",
+      "name": "Spirit of Redemption",
+      "description": "Increases your Spirit by 5%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "spirit_pct": 5.0
+      },
+      "_source": "WotLK row 2: 'Increases total Spirit by 5% and upon death, the priest becomes the Spirit of Redemption for 15 sec.' The Spirit half is verbatim. DEPARTURE on the second - there is no on-death hook and no post-death state. The outgoing version granted FLAT spirit; spirit_pct is PERCENTAGE POINTS. It feeds Spiritual Guidance one column across.",
+      "connected_to": [
+        "priest_holy_divine_fury"
       ]
     },
     {
       "talent_id": "priest_holy_searing_light",
       "name": "Searing Light",
-      "description": "Holy Fire deals 6% more damage per rank and is 2% more likely to critically strike per rank.",
+      "description": "Increases the damage of your Smite, Holy Fire and Penance by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_priest_holy_fire_damage": 0.06,
-        "ability_priest_holy_fire_crit": 2.0
-      },
-      "connected_to": [
-        "priest_holy_spiritual_guidance",
-        "priest_holy_blessed_resilience"
-      ]
-    },
-    {
-      "talent_id": "priest_holy_healing_prayers",
-      "name": "Healing Prayers",
-      "description": "Prayer of Healing heals for 8% more per rank, and its cooldown is 1 turn shorter per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_priest_prayer_of_healing_healing": 0.08,
-        "ability_priest_prayer_of_healing_cooldown": 1
+        "ability_priest_smite_damage": 0.05,
+        "ability_priest_holy_fire_damage": 0.05,
+        "ability_priest_penance_damage": 0.05
       },
+      "_source": "WotLK row 2, built verbatim for the three real spells that exist: 'Increases the damage of your Smite, Holy Fire, Holy Nova and Penance spells by 5%/10%.' The real talent requires Divine Fury, which connected_to reproduces. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
       "connected_to": [
-        "priest_holy_inspiration",
-        "priest_holy_spirit_of_redemption"
+        "priest_holy_divine_fury"
       ]
     },
     {
-      "talent_id": "priest_holy_circle_of_healing",
-      "name": "Circle of Healing",
-      "description": "Teaches Circle of Healing, an instant heal on your whole party.",
-      "node_type": "active",
+      "talent_id": "priest_holy_spiritual_guidance",
+      "name": "Spiritual Guidance",
+      "description": "Increases your spell power by 5% of your Spirit per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": -2,
+      "effects": {
+        "spell_power_from_spirit_pct": 0.05
+      },
+      "_source": "WotLK row 2, built verbatim: 'Increases spell power by 5%-25% of your total Spirit.' A REAL stat conversion - spell_power is a valid STAT_CONVERSION_TARGET and spirit a valid source. THE UNIT IS A RAW MULTIPLIER, not a percentage: character.py:1551 does `gained = source * pct`, so 0.05 per rank reaches the real 25%. Authoring 25 would have granted twenty-five times the priest's Spirit as spell power. The outgoing version granted FLAT spirit and FLAT healing_power, which is neither the conversion nor its magnitude.",
+      "connected_to": [
+        "priest_holy_inspiration"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_surge_of_light",
+      "name": "Surge of Light",
+      "description": "Your spell criticals have a 50% chance per rank to make your next spells cheaper for 2 turns.",
+      "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {
-        "unlock_ability": "priest_circle_of_healing"
-      },
+      "effects": {},
+      "_source": "WotLK row 3, NEW to our tree: 'Your spell criticals have a 25%/50% chance to cause your next Smite or Flash Heal spell to be instant cast, cost no mana but be incapable of a critical hit.' DEPARTURE - no cast times, so 'instant' has nothing to act on, and nothing consumes a buff on use. The mana clause survives as a temporary cost reduction. MIND THE FLIP: all_ability_cost_pct is PERCENTAGE POINTS inside a status effect (25.0) and a FRACTION as a talent effect - this key is the one audit_talents has caught most often in this project.",
       "connected_to": [
-        "priest_holy_improved_healing",
-        "priest_holy_serendipity"
-      ]
-    },
-    {
-      "talent_id": "priest_holy_blessed_resilience",
-      "name": "Blessed Resilience",
-      "description": "Attacks against you are 2% less likely to critically strike per rank, and have a 25% chance per rank to steel you for 3 turns, reducing damage you take by 8%. Cannot happen more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "crit_taken_reduction": 2.0
-      },
-      "connected_to": [
-        "priest_holy_searing_light",
-        "priest_holy_body_and_soul"
+        "priest_holy_improved_healing"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 25,
-        "icd": 2,
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
         "apply_effect": {
-          "effect_id": "priest_blessed_resilience",
-          "name": "Blessed Resilience",
+          "effect_id": "surge_of_light",
+          "name": "Surge of Light",
           "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
+          "duration": 2,
           "stat_mods": {
-            "physical_damage_taken_pct": -8,
-            "magic_damage_taken_pct": -8
+            "all_ability_cost_pct": 25.0
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "priest_holy_spirit_of_redemption",
-      "name": "Spirit of Redemption",
-      "description": "Grants 10 Spirit. When you take damage there is a 10% chance the Light steadies you for 3 turns, granting 150 Healing Power and 20% more healing. Cannot happen more than once every 8 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "spirit": 10
-      },
-      "connected_to": [
-        "priest_holy_healing_prayers",
-        "priest_holy_empowered_renew"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 8,
-        "apply_effect": {
-          "effect_id": "priest_spirit_of_redemption",
-          "name": "Spirit of Redemption",
-          "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "healing_power": 150,
-            "healing_done_pct": 20
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "priest_holy_empowered_healing",
-      "name": "Empowered Healing",
-      "description": "Heal restores 5% more health per rank.",
+      "talent_id": "priest_holy_spiritual_healing",
+      "name": "Spiritual Healing",
+      "description": "Increases all your healing by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_priest_heal_healing": 0.05
+        "healing_done": 0.02
       },
+      "_source": "WotLK row 3, NEW to our tree, built verbatim: 'Increases the amount healed by your healing spells by 2%-10%.' healing_done is a FRACTION and is the global healing multiplier.",
       "connected_to": [
-        "priest_holy_holy_reach"
+        "priest_holy_searing_light"
       ]
     },
     {
-      "talent_id": "priest_holy_serendipity",
-      "name": "Serendipity",
-      "description": "Your heals have a 34% chance per rank to grant Serendipity, adding 12 Haste for 2 turns.",
+      "talent_id": "priest_holy_holy_concentration",
+      "name": "Holy Concentration",
+      "description": "Your critical heals restore 180 mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -5,
       "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'Your mana regeneration from spirit is increased by 16%-50% for 8 sec after you critically heal.' DEPARTURE - there is no key that modifies mana regeneration at all (resource_regen_pct is dead data), so a temporary regeneration boost cannot be built. Delivered as mana on the same trigger the real talent uses.",
       "connected_to": [
-        "priest_holy_circle_of_healing",
-        "priest_holy_test_of_faith"
+        "priest_holy_surge_of_light"
       ],
       "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 34,
+        "trigger": "on_crit",
+        "chance": 33,
         "icd": 0,
-        "apply_effect": {
-          "effect_id": "priest_serendipity",
-          "name": "Serendipity",
-          "effect_type": "buff",
-          "duration": 2,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "haste": 12.0
-          },
-          "on_target": false
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 180
         }
       }
     },
     {
       "talent_id": "priest_holy_body_and_soul",
       "name": "Body and Soul",
-      "description": "Power Word: Shield lasts 1 turn longer per rank, and stuns on you last 10% less time per rank.",
+      "description": "Increases the duration of your Power Word: Shield by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "ability_priest_power_word_shield_duration": 1
+      },
+      "_source": "WotLK row 4: 'When you cast Power Word: Shield, you increase the target's movement speed by 30%/60% for 4 sec, and you have a 100% chance to cleanse the target of all poison effects.' DEPARTURE - no movement speed, and a talent-sourced effect cannot be aimed at the shield's target. Delivered as shield duration, which is the clause's real beneficiary. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. Kept from the outgoing tree.",
+      "connected_to": [
+        "priest_holy_surge_of_light"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_empowered_healing",
+      "name": "Empowered Healing",
+      "description": "Increases the healing of your Heal by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_priest_heal_healing": 0.04
+      },
+      "_source": "WotLK row 4: 'Your Greater Heal spell gains an additional 8%-40% and your Flash Heal and Binding Heal gain an additional 4%-20% of your bonus healing effects.' None of the three named spells exist; priest_heal stands in for all of them at the middle value. Kept from the outgoing tree, corrected from 5% to 4% per rank.",
+      "connected_to": [
+        "priest_holy_spiritual_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_blessed_resilience",
+      "name": "Blessed Resilience",
+      "description": "Increases your healing by 1% per rank and reduces the chance you are critically hit by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -411,119 +418,122 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_priest_power_word_shield_duration": 1,
-        "stun_duration_reduction_pct": 0.1
+        "healing_done": 0.01,
+        "crit_taken_reduction": 2.0
       },
+      "_source": "WotLK row 4, built with both halves: 'Increases the effectiveness of your healing spells by 1%-3%, and critical hits made against you have a 20%-60% chance to prevent the critical.' Preventing a crit outright is not expressible, but crit_taken_reduction - which lowers an attacker's crit chance against you (abilities.py:1317) - is the same idea and is a live key in PERCENTAGE POINTS. Kept from the outgoing tree, which had the crit half only.",
       "connected_to": [
-        "priest_holy_blessed_resilience",
-        "priest_holy_divine_providence"
+        "priest_holy_spiritual_healing"
       ]
     },
     {
-      "talent_id": "priest_holy_empowered_renew",
-      "name": "Empowered Renew",
-      "description": "Renew heals for 4% more and costs 4 less Mana per rank, and casting it has a 20% chance per rank to heal the target for 40 at once. Cannot happen more than once every turn.",
+      "talent_id": "priest_holy_serendipity",
+      "name": "Serendipity",
+      "description": "Your heals have a 33% chance per rank to quicken you by 12% for 2 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
-      "effects": {
-        "ability_priest_renew_healing": 0.04,
-        "ability_priest_renew_cost": 4
-      },
-      "connected_to": [
-        "priest_holy_spirit_of_redemption"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 20,
-        "icd": 1,
-        "ability_filter": [
-          "priest_renew"
-        ],
-        "heal_flat": 40
-      }
-    },
-    {
-      "talent_id": "priest_holy_test_of_faith",
-      "name": "Test of Faith",
-      "description": "Your heals have a 25% chance per rank to spill over onto whichever ally is worst off, healing them for 60. Cannot happen more than once every turn.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 4: 'When you heal with Binding Heal or Flash Heal, the cast time of your next Greater Heal or Prayer of Healing spell is reduced by 4%-12%.' DEPARTURE - no cast times. A shorter cast is haste, so that is what it grants, at the real 12%. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "priest_holy_serendipity",
-        "priest_holy_guardian_spirit"
+        "priest_holy_empowered_healing"
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 25,
-        "icd": 1,
-        "smart_heal": 60
-      }
-    },
-    {
-      "talent_id": "priest_holy_divine_providence",
-      "name": "Divine Providence",
-      "description": "Circle of Healing and Prayer of Healing each heal for 5% more per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "ability_priest_circle_of_healing_healing": 0.05,
-        "ability_priest_prayer_of_healing_healing": 0.05
-      },
-      "connected_to": [
-        "priest_holy_body_and_soul",
-        "priest_holy_holy_mastery"
-      ]
-    },
-    {
-      "talent_id": "priest_holy_guardian_spirit",
-      "name": "Guardian Spirit",
-      "description": "Attacks against you have a 15% chance to call a guardian spirit for 3 turns, reducing damage you take by 40% and absorbing damage equal to 12% of your maximum health. Cannot happen more than once every 5 turns.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "priest_holy_test_of_faith"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 5,
+        "chance": 33,
+        "icd": 0,
         "apply_effect": {
-          "effect_id": "priest_guardian_spirit",
-          "name": "Guardian Spirit",
+          "effect_id": "serendipity",
+          "name": "Serendipity",
           "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
+          "duration": 2,
           "stat_mods": {
-            "physical_damage_taken_pct": -40,
-            "magic_damage_taken_pct": -40
+            "haste": 12
           },
-          "absorb_pct_max_health": 0.12,
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "priest_holy_holy_mastery",
-      "name": "Renewed Hope",
-      "description": "Increases all your healing by 10%, and Renew lasts 2 turns longer.",
+      "talent_id": "priest_holy_empowered_renew",
+      "name": "Empowered Renew",
+      "description": "Increases the healing of your Renew by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "ability_priest_renew_healing": 0.05
+      },
+      "_source": "WotLK row 5: 'Your Renew spell gains an additional 5%-15% of your bonus healing effects, and your Renew will instantly heal the target for 1-3 ticks worth of healing.' The throughput half is built verbatim. The instant-tick clause cannot be built - nothing converts a hot's pending ticks into a direct heal. Stacks with Improved Renew. Kept from the outgoing tree.",
+      "connected_to": [
+        "priest_holy_holy_concentration"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_circle_of_healing",
+      "name": "Circle of Healing",
+      "description": "Teaches Circle of Healing, mending everyone around your target.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "priest_circle_of_healing"
+      },
+      "_source": "WotLK row 5, kept - the ONLY unlock for priest_circle_of_healing, which is requires_talent. Moved from tier 3 to its real row.",
+      "connected_to": [
+        "priest_holy_empowered_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_divine_providence",
+      "name": "Divine Providence",
+      "description": "Increases the healing of your Circle of Healing and Prayer of Healing by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_priest_circle_of_healing_healing": 0.02,
+        "ability_priest_prayer_of_healing_healing": 0.02
+      },
+      "_source": "WotLK row 5: 'Increases the amount healed by Circle of Healing, Binding Heal, Holy Nova, Prayer of Healing, Divine Hymn and Prayer of Mending by 2%-10%.' Built verbatim for the two that exist. Stacks with Holy Reach. Kept from the outgoing tree.",
+      "connected_to": [
+        "priest_holy_circle_of_healing"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_test_of_faith",
+      "name": "Test of Faith",
+      "description": "Increases your healing by 4% per rank on targets below half health.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "low_health_healing_pct": 0.04
+      },
+      "_source": "WotLK row 5: 'Increases healing by 4%-12% on friendly targets at or below 50% health.' Built as a REAL conditional: low_health_healing_pct is the friendly-side mirror of low_health_damage_pct and is a live key. NOTE it is not ability-scoped, so it lifts all healing rather than a named list - which the real talent also does. low_health_threshold_pct is NOT authored: it SUMS across talents and the default is already what this wants. The outgoing version was a proc with no conditional at all.",
+      "connected_to": [
+        "priest_holy_serendipity"
+      ]
+    },
+    {
+      "talent_id": "priest_holy_guardian_spirit",
+      "name": "Guardian Spirit",
+      "description": "A guardian watches over you, greatly increasing healing you receive while badly wounded.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -531,11 +541,12 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "healing_done": 0.1,
-        "ability_priest_renew_duration": 2
+        "low_health_healing_pct": 0.2,
+        "low_health_damage_reduction_pct": 0.1
       },
+      "_source": "WotLK row 10, the capstone: 'Calls upon a guardian spirit to watch over the friendly target. The spirit increases the healing received by the target by 40%... and will sacrifice itself to prevent the target from dying.' DEPARTURE - no ability to unlock, a talent effect can never reach an ally, and there is no death-prevention hook. Delivered as both real clauses applied to the priest and conditioned on being badly hurt, which is when the real spell is cast. Both keys share low_health_threshold_pct's default, which is why it is not authored. The outgoing version was a proc with an empty effects dict.",
       "connected_to": [
-        "priest_holy_divine_providence"
+        "priest_holy_test_of_faith"
       ]
     }
   ]

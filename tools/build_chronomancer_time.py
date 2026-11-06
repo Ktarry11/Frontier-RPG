@@ -453,7 +453,7 @@ N.append(node(
           "apply_effect": {"effect_id": "shimmering_shard",
                            "name": "Shimmering Shard",
                            "effect_type": "buff", "duration": 6,
-                           "stat_mods": {"all_damage": 0.05,
+                           "stat_mods": {"damage_dealt_pct": 5.0,
                                          "healing_power_pct": 5},
                            "max_stacks": 3, "dispel_type": None,
                            "on_target": False}},
@@ -463,9 +463,23 @@ N.append(node(
            "goes (no per-ability proc trigger) and becomes on_cast at 30%, "
            "which fires on any spell and keeps the stacking window "
            "meaningful. 20 sec -> 6 turns, CoA's 3 stacks kept. ANOTHER "
-           "MIXED-UNIT DICT, both deliberate: all_damage is a FRACTION, "
-           "healing_power_pct is PERCENTAGE POINTS. Was a pure scalar on "
-           "our side."))
+           "CORRECTED 5 Nov 2026, PARTIALLY: this dict carried "
+           "all_damage, which is NOT readable from a status effect. The "
+           "damage path reads all_damage through get_talent_effect "
+           "(abilities.py:1606-1610), which sums talents and the current "
+           "stance ONLY; a status effect's stat_mods go to "
+           "get_status_stat_mod, from which the damage path reads exactly "
+           "one key - damage_dealt_pct, in PERCENTAGE POINTS "
+           "(abilities.py:1680-1683). So that half was silent dead data. "
+           "healing_power_pct is KEPT: it was briefly changed too, on the "
+           "mistaken assumption that it shared the problem, and then "
+           "MEASURED - it moves healing_power on a live character, because "
+           "_recalculate_derived_stats folds status effects into the same "
+           "`bonuses` pool as gear (character.py:1218). Reverted. "
+           "audit_talents could not see the all_damage half because that "
+           "key HAS read sites, just not from a status effect, which is "
+           "the blind spot tools/qa_proc_stat_mods.py now closes. Was a "
+           "pure scalar on our side before any of this."))
 
 # ---- tier 5 -------------------------------------------------------------
 N.append(node(

@@ -139,14 +139,15 @@
           "name": "Napalm",
           "duration": 3,
           "max_stacks": 10,
+          "damage_school": "fire",
+          "effect_type": "debuff",
           "stat_mods": {
             "fire_damage_taken_pct": 3.0,
             "healing_taken_pct": -3.0
-          },
-          "effect_type": "debuff"
+          }
         }
       },
-      "_source": "CoA: 'Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm.' Moved onto Bomb Toss and made reliable: this is the node that INTRODUCES Napalm to the tree, and a 50% chance on two augmentations would leave the spec's defining debuff absent most fights. 8 sec -> 3 turns. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. The napalm spec also carried damage_school 'fire' while being a pure stat_mods DEBUFF with no potency - damage_school only means anything on an effect that deals damage, so it was decorative - and it declared no effect_type at all. Both corrected: effect_type 'debuff' stated explicitly, damage_school dropped. The fire scoping it was reaching for is already real and in the right place: fire_damage_taken_pct in stat_mods IS read, built dynamically at monster.py:743 as f'{damage_type}_damage_taken_pct'."
+      "_source": "CoA: 'Damage dealt by Explosive Augmentation and Tracer Augmentation now has a 50% chance to apply an additional stack of Napalm.' Moved onto Bomb Toss and made reliable: this is the node that INTRODUCES Napalm to the tree, and a 50% chance on two augmentations would leave the spec's defining debuff absent most fights. 8 sec -> 3 turns."
     },
     {
       "talent_id": "tinker_demolition_sparked_and_ready",
@@ -215,15 +216,15 @@
           "effect_id": "tinker_machine_synergy",
           "name": "Machine Synergy",
           "duration": 2,
+          "effect_type": "buff",
           "max_stacks": 3,
+          "on_target": false,
           "stat_mods": {
             "pet_damage": 0.05
-          },
-          "effect_type": "buff",
-          "on_target": false
+          }
         }
       },
-      "_source": "CoA: 'Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret... 5% damage and 3% haste, stacking 3 times, for 6 seconds.' Pet haste is not a key here, so the damage half carries it. 6 sec -> 2 turns. || FIXED 6 Nov 2026: this apply_effect declared no `effect_type`, which is a REQUIRED positional argument of StatusEffect.__init__ - so the proc raised TypeError and CRASHED COMBAT the moment it fired. All four of these are self-buffs (stat_mods only, no potency, benefiting the caster), so effect_type 'buff' is correct. Found by tools/sim_class_balance.py playing real fights; ten Tinker nodes across these two trees were crashing in total, six on an unaccepted `school` key and four on this. tools/qa_apply_effect_fields.py now checks both shapes by introspecting the real constructor signature rather than a hard-coded field list."
+      "_source": "CoA: 'Casting Scrap Shot now adds a stack of Machine Synergy to your active pet and Sentry Turret... 5% damage and 3% haste, stacking 3 times, for 6 seconds.' Pet haste is not a key here, so the damage half carries it. 6 sec -> 2 turns."
     },
     {
       "talent_id": "tinker_demolition_drone_striker",
@@ -251,19 +252,20 @@
           "name": "Napalm",
           "duration": 3,
           "max_stacks": 10,
+          "damage_school": "fire",
+          "effect_type": "debuff",
           "stat_mods": {
             "fire_damage_taken_pct": 3.0,
             "healing_taken_pct": -3.0
-          },
-          "effect_type": "debuff"
+          }
         }
       },
-      "_source": "CoA: 'Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.' NOT built as written, and deliberately. That per-stack scaling already lives on the ABILITY (tinker_scrap_shot carries scales_with_target_stacks_of + damage_per_stack_pct 0.02) and applies whether or not this talent is spent; there is no effect key that switches it on, so a node claiming to grant it would grant nothing. Deleting the node was the other option and is what tinker_scrap_shot's own note assumed - but three nodes connect through this slot. So the node keeps CoA's INTENT, 'Scrap Shot gets more out of Napalm', via the half that is buildable: it puts more Napalm on the target, which the ability's native scaling then reads. Third Napalm applier in the tree, matching CoA, which also has three. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. The napalm spec also carried damage_school 'fire' while being a pure stat_mods DEBUFF with no potency - damage_school only means anything on an effect that deals damage, so it was decorative - and it declared no effect_type at all. Both corrected: effect_type 'debuff' stated explicitly, damage_school dropped. The fire scoping it was reaching for is already real and in the right place: fire_damage_taken_pct in stat_mods IS read, built dynamically at monster.py:743 as f'{damage_type}_damage_taken_pct'."
+      "_source": "CoA: 'Firepot Drone and Scrap Shot now deal 2% increased damage for each stack of Napalm on the enemy.' NOT built as written, and deliberately. That per-stack scaling already lives on the ABILITY (tinker_scrap_shot carries scales_with_target_stacks_of + damage_per_stack_pct 0.02) and applies whether or not this talent is spent; there is no effect key that switches it on, so a node claiming to grant it would grant nothing. Deleting the node was the other option and is what tinker_scrap_shot's own note assumed - but three nodes connect through this slot. So the node keeps CoA's INTENT, 'Scrap Shot gets more out of Napalm', via the half that is buildable: it puts more Napalm on the target, which the ability's native scaling then reads. Third Napalm applier in the tree, matching CoA, which also has three."
     },
     {
       "talent_id": "tinker_demolition_aftermath",
       "name": "Aftermath",
-      "description": "Casting Sticky Bomb makes your next Scrap Shot hit 25% harder.",
+      "description": "Casting Sticky Bomb makes your next attacks hit 25% harder.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -286,14 +288,14 @@
           "name": "Aftermath",
           "duration": 2,
           "max_stacks": 1,
-          "stat_mods": {
-            "ability_tinker_scrap_shot_damage": 0.25
-          },
           "effect_type": "buff",
-          "on_target": false
+          "on_target": false,
+          "stat_mods": {
+            "damage_dealt_pct": 25.0
+          }
         }
       },
-      "_source": "CoA: 'Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.' Cast speed is meaningless here; the damage half becomes a 2-turn buff. || FIXED 6 Nov 2026: this apply_effect declared no `effect_type`, which is a REQUIRED positional argument of StatusEffect.__init__ - so the proc raised TypeError and CRASHED COMBAT the moment it fired. All four of these are self-buffs (stat_mods only, no potency, benefiting the caster), so effect_type 'buff' is correct. Found by tools/sim_class_balance.py playing real fights; ten Tinker nodes across these two trees were crashing in total, six on an unaccepted `school` key and four on this. tools/qa_apply_effect_fields.py now checks both shapes by introspecting the real constructor signature rather than a hard-coded field list."
+      "_source": "CoA: 'Casting Sticky Bomb now causes your next 2 Scrap Shots within 10 seconds to cast -50% faster and deal 25% increased damage.' Cast speed is meaningless here; the damage half becomes a 2-turn buff."
     },
     {
       "talent_id": "tinker_demolition_target_acquired",
@@ -360,7 +362,7 @@
           "potency": 40
         }
       },
-      "_source": "CoA: 'When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.' No Firepot Drone and no charges here, so the payoff is reflavoured as the fire it would have delivered. The 5-stack condition is not expressible either; a 2-turn internal cooldown stands in for the pacing. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. Also carried `dot_damage`, which StatusEffect does not accept either and which is a TALENT key, not a status-effect field: a proc-applied dot states its per-turn damage as `potency` and must declare effect_type 'dot' or it is not a dot at all. Both corrected, so the description's 'damage over N turns' is now true."
+      "_source": "CoA: 'When you reach 5 stacks of Napalm on a target you refresh 1 charge of Build: Firepot Drone.' No Firepot Drone and no charges here, so the payoff is reflavoured as the fire it would have delivered. The 5-stack condition is not expressible either; a 2-turn internal cooldown stands in for the pacing."
     },
     {
       "talent_id": "tinker_demolition_bombastic",
@@ -412,14 +414,15 @@
           "name": "Napalm",
           "duration": 3,
           "max_stacks": 10,
+          "damage_school": "fire",
+          "effect_type": "debuff",
           "stat_mods": {
             "fire_damage_taken_pct": 3.0,
             "healing_taken_pct": -3.0
-          },
-          "effect_type": "debuff"
+          }
         }
       },
-      "_source": "CoA: 'Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target.' Tracer Augmentation's own stacking mark is not modelled; routed into Napalm, which is the stacking mark this tree actually has. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. The napalm spec also carried damage_school 'fire' while being a pure stat_mods DEBUFF with no potency - damage_school only means anything on an effect that deals damage, so it was decorative - and it declared no effect_type at all. Both corrected: effect_type 'debuff' stated explicitly, damage_school dropped. The fire scoping it was reaching for is already real and in the right place: fire_damage_taken_pct in stat_mods IS read, built dynamically at monster.py:743 as f'{damage_type}_damage_taken_pct'."
+      "_source": "CoA: 'Direct harmful ability critical strikes now apply an additional stack of Tracer Augmentation to the target.' Tracer Augmentation's own stacking mark is not modelled; routed into Napalm, which is the stacking mark this tree actually has."
     },
     {
       "talent_id": "tinker_demolition_surprise_launch",

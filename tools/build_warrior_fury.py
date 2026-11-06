@@ -53,6 +53,18 @@ NOT EXPRESSIBLE, and what each became:
 
 KEPT MANDATORY: Bloodthirst is the only unlock for warrior_bloodthirst,
 which is requires_talent.
+
+THE DAMAGE KEY INSIDE A PROC'S stat_mods MUST BE damage_dealt_pct, IN
+PERCENTAGE POINTS. all_damage, physical_damage, spell_damage and the
+per-school <school>_spell_damage keys are read through
+get_talent_effect (abilities.py:1606-1610), which sums TALENTS AND THE
+CURRENT STANCE and nothing else - a status effect's stat_mods go to
+get_status_stat_mod instead, and the damage path reads exactly one key
+from there: damage_dealt_pct (abilities.py:1680-1683, divided by 100).
+So a proc-applied buff carrying all_damage is SILENT DEAD DATA. Stances
+look like a counter-example and are not: stance stat_mods are folded
+into get_talent_effects (character.py:628), so they reach the talent
+bus. Proc-applied buffs are not.
 """
 
 import sys
@@ -226,7 +238,7 @@ T.node("death_wish", "Death Wish",
              "apply_effect": {"effect_id": "death_wish",
                               "name": "Death Wish",
                               "effect_type": "buff", "duration": 3,
-                              "stat_mods": {"physical_damage": 0.20,
+                              "stat_mods": {"damage_dealt_pct": 20.0,
                                             "damage_taken_pct": 0.05},
                               "on_target": False}},
        connected_to=["unbridled_wrath"],
@@ -249,7 +261,7 @@ T.node("enrage", "Enrage",
        proc={"trigger": "on_damage_taken", "chance": 6, "icd": 0,
              "apply_effect": {"effect_id": "enrage", "name": "Enrage",
                               "effect_type": "buff", "duration": 4,
-                              "stat_mods": {"all_damage": 0.10},
+                              "stat_mods": {"damage_dealt_pct": 10.0},
                               "exclusive_group": ENRAGE_GROUP,
                               "on_target": False}},
        connected_to=["blood_craze"],

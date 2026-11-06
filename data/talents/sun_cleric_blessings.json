@@ -525,7 +525,7 @@
     {
       "talent_id": "sun_cleric_blessings_stalwart",
       "name": "Stalwart",
-      "description": "Being struck makes you immune to critical strikes for 2 turns. Cannot occur more than once every 3 turns.",
+      "description": "Being struck hardens you, reducing damage taken by 25% for 2 turns. Cannot occur more than once every 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -536,7 +536,7 @@
       "connected_to": [
         "sun_cleric_blessings_vitality"
       ],
-      "_source": "CoA handoff doc: 'Melee crits against you prevent being crit again (briefly).'",
+      "_source": "CoA handoff doc: 'Melee crits against you prevent being crit again (briefly).' CORRECTED 5 Nov 2026: carried crit_taken_reduction=100 in a proc's stat_mods, which is NOT readable from a status effect - it is read via target.get_talent_effect (abilities.py:1317), the TALENT channel, while a status effect's stat_mods go to get_status_stat_mod. So crit immunity was silent dead data. There is no status-channel crit-immunity key at all, so it becomes a flat damage reduction and the description says so rather than promising immunity it cannot deliver. BARE damage_taken_pct is read RAW on both sides, so -0.25 is -25%. This tree has no builder script; patched in data directly.",
       "proc": {
         "trigger": "on_damage_taken",
         "chance": 100,
@@ -547,7 +547,7 @@
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "crit_taken_reduction": 100.0
+            "damage_taken_pct": -0.25
           },
           "on_target": false,
           "real_time_seconds": null

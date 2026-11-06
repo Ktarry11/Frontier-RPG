@@ -269,7 +269,7 @@
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "physical_damage": 0.2,
+            "damage_dealt_pct": 20.0,
             "damage_taken_pct": 0.05
           },
           "on_target": false
@@ -301,7 +301,7 @@
           "effect_type": "buff",
           "duration": 4,
           "stat_mods": {
-            "all_damage": 0.1
+            "damage_dealt_pct": 10.0
           },
           "exclusive_group": "warrior_enrage",
           "on_target": false

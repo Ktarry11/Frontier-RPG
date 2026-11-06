@@ -314,7 +314,7 @@
     {
       "talent_id": "templar_crusader_scarlet_secrets",
       "name": "Scarlet Secrets",
-      "description": "Your critical strikes raise your critical strike damage by 5% for 4 turns, stacking 3 times.",
+      "description": "Your critical strikes raise your critical strike chance by 5% for 4 turns, stacking 3 times.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -336,7 +336,7 @@
           "duration": 4,
           "max_stacks": 3,
           "stat_mods": {
-            "crit_damage_physical": 5.0
+            "crit_chance_physical": 5.0
           },
           "on_target": false
         }

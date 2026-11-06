@@ -75,6 +75,18 @@ the real damage-reduction talent in this tree.
 KEPT MANDATORY: Cold Blood and Mutilate are the only unlocks for
 rogue_cold_blood and rogue_mutilate, both of which are requires_talent.
 Dropping either would strand an ability (qa_abilities_obtainable).
+
+THE DAMAGE KEY INSIDE A PROC'S stat_mods MUST BE damage_dealt_pct, IN
+PERCENTAGE POINTS. all_damage, physical_damage, spell_damage and the
+per-school <school>_spell_damage keys are read through
+get_talent_effect (abilities.py:1606-1610), which sums TALENTS AND THE
+CURRENT STANCE and nothing else - a status effect's stat_mods go to
+get_status_stat_mod instead, and the damage path reads exactly one key
+from there: damage_dealt_pct (abilities.py:1680-1683, divided by 100).
+So a proc-applied buff carrying all_damage is SILENT DEAD DATA. Stances
+look like a counter-example and are not: stance stat_mods are folded
+into get_talent_effects (character.py:628), so they reach the talent
+bus. Proc-applied buffs are not.
 """
 
 import sys
@@ -494,7 +506,7 @@ T.node("hunger_for_blood", "Hunger For Blood",
              "apply_effect": {"effect_id": "hunger_for_blood",
                               "name": "Hunger For Blood",
                               "effect_type": "buff", "duration": 3,
-                              "stat_mods": {"all_damage": 0.05},
+                              "stat_mods": {"damage_dealt_pct": 5.0},
                               "on_target": False}},
        connected_to=["cut_to_the_chase"],
        source="WotLK row 10, the capstone: 'Enrages you, increasing all "

@@ -314,7 +314,7 @@ N.append(node(
 
 N.append(node(
     "scarlet_secrets", "Scarlet Secrets",
-    "Your critical strikes raise your critical strike damage by 5% for 4 "
+    "Your critical strikes raise your critical strike chance by 5% for 4 "
     "turns, stacking 3 times.",
     2, 2,
     proc={"trigger": "on_crit", "chance": 100, "icd": 0,
@@ -322,7 +322,7 @@ N.append(node(
                            "name": "Oath: Retribution",
                            "effect_type": "buff", "duration": 4,
                            "max_stacks": 3,
-                           "stat_mods": {"crit_damage_physical": 5.0},
+                           "stat_mods": {"crit_chance_physical": 5.0},
                            "on_target": False}},
     connect=["focused"],
     source="CoA verbatim: 'Every 2nd cast of Argent Blade now grants you "

@@ -486,12 +486,12 @@ N.append(node(
 N.append(node(
     "null_orbs", "Null Orbs",
     "Your critical strikes have a 35% chance to grant Null Orbs, increasing "
-    "your spell critical damage by 40% for 3 turns.",
+    "your spell critical strike chance by 15% for 3 turns.",
     4, 0,
     proc={"trigger": "on_crit", "chance": 35, "icd": 1,
           "apply_effect": {"effect_id": "null_orbs", "name": "Null Orbs",
                            "effect_type": "buff", "duration": 3,
-                           "stat_mods": {"crit_damage_spell": 40},
+                           "stat_mods": {"crit_chance_spell": 15.0},
                            "dispel_type": None, "on_target": False}},
     connect=["eternity"],
     source="CoA: 'Periodic critical damage dealt now has a 20% chance to "
