@@ -1289,7 +1289,7 @@
       "ability_id": "chronomancer_aeon_of_protection",
       "name": "Aeon of Protection",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 3,
       "effect_type": "buff",
       "duration": 60,
       "stat_mods": {
@@ -1306,7 +1306,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Increases Epoch's cast time by 15%, healing done by 15%, and causes it to apply a damage absorption shield equal to 30% of the amount healed.' A cast buff cannot make ANOTHER spell apply a shield, so the absorb half is the Orderly Protector talent's shield_pct proc and this is the healing and mitigation half.",
+      "_source": "CoA: 'Increases Epoch's cast time by 15%, healing done by 15%, and causes it to apply a damage absorption shield equal to 30% of the amount healed.' A cast buff cannot make ANOTHER spell apply a shield, so the absorb half is the Orderly Protector talent's shield_pct proc and this is the healing and mitigation half. || Cooldown 0 -> 3 turns, 6 Nov 2026. CoA gives every Aeon a 10 sec cooldown and says each 'Shares a cooldown with other Aeon spells'. Ours had none, which made the three Aeons a free instant mode-switch the player could flip every single turn - not the rotation CoA describes - and made Chronomancer Time's Cycling Aeons talent ('Reduces the cooldown of your Aeons by -50%') DEAD DATA: a *_cooldown_pct key reducing a cooldown of zero is silent in play and passes every check. 10 sec -> 3 turns at ~3 sec per turn. There is still no shared-cooldown mechanism, so the three run independently; that half of CoA's text remains unbuilt.",
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
@@ -1316,7 +1316,7 @@
       "ability_id": "chronomancer_aeon_of_renewal",
       "name": "Aeon of Renewal",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 3,
       "effect_type": "buff",
       "duration": 60,
       "stat_mods": {
@@ -1333,7 +1333,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Reduces Epoch's healing by -30%, but causes it to heal for an additional 50% of the amount healed over 3 seconds.' Trading burst for total output is the shape; the engine cannot split one heal into a direct part and a trailing HoT, so it is more healing at a slower pace.",
+      "_source": "CoA: 'Reduces Epoch's healing by -30%, but causes it to heal for an additional 50% of the amount healed over 3 seconds.' Trading burst for total output is the shape; the engine cannot split one heal into a direct part and a trailing HoT, so it is more healing at a slower pace. || Cooldown 0 -> 3 turns, 6 Nov 2026. CoA gives every Aeon a 10 sec cooldown and says each 'Shares a cooldown with other Aeon spells'. Ours had none, which made the three Aeons a free instant mode-switch the player could flip every single turn - not the rotation CoA describes - and made Chronomancer Time's Cycling Aeons talent ('Reduces the cooldown of your Aeons by -50%') DEAD DATA: a *_cooldown_pct key reducing a cooldown of zero is silent in play and passes every check. 10 sec -> 3 turns at ~3 sec per turn. There is still no shared-cooldown mechanism, so the three run independently; that half of CoA's text remains unbuilt.",
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
@@ -1343,7 +1343,7 @@
       "ability_id": "chronomancer_aeon_of_oblivion",
       "name": "Aeon of Oblivion",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 3,
       "effect_type": "buff",
       "duration": 60,
       "stat_mods": {
@@ -1360,7 +1360,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Increases Epoch's mana cost by 30%, critical strike chance by 10%, and healing done by 15%. In addition, healing with Epoch now increases the target's damage dealt by 3%.' The recipient buff needs a heal to apply a buff to its target, which nothing supports.",
+      "_source": "CoA: 'Increases Epoch's mana cost by 30%, critical strike chance by 10%, and healing done by 15%. In addition, healing with Epoch now increases the target's damage dealt by 3%.' The recipient buff needs a heal to apply a buff to its target, which nothing supports. || Cooldown 0 -> 3 turns, 6 Nov 2026. CoA gives every Aeon a 10 sec cooldown and says each 'Shares a cooldown with other Aeon spells'. Ours had none, which made the three Aeons a free instant mode-switch the player could flip every single turn - not the rotation CoA describes - and made Chronomancer Time's Cycling Aeons talent ('Reduces the cooldown of your Aeons by -50%') DEAD DATA: a *_cooldown_pct key reducing a cooldown of zero is silent in play and passes every check. 10 sec -> 3 turns at ~3 sec per turn. There is still no shared-cooldown mechanism, so the three run independently; that half of CoA's text remains unbuilt.",
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
