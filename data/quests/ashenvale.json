@@ -3,7 +3,7 @@
     {
       "quest_id": "ashenvale_grizzly_problem",
       "title": "The Grizzly Problem",
-      "description": "Sentinel Maestra has watched the grizzlies around the lake come closer every week. Bears do not do that on their own. She wants the boldest of them put down before one walks into Astranaar's market.",
+      "description": "Bears do not come down to the water to watch a guard post.",
       "giver_npc_id": "maestras_post_sentinel",
       "zone": "ashenvale_west",
       "objectives": [
@@ -16,8 +16,8 @@
       ],
       "reward_exp": 1300,
       "reward_gold": 5000,
-      "accept_text": "Bears keep to the trees. These ones come down to the water and stand there, watching the post. I don't like being watched by anything that can't tell me why.",
-      "turn_in_text": "Eight. Good. The lake path is quiet again, and I'll take quiet, even if it's borrowed. Mind the Highlands, though. Whatever is pushing them out of there hasn't stopped.",
+      "accept_text": "Bears keep to the trees. That is not a preference, it is what a bear IS - it wants cover and distance and no part of whatever we are doing.\n\nThese ones come down to the lake and stand in the open and watch this post. Not pacing. Not feeding. Standing, facing us, for as long as it suits them, and then going back up.\n\nI have held Maestra's Post for eleven years and I have never once been watched by something that could not tell me why.\n\nPut the boldest of them down before one of them walks into Astranaar's market and we find out what the next stage of this is.",
+      "turn_in_text": "The lake shore's empty and nothing came down to the water today.\n\nI'd be more relieved if I thought we'd solved it. We've removed the ones brave enough to come and look at us - that isn't the same as removing the reason they wanted to.",
       "level_min": 22,
       "level_max": 25,
       "_xp_factor": 0.824,
@@ -26,7 +26,7 @@
     {
       "quest_id": "ashenvale_timberling_bark",
       "title": "Bark and Sap",
-      "description": "The wards on Maestra's Post are carved from timberling heartwood, and the old ones are splitting. She needs five fresh lengths, taken from the timberlings in Silverwind Vale.",
+      "description": "The wards are cracking, and heartwood is the only thing that holds one.",
       "giver_npc_id": "maestras_post_sentinel",
       "zone": "ashenvale_west",
       "objectives": [
@@ -38,8 +38,8 @@
       ],
       "reward_exp": 1200,
       "reward_gold": 4300,
-      "accept_text": "Heartwood holds a ward the way nothing I can buy does, and the old posts are cracking. The timberlings wear it in their chests. Don't ask me to be gentle about it, they weren't gentle with my last fence.",
-      "turn_in_text": "Warm still. Good, that means it's alive enough to hold. These will see us through the winter. You'd make a decent carpenter, which is not an insult.",
+      "accept_text": "Look at the posts. Go on - the carved ones at the corners. See the splits running with the grain?\n\nThose are the wards, and they are the only reason this post sleeps at night. Heartwood holds a ward the way nothing I can requisition does. I have tried iron, I have tried stone, and I have tried asking Astranaar nicely, which was the least effective of the three.\n\nThe timberlings in Silverwind Vale carry it in their chests.\n\nAnd before you ask me to be gentle about it - they came through my fence line last spring and they were not gentle with it, and I have a very long memory for fences.",
+      "turn_in_text": "[She runs a thumb along the fresh grain.]\n\nThat's good wood. That'll hold a season, maybe two.\n\nI'd rather be carving these because the old ones wore out than because something's been testing them. That's twice now this week I've wanted a different reason for a job.",
       "level_min": 22,
       "level_max": 24,
       "gear_reward_gear_level": 23,
@@ -60,7 +60,7 @@
     {
       "quest_id": "ashenvale_ursal_the_mauler",
       "title": "Ursal the Mauler",
-      "description": "Ursal the Mauler is the biggest of the Highland bears and the one herding the rest toward the lake. With the furbolg shamans' totems dealt with, the Sentinels finally know where he lairs.",
+      "description": "With the totems dealt with, the Sentinels finally know where he lairs.",
       "giver_npc_id": "maestras_post_sentinel",
       "zone": "ashenvale_west",
       "objectives": [
@@ -73,8 +73,8 @@
       ],
       "reward_exp": 2550,
       "reward_gold": 9000,
-      "accept_text": "Shalasyr tells me the totems are done. Then Ursal has nothing left feeding him but his own temper. Go and finish it, and take a good look at his eyes before you do. Tell me if they were the bear's.",
-      "turn_in_text": "You looked? ... Black all through, you said. Then he never chose any of it. Take his claw. It's the one thing of his I'd be glad to see leave the forest.",
+      "accept_text": "Shalasyr sends word the totems are done. Good. Then whatever was feeding the Highland bears has stopped, and Ursal has nothing left driving him but his own temper - which, to be fair to him, has always been considerable.\n\nHe's the biggest of them and he's the one herding the others down toward the lake. That's been the shape of it all along: he moves, they move.\n\nGo and finish it.\n\nAnd do something for me. Before you do it, get a proper look at his eyes, and then come back and tell me honestly whether they were a bear's. I have asked three people that question and every one of them changed the subject.",
+      "turn_in_text": "[She listens to your answer and does not react for a while.]\n\nThank you for saying it plainly.\n\nThen he was being ridden, at the end, and he had been for a long time, and every one of those bears we put down at the shore was somebody else's hand moving. I'll carry that. It's better than not knowing.",
       "level_min": 26,
       "level_max": 28,
       "gear_reward_gear_level": 28,
@@ -101,7 +101,7 @@
     {
       "quest_id": "ashenvale_sentinel_scouts_report",
       "title": "The Scout's Report",
-      "description": "Two Sentinel scouts sent toward the Ragged Highlands never reported back. Shalasyr wants their patrol route retraced as far as the Highlands themselves.",
+      "description": "Two scouts went up the ridge road nine days ago. Neither has reported.",
       "giver_npc_id": "astranaar_sentinel_liaison",
       "zone": "astranaar",
       "objectives": [
@@ -115,8 +115,8 @@
       ],
       "reward_exp": 1200,
       "reward_gold": 4700,
-      "accept_text": "Two of mine went up the ridge road nine days ago. They're good, and careful, and I'd have heard by now. Walk their route. I don't need heroics, I need to know where the road stops being safe.",
-      "turn_in_text": "The road stops at the furbolg line, then. Not a bandit camp and not a patrol. That narrows it. I'm sorry about the scouts. I'd hoped for a worse story and a living one.",
+      "accept_text": "Two of mine went up the ridge road toward the Ragged Highlands nine days ago.\n\nThey are good. I want that understood before anything else, because the first thing anyone says is that scouts go missing and I will not have theirs be the generation that gets shrugged at. They are careful, they are experienced, and I would have heard from them by now if there were anything at all to hear.\n\nRetrace their route. All of it, as far as the Highlands themselves.\n\nI don't need heroics and I don't want a rescue attempt. I need to know the point on that road where it stops being safe, because at the moment I am sending people past it without knowing where it is.",
+      "turn_in_text": "[Shalasyr marks the place on her own map and sits looking at it.]\n\nThat far. They got that far.\n\nSo the road is safe right up until it is extremely not, with no warning in between. That is the worst possible answer and it is the one I needed.",
       "level_min": 22,
       "level_max": 25,
       "_xp_factor": 0.765,
@@ -126,7 +126,7 @@
     {
       "quest_id": "ashenvale_furbolg_ravagers",
       "title": "What Turned the Furbolg",
-      "description": "The furbolg of the Ragged Highlands have gone from wary to savage. Shalasyr wants the ravagers who hold the ridge thinned so her scouts can find out why.",
+      "description": "Furbolg and Sentinels shared this forest for centuries without blood.",
       "giver_npc_id": "astranaar_sentinel_liaison",
       "zone": "astranaar",
       "objectives": [
@@ -142,8 +142,8 @@
       ],
       "reward_exp": 2350,
       "reward_gold": 8300,
-      "accept_text": "Furbolg and Sentinels have shared this forest for a long time without a drop of blood. Now the ravagers attack anything that crosses the ridge. Something has changed them. Thin them, and look closely.",
-      "turn_in_text": "You say their fur was matted with something black? I was afraid of that. It isn't hunger, or territory. It's something done to them.",
+      "accept_text": "I want to tell you something about the furbolg before you go up that ridge, because it matters and because nobody your age was taught it.\n\nWe have shared this forest with them for a very long time. Not an alliance - we were never that formal about it. We simply both lived here and both knew where the other's ground was, and in all that time there was not a drop of blood between us worth recording.\n\nNow the ravagers hold the ridge and they attack anything that crosses it. Anything. They have stopped distinguishing.\n\nSomething has changed them, and I have to get scouts in there to find out what. Thin the ravagers so that becomes possible - and while you're among them, LOOK at them. Properly. You'll see what I mean and I'd rather you saw it than took my word.",
+      "turn_in_text": "You saw it too, then. The eyes.\n\nI've had that reported three times and dismissed it twice, because a Sentinel commander who starts talking about what she saw in an animal's eyes gets listened to differently afterwards.\n\nThree is enough. I'm acting on it.",
       "level_min": 24,
       "level_max": 27,
       "gear_reward_gear_level": 26,
@@ -168,7 +168,7 @@
     {
       "quest_id": "ashenvale_furbolg_shaman_totems",
       "title": "The Shaman's Totems",
-      "description": "The ravagers are being driven from behind. Shalasyr thinks the Highland shamans' totems carry the corruption, and wants four of them brought out of the den.",
+      "description": "The ravagers are being driven from behind.",
       "giver_npc_id": "astranaar_sentinel_liaison",
       "zone": "astranaar",
       "objectives": [
@@ -180,8 +180,8 @@
       ],
       "reward_exp": 1900,
       "reward_gold": 7700,
-      "accept_text": "The shamans plant totems in the dens, and the dens are where the madness is worst. Bring me four, and carry them in cloth. I won't have you holding them bare.",
-      "turn_in_text": "It hums. Stop, don't hold it near your ear. We'll study them where nobody sleeps. Now we know where the rot enters. Maestra will want to hear it was a bear that led the herding.",
+      "accept_text": "The ravagers aren't the cause. I've been certain of that since the second report and now I can prove it, which is a different thing.\n\nThey're being driven from behind. The shamans plant totems in the dens, and the madness is always worst where the totems are thickest - not where the fighting is, not at the ridge, in the DENS, at the carvings.\n\nBring me some of those totems out.\n\nAnd carry them in cloth. I mean that as an order rather than advice: I will not have you holding one of those bare-handed across half a forest to spare yourself the trouble of a wrapping.",
+      "turn_in_text": "[She unwraps one with the cloth still between it and her hand, looks, and covers it again.]\n\nThat carving is not furbolg work. I don't know whose it is. I know whose it isn't.\n\nSomebody walked into those dens and gave them this. That changes the question from what happened to the furbolg into who did it to them.",
       "level_min": 24,
       "level_max": 27,
       "_xp_factor": 1.056,
@@ -191,7 +191,7 @@
     {
       "quest_id": "ashenvale_keeper_rustveil",
       "title": "Keeper Rustveil",
-      "description": "Keeper Rustveil was the Grove's guardian spirit for longer than Astranaar has stood. Something has turned him against the forest he watched. Pennarin cannot ask anyone to do this lightly.",
+      "description": "The Grove's guardian has turned against the forest he watched.",
       "giver_npc_id": "astranaar_grove_warden",
       "zone": "astranaar",
       "objectives": [
@@ -204,8 +204,8 @@
       ],
       "reward_exp": 2750,
       "reward_gold": 9400,
-      "accept_text": "Rustveil taught me my first song. I am asking you to put him down, and I'm asking knowing what I ask. Do it quickly. If he can know, I don't want him to know long.",
-      "turn_in_text": "It is done, then. Thank you. He would have thanked you too, before. Take what he left, and let this ring remember him for me.",
+      "accept_text": "Rustveil kept the Moonwhisper Grove before Astranaar had walls. Longer than that - before there was anyone here to need walls.\n\nHe taught me my first song. I was small enough that he had to bend down to it, and he was patient in a way that nothing that old has any reason to be.\n\nSomething has turned him against the forest he watched. I have been to see for myself and I will not describe it to you, partly to spare you and mostly to spare me.\n\nI am asking you to put him down. I'm asking it knowing exactly what I'm asking and I will not dress it up as mercy or duty.\n\nDo it quickly. If anything in him can still know what's happening, I don't want him knowing it for long.",
+      "turn_in_text": "[Pennarin does not ask for any details.]\n\nQuickly. Good.\n\nThe Grove will choose another keeper eventually. They always do - that's what a grove is, it outlasts whoever is minding it. I'll be glad of that in a year or so.\n\nToday I would like to be left alone, and I would like you to know that is not ingratitude.",
       "level_min": 27,
       "level_max": 28,
       "gear_reward_gear_level": 28,
@@ -246,7 +246,7 @@
     {
       "quest_id": "ashenvale_wisp_lights",
       "title": "Lights in the Grove",
-      "description": "The wisps in the Moonwhisper Grove are the grove's own lanterns, and Pennarin has seen them dimming. She wants six motes of their light drawn into vials so the healers can learn why.",
+      "description": "The Grove's own lanterns are dimming.",
       "giver_npc_id": "astranaar_grove_warden",
       "zone": "astranaar",
       "objectives": [
@@ -258,8 +258,8 @@
       ],
       "reward_exp": 1200,
       "reward_gold": 4000,
-      "accept_text": "They are old, the wisps. They remember who planted the Grove, or they did. Now they flicker. Bring me what falls from them when they fade, and don't take a mote that doesn't fall.",
-      "turn_in_text": "Cold at the center, see? A light should never be cold. Thank you, truly. I know what that costs when it's your own grove's lanterns.",
+      "accept_text": "The wisps are the Grove's lanterns. That isn't poetry - that is their function and it is why the Grove is lit at all.\n\nThey're old. Older than the trees in some cases, and there is an argument, which I happen to believe, that they remember who planted this place.\n\nThey're flickering. Not dying out - flickering, the way a lamp does when something is wrong with the fuel rather than the wick, and I want the healers to have something to work from before it becomes the other thing.\n\nBring me what falls from them as they fade. And listen to me carefully: do not take a mote that has not fallen. Not one. I will know, and so will the Grove, and I am genuinely unsure which of us would be worse about it.",
+      "turn_in_text": "[She holds a vial up and watches it pulse.]\n\nAll fallen. Thank you - and I did check, and I'd have thought less of myself for checking if I'd found you'd done it properly and never said.\n\nThe healers can work with this. Whatever's in the Grove, it's in the light first.",
       "level_min": 22,
       "level_max": 24,
       "_xp_factor": 0.647,
@@ -269,7 +269,7 @@
     {
       "quest_id": "ashenvale_refugees_belongings",
       "title": "What Was Left Behind",
-      "description": "Thessaly Windrunner fled the east coast with almost nothing. The one thing she wants back is her family's locket, taken by a nightsaber when her wagon was overturned on the Night Run.",
+      "description": "A silver locket, taken by a nightsaber on the Night Run.",
       "giver_npc_id": "astranaar_refugee",
       "zone": "astranaar",
       "objectives": [
@@ -281,8 +281,8 @@
       ],
       "reward_exp": 1200,
       "reward_gold": 5400,
-      "accept_text": "It's only silver. It's only a painted picture, really. But it's the only picture of my sister, and a cat in the Night Run has had it since the wagon went over. I won't ask you to bring all of it back. Just the locket.",
-      "turn_in_text": "Oh. It's dented. Of course it's dented. ... It's perfect, thank you. I didn't think anyone would go looking for something so small.",
+      "accept_text": "I know how this sounds. I came off the east coast with a wagon and I lost the wagon, and what I'm asking a stranger to go and find is a piece of jewellery.\n\nIt's only silver. It's a painted picture, badly painted, by somebody in a market who charged too much.\n\nIt is the only picture of my sister that exists.\n\nThe wagon went over on the Night Run and a cat had it out of the box before I was back on my feet. I'm not asking for the rest - the rest was pots and clothes and I have made my peace with pots.\n\nJust the locket. Please.",
+      "turn_in_text": "[Thessaly opens it and looks at it for a long moment before she closes it again.]\n\nThat's her. That's a terrible likeness and that's her.\n\nThank you. I've spent three weeks telling myself it was only silver and I'd very nearly convinced me.",
       "level_min": 22,
       "level_max": 25,
       "gear_reward_gear_level": 24,
@@ -305,7 +305,7 @@
     {
       "quest_id": "ashenvale_nightsaber_thinning",
       "title": "Thinning the Stalkers",
-      "description": "The same nightsabers that carried off Thessaly's locket are still hunting the Night Run. She wants seven of them gone before the next wagon tries it.",
+      "description": "There will be other wagons on that road.",
       "giver_npc_id": "astranaar_refugee",
       "zone": "astranaar",
       "objectives": [
@@ -318,7 +318,7 @@
       ],
       "reward_exp": 1550,
       "reward_gold": 7400,
-      "accept_text": "I keep seeing the cats' eyes when I close mine. There'll be other families on that road. Please, seven. I'll sleep better. I think a lot of people will.",
+      "accept_text": "I keep seeing their eyes. When I close mine - the cats, in the dark, around the wagon while we were still getting out from under it.\n\nI'm not going to pretend this is about my locket. You've already brought that back and I'm not owed anything else.\n\nIt's that there will be another family on that road next week. The Night Run is the only way through for anyone coming off the coast, and they'll be doing exactly what we did, at night, because that's when you're told it's safest.\n\nThin the stalkers before the next wagon tries it.\n\nI'll sleep better. I think rather a lot of people will, and most of them will never know there was anything to sleep badly about, which seems to me the best possible outcome.",
       "turn_in_text": "Seven. I'll tell the next wagon driver. He will pretend not to cry, and then he'll buy you a drink.",
       "level_min": 23,
       "level_max": 26,
@@ -328,7 +328,7 @@
     {
       "quest_id": "splintertree_burning_blade_scouts",
       "title": "Burning Blade Scouts",
-      "description": "War Mage Grimtotem wants the Burning Blade cultist scouts working the edge of the Wastes cleared out, so he can finish mapping where the ritual circles are going up.",
+      "description": "Kill the scouts and the ritual circles cannot hide.",
       "giver_npc_id": "splintertree_war_mage",
       "zone": "splintertree_post",
       "objectives": [
@@ -341,7 +341,7 @@
       ],
       "reward_exp": 1450,
       "reward_gold": 6200,
-      "accept_text": "Cultists poke around the Wastes like rats in a cellar. I'll know where the circles are by what they guard. Kill their scouts and the circles can't hide. Eight should do it.",
+      "accept_text": "Cultists poke about the Wastes like rats in a cellar, and like rats they are only interesting for what they lead you to.\n\nThe Burning Blade are putting up ritual circles out there. I can't find them - the Wastes are big and a circle is small and these people are not stupid about where they put them.\n\nBut I don't need to find the circles. I need to find the GUARDS, and guards stand near the thing they're guarding, which is the single most reliable fact in the practice of war.\n\nKill their scouts along the Wastes' edge. Wherever you have to kill a lot of them in one place, that is a circle, and then I can finish my map.",
       "turn_in_text": "Eight. They guard more than I thought. I'll mark it on the map and show Vashj. You have the hands for this. I hope you have the stomach, too.",
       "level_min": 20,
       "level_max": 23,
@@ -351,7 +351,7 @@
     {
       "quest_id": "splintertree_charred_wolves",
       "title": "The Charred Pack",
-      "description": "Wolves from the burned stretch of forest have been hunting the outpost's livestock and its patrols. Grunt Bloodfang wants the pack thinned, and wants whatever is making them burn-mad found.",
+      "description": "A wolf runs from fire. These come out of it.",
       "giver_npc_id": "splintertree_grunt",
       "zone": "splintertree_post",
       "objectives": [
@@ -364,7 +364,7 @@
       ],
       "reward_exp": 1550,
       "reward_gold": 6100,
-      "accept_text": "Used to be, a wolf ran from a fire. These come out of the burn like they're from it. My patrols are bleeding for it. Nine of them. I won't make you count the teeth.",
+      "accept_text": "Used to be, a wolf ran from a fire. You could set a line and the whole forest would go the other way and that was something you could rely on.\n\nThese come out of the burn like they're from it. Straight through the black stretch at a dead run, into the open, at a line of armed orcs.\n\nThey've had two of my patrols bleeding and they've had the outpost's livestock, and I'll be honest with you that I mind the patrols more but the quartermaster minds the livestock.\n\nThin the pack. And while you're in there, find me whatever's making them burn-mad, because a wolf doesn't decide to do this on its own any more than it decides to walk into a fire.",
       "turn_in_text": "Nine, and not a wolf among them behaved like a wolf. I owe you a drink and an apology to the dead ones. Nothing in the world should look at fire and stay.",
       "level_min": 21,
       "level_max": 24,
@@ -389,7 +389,7 @@
     {
       "quest_id": "splintertree_fel_imp_cache",
       "title": "The Imp's Hoard",
-      "description": "The imps of the Demon Wastes have been carrying off outpost scraps and hoarding them. Grunt Bloodfang wants five scraps recovered. Whatever the imps are building with them, he wants it gone.",
+      "description": "They stack what they steal. It is not a nest.",
       "giver_npc_id": "splintertree_grunt",
       "zone": "splintertree_post",
       "objectives": [
@@ -401,7 +401,7 @@
       ],
       "reward_exp": 1300,
       "reward_gold": 5500,
-      "accept_text": "Hinges. Buckles. A strip of my own mess-tent canvas. They carry off the dumbest things and stack them in the dirt. I don't think it's a nest. I think it's a message nobody told us how to read.",
+      "accept_text": "Hinges. Buckles. A strip of my own mess-tent canvas, cut square.\n\nThe imps carry off the dumbest things out of this outpost and they stack them in the dirt out in the Wastes, and I have been going out there to look at the stacks, which I'd rather you didn't mention to the War Mage.\n\nHere's the thing. It isn't a nest. I've seen nests and I've seen hoards and this is neither - it's ARRANGED, the same way every time, and a thief doesn't arrange.\n\nI think it's a message and I think nobody told us how to read it.\n\nBring me scraps off them. Enough that I can lay it out the way they do and look at the whole of it at once.",
       "turn_in_text": "That's the hinge off my own tent flap. Right. The mess-tent has to stay up and the imps have to stay out. Thank you. Don't tell Sergeant Krull it was imps. He'll ask me why we couldn't stop them.",
       "level_min": 23,
       "level_max": 25,
@@ -411,7 +411,7 @@
     {
       "quest_id": "splintertree_satyr_ritual",
       "title": "Disrupting the Ritual",
-      "description": "Interrogator Vashj has learned the satyrs at Satyr's Throne are preparing a ritual. She wants the tricksters leading it cut down before it begins.",
+      "description": "They have been singing for three nights. It is not a welcome.",
       "giver_npc_id": "splintertree_interrogator",
       "zone": "splintertree_post",
       "objectives": [
@@ -427,7 +427,7 @@
       ],
       "reward_exp": 1950,
       "reward_gold": 6900,
-      "accept_text": "The satyrs have been singing for three nights. That is not a song of welcome. The tricksters lead it. Remove them, ten, and the chant has nothing to carry it.",
+      "accept_text": "The satyrs at Satyr's Throne have been singing for three nights.\n\nI have interrogated a great many things in this forest and I have learned their songs the way you learn any language - by listening to it being used for ordinary purposes until the unusual ones stand out.\n\nThat is not a song of welcome. It is not a song of mourning either, which was my second guess and which I would have preferred.\n\nIt's preparation. Something is being made ready at the Throne and the tricksters are leading the chant, which means the tricksters are the part that has to be carried.\n\nRemove them, and the song has nothing to carry it, and whatever is being prepared stays unprepared a while longer.",
       "turn_in_text": "The chant has stopped. For tonight, anyway. You did well. Whoever commands them will be furious. I'd like to meet him on my terms.",
       "level_min": 22,
       "level_max": 25,
@@ -456,7 +456,7 @@
     {
       "quest_id": "splintertree_lord_malgan",
       "title": "Lord Malgan",
-      "description": "With the ritual broken, Lord Malgan holds Satyr's Throne by fear more than strength. Vashj wants him removed before he can rally the satyrs for another try.",
+      "description": "A tyrant who loses a ritual has two choices.",
       "giver_npc_id": "splintertree_interrogator",
       "zone": "splintertree_post",
       "objectives": [
@@ -469,8 +469,8 @@
       ],
       "reward_exp": 2350,
       "reward_gold": 8300,
-      "accept_text": "A tyrant who loses a ritual has two choices: try again or die trying. I prefer to make the choice for him. Malgan sits at the Throne. Go and take it away from him.",
-      "turn_in_text": "The Throne is quiet. Good. Malgan's pelt on the wall would have been worth the walk. His dagger will do. Take it, and don't let it hum you to sleep.",
+      "accept_text": "A tyrant who loses a ritual has two choices open to him. Try again, or die trying.\n\nI have conducted enough interrogations to know which one Malgan will pick, and I have no intention of letting him get far enough into it to find out whether I'm right.\n\nHe holds the Throne by fear now rather than by strength. That is not the same thing and the satyrs under him know it even if he doesn't - you can hear it in how they move when he's in the open.\n\nSo I'll make the choice for him. He's at the Throne. Go and take it away from him.",
+      "turn_in_text": "The Throne's empty and the satyrs have gone into the trees in every direction at once.\n\nThat's what fear buys you. Strength holds when the commander falls. Fear just stops.",
       "level_min": 24,
       "level_max": 25,
       "gear_reward_gear_level": 25,
@@ -512,7 +512,7 @@
     {
       "quest_id": "splintertree_twilight_acolytes",
       "title": "Voices from the Barrow",
-      "description": "Twilight acolytes at the Barrow have been whispering to the buried dead at night. War Mage Grimtotem wants nine of them silenced before the dead start answering.",
+      "description": "Something under the Barrow is listening.",
       "giver_npc_id": "splintertree_war_mage",
       "zone": "splintertree_post",
       "objectives": [
@@ -528,7 +528,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 6600,
-      "accept_text": "Something under the Barrow is listening, and the acolytes are the ones talking to it. I don't know what's down there and I don't plan to find out by letting the conversation go on. Nine of them.",
+      "accept_text": "Something under the Barrow is listening, and the acolytes are the ones doing the talking.\n\nThey go out at night and they whisper to the buried dead. Not chanting - whispering, the way you'd talk to somebody through a door, and you can stand on the mound and hear the shape of it without catching a word.\n\nI don't know what's down there. I want to be extremely clear that I do not intend to find out by letting the conversation continue until it answers.\n\nSilence the acolytes. Whatever is under that mound can go back to being a thing nobody has spoken to in a thousand years.",
       "turn_in_text": "Quiet. Good. I felt it go quiet from the walls. Whatever was down there has lost its mouthpieces, for now.",
       "level_min": 21,
       "level_max": 24,
@@ -539,7 +539,7 @@
     {
       "quest_id": "splintertree_twilight_overseer",
       "title": "The Twilight Overseer",
-      "description": "The Twilight Overseer is the voice the acolytes were whispering for. Grimtotem wants him ended before whatever is under the Barrow learns to speak for itself.",
+      "description": "Every cult has someone who is not a believer.",
       "giver_npc_id": "splintertree_war_mage",
       "zone": "splintertree_post",
       "objectives": [
@@ -552,7 +552,7 @@
       ],
       "reward_exp": 2350,
       "reward_gold": 8300,
-      "accept_text": "Every cult has someone who is not a believer, only a boss. He is the overseer. Kill him and the rest will scatter. Or they'll come for you, which is a better fight than what's waiting under them.",
+      "accept_text": "Every cult has somebody in it who is not a believer. Only a boss.\n\nYou can pick him out at a distance if you know what to look for: he is the one who doesn't look up during the important part. The acolytes were whispering FOR somebody, and it was him.\n\nKill him and the rest scatter - or they come for you, which is a better fight than the one we'll be having if whatever is under that Barrow learns to speak for itself.\n\nI would rather fight a hundred frightened cultists than one patient thing underground with a voice.",
       "turn_in_text": "I can feel the Barrow settling. Well done. Now we only have to worry about everything else.",
       "level_min": 24,
       "level_max": 25,
@@ -581,7 +581,7 @@
     {
       "quest_id": "splintertree_pit_lord_emissary",
       "title": "The Emissary's Demand",
-      "description": "A pit lord's emissary has come to the Demon Wastes with demands. Grimtotem has never wanted to hear them, and wants it dead before it finishes speaking.",
+      "description": "It arrived with terms.",
       "giver_npc_id": "splintertree_war_mage",
       "zone": "splintertree_post",
       "objectives": [
@@ -594,7 +594,7 @@
       ],
       "reward_exp": 2350,
       "reward_gold": 8300,
-      "accept_text": "The emissary arrived with terms. I don't read the terms of things that stand in the fire. Cut it off before it finishes a sentence.",
+      "accept_text": "It arrived with terms.\n\nIt has been standing in the Wastes for two days waiting for somebody of appropriate rank to come out and receive them, and in that time three of my scouts have gone close enough to hear the opening and come back changed in ways I am still assessing.\n\nI do not read the terms of things that stand in fire. There is no version of this where we hear it out and come away with more than we started with - that is what an emissary IS, it is a creature whose entire function is to make the next thing sound reasonable.\n\nCut it off before it finishes a sentence. Preferably the first one.",
       "turn_in_text": "It was still talking when you reached it? Of course. They always are. I'll burn what's left of the terms. Thank you.",
       "level_min": 24,
       "level_max": 25,
@@ -640,7 +640,7 @@
       "zone": "ashenvale_west",
       "level_min": 23,
       "level_max": 25,
-      "description": "The lake naiads of Elune'ara have turned on the Sentinels' fishing parties. Maestra wants seven of them calmed, by the only means they respect.",
+      "description": "They have always sung to us. Lately they sing and drag.",
       "objectives": [
         {
           "type": "kill",
@@ -651,8 +651,8 @@
       ],
       "reward_exp": 1650,
       "reward_gold": 6000,
-      "accept_text": "They've always sung to us from the water. Lately they sing and drag. I won't say the lake is a danger, Elune help me, but I'll say seven of its daughters are. Settle them.",
-      "turn_in_text": "Seven, and the water calmed. I never thought I'd be grateful to see a naiad go quiet. Remind me to pour one out for them."
+      "accept_text": "The naiads have sung to us from Elune'ara for as long as there have been Sentinels on this shore. That is not a problem to be solved, it is simply what the lake does.\n\nLately they sing and then they DRAG. Two of my fishing party went in last week and came out, and one of them will not go near the water again, and she is not a woman who frightens.\n\nI will not stand here and say that Lake Elune'ara is a danger. Elune help me, I will not say that out loud about this water.\n\nI will say that some of its daughters are. Settle them, by the only means they've left anybody.",
+      "turn_in_text": "[Maestra looks at the lake for a while.]\n\nIt's quiet. The singing's stopped on the near shore entirely.\n\nI find I don't like that either. I have listened to that water sing my whole posting and I would not have chosen silence as the fix."
     },
     {
       "quest_id": "ashenvale_night_run_watch",
@@ -661,7 +661,7 @@
       "zone": "ashenvale_west",
       "level_min": 22,
       "level_max": 24,
-      "description": "The Night Run is where the wagons die. Maestra wants someone to walk it end to end and report what they see.",
+      "description": "Maestra is tired of not knowing.",
       "objectives": [
         {
           "type": "explore",
@@ -671,7 +671,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "Eltharaen keeps asking me what's on the Run and I keep telling him I don't know. I'm tired of not knowing. Walk it. All of it. Tell me what the road looks like to someone who isn't afraid of it.",
+      "accept_text": "Eltharaen keeps asking me what's on the Night Run. He asks it in that patient way he has, as though I've simply not got round to finding out.\n\nAnd I keep telling him I don't know, and every time I say it I like myself a little less.\n\nThe wagons die on that road. That's the extent of our intelligence - that's what I have to send up to Astranaar, that wagons die there, which anyone could have told me from the wreckage.\n\nWalk it. End to end, all of it.\n\nAnd tell me what that road looks like to someone who isn't afraid of it, because I am no longer certain I can see it clearly.",
       "turn_in_text": "Wraith-light on the old tree line, you say? Then it's worse than the cats. I'll send for Eltharaen. And I'll find you more work.",
       "next_quest_id": "ashenvale_wraith_toll"
     },
@@ -682,7 +682,7 @@
       "zone": "ashenvale_west",
       "level_min": 24,
       "level_max": 26,
-      "description": "The Night Run's wraiths take a toll from every passing wagon. Maestra wants eight of them ended, and the road reopened.",
+      "description": "The dead of the Run don't want revenge. They want company.",
       "objectives": [
         {
           "type": "kill",
@@ -693,8 +693,8 @@
       ],
       "reward_exp": 1800,
       "reward_gold": 6400,
-      "accept_text": "The dead of the Run don't want revenge. They want company. Eight of them in the ground and the rest might remember they were people.",
-      "turn_in_text": "The road is open, and we owe it to a stranger. The Sentinels will remember that, even if we say it badly.",
+      "accept_text": "Now I know what's on it, I can tell you what's wrong with it.\n\nThe dead of the Night Run don't want revenge. People assume they do, because people assume a hostile dead thing must have a grievance, and it makes the road easier to think about.\n\nThey want company. That's all. Every wagon that goes down that road is a crowd of warm people passing through a place where something is extremely alone, and they take a toll because taking is the only way they know to ask.\n\nUnderstanding it doesn't help the carters. End the ones on the road, and the rest might remember they were people and settle.",
+      "turn_in_text": "Road's open. There's a wagon due through from the coast tomorrow and I'm going to let it go.\n\nFirst time in four months I've signed off on that without feeling like I was spending someone.",
       "gear_reward_gear_level": 25,
       "unique_item_defs": [
         {
@@ -717,7 +717,7 @@
       "zone": "astranaar",
       "level_min": 22,
       "level_max": 24,
-      "description": "Sentinel Eltharaen is losing supply wagons to forest spiders along the trade road. He distrusts asking the Horde for help, but he is not a fool.",
+      "description": "He does not enjoy asking. He is also not a fool.",
       "objectives": [
         {
           "type": "kill",
@@ -728,7 +728,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "I do not enjoy asking this of you. My people are stretched, and you are here, and the spiders do not care whose wagons they take. Nine, from the road. I will remember that it was asked and answered.",
+      "accept_text": "I do not enjoy asking this of you, and I'd rather say that at the front than have it sit between us for the whole conversation.\n\nMy people are stretched from the coast to the Highlands. You are here. And the forest spiders on the trade road do not care in the slightest whose wagons they take - they have had Sentinel supply and they have had Horde supply and I understand they took a goblin caravan last month, which is the only part of this I've enjoyed.\n\nSo: clear the road.\n\nAnd I will remember that it was asked and that it was answered. That's not nothing. In this forest, that has lately been most of what we have.",
       "turn_in_text": "Nine. The road is clear. I will say this plainly: I did not expect to thank a Horde blade today. I find that I do."
     },
     {
@@ -738,7 +738,7 @@
       "zone": "astranaar",
       "level_min": 24,
       "level_max": 26,
-      "description": "The dryad sentinels of the Moonwhisper Grove have stopped answering Pennarin's calls. Whatever has them is not letting them go. She asks that six be released.",
+      "description": "They answer when she sings. They have not answered in a week.",
       "objectives": [
         {
           "type": "kill",
@@ -749,7 +749,7 @@
       ],
       "reward_exp": 1800,
       "reward_gold": 6400,
-      "accept_text": "The dryads answer when I sing. They have not answered in a week. I think the grove's corruption is in them now, and it will not leave unless it is made to. I am sorry to ask for six of them.",
+      "accept_text": "The dryads answer when I sing. That is not a courtesy and it is not training - it is simply how it has always worked here, for as long as there has been a Grove to sing in.\n\nThey have not answered for a week.\n\nI have been down there every evening. I have sung the calls they answer, and the old calls my teacher used before me, and last night I sang one I am not supposed to use outside of need. Nothing.\n\nThe corruption is in them now. It will not leave on its own and it will not leave because I ask it to; I have established both of those at some cost to my dignity.\n\nI am sorry to ask you to release them. I am sorrier that I cannot do it myself without my voice being the last thing they hear.",
       "turn_in_text": "The grove is a little less loud. I hope they're at peace. I hope the grove forgives me. Rustveil is next, I'm afraid.",
       "next_quest_id": "ashenvale_keeper_rustveil"
     },
@@ -760,7 +760,7 @@
       "zone": "astranaar",
       "level_min": 22,
       "level_max": 24,
-      "description": "Moon Guard Talonar Swiftmoon keeps a ledger of the lake's moods. He wants someone to walk the shoreline of Elune'ara and confirm what he's already seen from the wall.",
+      "description": "Eleven nights of ripples that do not follow the wind.",
       "objectives": [
         {
           "type": "explore",
@@ -770,7 +770,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "I have counted the ripples from the tower for eleven nights. They do not follow the wind. I would like a second pair of eyes on the shore. Preferably ones that aren't mine, because I've started to doubt them.",
+      "accept_text": "I keep a ledger of this lake's moods. It is not a poetic exercise - the Moon Guard have kept one here for generations and the entries are mostly about weather.\n\nI have counted the ripples from the tower for eleven nights running.\n\nThey do not follow the wind. Not once in eleven nights, and on two of those nights there was no wind at all and there were still ripples, and they were moving toward the shore rather than along it.\n\nI would like a second pair of eyes on that shoreline. Preferably eyes that aren't mine, because I have been looking at this for eleven nights and I have started to doubt them, and a Moon Guard who doubts his own observations should go and get somebody else's.",
       "turn_in_text": "As I thought. Thank you for confirming what I'd begun to fear. I'll tell Maestra, and I'll sleep."
     },
     {
@@ -780,7 +780,7 @@
       "zone": "zoram_strand",
       "level_min": 24,
       "level_max": 26,
-      "description": "Old Maelis' nets come up shredded, and the culprits are the murloc spearfishers working the coast. He wants ten of them dealt with.",
+      "description": "Forty years, and the murlocs never touched a line.",
       "objectives": [
         {
           "type": "kill",
@@ -791,7 +791,7 @@
       ],
       "reward_exp": 1800,
       "reward_gold": 6400,
-      "accept_text": "Forty years I've fished this strand and the murlocs never touched a line. Now they cut my nets with bone knives. Ten of them, and I'll tell you the story of the big silverfin. It's a very good story.",
+      "accept_text": "Forty years I've fished this strand. Forty.\n\nIn all that time the murlocs never touched a line of mine. We had an arrangement, near enough - they worked the shallows, I worked the deep, and if one of them got into the net he came out again and we both pretended it hadn't happened.\n\nNow they're cutting my nets. With bone knives. Deliberately, from underneath, in the dark, and leaving the fish.\n\nThey're not hungry. That's the part that's had me awake. A hungry murloc takes the fish.\n\nDeal with the spearfishers for me. And when you're back I'll tell you the story of the big silverfin, which is an extremely good story and which nobody on this coast will sit still for any more.",
       "turn_in_text": "Ten! My boy, my nets will live. Now sit, sit, about the silverfin. It was longer than a dock and it winked.",
       "next_quest_id": "zoram_crab_traps"
     },
@@ -802,7 +802,7 @@
       "zone": "zoram_strand",
       "level_min": 25,
       "level_max": 27,
-      "description": "The big shore crabs have been crushing Maelis' traps against the rocks. He wants eight of them gone before he has to give up crab for good.",
+      "description": "Nothing is afraid of old Maelis any more.",
       "objectives": [
         {
           "type": "kill",
@@ -813,7 +813,7 @@
       ],
       "reward_exp": 1900,
       "reward_gold": 6700,
-      "accept_text": "The crabs got bold when the naga started wandering the shallows. Nothing's afraid of old Maelis anymore. Eight of the big ones, and I'll be able to eat dinner like a free man.",
+      "accept_text": "The crabs got bold when the naga started wandering the shallows.\n\nThat's the order it happened in and I'll stand by it. Naga came, everything else in the water had a worse thing to worry about than me, and now the big shore crabs take my traps and crush them against the rocks for no reason I can determine beyond that they can.\n\nI've been rebuilding traps for a month. I'm an old man who spends his days making boxes for crabs to destroy, which was not the retirement I had sketched out.\n\nThin out the big ones. Then I'll be able to eat dinner like a free man instead of like a crab's tenant.",
       "turn_in_text": "Eight. I can already smell the pot. You've done an old man a kindness, and kindness is rare on this coast."
     },
     {
@@ -823,7 +823,7 @@
       "zone": "zoram_strand",
       "level_min": 25,
       "level_max": 27,
-      "description": "Boatwright Illyen has lost three boats this month to naga raiders. She wants eight coastguards driven back before she finishes the fourth.",
+      "description": "A boat takes a week to build and a night to sink.",
       "objectives": [
         {
           "type": "kill",
@@ -834,7 +834,7 @@
       ],
       "reward_exp": 1900,
       "reward_gold": 6700,
-      "accept_text": "I build a boat in a week and they sink it in a night. I'm not asking you to be brave, I'm asking you to be efficient. Eight of them.",
+      "accept_text": "I build a boat in a week. They sink it in a night.\n\nThree this month. Three, and I am most of the way through a fourth, and I have reached the point where I am building it slowly on purpose because finishing it means finding out whether it lasts till morning.\n\nThe coastguards come in off the reef after dark. They don't take anything and they don't come ashore. They hole the hulls and they go back out.\n\nI'm not asking you to be brave about it. Bravery's no use to me - I've had brave, I had a nephew who was brave about it and I'd rather have had the boat and the nephew.\n\nI'm asking you to be efficient. Drive them off the reef.",
       "turn_in_text": "Eight. Hm. I'll build the fourth boat a little faster. You'll forgive me if I name it after you, I name them all after people who've been useful.",
       "next_quest_id": "zoram_tidecaller_pearls"
     },
@@ -845,7 +845,7 @@
       "zone": "zoram_strand",
       "level_min": 26,
       "level_max": 28,
-      "description": "The naga tidecallers wear pearls that seem to summon the surf. Illyen wants five of them, so she can learn what they're made of.",
+      "description": "The tidecallers carry no weapons. They carry pearls.",
       "objectives": [
         {
           "type": "fetch",
@@ -855,7 +855,7 @@
       ],
       "reward_exp": 2000,
       "reward_gold": 6900,
-      "accept_text": "The tidecallers don't carry weapons. They carry pearls, and the water answers them. Bring me five and I'll find out why a pearl should be able to do that.",
+      "accept_text": "Here's the thing nobody at Zoram'gar will sit still long enough to hear.\n\nThe tidecallers don't carry weapons. Not one - I've been close enough to be sure of it, closer than I'd choose to be again.\n\nThey carry pearls, and the water answers them.\n\nI build boats. That means I spend my life working out what water will do and planning around it, and I am telling you that water is not supposed to do what it does when one of those things holds a pearl up.\n\nBring some back. I want to know what a pearl is made of that it can do that, and whether it keeps doing it once it's out of a naga's hand. If it does, I can stop building boats that sink and start building ones that argue back.",
       "turn_in_text": "These are not pearls. Nothing pearl-like should hum. I'm going to find out what they are, and I'm going to be very quiet about it.",
       "gear_reward_gear_level": 27,
       "unique_item_defs": [
@@ -879,7 +879,7 @@
       "zone": "zoram_strand",
       "level_min": 24,
       "level_max": 26,
-      "description": "Lookout Taelanor watches the water so the others can sleep. She hasn't slept in days. She wants someone to walk the Coast Bluffs and tell her what the water isn't telling her.",
+      "description": "She watches the water so the others can sleep. She has not slept in days.",
       "objectives": [
         {
           "type": "explore",
@@ -889,7 +889,7 @@
       ],
       "reward_exp": 1800,
       "reward_gold": 6400,
-      "accept_text": "I watch the water and the water watches back. I can't see the bluffs from here, and I think that's where the problem is. Go there. Tell me it's nothing, and let me sleep.",
+      "accept_text": "I watch the water so the rest of them can sleep. That's the posting, and I've never resented it.\n\nI watch the water and lately the water watches back. I know how that sounds. I have had several days to find a better way of saying it and that is still the most accurate one available.\n\nHere's my actual problem, stripped of all that: I cannot see the Coast Bluffs from this post. There's a shoulder of rock in the way and there always has been, and for years that didn't matter.\n\nI think that's where it's coming from. Go up there and walk them.\n\nAnd if it's nothing - if it's birds and surf and a tired Sentinel - then come back and tell me that, and I will go to sleep for about a day and a half.",
       "turn_in_text": "It isn't nothing. I'm grateful you told me anyway. Sit a while. The water will keep."
     },
     {
@@ -899,7 +899,7 @@
       "zone": "splintertree_post",
       "level_min": 20,
       "level_max": 22,
-      "description": "Overseer Gorada has a lumber quota, a post to feed and grizzlies eating the loggers. He wants eight of the biggest bears dealt with.",
+      "description": "Orgrimmar wants timber. The bears have other ideas.",
       "objectives": [
         {
           "type": "kill",
@@ -910,7 +910,7 @@
       ],
       "reward_exp": 1250,
       "reward_gold": 4800,
-      "accept_text": "Orgrimmar wants timber and I want my loggers alive. The bears have decided otherwise. Eight of them. I'm told the Warchief is very reasonable about this sort of thing, which is why I'm not asking him.",
+      "accept_text": "Orgrimmar wants timber. I want my loggers alive. For most of my career those have been the same objective and lately they have not been.\n\nThe grizzlies have decided the stand east of here is theirs. They come in at the crews, in daylight, which bears do not do unless something is very wrong with the arrangement they'd normally keep with us.\n\nDeal with the biggest of them.\n\nAnd before you suggest it - yes, I could send word to the Warchief and ask for the quota to be adjusted on account of bears. I'm told he's very reasonable about this sort of thing.\n\nThat is precisely why I am asking you instead.",
       "turn_in_text": "Eight, and the quota's back on track. You're hired. Not formally. I don't do paperwork, but I'll remember your name."
     },
     {
@@ -920,7 +920,7 @@
       "zone": "splintertree_post",
       "level_min": 20,
       "level_max": 22,
-      "description": "Scout Veyra suspects the Burning Blade cultists in the Wastes carry written orders. She wants five of them lifted before the ink dries.",
+      "description": "Cultists never carry anything they can't hide behind a knife.",
       "objectives": [
         {
           "type": "fetch",
@@ -930,7 +930,7 @@
       ],
       "reward_exp": 1250,
       "reward_gold": 4800,
-      "accept_text": "Cultists carry orders. Cultists never carry anything they can't hide behind a knife. Bring me five scraps and I'll know who is giving them.",
+      "accept_text": "Cultists carry orders. All of them do, and the Burning Blade are no exception - somebody has to tell them where to stand and when.\n\nAnd a cultist never carries anything he can't hide behind a knife, which means the orders are ON them and they are small and they will be destroyed the moment one of them decides a fight is going badly.\n\nSo be quick about it. That's the whole of my tactical advice: be quick, and go through them before the ink has a chance to meet any blood.\n\nBring me the scraps. I don't care what the orders say - orders are always the same four sentences. I care about the HAND. Somebody is writing these, and a hand I can match is a person I can find.",
       "turn_in_text": "Hm. Written in blood, signed in ash. Whoever's behind this wants to be found, eventually. I'd rather be ready."
     },
     {
@@ -940,7 +940,7 @@
       "zone": "splintertree_post",
       "level_min": 22,
       "level_max": 24,
-      "description": "Sergeant Krull is tired of burying scouts. The wraiths haunting the timber east of the post have to be ended.",
+      "description": "Sergeant Krull is tired of burying recruits.",
       "objectives": [
         {
           "type": "kill",
@@ -951,7 +951,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "I've buried four recruits this week, and they were four that I trained! There are wraiths in the timber and I want them back in the dirt. Seven. DON'T TELL ME THEY'RE ALREADY DEAD.",
+      "accept_text": "I have buried four recruits this week. FOUR. And they were four I trained myself, which I mention not for sympathy but so you understand I'm not reading this off a casualty list.\n\nThere are wraiths in the timber east of the post. They come at the woodcutting details and the details are exactly the wrong people to meet them - axes, no shields, and half of them are nineteen.\n\nI want them back in the dirt.\n\nAnd don't. Don't say it. I have had three separate people explain to me this week that they're already dead, as though that were a clever observation that had not occurred to me, and the next one who says it is digging the graves.",
       "turn_in_text": "Seven? SEVEN. I can't say good job in front of the recruits so I'll say it here. Good job."
     },
     {
@@ -961,7 +961,7 @@
       "zone": "splintertree_post",
       "level_min": 22,
       "level_max": 24,
-      "description": "Watch Sentry Mokka can see smoke from the Demon Wastes, but not what makes it. He wants someone to walk its edge and report.",
+      "description": "From the wall he sees smoke. From the ground you see who lit it.",
       "objectives": [
         {
           "type": "explore",
@@ -971,7 +971,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "From the wall, I see smoke. From the ground, you see who lit it. Walk the Wastes and tell me. I'll keep the wall warm.",
+      "accept_text": "From this wall, I see smoke. Every night, from somewhere out in the Wastes, and I have logged the position of it the best I can from up here.\n\nFrom the ground, you see who lit it.\n\nThat's the whole difference between my job and the job I'm asking you to do, and I'd swap if I could - but if I come off this wall there is nobody on it, and a wall with nobody on it is a fence.\n\nWalk the edge of the Wastes and come back and tell me what's burning and who's standing round it.\n\nI'll keep the wall warm. That's a joke. It's the only one I've got and I've been working on it for two weeks.",
       "turn_in_text": "Hm. Smoke without a fire, you say? Some things burn the other way. I'll tell Gorada. He'll curse a lot.",
       "next_quest_id": "splintertree_voidwalkers"
     },
@@ -982,7 +982,7 @@
       "zone": "splintertree_post",
       "level_min": 24,
       "level_max": 25,
-      "description": "Voidwalker remnants drift through the Wastes at night. Mokka wants six of them dispersed before they find the wall.",
+      "description": "Not alive, not dead, and not made for the world.",
       "objectives": [
         {
           "type": "kill",
@@ -993,7 +993,7 @@
       ],
       "reward_exp": 1800,
       "reward_gold": 6400,
-      "accept_text": "They're not alive, and not dead, and not made for the world. Six of them, before they find how thin the wall is.",
+      "accept_text": "The remnants drift through the Wastes after dark.\n\nThey're not alive. They're not dead either, and I've had that argument with a priest and won it. They're not MADE for the world - that's the nearest I can get. Something summoned them here and then stopped paying attention, and they've been bumping along the inside of a place that doesn't want them ever since.\n\nThey're drifting closer to the wall every night. I've marked it.\n\nDisperse them out there, before they get close enough to find out how thin this wall actually is. I know how thin it is. I'd prefer to keep that between us.",
       "turn_in_text": "Six. The wall is quiet. I'll sleep tonight, which is more than I can say for the Wastes.",
       "gear_reward_gear_level": 24,
       "unique_item_defs": [
@@ -1016,7 +1016,7 @@
       "zone": "ashenvale_east",
       "level_min": 20,
       "level_max": 23,
-      "description": "Foreman Gruzak's crews can't fell a tree without a timberling guarding it. He wants eight of them cleared from the stand east of the camp.",
+      "description": "A good tree dies in four swings. These take it back.",
       "objectives": [
         {
           "type": "kill",
@@ -1027,7 +1027,7 @@
       ],
       "reward_exp": 1250,
       "reward_gold": 4800,
-      "accept_text": "A good tree dies in four swings. These walkers take it back with a root in the ear. Clear eight so my boys can work, and don't leave any standing.",
+      "accept_text": "A good tree dies in four swings. Four. I've timed it, I've trained it, and I've built a camp's whole work rate around it.\n\nThese walkers take it back with a root in the ear.\n\nThe timberlings stand with the stand east of camp and they don't let a crew near it - and they're patient about it, they don't charge, they just put themselves between my boys and the trunk until somebody loses their temper and then it's a funeral.\n\nClear them off so my crews can work.\n\nAnd don't leave any standing. I've tried leaving a few. They fetch more.",
       "turn_in_text": "Eight. I owe you a few logs' worth of thanks. Take your pick of the leftover axes. They're not good, but they're mine.",
       "next_quest_id": "lumber_elder_stump",
       "unique_item_defs": [
@@ -1095,7 +1095,7 @@
       "zone": "ashenvale_east",
       "level_min": 23,
       "level_max": 25,
-      "description": "An elder timberling the size of a house guards the last good stand. Gruzak wants it felled, and says the camp will drink to it.",
+      "description": "There's a stump out there that walks.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1106,7 +1106,7 @@
       ],
       "reward_exp": 1650,
       "reward_gold": 6000,
-      "accept_text": "There's a stump out there that walks. It's the oldest thing in the forest. I've cut forty years of trees and I've never wanted one gone so badly. Fell it.",
+      "accept_text": "There's a stump out there that walks.\n\nI've cut forty years of trees. I've taken things down that were old when my grandfather's clan came over the sea, and I've never minded it - a tree's a tree and a camp's a camp and I sleep like a stone.\n\nThat one's the oldest thing in this forest and it guards the last good stand, and I have never in my life wanted something gone so badly.\n\nI'm not going to dress that up as duty. It's the quota, and it's also that it stood and looked at me across the cut for an hour last week and I've not slept right since.\n\nFell it. The camp will drink to it and I'll be buying.",
       "turn_in_text": "It fell? It FELL! Hah! The whole camp will hear about this. Take the sap, it's good for something, I'm sure.",
       "gear_reward_gear_level": 25,
       "unique_item_defs": [
@@ -1131,7 +1131,7 @@
       "zone": "ashenvale_east",
       "level_min": 21,
       "level_max": 23,
-      "description": "Gruzak wants spider silk to weave log-slings stronger than rope. Six bundles from the forest spiders will do.",
+      "description": "Rope breaks. Silk doesn't.",
       "objectives": [
         {
           "type": "fetch",
@@ -1141,7 +1141,7 @@
       ],
       "reward_exp": 1500,
       "reward_gold": 5100,
-      "accept_text": "Rope breaks. Silk doesn't. The spiders are bigger than they ought to be, and so is their silk. Six bundles, and I'll lift a whole oak.",
+      "accept_text": "Rope breaks. That's not a complaint, it's an engineering fact, and every log-sling in this camp is rope and every one of them will eventually part under a full oak.\n\nSilk doesn't.\n\nThe forest spiders out here are bigger than they have any business being, and so is their silk - the strands come off them thick as a bootlace and you cannot cut one with a belt knife, I've tried in front of witnesses.\n\nBring me bundles of it. Enough to weave slings with.\n\nI'll lift a whole oak in one piece and I'll do it in front of the Overseer, who has been telling me for two years that it can't be done with the crew I've got.",
       "turn_in_text": "Six, and clean. Look at that, it doesn't even stretch. I'll make you a sling of your own. For a bear. Or a friend you hate."
     },
     {
@@ -1151,7 +1151,7 @@
       "zone": "ashenvale_east",
       "level_min": 21,
       "level_max": 24,
-      "description": "Warden Aelyndra keeps the quiet at Raynewood Retreat, and the nightsabers have stopped respecting it. She wants seven driven off.",
+      "description": "She does not welcome strangers. The cats don't distinguish either.",
       "objectives": [
         {
           "type": "kill",
@@ -1162,7 +1162,7 @@
       ],
       "reward_exp": 1500,
       "reward_gold": 5100,
-      "accept_text": "I do not generally welcome strangers, and I certainly do not generally welcome the Horde. But the cats don't distinguish. Seven of them, and the retreat can go back to being quiet.",
+      "accept_text": "I do not generally welcome strangers to this retreat. I certainly do not generally welcome the Horde, and I'd rather say so to your face than have you find it out in my manner.\n\nThe nightsabers don't distinguish.\n\nThey've stopped respecting the quiet here. Raynewood has kept a boundary for a very long time without a fence - the cats knew where it was and they kept to the other side of it, and now they come through it at dusk and they come as far as the door.\n\nDrive them off.\n\nWhen it's done the retreat can go back to being quiet, and you and I can go back to our respective positions on each other, which I think we'd both prefer.",
       "turn_in_text": "Seven. The retreat is quiet. I will say a thing I haven't said to a stranger in years: thank you.",
       "next_quest_id": "raynewood_vigil_lights"
     },
@@ -1173,7 +1173,7 @@
       "zone": "ashenvale_east",
       "level_min": 21,
       "level_max": 23,
-      "description": "Raynewood keeps a vigil for those lost to the corruption, lit with wisp-light. Aelyndra needs six more motes for the next night.",
+      "description": "We light a vigil for the ones the forest lost.",
       "objectives": [
         {
           "type": "fetch",
@@ -1183,7 +1183,7 @@
       ],
       "reward_exp": 1500,
       "reward_gold": 5100,
-      "accept_text": "We light a vigil for the ones the forest lost. The wisps give the light freely, if you ask them. Ask. Six, please.",
+      "accept_text": "We keep a vigil here for the ones the forest has lost. Not the fallen - the LOST, which is a different list and a longer one: the ones who went into the corruption and did not come out and were never found to be buried.\n\nIt's lit with wisp-light. It has been since before Raynewood had a roof.\n\nThe wisps give it freely, if you ask them. That is the entire method and I am aware of how it sounds to somebody who arrived this morning with an axe.\n\nSo ask. Stand still, and ask, and take what they let fall.\n\nIf you take one that wasn't offered the vigil will still light. It simply won't mean anything, and I would be the only one who knew, and I'd know for years.",
       "turn_in_text": "Six. That will see us through the new moon. Walk carefully out there. I'd rather not add you to the vigil.",
       "next_quest_id": "raynewood_dryads"
     },
@@ -1194,7 +1194,7 @@
       "zone": "ashenvale_east",
       "level_min": 22,
       "level_max": 24,
-      "description": "The dryads of Raynewood have gone to sleep and wake angry. Aelyndra asks that five be put to rest rather than left to suffer.",
+      "description": "They sleep, and what wakes in them is not them.",
       "objectives": [
         {
           "type": "kill",
@@ -1205,7 +1205,7 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 5300,
-      "accept_text": "They sleep, and what wakes in them is not them. I'd do it myself if my hands were what they used to be. Five. Quickly, please.",
+      "accept_text": "The dryads here have gone to sleep. That by itself would be no cause for alarm - they do sleep, deeply, for longer than you'd credit.\n\nWhat wakes in them is not them.\n\nI've watched it happen twice now. The sleep goes on too long, and then there's movement, and what gets up moves wrong from the first step. There is nothing of the dryad left in it by the time it's standing.\n\nPut them to rest rather than leave them to that. I'd do it myself - I want that said - but my hands are not what they used to be and this is not work to do badly.\n\nQuickly, please. And not while they're still sleeping, if you can help it. Let them be asleep.",
       "turn_in_text": "I will light a candle for each. Thank you for doing what I could not. It will be remembered at Raynewood.",
       "gear_reward_gear_level": 23,
       "unique_item_defs": [
