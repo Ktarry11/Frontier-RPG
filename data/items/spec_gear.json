@@ -1,0 +1,1360 @@
+{
+  "barbarian_ancestry": {
+    "class": "Barbarian",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "leather",
+    "school": "frost",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "barbarian_brutality": {
+    "class": "Barbarian",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "leather",
+    "school": "frost",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "bow"
+    }
+  },
+  "barbarian_headhunting": {
+    "class": "Barbarian",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "leather",
+    "school": "frost",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "bloodmage_accursed": {
+    "class": "Bloodmage",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "dagger",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "bloodmage_eternal": {
+    "class": "Bloodmage",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": null
+    }
+  },
+  "bloodmage_fleshweaver": {
+    "class": "Bloodmage",
+    "role": "healer",
+    "role_source": "coa_playstyles",
+    "stat_template": "spi_healer",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "bloodmage_sanguine": {
+    "class": "Bloodmage",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "chronomancer_artificer": {
+    "class": "Chronomancer",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "chronomancer_infinite": {
+    "class": "Chronomancer",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "chronomancer_time": {
+    "class": "Chronomancer",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "cloth",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "cultist_corruption": {
+    "class": "Cultist",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "cultist_dreadnought": {
+    "class": "Cultist",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "cultist_godblade": {
+    "class": "Cultist",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "cultist_heretic": {
+    "class": "Cultist",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "plate",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "druid_balance": {
+    "class": "Druid",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "idol"
+    }
+  },
+  "druid_feral": {
+    "class": "Druid",
+    "role": "tank",
+    "role_source": "talents",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "polearm",
+      "off_hand": null,
+      "ranged": null
+    }
+  },
+  "druid_restoration": {
+    "class": "Druid",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "idol"
+    }
+  },
+  "felsworn_infernal": {
+    "class": "Felsworn",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "felsworn_slayer": {
+    "class": "Felsworn",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "leather",
+    "school": "fire",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "thrown"
+    }
+  },
+  "felsworn_tyrant": {
+    "class": "Felsworn",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": null
+    }
+  },
+  "guardian_gladiator": {
+    "class": "Guardian",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "guardian_inspiration": {
+    "class": "Guardian",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "guardian_vanguard": {
+    "class": "Guardian",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "hunter_beast_mastery": {
+    "class": "Hunter",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "hunter_marksmanship": {
+    "class": "Hunter",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "hunter_survival": {
+    "class": "Hunter",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "knight_of_xoroth_defiance": {
+    "class": "Knight of Xoroth",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "knight_of_xoroth_hellfire": {
+    "class": "Knight of Xoroth",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "crossbow"
+    }
+  },
+  "knight_of_xoroth_war": {
+    "class": "Knight of Xoroth",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "crossbow"
+    }
+  },
+  "mage_arcane": {
+    "class": "Mage",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "mage_fire": {
+    "class": "Mage",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "mage_frost": {
+    "class": "Mage",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "frost",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "necromancer_animation": {
+    "class": "Necromancer",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "necromancer_death": {
+    "class": "Necromancer",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "necromancer_rime": {
+    "class": "Necromancer",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "frost",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "paladin_holy": {
+    "class": "Paladin",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "paladin_protection": {
+    "class": "Paladin",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "paladin_retribution": {
+    "class": "Paladin",
+    "role": "melee_dps",
+    "role_source": "talents",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "priest_discipline": {
+    "class": "Priest",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "cloth",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "priest_holy": {
+    "class": "Priest",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "cloth",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "priest_shadow": {
+    "class": "Priest",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "primalist_geomancy": {
+    "class": "Primalist",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "totem"
+    }
+  },
+  "primalist_grovekeeper": {
+    "class": "Primalist",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "totem"
+    }
+  },
+  "primalist_mountain_king": {
+    "class": "Primalist",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "primalist_wildwalker": {
+    "class": "Primalist",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "mace_1h",
+      "ranged": "totem"
+    }
+  },
+  "pyromancer_draconic": {
+    "class": "Pyromancer",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "pyromancer_flameweaving": {
+    "class": "Pyromancer",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "pyromancer_incineration": {
+    "class": "Pyromancer",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "ranger_archery": {
+    "class": "Ranger",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "ranger_brigand": {
+    "class": "Ranger",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": null,
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "dagger",
+      "off_hand": "dagger",
+      "ranged": "bow"
+    }
+  },
+  "ranger_farstrider": {
+    "class": "Ranger",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "reaper_domination": {
+    "class": "Reaper",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": null
+    }
+  },
+  "reaper_harvest": {
+    "class": "Reaper",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "thrown"
+    }
+  },
+  "reaper_soul": {
+    "class": "Reaper",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "rogue_assassination": {
+    "class": "Rogue",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "dagger",
+      "off_hand": "dagger",
+      "ranged": "bow"
+    }
+  },
+  "rogue_combat": {
+    "class": "Rogue",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "dagger",
+      "off_hand": "dagger",
+      "ranged": "bow"
+    }
+  },
+  "rogue_subtlety": {
+    "class": "Rogue",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "nature",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "dagger",
+      "off_hand": "dagger",
+      "ranged": "bow"
+    }
+  },
+  "runemaster_engravement": {
+    "class": "Runemaster",
+    "role": "ranged_dps",
+    "role_source": "talents",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "runemaster_glyphic": {
+    "class": "Runemaster",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "runemaster_riftblade": {
+    "class": "Runemaster",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "shaman_elemental": {
+    "class": "Shaman",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "totem"
+    }
+  },
+  "shaman_enhancement": {
+    "class": "Shaman",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "mace_1h",
+      "ranged": "totem"
+    }
+  },
+  "shaman_restoration": {
+    "class": "Shaman",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "totem"
+    }
+  },
+  "starcaller_moon_guard": {
+    "class": "Starcaller",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "starcaller_moon_priest": {
+    "class": "Starcaller",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "plate",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": "tome",
+      "ranged": "wand"
+    }
+  },
+  "starcaller_sentinel": {
+    "class": "Starcaller",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "int_caster",
+    "armor_type": "plate",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "starcaller_warden": {
+    "class": "Starcaller",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": "arcane",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "stormbringer_lightning": {
+    "class": "Stormbringer",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "cloth",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_2h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "stormbringer_maelstrom": {
+    "class": "Stormbringer",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "frost",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "stormbringer_wind": {
+    "class": "Stormbringer",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "sun_cleric_blessings": {
+    "class": "Sun Cleric",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "sun_cleric_piety": {
+    "class": "Sun Cleric",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "sun_cleric_seraphim": {
+    "class": "Sun Cleric",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "sun_cleric_valkyrie": {
+    "class": "Sun Cleric",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "str_int_hybrid",
+    "armor_type": "plate",
+    "school": "holy",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "libram"
+    }
+  },
+  "templar_crusader": {
+    "class": "Templar",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "templar_oathkeeper": {
+    "class": "Templar",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "templar_zealot": {
+    "class": "Templar",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "leather",
+    "school": "holy",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "libram"
+    }
+  },
+  "tinker_demolition": {
+    "class": "Tinker",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": null,
+      "ranged": "gun"
+    }
+  },
+  "tinker_invention": {
+    "class": "Tinker",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "gun"
+    }
+  },
+  "tinker_mechanics": {
+    "class": "Tinker",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "polearm",
+      "off_hand": null,
+      "ranged": "gun"
+    }
+  },
+  "venomancer_fortitude": {
+    "class": "Venomancer",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_2h",
+      "off_hand": null,
+      "ranged": null
+    }
+  },
+  "venomancer_stalking": {
+    "class": "Venomancer",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_2h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "venomancer_venom": {
+    "class": "Venomancer",
+    "role": "ranged_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "venomancer_vizier": {
+    "class": "Venomancer",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "mail",
+    "school": "nature",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "warlock_affliction": {
+    "class": "Warlock",
+    "role": "ranged_dps",
+    "role_source": "talents",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "warlock_demonology": {
+    "class": "Warlock",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "warlock_destruction": {
+    "class": "Warlock",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "int_caster",
+    "armor_type": "cloth",
+    "school": "fire",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "staff",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "warrior_arms": {
+    "class": "Warrior",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "warrior_fury": {
+    "class": "Warrior",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": null,
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "bow"
+    }
+  },
+  "warrior_protection": {
+    "class": "Warrior",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "str_physical",
+    "armor_type": "plate",
+    "school": null,
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "witch_doctor_brewing": {
+    "class": "Witch Doctor",
+    "role": "healer",
+    "role_source": "recruits.json",
+    "stat_template": "spi_healer",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "wand"
+    }
+  },
+  "witch_doctor_shadowhunting": {
+    "class": "Witch Doctor",
+    "role": "ranged_dps",
+    "role_source": "talents",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "witch_doctor_voodoo": {
+    "class": "Witch Doctor",
+    "role": "ranged_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_int_hybrid",
+    "armor_type": "leather",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "mace_1h",
+      "off_hand": null,
+      "ranged": "thrown"
+    }
+  },
+  "witch_hunter_black_knight": {
+    "class": "Witch Hunter",
+    "role": "tank",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "shield",
+      "ranged": null
+    }
+  },
+  "witch_hunter_boltslinger": {
+    "class": "Witch Hunter",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "bow"
+    }
+  },
+  "witch_hunter_houndmaster": {
+    "class": "Witch Hunter",
+    "role": "melee_dps",
+    "role_source": "coa_playstyles",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "shadow",
+    "dual_wield": false,
+    "weapons": {
+      "main_hand": "sword_2h",
+      "off_hand": null,
+      "ranged": "bow"
+    }
+  },
+  "witch_hunter_inquisition": {
+    "class": "Witch Hunter",
+    "role": "melee_dps",
+    "role_source": "recruits.json",
+    "stat_template": "agi_physical",
+    "armor_type": "mail",
+    "school": "fire",
+    "dual_wield": true,
+    "weapons": {
+      "main_hand": "sword_1h",
+      "off_hand": "sword_1h",
+      "ranged": "bow"
+    }
+  }
+}

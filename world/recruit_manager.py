@@ -75,6 +75,13 @@ BASE_ARMOR_SLOTS = ["head", "shoulder", "chest", "wrist", "hands", "waist", "leg
 #: everything.
 ACCESSORY_SLOTS = ["neck", "ring1"]
 
+#: THE WEAPON ENTRIES HERE ARE A FALLBACK ONLY. A spec's real weapons come
+#: from data/items/spec_gear.json via entities/spec_gear.py, which knows what
+#: each spec is proficient in, whether it dual wields and which slot its
+#: actual weapon sits in; these four generic entries cannot express any of
+#: that (note ranged_dps below reaching for a one-handed AXE) and are read
+#: only for a recruit with no spec at all. `slots` is still live for
+#: everybody - it is the armour list, which is a role fact, not a spec one.
 GEAR_THEMES = {
     "tank": {
         "slots": BASE_ARMOR_SLOTS + ACCESSORY_SLOTS,
@@ -111,7 +118,11 @@ def starter_rarity(level, slot=None):
     """
     tiers = ["common", "uncommon", "rare"]
     idx = 0 if level < 12 else (1 if level < 38 else 2)
-    if slot in ("main_hand", "off_hand") and idx < len(tiers) - 1:
+    # The ranged slot is a WEAPON and gets the weapon bump. It was left out
+    # because nothing ever generated for the slot, so the omission could not
+    # show - a Hunter's bow is as much "the piece a player looks at first"
+    # as a Warrior's sword is.
+    if slot in ("main_hand", "off_hand", "ranged") and idx < len(tiers) - 1:
         idx += 1
     return tiers[idx]
 
@@ -414,10 +425,42 @@ class RecruitNPC:
             char.equipment.equip(item)
 
     def _equip_starter_gear(self, char):
-        """Generate and equip a Common-quality themed kit."""
-        from entities.loot_generator import LootGenerator
+        """Generate and equip a themed kit that matches the spec's playstyle.
 
-        theme = GEAR_THEMES.get(self.gear_theme)
+        WHAT THIS LOOKED LIKE BEFORE, measured across all 68 companions,
+        because every line below is written against one of these:
+
+          * THE WEAPON WAS RANDOM. `weapon_type = theme.get(slot_key)` was
+            read, used as a truthiness guard, and never passed to the
+            generator, so every companion's weapon was whatever
+            _pick_weapon_type_for_class happened to roll for the class. A
+            Fury Warrior arrived with a staff, a Resto Druid with a fist
+            weapon, a Subtlety Rogue with a mace.
+          * THE RANGED SLOT WAS EMPTY ON ALL 68. Kyle, 6 Nov: "an inventor
+            tinkerer (healer) doesn't come with a gun". Nothing ever
+            generated for the slot.
+          * FOUR TANKS HAD NO WEAPON. Prot Paladin, Cultist Dreadnought,
+            Moon Guard and Oathkeeper: the generator rolled a two-hander
+            into the main hand and the shield that came after displaced it
+            (see Equipment.equip's 2H interaction), and nothing re-rolled.
+            Hence main hand first, off hand second, and a plan that never
+            pairs a two-hander with an off-hand item at all.
+          * EIGHT TANKS HAD NO SHIELD, three of them holding a TOME - a
+            tank with a passive stat stick. The profile gives a shieldless
+            tank a real two-hander instead.
+          * 14 COMPANIONS WORE TWO STAT TEMPLATES AT ONCE, because the
+            armour took the class map's value and each weapon then silently
+            swapped in whatever its own valid_stat_templates listed first.
+            One template now comes from the profile and goes to every piece.
+          * OFF-SCHOOL SPELL POWER. Kyle: "Ive seen a fire mage come with
+            +holy spell power gear."
+        """
+        from entities.loot_generator import LootGenerator
+        from entities.spec_gear import profile as spec_profile
+        from entities.proficiency import can_dual_wield
+
+        prof = spec_profile(getattr(self, "spec", None))
+        theme = GEAR_THEMES.get(self.gear_theme) or GEAR_THEMES.get(prof["role"])
         if not theme:
             return
 
@@ -426,11 +469,14 @@ class RecruitNPC:
         # met at 30 is level 26, and reading self.level here would have sent
         # him out in the level 12 kit he was written with.
         ilvl = max(1, char.level)
+        itemize = {"stat_template": prof.get("stat_template"),
+                   "school": prof.get("school")}
 
         for slot in theme["slots"]:
             try:
                 item = generator.generate_item_for_class(
-                    self.char_class, ilvl, slot=slot, rarity=starter_rarity(ilvl, slot))
+                    self.char_class, ilvl, slot=slot,
+                    rarity=starter_rarity(ilvl, slot), **itemize)
             except Exception:
                 continue
             if item:
@@ -443,13 +489,31 @@ class RecruitNPC:
                 char.add_to_inventory(item)
                 char.equip_item(item)
 
-        for slot_key in ("main_hand", "off_hand"):
-            weapon_type = theme.get(slot_key)
+        # MAIN HAND FIRST. Equipment.equip takes a two-hander off the
+        # character when an off-hand item goes on, so any order that puts
+        # the off hand first can silently empty the main hand - which is
+        # exactly what left four tanks unarmed.
+        for slot_key in ("main_hand", "off_hand", "ranged"):
+            weapon_type = (prof["weapons"].get(slot_key)
+                           or theme.get(slot_key))
             if not weapon_type:
+                continue
+            # A ONE-HANDER IN THE OFF HAND IS DUAL WIELDING, and dual wield
+            # is trained at 20 and spec-gated (entities/proficiency.py's
+            # can_dual_wield, off data/items/weapon_types.json's allow-list -
+            # Kyle's dual wielders are Enhancement Shaman, Primalist and
+            # Rogue, plus the specs the table already lists). equip_item
+            # would refuse it anyway; checking here means a level 12
+            # companion does not turn up carrying a second sword in her bag
+            # that she cannot hold.
+            if (slot_key == "off_hand" and weapon_type not in ("shield", "tome")
+                    and not can_dual_wield(char)):
                 continue
             try:
                 item = generator.generate_item_for_class(
-                    self.char_class, ilvl, slot=slot_key, rarity=starter_rarity(ilvl, slot_key))
+                    self.char_class, ilvl, slot=slot_key,
+                    rarity=starter_rarity(ilvl, slot_key),
+                    weapon_type=weapon_type, **itemize)
             except Exception:
                 continue
             if item:

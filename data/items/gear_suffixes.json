@@ -1,9 +1,10 @@
 {
   "_notes": "Transcribed directly from Kyle's Gear.docx design doc, this session. Each suffix maps to a real stat/weight split - previously the game used 5 invented generic stat_templates (str_physical/agi_physical/etc, fixed 0.7/0.3 splits) instead of this real, much larger authored suffix list. Suffix names ('of Strength', 'of the Bear', ...) become the actual item name suffix AND drive which stats + weights get rolled - both were previously decoupled (name was cosmetic, stats came from a template).",
   "suffixes": {
-    "of Strength": {
+    "of Accuracy": {
       "stats": {
-        "strength": 1.0
+        "hit_rating": 0.5,
+        "attack_power": 0.5
       }
     },
     "of Agility": {
@@ -11,79 +12,26 @@
         "agility": 1.0
       }
     },
-    "of Intellect": {
-      "stats": {
-        "intellect": 1.0
-      }
-    },
-    "of Stamina": {
-      "stats": {
-        "stamina": 1.0
-      }
-    },
-    "of Spirit": {
-      "stats": {
-        "spirit": 1.0
-      }
-    },
-    "of the Tiger": {
-      "stats": {
-        "strength": 0.5,
-        "agility": 0.5
-      }
-    },
-    "of the Bear": {
-      "stats": {
-        "strength": 0.5,
-        "stamina": 0.5
-      }
-    },
-    "of the Monkey": {
-      "stats": {
-        "agility": 0.5,
-        "stamina": 0.5
-      }
-    },
-    "of the Eagle": {
-      "stats": {
-        "intellect": 0.5,
-        "stamina": 0.5
-      }
-    },
-    "of the Owl": {
-      "stats": {
-        "intellect": 0.5,
-        "spirit": 0.5
-      }
-    },
-    "of the Whale": {
+    "of Arcane Protection": {
       "stats": {
         "stamina": 0.5,
-        "spirit": 0.5
+        "arcane_resistance": 0.5
       }
     },
-    "of the Falcon": {
+    "of Arcane Resistance": {
       "stats": {
-        "agility": 0.5,
-        "intellect": 0.5
+        "arcane_resistance": 1.0
       }
     },
-    "of the Gorilla": {
+    "of Arcane Wrath": {
       "stats": {
-        "strength": 0.5,
-        "intellect": 0.5
+        "arcane_spell_power": 1.0
       }
     },
-    "of the Boar": {
+    "of Astral Power": {
       "stats": {
-        "strength": 0.5,
-        "spirit": 0.5
-      }
-    },
-    "of the Wolf": {
-      "stats": {
-        "agility": 0.5,
-        "spirit": 0.5
+        "arcane_spell_power": 0.5,
+        "nature_spell_power": 0.5
       }
     },
     "of Blocking": {
@@ -92,38 +40,176 @@
         "block_rating": 0.5
       }
     },
+    "of Divine Twilight": {
+      "stats": {
+        "holy_spell_power": 0.5,
+        "shadow_spell_power": 0.5
+      }
+    },
     "of Eluding": {
       "stats": {
         "dodge_rating": 0.5,
         "defense_rating": 0.5
       }
     },
-    "of the Bandit": {
+    "of Fiery Wrath": {
       "stats": {
-        "agility": 0.35,
-        "stamina": 0.35,
-        "attack_power": 0.3
+        "fire_spell_power": 1.0
       }
     },
-    "of the Beast": {
+    "of Fire Protection": {
       "stats": {
-        "strength": 0.34,
-        "agility": 0.33,
-        "stamina": 0.33
+        "stamina": 0.5,
+        "fire_resistance": 0.5
       }
     },
-    "of the Soldier": {
+    "of Fire Resistance": {
       "stats": {
-        "strength": 0.35,
-        "stamina": 0.45,
-        "crit_chance_physical": 0.2
+        "fire_resistance": 1.0
       }
     },
-    "of the Champion": {
+    "of Focus": {
       "stats": {
-        "strength": 0.35,
-        "stamina": 0.45,
-        "defense_rating": 0.2
+        "hit_rating": 0.5,
+        "spell_power": 0.5
+      }
+    },
+    "of Frost Protection": {
+      "stats": {
+        "stamina": 0.5,
+        "frost_resistance": 0.5
+      }
+    },
+    "of Frost Resistance": {
+      "stats": {
+        "frost_resistance": 1.0
+      }
+    },
+    "of Frostfire": {
+      "stats": {
+        "frost_spell_power": 0.5,
+        "fire_spell_power": 0.5
+      }
+    },
+    "of Frozen Wrath": {
+      "stats": {
+        "frost_spell_power": 1.0
+      }
+    },
+    "of Holy Protection": {
+      "stats": {
+        "stamina": 0.5,
+        "holy_resistance": 0.5
+      }
+    },
+    "of Holy Resistance": {
+      "stats": {
+        "holy_resistance": 1.0
+      }
+    },
+    "of Holy Wrath": {
+      "stats": {
+        "holy_spell_power": 1.0
+      }
+    },
+    "of Holyfire": {
+      "stats": {
+        "holy_spell_power": 0.5,
+        "fire_spell_power": 0.5
+      }
+    },
+    "of Holyfrost": {
+      "stats": {
+        "holy_spell_power": 0.5,
+        "frost_spell_power": 0.5
+      }
+    },
+    "of Holystorm": {
+      "stats": {
+        "holy_spell_power": 0.5,
+        "nature_spell_power": 0.5
+      }
+    },
+    "of Intellect": {
+      "stats": {
+        "intellect": 1.0
+      }
+    },
+    "of Nature Protection": {
+      "stats": {
+        "stamina": 0.5,
+        "nature_resistance": 0.5
+      }
+    },
+    "of Nature Resistance": {
+      "stats": {
+        "nature_resistance": 1.0
+      }
+    },
+    "of Nature's Wrath": {
+      "stats": {
+        "nature_spell_power": 1.0
+      }
+    },
+    "of Netherfire": {
+      "stats": {
+        "shadow_spell_power": 0.5,
+        "fire_spell_power": 0.5
+      }
+    },
+    "of Precision": {
+      "stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      }
+    },
+    "of Shadow Protection": {
+      "stats": {
+        "stamina": 0.5,
+        "shadow_resistance": 0.5
+      }
+    },
+    "of Shadow Resistance": {
+      "stats": {
+        "shadow_resistance": 1.0
+      }
+    },
+    "of Shadow Wrath": {
+      "stats": {
+        "shadow_spell_power": 1.0
+      }
+    },
+    "of Shadowfrost": {
+      "stats": {
+        "shadow_spell_power": 0.5,
+        "frost_spell_power": 0.5
+      }
+    },
+    "of Spellfire": {
+      "stats": {
+        "arcane_spell_power": 0.5,
+        "fire_spell_power": 0.5
+      }
+    },
+    "of Spellstorm": {
+      "stats": {
+        "arcane_spell_power": 0.5,
+        "nature_spell_power": 0.5
+      }
+    },
+    "of Spirit": {
+      "stats": {
+        "spirit": 1.0
+      }
+    },
+    "of Stamina": {
+      "stats": {
+        "stamina": 1.0
+      }
+    },
+    "of Strength": {
+      "stats": {
+        "strength": 1.0
       }
     },
     "of Striking": {
@@ -133,32 +219,17 @@
         "stamina": 0.34
       }
     },
-    "of the Hunt": {
+    "of Volcanic Fury": {
       "stats": {
-        "agility": 0.35,
-        "intellect": 0.35,
-        "attack_power": 0.3
+        "fire_spell_power": 0.5,
+        "nature_spell_power": 0.5
       }
     },
-    "of the Marksman": {
+    "of the Archmage": {
       "stats": {
-        "agility": 0.35,
-        "stamina": 0.45,
-        "hit_rating": 0.2
-      }
-    },
-    "of the Squire": {
-      "stats": {
-        "strength": 0.35,
-        "stamina": 0.45,
-        "hit_rating": 0.2
-      }
-    },
-    "of the Necromancer": {
-      "stats": {
-        "intellect": 0.35,
-        "stamina": 0.45,
-        "hit_rating": 0.2
+        "intellect": 0.3,
+        "spell_power": 0.5,
+        "mp5": 0.2
       }
     },
     "of the Assassin": {
@@ -168,6 +239,92 @@
         "crit_chance_physical": 0.3
       }
     },
+    "of the Bandit": {
+      "stats": {
+        "agility": 0.35,
+        "stamina": 0.35,
+        "attack_power": 0.3
+      }
+    },
+    "of the Bastion": {
+      "stats": {
+        "parry_rating": 0.34,
+        "block_rating": 0.33,
+        "dodge_rating": 0.33
+      }
+    },
+    "of the Bear": {
+      "stats": {
+        "strength": 0.5,
+        "stamina": 0.5
+      }
+    },
+    "of the Beast": {
+      "stats": {
+        "strength": 0.34,
+        "agility": 0.33,
+        "stamina": 0.33
+      }
+    },
+    "of the Boar": {
+      "stats": {
+        "strength": 0.5,
+        "spirit": 0.5
+      }
+    },
+    "of the Bulwark": {
+      "stats": {
+        "stamina": 0.5,
+        "block_rating": 0.25,
+        "block_value": 0.25
+      }
+    },
+    "of the Carapace": {
+      "stats": {
+        "stamina": 0.4,
+        "armor": 0.35,
+        "dodge_rating": 0.25
+      }
+    },
+    "of the Champion": {
+      "stats": {
+        "strength": 0.35,
+        "stamina": 0.45,
+        "defense_rating": 0.2
+      }
+    },
+    "of the Defender": {
+      "stats": {
+        "stamina": 0.46,
+        "defense_rating": 0.27,
+        "dodge_rating": 0.27
+      }
+    },
+    "of the Duelist": {
+      "stats": {
+        "dodge_rating": 0.5,
+        "parry_rating": 0.5
+      }
+    },
+    "of the Eagle": {
+      "stats": {
+        "intellect": 0.5,
+        "stamina": 0.5
+      }
+    },
+    "of the Elder": {
+      "stats": {
+        "intellect": 0.35,
+        "stamina": 0.45,
+        "mp5": 0.2
+      }
+    },
+    "of the Falcon": {
+      "stats": {
+        "agility": 0.5,
+        "intellect": 0.5
+      }
+    },
     "of the Gladiator": {
       "stats": {
         "strength": 0.4,
@@ -175,23 +332,59 @@
         "crit_chance_physical": 0.3
       }
     },
-    "of the Tactician": {
+    "of the Gorilla": {
+      "stats": {
+        "strength": 0.5,
+        "intellect": 0.5
+      }
+    },
+    "of the Hierophant": {
+      "stats": {
+        "stamina": 0.35,
+        "spirit": 0.35,
+        "healing_power": 0.3
+      }
+    },
+    "of the Hunt": {
+      "stats": {
+        "agility": 0.35,
+        "intellect": 0.35,
+        "attack_power": 0.3
+      }
+    },
+    "of the Inquisitor": {
+      "stats": {
+        "intellect": 0.4,
+        "hit_rating": 0.3,
+        "crit_chance_spell": 0.3
+      }
+    },
+    "of the Invoker": {
       "stats": {
         "intellect": 0.3,
-        "hit_rating": 0.25,
-        "spell_power": 0.45
+        "spell_power": 0.5,
+        "crit_chance_spell": 0.2
       }
     },
-    "of Precision": {
+    "of the Ironfur": {
       "stats": {
-        "hit_rating": 0.5,
-        "crit_chance_physical": 0.5
+        "stamina": 0.46,
+        "agility": 0.27,
+        "dodge_rating": 0.27
       }
     },
-    "of the Spell Breaker": {
+    "of the Juggernaut": {
       "stats": {
-        "spell_power": 0.75,
-        "spell_penetration": 0.25
+        "stamina": 0.5,
+        "armor": 0.25,
+        "parry_rating": 0.25
+      }
+    },
+    "of the Marksman": {
+      "stats": {
+        "agility": 0.35,
+        "stamina": 0.45,
+        "hit_rating": 0.2
       }
     },
     "of the Mind's Eye": {
@@ -199,6 +392,45 @@
         "intellect": 0.3,
         "spell_power": 0.5,
         "hit_rating": 0.2
+      }
+    },
+    "of the Monkey": {
+      "stats": {
+        "agility": 0.5,
+        "stamina": 0.5
+      }
+    },
+    "of the Necromancer": {
+      "stats": {
+        "intellect": 0.35,
+        "stamina": 0.45,
+        "hit_rating": 0.2
+      }
+    },
+    "of the Owl": {
+      "stats": {
+        "intellect": 0.5,
+        "spirit": 0.5
+      }
+    },
+    "of the Physician": {
+      "stats": {
+        "stamina": 0.35,
+        "intellect": 0.35,
+        "healing_power": 0.3
+      }
+    },
+    "of the Plague": {
+      "stats": {
+        "nature_spell_power": 0.5,
+        "shadow_spell_power": 0.5
+      }
+    },
+    "of the Prophet": {
+      "stats": {
+        "intellect": 0.3,
+        "spirit": 0.3,
+        "healing_power": 0.4
       }
     },
     "of the Restorer": {
@@ -214,18 +446,18 @@
         "mp5": 0.2
       }
     },
-    "of the Archmage": {
+    "of the Sharpshooter": {
       "stats": {
-        "intellect": 0.3,
-        "spell_power": 0.5,
-        "mp5": 0.2
+        "agility": 0.35,
+        "attack_power": 0.35,
+        "hit_rating": 0.3
       }
     },
-    "of the Invoker": {
+    "of the Soldier": {
       "stats": {
-        "intellect": 0.3,
-        "spell_power": 0.5,
-        "crit_chance_spell": 0.2
+        "strength": 0.35,
+        "stamina": 0.45,
+        "crit_chance_physical": 0.2
       }
     },
     "of the Sorcerer": {
@@ -235,254 +467,30 @@
         "spell_power": 0.3
       }
     },
-    "of the Elder": {
+    "of the Spell Breaker": {
       "stats": {
-        "intellect": 0.35,
-        "stamina": 0.45,
-        "mp5": 0.2
+        "spell_power": 0.75,
+        "spell_penetration": 0.25
       }
     },
-    "of the Prophet": {
+    "of the Squire": {
+      "stats": {
+        "strength": 0.35,
+        "stamina": 0.45,
+        "hit_rating": 0.2
+      }
+    },
+    "of the Tactician": {
       "stats": {
         "intellect": 0.3,
-        "spirit": 0.3,
-        "healing_power": 0.4
+        "hit_rating": 0.25,
+        "spell_power": 0.45
       }
     },
-    "of the Hierophant": {
+    "of the Tiger": {
       "stats": {
-        "stamina": 0.35,
-        "spirit": 0.35,
-        "healing_power": 0.3
-      }
-    },
-    "of the Physician": {
-      "stats": {
-        "stamina": 0.35,
-        "intellect": 0.35,
-        "healing_power": 0.3
-      }
-    },
-    "of the Duelist": {
-      "stats": {
-        "dodge_rating": 0.5,
-        "parry_rating": 0.5
-      }
-    },
-    "of the Bulwark": {
-      "stats": {
-        "stamina": 0.5,
-        "block_rating": 0.25,
-        "block_value": 0.25
-      }
-    },
-    "of the Defender": {
-      "stats": {
-        "stamina": 0.46,
-        "defense_rating": 0.27,
-        "dodge_rating": 0.27
-      }
-    },
-    "of the Juggernaut": {
-      "stats": {
-        "stamina": 0.5,
-        "armor": 0.25,
-        "parry_rating": 0.25
-      }
-    },
-    "of the Bastion": {
-      "stats": {
-        "parry_rating": 0.34,
-        "block_rating": 0.33,
-        "dodge_rating": 0.33
-      }
-    },
-    "of the Warder": {
-      "stats": {
-        "stamina": 0.46,
-        "dodge_rating": 0.27,
-        "parry_rating": 0.27
-      }
-    },
-    "of the Ironfur": {
-      "stats": {
-        "stamina": 0.46,
-        "agility": 0.27,
-        "dodge_rating": 0.27
-      }
-    },
-    "of Fiery Wrath": {
-      "stats": {
-        "fire_spell_power": 1.0
-      }
-    },
-    "of Frozen Wrath": {
-      "stats": {
-        "frost_spell_power": 1.0
-      }
-    },
-    "of Arcane Wrath": {
-      "stats": {
-        "arcane_spell_power": 1.0
-      }
-    },
-    "of Shadow Wrath": {
-      "stats": {
-        "shadow_spell_power": 1.0
-      }
-    },
-    "of Nature's Wrath": {
-      "stats": {
-        "nature_spell_power": 1.0
-      }
-    },
-    "of Holy Wrath": {
-      "stats": {
-        "holy_spell_power": 1.0
-      }
-    },
-    "of Holyfire": {
-      "stats": {
-        "holy_spell_power": 0.5,
-        "fire_spell_power": 0.5
-      }
-    },
-    "of Frostfire": {
-      "stats": {
-        "frost_spell_power": 0.5,
-        "fire_spell_power": 0.5
-      }
-    },
-    "of Shadowfrost": {
-      "stats": {
-        "shadow_spell_power": 0.5,
-        "frost_spell_power": 0.5
-      }
-    },
-    "of Holyfrost": {
-      "stats": {
-        "holy_spell_power": 0.5,
-        "frost_spell_power": 0.5
-      }
-    },
-    "of the Plague": {
-      "stats": {
-        "nature_spell_power": 0.5,
-        "shadow_spell_power": 0.5
-      }
-    },
-    "of Spellfire": {
-      "stats": {
-        "arcane_spell_power": 0.5,
-        "fire_spell_power": 0.5
-      }
-    },
-    "of Astral Power": {
-      "stats": {
-        "arcane_spell_power": 0.5,
-        "nature_spell_power": 0.5
-      }
-    },
-    "of the Void": {
-      "stats": {
-        "shadow_spell_power": 0.5,
-        "arcane_spell_power": 0.5
-      }
-    },
-    "of Spellstorm": {
-      "stats": {
-        "arcane_spell_power": 0.5,
-        "nature_spell_power": 0.5
-      }
-    },
-    "of Holystorm": {
-      "stats": {
-        "holy_spell_power": 0.5,
-        "nature_spell_power": 0.5
-      }
-    },
-    "of Divine Twilight": {
-      "stats": {
-        "holy_spell_power": 0.5,
-        "shadow_spell_power": 0.5
-      }
-    },
-    "of Volcanic Fury": {
-      "stats": {
-        "fire_spell_power": 0.5,
-        "nature_spell_power": 0.5
-      }
-    },
-    "of Netherfire": {
-      "stats": {
-        "shadow_spell_power": 0.5,
-        "fire_spell_power": 0.5
-      }
-    },
-    "of Fire Resistance": {
-      "stats": {
-        "fire_resistance": 1.0
-      }
-    },
-    "of Frost Resistance": {
-      "stats": {
-        "frost_resistance": 1.0
-      }
-    },
-    "of Nature Resistance": {
-      "stats": {
-        "nature_resistance": 1.0
-      }
-    },
-    "of Shadow Resistance": {
-      "stats": {
-        "shadow_resistance": 1.0
-      }
-    },
-    "of Arcane Resistance": {
-      "stats": {
-        "arcane_resistance": 1.0
-      }
-    },
-    "of Fire Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "fire_resistance": 0.5
-      }
-    },
-    "of Frost Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "frost_resistance": 0.5
-      }
-    },
-    "of Nature Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "nature_resistance": 0.5
-      }
-    },
-    "of Shadow Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "shadow_resistance": 0.5
-      }
-    },
-    "of Arcane Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "arcane_resistance": 0.5
-      }
-    },
-    "of Holy Resistance": {
-      "stats": {
-        "holy_resistance": 1.0
-      }
-    },
-    "of Holy Protection": {
-      "stats": {
-        "stamina": 0.5,
-        "holy_resistance": 0.5
+        "strength": 0.5,
+        "agility": 0.5
       }
     },
     "of the Timekeeper": {
@@ -492,6 +500,31 @@
         "hit_rating": 0.2
       }
     },
+    "of the Tortoise": {
+      "stats": {
+        "armor": 1.0
+      }
+    },
+    "of the Vanquisher": {
+      "stats": {
+        "strength": 0.35,
+        "attack_power": 0.35,
+        "hit_rating": 0.3
+      }
+    },
+    "of the Void": {
+      "stats": {
+        "shadow_spell_power": 0.5,
+        "arcane_spell_power": 0.5
+      }
+    },
+    "of the Warder": {
+      "stats": {
+        "stamina": 0.46,
+        "dodge_rating": 0.27,
+        "parry_rating": 0.27
+      }
+    },
     "of the Wellspring": {
       "stats": {
         "spirit": 0.45,
@@ -499,16 +532,16 @@
         "intellect": 0.2
       }
     },
-    "of the Tortoise": {
+    "of the Whale": {
       "stats": {
-        "armor": 1.0
+        "stamina": 0.5,
+        "spirit": 0.5
       }
     },
-    "of the Carapace": {
+    "of the Wolf": {
       "stats": {
-        "stamina": 0.4,
-        "armor": 0.35,
-        "dodge_rating": 0.25
+        "agility": 0.5,
+        "spirit": 0.5
       }
     }
   },

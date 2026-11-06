@@ -83,7 +83,21 @@ def active_spec(character):
     WoW's own convention: your spec is whichever tree holds the most points.
     Derived rather than stored, because Character has no spec field - it has
     talent_trees keyed by spec slug, each with total_points_spent().
+
+    A LOCKED SPEC IS THE ANSWER OUTRIGHT, points or not. Companions are
+    authored as one spec and locked to it (world/recruit_manager.py sets
+    locked_spec, and ui/screens/talent_tree_screen.py refuses to spend
+    outside it) - "these are real people", so Dan is a Fury Warrior whether
+    or not anybody has opened his tree yet. Deriving from points alone meant
+    a freshly built companion had NO spec for a moment, and every spec-gated
+    rule failed closed on her: a level 38 Felsworn Slayer and a level 41
+    Witch Hunter Inquisitor were both refused their off-hand weapon, because
+    _equip_starter_gear runs before auto_spend_talents and can_dual_wield
+    asked a character with an empty tree what she specced into.
     """
+    locked = getattr(character, "locked_spec", None)
+    if locked:
+        return locked
     trees = getattr(character, "talent_trees", None) or {}
     best, best_points = None, 0
     for slug, tree in trees.items():

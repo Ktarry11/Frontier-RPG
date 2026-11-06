@@ -261,7 +261,9 @@ class LootGenerator:
             icon_id=data.get("icon_id"),
         )
 
-    def generate_item_for_class(self, char_class, item_level, slot=None, rarity=None, player_level=None):
+    def generate_item_for_class(self, char_class, item_level, slot=None, rarity=None,
+                                player_level=None, weapon_type=None,
+                                stat_template=None, school=None):
         """
         Convenience entry point: generate an item appropriate for a given
         launch class (Warrior/Shaman/Rogue/Priest), using that class's
@@ -270,16 +272,39 @@ class LootGenerator:
         If slot is None, picks a random valid slot for that class.
         If rarity is None, rolls one using drop weights, gated by
         player_level (defaults to item_level if not given separately).
+
+        THE THREE OVERRIDES ARE FOR A CALLER HOLDING A REAL CHARACTER.
+        A world drop is itemized for a class nobody is playing, so the class
+        maps are all it has to go on - but a companion's starter kit, a spec
+        quest reward or anything else generated FOR somebody knows more than
+        the class does, and the class-only version was measurably wrong for
+        it (see data/items/spec_gear.json and tools/build_spec_gear.py):
+
+          weapon_type     the exact type to make. world/recruit_manager.py
+                          computed the right one and then threw it away -
+                          `weapon_type = theme.get(slot_key)` was read as a
+                          truthiness guard and never passed - so every
+                          companion's weapon was a random legal pick. A Fury
+                          Warrior turned up with a staff.
+          stat_template   overrides the class map, which has one entry per
+                          class and so itemized an Enhancement Shaman as a
+                          caster and a Holy Paladin as a Strength hybrid.
+          school          which school's spell power may roll. See
+                          _off_school.
+
+        armor_type stays class-derived with no override, because it really
+        is a class fact: a Shaman wears mail in every spec.
         """
         armor_type = self.armor_types["class_armor_map"].get(char_class, "cloth")
-        stat_template = self.stat_templates["class_stat_template_map"].get(char_class, "int_caster")
+        stat_template = stat_template or self.stat_templates[
+            "class_stat_template_map"].get(char_class, "int_caster")
         rarity = rarity or self.roll_rarity(player_level if player_level is not None else item_level)
 
         if slot is None:
             slot = self._pick_random_slot(char_class)
 
         if slot in WEAPON_SLOTS:
-            weapon_type = self._pick_weapon_type_for_class(
+            weapon_type = weapon_type or self._pick_weapon_type_for_class(
                 char_class, slot, player_level)
             if weapon_type is None:
                 # The class has no legal item for this slot (an off-hand for a
@@ -289,11 +314,14 @@ class LootGenerator:
                 slot = "main_hand"
                 weapon_type = self._pick_weapon_type_for_class(
                     char_class, slot, player_level)
-            return self.generate_weapon(slot, weapon_type, stat_template, item_level, rarity)
+            return self.generate_weapon(slot, weapon_type, stat_template,
+                                        item_level, rarity, school=school)
         else:
-            return self.generate_armor_piece(slot, armor_type, stat_template, item_level, rarity)
+            return self.generate_armor_piece(slot, armor_type, stat_template,
+                                             item_level, rarity, school=school)
 
-    def generate_armor_piece(self, slot, armor_type, stat_template, item_level, rarity):
+    def generate_armor_piece(self, slot, armor_type, stat_template, item_level,
+                             rarity, school=None):
         """Generate a single armor/accessory item for a specific slot."""
         rarity_data = self.rarity_tiers[rarity]
         slot_data = self.slots["slots"][slot]
@@ -309,7 +337,8 @@ class LootGenerator:
         total_budget = item_level * self.STAT_BUDGET_BASE_MULT * rarity_data["stat_budget_multiplier"] * slot_weight
 
         primary_stats, secondary_stats, suffix_name = self._roll_stats(
-            stat_template, total_budget, rarity_data["bonus_stat_rolls"], rarity, item_level
+            stat_template, total_budget, rarity_data["bonus_stat_rolls"], rarity,
+            item_level, school=school
         )
 
         armor_value = 0
@@ -345,7 +374,7 @@ class LootGenerator:
         )
 
     def generate_weapon(self, slot, weapon_type, stat_template, item_level, rarity,
-                        strict=False):
+                        strict=False, school=None):
         """Generate a weapon or off-hand item (shield/totem/wand).
 
         strict=True refuses an invalid stat_template instead of quietly
@@ -382,7 +411,8 @@ class LootGenerator:
 
         if valid_templates:
             primary_stats, secondary_stats, suffix_name = self._roll_stats(
-                stat_template, total_budget, rarity_data["bonus_stat_rolls"], rarity, item_level
+                stat_template, total_budget, rarity_data["bonus_stat_rolls"], rarity,
+                item_level, school=school
             )
         elif rarity in self.STATLESS_RARITIES:
             # Shields at Poor/Common: armor+block only, no stamina stat -
@@ -940,6 +970,19 @@ class LootGenerator:
         "shadow_spell_power", "nature_spell_power", "holy_spell_power",
     })
 
+    def _off_school(self, school):
+        """The school spell power stats a `school` caster must not roll.
+
+        All six lived in one set, so any caster template could roll any
+        school. Kyle, 6 Nov: "Ive seen a fire mage come with +holy spell
+        power gear." A school is only known when the caller has a real
+        character or spec in hand, so school=None keeps the old behaviour
+        for an ordinary world drop itemized for nobody in particular.
+        """
+        if not school:
+            return frozenset()
+        return self._SCHOOL_SPELL_POWER - {f"{school}_spell_power"}
+
     def _suffix_weight(self, suffix_name, stat_template):
         """Roll weight for one suffix under one template - see the
         SUFFIX_WEIGHT_* constants for why this is weighted at all."""
@@ -954,7 +997,8 @@ class LootGenerator:
             return self.SUFFIX_WEIGHT_PRIMARY
         return self.SUFFIX_WEIGHT_UTILITY
 
-    def _suffixes_for_template(self, stat_template, low_level=False, item_level=None):
+    def _suffixes_for_template(self, stat_template, low_level=False,
+                               item_level=None, school=None):
         """Real suffixes whose primary stat set overlaps this
         stat_template's real stats - built lazily and cached per
         LootGenerator instance since gear_suffixes.json doesn't change
@@ -969,13 +1013,19 @@ class LootGenerator:
         resists_ok = item_level is not None and item_level >= self.RESISTANCE_LEVEL
         cache_key = (f"{stat_template}::low" if low_level
                      else f"{stat_template}::res" if resists_ok else stat_template)
+        # The school belongs IN the cache key. Without it the first caller
+        # to ask for a template cached its pool and every later school got
+        # that one back - a fire-only pool served to a frost caster.
+        cache_key = f"{cache_key}::{school}" if school else cache_key
         if cache_key in self._suffix_template_cache:
             return self._suffix_template_cache[cache_key]
 
         wanted_stats = set(self._SUFFIX_TEMPLATE_STATS.get(stat_template, set()))
         if resists_ok:
             wanted_stats |= self._RESISTANCE_STATS
-        banned = self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset())
+        banned = set(self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset()))
+        # Every school but this caster's own.
+        banned |= self._off_school(school)
         # SUBSET, NOT OVERLAP. Kyle asked why an agility two-handed mace had
         # come out carrying Healing Power, and the honest answer is that a
         # suffix matched if ANY ONE of its stats was wanted. "of the Wild"
@@ -1058,7 +1108,8 @@ class LootGenerator:
         banned = self._SUFFIX_TEMPLATE_EXCLUDES.get(stat_template, frozenset())
         return [s for s in pool if s in wanted and s not in banned] or pool
 
-    def _roll_stats(self, stat_template, total_budget, bonus_rolls, rarity=None, item_level=None):
+    def _roll_stats(self, stat_template, total_budget, bonus_rolls, rarity=None,
+                    item_level=None, school=None):
         """Pick a real suffix (data/items/gear_suffixes.json) appropriate
         for stat_template, then distribute total_budget across that
         suffix's real stats using each stat's real budget COST (not an
@@ -1089,7 +1140,8 @@ class LootGenerator:
 
         low_level = item_level is not None and item_level < self.LOW_LEVEL_STAT_CAP
         candidates = self._suffixes_for_template(stat_template, low_level=low_level,
-                                                 item_level=item_level)
+                                                 item_level=item_level,
+                                                 school=school)
         suffix_name = random.choices(
             candidates,
             weights=[self._suffix_weight(n, stat_template) for n in candidates],
