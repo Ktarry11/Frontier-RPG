@@ -1363,6 +1363,16 @@ class Character(StatusEffectMixin):
             100.0 - max(0.0, self.BASE_MISS_PHYSICAL
                         + self.DUAL_WIELD_MISS_PENALTY - hit_rating)
             if self.is_dual_wielding else 100.0)
+        #: A SHOT IS NOT A SWING. Kyle, 6 Nov: "if a hunter (for example) is
+        #: using 2 weapons and shoots a gun, the gun should be impacted by
+        #: hit chance associated with the gun and not with the fact it has
+        #: two weapons." It already worked out that way, because the ranged
+        #: branch read hit_chance_physical and that is the main hand - but it
+        #: was true by coincidence rather than by construction, and nothing
+        #: on the sheet said so. Its own stat now, so the ranged slot has an
+        #: accuracy a player can read and a future change to the dual-wield
+        #: penalty cannot leak into it.
+        self.hit_chance_ranged = 100.0 - self.base_miss_chance_physical
         #: Kept as the name every existing caller uses (combat/abilities.py's
         #: miss roll, Monster, the sim) - it is the main hand.
         self.hit_chance_physical = self.hit_chance_main_hand
@@ -1619,7 +1629,8 @@ class Character(StatusEffectMixin):
         # Turn speed
         self.turn_speed = 1.0 + (eff_agility / 100.0)
     
-    def get_weapon_damage_roll(self, use_ranged=False, include_offhand=True):
+    def get_weapon_damage_roll(self, use_ranged=False, include_offhand=True,
+                               offhand_hit_chance=None):
         """
         Roll a random damage value from equipped weapon(s). Main Hand rolls
         at full value; if include_offhand=True and an Off Hand weapon is
@@ -1627,6 +1638,23 @@ class Character(StatusEffectMixin):
         WoW's dual-wield offhand damage convention. use_ranged=True checks
         the Ranged slot (wand) instead, for caster auto-attacks - offhand
         is irrelevant there.
+
+        offhand_hit_chance IS WHAT SEPARATES A SWING FROM A SPECIAL.
+        Kyle, 6 Nov: "when a character uses auto attack with dual wield it
+        has the chance to miss with the main hand and offhand being
+        different. But also when a skill is used then the OH and mainhand
+        have a lower miss chance and both should hit."
+
+        So a WHITE SWING leaves this None and the off hand rolls against
+        hit_chance_off_hand, which carries the full dual-wield penalty -
+        that is the cost of holding two weapons, and it is meant to be
+        felt. A SPECIAL passes hit_chance_main_hand, so the off hand lands
+        whenever the attack lands: one attack roll, both weapons. That is
+        WoW's own rule (instant attacks never took the dual-wield penalty)
+        and it is the half of this the engine was missing - every ability
+        in the game routed through here with no argument, so a measured
+        level 46 Subtlety Rogue was losing a quarter of her off-hand
+        damage on every special she cast, not just on her auto attacks.
         """
         import random
 
@@ -1650,8 +1678,9 @@ class Character(StatusEffectMixin):
             # It misses independently, as in WoW, which is what makes the
             # dual-wield miss penalty something a player can feel and gear
             # against.
-            if off_hand and (random.uniform(0, 100)
-                             <= getattr(self, "hit_chance_off_hand", 100.0)):
+            chance = (offhand_hit_chance if offhand_hit_chance is not None
+                      else getattr(self, "hit_chance_off_hand", 100.0))
+            if off_hand and random.uniform(0, 100) <= chance:
                 offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
                 total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
 
@@ -3168,12 +3197,18 @@ class Character(StatusEffectMixin):
                 "block": f"{self.block_chance:.1f}% / {self.block_value:.0f}",
                 "parry": f"{self.parry:.1f}%",
                 "haste": f"{self.haste:.1f}%",
-                # Three hit numbers, as WoW shows them - Kyle: "we need to
-                # show hit % for spells, mainhand and offhand too".
+                # The hit numbers, as WoW shows them - Kyle: "we need to
+                # show hit % for spells, mainhand and offhand too". Ranged
+                # joined them on 6 Nov, when he pointed out that a shot is
+                # governed by the gun and not by what is in the hands; the
+                # off-hand figure is the WHITE swing's, which is the only
+                # attack that pays the dual-wield penalty.
                 "hit_spell": f"{self.hit_chance_spell:.1f}%",
                 "hit_main_hand": f"{self.hit_chance_main_hand:.1f}%",
                 "hit_off_hand": (f"{self.hit_chance_off_hand:.1f}%"
                                  if self.is_dual_wielding else "-"),
+                "hit_ranged": (f"{self.hit_chance_ranged:.1f}%"
+                               if self.equipment.get_ranged_weapon() else "-"),
                 "hit_rating": f"{self.hit_rating:.0f} / {self.HIT_RATING_CAP:.0f}",
             },
             "defense": {

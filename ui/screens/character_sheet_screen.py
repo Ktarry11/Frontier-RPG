@@ -256,10 +256,15 @@ class CharacterSheetScreen(BaseScreen):
         mid_y += 22
         self.renderer.draw_text(screen, f"Haste: {derived['haste']}", (mid_x, mid_y))
         mid_y += 28
-        # HIT, three ways. A dual-wielder and a caster face completely
-        # different miss chances off the same hit rating, so one number
-        # could not tell either of them what they needed - Kyle: "we need
-        # to show hit % for spells, mainhand and offhand too. WoW has this."
+        # HIT, four ways. A dual-wielder, a caster and an archer face
+        # completely different miss chances off the same hit rating, so one
+        # number could not tell any of them what they needed - Kyle: "we
+        # need to show hit % for spells, mainhand and offhand too. WoW has
+        # this." Ranged joined them on 6 Nov: "if a hunter is using 2
+        # weapons and shoots a gun, the gun should be impacted by hit chance
+        # associated with the gun and not with the fact it has two weapons."
+        # The off-hand figure is the WHITE swing's, and it is the only
+        # attack in the game that pays the dual-wield penalty.
         self.renderer.draw_text(
             screen, f"Hit Rating: {derived['hit_rating']}", (mid_x, mid_y))
         mid_y += 22
@@ -271,6 +276,9 @@ class CharacterSheetScreen(BaseScreen):
         mid_y += 22
         self.renderer.draw_text(
             screen, f"Hit (Off Hand): {derived['hit_off_hand']}", (mid_x, mid_y))
+        mid_y += 22
+        self.renderer.draw_text(
+            screen, f"Hit (Ranged): {derived['hit_ranged']}", (mid_x, mid_y))
         mid_y += 28
         self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (mid_x, mid_y))
         mid_y += 22

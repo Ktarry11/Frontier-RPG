@@ -1479,6 +1479,22 @@ class Ability:
             bonus += self._talent(caster, f"{real_school}_crit_damage_pct")
         return bonus
 
+    def is_basic_attack(self, caster):
+        """Is this cast the caster's own white swing rather than a special?
+
+        "<class_prefix>_attack" is the real convention - extra_attack and
+        the ON_WEAPON_SWING imbue procs already relied on it, written out
+        inline in both places. It is the line between a swing and a special
+        for the dual-wield rule too (see
+        Character.get_weapon_damage_roll's offhand_hit_chance), so it is
+        one method now rather than the same string comparison typed three
+        times, which is how the three would eventually disagree.
+        """
+        char_class = getattr(caster, "char_class", None)
+        if not char_class:
+            return False
+        return self.ability_id == f"{_class_file_prefix(char_class)}_attack"
+
     def _resolve_damage_school(self, caster):
         """Real school this ability deals THIS cast, resolving
         DamageSchool.ATTUNEMENT (Runemaster's live Frost/Fire/Arcane
@@ -1967,7 +1983,7 @@ class Ability:
                 # "any damage source." Fired as its own separate trigger
                 # (not folded into ON_DAMAGE_CAST's matching) so imbue
                 # procs can listen for exactly this and nothing broader.
-                if is_damage and self.ability_id == f"{_class_file_prefix(caster.char_class)}_attack":
+                if is_damage and self.is_basic_attack(caster):
                     proc_msgs += caster.fire_proc_trigger(
                         ProcTrigger.ON_WEAPON_SWING,
                         {"amount": evt_amount, "target": evt_target,
@@ -2624,10 +2640,25 @@ class Ability:
                 # unaffected - same main-hand roll + attack_power as
                 # before.
                 if self.effect_type == "ranged_damage":
+                    # The gun's own accuracy, not the main hand's borrowed
+                    # name, and never the dual-wield penalty - Kyle, 6 Nov:
+                    # "the gun should be impacted by hit chance associated
+                    # with the gun and not with the fact it has two weapons."
+                    hit_chance = getattr(caster, "hit_chance_ranged", hit_chance)
                     weapon_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                     ap = getattr(caster, "ranged_attack_power", 0)
                 else:
-                    weapon_dmg = caster.get_weapon_damage_roll() if hasattr(caster, "get_weapon_damage_roll") else 0
+                    # A SPECIAL DOES NOT PAY THE DUAL-WIELD PENALTY. One
+                    # attack roll (the hit_chance above, which is the main
+                    # hand's) decides the whole attack, and both weapons
+                    # land with it. A white swing is the basic attack and
+                    # keeps the off hand's own, much worse roll - see
+                    # Character.get_weapon_damage_roll.
+                    off_chance = (None if self.is_basic_attack(caster)
+                                  else getattr(caster, "hit_chance_main_hand", None))
+                    weapon_dmg = (caster.get_weapon_damage_roll(
+                        offhand_hit_chance=off_chance)
+                        if hasattr(caster, "get_weapon_damage_roll") else 0)
                     ap = caster.attack_power
                 base_damage = int(self.effect_value + ap * 0.5) + weapon_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
