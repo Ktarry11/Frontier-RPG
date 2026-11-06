@@ -677,13 +677,13 @@
       "ability_id": "tinker_nanobot_recharger",
       "name": "Nanobot Recharger",
       "resource_type": "mana",
-      "cooldown": 6,
+      "cooldown": 0,
       "effect_type": "buff",
-      "duration": 6,
+      "duration": 0,
       "stat_mods": {
         "mp5": 13
       },
-      "description": "Grants your party: Mp5 +13 for 6 turns.",
+      "description": "Grants your party: Mp5 +13.",
       "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.\"",
       "target_type": "party",
       "ranks": [
@@ -981,7 +981,7 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid",
+      "buff_scope": "combat",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
@@ -1329,7 +1329,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "tinker_arcane_bionics",

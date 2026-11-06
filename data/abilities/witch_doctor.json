@@ -398,7 +398,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Become invisible for 20 seconds, gaining 5 Spirits, leaving a copy of yourself behind, and reducing threat each second.' Both DPS pages call the class's escapes 'threat drops, they do not move you', so this is threat and avoidance rather than a blink.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_shadowflare",
@@ -474,7 +475,8 @@
         "chance": 100,
         "icd": 0,
         "heal_flat": 45
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_amphibimorph",
@@ -547,7 +549,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Transform into a serpent, removing all movement impairing effects and increasing movement speed by 80% ... chance to be hit by ranged attacks and spells is reduced'. No movement-impairment category exists on the player side, so the avoidance half carries the node.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_stasis_ward",
@@ -596,7 +599,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Drop a Swift Idol near you for 10 seconds. Allies within 30 yds gain 25% increased movement speed and their chance to resist movement impairing effects is increased'. Movement speed has no combat meaning in a turn engine, so it lands as Haste, which is what moving faster buys.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_mimic_ward",
@@ -632,7 +636,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Summon a mimic ward for 12 seconds. For the duration when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target.' There is no repeat-my-last-cast mechanic in the engine, so the window lands as the spell power the echo would have been worth. The cast-echo is the one part of this kit with no honest equivalent.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_cursed_effigy",
@@ -656,7 +661,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Drop a Cursed Effigy near you for 15 seconds. Enemies within 15 yds are unable to critically strike.' GAP: a monster's crit_chance is a plain template attribute (entities/monster.py) that no status effect touches, so crit suppression has no hook at all. Implemented from the other side - the party takes less damage, which is what losing enemy crits is worth.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_power_wuju",
@@ -693,7 +699,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Loa Empowerment - Reduces the cost of your Wujus by -50% and increases the effectiveness of Power Wuju by 20%'. A Wuju is a thrown buff, so it buffs both halves of a party.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_death_draught",
@@ -717,7 +724,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Drink a potent voodoo draught that slows your body to a deathlike stillness ... causing you to feign death which may trick enemies into ignoring you.' No feign-death mechanic exists, so one turn of heavy mitigation and a total threat drop stands in for it. Free to cast, like the real one.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_veil_of_darkness",
@@ -776,7 +784,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'One Armed Waltz - Big Bad Voodoo now only reduces damage dealt by 25% and reduces damage taken by an additional -5%', which says the baseline trades your damage for survival. Both sides are real keys: damage_taken_pct raw, damage_dealt_pct in percentage points through Ability._damage_multiplier.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_bad_juju",
@@ -998,7 +1007,8 @@
       "icon_id": null,
       "_source": "CoA: 'Summon a War Golem for 10 seconds, absorbing damage dealt to you based on your Intellect, and redirecting harmful spells cast on nearby allies to itself.' The absorb is real (absorb_pct_max_health, the same field Cultist's Eldritch Bastion uses). The ally-spell redirect has no engine hook, so the magic mitigation stands in for it.",
       "absorb_pct_max_health": 0.22,
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_puppeteers_grasp",
@@ -1044,7 +1054,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Let the spirit of Bwonsamdi possess you for 15 seconds. Dealing periodic damage unleashes a trapped voodoo spirit at enemies'; 'Voice of Bwonsamdi is your big damage cooldown'.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_potion_toss",
@@ -1358,7 +1369,8 @@
       "_source": "CoA: 'Cauldron: Grants allies within 40 yds 3% reduced damage taken. Potion: Grants target ally an absorption shield, absorbing Spirit damage.' Both halves are real here - the mitigation and the shield.",
       "absorb_pct_max_health": 0.12,
       "target_type": "party",
-      "exclusive_group": "witch_doctor_ingredient"
+      "exclusive_group": "witch_doctor_ingredient",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_ingredient_bloodthistle",
@@ -1406,7 +1418,8 @@
         "chance": 100,
         "icd": 0,
         "leech_pct": 0.05
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_voodoo_cauldron",
@@ -1442,7 +1455,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Place down a Voodoo Cauldron for 15 seconds, increasing allies' healing received by 20% while near the cauldron'; 'drop Voodoo Cauldron ... on the tank's stack point'. The heals-received zone is a real key; the pulse is Jungle Shrooms' job and not duplicated here.",
-      "target_type": "party"
+      "target_type": "party",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_base_beast_blood",
@@ -1466,7 +1480,8 @@
       "icon_id": null,
       "_source": "CoA: 'Infuse your Cauldron with Beast Blood for 10 seconds, causing 15% of the direct Physical damage taken by allies within 40 yds to instead be dealt over time. Only 1 Base can be active at a time.' GAP: there is no convert-a-hit-into-a-DoT mechanic, so the 15% is simply removed rather than deferred. The two Bases share an exclusive_group, as CoA requires.",
       "target_type": "party",
-      "exclusive_group": "witch_doctor_base"
+      "exclusive_group": "witch_doctor_base",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_base_crystal_water",
@@ -1491,7 +1506,8 @@
       "_source": "CoA: 'Infuse your Cauldron with Crystal Water for 10 seconds, causing allies within 40 yds to be shielded for 20% of their healing taken'. Shield-off-healing has no hook, so the shield is sized off the recipient's own health instead - same field, honest magnitude.",
       "absorb_pct_max_health": 0.1,
       "target_type": "party",
-      "exclusive_group": "witch_doctor_base"
+      "exclusive_group": "witch_doctor_base",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_tiki_splash",
@@ -1548,7 +1564,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'For 10 seconds, the effectiveness of all Cauldron effects and Ingredients is increased by 100% and you can cast Spirit in a Bottle while moving.' healing_power_pct takes percentage POINTS (one of the ten keys Character._recalculate_derived_stats divides by 100), so 40 is +40%, not +4000%.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_reclamation",
@@ -1844,7 +1861,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Disappear into darkness, entering an improved stealth mode, clearing all harmful effects, and increasing movement speed by 50%'. GAP: a buff cannot also dispel, so the clear-all-harmful-effects half is gone - which matters, because CoA calls it 'the entire answer to CC' for this spec. The disengage half is real.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_shadow_avatar",
@@ -1868,7 +1886,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Lesser Shadow Avatar - Increases magic damage dealt by 10% and reduces the cooldown of Spirit Glaive by 20% every 1 sec'; 'then Shadow Avatar ... and Fool's Play'. damage_dealt_pct is school-agnostic in this engine (see Ability._damage_multiplier), so 'magic damage dealt' lands as all damage dealt.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_frenzied_spirits",
@@ -1898,7 +1917,8 @@
         "chance": 100,
         "icd": 0,
         "leech_pct": 0.02
-      }
+      },
+      "buff_scope": "combat"
     }
   ]
 }

@@ -290,7 +290,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Brace and Raise Shield are Shield Block and Shield Wall'. Block CHANCE, not value - block_chance is the shield-gated roll (Character.BASE_BLOCK_CHANCE).",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_raise_shield",
@@ -313,7 +314,8 @@
       ],
       "icon_id": null,
       "_source": "Shield Wall analog - same -40% for 2 turns on a 12 turn cooldown as warrior_shield_wall, deliberately identical so neither plate tank has a better panic button.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_bastion",
@@ -411,7 +413,8 @@
       ],
       "icon_id": null,
       "_source": "AoE taunt. Implemented as a threat_generation_pct buff, the convention Cultist's Twilight Domain (180) and Primalist's Heart of the Mountain (150) already use - ability buff stat_mods are percent POINTS here, unlike talent effects which are fractions.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_shield_challenge",
@@ -434,7 +437,8 @@
       ],
       "icon_id": null,
       "_source": "Single-target taunt, cheaper and shorter than the cry.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_hammer_of_kings",
@@ -1528,7 +1532,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Use Veteran of the Third War's on-block heal and Fearless while surrounded'.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     }
   ]
 }

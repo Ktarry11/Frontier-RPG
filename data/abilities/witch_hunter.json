@@ -304,7 +304,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Dash in the direction you are moving. Distance scales with movement speed.' Movement is not a thing this engine models, so the dash lands as the brief window of not-being-where-the-attack-is that it buys. Free, because every spec's escape plan is built on having it.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_witching_shroud",
@@ -328,7 +329,8 @@
       ],
       "icon_id": null,
       "_source": "UNIT FIXED 2026-10-29: magic_damage_taken_pct was authored -0.5 as though it were a fraction, delivering -0.5% magic mitigation on an ability whose entire point is immunity to harmful magic. In an ABILITY's stat_mods this key is PERCENT POINTS - Character.take_damage divides the physical_/magic_ variants by 100, while the bare damage_taken_pct key four lines away in the same method is added undivided and IS a fraction. The convention is per-key with no naming rule. The fix was made in the emitted JSON earlier the same day and not ported here, so re-running this script silently restored the broken value.  CoA: 'Enter a powerful stealth mode for 3 seconds, granting immunity to all harmful magic effects... Usable while stunned or feared.' cc_immune is the engine's real crowd-control immunity flag (StatusEffectMixin reads it before applying a stun), paired with heavy magic mitigation. The 'only usable for 10 seconds after being hit by a magical critical strike' condition has no hook, so it is a plain 12-turn cooldown instead.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_witchblood_tonic",
@@ -377,7 +379,8 @@
         "chance": 100,
         "icd": 0,
         "leech_pct": 0.2
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_slayers_mark",
@@ -825,7 +828,8 @@
       ],
       "icon_id": null,
       "_source": "CoA never prints Stoicism's own tooltip, but two Black Knight talents exist only to modify it (Calm Under Pressure cuts its cooldown by 30 sec, Dark Barrier extends it by 5 sec), which makes it a real mitigation cooldown. Sized below Guardian's Raise Shield (-40%) because this spec gets Gaze of the Black Knight on top.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_march_of_the_black_king",
@@ -1010,7 +1014,8 @@
       "icon_id": null,
       "_source": "CoA: 'Apply a dark shield to yourself, absorbing AP damage and then gaze upon your party members, causing 25% of the damage they take to be transferred to you for 12 seconds.' The absorb is real (absorb_pct_max_health is read for cast buffs). The party-damage REDIRECTION is not expressible - no effect routes one combatant's incoming damage to another - so the mitigation lands on the Black Knight instead. CoA calls this 'rare group damage-redirection' and 'one long-cooldown panic button', and it is the spec's one real loss in translation.",
       "target_type": "self",
-      "absorb_pct_max_health": 0.25
+      "absorb_pct_max_health": 0.25,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_tormentor",
@@ -1306,7 +1311,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Jump backwards, causing all ranged attacks to miss you for 2 seconds.' Nothing distinguishes incoming RANGED attacks from melee ones, so the guaranteed miss becomes a large dodge window - the strongest one in the class, which is right for a spec whose summary is 'not being caught is the defense'.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_pavise",
@@ -1328,7 +1334,8 @@
       "icon_id": null,
       "_source": "CoA: Pavise Crossbowman 'teaches you how to use Shields and teaches you Pavise. Slam your shield into the ground, forming a pavise for 10 sec. While you remain near it, hostile spells targeting you are deflected.' The shield proficiency half is already true - weapon_types.json gives Witch Hunter shields - and spell deflection has no hook, so it lands as a real absorb. Authored at level 44 rather than talent-unlocked so the spec has it without spending its capstone, and the tree's Dead and Gone extends it.",
       "target_type": "self",
-      "absorb_pct_max_health": 0.18
+      "absorb_pct_max_health": 0.18,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_slayer",
@@ -1624,7 +1631,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Empowers your Shadow Hounds for 20 seconds, granting them 30% increased damage and haste and allowing them to ignore Armor.' A cast buff cannot reach the pet: Pet reads its owner's pet_damage/pet_health/pet_armor TALENTS when it is built, and nothing else, so a temporary buff on the owner never touches it. The talent tree carries the real hound scaling (Dark Ranger, Loksey's Journal, Decimate's own node, Lethal Pursuit) and this ability keeps the burst window on the Houndmaster instead.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_darkfeast",
@@ -2148,7 +2156,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Drink a fiery tonic, increasing your Fire damage dealt by 20% and your critical damage by 10% for 15 seconds.' damage_dealt_pct is the engine's one generic outgoing-damage buff key and it is PERCENT POINTS (divided by 100 in _damage_multiplier), unlike the tree's fire keys. There is no fire-only buff key - the per-school damage keys are talent-only - so 20% lands on all of the Inquisitor's damage rather than just the Fire half.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_monster_hunting",

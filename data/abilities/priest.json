@@ -283,14 +283,13 @@
       "ability_id": "priest_power_word_fortitude",
       "name": "Power Word: Fortitude",
       "resource_type": "mana",
-      "cooldown": 5,
+      "cooldown": 0,
       "effect_type": "buff",
-      "duration": 5,
+      "duration": 0,
       "stat_mods": {
-        "stamina": 3,
-        "max_health_pct": 0
+        "stamina": 3
       },
-      "description": "Grants your party: Stamina +3, Maximum health +0% for 5 turns.",
+      "description": "Grants your party: Stamina +3.",
       "ranks": [
         {
           "rank": 1,

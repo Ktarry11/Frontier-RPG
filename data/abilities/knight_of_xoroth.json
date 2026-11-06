@@ -608,7 +608,8 @@
       ],
       "icon_id": null,
       "_source": "The class tree's Dread, which is the one node whose tooltip the scrape could not capture ('(see builder tooltip)'), so the MECHANIC here is Frontier's choice rather than CoA's: the kit otherwise has no taunt, and Defiance is a main tank. Implemented as a threat_generation_pct buff, the convention Guardian's Challenging Cry (200) and Cultist's Twilight Domain (180) already use - ability buff stat_mods are percent POINTS here, unlike talent effects, which are fractions.",
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "knight_of_xoroth_black_shield",
