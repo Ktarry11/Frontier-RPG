@@ -3325,6 +3325,13 @@ class Character(StatusEffectMixin):
                 # casters generally only have hit rating." It was read by
                 # take_damage and shown nowhere, so a caster had no way to
                 # know whether they were near the number that matters.
+                # The physical counterpart, and the third of the three chase
+                # stats. Shown as whole percent of the target's armour
+                # ignored, which is the unit the gear and the talents both
+                # use; 60 is where it stops paying much, since creature
+                # armour tops out near 36%.
+                "armor_penetration": (
+                    f"{(getattr(self, 'armor_penetration_pct', 0.0) or 0.0) * 100:.0f}%"),
                 "spell_penetration": (
                     f"{getattr(self, 'spell_penetration', 0) or 0:.0f}"
                     f" / {self.SPELL_PEN_USEFUL_MAX:.0f}"),

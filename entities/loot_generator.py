@@ -789,6 +789,11 @@ class LootGenerator:
         "attack_power", "crit_chance_physical", "hit_rating",
         "defense_rating", "dodge_rating", "parry_rating",
         "block_rating", "block_value",
+        # ARMOUR PENETRATION, the physical counterpart to spell_penetration
+        # below. It was in no template's wanted set and on no suffix, so a
+        # physical DPS had exactly one stat to chase (hit rating) while a
+        # caster now has two - the inverse of the unfairness Kyle raised.
+        "armor_penetration_pct",
     }
     _CASTER_SECONDARY = {
         "spell_power", "healing_power", "mp5", "crit_chance_spell",
@@ -897,7 +902,7 @@ class LootGenerator:
     _PHYSICAL_ONLY = {
         "strength", "agility", "attack_power", "crit_chance_physical",
         "defense_rating", "dodge_rating", "parry_rating",
-        "block_rating", "block_value",
+        "block_rating", "block_value", "armor_penetration_pct",
     }
     _SUFFIX_TEMPLATE_EXCLUDES = {
         "str_physical": _CASTER_ONLY,

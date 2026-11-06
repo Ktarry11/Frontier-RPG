@@ -296,6 +296,10 @@ class CharacterSheetScreen(BaseScreen):
         self.renderer.draw_text(
             screen, f"Spell Penetration: {derived['spell_penetration']}",
             (mid_x, mid_y))
+        mid_y += 22
+        self.renderer.draw_text(
+            screen, f"Armor Penetration: {derived['armor_penetration']}",
+            (mid_x, mid_y))
         mid_y += 28
         self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (mid_x, mid_y))
         mid_y += 22
