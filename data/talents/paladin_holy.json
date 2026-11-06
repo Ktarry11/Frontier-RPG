@@ -1,7 +1,7 @@
 {
   "spec_name": "Paladin Holy",
   "tree_id": "paladin_holy",
-  "description": "Devoted healer wielding the Light to mend and protect.",
+  "description": "Healing light - sustained single-target restoration.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,42 +15,23 @@
     {
       "talent_id": "paladin_holy_spiritual_focus",
       "name": "Spiritual Focus",
-      "description": "Restores 5 Mana every 5 seconds per rank.",
+      "description": "Restores 5 mana every 5 seconds per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -6,
       "effects": {
         "mp5": 5
       },
-      "connected_to": [
-        "paladin_holy_aura_mastery"
-      ]
+      "_source": "WotLK row 0: 'Reduces the pushback suffered from damaging attacks while casting Flash of Light and Holy Light by 14%-70%.' DEPARTURE - there are no cast times in this engine, so there is no pushback to suffer or reduce. The talent exists so a healer keeps casting under pressure; delivered as mana regeneration, which is what keeps a healer casting here. Kept from the outgoing tree. mp5 is FLAT and lands on the attribute.",
+      "connected_to": []
     },
     {
-      "talent_id": "paladin_holy_healing_light",
-      "name": "Healing Light",
-      "description": "Increases the healing of Holy Light and Flash of Light by 8% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_paladin_holy_light_healing": 0.08,
-        "ability_paladin_flash_of_light_healing": 0.08
-      },
-      "connected_to": [
-        "paladin_holy_illumination"
-      ]
-    },
-    {
-      "talent_id": "paladin_holy_divine_intellect",
-      "name": "Divine Intellect",
-      "description": "Increases your Intellect by 2% per rank.",
+      "talent_id": "paladin_holy_seals_of_the_pure",
+      "name": "Seals of the Pure",
+      "description": "Increases the damage of your Seal of Righteousness by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -58,45 +39,35 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "intellect_pct": 2.0
+        "ability_paladin_seal_of_righteousness_potency": 0.03
       },
-      "connected_to": [
-        "paladin_holy_improved_lay_on_hands"
-      ]
+      "_source": "WotLK row 0: 'Increases the damage done by your Seal of Righteousness, Seal of Vengeance and Seal of Corruption and their Judgement effects by 3%-15%.' Only Seal of Righteousness exists here. Built at the real 3% per rank. ability_<id>_potency scales the ability's own stat_mods, which is the right key for a seal. The outgoing version was a proc with an empty effects dict.",
+      "connected_to": []
     },
     {
-      "talent_id": "paladin_holy_improved_seal_of_righteousness",
-      "name": "Improved Seal of Righteousness",
-      "description": "Your weapon swings have a 15% chance per rank to strike with holy fire, dealing 40 Holy damage.",
+      "talent_id": "paladin_holy_healing_light",
+      "name": "Healing Light",
+      "description": "Increases the healing of your Holy Light, Flash of Light and Holy Shock by 4% per rank.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {},
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {
+        "ability_paladin_holy_light_healing": 0.04,
+        "ability_paladin_flash_of_light_healing": 0.04,
+        "ability_paladin_holy_shock_healing": 0.04
+      },
+      "_source": "WotLK row 1, built verbatim across all three real spells: 'Increases the amount healed by your Holy Light, Flash of Light and the effectiveness of Holy Shock spells by 4%/8%/12%.' USES _healing, NOT _damage - a heal's per-ability key is ability_<id>_healing, and 18 talents across four classes shipped silently dead using _damage on a heal. The outgoing version covered two of the three at 8% per rank.",
       "connected_to": [
-        "paladin_holy_improved_concentration_aura"
-      ],
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 15,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "seal_of_righteousness_strike",
-          "name": "Seal of Righteousness",
-          "effect_type": "dot",
-          "duration": 1,
-          "potency": 40,
-          "damage_school": "holy",
-          "on_target": true
-        }
-      }
+        "paladin_holy_spiritual_focus"
+      ]
     },
     {
       "talent_id": "paladin_holy_aura_mastery",
       "name": "Aura Mastery",
-      "description": "Reduces Magic damage taken by 4%.",
+      "description": "Reduces magic damage taken by 4%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -106,25 +77,43 @@
       "effects": {
         "magic_damage_taken_pct": -0.04
       },
+      "_source": "WotLK row 1: 'Causes your Concentration Aura to make all affected targets immune to Silence and Interrupt effects and improve the effect of all other auras by 100%. Lasts 6 sec.' DEPARTURE - there is no aura system, no silence and no interrupt key. What survives is magical protection for the paladin. Kept from the outgoing tree. magic_damage_taken_pct is a FRACTION as a talent effect and NEGATIVE reduces, which is the opposite sign to its meaning inside a status effect.",
       "connected_to": [
-        "paladin_holy_spiritual_focus",
-        "paladin_holy_blessed_hands"
+        "paladin_holy_spiritual_focus"
       ]
     },
     {
-      "talent_id": "paladin_holy_illumination",
-      "name": "Illumination",
-      "description": "Your critical strikes have a 20% chance per rank to restore 120 Mana.",
+      "talent_id": "paladin_holy_divine_intellect",
+      "name": "Divine Intellect",
+      "description": "Increases your Intellect by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "intellect_pct": 2.0
+      },
+      "_source": "WotLK row 1: 'Increases your total Intellect by 2%-10%.' Built verbatim and kept from the outgoing tree. intellect_pct is PERCENTAGE POINTS, read off the `bonuses` dict and divided by 100 - the probe finds no literal read site for it and it is nonetheless live. This node feeds Holy Guidance at tier 4.",
       "connected_to": [
-        "paladin_holy_healing_light",
-        "paladin_holy_pure_of_heart"
+        "paladin_holy_seals_of_the_pure"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_illumination",
+      "name": "Illumination",
+      "description": "Your critical heals have a 20% chance per rank to restore 150 mana.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1: 'After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell you have a 20%-100% chance to gain mana equal to 30% of the base cost of the spell.' Built as the real mechanic with the real chance curve. Mana-as-a-percentage-of-the-spell's-cost is not available to a proc payload - grant_resource takes a FLAT amount, with no pct_max - so 150 is a fixed return. on_crit is not restricted to heals by an ability_filter because listing the three heals would exclude Holy Shock's damage mode, which the real talent also counts. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "paladin_holy_seals_of_the_pure"
       ],
       "proc": {
         "trigger": "on_crit",
@@ -132,50 +121,68 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 120
+          "amount": 150
         }
       }
     },
     {
-      "talent_id": "paladin_holy_improved_lay_on_hands",
-      "name": "Improved Lay on Hands",
-      "description": "Reduces the cooldown of Lay on Hands by 3 turns per rank.",
+      "talent_id": "paladin_holy_unyielding_faith",
+      "name": "Unyielding Faith",
+      "description": "Reduces the duration of Stun effects against you by 15% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "stun_duration_reduction_pct": 0.15
+      },
+      "_source": "WotLK row 1, NEW to our tree: 'Reduces the duration of all Fear and Disorient effects by 15%/30%.' DEPARTURE - there is no Fear and no Disorient; is_stun is this engine's only incapacitate, so the reduction applies to that instead. stun_duration_reduction_pct is a FRACTION, not points, and it floors a stun at 1 turn so it can shorten but never negate.",
+      "connected_to": [
+        "paladin_holy_divine_intellect"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_improved_lay_on_hands",
+      "name": "Improved Lay on Hands",
+      "description": "Reduces the cooldown of your Lay on Hands by 3 turns per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 5,
       "hex_y": -4,
       "effects": {
         "ability_paladin_lay_on_hands_cooldown": 3
       },
+      "_source": "WotLK row 1: 'Grants the target of your Lay on Hands spell 10%/20% reduced physical damage taken for 15 sec. In addition, the cooldown for your Lay on Hands spell is reduced by 2/4 min.' The cooldown half is built - ability_<id>_cooldown is FLAT turns. The damage-reduction half cannot be built: a talent effect can never reach an ally, and nothing lets a talent attach a rider to an ability's cast. Kept from the outgoing tree.",
       "connected_to": [
-        "paladin_holy_divine_intellect",
-        "paladin_holy_divine_favor"
+        "paladin_holy_illumination"
       ]
     },
     {
       "talent_id": "paladin_holy_improved_concentration_aura",
       "name": "Improved Concentration Aura",
-      "description": "Reduces the duration of stuns against you by 10% per rank.",
+      "description": "Reduces magic damage taken by 2% per rank.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -2,
       "effects": {
-        "stun_duration_reduction_pct": 0.1
+        "magic_damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 2: 'Increases the effect of your Concentration Aura by an additional 5%-15% and while any Aura is active reduces the duration of any Silence or Interrupt effect used against you by 50%.' DEPARTURE - no aura system, no silence, no interrupt. Stacks with Aura Mastery one row above, as the real pair does through the aura it improves. The outgoing version was stun_duration_reduction_pct, which is Unyielding Faith's job in the real tree.",
       "connected_to": [
-        "paladin_holy_improved_seal_of_righteousness",
-        "paladin_holy_sanctified_light"
+        "paladin_holy_healing_light"
       ]
     },
     {
-      "talent_id": "paladin_holy_blessed_hands",
-      "name": "Blessed Hands",
-      "description": "Reduces the Mana cost of Cleanse by 10 per rank.",
+      "talent_id": "paladin_holy_pure_of_heart",
+      "name": "Pure of Heart",
+      "description": "Increases all healing you receive by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -183,29 +190,11 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_paladin_cleanse_cost": 10
+        "healing_taken_pct": 0.05
       },
+      "_source": "WotLK row 2: 'Reduces the duration of Curse, Disease and Poison effects by 15%/30%.' DEPARTURE - nothing modifies an incoming effect's duration by dispel school; dispel_type marks what CAN be removed and no key shortens it. The talent is about shrugging off what lands on you, delivered as healing received. The outgoing version was magic_damage_taken_pct, duplicating two other nodes in the same tree.",
       "connected_to": [
-        "paladin_holy_aura_mastery",
-        "paladin_holy_purifying_power"
-      ]
-    },
-    {
-      "talent_id": "paladin_holy_pure_of_heart",
-      "name": "Pure of Heart",
-      "description": "Reduces Magic damage taken by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "magic_damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "paladin_holy_illumination",
-        "paladin_holy_holy_shock"
+        "paladin_holy_aura_mastery"
       ]
     },
     {
@@ -216,20 +205,38 @@
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -1,
       "hex_y": -2,
       "effects": {
         "crit_chance_spell": 5.0
       },
+      "_source": "WotLK row 2: 'When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.' DEPARTURE - there is no guaranteed-crit key and no ability to unlock, and nothing consumes a buff on use. Delivered as a flat crit chance. Kept from the outgoing tree. The real talent requires Illumination and is Holy Shock's prerequisite; connected_to keeps it upstream of Holy Shock below. crit_chance_spell is PERCENTAGE POINTS.",
       "connected_to": [
-        "paladin_holy_improved_lay_on_hands",
-        "paladin_holy_holy_power"
+        "paladin_holy_divine_intellect"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_improved_blessing_of_wisdom",
+      "name": "Improved Blessing of Wisdom",
+      "description": "Increases the effect of your Blessing of Wisdom by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "ability_paladin_blessing_of_wisdom_potency": 0.1
+      },
+      "_source": "WotLK row 2, NEW to our tree, built verbatim: 'Increases the effect of your Blessing of Wisdom spell by 10%/20%.'",
+      "connected_to": [
+        "paladin_holy_illumination"
       ]
     },
     {
       "talent_id": "paladin_holy_sanctified_light",
       "name": "Sanctified Light",
-      "description": "Increases the critical strike chance of Holy Light by 4% per rank.",
+      "description": "Increases the critical chance of your Holy Light and Holy Shock by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -237,35 +244,56 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_paladin_holy_light_crit": 4
+        "ability_paladin_holy_light_crit": 2.0,
+        "ability_paladin_holy_shock_crit": 2.0
       },
+      "_source": "WotLK row 2, built verbatim across both real spells: 'Increases the critical effect chance of your Holy Light and Holy Shock spells by 2%/4%/6%.' The outgoing version was 4% per rank on Holy Light alone. ability_<id>_crit is PERCENTAGE POINTS.",
       "connected_to": [
-        "paladin_holy_improved_concentration_aura",
-        "paladin_holy_light_grace"
+        "paladin_holy_improved_lay_on_hands"
       ]
     },
     {
-      "talent_id": "paladin_holy_holy_shock",
-      "name": "Holy Shock",
-      "description": "Grants Holy Shock, instantly healing an ally.",
-      "node_type": "active",
+      "talent_id": "paladin_holy_blessed_hands",
+      "name": "Blessed Hands",
+      "description": "Reduces the mana cost of your Cleanse by 10 per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": -2,
+      "effects": {
+        "ability_paladin_cleanse_cost": 10
+      },
+      "_source": "WotLK row 2: 'Reduces the mana cost of Hand of Freedom, Hand of Sacrifice and Hand of Salvation by 15%/30%...' DEPARTURE - none of the three Hand spells exist here. Cleanse is the paladin's remaining utility spell, so the cost cut lands there. Kept from the outgoing tree. ability_<id>_cost is FLAT.",
+      "connected_to": [
+        "paladin_holy_improved_lay_on_hands"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_purifying_power",
+      "name": "Purifying Power",
+      "description": "Reduces the mana cost of your Cleanse and Consecration by 5% per rank and the cooldown of your Exorcism by 1 turn per rank.",
+      "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "unlock_ability": "paladin_holy_shock"
+        "ability_paladin_cleanse_cost_pct": 0.05,
+        "ability_paladin_consecration_cost_pct": 0.05,
+        "ability_paladin_exorcism_cooldown": 1
       },
+      "_source": "WotLK row 3, built verbatim: 'Reduces the mana cost of your Cleanse, Purify and Consecration spells by 5%/10% and reduces the cooldown of your Exorcism and Holy Wrath spells by 16%/33%.' Purify and Holy Wrath do not exist; the rest is real. _cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION. The outgoing version was Holy Shock damage, which is nothing to do with this talent.",
       "connected_to": [
-        "paladin_holy_pure_of_heart",
-        "paladin_holy_divine_illumination"
+        "paladin_holy_divine_favor"
       ]
     },
     {
       "talent_id": "paladin_holy_holy_power",
       "name": "Holy Power",
-      "description": "Increases the healing of Holy Light and Flash of Light by 3% per rank.",
+      "description": "Increases your spell critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -273,96 +301,192 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_paladin_holy_light_healing": 0.03,
-        "ability_paladin_flash_of_light_healing": 0.03
+        "crit_chance_spell": 1.0
       },
+      "_source": "WotLK row 3: 'Increases the critical effect chance of your Holy spells by 1%-5%.' Built verbatim - scoping crit to one school is not available (crit_chance_spell covers all spells), and every Paladin spell here is Holy anyway, so the distinction is academic for this class. The outgoing version was per-ability healing, duplicating Healing Light.",
       "connected_to": [
-        "paladin_holy_divine_favor",
-        "paladin_holy_judgements_of_the_pure"
+        "paladin_holy_sanctified_light"
       ]
     },
     {
-      "talent_id": "paladin_holy_light_grace",
+      "talent_id": "paladin_holy_lights_grace",
       "name": "Light's Grace",
-      "description": "Reduces the Mana cost of Holy Light by 5 per rank.",
+      "description": "Reduces the mana cost of your Holy Light by 5 per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": -5,
+      "hex_y": 2,
       "effects": {
         "ability_paladin_holy_light_cost": 5
       },
+      "_source": "WotLK row 4: 'Gives your Holy Light spell a 33%-100% chance to reduce the cast time of your next Holy Light spell by 0.5 sec.' DEPARTURE - there are no cast times. The talent exists to make Holy Light cheaper to chain; delivered as mana cost. Kept from the outgoing tree.",
       "connected_to": [
-        "paladin_holy_sanctified_light",
-        "paladin_holy_enlightened_judgements"
+        "paladin_holy_purifying_power"
       ]
     },
     {
-      "talent_id": "paladin_holy_purifying_power",
-      "name": "Purifying Power",
-      "description": "Increases the damage and healing of Holy Shock by 10% per rank.",
+      "talent_id": "paladin_holy_sacred_cleansing",
+      "name": "Sacred Cleansing",
+      "description": "Your Cleanse has a 30% chance per rank to shield the target against magic for 3 turns.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_paladin_holy_shock_damage": 0.1
-      },
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4: 'Your Cleanse spell has a 10%/20%/30% chance to increase the target's resistance to Disease, Magic and Poison by 30% for 10 sec.' Built as the real mechanic with the real chance and the real 10 seconds (3 turns). Per-school dispel resistances do not exist, so it becomes magic damage reduction. MIND THE SIGN AND UNIT: inside a status effect magic_damage_taken_pct is PERCENTAGE POINTS (so -10.0 is -10%), the opposite convention to the same key as a talent effect, where it is a fraction. on_target is False because a talent-sourced effect cannot be aimed at the Cleanse's target. The outgoing version was flat healing_done.",
       "connected_to": [
-        "paladin_holy_blessed_hands"
-      ]
+        "paladin_holy_purifying_power"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 30,
+        "icd": 0,
+        "ability_filter": [
+          "paladin_cleanse"
+        ],
+        "apply_effect": {
+          "effect_id": "sacred_cleansing",
+          "name": "Sacred Cleansing",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": -10.0
+          },
+          "on_target": false
+        }
+      }
     },
     {
-      "talent_id": "paladin_holy_divine_illumination",
-      "name": "Divine Illumination",
-      "description": "Your Holy Shock casts restore 80 Mana.",
-      "node_type": "passive",
+      "talent_id": "paladin_holy_holy_shock",
+      "name": "Holy Shock",
+      "description": "Teaches Holy Shock, striking an enemy or mending an ally with raw Light.",
+      "node_type": "active",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "unlock_ability": "paladin_holy_shock"
+      },
+      "_source": "WotLK row 4, kept - the ONLY unlock for paladin_holy_shock, which is requires_talent. The real talent requires Divine Favor, which connected_to reproduces.",
       "connected_to": [
-        "paladin_holy_holy_shock",
-        "paladin_holy_infusion_of_light"
+        "paladin_holy_divine_favor"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_blessed_life",
+      "name": "Blessed Life",
+      "description": "Reduces all damage you take by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "_source": "WotLK row 4, NEW to our tree: 'All attacks against you have a 4%/7%/10% chance to cause half damage.' DEPARTURE - a proc on on_damage_taken fires AFTER the hit resolves and cannot reduce the damage that triggered it, so a chance-to-halve cannot be built. Delivered as a smaller permanent reduction, which is the same expected value shape without the variance. damage_taken_pct is read RAW on both sides.",
+      "connected_to": [
+        "paladin_holy_holy_power"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_holy_guidance",
+      "name": "Holy Guidance",
+      "description": "Increases your spell power by 4% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "spell_power_from_intellect_pct": 0.04
+      },
+      "_source": "WotLK row 4, NEW to our tree, built verbatim: 'Increases your spell power by 4%-20% of your total Intellect.' This is a real STAT CONVERSION - spell_power is a valid target and intellect a valid source. THE UNIT IS A TRAP: the key is read as `gained = source * pct` (character.py:1551), so it is a RAW MULTIPLIER and not a percentage. Authoring 20 would have granted twenty times the paladin's Intellect; measured live, 50 gave +2400 spell power off 48 Intellect. 0.04 per rank reaches the real 20%. Pairs with Divine Intellect two tiers up, exactly as the real tree intends.",
+      "connected_to": [
+        "paladin_holy_holy_power"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_divine_illumination",
+      "name": "Divine Illumination",
+      "description": "Reduces the mana cost of all your abilities by 10%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "all_ability_cost_pct": 0.1
+      },
+      "_source": "WotLK row 5: 'Reduces the mana cost of all spells by 50% for 15 sec.' DEPARTURE - there is no ability to unlock and no way to grant a temporary global cost reduction from a talent. Delivered as a permanent but much smaller cut. MIND THE KEY: all_ability_cost_pct is a FRACTION as a talent effect where POSITIVE MEANS A REDUCTION, and it FLIPS to percentage POINTS inside a status effect - audit_talents has caught that flip being got wrong in this project before. The outgoing version was a proc.",
+      "connected_to": [
+        "paladin_holy_sacred_cleansing"
+      ]
+    },
+    {
+      "talent_id": "paladin_holy_infusion_of_light",
+      "name": "Infusion of Light",
+      "description": "Your Holy Shock critical hits increase the critical chance of your next heals by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 5: 'Your Holy Shock critical hits reduce the cast time of your next Flash of Light by 0.75/1.5 sec or increase the critical chance of your next Holy Light by 10%/20%.' The SECOND clause is real and buildable, so that is the one built, at the real 20%; the cast-time clause has nothing to act on. ability_filter on Holy Shock is exact. 'Next spell' becomes a 2-turn window, since nothing consumes a buff on use. The real talent requires Holy Shock, reproduced. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "paladin_holy_holy_shock"
       ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
-        "icd": 1,
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
         "ability_filter": [
           "paladin_holy_shock"
         ],
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 80
+        "apply_effect": {
+          "effect_id": "infusion_of_light",
+          "name": "Infusion of Light",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_chance_spell": 20
+          },
+          "on_target": false
         }
       }
     },
     {
       "talent_id": "paladin_holy_judgements_of_the_pure",
       "name": "Judgements of the Pure",
-      "description": "Your Judgement casts have a 20% chance per rank to grant 10% haste for 3 turns.",
+      "description": "Increases the damage of your Judgement by 5% per rank, and casting it quickens you by 15% for 3 turns.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 5,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
+      "hex_y": 4,
+      "effects": {
+        "ability_paladin_judgement_damage": 0.05
+      },
+      "_source": "WotLK row 5, built with BOTH halves - a node may carry effects AND a proc: 'Increases the damage done by your Seal and Judgement spells by 5%-25%, and your Judgement spells increase your casting and melee haste by 15% for 1 min.' The real 5% per rank and the real 15% haste. 1 minute becomes 3 turns. The Seal half is covered by Seals of the Pure at tier 0. The outgoing version was a proc with an empty effects dict.",
       "connected_to": [
-        "paladin_holy_holy_power",
-        "paladin_holy_sacred_cleansing"
+        "paladin_holy_holy_guidance"
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 20,
-        "icd": 1,
+        "chance": 100,
+        "icd": 0,
         "ability_filter": [
           "paladin_judgement"
         ],
@@ -372,7 +496,7 @@
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "haste": 10.0
+            "haste": 15
           },
           "on_target": false
         }
@@ -381,85 +505,25 @@
     {
       "talent_id": "paladin_holy_enlightened_judgements",
       "name": "Enlightened Judgements",
-      "description": "Increases the damage of Judgement by 8% per rank.",
+      "description": "Increases your chance to hit by 2% per rank.",
       "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
+      "tier": 5,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": 2,
-      "effects": {
-        "ability_paladin_judgement_damage": 0.08
-      },
-      "connected_to": [
-        "paladin_holy_light_grace"
-      ]
-    },
-    {
-      "talent_id": "paladin_holy_infusion_of_light",
-      "name": "Infusion of Light",
-      "description": "Your critical strikes have a 33% chance per rank to heal you for an additional 100.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "paladin_holy_divine_illumination",
-        "paladin_holy_beacon_of_light"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 33,
-        "icd": 1,
-        "heal_flat": 100
-      }
-    },
-    {
-      "talent_id": "paladin_holy_sacred_cleansing",
-      "name": "Sacred Cleansing",
-      "description": "Increases all healing you do by 3% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "healing_done": 0.03
+        "hit_rating": 2.0
       },
+      "_source": "WotLK row 5: 'Increases the range of your Judgement of Light and Judgement of Wisdom spells by 10/30 yards and increases your chance to hit by 2%/4%.' The hit half is built verbatim - range does not exist. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET, so it can be granted directly like this but never converted into. The outgoing version was Judgement damage, which is Judgements of the Pure's job.",
       "connected_to": [
-        "paladin_holy_judgements_of_the_pure",
-        "paladin_holy_holy_capstone"
+        "paladin_holy_holy_guidance"
       ]
     },
     {
       "talent_id": "paladin_holy_beacon_of_light",
       "name": "Beacon of Light",
-      "description": "Your healing spells have a 25% chance to also heal your most wounded ally for 120.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "paladin_holy_infusion_of_light"
-      ],
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 25,
-        "icd": 1,
-        "smart_heal": 120
-      }
-    },
-    {
-      "talent_id": "paladin_holy_holy_capstone",
-      "name": "Sacred Shield",
-      "description": "Sacred Shield - your healing spells have a 30% chance to shield you, absorbing damage equal to 8% of your maximum Health.",
+      "description": "Your heals spill over, mending your neediest ally as well.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -467,21 +531,15 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {},
+      "_source": "WotLK row 10, the capstone: 'The target becomes a Beacon of Light... Any heals you cast on party or raid members will also heal the Beacon for the same amount.' DEPARTURE - a talent cannot designate an ally as a target, and there is no heal-mirroring mechanic. smart_heal is the engine's real 'heal whoever needs it most' payload, so the capstone becomes a second, automatic heal on every cast - which is the real talent's EFFECT (one cast, two targets healed) reached from the other direction. icd 1 keeps it to once a turn. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_holy_sacred_cleansing"
+        "paladin_holy_judgements_of_the_pure"
       ],
       "proc": {
         "trigger": "on_heal_cast",
-        "chance": 30,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "sacred_shield",
-          "name": "Sacred Shield",
-          "effect_type": "buff",
-          "duration": 3,
-          "absorb_pct_max_health": 0.08,
-          "on_target": false
-        }
+        "chance": 100,
+        "icd": 1,
+        "smart_heal": 80
       }
     }
   ]

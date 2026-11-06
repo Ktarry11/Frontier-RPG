@@ -1,7 +1,7 @@
 {
   "spec_name": "Paladin Protection",
   "tree_id": "paladin_protection",
-  "description": "Consecrated bulwark, shield raised against all comers.",
+  "description": "Shield of the Light - absorb, block and hold the line.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,24 +15,7 @@
     {
       "talent_id": "paladin_protection_divinity",
       "name": "Divinity",
-      "description": "Increases maximum Health by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "max_health_pct": 0.02
-      },
-      "connected_to": [
-        "paladin_protection_stoicism"
-      ]
-    },
-    {
-      "talent_id": "paladin_protection_improved_devotion_aura",
-      "name": "Improved Devotion Aura",
-      "description": "Increases your total Armor by 2% per rank.",
+      "description": "Increases healing you do and healing you receive by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,336 +23,350 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 2.0
+        "healing_done": 0.01,
+        "healing_taken_pct": 0.01
       },
+      "_source": "WotLK row 0, built verbatim with both halves: 'Increases all healing done by you and all healing effects on you by 1%-5%.' The outgoing version was max_health_pct, which is Divine Guardian's shape rather than this talent's.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "paladin_protection_divine_strength",
+      "name": "Divine Strength",
+      "description": "Increases your Strength by 3% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "strength_pct": 3.0
+      },
+      "_source": "WotLK row 0, NEW to our tree, built verbatim: 'Increases your total Strength by 3%-15%.' strength_pct is PERCENTAGE POINTS, read off `bonuses` at character.py:1262 and divided by 100. This node feeds Touched by the Light at tier 5, which is the pairing that makes a Protection paladin's spell power work at all.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "paladin_protection_stoicism",
+      "name": "Stoicism",
+      "description": "Reduces the duration of Stun effects against you by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {
+        "stun_duration_reduction_pct": 0.1
+      },
+      "_source": "WotLK row 1: 'Reduces the duration of all Stun effects by an additional 10%-30% and reduces the chance your helpful spells and damage over time effects will be dispelled.' The stun half is built verbatim; dispel resistance does not exist. stun_duration_reduction_pct is a FRACTION. Kept from the outgoing tree, which also carried magic_damage_taken_pct - removed here because Guarded by the Light covers spell mitigation at tier 5.",
       "connected_to": [
-        "paladin_protection_improved_righteous_fury"
+        "paladin_protection_divinity"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_divine_sacrifice",
+      "name": "Divine Sacrifice",
+      "description": "Reduces all damage you take by 3%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "damage_taken_pct": -0.03
+      },
+      "_source": "WotLK row 1, NEW to our tree: '30% of all damage taken by party members within 30 yards is redirected to the Paladin.' DEPARTURE - there is NO damage redirection in this engine, and a talent effect can never reach an ally. The talent's purpose is that the paladin absorbs what would have hurt the party; delivered as the paladin taking less itself. It is Divine Guardian's prerequisite, preserved below.",
+      "connected_to": [
+        "paladin_protection_divinity"
       ]
     },
     {
       "talent_id": "paladin_protection_guardians_favor",
       "name": "Guardian's Favor",
-      "description": "Reduces the cooldown of Divine Shield by 1 turn per rank.",
+      "description": "Reduces the cooldown of your Divine Shield by 1 turn per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": -1,
+      "hex_y": -4,
       "effects": {
         "ability_paladin_divine_shield_cooldown": 1
       },
+      "_source": "WotLK row 1: 'Reduces the cooldown of your Hand of Protection by 1/2 min and increases the duration of your Hand of Freedom by 2/4 sec.' DEPARTURE - neither Hand spell exists. Divine Shield is the paladin's remaining personal immunity cooldown, so the reduction lands there. Kept from the outgoing tree.",
       "connected_to": [
-        "paladin_protection_toughness"
-      ]
-    },
-    {
-      "talent_id": "paladin_protection_anticipation",
-      "name": "Anticipation",
-      "description": "Increases Dodge chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "dodge": 1.0
-      },
-      "connected_to": [
-        "paladin_protection_blessing_of_sanctuary"
-      ]
-    },
-    {
-      "talent_id": "paladin_protection_stoicism",
-      "name": "Stoicism",
-      "description": "Reduces Magic damage taken by 2% per rank and the duration of stuns against you by 10% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "magic_damage_taken_pct": -0.02,
-        "stun_duration_reduction_pct": 0.1
-      },
-      "connected_to": [
-        "paladin_protection_divinity",
-        "paladin_protection_reckoning"
+        "paladin_protection_divine_strength"
       ]
     },
     {
       "talent_id": "paladin_protection_improved_righteous_fury",
       "name": "Improved Righteous Fury",
-      "description": "Reduces all damage taken by 2% per rank.",
+      "description": "Reduces all damage you take by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "damage_taken_pct": -0.02,
-        "threat_generation_pct": 0.08
+        "damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 1: 'While Righteous Fury is active, all damage taken is reduced by 2%/4%/6%.' DEPARTURE on the condition only - there is no Righteous Fury ability to be active, so the reduction is unconditional at the real numbers. The outgoing version also granted threat, which is Vigilance's job in the Warrior and has no counterpart in this real talent.",
       "connected_to": [
-        "paladin_protection_improved_devotion_aura",
-        "paladin_protection_sacred_duty"
+        "paladin_protection_divine_strength"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_anticipation",
+      "name": "Anticipation",
+      "description": "Increases your dodge chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "dodge": 1.0
+      },
+      "_source": "WotLK row 1: 'Increases your chance to dodge by 1%-5%.' Built verbatim and kept from the outgoing tree.",
+      "connected_to": [
+        "paladin_protection_guardians_favor"
       ]
     },
     {
       "talent_id": "paladin_protection_toughness",
       "name": "Toughness",
-      "description": "Increases your total Armor by 2% per rank.",
+      "description": "Increases your armor by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 5,
       "hex_y": -4,
       "effects": {
         "armor_pct": 2.0
       },
+      "_source": "WotLK row 1: 'Increases your armor value from items by 2%-10% and reduces the duration of all movement slowing effects by 30%.' Armour half built verbatim; movement slowing does not exist. armor_pct is a FRACTION. Combined with Improved Devotion Aura this tree contributes 16 against check_talent_balance's class ceiling of 60.",
       "connected_to": [
-        "paladin_protection_guardians_favor",
-        "paladin_protection_one_handed_specialization"
+        "paladin_protection_improved_righteous_fury"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_divine_guardian",
+      "name": "Divine Guardian",
+      "description": "Increases your maximum health by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "max_health_pct": 0.05
+      },
+      "_source": "WotLK row 2: 'When Divine Sacrifice is activated, your party and raid members within 30 yards take 10%/20% reduced damage for 6 sec.' DEPARTURE - a talent effect can never reach an ally. Delivered as the paladin's own durability. max_health_pct is a FRACTION read at character.py:1411 WITHOUT dividing by 100 - verified live. The real talent requires Divine Sacrifice, which connected_to reproduces. The outgoing version was a tier-6 node that ALSO authored low_health_threshold_pct alongside Ardent Defender's copy, summing the shared threshold above 1.0.",
+      "connected_to": [
+        "paladin_protection_divine_sacrifice"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_improved_hammer_of_justice",
+      "name": "Improved Hammer of Justice",
+      "description": "Reduces the cooldown of your Hammer of Justice by 2 turns per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_paladin_hammer_of_justice_cooldown": 2
+      },
+      "_source": "WotLK row 2, NEW to our tree: 'Decreases the cooldown of your Hammer of Justice spell by 10/20 sec.' ability_<id>_cooldown is FLAT turns; 20 seconds re-derives as 4 turns over 2 ranks. talented_cooldown clamps at 1 turn so this cannot reach zero.",
+      "connected_to": [
+        "paladin_protection_divine_sacrifice"
       ]
     },
     {
       "talent_id": "paladin_protection_blessing_of_sanctuary",
       "name": "Blessing of Sanctuary",
-      "description": "Increases Stamina by 8 and Block value by 5. When you are struck, you have a 20% chance to restore 40 Mana.",
+      "description": "Increases your Strength and Stamina by 10% and reduces all damage you take by 3%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -1,
+      "hex_y": -2,
       "effects": {
-        "stamina": 8,
-        "block": 5.0
+        "strength_pct": 10.0,
+        "stamina_pct": 10.0,
+        "damage_taken_pct": -0.03
       },
+      "_source": "WotLK row 2: 'Places a Blessing on the friendly target, reducing damage taken from all sources by 3% for 10 min and increasing strength and stamina by 10%.' DEPARTURE - a talent cannot place a blessing on anyone, so all three real numbers apply to the paladin. Kept from the outgoing tree, which had flat stamina and block instead of the real percentages.",
       "connected_to": [
-        "paladin_protection_anticipation",
-        "paladin_protection_improved_holy_shield"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 40
-        }
-      }
+        "paladin_protection_anticipation"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_improved_devotion_aura",
+      "name": "Improved Devotion Aura",
+      "description": "Increases your armor by 2% per rank and healing you receive by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "armor_pct": 2.0,
+        "healing_taken_pct": 0.02
+      },
+      "_source": "WotLK row 2, built with both halves: 'Increases the armor bonus of your Devotion Aura by 50% and increases the amount healed on any target affected by any of your Auras by 6%.' There is no aura system, so both clauses apply to the paladin. The outgoing version was armor_pct alone at 5 ranks; corrected to the real 3.",
+      "connected_to": [
+        "paladin_protection_anticipation"
+      ]
     },
     {
       "talent_id": "paladin_protection_reckoning",
       "name": "Reckoning",
-      "description": "Being struck has a 4% chance per rank to grant you an extra attack on your next swing.",
+      "description": "Blocking has a 2% chance per rank to grant an extra attack.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 3,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2: 'Gives you a 2%-10% chance after blocking or being hit by any damaging attack that the next 4 weapon swings within 8 sec will generate an additional attack.' Built as the real mechanic at the real chance curve. extra_attack is a BOOLEAN - exactly one extra attack, no count - so 'the next 4 swings' collapses to one, which is the engine's ceiling. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_protection_stoicism",
-        "paladin_protection_combat_expertise"
+        "paladin_protection_toughness"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 4,
-        "icd": 1,
-        "extra_attack": 1
+        "trigger": "on_block",
+        "chance": 2,
+        "icd": 0,
+        "extra_attack": true
       }
     },
     {
       "talent_id": "paladin_protection_sacred_duty",
       "name": "Sacred Duty",
-      "description": "Increases Stamina by 3% per rank.",
+      "description": "Increases your Stamina by 2% per rank and reduces the cooldown of your Divine Shield by 2 turns per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -2,
+      "hex_y": 0,
       "effects": {
-        "stamina_pct": 3.0
+        "stamina_pct": 2.0,
+        "ability_paladin_divine_shield_cooldown": 2
       },
+      "_source": "WotLK row 3, built with both halves: 'Increases your total Stamina by 2%/4%, reduces the cooldown of your Divine Shield and Divine Protection spells by 30/60 sec.' Divine Protection does not exist. Stacks with Guardian's Favor on Divine Shield, as the real pair does. The outgoing version was stamina_pct alone.",
       "connected_to": [
-        "paladin_protection_improved_righteous_fury",
-        "paladin_protection_holy_shield"
+        "paladin_protection_blessing_of_sanctuary"
       ]
     },
     {
-      "talent_id": "paladin_protection_one_handed_specialization",
+      "talent_id": "paladin_protection_one_handed_weapon_specialization",
       "name": "One-Handed Weapon Specialization",
-      "description": "Increases physical damage dealt by 2% per rank.",
+      "description": "Increases your physical damage by 3% per rank.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
+      "tier": 3,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": -2,
+      "hex_y": 0,
       "effects": {
-        "physical_damage": 0.02
+        "physical_damage": 0.03
       },
+      "_source": "WotLK row 3: 'Increases all damage you deal when a one-handed melee weapon is equipped by 3%-10%.' Built minus the weapon gate - there is no weapon-type key. Corrected from the outgoing 5 ranks to the real 3. physical_damage is a FRACTION.",
       "connected_to": [
-        "paladin_protection_toughness",
-        "paladin_protection_ardent_defender"
+        "paladin_protection_improved_devotion_aura"
       ]
     },
     {
-      "talent_id": "paladin_protection_improved_holy_shield",
-      "name": "Improved Holy Shield",
-      "description": "Increases Block value by 4 per rank. Attacks against you have a 15% chance per rank to burn the attacker for Holy damage.",
+      "talent_id": "paladin_protection_spiritual_attunement",
+      "name": "Spiritual Attunement",
+      "description": "Restores 5 mana every 5 seconds per rank.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
+      "tier": 4,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": -5,
+      "hex_y": 2,
       "effects": {
-        "block": 4.0
+        "mp5": 5
       },
+      "_source": "WotLK row 4, NEW to our tree: 'A passive ability that gives the Paladin mana when healed by other friendly targets' spells. The amount of mana gained is equal to 5%/10% of the amount healed.' DEPARTURE - there is no on-healed trigger; the proc vocabulary has on_heal_CAST (the caster's own) and nothing that fires on RECEIVING a heal. Delivered as flat mana regeneration, which is the same resource by a different route. mp5 is FLAT.",
       "connected_to": [
-        "paladin_protection_blessing_of_sanctuary",
-        "paladin_protection_redoubt"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "holy_shield_retaliation",
-          "name": "Holy Shield",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 18,
-          "damage_school": "holy",
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "paladin_protection_holy_shield",
-      "name": "Holy Shield",
-      "description": "Increases Block value by 10 and Armor by 30. Blocking an attack has a 30% chance to heal you for 60.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "block": 10.0,
-        "armor": 30
-      },
-      "connected_to": [
-        "paladin_protection_sacred_duty",
-        "paladin_protection_avengers_shield"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 30,
-        "icd": 1,
-        "heal_flat": 60
-      }
-    },
-    {
-      "talent_id": "paladin_protection_ardent_defender",
-      "name": "Ardent Defender",
-      "description": "While below 35% health, reduces all damage taken by 10% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.1,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "paladin_protection_one_handed_specialization",
-        "paladin_protection_guarded_by_the_light"
+        "paladin_protection_sacred_duty"
       ]
     },
     {
       "talent_id": "paladin_protection_redoubt",
       "name": "Redoubt",
-      "description": "Being struck has a 20% chance per rank to increase your Block value by 10 for 10 turns, stacking up to 3 times.",
+      "description": "Increases your block chance by 5% per rank, and being struck raises it further for 2 turns.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {},
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "block": 5.0
+      },
+      "_source": "WotLK row 4, built with BOTH halves - a node may carry effects AND a proc: 'Requires Shields. Increases your block value by 10%-30% and damaging melee and ranged attacks against you have a 10% chance to increase your chance to block by 30%.' DEPARTURE on the first half - block_value_pct is DEAD DATA (probed, zero read sites), so it grants block CHANCE instead of block value. The proc half is verbatim: the real 10% chance and the real +30% block. Weapon gate dropped. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_protection_improved_holy_shield",
-        "paladin_protection_shield_of_the_templar"
+        "paladin_protection_sacred_duty"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 0,
+        "chance": 10,
+        "icd": 1,
         "apply_effect": {
-          "effect_id": "redoubt_stack",
+          "effect_id": "redoubt",
           "name": "Redoubt",
           "effect_type": "buff",
-          "duration": 10,
-          "max_stacks": 3,
+          "duration": 2,
           "stat_mods": {
-            "block": 10.0
+            "block": 30
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "paladin_protection_combat_expertise",
-      "name": "Combat Expertise",
-      "description": "Increases Stamina by 3 and crit chance by 1% per rank.",
+      "talent_id": "paladin_protection_holy_shield",
+      "name": "Holy Shield",
+      "description": "Increases your block chance by 10%, and each block sears your attacker with Holy light.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "stamina": 3,
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "paladin_protection_reckoning"
-      ]
-    },
-    {
-      "talent_id": "paladin_protection_avengers_shield",
-      "name": "Avenger's Shield",
-      "description": "Grants Avenger's Shield, hurling a holy shield that deals damage.",
-      "node_type": "active",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "paladin_avengers_shield"
+        "block": 10.0
       },
+      "_source": "WotLK row 4: 'Increases chance to block by 30% for 10 sec and deals 79 Holy damage for each attack blocked while active. Each block expends a charge. 8 charges.' DEPARTURE - there is no paladin_holy_shield ability to unlock and no charge system, so it is a permanent but much smaller block bonus plus the real Holy damage on block. CRUCIAL: on an avoidance trigger such as on_block the incoming amount is ZERO, so bonus_pct or leech_pct would return nothing - damage_flat is the right payload. proc['school'] only TYPES a damage_flat payload; it is not a trigger-side filter. The real talent requires Blessing of Sanctuary and is Avenger's Shield's prerequisite, both preserved.",
       "connected_to": [
-        "paladin_protection_holy_shield",
-        "paladin_protection_hammer_of_the_righteous"
-      ]
+        "paladin_protection_blessing_of_sanctuary"
+      ],
+      "proc": {
+        "trigger": "on_block",
+        "chance": 100,
+        "icd": 0,
+        "damage_flat": 35,
+        "school": "holy"
+      }
     },
     {
-      "talent_id": "paladin_protection_guarded_by_the_light",
-      "name": "Guarded by the Light",
-      "description": "Reduces Magic damage taken by 2% per rank and restores 15 Mana per rank whenever you cast a healing spell.",
+      "talent_id": "paladin_protection_ardent_defender",
+      "name": "Ardent Defender",
+      "description": "While below half health, reduces damage taken by 7% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -377,26 +374,17 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "magic_damage_taken_pct": -0.02
+        "low_health_damage_reduction_pct": 0.07
       },
+      "_source": "WotLK row 4: 'Damage that takes you below 35% health is reduced by 7%-20%. In addition, attacks which would otherwise kill you cause you to be healed.' The mitigation half is built verbatim at the real 7% per rank; there is no death-prevention hook for the second half. low_health_damage_reduction_pct reads the ACTOR's own health and defaults to a 50% threshold, so low_health_threshold_pct is NOT authored - it SUMS across talents and the outgoing tree authored it HERE and on Divine Guardian, taking the shared threshold above 1.0 and making both conditionals fire permanently.",
       "connected_to": [
-        "paladin_protection_ardent_defender",
-        "paladin_protection_touched_by_the_light"
-      ],
-      "proc": {
-        "trigger": "on_heal_cast",
-        "chance": 100,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 15
-        }
-      }
+        "paladin_protection_one_handed_weapon_specialization"
+      ]
     },
     {
-      "talent_id": "paladin_protection_shield_of_the_templar",
-      "name": "Shield of the Templar",
-      "description": "Increases Avenger's Shield damage by 15% per rank and Block value by 4 per rank.",
+      "talent_id": "paladin_protection_combat_expertise",
+      "name": "Combat Expertise",
+      "description": "Increases your expertise by 2, your Stamina by 2% and your critical strike chance by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -404,35 +392,55 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_paladin_avengers_shield_damage": 0.15,
-        "block": 4.0
+        "expertise": 2.0,
+        "stamina_pct": 2.0,
+        "crit_chance_physical": 2.0
       },
+      "_source": "WotLK row 4, built verbatim across all three halves: 'Increases your expertise by 2-6, total Stamina and chance to critically hit by 2%-6%.' The outgoing version granted FLAT stamina rather than stamina_pct and omitted expertise - and flat `stamina` is not a valid STAT_CONVERSION_TARGET either, which is a separate trap this project has paid for. Corrected from 5 ranks to the real 3.",
       "connected_to": [
-        "paladin_protection_redoubt"
-      ]
-    },
-    {
-      "talent_id": "paladin_protection_hammer_of_the_righteous",
-      "name": "Hammer of the Righteous",
-      "description": "Increases Crusader Strike damage by 8% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "ability_paladin_crusader_strike_damage": 0.08
-      },
-      "connected_to": [
-        "paladin_protection_avengers_shield",
-        "paladin_protection_divine_guardian"
+        "paladin_protection_reckoning"
       ]
     },
     {
       "talent_id": "paladin_protection_touched_by_the_light",
       "name": "Touched by the Light",
-      "description": "Increases Stamina by 2% per rank and the healing of your Holy Light by 8% per rank.",
+      "description": "Increases your spell power by 20% of your Strength per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "spell_power_from_strength_pct": 0.2
+      },
+      "_source": "WotLK row 5, built verbatim: 'Increases your spell power by an amount equal to 20%-60% of your Strength and increases the amount healed by your critical heals by 30%.' The conversion is a REAL pairing - spell_power is a valid STAT_CONVERSION_TARGET and strength a valid source. THE UNIT IS A RAW MULTIPLIER, not a percentage: character.py:1551 does `gained = source * pct`, so 0.20 per rank reaches the real 60%. The critical-heal clause has no key. This is the pairing that makes Divine Strength at tier 0 worth taking. The outgoing version was stamina_pct plus Holy Light healing.",
+      "connected_to": [
+        "paladin_protection_redoubt"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_avengers_shield",
+      "name": "Avenger's Shield",
+      "description": "Teaches Avenger's Shield, hurling holy force that leaps between enemies.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "paladin_avengers_shield"
+      },
+      "_source": "WotLK row 5, kept - the ONLY unlock for paladin_avengers_shield, which is requires_talent. The real talent requires Holy Shield, which connected_to reproduces. Moved from tier 4 to its real row.",
+      "connected_to": [
+        "paladin_protection_holy_shield"
+      ]
+    },
+    {
+      "talent_id": "paladin_protection_shield_of_the_templar",
+      "name": "Shield of the Templar",
+      "description": "Reduces all damage you take by 1% per rank and increases your Avenger's Shield damage by 10% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -440,37 +448,71 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "stamina_pct": 2.0,
-        "ability_paladin_holy_light_healing": 0.08
+        "damage_taken_pct": -0.01,
+        "ability_paladin_avengers_shield_damage": 0.1
       },
+      "_source": "WotLK row 5: 'Reduces all damage taken by 1%/2%/3% and grants your Avenger's Shield a 100% chance to silence your targets for 3 sec.' The mitigation half is verbatim; there is no silence key. The Avenger's Shield damage clause is carried over from the outgoing version, which had it at 15% per rank. The real talent requires Avenger's Shield, reproduced.",
       "connected_to": [
-        "paladin_protection_guarded_by_the_light",
-        "paladin_protection_protection_capstone"
+        "paladin_protection_avengers_shield"
       ]
     },
     {
-      "talent_id": "paladin_protection_divine_guardian",
-      "name": "Divine Guardian",
-      "description": "Increases maximum Health by 10%. While below the health threshold set by Ardent Defender, you take 15% less damage and generate 50% more threat.",
+      "talent_id": "paladin_protection_guarded_by_the_light",
+      "name": "Guarded by the Light",
+      "description": "Reduces spell damage taken by 3% per rank.",
       "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
+      "tier": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
+      "hex_x": 3,
+      "hex_y": 4,
       "effects": {
-        "max_health_pct": 0.1,
-        "low_health_damage_reduction_pct": 0.15,
-        "low_health_threat_pct": 0.5
+        "spell_damage_taken_pct": -0.03
       },
+      "_source": "WotLK row 5: 'Reduces spell damage taken by 3%/6% and gives a 100% chance to refresh the duration of your Divine Plea when you hit an enemy.' The mitigation half is verbatim; Divine Plea does not exist and nothing can refresh another effect's duration anyway. spell_damage_taken_pct is a FRACTION as a talent effect and NEGATIVE reduces. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
       "connected_to": [
-        "paladin_protection_hammer_of_the_righteous"
+        "paladin_protection_ardent_defender"
       ]
     },
     {
-      "talent_id": "paladin_protection_protection_capstone",
-      "name": "Divine Plea",
-      "description": "Restores 8 Mana every 5 seconds. Each attack you block has a 35% chance to restore 80 Mana and heal you for 100.",
+      "talent_id": "paladin_protection_judgements_of_the_just",
+      "name": "Judgements of the Just",
+      "description": "Reduces the cooldown of your Hammer of Justice by 1 turn per rank, and your Judgement slows the target's attacks for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 4,
+      "effects": {
+        "ability_paladin_hammer_of_justice_cooldown": 1
+      },
+      "_source": "WotLK row 5, built with BOTH halves: 'Reduces the cooldown of your Hammer of Justice by 5/10 sec, increases the duration of your Seal of Justice effect by 1 sec and your Judgement spells also reduce the melee attack speed of the target.' Seal of Justice does not exist. The attack-speed reduction is the real mechanic and becomes haste -20 on the target. Stacks with Improved Hammer of Justice. This talent is in RETRIBUTION in our outgoing data; the real game puts it in Protection, which is where it sits now.",
+      "connected_to": [
+        "paladin_protection_ardent_defender"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "paladin_judgement"
+        ],
+        "apply_effect": {
+          "effect_id": "judgements_of_the_just",
+          "name": "Judgements of the Just",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": -20
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "paladin_protection_hammer_of_the_righteous",
+      "name": "Hammer of the Righteous",
+      "description": "Increases the damage of your Crusader Strike by 20%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -478,21 +520,12 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "mp5": 8
+        "ability_paladin_crusader_strike_damage": 0.2
       },
+      "_source": "WotLK row 10, the capstone: 'Hammer the current target and up to 2 additional nearby targets, causing 4 times your main hand damage per second as Holy damage.' DEPARTURE - there is no paladin_hammer_of_the_righteous ability to unlock and nothing modifies an ability's target count. Crusader Strike is the paladin's equivalent instant strike, so the capstone makes that hit considerably harder instead. Kept from the outgoing tree, which had it at 8% per rank over 3 ranks.",
       "connected_to": [
-        "paladin_protection_touched_by_the_light"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 35,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 80
-        },
-        "heal_flat": 100
-      }
+        "paladin_protection_shield_of_the_templar"
+      ]
     }
   ]
 }

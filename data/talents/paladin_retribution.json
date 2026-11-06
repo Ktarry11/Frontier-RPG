@@ -1,7 +1,7 @@
 {
   "spec_name": "Paladin Retribution",
   "tree_id": "paladin_retribution",
-  "description": "Righteous vengeance delivered with two-handed force.",
+  "description": "Righteous fury - Holy damage delivered at the end of a weapon.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -13,26 +13,9 @@
   },
   "nodes": [
     {
-      "talent_id": "paladin_retribution_improved_blessing_of_might",
-      "name": "Improved Blessing of Might",
-      "description": "Increases the potency of your Blessing of Might by 8% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "ability_paladin_blessing_of_might_potency": 0.08
-      },
-      "connected_to": [
-        "paladin_retribution_vindication"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_benediction",
-      "name": "Benediction",
-      "description": "Reduces the Mana cost of Crusader Strike by 2 per rank.",
+      "talent_id": "paladin_retribution_deflection",
+      "name": "Deflection",
+      "description": "Increases your parry chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -40,50 +23,49 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_paladin_crusader_strike_cost": 2
+        "parry": 1.0
       },
-      "connected_to": [
-        "paladin_retribution_conviction"
-      ]
+      "_source": "WotLK row 0, NEW to our tree: 'Increases your Parry chance by 1%-5%.' Built verbatim. parry is PERCENTAGE POINTS, landing through a diminishing-returns curve.",
+      "connected_to": []
     },
     {
-      "talent_id": "paladin_retribution_improved_judgements",
-      "name": "Improved Judgements",
-      "description": "Increases the damage of Judgement by 10% per rank.",
+      "talent_id": "paladin_retribution_benediction",
+      "name": "Benediction",
+      "description": "Reduces the cost of your abilities by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_paladin_judgement_damage": 0.1
+        "all_ability_cost_pct": 0.02
       },
-      "connected_to": [
-        "paladin_retribution_seal_of_command"
-      ]
+      "_source": "WotLK row 0: 'Reduces the mana cost of all instant cast spells by 2%-10%.' There is no cast-time distinction, so it covers everything. MIND THE KEY: all_ability_cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION, and it FLIPS to percentage POINTS inside a status effect. The outgoing version was a flat cost cut on Crusader Strike alone.",
+      "connected_to": []
     },
     {
-      "talent_id": "paladin_retribution_heart_of_the_crusader",
-      "name": "Heart of the Crusader",
-      "description": "Increases your physical critical strike chance by 1.5% per rank.",
+      "talent_id": "paladin_retribution_improved_judgements",
+      "name": "Improved Judgements",
+      "description": "Reduces the cooldown of your Judgement by 1 turn per rank.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
+      "tier": 1,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
+      "hex_x": -5,
+      "hex_y": -4,
       "effects": {
-        "crit_chance_physical": 1.5
+        "ability_paladin_judgement_cooldown": 1
       },
+      "_source": "WotLK row 1: 'Decreases the cooldown of your Judgement spells by 1/2 sec.' Built as cooldown, which is what the real talent does. The outgoing version increased Judgement DAMAGE instead, which is The Art of War's job.",
       "connected_to": [
-        "paladin_retribution_pursuit_of_justice"
+        "paladin_retribution_deflection"
       ]
     },
     {
       "talent_id": "paladin_retribution_vindication",
       "name": "Vindication",
-      "description": "Your Crusader Strike has a 50% chance per rank to shatter the target's guard, reducing its Armor by 150 for 3 turns.",
+      "description": "Your strikes have a 50% chance per rank to weaken the target's attack power for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -91,118 +73,160 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Gives the Paladin's damaging attacks a chance to reduce the target's attack power by 23/46 for 10 sec.' Built with the real -46 and the real 10 seconds (3 turns). attack_power on a monster or inside a status effect is FLAT, and it is one of the eight stat_mods a MONSTER can actually read - which matters, because a debuff the enemy cannot read does nothing. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_retribution_improved_blessing_of_might",
-        "paladin_retribution_eye_for_an_eye"
+        "paladin_retribution_deflection"
       ],
       "proc": {
-        "trigger": "on_cast",
+        "trigger": "on_damage_cast",
         "chance": 50,
         "icd": 0,
-        "ability_filter": [
-          "paladin_crusader_strike"
-        ],
         "apply_effect": {
           "effect_id": "vindication",
           "name": "Vindication",
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "armor": -150
-          },
-          "on_target": true
+            "attack_power": -46
+          }
         }
       }
     },
     {
-      "talent_id": "paladin_retribution_conviction",
-      "name": "Conviction",
-      "description": "Increases your physical critical strike chance by 1% per rank.",
+      "talent_id": "paladin_retribution_heart_of_the_crusader",
+      "name": "Heart of the Crusader",
+      "description": "Increases your critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
         "crit_chance_physical": 1.0
       },
+      "_source": "WotLK row 1: 'your Judgement spells will also increase the critical strike chance of all attacks made against that target by an additional 1%-3%.' DEPARTURE - there is no 'crit chance against this target' debuff; crit is resolved from the attacker's own stats, and the only target-side crit key is crit_taken_reduction, which only reduces. Delivered as the paladin's own crit. Kept from the outgoing tree, corrected from 1.5 to the real 1% per rank.",
       "connected_to": [
-        "paladin_retribution_benediction",
-        "paladin_retribution_sanctity_of_battle"
+        "paladin_retribution_benediction"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_conviction",
+      "name": "Conviction",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "_source": "WotLK row 1: 'Increases your chance to get a critical strike with all spells and attacks by 1%-5%.' Built verbatim and kept from the outgoing tree. It is Vengeance's prerequisite in the real tree, preserved below.",
+      "connected_to": [
+        "paladin_retribution_benediction"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_improved_blessing_of_might",
+      "name": "Improved Blessing of Might",
+      "description": "Increases the attack power your Blessing of Might grants by 12% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -4,
+      "effects": {
+        "ability_paladin_blessing_of_might_potency": 0.12
+      },
+      "_source": "WotLK row 1: 'Increases the attack power bonus of your Blessing of Might by 12%/25%.' Built verbatim over the real 2 ranks; the outgoing version had 5 ranks of 8%, reaching 40%. ability_<id>_potency scales the ability's own stat_mods.",
+      "connected_to": [
+        "paladin_retribution_conviction"
       ]
     },
     {
       "talent_id": "paladin_retribution_seal_of_command",
       "name": "Seal of Command",
-      "description": "Grants Seal of Command, giving your melee attacks a chance to deal a burst of Holy damage, with a stronger Judgement.",
+      "description": "Teaches Seal of Command, adding Holy damage to every strike.",
       "node_type": "active",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 5,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "paladin_seal_of_command"
       },
+      "_source": "WotLK row 1, kept - the ONLY unlock for paladin_seal_of_command, which is requires_talent.",
       "connected_to": [
-        "paladin_retribution_improved_judgements",
-        "paladin_retribution_crusade"
-      ],
-      "proc": null
+        "paladin_retribution_conviction"
+      ]
     },
     {
       "talent_id": "paladin_retribution_pursuit_of_justice",
       "name": "Pursuit of Justice",
-      "description": "Increases your hit chance by 1.5% per rank.",
+      "description": "Increases your chance to hit by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 7,
       "hex_y": -4,
       "effects": {
-        "hit_rating": 1.5
+        "hit_rating": 1.0
       },
+      "_source": "WotLK row 1: 'Reduces the duration of all Disarm effects by 25%/50% and increases movement and mounted movement speed by 8%/15%.' DEPARTURE - no movement speed and no Disarm duration modifier. Delivered as accuracy, the nearest offensive equivalent of closing on a target. Kept from the outgoing tree, corrected from 1.5 to 1 per rank.",
       "connected_to": [
-        "paladin_retribution_heart_of_the_crusader",
-        "paladin_retribution_two_handed_specialization"
+        "paladin_retribution_seal_of_command"
       ]
     },
     {
       "talent_id": "paladin_retribution_eye_for_an_eye",
       "name": "Eye for an Eye",
-      "description": "Being struck has a 25% chance per rank to lash back for 60 Holy damage.",
+      "description": "Being struck has a 50% chance per rank to lash back at your attacker.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2: 'All criticals against you cause 10%/20% of the damage taken to the attacker as well.' DEPARTURE on the trigger - there is no on-crit-TAKEN event, only on_damage_taken, so icd 1 holds it to once a turn. Percentage-of-damage-taken reflection is also unavailable: of the three payloads that read the triggering amount (bonus_pct, leech_pct, smart heals), none reflects, so damage_flat 30 is a fixed return typed as Holy. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_retribution_vindication",
-        "paladin_retribution_divine_purpose"
+        "paladin_retribution_improved_judgements"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 25,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "eye_for_an_eye",
-          "name": "Eye for an Eye",
-          "effect_type": "dot",
-          "duration": 1,
-          "potency": 60,
-          "damage_school": "holy",
-          "on_target": true
-        }
+        "chance": 50,
+        "icd": 1,
+        "damage_flat": 30,
+        "school": "holy"
       }
+    },
+    {
+      "talent_id": "paladin_retribution_two_handed_weapon_specialization",
+      "name": "Two-Handed Weapon Specialization",
+      "description": "Increases your physical damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "physical_damage": 0.02
+      },
+      "_source": "WotLK row 2: 'Increases the damage you deal with two-handed melee weapons by 2%/4%/6%.' Built minus the weapon gate. The outgoing version was attack_power_pct, which is a different stat. physical_damage is a FRACTION.",
+      "connected_to": [
+        "paladin_retribution_vindication"
+      ]
     },
     {
       "talent_id": "paladin_retribution_sanctity_of_battle",
       "name": "Sanctity of Battle",
-      "description": "Increases the damage of Consecration and Divine Storm by 8% per rank.",
+      "description": "Increases your critical strike chance by 1% per rank and the damage of your Exorcism and Crusader Strike by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -210,129 +234,77 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_paladin_consecration_damage": 0.08,
-        "ability_paladin_divine_storm_damage": 0.08
+        "crit_chance_physical": 1.0,
+        "ability_paladin_exorcism_damage": 0.05,
+        "ability_paladin_crusader_strike_damage": 0.05
       },
+      "_source": "WotLK row 2, built verbatim with both halves: 'Increases your chance to critically hit with all spells and attacks by 1%-3% and increases the damage caused by Exorcism and Crusader Strike by 5%/10%/15%.' The outgoing version had the damage half on Consecration rather than Exorcism and omitted the crit.",
       "connected_to": [
-        "paladin_retribution_conviction",
-        "paladin_retribution_repentance"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_crusade",
-      "name": "Crusade",
-      "description": "Increases your physical damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "physical_damage": 0.03
-      },
-      "connected_to": [
-        "paladin_retribution_seal_of_command",
-        "paladin_retribution_sanctified_retribution"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_two_handed_specialization",
-      "name": "Two-Handed Weapon Specialization",
-      "description": "Increases your Attack Power by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "attack_power_pct": 2.0
-      },
-      "connected_to": [
-        "paladin_retribution_pursuit_of_justice",
-        "paladin_retribution_vengeance"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_repentance",
-      "name": "Repentance",
-      "description": "Grants Repentance, heavily reducing the target's Haste for 2 turns.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "paladin_repentance"
-      },
-      "connected_to": [
-        "paladin_retribution_sanctity_of_battle",
-        "paladin_retribution_fanaticism"
+        "paladin_retribution_heart_of_the_crusader"
       ]
     },
     {
       "talent_id": "paladin_retribution_sanctified_retribution",
       "name": "Sanctified Retribution",
-      "description": "Your Judgement casts have a 34% chance per rank to grant 40 Attack Power for 3 turns.",
+      "description": "Increases all damage you deal by 3%.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
+      "tier": 2,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.03
+      },
+      "_source": "WotLK row 2: 'Increases the damage caused by Retribution Aura by 50% and all damage caused by friendly targets affected by any of your Auras is increased by 3%.' DEPARTURE - there is no aura system and a talent effect can never reach an ally, so the real 3% applies to the paladin alone. The outgoing version was a proc.",
       "connected_to": [
-        "paladin_retribution_crusade",
-        "paladin_retribution_swift_retribution"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 34,
-        "icd": 1,
-        "ability_filter": [
-          "paladin_judgement"
-        ],
-        "apply_effect": {
-          "effect_id": "sanctified_retribution",
-          "name": "Sanctified Retribution",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "attack_power": 40
-          },
-          "on_target": false
-        }
-      }
+        "paladin_retribution_conviction"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_crusade",
+      "name": "Crusade",
+      "description": "Increases all damage you deal by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.01
+      },
+      "_source": "WotLK row 2: 'Increases all damage caused by 1%-3% and all damage caused against Humanoids, Demons, Undead and Elementals by an additional 1%-3%.' The unconditional half is built verbatim. The creature-type half cannot be built - NOTHING in this engine reads a creature type. The outgoing version was physical_damage, which excludes the paladin's Holy damage and so missed most of the point.",
+      "connected_to": [
+        "paladin_retribution_improved_blessing_of_might"
+      ]
     },
     {
       "talent_id": "paladin_retribution_vengeance",
       "name": "Vengeance",
-      "description": "Your critical strikes have a 20% chance per rank to grant 3% increased damage for 3 turns, stacking up to 3 times.",
+      "description": "Your critical strikes have a 33% chance per rank to increase your damage by 3% for 4 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -1,
       "hex_y": 0,
       "effects": {},
+      "_source": "WotLK row 3: 'Gives you a 1%-3% bonus to Physical and Holy damage you deal for 30 sec after dealing a critical strike from a weapon swing, spell, or ability. This effect stacks up to 3 times.' Built with the real 3% at full effect and 30 seconds as 4 turns. STACKING IS DROPPED: max_stacks exists on StatusEffect but NOTHING in this engine reads a stack count, so a 3-stack version would be indistinguishable from a 1-stack one. Ranked by chance, since a proc's payload does not scale with points. The real talent requires Conviction, reproduced. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_retribution_two_handed_specialization",
-        "paladin_retribution_crusader_strike_mastery"
+        "paladin_retribution_conviction"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 20,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "ret_vengeance",
+          "effect_id": "vengeance",
           "name": "Vengeance",
           "effect_type": "buff",
-          "duration": 3,
-          "max_stacks": 3,
+          "duration": 4,
           "stat_mods": {
-            "damage_dealt_pct": 3
+            "all_damage": 0.03
           },
           "on_target": false
         }
@@ -341,121 +313,160 @@
     {
       "talent_id": "paladin_retribution_divine_purpose",
       "name": "Divine Purpose",
-      "description": "Reduces the duration of stuns against you by 10% per rank.",
+      "description": "Reduces the duration of Stun effects against you by 15% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "stun_duration_reduction_pct": 0.1
-      },
-      "connected_to": [
-        "paladin_retribution_eye_for_an_eye"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_fanaticism",
-      "name": "Fanaticism",
-      "description": "Increases the critical strike chance of Crusader Strike and Divine Storm by 3% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_paladin_crusader_strike_crit": 3,
-        "ability_paladin_divine_storm_crit": 3
-      },
-      "connected_to": [
-        "paladin_retribution_repentance",
-        "paladin_retribution_sheath_of_light"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_swift_retribution",
-      "name": "Swift Retribution",
-      "description": "Your Crusader Strike has a 20% chance per rank to restore 60 Mana.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
+      "hex_y": 0,
+      "effects": {
+        "stun_duration_reduction_pct": 0.15
+      },
+      "_source": "WotLK row 3: 'Reduces your chance to be hit by spells and ranged attacks by 2%/4% and gives your Hand of Freedom spell a 100% chance to remove any Stun effects on the target.' DEPARTURE - no caster-side miss chance for INCOMING attacks (hit_chance_spell is a dead talent key set once in Character.__init__) and no Hand of Freedom. The stun clause survives, applied to the paladin. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
       "connected_to": [
-        "paladin_retribution_sanctified_retribution",
-        "paladin_retribution_righteous_vengeance"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 20,
-        "icd": 0,
-        "ability_filter": [
-          "paladin_crusader_strike"
-        ],
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 60
-        }
-      }
+        "paladin_retribution_sanctity_of_battle"
+      ]
     },
     {
-      "talent_id": "paladin_retribution_crusader_strike_mastery",
-      "name": "Crusader's Zeal",
-      "description": "Increases the damage of Crusader Strike by 5% per rank.",
+      "talent_id": "paladin_retribution_the_art_of_war",
+      "name": "The Art of War",
+      "description": "Increases the damage of your Judgement, Crusader Strike and Divine Storm by 5% per rank.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -5,
       "hex_y": 2,
       "effects": {
-        "ability_paladin_crusader_strike_damage": 0.05
+        "ability_paladin_judgement_damage": 0.05,
+        "ability_paladin_crusader_strike_damage": 0.05,
+        "ability_paladin_divine_storm_damage": 0.05
       },
+      "_source": "WotLK row 4, NEW to our tree: 'Increases the damage of your Judgement, Crusader Strike and Divine Storm abilities by 5%/10% and when your melee attacks critically hit your next Flash of Light or Exorcism is instant.' The damage half is built verbatim across all three real abilities. The instant-cast half has nothing to act on - there are no cast times.",
       "connected_to": [
         "paladin_retribution_vengeance"
       ]
     },
     {
-      "talent_id": "paladin_retribution_sheath_of_light",
-      "name": "Sheath of Light",
-      "description": "Increases your Attack Power by 2% per rank and the healing of Flash of Light by 5% per rank.",
+      "talent_id": "paladin_retribution_repentance",
+      "name": "Repentance",
+      "description": "Teaches Repentance, holding an enemy in meditation.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "paladin_repentance"
+      },
+      "_source": "WotLK row 4, kept - the ONLY unlock for paladin_repentance, which is requires_talent. It is Fanaticism's prerequisite in the real tree, preserved below.",
+      "connected_to": [
+        "paladin_retribution_vengeance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_fanaticism",
+      "name": "Fanaticism",
+      "description": "Increases the critical strike chance of your Judgement by 6% per rank and reduces your threat by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_paladin_judgement_crit": 6.0,
+        "threat_generation_pct": -0.1
+      },
+      "_source": "WotLK row 4, built verbatim with both halves: 'Increases the critical strike chance of all Judgements capable of a critical hit by 6%-18% and reduces threat caused by all actions by 10%-30%.' ability_<id>_crit is PERCENTAGE POINTS and threat_generation_pct is a FRACTION. The outgoing version was crit on Crusader Strike with no threat clause. The real talent requires Repentance, reproduced.",
+      "connected_to": [
+        "paladin_retribution_repentance"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_judgements_of_the_wise",
+      "name": "Judgements of the Wise",
+      "description": "Your Judgement restores 200 mana.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'Your damaging Judgement spells have a 33%-100% chance to grant the Replenishment effect to up to 10 party or raid members, granting mana regeneration equal to 1% of their maximum mana per 10 sec.' DEPARTURE - a talent effect can never reach an ally, so the mana goes to the paladin. The real chance curve is kept exactly. grant_resource takes a FLAT amount with no pct_max, so 200 is a fixed return rather than a percentage of the pool.",
+      "connected_to": [
+        "paladin_retribution_divine_purpose"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "paladin_judgement"
+        ],
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 200
+        }
+      }
+    },
+    {
+      "talent_id": "paladin_retribution_sanctified_wrath",
+      "name": "Sanctified Wrath",
+      "description": "Increases the critical strike chance of your Hammer of Wrath by 25% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
+      "effects": {
+        "ability_paladin_hammer_of_wrath_crit": 25.0
+      },
+      "_source": "WotLK row 4, NEW to our tree: 'Increases the critical strike chance of Hammer of Wrath by 25%/50%, reduces the cooldown of Avenging Wrath by 30/60 secs and while affected by Avenging Wrath 25%/50% of all damage is converted to healing.' Only the Hammer of Wrath clause is buildable - Avenging Wrath does not exist and there is no damage-to-healing conversion. Built at the real 25% per rank.",
+      "connected_to": [
+        "paladin_retribution_divine_purpose"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_swift_retribution",
+      "name": "Swift Retribution",
+      "description": "Increases your haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "haste": 1.0
+      },
+      "_source": "WotLK row 5: 'Your auras also increase casting, ranged and melee attack speeds by 1%-3%.' DEPARTURE - no aura system and a talent effect cannot reach an ally, so the real 3% applies to the paladin. haste is PERCENTAGE POINTS. The outgoing version was a proc.",
+      "connected_to": [
+        "paladin_retribution_the_art_of_war"
+      ]
+    },
+    {
+      "talent_id": "paladin_retribution_righteous_vengeance",
+      "name": "Righteous Vengeance",
+      "description": "Your critical strikes have a 33% chance per rank to leave the target burning for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
-      "effects": {
-        "attack_power_pct": 2.0,
-        "ability_paladin_flash_of_light_healing": 0.05
-      },
-      "connected_to": [
-        "paladin_retribution_fanaticism",
-        "paladin_retribution_divine_storm"
-      ]
-    },
-    {
-      "talent_id": "paladin_retribution_righteous_vengeance",
-      "name": "Righteous Vengeance",
-      "description": "Your critical strikes have a 34% chance per rank to leave a Holy wound, dealing damage over 3 turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'When your Judgement, Crusader Strike and Divine Storm spells deal a critical strike, your target will take 10%-30% additional damage over 8 sec.' Built as a real Holy dot. Percentage-of-damage scaling is not available to a proc payload - potency is a FLAT PER-TURN number, where an ABILITY rank's effect_value is the TOTAL and gets divided - so 45 a turn over 3 turns (8 seconds) is a fixed bleed. The ability_filter is omitted deliberately: on_crit already requires a crit, and restricting to the three abilities would exclude the weapon-swing crits the tree's other talents are built to produce. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "paladin_retribution_swift_retribution",
-        "paladin_retribution_retribution_capstone"
+        "paladin_retribution_fanaticism"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 34,
+        "chance": 33,
         "icd": 0,
         "apply_effect": {
           "effect_id": "righteous_vengeance",
@@ -463,51 +474,45 @@
           "effect_type": "dot",
           "duration": 3,
           "potency": 45,
-          "damage_school": "holy",
-          "on_target": true
+          "damage_school": "holy"
         }
       }
     },
     {
-      "talent_id": "paladin_retribution_divine_storm",
-      "name": "Divine Storm",
-      "description": "Grants Divine Storm, an instant weapon attack against all nearby enemies.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
+      "talent_id": "paladin_retribution_sheath_of_light",
+      "name": "Sheath of Light",
+      "description": "Increases your spell power by 10% of your attack power per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
+      "hex_x": 1,
+      "hex_y": 4,
       "effects": {
-        "unlock_ability": "paladin_divine_storm"
+        "spell_power_from_ap_pct": 0.1
       },
+      "_source": "WotLK row 5: 'Increases your spell power by an amount equal to 10%-30% of your attack power and your critical healing spells heal the target for 60% of the healed amount over 12 seconds.' The conversion half is a REAL pairing - spell_power is a valid STAT_CONVERSION_TARGET and ap a valid source - built at 0.10 per rank to reach the real 30%. THE UNIT IS A RAW MULTIPLIER, not a percentage (character.py:1551 does `gained = source * pct`). The critical-heal-hot clause has no key. The outgoing version was attack_power_pct plus Flash of Light healing, neither of which is this talent.",
       "connected_to": [
-        "paladin_retribution_sheath_of_light"
+        "paladin_retribution_fanaticism"
       ]
     },
     {
-      "talent_id": "paladin_retribution_retribution_capstone",
-      "name": "Judgements of the Just",
-      "description": "Judgements of the Just - your Judgement casts grant you an immediate extra attack.",
-      "node_type": "passive",
+      "talent_id": "paladin_retribution_divine_storm",
+      "name": "Divine Storm",
+      "description": "Teaches Divine Storm, a whirling strike that mends your allies as it wounds your enemies.",
+      "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {},
+      "effects": {
+        "unlock_ability": "paladin_divine_storm"
+      },
+      "_source": "WotLK row 10, the capstone, kept - the ONLY unlock for paladin_divine_storm, which is requires_talent.",
       "connected_to": [
         "paladin_retribution_righteous_vengeance"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
-        "icd": 1,
-        "ability_filter": [
-          "paladin_judgement"
-        ],
-        "extra_attack": 1
-      }
+      ]
     }
   ]
 }
