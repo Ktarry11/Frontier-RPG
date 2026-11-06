@@ -1,8 +1,8 @@
 {
   "spec_name": "Reaper Harvest",
   "tree_id": "reaper_harvest",
-  "description": "Lifesteal brawler - the Harvester passive turns a share of everything you deal into healing, Doomrend stops the target stabilising, and Slaughter finishes anything under 35%.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_reaper__harvest.txt: 'Closest to Blood Death Knight ... Your own damage is your healing, packaged in an AoE cleave-and-leech loop.' CoA rates it PvE B / PvP C and recommends it for levelling. The tree spends most of its points on the three things the reference says carry the spec - the Harvester leech, Doomrend's anti-heal, and the Slaughter execute - and the reference's own named weakness ('No blink, no vanish, no bubble, no CC-break in the spec line') is honoured by leaving every defensive out in the class kit.",
+  "description": "Finish what is already dying - a two-hander spec that hits hardest on a wounded target.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 39 real CoA Harvest talents (role DPS). The best-porting tree in this audit: SOULS are a real secondary resource with thirteen generators, CoA's Runic Power maps onto mana, and the execute mechanic is real on both sides - execute_threshold_pct gates the ability, bypass_execute_threshold is a real consumed proc flag that is CoA's Extinction verbatim, and low_health_damage_pct was added while surveying this tree because seven of its talents needed it. Executioner's crit from Strength is a legal conversion pair nobody had used. Two load-bearing unlocks, asserted.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,494 +16,455 @@
     {
       "talent_id": "reaper_harvest_bountiful_harvest",
       "name": "Bountiful Harvest",
-      "description": "Increases the damage of Reap and Murder by 5% per rank.",
+      "description": "Increases the damage of Reap and Murder by 25%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_reap_damage": 0.05,
-        "ability_reaper_murder_damage": 0.05
+        "ability_reaper_reap_damage": 0.0833,
+        "ability_reaper_murder_damage": 0.0833
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Reap and Murder by 25%'. Split across 5 ranks to reach the same total."
+      "connected_to": [
+        "reaper_harvest_maw_knight"
+      ],
+      "_source": "CoA: 'Increases the damage of Reap and Murder by 25%.' PORTS EXACTLY, both abilities. Reap and Murder are the spec's two cheapest soul generators (10 and 15 souls), so this is the node that makes the filler worth pressing. Was a pure scalar on our side. Per-ability damage keys are FRACTIONS."
+    },
+    {
+      "talent_id": "reaper_harvest_maw_knight",
+      "name": "Maw Knight",
+      "description": "Increases the critical strike chance of Doomrend by 10%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "ability_reaper_doomrend_crit": 3.3333
+      },
+      "connected_to": [
+        "reaper_harvest_sanguine_harvester",
+        "reaper_harvest_dark_fate"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Doomrend by 5%.' PORTS EXACTLY, doubled for the two ranks. Doomrend generates 15 souls and is the opener this tree keeps coming back to - three later nodes read it. Was a pure scalar on our side. Per-ability crit keys are PERCENTAGE POINTS, unlike the damage keys above, which are fractions; the two sit side by side all over this project and read opposite ways."
     },
     {
       "talent_id": "reaper_harvest_sanguine_harvester",
       "name": "Sanguine Harvester",
-      "description": "Increases your haste by 1 per rank.",
+      "description": "Increases your haste by 20%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "haste": 1.0
+        "haste": 6.6667
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your melee haste by 10%', 2 ranks. Frontier's haste is a flat rating, and 1.0/rank is the shipped per-rank value across every tree."
+      "connected_to": [
+        "reaper_harvest_red_wake"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your melee haste by 10%.' Doubled for the two ranks. The melee scoping is dropped - there is no separate melee-haste key, only `haste`, which in a turn-based engine means acting more often rather than swinging faster. Was a pure scalar on our side. PERCENTAGE POINTS."
+    },
+    {
+      "talent_id": "reaper_harvest_dark_fate",
+      "name": "Dark Fate",
+      "description": "Reduces the mana cost of Crow's Harvest and Wraithblade by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "ability_reaper_crows_harvest_cost_pct": 0.0667,
+        "ability_reaper_wraithblade_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "reaper_harvest_crimson_wraith"
+      ],
+      "_source": "CoA: 'Reduces the cost of Crow's Harvest by -10 Runic Power.' CoA'S RUNIC POWER IS OUR MANA - every Reaper ability in our data is resource_type mana - so a Runic Power cost reduction ports as a mana cost reduction. 10 off Crow's Harvest's 30 is a third; set at 20% and extended to Wraithblade (CoA's Blood Wraith reduces that one too) so the node is not a one-ability pick. *_cost_pct keys are FRACTIONS and POSITIVE MEANS A REDUCTION - the opposite sign convention from most of this file. Was a pure scalar on our side."
     },
     {
       "talent_id": "reaper_harvest_crimson_wraith",
       "name": "Crimson Wraith",
-      "description": "Increases your critical strike damage by 4% per rank.",
+      "description": "Increases your physical critical damage by 20%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "crit_damage_physical": 0.04
+        "crit_damage_physical": 0.0667
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your critical stike damage by 10%'. crit_damage_physical is a FRACTION of the base hit."
-    },
-    {
-      "talent_id": "reaper_harvest_callous_soul",
-      "name": "Callous Soul",
-      "description": "Increases your armor penetration by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "armor_penetration_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the amount of armor Soulrend causes you to ignore by 10%'. There is no per-ability armour-ignore key, so it is general armour penetration - which the spec's stat priority asks for anyway ('Strength > Armor Penetration > Critical Strike'). armor_penetration_pct is one of the ten POINTS keys, hence 2.0 for 2%."
+      "connected_to": [
+        "reaper_harvest_hemorrhage"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your critical stike damage by 10%.' (CoA's own typo.) Doubled for the two ranks, scoped to physical because this spec's damage is all weapon-based. Was a pure scalar on our side. crit_damage_* keys are FRACTIONS; crit_chance_* keys are percentage points."
     },
     {
       "talent_id": "reaper_harvest_red_wake",
       "name": "Red Wake",
-      "description": "Your critical strikes have a 20% chance per rank to harvest a Soul.",
+      "description": "Your critical strikes generate 10 additional souls.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "reaper_harvest_bountiful_harvest"
+        "reaper_harvest_harvest_time",
+        "reaper_harvest_crimson_death"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 20,
+        "chance": 33,
         "icd": 0,
         "grant_resource": {
           "resource": "souls",
           "amount": 10
         }
       },
-      "_source": "CoA: 'Direct damage critical strikes now generate an additional Soul Fragment.' A multi-rank proc scales its CHANCE by points spent (_sync_talent_procs) and not its payload, so the tooltip says chance per rank."
-    },
-    {
-      "talent_id": "reaper_harvest_maw_knight",
-      "name": "Maw Knight",
-      "description": "Increases the critical strike chance of Doomrend by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_reaper_doomrend_crit": 4.0
-      },
-      "connected_to": [
-        "reaper_harvest_sanguine_harvester"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of Doomrend by 5%'. ability_<id>_crit is in percentage POINTS - it is added straight onto crit_chance."
-    },
-    {
-      "talent_id": "reaper_harvest_doomer",
-      "name": "Doomer",
-      "description": "Increases the damage of Doomrend and Slaughter by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_reaper_doomrend_damage": 0.06,
-        "ability_reaper_slaughter_damage": 0.06
-      },
-      "connected_to": [
-        "reaper_harvest_crimson_wraith"
-      ],
-      "_source": "CoA: 'Increases the damage of Doomrend and Slaughter by 30%'. Five ranks of 6% is the same 30%."
-    },
-    {
-      "talent_id": "reaper_harvest_dark_fate",
-      "name": "Dark Fate",
-      "description": "Reduces the Mana cost of Crow's Harvest by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "ability_reaper_crows_harvest_cost_pct": 0.06
-      },
-      "connected_to": [
-        "reaper_harvest_callous_soul"
-      ],
-      "_source": "CoA: 'Reduces the cost of Crow's Harvest by -10 Runic Power.' POSITIVE means a reduction on a _cost_pct key - eight talents across four classes authored these negative and delivered a surcharge."
-    },
-    {
-      "talent_id": "reaper_harvest_harvester",
-      "name": "Harvester",
-      "description": "Your damage heals you for 15% of the damage dealt.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_red_wake"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "leech_pct": {
-          "pct": 0.15
-        }
-      },
-      "_source": "CoA's level-10 free passive and the whole reason to play the spec: 'You now heal yourself equal to 15% of all damage dealt', 'pure lifesteal that trivializes downtime'. Frontier has no free passives, so it is a single-point node early in the tree. One point, not five, because a proc's PAYLOAD does not scale with rank and a 5-rank version would read as 75% and deliver 15%."
-    },
-    {
-      "talent_id": "reaper_harvest_blood_fueled",
-      "name": "Blood Fueled",
-      "description": "Your Doomrend has a 34% chance per rank to leave the target receiving 30% less healing for 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_maw_knight"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 0,
-        "ability_filter": [
-          "reaper_doomrend"
-        ],
-        "apply_effect": {
-          "effect_id": "reaper_doomrend_antiheal",
-          "name": "Doomrend",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "healing_taken_pct": -30.0
-          },
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Increases the healing absorbed by Doomrend by 30%', on top of Doomrend's own 'dark shield to them that absorbs the next healing done to them'. Doomrend itself cannot carry a proc (only buff/debuff abilities do), so the anti-heal lives here, gated to Doomrend with ability_filter. healing_taken_pct is read only through get_status_stat_mod, which is exactly why it has to be a proc's stat_mod and could not be a plain effect."
-    },
-    {
-      "talent_id": "reaper_harvest_genocide",
-      "name": "Genocide",
-      "description": "Increases the critical strike chance of Slaughter by 4% and its critical damage by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_reaper_slaughter_crit": 4.0,
-        "ability_reaper_slaughter_crit_damage": 0.05
-      },
-      "connected_to": [
-        "reaper_harvest_doomer"
-      ],
-      "_source": "CoA: 'Increases the critical damage and critical strike chance of Slaughter by 10%.'"
-    },
-    {
-      "talent_id": "reaper_harvest_crimson_thirst",
-      "name": "Crimson Thirst",
-      "description": "Your strikes have a 15% chance per rank to build Crimson Thirst, increasing your damage by 4% for 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_dark_fate"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "reaper_crimson_thirst",
-          "name": "Crimson Thirst",
-          "effect_type": "buff",
-          "duration": 3,
-          "max_stacks": 5,
-          "stat_mods": {
-            "damage_dealt_pct": 4.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Your Physical damage dealt now grants Crimson Thirst for 20 seconds, stacking 5 times ... Your next Murder deals 10% increased damage and costs -10% less per stack. At 5 stacks, it also heals you equal to 50% of the damage dealt.' max_stacks=5 is real here - a stacking effect's stat_mods are PER STACK. The Murder-only targeting and the 5-stack heal are dropped; Harvester already carries the spec's leech."
-    },
-    {
-      "talent_id": "reaper_harvest_souls_for_the_slaughter",
-      "name": "Souls for the Slaughter",
-      "description": "Your critical strikes have a 25% chance per rank to leave Shadow rot on the target for 2 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_harvester"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "reaper_souls_for_the_slaughter",
-          "name": "Souls for the Slaughter",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 70,
-          "damage_school": "shadow",
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Critical strikes with Slaughter now cause your auto attacks to deal an additional 85% Shadow damage for 5 seconds.' Added Shadow damage on autoattacks has no hook, so the Shadow goes onto the target as a dot instead. Not filtered to Slaughter: Slaughter only fires under 35% health, and a proc that can only roll during an execute window is a dead talent in practice."
-    },
-    {
-      "talent_id": "reaper_harvest_hungering_scythe",
-      "name": "Hungering Scythe",
-      "description": "Increases the damage of Crow's Harvest by 6% per rank, and your Deathwind lasts 1 turn longer.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "ability_reaper_crows_harvest_damage": 0.06,
-        "ability_reaper_deathwind_duration": 1
-      },
-      "connected_to": [
-        "reaper_harvest_blood_fueled"
-      ],
-      "_source": "CoA: 'Increases the duration of Deathwind by 4 sec and Crow's Harvest now deals 15% additional damage to enemies inside.' The 'inside Deathwind' condition is not modellable without zones, so the damage bonus is unconditional and smaller. Capped at 2 ranks because ability_<id>_duration is flat turns and three extra turns would double a 3-turn heal."
-    },
-    {
-      "talent_id": "reaper_harvest_ravenous_thirst",
-      "name": "Ravenous Thirst",
-      "description": "Reduces the Mana cost of Ghastly Screech and Soul Strike by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_reaper_ghastly_screech_cost_pct": 0.06,
-        "ability_reaper_soul_strike_cost_pct": 0.06
-      },
-      "connected_to": [
-        "reaper_harvest_genocide"
-      ],
-      "_source": "CoA: 'Reduces the Runic Power cost of Ghastly Screech and Soul Strike by -10.' Flat 10 of a Runic Power bar becomes a percentage of a Mana cost that grows with rank."
-    },
-    {
-      "talent_id": "reaper_harvest_the_time_has_come",
-      "name": "The Time Has Come",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "reaper_harvest_crimson_thirst"
-      ],
-      "_source": "CoA: 'Your abilities now deal 10% more damage against slowed targets.' Nothing reads a target's slow state in the damage path, so the condition is dropped and the bonus shrinks to match - the spec does run Harvesting Grounds and Ghost Claw, so in practice the targets usually are slowed."
+      "_source": "CoA: 'Direct damage critical strikes now generate an additional Soul Fragment.' PORTS EXACTLY. grant_resource routes through the same gain_resource() the thirteen soul generators use, so caps are respected automatically. 10 souls because that is what Reap and Spectre Stride each generate - one fragment in this economy's own units. The `amount` field is FLAT; there is no `pct_max` field, and inventing one on Witch Doctor's Spiritual Devotee would have granted NOTHING while passing every check. The direct-damage filter is dropped: on_crit carries no ability_id to test, though periodic ticks never roll crit anyway, so in practice only direct damage can fire this."
     },
     {
       "talent_id": "reaper_harvest_hemorrhage",
       "name": "Hemorrhage",
-      "description": "Increases the damage of Slaughter by 8% per rank.",
+      "description": "Increases your damage against enemies below 35% health by 15%.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {
-        "ability_reaper_slaughter_damage": 0.08
+        "low_health_damage_pct": 0.05
       },
       "connected_to": [
-        "reaper_harvest_souls_for_the_slaughter"
+        "reaper_harvest_genocide"
       ],
-      "_source": "CoA: 'Increases the damage and critical strike chance of your abilities by 10% against enemies below 35% health.' _damage_multiplier has no recipient, so there is no way to read the TARGET's health there. Landed on Slaughter, which is already gated to 35% - the same window, reached honestly."
-    },
-    {
-      "talent_id": "reaper_harvest_crimson_death",
-      "name": "Crimson Death",
-      "description": "Your strikes have a 10% chance per rank to repeat Slaughter at no cost.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_hungering_scythe"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 1,
-        "cast_ability": "reaper_slaughter"
-      },
-      "_source": "CoA: 'Your Slaughter now has a 20% chance to cast an additional time free of cost.' cast_ability is a real proc payload. Deliberately NOT filtered to Slaughter, because Slaughter's own execute gate already decides whether the free cast lands - the roll happens on any strike and only pays out on a target under 35%."
+      "_source": "CoA: 'Increases the damage and critical strike chance of your abilities by 10% against enemies below 35% health.' Uses low_health_damage_pct, added to the engine on 6 Nov 2026 specifically because this tree needed it seven times and there was no key for 'damage against enemies below X% health' - the most common unbuildable conditional in the CoA data (48 talents, 18 of 21 classes). It is read in _damage_multiplier when a recipient is known, is a FRACTION, and shares low_health_threshold_pct (default 35%) with every other conditional in the engine. THAT THRESHOLD KEY SUMS ACROSS TALENTS - two nodes at 0.35 would give 'below 70%' - so this tree carries exactly one, on Executioner, and main() asserts it. The crit-chance half is dropped: there is no conditional crit key, only conditional damage, so the damage half is set at 15% to carry the node. Was a pure scalar on our side - and the scalar it was reduced to is exactly the failure this rebuild exists to undo."
     },
     {
       "talent_id": "reaper_harvest_harvest_time",
       "name": "Harvest Time",
-      "description": "Teaches Harvest Time: for 3 turns your damage and critical strike chance both rise by 15%.",
-      "node_type": "active",
-      "tier": 4,
+      "description": "Teaches Harvest Time, the moment the field is ready.",
+      "node_type": "passive",
+      "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
+      "hex_x": -2,
+      "hex_y": -2,
       "effects": {
         "unlock_ability": "reaper_harvest_time"
       },
       "connected_to": [
-        "reaper_harvest_ravenous_thirst",
-        "reaper_harvest_the_time_has_come"
+        "reaper_harvest_darkrend_scythe"
       ],
-      "_source": "CoA: 'Harvest Time (and the Blood Frenzy it unleashes) as your burst window when you can commit to a heavy trade.'"
+      "_source": "CoA: 'Increases your damage and critical strike chance by 15% and gives your spells that require Soul Infusion a 50% chance to not consume the effect for 15 sec.' LOAD-BEARING UNLOCK - reaper_harvest_time carries requires_talent and this is its only unlock node; dropping it makes the ability unobtainable forever. The damage and crit buff lives on the ability itself. The refund clause cannot be built: nothing intercepts a resource SPEND, only grants, so 'a chance not to consume' has no hook. CoA's Deathbringer ('doubles the duration of Blood Frenzy, Harvest Time and Harvesting Grounds') is folded into the capstone instead."
+    },
+    {
+      "talent_id": "reaper_harvest_crimson_death",
+      "name": "Crimson Death",
+      "description": "Your critical strikes have a 25% chance to strike again with Slaughter, free of cost.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_souls_for_the_slaughter"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 8,
+        "icd": 1,
+        "cast_ability": "reaper_slaughter"
+      },
+      "_source": "CoA: 'Your Slaughter now has a 20% chance to cast an additional time free of cost.' PORTS ALMOST EXACTLY via a cast_ability proc, which takes a bare ability id and costs nothing when it fires - so 'free of cost' is literally true. Only the Slaughter-specific trigger goes (there is no per-ability proc trigger), replaced by on_crit at 25% with a 1-turn internal cooldown so it cannot chain. NOTE: cast_ability does NOT check that the caster has learned the ability - but Slaughter is ungated, so there is nothing to check here."
+    },
+    {
+      "talent_id": "reaper_harvest_genocide",
+      "name": "Genocide",
+      "description": "Increases the damage and critical damage of Slaughter by 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": -2,
+      "effects": {
+        "ability_reaper_slaughter_damage": 0.0667,
+        "ability_reaper_slaughter_crit_damage": 0.0667
+      },
+      "connected_to": [
+        "reaper_harvest_extinction"
+      ],
+      "_source": "CoA: 'Increases the critical damage and critical strike chance of Slaughter by 10%.' The crit-damage half ports as a per-ability key (one of the few abilities in the project with both _damage and _crit_damage authored). The crit-CHANCE half is swapped for straight damage, since Crimson Death already keys this tree off crits and a third crit-chance node would stack into the same wall. Doubled from CoA's 10%. Was a pure scalar on our side. Both FRACTIONS."
     },
     {
       "talent_id": "reaper_harvest_darkrend_scythe",
       "name": "Darkrend Scythe",
-      "description": "Doomrend and Crow's Harvest have a 40% chance per rank to open a bleed, dealing damage over 3 turns.",
+      "description": "Your attacks have a 35% chance to open a bleed dealing damage over 4 turns, stacking up to 5 times.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "reaper_harvest_hemorrhage"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 40,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "reaper_darkrend_scythe",
-          "name": "Darkrend Scythe",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 55,
-          "damage_school": "physical",
-          "on_target": true
-        },
-        "ability_filter": [
-          "reaper_doomrend",
-          "reaper_crows_harvest"
-        ]
-      },
-      "_source": "CoA: 'Damage dealt by Doomrend and Crow's Harvest now applies a bleed, dealing AP Physical damage every 2 sec for 10 seconds, stacking 5 times.' Filtered to those two abilities exactly as written. Physical-schooled, so it reads as a bleed; the 5-stack version is dropped."
-    },
-    {
-      "talent_id": "reaper_harvest_deathbringer",
-      "name": "Deathbringer",
-      "description": "Your Harvest Time and Blood Frenzy each last 1 turn longer per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_reaper_harvest_time_duration": 1,
-        "ability_reaper_blood_frenzy_duration": 1
-      },
-      "connected_to": [
-        "reaper_harvest_crimson_death"
-      ],
-      "_source": "CoA: 'Increases the duration of Blood Frenzy and Harvest Time by 100%.' Two ranks on a 3-turn window is close enough to doubling it."
-    },
-    {
-      "talent_id": "reaper_harvest_shudder_scythe",
-      "name": "Shudder Scythe",
-      "description": "Increases the damage of Murder by 8% and its critical strike chance by 3% per rank.",
-      "node_type": "passive",
-      "tier": 5,
+      "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_blood_knight"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "darkrend_scythe",
+          "name": "Darkrend Scythe",
+          "effect_type": "dot",
+          "duration": 4,
+          "potency": 22,
+          "damage_school": "physical",
+          "max_stacks": 5,
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Doomrend and Crow's Harvest now applies a bleed, dealing Physical damage every 2 sec for 10 sec, stacking 5 times. Additional applications do not refresh the duration.' The bleed, its duration and its 5 stacks all port. 10 sec -> 4 turns (CoA ticks every 2 sec, so this is 5 ticks there and 4 here). The two-ability scoping becomes on_weapon_swing; the no-refresh clause cannot be built, since nothing controls whether a reapplication refreshes. NOTE a real difference from a dot ABILITY: a proc-applied dot carries `potency` directly as its PER-TURN damage, where an ability's rank effect_value is the TOTAL across the duration (abilities.py:2695) and gets divided. So 22 here is 22 per turn, 88 over the dot, 440 at five stacks - not 22 total."
+    },
+    {
+      "talent_id": "reaper_harvest_souls_for_the_slaughter",
+      "name": "Souls for the Slaughter",
+      "description": "Your critical strikes increase your physical damage by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_ruin"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "souls_for_the_slaughter",
+          "name": "Souls for the Slaughter",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 20
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Slaughter now cause your auto attacks to deal an additional 85% Shadow damage for 5 sec.' There is no 'add a school's damage to your autos' key and no per-school damage key the engine reads for Shadow on the caster side, so this becomes a flat outgoing-damage window, which is the same shape in play. 5 sec -> 2 turns. damage_dealt_pct is the BUFF-side companion to the talent keys (abilities.py reads it from active status effects, same '+N% more' convention) and is in PERCENTAGE POINTS inside a status effect, so 20 is 20%."
+    },
+    {
+      "talent_id": "reaper_harvest_extinction",
+      "name": "Extinction",
+      "description": "Your critical strikes have a 30% chance to let your next Slaughter be used on a target at any health.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_doomer"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 10,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "extinction",
+          "name": "Extinction",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "proc": {
+            "bypass_execute_threshold": true
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA level 20 passive: 'Direct Physical damage dealt now has a 5% chance to grant you Extinction for 10 seconds. Extinction: Your next Slaughter is usable regardless of the target's health and costs -10 less Runic Power.' THIS PORTS VERBATIM, which is rare. bypass_execute_threshold is a real proc flag read at abilities.py:1691 and the engine CONSUMES it on use - its own comment calls it 'a single guaranteed-usable window, not a permanent ignore-HP state' and says 'a future ability/talent can grant this bypass the same way'. That is CoA's Extinction word for word, including the one-shot semantics. Slaughter already carries execute_threshold_pct 35, matching CoA's own number. 10 sec -> 3 turns, 5% -> 30% because CoA's per-hit roll happens far more often than a crit. The cost reduction is dropped (Dark Fate covers costs). The nested `proc` inside apply_effect works but IS NOT INSPECTED BY THE AUDIT, so there is no static safety net on this node - main() asserts it instead. CoA's Mortal's End ('allows Extinction to stack an additional time') cannot be built: nothing reads a stack count."
+    },
+    {
+      "talent_id": "reaper_harvest_blood_knight",
+      "name": "Blood Knight",
+      "description": "Your critical strikes have a 50% chance to generate 15 additional souls.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_blood_frenzy"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 17,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "souls",
+          "amount": 15
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Doomrend now refund a Reaped Soul.' Ports as a second soul grant on crit, stacking with Red Wake for a Reaper who takes both - which is CoA's intent, since the two talents sit in the same tree and do the same thing to different abilities. The Doomrend scoping goes (no per-ability proc trigger) and is priced down to a 50% chance in exchange. 15 souls is what Doomrend itself generates, so a crit on it now pays double, exactly as CoA describes. Souls are a REAL resource here - thirteen abilities generate them - which is why this node does something and Chronomancer's Echo Fragment equivalents could not."
+    },
+    {
+      "talent_id": "reaper_harvest_ruin",
+      "name": "Ruin",
+      "description": "Your attacks have a 30% chance to mark the target, increasing the damage they take by 10% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "reaper_harvest_deathbringer"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "ruin",
+          "name": "Ruin",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Murder now applies Ruin to enemies for 10 sec. Ruin increases damage taken by Doomrend and Slaughter by 25% for 10 sec. Using Doomrend on a target afflicted by Ruin will increase your haste by 15% for 5 sec.' The debuff ports; the per-ability scoping does not (a status effect cannot carry a per-ability damage-taken key), so it becomes a general damage-taken increase at 10%. The haste clause needs to read the target's debuffs, which nothing does. 10 sec -> 3 turns. CAREFUL: bare damage_taken_pct is read RAW ON BOTH SIDES - character.py:2697 and monster.py add the status mod with no division, unlike physical_ and magic_, which divide by 100 - so 0.10 is 10% and authoring 10 would be +1000% damage taken. Asserted in main()."
+    },
+    {
+      "talent_id": "reaper_harvest_doomer",
+      "name": "Doomer",
+      "description": "Increases the damage of Doomrend and Slaughter by 30%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 2,
       "effects": {
-        "ability_reaper_murder_damage": 0.08,
-        "ability_reaper_murder_crit": 3.0
+        "ability_reaper_doomrend_damage": 0.1,
+        "ability_reaper_slaughter_damage": 0.1
       },
       "connected_to": [
-        "reaper_harvest_harvest_time"
+        "reaper_harvest_executioner"
       ],
-      "_source": "CoA: 'Your Murder is transformed into Shudder Scythe ... Strike an enemy 5 times, each dealing 30% Weapon Damage ... and granting you a Soul Fragment with each strike.' An ability transform is not expressible, so the transform's upside lands on Murder directly."
+      "_source": "CoA: 'Increases the damage of Doomrend and Slaughter by 30%.' PORTS EXACTLY, both abilities. Stacks with Genocide's 20% on Slaughter for a Reaper who takes both, which is CoA's own arrangement. Was a pure scalar on our side. Both FRACTIONS."
     },
     {
       "talent_id": "reaper_harvest_blood_frenzy",
       "name": "Blood Frenzy",
-      "description": "Teaches Blood Frenzy, and increases your physical damage by 8%. The longer the fight runs, the worse it goes for them.",
-      "node_type": "active",
+      "description": "Teaches Blood Frenzy, a rising tide of shadow that breaks at the end.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "reaper_blood_frenzy"
+      },
+      "connected_to": [
+        "reaper_harvest_deathbringer"
+      ],
+      "_source": "CoA: 'Casting Harvest Time with an enemy targeted now unleashes a Blood Frenzy. Deals Shadow Damage to your target every 0.75 sec for 7.5 seconds. At the end of the duration, the target takes an additional 457 + 45% AP Shadow Damage.' LOAD-BEARING UNLOCK - reaper_blood_frenzy carries requires_talent and this is its only unlock node. CoA has it fire automatically off Harvest Time, which needs a per-ability trigger that does not exist, so it stays a castable. The end-of-duration burst cannot be built: no trigger fires on an effect EXPIRING, which is the same gap that killed Chronomancer's End of Time and The Vast Infinite."
+    },
+    {
+      "talent_id": "reaper_harvest_executioner",
+      "name": "Executioner",
+      "description": "Increases your critical strike chance by 20% of your Strength, and your damage against enemies below 35% health by a further 25%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_from_strength_pct": 0.0667,
+        "low_health_damage_pct": 0.0833,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "reaper_harvest_deathbringer"
+      ],
+      "_source": "CoA level 40 passive: 'Increases your critical strike rating by 20% of your Strength. In addition, increases your Armor penetration by 30% against enemies below 35% health.' BOTH HALVES BUILD. The conversion is a LEGAL PAIR nobody had used before: 'crit_chance' is in STAT_CONVERSION_TARGETS (mapping to crit_chance_physical) and 'strength' is in STAT_CONVERSION_SOURCES. A conversion target must name a REAL attribute - 'block' wrote a phantom one for months and killed Sun Cleric Seraphim's Clarity of the Heavens outright - and crit_chance_physical is real. The armour-penetration half becomes conditional damage instead: armor_penetration is live (monster.py:659) but FLAT, so a '30%' of it has no meaning. Uses low_health_damage_pct, added to the engine on 6 Nov 2026 specifically because this tree needed it seven times and there was no key for 'damage against enemies below X% health' - the most common unbuildable conditional in the CoA data (48 talents, 18 of 21 classes). It is read in _damage_multiplier when a recipient is known, is a FRACTION, and shares low_health_threshold_pct (default 35%) with every other conditional in the engine. THAT THRESHOLD KEY SUMS ACROSS TALENTS - two nodes at 0.35 would give 'below 70%' - so this tree carries exactly one, on Executioner, and main() asserts it. THIS IS THE ONE NODE IN THE TREE THAT SETS low_health_threshold_pct, deliberately: that key SUMS across talents, so a second node setting it would push the window to 70% rather than 35%. 0.35 restates the engine default explicitly so CoA's own number is recorded rather than inherited by accident. Asserted in main()."
+    },
+    {
+      "talent_id": "reaper_harvest_unbound",
+      "name": "Unbound",
+      "description": "Increases the damage of Reliquary of the Lost by 40% and your physical critical damage by a further 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 4,
+      "effects": {
+        "ability_reaper_reliquary_of_the_lost_damage": 0.1333,
+        "crit_damage_physical": 0.05
+      },
+      "connected_to": [
+        "reaper_harvest_executioner"
+      ],
+      "_source": "CoA: 'Your Reliquary of the Lost is now guaranteed to critically strike for 25% increased damage on enemies below 20% health.' Three separate problems: nothing grants a guaranteed crit on a specific ability; a second low_health_threshold_pct would SUM with Executioner's and move the whole tree's window to 55%; and CoA's 20% differs from the 35% every other node here uses. Rebuilt as flat per-ability damage plus crit damage, which is where a guaranteed crit would have landed anyway."
+    },
+    {
+      "talent_id": "reaper_harvest_deathbringer",
+      "name": "Deathbringer",
+      "description": "Doubles the duration of Blood Frenzy and Harvest Time, increases your damage against enemies below 35% health by a further 30%, and your critical strikes generate 20 additional souls.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "reaper_blood_frenzy",
-        "physical_damage": 0.08
+        "ability_reaper_blood_frenzy_duration": 3,
+        "ability_reaper_harvest_time_duration": 3,
+        "low_health_damage_pct": 0.3
       },
-      "connected_to": [
-        "reaper_harvest_darkrend_scythe",
-        "reaper_harvest_deathbringer",
-        "reaper_harvest_shudder_scythe"
-      ],
-      "_source": "Capstone. CoA puts Blood Frenzy at its own top tier, 'your all-in button for extended trades' - and the spec blurb is literally 'The longer the fight runs, the worse it goes for the enemy', which is why the capstone is sustained damage rather than a burst window."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "souls",
+          "amount": 20
+        }
+      },
+      "_source": "CoA: 'Doubles the duration of Blood Frenzy, Harvest Time, and Harvesting Grounds.' The two buildable halves port as flat per-ability duration extensions - talented_duration reads ability_<id>_duration and POSITIVE EXTENDS, and it went unread for long enough that Tinker's Fuel Injection on Mechsuit Form did nothing at all. Harvesting Grounds is dropped (a persistent ground effect that pulls fleeing enemies back has no positioning to stand on). Folded in the tree's two running themes so the capstone is a payoff rather than a duration footnote: a third helping of execute damage, and a third soul grant on crit stacking with Red Wake and Blood Knight - a fully-talented Reaper crit generates 45 souls, which is three fragments in this economy's units and is what CoA's stacked-refund talents amount to. The duration values are SMALL INTEGERS IN TURNS, so talent_ranks.spread() refuses to rank this node, which is correct."
     }
   ]
 }

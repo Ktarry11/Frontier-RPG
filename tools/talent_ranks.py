@@ -49,6 +49,18 @@ WHAT IT REFUSES TO TOUCH:
 """
 
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+#: Imported from the engine rather than re-listed here, so this module and
+#: TalentNode.get_effective_effects() can never disagree about which keys
+#: are thresholds (passed through raw) rather than quantities (multiplied
+#: by points spent). See the note in spread().
+from entities.talent_node import UNSCALED_EFFECT_KEYS  # noqa: E402
+
+
 def _tidy(value):
     """Keep the per-rank number readable rather than 0.09999999999999999."""
     if isinstance(value, float):
@@ -116,6 +128,19 @@ def spread(entry, ranks):
         # beyond its original value, which for a duration is a real and
         # intended rank curve ("+1 turn per rank").
         if isinstance(value, int) and abs(value) <= 3:
+            continue
+        # UNSCALED_EFFECT_KEYS are NOT multiplied back by points spent
+        # (talent_node.py:149 passes them through at their raw value), so
+        # dividing one here is a silent nerf of exactly 1/ranks that
+        # nothing restores. Reaper Harvest's Executioner shipped a 35%
+        # execute window as 11.67% that way, which made the whole tree's
+        # conditional damage dead against any target above 11% health - it
+        # looked correct in the data and only showed up when a live
+        # character read the threshold back. These keys are THRESHOLDS, not
+        # quantities: a rank curve on one is meaningless anyway.
+        #
+        # Imported rather than re-listed so the two cannot drift apart.
+        if key in UNSCALED_EFFECT_KEYS:
             continue
         effects[key] = _tidy(value * factor)
 
