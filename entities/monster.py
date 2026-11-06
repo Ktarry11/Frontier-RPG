@@ -456,7 +456,8 @@ class Monster(StatusEffectMixin):
         self.current_health = self.max_health
 
         self.base_armor = int(template["base_armor"] * level_mult)
-        self.base_magic_resist = int(template["base_magic_resist"] * level_mult)
+        # Flat, same 0-60 scale as the six schools below.
+        self.base_magic_resist = max(0, min(60, int(template["base_magic_resist"] or 0)))
 
         # Per-school resistances (Fire/Frost/Nature/Shadow/Arcane/Holy -
         # see DamageSchool in combat/status_effects.py and Character.
@@ -472,12 +473,23 @@ class Monster(StatusEffectMixin):
         # Elemental the reverse) - authoring those specific elemental
         # templates is a follow-up content task, not part of this engine
         # change.
-        self.fire_resistance = int(template.get("base_fire_resist", 0) * level_mult)
-        self.frost_resistance = int(template.get("base_frost_resist", 0) * level_mult)
-        self.nature_resistance = int(template.get("base_nature_resist", 0) * level_mult)
-        self.shadow_resistance = int(template.get("base_shadow_resist", 0) * level_mult)
-        self.arcane_resistance = int(template.get("base_arcane_resist", 0) * level_mult)
-        self.holy_resistance = int(template.get("base_holy_resist", 0) * level_mult)
+        # FLAT, NOT LEVEL-SCALED. Resistance runs on a 0-60 scale where a
+        # point is half a percent (Character.RESIST_MAX), so a creature's
+        # resistance is a statement about what it IS rather than how big it
+        # has grown - a flame elemental shrugs off the same share of a
+        # Fireball at level 12 as at 60. Multiplying by level_mult, which
+        # is what armour and every other stat here does, would leave the
+        # whole scale meaningless at the bottom and far past its cap at the
+        # top: base 6 is 14 at level 10 and 59 at level 60.
+        from entities.character import Character as _C
+        def _resist(key):
+            return max(0, min(_C.RESIST_MAX, int(template.get(key, 0) or 0)))
+        self.base_fire_resist = _resist("base_fire_resist")
+        self.base_frost_resist = _resist("base_frost_resist")
+        self.base_nature_resist = _resist("base_nature_resist")
+        self.base_shadow_resist = _resist("base_shadow_resist")
+        self.base_arcane_resist = _resist("base_arcane_resist")
+        self.base_holy_resist = _resist("base_holy_resist")
 
         self.attack_power = int(template["base_attack"] * level_mult)
         self.spell_power = int(template.get("base_spell_power", 0) * level_mult)
@@ -555,6 +567,90 @@ class Monster(StatusEffectMixin):
     def armor(self, value):
         # Kept so older code (and the boss multiplier) can assign directly.
         self.base_armor = value
+
+
+    # PER-SCHOOL RESISTANCE AS PROPERTIES, for the same reason armor and
+    # magic_resistance are: these were plain attributes, so a status effect
+    # granting fire_resistance (a Flame Ward) or a player debuff stripping
+    # it went nowhere. tools/audit_monster_combat lists Monster's readable
+    # pool and the six schools were not in it - which stopped mattering the
+    # moment resistance stopped being decorative.
+    #
+    # Clamped to the same 0-RESIST_MAX scale the ratings themselves use, so
+    # a stack of wards cannot push a creature past the cap and a strip
+    # cannot invert into bonus damage.
+
+    @property
+    def fire_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_fire_resist
+                          + int(self.get_status_stat_mod("fire_resistance"))))
+
+    @fire_resistance.setter
+    def fire_resistance(self, value):
+        from entities.character import Character
+        self.base_fire_resist = max(0, min(Character.RESIST_MAX, int(value)))
+
+    @property
+    def frost_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_frost_resist
+                          + int(self.get_status_stat_mod("frost_resistance"))))
+
+    @frost_resistance.setter
+    def frost_resistance(self, value):
+        from entities.character import Character
+        self.base_frost_resist = max(0, min(Character.RESIST_MAX, int(value)))
+
+    @property
+    def nature_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_nature_resist
+                          + int(self.get_status_stat_mod("nature_resistance"))))
+
+    @nature_resistance.setter
+    def nature_resistance(self, value):
+        from entities.character import Character
+        self.base_nature_resist = max(0, min(Character.RESIST_MAX, int(value)))
+
+    @property
+    def shadow_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_shadow_resist
+                          + int(self.get_status_stat_mod("shadow_resistance"))))
+
+    @shadow_resistance.setter
+    def shadow_resistance(self, value):
+        from entities.character import Character
+        self.base_shadow_resist = max(0, min(Character.RESIST_MAX, int(value)))
+
+    @property
+    def arcane_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_arcane_resist
+                          + int(self.get_status_stat_mod("arcane_resistance"))))
+
+    @arcane_resistance.setter
+    def arcane_resistance(self, value):
+        from entities.character import Character
+        self.base_arcane_resist = max(0, min(Character.RESIST_MAX, int(value)))
+
+    @property
+    def holy_resistance(self):
+        from entities.character import Character
+        return max(0, min(Character.RESIST_MAX,
+                          self.base_holy_resist
+                          + int(self.get_status_stat_mod("holy_resistance"))))
+
+    @holy_resistance.setter
+    def holy_resistance(self, value):
+        from entities.character import Character
+        self.base_holy_resist = max(0, min(Character.RESIST_MAX, int(value)))
 
     @property
     def magic_resistance(self):
@@ -660,11 +756,11 @@ class Monster(StatusEffectMixin):
             reduction = Character.mitigation_from(armor, attacker_level)
         elif damage_type == "magic":
             mr = max(0, int(self.magic_resistance - _pen_flat("spell_penetration")))
-            reduction = Character.mitigation_from(mr, attacker_level)
+            reduction = Character.resist_mitigation_from(mr, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             resist = max(0, int(self.get_resistance(damage_type)
                                 - _pen_flat("spell_penetration")))
-            reduction = Character.mitigation_from(resist, attacker_level)
+            reduction = Character.resist_mitigation_from(resist, attacker_level)
         else:
             reduction = 0
 

@@ -2424,6 +2424,57 @@ class Character(StatusEffectMixin):
     #: Kept because saves, tooltips and tests referenced it. Not used by the curve any more.
     MITIGATION_CONSTANT = 100
 
+    #: RESISTANCE IS NOT ARMOUR AND MUST NOT SHARE ARMOUR'S CURVE.
+    #:
+    #: Every resistance in the game - magic_resistance and all six schools,
+    #: on characters, monsters and pets - used to run through
+    #: mitigation_from, whose denominator is 200 + 35*level = 2300 at 60.
+    #: That made a resistance rating of 100 worth 4.2% reduction at level
+    #: 60, so resistance was decorative: you would need a four-digit rating
+    #: before a fire elemental noticeably shrugged off a Fireball, and no
+    #: creature or item in the game carries one. tools/sim_class_balance
+    #: has been reporting the symptom for a while - "armour climbs with
+    #: gear forever while magic resistance stays at zero".
+    #:
+    #: Resistance is a SMALL, FLAT, LEGIBLE scale instead - Kyle's spec:
+    #: "we don't really want resistances to be super high. I'm thinking
+    #: the highest a caster will ever need is like 60 spell pen. Where
+    #: 1 spell pen = 1 resistance removed. So highest an enemy can have
+    #: is 60 resistance."
+    #:
+    #: So: 0-60 points, half a percent each, 30% at the cap.
+    #:
+    #:     resistance 15 ->  7.5%      resistance 45 -> 22.5%
+    #:     resistance 30 -> 15.0%      resistance 60 -> 30.0%  (cap)
+    #:
+    #: and 60 spell penetration cancels the worst of it outright, which is
+    #: the whole point of the stat having a reachable ceiling.
+    #:
+    #: DELIBERATELY NOT LEVEL-SCALED, unlike armour. A flame elemental
+    #: should shrug off the same share of a Fireball at level 12 as at
+    #: level 60 - its nature does not change - and a 0-60 scale that got
+    #: multiplied by the monster level curve would mean nothing at the
+    #: bottom and sit far past the cap at the top.
+    RESIST_MAX = 60
+    RESIST_PCT_PER_POINT = 0.005
+    RESIST_CAP = RESIST_MAX * RESIST_PCT_PER_POINT   # 30%
+
+    @classmethod
+    def resist_mitigation_from(cls, rating, attacker_level=None):
+        """Fraction of damage (0.0-RESIST_CAP) mitigated by a RESISTANCE
+        rating - magic resistance or any of the six schools.
+
+        Separate from mitigation_from, which is for armour. Both are the
+        single source of truth for their own stat: Character, Monster and
+        Pet all call these rather than carrying a second copy.
+
+        attacker_level is accepted and ignored, for call-signature parity
+        with mitigation_from - resistance does not scale with level, see
+        the constants above.
+        """
+        rating = max(0, min(cls.RESIST_MAX, rating))
+        return min(cls.RESIST_CAP, rating * cls.RESIST_PCT_PER_POINT)
+
     @classmethod
     def mitigation_from(cls, rating, attacker_level=None):
         """Fraction of damage (0.0-1.0) mitigated by an armor/resistance rating.
@@ -2446,7 +2497,7 @@ class Character(StatusEffectMixin):
 
     def get_magic_reduction_percent(self):
         """Current magic damage reduction from Magic Resistance, as a percentage."""
-        return self.mitigation_from(self.magic_resistance, self.level) * 100.0
+        return self.resist_mitigation_from(self.magic_resistance, self.level) * 100.0
 
     def get_resistance(self, school):
         """Real per-school resistance rating lookup - the single place
@@ -2540,7 +2591,7 @@ class Character(StatusEffectMixin):
         (0-100) through the same asymptotic curve as
         get_physical_reduction_percent/get_magic_reduction_percent -
         for tooltips/character-sheet display."""
-        return self.mitigation_from(self.get_resistance(school), self.level) * 100.0
+        return self.resist_mitigation_from(self.get_resistance(school), self.level) * 100.0
 
     def _fire_avoidance_procs(self, triggers, attacker=None):
         """Fire ON_DODGE / ON_PARRY / ON_AVOID / ON_BLOCK and queue the text.
@@ -2701,7 +2752,7 @@ class Character(StatusEffectMixin):
             if attacker is not None:
                 effective_resist = max(0, int(effective_resist
                                               - (getattr(attacker, "spell_penetration", 0) or 0)))
-            reduction = self.mitigation_from(effective_resist, attacker_level)
+            reduction = self.resist_mitigation_from(effective_resist, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Real per-school resistance path (Fire/Frost/Nature/Shadow/
             # Arcane/Holy, or a combined-school tuple - see get_resistance's
@@ -2714,7 +2765,7 @@ class Character(StatusEffectMixin):
             eff_res = self.get_resistance(damage_type)
             if attacker is not None:
                 eff_res = max(0, int(eff_res - (getattr(attacker, "spell_penetration", 0) or 0)))
-            reduction = self.mitigation_from(eff_res, attacker_level)
+            reduction = self.resist_mitigation_from(eff_res, attacker_level)
         else:
             reduction = 0
         

@@ -13,6 +13,10 @@ class CreatureManager:
     def __init__(self):
         self.creatures = {}
         self.encounters = {}
+        #: Creature ability kits, read here only to work out which school a
+        #: creature mainly casts (see _apply_cast_affinity). Monster loads
+        #: the same file for the kits themselves.
+        self.ability_kits = {}
         self._load_data()
     
     def _load_data(self):
@@ -25,6 +29,13 @@ class CreatureManager:
             with open(creatures_file, 'r') as f:
                 self.creatures = json.load(f).get("creatures", {})
             self._reject_dead_kit_key(creatures_file, self.creatures)
+
+        # Ability kits, for the cast-affinity resistance derivation.
+        kits_file = data_dir / "ability_kits.json"
+        if kits_file.exists():
+            with open(kits_file, "r") as f:
+                blob = json.load(f)
+            self.ability_kits = blob.get("kits", blob)
 
         # Load encounters
         encounters_file = data_dir / "encounters.json"
@@ -155,6 +166,50 @@ class CreatureManager:
 
         return {}
     
+    #: Resistance a creature gets in the school it mainly casts, and in a
+    #: secondary school it also casts, on Character's 0-60 scale where a
+    #: point is half a percent. 40 is 20% off a Fireball aimed at a fire
+    #: caster; 60 (the cap, 30%) is reserved for the handful of creatures
+    #: whose whole identity is one element, and is reachable by stacking
+    #: the template baseline under the affinity.
+    CAST_AFFINITY_PRIMARY = 40
+    CAST_AFFINITY_SECONDARY = 20
+
+    def _kit_schools(self, kit_name):
+        """How many abilities in this kit belong to each real school."""
+        from collections import Counter
+        from combat.status_effects import DamageSchool
+        kit = self.ability_kits.get(kit_name) or []
+        entries = kit if isinstance(kit, list) else kit.get("abilities", [])
+        counts = Counter()
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            school = entry.get("school")
+            if school in DamageSchool.ALL_SCHOOLS:
+                counts[school] += 1
+        return counts
+
+    def _apply_cast_affinity(self, monster, kit_name):
+        """Raise a spawned creature's resistance in the schools it casts.
+
+        Takes the HIGHER of the template baseline and the affinity rather
+        than adding them, so a demon that casts fire ends up resistant to
+        fire once rather than twice, and nothing creeps past the cap by
+        accident."""
+        from entities.character import Character
+        counts = self._kit_schools(kit_name)
+        if not counts:
+            return
+        ranked = counts.most_common()
+        wanted = {ranked[0][0]: self.CAST_AFFINITY_PRIMARY}
+        for school, _n in ranked[1:]:
+            wanted.setdefault(school, self.CAST_AFFINITY_SECONDARY)
+        for school, value in wanted.items():
+            attr = f"{school}_resistance"
+            current = getattr(monster, attr, 0) or 0
+            setattr(monster, attr, min(Character.RESIST_MAX, max(current, value)))
+
     def spawn_creature(self, creature_name, level=None, zone_name=None):
         """Spawn a creature (Monster instance).
 
@@ -181,6 +236,19 @@ class CreatureManager:
         
         # Create Monster using template + ability kit
         monster = Monster(creature_name, template_name, level, kit=ability_kit)
+
+        # A CREATURE RESISTS WHAT IT CASTS. The template gives a type
+        # baseline (undead shrug off shadow, demons shrug off fire), but
+        # the thing that makes Kyle's rule land - "a caster should be
+        # punished if they use fireball against a flame elemental" - is
+        # per-creature, and a template cannot express it: Molten Elemental
+        # and Spraywater Elemental share elemental_bruiser.
+        #
+        # Derived from the creature's own ability kit rather than written
+        # into creatures.json for 447 creatures, so it cannot drift: give a
+        # kit a Fireball and the creature that casts it starts resisting
+        # fire, with nothing else to remember to update.
+        self._apply_cast_affinity(monster, ability_kit)
         
         # Apply boss multiplier if applicable
         if creature_def.get("is_boss", False):

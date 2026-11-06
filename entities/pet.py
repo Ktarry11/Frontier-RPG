@@ -376,7 +376,7 @@ class Pet(StatusEffectMixin):
         if damage_type == "physical":
             reduction = Character.mitigation_from(self.armor, attacker_level)
         elif damage_type == "magic":
-            reduction = Character.mitigation_from(self.magic_resistance, attacker_level)
+            reduction = Character.resist_mitigation_from(self.magic_resistance, attacker_level)
         else:
             reduction = 0
 
