@@ -224,8 +224,19 @@ class CharacterSheetScreen(BaseScreen):
         for school, label in school_labels:
             value = player.get_resistance(school)
             pct = player.get_resistance_percent(school)
+            # A NEGATIVE RESISTANCE IS A VULNERABILITY, and it has to read
+            # as one. get_resistance_percent is signed now that resistance
+            # can go below zero (Kyle, 6 Nov: "we can also have negative
+            # resistances... on an ice elemental it can hit for 150"), so
+            # the plain "(-50.0%)" this used to print reads as though the
+            # player resists minus fifty percent rather than taking half
+            # again as much damage.
+            if pct < 0:
+                note = f"{value}  (VULNERABLE, +{-pct:.0f}% taken)"
+            else:
+                note = f"{value}  ({pct:.1f}%)"
             self.renderer.draw_text(
-                screen, f"{label}: {value}  ({pct:.1f}%)",
+                screen, f"{label}: {note}",
                 (mid_x, mid_y), font_size=16)
             mid_y += 21
         mid_y += 10
@@ -279,6 +290,12 @@ class CharacterSheetScreen(BaseScreen):
         mid_y += 22
         self.renderer.draw_text(
             screen, f"Hit (Ranged): {derived['hit_ranged']}", (mid_x, mid_y))
+        mid_y += 22
+        # Shown next to Hit Rating deliberately - the two are the same kind
+        # of stat on the same kind of scale (30 against 27), one per role.
+        self.renderer.draw_text(
+            screen, f"Spell Penetration: {derived['spell_penetration']}",
+            (mid_x, mid_y))
         mid_y += 28
         self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (mid_x, mid_y))
         mid_y += 22

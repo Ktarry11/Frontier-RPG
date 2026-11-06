@@ -2542,13 +2542,34 @@ class Character(StatusEffectMixin):
     #: 1 spell pen = 1 resistance removed. So highest an enemy can have
     #: is 60 resistance."
     #:
-    #: So: 0-60 points, half a percent each, 30% at the cap.
+    #: THE SCALE IS WORKED BACKWARDS FROM KYLE'S OWN WORKED EXAMPLE, 6 Nov:
+    #: "something can have resistance, but it will never go over 75%
+    #: resistance to an element. But we can also have negative resistances.
+    #: For example a fireball hits an enemy for 100 damage. On a fire
+    #: elemental it will hit for 25 damage. on an ice elemental it can hit
+    #: for 150. This is why a caster will want to aim to get at least 60
+    #: spell penetration and we can work the math backwards since
+    #: resistances wont change. Essentially a monster with 60 resistance
+    #: will resist 75% of damage."
     #:
-    #:     resistance 15 ->  7.5%      resistance 45 -> 22.5%
-    #:     resistance 30 -> 15.0%      resistance 60 -> 30.0%  (cap)
+    #: Two fixed points - 60 points is the most anything carries, and 60
+    #: points is 75% - give one constant and everything else follows:
+    #:
+    #:     60 * 0.0125 = 0.75
+    #:
+    #:     resistance 15 -> 18.75%     resistance 45 -> 56.25%
+    #:     resistance 30 -> 37.50%     resistance 60 -> 75.00%  (cap)
     #:
     #: and 60 spell penetration cancels the worst of it outright, which is
     #: the whole point of the stat having a reachable ceiling.
+    #:
+    #: NEGATIVE RESISTANCE IS A REAL VALUE, not a floor at zero. Kyle's ice
+    #: elemental taking 150 from a 100-damage Fireball is -50%, which is -40
+    #: points on this scale; the scale runs symmetrically to -60, so the
+    #: worst vulnerability in the game is 75% EXTRA damage and the whole
+    #: range is one number wide in each direction. take_damage already
+    #: multiplies by (1.0 - reduction), so a negative reduction amplifies
+    #: with no special case.
     #:
     #: DELIBERATELY NOT LEVEL-SCALED, unlike armour. A flame elemental
     #: should shrug off the same share of a Fireball at level 12 as at
@@ -2556,13 +2577,76 @@ class Character(StatusEffectMixin):
     #: multiplied by the monster level curve would mean nothing at the
     #: bottom and sit far past the cap at the top.
     RESIST_MAX = 60
-    RESIST_PCT_PER_POINT = 0.005
-    RESIST_CAP = RESIST_MAX * RESIST_PCT_PER_POINT   # 30%
+    RESIST_MIN = -RESIST_MAX
+    RESIST_PCT_PER_POINT = 0.0125
+    RESIST_CAP = RESIST_MAX * RESIST_PCT_PER_POINT   # 75%
+
+    #: ONE POINT OF SPELL PENETRATION REMOVES TWO OF RESISTANCE, so the most
+    #: a caster ever needs is 30 and not 60. Kyle, 6 Nov: "1 point spell pen
+    #: reduces 2 points resistance... I kind of want it in line with hit
+    #: rating. It's unfair for a physical DPS to need hit rating or armor
+    #: penetration to improve DPS where casters generally only have hit
+    #: rating."
+    #:
+    #: 30 against HIT_RATING_CAP's 27 is the "in line with hit rating" part,
+    #: and it is what makes spell penetration a stat a caster can actually
+    #: finish chasing: at 1:1 the target was 60, which a full set of nothing
+    #: but penetration suffixes only just reached, so it was a stat you
+    #: could never be done with. Priced at 10.0 to match hit rating exactly.
+    SPELL_PEN_PER_RESIST = 2
+    #: What a caster needs to cancel the worst resistance in the game.
+    SPELL_PEN_USEFUL_MAX = RESIST_MAX // SPELL_PEN_PER_RESIST   # 30
+
+    #: ...AND THE FULL 60 IS LEVEL-60 CONTENT ONLY. Kyle, 6 Nov: "We only
+    #: set anything UNDER lvl 60 at a max of 30 resistances. So these spell
+    #: pen issues are only critical end game and we can have some spell
+    #: penetration while leveling. This will make it so getting 15 wont be
+    #: hard."
+    #:
+    #: So a creature below 60 resists at most 37.5% and 15 penetration
+    #: cancels it outright, which is a number a levelling caster picks up
+    #: incidentally. The 30-penetration chase - and the 75% wall - belong to
+    #: level 60.
+    #:
+    #: This is also what keeps a SINGLE-SCHOOL caster playable. A Mage meets
+    #: a fire elemental and casts Frostbolt; a Pyromancer is fire all the way
+    #: down and has no second school to switch to, so a 75% wall on the way
+    #: up would have been a wall with no door. At 37.5% it is a bad matchup
+    #: rather than an impossible one.
+    RESIST_MAX_PRE_60 = 30
+    RESIST_FULL_SCALE_LEVEL = 60
+
+    @classmethod
+    def resist_ceiling_for_level(cls, level):
+        """The most resistance anything at `level` may carry, either way.
+
+        Symmetric, so a vulnerability is capped on the way up too: a
+        levelling player gets the gentler version of both halves, and the
+        -60 floor arrives with the +60 ceiling at 60.
+        """
+        try:
+            lv = int(level or 0)
+        except (TypeError, ValueError):
+            lv = 0
+        return cls.RESIST_MAX if lv >= cls.RESIST_FULL_SCALE_LEVEL else cls.RESIST_MAX_PRE_60
+
+    @classmethod
+    def clamp_resistance_for_level(cls, rating, level):
+        """`rating` held inside the ceiling its level allows."""
+        ceiling = cls.resist_ceiling_for_level(level)
+        return max(-ceiling, min(ceiling, rating))
 
     @classmethod
     def resist_mitigation_from(cls, rating, attacker_level=None):
-        """Fraction of damage (0.0-RESIST_CAP) mitigated by a RESISTANCE
-        rating - magic resistance or any of the six schools.
+        """Fraction of damage mitigated by a RESISTANCE rating.
+
+        Signed, and in the range -RESIST_CAP..+RESIST_CAP: a positive
+        rating reduces damage and a NEGATIVE one amplifies it, because
+        take_damage multiplies by (1.0 - reduction) and so needs no special
+        case. 60 -> +75% reduction, -40 -> 50% extra damage (Kyle's ice
+        elemental taking 150 from a 100-damage Fireball).
+
+        Covers magic resistance and all six schools.
 
         Separate from mitigation_from, which is for armour. Both are the
         single source of truth for their own stat: Character, Monster and
@@ -2572,8 +2656,32 @@ class Character(StatusEffectMixin):
         with mitigation_from - resistance does not scale with level, see
         the constants above.
         """
-        rating = max(0, min(cls.RESIST_MAX, rating))
-        return min(cls.RESIST_CAP, rating * cls.RESIST_PCT_PER_POINT)
+        rating = max(cls.RESIST_MIN, min(cls.RESIST_MAX, rating))
+        return max(-cls.RESIST_CAP,
+                   min(cls.RESIST_CAP, rating * cls.RESIST_PCT_PER_POINT))
+
+    @classmethod
+    def apply_spell_penetration(cls, resistance, attacker):
+        """Resistance after the attacker's spell penetration.
+
+        One point of penetration removes SPELL_PEN_PER_RESIST points of
+        resistance - see that constant for why it is 2 rather than 1.
+
+        PENETRATION ONLY EATS RESISTANCE, it never creates vulnerability or
+        removes it. The call sites used `max(0, res - pen)`, which was right
+        while resistance could not go below zero and becomes a real bug the
+        moment it can: an ice elemental at -40 fire would have been read as
+        0 by any attacker with any penetration at all, so the vulnerability
+        would have been silently cancelled by the stat meant to cut
+        resistance. A negative resistance is therefore returned untouched,
+        and a positive one is reduced toward zero and no further -
+        penetrating past zero into bonus damage would make penetration a
+        damage stat rather than a counter to resistance.
+        """
+        pen = (getattr(attacker, "spell_penetration", 0) or 0) if attacker else 0
+        if resistance <= 0 or not pen:
+            return resistance
+        return max(0, int(resistance) - int(pen) * cls.SPELL_PEN_PER_RESIST)
 
     @classmethod
     def mitigation_from(cls, rating, attacker_level=None):
@@ -2848,10 +2956,8 @@ class Character(StatusEffectMixin):
         elif damage_type == "magic":
             # spell_penetration is the magic-side counterpart, and was equally
             # inert. Same ordering and same floor.
-            effective_resist = self.magic_resistance
-            if attacker is not None:
-                effective_resist = max(0, int(effective_resist
-                                              - (getattr(attacker, "spell_penetration", 0) or 0)))
+            effective_resist = self.apply_spell_penetration(
+                self.magic_resistance, attacker)
             reduction = self.resist_mitigation_from(effective_resist, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
             # Real per-school resistance path (Fire/Frost/Nature/Shadow/
@@ -2862,9 +2968,11 @@ class Character(StatusEffectMixin):
             # and keep using the old flat magic_resistance stat untouched;
             # only abilities deliberately authored with a real
             # DamageSchool value reach this branch.
-            eff_res = self.get_resistance(damage_type)
-            if attacker is not None:
-                eff_res = max(0, int(eff_res - (getattr(attacker, "spell_penetration", 0) or 0)))
+            # apply_spell_penetration, not max(0, res - pen): see that
+            # method for why flooring at zero would cancel every negative
+            # resistance in the game.
+            eff_res = self.apply_spell_penetration(
+                self.get_resistance(damage_type), attacker)
             reduction = self.resist_mitigation_from(eff_res, attacker_level)
         else:
             reduction = 0
@@ -3210,6 +3318,16 @@ class Character(StatusEffectMixin):
                 "hit_ranged": (f"{self.hit_chance_ranged:.1f}%"
                                if self.equipment.get_ranged_weapon() else "-"),
                 "hit_rating": f"{self.hit_rating:.0f} / {self.HIT_RATING_CAP:.0f}",
+                # SPELL PENETRATION BELONGS BESIDE HIT RATING, which is the
+                # whole point of its scale. Kyle, 6 Nov: "I kind of want it
+                # in line with hit rating. It's unfair for a physical DPS to
+                # need hit rating or armor penetration to improve DPS where
+                # casters generally only have hit rating." It was read by
+                # take_damage and shown nowhere, so a caster had no way to
+                # know whether they were near the number that matters.
+                "spell_penetration": (
+                    f"{getattr(self, 'spell_penetration', 0) or 0:.0f}"
+                    f" / {self.SPELL_PEN_USEFUL_MAX:.0f}"),
             },
             "defense": {
                 # display_health rounds the real internal float (Kyle:

@@ -583,74 +583,110 @@ class Monster(StatusEffectMixin):
     @property
     def fire_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_fire_resist
                           + int(self.get_status_stat_mod("fire_resistance"))))
 
     @fire_resistance.setter
     def fire_resistance(self, value):
         from entities.character import Character
-        self.base_fire_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_fire_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def frost_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_frost_resist
                           + int(self.get_status_stat_mod("frost_resistance"))))
 
     @frost_resistance.setter
     def frost_resistance(self, value):
         from entities.character import Character
-        self.base_frost_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_frost_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def nature_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_nature_resist
                           + int(self.get_status_stat_mod("nature_resistance"))))
 
     @nature_resistance.setter
     def nature_resistance(self, value):
         from entities.character import Character
-        self.base_nature_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_nature_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def shadow_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_shadow_resist
                           + int(self.get_status_stat_mod("shadow_resistance"))))
 
     @shadow_resistance.setter
     def shadow_resistance(self, value):
         from entities.character import Character
-        self.base_shadow_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_shadow_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def arcane_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_arcane_resist
                           + int(self.get_status_stat_mod("arcane_resistance"))))
 
     @arcane_resistance.setter
     def arcane_resistance(self, value):
         from entities.character import Character
-        self.base_arcane_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_arcane_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def holy_resistance(self):
         from entities.character import Character
-        return max(0, min(Character.RESIST_MAX,
+        # RESIST_MIN, not 0. The floor here was zero from when resistance
+        # could not be negative, and it silently ate every vulnerability:
+        # _apply_cast_affinity would set an Ember Wisp's frost to -40 and
+        # this property handed back 0, so the whole negative half of the
+        # scale was invisible no matter what anything wrote.
+        return max(Character.RESIST_MIN, min(Character.RESIST_MAX,
                           self.base_holy_resist
                           + int(self.get_status_stat_mod("holy_resistance"))))
 
     @holy_resistance.setter
     def holy_resistance(self, value):
         from entities.character import Character
-        self.base_holy_resist = max(0, min(Character.RESIST_MAX, int(value)))
+        self.base_holy_resist = max(Character.RESIST_MIN,
+                                  min(Character.RESIST_MAX, int(value)))
 
     @property
     def magic_resistance(self):
@@ -702,10 +738,19 @@ class Monster(StatusEffectMixin):
         Character, since Monster's mitigation curve is already its own
         inline formula (take_damage's `rating / (rating + 100)`) rather
         than sharing Character.mitigation_from as a classmethod.
+
+        HELD INSIDE THE LEVEL'S CEILING, which is the single place that
+        rule is enforced for creatures. Kyle, 6 Nov: "We only set anything
+        UNDER lvl 60 at a max of 30 resistances. So these spell pen issues
+        are only critical end game and we can have some spell penetration
+        while leveling." Done here rather than at authoring time so it holds
+        however the number arrived - template baseline, cast affinity, a
+        status effect, or a hand-authored value added later - and so the
+        character sheet and the damage path can never disagree about it.
         """
         if isinstance(school, (tuple, list)):
             return min(self.get_resistance(s) for s in school) if school else 0
-        return {
+        raw = {
             "fire": self.fire_resistance,
             "frost": self.frost_resistance,
             "nature": self.nature_resistance,
@@ -713,6 +758,8 @@ class Monster(StatusEffectMixin):
             "arcane": self.arcane_resistance,
             "holy": self.holy_resistance,
         }.get(school, 0)
+        from entities.character import Character
+        return Character.clamp_resistance_for_level(raw, getattr(self, "level", 0))
 
     def take_damage(self, amount, damage_type="physical", attacker_level=None, attacker=None):
         """Apply damage with armor/resist reduction. Returns damage taken.
@@ -755,11 +802,19 @@ class Monster(StatusEffectMixin):
                                - _pen_flat("armor_penetration")))
             reduction = Character.mitigation_from(armor, attacker_level)
         elif damage_type == "magic":
-            mr = max(0, int(self.magic_resistance - _pen_flat("spell_penetration")))
+            mr = max(0, int(self.magic_resistance
+                            - _pen_flat("spell_penetration")
+                            * Character.SPELL_PEN_PER_RESIST))
             reduction = Character.resist_mitigation_from(mr, attacker_level)
         elif damage_type in DamageSchool.ALL_SCHOOLS or isinstance(damage_type, (tuple, list)):
-            resist = max(0, int(self.get_resistance(damage_type)
-                                - _pen_flat("spell_penetration")))
+            # Penetration eats resistance and never creates or removes
+            # vulnerability - Character.apply_spell_penetration holds the
+            # rule, and flooring at zero here would cancel every negative
+            # resistance the moment one is authored.
+            resist = self.get_resistance(damage_type)
+            if resist > 0:
+                resist = max(0, int(resist - _pen_flat("spell_penetration")
+                                    * Character.SPELL_PEN_PER_RESIST))
             reduction = Character.resist_mitigation_from(resist, attacker_level)
         else:
             reduction = 0

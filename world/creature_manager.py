@@ -167,13 +167,94 @@ class CreatureManager:
         return {}
     
     #: Resistance a creature gets in the school it mainly casts, and in a
-    #: secondary school it also casts, on Character's 0-60 scale where a
-    #: point is half a percent. 40 is 20% off a Fireball aimed at a fire
-    #: caster; 60 (the cap, 30%) is reserved for the handful of creatures
-    #: whose whole identity is one element, and is reachable by stacking
-    #: the template baseline under the affinity.
-    CAST_AFFINITY_PRIMARY = 40
-    CAST_AFFINITY_SECONDARY = 20
+    #: secondary school it also casts, on Character's -60..60 scale where a
+    #: point is 1.25%.
+    #:
+    #: 60 IS KYLE'S WORKED EXAMPLE, 6 Nov: "a fireball hits an enemy for 100
+    #: damage. On a fire elemental it will hit for 25 damage." That is 75%,
+    #: which is the cap, which is 60 points - so a creature whose kit is
+    #: mainly one school IS that example and gets the full number. It was 40
+    #: when a point was half a percent and the cap was 30%; carrying 40 onto
+    #: the new scale would have made the elemental 50% and quietly missed the
+    #: one case the whole system exists to produce.
+    #:
+    #: A secondary school is half of it, 30 points for 37.5%.
+    CAST_AFFINITY_PRIMARY = 60
+    CAST_AFFINITY_SECONDARY = 30
+
+    #: A VULNERABILITY COMES FROM WHAT A CREATURE IS, NOT WHAT IT CASTS, and
+    #: it must be guessable on sight. Kyle, 6 Nov: "Not everything needs a
+    #: vulnerability. But it should be obvious to the player. You see a
+    #: tree. You use fireball. It hurts the tree."
+    #:
+    #: The first version of this derived the weakness from the opposite of
+    #: whatever school the creature's KIT mostly cast, and that is a
+    #: different thing wearing the same shape. It read a creature's magic
+    #: rather than its body, so it gave 135 creatures a holy weakness
+    #: including 56 humanoid casters, a Witchwing Harpy and a wolf called
+    #: Alpha Fenris - nothing about a human cultist's appearance says holy
+    #: hurts him more, and a tree, which is the clearest case in the game,
+    #: got nothing at all because it casts nothing.
+    #:
+    #: So the rule is the creature's NATURE, and only where a player would
+    #: already expect it:
+    #:
+    #:     undead  -> holy     a skeleton, a ghoul, a wraith
+    #:     demon   -> holy     the other classic
+    #:     plant   -> fire     wood burns. Kyle's own example
+    #:     fire    -> frost    a thing made of fire
+    #:     frost   -> fire     ...and a thing made of ice
+    #:
+    #: Everything else gets none, which is the "not everything needs a
+    #: vulnerability" half. Nature and arcane are nobody's weakness here:
+    #: neither has an opposite among the six that a player could reason
+    #: about, and an invented one would be worse than none.
+    #:
+    #: -40 is Kyle's own figure: 150 damage from a 100-damage hit is 50%
+    #: extra, which is 40 points of negative resistance. Deliberately short
+    #: of the -60 floor, so the floor stays for a hand-authored creature
+    #: whose entire point is a weakness. Clamped to -30 below level 60 like
+    #: everything else (Character.clamp_resistance_for_level).
+    VULNERABILITY = -40
+
+    #: Template families whose whole body is the tell. Keyed on the template
+    #: name's prefix, so the undead_warrior/undead_caster/undead_beast
+    #: chassis added on 6 Nov are covered without listing each.
+    FAMILY_VULNERABILITY = {"undead": "holy", "demon": "holy"}
+
+    #: ...and the creatures whose nature is in their name rather than their
+    #: template. HAND-CHECKED, because name matching cannot do this: a
+    #: prefix rule for "stalk" claims every Stalker in the game (a Crag
+    #: Stalker is a predator), "thorn" claims a Thornhide Boar, and
+    #: "Kundaraz Vinecutter" is a man who cuts vines rather than a vine.
+    #: Each of these was read and kept; the list is short on purpose.
+    NATURE_VULNERABILITY = {
+        # Wood and fungus burn - Kyle's worked example.
+        "Corrupted Treant": "fire",
+        "Bramblethorn the Ancient": "fire",
+        "Oasis Tangle-Vine": "fire",
+        "The Deep Bloom": "fire",
+        "Rootbound": "fire",
+        "Rootmaw": "fire",
+        "Fenrot Creeper": "fire",
+        "Mosshide the Gloomcap Elder": "fire",
+        "Gloomcap Sporeling": "fire",
+        "Spore-Drifter": "fire",
+        "Plague Spore": "fire",
+        "Mycelial Husk": "fire",
+        "Bloom Thrall": "fire",
+        "Queen Thistlewing": "fire",
+        "Marsh Ooze": "fire",
+        # Made of fire, so ice bites.
+        "Ember Wisp": "frost",
+        "Cinderfang": "frost",
+        "Smolderhide": "frost",
+        # Made of water or ice, so fire does.
+        "Tidal Elemental": "fire",
+        "Deep Seep": "fire",
+        "Barrow Shade": "fire",
+        "The Tidewrack": "fire",
+    }
 
     def _kit_schools(self, kit_name):
         """How many abilities in this kit belong to each real school."""
@@ -196,7 +277,22 @@ class CreatureManager:
         Takes the HIGHER of the template baseline and the affinity rather
         than adding them, so a demon that casts fire ends up resistant to
         fire once rather than twice, and nothing creeps past the cap by
-        accident."""
+        accident.
+
+        AND LOWERS IT IN THE OPPOSITE SCHOOL. A creature whose kit is mainly
+        fire is made vulnerable to frost and the reverse, holy against
+        shadow likewise - which is the other half of Kyle's example and the
+        thing that makes picking a school a decision rather than a flavour.
+        THE KIT BEATS A GENERIC TEMPLATE FLOOR here. The first version only
+        applied the vulnerability where the school sat at zero or below, and
+        it fired on almost nothing: elemental_caster gives a flat 10 in all
+        six schools, so an Ember Wisp and a Tidal Elemental - the two
+        clearest cases in the game - both kept 10 in the school they should
+        fear. A flat spread is filler, not a statement; a kit that is mainly
+        fire is a statement. The only thing the vulnerability will not
+        override is a school the creature ITSELF casts, so a creature with
+        both fire and frost in its kit is vulnerable to neither.
+        """
         from entities.character import Character
         counts = self._kit_schools(kit_name)
         if not counts:
@@ -209,6 +305,47 @@ class CreatureManager:
             attr = f"{school}_resistance"
             current = getattr(monster, attr, 0) or 0
             setattr(monster, attr, min(Character.RESIST_MAX, max(current, value)))
+
+    def _apply_vulnerability(self, monster, template_name=None, ability_kit=None):
+        """Make a creature weak to what its own nature invites.
+
+        See VULNERABILITY and the two tables above for the rule and why it
+        reads the creature's BODY rather than its spell list.
+
+        A school the creature resists is never also made a weakness, so a
+        hand-authored exception (an undead whose whole point is holy magic)
+        keeps its resistance rather than being handed a contradiction.
+        """
+        from entities.character import Character
+        school = self.NATURE_VULNERABILITY.get(getattr(monster, "name", None))
+        curated = school is not None
+        if school is None:
+            for family, sch in self.FAMILY_VULNERABILITY.items():
+                if str(template_name or "").startswith(family):
+                    school = sch
+                    break
+        if school is None:
+            return
+        # A school the creature CASTS is never also its weakness - that
+        # holds for both tables, since nothing should resist and fear the
+        # same element.
+        if school in self._kit_schools(ability_kit):
+            return
+        attr = f"{school}_resistance"
+        current = getattr(monster, attr, 0) or 0
+        # A HAND-CHECKED ENTRY BEATS A GENERIC TEMPLATE FLOOR; a family rule
+        # does not. elemental_caster hands out a flat 10 in all six schools,
+        # which is filler rather than a statement, and it was silently
+        # blocking every elemental on the curated list - an Ember Wisp kept
+        # frost 10 and a Tidal Elemental kept fire 10, which are the two
+        # clearest cases after the tree. Where the FAMILY rule is what
+        # matched, a real positive resistance still wins, so a hand-authored
+        # undead built to shrug off holy magic keeps that rather than being
+        # handed a contradiction.
+        if current > 0 and not curated:
+            return
+        setattr(monster, attr,
+                max(Character.RESIST_MIN, min(current, self.VULNERABILITY)))
 
     def spawn_creature(self, creature_name, level=None, zone_name=None):
         """Spawn a creature (Monster instance).
@@ -249,6 +386,15 @@ class CreatureManager:
         # kit a Fireball and the creature that casts it starts resisting
         # fire, with nothing else to remember to update.
         self._apply_cast_affinity(monster, ability_kit)
+
+        # ...AND IS WEAK TO WHAT ITS BODY INVITES, which is a separate rule
+        # on a separate signal - see _apply_vulnerability. Called here and
+        # not inside _apply_cast_affinity because that returns early for a
+        # kit with no real school, and the clearest case in the game is
+        # exactly that: the Deathguard Captain's kit is entirely physical,
+        # and he is still a Forsaken who should fear holy magic.
+        self._apply_vulnerability(monster, template_name=template_name,
+                                  ability_kit=ability_kit)
         
         # Apply boss multiplier if applicable
         if creature_def.get("is_boss", False):

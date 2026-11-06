@@ -659,10 +659,16 @@ def main():
     # level-scaled - so the note describes the curve as it actually is.
     print(f"  Armour runs on mitigation_from (denominator "
           f"{Character.MITIGATION_BASE} + {Character.MITIGATION_PER_LEVEL}*level)"
-          f" and climbs with gear.\n  Resistance is a separate 0-"
-          f"{Character.RESIST_MAX} scale at "
-          f"{Character.RESIST_PCT_PER_POINT*100:.1f}% a point, capped at "
-          f"{Character.RESIST_CAP*100:.0f}%, which spell penetration cancels 1 for 1.")
+          f" and climbs with gear.\n  Resistance is a separate "
+          f"{Character.RESIST_MIN}..{Character.RESIST_MAX} scale at "
+          f"{Character.RESIST_PCT_PER_POINT*100:.2f}% a point, capped at "
+          f"{Character.RESIST_CAP*100:.0f}% either way - a negative rating "
+          f"AMPLIFIES.\n  One point of spell penetration removes "
+          f"{Character.SPELL_PEN_PER_RESIST} of resistance, so "
+          f"{Character.SPELL_PEN_USEFUL_MAX} cancels the worst of it and "
+          f"nothing above that does anything (against "
+          f"{Character.HIT_RATING_CAP:.0f} for the hit cap - deliberately "
+          f"in line).")
 
     # ---- outliers, measured against the spread rather than an invented target
     print("\nSPECS BEHIND THEIR OWN CLASS'S BEST BUILD")
