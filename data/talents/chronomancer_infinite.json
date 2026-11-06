@@ -2,7 +2,7 @@
   "spec_name": "Chronomancer Infinite",
   "tree_id": "chronomancer_infinite",
   "description": "Chaos out of order - a caster who rots a target over a dozen turns and lets the decay do the killing.",
-  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Infinite talents (role DPS). The spec's defining hook - 'periodic damage dealt has a chance to...' - has no engine equivalent: the DoT tick path (status_effects.py:914) runs on the target with no caster handle, so there is nothing to fire a proc on. All seven such talents are re-pointed to on_damage_cast and each says so. Long dots are the spec's point and the engine pays for extending them properly: talent extensions add TICKS at full per-turn value (abilities.py:2777), unlike raising an ability's base duration. arcane_spell_damage is dead data and is not used anywhere here.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Infinite talents (role DPS). The spec's defining hook - 'periodic damage dealt has a chance to...' - has no engine equivalent: the DoT tick path (status_effects.py:914) runs on the target with no caster handle, so there is nothing to fire a proc on. All seven such talents are re-pointed to on_damage_cast and each says so. Long dots are the spec's point and the engine pays for extending them properly: talent extensions add TICKS at full per-turn value (abilities.py:2777), unlike raising an ability's base duration. arcane_spell_damage is LIVE - corrected 6 Nov 2026 after I wrongly grepped it as dead; <school>_spell_damage is built with an f-string at abilities.py:1371, so a literal grep cannot see it.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -89,7 +89,7 @@
     {
       "talent_id": "chronomancer_infinite_time_means_nothing",
       "name": "Time Means Nothing",
-      "description": "Increases all damage you deal by 3%.",
+      "description": "Increases your Arcane damage by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -97,12 +97,12 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.01
+        "arcane_spell_damage": 0.02
       },
       "connected_to": [
         "chronomancer_infinite_chromatic_shard_mastery"
       ],
-      "_source": "CoA: 'Increases your magic damage dealt by 3% and damage dealt by Chromatic Shard now increases the target's spell damage taken by 10% for 30 seconds.' The magic scoping is dropped - there are no per-school damage keys that the engine reads for Arcane (arcane_spell_damage is authored in three places project-wide and read nowhere), so this becomes all_damage. The Chromatic Shard debuff half moves to its own node (Chromatic Shard Mastery) where it can carry a real proc. all_damage is a FRACTION."
+      "_source": "CoA: 'Increases your magic damage dealt by 3% and damage dealt by Chromatic Shard now increases the target's spell damage taken by 10% for 30 seconds.' THE MAGIC SCOPING NOW PORTS, corrected 6 Nov 2026: arcane_spell_damage is live, read via an f-string at abilities.py:1371 inside _school_damage_bonus and resolved against the school the ability actually deals. I had written this node as all_damage after grepping for the literal key and concluding it was dead - a grep cannot see a dynamically built key, and measuring it live gave a ratio of exactly 1.500. Chronomancer's whole kit is Arcane/Chromatic, so the scoped key reaches essentially everything this class casts while still being the honest translation of 'magic damage dealt'; doubled to 6% since it is now narrower than all_damage. The Chromatic Shard debuff half moves to its own node (Chromatic Shard Mastery) where it can carry a real proc. A FRACTION."
     },
     {
       "talent_id": "chronomancer_infinite_anomaly_spikes",

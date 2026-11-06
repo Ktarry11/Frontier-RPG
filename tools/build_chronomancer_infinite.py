@@ -46,12 +46,31 @@ Chronomancer's six dots in the preceding commit). `dot_duration_pct` is
 live at abilities.py:2766 as a FRACTION and lengthens every dot the caster
 applies. Distorted Time and the capstone both use it.
 
-ARCANE_SPELL_DAMAGE IS DEAD DATA. Three talents elsewhere in the project
-author it and no engine code reads it - `fire_spell_damage`,
-`frost_spell_damage` and `shadow_spell_damage` are read, `arcane_` is not.
-Chronomancer is an Arcane/Chromatic class, so this was the obvious key to
-reach for and it would have been silent in play while passing every check.
-Everything here uses `spell_damage`, `dot_damage` or `all_damage`.
+ARCANE_SPELL_DAMAGE IS LIVE, AND I FIRST RECORDED THE OPPOSITE. Corrected
+6 Nov 2026.
+
+I grepped for the literal string "arcane_spell_damage", found nothing in
+the engine, and wrote it up as dead data - in this docstring, in the
+Chronomancer Infinite commit message and in
+claude/engine_findings_2026_11_06.md. That was wrong.
+
+`<school>_spell_damage` IS NEVER WRITTEN LITERALLY. It is built with an
+f-string at abilities.py:1371 - `self._talent(caster,
+f"{real}_spell_damage")` - inside _school_damage_bonus, resolved against
+the school the ability actually deals that cast. So every school's key is
+read, arcane included. Measured live over 1500 casts of Unmake (whose
+damage_school is "arcane"): baseline 157.7, with +50%
+arcane_spell_damage 236.6, ratio exactly 1.500.
+
+A GREP FOR A LITERAL KEY NAME CANNOT SEE A DYNAMICALLY BUILT KEY, and this
+project already knew that - Venomancer Fortitude's exposed_flesh_rage_pct
+is recorded as "greps dead but works dynamically" and has asserts
+protecting both halves for exactly this reason. I failed to apply the
+lesson one class later. The reliable test is to spend the key on a live
+character and measure, which is what settled it.
+
+Time Means Nothing now uses arcane_spell_damage, which is what CoA's
+"magic damage dealt" means on this class.
 
 GIFT OF THE INFINITE DRAGONFLIGHT LOSES HALF ITS TEXT. CoA: "Increases
 your spell damage by 40% of your Spirit and your spell hit rating by 3% of
@@ -128,7 +147,7 @@ TREE = {
         "spec's point and the engine pays for extending them properly: "
         "talent extensions add TICKS at full per-turn value "
         "(abilities.py:2777), unlike raising an ability's base duration. "
-        "arcane_spell_damage is dead data and is not used anywhere here."),
+        "arcane_spell_damage is LIVE - corrected 6 Nov 2026 after I wrongly grepped it as dead; <school>_spell_damage is built with an f-string at abilities.py:1371, so a literal grep cannot see it."),
     "tier_requirements": {"0": 0, "1": 5, "2": 10, "3": 15, "4": 20,
                           "5": 25, "6": 30},
     "nodes": [],
@@ -227,19 +246,26 @@ N.append(node(
 
 N.append(node(
     "time_means_nothing", "Time Means Nothing",
-    "Increases all damage you deal by 3%.",
+    "Increases your Arcane damage by 6%.",
     0, 4,
-    effects={"all_damage": 0.03},
+    effects={"arcane_spell_damage": 0.06},
     connect=["chromatic_shard_mastery"],
     source="CoA: 'Increases your magic damage dealt by 3% and damage dealt "
            "by Chromatic Shard now increases the target's spell damage "
-           "taken by 10% for 30 seconds.' The magic scoping is dropped - "
-           "there are no per-school damage keys that the engine reads for "
-           "Arcane (arcane_spell_damage is authored in three places "
-           "project-wide and read nowhere), so this becomes all_damage. "
+           "taken by 10% for 30 seconds.' THE MAGIC SCOPING NOW PORTS, "
+           "corrected 6 Nov 2026: arcane_spell_damage is live, read via an "
+           "f-string at abilities.py:1371 inside _school_damage_bonus and "
+           "resolved against the school the ability actually deals. I had "
+           "written this node as all_damage after grepping for the literal "
+           "key and concluding it was dead - a grep cannot see a "
+           "dynamically built key, and measuring it live gave a ratio of "
+           "exactly 1.500. Chronomancer's whole kit is Arcane/Chromatic, so "
+           "the scoped key reaches essentially everything this class casts "
+           "while still being the honest translation of 'magic damage "
+           "dealt'; doubled to 6% since it is now narrower than all_damage. "
            "The Chromatic Shard debuff half moves to its own node "
            "(Chromatic Shard Mastery) where it can carry a real proc. "
-           "all_damage is a FRACTION."))
+           "A FRACTION."))
 
 # ---- tier 1 -------------------------------------------------------------
 N.append(node(
