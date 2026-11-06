@@ -838,55 +838,55 @@
       "resource_type": "mana",
       "cooldown": 4,
       "effect_type": "spell_dot",
-      "duration": 9,
+      "duration": 10,
       "stat_mods": {},
-      "description": "Deals Arcane damage to the target over time for 9 turns.",
+      "description": "Deals Arcane damage to the target over time for 10 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 12,
           "cost": 45,
-          "effect_value": 164
+          "effect_value": 182
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 63,
-          "effect_value": 222
+          "effect_value": 247
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 82,
-          "effect_value": 281
+          "effect_value": 312
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 100,
-          "effect_value": 339
+          "effect_value": 377
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 119,
-          "effect_value": 398
+          "effect_value": 442
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 137,
-          "effect_value": 456
+          "effect_value": 507
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 156,
-          "effect_value": 515
+          "effect_value": 572
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload. || Duration 4 -> 9 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.46x alongside (4->9 is 2.25x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~46%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload. || Duration 4 -> 9 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.46x alongside (4->9 is 2.25x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~46%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Corrected to 10 turns, matching CoA exactly: 'Chromatic Damage every 3 sec for 30 sec' is 10 ticks at this engine's ~3 sec per turn. 9 was my own rounding; CoA's own number was better. Total scaled by 1.11 so per-tick is unchanged from the 9-turn version.",
       "target_type": "enemy",
       "damage_school": "arcane"
     },

@@ -1,8 +1,8 @@
 {
   "spec_name": "Chronomancer Infinite",
   "tree_id": "chronomancer_infinite",
-  "description": "Ranged chaos caster - rolling periodic damage drives Anomaly Spikes, stacking haste and cooldown resets, which cash out through the Incarnation of Chaos window.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_chronomancer__infinite.txt: 'Closest to an Affliction/Destruction Warlock hybrid rendered in chaos-and-time flavor.' The tree is shaped by that spec's own loop - 'Most of the work is sequencing your DoTs so Anomaly Spikes and the haste and cooldown procs are always rolling, then cashing that into the Incarnation of Chaos window' - so five of its twenty-three nodes are procs rather than flat stats, which is high for this codebase and deliberate. Stat priority is Spell Hit > Spell Power > Intellect > Crit > Spirit > Haste, and Spirit appears as high as it does because Gift of the Infinite Dragonflight converts it into both of the top two.",
+  "description": "Chaos out of order - a caster who rots a target over a dozen turns and lets the decay do the killing.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Infinite talents (role DPS). The spec's defining hook - 'periodic damage dealt has a chance to...' - has no engine equivalent: the DoT tick path (status_effects.py:914) runs on the target with no caster handle, so there is nothing to fire a proc on. All seven such talents are re-pointed to on_damage_cast and each says so. Long dots are the spec's point and the engine pays for extending them properly: talent extensions add TICKS at full per-turn value (abilities.py:2777), unlike raising an ability's base duration. arcane_spell_damage is dead data and is not used anywhere here.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,147 +14,124 @@
   },
   "nodes": [
     {
-      "talent_id": "chronomancer_infinite_warpstriker",
-      "name": "Warpstriker",
-      "description": "Reduces the Mana cost of your spells by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the cost of your spells by -5% and the chance for your spells to be dispelled by 10%.' Note the SIGN: talented_cost does cost * (1 - pct), so a POSITIVE value is the discount. Guardian's Seasoned Fighter shipped -0.03 here and makes its abilities 3% more expensive per rank."
-    },
-    {
-      "talent_id": "chronomancer_infinite_deconstruction",
-      "name": "Deconstruction",
-      "description": "Increases the critical strike chance of Unmake by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_chronomancer_unmake_crit": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the critical strike chance of Unmake by 5%.'"
-    },
-    {
-      "talent_id": "chronomancer_infinite_rippling_power",
-      "name": "Rippling Power",
-      "description": "Increases your Spirit by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "spirit_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Increases your Spirit by 8%.' Spirit is the listed primary stat for all three specs, which is unusual for a cloth caster and is why this tree, like the other two, opens on it."
-    },
-    {
-      "talent_id": "chronomancer_infinite_impeccable_timing",
-      "name": "Impeccable Timing",
-      "description": "Increases the damage of your periodic effects by 4% per rank.",
+      "talent_id": "chronomancer_infinite_gift_of_the_infinite_dragonflight",
+      "name": "Gift of the Infinite Dragonflight",
+      "description": "Increases your spell damage by 40% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
+      "hex_y": -6,
+      "effects": {
+        "spell_damage_from_spirit_pct": 0.1333
+      },
+      "connected_to": [
+        "chronomancer_infinite_temporal_decay"
+      ],
+      "_source": "CoA level 20 passive: 'Increases your spell damage by 40% of your Spirit and your spell hit rating by 3% of your Spirit.' The first half PORTS EXACTLY - spell_damage is in STAT_CONVERSION_TARGETS and spirit in STAT_CONVERSION_SOURCES. The second half is DROPPED, both ways: hit_rating is not a valid conversion target, and hit_chance_spell is set once in Character.__init__ (line 147) and never fed from bonuses, so a talent writing it is silent. Was a pure scalar on our side. A FRACTION."
+    },
+    {
+      "talent_id": "chronomancer_infinite_temporal_decay",
+      "name": "Temporal Decay",
+      "description": "Increases the damage of your periodic effects by 12%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
         "dot_damage": 0.04
       },
-      "connected_to": [],
-      "_source": "CoA class tree: 'Your periodic damage and healing effects can now critically strike.' There is no can-DoTs-crit switch (DoT ticks never roll a crit in combat/status_effects.py), so the node buys the same thing the switch would: more damage out of the ticks."
+      "connected_to": [
+        "chronomancer_infinite_warpstriker",
+        "chronomancer_infinite_deconstruction"
+      ],
+      "_source": "Not a single CoA talent - the tree needs an entry point for the dot identity Kyle asked for, and dot_damage is the only global periodic key the engine reads (abilities.py:1601). Stands in for CoA's Infinite Horizon clause 'your Unmake and Timerend gain an additional 20% bonus spell scaling', which cannot be built as written (there is no per-ability spell-scaling key, only flat damage). A FRACTION."
+    },
+    {
+      "talent_id": "chronomancer_infinite_warpstriker",
+      "name": "Warpstriker",
+      "description": "Reduces the mana cost of your spells by 5%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "all_ability_cost_pct": 0.0167
+      },
+      "connected_to": [
+        "chronomancer_infinite_anomaly_spikes"
+      ],
+      "_source": "CoA over 2 ranks: 'Reduces the cost of your spells by -5% and the chance for your spells to be dispelled by 10%.' The cost half ports; all_ability_cost_pct is a FRACTION and POSITIVE MEANS A REDUCTION. The dispel-resistance half has no key and is dropped. Was a pure scalar on our side too, but of the wrong kind - this is at least the scalar CoA wrote."
+    },
+    {
+      "talent_id": "chronomancer_infinite_deconstruction",
+      "name": "Deconstruction",
+      "description": "Increases the critical strike chance of Unmake by 5%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "ability_chronomancer_unmake_crit": 1.6667
+      },
+      "connected_to": [
+        "chronomancer_infinite_mind_melt"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Unmake by 5%.' Ports exactly. Per-ability crit keys are in PERCENTAGE POINTS. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_time_means_nothing",
+      "name": "Time Means Nothing",
+      "description": "Increases all damage you deal by 3%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -6,
+      "effects": {
+        "all_damage": 0.01
+      },
+      "connected_to": [
+        "chronomancer_infinite_chromatic_shard_mastery"
+      ],
+      "_source": "CoA: 'Increases your magic damage dealt by 3% and damage dealt by Chromatic Shard now increases the target's spell damage taken by 10% for 30 seconds.' The magic scoping is dropped - there are no per-school damage keys that the engine reads for Arcane (arcane_spell_damage is authored in three places project-wide and read nowhere), so this becomes all_damage. The Chromatic Shard debuff half moves to its own node (Chromatic Shard Mastery) where it can carry a real proc. all_damage is a FRACTION."
     },
     {
       "talent_id": "chronomancer_infinite_anomaly_spikes",
       "name": "Anomaly Spikes",
-      "description": "Your damaging spells have a 12% chance to launch an Anomaly Spike at your target.",
+      "description": "Your damaging spells have a 25% chance to launch an Anomaly Spike at your target.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -1,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "chronomancer_anomaly_spike"
       },
       "connected_to": [
-        "chronomancer_infinite_warpstriker"
+        "chronomancer_infinite_erosion"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 12,
-        "icd": 1,
+        "chance": 25,
+        "icd": 0,
         "cast_ability": "chronomancer_anomaly_spike"
       },
-      "_source": "CoA: 'Periodic damage dealt now has a 8% chance to launch an Anomaly Spike at your target.' The real mechanic, via the engine's cast_ability proc payload - it fires the spell free (Ability.use(free=True)). It triggers off DAMAGING CASTS rather than off DoT ticks, because on_damage_cast is a trigger the engine dispatches and a per-tick trigger is not."
+      "_source": "CoA over 2 ranks: 'Periodic damage dealt now has a 8% chance to launch an Anomaly Spike at your target.' LOAD-BEARING UNLOCK - chronomancer_anomaly_spike carries requires_talent and this is its only unlock node in the game; dropping it makes the ability unobtainable forever. CoA hangs this off PERIODIC DAMAGE, which does not exist as a trigger. status_effects.py:914 applies a dot with a bare self.take_damage() on the TARGET and holds no caster reference - its own THREAT GAP note says status effects store 'potency/duration/school, not a caster or engine handle' - so there is nobody to fire a proc on. Re-pointed to on_damage_cast: it fires on the Chronomancer's damaging casts instead of on their ticks, so a player who dots and waits gets nothing. This is the class's single biggest translation loss and it affects seven talents across all three trees. The chance is raised from 8% to 25% to compensate: CoA's 8% fires off every tick of every dot on every target, which in a long fight is dozens of rolls, where on_damage_cast rolls once per cast. cast_ability takes a bare ability id and the ability must be in the caster's book, which the unlock guarantees."
     },
     {
-      "talent_id": "chronomancer_infinite_mind_melt",
-      "name": "Mind Melt",
-      "description": "Your damaging spells weaken the target's attacks for 3 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "chronomancer_infinite_deconstruction"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "chronomancer_mind_melt",
-          "name": "Mind Melt",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "attack_power": -25
-          },
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Damage dealt by Melt Reality now also reduces the target's primary attributes by -3%, stacking 5 times.' Attack power is the only outgoing-damage stat a Monster reads off a status effect, so the attribute shred is that; stacking is not available to a proc payload."
-    },
-    {
-      "talent_id": "chronomancer_infinite_gift_of_the_infinite_dragonflight",
-      "name": "Gift of the Infinite Dragonflight",
-      "description": "Grants spell damage equal to 4% of your Spirit, and 1 spell hit rating, per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "spell_damage_from_spirit_pct": 0.04,
-        "hit_rating": 1
-      },
-      "connected_to": [
-        "chronomancer_infinite_rippling_power"
-      ],
-      "_source": "CoA's level-20 free passive: 'Increases your spell damage by 40% of your Spirit and your spell hit rating by 3% of your Spirit.' A real <target>_from_<source>_pct conversion, resolved against the shared STAT_CONVERSION maps in character.py. The hit half cannot be a conversion - hit_rating is a local feeding base_miss_chance_*, not a Character attribute - so it is flat, the same compromise Guardian's Bulwark made."
-    },
-    {
-      "talent_id": "chronomancer_infinite_distorted_time",
-      "name": "Distorted Time",
-      "description": "Reduces the cooldown of Timerend by 1 turn and increases the duration of Decomposition by 1 turn, per rank.",
+      "talent_id": "chronomancer_infinite_chromatic_shard_mastery",
+      "name": "Chromatic Shard",
+      "description": "Increases the damage of Chromatic Shard by 20%, and your critical strikes increase the target's spell damage taken by 10% for 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -162,334 +139,410 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_chronomancer_timerend_cooldown": 1,
-        "ability_chronomancer_decomposition_duration": 1
-      },
-      "connected_to": [
-        "chronomancer_infinite_impeccable_timing"
-      ],
-      "_source": "CoA: 'Reduces the cooldown of Timerend by -2 sec and increases the duration of Decomposition by 3 sec.' ability_<id>_<stat> keys are built by interpolation in abilities.py, which is why a literal grep calls them dead."
-    },
-    {
-      "talent_id": "chronomancer_infinite_hourglass_of_eternity",
-      "name": "Hourglass of Eternity",
-      "description": "Your damaging spells have a 10% chance to grant you 10 haste for 2 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "chronomancer_infinite_anomaly_spikes"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "chronomancer_hourglass",
-          "name": "Hourglass of Eternity",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "haste": 10.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Periodic damage dealt now has a 5% chance to grant you 25% increased haste for 5 seconds.' Same per-tick to per-cast move as Anomaly Spikes, same reason."
-    },
-    {
-      "talent_id": "chronomancer_infinite_magic_erosion",
-      "name": "Magic Erosion",
-      "description": "Increases your Arcane spell damage by 2% and grants 1 spell hit rating per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "arcane_spell_damage": 0.02,
-        "hit_rating": 1
-      },
-      "connected_to": [
-        "chronomancer_infinite_mind_melt"
-      ],
-      "_source": "CoA: 'Your Decomposition now applies Magic Erosion to the target, increasing attackers chance to hit the target with spells by 3%.' A hit-taken debuff has no reader on Monster, so the node grants the caster the hit instead - the same outcome for the Chronomancer, and honest about who it applies to."
-    },
-    {
-      "talent_id": "chronomancer_infinite_crown_of_power",
-      "name": "Crown of Power",
-      "description": "Increases the damage of Melt Reality by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_chronomancer_melt_reality_damage": 0.05
-      },
-      "connected_to": [
-        "chronomancer_infinite_gift_of_the_infinite_dragonflight"
-      ],
-      "_source": "CoA: 'Increases the tick rate of Melt Reality by -25%.' A DoT's effect_value is its TOTAL across the duration here, so a faster tick rate and more damage are the same number."
-    },
-    {
-      "talent_id": "chronomancer_infinite_shifting_chaos",
-      "name": "Shifting Chaos",
-      "description": "Your damaging spells spill a tenth of their damage onto up to 3 other enemies.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "chronomancer_infinite_distorted_time"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
-        "splash_damage": {
-          "pct": 0.1,
-          "max_targets": 3
-        }
-      },
-      "_source": "CoA: 'Your Chromatic Shard and Anomaly Spikes now deal an additional 20% their damage dealt as Chromatic Damage all nearby enemies', and Melt Reality's own 'periodic damage dealt to the target is replicated for 20% of the value to all enemies near them'. splash_damage is the engine's real version of exactly this."
-    },
-    {
-      "talent_id": "chronomancer_infinite_black_hole",
-      "name": "Black Hole",
-      "description": "Increases the damage of Chromatic Shard and Unmake by 4% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_chronomancer_chromatic_shard_damage": 0.04,
-        "ability_chronomancer_unmake_damage": 0.04
+        "ability_chronomancer_chromatic_shard_damage": 0.0667
       },
       "connected_to": [
         "chronomancer_infinite_hourglass_of_eternity"
       ],
-      "_source": "CoA: 'Increases the damage of Chromatic Shard, Melt Reality and Unmake by 15% against slowed enemies.' Nothing can read 'is the target slowed' at damage time, so the condition is dropped and the bonus is smaller to pay for always being on. Melt Reality is left out because Crown of Power already carries it."
-    },
-    {
-      "talent_id": "chronomancer_infinite_destabilize_time",
-      "name": "Destabilize Time",
-      "description": "Teaches Destabilize Time, which slows an enemy's actions and weakens its attacks.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "chronomancer_destabilize_time"
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "temporal_fracture",
+          "name": "Temporal Fracture",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "spell_damage_taken_pct": 10
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
       },
-      "connected_to": [
-        "chronomancer_infinite_magic_erosion"
-      ],
-      "_source": "CoA lists Destabilize Time as a spec talent, and the strengths section leans on it: 'Time Means Nothing and Destabilize Time amplify and slow the focus target.'"
+      "_source": "CoA, Time Means Nothing's second clause: 'damage dealt by Chromatic Shard now increases the target's spell damage taken by 10% for 30 seconds.' Split onto its own node so it can carry a real proc. The trigger is on_crit rather than 'Chromatic Shard specifically' because there is no per-ability proc trigger; a crit is the closest thing to a meaningful cast and keeps the debuff from being permanent. spell_damage_taken_pct FLIPS: it is a FRACTION read raw as a talent effect (character.py:2753) but PERCENTAGE POINTS inside a status effect (monster.py:740 divides by 100), so 10 here is 10%. 30 sec -> 4 turns at ~3 sec per turn. CoA's Chromatic Shard also pierces immunities and resistances, which has no key."
     },
     {
-      "talent_id": "chronomancer_infinite_infinite_power",
-      "name": "Infinite Power",
-      "description": "Your damaging spells have a 25% chance to pull your damaging cooldowns forward by 1 turn.",
+      "talent_id": "chronomancer_infinite_erosion",
+      "name": "Erosion",
+      "description": "Increases the damage of your Anomaly Spikes by 20% and your periodic damage by 8%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_chronomancer_anomaly_spike_damage": 0.0667,
+        "dot_damage": 0.0267
+      },
+      "connected_to": [
+        "chronomancer_infinite_distorted_time"
+      ],
+      "_source": "CoA's Erasion: 'Increases the chance to trigger Anomaly Spikes by 5% and their damage by 20%.' The damage half ports exactly. The trigger-chance half cannot: the chance lives on Anomaly Spikes' own proc dict and no effect key edits another node's proc chance. Replaced with dot_damage, which keeps the node about the same loop. Renamed from CoA's 'Erasion' only in that our data already had no such node - the name is CoA's. Both FRACTIONS."
+    },
+    {
+      "talent_id": "chronomancer_infinite_mind_melt",
+      "name": "Mind Melt",
+      "description": "Your damaging spells have a 30% chance to sap the target's strength, reducing the damage they deal for 5 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
         "chronomancer_infinite_crown_of_power"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 1,
-        "reset_cooldown": {
-          "abilities": [
-            "chronomancer_chromatic_shard",
-            "chronomancer_discordance",
-            "chronomancer_gravity_bomb",
-            "chronomancer_melt_reality"
-          ],
-          "turns": 1
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "mind_melt_stack",
+          "name": "Mind Melt",
+          "effect_type": "debuff",
+          "duration": 5,
+          "stat_mods": {
+            "attack_power": -25
+          },
+          "max_stacks": 5,
+          "dispel_type": "magic",
+          "on_target": true
         }
       },
-      "_source": "CoA's level-10 free passive: 'Casting damaging spells now reduces your damaging spell cooldowns by 10% of their remaining cooldown', and the rotation note 'Infinite Power quietly pulls your cooldowns forward the more you cast, so never stop pressing damage'. The reset_cooldown proc payload takes a list of ability ids and a turn count, so this is the real mechanic rather than an approximation - percentage-of-remaining becomes a flat turn, which is the only granularity a turn engine has."
+      "_source": "CoA: 'Damage dealt by Melt Reality now also reduces the target's primary attributes by -3% for 15 sec, stacking 5 times.' MAX_STACKS IS REAL AND IS KEPT (status effects stack natively), but nothing can READ the stack count, so the tier-6 End of Time clause that scales off it is built differently - see that node. '-3% primary attributes' has no home: a monster reads exactly eight status stat_mods (armor, attack_power, damage_taken_pct, healing_taken_pct, magic/physical/spell_damage_taken_pct, magic_resistance) and attack_power is FLAT (Monster.ability_power_bonus: 'Flat damage/healing swing from active buffs and debuffs'). -25 per stack, -125 at five. Flat AP reduction is CoA's own house style on this class - Artificer's Erode Armaments reduces enemy attack power by a flat 208. 15 sec -> 5 turns. The trigger is not Melt Reality specifically: no per-ability proc trigger."
     },
     {
-      "talent_id": "chronomancer_infinite_timelost_power",
-      "name": "Timelost Power",
-      "description": "Increases the damage your area spells deal by 5% per rank.",
+      "talent_id": "chronomancer_infinite_hourglass_of_eternity",
+      "name": "Hourglass of Eternity",
+      "description": "Your damaging spells have a 20% chance to grant 25% haste for 2 turns.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "aoe_damage": 0.05
-      },
-      "connected_to": [
-        "chronomancer_infinite_shifting_chaos"
-      ],
-      "_source": "CoA: 'Your Discordance now strikes 3 additional enemies.' An ability's max_targets is fixed at load time and no talent key changes it, so a wider cleave becomes a harder one."
-    },
-    {
-      "talent_id": "chronomancer_infinite_incarnation_of_chaos",
-      "name": "Incarnation of Chaos",
-      "description": "Teaches Incarnation of Chaos, a burst window that raises all your damage.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "chronomancer_incarnation_of_chaos"
-      },
-      "connected_to": [
-        "chronomancer_infinite_black_hole"
-      ],
-      "_source": "CoA: 'Burst hinges on Incarnation of Chaos.' The spec's one real cooldown, and the thing its whole proc engine is ramping toward."
-    },
-    {
-      "talent_id": "chronomancer_infinite_infinity_crash",
-      "name": "Infinity Crash",
-      "description": "Increases the damage of your spell critical strikes by 5% per rank.",
-      "node_type": "passive",
-      "tier": 4,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 2,
-      "effects": {
-        "crit_damage_spell": 0.05
-      },
-      "connected_to": [
-        "chronomancer_infinite_destabilize_time"
-      ],
-      "_source": "CoA: 'Increases the critical damage of Discordance and Chromatic Shard by 50%.' There is no per-ability crit damage key, so it is the spec's spell crit damage."
-    },
-    {
-      "talent_id": "chronomancer_infinite_time_means_nothing",
-      "name": "Time Means Nothing",
-      "description": "Grants 6 spell penetration per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 4,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 2,
-      "effects": {
-        "spell_penetration": 6
-      },
-      "connected_to": [
-        "chronomancer_infinite_infinite_power"
-      ],
-      "_source": "CoA: 'Damage dealt by Chromatic Shard now increases the target's spell damage taken by 10%.' A damage-taken debuff is inert against creatures (see the module docstring), but the ATTACKER's spell_penetration is subtracted from a target's resistance inside both Monster.take_damage and Character.take_damage, and it is a real talent bonus key (character.py reads bonuses['spell_penetration']). So this is the node that actually delivers Chromatic Shard's 'pierces immunities and resistances'."
-    },
-    {
-      "talent_id": "chronomancer_infinite_chaotic_time",
-      "name": "Chaotic Time",
-      "description": "Increases the damage of Melt Reality by 8% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "ability_chronomancer_melt_reality_damage": 0.08
-      },
-      "connected_to": [
-        "chronomancer_infinite_incarnation_of_chaos"
-      ],
-      "_source": "CoA: 'While Incarnation of Chaos is active, your Melt Reality deals 30% increased damage and replicates an additional 20%.' The during-Incarnation condition has no reader, so the bonus is unconditional and smaller."
-    },
-    {
-      "talent_id": "chronomancer_infinite_aeon_rend",
-      "name": "Aeon Rend",
-      "description": "Your damaging spells have a 20% chance to reset Chromatic Shard.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
+      "hex_x": 4,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
         "chronomancer_infinite_infinity_crash"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 1,
-        "reset_cooldown": "chronomancer_chromatic_shard"
+        "chance": 7,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "hourglass_of_eternity",
+          "name": "Hourglass of Eternity",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 25.0
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
       },
-      "_source": "CoA: 'Your Chromatic Shard now has a 25% chance to strike again and incur no cooldown.' A full reset is the closest thing to a free extra cast, and reset_cooldown with no turn count is exactly that."
+      "_source": "CoA: 'Periodic damage dealt now has a 5% chance to grant you 25% increased haste for 5 sec.' CoA hangs this off PERIODIC DAMAGE, which does not exist as a trigger. status_effects.py:914 applies a dot with a bare self.take_damage() on the TARGET and holds no caster reference - its own THREAT GAP note says status effects store 'potency/duration/school, not a caster or engine handle' - so there is nobody to fire a proc on. Re-pointed to on_damage_cast: it fires on the Chronomancer's damaging casts instead of on their ticks, so a player who dots and waits gets nothing. This is the class's single biggest translation loss and it affects seven talents across all three trees. 5% -> 20% for the same reason as Anomaly Spikes (per-cast rolls are far rarer than per-tick ones), with a 2-turn internal cooldown so it cannot chain. 5 sec -> 2 turns. haste is in PERCENTAGE POINTS, so 25.0 is 25%."
+    },
+    {
+      "talent_id": "chronomancer_infinite_distorted_time",
+      "name": "Distorted Time",
+      "description": "Increases the duration of your periodic effects by 20%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "dot_duration_pct": 0.0667
+      },
+      "connected_to": [
+        "chronomancer_infinite_magic_erosion"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Timerend by -2 sec and increases the duration of Decomposition by 3 sec.' Generalised to every dot because dot_duration_pct is live (abilities.py:2766, a FRACTION) and is the one key that makes the spec's whole point pay off: abilities.py:2777 derives per-turn damage from the ability's OWN base duration, not the talented one, so an extension adds TICKS at full value rather than thinning the same total. This is a straight damage increase, and it is the mechanism Kyle's 'Chronomancer is a lot of DoTs' instruction actually wants - unlike editing a base duration, where per_turn = total/base_duration and the total has to move too. The Timerend cooldown half is dropped: our Timerend has no cooldown to reduce. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_destabilize_time",
+      "name": "Destabilize Time",
+      "description": "Teaches Destabilize Time, shaking a target loose from the present.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "chronomancer_destabilize_time"
+      },
+      "connected_to": [
+        "chronomancer_infinite_black_hole"
+      ],
+      "_source": "CoA: 'Reduces enemy casting speed by -10% for 20 seconds, increasing by -10% every time they cast. Gaining stacks does not extend the duration.' LOAD-BEARING UNLOCK - chronomancer_destabilize_time carries requires_talent and this is its only unlock node. The talent itself is the unlock and nothing more: there is no caster-side speed debuff key (that gap has now cost nodes on four classes), and nothing escalates a debuff when the TARGET acts. The ability already exists in our data as a debuff and is left as authored."
+    },
+    {
+      "talent_id": "chronomancer_infinite_magic_erosion",
+      "name": "Magic Erosion",
+      "description": "Increases the damage of Decomposition by 15%, and your critical strikes leave the target 4% easier to hit with spells for 6 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_chronomancer_decomposition_damage": 0.05
+      },
+      "connected_to": [
+        "chronomancer_infinite_null_orbs"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "magic_erosion",
+          "name": "Magic Erosion",
+          "effect_type": "debuff",
+          "duration": 6,
+          "stat_mods": {
+            "magic_damage_taken_pct": 4
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your Decomposition now deals 10% more damage and applies Magic Erosion to the target, increasing attackers chance to hit the target with spells by 3% for 30 seconds.' The damage half ports (raised to 15% to carry the node alone). The hit-chance half cannot: there is no recipient-side 'chance to be hit' key anywhere, so it is repriced as magic_damage_taken_pct, which is the same direction - more of the Chronomancer's damage lands on this target. That key is PERCENTAGE POINTS inside a status effect, so 4 is 4%. 30 sec -> 6 turns. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_infinity_crash",
+      "name": "Infinity Crash",
+      "description": "Increases your spell critical damage by 50%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 0,
+      "effects": {
+        "crit_damage_spell": 0.1667
+      },
+      "connected_to": [
+        "chronomancer_infinite_chaotic_time"
+      ],
+      "_source": "CoA: 'Increases the critical damage of Discordance and Chromatic Shard by 50%.' The two-ability scoping is dropped because per-ability crit-damage keys exist but would halve the node's reach for no gain on a spec that casts little else; crit_damage_spell is the honest global version. A FRACTION (crit_damage_* keys are fractions, unlike crit_chance_*, which are percentage points - the two sit side by side in the same data and read opposite ways). Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_crown_of_power",
+      "name": "Crown of Power",
+      "description": "Increases the damage of Melt Reality by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_chronomancer_melt_reality_damage": 0.0833
+      },
+      "connected_to": [
+        "chronomancer_infinite_incarnation_of_chaos"
+      ],
+      "_source": "CoA: 'Increases the tick rate of Melt Reality by 25%.' Tick rate has no meaning in a turn-based engine - a dot ticks once per turn, full stop - and raising its duration instead would stretch a 10-turn dot past most fights. Repriced as damage, which is what a faster tick rate amounts to in CoA. Melt Reality is the spec's long dot: 'every 3 sec for 30 sec' is exactly 10 turns here. Was a pure scalar on our side. A FRACTION."
+    },
+    {
+      "talent_id": "chronomancer_infinite_black_hole",
+      "name": "Black Hole",
+      "description": "Increases the damage of your periodic effects by 15%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "dot_damage": 0.05
+      },
+      "connected_to": [
+        "chronomancer_infinite_timelost_power"
+      ],
+      "_source": "CoA: 'Increases the damage of Chromatic Shard, Melt Reality and Unmake by 15% against slowed enemies.' The conditional is dropped: nothing reads whether a target is slowed (no payload or effect key inspects a target's debuffs), and a condition that silently never fires is worse than no condition. Kept at 15% against the spec's dots instead, which covers Melt Reality and Decomposition. Was a pure scalar on our side. A FRACTION."
     },
     {
       "talent_id": "chronomancer_infinite_null_orbs",
       "name": "Null Orbs",
-      "description": "Increases your spell critical strike chance by 1% and the damage of your spell critical strikes by 6% per rank.",
+      "description": "Your critical strikes have a 35% chance to grant Null Orbs, increasing your spell critical damage by 40% for 3 turns.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_infinite_eternity"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 12,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "null_orbs",
+          "name": "Null Orbs",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_damage_spell": 40
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Periodic critical damage dealt now has a 20% chance to grant Null Orbs for 8 seconds. Null Orbs increases the critical damage of Chromatic Shard and Anomaly Spikes based on your spell critical strike rating.' CoA hangs this off PERIODIC DAMAGE, which does not exist as a trigger. status_effects.py:914 applies a dot with a bare self.take_damage() on the TARGET and holds no caster reference - its own THREAT GAP note says status effects store 'potency/duration/school, not a caster or engine handle' - so there is nobody to fire a proc on. Re-pointed to on_damage_cast: it fires on the Chronomancer's damaging casts instead of on their ticks, so a player who dots and waits gets nothing. This is the class's single biggest translation loss and it affects seven talents across all three trees. on_crit is the closest live trigger and keeps CoA's 'critical' half intact. The 'based on your crit rating' scaling is dropped - no stat feeds a status effect's own magnitude. 8 sec -> 3 turns. CAREFUL: crit_damage_spell is a FRACTION as a talent effect but this is a STATUS EFFECT stat_mod, where the same key is read in PERCENTAGE POINTS - hence 40, not 0.40. Authoring 0.40 here would have delivered 0.4%. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_incarnation_of_chaos",
+      "name": "Incarnation of Chaos",
+      "description": "Teaches Incarnation of Chaos, becoming chaos itself for a short time.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
-      "hex_y": 4,
+      "hex_y": 2,
       "effects": {
-        "crit_chance_spell": 1.0,
-        "crit_damage_spell": 0.06
+        "unlock_ability": "chronomancer_incarnation_of_chaos"
       },
       "connected_to": [
-        "chronomancer_infinite_time_means_nothing"
+        "chronomancer_infinite_chaotic_time"
       ],
-      "_source": "CoA: 'Periodic critical damage dealt now has a 20% chance to grant Null Orbs ... Increases the critical damage of Chromatic Shard and Anomaly Spikes based on your spell critical strike rating.' A proc that scales off a rating it also grants is not expressible; the two stats it is made of are."
+      "_source": "CoA: 'Transform into an Incarnate of Chaos, instantly resetting the cooldown of Chromatic Shard and causing your next cast to not incur a cooldown. In addition, your damage dealt is increased by 15% for 15 seconds.' LOAD-BEARING UNLOCK - chronomancer_incarnation_of_chaos carries requires_talent and this is its only unlock node. The ability itself already carries the damage buff; the cooldown-reset clauses live on the ability, not here. CoA's Chaos Fusion and Pure Chaos both key off this being active - Chaos Fusion is a movement mechanic (inert: no positioning) and Pure Chaos locks the player out of all spells but one on a 1-second repeat (no mechanic locks an ability set, and no proc repeats on a timer), so neither is built."
+    },
+    {
+      "talent_id": "chronomancer_infinite_chaotic_time",
+      "name": "Chaotic Time",
+      "description": "Your damaging spells have a 25% chance to reduce the cooldown of Incarnation of Chaos by 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_infinite_end_of_time"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 1,
+        "reset_cooldown": {
+          "abilities": [
+            "chronomancer_incarnation_of_chaos"
+          ],
+          "turns": 2
+        }
+      },
+      "_source": "CoA: 'While Incarnation of Chaos is active, your Melt Reality deals 30% increased damage and replicates an additional 20%. In addition, periodic damage dealt now reduces the cooldown of Incarnation of Chaos by -1 sec.' The cooldown clause is the buildable half and it is built: reset_cooldown with an {abilities, turns} dict shaves turns rather than fully resetting (a bare list would reset outright). CoA hangs this off PERIODIC DAMAGE, which does not exist as a trigger. status_effects.py:914 applies a dot with a bare self.take_damage() on the TARGET and holds no caster reference - its own THREAT GAP note says status effects store 'potency/duration/school, not a caster or engine handle' - so there is nobody to fire a proc on. Re-pointed to on_damage_cast: it fires on the Chronomancer's damaging casts instead of on their ticks, so a player who dots and waits gets nothing. This is the class's single biggest translation loss and it affects seven talents across all three trees. The 'while Incarnation is active' conditional on the damage half is dropped - no effect key reads whether another effect is live - and the replication clause has no mechanism (no payload copies damage to other targets as a percentage). Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_infinite_timelost_power",
+      "name": "Timelost Power",
+      "description": "Increases the damage of Discordance by 25% and your spell damage by 4%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_chronomancer_discordance_damage": 0.0833,
+        "spell_damage": 0.0133
+      },
+      "connected_to": [
+        "chronomancer_infinite_infinite_horizon"
+      ],
+      "_source": "CoA: 'Your Discordance now strikes 3 additional enemies.' Nothing adds targets to an ability - no effect key and no proc payload touches an ability's target count - so the node is repriced as damage on the same ability plus a small global, which is what three extra targets amounts to on a spec that casts Discordance as filler. Was a pure scalar on our side. Both FRACTIONS."
+    },
+    {
+      "talent_id": "chronomancer_infinite_eternity",
+      "name": "Eternity",
+      "description": "While a target is rooted by your Clasp of Infinity, your damage against them is increased. Increases all damage you deal by 5%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "all_damage": 0.0167
+      },
+      "connected_to": [
+        "chronomancer_infinite_infinite_keeper"
+      ],
+      "_source": "CoA: 'Your Clasp of Infinity now increases your damage dealt to the target by 15%.' The conditional cannot be built - nothing reads a target's debuffs, so 'to the target' and 'while rooted' are both unreachable - so it lands as a flat 5% all_damage, priced down from 15% because it is now unconditional. The description keeps the flavour sentence but states the real mechanic second, so the tooltip does not promise a condition the engine will not honour. A FRACTION."
+    },
+    {
+      "talent_id": "chronomancer_infinite_end_of_time",
+      "name": "End of Time",
+      "description": "Increases the damage of your periodic effects by 18% and your spell critical strike chance by 4%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.06,
+        "crit_chance_spell": 1.3333
+      },
+      "connected_to": [
+        "chronomancer_infinite_infinite_keeper"
+      ],
+      "_source": "CoA has TWO talents called End of Time in this tree. The tier-5 one: 'Mind Melt now also increases the target's periodic damage taken from you by 6% per stack.' Per-stack scaling is unbuildable - nothing reads a stack count anywhere in the engine - and there is no periodic-specific damage-taken key either, so both halves fail. Repriced to the caster side as dot_damage plus crit, which keeps the node a dot payoff. (The other End of Time, 'at the end of Clasp of Infinity you launch an Anomaly Spike at affected enemies', needs an on-expiry trigger, which does not exist.) dot_damage is a FRACTION; crit_chance_spell is PERCENTAGE POINTS. The two sit in the same dict and read opposite ways."
+    },
+    {
+      "talent_id": "chronomancer_infinite_infinite_horizon",
+      "name": "Infinite Horizon",
+      "description": "Increases your spell damage by 8%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.0267
+      },
+      "connected_to": [
+        "chronomancer_infinite_infinite_keeper"
+      ],
+      "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3%. Does not stack with similar effects. In addition, your Unmake and Timerend gain an additional 20% bonus spell scaling.' THE PARTY HALF CANNOT BE BUILT FROM A TALENT - a talent effect never reaches an ally; only a party-targeted ABILITY does (abilities.py:2064 resolves target_type 'party' to all living allies). Guardian's auras were converted to party abilities for exactly this reason, but Chronomancer has no aura ability to hang this on, so it stays selfish and the description does not claim otherwise. The spell-scaling half has no key (only flat damage keys exist). A FRACTION."
     },
     {
       "talent_id": "chronomancer_infinite_infinite_keeper",
       "name": "Infinite Keeper",
-      "description": "Your periodic damage erupts, spilling a third of every damaging spell onto everything standing near it. +6% Arcane spell damage and +10% periodic damage.",
-      "node_type": "active",
+      "description": "Increases the duration of your periodic effects by 30% and their damage by 25%. Your critical strikes have a 40% chance to launch an Anomaly Spike.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "arcane_spell_damage": 0.06,
-        "dot_damage": 0.1
+        "dot_duration_pct": 0.3,
+        "dot_damage": 0.25
       },
-      "connected_to": [
-        "chronomancer_infinite_chaotic_time",
-        "chronomancer_infinite_aeon_rend",
-        "chronomancer_infinite_null_orbs"
-      ],
+      "connected_to": [],
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 3,
-        "splash_damage": {
-          "pct": 0.35,
-          "max_targets": 5
-        }
+        "trigger": "on_crit",
+        "chance": 40,
+        "icd": 0,
+        "cast_ability": "chronomancer_anomaly_spike"
       },
-      "_source": "Capstone. CoA: 'Using Unmake on an enemy affected by your Timerend now causes the enemy to erupt in a vortex of sand, dealing Chromatic Damage every 1 sec to up to 8 enemies for 6 seconds.' The two-spell combination gate cannot be read, so it is a periodic splash on a 3-turn internal cooldown - the vortex, without the setup."
+      "_source": "CoA: 'Using Unmake on an enemy affected by your Timerend now causes the enemy to erupt in a vortex of sand, dealing Chromatic Damage every 1 sec to up to 8 enemies for 6 sec in an 8 yd radius.' The combo condition is unbuildable twice over - nothing reads a target's debuffs, and there is no per-ability proc trigger - and the 8-yard radius has no positioning to stand on. Rebuilt as the capstone the spec's own tree has been building toward: the two dot keys together, plus Anomaly Spikes firing off crits as well as casts. dot_duration_pct is the payoff key - because per-turn damage derives from the ability's OWN base duration (abilities.py:2777), +30% duration is +30% total damage at full per-tick value, and it stacks additively with Distorted Time's 20% for a Chronomancer who takes both. Melt Reality at 10 base turns becomes 15. A capstone that makes the dots genuinely long is the point of Kyle's 'Chronomancer is a lot of DoTs'. Both FRACTIONS."
     }
   ]
 }
