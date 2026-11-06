@@ -7518,6 +7518,294 @@
             "kind": "material",
             "material_id": "limbs_heartwood"
           }
+        },
+        "ww_silverbark_staff": {
+          "name": "Silverbark Stave",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_silverbark": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 27,
+            "material_tier": "silverbark"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_silverbark_bow": {
+          "name": "Silverbark Longbow",
+          "skill_required": 156,
+          "skill_range": [
+            161,
+            171,
+            181,
+            191
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_silverbark": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 27,
+            "material_tier": "silverbark"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_goldenleaf_staff": {
+          "name": "Goldenleaf Stave",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_goldenleaf": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 32,
+            "material_tier": "goldenleaf"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_goldenleaf_bow": {
+          "name": "Goldenleaf Hunting Bow",
+          "skill_required": 171,
+          "skill_range": [
+            176,
+            186,
+            196,
+            206
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_goldenleaf": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 32,
+            "material_tier": "goldenleaf"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_sapglow_staff": {
+          "name": "Sapglow Stave",
+          "skill_required": 172,
+          "skill_range": [
+            177,
+            187,
+            197,
+            207
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_sapglow": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 34,
+            "material_tier": "sapglow"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_sapglow_bow": {
+          "name": "Sapglow Shortbow",
+          "skill_required": 178,
+          "skill_range": [
+            183,
+            193,
+            203,
+            213
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_sapglow": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 34,
+            "material_tier": "sapglow"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_redbark_staff": {
+          "name": "Redbark Stave",
+          "skill_required": 178,
+          "skill_range": [
+            183,
+            193,
+            203,
+            213
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_redbark": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 35,
+            "material_tier": "redbark"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_redbark_bow": {
+          "name": "Redbark Warbow",
+          "skill_required": 184,
+          "skill_range": [
+            189,
+            199,
+            209,
+            219
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_redbark": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 35,
+            "material_tier": "redbark"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_duskwood_staff": {
+          "name": "Duskwood Stave",
+          "skill_required": 196,
+          "skill_range": [
+            201,
+            211,
+            221,
+            231
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_duskwood": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 40,
+            "material_tier": "duskwood"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_duskwood_bow": {
+          "name": "Duskwood Longbow",
+          "skill_required": 202,
+          "skill_range": [
+            207,
+            217,
+            227,
+            237
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_duskwood": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 40,
+            "material_tier": "duskwood"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_marshwillow_staff": {
+          "name": "Marshwillow Stave",
+          "skill_required": 196,
+          "skill_range": [
+            201,
+            211,
+            221,
+            231
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_marshwillow": 4
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "rarity": "uncommon",
+            "item_level": 40,
+            "material_tier": "marshwillow"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "ww_marshwillow_bow": {
+          "name": "Marshwillow Recurve",
+          "skill_required": 202,
+          "skill_range": [
+            207,
+            217,
+            227,
+            237
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_marshwillow": 3
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "rarity": "uncommon",
+            "item_level": 40,
+            "material_tier": "marshwillow"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         }
       }
     },
@@ -9280,6 +9568,82 @@
             "material_id": "part_tide_seal",
             "count": 1
           }
+        },
+        "eng_gold_power_core": {
+          "name": "Gold Power Core",
+          "skill_required": 155,
+          "skill_range": [
+            160,
+            170,
+            180,
+            190
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_gold": 4,
+            "bar_steel": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 32,
+            "rarity": "uncommon",
+            "material_tier": "gold"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "eng_gilded_goggles": {
+          "name": "Gilded Marksman's Goggles",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_gold": 6,
+            "bar_steel": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 34,
+            "rarity": "uncommon",
+            "material_tier": "gold"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "eng_goldwired_longrifle": {
+          "name": "Gold-Wired Longrifle",
+          "skill_required": 180,
+          "skill_range": [
+            185,
+            195,
+            205,
+            215
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_gold": 8,
+            "bar_steel": 4,
+            "plank_ironbark": 2
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 38,
+            "rarity": "rare",
+            "material_tier": "gold"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         }
       }
     },

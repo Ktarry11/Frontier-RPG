@@ -103,51 +103,23 @@ class VendorScreen(BaseScreen):
         This matches the WoW vendor convention where gear is after supplies.
         """
         from world.gathering_manager import GatheringNodeManager
+        from world.vendor_stock import resolve_vendor_item
         gathering_mgr = GatheringNodeManager()
 
         items = []
         for item_id in self.vendor.sells:
-            # Membership test BEFORE get_consumable, not a get-and-check:
-            # get_consumable logs a WARNING for an unknown id, and an id that
-            # is a crafting reagent rather than a consumable is the normal
-            # case here, not an error. Probing with get_consumable printed
-            # one false warning per reagent (~190 per vendor open).
-            if self.consumable_manager.has_consumable(item_id):
-                items.append(self.consumable_manager.get_consumable(item_id, quantity=1))
+            # ONE resolver, shared with every tool that needs the same
+            # answer - see world/vendor_stock.py for why that matters. The
+            # order (consumable, material/reagent, recipe scroll, bag) and
+            # all the reasoning behind it moved there verbatim.
+            thing = resolve_vendor_item(
+                item_id, consumable_manager=self.consumable_manager,
+                gathering_manager=gathering_mgr,
+                loot_generator=self.loot_generator)
+            if thing is not None:
+                items.append(thing)
                 continue
-            # Crafting reagent or gathered material
-            mat = gathering_mgr.make_material_instance(item_id)
-            if mat:
-                items.append(mat)
-                continue
-            # RECIPE SCROLLS. A vendor's sells list may name a recipe id directly, and 57 recipes
-            # carry source "vendor" expecting exactly that. Until now this resolver only knew about
-            # consumables and materials, so every one of those ids fell through to the warning below
-            # and was silently dropped from the stock list - which is why none of them were buyable.
-            # The buy path needs nothing extra: a scroll Item has both slot and armor_value, so
-            # _is_gear already routes it to add_to_inventory.
-            from world.recipe_manager import make_recipe_scroll
-            scroll = make_recipe_scroll(item_id)
-            if scroll is not None:
-                items.append(scroll)
-                continue
-            # BAGS. Kyle, 2026-10-31: "We need to ensure bags can be made through
-            # tailoring or sold via some vendors." Vendors already offered bags
-            # through the random gear roll, but that roll has a deliberate LEVEL
-            # FLOOR on it, so the starter bags were the one thing it never
-            # produced - the players with 24 slots and no bag could not buy one
-            # anywhere. Naming a bag in a vendor's sells list puts it on the
-            # shelf permanently instead of hoping the roll offers it.
-            #
-            # Same shape as the recipe-scroll branch above, and the buy path
-            # needs nothing extra: a bag Item carries slot and armor_value, so
-            # _is_gear routes it to add_to_inventory, and its price falls back
-            # to sell_price * 4, which is what the catalog's vendor_price says.
-            bag = self.loot_generator.generate_bag(bag_id=item_id)
-            if bag is not None:
-                items.append(bag)
-                continue
-            # Genuinely unknown ID — warn and skip rather than crash
+            # Genuinely unknown ID - warn and skip rather than crash
             print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
 
         items.sort(key=lambda x: getattr(x, "vendor_price", 0))

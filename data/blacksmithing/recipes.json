@@ -2665,6 +2665,152 @@
         "material_id": "upgrade_kit_steel",
         "count": 1
       }
+    },
+    "bs_mithril_coif": {
+      "name": "Mithril Coif",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 44,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs_mithril_breastplate": {
+      "name": "Mithril Breastplate",
+      "skill_required": 222,
+      "skill_range": [
+        227,
+        237,
+        247,
+        257
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 10
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 46,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs_mithril_gauntlets": {
+      "name": "Mithril Gauntlets",
+      "skill_required": 228,
+      "skill_range": [
+        233,
+        243,
+        253,
+        263
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 46,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs_mithril_shield": {
+      "name": "Mithril Shield",
+      "skill_required": 234,
+      "skill_range": [
+        239,
+        249,
+        259,
+        269
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 8,
+        "plank_ironbark": 2
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 48,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs_mithril_warhammer": {
+      "name": "Mithril Warhammer",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 12,
+        "plank_ironbark": 2
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace_1h",
+        "stat_template": "str_physical",
+        "item_level": 48,
+        "rarity": "rare",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs_mithril_greaves": {
+      "name": "Mithril Greaves",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 12
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "mithril"
+      },
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
     }
   }
 }

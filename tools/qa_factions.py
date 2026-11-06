@@ -197,6 +197,29 @@ def main():
     # and materials calls all 57 of them ghosts. This verifier was wrong before the data was - again.
     from world.recipe_manager import _load_all_recipes
     cons |= set(_load_all_recipes())
+    # ...AND BAGS WERE THE FOURTH CATEGORY. This set was rebuilt here by
+    # hand from whichever data files came to mind, and it had already been
+    # wrong twice (see the comment above). All 21 bags in
+    # data/items/bags.json are real, buyable and correctly shelved, and
+    # this reported 13 of them as items that "do not exist" across roughly
+    # 200 vendors. Rather than add a fourth file to the list and wait for
+    # the fifth, anything not already recognised is now put to the SAME
+    # resolver the vendor screen uses to build its shelves
+    # (world/vendor_stock.resolve_vendor_item) - if the game can put it on
+    # a shelf, it exists, by definition rather than by a list somebody
+    # maintains.
+    from world.vendor_stock import resolve_vendor_item
+    from world.gathering_manager import GatheringNodeManager
+    from entities.consumable_manager import get_consumable_manager
+    from entities.loot_generator import LootGenerator
+    _cm, _gm, _lg = get_consumable_manager(), GatheringNodeManager(), LootGenerator()
+
+    def sellable(item_id):
+        if item_id in cons:
+            return True
+        return resolve_vendor_item(item_id, consumable_manager=_cm,
+                                   gathering_manager=_gm,
+                                   loot_generator=_lg) is not None
     for fid, fac in fm.factions.items():
         rw = fac.rewards
         for qid, tier in rw.get("quests", {}).items():
@@ -214,8 +237,8 @@ def main():
                 if tier not in {t['id'] for t in fm.tiers}:
                     fails.append(f"{fid}: vendor stock gated at unknown tier '{tier}'")
                 for it in items:
-                    if it not in cons:
-                        fails.append(f"{fid}: unlocks '{it}', which is not a real consumable or material")
+                    if not sellable(it):
+                        fails.append(f"{fid}: unlocks '{it}', which nothing can put on a shelf")
     print(f"  checked {sum(len(f2.rewards.get('quests', {})) for f2 in fm.factions.values())} quest gates, "
           f"{sum(len(t) for f2 in fm.factions.values() for t in f2.rewards.get('vendor_stock', {}).values())} "
           f"stock tiers, {sum(1 for f2 in fm.factions.values() if f2.rewards.get('recruit'))} recruit gates")
@@ -223,7 +246,7 @@ def main():
     ghosts = {}
     for v in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]:
         for it in v["sells"]:
-            if it not in cons:
+            if not sellable(it):
                 ghosts.setdefault(it, []).append(v["vendor_id"])
     print(f"  vendor shelves holding items that do not exist: {len(ghosts)}")
     for it, who in sorted(ghosts.items()):
@@ -259,13 +282,29 @@ def main():
         f.standing = st
         rows.append((f.tier["name"], len(fm.vendor_unlocks("kb_quartermaster")),
                      fm.quest_requirement_met("ud_archive_deeper"),
-                     fm.quest_requirement_met("kb_sealed_entry"),
-                     fm.recruit_requirement_met("kesten_the_catalogued")))
+                     fm.quest_requirement_met("kb_sealed_entry")))
         print(f"  {st:6d} {f.tier['name']:11s} stock={rows[-1][1]} archive={rows[-1][2]!s:5s} "
-              f"sealed={rows[-1][3]!s:5s} recruit={rows[-1][4]}")
-    if rows[0][1] != 0 or rows[0][2] or rows[0][3] or rows[0][4]:
+              f"sealed={rows[-1][3]!s:5s}")
+    if rows[0][1] != 0 or rows[0][2] or rows[0][3]:
         fails.append("something is unlocked at Neutral that should not be")
-    if not rows[-1][3] or not rows[-1][4]:
+
+    # NO RECRUIT IS REPUTATION-GATED, and that is the rule rather than a gap.
+    # This block used to assert that kesten_the_catalogued was locked at
+    # Neutral, which was true until 2026-10-31 and then stopped being true on
+    # purpose - Kyle: "Don't rep lock Kesten". The gate came out of
+    # data/factions/factions.json in b30559a, recruit_requirement_met went
+    # vacuously True for everybody, and this script has been failing on its own
+    # stale expectation ever since. Checking the rule he actually set means a
+    # gate reappearing gets noticed, instead of its absence being reported
+    # forever as a fault.
+    gated = [(fid, fac.rewards["recruit"]) for fid, fac in fm.factions.items()
+             if fac.rewards.get("recruit")]
+    print(f"  recruits behind a reputation gate: {len(gated)} (the rule is none)")
+    for fid, r in gated:
+        fails.append(f"{fid}: gates recruit '{r.get('recruit_id')}' at "
+                     f"'{r.get('standing')}' - no companion is reputation-gated "
+                     f"(Kyle, 2026-10-31)")
+    if not rows[-1][3]:
         fails.append("Exalted does not unlock everything it should")
     if rows[1][2]:
         fails.append("the Honored-gated quest is offered at Friendly")
