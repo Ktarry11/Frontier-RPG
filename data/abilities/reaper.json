@@ -1803,8 +1803,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' One buff cannot aim two different stat sets at two different sets of targets, so the party mitigation is kept and the personal haste moves into the Hard Bargain talent.",
-      "target_type": "self",
+      "_source": "CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' One buff cannot aim two different stat sets at two different sets of targets, so the party mitigation is kept and the personal haste moves into the Hard Bargain talent. || target_type 'self' -> 'party', 6 Nov 2026. CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' A talent effect can never reach an ally; a party-targeted ABILITY resolves to all living allies (abilities.py:2064) and degrades to the caster alone with no party context. Second Reaper aura converted the same way as Death's Presence, and the same call Kyle made for Guardian's four auras on 5 Nov 2026. A TANK's party damage reduction is the one that most needs to actually reach the party.",
+      "target_type": "party",
       "buff_scope": "raid",
       "requires_talent": true
     },
