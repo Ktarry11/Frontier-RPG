@@ -1,8 +1,8 @@
 {
   "spec_name": "Barbarian Ancestry",
   "tree_id": "barbarian_ancestry",
-  "description": "A Frost and physical brawler who improves everyone standing nearby just by being there - standing auras, a summoned ancestor, and a party haste cooldown on top of a real melee rotation.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_barbarian__ancestry.txt and the ancestry block of reference/coa_sidekick/talents/barbarian.json. CoA calls it 'the closest to retail Enhancement Shaman' - 'a melee DPS spec wearing support clothing via auras and a haste cooldown, not a healer' - and its own summary is 'You buff your side just by showing up.' Three translations run through the whole tree. The Tankard/Fill Level second resource does not exist (CLASS_RESOURCE_MAP gives this class one pool), so every empty-versus-full gate is gone and Fill Level and Liquid Courage become pool size and flat mitigation. The party auras are CAST abilities, because a talent effect can only ever reach its own owner, and the talent versions grant the Barbarian its share. And the Frost half of the kit runs on Frozen Warlord's attack-power conversion, which is CoA's own explanation for how a class with no magic deals Frost damage.",
+  "description": "Ale, ancestors and frost - a barbarian who makes the whole warband hit harder.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 42 real CoA Ancestry talents (role SUPPORT), the largest Barbarian spec and the thinnest tree in the project at 3 procs. CoA writes nine of its talents as party auras and eight such abilities ALREADY exist as target_type 'party' - Barbarian was authored properly on the ability side, like Ranger - so the talents modify those auras instead of trying to be them. Barbarian summons, so pet keys are legal, but pets never fire procs. The Tankard's Fill Level stacks do not exist, which costs seven talents. Last tree of the CoA rebuild.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,272 +16,171 @@
     {
       "talent_id": "barbarian_ancestry_trip_to_the_alehouse",
       "name": "Trip to the Alehouse",
-      "description": "Increases the damage of Keg Smash by 4% per rank.",
+      "description": "Increases the damage of Keg Smash by 20% and your area damage by 15%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_keg_smash_damage": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Keg Smash by 10% and its range by 3 yds', and the rotation's step 2 is 'Keg Smash on cooldown (boosted by Trip to the Alehouse)'. Range is not a concept in a turn fight."
-    },
-    {
-      "talent_id": "barbarian_ancestry_drinking_frenzy",
-      "name": "Drinking Frenzy",
-      "description": "Increases your hit rating by 1 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "hit_rating": 1
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Your melee attacks now have a 15% chance to grant a stack of Fill Level. In addition, your chance to hit is increased by 5%'. Hit leads this spec's stat priority; Fill Level has no pool to fill."
-    },
-    {
-      "talent_id": "barbarian_ancestry_fill_level",
-      "name": "Fill Level",
-      "description": "Increases your maximum Energy by 6 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "energy_max": 6
-      },
-      "connected_to": [],
-      "_source": "CoA free passive: 'Grants you Fill Level and the ability to manipulate a Tankard. You have a magical Tankard that fills up over time ... Some of your other abilities empty your Tankard to trigger with a reduced cooldown.' CLASS_RESOURCE_MAP gives Barbarian (ENERGY, None) - no secondary pool - so the Tankard is gone and the node widens the pool it does have. Every Tankard GATE in the kit (Breath of the North needs empty, Ale of the God-King needs full) is dropped with it."
-    },
-    {
-      "talent_id": "barbarian_ancestry_frozen_warlord",
-      "name": "Frozen Warlord",
-      "description": "Grants spell power equal to 2% of your attack power per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "spell_power_from_ap_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA class tree names Frozen Warlord and Hodir's Wrath as the Frost half of a class with 'no magic of their own', and Ale of the God-King and Clanlord's Totem both say their Frost damage scales 'with your attack power'. This is the node that makes that literally true: a real <target>_from_<source>_pct conversion, and the reason Breath of the North, Frozen Tankard and Hodir's Wrath scale at all - spell_damage reads get_effective_spell_power, which is otherwise zero on a leather Agility melee. Take it first. The freeze-in-place half of CoA's wording has no hook."
-    },
-    {
-      "talent_id": "barbarian_ancestry_improved_ancestral_combat",
-      "name": "Improved Ancestral Combat",
-      "description": "Reduces the Energy cost of Ancestral Combat by 2 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_barbarian_ancestral_combat_cost": 2
-      },
-      "connected_to": [
-        "barbarian_ancestry_trip_to_the_alehouse"
-      ],
-      "_source": "CoA: 'Reduces the Energy cost of your Ancestral Combat by -10 and allows it to trigger 3 additional times'. ability_<id>_cost is a flat reduction, so 5/5 reaches CoA's own -10. The trigger count is the buff's duration here and is not separately scalable."
-    },
-    {
-      "talent_id": "barbarian_ancestry_ice_cold_bubbles",
-      "name": "Ice Cold Bubbles",
-      "description": "Increases your Frost damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "frost_damage_pct": 0.03
+        "ability_barbarian_keg_smash_damage": 0.0667,
+        "aoe_damage": 0.05
       },
       "connected_to": [
         "barbarian_ancestry_drinking_frenzy"
       ],
-      "_source": "CoA: 'Each Fill Level stack now also increases Frost damage dealt by 2%'. <school>_damage_pct is assembled at runtime in _school_damage_bonus and resolved against the school the cast actually deals, so this only touches the spec's Frost abilities - which is the point."
+      "_source": "CoA over 2 ranks: 'Increases the damage of Keg Smash by 10% and its range by 3 yds.' The damage ports (doubled); range is not a mechanic here. Replaced with aoe_damage, which IS live and is read at abilities.py:1600 only when target_type is enemy_aoe - so it is genuinely scoped to area attacks, and Keg Smash is one of five this spec has. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "barbarian_ancestry_thanes_guard",
-      "name": "Thane's Guard",
-      "description": "Increases your Armor by 3% per rank.",
+      "talent_id": "barbarian_ancestry_drinking_frenzy",
+      "name": "Drinking Frenzy",
+      "description": "Increases your hit chance by 5% and your pets' damage by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "hit_rating": 1.6667,
+        "pet_damage": 0.0667
+      },
+      "connected_to": [
+        "barbarian_ancestry_uniting_voice",
+        "barbarian_ancestry_frost_giants_fury"
+      ],
+      "_source": "CoA: 'Your melee attacks now have a 15% chance to grant a stack of Fill Level. In addition, your chance to hit is increased by 5%.' The hit chance ports verbatim. CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. Replaced with pet damage, which is the tree's other theme. hit_rating is live as a FLAT bonus in PERCENTAGE POINTS - it is only invalid as a CONVERSION target, which with stamina has cost ten nodes half their text across eight classes. pet_damage is a FRACTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "barbarian_ancestry_uniting_voice",
+      "name": "Uniting Voice",
+      "description": "Reduces the cooldown of Ancestral Roar and Warband by 35% and increases Ancestral Roar's healing by 25%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "ability_barbarian_ancestral_roar_cooldown_pct": 0.1167,
+        "ability_barbarian_warband_cooldown_pct": 0.1167,
+        "ability_barbarian_ancestral_roar_healing": 0.0833
+      },
+      "connected_to": [
+        "barbarian_ancestry_ancestral_wisdom"
+      ],
+      "_source": "CoA: 'Casting Ancestral Roar now increases haste of party and raid members by 5% for 20 sec. Does not stack with similar effects. Critical strikes extend the duration of the buff by 1 sec.' THE PARTY HASTE IS REAL BUT NOT FROM A TALENT - a talent effect can never reach an ally. barbarian_ancestral_fury and barbarian_warband already carry party haste and healing as target_type 'party' ABILITIES (abilities.py:2064 resolves 'party' to all living allies), so this talent does what a talent can: make them available more often. The extend-on-crit clause cannot be built either - no payload extends a LIVE effect's duration. Ancestral Roar is effect_type heal, so its buff takes ability_<id>_HEALING; _damage on a heal does nothing while passing every check. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "barbarian_ancestry_frost_giants_fury",
+      "name": "Frost Giant's Fury",
+      "description": "Increases your Frost damage by 12% and your haste by 10%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "frost_spell_damage": 0.04,
+        "haste": 3.3333
+      },
+      "connected_to": [
+        "barbarian_ancestry_icebound_ancestry"
+      ],
+      "_source": "CoA: 'Casting Breath of the North now grants you 10% melee attack speed, plus an additional 20% when using a two-handed weapon, for 8 sec.' The haste ports as a passive: there is no per-ability proc trigger, and the two-handed clause cannot be built because nothing reads weapon type (which also cost Thane's Grip, Thane's Guard and eleven Felsworn Slayer talents their conditions). Folded in CoA's Ancestor's Fury ('Unbridled Rage now also increases your Frost damage by 10%'), whose trigger fails the same way. frost_spell_damage IS LIVE - built via an f-string at abilities.py:1371 inside _school_damage_bonus and resolved against the ability's real school, so a literal grep cannot see it; this spec has three frost abilities (Hodir's Wrath, Breath of the North, Frozen Tankard). A FRACTION; haste is PERCENTAGE POINTS. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "barbarian_ancestry_ancestral_wisdom",
+      "name": "Ancestral Wisdom",
+      "description": "Reduces the cooldown of your party auras by 35%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "armor_pct": 3.0
+        "ability_barbarian_ancestral_fury_cooldown_pct": 0.1167,
+        "ability_barbarian_frozen_blades_cooldown_pct": 0.1167,
+        "ability_barbarian_splash_zone_cooldown_pct": 0.1167,
+        "ability_barbarian_clanlords_totem_cooldown_pct": 0.1167
       },
       "connected_to": [
-        "barbarian_ancestry_fill_level"
+        "barbarian_ancestry_cold_brew",
+        "barbarian_ancestry_the_spins"
       ],
-      "_source": "CoA: 'Gain the Shield proficiency and while wearing a shield you gain 40% increased attack speed and 100% increased Armor contribution from your shield'. Proficiency lives in data/items/weapon_types.json, which is shared data this script does not touch, and Barbarian has no shield there - so the node keeps the armour it was for. armor_pct is PERCENT POINTS (divided by 100 in _recalculate_derived_stats), unlike max_health_pct."
+      "_source": "CoA: 'Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.' A TALENT EFFECT CAN NEVER REACH AN ALLY, and unlike Guardian, Reaper, Necromancer and Felsworn there was nothing to convert here - all eight of Barbarian's aura abilities were ALREADY target_type 'party'. So rather than build a selfish shadow of CoA's aura, this node makes four of those real auras available far more often, which is a thing only a talent can do. That is the same solution Ranger Farstrider's Blow the Horns! uses, and it makes the tree MORE faithful than forcing aura effects into talent slots would. FRACTIONS where POSITIVE MEANS A REDUCTION; talented_cooldown floors at 1 turn."
     },
     {
-      "talent_id": "barbarian_ancestry_liquid_courage",
-      "name": "Liquid Courage",
-      "description": "Reduces all damage you take by 2% per rank.",
+      "talent_id": "barbarian_ancestry_icebound_ancestry",
+      "name": "Icebound Ancestry",
+      "description": "Increases the critical strike chance of your Frost abilities by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "damage_taken_pct": -0.02
+        "ability_barbarian_breath_of_the_north_crit": 5,
+        "ability_barbarian_hodirs_wrath_crit": 5,
+        "ability_barbarian_frozen_tankard_crit": 5
       },
       "connected_to": [
-        "barbarian_ancestry_frozen_warlord"
+        "barbarian_ancestry_the_spins"
       ],
-      "_source": "CoA: 'Each Fill Level stack now reduces your damage taken by -2%', and the strengths list pairs it with Ramhorn Rage as the reason 'No healer required'. Flat rather than per-stack, since the stacks are gone with the Tankard. As a TALENT effect damage_taken_pct is a fraction."
+      "_source": "CoA: 'Increases the critical strike chance of Breath of the North by 10%. In addition, your attacks now ignore Armor against Frozen targets.' The crit ports (raised to 15%) and is extended to the spec's other two frost abilities. The armour clause fails twice: nothing reads a target's debuffs, so 'against Frozen targets' is unreachable, and armor_penetration is FLAT rather than proportional so 'ignore Armor' has no all-or-nothing form. CoA's Hodir's Revenge gates on Frozen the same way. Per-ability crit keys are PERCENTAGE POINTS. Was a pure scalar on our side."
     },
     {
       "talent_id": "barbarian_ancestry_cold_brew",
       "name": "Cold Brew",
-      "description": "Your critical strikes have a 33% chance per rank to return 10 Energy.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "barbarian_ancestry_improved_ancestral_combat"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 33,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 10
-        }
-      },
-      "_source": "CoA: 'Critical strikes with Frost damage now generate a stack of Fill Level. Can only occur once per sec.' A Fill Level stack is gone, so the proc hands back the resource the spec actually spends. The once-per-second limit is icd 1. Not restricted to Frost crits - ability_filter names abilities, not schools."
-    },
-    {
-      "talent_id": "barbarian_ancestry_blind_stupor",
-      "name": "Blind Stupor",
-      "description": "Your Keg Smash leaves enemies reeling, reducing their attack power by 25.",
+      "description": "Your critical strikes restore 12 Energy.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "barbarian_ancestry_ice_cold_bubbles"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 0,
-        "ability_filter": [
-          "barbarian_keg_smash"
-        ],
-        "apply_effect": {
-          "effect_id": "barbarian_blind_stupor",
-          "name": "Blind Stupor",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "attack_power": -25
-          },
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Damage dealt by Keg Smash now reduces enemies' casting speed by -30%'. There is no cast-speed stat on a Monster - it reads only armor and attack_power out of a status effect - so the stupor takes the swing out of them instead, which is the closest thing to it that lands."
-    },
-    {
-      "talent_id": "barbarian_ancestry_unified_rage",
-      "name": "Unified Rage",
-      "description": "Your Unbridled Rage lasts 1 turn longer per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_barbarian_unbridled_rage_duration": 1
-      },
-      "connected_to": [
-        "barbarian_ancestry_thanes_guard"
-      ],
-      "_source": "CoA: 'Your Unbridled Rage now increases your chance to trigger Ancestral Combat by 25%'. A talent cannot raise another talent-free buff's proc chance, so the node buys uptime on the window instead. The sibling CoA class talent Unstoppable Rage ('+2 sec duration of Unbridled Rage') is the same effect, so the name it carries is real."
-    },
-    {
-      "talent_id": "barbarian_ancestry_hodirs_revenge",
-      "name": "Hodir's Revenge",
-      "description": "Your Frozen Tankard leaves enemies exposed, reducing their armor by 40.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
       "hex_y": -2,
       "effects": {},
       "connected_to": [
         "barbarian_ancestry_liquid_courage"
       ],
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
+        "trigger": "on_crit",
+        "chance": 33,
         "icd": 0,
-        "ability_filter": [
-          "barbarian_frozen_tankard"
-        ],
-        "apply_effect": {
-          "effect_id": "barbarian_hodirs_revenge",
-          "name": "Hodir's Revenge",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "armor": -40
-          },
-          "on_target": true
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 12
         }
       },
-      "_source": "CoA: 'Enemies damaged by your Frozen Tankard now take 50% increased damage from you for 6 seconds'. A damage-taken-increase debuff does nothing to a Monster (see Horde Breaker), so it lands as armour shred - and Frozen Tankard opens the pull, which is when a shred is worth most."
+      "_source": "CoA: 'Critical strikes with Frost damage now generate a stack of Fill Level. Can only occur once per sec.' CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. Re-pointed to the pool that DOES exist - Energy, Barbarian's single primary resource - so the node keeps its shape (crit, get resource) through a mechanic that works. The Frost scoping goes: there is no per-school proc filter, since proc['school'] only TYPES a damage_flat payload. grant_resource routes through the same gain_resource() the class's three generators use, so the cap holds, and its `amount` is FLAT."
     },
     {
-      "talent_id": "barbarian_ancestry_icebound_ancestry",
-      "name": "Icebound Ancestry",
-      "description": "Increases the critical strike chance of Breath of the North by 3% per rank.",
+      "talent_id": "barbarian_ancestry_the_spins",
+      "name": "The Spins",
+      "description": "Increases your pets' damage by a further 30% and their health by 25%.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": 1,
+      "hex_y": -2,
       "effects": {
-        "ability_barbarian_breath_of_the_north_crit": 3.0
+        "pet_damage": 0.1,
+        "pet_health": 0.0833
       },
       "connected_to": [
-        "barbarian_ancestry_cold_brew"
+        "barbarian_ancestry_blind_stupor"
       ],
-      "_source": "CoA: 'Increases the critical strike chance of Breath of the North by 10%. In addition, your attacks now ignore Armor against Frozen targets.' The Frozen flag Frozen Tankard sets has no hook, so only the crit half lands - and that half is a real per-ability crit key."
+      "_source": "CoA: 'Casting Keg Smash now causes your Honored Ancestor to perform an Ancestral Whirl attack upon nearby enemies.' Barbarian genuinely summons - barbarian_ancestors_call is a real summon_pet ability - so pet_damage/pet_health/pet_armor are legal keys here, which tools/qa_pet_keys.py exists to police after Witch Doctor Shadow Hunting shipped three on a class that summons nothing. But PETS NEVER FIRE PROCS (no fire_proc_trigger anywhere in entities/pet.py), nothing reads a live pet count, and no proc can apply an effect to a pet, so the Honored Ancestor's own behaviour cannot be changed - only its scaling. So an ancestor that mimics your abilities cannot be built, and the node becomes flat pet scaling - the same intent (your ancestor matters more) through the only keys that reach it. Folded in CoA's Drunken Frenzy ('Unbridled Rage now increases your Honored Ancestor's Physical damage by 15%') and Ale of The God-King's empowerment, both of which fail the same way. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "barbarian_ancestry_frost_giants_fury",
-      "name": "Frost Giant's Fury",
-      "description": "Increases your haste by 1 per rank.",
+      "talent_id": "barbarian_ancestry_liquid_courage",
+      "name": "Liquid Courage",
+      "description": "Reduces all damage you take by 6% and increases your maximum health by 8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -289,179 +188,266 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "haste": 1.0
+        "damage_taken_pct": -0.02,
+        "max_health_pct": 0.0267
       },
       "connected_to": [
-        "barbarian_ancestry_blind_stupor"
+        "barbarian_ancestry_frostbite"
       ],
-      "_source": "CoA: 'Casting Breath of the North now grants you 10% melee attack speed, plus an additional 20% when using a two-handed weapon, for 8 seconds'. A talent cannot attach a buff to another ability's cast, and there is no weapon-type condition, so it is flat haste at the shipped per-rank scale. Haste is this spec's second stat priority."
+      "_source": "CoA: 'Each Fill Level stack now reduces your damage taken by -2%.' CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. Built as the flat mitigation CoA's typical three stacks would give, plus health so the node is worth a point on a support spec. BOTH KEYS ARE FRACTIONS AS TALENT EFFECTS: damage_taken_pct is read RAW (character.py:2696), so -0.06 is -6%, and max_health_pct is a fraction here but PERCENTAGE POINTS inside a status effect - the same key, two conventions, depending on where it is written. Was a pure scalar on our side."
     },
     {
-      "talent_id": "barbarian_ancestry_the_spins",
-      "name": "The Spins",
-      "description": "Increases your ancestor's damage by 6% per rank.",
+      "talent_id": "barbarian_ancestry_blind_stupor",
+      "name": "Blind Stupor",
+      "description": "Your attacks have a 35% chance to daze the target, weakening their attacks for 4 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "pet_damage": 0.06
-      },
+      "effects": {},
       "connected_to": [
-        "barbarian_ancestry_unified_rage"
+        "barbarian_ancestry_frostbite"
       ],
-      "_source": "CoA: 'Casting Keg Smash now causes your Honored Ancestor to perform an Ancestral Whirl attack upon nearby enemies'. Nothing makes a pet mirror the owner's cast, so the extra attacks become the damage they were worth. pet_damage is read in entities/pet.py."
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "blind_stupor",
+          "name": "Blind Stupor",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "attack_power": -100
+          },
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Keg Smash now reduces enemies' casting speed by 30% for 15 sec.' THERE IS NO CASTER-SIDE SPEED DEBUFF KEY - that gap has now cost nodes on five classes, including Chronomancer's Destabilize Time, whose entire mechanic it was - so this becomes a flat attack power reduction, which weakens the target's output the way a slower cast would. attack_power is one of only eight status stat_mods a monster reads and it is FLAT (Monster.ability_power_bonus: 'Flat damage/healing swing from active buffs and debuffs'). The Keg Smash scoping goes (no per-ability proc trigger). 15 sec -> 4 turns."
     },
     {
-      "talent_id": "barbarian_ancestry_breaking_morale",
-      "name": "Breaking Morale",
-      "description": "Reduces the Energy cost of your abilities by 2% per rank.",
+      "talent_id": "barbarian_ancestry_frostbite",
+      "name": "Frostbite",
+      "description": "Your Frost damage has a 35% chance to freeze the target, dealing damage over 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_ancestry_ramhorn_rage",
+        "barbarian_ancestry_unified_rage"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "frostbite",
+          "name": "Frostbite",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 26,
+          "damage_school": "frost",
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Breath of The North now causes the target to bleed for an additional 30% of its damage over 6 sec as Frost damage.' The dot ports; the Breath-of-the-North scoping does not (no per-ability proc trigger), and '30% of its damage' becomes a fixed potency because apply_effect cannot read the triggering hit's amount - only bonus_pct, leech_pct and smart heals do, and none of them apply an effect. The description says 'your Frost damage' loosely: proc['school'] is NOT a trigger-side filter, it only types a damage_flat payload, so this fires on any damaging cast. 6 sec -> 3 turns. A proc-applied dot carries `potency` as PER-TURN damage (26 a turn, 78 total)."
+    },
+    {
+      "talent_id": "barbarian_ancestry_unified_rage",
+      "name": "Unified Rage",
+      "description": "Reduces the cooldown of Unbridled Rage and Ancestral Combat by 35% and increases your physical damage by 6%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_barbarian_unbridled_rage_cooldown_pct": 0.1167,
+        "ability_barbarian_ancestral_combat_cooldown_pct": 0.1167,
+        "physical_damage": 0.02
+      },
+      "connected_to": [
+        "barbarian_ancestry_war_cry"
+      ],
+      "_source": "CoA: 'Your Unbridled Rage now increases your chance to trigger Ancestral Combat by 25%.' Ancestral Combat is a self-buff in our data rather than a proc, so there is no trigger chance to raise - and nothing reads whether Unbridled Rage is active anyway. Rebuilt as cooldown reductions on both named abilities plus a small global. Folded in CoA's Improved Ancestral Combat ('reduces the Energy cost by -10 and allows it to trigger 3 additional times'), whose second clause needs a use counter: nothing counts how many times an effect has fired. FRACTIONS where POSITIVE MEANS A REDUCTION, beside a fraction that adds - the two sign conventions sit in one dict. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "barbarian_ancestry_ramhorn_rage",
+      "name": "Ramhorn Rage",
+      "description": "Reduces the cooldown of Ramhorn Rage and Warband by 40% and increases their healing by 25%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "ability_barbarian_ramhorn_rage_cooldown_pct": 0.1333,
+        "ability_barbarian_warband_cooldown_pct": 0.1333,
+        "ability_barbarian_ramhorn_rage_healing": 0.0833,
+        "ability_barbarian_warband_healing": 0.0833
+      },
+      "connected_to": [
+        "barbarian_ancestry_ancestral_spirit"
+      ],
+      "_source": "CoA: 'Enrage party and raid members within 8 yds for 3 sec, regenerating 2% of their maximum health every 1.5 sec. Melee auto attacks extend the duration of this effect by 2 sec, up to a maximum of 15 sec. This ability empties your Tankard.' Both abilities already exist as target_type 'party' HOTs, so THE PARTY HEALING IS REAL - it just cannot come from a talent. The extend-on-auto-attack clause cannot be built (no payload extends a LIVE effect's duration) and CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. So this talent makes two real party heal-over-times stronger and far more frequent. BOTH TAKE ability_<id>_HEALING, not _damage: they are HOTs, and _damage on a heal passes every check while doing nothing."
+    },
+    {
+      "talent_id": "barbarian_ancestry_war_cry",
+      "name": "War Cry",
+      "description": "Reduces the cooldown of War Cry and Tavern Brawl by 40% and increases your attack power by 8%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_barbarian_war_cry_cooldown_pct": 0.1333,
+        "ability_barbarian_tavern_brawl_cooldown_pct": 0.1333,
+        "attack_power_pct": 2.6667
+      },
+      "connected_to": [
+        "barbarian_ancestry_ancestral_spirit"
+      ],
+      "_source": "CoA: 'Unleash a blood curdling war cry, increasing melee and ranged attack speed by 20%, and attack power by 150 of party and raid members within 25 yds for 20 sec. Allies cannot benefit from this spell again for 5 min.' Both abilities exist as target_type 'party' buffs, so the party effect is real and this talent shortens their cooldowns. The 5-minute exhaustion lockout has no mechanism - nothing prevents a buff being reapplied to the same target - which also cost Ranger's Frenzy and Command Aura their drawbacks, so this is a case where losing CoA's restriction is a straight gain and is flagged rather than pocketed quietly. attack_power_pct is PERCENTAGE POINTS, which audit_talents caught me authoring as a fraction on Ranger Brigand tonight."
+    },
+    {
+      "talent_id": "barbarian_ancestry_crystal_enhancements",
+      "name": "Crystal Enhancements",
+      "description": "Increases your armor by 18% and reduces the cooldown of Clanlord's Totem and Frozen Blades by 30%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "armor_pct": 6,
+        "ability_barbarian_clanlords_totem_cooldown_pct": 0.1,
+        "ability_barbarian_frozen_blades_cooldown_pct": 0.1
+      },
+      "connected_to": [
+        "barbarian_ancestry_ancestral_spirit"
+      ],
+      "_source": "CoA: 'You now emanate an aura around you, increasing the Armor of party and raid members by 390. Does not stack with similar effects.' A talent effect can never reach an ally, and there is no Barbarian 'Crystal Enhancements' ABILITY to convert - but clanlords_totem and frozen_blades ARE party abilities, so the node takes CoA's armour selfishly and makes those two available more often. KEPT UNDER THE CAP DELIBERATELY: check_talent_balance enforces an armor_pct ceiling of 60 and Venomancer Fortitude currently breaches it at 62 from two stacking nodes, so this tree carries exactly one armour node. armor_pct is PERCENTAGE POINTS. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "barbarian_ancestry_ice_cold_bubbles",
+      "name": "Ice Cold Bubbles",
+      "description": "Increases your Frost damage by a further 10% and the damage of Frozen Tankard by 30%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "frost_spell_damage": 0.0333,
+        "ability_barbarian_frozen_tankard_damage": 0.1
+      },
+      "connected_to": [
+        "barbarian_ancestry_trip_to_the_alehouse"
+      ],
+      "_source": "CoA over 2 ranks: 'Each Fill Level stack now also increases Frost damage dealt by 2%.' CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. Built as the flat value CoA's typical five stacks would give, plus damage on Frozen Tankard, which no other node touches. Stacks with Frost Giant's Fury and the Frost theme generally. frost_spell_damage is live via an f-string lookup; both keys are FRACTIONS."
+    },
+    {
+      "talent_id": "barbarian_ancestry_cheers",
+      "name": "Cheers!",
+      "description": "Your healing spells have a 30% chance to mend your most wounded ally.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "barbarian_ancestry_drinking_frenzy"
+      ],
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 10,
+        "icd": 1,
+        "smart_heal_pct": 30
+      },
+      "_source": "CoA: 'Designate an ally as your drinking partner for 30 min, reducing all damage they take by 5%, and causing 10% of all damage they take to be redirected to you.' THE REDIRECTION HAS NO MECHANISM - nothing reroutes damage from one combatant to another, which is the same gap that killed Chronomancer's The Vast Infinite and Reaper's Spectral Warden threat transfer - and a talent cannot put a damage-reduction buff on a chosen ally either. The barbarian_cheers ABILITY exists as an ally-targeted buff and carries that half. So the talent does the thing a talent CAN do for allies: smart_heal_pct, one of only three payloads that reach an ally at all, which picks the worst-off one. NOTE on_heal_cast passes the CASTER, never the healed ally, and a HoT fires no on_heal_cast at all - so this keys off the spec's direct heals (Ancestral Roar, Savage Revelry), not Warband or Ramhorn Rage."
+    },
+    {
+      "talent_id": "barbarian_ancestry_ancestral_combat",
+      "name": "Ancestral Combat",
+      "description": "Your attacks have a 25% chance to strike an additional time.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [
-        "barbarian_ancestry_hodirs_revenge"
-      ],
-      "_source": "CoA: 'Reduces the Energy cost of Break by -15'. Break is the To The Bone debuff from the Headhunting tree, which is not an ability here, so the reduction goes to the pool it was always paying from."
-    },
-    {
-      "talent_id": "barbarian_ancestry_might_of_utgarde",
-      "name": "Might of Utgarde",
-      "description": "Increases your ancestor's health by 6% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {
-        "pet_health": 0.06
-      },
+      "effects": {},
       "connected_to": [
         "barbarian_ancestry_icebound_ancestry"
       ],
-      "_source": "CoA: 'Attacks from your Ancestral Combat now heal your Honored Ancestor for 5% maximum health and cause it to perform an Ancestral Whirl attack'. There is no pet-heal proc, so the node keeps the ancestor alive the other way."
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 8,
+        "icd": 0,
+        "extra_attack": true
+      },
+      "_source": "CoA: 'Empower yourself, granting your Physical damage dealt a 25% chance to trigger an additional main hand attack as Frost damage on your target and grant a stack of Fill Level. Lasts until triggered 20 times.' THE CORE PORTS VERBATIM, chance included: `extra_attack` is a BOOLEAN giving exactly one extra attack, which is precisely what CoA asks for. Three things do not - 'lasts until triggered 20 times' needs a use counter, the Fill Level stack does not exist, and the extra attack cannot be retyped as Frost (extra_attack carries no school, unlike damage_flat). Built as a passive rather than the 30-second self-buff, since a talent cannot grant a proc-carrying window without a nested proc the audit cannot inspect."
     },
     {
-      "talent_id": "barbarian_ancestry_frozen_blades",
-      "name": "Frozen Blades",
-      "description": "Increases your critical strike chance by 1% per rank.",
+      "talent_id": "barbarian_ancestry_the_finest_ale",
+      "name": "The Finest Ale",
+      "description": "Increases the healing of Savage Revelry by 35% and reduces its cooldown by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [
-        "barbarian_ancestry_frost_giants_fury"
-      ],
-      "_source": "CoA: 'Critical strikes now grant party and raid members 5% critical strike chance for 8 seconds'. A talent effect only ever applies to its owner - get_talent_effects feeds the owner's bonus pool and nothing else - so the party-facing half is the cast ability of the same name and this node is the Barbarian's own share."
-    },
-    {
-      "talent_id": "barbarian_ancestry_ancestors_fury",
-      "name": "Ancestor's Fury",
-      "description": "Increases your Frost critical strike damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "frost_crit_damage_pct": 0.04
-      },
-      "connected_to": [
-        "barbarian_ancestry_the_spins"
-      ],
-      "_source": "CoA: 'Unbridled Rage now also increases your Frost damage by 10%'. The during-Unbridled-Rage condition is not expressible; the burst flavour survives as crit damage rather than a second flat Frost increase on top of Ice Cold Bubbles. <school>_crit_damage_pct is resolved per cast in _crit_damage_bonus."
-    },
-    {
-      "talent_id": "barbarian_ancestry_rage_of_the_north",
-      "name": "Rage of the North",
-      "description": "Increases your Frost spell power by 8 per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -2,
-      "hex_y": 4,
+      "hex_y": 2,
       "effects": {
-        "frost_spell_power": 8
+        "ability_barbarian_savage_revelry_healing": 0.1167,
+        "ability_barbarian_savage_revelry_cooldown_pct": 0.1
       },
       "connected_to": [
-        "barbarian_ancestry_might_of_utgarde"
+        "barbarian_ancestry_liquid_courage"
       ],
-      "_source": "CoA: 'Increases the amount of attacks that can trigger your Ale of The God-King by 10'. No hook for that, so the node does the other thing the spec's late tier wants: more Frost behind every cast. Stacks additively with Frozen Warlord's conversion in get_effective_spell_power."
+      "_source": "CoA: 'Your Ale of The God-King no longer empties your Tankard.' CoA scales this off FILL LEVEL, the Tankard's stack mechanic. Barbarian is (ResourceType.ENERGY, None) with no secondary pool, and nothing reads a stack count anyway, so there is nothing to count. Seven Ancestry talents depend on it; each is flattened to its unconditional form. Same situation as Chronomancer's Echo Fragments and Venomancer's Brood Marks - and the reason CHECK THE RESOURCE FIRST is a standing rule, since Templar's Combo, Reaper's Souls and Ranger's Focus all turned out to be real. With no Tankard to empty, the talent has literally nothing to act on, so it is re-pointed to Savage Revelry - the spec's self-heal, which also generates 20 Energy and had no node. It is effect_type heal, so it takes ability_<id>_HEALING: _damage on a heal passes every check while doing nothing, which is how 18 talents across four classes were silently dead before _healing was accepted. The cooldown key is a FRACTION where POSITIVE MEANS A REDUCTION."
     },
     {
-      "talent_id": "barbarian_ancestry_uniting_voice",
-      "name": "Uniting Voice",
-      "description": "Increases your haste by 1 and your healing done by 3% per rank.",
+      "talent_id": "barbarian_ancestry_ancestral_spirit",
+      "name": "Ancestral Spirit",
+      "description": "Reduces the cost of all your abilities by 20%, increases your pets' damage by a further 35%, and your critical strikes restore 15 Energy.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "haste": 1.0,
-        "healing_done": 0.03
-      },
-      "connected_to": [
-        "barbarian_ancestry_frozen_blades"
-      ],
-      "_source": "CoA free passive: 'Casting Ancestral Roar now increases haste of party and raid members by 5% for 20 seconds'. Party scope is not available to a talent (see Frozen Blades), so the haste is the Barbarian's own and the node also scales Ancestral Roar itself, which is the ability CoA hangs it on."
-    },
-    {
-      "talent_id": "barbarian_ancestry_clanlords_totem",
-      "name": "Clanlord's Totem",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "barbarian_ancestry_ancestors_fury"
-      ],
-      "_source": "CoA free passive: the totem makes 'allied players within 100 yds deal 35% AP additional damage as Frost'. The placed totem is the cast ability of the same name; this node is the Barbarian's own share of it, same split as Frozen Blades and Uniting Voice."
-    },
-    {
-      "talent_id": "barbarian_ancestry_fury_of_the_north",
-      "name": "Fury of the North",
-      "description": "Something older than you takes the fight over for a while. +6% Frost damage, +3 haste and +4% maximum health.",
-      "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "frost_damage_pct": 0.06,
-        "haste": 3.0,
-        "max_health_pct": 0.04
+        "all_ability_cost_pct": 0.2,
+        "pet_damage": 0.35
       },
-      "connected_to": [
-        "barbarian_ancestry_rage_of_the_north",
-        "barbarian_ancestry_uniting_voice",
-        "barbarian_ancestry_clanlords_totem"
-      ],
-      "_source": "Capstone. CoA: 'Increases the duration of the enrage effect from your Ramhorn Rage by 6 sec and causes it to increase your movement speed by 40% for its duration'. Movement speed is nothing here and a duration extension is a small capstone, so it carries the three things the spec is built on at once: Frost, haste and the health to stand in melee. max_health_pct is a FRACTION - 0.04 is +4%, not +400%."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 15
+        }
+      },
+      "_source": "CoA over 2 ranks: 'Reduces the Energy cost of your Spirit spells and increases the duration of your Shouts by -50%.' 'Spirit spells' and 'Shouts' are CoA ability CATEGORIES and the engine has no such concept - there is no ability-group key, which is the same wall 'Spears' hit in Headhunting and 'Command spells' hit across Necromancer - so the cost reduction becomes global, which is what it amounts to on a spec whose whole kit is Spirit spells. The capstone then pays off the tree's two other themes: pet damage stacking with Drinking Frenzy and The Spins to +85%, and a second Energy grant stacking with Cold Brew to 27 per crit. LAST NODE OF THE CoA REBUILD - all 21 classes, 63 trees. all_ability_cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION; pet_damage is a fraction that adds."
     }
   ]
 }
