@@ -479,7 +479,30 @@ class QuestDialogScreen(BaseScreen):
         self.renderer.draw_text(screen, quest.title, (40, y), color=COLOR_GOLD)
         y += 34
 
-        body = (quest.description or "").strip()
+        # WHICH FIELD IS THE BODY DEPENDS ON THE ZONE, and getting this
+        # wrong silently guts about a third of the game's quests.
+        #
+        # Two authoring conventions exist side by side:
+        #   OLDER zones (Valley of Trials, Durotar, Tirisfal, Silverpine,
+        #   the Barrens hubs) put the prose in `description` and a short
+        #   NPC line in `accept_text`.
+        #   NEWER zones (Lashings, Glittervein, Abyssal Sands, Tanaris,
+        #   Stranglethorn, Underdark, Hillsbrad) put a ONE-LINE TEASER in
+        #   `description` - "The nets are not for fish." - and the real
+        #   multi-paragraph speech in `accept_text`.
+        #
+        # Rendering `description` as the body made Lashings, some of the
+        # best writing in the game, show up as a single sentence. Taking
+        # the longer of the two covers both conventions without rewriting
+        # 1087 quests to a single schema, and the short one is kept above
+        # it as a framing line when it genuinely differs.
+        desc = (quest.description or "").strip()
+        speech = (quest.accept_text or "").strip()
+        body, lead = (speech, desc) if len(speech) > len(desc) else (desc, speech)
+        if lead and len(lead) <= 160 and lead != body:
+            y = self._draw_wrapped_text(screen, lead, (40, y), max_width=BODY_W,
+                                        color=(150, 146, 132), line_height=24)
+            y += 8
         y = self._draw_wrapped_text(screen, body, (40, y), max_width=BODY_W,
                                     color=(214, 206, 184))
         y += 10

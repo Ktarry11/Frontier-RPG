@@ -95,7 +95,8 @@ def main():
             for r in rows:
                 flat.extend(r if isinstance(r, list) else [r])
             for r in flat:
-                if isinstance(r, dict) and r.get("npc_id") == gid and r.get("name"):
+                rid = r.get("npc_id") or r.get("vendor_id") if isinstance(r, dict) else None
+                if rid == gid and r.get("name"):
                     gname = r["name"]
                     break
         npc = types.SimpleNamespace(name=gname, npc_id=gid, greeting="")
