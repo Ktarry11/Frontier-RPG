@@ -10,15 +10,15 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Holy - 26 talents, 74 points
 
-- **Spiritual Focus** (5 ranks) - row 0 -> tier 1 - MATCH paladin_holy_spiritual_focus  [ours is scalar]
+- **Spiritual Focus** (5 ranks) - row 0 -> tier 0 - MATCH paladin_holy_spiritual_focus  [ours is scalar]
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Flash of Light and Holy Light by 14%.
   - WotLK rank 5: Reduces the pushback suffered from damaging attacks while casting Flash of Light and Holy Light by 70%.
-- **Seals of the Pure** (5 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Seals of the Pure** (5 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the damage done by your Seal of Righteousness, Seal of Vengeance and Seal of Corruption and their Judgement effects by 3%.
   - WotLK rank 5: Increases the damage done by your Seal of Righteousness, Seal of Vengeance and Seal of Corruption and their Judgement effects by 15%.
 - **Healing Light** (3 ranks) - row 1 -> tier 1 - MATCH paladin_holy_healing_light  [ours is scalar]
@@ -31,15 +31,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Unyielding Faith** (2 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
   - WotLK rank 1: Reduces the duration of all Fear and Disorient effects by 15%.
   - WotLK rank 2: Reduces the duration of all Fear and Disorient effects by 30%.
-- **Aura Mastery** (1 rank) - row 2 -> tier 2 - MATCH paladin_holy_aura_mastery  [ours is scalar]
+- **Aura Mastery** (1 rank) - row 2 -> tier 1 - MATCH paladin_holy_aura_mastery  [ours is scalar]
   - **BLOCKED**: BLOCKED:interrupt - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Causes your Concentration Aura to make all affected targets immune to Silence and Interrupt effects and improve the effect of all other auras by 100%. Lasts 6 sec.
-- **Illumination** (5 ranks) - row 2 -> tier 2 - MATCH paladin_holy_illumination
+- **Illumination** (5 ranks) - row 2 -> tier 1 - MATCH paladin_holy_illumination
   - needs: proc-chance, cost-change, heal
   - WotLK rank 1: After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell you have a 20% chance to gain mana equal to 30% of the base cost of the spell.
   - WotLK rank 5: After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell you have a 100% chance to gain mana equal to 30% of the base cost of the spell.
-- **Improved Lay on Hands** (2 ranks) - row 2 -> tier 2 - MATCH paladin_holy_improved_lay_on_hands  [ours is scalar]
+- **Improved Lay on Hands** (2 ranks) - row 2 -> tier 1 - MATCH paladin_holy_improved_lay_on_hands  [ours is scalar]
   - needs: duration-window, cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Grants the target of your Lay on Hands spell 10% reduced physical damage taken for 15 sec.  In addition, the cooldown for your Lay on Hands spell is reduced by 2 min.
@@ -55,14 +55,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: cost-change
   - WotLK rank 1: Reduces the mana cost of Hand of Freedom, Hand of Sacrifice and Hand of Salvation by 15%, increases the effectiveness of Hand of Salvation by 50% and the effectiveness of Hand of Sacrifice by an additional 5%.
   - WotLK rank 2: Reduces the mana cost of Hand of Freedom, Hand of Sacrifice and Hand of Salvation by 30%, increases the effectiveness of Hand of Salvation by 100% and the effectiveness of Hand of Sacrifice by an additional 10%.
-- **Pure of Heart** (2 ranks) - row 4 -> tier 3 - MATCH paladin_holy_pure_of_heart  [ours is scalar]
+- **Pure of Heart** (2 ranks) - row 4 -> tier 2 - MATCH paladin_holy_pure_of_heart  [ours is scalar]
   - WotLK rank 1: Reduces the duration of Curse, Disease and Poison effects by 15%.
   - WotLK rank 2: Reduces the duration of Curse, Disease and Poison effects by 30%.
-- **Divine Favor** (1 rank) - row 4 -> tier 3 - MATCH paladin_holy_divine_favor  [ours is scalar]
+- **Divine Favor** (1 rank) - row 4 -> tier 2 - MATCH paladin_holy_divine_favor  [ours is scalar]
   - requires: Illumination
   - needs: proc-chance
   - WotLK rank 1: When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.
-- **Sanctified Light** (3 ranks) - row 4 -> tier 3 - MATCH paladin_holy_sanctified_light  [ours is scalar]
+- **Sanctified Light** (3 ranks) - row 4 -> tier 2 - MATCH paladin_holy_sanctified_light  [ours is scalar]
   - needs: proc-chance
   - WotLK rank 1: Increases the critical effect chance of your Holy Light and Holy Shock spells by 2%.
   - WotLK rank 3: Increases the critical effect chance of your Holy Light and Holy Shock spells by 6%.
@@ -122,11 +122,11 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Protection - 26 talents, 71 points
 
-- **Divinity** (5 ranks) - row 0 -> tier 1 - MATCH paladin_protection_divinity  [ours is scalar]
+- **Divinity** (5 ranks) - row 0 -> tier 0 - MATCH paladin_protection_divinity  [ours is scalar]
   - needs: heal
   - WotLK rank 1: Increases all healing done by you and all healing effects on you by 1%.
   - WotLK rank 5: Increases all healing done by you and all healing effects on you by 5%.
-- **Divine Strength** (5 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Divine Strength** (5 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - WotLK rank 1: Increases your total Strength by 3%.
   - WotLK rank 5: Increases your total Strength by 15%.
 - **Stoicism** (3 ranks) - row 1 -> tier 1 - MATCH paladin_protection_stoicism  [ours is scalar]
@@ -142,14 +142,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance
   - WotLK rank 1: Increases your chance to dodge by 1%.
   - WotLK rank 5: Increases your chance to dodge by 5%.
-- **Divine Sacrifice** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Divine Sacrifice** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: hp-threshold, heal, aoe
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: 30% of all damage taken by party members within 30 yards is redirected to the Paladin (up to a maximum of 40% of the Paladin's health times the number of party members). Damage which reduces the Paladin below 20% health will break the effect. Lasts 10 sec.
-- **Improved Righteous Fury** (3 ranks) - row 2 -> tier 2 - MATCH paladin_protection_improved_righteous_fury  [ours is scalar]
+- **Improved Righteous Fury** (3 ranks) - row 2 -> tier 1 - MATCH paladin_protection_improved_righteous_fury  [ours is scalar]
   - WotLK rank 1: While Righteous Fury is active, all damage taken is reduced by 2%.
   - WotLK rank 3: While Righteous Fury is active, all damage taken is reduced by 6%.
-- **Toughness** (5 ranks) - row 2 -> tier 2 - MATCH paladin_protection_toughness  [ours is scalar]
+- **Toughness** (5 ranks) - row 2 -> tier 1 - MATCH paladin_protection_toughness  [ours is scalar]
   - WotLK rank 1: Increases your armor value from items by 2% and reduces the duration of all movement slowing effects by 6%.
   - WotLK rank 5: Increases your armor value from items by 10% and reduces the duration of all movement slowing effects by 30%.
 - **Divine Guardian** (2 ranks) - row 3 -> tier 2 - MATCH paladin_protection_divine_guardian  [ours is scalar]
@@ -167,10 +167,10 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: heal
   - WotLK rank 1: Increases the armor bonus of your Devotion Aura by 17% and increases the amount healed on any target affected by any of your Auras by 2%.
   - WotLK rank 3: Increases the armor bonus of your Devotion Aura by 50% and increases the amount healed on any target affected by any of your Auras by 6%.
-- **Blessing of Sanctuary** (1 rank) - row 4 -> tier 3 - MATCH paladin_protection_blessing_of_sanctuary
+- **Blessing of Sanctuary** (1 rank) - row 4 -> tier 2 - MATCH paladin_protection_blessing_of_sanctuary
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Places a Blessing on the friendly target, reducing damage taken from all sources by 3% for 10 min and increasing strength and stamina by 10%. In addition, when the target blocks, parries, or dodges a melee attack the target will gain 2% of maximum displayed mana. Players may only have one Blessing on them per Paladin at any one time.
-- **Reckoning** (5 ranks) - row 4 -> tier 3 - MATCH paladin_protection_reckoning
+- **Reckoning** (5 ranks) - row 4 -> tier 2 - MATCH paladin_protection_reckoning
   - needs: proc-chance
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives you a 2% chance after being hit by any damaging attack that the next 4 weapon swings within 8 sec will generate an additional attack.
@@ -237,11 +237,11 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Retribution - 26 talents, 66 points
 
-- **Deflection** (5 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Deflection** (5 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - needs: proc-chance
   - WotLK rank 1: Increases your Parry chance by 1%.
   - WotLK rank 5: Increases your Parry chance by 5%.
-- **Benediction** (5 ranks) - row 0 -> tier 1 - MATCH paladin_retribution_benediction  [ours is scalar]
+- **Benediction** (5 ranks) - row 0 -> tier 0 - MATCH paladin_retribution_benediction  [ours is scalar]
   - needs: cost-change
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - WotLK rank 1: Reduces the mana cost of all instant cast spells by 2%.
@@ -258,22 +258,22 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Improved Blessing of Might** (2 ranks) - row 1 -> tier 1 - MATCH paladin_retribution_improved_blessing_of_might  [ours is scalar]
   - WotLK rank 1: Increases the attack power bonus of your Blessing of Might by 12%.
   - WotLK rank 2: Increases the attack power bonus of your Blessing of Might by 25%.
-- **Vindication** (2 ranks) - row 2 -> tier 2 - MATCH paladin_retribution_vindication
+- **Vindication** (2 ranks) - row 2 -> tier 1 - MATCH paladin_retribution_vindication
   - needs: proc-chance, duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives the Paladin's damaging attacks a chance to reduce the target's attack power by 23 for 10 sec.
   - WotLK rank 2: Gives the Paladin's damaging attacks a chance to reduce the target's attack power by 46 for 10 sec.
-- **Conviction** (5 ranks) - row 2 -> tier 2 - MATCH paladin_retribution_conviction  [ours is scalar]
+- **Conviction** (5 ranks) - row 2 -> tier 1 - MATCH paladin_retribution_conviction  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases your chance to get a critical strike with all spells and attacks by 1%.
   - WotLK rank 5: Increases your chance to get a critical strike with all spells and attacks by 5%.
-- **Seal of Command** (1 rank) - row 2 -> tier 2 - MATCH paladin_retribution_seal_of_command
+- **Seal of Command** (1 rank) - row 2 -> tier 1 - MATCH paladin_retribution_seal_of_command
   - **BLOCKED**: BLOCKED:target-count - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: All melee attacks deal 0.36*mw to 0.36*MW additional Holy damage. When used with attacks or abilities that strike a single target, this additional Holy damage will strike up to 2 additional targets. Lasts 30 min.
 
 Unleashing this Seal's energy will judge an enemy, instantly causing 0.19*mw+0.08*AP+0.13*HolP to 0.19*MW+0.08*AP+0.13*HolP Holy damage.
-- **Pursuit of Justice** (2 ranks) - row 2 -> tier 2 - MATCH paladin_retribution_pursuit_of_justice  [ours is scalar]
+- **Pursuit of Justice** (2 ranks) - row 2 -> tier 1 - MATCH paladin_retribution_pursuit_of_justice  [ours is scalar]
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - WotLK rank 1: Reduces the duration of all Disarm effects by 25% and increases movement and mounted movement speed by 8%.  This does not stack with other movement speed increasing effects.
   - WotLK rank 2: Reduces the duration of all Disarm effects by 50% and increases movement and mounted movement speed by 15%.  This does not stack with other movement speed increasing effects.
@@ -289,10 +289,10 @@ Unleashing this Seal's energy will judge an enemy, instantly causing 0.19*mw+0.0
   - needs: pet
   - WotLK rank 1: Increases all damage caused by 1% and all damage caused against Humanoids, Demons, Undead and Elementals by an additional 1%.
   - WotLK rank 3: Increases all damage caused by 3% and all damage caused against Humanoids, Demons, Undead and Elementals by an additional 3%.
-- **Two-Handed Weapon Specialization** (3 ranks) - row 4 -> tier 3 - MATCH paladin_retribution_two_handed_specialization  [ours is scalar]
+- **Two-Handed Weapon Specialization** (3 ranks) - row 4 -> tier 2 - MATCH paladin_retribution_two_handed_specialization  [ours is scalar]
   - WotLK rank 1: Increases the damage you deal with two-handed melee weapons by 2%.
   - WotLK rank 3: Increases the damage you deal with two-handed melee weapons by 6%.
-- **Sanctified Retribution** (1 rank) - row 4 -> tier 3 - MATCH paladin_retribution_sanctified_retribution
+- **Sanctified Retribution** (1 rank) - row 4 -> tier 2 - MATCH paladin_retribution_sanctified_retribution
   - WotLK rank 1: Increases the damage caused by Retribution Aura by 50% and all damage caused by friendly targets affected by any of your Auras is increased by 3%.
 - **Vengeance** (3 ranks) - row 5 -> tier 3 - MATCH paladin_retribution_vengeance
   - requires: Conviction

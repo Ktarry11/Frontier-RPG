@@ -10,20 +10,20 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Arcane - 30 talents, 81 points
 
-- **Arcane Subtlety** (2 ranks) - row 0 -> tier 1 - MATCH mage_arcane_arcane_subtlety
+- **Arcane Subtlety** (2 ranks) - row 0 -> tier 0 - MATCH mage_arcane_arcane_subtlety
   - needs: proc-chance, threat, dispel
   - WotLK rank 1: Reduces the chance your helpful spells and damage over time effects will be dispelled by 15% and reduces the threat caused by your Arcane spells by 20%.
   - WotLK rank 2: Reduces the chance your helpful spells and damage over time effects will be dispelled by 30% and reduces the threat caused by your Arcane spells by 40%.
-- **Arcane Focus** (3 ranks) - row 0 -> tier 1 - MATCH mage_arcane_arcane_focus  [ours is scalar]
+- **Arcane Focus** (3 ranks) - row 0 -> tier 0 - MATCH mage_arcane_arcane_focus  [ours is scalar]
   - needs: proc-chance, cost-change
   - WotLK rank 1: Increases your chance to hit and reduces the mana cost of your Arcane spells by 1%.
   - WotLK rank 3: Increases your chance to hit and reduces the mana cost of your Arcane spells by 3%.
-- **Arcane Stability** (5 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Arcane Stability** (5 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 20%.
   - WotLK rank 5: Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 100%.
 - **Arcane Fortitude** (3 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
@@ -38,16 +38,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, cost-change
   - WotLK rank 1: Gives you a 2% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.
   - WotLK rank 5: Gives you a 10% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.
-- **Magic Attunement** (2 ranks) - row 2 -> tier 2 - MATCH mage_arcane_magic_attunement  [ours is scalar]
+- **Magic Attunement** (2 ranks) - row 2 -> tier 1 - MATCH mage_arcane_magic_attunement  [ours is scalar]
   - WotLK rank 1: Increases the range of your Arcane spells by 3 yards and the effect of your Amplify Magic and Dampen Magic spells by 25%.
   - WotLK rank 2: Increases the range of your Arcane spells by 6 yards and the effect of your Amplify Magic and Dampen Magic spells by 50%.
-- **Spell Impact** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Spell Impact** (3 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the damage of your Arcane Explosion, Arcane Blast, Blast Wave, Fire Blast, Scorch, Fireball, Ice Lance and Cone of Cold spells by an additional 2%.
   - WotLK rank 3: Increases the damage of your Arcane Explosion, Arcane Blast, Blast Wave, Fire Blast, Scorch, Fireball, Ice Lance and Cone of Cold spells by an additional 6%.
-- **Student of the Mind** (3 ranks) - row 2 -> tier 2 - MATCH mage_arcane_student_of_the_mind  [ours is scalar]
+- **Student of the Mind** (3 ranks) - row 2 -> tier 1 - MATCH mage_arcane_student_of_the_mind  [ours is scalar]
   - WotLK rank 1: Increases your total Spirit by 4%.
   - WotLK rank 3: Increases your total Spirit by 10%.
-- **Focus Magic** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Focus Magic** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance, duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the target's chance to critically hit with spells by 3%. When the target critically hits the caster's chance to critically hit with spells is increased by 3% for 10 sec. Cannot be cast on self.
@@ -66,16 +66,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Torment the Weak** (3 ranks) - row 3 -> tier 2 - MATCH mage_arcane_torment_the_weak
   - WotLK rank 1: Your Frostbolt, Fireball, Frostfire Bolt, Pyroblast, Arcane Missiles, Arcane Blast, and Arcane Barrage abilities deal 4% more damage to snared or slowed targets.
   - WotLK rank 3: Your Frostbolt, Fireball, Frostfire Bolt, Pyroblast, Arcane Missiles, Arcane Blast, and Arcane Barrage abilities deal 12% more damage to snared or slowed targets.
-- **Improved Blink** (2 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Improved Blink** (2 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - needs: proc-chance, duration-window, cost-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the mana cost of Blink by 25% and for 4 sec after casting your chance to be hit by all attacks and spells is reduced by 15%.
   - WotLK rank 2: Reduces the mana cost of Blink by 50% and for 4 sec after casting your chance to be hit by all attacks and spells is reduced by 30%.
-- **Presence of Mind** (1 rank) - row 4 -> tier 3 - MATCH mage_arcane_presence_of_mind
+- **Presence of Mind** (1 rank) - row 4 -> tier 2 - MATCH mage_arcane_presence_of_mind
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.
-- **Arcane Mind** (5 ranks) - row 4 -> tier 3 - MATCH mage_arcane_arcane_mind  [ours is scalar]
+- **Arcane Mind** (5 ranks) - row 4 -> tier 2 - MATCH mage_arcane_arcane_mind  [ours is scalar]
   - WotLK rank 1: Increases your total Intellect by 3%.
   - WotLK rank 5: Increases your total Intellect by 15%.
 - **Prismatic Cloak** (3 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
@@ -134,16 +134,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Fire - 28 talents, 73 points
 
-- **Improved Fire Blast** (2 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Improved Fire Blast** (2 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Fire Blast spell by 1 sec.
   - WotLK rank 2: Reduces the cooldown of your Fire Blast spell by 2 sec.
-- **Incineration** (3 ranks) - row 0 -> tier 1 - MATCH mage_fire_incineration  [ours is scalar]
+- **Incineration** (3 ranks) - row 0 -> tier 0 - MATCH mage_fire_incineration  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Fire Blast, Scorch, Arcane Blast and Cone of Cold spells by 2%.
   - WotLK rank 3: Increases the critical strike chance of your Fire Blast, Scorch, Arcane Blast and Cone of Cold spells by 6%.
-- **Improved Fireball** (5 ranks) - row 0 -> tier 1 - MATCH mage_fire_improved_fireball  [ours is scalar]
+- **Improved Fireball** (5 ranks) - row 0 -> tier 0 - MATCH mage_fire_improved_fireball  [ours is scalar]
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Fireball spell by 0.1 sec.
@@ -163,19 +163,19 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Flamestrike, Pyroblast, Blast Wave, Dragon's Breath, Living Bomb, Blizzard and Arcane Explosion spells by 2%.
   - WotLK rank 3: Increases the critical strike chance of your Flamestrike, Pyroblast, Blast Wave, Dragon's Breath, Living Bomb, Blizzard and Arcane Explosion spells by 6%.
-- **Flame Throwing** (2 ranks) - row 2 -> tier 2 - MATCH mage_fire_flame_throwing  [ours is scalar]
+- **Flame Throwing** (2 ranks) - row 2 -> tier 1 - MATCH mage_fire_flame_throwing  [ours is scalar]
   - WotLK rank 1: Increases the range of all Fire spells except Frostfire Bolt by 3 yards.
   - WotLK rank 2: Increases the range of all Fire spells except Frostfire Bolt by 6 yards.
-- **Impact** (3 ranks) - row 2 -> tier 2 - MATCH mage_fire_impact
+- **Impact** (3 ranks) - row 2 -> tier 1 - MATCH mage_fire_impact
   - needs: proc-chance, duration-window, stun
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives your damaging spells a 4% chance to cause the next Fire Blast you cast to stun the target for 2 sec.
   - WotLK rank 3: Gives your damaging spells a 10% chance to cause the next Fire Blast you cast to stun the target for 2 sec.
-- **Pyroblast** (1 rank) - row 2 -> tier 2 - MATCH mage_fire_pyroblast
+- **Pyroblast** (1 rank) - row 2 -> tier 1 - MATCH mage_fire_pyroblast
   - needs: dot-hot
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Hurls an immense fiery boulder that causes 141 to 187 Fire damage and an additional 56 Fire damage over 12 sec.
-- **Burning Soul** (2 ranks) - row 2 -> tier 2 - MATCH mage_fire_burning_soul
+- **Burning Soul** (2 ranks) - row 2 -> tier 1 - MATCH mage_fire_burning_soul
   - needs: threat
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Fire spells by 35% and reduces the threat caused by your Fire spells by 10%.
   - WotLK rank 2: Reduces the pushback suffered from damaging attacks while casting Fire spells by 70% and reduces the threat caused by your Fire spells by 20%.
@@ -192,14 +192,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: cost-change
   - WotLK rank 1: Your spell criticals will refund 10% of their base mana cost.
   - WotLK rank 3: Your spell criticals will refund 30% of their base mana cost.
-- **Playing with Fire** (3 ranks) - row 4 -> tier 3 - MATCH mage_fire_playing_with_fire  [ours is scalar]
+- **Playing with Fire** (3 ranks) - row 4 -> tier 2 - MATCH mage_fire_playing_with_fire  [ours is scalar]
   - WotLK rank 1: Increases all spell damage caused by 1% and all spell damage taken by 1%.
   - WotLK rank 3: Increases all spell damage caused by 3% and all spell damage taken by 3%.
-- **Critical Mass** (3 ranks) - row 4 -> tier 3 - MATCH mage_fire_critical_mass  [ours is scalar]
+- **Critical Mass** (3 ranks) - row 4 -> tier 2 - MATCH mage_fire_critical_mass  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Fire spells by 2%.
   - WotLK rank 3: Increases the critical strike chance of your Fire spells by 6%.
-- **Blast Wave** (1 rank) - row 4 -> tier 3 - MATCH mage_fire_blast_wave
+- **Blast Wave** (1 rank) - row 4 -> tier 2 - MATCH mage_fire_blast_wave
   - requires: Pyroblast
   - needs: duration-window, aoe
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
@@ -263,17 +263,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Frost - 28 talents, 74 points
 
-- **Frostbite** (3 ranks) - row 0 -> tier 1 - MATCH mage_frost_frostbite
+- **Frostbite** (3 ranks) - row 0 -> tier 0 - MATCH mage_frost_frostbite
   - needs: proc-chance, duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives your Chill effects a 5% chance to freeze the target for 5 sec.
   - WotLK rank 3: Gives your Chill effects a 15% chance to freeze the target for 5 sec.
-- **Improved Frostbolt** (5 ranks) - row 0 -> tier 1 - MATCH mage_frost_improved_frostbolt  [ours is scalar]
+- **Improved Frostbolt** (5 ranks) - row 0 -> tier 0 - MATCH mage_frost_improved_frostbolt  [ours is scalar]
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Frostbolt spell by 0.1 sec.
   - WotLK rank 5: Reduces the casting time of your Frostbolt spell by 0.5 sec.
-- **Ice Floes** (3 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Ice Floes** (3 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - needs: cooldown-change
   - WotLK rank 1: Reduces the cooldown of your Frost Nova, Cone of Cold, Ice Block and Icy Veins spells by 7%.
   - WotLK rank 3: Reduces the cooldown of your Frost Nova, Cone of Cold, Ice Block and Icy Veins spells by 20%.
@@ -294,13 +294,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the duration of your Chill effects by 1 sec, reduces the target's speed by an additional 4%, and reduces the target's healing received by 7%.
   - WotLK rank 3: Increases the duration of your Chill effects by 3 secs, reduces the target's speed by an additional 10%, and reduces the target's healing received by 20%.
-- **Piercing Ice** (3 ranks) - row 2 -> tier 2 - MATCH mage_frost_piercing_ice
+- **Piercing Ice** (3 ranks) - row 2 -> tier 1 - MATCH mage_frost_piercing_ice
   - WotLK rank 1: Increases the damage done by your Frost spells by 2%.
   - WotLK rank 3: Increases the damage done by your Frost spells by 6%.
-- **Icy Veins** (1 rank) - row 2 -> tier 2 - MATCH mage_frost_icy_veins
+- **Icy Veins** (1 rank) - row 2 -> tier 1 - MATCH mage_frost_icy_veins
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Hastens your spellcasting, increasing spell casting speed by 20% and reduces the pushback suffered from damaging attacks while casting by 100%. Lasts 20 sec.
-- **Improved Blizzard** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Improved Blizzard** (3 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 25%.  Lasts 1.5 sec.
   - WotLK rank 3: Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 50%.  Lasts 1.5 sec.
@@ -315,13 +315,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of all your spells against frozen targets by 17%.
   - WotLK rank 3: Increases the critical strike chance of all your spells against frozen targets by 50%.
-- **Cold Snap** (1 rank) - row 4 -> tier 3 - MATCH mage_frost_cold_snap
+- **Cold Snap** (1 rank) - row 4 -> tier 2 - MATCH mage_frost_cold_snap
   - needs: cooldown-change
   - WotLK rank 1: When activated, this spell finishes the cooldown on all Frost spells you recently cast.
-- **Improved Cone of Cold** (3 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Improved Cone of Cold** (3 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the damage dealt by your Cone of Cold spell by 15%.
   - WotLK rank 3: Increases the damage dealt by your Cone of Cold spell by 35%.
-- **Frozen Core** (3 ranks) - row 4 -> tier 3 - MATCH mage_frost_frozen_core  [ours is scalar]
+- **Frozen Core** (3 ranks) - row 4 -> tier 2 - MATCH mage_frost_frozen_core  [ours is scalar]
   - WotLK rank 1: Reduces the damage taken from all spells by 2%.
   - WotLK rank 3: Reduces the damage taken from all spells by 6%.
 - **Cold as Ice** (2 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name

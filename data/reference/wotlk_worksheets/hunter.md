@@ -10,17 +10,17 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Beast Mastery - 26 talents, 74 points
 
-- **Improved Aspect of the Hawk** (5 ranks) - row 0 -> tier 1 - MATCH hunter_beast_mastery_improved_aspect_of_the_hawk  [ours is scalar]
+- **Improved Aspect of the Hawk** (5 ranks) - row 0 -> tier 0 - MATCH hunter_beast_mastery_improved_aspect_of_the_hawk  [ours is scalar]
   - needs: proc-chance, duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: While Aspect of the Hawk or Dragonhawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 3% for 12 sec.
   - WotLK rank 5: While Aspect of the Hawk or Dragonhawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 15% for 12 sec.
-- **Endurance Training** (5 ranks) - row 0 -> tier 1 - MATCH hunter_beast_mastery_endurance_training  [ours is scalar]
+- **Endurance Training** (5 ranks) - row 0 -> tier 0 - MATCH hunter_beast_mastery_endurance_training  [ours is scalar]
   - needs: heal, pet
   - WotLK rank 1: Increases the health of your pet by 2% and your total health by 1%.
   - WotLK rank 5: Increases the health of your pet by 10% and your total health by 5%.
@@ -42,11 +42,11 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Revive Pet's casting time is reduced by 3 sec, mana cost is reduced by 20%, and increases the health your pet returns with by an additional 15%.
   - WotLK rank 2: Revive Pet's casting time is reduced by 6 sec, mana cost is reduced by 40%, and increases the health your pet returns with by an additional 30%.
-- **Pathfinding** (2 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Pathfinding** (2 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - WotLK rank 1: Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by 4%, and increases your speed while mounted by 5%. The mounted movement speed increase does not stack with other effects.
   - WotLK rank 2: Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by 8%, and increases your speed while mounted by 10%. The mounted movement speed increase does not stack with other effects.
-- **Aspect Mastery** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Aspect Mastery** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - WotLK rank 1: Aspect of the Viper - Reduces the damage penalty by 10%.
 
 Aspect of the Monkey - Reduces the damage done to you while active by 5%.
@@ -54,7 +54,7 @@ Aspect of the Monkey - Reduces the damage done to you while active by 5%.
 Aspect of the Hawk - Increases the attack power bonus by 30%.
 
 Aspect of the Dragonhawk - Combines the bonuses from Aspect of the Monkey and Hawk.
-- **Unleashed Fury** (5 ranks) - row 2 -> tier 2 - MATCH hunter_beast_mastery_unleashed_fury  [ours is scalar]
+- **Unleashed Fury** (5 ranks) - row 2 -> tier 1 - MATCH hunter_beast_mastery_unleashed_fury  [ours is scalar]
   - needs: pet
   - WotLK rank 1: Increases the damage done by your pets by 3%.
   - WotLK rank 5: Increases the damage done by your pets by 15%.
@@ -66,16 +66,16 @@ Aspect of the Dragonhawk - Combines the bonuses from Aspect of the Monkey and Ha
   - needs: proc-chance, crit, pet
   - WotLK rank 1: Increases the critical strike chance of your pet by 2%.
   - WotLK rank 5: Increases the critical strike chance of your pet by 10%.
-- **Spirit Bond** (2 ranks) - row 4 -> tier 3 - MATCH hunter_beast_mastery_spirit_bond
+- **Spirit Bond** (2 ranks) - row 4 -> tier 2 - MATCH hunter_beast_mastery_spirit_bond
   - needs: dot-hot, heal, pet
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: While your pet is active, you and your pet will regenerate 1% of total health every 10 sec., and increases healing done to you and your pet by 5%.
   - WotLK rank 2: While your pet is active, you and your pet will regenerate 2% of total health every 10 sec., and increases healing done to you and your pet by 10%.
-- **Intimidation** (1 rank) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Intimidation** (1 rank) - row 4 -> tier 2 - NEW - we have no talent of this name
   - needs: duration-window, stun, threat, pet
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Command your pet to intimidate the target, causing a high amount of threat and stunning the target for 3 sec. Lasts 15 sec.
-- **Bestial Discipline** (2 ranks) - row 4 -> tier 3 - MATCH hunter_beast_mastery_bestial_discipline  [ours is scalar]
+- **Bestial Discipline** (2 ranks) - row 4 -> tier 2 - MATCH hunter_beast_mastery_bestial_discipline  [ours is scalar]
   - needs: pet
   - WotLK rank 1: Increases the Focus regeneration of your pets by 50%.
   - WotLK rank 2: Increases the Focus regeneration of your pets by 100%.
@@ -138,15 +138,15 @@ Aspect of the Dragonhawk - Combines the bonuses from Aspect of the Monkey and Ha
 
 ## Marksmanship - 27 talents, 75 points
 
-- **Improved Concussive Shot** (2 ranks) - row 0 -> tier 1 - MATCH hunter_marksmanship_improved_concussive_shot  [ours is scalar]
+- **Improved Concussive Shot** (2 ranks) - row 0 -> tier 0 - MATCH hunter_marksmanship_improved_concussive_shot  [ours is scalar]
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the duration of your Concussive Shot's daze effect by 1 sec.
   - WotLK rank 2: Increases the duration of your Concussive Shot's daze effect by 2 sec.
-- **Focused Aim** (3 ranks) - row 0 -> tier 1 - MATCH hunter_marksmanship_focused_aim  [ours is scalar]
+- **Focused Aim** (3 ranks) - row 0 -> tier 0 - MATCH hunter_marksmanship_focused_aim  [ours is scalar]
   - needs: proc-chance
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Steady Shot by 23%, and increases your chance to hit by 1%.
   - WotLK rank 3: Reduces the pushback suffered from damaging attacks while casting Steady Shot by 70%, and increases your chance to hit by 3%.
-- **Lethal Shots** (5 ranks) - row 0 -> tier 1 - MATCH hunter_marksmanship_lethal_shots  [ours is scalar]
+- **Lethal Shots** (5 ranks) - row 0 -> tier 0 - MATCH hunter_marksmanship_lethal_shots  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Requires Bows, Crossbows, Guns, Thrown Increases your critical strike chance with ranged weapons by 1%.
   - WotLK rank 5: Requires Bows, Crossbows, Guns, Thrown Increases your critical strike chance with ranged weapons by 5%.
@@ -161,19 +161,19 @@ Aspect of the Dragonhawk - Combines the bonuses from Aspect of the Monkey and Ha
   - needs: crit
   - WotLK rank 1: Increases the critical strike damage bonus of your ranged abilities by 6%.
   - WotLK rank 5: Increases the critical strike damage bonus of your ranged abilities by 30%.
-- **Go for the Throat** (2 ranks) - row 2 -> tier 2 - MATCH hunter_marksmanship_go_for_the_throat
+- **Go for the Throat** (2 ranks) - row 2 -> tier 1 - MATCH hunter_marksmanship_go_for_the_throat
   - needs: pet
   - WotLK rank 1: Your ranged critical hits cause your pet to generate 25 Focus.
   - WotLK rank 2: Your ranged critical hits cause your pet to generate 50 Focus.
-- **Improved Arcane Shot** (3 ranks) - row 2 -> tier 2 - MATCH hunter_marksmanship_improved_arcane_shot  [ours is scalar]
+- **Improved Arcane Shot** (3 ranks) - row 2 -> tier 1 - MATCH hunter_marksmanship_improved_arcane_shot  [ours is scalar]
   - WotLK rank 1: Increases the damage done by your Arcane Shot by 5%.
   - WotLK rank 3: Increases the damage done by your Arcane Shot by 15%.
-- **Aimed Shot** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Aimed Shot** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - requires: Mortal Shots
   - needs: heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: An aimed shot that increases ranged damage by 5 and reduces healing done to that target by 50%.  Lasts 10 sec.
-- **Rapid Killing** (2 ranks) - row 2 -> tier 2 - MATCH hunter_marksmanship_rapid_killing
+- **Rapid Killing** (2 ranks) - row 2 -> tier 1 - MATCH hunter_marksmanship_rapid_killing
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Rapid Fire ability by 1 min.  In addition, after killing an opponent that yields experience or honor, your next Aimed Shot, Arcane Shot or Chimera Shot causes 10% additional damage.  Lasts 20 sec.
@@ -186,15 +186,15 @@ Aspect of the Dragonhawk - Combines the bonuses from Aspect of the Monkey and Ha
   - needs: cost-change
   - WotLK rank 1: Reduces the Mana cost of your Shots and Stings by 3%.
   - WotLK rank 5: Reduces the Mana cost of your Shots and Stings by 15%.
-- **Concussive Barrage** (2 ranks) - row 4 -> tier 3 - MATCH hunter_marksmanship_concussive_barrage
+- **Concussive Barrage** (2 ranks) - row 4 -> tier 2 - MATCH hunter_marksmanship_concussive_barrage
   - needs: proc-chance, duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your successful Chimera Shot and Multi-Shot attacks have a 50% chance to Daze the target for 4 sec.
   - WotLK rank 2: Your successful Chimera Shot and Multi-Shot attacks have a 100% chance to Daze the target for 4 sec.
-- **Readiness** (1 rank) - row 4 -> tier 3 - MATCH hunter_marksmanship_readiness  [ours is scalar]
+- **Readiness** (1 rank) - row 4 -> tier 2 - MATCH hunter_marksmanship_readiness  [ours is scalar]
   - needs: cooldown-change
   - WotLK rank 1: When activated, this ability immediately finishes the cooldown on your other Hunter abilities except Bestial Wrath.
-- **Barrage** (3 ranks) - row 4 -> tier 3 - MATCH hunter_marksmanship_barrage  [ours is scalar]
+- **Barrage** (3 ranks) - row 4 -> tier 2 - MATCH hunter_marksmanship_barrage  [ours is scalar]
   - WotLK rank 1: Increases the damage done by your Multi-Shot, Aimed Shot, and Volley spells by 4%.
   - WotLK rank 3: Increases the damage done by your Multi-Shot, Aimed Shot, and Volley spells by 12%.
 - **Combat Experience** (2 ranks) - row 5 -> tier 3 - MATCH hunter_marksmanship_combat_experience  [ours is scalar]
@@ -258,14 +258,14 @@ Scorpid Sting - Attempts to Disarm the target for 10 sec. This effect cannot occ
 
 ## Survival - 28 talents, 78 points
 
-- **Improved Tracking** (5 ranks) - row 0 -> tier 1 - MATCH hunter_survival_improved_tracking  [ours is scalar]
+- **Improved Tracking** (5 ranks) - row 0 -> tier 0 - MATCH hunter_survival_improved_tracking  [ours is scalar]
   - needs: pet
   - WotLK rank 1: While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids and Undead, all damage done to those types by the Hunter is increased by 1%.
   - WotLK rank 5: While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids and Undead, all damage done to those types by the Hunter is increased by 5%.
-- **Hawk Eye** (3 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Hawk Eye** (3 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the range of your ranged weapons by 2 yards.
   - WotLK rank 3: Increases the range of your ranged weapons by 6 yards.
-- **Savage Strikes** (2 ranks) - row 0 -> tier 1 - MATCH hunter_survival_savage_strikes  [ours is scalar]
+- **Savage Strikes** (2 ranks) - row 0 -> tier 0 - MATCH hunter_survival_savage_strikes  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of Raptor Strike, Mongoose Bite and Counterattack by 10%.
   - WotLK rank 2: Increases the critical strike chance of Raptor Strike, Mongoose Bite and Counterattack by 20%.
@@ -292,19 +292,19 @@ Snake Trap - Increases the number of snakes summoned by 6.
   - needs: proc-chance, crit
   - WotLK rank 1: Reduces all damage taken by 2% and increases the critical strike chance of your Arcane Shot, Steady Shot, and Explosive Shot by 2%.
   - WotLK rank 2: Reduces all damage taken by 4% and increases the critical strike chance of your Arcane Shot, Steady Shot, and Explosive Shot by 4%.
-- **Survivalist** (5 ranks) - row 2 -> tier 2 - MATCH hunter_survival_survivalist  [ours is scalar]
+- **Survivalist** (5 ranks) - row 2 -> tier 1 - MATCH hunter_survival_survivalist  [ours is scalar]
   - WotLK rank 1: Increases your Stamina by 2%.
   - WotLK rank 5: Increases your Stamina by 10%.
-- **Scatter Shot** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Scatter Shot** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: duration-window, dispel
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: A short-range shot that deals 50% weapon damage and disorients the target for 4 sec. Any damage caused will remove the effect. Turns off your attack when used.
-- **Deflection** (3 ranks) - row 2 -> tier 2 - MATCH hunter_survival_deflection  [ours is scalar]
+- **Deflection** (3 ranks) - row 2 -> tier 1 - MATCH hunter_survival_deflection  [ours is scalar]
   - needs: proc-chance
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - WotLK rank 1: Increases your chance to parry by 1%, and reduces the duration of all Disarm effects used against you by 16%.  This does not stack with other Disarm duration reducing effects.
   - WotLK rank 3: Increases your chance to parry by 3%, and reduces the duration of all Disarm effects used against you by 50%.  This does not stack with other Disarm duration reducing effects.
-- **Survival Tactics** (2 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Survival Tactics** (2 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance, cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the chance your Feign Death ability and all trap spells will be resisted by 2%, and reduces the cooldown of your Disengage ability by 2 sec.
@@ -317,16 +317,16 @@ Snake Trap - Increases the number of snakes summoned by 6.
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: You have a 33% chance when you trap a target with Freezing Trap, Freezing Arrow or Frost Trap and a 2% chance when you deal periodic damage with your Immolation Trap, Explosive Trap or Black Arrow to cause your next 2 Arcane Shot or Explosive Shot spells to trigger no cooldown, cost no mana and consume no ammo. This effect has a 22 sec cooldown.
   - WotLK rank 3: You have a 100% chance when you trap a target with Freezing Trap, Freezing Arrow or Frost Trap and a 6% chance when you deal periodic damage with your Immolation Trap, Explosive Trap or Black Arrow to cause your next 2 Arcane Shot or Explosive Shot spells to trigger no cooldown, cost no mana and consume no ammo. This effect has a 22 sec cooldown.
-- **Hunter vs. Wild** (3 ranks) - row 4 -> tier 3 - MATCH hunter_survival_hunter_vs_wild
+- **Hunter vs. Wild** (3 ranks) - row 4 -> tier 2 - MATCH hunter_survival_hunter_vs_wild
   - requires: Survivalist
   - needs: pet
   - WotLK rank 1: Increases you and your pet's attack power and ranged attack power equal to 10% of your total Stamina.
   - WotLK rank 3: Increases you and your pet's attack power and ranged attack power equal to 30% of your total Stamina.
-- **Killer Instinct** (3 ranks) - row 4 -> tier 3 - MATCH hunter_survival_killer_instinct  [ours is scalar]
+- **Killer Instinct** (3 ranks) - row 4 -> tier 2 - MATCH hunter_survival_killer_instinct  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases your critical strike chance with all attacks by 1%.
   - WotLK rank 3: Increases your critical strike chance with all attacks by 3%.
-- **Counterattack** (1 rank) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Counterattack** (1 rank) - row 4 -> tier 2 - NEW - we have no talent of this name
   - requires: Deflection
   - needs: duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)

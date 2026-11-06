@@ -10,17 +10,17 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Discipline - 28 talents, 74 points
 
-- **Unbreakable Will** (5 ranks) - row 0 -> tier 1 - MATCH priest_discipline_unbreakable_will  [ours is scalar]
+- **Unbreakable Will** (5 ranks) - row 0 -> tier 0 - MATCH priest_discipline_unbreakable_will  [ours is scalar]
   - needs: stun
   - **BLOCKED**: BLOCKED:interrupt - needs a substitute mechanic
   - WotLK rank 1: Reduces the duration of Stun, Fear, and Silence effects done to you by an additional 6%.
   - WotLK rank 5: Reduces the duration of Stun, Fear, and Silence effects done to you by an additional 30%.
-- **Twin Disciplines** (5 ranks) - row 0 -> tier 1 - MATCH priest_discipline_twin_disciplines  [ours is scalar]
+- **Twin Disciplines** (5 ranks) - row 0 -> tier 0 - MATCH priest_discipline_twin_disciplines  [ours is scalar]
   - needs: heal
   - WotLK rank 1: Increases the damage and healing done by your instant spells by 1%.
   - WotLK rank 5: Increases the damage and healing done by your instant spells by 5%.
@@ -41,13 +41,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives you a 50% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect reduces the pushback suffered from damaging attacks while casting Priest spells and decreases the duration of Interrupt effects by 10%.
   - WotLK rank 2: Gives you a 100% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect reduces the pushback suffered from damaging attacks while casting Priest spells and decreases the duration of Interrupt effects by 20%.
-- **Meditation** (3 ranks) - row 2 -> tier 2 - MATCH priest_discipline_meditation  [ours is scalar]
+- **Meditation** (3 ranks) - row 2 -> tier 1 - MATCH priest_discipline_meditation  [ours is scalar]
   - WotLK rank 1: Allows 17% of your mana regeneration to continue while casting.
   - WotLK rank 3: Allows 50% of your mana regeneration to continue while casting.
-- **Inner Focus** (1 rank) - row 2 -> tier 2 - MATCH priest_discipline_inner_focus
+- **Inner Focus** (1 rank) - row 2 -> tier 1 - MATCH priest_discipline_inner_focus
   - needs: proc-chance, cost-change
   - WotLK rank 1: When activated, reduces the mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is capable of a critical effect.
-- **Improved Power Word: Shield** (3 ranks) - row 2 -> tier 2 - MATCH priest_discipline_improved_power_word_shield  [ours is scalar]
+- **Improved Power Word: Shield** (3 ranks) - row 2 -> tier 1 - MATCH priest_discipline_improved_power_word_shield  [ours is scalar]
   - needs: absorb
   - WotLK rank 1: Increases the damage absorbed by your Power Word: Shield by 5%.
   - WotLK rank 3: Increases the damage absorbed by your Power Word: Shield by 15%.
@@ -65,14 +65,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Mana Burn spell by 0.5 sec.
   - WotLK rank 2: Reduces the casting time of your Mana Burn spell by 1 sec.
-- **Reflective Shield** (2 ranks) - row 4 -> tier 3 - MATCH priest_discipline_reflective_shield
+- **Reflective Shield** (2 ranks) - row 4 -> tier 2 - MATCH priest_discipline_reflective_shield
   - needs: absorb, threat
   - WotLK rank 1: Causes 22% of the damage you absorb with Power Word: Shield to reflect back at the attacker.  This damage causes no threat.
   - WotLK rank 2: Causes 45% of the damage you absorb with Power Word: Shield to reflect back at the attacker.  This damage causes no threat.
-- **Mental Strength** (5 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Mental Strength** (5 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - WotLK rank 1: Increases your total Intellect by 3%.
   - WotLK rank 5: Increases your total Intellect by 15%.
-- **Soul Warding** (1 rank) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Soul Warding** (1 rank) - row 4 -> tier 2 - NEW - we have no talent of this name
   - requires: Improved Power Word: Shield
   - needs: cooldown-change, cost-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
@@ -141,15 +141,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Holy - 27 talents, 79 points
 
-- **Healing Focus** (2 ranks) - row 0 -> tier 1 - MATCH priest_holy_healing_focus  [ours is scalar]
+- **Healing Focus** (2 ranks) - row 0 -> tier 0 - MATCH priest_holy_healing_focus  [ours is scalar]
   - needs: heal
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks  while casting any healing spell by 35%.
   - WotLK rank 2: Reduces the pushback suffered from damaging attacks  while casting any healing spell by 70%.
-- **Improved Renew** (3 ranks) - row 0 -> tier 1 - MATCH priest_holy_improved_renew  [ours is scalar]
+- **Improved Renew** (3 ranks) - row 0 -> tier 0 - MATCH priest_holy_improved_renew  [ours is scalar]
   - needs: heal
   - WotLK rank 1: Increases the amount healed by your Renew spell by 5%.
   - WotLK rank 3: Increases the amount healed by your Renew spell by 15%.
-- **Holy Specialization** (5 ranks) - row 0 -> tier 1 - MATCH priest_holy_holy_specialization  [ours is scalar]
+- **Holy Specialization** (5 ranks) - row 0 -> tier 0 - MATCH priest_holy_holy_specialization  [ours is scalar]
   - needs: proc-chance
   - WotLK rank 1: Increases the critical effect chance of your Holy spells by 1%.
   - WotLK rank 5: Increases the critical effect chance of your Holy spells by 5%.
@@ -162,15 +162,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by 0.1 sec.
   - WotLK rank 5: Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by 0.5 sec.
-- **Desperate Power** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Desperate Power** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: heal
   - WotLK rank 1: Instantly heals the caster for 263 to 325.
-- **Blessed Recovery** (3 ranks) - row 2 -> tier 2 - MATCH priest_holy_blessed_recovery
+- **Blessed Recovery** (3 ranks) - row 2 -> tier 1 - MATCH priest_holy_blessed_recovery
   - needs: dot-hot, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: After being struck by a melee or ranged critical hit, Blessed Recovery heals you for 5% of the damage taken over 6 sec.  Additional critical hits taken during the effect increase the healing received.
   - WotLK rank 3: After being struck by a melee or ranged critical hit, Blessed Recovery heals you for 15% of the damage taken over 6 sec.  Additional critical hits taken during the effect increase the healing received.
-- **Inspiration** (3 ranks) - row 2 -> tier 2 - MATCH priest_holy_inspiration
+- **Inspiration** (3 ranks) - row 2 -> tier 1 - MATCH priest_holy_inspiration
   - needs: duration-window, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces your target's physical damage taken by 3% for 15 sec after getting a critical effect from your Flash Heal, Heal, Greater Heal, Binding Heal, Penance, Prayer of Mending, Prayer of Healing, or Circle of Healing spell.
@@ -187,15 +187,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - requires: Divine Fury
   - WotLK rank 1: Increases the damage of your Smite, Holy Fire, Holy Nova and Penance spells by 5%.
   - WotLK rank 2: Increases the damage of your Smite, Holy Fire, Holy Nova and Penance spells by 10%.
-- **Healing Prayers** (2 ranks) - row 4 -> tier 3 - MATCH priest_holy_healing_prayers  [ours is scalar]
+- **Healing Prayers** (2 ranks) - row 4 -> tier 2 - MATCH priest_holy_healing_prayers  [ours is scalar]
   - needs: cost-change, heal
   - WotLK rank 1: Reduces the mana cost of your Prayer of Healing and Prayer of Mending spell by 10%.
   - WotLK rank 2: Reduces the mana cost of your Prayer of Healing and Prayer of Mending spell by 20%.
-- **Spirit of Redemption** (1 rank) - row 4 -> tier 3 - MATCH priest_holy_spirit_of_redemption
+- **Spirit of Redemption** (1 rank) - row 4 -> tier 2 - MATCH priest_holy_spirit_of_redemption
   - needs: duration-window, cost-change, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases total Spirit by 5% and upon death, the priest becomes the Spirit of Redemption for 15 sec. The Spirit of Redemption cannot move, attack, be attacked or targeted by any spells or effects. While in this form the priest can cast any healing spell free of cost. When the effect ends, the priest dies.
-- **Spiritual Guidance** (5 ranks) - row 4 -> tier 3 - MATCH priest_holy_spiritual_guidance  [ours is scalar]
+- **Spiritual Guidance** (5 ranks) - row 4 -> tier 2 - MATCH priest_holy_spiritual_guidance  [ours is scalar]
   - WotLK rank 1: Increases spell power by 5% of your total Spirit.
   - WotLK rank 5: Increases spell power by 25% of your total Spirit.
 - **Surge of Light** (2 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
@@ -261,18 +261,18 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Shadow - 27 talents, 67 points
 
-- **Spirit Tap** (3 ranks) - row 0 -> tier 1 - MATCH priest_shadow_spirit_tap
+- **Spirit Tap** (3 ranks) - row 0 -> tier 0 - MATCH priest_shadow_spirit_tap
   - needs: proc-chance
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Gives you a 33% chance to gain a 100% bonus to your Spirit after killing a target that yields experience or honor. For the duration, your mana will regenerate at a 83% rate while casting. Lasts 15 sec.
   - WotLK rank 3: Gives you a 100% chance to gain a 100% bonus to your Spirit after killing a target that yields experience or honor. For the duration, your mana will regenerate at a 83% rate while casting. Lasts 15 sec.
-- **Improved Spirit Tap** (2 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Improved Spirit Tap** (2 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - requires: Spirit Tap
   - needs: proc-chance, crit
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your Mind Blast and Shadow Word: Death critical strikes have a 100% chance and your Mind Flay critical strikes have a 50% chance to increase your total Spirit by 5%. For the duration, your mana will regenerate at a 17% rate while casting. Lasts 8 sec.
   - WotLK rank 2: Your Mind Blast and Shadow Word: Death critical strikes have a 100% chance and your Mind Flay critical strikes have a 50% chance to increase your total Spirit by 10%. For the duration, your mana will regenerate at a 33% rate while casting. Lasts 8 sec.
-- **Darkness** (5 ranks) - row 0 -> tier 1 - MATCH priest_shadow_darkness  [ours is scalar]
+- **Darkness** (5 ranks) - row 0 -> tier 0 - MATCH priest_shadow_darkness  [ours is scalar]
   - WotLK rank 1: Increases your Shadow spell damage by 2%.
   - WotLK rank 5: Increases your Shadow spell damage by 10%.
 - **Shadow Affinity** (3 ranks) - row 1 -> tier 1 - MATCH priest_shadow_shadow_affinity  [ours is scalar]
@@ -286,17 +286,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, cost-change
   - WotLK rank 1: Increases your chance to hit with your Shadow spells by 1%, and reduces the mana cost of your Shadow spells by 2%.
   - WotLK rank 3: Increases your chance to hit with your Shadow spells by 3%, and reduces the mana cost of your Shadow spells by 6%.
-- **Improved Psychic Scream** (2 ranks) - row 2 -> tier 2 - MATCH priest_shadow_improved_psychic_scream  [ours is scalar]
+- **Improved Psychic Scream** (2 ranks) - row 2 -> tier 1 - MATCH priest_shadow_improved_psychic_scream  [ours is scalar]
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Psychic Scream spell by 2 sec.
   - WotLK rank 2: Reduces the cooldown of your Psychic Scream spell by 4 sec.
-- **Improved Mind Blast** (5 ranks) - row 2 -> tier 2 - MATCH priest_shadow_improved_mind_blast  [ours is scalar]
+- **Improved Mind Blast** (5 ranks) - row 2 -> tier 1 - MATCH priest_shadow_improved_mind_blast  [ours is scalar]
   - needs: proc-chance, duration-window, cooldown-change, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Mind Blast spell by 0.5 sec., and while in Shadowform your Mind Blast also has a 20% chance to reduce all healing done to the target by 20% for 10 sec.
   - WotLK rank 5: Reduces the cooldown of your Mind Blast spell by 2.5 sec., and while in Shadowform your Mind Blast also has a 100% chance to reduce all healing done to the target by 20% for 10 sec.
-- **Mind Flay** (1 rank) - row 2 -> tier 2 - MATCH priest_shadow_mind_flay
+- **Mind Flay** (1 rank) - row 2 -> tier 1 - MATCH priest_shadow_mind_flay
   - needs: dot-hot
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Assault the target's mind with Shadow energy, causing 45 Shadow damage over 3 sec and slowing their movement speed by 50%.
@@ -314,22 +314,22 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your Shadow damage spells have a 33% chance to increase the Shadow damage you deal by 2% for 15 sec.  Stacks up to 5 times.
   - WotLK rank 3: Your Shadow damage spells have a 100% chance to increase the Shadow damage you deal by 2% for 15 sec.  Stacks up to 5 times.
-- **Silence** (1 rank) - row 4 -> tier 3 - MATCH priest_shadow_silence
+- **Silence** (1 rank) - row 4 -> tier 2 - MATCH priest_shadow_silence
   - requires: Improved Psychic Scream
   - needs: duration-window
   - **BLOCKED**: BLOCKED:interrupt - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Silences the target, preventing them from casting spells for 5 sec. Non-player victim spellcasting is also interrupted for 3 sec.
-- **Vampiric Embrace** (1 rank) - row 4 -> tier 3 - MATCH priest_shadow_vampiric_embrace
+- **Vampiric Embrace** (1 rank) - row 4 -> tier 2 - MATCH priest_shadow_vampiric_embrace
   - needs: heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Fills you with the embrace of Shadow energy, causing you to be healed for 15% and other party members to be healed for 3% of any single-target Shadow spell damage you deal for 30 min.
-- **Improved Vampiric Embrace** (2 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Improved Vampiric Embrace** (2 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - requires: Vampiric Embrace
   - needs: heal
   - WotLK rank 1: Increases the healing received from Vampiric Embrace by 33%.
   - WotLK rank 2: Increases the healing received from Vampiric Embrace by 67%.
-- **Focused Mind** (3 ranks) - row 4 -> tier 3 - MATCH priest_shadow_focused_mind  [ours is scalar]
+- **Focused Mind** (3 ranks) - row 4 -> tier 2 - MATCH priest_shadow_focused_mind  [ours is scalar]
   - needs: cost-change
   - WotLK rank 1: Reduces the mana cost of your Mind Blast, Mind Control, Mind Flay and Mind Sear spells by 5%.
   - WotLK rank 3: Reduces the mana cost of your Mind Blast, Mind Control, Mind Flay and Mind Sear spells by 15%.

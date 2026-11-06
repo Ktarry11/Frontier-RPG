@@ -39,12 +39,14 @@ treat as second-hand.
 
 THE TWO TRANSLATIONS THIS RECORDS.
 
-1. ELEVEN ROWS BECOME SIX TIERS. Every WotLK tree is 11 rows deep; a
-   Frontier tree is 6 tiers. The map is `tier = min(6, row // 2 + 1)`,
-   which pairs rows 0-1, 2-3, 4-5, 6-7, 8-9 and leaves row 10 - the WotLK
-   capstone - alone at tier 6, where Frontier already puts its capstones.
-   Two rows per tier is also roughly how the real trees gate: a row is
-   5 points of depth, a Frontier tier is about 10.
+1. ELEVEN ROWS BECOME SEVEN TIERS. Every WotLK tree is 11 rows deep; a
+   Frontier tree is tier 0-6 - seven tiers, gated by tier_requirements
+   0/5/10/15/20/25/30. The map is `tier = round(row * 6 / 10)`, giving
+   0/1/1/2/2/3/4/4/5/5/6, which spreads the rows as evenly as the
+   arithmetic allows and leaves row 10 - the WotLK capstone - alone on
+   tier 6, where Frontier already puts its capstones. Roughly two rows per
+   tier is also how the real trees gate: a row is 5 points of depth, a
+   Frontier tier is 5.
 
 2. THE NUMBERS DO NOT COME ACROSS, only the mechanics. WotLK numbers
    assume 80 levels, raid-length fights and real-time seconds; Frontier
@@ -79,10 +81,20 @@ sys.path.insert(0, str(ROOT))
 CLASSIC = ["mage", "rogue", "priest", "hunter", "warlock",
            "warrior", "paladin", "shaman", "druid"]
 
-#: Row -> tier. Pairs the 11 WotLK rows into Frontier's 6 tiers and
-#: leaves the capstone row alone at the top. See the module docstring.
+#: Row -> tier. Frontier trees are tier 0-6 - SEVEN tiers, with
+#: tier_requirements 0/5/10/15/20/25/30 - not 1-6. An earlier version of
+#: this mapped rows to 1-6 with `row // 2 + 1`, which both lost tier 0 and
+#: squeezed 11 rows into 6 slots; it was caught by reading a real tree file
+#: before any tree was built on top of it.
+#:
+#: round(row * 6 / 10) spreads 11 rows across 7 tiers as evenly as the
+#: arithmetic allows and lands the WotLK capstone row (10) alone on tier 6,
+#: which is where Frontier already puts its capstones:
+#:
+#:     row  0  1  2  3  4  5  6  7  8  9 10
+#:    tier  0  1  1  2  2  3  4  4  5  5  6
 def tier_of(row):
-    return min(6, row // 2 + 1)
+    return min(6, int(round(row * 6 / 10)))
 
 
 #: The one talent with no text in the source, filled from knowledge.
@@ -242,9 +254,11 @@ def write_worksheet(cls, data, ours, out_dir):
                  "no way to express it, so that talent needs a substitute "
                  "mechanic rather than a literal port - never a tooltip the "
                  "engine cannot honour.\n")
-    lines.append("WotLK rows 0-10 map onto Frontier tiers 1-6 as "
-                 "`tier = row // 2 + 1`, capped at 6, so the capstone row "
-                 "sits alone at tier 6. **Numbers are not ported**: WotLK "
+    lines.append("WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, "
+                 "tier_requirements 0/5/10/15/20/25/30) as "
+                 "`tier = round(row * 6 / 10)`, so rows go "
+                 "0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits "
+                 "alone at tier 6. **Numbers are not ported**: WotLK "
                  "assumes 80 levels, raid fights and real seconds; Frontier "
                  "caps at 60 and fights run 2-3 turns on trash, 5-6 on a "
                  "boss.\n")

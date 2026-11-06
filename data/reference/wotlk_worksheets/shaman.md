@@ -10,16 +10,16 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Elemental - 25 talents, 73 points
 
-- **Convection** (5 ranks) - row 0 -> tier 1 - MATCH shaman_elemental_convection  [ours is scalar]
+- **Convection** (5 ranks) - row 0 -> tier 0 - MATCH shaman_elemental_convection  [ours is scalar]
   - needs: cost-change
   - WotLK rank 1: Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning, Lava Burst, and Wind Shear spells by 2%.
   - WotLK rank 5: Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning, Lava Burst, and Wind Shear spells by 10%.
-- **Concussion** (5 ranks) - row 0 -> tier 1 - MATCH shaman_elemental_concussion  [ours is scalar]
+- **Concussion** (5 ranks) - row 0 -> tier 0 - MATCH shaman_elemental_concussion  [ours is scalar]
   - WotLK rank 1: Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by 1%.
   - WotLK rank 5: Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by 5%.
 - **Call of Flame** (3 ranks) - row 1 -> tier 1 - MATCH shaman_elemental_call_of_flame  [ours is scalar]
@@ -33,15 +33,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your non-periodic offensive spell crits will increase your chance to get a critical strike with melee attacks by 3% for 10 sec.
   - WotLK rank 3: Your non-periodic offensive spell crits will increase your chance to get a critical strike with melee attacks by 9% for 10 sec.
-- **Reverberation** (5 ranks) - row 2 -> tier 2 - MATCH shaman_elemental_reverberation  [ours is scalar]
+- **Reverberation** (5 ranks) - row 2 -> tier 1 - MATCH shaman_elemental_reverberation  [ours is scalar]
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Shock spells and Wind Shear by 0.2 sec.
   - WotLK rank 5: Reduces the cooldown of your Shock and Wind Shear spells by 1 sec.
-- **Elemental Focus** (1 rank) - row 2 -> tier 2 - MATCH shaman_elemental_elemental_focus
+- **Elemental Focus** (1 rank) - row 2 -> tier 1 - MATCH shaman_elemental_elemental_focus
   - needs: cost-change, crit, heal
   - WotLK rank 1: After landing a non-periodic critical strike with a Fire, Frost, or Nature damage spell, you enter a Clearcasting state. The Clearcasting state reduces the mana cost of your next 2 damage or healing spells by 40%.
-- **Elemental Fury** (5 ranks) - row 2 -> tier 2 - MATCH shaman_elemental_elemental_fury  [ours is scalar]
+- **Elemental Fury** (5 ranks) - row 2 -> tier 1 - MATCH shaman_elemental_elemental_fury  [ours is scalar]
   - needs: crit
   - WotLK rank 1: Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 20%.
   - WotLK rank 5: Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 100%.
@@ -53,14 +53,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Eye of the Storm** (3 ranks) - row 3 -> tier 2 - MATCH shaman_elemental_eye_of_the_storm
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, Lava Burst and Hex spells by 23%.
   - WotLK rank 3: Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, Lava Burst and Hex spells by 70%.
-- **Elemental Reach** (2 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Elemental Reach** (2 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 3 yards, increases the radius of your Thunderstorm spell by 10%, and increases the range of your Flame Shock by 7 yards.
   - WotLK rank 2: Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 6 yards, increases the radius of your Thunderstorm spell by 20%, and increases the range of your Flame Shock by 15 yards.
-- **Call of Thunder** (1 rank) - row 4 -> tier 3 - MATCH shaman_elemental_call_of_thunder  [ours is scalar]
+- **Call of Thunder** (1 rank) - row 4 -> tier 2 - MATCH shaman_elemental_call_of_thunder  [ours is scalar]
   - requires: Elemental Focus
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Lightning Bolt, Chain Lightning and Thunderstorm spells by an additional 5%.
-- **Unrelenting Storm** (3 ranks) - row 4 -> tier 3 - MATCH shaman_elemental_unrelenting_storm
+- **Unrelenting Storm** (3 ranks) - row 4 -> tier 2 - MATCH shaman_elemental_unrelenting_storm
   - needs: dot-hot
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Regenerate mana equal to 4% of your Intellect every 5 sec, even while casting.
@@ -123,14 +123,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Enhancement - 29 talents, 76 points
 
-- **Enhancing Totems** (3 ranks) - row 0 -> tier 1 - MATCH shaman_enhancement_enhancing_totems  [ours is scalar]
+- **Enhancing Totems** (3 ranks) - row 0 -> tier 0 - MATCH shaman_enhancement_enhancing_totems  [ours is scalar]
   - WotLK rank 1: Increases the effect of your Strength of Earth and Flametongue Totems by 5%.
   - WotLK rank 3: Increases the effect of your Strength of Earth and Flametongue Totems by 15%.
-- **Earth's Grasp** (2 ranks) - row 0 -> tier 1 - MATCH shaman_elemental_earths_grasp  [ours is scalar]
+- **Earth's Grasp** (2 ranks) - row 0 -> tier 0 - MATCH shaman_elemental_earths_grasp  [ours is scalar]
   - needs: cooldown-change, heal
   - WotLK rank 1: Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%, and reduces the cooldown of both totems by 15%.
   - WotLK rank 2: Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%, and reduces the cooldown of both totems by 30%.
-- **Ancestral Knowledge** (5 ranks) - row 0 -> tier 1 - MATCH shaman_enhancement_ancestral_knowledge  [ours is scalar]
+- **Ancestral Knowledge** (5 ranks) - row 0 -> tier 0 - MATCH shaman_enhancement_ancestral_knowledge  [ours is scalar]
   - WotLK rank 1: Increases your Intellect by 2%.
   - WotLK rank 5: Increases your Intellect by 10%.
 - **Guardian Totems** (2 ranks) - row 1 -> tier 1 - MATCH shaman_enhancement_guardian_totems  [ours is scalar]
@@ -151,14 +151,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: heal
   - WotLK rank 1: Increases the damage done by your Lightning Shield orbs by 5%, increases the amount of mana gained from your Water Shield orbs by 5% and increases the amount of healing done by your Earth Shield orbs by 5%.
   - WotLK rank 3: Increases the damage done by your Lightning Shield orbs by 15%, increases the amount of mana gained from your Water Shield orbs by 15% and increases the amount of healing done by your Earth Shield orbs by 15%.
-- **Elemental Weapons** (3 ranks) - row 2 -> tier 2 - MATCH shaman_enhancement_elemental_weapons
+- **Elemental Weapons** (3 ranks) - row 2 -> tier 1 - MATCH shaman_enhancement_elemental_weapons
   - needs: heal
   - WotLK rank 1: Increases the damage caused by your Windfury Weapon effect by 13%  increases the spell damage on your Flametongue Weapon by 10% and increases the bonus healing on your Earthliving Weapon by 10%.
   - WotLK rank 3: Increases the damage caused by your Windfury Weapon effect by 40%  increases the spell damage on your Flametongue Weapon by 30% and increases the bonus healing on your Earthliving Weapon by 30%.
-- **Shamanistic Focus** (1 rank) - row 2 -> tier 2 - MATCH shaman_enhancement_shamanistic_focus  [ours is scalar]
+- **Shamanistic Focus** (1 rank) - row 2 -> tier 1 - MATCH shaman_enhancement_shamanistic_focus  [ours is scalar]
   - needs: cost-change
   - WotLK rank 1: Reduces the mana cost of your Shock spells by 45%.
-- **Anticipation** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Anticipation** (3 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - WotLK rank 1: Increases your chance to dodge by an additional 1%, and reduces the duration of all Disarm effects used against you by 16%. This does not stack with other Disarm duration reducing effects.
@@ -171,13 +171,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Toughness** (5 ranks) - row 3 -> tier 2 - MATCH shaman_enhancement_toughness  [ours is scalar]
   - WotLK rank 1: Increases your Stamina by 2%, and reduces the duration of movement slowing effects on you by 6%.
   - WotLK rank 5: Increases your Stamina by 10%, and reduces the duration of movement slowing effects on you by 30%.
-- **Improved Windfury Totem** (2 ranks) - row 4 -> tier 3 - MATCH shaman_enhancement_improved_windfury_totem
+- **Improved Windfury Totem** (2 ranks) - row 4 -> tier 2 - MATCH shaman_enhancement_improved_windfury_totem
   - WotLK rank 1: Increases the melee haste granted by your Windfury totem by 2%.
   - WotLK rank 2: Increases the melee haste granted by your Windfury totem by 4%.
-- **Spirit Weapons** (1 rank) - row 4 -> tier 3 - MATCH shaman_enhancement_spirit_weapons  [ours is scalar]
+- **Spirit Weapons** (1 rank) - row 4 -> tier 2 - MATCH shaman_enhancement_spirit_weapons  [ours is scalar]
   - needs: proc-chance, threat
   - WotLK rank 1: Gives a chance to parry enemy melee attacks and reduces all threat generated by 30%.
-- **Mental Dexterity** (3 ranks) - row 4 -> tier 3 - MATCH shaman_enhancement_mental_dexterity
+- **Mental Dexterity** (3 ranks) - row 4 -> tier 2 - MATCH shaman_enhancement_mental_dexterity
   - WotLK rank 1: Increases your Attack Power by 33% of your Intellect.
   - WotLK rank 3: Increases your Attack Power by 100% of your Intellect.
 - **Unleashed Rage** (3 ranks) - row 5 -> tier 3 - MATCH shaman_enhancement_unleashed_rage  [ours is scalar]
@@ -243,13 +243,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Restoration - 26 talents, 76 points
 
-- **Improved Healing Wave** (5 ranks) - row 0 -> tier 1 - MATCH shaman_restoration_improved_healing_wave  [ours is scalar]
+- **Improved Healing Wave** (5 ranks) - row 0 -> tier 0 - MATCH shaman_restoration_improved_healing_wave  [ours is scalar]
   - needs: heal
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Healing Wave spell by 0.1 sec.
   - WotLK rank 5: Reduces the casting time of your Healing Wave spell by 0.5 sec.
-- **Totemic Focus** (5 ranks) - row 0 -> tier 1 - MATCH shaman_restoration_totemic_focus  [ours is scalar]
+- **Totemic Focus** (5 ranks) - row 0 -> tier 0 - MATCH shaman_restoration_totemic_focus  [ours is scalar]
   - needs: cost-change
   - WotLK rank 1: Reduces the mana cost of your totems by 5%.
   - WotLK rank 5: Reduces the mana cost of your totems by 25%.
@@ -266,19 +266,19 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: cost-change, heal
   - WotLK rank 1: Reduces the mana cost of your healing spells by 1%.
   - WotLK rank 5: Reduces the mana cost of your healing spells by 5%.
-- **Improved Water Shield** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Improved Water Shield** (3 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance, heal
   - WotLK rank 1: You have a 33% chance to instantly gain mana as if you consumed a Water Shield Orb when you gain a critical effect from your Healing Wave or Riptide spells, a 20% chance when you gain a critical effect from your Lesser Healing Wave spell, and a 10% chance when you gain a critical effect from your Chain Heal spell.
   - WotLK rank 3: You have a 100% chance to instantly gain mana as if you consumed a Water Shield Orb when you gain a critical effect from your Healing Wave or Riptide spells, a 60% chance when you gain a critical effect from your Lesser Healing Wave spell, and a 30% chance when you gain a critical effect from your Chain Heal spell.
-- **Healing Focus** (3 ranks) - row 2 -> tier 2 - MATCH shaman_restoration_healing_focus
+- **Healing Focus** (3 ranks) - row 2 -> tier 1 - MATCH shaman_restoration_healing_focus
   - needs: heal
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting any Shaman healing spell by 23%.
   - WotLK rank 3: Reduces the pushback suffered from damaging attacks while casting any Shaman healing spell by 70%.
-- **Tidal Force** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Tidal Force** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the critical effect chance of your Healing Wave, Lesser Healing Wave and Chain Heal by 60%. Each critical heal reduces the chance by 20%. Lasts 20 sec.
-- **Ancestral Healing** (3 ranks) - row 2 -> tier 2 - MATCH shaman_restoration_ancestral_healing
+- **Ancestral Healing** (3 ranks) - row 2 -> tier 1 - MATCH shaman_restoration_ancestral_healing
   - needs: duration-window, heal
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces your target's physical damage taken by 3% for 15 sec after getting a critical effect from one of your healing spells.
@@ -291,16 +291,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, heal
   - WotLK rank 1: Increases the critical effect chance of your healing and lightning spells by 1%.
   - WotLK rank 5: Increases the critical effect chance of your healing and lightning spells by 5%.
-- **Healing Way** (3 ranks) - row 4 -> tier 3 - MATCH shaman_restoration_healing_way  [ours is scalar]
+- **Healing Way** (3 ranks) - row 4 -> tier 2 - MATCH shaman_restoration_healing_way  [ours is scalar]
   - needs: heal
   - WotLK rank 1: Increases the amount healed by your Healing Wave spell by 8%.
   - WotLK rank 3: Increases the amount healed by your Healing Wave spell by 25%.
-- **Nature's Swiftness** (1 rank) - row 4 -> tier 3 - MATCH shaman_restoration_nature_swiftness
+- **Nature's Swiftness** (1 rank) - row 4 -> tier 2 - MATCH shaman_restoration_nature_swiftness
   - needs: cooldown-change
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: When activated, your next Nature spell with a base casting time less than 10 sec. becomes an instant cast spell. Nature's Swiftness shares a cooldown with Elemental Mastery.
-- **Focused Mind** (3 ranks) - row 4 -> tier 3 - MATCH shaman_restoration_focused_mind  [ours is scalar]
+- **Focused Mind** (3 ranks) - row 4 -> tier 2 - MATCH shaman_restoration_focused_mind  [ours is scalar]
   - **BLOCKED**: BLOCKED:stacks, BLOCKED:interrupt - needs a substitute mechanic
   - WotLK rank 1: Reduces the duration of any Silence or Interrupt effects used against the Shaman by 10%. This effect does not stack with other similar effects.
   - WotLK rank 3: Reduces the duration of any Silence or Interrupt effects used against the Shaman by 30%. This effect does not stack with other similar effects.

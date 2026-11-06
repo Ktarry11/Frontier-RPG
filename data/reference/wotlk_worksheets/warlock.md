@@ -10,19 +10,19 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Affliction - 28 talents, 70 points
 
-- **Improved Curse of Agony** (2 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Improved Curse of Agony** (2 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the damage done by your Curse of Agony by 5%.
   - WotLK rank 2: Increases the damage done by your Curse of Agony by 10%.
-- **Suppression** (3 ranks) - row 0 -> tier 1 - MATCH warlock_affliction_suppression  [ours is scalar]
+- **Suppression** (3 ranks) - row 0 -> tier 0 - MATCH warlock_affliction_suppression  [ours is scalar]
   - needs: proc-chance, cost-change
   - WotLK rank 1: Increases your chance to hit with spells by 1%, and reduces the mana cost of your Affliction spells by 2%.
   - WotLK rank 3: Increases your chance to hit with spells by 3%, and reduces the mana cost of your Affliction spells by 6%.
-- **Improved Corruption** (5 ranks) - row 0 -> tier 1 - MATCH warlock_affliction_improved_corruption  [ours is scalar]
+- **Improved Corruption** (5 ranks) - row 0 -> tier 0 - MATCH warlock_affliction_improved_corruption  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the damage done by your Corruption by 2%, and increases the critical strike chance of your Seed of Corruption by 1%.
   - WotLK rank 5: Increases the damage done by your Corruption by 10%, and increases the critical strike chance of your Seed of Corruption by 5%.
@@ -39,15 +39,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Soul Siphon** (2 ranks) - row 1 -> tier 1 - MATCH warlock_affliction_soul_siphon
   - WotLK rank 1: Increases the amount drained by your Drain Life and Drain Soul spells by an additional 3% for each of your Affliction effects on the target, up to a maximum of 9% additional effect.
   - WotLK rank 2: Increases the amount drained by your Drain Life and Drain Soul spells by an additional 6% for each of your Affliction effects on the target, up to a maximum of 18% additional effect.
-- **Improved Fear** (2 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Improved Fear** (2 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Causes your Fear spell to inflict a Nightmare on the target when the fear effect ends. The Nightmare effect reduces the target's movement speed by 15% for 5 sec.
   - WotLK rank 2: Causes your Fear spell to inflict a Nightmare on the target when the fear effect ends. The Nightmare effect reduces the target's movement speed by 30% for 5 sec.
-- **Fel Concentration** (3 ranks) - row 2 -> tier 2 - MATCH warlock_affliction_fel_concentration  [ours is scalar]
+- **Fel Concentration** (3 ranks) - row 2 -> tier 1 - MATCH warlock_affliction_fel_concentration  [ours is scalar]
   - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Drain Life, Drain Mana, Drain Soul, Unstable Affliction, and Haunt by 23%.
   - WotLK rank 3: Reduces the pushback suffered from damaging attacks while casting Drain Life, Drain Mana, Drain Soul, Unstable Affliction, and Haunt by 70%.
-- **Amplify Curse** (1 rank) - row 2 -> tier 2 - MATCH warlock_affliction_amplify_curse  [ours is scalar]
+- **Amplify Curse** (1 rank) - row 2 -> tier 1 - MATCH warlock_affliction_amplify_curse  [ours is scalar]
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the global cooldown of your Curses by 0.5 sec.
@@ -62,16 +62,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Empowered Corruption** (3 ranks) - row 3 -> tier 2 - MATCH warlock_affliction_empowered_corruption  [ours is scalar]
   - WotLK rank 1: Increases the damage of your Corruption spell by an amount equal to 12% of your spell power.
   - WotLK rank 3: Increases the damage of your Corruption spell by an amount equal to 36% of your spell power.
-- **Shadow Embrace** (5 ranks) - row 4 -> tier 3 - MATCH warlock_affliction_shadow_embrace
+- **Shadow Embrace** (5 ranks) - row 4 -> tier 2 - MATCH warlock_affliction_shadow_embrace
   - needs: duration-window, heal
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your Shadow Bolt and Haunt spells apply the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by you by 1%, and reduces all periodic healing done to the target by 2%. Lasts for 12 sec. Stacks up to 3 times.
   - WotLK rank 5: Your Shadow Bolt and Haunt spells apply the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by you by 5%, and reduces all periodic healing done to the target by 10%. Lasts for 12 sec. Stacks up to 3 times.
-- **Siphon Life** (1 rank) - row 4 -> tier 3 - MATCH warlock_affliction_siphon_life
+- **Siphon Life** (1 rank) - row 4 -> tier 2 - MATCH warlock_affliction_siphon_life
   - needs: heal
   - WotLK rank 1: When you deal damage with your Corruption spell, you are instantly healed for 40% of the damage done. In addition, the damage done by your Corruption, Seed of Corruption and Unstable Affliction damage over time effects is increased by 5%.
-- **Curse of Exhaustion** (1 rank) - row 4 -> tier 3 - MATCH warlock_affliction_curse_of_exhaustion  [ours is scalar]
+- **Curse of Exhaustion** (1 rank) - row 4 -> tier 2 - MATCH warlock_affliction_curse_of_exhaustion  [ours is scalar]
   - requires: Amplify Curse
   - needs: duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
@@ -131,17 +131,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Demonology - 27 talents, 71 points
 
-- **Improved Healthstone** (2 ranks) - row 0 -> tier 1 - MATCH warlock_demonology_improved_healthstone
+- **Improved Healthstone** (2 ranks) - row 0 -> tier 0 - MATCH warlock_demonology_improved_healthstone
   - needs: heal
   - WotLK rank 1: Increases the amount of Health restored by your Healthstone by 10%.
   - WotLK rank 2: Increases the amount of Health restored by your Healthstone by 20%.
-- **Improved Imp** (3 ranks) - row 0 -> tier 1 - MATCH warlock_demonology_improved_imp  [ours is scalar]
+- **Improved Imp** (3 ranks) - row 0 -> tier 0 - MATCH warlock_demonology_improved_imp  [ours is scalar]
   - WotLK rank 1: Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by 10%.
   - WotLK rank 3: Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by 30%.
-- **Demonic Embrace** (3 ranks) - row 0 -> tier 1 - MATCH warlock_demonology_demonic_embrace  [ours is scalar]
+- **Demonic Embrace** (3 ranks) - row 0 -> tier 0 - MATCH warlock_demonology_demonic_embrace  [ours is scalar]
   - WotLK rank 1: Increases your total Stamina by 4%.
   - WotLK rank 3: Increases your total Stamina by 10%.
-- **Fel Synergy** (2 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+- **Fel Synergy** (2 ranks) - row 0 -> tier 0 - NEW - we have no talent of this name
   - needs: proc-chance, heal, pet
   - WotLK rank 1: You have a 50% chance to heal your pet for 15% of the amount of spell damage done by you.
   - WotLK rank 2: You have a 100% chance to heal your pet for 15% of the amount of spell damage done by you.
@@ -157,19 +157,19 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: heal
   - WotLK rank 1: Increases the Stamina and Intellect of your Imp, Voidwalker, Succubus, Felhunter and Felguard by 5% and increases your maximum health and mana by 1%.
   - WotLK rank 3: Increases the Stamina and Intellect of your Imp, Voidwalker, Succubus, Felhunter and Felguard by 15% and increases your maximum health and mana by 3%.
-- **Improved Scubbus** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Improved Scubbus** (3 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - WotLK rank 1: Reduces the cast time of your Succubus' Seduction by 22%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 10%.
   - WotLK rank 3: Reduces the cast time of your Succubus' Seduction by 66%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 30%.
-- **Soul Link** (1 rank) - row 2 -> tier 2 - MATCH warlock_demonology_soul_link
+- **Soul Link** (1 rank) - row 2 -> tier 1 - MATCH warlock_demonology_soul_link
   - needs: pet
   - WotLK rank 1: When active, 20% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, Felhunter, Felguard, or enslaved demon instead. That damage cannot be prevented. Lasts as long as the demon is active and controlled.
-- **Fel Domination** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Fel Domination** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: cost-change
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Your next Imp, Voidwalker, Succubus, Felhunter or Felguard Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%.
-- **Demonic Aegis** (3 ranks) - row 2 -> tier 2 - MATCH warlock_demonology_demonic_aegis  [ours is scalar]
+- **Demonic Aegis** (3 ranks) - row 2 -> tier 1 - MATCH warlock_demonology_demonic_aegis  [ours is scalar]
   - needs: pet
   - WotLK rank 1: Increases the effectiveness of your Demon Armor and Fel Armor spells by 10%.
   - WotLK rank 3: Increases the effectiveness of your Demon Armor and Fel Armor spells by 30%.
@@ -184,11 +184,11 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Imp, Voidwalker, Succubus, Felhunter and Fel Guard Summoning spells by 2 sec and the Mana cost by 20%.
   - WotLK rank 2: Reduces the casting time of your Imp, Voidwalker, Succubus, Felhunter and Fel Guard Summoning spells by 4 sec and the Mana cost by 40%.
-- **Mana Feed** (1 rank) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Mana Feed** (1 rank) - row 4 -> tier 2 - NEW - we have no talent of this name
   - requires: Unholy Power
   - needs: pet
   - WotLK rank 1: When you gain mana from Drain Mana or Life Tap spells, your summoned demon gains 100% of the mana you gain.
-- **Master Conjuror** (2 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Master Conjuror** (2 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - WotLK rank 1: Increases the combat ratings gained from your conjured Firestone and Spellstone by 150%.
   - WotLK rank 2: Increases the combat ratings gained from your conjured Firestone and Spellstone by 300%.
 - **Master Demonologist** (5 ranks) - row 5 -> tier 3 - MATCH warlock_demonology_master_demonologist
@@ -286,12 +286,12 @@ Felguard - Increases the Felguard's attack speed by 20% and breaks all stun, sna
 
 ## Destruction - 26 talents, 75 points
 
-- **Improved Shadow Bolt** (5 ranks) - row 0 -> tier 1 - MATCH warlock_destruction_improved_shadow_bolt  [ours is scalar]
+- **Improved Shadow Bolt** (5 ranks) - row 0 -> tier 0 - MATCH warlock_destruction_improved_shadow_bolt  [ours is scalar]
   - needs: proc-chance, crit
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the damage done by your Shadow Bolt spell by 2%, and your Shadow Bolt has a 20% chance to cause your target to be vulnerable to spell damage, increasing spell critical strike chance against that target by 5%. Effect lasts 30 sec.
   - WotLK rank 5: Increases the damage done by your Shadow Bolt spell by 10%, and your Shadow Bolt has a 100% chance to cause your target to be vulnerable to spell damage, increasing spell critical strike chance against that target by 5%. Effect lasts 30 sec.
-- **Bane** (5 ranks) - row 0 -> tier 1 - MATCH warlock_destruction_bane  [ours is scalar]
+- **Bane** (5 ranks) - row 0 -> tier 0 - MATCH warlock_destruction_bane  [ours is scalar]
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the casting time of your Shadow Bolt. Chaos Bolt and Immolate spells by 0.1 sec and your Soul Fire spell by 0.4 sec.
@@ -308,16 +308,16 @@ Felguard - Increases the Felguard's attack speed by 20% and breaks all stun, sna
   - needs: cost-change
   - WotLK rank 1: Reduces the Mana cost of your Destruction spells by 4%
   - WotLK rank 3: Reduces the Mana cost of your Destruction spells by 10%
-- **Demonic Power** (2 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Demonic Power** (2 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: cooldown-change
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Succubus' Lash of Pain spell by 3 sec. and reduces the casting time of your Imp's Firebolt spell by 0.25 sec.
   - WotLK rank 2: Reduces the cooldown of your Succubus' Lash of Pain spell by 6 sec. and reduces the casting time of your Imp's Firebolt spell by 0.5 sec.
-- **Shadowburn** (1 rank) - row 2 -> tier 2 - MATCH warlock_destruction_shadowburn
+- **Shadowburn** (1 rank) - row 2 -> tier 1 - MATCH warlock_destruction_shadowburn
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Instantly blasts the target for 87 to 99 Shadow damage. If the target dies within 5 sec of Shadowburn, and yields experience or honor, the caster gains a Soul Shard.
-- **Ruin** (5 ranks) - row 2 -> tier 2 - MATCH warlock_destruction_ruin
+- **Ruin** (5 ranks) - row 2 -> tier 1 - MATCH warlock_destruction_ruin
   - needs: crit
   - WotLK rank 1: Increases the critical strike damage bonus of your Destruction spells and your Imp's Firebolt spell by 20%.
   - WotLK rank 5: Increases the critical strike damage bonus of your Destruction spells and your Imp's Firebolt spell by 100%.
@@ -333,17 +333,17 @@ Felguard - Increases the Felguard's attack speed by 20% and breaks all stun, sna
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Searing Pain spell by 4%.
   - WotLK rank 3: Increases the critical strike chance of your Searing Pain spell by 10%.
-- **Backlash** (3 ranks) - row 4 -> tier 3 - MATCH warlock_destruction_backlash
+- **Backlash** (3 ranks) - row 4 -> tier 2 - MATCH warlock_destruction_backlash
   - requires: Intensity
   - needs: proc-chance, dot-hot, crit
   - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases your critical strike chance with spells by an additional 1% and gives you a 8% chance when hit by a physical attack to reduce the cast time of your next Shadow Bolt or Incinerate spell by 100%. This effect lasts 8 sec and will not occur more than once every 8 seconds.
   - WotLK rank 3: Increases your critical strike chance with spells by an additional 3% and gives you a 25% chance when hit by a physical attack to reduce the cast time of your next Shadow Bolt or Incinerate spell by 100%. This effect lasts 8 sec and will not occur more than once every 8 seconds.
-- **Improved Immolate** (3 ranks) - row 4 -> tier 3 - MATCH warlock_destruction_improved_immolate  [ours is scalar]
+- **Improved Immolate** (3 ranks) - row 4 -> tier 2 - MATCH warlock_destruction_improved_immolate  [ours is scalar]
   - WotLK rank 1: Increases the damage done by your Immolate spell by 10%.
   - WotLK rank 3: Increases the damage done by your Immolate spell by 30%.
-- **Devastation** (1 rank) - row 4 -> tier 3 - MATCH warlock_destruction_devastation  [ours is scalar]
+- **Devastation** (1 rank) - row 4 -> tier 2 - MATCH warlock_destruction_devastation  [ours is scalar]
   - requires: Ruin
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Destruction spells by 5%.

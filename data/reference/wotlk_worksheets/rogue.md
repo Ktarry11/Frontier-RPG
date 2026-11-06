@@ -10,20 +10,20 @@ Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Cal
 
 `MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
 
-WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+WotLK rows 0-10 map onto Frontier's SEVEN tiers (0-6, tier_requirements 0/5/10/15/20/25/30) as `tier = round(row * 6 / 10)`, so rows go 0/1/1/2/2/3/4/4/5/5/6 and the WotLK capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
 
 
 ## Assassination - 27 talents, 74 points
 
-- **Improved Eviscerate** (3 ranks) - row 0 -> tier 1 - MATCH rogue_assassination_improved_eviscerate  [ours is scalar]
+- **Improved Eviscerate** (3 ranks) - row 0 -> tier 0 - MATCH rogue_assassination_improved_eviscerate  [ours is scalar]
   - WotLK rank 1: Increases the damage done by your Eviscerate ability by 7%.
   - WotLK rank 3: Increases the damage done by your Eviscerate ability by 20%.
-- **Remorseless Attacks** (2 ranks) - row 0 -> tier 1 - MATCH rogue_assassination_remorseless_attacks
+- **Remorseless Attacks** (2 ranks) - row 0 -> tier 0 - MATCH rogue_assassination_remorseless_attacks
   - needs: proc-chance, crit
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: After killing an opponent that yields experience or honor, gives you a 20% increased critical strike chance on your next Sinister Strike, Hemorrhage, Backstab, Mutilate, Ambush, or Ghostly Strike.  Lasts 20 sec.
   - WotLK rank 2: After killing an opponent that yields experience or honor, gives you a 40% increased critical strike chance on your next Sinister Strike, Hemorrhage, Backstab, Mutilate, Ambush, or Ghostly Strike.  Lasts 20 sec.
-- **Malice** (5 ranks) - row 0 -> tier 1 - MATCH rogue_assassination_malice  [ours is scalar]
+- **Malice** (5 ranks) - row 0 -> tier 0 - MATCH rogue_assassination_malice  [ours is scalar]
   - needs: proc-chance, crit
   - WotLK rank 1: Increases your critical strike chance by 1%.
   - WotLK rank 5: Increases your critical strike chance by 5%.
@@ -38,13 +38,13 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Backstab ability by 10%, and the critical strike chance of your Mutilate ability by 5%.
   - WotLK rank 3: Increases the critical strike chance of your Backstab ability by 30%, and the critical strike chance of your Mutilate ability by 15%.
-- **Vigor** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Vigor** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - WotLK rank 1: Increases your maximum Energy by 10.
-- **Improved Expose Armor** (2 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Improved Expose Armor** (2 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: cost-change
   - WotLK rank 1: Reduces the energy cost of your Expose Armor ability by 5.
   - WotLK rank 2: Reduces the energy cost of your Expose Armor ability by 10.
-- **Lethality** (5 ranks) - row 2 -> tier 2 - MATCH rogue_assassination_lethality  [ours is scalar]
+- **Lethality** (5 ranks) - row 2 -> tier 1 - MATCH rogue_assassination_lethality  [ours is scalar]
   - requires: Malice
   - needs: crit
   - **BLOCKED**: BLOCKED:stealth - needs a substitute mechanic
@@ -58,17 +58,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance
   - WotLK rank 1: Increases the chance to apply Deadly Poison to your target by 4% and the frequency of applying Instant Poison to your target by 10%.
   - WotLK rank 5: Increases the chance to apply Deadly Poison to your target by 20% and the frequency of applying Instant Poison to your target by 50%.
-- **Fleet Footed** (2 ranks) - row 4 -> tier 3 - MATCH rogue_assassination_fleet_footed  [ours is scalar]
+- **Fleet Footed** (2 ranks) - row 4 -> tier 2 - MATCH rogue_assassination_fleet_footed  [ours is scalar]
   - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
   - WotLK rank 1: Reduces the duration of all movement impairing effects by 15% and increases your movement speed by 8%.  This does not stack with other movement speed increasing effects.
   - WotLK rank 2: Reduces the duration of all movement impairing effects by 30% and increases your movement speed by 15%.  This does not stack with other movement speed increasing effects.
-- **Cold Blood** (1 rank) - row 4 -> tier 3 - MATCH rogue_assassination_cold_blood
+- **Cold Blood** (1 rank) - row 4 -> tier 2 - MATCH rogue_assassination_cold_blood
   - needs: proc-chance, crit
   - WotLK rank 1: When activated, increases the critical strike chance of your next offensive ability by 100%.
-- **Improved Kidney Shot** (3 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Improved Kidney Shot** (3 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - WotLK rank 1: While affected by your Kidney Shot ability, the target receives an additional 3% damage from all sources.
   - WotLK rank 3: While affected by your Kidney Shot ability, the target receives an additional 9% damage from all sources.
-- **Quick Recovery** (2 ranks) - row 4 -> tier 3 - MATCH rogue_assassination_quick_recovery
+- **Quick Recovery** (2 ranks) - row 4 -> tier 2 - MATCH rogue_assassination_quick_recovery
   - needs: cost-change, heal
   - WotLK rank 1: All healing effects on you are increased by 10%.  In addition, your finishing moves refund 40% of their Energy cost when they fail to hit.
   - WotLK rank 2: All healing effects on you are increased by 20%.  In addition, your finishing moves refund 80% of their Energy cost when they fail to hit.
@@ -120,15 +120,15 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Combat - 28 talents, 79 points
 
-- **Improved Gouge** (3 ranks) - row 0 -> tier 1 - MATCH rogue_combat_improved_gouge  [ours is scalar]
+- **Improved Gouge** (3 ranks) - row 0 -> tier 0 - MATCH rogue_combat_improved_gouge  [ours is scalar]
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases the effect duration of your Gouge ability by 0.5 sec.
   - WotLK rank 3: Increases the effect duration of your Gouge ability by 1.5 sec.
-- **Improved Sinister Strike** (2 ranks) - row 0 -> tier 1 - MATCH rogue_combat_improved_sinister_strike  [ours is scalar]
+- **Improved Sinister Strike** (2 ranks) - row 0 -> tier 0 - MATCH rogue_combat_improved_sinister_strike  [ours is scalar]
   - needs: cost-change
   - WotLK rank 1: Reduces the Energy cost of your Sinister Strike ability by 3.
   - WotLK rank 2: Reduces the Energy cost of your Sinister Strike ability by 5.
-- **Dual Wield Specialization** (5 ranks) - row 0 -> tier 1 - MATCH rogue_combat_dual_wield_specialization
+- **Dual Wield Specialization** (5 ranks) - row 0 -> tier 0 - MATCH rogue_combat_dual_wield_specialization
   - WotLK rank 1: Increases the damage done by your offhand weapon by 10%.
   - WotLK rank 5: Increases the damage done by your offhand weapon by 50%.
 - **Improved Slice and Dice** (2 ranks) - row 1 -> tier 1 - MATCH rogue_combat_improved_slice_and_dice  [ours is scalar]
@@ -142,17 +142,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance
   - WotLK rank 1: Increases your chance to hit with weapon and poison attacks by 1%.
   - WotLK rank 5: Increases your chance to hit with weapon and poison attacks by 5%.
-- **Endurance** (2 ranks) - row 2 -> tier 2 - MATCH rogue_combat_endurance  [ours is scalar]
+- **Endurance** (2 ranks) - row 2 -> tier 1 - MATCH rogue_combat_endurance  [ours is scalar]
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Sprint and Evasion abilities by 30 sec and increases your total Stamina by 2%.
   - WotLK rank 2: Reduces the cooldown of your Sprint and Evasion abilities by 60 sec and increases your total Stamina by 4%.
-- **Riposte** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Riposte** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - requires: Deflection
   - needs: duration-window
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: A strike that becomes active after parrying an opponent's attack. This attack deals 150% weapon damage and slows their melee attack speed by 20% for 30 sec. Awards 1 combo point.
-- **Close Quarters Combat** (5 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Close Quarters Combat** (5 ranks) - row 2 -> tier 1 - NEW - we have no talent of this name
   - requires: Dual Wield Specialization
   - needs: proc-chance, crit
   - **BLOCKED**: BLOCKED:weapon-type - needs a substitute mechanic
@@ -175,14 +175,14 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 - **Aggression** (5 ranks) - row 3 -> tier 2 - MATCH rogue_combat_aggression  [ours is scalar]
   - WotLK rank 1: Increases the damage of your Sinister Strike, Backstab, and Eviscerate abilities by 3%.
   - WotLK rank 5: Increases the damage of your Sinister Strike, Backstab, and Eviscerate abilities by 15%.
-- **Mace Specialization** (5 ranks) - row 4 -> tier 3 - MATCH rogue_combat_mace_specialization
+- **Mace Specialization** (5 ranks) - row 4 -> tier 2 - MATCH rogue_combat_mace_specialization
   - **BLOCKED**: BLOCKED:weapon-type - needs a substitute mechanic
   - WotLK rank 1: Your attacks with maces ignore up to 3% of your opponent's armor.
   - WotLK rank 5: Your attacks with maces ignore up to 15% of your opponent's armor.
-- **Blade Flurry** (1 rank) - row 4 -> tier 3 - MATCH rogue_combat_blade_flurry
+- **Blade Flurry** (1 rank) - row 4 -> tier 2 - MATCH rogue_combat_blade_flurry
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases your attack speed by 20%. In addition, attacks strike an additional nearby opponent. Lasts 15 sec.
-- **Hack and Slash** (5 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+- **Hack and Slash** (5 ranks) - row 4 -> tier 2 - NEW - we have no talent of this name
   - needs: proc-chance
   - **BLOCKED**: BLOCKED:weapon-type - needs a substitute mechanic
   - WotLK rank 1: Requires One-Handed Axes, One-Handed Swords Gives you a 1% chance to get an extra attack on the same target after hitting your target with your Sword or Axe.
@@ -237,16 +237,16 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
 
 ## Subtlety - 28 talents, 71 points
 
-- **Relentless Strikes** (5 ranks) - row 0 -> tier 1 - MATCH rogue_assassination_relentless_strikes
+- **Relentless Strikes** (5 ranks) - row 0 -> tier 0 - MATCH rogue_assassination_relentless_strikes
   - needs: proc-chance, resource-grant
   - WotLK rank 1: Your finishing moves have a 4% chance per combo point to restore 25 energy.
   - WotLK rank 5: Your finishing moves have a 20% chance per combo point to restore 25 energy.
-- **Master of Deception** (3 ranks) - row 0 -> tier 1 - MATCH rogue_subtlety_master_of_deception  [ours is scalar]
+- **Master of Deception** (3 ranks) - row 0 -> tier 0 - MATCH rogue_subtlety_master_of_deception  [ours is scalar]
   - needs: proc-chance
   - **BLOCKED**: BLOCKED:stealth - needs a substitute mechanic
   - WotLK rank 1: Reduces the chance enemies have to detect you while in Stealth mode.
   - WotLK rank 3: Reduces the chance enemies have to detect you while in Stealth mode.  More effective than Master of Deception (Rank 2).
-- **Opportunity** (2 ranks) - row 0 -> tier 1 - MATCH rogue_subtlety_opportunity  [ours is scalar]
+- **Opportunity** (2 ranks) - row 0 -> tier 0 - MATCH rogue_subtlety_opportunity  [ours is scalar]
   - WotLK rank 1: Increases the damage dealt with your Backstab, Mutilate, Garrote and Ambush abilities by 10%.
   - WotLK rank 2: Increases the damage dealt with your Backstab, Mutilate, Garrote and Ambush abilities by 20%.
 - **Sleight of Hand** (2 ranks) - row 1 -> tier 1 - MATCH rogue_subtlety_sleight_of_hand  [ours is scalar]
@@ -263,17 +263,17 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Increases your speed while stealthed by 5% and reduces the cooldown of your Stealth ability by 2 sec.
   - WotLK rank 3: Increases your speed while stealthed by 15% and reduces the cooldown of your Stealth ability by 6 sec.
-- **Elusiveness** (2 ranks) - row 2 -> tier 2 - MATCH rogue_subtlety_elusiveness  [ours is scalar]
+- **Elusiveness** (2 ranks) - row 2 -> tier 1 - MATCH rogue_subtlety_elusiveness  [ours is scalar]
   - needs: cooldown-change
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: Reduces the cooldown of your Vanish and Blind abilities by 30 sec and your Cloak of Shadows ability by 15 sec.
   - WotLK rank 2: Reduces the cooldown of your Vanish and Blind abilities by 60 sec and your Cloak of Shadows ability by 30 sec.
-- **Ghostly Strike** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+- **Ghostly Strike** (1 rank) - row 2 -> tier 1 - NEW - we have no talent of this name
   - needs: proc-chance, duration-window
   - **BLOCKED**: BLOCKED:weapon-type - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
   - WotLK rank 1: A strike that deals 125% weapon damage (180% if a dagger is equipped) and increases your chance to dodge by 15% for 7 sec. Awards 1 combo point.
-- **Serrated Blades** (3 ranks) - row 2 -> tier 2 - MATCH rogue_subtlety_serrated_blades  [ours is scalar]
+- **Serrated Blades** (3 ranks) - row 2 -> tier 1 - MATCH rogue_subtlety_serrated_blades  [ours is scalar]
   - WotLK rank 1: Causes your attacks to ignore up to 3% of your target's Armor and increases the damage dealt by your Rupture ability by 10%.
   - WotLK rank 3: Causes your attacks to ignore up to 9% of your target's Armor and increases the damage dealt by your Rupture ability by 30%.
 - **Setup** (3 ranks) - row 3 -> tier 2 - MATCH rogue_subtlety_setup
@@ -288,19 +288,19 @@ WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 
   - needs: proc-chance, crit
   - WotLK rank 1: Increases the critical strike chance of your Ambush ability by 25%.
   - WotLK rank 2: Increases the critical strike chance of your Ambush ability by 50%.
-- **Heightened Senses** (2 ranks) - row 4 -> tier 3 - MATCH rogue_subtlety_heightened_senses  [ours is scalar]
+- **Heightened Senses** (2 ranks) - row 4 -> tier 2 - MATCH rogue_subtlety_heightened_senses  [ours is scalar]
   - needs: proc-chance
   - **BLOCKED**: BLOCKED:stealth - needs a substitute mechanic
   - WotLK rank 1: Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by 2%.
   - WotLK rank 2: Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by 4%.  More effective than Heightened Senses (Rank 1).
-- **Preparation** (1 rank) - row 4 -> tier 3 - MATCH rogue_subtlety_preparation
+- **Preparation** (1 rank) - row 4 -> tier 2 - MATCH rogue_subtlety_preparation
   - needs: cooldown-change
   - WotLK rank 1: When activated, this ability immediately finishes the cooldown on your Evasion, Sprint, Vanish, Cold Blood and Shadowstep abilities.
-- **Dirty Deeds** (2 ranks) - row 4 -> tier 3 - MATCH rogue_subtlety_dirty_deeds  [ours is scalar]
+- **Dirty Deeds** (2 ranks) - row 4 -> tier 2 - MATCH rogue_subtlety_dirty_deeds  [ours is scalar]
   - needs: hp-threshold, cost-change, heal
   - WotLK rank 1: Reduces the Energy cost of your Cheap Shot and Garrote abilities by 10.  Additionally, your special abilities cause 10% more damage against targets below 35% health.
   - WotLK rank 2: Reduces the Energy cost of your Cheap Shot and Garrote abilities by 20.  Additionally, your special abilities cause 20% more damage against targets below 35% health.
-- **Hemorrhage** (1 rank) - row 4 -> tier 3 - MATCH rogue_subtlety_hemorrhage
+- **Hemorrhage** (1 rank) - row 4 -> tier 2 - MATCH rogue_subtlety_hemorrhage
   - requires: Serrated Blades
   - **BLOCKED**: BLOCKED:charges, BLOCKED:weapon-type - needs a substitute mechanic
   - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
