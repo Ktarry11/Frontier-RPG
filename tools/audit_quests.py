@@ -964,7 +964,13 @@ STAT_PROSE = re.compile(
 _NUM_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
               "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11,
               "twelve": 12, "dozen": 12, "fifteen": 15, "twenty": 20}
-_NUM_RE = r"(?:" + "|".join(_NUM_WORDS) + r"|\d{1,2})"
+#: LEADING \b IS LOAD-BEARING. Without it the alternation matched the tail
+#: of ordinary words: "Redstone scorpids" read as "one scorpids", "rimebone
+#: hounds" as "one hounds", "gone and the charges" as "one and the charges"
+#: and "Forgotten Pools" as "ten Pools". Fourteen of the fifteen findings
+#: left after the real count mismatches were fixed were this, which is the
+#: way a check like this stops being read.
+_NUM_RE = r"\b(?:" + "|".join(_NUM_WORDS) + r"|\d{1,2})"
 
 
 def prose_count_mismatches(rows, overlay):
