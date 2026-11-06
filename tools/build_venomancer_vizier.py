@@ -221,7 +221,7 @@ N.append(node(
     "soothing_venoms", "Soothing Venoms",
     "Increases the critical healing of Shadra's Prayer by 50%.",
     1, 0,
-    effects={"ability_venomancer_shadras_prayer_crit_damage": 0.50},
+    effects={"ability_venomancer_shadras_prayer_healing": 0.50},
     connect=["the_antidote"],
     source="CoA over 2 ranks: 'Increases the critical healing of Shadra's "
            "Prayer by 25%.' Doubled for the two ranks. ability_*_crit_damage "
@@ -234,7 +234,7 @@ N.append(node(
     "by 20%.",
     1, 2,
     effects={"ability_venomancer_rejuvenating_venom_duration": 1,
-             "ability_venomancer_rejuvenating_venom_healing": 0.20},
+             "ability_venomancer_rejuvenating_venom_duration": 1},
     connect=["ritualistic"],
     source="CoA verbatim: 'Increases the duration of Rejuvenating Venom by 2 "
            "sec and increases its tick rate by -30%.' 2 sec is a turn. Tick "
@@ -367,7 +367,7 @@ N.append(node(
     "20%.",
     3, 0,
     effects={"ability_venomancer_green_salve_healing": 0.50,
-             "ability_venomancer_green_salve_cooldown_pct": 0.20},
+             "ability_venomancer_green_salve_healing": 0.20},
     connect=["widows_watch"],
     source="CoA verbatim: 'Reduces the cooldown of Green Salve by -2 sec and "
            "increases the healing done at the end of the duration by 50%.' "

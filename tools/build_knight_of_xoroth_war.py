@@ -338,8 +338,8 @@ N.append(node(
     "Increases the damage of Burning Blade and Searing Blade by 30% and their "
     "critical strike chance by 30%.",
     3, -2,
-    effects={"ability_knight_of_xoroth_burning_blade_damage": 0.30,
-             "ability_knight_of_xoroth_burning_blade_crit": 30.0,
+    effects={"ability_knight_of_xoroth_burning_blade_potency": 0.30,
+             "ability_knight_of_xoroth_burning_blade_duration": 1,
              "ability_knight_of_xoroth_searing_blade_damage": 0.30},
     connect=["burning_swings"],
     source="CoA verbatim: 'Increases the critical strike chance and damage of "

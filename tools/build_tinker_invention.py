@@ -369,7 +369,7 @@ N.append(node(
     "trust_the_science", "Trust the Science!",
     "Reduces the cooldown of Zap! by 20%.",
     4, 0,
-    effects={"ability_tinker_zap_cooldown_pct": 0.20},
+    effects={"ability_tinker_zap_healing": 0.20},
     connect=["emergency_circumvented"],
     source="CoA: 'Reduces the cooldown of Zap! by -5 sec.' Expressed as a "
            "percentage because a flat 5 sec is under two turns and would "

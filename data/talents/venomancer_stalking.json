@@ -377,13 +377,12 @@
       "description": "Increases the duration of Facemelter by 1 turn and its damage by 50%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_facemelter_duration": 1,
-        "ability_venomancer_facemelter_damage": 0.5
+        "ability_venomancer_facemelter_damage": 0.1667
       },
       "connected_to": [
         "venomancer_stalking_virulent_opening"

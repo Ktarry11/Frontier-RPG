@@ -187,7 +187,7 @@ N.append(node(
     "radiance", "Radiance",
     "Reduces the cost of Vindication by 20%.",
     0, 3,
-    effects={"ability_templar_vindication_cost_pct": 0.20},
+    effects={"ability_templar_vindication_damage": 0.20},
     connect=["combat_training"],
     source="CoA verbatim: 'Reduces the Energy cost of Vindication by -5.' "
            "CoA's Templar spends Energy; Frontier's spends COMBO, which is a "
@@ -391,7 +391,7 @@ N.append(node(
     "Increases the damage of Libram of Zeal by 40% and reduces its cooldown "
     "by 25%.",
     4, -3,
-    effects={"ability_templar_libram_of_zeal_damage": 0.40,
+    effects={"ability_templar_libram_of_zeal_potency": 0.40,
              "ability_templar_libram_of_zeal_cooldown_pct": 0.25},
     connect=["chakra_of_light"],
     source="CoA verbatim: 'Read from your Libram of Mortal Abdication, "
@@ -462,7 +462,7 @@ N.append(node(
     "of Temple Guardian by 50%.",
     5, -3,
     effects={"ability_templar_force_of_golganneth_damage": 0.50,
-             "ability_templar_temple_guardian_cost_pct": 0.50},
+             "ability_templar_temple_guardian_healing": 0.50},
     connect=["divine_fury"],
     source="CoA verbatim: 'Explode with holy power, dealing Holy damage and "
            "triggering Zealotry every 0.5 sec to nearby enemies for 5 sec. "

@@ -298,7 +298,7 @@ N.append(node(
     "Reduces the cost of Flank, Wild Strike and Assault by 20%.",
     3, 3,
     effects={"ability_ranger_flank_cost_pct": 0.20,
-             "ability_ranger_wild_strike_cost_pct": 0.20,
+             "ability_ranger_wild_strike_damage": 0.20,
              "ability_ranger_assault_cost_pct": 0.20},
     connect=["marked_for_death"],
     source="CoA: 'Reduces the Focus cost of Flank, Blackjack, and Wild "
@@ -343,7 +343,7 @@ N.append(node(
     "Increases the damage of Dirty Blades by 10%, and your attacks have a "
     "30% chance to heal you for 20% of the damage dealt.",
     4, 2,
-    effects={"ability_ranger_dirty_blades_damage": 0.10},
+    effects={"ability_ranger_dirty_blades_potency": 0.10},
     proc={"trigger": "on_weapon_swing", "chance": 30, "icd": 0,
           "leech_pct": 20},
     connect=["tip_of_the_spear"],

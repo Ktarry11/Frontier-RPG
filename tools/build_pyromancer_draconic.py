@@ -370,7 +370,7 @@ N.append(node(
     "molten_fury", "Molten Fury",
     "Increases the damage of Eruption by 15% and reduces its cooldown by 40%.",
     3, 0,
-    effects={"ability_pyromancer_eruption_damage": 0.15,
+    effects={"ability_pyromancer_eruption_potency": 0.15,
              "ability_pyromancer_eruption_cooldown_pct": 0.40},
     connect=["expediting_power"],
     source="CoA verbatim: 'Increases the damage and healing provided by "

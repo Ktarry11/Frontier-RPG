@@ -318,7 +318,7 @@ N.append(node(
     "pit_lords_strength", "Pit Lord's Strength",
     "Increases the damage of Annihilation and Annihilan Strike by 30%.",
     4, 2,
-    effects={"ability_felsworn_annihilation_damage": 0.30,
+    effects={"ability_felsworn_annihilation_potency": 0.30,
              "ability_felsworn_annihilan_strike_damage": 0.30},
     connect=["oblivion"],
     source="CoA over 2 ranks: 'Your Annihilation now affects 1 additional "
@@ -334,7 +334,7 @@ N.append(node(
     "Reduces the cost of Chaos Rush by 25%, and your attacks have a 25% "
     "chance to heal you for 20% of the damage dealt.",
     4, 0,
-    effects={"ability_felsworn_chaos_rush_cost_pct": 0.25},
+    effects={"ability_felsworn_chaos_rush_damage": 0.25},
     proc={"trigger": "on_weapon_swing", "chance": 25, "icd": 0,
           "leech_pct": 20},
     connect=["oblivion"],

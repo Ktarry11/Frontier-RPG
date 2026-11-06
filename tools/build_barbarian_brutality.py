@@ -446,7 +446,7 @@ N.append(node(
     "Increases the damage of Unbridled Rage's follow-up by 30% and your "
     "area damage by 20%.",
     3, 2,
-    effects={"ability_barbarian_unbridled_rage_damage": 0.30,
+    effects={"ability_barbarian_unbridled_rage_potency": 0.30,
              "aoe_damage": 0.20},
     connect=["horde_breaker"],
     source="CoA: 'Casting Unbridled Rage now causes you to begin swinging "

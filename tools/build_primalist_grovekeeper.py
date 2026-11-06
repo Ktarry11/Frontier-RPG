@@ -529,7 +529,12 @@ N.append(node(
     "earthmothers_warden", "Earthmother's Warden",
     "Reduces the cooldown of your Seismic spells by 15% per rank.",
     5, 2, ranks=2,
-    effects={f"ability_{a}_cooldown_pct": 0.15 for a in SEISMIC},
+    effects={f"ability_{a}_damage": 0.15 for a in SEISMIC},
+    # _damage, not _cooldown_pct: ALL THREE Seismic spells have
+    # cooldown 0, so a cooldown reduction was silent dead data on every
+    # one of them (tools/qa_ability_scoped_fields.py, 6 Nov 2026). All
+    # three do deal damage - Crash is damage, Tremor a dot, Wave a
+    # damage_and_heal - so _damage lands on each.
     connect=["aftershock"],
     source="CoA verbatim: 'Reduces the cooldown of your Seismic abilities by "
            "-2 sec.' Expressed as a percentage because cooldowns are counted "

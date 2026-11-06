@@ -442,8 +442,8 @@ N.append(node(
     "Increases the damage of your Poison and Searing Quivers by 25% and "
     "your periodic damage by a further 10%.",
     5, -2,
-    effects={"ability_ranger_poison_quiver_damage": 0.25,
-             "ability_ranger_searing_quiver_damage": 0.25,
+    effects={"ability_ranger_poison_quiver_potency": 0.25,
+             "ability_ranger_searing_quiver_potency": 0.25,
              "dot_damage": 0.10},
     connect=["hawkeye"],
     source="CoA: 'Increases the damage dealt by your Searing and Poison "

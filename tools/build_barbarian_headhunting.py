@@ -102,7 +102,7 @@ N.append(node(
     "Increases the damage of your spears by 25% and your hit chance by 6%.",
     0, -4,
     effects={"ability_barbarian_headhunters_spear_damage": 0.25,
-             "ability_barbarian_maiming_spear_damage": 0.25,
+             "ability_barbarian_maiming_spear_potency": 0.25,
              "ability_barbarian_impaling_spear_damage": 0.25,
              "ability_barbarian_barbed_spear_damage": 0.25,
              "ability_barbarian_javelin_toss_damage": 0.25,

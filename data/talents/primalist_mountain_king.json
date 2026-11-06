@@ -309,12 +309,12 @@
       "description": "Increases the damage of Mountain Hammer by 25% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_mountain_hammer_damage": 0.1667
+        "ability_primalist_mountain_hammer_duration": 1
       },
       "connected_to": [
         "primalist_mountain_king_earthenforged_barrier"
@@ -628,12 +628,12 @@
       "description": "Reduces the cooldown of Judgement of the Three Hammers by 10% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_primalist_judgement_of_the_three_hammers_cooldown_pct": 0.0667
+        "ability_primalist_judgement_of_the_three_hammers_duration": 1
       },
       "connected_to": [
         "primalist_mountain_king_mountain_avatar"

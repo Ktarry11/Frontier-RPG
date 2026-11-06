@@ -74,13 +74,13 @@
       "description": "Increases the absorption of Inferno Barrier and Volcanic Shell by 40%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_inferno_barrier_potency": 0.1333,
-        "ability_pyromancer_volcanic_shell_potency": 0.1333
+        "ability_pyromancer_inferno_barrier_duration": 1,
+        "ability_pyromancer_volcanic_shell_duration": 1
       },
       "connected_to": [
         "pyromancer_flameweaving_from_the_ashes"
@@ -357,12 +357,12 @@
       "description": "Increases the absorption of Phoenix Dive by 50%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_phoenix_dive_potency": 0.1667
+        "ability_pyromancer_phoenix_dive_duration": 1
       },
       "connected_to": [
         "pyromancer_flameweaving_lucifrons_rage"

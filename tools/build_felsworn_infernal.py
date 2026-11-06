@@ -402,7 +402,7 @@ N.append(node(
     "Reduces the cost of Fel Fireball and Felwrath by 25% and increases "
     "Felwrath's damage by 25%.",
     1, -4,
-    effects={"ability_felsworn_fel_fireball_cost_pct": 0.25,
+    effects={"ability_felsworn_fel_fireball_damage": 0.25,
              "ability_felsworn_felwrath_cost_pct": 0.25,
              "ability_felsworn_felwrath_damage": 0.25},
     connect=["wrath_of_sargeras"],
@@ -437,7 +437,7 @@ N.append(node(
     "Reduces the cooldown of Annihilation, Sunder and Ruin by 35%.",
     3, 3,
     effects={"ability_felsworn_annihilation_cooldown_pct": 0.35,
-             "ability_felsworn_sunder_cooldown_pct": 0.35,
+             "ability_felsworn_sunder_damage": 0.35,
              "ability_felsworn_ruin_cooldown_pct": 0.35},
     connect=["illidari_magi"],
     source="CoA: 'Reduces the cooldown of Annihilation by -15 sec and "

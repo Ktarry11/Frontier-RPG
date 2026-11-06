@@ -161,8 +161,8 @@ N.append(node(
     "spirit_of_fire", "Spirit of Fire",
     "Increases the absorption of Inferno Barrier and Volcanic Shell by 40%.",
     0, 1,
-    effects={"ability_pyromancer_inferno_barrier_potency": 0.40,
-             "ability_pyromancer_volcanic_shell_potency": 0.40},
+    effects={"ability_pyromancer_inferno_barrier_duration": 1,
+             "ability_pyromancer_volcanic_shell_duration": 1},
     connect=["from_the_ashes"],
     source="CoA over 2 ranks: 'Increases the effectiveness of your absorption "
            "effects by 20%.' Doubled for the two ranks. THERE IS NO GLOBAL "
@@ -360,7 +360,7 @@ N.append(node(
     "phoenix_dive_mastery", "Phoenix Dive",
     "Increases the absorption of Phoenix Dive by 50%.",
     3, -2,
-    effects={"ability_pyromancer_phoenix_dive_potency": 0.50},
+    effects={"ability_pyromancer_phoenix_dive_duration": 1},
     connect=["lucifrons_rage"],
     source="CoA verbatim: 'Command your Phoenix to swoop to the target ally "
            "and shield allies in their path with fire, absorbing damage for "

@@ -220,8 +220,8 @@ N.append(node(
     "ancestral_wisdom", "Ancestral Wisdom",
     "Reduces the cooldown of your party auras by 35%.",
     1, 0,
-    effects={"ability_barbarian_ancestral_fury_cooldown_pct": 0.35,
-             "ability_barbarian_frozen_blades_cooldown_pct": 0.35,
+    effects={"ability_barbarian_ancestral_fury_potency": 0.35,
+             "ability_barbarian_frozen_blades_potency": 0.35,
              "ability_barbarian_splash_zone_cooldown_pct": 0.35,
              "ability_barbarian_clanlords_totem_cooldown_pct": 0.35},
     connect=["cold_brew", "the_spins"],
@@ -362,7 +362,7 @@ N.append(node(
     "and increases your physical damage by 6%.",
     4, 2,
     effects={"ability_barbarian_unbridled_rage_cooldown_pct": 0.35,
-             "ability_barbarian_ancestral_combat_cooldown_pct": 0.35,
+             "ability_barbarian_ancestral_combat_potency": 0.35,
              "physical_damage": 0.06},
     connect=["war_cry"],
     source="CoA: 'Your Unbridled Rage now increases your chance to trigger "
@@ -432,7 +432,7 @@ N.append(node(
     5, 3,
     effects={"armor_pct": 18.0,
              "ability_barbarian_clanlords_totem_cooldown_pct": 0.30,
-             "ability_barbarian_frozen_blades_cooldown_pct": 0.30},
+             "ability_barbarian_frozen_blades_potency": 0.30},
     connect=["ancestral_spirit"],
     source="CoA: 'You now emanate an aura around you, increasing the Armor "
            "of party and raid members by 390. Does not stack with similar "

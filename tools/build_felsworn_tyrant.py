@@ -185,9 +185,9 @@ N.append(node(
     "burning_legionnaire", "Burning Legionnaire",
     "Reduces the cost of Twin Slice, Sunder and Felrend by 25%.",
     0, 2,
-    effects={"ability_felsworn_twin_slice_cost_pct": 0.25,
+    effects={"ability_felsworn_twin_slice_damage": 0.25,
              "ability_felsworn_sunder_cost_pct": 0.25,
-             "ability_felsworn_felrend_cost_pct": 0.25},
+             "ability_felsworn_felrend_damage": 0.25},
     connect=["outland_slaver"],
     source="CoA: 'Reduces the Energy cost of Twin Slice and Sunder by "
            "-10.' CoA's Energy is our felfury - the single primary pool - "

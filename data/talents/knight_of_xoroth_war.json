@@ -334,14 +334,14 @@
       "description": "Increases the damage of Burning Blade and Searing Blade by 30% and their critical strike chance by 30%.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_knight_of_xoroth_burning_blade_damage": 0.1,
-        "ability_knight_of_xoroth_burning_blade_crit": 10,
-        "ability_knight_of_xoroth_searing_blade_damage": 0.1
+        "ability_knight_of_xoroth_burning_blade_potency": 0.3,
+        "ability_knight_of_xoroth_burning_blade_duration": 1,
+        "ability_knight_of_xoroth_searing_blade_damage": 0.3
       },
       "connected_to": [
         "knight_of_xoroth_war_burning_swings"

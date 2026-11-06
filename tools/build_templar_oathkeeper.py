@@ -190,8 +190,8 @@ N.append(node(
     "grace_of_amanthul", "Grace of Aman'thul",
     "Reduces the cost of Righteous Lunge and Sacred Swing by 20%.",
     0, 3,
-    effects={"ability_templar_righteous_lunge_cost_pct": 0.20,
-             "ability_templar_sacred_swing_cost_pct": 0.20},
+    effects={"ability_templar_righteous_lunge_damage": 0.20,
+             "ability_templar_sacred_swing_damage": 0.20},
     connect=["staffguard"],
     source="CoA verbatim: 'Reduces the Energy cost of Righteous Lunge by -5 "
            "and Sacred Swing by -10.' CoA's Templar spends Energy; "
@@ -321,7 +321,7 @@ N.append(node(
     "guardian_of_the_light", "Guardian of the Light",
     "Reduces the cost of Temple Guardian by 50%.",
     2, 0,
-    effects={"ability_templar_temple_guardian_cost_pct": 0.50},
+    effects={"ability_templar_temple_guardian_healing": 0.50},
     connect=["way_of_the_monk"],
     source="CoA verbatim: 'Casting Benediction now reduces the cost of your "
            "next Temple Guardian by -50% for 6 seconds.' Nothing discounts a "

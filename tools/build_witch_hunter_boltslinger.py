@@ -154,7 +154,7 @@ N.append(node(
     "increases your chance to hit by up to 4%.",
     0, -1, ranks=2,
     effects={"ability_witch_hunter_witchbane_cost_pct": 0.10,
-             "ability_witch_hunter_shadowblast_cost_pct": 0.10,
+             "ability_witch_hunter_shadowblast_damage": 0.10,
              "hit_rating": 2.0},
     connect=["one_shot"],
     source="CoA verbatim but for the resource: 'Reduces the Rage cost of "

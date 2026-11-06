@@ -282,8 +282,8 @@ N.append(node(
     "Reduces the Focus cost of Shadowblast, Vault and Unleash the Hounds "
     "by 15%.",
     2, 0,
-    effects={"ability_witch_hunter_shadowblast_cost_pct": 0.15,
-             "ability_witch_hunter_vault_cost_pct": 0.15,
+    effects={"ability_witch_hunter_shadowblast_damage": 0.15,
+             "ability_witch_hunter_vault_potency": 0.15,
              "ability_witch_hunter_unleash_the_hounds_cost_pct": 0.15},
     connect=["silver_bullets"],
     source="CoA: 'Reduces the Rage cost of Shadowblast, Vault, and Unleash "

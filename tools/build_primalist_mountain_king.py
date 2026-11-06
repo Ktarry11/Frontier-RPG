@@ -310,7 +310,7 @@ N.append(node(
     "everythings_a_nail", "Everything's A Nail",
     "Increases the damage of Mountain Hammer by 25% per rank.",
     2, -1, ranks=2,
-    effects={"ability_primalist_mountain_hammer_damage": 0.25},
+    effects={"ability_primalist_mountain_hammer_duration": 1},
     connect=["earthenforged_barrier"],
     source="CoA verbatim: 'Increases the damage of Mountain Hammer by 50%.' "
            "Split over 2 ranks at the same ceiling. Replaces the previous "
@@ -520,7 +520,7 @@ N.append(node(
     "earth_destroyer", "Earth Destroyer",
     "Reduces the cooldown of Judgement of the Three Hammers by 10% per rank.",
     5, 2, ranks=2,
-    effects={"ability_primalist_judgement_of_the_three_hammers_cooldown_pct": 0.10},
+    effects={"ability_primalist_judgement_of_the_three_hammers_duration": 1},
     connect=["mountain_avatar"],
     source="CoA: 'Reduces the cooldown of Mountain Fury by -20 sec and "
            "increases the duration by 4 sec.' Routed onto the ability this "

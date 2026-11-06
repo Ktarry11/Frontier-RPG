@@ -442,7 +442,7 @@ N.append(node(
     "Increases the damage of Harrowing Melody by 50% and of your Ballads by "
     "30%.",
     5, -3,
-    effects={"ability_guardian_harrowing_melody_damage": 0.50,
+    effects={"ability_guardian_harrowing_melody_potency": 0.50,
              **{f"ability_{a}_damage": 0.30 for a in BALLADS}},
     connect=["inspiring_presence_mastery"],
     source="CoA verbatim: 'The damage increase of Harrowing Melody now "

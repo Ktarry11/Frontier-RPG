@@ -72,6 +72,13 @@ AURAS = ["stormbringer_clear_skies", "stormbringer_tailwind",
 #: The spec's own nature damage, standing in for CoA's Gale and Updraft.
 WINDS = ["stormbringer_freewind", "stormbringer_gust_of_wind",
          "stormbringer_razorwind"]
+# Of the three Winds, only Freewind is a damage spell. Gust of Wind is a pure
+# 'debuff' with no stat_mods, and Razorwind is a 'dispel' - neither deals
+# damage nor can crit, so _damage and _crit keys naming them were SILENT DEAD
+# DATA (caught 6 Nov 2026 by tools/qa_ability_scoped_fields.py). The two
+# damage/crit nodes use this narrower list; cost and cooldown nodes keep WINDS,
+# because all three really do cost mana and have cooldowns.
+DAMAGING_WINDS = ["stormbringer_freewind"]
 
 #: Abilities that bank Static, for the talents keyed on building it.
 BUILDERS = ["stormbringer_shock", "stormbringer_electrocute",
@@ -235,7 +242,7 @@ N.append(node(
     "unrelenting_winds", "Unrelenting Winds",
     "Increases the critical strike chance of your wind spells by 15%.",
     1, 0,
-    effects={f"ability_{a}_crit": 15.0 for a in WINDS},
+    effects={f"ability_{a}_crit": 15.0 for a in DAMAGING_WINDS},
     connect=["comforting_winds"],
     source="CoA verbatim: 'Increases the critical strike chance of Gale by "
            "15%.' FRONTIER HAS NO GALE. Re-pointed at the three wind "
@@ -249,7 +256,7 @@ N.append(node(
     "wind spells by 16%.",
     1, 2,
     effects={"ability_stormbringer_gust_of_wind_duration": 1,
-             **{f"ability_{a}_damage": 0.16 for a in WINDS}},
+             **{f"ability_{a}_damage": 0.16 for a in DAMAGING_WINDS}},
     connect=["comforting_winds"],
     source="CoA over 2 ranks: 'Increases the duration of your Updraft by 3 "
            "sec and increases its tick rate by 15%.' FRONTIER HAS NO UPDRAFT. "
@@ -492,7 +499,7 @@ N.append(node(
     "Increases the damage of Raging Zephyr by 50% and of your damage-over-"
     "time spells by 20%.",
     5, -1,
-    effects={"ability_stormbringer_raging_zephyr_damage": 0.50,
+    effects={"ability_stormbringer_raging_zephyr_potency": 0.50,
              "dot_damage": 0.20},
     connect=["surge_of_might"],
     source="CoA verbatim: 'Transforms your Whirlpool into Raging Zephyr. "

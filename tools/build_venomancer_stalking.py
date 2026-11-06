@@ -381,7 +381,7 @@ N.append(node(
     "shadras_seance", "Shadra's Seance",
     "Increases the duration of Facemelter by 1 turn and its damage by 50%.",
     3, 0,
-    effects={"ability_venomancer_facemelter_duration": 1,
+    effects={"ability_venomancer_facemelter_damage": 1,
              "ability_venomancer_facemelter_damage": 0.50},
     connect=["virulent_opening"],
     source="CoA verbatim: 'Facemelter now ticks -20% faster and the duration "
