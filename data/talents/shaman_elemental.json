@@ -1,7 +1,7 @@
 {
   "spec_name": "Shaman Elemental",
   "tree_id": "shaman_elemental",
-  "description": "Caller of lightning and lava, striking from a distance.",
+  "description": "Mastery of storm and fire - lightning, lava and the totems that feed them.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,26 +15,7 @@
     {
       "talent_id": "shaman_elemental_convection",
       "name": "Convection",
-      "description": "Reduces the Mana cost of your Shock spells by 6 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "ability_shaman_earth_shock_cost": 6,
-        "ability_shaman_flame_shock_cost": 6,
-        "ability_shaman_frost_shock_cost": 6
-      },
-      "connected_to": [
-        "shaman_elemental_call_of_flame"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_concussion",
-      "name": "Concussion",
-      "description": "Increases the damage of Lightning Bolt and Chain Lightning by 4% per rank.",
+      "description": "Reduces the cost of your Shock and Lightning spells by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -42,144 +23,121 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_shaman_lightning_bolt_damage": 0.04,
-        "ability_shaman_chain_lightning_damage": 0.04
+        "ability_shaman_earth_shock_cost_pct": 0.02,
+        "ability_shaman_flame_shock_cost_pct": 0.02,
+        "ability_shaman_frost_shock_cost_pct": 0.02,
+        "ability_shaman_lightning_bolt_cost_pct": 0.02,
+        "ability_shaman_chain_lightning_cost_pct": 0.02,
+        "ability_shaman_lava_burst_cost_pct": 0.02
       },
-      "connected_to": [
-        "shaman_elemental_elemental_focus"
-      ]
+      "_source": "WotLK row 0: 'Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning, Lava Burst, and Wind Shear spells by 2%-10%.' Built verbatim for the five that exist; Wind Shear does not. _cost_pct is a FRACTION where POSITIVE IS A REDUCTION. The outgoing tree had no cost talent at all.",
+      "connected_to": []
     },
     {
-      "talent_id": "shaman_elemental_earths_grasp",
-      "name": "Earth's Grasp",
-      "description": "Increases the duration of your Earthbind and Stoneclaw Totems by 1 turn per rank.",
+      "talent_id": "shaman_elemental_concussion",
+      "name": "Concussion",
+      "description": "Increases the damage of your Lightning and Shock spells by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_shaman_earthbind_totem_duration": 1,
-        "ability_shaman_stoneclaw_totem_duration": 1
+        "ability_shaman_earth_shock_damage": 0.01,
+        "ability_shaman_flame_shock_damage": 0.01,
+        "ability_shaman_frost_shock_damage": 0.01,
+        "ability_shaman_lightning_bolt_damage": 0.01,
+        "ability_shaman_chain_lightning_damage": 0.01,
+        "ability_shaman_lava_burst_damage": 0.01
       },
+      "_source": "WotLK row 0, built verbatim: 'Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by 1%-5%.' All five real spells that exist are covered.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "shaman_elemental_call_of_flame",
+      "name": "Call of Flame",
+      "description": "Increases the damage of your Searing and Magma Totems by 5% per rank and of your Lava Burst by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {
+        "ability_shaman_searing_totem_damage": 0.05,
+        "ability_shaman_magma_totem_damage": 0.05,
+        "ability_shaman_lava_burst_damage": 0.02
+      },
+      "_source": "WotLK row 1, built verbatim: 'Increases the damage done by your Fire Totems and Fire Nova by 5%-15%, and damage done by your Lava Burst spell by 2%-6%.' Fire Nova does not exist; the two Fire totems do, and they now occupy the Fire element slot one at a time after the totem fix, so this talent points at a real choice. Kept from the outgoing tree, which had it as a flat scalar.",
       "connected_to": [
-        "shaman_elemental_reverberation"
+        "shaman_elemental_convection"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_reverberation",
+      "name": "Reverberation",
+      "description": "Reduces the cooldown of your Shock spells by 1 turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_shaman_earth_shock_cooldown": 1,
+        "ability_shaman_flame_shock_cooldown": 1,
+        "ability_shaman_frost_shock_cooldown": 1
+      },
+      "_source": "WotLK row 1: 'Reduces the cooldown of your Shock and Wind Shear spells by 0.2-1 sec.' Built as 1 turn flat across all three Shocks - ability_<id>_cooldown is FLAT turns and talented_cooldown clamps at 1, so five ranks cannot drive a Shock to zero. Wind Shear does not exist.",
+      "connected_to": [
+        "shaman_elemental_convection"
       ]
     },
     {
       "talent_id": "shaman_elemental_elemental_warding",
       "name": "Elemental Warding",
-      "description": "Reduces Magic damage taken by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "magic_damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "shaman_elemental_elemental_devastation"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_call_of_flame",
-      "name": "Call of Flame",
-      "description": "Increases the damage of Lava Burst by 8% per rank and the potency of Flame Shock by 8% per rank.",
+      "description": "Reduces all damage you take by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_shaman_lava_burst_damage": 0.08,
-        "ability_shaman_flame_shock_potency": 0.08
-      },
-      "connected_to": [
-        "shaman_elemental_convection",
-        "shaman_elemental_elemental_fury"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_elemental_focus",
-      "name": "Elemental Focus",
-      "description": "After landing a spell critical strike, your next spell costs 40 less Mana.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "shaman_elemental_concussion",
-        "shaman_elemental_improved_fire_nova"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 100,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "elemental_focus",
-          "name": "Clearcasting",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "mp5": 40
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "shaman_elemental_reverberation",
-      "name": "Reverberation",
-      "description": "Increases the damage of your Shock spells by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
       "effects": {
-        "ability_shaman_earth_shock_damage": 0.04,
-        "ability_shaman_flame_shock_damage": 0.04,
-        "ability_shaman_frost_shock_damage": 0.04
+        "damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim: 'Reduces all damage taken by 2%/4%/6%.' damage_taken_pct is read RAW on both sides.",
       "connected_to": [
-        "shaman_elemental_earths_grasp",
-        "shaman_elemental_eye_of_the_storm"
+        "shaman_elemental_concussion"
       ]
     },
     {
       "talent_id": "shaman_elemental_elemental_devastation",
       "name": "Elemental Devastation",
-      "description": "Your spell critical strikes have a 33% chance per rank to grant 60 Attack Power for 3 turns.",
+      "description": "Your spell criticals raise your melee critical chance by 9% for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 1,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1, NEW to our tree: 'Your non-periodic offensive spell crits will increase your chance to get a critical strike with melee attacks by 3%-9% for 10 sec.' Built with the real 9% and the real 10 seconds (3 turns). Ranked by chance, since a proc's payload does not scale with points. The 'non-periodic' restriction is moot here - dots never roll crit in this engine at all.",
       "connected_to": [
-        "shaman_elemental_elemental_warding",
-        "shaman_elemental_call_of_thunder"
+        "shaman_elemental_concussion"
       ],
       "proc": {
         "trigger": "on_crit",
         "chance": 33,
-        "icd": 1,
+        "icd": 0,
         "apply_effect": {
           "effect_id": "elemental_devastation",
           "name": "Elemental Devastation",
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "attack_power": 60
+            "crit_chance_physical": 9
           },
           "on_target": false
         }
@@ -188,160 +146,121 @@
     {
       "talent_id": "shaman_elemental_elemental_fury",
       "name": "Elemental Fury",
-      "description": "Increases your spell damage by 2% per rank.",
+      "description": "Increases the critical damage of your spells by 20% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 3,
+      "hex_y": -4,
       "effects": {
-        "spell_damage": 0.02
+        "crit_damage_spell": 0.2
       },
+      "_source": "WotLK row 1: 'Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 20%-100%.' Built as school-wide spell crit damage - crit_damage_spell is a FRACTION, read at abilities.py:1460 inside a ternary, which is why the probe finds no literal read site and it is nonetheless live. NOTE this key is DEAD inside a status effect; it only works as a talent effect, which is what this is. It is Lightning Mastery's prerequisite, preserved below.",
       "connected_to": [
-        "shaman_elemental_call_of_flame",
-        "shaman_elemental_storm_reach"
+        "shaman_elemental_elemental_devastation"
       ]
     },
     {
-      "talent_id": "shaman_elemental_improved_fire_nova",
-      "name": "Improved Fire Nova",
-      "description": "Increases the potency of your Searing and Magma Totems by 10% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_shaman_searing_totem_potency": 0.1,
-        "ability_shaman_magma_totem_potency": 0.1
-      },
-      "connected_to": [
-        "shaman_elemental_elemental_focus",
-        "shaman_elemental_elemental_mastery"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_eye_of_the_storm",
-      "name": "Eye of the Storm",
-      "description": "Being struck while casting has a 20% chance per rank to restore 70 Mana.",
+      "talent_id": "shaman_elemental_elemental_focus",
+      "name": "Elemental Focus",
+      "description": "Your spell criticals have a 33% chance per rank to make your next spells cheaper for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -5,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 1: 'After landing a non-periodic critical strike with a Fire, Frost, or Nature damage spell, you enter a Clearcasting state, reducing the mana cost of your next 2 damage or healing spells by 40%.' Built with the real 40% and the real Clearcasting name. 'Next 2 spells' becomes a 2-turn window - nothing counts casts or consumes a buff on use. MIND THE FLIP: all_ability_cost_pct is PERCENTAGE POINTS inside a status effect (40.0) and a FRACTION as a talent effect. It is Call of Thunder's prerequisite.",
       "connected_to": [
-        "shaman_elemental_reverberation",
-        "shaman_elemental_unrelenting_storm"
+        "shaman_elemental_call_of_flame"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 70
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "elemental_focus",
+          "name": "Clearcasting",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "all_ability_cost_pct": 40.0
+          },
+          "on_target": false
         }
       }
     },
     {
       "talent_id": "shaman_elemental_call_of_thunder",
       "name": "Call of Thunder",
-      "description": "Increases the critical strike chance of Lightning Bolt by 2% per rank.",
+      "description": "Increases the critical chance of your Lightning Bolt and Chain Lightning by 5%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_shaman_lightning_bolt_crit": 2
+        "ability_shaman_lightning_bolt_crit": 5.0,
+        "ability_shaman_chain_lightning_crit": 5.0
       },
+      "_source": "WotLK row 2, built verbatim: 'Increases the critical strike chance of your Lightning Bolt, Chain Lightning and Thunderstorm spells by an additional 5%.' ability_<id>_crit is PERCENTAGE POINTS. The real talent requires Elemental Focus, which connected_to reproduces, and is Elemental Mastery's prerequisite.",
       "connected_to": [
-        "shaman_elemental_elemental_devastation",
-        "shaman_elemental_elemental_precision"
+        "shaman_elemental_elemental_focus"
       ]
     },
     {
-      "talent_id": "shaman_elemental_elemental_mastery",
-      "name": "Elemental Mastery",
-      "description": "Grants Elemental Mastery: your next damage spell becomes instant and costs no turn to cast.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
+      "talent_id": "shaman_elemental_eye_of_the_storm",
+      "name": "Eye of the Storm",
+      "description": "Reduces the threat your spells generate by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": 0,
+      "hex_y": -2,
       "effects": {
-        "unlock_ability": "shaman_elemental_mastery_cast"
+        "threat_generation_pct": -0.1
       },
+      "_source": "WotLK row 2: 'Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, Lava Burst and Healing Wave by 70%.' DEPARTURE - no cast times and so no pushback. Being able to cast under pressure is closest to not drawing attention, so it pays out as threat. threat_generation_pct is a FRACTION.",
       "connected_to": [
-        "shaman_elemental_improved_fire_nova",
-        "shaman_elemental_lightning_mastery"
+        "shaman_elemental_elemental_warding"
       ]
     },
     {
       "talent_id": "shaman_elemental_unrelenting_storm",
       "name": "Unrelenting Storm",
-      "description": "Your Lightning Bolt casts have a 16% chance per rank to restore 50 Mana.",
+      "description": "Restores 8 mana every 5 seconds per rank.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
+      "hex_y": -2,
+      "effects": {
+        "mp5": 8
+      },
+      "_source": "WotLK row 2, NEW to our tree: 'Regenerate mana equal to 4%-12% of your Intellect every 5 sec, even while casting.' DEPARTURE - mp5 cannot be derived from a stat (mp5 is not a STAT_CONVERSION_TARGET), and there is no casting state to be exempt from. Delivered as flat regeneration. mp5 is FLAT and lands on the attribute.",
       "connected_to": [
-        "shaman_elemental_eye_of_the_storm",
-        "shaman_elemental_elemental_oath"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 16,
-        "icd": 0,
-        "ability_filter": [
-          "shaman_lightning_bolt"
-        ],
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 50
-        }
-      }
+        "shaman_elemental_elemental_warding"
+      ]
     },
     {
       "talent_id": "shaman_elemental_elemental_precision",
       "name": "Elemental Precision",
-      "description": "Increases your spell hit chance by 1% per rank.",
+      "description": "Increases your chance to hit by 1% per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": 0,
+      "hex_y": -2,
       "effects": {
         "hit_rating": 1.0
       },
-      "connected_to": [
-        "shaman_elemental_call_of_thunder",
-        "shaman_elemental_lava_flows"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_storm_reach",
-      "name": "Storm Reach",
-      "description": "Reduces the cooldown of Chain Lightning by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_shaman_chain_lightning_cooldown": 1
-      },
+      "_source": "WotLK row 3: 'Increases your chance to hit with Fire, Frost and Nature spells by 1%/2%/3% and reduces the threat caused by those spells.' The hit half is built verbatim; the threat half is Eye of the Storm's job here, so it is not doubled. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET.",
       "connected_to": [
         "shaman_elemental_elemental_fury"
       ]
@@ -349,129 +268,204 @@
     {
       "talent_id": "shaman_elemental_lightning_mastery",
       "name": "Lightning Mastery",
-      "description": "Reduces the Mana cost of Lightning Bolt and Chain Lightning by 7 per rank.",
+      "description": "Increases the damage of your Lightning Bolt, Chain Lightning and Lava Burst by 2% per rank.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_shaman_lightning_bolt_damage": 0.02,
+        "ability_shaman_chain_lightning_damage": 0.02,
+        "ability_shaman_lava_burst_damage": 0.02
+      },
+      "_source": "WotLK row 3: 'Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.1-0.5 sec.' DEPARTURE - no cast times. A shorter cast is more throughput, so it is delivered as damage on the same three real spells. The real talent requires Elemental Fury, which connected_to reproduces.",
+      "connected_to": [
+        "shaman_elemental_elemental_fury"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_booming_echoes",
+      "name": "Booming Echoes",
+      "description": "Reduces the cooldown of your Flame Shock and Frost Shock by 1 turn and increases their damage by 10% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "ability_shaman_flame_shock_cooldown": 1,
+        "ability_shaman_frost_shock_cooldown": 1,
+        "ability_shaman_flame_shock_damage": 0.1,
+        "ability_shaman_frost_shock_damage": 0.1
+      },
+      "_source": "WotLK row 4, NEW to our tree, built verbatim with both halves: 'Reduces the cooldown of your Flame Shock and Frost Shock spells by an additional 1/2 sec., and increases the direct damage of those spells by 10%/20%.' Stacks with Reverberation on both Shocks; talented_cooldown clamps at 1 turn.",
+      "connected_to": [
+        "shaman_elemental_elemental_precision"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_elemental_mastery",
+      "name": "Elemental Mastery",
+      "description": "Teaches Elemental Mastery, bending the elements to your will.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_shaman_lightning_bolt_cost": 7,
-        "ability_shaman_chain_lightning_cost": 7
+        "unlock_ability": "shaman_elemental_mastery_cast"
       },
+      "_source": "WotLK row 4, kept - the ONLY unlock for shaman_elemental_mastery_cast, which is requires_talent. The real talent requires Call of Thunder, which connected_to reproduces. Its instant-cast clause lives in the ability rather than here, which is just as well given there are no cast times.",
       "connected_to": [
-        "shaman_elemental_elemental_mastery",
-        "shaman_elemental_shamanism"
+        "shaman_elemental_call_of_thunder"
       ]
     },
     {
       "talent_id": "shaman_elemental_elemental_oath",
       "name": "Elemental Oath",
-      "description": "Your Lava Burst casts have a 34% chance per rank to leave the target taking 4% more Magic damage for 3 turns.",
+      "description": "Increases your spell damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.05
+      },
+      "_source": "WotLK row 4, NEW to our tree: 'While Clearcasting from Elemental Focus is active, you deal 5%/10% more spell damage. In addition, party and raid members gain 5% spell critical chance.' DEPARTURE on both clauses - nothing reads whether the ACTOR carries a specific buff as a condition on a damage modifier, and a talent effect can never reach an ally. Delivered unconditionally at the real 10%. The real talent requires Elemental Mastery, reproduced. spell_damage is a FRACTION.",
+      "connected_to": [
+        "shaman_elemental_elemental_mastery"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_storm_earth_and_fire",
+      "name": "Storm, Earth and Fire",
+      "description": "Reduces the cooldown of your Chain Lightning by 1 turn and increases your Earthbind Totem's duration by 1 turn per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "ability_shaman_chain_lightning_cooldown": 1,
+        "ability_shaman_earthbind_totem_duration": 1
+      },
+      "_source": "WotLK row 4: 'Reduces the cooldown of your Chain Lightning spell by 0.5-2.5 sec, your Earthbind Totem also has a 33%-100% chance to root targets, and increases the damage done by your Flame Shock.' Rooting does not exist (no movement to impair), so the Earthbind clause becomes duration instead. Flame Shock damage is Booming Echoes' job here. Kept from the outgoing tree, which was a flat scalar.",
       "connected_to": [
-        "shaman_elemental_unrelenting_storm",
-        "shaman_elemental_lightning_overload"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 0,
-        "ability_filter": [
-          "shaman_lava_burst"
-        ],
-        "apply_effect": {
-          "effect_id": "elemental_oath",
-          "name": "Elemental Oath",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "magic_damage_taken_pct": 4
-          },
-          "on_target": true
-        }
-      }
+        "shaman_elemental_booming_echoes"
+      ]
     },
     {
-      "talent_id": "shaman_elemental_lava_flows",
-      "name": "Lava Flows",
-      "description": "Increases the damage of Lava Burst by 10% per rank and its critical strike chance by 3% per rank.",
+      "talent_id": "shaman_elemental_lightning_overload",
+      "name": "Lightning Overload",
+      "description": "Your Lightning Bolt and Chain Lightning have an 11% chance per rank to strike again.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
-      "effects": {
-        "ability_shaman_lava_burst_damage": 0.1,
-        "ability_shaman_lava_burst_crit": 3
-      },
-      "connected_to": [
-        "shaman_elemental_elemental_precision"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_shamanism",
-      "name": "Shamanism",
-      "description": "Increases your spell power by 8 per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "spell_power": 8
-      },
-      "connected_to": [
-        "shaman_elemental_lightning_mastery",
-        "shaman_elemental_thunderstorm"
-      ]
-    },
-    {
-      "talent_id": "shaman_elemental_lightning_overload",
-      "name": "Lightning Overload",
-      "description": "Your Lightning Bolt has a 11% chance per rank to overload, striking again for 60 Nature damage.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'Gives your Lightning Bolt and Chain Lightning spells an 11%-33% chance to cast a second, similar spell on the same target at no additional cost.' Built as the real mechanic at the real chance curve, with the real ability_filter. Casting a copy of the triggering spell is not available as a payload - cast_ability names a FIXED ability, not 'the one that fired' - so it is flat Nature damage instead, which is what the second bolt would have delivered.",
       "connected_to": [
-        "shaman_elemental_elemental_oath",
-        "shaman_elemental_elemental_capstone"
+        "shaman_elemental_booming_echoes"
       ],
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 11,
         "icd": 0,
         "ability_filter": [
-          "shaman_lightning_bolt"
+          "shaman_lightning_bolt",
+          "shaman_chain_lightning"
         ],
-        "apply_effect": {
-          "effect_id": "lightning_overload",
-          "name": "Lightning Overload",
-          "effect_type": "dot",
-          "duration": 1,
-          "potency": 60,
-          "damage_school": "nature",
-          "on_target": true
-        }
+        "damage_flat": 90,
+        "school": "nature"
       }
+    },
+    {
+      "talent_id": "shaman_elemental_astral_shift",
+      "name": "Astral Shift",
+      "description": "While badly wounded, reduces all damage you take by 10% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.1
+      },
+      "_source": "WotLK row 5, NEW to our tree: 'When stunned, feared or silenced you shift into the Astral Plane reducing all damage taken by 10%-30% for the duration of the effect.' DEPARTURE - nothing reads whether the ACTOR is currently stunned as a condition on a damage modifier, and there is no fear or silence. The engine's own 'in trouble' conditional stands in. low_health_damage_reduction_pct reads the ACTOR's health and defaults to a 50% threshold, so low_health_threshold_pct is NOT authored.",
+      "connected_to": [
+        "shaman_elemental_elemental_oath"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_totem_of_wrath",
+      "name": "Totem of Wrath",
+      "description": "Increases your spell power by 60.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "spell_power": 60
+      },
+      "_source": "WotLK row 5: 'Summons a Totem of Wrath with 5 health at the feet of the caster. The totem increases spell power by 100 for all party and raid members.' DEPARTURE - there is no Totem of Wrath ability to summon and a talent effect can never reach an ally. Delivered as spell power for the shaman at a reduced value, since it is now permanent and personal rather than a totem occupying a Fire slot. spell_power in a talent effect is FLAT.",
+      "connected_to": [
+        "shaman_elemental_elemental_oath"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_shamanism",
+      "name": "Shamanism",
+      "description": "Increases the damage of your Lightning Bolt, Chain Lightning and Lava Burst by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_shaman_lightning_bolt_damage": 0.04,
+        "ability_shaman_chain_lightning_damage": 0.04,
+        "ability_shaman_lava_burst_damage": 0.04
+      },
+      "_source": "WotLK row 5: 'Your Lightning Bolt and Chain Lightning spells gain an additional 4%-20% and your Lava Burst gains an additional 5%-25% of your bonus spell damage effects.' Spell-power coefficients are not exposed to talents, so it is delivered as direct damage at the real per-rank value. Stacks with Lightning Mastery, as the real pair does.",
+      "connected_to": [
+        "shaman_elemental_lightning_overload"
+      ]
+    },
+    {
+      "talent_id": "shaman_elemental_lava_flows",
+      "name": "Lava Flows",
+      "description": "Increases the critical damage of your Lava Burst by 8% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "ability_shaman_lava_burst_crit_damage": 0.08
+      },
+      "_source": "WotLK row 5, NEW to our tree: 'Increases the critical strike damage bonus of your Lava Burst spell by an additional 8%-24%, and when your Flame Shock is dispelled you gain haste.' The crit-damage half is built verbatim; there is no dispel trigger. ability_<id>_crit_damage is a FRACTION - and note the key's parse must try the LONGEST suffix first, or ability_X_crit_damage reads as ability 'X_crit' plus field 'damage'.",
+      "connected_to": [
+        "shaman_elemental_lightning_overload"
+      ]
     },
     {
       "talent_id": "shaman_elemental_thunderstorm",
       "name": "Thunderstorm",
-      "description": "Grants Thunderstorm, calling down lightning that damages all nearby enemies.",
+      "description": "Teaches Thunderstorm, calling down lightning and refilling your mana.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -481,39 +475,10 @@
       "effects": {
         "unlock_ability": "shaman_thunderstorm"
       },
+      "_source": "WotLK row 10, the capstone, kept - the ONLY unlock for shaman_thunderstorm, which is requires_talent.",
       "connected_to": [
         "shaman_elemental_shamanism"
       ]
-    },
-    {
-      "talent_id": "shaman_elemental_elemental_capstone",
-      "name": "Astral Shift",
-      "description": "Astral Shift - being struck has a 30% chance to shift you partly out of phase, reducing damage taken by 20% for 2 turns.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "shaman_elemental_lightning_overload"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 30,
-        "icd": 3,
-        "apply_effect": {
-          "effect_id": "astral_shift",
-          "name": "Astral Shift",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "damage_taken_pct": -0.2
-          },
-          "on_target": false
-        }
-      }
     }
   ]
 }

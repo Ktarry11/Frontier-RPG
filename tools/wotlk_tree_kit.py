@@ -97,9 +97,20 @@ class Tree:
 
     def node(self, talent_id, name, description, tier, hex_x, max_points,
              effects=None, proc=None, connected_to=None,
-             node_type="passive", source="", require_form=None):
+             node_type="passive", source="", require_form=None,
+             raw_id=False, raw_links=()):
+        """Add one node.
+
+        raw_id=True uses `talent_id` VERBATIM instead of prefixing it with
+        the tree id. That exists for PRESERVED nodes whose ids are already
+        in the data under a different prefix - Shaman Enhancement's homebrew
+        tank branch is `shaman_tank_*`, not `shaman_enhancement_*`, and
+        renaming those ids would silently break any save, recruit build or
+        tooling that refers to them. raw_links is the same escape hatch for
+        connected_to.
+        """
         n = {
-            "talent_id": self.prefix + talent_id,
+            "talent_id": talent_id if raw_id else self.prefix + talent_id,
             "name": name,
             "description": description,
             "node_type": node_type,
@@ -112,7 +123,8 @@ class Tree:
             "hex_y": tier * 2 - 6,
             "effects": effects or {},
             "_source": source,
-            "connected_to": [self.prefix + c for c in (connected_to or [])],
+            "connected_to": ([self.prefix + c for c in (connected_to or [])]
+                             + list(raw_links)),
         }
         if proc:
             n["proc"] = proc
