@@ -1,0 +1,384 @@
+# Mage - real WotLK 3.3.5a reference vs ours
+
+- WotLK talents: **86** across 3 trees
+- already in our data by name: **60** (of those, **20** are pure scalars on our side)
+- not in our data at all: **26**
+- carry real-time assumptions needing translation: **36** (42%)
+- ask for a mechanic this engine does not have: **14**
+
+Source: the game's own `Spell.dbc`, via github.com/atosfr/WotLK-3.3.5-Talent-Calculator (`Talents.json` + `TalentDescriptions.json`). Slot counts independently cross-checked against the rendered wowtbc.gg calculator - all six checkable trees match.
+
+`MATCH` - we already have a talent of this name. `scalar` means ours is a pure numeric bonus, which is the thing being replaced. `needs` lists the engine mechanic the real talent wants. **BLOCKED** means this engine has no way to express it, so that talent needs a substitute mechanic rather than a literal port - never a tooltip the engine cannot honour.
+
+WotLK rows 0-10 map onto Frontier tiers 1-6 as `tier = row // 2 + 1`, capped at 6, so the capstone row sits alone at tier 6. **Numbers are not ported**: WotLK assumes 80 levels, raid fights and real seconds; Frontier caps at 60 and fights run 2-3 turns on trash, 5-6 on a boss.
+
+
+## Arcane - 30 talents, 81 points
+
+- **Arcane Subtlety** (2 ranks) - row 0 -> tier 1 - MATCH mage_arcane_arcane_subtlety
+  - needs: proc-chance, threat, dispel
+  - WotLK rank 1: Reduces the chance your helpful spells and damage over time effects will be dispelled by 15% and reduces the threat caused by your Arcane spells by 20%.
+  - WotLK rank 2: Reduces the chance your helpful spells and damage over time effects will be dispelled by 30% and reduces the threat caused by your Arcane spells by 40%.
+- **Arcane Focus** (3 ranks) - row 0 -> tier 1 - MATCH mage_arcane_arcane_focus  [ours is scalar]
+  - needs: proc-chance, cost-change
+  - WotLK rank 1: Increases your chance to hit and reduces the mana cost of your Arcane spells by 1%.
+  - WotLK rank 3: Increases your chance to hit and reduces the mana cost of your Arcane spells by 3%.
+- **Arcane Stability** (5 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+  - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 20%.
+  - WotLK rank 5: Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 100%.
+- **Arcane Fortitude** (3 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
+  - WotLK rank 1: Increases your armor by an amount equal to 50% of your Intellect.
+  - WotLK rank 3: Increases your armor by an amount equal to 150% of your Intellect.
+- **Magic Absorption** (2 ranks) - row 1 -> tier 1 - MATCH mage_arcane_magic_absorption
+  - needs: resource-grant, cooldown-change
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases all resistances by .5 per level and causes all spells you fully resist to restore 1% of your total mana.  1 sec cooldown.
+  - WotLK rank 2: Increases all resistances by 1 per level and causes all spells you fully resist to restore 2% of your total mana.  1 sec cooldown.
+- **Arcane Concentration** (5 ranks) - row 1 -> tier 1 - MATCH mage_arcane_arcane_concentration
+  - needs: proc-chance, cost-change
+  - WotLK rank 1: Gives you a 2% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.
+  - WotLK rank 5: Gives you a 10% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.
+- **Magic Attunement** (2 ranks) - row 2 -> tier 2 - MATCH mage_arcane_magic_attunement  [ours is scalar]
+  - WotLK rank 1: Increases the range of your Arcane spells by 3 yards and the effect of your Amplify Magic and Dampen Magic spells by 25%.
+  - WotLK rank 2: Increases the range of your Arcane spells by 6 yards and the effect of your Amplify Magic and Dampen Magic spells by 50%.
+- **Spell Impact** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+  - WotLK rank 1: Increases the damage of your Arcane Explosion, Arcane Blast, Blast Wave, Fire Blast, Scorch, Fireball, Ice Lance and Cone of Cold spells by an additional 2%.
+  - WotLK rank 3: Increases the damage of your Arcane Explosion, Arcane Blast, Blast Wave, Fire Blast, Scorch, Fireball, Ice Lance and Cone of Cold spells by an additional 6%.
+- **Student of the Mind** (3 ranks) - row 2 -> tier 2 - MATCH mage_arcane_student_of_the_mind  [ours is scalar]
+  - WotLK rank 1: Increases your total Spirit by 4%.
+  - WotLK rank 3: Increases your total Spirit by 10%.
+- **Focus Magic** (1 rank) - row 2 -> tier 2 - NEW - we have no talent of this name
+  - needs: proc-chance, duration-window
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases the target's chance to critically hit with spells by 3%. When the target critically hits the caster's chance to critically hit with spells is increased by 3% for 10 sec. Cannot be cast on self.
+- **Arcane Shielding** (2 ranks) - row 3 -> tier 2 - NEW - we have no talent of this name
+  - WotLK rank 1: Decreases the mana lost per point of damage taken when Mana Shield is active by 17% and increases the resistances granted by Mage Armor by 25%.
+  - WotLK rank 2: Decreases the mana lost per point of damage taken when Mana Shield is active by 33% and increases the resistances granted by Mage Armor by 50%.
+- **Improved Counterspell** (2 ranks) - row 3 -> tier 2 - MATCH mage_arcane_improved_counterspell  [ours is scalar]
+  - needs: duration-window
+  - **BLOCKED**: BLOCKED:interrupt - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Your Counterspell also silences the target for 2 sec.
+  - WotLK rank 2: Your Counterspell also silences the target for 4 sec.
+- **Arcane Meditation** (3 ranks) - row 3 -> tier 2 - NEW - we have no talent of this name
+  - WotLK rank 1: Allows 17% of your mana regeneration to continue while casting.
+  - WotLK rank 3: Allows 50% of your mana regeneration to continue while casting.
+- **Torment the Weak** (3 ranks) - row 3 -> tier 2 - MATCH mage_arcane_torment_the_weak
+  - WotLK rank 1: Your Frostbolt, Fireball, Frostfire Bolt, Pyroblast, Arcane Missiles, Arcane Blast, and Arcane Barrage abilities deal 4% more damage to snared or slowed targets.
+  - WotLK rank 3: Your Frostbolt, Fireball, Frostfire Bolt, Pyroblast, Arcane Missiles, Arcane Blast, and Arcane Barrage abilities deal 12% more damage to snared or slowed targets.
+- **Improved Blink** (2 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+  - needs: proc-chance, duration-window, cost-change
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces the mana cost of Blink by 25% and for 4 sec after casting your chance to be hit by all attacks and spells is reduced by 15%.
+  - WotLK rank 2: Reduces the mana cost of Blink by 50% and for 4 sec after casting your chance to be hit by all attacks and spells is reduced by 30%.
+- **Presence of Mind** (1 rank) - row 4 -> tier 3 - MATCH mage_arcane_presence_of_mind
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.
+- **Arcane Mind** (5 ranks) - row 4 -> tier 3 - MATCH mage_arcane_arcane_mind  [ours is scalar]
+  - WotLK rank 1: Increases your total Intellect by 3%.
+  - WotLK rank 5: Increases your total Intellect by 15%.
+- **Prismatic Cloak** (3 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces all damage taken by 2% and reduces the fade time of your Invisibility spell by 1 sec.
+  - WotLK rank 3: Reduces all damage taken by 6% and reduces the fade time of your Invisibility spell by 3 sec.
+- **Arcane Instability** (3 ranks) - row 5 -> tier 3 - MATCH mage_arcane_arcane_instability
+  - requires: Presence of Mind
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the damage done by your spells and your critical strike chance by 1%.
+  - WotLK rank 3: Increases the damage done by your spells and your critical strike chance by 3%.
+- **Arcane Potency** (2 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
+  - requires: Presence of Mind
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the critical strike chance of your next damaging spell by 15% after gaining Clearcasting or Presence of Mind.
+  - WotLK rank 2: Increases the critical strike chance of your next damaging spell by 30% after gaining Clearcasting or Presence of Mind.
+- **Arcane Empowerment** (3 ranks) - row 6 -> tier 4 - NEW - we have no talent of this name
+  - WotLK rank 1: Increases the damage of your Arcane Missiles spell by an amount equal to 15% of your spell power and the damage of your Arcane Blast by 3% of your spell power.  In addition, increases the damage of all party and raid members within 100 yds by 1%.
+  - WotLK rank 3: Increases the damage of your Arcane Missiles spell by an amount equal to 45% of your spell power and the damage of your Arcane Blast by 9% of your spell power.  In addition, increases the damage of all party and raid members within 100 yds by 3%.
+- **Arcane Power** (1 rank) - row 6 -> tier 4 - MATCH mage_arcane_arcane_power
+  - requires: Arcane Instability
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: When activated, your spells deal 20% more damage while costing 20% more mana to cast. This effect lasts 15 sec.
+- **Incanter's Absorption** (3 ranks) - row 6 -> tier 4 - NEW - we have no talent of this name
+  - needs: duration-window, absorb
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: When your Mana Shield, Frost Ward, Fire Ward, or Ice Barrier absorbs damage your spell damage is increased by 5% of the amount absorbed for 10 sec.
+  - WotLK rank 3: When your Mana Shield, Frost Ward, Fire Ward, or Ice Barrier absorbs damage your spell damage is increased by 15% of the amount absorbed for 10 sec.
+- **Arcane Flows** (2 ranks) - row 7 -> tier 4 - NEW - we have no talent of this name
+  - requires: Arcane Power
+  - needs: cooldown-change
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces the cooldown of your Presence of Mind, Arcane Power and Invisibility spells by 15% and the cooldown of your Evocation spell by 1 min.
+  - WotLK rank 2: Reduces the cooldown of your Presence of Mind, Arcane Power and Invisibility spells by 30% and the cooldown of your Evocation spell by 2 min.
+- **Mind Mastery** (5 ranks) - row 7 -> tier 4 - MATCH mage_arcane_mind_mastery  [ours is scalar]
+  - WotLK rank 1: Increases spell power by 3% of your total Intellect.
+  - WotLK rank 5: Increases spell power by 15% of your total Intellect.
+- **Slow** (1 rank) - row 8 -> tier 5 - MATCH mage_arcane_arcane_mastery
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces target's movement speed by 60%, increases the time between ranged attacks by 60% and increases casting time by 30%. Lasts 15 sec. Slow can only affect one target at a time.
+- **Missile Barrage** (5 ranks) - row 8 -> tier 5 - MATCH mage_arcane_missile_barrage
+  - needs: proc-chance, cost-change
+  - **BLOCKED**: BLOCKED:channel - needs a substitute mechanic
+  - WotLK rank 1: Gives your Arcane Blast a 8% chance, and your Arcane Barrage, Fireball, Frostbolt and Frostfire Bolt spells a 4% chance to reduce the channeled duration of the next Arcane Missiles spell by 2.5 secs, reduce the mana cost by 100%, and missiles will fire every .5 secs.
+  - WotLK rank 5: Gives your Arcane Blast a 40% chance, and your Arcane Barrage, Fireball, Frostbolt and Frostfire Bolt spells a 20% chance to reduce the channeled duration of the next Arcane Missiles spell by 2.5 secs, reduce the mana cost by 100%, and missiles will fire every .5 secs.
+- **Netherwind Presence** (3 ranks) - row 9 -> tier 5 - MATCH mage_arcane_netherwind_presence
+  - WotLK rank 1: Increases your spell haste by 2%.
+  - WotLK rank 3: Increases your spell haste by 6%.
+- **Spell Power** (2 ranks) - row 9 -> tier 5 - MATCH mage_arcane_spell_power_mastery
+  - needs: crit
+  - WotLK rank 1: Increases critical strike damage bonus of all spells by 25%.
+  - WotLK rank 2: Increases critical strike damage bonus of all spells by 50%.
+- **Arcane Barrage** (1 rank) - row 10 -> tier 6 - MATCH mage_arcane_arcane_barrage  [ours is scalar]
+  - WotLK rank 1: Launches several missiles at the enemy target, causing 386 to 470 Arcane damage.
+
+## Fire - 28 talents, 73 points
+
+- **Improved Fire Blast** (2 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+  - needs: cooldown-change
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces the cooldown of your Fire Blast spell by 1 sec.
+  - WotLK rank 2: Reduces the cooldown of your Fire Blast spell by 2 sec.
+- **Incineration** (3 ranks) - row 0 -> tier 1 - MATCH mage_fire_incineration  [ours is scalar]
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the critical strike chance of your Fire Blast, Scorch, Arcane Blast and Cone of Cold spells by 2%.
+  - WotLK rank 3: Increases the critical strike chance of your Fire Blast, Scorch, Arcane Blast and Cone of Cold spells by 6%.
+- **Improved Fireball** (5 ranks) - row 0 -> tier 1 - MATCH mage_fire_improved_fireball  [ours is scalar]
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces the casting time of your Fireball spell by 0.1 sec.
+  - WotLK rank 5: Reduces the casting time of your Fireball spell by 0.5 sec.
+- **Ignite** (5 ranks) - row 1 -> tier 1 - MATCH mage_fire_ignite
+  - needs: dot-hot, crit
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Your critical strikes from Fire damage spells cause the target to burn for an additional 8% of your spell's damage over 4 sec.
+  - WotLK rank 5: Your critical strikes from Fire damage spells cause the target to burn for an additional 40% of your spell's damage over 4 sec.
+- **Burning Determination** (2 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
+  - needs: proc-chance
+  - **BLOCKED**: BLOCKED:interrupt - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: When Interrupted or Silenced you have a 50% chance to become immune to the next Interrupt or Silence mechanic.  Lasts 20 sec.
+  - WotLK rank 2: When Interrupted or Silenced you have a 100% chance to become immune to the next Interrupt or Silence mechanic.  Lasts 20 sec.
+- **World in Flames** (3 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the critical strike chance of your Flamestrike, Pyroblast, Blast Wave, Dragon's Breath, Living Bomb, Blizzard and Arcane Explosion spells by 2%.
+  - WotLK rank 3: Increases the critical strike chance of your Flamestrike, Pyroblast, Blast Wave, Dragon's Breath, Living Bomb, Blizzard and Arcane Explosion spells by 6%.
+- **Flame Throwing** (2 ranks) - row 2 -> tier 2 - MATCH mage_fire_flame_throwing  [ours is scalar]
+  - WotLK rank 1: Increases the range of all Fire spells except Frostfire Bolt by 3 yards.
+  - WotLK rank 2: Increases the range of all Fire spells except Frostfire Bolt by 6 yards.
+- **Impact** (3 ranks) - row 2 -> tier 2 - MATCH mage_fire_impact
+  - needs: proc-chance, duration-window, stun
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Gives your damaging spells a 4% chance to cause the next Fire Blast you cast to stun the target for 2 sec.
+  - WotLK rank 3: Gives your damaging spells a 10% chance to cause the next Fire Blast you cast to stun the target for 2 sec.
+- **Pyroblast** (1 rank) - row 2 -> tier 2 - MATCH mage_fire_pyroblast
+  - needs: dot-hot
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Hurls an immense fiery boulder that causes 141 to 187 Fire damage and an additional 56 Fire damage over 12 sec.
+- **Burning Soul** (2 ranks) - row 2 -> tier 2 - MATCH mage_fire_burning_soul
+  - needs: threat
+  - WotLK rank 1: Reduces the pushback suffered from damaging attacks while casting Fire spells by 35% and reduces the threat caused by your Fire spells by 10%.
+  - WotLK rank 2: Reduces the pushback suffered from damaging attacks while casting Fire spells by 70% and reduces the threat caused by your Fire spells by 20%.
+- **Improved Scorch** (3 ranks) - row 3 -> tier 2 - MATCH mage_fire_improved_scorch
+  - needs: proc-chance, crit
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases your chance to critically hit with Scorch, Fireball and Frostfire Bolt by an additional 1% and your damaging Scorch spells have a 33% chance to cause your target to be vulnerable to spell damage, increasing spell critical strike chance against that target by 5% and lasts 30 sec.
+  - WotLK rank 3: Increases your chance to critically hit with Scorch, Fireball and Frostfire Bolt by an additional 3% and your damaging Scorch spells have a 100% chance to cause your target to be vulnerable to spell damage, increasing spell critical strike chance against that target by 5% and lasts 30 sec.
+- **Molten Shields** (2 ranks) - row 3 -> tier 2 - NEW - we have no talent of this name
+  - needs: proc-chance
+  - WotLK rank 1: Causes your Fire Ward and Frost Ward spells to have a 15% chance to reflect the warded spell while active. In addition, your Molten Armor has a 50% chance to affect ranged and spell attacks.
+  - WotLK rank 2: Causes your Fire Ward and Frost Ward spells to have a 30% chance to reflect the warded spell while active. In addition, your Molten Armor has a 100% chance to affect ranged and spell attacks.
+- **Master of Elements** (3 ranks) - row 3 -> tier 2 - MATCH mage_fire_master_of_elements
+  - needs: cost-change
+  - WotLK rank 1: Your spell criticals will refund 10% of their base mana cost.
+  - WotLK rank 3: Your spell criticals will refund 30% of their base mana cost.
+- **Playing with Fire** (3 ranks) - row 4 -> tier 3 - MATCH mage_fire_playing_with_fire  [ours is scalar]
+  - WotLK rank 1: Increases all spell damage caused by 1% and all spell damage taken by 1%.
+  - WotLK rank 3: Increases all spell damage caused by 3% and all spell damage taken by 3%.
+- **Critical Mass** (3 ranks) - row 4 -> tier 3 - MATCH mage_fire_critical_mass  [ours is scalar]
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the critical strike chance of your Fire spells by 2%.
+  - WotLK rank 3: Increases the critical strike chance of your Fire spells by 6%.
+- **Blast Wave** (1 rank) - row 4 -> tier 3 - MATCH mage_fire_blast_wave
+  - requires: Pyroblast
+  - needs: duration-window, aoe
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 186 Fire damage, knocking them back and dazing them for 6 sec.
+- **Blazing Speed** (2 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
+  - needs: proc-chance, dispel
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Gives you a 5% chance when hit by a melee or ranged attack to increase your movement speed by 50% and dispel all movement impairing effects.  This effect lasts 8 sec.
+  - WotLK rank 2: Gives you a 10% chance when hit by a melee or ranged attack to increase your movement speed by 50% and dispel all movement impairing effects.  This effect lasts 8 sec.
+- **Fire Power** (5 ranks) - row 5 -> tier 3 - MATCH mage_fire_fire_power  [ours is scalar]
+  - WotLK rank 1: Increases the damage done by your Fire spells by 2%.
+  - WotLK rank 5: Increases the damage done by your Fire spells by 10%.
+- **Pyromaniac** (3 ranks) - row 6 -> tier 4 - MATCH mage_fire_pyromaniac  [ours is scalar]
+  - needs: proc-chance
+  - WotLK rank 1: Increases chance to critically hit by 1% and allows 17% of your mana regeneration to continue while casting.
+  - WotLK rank 3: Increases chance to critically hit by 3% and allows 50% of your mana regeneration to continue while casting.
+- **Combustion** (1 rank) - row 6 -> tier 4 - MATCH mage_fire_combustion
+  - requires: Critical Mass
+  - needs: proc-chance, crit
+  - WotLK rank 1: When activated, this spell increases your critical strike damage bonus with Fire damage spells by 50%, and causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells.
+- **Molten Fury** (2 ranks) - row 6 -> tier 4 - MATCH mage_fire_molten_fury
+  - needs: heal
+  - WotLK rank 1: Increases damage of all spells against targets with less than 35% health by 6%.
+  - WotLK rank 2: Increases damage of all spells against targets with less than 35% health by 12%.
+- **Fiery Payback** (2 ranks) - row 7 -> tier 4 - NEW - we have no talent of this name
+  - needs: proc-chance, hp-threshold, cooldown-change, heal
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - WotLK rank 1: When below 35% health all damage taken is reduced by 10% and your Pyroblast spell's cast time is reduced by 1.75 secs while the cooldown is increased by 2.5 secs.  In addition, melee and ranged attacks made against you have a 5% chance to disarm your attacker's main hand and ranged weapons.
+  - WotLK rank 2: When below 35% health all damage taken is reduced by 20% and your Pyroblast spell's cast time is reduced by 3.5 secs while the cooldown is increased by 5 secs.  In addition, melee and ranged attacks made against you have a 10% chance to disarm your attacker's main hand and ranged weapons.
+- **Empowered Fire** (3 ranks) - row 7 -> tier 4 - NEW - we have no talent of this name
+  - needs: proc-chance
+  - WotLK rank 1: Increases the damage of your Fireball, Frostfire Bolt and Pyroblast spells by an amount equal to 5% of your spell power.  In addition, each time your Ignite talent causes damage, you have a 33% chance to regain 2% of your base mana.
+  - WotLK rank 3: Increases the damage of your Fireball, Frostfire Bolt and Pyroblast spells by an amount equal to 15% of your spell power.  In addition, each time your Ignite talent causes damage, you have a 100% chance to regain 2% of your base mana.
+- **Firestarter** (2 ranks) - row 8 -> tier 5 - MATCH mage_fire_firestarter  [ours is scalar]
+  - requires: Dragon's Breath
+  - needs: proc-chance, cost-change
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Your damaging Blast Wave and Dragon's Breath spells have a 50% chance to make your next Flamestrike spell instant cast and cost no mana.  Lasts 10 sec.
+  - WotLK rank 2: Your damaging Blast Wave and Dragon's Breath spells have a 100% chance to make your next Flamestrike spell instant cast and cost no mana.  Lasts 10 sec.
+- **Dragon's Breath** (1 rank) - row 8 -> tier 5 - MATCH mage_fire_dragons_breath
+  - requires: Combustion
+  - needs: duration-window
+  - **BLOCKED**: BLOCKED:position - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Targets in a cone in front of the caster take 370 to 430 Fire damage and are Disoriented for 5 sec.  Any direct damaging attack will revive targets.  Turns off your attack when used.
+- **Hot Streak** (3 ranks) - row 8 -> tier 5 - MATCH mage_fire_hot_streak
+  - needs: proc-chance
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Any time you score 2 non-periodic spell criticals in a row using Fireball, Fire Blast, Scorch, Living Bomb, or Frostfire Bolt, you have a 33% chance the next Pyroblast spell cast within 10 sec will be instant cast.
+  - WotLK rank 3: Any time you score 2 non-periodic spell criticals in a row using Fireball, Fire Blast, Scorch, Living Bomb, or Frostfire Bolt, you have a 100% chance the next Pyroblast spell cast within 10 sec will be instant cast.
+- **Burnout** (5 ranks) - row 9 -> tier 5 - MATCH mage_fire_burnout
+  - needs: cost-change
+  - WotLK rank 1: Increases your spell critical damage bonus with all spells by 10% but your non-periodic spell criticals cost an additional 1% of the spell's cost.
+  - WotLK rank 5: Increases your spell critical damage bonus with all spells by 50% but your non-periodic spell criticals cost an additional 5% of the spell's cost.
+- **Living Bomb** (1 rank) - row 10 -> tier 6 - MATCH mage_fire_living_bomb
+  - needs: dot-hot, aoe, dispel
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: The target becomes a Living Bomb, taking 612 Fire damage over 12 sec.  After 12 sec or when the spell is dispelled, the target explodes dealing 306 Fire damage to all enemies within 10 yards.
+
+## Frost - 28 talents, 74 points
+
+- **Frostbite** (3 ranks) - row 0 -> tier 1 - MATCH mage_frost_frostbite
+  - needs: proc-chance, duration-window
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Gives your Chill effects a 5% chance to freeze the target for 5 sec.
+  - WotLK rank 3: Gives your Chill effects a 15% chance to freeze the target for 5 sec.
+- **Improved Frostbolt** (5 ranks) - row 0 -> tier 1 - MATCH mage_frost_improved_frostbolt  [ours is scalar]
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Reduces the casting time of your Frostbolt spell by 0.1 sec.
+  - WotLK rank 5: Reduces the casting time of your Frostbolt spell by 0.5 sec.
+- **Ice Floes** (3 ranks) - row 0 -> tier 1 - NEW - we have no talent of this name
+  - needs: cooldown-change
+  - WotLK rank 1: Reduces the cooldown of your Frost Nova, Cone of Cold, Ice Block and Icy Veins spells by 7%.
+  - WotLK rank 3: Reduces the cooldown of your Frost Nova, Cone of Cold, Ice Block and Icy Veins spells by 20%.
+- **Ice Shards** (3 ranks) - row 1 -> tier 1 - MATCH mage_frost_ice_shards
+  - needs: crit
+  - WotLK rank 1: Increases the critical strike damage bonus of your Frost spells by 33%.
+  - WotLK rank 3: Increases the critical strike damage bonus of your Frost spells by 100%.
+- **Frost Warding** (2 ranks) - row 1 -> tier 1 - MATCH mage_frost_frost_warding
+  - needs: proc-chance, resource-grant
+  - WotLK rank 1: Increases the armor and resistances given by your Frost Armor and Ice Armor spells by 25%.  In addition, gives your Frost Ward and Fire Ward a 15% chance to negate the warded damage spell and restore mana equal to the damage caused.
+  - WotLK rank 2: Increases the armor and resistances given by your Frost Armor and Ice Armor spells by 50%.  In addition, gives your Frost Ward and Fire Ward a 30% chance to negate the warded damage spell and restore mana equal to the damage caused.
+- **Precision** (3 ranks) - row 1 -> tier 1 - NEW - we have no talent of this name
+  - needs: proc-chance, cost-change
+  - WotLK rank 1: Reduces the mana cost and increases your chance to hit with spells by 1%.
+  - WotLK rank 3: Reduces the mana cost and increases your chance to hit with spells by 3%.
+- **Permafrost** (3 ranks) - row 1 -> tier 1 - MATCH mage_frost_permafrost  [ours is scalar]
+  - needs: heal
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases the duration of your Chill effects by 1 sec, reduces the target's speed by an additional 4%, and reduces the target's healing received by 7%.
+  - WotLK rank 3: Increases the duration of your Chill effects by 3 secs, reduces the target's speed by an additional 10%, and reduces the target's healing received by 20%.
+- **Piercing Ice** (3 ranks) - row 2 -> tier 2 - MATCH mage_frost_piercing_ice
+  - WotLK rank 1: Increases the damage done by your Frost spells by 2%.
+  - WotLK rank 3: Increases the damage done by your Frost spells by 6%.
+- **Icy Veins** (1 rank) - row 2 -> tier 2 - MATCH mage_frost_icy_veins
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Hastens your spellcasting, increasing spell casting speed by 20% and reduces the pushback suffered from damaging attacks while casting by 100%. Lasts 20 sec.
+- **Improved Blizzard** (3 ranks) - row 2 -> tier 2 - NEW - we have no talent of this name
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 25%.  Lasts 1.5 sec.
+  - WotLK rank 3: Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 50%.  Lasts 1.5 sec.
+- **Arctic Reach** (2 ranks) - row 3 -> tier 2 - MATCH mage_frost_arctic_reach  [ours is scalar]
+  - WotLK rank 1: Increases the range of your Frostbolt, Ice Lance, Deep Freeze and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.
+  - WotLK rank 2: Increases the range of your Frostbolt, Ice Lance, Deep Freeze and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%.
+- **Frost Channeling** (3 ranks) - row 3 -> tier 2 - MATCH mage_frost_frost_channeling  [ours is scalar]
+  - needs: cost-change, threat
+  - WotLK rank 1: Reduces the mana cost of all spells by 4% and reduces the threat caused by your Frost spells by 4%.
+  - WotLK rank 3: Reduces the mana cost of all spells by 10% and reduces the threat caused by your Frost spells by 10%.
+- **Shatter** (3 ranks) - row 3 -> tier 2 - MATCH mage_frost_shatter
+  - needs: proc-chance, crit
+  - WotLK rank 1: Increases the critical strike chance of all your spells against frozen targets by 17%.
+  - WotLK rank 3: Increases the critical strike chance of all your spells against frozen targets by 50%.
+- **Cold Snap** (1 rank) - row 4 -> tier 3 - MATCH mage_frost_cold_snap
+  - needs: cooldown-change
+  - WotLK rank 1: When activated, this spell finishes the cooldown on all Frost spells you recently cast.
+- **Improved Cone of Cold** (3 ranks) - row 4 -> tier 3 - NEW - we have no talent of this name
+  - WotLK rank 1: Increases the damage dealt by your Cone of Cold spell by 15%.
+  - WotLK rank 3: Increases the damage dealt by your Cone of Cold spell by 35%.
+- **Frozen Core** (3 ranks) - row 4 -> tier 3 - MATCH mage_frost_frozen_core  [ours is scalar]
+  - WotLK rank 1: Reduces the damage taken from all spells by 2%.
+  - WotLK rank 3: Reduces the damage taken from all spells by 6%.
+- **Cold as Ice** (2 ranks) - row 5 -> tier 3 - NEW - we have no talent of this name
+  - requires: Cold Snap
+  - needs: cooldown-change
+  - WotLK rank 1: Reduces the cooldown of your Cold Snap, Ice Barrier and Summon Water Elemental spells by 10%.
+  - WotLK rank 2: Reduces the cooldown of your Cold Snap, Ice Barrier and Summon Water Elemental spells by 20%.
+- **Winter's Chill** (3 ranks) - row 5 -> tier 3 - MATCH mage_frost_winters_chill
+  - needs: proc-chance, duration-window
+  - **BLOCKED**: BLOCKED:stacks - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases your chance to critically hit with Frostbolt by an additional 1% and gives your Frost damage spells a 33% chance to apply the Winter's Chill effect, which increases the chance spells will critically hit the target by 1% for 15 sec.  Stacks up to 5 times.
+  - WotLK rank 3: Increases your chance to critically hit with Frostbolt by an additional 3% and gives your Frost damage spells a 100% chance to apply the Winter's Chill effect, which increases the chance spells will critically hit the target by 1% for 15 sec.  Stacks up to 5 times.
+- **Shattered Barrier** (2 ranks) - row 6 -> tier 4 - NEW - we have no talent of this name
+  - requires: Ice Barrier
+  - needs: proc-chance, duration-window, aoe
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Gives your Ice Barrier spell a 50% chance to freeze all enemies within 10 yds for 8 sec when it is destroyed.
+  - WotLK rank 2: Gives your Ice Barrier spell a 100% chance to freeze all enemies within 10 yds for 8 sec when it is destroyed.
+- **Ice Barrier** (1 rank) - row 6 -> tier 4 - MATCH mage_frost_ice_barrier
+  - requires: Cold Snap
+  - needs: absorb
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Instantly shields you, absorbing 438 damage.  Lasts 1 min.  While the shield holds, spellcasting will not be delayed by damage.
+- **Arctic Winds** (5 ranks) - row 6 -> tier 4 - MATCH mage_frost_arctic_winds
+  - needs: proc-chance
+  - WotLK rank 1: Increases all Frost damage you cause by 1% and reduces the chance melee and ranged attacks will hit you by 1%.
+  - WotLK rank 5: Increases all Frost damage you cause by 5% and reduces the chance melee and ranged attacks will hit you by 5%.
+- **Empowered Frostbolt** (2 ranks) - row 7 -> tier 4 - MATCH mage_frost_empowered_frostbolt
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases the damage of your Frostbolt spell by an amount equal to 5% of your spell power and reduces the cast time by 0.1 sec.
+  - WotLK rank 2: Increases the damage of your Frostbolt spell by an amount equal to 10% of your spell power and reduces the cast time by 0.2 sec.
+- **Fingers of Frost** (2 ranks) - row 7 -> tier 4 - MATCH mage_frost_frost_mastery
+  - needs: proc-chance
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Gives your Chill effects a 7% chance to grant you the Fingers of Frost effect, which treats your next 2 spells cast as if the target were Frozen.  Lasts 15 sec.
+  - WotLK rank 2: Gives your Chill effects a 15% chance to grant you the Fingers of Frost effect, which treats your next 2 spells cast as if the target were Frozen.  Lasts 15 sec.
+- **Brain Freeze** (3 ranks) - row 8 -> tier 5 - MATCH mage_frost_brain_freeze
+  - needs: proc-chance, cost-change
+  - **BLOCKED**: BLOCKED:cast-time - needs a substitute mechanic
+  - WotLK rank 1: Your Frost damage spells with chilling effects have a 5% chance to cause your next Fireball or Frostfire Bolt spell to be instant cast and cost no mana.
+  - WotLK rank 3: Your Frost damage spells with chilling effects have a 15% chance to cause your next Fireball or Frostfire Bolt spell to be instant cast and cost no mana.
+- **Summon Water Elemental** (1 rank) - row 8 -> tier 5 - MATCH mage_frost_water_elemental
+  - needs: duration-window
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Summon a Water Elemental to fight for the caster for 45 sec.
+- **Enduring Winter** (3 ranks) - row 8 -> tier 5 - NEW - we have no talent of this name
+  - requires: Summon Water Elemental
+  - needs: proc-chance, dot-hot, duration-window
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Increases the duration of your Summon Water Elemental spell by 5 sec and your Frostbolt spell has a 33% chance to grant up to 10 party or raid members mana regeneration equal to 1% of their maximum mana per 5 sec for 15 sec.  This effect cannot occur more often than once every 6 sec.
+  - WotLK rank 3: Increases the duration of your Summon Water Elemental spell by 15 sec and your Frostbolt spell has a 100% chance to grant up to 10 party or raid members mana regeneration equal to 1% of their maximum mana per 5 sec for 15 sec.  This effect cannot occur more often than once every 6 sec.
+- **Chilled to the Bone** (5 ranks) - row 9 -> tier 5 - MATCH mage_frost_chilled_to_the_bone
+  - WotLK rank 1: Increases the damage caused by your Frostbolt, Frostfire Bolt and Ice Lance spells by 1% and reduces the movement speed of all chilled targets by an additional 2%.
+  - WotLK rank 5: Increases the damage caused by your Frostbolt, Frostfire Bolt and Ice Lance spells by 5% and reduces the movement speed of all chilled targets by an additional 10%.
+- **Deep Freeze** (1 rank) - row 10 -> tier 6 - MATCH mage_frost_deep_freeze
+  - needs: duration-window, stun
+  - TURN-BASED: real seconds -> turns (~3 sec per turn; re-derive, do not divide)
+  - WotLK rank 1: Stuns the target for 5 sec. Only usable on Frozen targets. Deals 1469 to 1741 damage to targets permanently immune to stuns.
