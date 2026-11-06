@@ -1,7 +1,7 @@
 {
   "spec_name": "Hunter Survival",
   "tree_id": "hunter_survival",
-  "description": "Traps, toxins, and hard-won instinct for surviving anything.",
+  "description": "Traps, poisons and hard-won instinct - the hunter who comes home.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,268 +15,374 @@
     {
       "talent_id": "hunter_survival_improved_tracking",
       "name": "Improved Tracking",
-      "description": "Increases the damage of Serpent Sting and Black Arrow by 3% per rank.",
+      "description": "Increases all your damage by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_hunter_serpent_sting_damage": 0.03,
-        "ability_hunter_black_arrow_damage": 0.03
+        "all_damage": 0.01
       },
-      "connected_to": [
-        "hunter_survival_clever_traps"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_savage_strikes",
-      "name": "Savage Strikes",
-      "description": "Increases the critical strike chance of your ranged attacks by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_hunter_attack_crit": 3.0
-      },
-      "connected_to": [
-        "hunter_survival_survivalist"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_deflection",
-      "name": "Deflection",
-      "description": "Increases your Parry chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "parry": 1.0
-      },
-      "connected_to": [
-        "hunter_survival_deterrence"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_entrapment",
-      "name": "Entrapment",
-      "description": "Increases the duration of Freezing Trap by 1 turn and reduces its cooldown by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_hunter_freezing_trap_duration": 1,
-        "ability_hunter_freezing_trap_cooldown": 1
-      },
-      "connected_to": [
-        "hunter_survival_trap_mastery"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_clever_traps",
-      "name": "Clever Traps",
-      "description": "Increases the damage of Explosive Trap by 10% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_hunter_explosive_trap_damage": 0.1
-      },
-      "connected_to": [
-        "hunter_survival_improved_tracking",
-        "hunter_survival_surefooted"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_survivalist",
-      "name": "Survivalist",
-      "description": "Increases your maximum health by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "max_health_pct": 0.02
-      },
-      "connected_to": [
-        "hunter_survival_savage_strikes",
-        "hunter_survival_survival_instincts"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_deterrence",
-      "name": "Deterrence",
-      "description": "Being struck has a 15% chance per rank to put you on the defensive, granting 20 Dodge and 20 Parry for 2 turns. This cannot happen more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "hunter_survival_deflection",
-        "hunter_survival_killer_instinct"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "hunter_deterrence",
-          "name": "Deterrence",
-          "effect_type": "buff",
-          "duration": 2,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "dodge": 20.0,
-            "parry": 20.0
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_survival_trap_mastery",
-      "name": "Trap Mastery",
-      "description": "Increases the damage of Explosive Trap and Explosive Shot by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "ability_hunter_explosive_trap_damage": 0.08,
-        "ability_hunter_explosive_shot_damage": 0.08
-      },
-      "connected_to": [
-        "hunter_survival_entrapment",
-        "hunter_survival_resourcefulness"
-      ]
+      "_source": "WotLK row 0: 'While tracking Beasts, Demons, Dragonkin, Elementals, Giants, Humanoids and Undead, all damage done to those targets is increased by 1%-5%.' DEPARTURE - NOTHING in this engine reads a creature type, and there is no tracking state either. Delivered unconditionally at the real per-rank value, which in practice is what the real talent amounts to once you are tracking the right thing. The outgoing version was Serpent Sting damage.",
+      "connected_to": []
     },
     {
       "talent_id": "hunter_survival_surefooted",
       "name": "Surefooted",
       "description": "Increases your chance to hit by 1% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -6,
       "effects": {
         "hit_rating": 1.0
       },
+      "_source": "WotLK row 1: 'Reduces the duration of movement impairing effects by 10%/20%/30%.' DEPARTURE - there is no movement impairment at all, and the three CoA talents authored as dispel_type 'movement' were found to remove nothing, because that is not a real DispelType. Sure footing becomes accuracy. Kept from the outgoing tree.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "hunter_survival_survivalist",
+      "name": "Survivalist",
+      "description": "Increases your Stamina by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "stamina_pct": 2.0
+      },
+      "_source": "WotLK row 1, built verbatim: 'Increases your Stamina by 2%-10%.' stamina_pct is PERCENTAGE POINTS. The outgoing version granted max_health_pct, which is downstream of Stamina rather than the talent - and the distinction matters here, because Hunter vs. Wild converts STAMINA into attack power. It is Hunter vs. Wild's prerequisite in the real tree, preserved below.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "hunter_survival_entrapment",
+      "name": "Entrapment",
+      "description": "Your traps have a 20% chance per rank to hold the target fast for 1 turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1: 'When your Frost Trap or Snake Trap are triggered you entrap all afflicted targets, preventing them from moving for 4 sec.' DEPARTURE - neither named trap exists, and 'when triggered' has no event (nothing fires on a trap being sprung). It fires on the trap being CAST instead, against the two traps we have. Preventing movement becomes is_stun, this engine's only incapacitate. The outgoing version extended Freezing Trap's duration.",
       "connected_to": [
-        "hunter_survival_clever_traps",
-        "hunter_survival_hunter_vs_wild"
+        "hunter_survival_improved_tracking"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "hunter_explosive_trap",
+          "hunter_freezing_trap"
+        ],
+        "apply_effect": {
+          "effect_id": "entrapment",
+          "name": "Entrapment",
+          "effect_type": "debuff",
+          "duration": 1,
+          "is_stun": true
+        }
+      }
+    },
+    {
+      "talent_id": "hunter_survival_trap_mastery",
+      "name": "Trap Mastery",
+      "description": "Increases the damage of your Explosive Trap by 10% per rank and the duration of your Freezing Trap by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_hunter_explosive_trap_damage": 0.1,
+        "ability_hunter_freezing_trap_duration": 1
+      },
+      "_source": "WotLK row 1, built verbatim for the two traps that exist: 'Frost Trap and Freezing Trap - Increases the duration by 10%/20%/30%. Immolation Trap, Explosive Trap and Black Arrow - increases the damage.' Kept from the outgoing tree, which covered Explosive Trap alone.",
+      "connected_to": [
+        "hunter_survival_improved_tracking"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_deflection",
+      "name": "Deflection",
+      "description": "Increases your parry chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "parry": 1.0
+      },
+      "_source": "WotLK row 1: 'Increases your chance to parry by 1%/2%/3%, and reduces the duration of all Disarm effects used against you.' The parry half is verbatim; Disarm duration is not modifiable. Kept from the outgoing tree, corrected from 5 ranks to the real 3. It is Counterattack's prerequisite in the real tree; Counterattack does not exist here.",
+      "connected_to": [
+        "hunter_survival_surefooted"
       ]
     },
     {
       "talent_id": "hunter_survival_survival_instincts",
       "name": "Survival Instincts",
-      "description": "While below 35% of your maximum health you take 8% less damage per rank.",
+      "description": "Reduces all damage you take by 2% per rank and increases the critical chance of your shots by 2% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "damage_taken_pct": -0.02,
+        "ability_hunter_arcane_shot_crit": 2.0,
+        "ability_hunter_steady_shot_crit": 2.0
+      },
+      "_source": "WotLK row 1, built verbatim with both halves: 'Reduces all damage taken by 2%/4% and increases the critical strike chance of your Arcane Shot, Steady Shot and Explosive Shot by 2%/4%.' damage_taken_pct is read RAW on both sides. The outgoing version used low_health_damage_reduction_pct AND low_health_threshold_pct, which is Fiery Payback's shape and put this class one node from a summing-threshold breach.",
+      "connected_to": [
+        "hunter_survival_survivalist"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_hunter_vs_wild",
+      "name": "Hunter vs. Wild",
+      "description": "Increases your attack power by 10% of your Stamina per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "low_health_damage_reduction_pct": 0.08,
-        "low_health_threshold_pct": 0.35
+        "attack_power_from_stamina_pct": 0.1
       },
+      "_source": "WotLK row 2, built verbatim: 'Increases you and your pet's attack power and ranged attack power equal to 10%-30% of your total Stamina.' A REAL stat conversion - attack_power is a valid STAT_CONVERSION_TARGET and stamina a valid source. MEASURED LIVE at +14 attack power, so the key is a RAW MULTIPLIER and not a percentage (character.py:1551). The pet half cannot be built - a talent effect cannot reach the pet, which reads only pet_damage/health/armor from its owner. The real talent requires Survivalist, which connected_to reproduces and which is the Stamina that feeds this. The outgoing node was a proc with an empty effects dict.",
       "connected_to": [
-        "hunter_survival_survivalist",
-        "hunter_survival_wyvern_sting"
+        "hunter_survival_entrapment"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_tnt",
+      "name": "T.N.T",
+      "description": "Increases the damage of your Explosive Trap, Explosive Shot and Black Arrow by 5% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_explosive_trap_damage": 0.05,
+        "ability_hunter_explosive_shot_damage": 0.05,
+        "ability_hunter_black_arrow_damage": 0.05
+      },
+      "_source": "WotLK row 2, NEW to our tree, built verbatim for the three real abilities that exist: 'Increases the damage done by your Explosive Shot, Explosive Trap, Black Arrow and Immolation Trap by 5%/10%/15%.' Stacks with Trap Mastery on Explosive Trap, as the real pair does.",
+      "connected_to": [
+        "hunter_survival_trap_mastery"
       ]
     },
     {
       "talent_id": "hunter_survival_killer_instinct",
       "name": "Killer Instinct",
-      "description": "Increases the critical strike chance of your ranged attacks and Multi-Shot by 2% per rank.",
+      "description": "Increases your critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_hunter_attack_crit": 2.0,
-        "ability_hunter_multi_shot_crit": 2.0
+        "crit_chance_physical": 1.0
       },
+      "_source": "WotLK row 2, built verbatim: 'Increases your critical strike chance with all attacks by 1%/2%/3%.' The outgoing version granted per-ability crit. It is Wyvern Sting's prerequisite in the real tree, preserved below.",
       "connected_to": [
-        "hunter_survival_deterrence",
-        "hunter_survival_thrill_of_the_hunt"
+        "hunter_survival_deflection"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_lock_and_load",
+      "name": "Lock and Load",
+      "description": "Your traps have a 33% chance per rank to reset the cooldown of your Explosive Shot.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "_source": "WotLK row 2: 'You have a 100% chance when you trap a target with Freezing Trap, Freezing Arrow or Frost Trap to generate 2 charges of Lock and Load, causing your next 2 Explosive Shots to cost no mana and trigger no cooldown.' Built with the real spirit via reset_cooldown, a real proc payload (status_effects.py:1207), fired off the traps we have. Charges do not exist and 'when you trap a target' has no event, so it fires on the cast. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "hunter_survival_survival_instincts"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "hunter_explosive_trap",
+          "hunter_freezing_trap"
+        ],
+        "reset_cooldown": "hunter_explosive_shot"
+      }
+    },
+    {
+      "talent_id": "hunter_survival_lightning_reflexes",
+      "name": "Lightning Reflexes",
+      "description": "Increases your Agility by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "agility_pct": 3.0
+      },
+      "_source": "WotLK row 3, NEW to our tree, built verbatim: 'Increases your Agility by 3%-15%.' agility_pct is PERCENTAGE POINTS and flows into both ranged and melee attack power, so this is the tree's broadest offensive node. It is Expose Weakness's prerequisite, preserved below.",
+      "connected_to": [
+        "hunter_survival_hunter_vs_wild"
       ]
     },
     {
       "talent_id": "hunter_survival_resourcefulness",
       "name": "Resourcefulness",
-      "description": "Reduces the Mana cost of Explosive Trap and Freezing Trap by 5 per rank.",
+      "description": "Reduces the cost of your traps and Black Arrow by 20% per rank and their cooldown by 1 turn per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": 0,
       "effects": {
-        "ability_hunter_explosive_trap_cost": 5,
-        "ability_hunter_freezing_trap_cost": 5
+        "ability_hunter_explosive_trap_cost_pct": 0.2,
+        "ability_hunter_freezing_trap_cost_pct": 0.2,
+        "ability_hunter_black_arrow_cost_pct": 0.2,
+        "ability_hunter_explosive_trap_cooldown": 1
       },
+      "_source": "WotLK row 3, built verbatim: 'Reduces the mana cost of all traps, melee abilities and Black Arrow by 20%-60% and reduces the cooldown.' There are no melee abilities in this kit to cover. Kept from the outgoing tree, which used the FLAT _cost key.",
       "connected_to": [
-        "hunter_survival_trap_mastery",
-        "hunter_survival_expose_weakness"
+        "hunter_survival_lock_and_load"
       ]
+    },
+    {
+      "talent_id": "hunter_survival_expose_weakness",
+      "name": "Expose Weakness",
+      "description": "Your critical strikes raise your attack power for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4: 'Your ranged criticals have a 100% chance to grant you Expose Weakness, increasing your attack power by an amount equal to 10%-30% of your Agility for 7 sec.' Built on the real trigger. Scaling a PROC's payload from a stat is not possible - stat conversions are a talent-effect mechanism, not a payload one - so attack_power 120 is flat. attack_power inside a status effect is FLAT and is summed from active effects like any gear bonus. The real talent requires Lightning Reflexes, reproduced. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "hunter_survival_lightning_reflexes"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "expose_weakness",
+          "name": "Expose Weakness",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": 120
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "hunter_survival_master_tactician",
+      "name": "Master Tactician",
+      "description": "Your shots have a 10% chance to raise your critical strike chance by 2% per rank for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4: 'Your successful ranged attacks have a 10% chance to increase your critical strike chance with all attacks by 2%-10% for 8 sec.' Built with the real 10% trigger chance - note the chance is NOT rank-scaled here, because the real talent scales its MAGNITUDE and a proc's payload cannot scale with points. So the payload carries the full 10% and the chance stays at the real flat 10%. 8 seconds is 3 turns. The outgoing node was a 1-point proc.",
+      "connected_to": [
+        "hunter_survival_lightning_reflexes"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "master_tactician",
+          "name": "Master Tactician",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_chance_physical": 10
+          },
+          "on_target": false
+        }
+      }
     },
     {
       "talent_id": "hunter_survival_wyvern_sting",
       "name": "Wyvern Sting",
-      "description": "Teaches you Wyvern Sting, which incapacitates your target.",
+      "description": "Teaches Wyvern Sting, a shot that puts the target to sleep.",
       "node_type": "active",
-      "tier": 3,
+      "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": 0,
+      "hex_y": 2,
       "effects": {
         "unlock_ability": "hunter_wyvern_sting"
       },
+      "_source": "WotLK row 4, kept - the ONLY unlock for hunter_wyvern_sting, which is requires_talent. The real talent requires Killer Instinct, which connected_to reproduces. It is Noxious Stings' prerequisite, preserved below.",
       "connected_to": [
-        "hunter_survival_survival_instincts",
-        "hunter_survival_black_arrow"
+        "hunter_survival_killer_instinct"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_noxious_stings",
+      "name": "Noxious Stings",
+      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 5% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_hunter_serpent_sting_damage": 0.05,
+        "ability_hunter_wyvern_sting_damage": 0.05
+      },
+      "_source": "WotLK row 4: 'If Wyvern Sting is dispelled, the dispeller is also afflicted by Wyvern Sting, and increases all damage done by your Stings by 5%/10%/15%.' There is no dispel trigger, so only the damage half is built - verbatim, across both real Stings. The real talent requires Wyvern Sting, reproduced. Kept from the outgoing tree.",
+      "connected_to": [
+        "hunter_survival_wyvern_sting"
       ]
     },
     {
       "talent_id": "hunter_survival_thrill_of_the_hunt",
       "name": "Thrill of the Hunt",
-      "description": "Your critical strikes have a 33% chance per rank to restore 90 Mana.",
+      "description": "Your critical strikes have a 33% chance per rank to restore 150 mana.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
+      "hex_x": 4,
+      "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 4: 'Gives you a 33%-100% chance to regain 40% of the mana cost of any shot when it critically hits.' Built with the real chance curve on the real trigger. A refund proportional to the shot's cost is not available - grant_resource takes a FLAT amount with no pct_max - so 150 stands in. It is Hunting Party's prerequisite, preserved below. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_survival_killer_instinct",
-        "hunter_survival_lock_and_load"
+        "hunter_survival_resourcefulness"
       ],
       "proc": {
         "trigger": "on_crit",
@@ -284,218 +390,101 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 90
+          "amount": 150
         }
       }
     },
     {
-      "talent_id": "hunter_survival_expose_weakness",
-      "name": "Expose Weakness",
-      "description": "Your Aimed Shot has a 33% chance per rank to expose a weakness, stripping 20 Armor for 6 turns. This stacks up to 3 times.",
+      "talent_id": "hunter_survival_point_of_no_escape",
+      "name": "Point of No Escape",
+      "description": "Increases your critical strike chance by 2% per rank.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
+      "tier": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "hunter_survival_resourcefulness",
-        "hunter_survival_noxious_stings"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 33,
-        "icd": 0,
-        "ability_filter": [
-          "hunter_aimed_shot"
-        ],
-        "apply_effect": {
-          "effect_id": "hunter_expose_weakness",
-          "name": "Expose Weakness",
-          "effect_type": "debuff",
-          "duration": 6,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "armor": -20
-          },
-          "on_target": true,
-          "max_stacks": 3
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_survival_hunter_vs_wild",
-      "name": "Hunter vs. Wild",
-      "description": "Being struck has a 10% chance per rank to let you shrug it off, healing you for 60. This cannot happen more than once per turn.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "hunter_survival_surefooted"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 1,
-        "heal_flat": 60
-      }
-    },
-    {
-      "talent_id": "hunter_survival_black_arrow",
-      "name": "Black Arrow",
-      "description": "Teaches you Black Arrow, a lingering Shadow wound.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
+      "hex_x": -4,
+      "hex_y": 4,
       "effects": {
-        "unlock_ability": "hunter_black_arrow"
+        "crit_chance_physical": 2.0
       },
-      "connected_to": [
-        "hunter_survival_wyvern_sting",
-        "hunter_survival_sniper_training"
-      ]
-    },
-    {
-      "talent_id": "hunter_survival_lock_and_load",
-      "name": "Lock and Load",
-      "description": "Your Arcane Shot and Multi-Shot have a 10% chance per rank to leave you reloaded, firing an immediate additional attack. This cannot happen more than once per turn.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "hunter_survival_thrill_of_the_hunt",
-        "hunter_survival_hunting_party"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 1,
-        "ability_filter": [
-          "hunter_arcane_shot",
-          "hunter_multi_shot"
-        ],
-        "extra_attack": 1
-      }
-    },
-    {
-      "talent_id": "hunter_survival_noxious_stings",
-      "name": "Noxious Stings",
-      "description": "Increases the damage of Serpent Sting by 6% and the duration of Wyvern Sting by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {
-        "ability_hunter_serpent_sting_damage": 0.06,
-        "ability_hunter_wyvern_sting_duration": 1
-      },
+      "_source": "WotLK row 5, NEW to our tree: 'Increases the critical strike chance of all of your attacks on targets affected by your Frost Trap, Freezing Trap or Freezing Arrow by 3%/6%.' DEPARTURE - NOTHING in this engine reads a debuff on the target, so 'affected by your trap' cannot be checked. Delivered unconditionally at a smaller value, since it is now always on rather than situational.",
       "connected_to": [
         "hunter_survival_expose_weakness"
       ]
     },
     {
-      "talent_id": "hunter_survival_sniper_training",
-      "name": "Sniper Training",
-      "description": "Increases the damage of Aimed Shot by 5% and the critical strike chance of Steady Shot by 2% per rank.",
-      "node_type": "passive",
+      "talent_id": "hunter_survival_black_arrow",
+      "name": "Black Arrow",
+      "description": "Teaches Black Arrow, a shadow-fletched shot that weakens its target.",
+      "node_type": "active",
       "tier": 5,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "ability_hunter_aimed_shot_damage": 0.05,
-        "ability_hunter_steady_shot_crit": 2.0
+        "unlock_ability": "hunter_black_arrow"
       },
+      "_source": "WotLK row 5, kept - the ONLY unlock for hunter_black_arrow, which is requires_talent. It is Explosive Shot's prerequisite, preserved below. Moved from tier 4 to its real row.",
       "connected_to": [
-        "hunter_survival_black_arrow",
-        "hunter_survival_explosive_shot"
+        "hunter_survival_master_tactician"
       ]
     },
     {
       "talent_id": "hunter_survival_hunting_party",
       "name": "Hunting Party",
-      "description": "Your critical strikes have a 33% chance per rank to heal your most wounded ally for 70. This cannot happen more than once every 2 turns.",
+      "description": "Increases your Agility by 1% per rank and your haste by 1% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": 4,
-      "effects": {},
+      "effects": {
+        "agility_pct": 1.0,
+        "haste": 1.0
+      },
+      "_source": "WotLK row 5: 'Increases your total Agility by an additional 1%/2%/3%, and your Arcane Shot, Explosive Shot and Steady Shot critical strikes have a chance to grant party and raid members 3% melee and ranged haste.' The Agility half is verbatim; the party-haste half cannot reach an ally, so the haste applies to the hunter. The real talent requires Thrill of the Hunt, reproduced. The outgoing node was a proc with an empty effects dict.",
       "connected_to": [
-        "hunter_survival_lock_and_load",
-        "hunter_survival_survival_mastery"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 33,
-        "icd": 2,
-        "smart_heal": 70
-      }
+        "hunter_survival_thrill_of_the_hunt"
+      ]
+    },
+    {
+      "talent_id": "hunter_survival_sniper_training",
+      "name": "Sniper Training",
+      "description": "Increases the critical chance of your Aimed Shot by 5% per rank and its damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_hunter_aimed_shot_crit": 5.0,
+        "ability_hunter_aimed_shot_damage": 0.03
+      },
+      "_source": "WotLK row 5: 'Increases the critical strike chance of your Kill Shot ability by 5%/10%/15%, and while standing still for 6 seconds increases the damage of your Steady Shot.' Kill Shot does not exist and there is no standing-still state, so both clauses land on Aimed Shot, the tree's remaining heavy shot. Kept from the outgoing tree.",
+      "connected_to": [
+        "hunter_survival_noxious_stings"
+      ]
     },
     {
       "talent_id": "hunter_survival_explosive_shot",
       "name": "Explosive Shot",
-      "description": "Teaches you Explosive Shot, a burning Fire wound.",
+      "description": "Teaches Explosive Shot, firing a charge that detonates inside the target.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 6,
       "effects": {
         "unlock_ability": "hunter_explosive_shot"
       },
+      "_source": "WotLK row 10, the capstone, kept - the ONLY unlock for hunter_explosive_shot, which is requires_talent. The real talent requires Black Arrow, which connected_to reproduces.",
       "connected_to": [
-        "hunter_survival_sniper_training"
+        "hunter_survival_black_arrow"
       ]
-    },
-    {
-      "talent_id": "hunter_survival_survival_mastery",
-      "name": "Master Tactician",
-      "description": "Landing a damaging ability sharpens your tactics, granting 15 critical strike chance and 15 Haste for 3 turns. This cannot happen more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "hunter_survival_hunting_party"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "hunter_master_tactician",
-          "name": "Master Tactician",
-          "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "crit_chance_physical": 15.0,
-            "haste": 15.0
-          },
-          "on_target": false
-        }
-      }
     }
   ]
 }

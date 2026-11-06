@@ -1,7 +1,7 @@
 {
   "spec_name": "Hunter Marksmanship",
   "tree_id": "hunter_marksmanship",
-  "description": "Deadly at range, every shot placed with lethal precision.",
+  "description": "Precision at range - the shot placed exactly where it matters.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,54 +15,18 @@
     {
       "talent_id": "hunter_marksmanship_improved_concussive_shot",
       "name": "Improved Concussive Shot",
-      "description": "Increases the duration of Concussive Shot by 1 turn per rank.",
+      "description": "Increases the duration of your Concussive Shot by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
         "ability_hunter_concussive_shot_duration": 1
       },
-      "connected_to": [
-        "hunter_marksmanship_mortal_shots"
-      ]
-    },
-    {
-      "talent_id": "hunter_marksmanship_lethal_shots",
-      "name": "Lethal Shots",
-      "description": "Increases the critical strike chance of Aimed Shot and Steady Shot by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_hunter_aimed_shot_crit": 2.0,
-        "ability_hunter_steady_shot_crit": 2.0
-      },
-      "connected_to": [
-        "hunter_marksmanship_go_for_the_throat"
-      ]
-    },
-    {
-      "talent_id": "hunter_marksmanship_improved_hunters_mark",
-      "name": "Improved Hunter's Mark",
-      "description": "Increases the duration of Hunter's Mark by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_hunter_hunters_mark_duration": 1
-      },
-      "connected_to": [
-        "hunter_marksmanship_improved_arcane_shot"
-      ]
+      "_source": "WotLK row 0: 'Increases the duration of your Concussive Shot's daze effect by 1/2 sec.' Built as duration. Daze itself has no engine equivalent, but the ability already exists with its own effect, so extending it is faithful. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
+      "connected_to": []
     },
     {
       "talent_id": "hunter_marksmanship_focused_aim",
@@ -72,457 +36,473 @@
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
         "hit_rating": 1.0
       },
-      "connected_to": [
-        "hunter_marksmanship_aimed_shot_mastery"
-      ]
+      "_source": "WotLK row 0: 'Reduces the pushback suffered from damaging attacks while casting Steady Shot by 35%/70%, and increases your chance to hit by 1%/2%/3%.' The hit half is verbatim; no cast times means no pushback. Kept from the outgoing tree. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET.",
+      "connected_to": []
     },
     {
-      "talent_id": "hunter_marksmanship_mortal_shots",
-      "name": "Mortal Shots",
-      "description": "Increases the damage of Aimed Shot by 5% per rank.",
+      "talent_id": "hunter_marksmanship_lethal_shots",
+      "name": "Lethal Shots",
+      "description": "Increases your critical strike chance by 1% per rank.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "_source": "WotLK row 0: 'Requires Bows, Crossbows, Guns, Thrown. Increases your critical strike chance with ranged weapons by 1%-5%.' Built minus the weapon gate - there is no weapon-type key. The outgoing version granted per-ability crit on two shots, which is Improved Barrage's shape.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "hunter_marksmanship_careful_aim",
+      "name": "Careful Aim",
+      "description": "Increases your ranged attack power by 33% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_hunter_aimed_shot_damage": 0.05
+        "ranged_ap_from_intellect_pct": 0.33
       },
+      "_source": "WotLK row 1, built verbatim: 'Increases your ranged attack power by an amount equal to 33%-100% of your total Intellect.' A REAL stat conversion and this tree's best talent - ranged_ap is a valid STAT_CONVERSION_TARGET and intellect a valid source. MEASURED LIVE at +29 ranged attack power off 29 Intellect, so the key is a RAW MULTIPLIER and not a percentage; authoring 100 would have granted a hundred times the hunter's Intellect. The outgoing node was a proc with an empty effects dict.",
       "connected_to": [
-        "hunter_marksmanship_improved_concussive_shot",
-        "hunter_marksmanship_rapid_killing"
+        "hunter_marksmanship_improved_concussive_shot"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_go_for_the_throat",
       "name": "Go for the Throat",
-      "description": "Your critical strikes have a 50% chance per rank to restore 60 Mana. This cannot happen more than once per turn.",
+      "description": "Your critical strikes increase your pet's damage for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Your ranged critical hits cause your pet to generate 25/50 Focus.' DEPARTURE - pets have NO RESOURCE in this engine, so there is no Focus to generate, and a talent effect cannot reach the pet in any case. The buff lands on the hunter. NOTE the stat_mod is damage_dealt_pct in PERCENTAGE POINTS: all_damage would be SILENT DEAD DATA inside a status effect, read through the talent channel while status stat_mods go to get_status_stat_mod. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_marksmanship_lethal_shots",
-        "hunter_marksmanship_improved_stings"
+        "hunter_marksmanship_improved_concussive_shot"
       ],
       "proc": {
         "trigger": "on_crit",
         "chance": 50,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 60
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_marksmanship_improved_arcane_shot",
-      "name": "Improved Arcane Shot",
-      "description": "Increases the damage of Arcane Shot by 7% and its critical strike chance by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_hunter_arcane_shot_damage": 0.07,
-        "ability_hunter_arcane_shot_crit": 3.0
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was named 'Improved Arcane Shot' but reduced Multi-Shot's cooldown instead - no Arcane Shot ability existed anywhere in data/abilities/hunter.json for it to improve. No _source citation on the original, same templated-filler pattern as Mage's Blast Wave/Improved Blizzard. Arcane Shot added as a real baseline ability; this talent now correctly targets it.",
-      "connected_to": [
-        "hunter_marksmanship_improved_hunters_mark",
-        "hunter_marksmanship_efficiency"
-      ]
-    },
-    {
-      "talent_id": "hunter_marksmanship_aimed_shot_mastery",
-      "name": "Aimed Shot Mastery",
-      "description": "Your Aimed Shot has a 33% chance per rank to bite deeper, dealing an additional 25% damage.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "hunter_marksmanship_focused_aim",
-        "hunter_marksmanship_concussive_barrage"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 33,
-        "icd": 0,
-        "ability_filter": [
-          "hunter_aimed_shot"
-        ],
-        "bonus_pct": 0.25
-      }
-    },
-    {
-      "talent_id": "hunter_marksmanship_rapid_killing",
-      "name": "Rapid Killing",
-      "description": "Killing an enemy has a 50% chance per rank to grant Rapid Killing, adding 25 Haste for 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "hunter_marksmanship_mortal_shots",
-        "hunter_marksmanship_combat_experience"
-      ],
-      "proc": {
-        "trigger": "on_kill",
-        "chance": 50,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "hunter_rapid_killing",
-          "name": "Rapid Killing",
+          "effect_id": "go_for_the_throat",
+          "name": "Go for the Throat",
           "effect_type": "buff",
           "duration": 3,
-          "real_time_seconds": null,
           "stat_mods": {
-            "haste": 25.0
+            "damage_dealt_pct": 8.0
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "hunter_marksmanship_improved_stings",
-      "name": "Improved Stings",
-      "description": "Increases the damage of Serpent Sting by 5% per rank.",
+      "talent_id": "hunter_marksmanship_improved_hunters_mark",
+      "name": "Improved Hunter's Mark",
+      "description": "Increases the effect of your Hunter's Mark by 10% per rank.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "ability_hunter_serpent_sting_damage": 0.05
+        "ability_hunter_hunters_mark_potency": 0.1
       },
+      "_source": "WotLK row 1: 'Increases the bonus attack power granted by your Hunter's Mark ability by 10%/20%/30%, and reduces the mana cost.' Built as potency, which scales the ability's own stat_mods. Kept from the outgoing tree, which used _duration.",
       "connected_to": [
-        "hunter_marksmanship_go_for_the_throat",
-        "hunter_marksmanship_trueshot_aura"
+        "hunter_marksmanship_focused_aim"
       ]
     },
     {
-      "talent_id": "hunter_marksmanship_efficiency",
-      "name": "Efficiency",
-      "description": "Reduces the Mana cost of Steady Shot, Multi-Shot and Aimed Shot by 2 per rank.",
+      "talent_id": "hunter_marksmanship_improved_arcane_shot",
+      "name": "Improved Arcane Shot",
+      "description": "Increases the damage of your Arcane Shot by 5% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_hunter_arcane_shot_damage": 0.05
+      },
+      "_source": "WotLK row 1, built verbatim: 'Increases the damage done by your Arcane Shot by 5%/10%/15%.' Kept from the outgoing tree, corrected from 7% to the real 5% per rank.",
+      "connected_to": [
+        "hunter_marksmanship_focused_aim"
+      ]
+    },
+    {
+      "talent_id": "hunter_marksmanship_mortal_shots",
+      "name": "Mortal Shots",
+      "description": "Increases the critical damage of your abilities by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
+      "hex_x": 4,
+      "hex_y": -4,
       "effects": {
-        "ability_hunter_steady_shot_cost": 2,
-        "ability_hunter_multi_shot_cost": 2,
-        "ability_hunter_aimed_shot_cost": 2
+        "crit_damage_physical": 0.06
       },
+      "_source": "WotLK row 1, built verbatim: 'Increases the critical strike damage bonus of your ranged abilities by 6%-30%.' crit_damage_physical is a FRACTION, read at abilities.py:1460 inside a ternary - live despite the probe finding no literal read site, and DEAD inside a status effect, so the talent-effect form used here is the only one that works. The outgoing version was per-ability DAMAGE on Aimed Shot, which is a different stat. It is Aimed Shot's prerequisite in the real tree.",
       "connected_to": [
-        "hunter_marksmanship_improved_arcane_shot",
-        "hunter_marksmanship_careful_aim"
+        "hunter_marksmanship_lethal_shots"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_concussive_barrage",
       "name": "Concussive Barrage",
-      "description": "Your Multi-Shot has a 50% chance per rank to daze its target, slowing it by 20 Haste for 2 turns.",
+      "description": "Your Multi-Shot and Chimera Shot have a 50% chance per rank to slow the target for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2: 'Your successful Chimera Shot and Multi-Shot attacks have a 50%/100% chance to Daze the target for 4 sec.' Built with the real ability pair and the real chance curve. Daze has no engine equivalent, so it is a haste debuff on the target - which is what a dazed enemy amounts to here. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_marksmanship_aimed_shot_mastery",
-        "hunter_marksmanship_barrage"
+        "hunter_marksmanship_careful_aim"
       ],
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 50,
         "icd": 0,
         "ability_filter": [
-          "hunter_multi_shot"
+          "hunter_multi_shot",
+          "hunter_chimera_shot"
         ],
         "apply_effect": {
-          "effect_id": "hunter_concussive_barrage",
+          "effect_id": "concussive_barrage",
           "name": "Concussive Barrage",
           "effect_type": "debuff",
           "duration": 2,
-          "real_time_seconds": null,
           "stat_mods": {
-            "haste": -20.0
-          },
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_marksmanship_trueshot_aura",
-      "name": "Trueshot Aura",
-      "description": "Increases your Attack Power by 25.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "attack_power": 25
-      },
-      "connected_to": [
-        "hunter_marksmanship_improved_stings",
-        "hunter_marksmanship_ranged_weapon_specialization"
-      ]
-    },
-    {
-      "talent_id": "hunter_marksmanship_careful_aim",
-      "name": "Careful Aim",
-      "description": "Your Steady Shot has a 20% chance per rank to grant Careful Aim, making your next attack a guaranteed critical strike. This cannot happen more than once per turn.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "hunter_marksmanship_efficiency",
-        "hunter_marksmanship_piercing_shots"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 1,
-        "ability_filter": [
-          "hunter_steady_shot"
-        ],
-        "apply_effect": {
-          "effect_id": "hunter_careful_aim",
-          "name": "Careful Aim",
-          "effect_type": "buff",
-          "duration": 10,
-          "real_time_seconds": null,
-          "stat_mods": {},
-          "on_target": false,
-          "proc": {
-            "guarantee_next_crit": true
+            "haste": -20
           }
         }
       }
     },
     {
-      "talent_id": "hunter_marksmanship_barrage",
-      "name": "Barrage",
-      "description": "Increases the damage of Multi-Shot by 8% per rank.",
+      "talent_id": "hunter_marksmanship_improved_stings",
+      "name": "Improved Stings",
+      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 10% per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -2,
       "effects": {
-        "ability_hunter_multi_shot_damage": 0.08
+        "ability_hunter_serpent_sting_damage": 0.1,
+        "ability_hunter_wyvern_sting_damage": 0.1
       },
+      "_source": "WotLK row 2, built verbatim across both real Stings: 'Increases the damage done by your Serpent Sting and Wyvern Sting by 10%/20%/30%.' Kept from the outgoing tree, corrected from 5 ranks to the real 3.",
       "connected_to": [
-        "hunter_marksmanship_concussive_barrage",
-        "hunter_marksmanship_readiness"
+        "hunter_marksmanship_careful_aim"
+      ]
+    },
+    {
+      "talent_id": "hunter_marksmanship_readiness",
+      "name": "Readiness",
+      "description": "Reduces the cooldown of your Aimed Shot and Multi-Shot by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_aimed_shot_cooldown": 1,
+        "ability_hunter_multi_shot_cooldown": 1
+      },
+      "_source": "WotLK row 2: 'When activated, this ability immediately finishes the cooldown on your other Hunter abilities.' DEPARTURE - there is no hunter_readiness ability to unlock. Delivered as a standing cooldown reduction on the tree's two cooldown shots. Kept from the outgoing tree. It is Trueshot Aura's prerequisite, preserved below.",
+      "connected_to": [
+        "hunter_marksmanship_improved_hunters_mark"
+      ]
+    },
+    {
+      "talent_id": "hunter_marksmanship_efficiency",
+      "name": "Efficiency",
+      "description": "Reduces the cost of your shots and stings by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_steady_shot_cost_pct": 0.03,
+        "ability_hunter_arcane_shot_cost_pct": 0.03,
+        "ability_hunter_aimed_shot_cost_pct": 0.03,
+        "ability_hunter_multi_shot_cost_pct": 0.03,
+        "ability_hunter_serpent_sting_cost_pct": 0.03
+      },
+      "_source": "WotLK row 2, built verbatim across all four shots and Serpent Sting: 'Reduces the Mana cost of your Shots and Stings by 3%-15%.' Kept from the outgoing tree, which used the FLAT _cost key on two of them.",
+      "connected_to": [
+        "hunter_marksmanship_improved_arcane_shot"
+      ]
+    },
+    {
+      "talent_id": "hunter_marksmanship_barrage",
+      "name": "Barrage",
+      "description": "Increases the damage of your Multi-Shot and Aimed Shot by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "ability_hunter_multi_shot_damage": 0.04,
+        "ability_hunter_aimed_shot_damage": 0.04
+      },
+      "_source": "WotLK row 2: 'Increases the damage done by your Multi-Shot, Aimed Shot, and Volley spells by 4%/8%/12%.' Volley does not exist. Kept from the outgoing tree, which covered Multi-Shot alone. It is Improved Barrage's prerequisite, preserved below.",
+      "connected_to": [
+        "hunter_marksmanship_mortal_shots"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_combat_experience",
       "name": "Combat Experience",
-      "description": "Increases your Agility by 3 and your Intellect by 2 per rank.",
+      "description": "Increases your Agility and Intellect by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "agility": 3,
-        "intellect": 2
+        "agility_pct": 2.0,
+        "intellect_pct": 2.0
       },
+      "_source": "WotLK row 3, built verbatim: 'Increases your total Agility and Intellect by 2%/4%.' Both are PERCENTAGE POINTS, read off `bonuses` and divided by 100. The Intellect half feeds Careful Aim two tiers up, which is the real pairing. The outgoing version granted FLAT agility and intellect.",
       "connected_to": [
-        "hunter_marksmanship_rapid_killing"
+        "hunter_marksmanship_improved_stings"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_ranged_weapon_specialization",
       "name": "Ranged Weapon Specialization",
-      "description": "Increases the damage of your ranged attacks by 4% and of Steady Shot by 3% per rank.",
+      "description": "Increases your physical damage by 2% per rank.",
       "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
+      "tier": 3,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
+      "hex_x": 0,
+      "hex_y": 0,
       "effects": {
-        "ability_hunter_attack_damage": 0.04,
-        "ability_hunter_steady_shot_damage": 0.03
+        "physical_damage": 0.02
       },
+      "_source": "WotLK row 3: 'Requires Ranged Weapon. Increases the damage you deal with ranged weapons by 2%/4%/5%.' Built minus the weapon gate. Note requires_ranged_weapon IS a real ABILITY field in this engine, but there is no talent-side equivalent. physical_damage is a FRACTION. The outgoing version was per-ability damage at 5 ranks.",
       "connected_to": [
-        "hunter_marksmanship_trueshot_aura",
-        "hunter_marksmanship_master_marksman"
+        "hunter_marksmanship_readiness"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_piercing_shots",
       "name": "Piercing Shots",
-      "description": "Your critical strikes have a 33% chance per rank to open a wound, dealing 30 damage a turn for 3 turns.",
+      "description": "Your critical strikes have a 33% chance per rank to leave the target bleeding for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 4: 'Your critical Aimed, Steady and Chimera Shots cause the target to bleed for 10%/20%/30% of the damage dealt over 8 sec.' Built as a real bleed on the real trigger. Percentage-of-damage is not available to a dot payload - potency is a FLAT PER-TURN number, where an ABILITY rank's effect_value is the TOTAL and gets divided - so 45 a turn over 3 turns (8 seconds) stands in. The ability_filter is omitted because on_crit already requires a crit and restricting it would exclude the auto-shot crits this tree is built to produce. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_marksmanship_careful_aim",
-        "hunter_marksmanship_wild_quiver"
+        "hunter_marksmanship_combat_experience"
       ],
       "proc": {
         "trigger": "on_crit",
         "chance": 33,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "hunter_piercing_shots",
+          "effect_id": "piercing_shots",
           "name": "Piercing Shots",
           "effect_type": "dot",
           "duration": 3,
-          "potency": 30,
-          "damage_school": "physical",
-          "on_target": true
+          "potency": 45,
+          "damage_school": "physical"
         }
       }
     },
     {
-      "talent_id": "hunter_marksmanship_readiness",
-      "name": "Readiness",
-      "description": "Reduces the cooldown of Aimed Shot and Chimera Shot by 2 turns.",
+      "talent_id": "hunter_marksmanship_trueshot_aura",
+      "name": "Trueshot Aura",
+      "description": "Increases your attack power by 10%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_hunter_aimed_shot_cooldown": 2,
-        "ability_hunter_chimera_shot_cooldown": 2
+        "attack_power_pct": 10.0
       },
+      "_source": "WotLK row 4: 'Increases the attack power of party and raid members within 100 yards by 10%.' DEPARTURE - A TALENT EFFECT CAN NEVER REACH AN ALLY. The real 10% applies to the hunter alone. The real talent requires Readiness, which connected_to reproduces. attack_power_pct is PERCENTAGE POINTS. The outgoing version granted FLAT attack_power.",
       "connected_to": [
-        "hunter_marksmanship_barrage"
+        "hunter_marksmanship_readiness"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_master_marksman",
       "name": "Master Marksman",
-      "description": "Increases the damage of Aimed Shot and Chimera Shot by 4% per rank.",
+      "description": "Increases your critical strike chance by 1% per rank and reduces the cost of your shots by 2% per rank.",
       "node_type": "passive",
-      "tier": 5,
+      "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
+      "hex_x": 0,
+      "hex_y": 2,
       "effects": {
-        "ability_hunter_aimed_shot_damage": 0.04,
-        "ability_hunter_chimera_shot_damage": 0.04
+        "crit_chance_physical": 1.0,
+        "ability_hunter_steady_shot_cost_pct": 0.02,
+        "ability_hunter_arcane_shot_cost_pct": 0.02,
+        "ability_hunter_aimed_shot_cost_pct": 0.02,
+        "ability_hunter_multi_shot_cost_pct": 0.02
       },
+      "_source": "WotLK row 4, built with both halves: 'Increases your critical strike chance by 1%-5%, and reduces the Mana cost of your Steady Shot, Aimed Shot and Arcane Shot by 2%-10%.' Stacks with Efficiency and Lethal Shots, as the real tree intends. The outgoing version was per-ability damage.",
       "connected_to": [
-        "hunter_marksmanship_ranged_weapon_specialization",
-        "hunter_marksmanship_chimera_shot"
+        "hunter_marksmanship_ranged_weapon_specialization"
+      ]
+    },
+    {
+      "talent_id": "hunter_marksmanship_improved_barrage",
+      "name": "Improved Barrage",
+      "description": "Increases the critical chance of your Multi-Shot and Aimed Shot by 4% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_hunter_multi_shot_crit": 4.0,
+        "ability_hunter_aimed_shot_crit": 4.0
+      },
+      "_source": "WotLK row 4, NEW to our tree, built verbatim: 'Increases the critical strike chance of your Multi-Shot and Aimed Shot abilities by 4%/8%/12%.' The real talent requires Barrage, which connected_to reproduces. ability_<id>_crit is PERCENTAGE POINTS.",
+      "connected_to": [
+        "hunter_marksmanship_barrage"
       ]
     },
     {
       "talent_id": "hunter_marksmanship_wild_quiver",
       "name": "Wild Quiver",
-      "description": "Your ranged attacks have a 10% chance per rank to loose a free Steady Shot at your target.",
+      "description": "Your shots have a 4% chance per rank to loose an additional arrow.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -2,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'You have a 4%/8%/12% chance to shoot an additional shot when doing damage, dealing 80% weapon damage.' Built with the real chance curve. Weapon-damage scaling is not available to a proc payload, so damage_flat 85 stands in. proc['school'] only TYPES a damage_flat payload; it is not a trigger-side filter. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_marksmanship_piercing_shots",
-        "hunter_marksmanship_mm_mastery"
+        "hunter_marksmanship_piercing_shots"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 10,
+        "trigger": "on_damage_cast",
+        "chance": 4,
         "icd": 0,
-        "cast_ability": "hunter_steady_shot"
+        "ability_filter": [
+          "hunter_steady_shot",
+          "hunter_arcane_shot",
+          "hunter_aimed_shot",
+          "hunter_multi_shot"
+        ],
+        "damage_flat": 85,
+        "school": "physical"
       }
     },
     {
-      "talent_id": "hunter_marksmanship_chimera_shot",
-      "name": "Chimera Shot",
-      "description": "Teaches you Chimera Shot, a heavy single-target shot.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
+      "talent_id": "hunter_marksmanship_marked_for_death",
+      "name": "Marked for Death",
+      "description": "Increases the damage of your shots by 1% per rank and your pet's damage by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
+      "hex_x": 0,
+      "hex_y": 4,
       "effects": {
-        "unlock_ability": "hunter_chimera_shot"
+        "ability_hunter_steady_shot_damage": 0.01,
+        "ability_hunter_arcane_shot_damage": 0.01,
+        "ability_hunter_aimed_shot_damage": 0.01,
+        "ability_hunter_multi_shot_damage": 0.01,
+        "pet_damage": 0.01
       },
+      "_source": "WotLK row 5, built verbatim with both halves: 'Increases your damage done by your shots and the damage done by your pet's special abilities by 1%-5%.' pet_damage is a FRACTION read at pet.py:139 - one of only three pet keys that work. NOTE this talent also appears as Beast Mastery's capstone, where it takes the slot the unbuildable Beast Mastery talent would have had; the duplication is deliberate and recorded in both builders.",
       "connected_to": [
         "hunter_marksmanship_master_marksman"
       ]
     },
     {
-      "talent_id": "hunter_marksmanship_mm_mastery",
-      "name": "Silencing Shot",
-      "description": "Your Arcane Shot silences its target, stunning it for 1 turn and slowing it by 25 Haste. This cannot happen more than once every 3 turns.",
+      "talent_id": "hunter_marksmanship_improved_steady_shot",
+      "name": "Improved Steady Shot",
+      "description": "Your Steady Shot has a 5% chance per rank to make your next shots hit 15% harder.",
       "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
+      "tier": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
+      "hex_x": 2,
+      "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5, NEW to our tree: 'Your Steady Shot hits have a 5%/10%/15% chance to increase the damage done by your next Aimed Shot, Arcane Shot or Chimera Shot by 15%.' Built with the real chance curve, the real ability_filter on Steady Shot, and the real 15%. Scoping the BUFF to three specific abilities is not possible - a status effect's stat_mods apply to everything - so it lifts all damage for 2 turns instead.",
       "connected_to": [
-        "hunter_marksmanship_wild_quiver"
+        "hunter_marksmanship_improved_barrage"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 3,
+        "chance": 5,
+        "icd": 0,
         "ability_filter": [
-          "hunter_arcane_shot"
+          "hunter_steady_shot"
         ],
         "apply_effect": {
-          "effect_id": "hunter_silencing_shot",
-          "name": "Silencing Shot",
-          "effect_type": "debuff",
-          "duration": 1,
-          "real_time_seconds": null,
+          "effect_id": "improved_steady_shot",
+          "name": "Improved Steady Shot",
+          "effect_type": "buff",
+          "duration": 2,
           "stat_mods": {
-            "haste": -25.0
+            "damage_dealt_pct": 15.0
           },
-          "on_target": true,
-          "is_stun": true
+          "on_target": false
         }
       }
+    },
+    {
+      "talent_id": "hunter_marksmanship_chimera_shot",
+      "name": "Chimera Shot",
+      "description": "Teaches Chimera Shot, a shot that refreshes your Sting as it strikes.",
+      "node_type": "active",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "unlock_ability": "hunter_chimera_shot"
+      },
+      "_source": "WotLK row 10, the capstone, kept - the ONLY unlock for hunter_chimera_shot, which is requires_talent.",
+      "connected_to": [
+        "hunter_marksmanship_marked_for_death"
+      ]
     }
   ]
 }

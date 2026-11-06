@@ -1,7 +1,7 @@
 {
   "spec_name": "Hunter Beast Mastery",
   "tree_id": "hunter_beast_mastery",
-  "description": "Bonded with the wild, drawing power from a savage companion.",
+  "description": "The bond with the beast - your pet as the sharper half of the pair.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,25 +15,7 @@
     {
       "talent_id": "hunter_beast_mastery_improved_aspect_of_the_hawk",
       "name": "Improved Aspect of the Hawk",
-      "description": "Increases the duration of Aspect of the Hawk by 1 turn and the strength of its bonuses by 8% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "ability_hunter_aspect_of_the_hawk_duration": 1,
-        "ability_hunter_aspect_of_the_hawk_potency": 0.08
-      },
-      "connected_to": [
-        "hunter_beast_mastery_thick_hide"
-      ]
-    },
-    {
-      "talent_id": "hunter_beast_mastery_endurance_training",
-      "name": "Endurance Training",
-      "description": "Increases your Stamina by 2 per rank.",
+      "description": "Increases the effect of your Aspect of the Hawk by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -41,59 +23,50 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "stamina": 2
+        "ability_hunter_aspect_of_the_hawk_potency": 0.1
       },
-      "connected_to": [
-        "hunter_beast_mastery_unleashed_fury"
-      ]
+      "_source": "WotLK row 0: 'While Aspect of the Hawk is active, all normal ranged attacks have a 2%-10% chance of increasing ranged attack speed by 15% for 8 sec.' DEPARTURE - a talent cannot attach a proc that is conditional on another buff being active, because nothing reads whether the ACTOR carries a specific effect. Delivered as the aspect simply being better. ability_<id>_potency scales its own stat_mods. Kept from the outgoing tree, which used _duration instead.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "hunter_beast_mastery_endurance_training",
+      "name": "Endurance Training",
+      "description": "Increases your pet's health by 2% per rank and your own by 1% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -6,
+      "effects": {
+        "pet_health": 0.02,
+        "max_health_pct": 0.01
+      },
+      "_source": "WotLK row 0, built verbatim with both halves: 'Increases the health of your pet by 2%-10% and your total health by 1%-5%.' pet_health is a FRACTION read at pet.py:143 - one of only three pet keys that work. The outgoing version granted FLAT stamina, which is neither half and is also not a valid STAT_CONVERSION_TARGET.",
+      "connected_to": []
     },
     {
       "talent_id": "hunter_beast_mastery_focused_fire",
       "name": "Focused Fire",
-      "description": "Your Steady Shot and Arcane Shot casts have a 50% chance per rank to strike for an additional 12% damage.",
+      "description": "Increases all your damage by 2% per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_improved_mend_pet"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 50,
-        "icd": 0,
-        "ability_filter": [
-          "hunter_steady_shot",
-          "hunter_arcane_shot"
-        ],
-        "bonus_pct": 0.12
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_improved_revive_pet",
-      "name": "Improved Revive Pet",
-      "description": "Reduces the cooldown of Revive Pet by 1 turn and increases the health it restores by 25% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
+      "hex_x": -5,
+      "hex_y": -4,
       "effects": {
-        "ability_hunter_revive_pet_cooldown": 1,
-        "ability_hunter_revive_pet_healing": 0.25
+        "all_damage": 0.02
       },
+      "_source": "WotLK row 1: 'All damage caused by you is increased by 1%/2% while your pet is active.' DEPARTURE on the condition only - NOTHING reads whether a pet is currently out - so the damage is unconditional at the real per-rank value. The outgoing node had an EMPTY effects dict and no proc.",
       "connected_to": [
-        "hunter_beast_mastery_ferocity"
+        "hunter_beast_mastery_improved_aspect_of_the_hawk"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_thick_hide",
       "name": "Thick Hide",
-      "description": "Increases your Armor by 2% per rank.",
+      "description": "Increases your pet's armor by 13% per rank and your own by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -101,17 +74,18 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "armor_pct": 2.0
+        "pet_armor": 0.13,
+        "armor_pct": 3.0
       },
+      "_source": "WotLK row 1, built verbatim with both halves: 'Increases the armor rating of your pets by 13%-40% and your armor contribution from items by 3%-10%.' This is the one talent in the whole WotLK data set with NO description in the source file - the text was filled from knowledge and marked as such in data/reference/wotlk_worksheets/hunter.md, so it is the one second-hand line in 741 talents. pet_armor is a FRACTION read at pet.py:146.",
       "connected_to": [
-        "hunter_beast_mastery_improved_aspect_of_the_hawk",
-        "hunter_beast_mastery_bestial_discipline"
+        "hunter_beast_mastery_improved_aspect_of_the_hawk"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_unleashed_fury",
       "name": "Unleashed Fury",
-      "description": "Increases the damage of Steady Shot and Arcane Shot by 4% per rank.",
+      "description": "Increases your pet's damage by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -119,18 +93,17 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_hunter_steady_shot_damage": 0.04,
-        "ability_hunter_arcane_shot_damage": 0.04
+        "pet_damage": 0.03
       },
+      "_source": "WotLK row 1, built verbatim: 'Increases the damage done by your pets by 3%-15%.' pet_damage is a FRACTION read at pet.py:139 and is the single most important key in this tree. The outgoing version granted the HUNTER's Steady Shot damage, which is not this talent at all.",
       "connected_to": [
-        "hunter_beast_mastery_endurance_training",
-        "hunter_beast_mastery_animal_handler"
+        "hunter_beast_mastery_endurance_training"
       ]
     },
     {
-      "talent_id": "hunter_beast_mastery_improved_mend_pet",
-      "name": "Improved Mend Pet",
-      "description": "Increases the healing done by Mend Pet by 15% and its duration by 1 turn per rank.",
+      "talent_id": "hunter_beast_mastery_improved_revive_pet",
+      "name": "Improved Revive Pet",
+      "description": "Reduces the cooldown and cost of your Revive Pet by 1 turn and 20% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -138,40 +111,47 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_hunter_mend_pet_healing": 0.15,
-        "ability_hunter_mend_pet_duration": 1
+        "ability_hunter_revive_pet_cooldown": 1,
+        "ability_hunter_revive_pet_cost_pct": 0.2
       },
+      "_source": "WotLK row 1: 'Revive Pet's casting time is reduced by 3/6 sec, mana cost is reduced by 20%/40%, and increases the health your pet returns with.' No cast times; the cost half is verbatim and the cast-time half becomes cooldown. Kept from the outgoing tree.",
       "connected_to": [
-        "hunter_beast_mastery_focused_fire",
-        "hunter_beast_mastery_frenzy"
+        "hunter_beast_mastery_endurance_training"
       ]
     },
     {
-      "talent_id": "hunter_beast_mastery_ferocity",
-      "name": "Ferocity",
-      "description": "Your ranged attacks have a 4% chance per rank to let your beast strike alongside you for an immediate additional attack. This cannot happen more than once per turn.",
+      "talent_id": "hunter_beast_mastery_spirit_bond",
+      "name": "Spirit Bond",
+      "description": "You and your pet regenerate health over time.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
+      "tier": 2,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -5,
+      "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2: 'While your pet is active, you and your pet will regenerate 1%/2% of total health every 10 sec., and increases healing done to you and your pet.' DEPARTURE - nothing reads whether a pet is active, and a talent effect cannot reach the PET either (the pet reads only the three scaling keys from its owner). Delivered as a self-hot every third turn. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_beast_mastery_improved_revive_pet",
-        "hunter_beast_mastery_spirit_bond"
+        "hunter_beast_mastery_focused_fire"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 4,
-        "icd": 1,
-        "extra_attack": 1
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "spirit_bond",
+          "name": "Spirit Bond",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 30,
+          "on_target": false
+        }
       }
     },
     {
-      "talent_id": "hunter_beast_mastery_bestial_discipline",
-      "name": "Bestial Discipline",
-      "description": "Reduces the Mana cost of Steady Shot and Multi-Shot by 4 per rank.",
+      "talent_id": "hunter_beast_mastery_improved_mend_pet",
+      "name": "Improved Mend Pet",
+      "description": "Increases the healing of your Mend Pet by 10% per rank and reduces its cost by 20% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -179,393 +159,274 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_hunter_steady_shot_cost": 4,
-        "ability_hunter_multi_shot_cost": 4
+        "ability_hunter_mend_pet_healing": 0.1,
+        "ability_hunter_mend_pet_cost_pct": 0.2
       },
+      "_source": "WotLK row 2: 'Reduces the mana cost of your Mend Pet spell by 10%/20% and gives it a 50% chance of cleansing one effect.' The cost half is verbatim; there is no dispel chance to add. USES _healing, not _damage - Mend Pet is a heal. Kept from the outgoing tree.",
       "connected_to": [
-        "hunter_beast_mastery_thick_hide",
-        "hunter_beast_mastery_longevity"
+        "hunter_beast_mastery_thick_hide"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_ferocity",
+      "name": "Ferocity",
+      "description": "Increases your pet's damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.02
+      },
+      "_source": "WotLK row 2: 'Increases the critical strike chance of your pet by 2%-10%.' DEPARTURE - pet_crit IS DEAD DATA. Probed: it reaches the talent bus and has zero read sites, and entities/pet.py reads only pet_damage, pet_health and pet_armor from its owner. A pet's crit chance cannot be raised at all, so the talent delivers the same thing crit delivers - more pet damage. Stacks with Unleashed Fury. It is Frenzy's prerequisite, preserved below. The outgoing node had an EMPTY effects dict.",
+      "connected_to": [
+        "hunter_beast_mastery_unleashed_fury"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_bestial_discipline",
+      "name": "Bestial Discipline",
+      "description": "Increases your pet's damage by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -2,
+      "effects": {
+        "pet_damage": 0.03
+      },
+      "_source": "WotLK row 2: 'Increases the Focus regeneration of your pets by 50%/100%.' DEPARTURE - pets have NO RESOURCE in this engine. There is no Focus, nothing to regenerate and no key for it. A pet with more Focus attacks more, so it is delivered as pet damage. The outgoing version reduced the HUNTER's Steady Shot cost.",
+      "connected_to": [
+        "hunter_beast_mastery_improved_revive_pet"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_animal_handler",
       "name": "Animal Handler",
-      "description": "Increases your chance to hit by 1.5% per rank.",
+      "description": "Increases your pet's damage by 5% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": -3,
+      "hex_y": 0,
       "effects": {
-        "hit_rating": 1.5
+        "pet_damage": 0.05
       },
+      "_source": "WotLK row 3: 'Increases your pet's attack power by 5%/10%, and increases the duration of your Master's Call effect.' There is no pet_attack_power key - the pet scales off pet_damage - and no Master's Call. pet_damage at the real per-rank value is the faithful translation. The outgoing version granted the HUNTER flat hit_rating.",
       "connected_to": [
-        "hunter_beast_mastery_unleashed_fury",
-        "hunter_beast_mastery_bestial_wrath"
+        "hunter_beast_mastery_spirit_bond"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_frenzy",
       "name": "Frenzy",
-      "description": "Your critical strikes have a 20% chance per rank to send you into a Frenzy, granting 15 Haste for 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_improved_mend_pet",
-        "hunter_beast_mastery_catlike_reflexes"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "hunter_frenzy",
-          "name": "Frenzy",
-          "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "haste": 15.0
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_spirit_bond",
-      "name": "Spirit Bond",
-      "description": "Each ability you use has a 50% chance per rank to draw on the bond with your beast, healing you for 45. This cannot happen more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_ferocity",
-        "hunter_beast_mastery_serpents_swiftness"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 50,
-        "icd": 2,
-        "heal_flat": 45
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_bestial_wrath",
-      "name": "Bestial Wrath",
-      "description": "Killing an enemy sends your beast into a wrath, granting 20% increased damage dealt and 20 Haste for 3 turns and restoring 100 Mana.",
+      "description": "Increases your pet's damage by 4% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 0,
-      "effects": {},
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "_source": "WotLK row 3: 'Gives your pet a 20%-100% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.' DEPARTURE, and the clearest statement of this tree's problem: PETS NEVER FIRE PROCS. There is no fire_proc_trigger in entities/pet.py at all, so no pet event can drive anything, and pet_haste is dead data besides. Both halves of the real talent are unbuildable. Delivered as pet damage. The real talent requires Ferocity, which connected_to reproduces. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "hunter_beast_mastery_animal_handler",
-        "hunter_beast_mastery_the_beast_within"
-      ],
-      "proc": {
-        "trigger": "on_kill",
-        "chance": 100,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 100
-        },
-        "apply_effect": {
-          "effect_id": "hunter_bestial_wrath",
-          "name": "Bestial Wrath",
-          "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "damage_dealt_pct": 20.0,
-            "haste": 20.0
-          },
-          "on_target": false
-        }
-      }
+        "hunter_beast_mastery_ferocity"
+      ]
     },
     {
       "talent_id": "hunter_beast_mastery_catlike_reflexes",
       "name": "Catlike Reflexes",
-      "description": "Being struck has a 10% chance per rank to sharpen your reflexes, granting 15 Dodge and 15 Parry for 2 turns.",
+      "description": "Increases your dodge by 1% per rank and your pet's armor by 3% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {},
+      "effects": {
+        "dodge": 1.0,
+        "pet_armor": 0.03
+      },
+      "_source": "WotLK row 3, built with both halves: 'Increases your chance to dodge by 1%/2%/3% and your pet's chance to dodge by an additional 3%-9%.' There is no pet dodge key, so the pet half becomes armour, which is the pet's only real defensive knob. dodge is PERCENTAGE POINTS and pet_armor is a FRACTION - mixed conventions on one node. The outgoing node was a proc with an empty effects dict.",
       "connected_to": [
-        "hunter_beast_mastery_frenzy",
-        "hunter_beast_mastery_cobra_strikes"
+        "hunter_beast_mastery_bestial_discipline"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_ferocious_inspiration",
+      "name": "Ferocious Inspiration",
+      "description": "Increases all your damage by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "all_damage": 0.01
+      },
+      "_source": "WotLK row 4: 'All party and raid members have all damage increased by 1%/2%/3% within 100 yards of your pet.' DEPARTURE - A TALENT EFFECT CAN NEVER REACH AN ALLY, and nothing reads a pet's position or presence. The real per-rank value applies to the hunter alone. It is Invigoration's prerequisite, preserved below.",
+      "connected_to": [
+        "hunter_beast_mastery_animal_handler"
+      ]
+    },
+    {
+      "talent_id": "hunter_beast_mastery_invigoration",
+      "name": "Invigoration",
+      "description": "Your critical strikes restore 100 mana.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4: 'When your pet scores a critical hit with a special ability, you have a 50%/100% chance to instantly regenerate 10% of your total mana.' DEPARTURE on the trigger - PETS NEVER FIRE PROCS, so a pet's crit cannot be detected. It fires on the HUNTER's crit instead. grant_resource takes a FLAT amount with no pct_max, so 100 stands in for 10% of the pool. The real talent requires Ferocious Inspiration, reproduced. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "hunter_beast_mastery_ferocious_inspiration"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 10,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "hunter_catlike_reflexes",
-          "name": "Catlike Reflexes",
-          "effect_type": "buff",
-          "duration": 2,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "dodge": 15.0,
-            "parry": 15.0
-          },
-          "on_target": false
+        "trigger": "on_crit",
+        "chance": 50,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 100
         }
       }
     },
     {
       "talent_id": "hunter_beast_mastery_serpents_swiftness",
       "name": "Serpent's Swiftness",
-      "description": "Increases the critical strike chance of Steady Shot and Multi-Shot by 2% per rank.",
+      "description": "Increases your haste by 4% per rank and your pet's damage by 4% per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": 1,
+      "hex_y": 2,
       "effects": {
-        "ability_hunter_steady_shot_crit": 2.0,
-        "ability_hunter_multi_shot_crit": 2.0
+        "haste": 4.0,
+        "pet_damage": 0.04
       },
+      "_source": "WotLK row 4, built with both halves: 'Increases ranged combat attack speed by 4%-20% and your pet's melee attack speed by 4%-20%.' The hunter half is real haste; the pet half has no key (pet_haste is DEAD DATA, probed) so it becomes pet damage, which is what faster attacks deliver. It is Cobra Strikes' prerequisite, preserved below. The outgoing version granted the HUNTER crit on two shots.",
       "connected_to": [
-        "hunter_beast_mastery_spirit_bond",
-        "hunter_beast_mastery_kindred_spirits"
+        "hunter_beast_mastery_catlike_reflexes"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_longevity",
       "name": "Longevity",
-      "description": "Reduces the cooldown of Aspect of the Hawk and Aspect of the Wild by 1 turn per rank.",
+      "description": "Reduces the cooldown of your Aspect of the Hawk and Aspect of the Wild by 1 turn per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": 0,
+      "hex_y": 4,
       "effects": {
         "ability_hunter_aspect_of_the_hawk_cooldown": 1,
         "ability_hunter_aspect_of_the_wild_cooldown": 1
       },
+      "_source": "WotLK row 5: 'Reduces the cooldown of your Bestial Wrath, Intimidation and Pet Special Abilities by 10%/20%/30%.' DEPARTURE - none of those three exist, and pets have no special abilities with cooldowns for a talent to touch. The two Aspects are this tree's real cooldowns, so the reduction lands there. Kept from the outgoing tree.",
       "connected_to": [
-        "hunter_beast_mastery_bestial_discipline"
+        "hunter_beast_mastery_ferocious_inspiration"
       ]
     },
     {
       "talent_id": "hunter_beast_mastery_the_beast_within",
       "name": "The Beast Within",
-      "description": "Being struck rouses the beast within, granting 60 Attack Power and reducing physical and magic damage you take by 10% for 3 turns. This cannot happen more than once every 3 turns.",
+      "description": "Increases all your damage by 10%.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_bestial_wrath",
-        "hunter_beast_mastery_invigoration"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 100,
-        "icd": 3,
-        "apply_effect": {
-          "effect_id": "hunter_the_beast_within",
-          "name": "The Beast Within",
-          "effect_type": "buff",
-          "duration": 3,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "attack_power": 60,
-            "physical_damage_taken_pct": -10.0,
-            "magic_damage_taken_pct": -10.0
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_cobra_strikes",
-      "name": "Cobra Strikes",
-      "description": "Your Arcane Shot and Multi-Shot casts have a 15% chance per rank to grant Cobra Strikes, adding 20% critical strike chance for 2 turns.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_catlike_reflexes",
-        "hunter_beast_mastery_beast_mastery"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 1,
-        "ability_filter": [
-          "hunter_arcane_shot",
-          "hunter_multi_shot"
-        ],
-        "apply_effect": {
-          "effect_id": "hunter_cobra_strikes",
-          "name": "Cobra Strikes",
-          "effect_type": "buff",
-          "duration": 2,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "crit_chance_physical": 20.0
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_kindred_spirits",
-      "name": "Kindred Spirits",
-      "description": "Increases the damage of your ranged attacks by 5% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
+      "hex_y": 4,
       "effects": {
-        "ability_hunter_attack_damage": 0.05
+        "all_damage": 0.1
       },
+      "_source": "WotLK row 5: 'Increases all damage you deal by 10% and while your pet is under the effects of Bestial Wrath, you also go into a rage.' The 10% is REAL AND EXACT; the Bestial Wrath clause has no ability to hang on. The real talent requires Bestial Wrath, which does not exist here, so connected_to points at Serpent's Swiftness instead. The outgoing node had an EMPTY effects dict - 1 point for nothing.",
       "connected_to": [
         "hunter_beast_mastery_serpents_swiftness"
       ]
     },
     {
-      "talent_id": "hunter_beast_mastery_invigoration",
-      "name": "Invigoration",
-      "description": "Your critical strikes have a 25% chance per rank to restore 80 Mana. This cannot happen more than once per turn.",
+      "talent_id": "hunter_beast_mastery_kindred_spirits",
+      "name": "Kindred Spirits",
+      "description": "Increases your pet's damage by 4% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 1,
       "hex_y": 4,
-      "effects": {},
+      "effects": {
+        "pet_damage": 0.04
+      },
+      "_source": "WotLK row 5: 'Increases your pet's damage by 4%-20% and you and your pet's movement speed by 10% while your pet is active.' The damage half is built verbatim; there is no movement speed. The outgoing version granted the HUNTER's auto-attack damage.",
       "connected_to": [
-        "hunter_beast_mastery_the_beast_within",
-        "hunter_beast_mastery_marked_for_death"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 80
-        }
-      }
+        "hunter_beast_mastery_catlike_reflexes"
+      ]
     },
     {
-      "talent_id": "hunter_beast_mastery_beast_mastery",
-      "name": "Beast Mastery",
-      "description": "Your ranged attacks have a 10% chance per rank to let your beast savage the wound, dealing an additional 40% damage.",
+      "talent_id": "hunter_beast_mastery_cobra_strikes",
+      "name": "Cobra Strikes",
+      "description": "Your critical strikes have a 20% chance per rank to raise your pet's ferocity, increasing its damage for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'You have a 20%-60% chance when you critically hit with Arcane Shot, Steady Shot or Kill Shot to cause your pet's next 2 special attacks to critically hit.' DEPARTURE - a talent effect cannot reach the PET (it reads only pet_damage/health/armor from its owner) and pet crit is dead data besides, so the buff lands on the HUNTER. The trigger and chance curve are real. NOTE the stat_mod is damage_dealt_pct in PERCENTAGE POINTS: all_damage would be SILENT DEAD DATA inside a status effect. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "hunter_beast_mastery_cobra_strikes",
-        "hunter_beast_mastery_bm_mastery"
-      ],
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 10,
-        "icd": 0,
-        "bonus_pct": 0.4
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_marked_for_death",
-      "name": "Marked for Death",
-      "description": "Increases the damage of Steady Shot by 20%. Your Steady Shot also marks its target, stripping 150 Armor for 4 turns. The mark cannot be reapplied more than once every 2 turns.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "ability_hunter_steady_shot_damage": 0.2
-      },
-      "connected_to": [
-        "hunter_beast_mastery_invigoration"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 2,
-        "ability_filter": [
-          "hunter_steady_shot"
-        ],
-        "apply_effect": {
-          "effect_id": "hunter_marked_for_death",
-          "name": "Marked for Death",
-          "effect_type": "debuff",
-          "duration": 4,
-          "real_time_seconds": null,
-          "stat_mods": {
-            "armor": -40
-          },
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "hunter_beast_mastery_bm_mastery",
-      "name": "Ferocious Inspiration",
-      "description": "Your critical strikes inspire the pack, increasing damage you deal by 10% for 4 turns. This cannot happen more than once per turn.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "hunter_beast_mastery_beast_mastery"
+        "hunter_beast_mastery_serpents_swiftness"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 100,
-        "icd": 1,
+        "chance": 20,
+        "icd": 0,
         "apply_effect": {
-          "effect_id": "hunter_ferocious_inspiration",
-          "name": "Ferocious Inspiration",
+          "effect_id": "cobra_strikes",
+          "name": "Cobra Strikes",
           "effect_type": "buff",
-          "duration": 4,
-          "real_time_seconds": null,
+          "duration": 3,
           "stat_mods": {
             "damage_dealt_pct": 10.0
           },
           "on_target": false
         }
       }
+    },
+    {
+      "talent_id": "hunter_beast_mastery_marked_for_death",
+      "name": "Marked for Death",
+      "description": "Increases the damage of your shots by 5% and your pet's damage by 5%.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {
+        "ability_hunter_steady_shot_damage": 0.05,
+        "ability_hunter_arcane_shot_damage": 0.05,
+        "ability_hunter_aimed_shot_damage": 0.05,
+        "ability_hunter_multi_shot_damage": 0.05,
+        "pet_damage": 0.05
+      },
+      "_source": "Real 3.3.5a's Beast Mastery capstone is Beast Mastery itself - 'teaches you to tame Exotic pets and increases your pet's total damage' - and taming exotic pets has no mechanism here at all, so that half is unbuildable. Marked for Death is a real MARKSMANSHIP talent (row 9) whose wording fits what is left ('increases your damage done by your shots and the damage done by your pet's special abilities by 5%'), so it takes the capstone slot. Recorded as a deliberate cross-tree borrow rather than an invention. The outgoing tree had Marked for Death here too, as a proc.",
+      "connected_to": [
+        "hunter_beast_mastery_kindred_spirits"
+      ]
     }
   ]
 }
