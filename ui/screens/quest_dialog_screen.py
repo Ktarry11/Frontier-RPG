@@ -1029,7 +1029,17 @@ class QuestDialogScreen(BaseScreen):
                     pretty = pretty.title()
                 out.append(f"Scout {pretty}.")
             elif kind == "dialogue":
-                out.append(f"Speak with {name}.")
+                # EVERY dialogue objective in the game (50 of them) is
+                # stored with no target - the conversation is with the
+                # quest giver, so the data never bothered to name him.
+                # The generic fallback therefore rendered the nonsense
+                # line "Speak with the objective." on all 50. Name the
+                # NPC whose panel this is instead.
+                who = name
+                if not target:
+                    who = (getattr(getattr(self, "npc", None), "name", None)
+                           or "the quest giver")
+                out.append(f"Speak with {who}.")
             else:
                 out.append(f"{str(kind).replace('_', ' ').title()}: {name}.")
         return out
