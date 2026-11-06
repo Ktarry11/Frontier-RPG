@@ -45,6 +45,23 @@ def load_zone(zone):
     return path, raw, [it for it in items if isinstance(it, dict)]
 
 
+def load_overlay(zone, quest_ids):
+    """The text overlay this zone's quests actually read from.
+
+    A quest's overlay entry does not have to live in the file named after
+    its own zone - every Barrens hub quest sits in central_barrens.json,
+    northern_barrens.json or southern_barrens.json - so the right file is
+    found by looking for the quest ids, not by name."""
+    tdir = ROOT / "data/quests/text"
+    tdir.mkdir(parents=True, exist_ok=True)
+    for cand in sorted(tdir.glob("*.json")):
+        data = json.loads(cand.read_text())
+        if any(qid in data for qid in quest_ids):
+            return cand, data
+    cand = tdir / f"{zone}.json"
+    return cand, (json.loads(cand.read_text()) if cand.exists() else {})
+
+
 def counts_for(quest):
     out = set()
     for obj in quest.get("objectives") or []:
@@ -128,6 +145,7 @@ def main():
     path, raw, items = load_zone(args.zone)
     by_id = {it["quest_id"]: it for it in items}
     patch = json.loads(Path(args.patch).read_text())
+    opath, overlay = load_overlay(args.zone, set(patch))
 
     missing = [q for q in patch if q not in by_id]
     if missing:
@@ -154,6 +172,21 @@ def main():
             if quest.get(fname) != text:
                 quest[fname] = text
                 changed += 1
+            # THE OVERLAY IS WHAT THE PLAYER READS. QuestManager loads the
+            # zone files and then OVERWRITES title/description/accept_text/
+            # turn_in_text from data/quests/text/*.json for any quest listed
+            # there (see world/quest_manager.py, "Writing lives here (not in
+            # the generated zone files) so re-running a tools/build_*_quests
+            # .py never reverts a rewrite").
+            #
+            # This tool wrote only the zone file, so every rewrite applied
+            # through it was invisible in game for the 653 quests that have
+            # an overlay entry - 637 quests across the Barrens, Tirisfal,
+            # Silverpine, Ashenvale, the dungeon files, Undercity and the
+            # Sepulcher were rewritten and never shown. Writing BOTH keeps
+            # the zone file readable as the source of truth while making
+            # sure the text actually reaches the player.
+            overlay.setdefault(qid, {})[fname] = text
 
     if problems:
         print(f"  REFUSED: {len(problems)} problem(s), nothing written:")
@@ -165,7 +198,9 @@ def main():
           f"{'would change' if args.dry_run else 'updated'}")
     if not args.dry_run:
         path.write_text(json.dumps(raw, indent=2, ensure_ascii=False) + "\n")
+        opath.write_text(json.dumps(overlay, indent=2, ensure_ascii=False) + "\n")
         print(f"  wrote {path}")
+        print(f"  wrote {opath}  <- this is the layer the player reads")
     return 0
 
 
