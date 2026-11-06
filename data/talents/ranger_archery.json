@@ -1,8 +1,8 @@
 {
   "spec_name": "Ranger Archery",
   "tree_id": "ranger_archery",
-  "description": "Pure ranged damage. Quick Shot and Hunting Shot bank Archery Points, Precision Shot and Skullpiercer spend them, and Deadshot finishes. No auras, no party buffs, no healing anywhere in the tree.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_ranger__archery.txt: 'Closest to retail Marksmanship Hunter ... Despite the class name, judge it as a pure MM-Hunter DPS spec.' The thing to respect about this spec is what it does NOT have: CoA is explicit that there is 'no party-buff or support layer at all here. No auras, no haste or crit sharing, no healing whatsoever', and 'No heal anywhere in the spec: no shield, no HoT, no proc-heal. You live on positioning.' So this tree has no ally effect and no healing node of any kind, which is deliberate and is why it is the only one of the three without one. Its stat priority (Hit > Agility > Crit > Armor Penetration > Haste) is why Devastating Shots carries hit rating and Corrosive Poison carries armor penetration.",
+  "description": "Bow discipline - long shots, open wounds, and a finisher that only works on the dying.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 35 real CoA Archery talents (role DPS). CoA's Focus is our archery_points, Ranger's PRIMARY resource with five generators, so every Focus talent ports. CoA's Advantage is a stack count and nothing reads one, so ten talents lose that scaling. The execute pair ports verbatim: Deadshot already carries execute_threshold_pct 20 and Silent, But Deadly is the bypass_execute_threshold proc. This tree owns low_health_threshold_pct for the class, at CoA's 20%.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,344 +14,306 @@
   },
   "nodes": [
     {
-      "talent_id": "ranger_archery_boots_of_elvenkind",
-      "name": "Boots of Elvenkind",
-      "description": "Increases your Agility by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "agility_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Agility by 5% and reduces the duration of movement slowing effects on you by -20%'. Movement slows are not a thing in a turn engine, so the node is the Agility half. agility_pct is percentage POINTS."
-    },
-    {
       "talent_id": "ranger_archery_devastating_shots",
       "name": "Devastating Shots",
-      "description": "Increases your critical strike chance by 1% and your hit rating by 1 per rank.",
+      "description": "Increases your critical strike chance by 4% and your hit chance by 2%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "hit_rating": 1
+        "crit_chance_physical": 1.3333,
+        "hit_rating": 0.6667
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your critical strike chance by 2% and your hit chance by 1%'. Matches the spec's stat priority, which opens with 'Hit Rating (until your specials stop missing a +3-level target)' and then Agility and Crit."
-    },
-    {
-      "talent_id": "ranger_archery_studded_arrows",
-      "name": "Studded Arrows",
-      "description": "Increases the damage of Quick Shot by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_ranger_quick_shot_damage": 0.05
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the ranged weapon damage dealt by Quick Shot by 10%'. ability_<id>_<stat> keys are built by interpolation in abilities.py, so a literal grep of the engine calls them dead."
+      "connected_to": [
+        "ranger_archery_improved_serrated_shot"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your critical strike chance by 2% and your hit chance by 1%.' PORTS EXACTLY, doubled for the two ranks. Both keys are PERCENTAGE POINTS. Was a pure scalar on our side, and in this one case that is what CoA wrote too."
     },
     {
       "talent_id": "ranger_archery_improved_serrated_shot",
       "name": "Improved Serrated Shot",
-      "description": "Increases the damage of Serrated Shot by 6% per rank.",
+      "description": "Increases the damage of Serrated Shot by 30% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_serrated_shot_damage": 0.06
+        "ability_ranger_serrated_shot_damage": 0.3,
+        "ability_ranger_serrated_shot_duration": 2
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Serrated Shot by 30%'."
+      "connected_to": [
+        "ranger_archery_studded_arrows",
+        "ranger_archery_superb_shot"
+      ],
+      "_source": "CoA: 'Increases the damage of Serrated Shot by 30%.' The damage ports exactly. The duration is added from CoA's A Quick Demise ('Auto shots have a 20% chance to extend Serrated Shot by 2 sec'), whose proc form cannot be built - no payload extends a LIVE effect's duration - but whose intent lands as a flat extension. THAT IS A REAL DAMAGE INCREASE on a dot, not a dilution: abilities.py:2777 derives per-turn damage from the ability's OWN base duration, so a talent extension adds TICKS at full value. Serrated Shot goes 3 -> 5 turns. SMALL INTEGER IN TURNS, so talent_ranks.spread() refuses to rank this node."
     },
     {
-      "talent_id": "ranger_archery_archery_master",
-      "name": "Archery Master",
-      "description": "Your critical strikes have a 20% chance per rank to bank 5 Archery Points.",
+      "talent_id": "ranger_archery_studded_arrows",
+      "name": "Studded Arrows",
+      "description": "Increases the damage of Quick Shot by 20% and of Skullpiercer by 15%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "ranger_archery_boots_of_elvenkind"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "archery_points",
-          "amount": 5
-        }
-      },
-      "_source": "CoA: 'Critical strikes with Quick Shot now generate an additional stack of Advantage', and 'Advantage generation through Archery Master and Hunting Shot depends on crits and hits landing'. Unfiltered rather than Quick-Shot-only because a crit proc that can only fire off the free filler would be worth almost nothing once the rotation moves to spenders."
-    },
-    {
-      "talent_id": "ranger_archery_new_age_archery",
-      "name": "New-Age Archery",
-      "description": "Increases the damage of Precision Shot and Skullpiercer by 5% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": 0,
+      "hex_y": -6,
       "effects": {
-        "ability_ranger_precision_shot_damage": 0.05,
+        "ability_ranger_quick_shot_damage": 0.0667,
         "ability_ranger_skullpiercer_damage": 0.05
-      },
-      "connected_to": [
-        "ranger_archery_devastating_shots"
-      ],
-      "_source": "CoA: 'Increases the damage of Skullpiercer and Precision Shot by 20%'. The two spenders the whole rotation funnels into, so this is the tree's largest single node."
-    },
-    {
-      "talent_id": "ranger_archery_lethal_wounds",
-      "name": "Lethal Wounds",
-      "description": "Increases the damage of your periodic effects by 4% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "dot_damage": 0.04
-      },
-      "connected_to": [
-        "ranger_archery_studded_arrows"
-      ],
-      "_source": "CoA: 'Increases the tick rate of your periodic damage effects by -20%'. Tick rate is fixed at one tick per turn here, so faster ticks become more damage per tick, which is the same total. dot_damage rather than bleed_dot_damage: the flavour keys only apply when the ability_id contains 'bleed' or 'poison'."
-    },
-    {
-      "talent_id": "ranger_archery_superb_shot",
-      "name": "Superb Shot",
-      "description": "Your Attack and Quick Shot have a 34% chance per rank to bank 3 Archery Points.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "ranger_archery_improved_serrated_shot"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "archery_points",
-          "amount": 3
-        },
-        "ability_filter": [
-          "ranger_attack",
-          "ranger_quick_shot"
-        ]
-      },
-      "_source": "CoA: 'Damage dealt by Auto Shot now restores 4 Focus', and 'Lean on Sniper's Focus and Superb Shot to keep Focus flowing rather than sitting to regen'. There is no auto-shot step in this engine, so ability_filter pins it to the two free attacks, which is what Auto Shot is here."
-    },
-    {
-      "talent_id": "ranger_archery_corrosive_poison",
-      "name": "Corrosive Poison",
-      "description": "Increases your armor penetration by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "armor_penetration_pct": 2.0
       },
       "connected_to": [
         "ranger_archery_archery_master"
       ],
-      "_source": "CoA: 'Your ranged abilities against Poisoned targets now ignores 25% of enemy armor', and the spec's stat priority lists Armor Penetration fourth. Unconditional, because no ability can test whether the target is poisoned. armor_penetration_pct is percentage POINTS."
+      "_source": "CoA over 2 ranks: 'Increases the ranged weapon damage dealt by Quick Shot by 10%.' Doubled for the two ranks. Extended to Skullpiercer from CoA's New-Age Archery, so the node covers the spec's two filler shots rather than one. Quick Shot is the biggest Focus generator at 12, so this is the node that pays for the rotation. Was a pure scalar on our side."
     },
     {
-      "talent_id": "ranger_archery_hunting_with_precision",
-      "name": "Hunting with Precision",
-      "description": "Increases the damage of Hunting Shot by 6% and the damage you deal to additional targets by 4% per rank.",
+      "talent_id": "ranger_archery_boots_of_elvenkind",
+      "name": "Boots of Elvenkind",
+      "description": "Increases your Agility by 10% and your ranged attack power by 20% of your Agility.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 2,
+      "hex_y": -6,
       "effects": {
-        "ability_ranger_hunting_shot_damage": 0.06,
-        "aoe_damage": 0.04
-      },
-      "connected_to": [
-        "ranger_archery_new_age_archery"
-      ],
-      "_source": "CoA: 'Your Hunting Shot now deals 25% increased damage for each subsequent target it ricochets to'. Per-ricochet escalation is not expressible, so it splits into the ability's own damage plus the engine's real aoe_damage key."
-    },
-    {
-      "talent_id": "ranger_archery_pierced",
-      "name": "Pierced",
-      "description": "Your critical strikes have a 25% chance per rank to leave the target bleeding.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "ranger_archery_lethal_wounds"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "ranger_pierced",
-          "name": "Pierced",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 24,
-          "damage_school": "physical",
-          "on_target": true
-        }
-      },
-      "_source": "CoA: 'Critical strikes with Skullpiercer and Precision Shot cause the enemy to bleed for an additional 50% damage of the damage dealt over 4 seconds'. A proc payload cannot be a fraction of the triggering hit AND a DoT at once (bonus_pct is instant damage), so the bleed carries a flat potency."
-    },
-    {
-      "talent_id": "ranger_archery_mortal_shots",
-      "name": "Mortal Shots",
-      "description": "Reduces the cooldown of Crippling Shot by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_ranger_crippling_shot_cooldown": 1
-      },
-      "connected_to": [
-        "ranger_archery_superb_shot"
-      ],
-      "_source": "CoA: 'Reduces the cooldown of Crippling Shot by -4 sec'. Crippling Shot's snare is one of only two pieces of control the spec has, per its own weakness list, so shortening it is a real pick."
-    },
-    {
-      "talent_id": "ranger_archery_opportunist",
-      "name": "Opportunist",
-      "description": "Increases the critical strike chance of Precision Shot by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_ranger_precision_shot_crit": 3.0
-      },
-      "connected_to": [
-        "ranger_archery_corrosive_poison"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of Precision Shot by 50% on enemies above 80% health'. The health condition has no hook, so it is unconditional and smaller. ability_<id>_crit is added straight to crit chance, so it is percentage POINTS."
-    },
-    {
-      "talent_id": "ranger_archery_strike_where_it_hurts",
-      "name": "Strike Where It Hurts",
-      "description": "Increases your critical strike damage by 5% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "crit_damage_physical": 0.05
-      },
-      "connected_to": [
-        "ranger_archery_hunting_with_precision"
-      ],
-      "_source": "CoA: 'Your ability critical strikes now increase the damage the target takes from bleeds by 30%'. A crit that amplifies a separate DoT is not expressible, so the node pays out on the crit itself."
-    },
-    {
-      "talent_id": "ranger_archery_skirmisher",
-      "name": "Skirmisher",
-      "description": "Increases the damage of Toxic Dart by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_ranger_toxic_dart_damage": 0.06
+        "agility_pct": 3.3333,
+        "ranged_ap_from_agility_pct": 0.0667
       },
       "connected_to": [
         "ranger_archery_pierced"
       ],
-      "_source": "CoA: 'Increases the damage and tick rate of Toxic Dart by -30%, but reduces the duration of its damaging effect by -30%'. The trade cancels out in a one-tick-per-turn engine, so only the damage half survives."
+      "_source": "CoA: 'Increases your Agility by 5% and reduces the duration of movement slowing effects on you by -20%.' The Agility ports (doubled, since the second half is dead). Slow-duration reduction has no key: the only duration-reduction the engine reads is stun_duration_reduction_pct, checked solely against is_stun effects (status_effects.py:699), and roots and snares have no mechanic at all. Replaced with CoA's own shared Nimble passive ('ranged haste by 20% of your Agility') re-pointed to ranged attack power, since ranged_ap is in STAT_CONVERSION_TARGETS and agility in SOURCES - a legal pair. agility_pct is PERCENTAGE POINTS (character.py:1266); the conversion key is a FRACTION. Was a pure scalar on our side."
     },
     {
-      "talent_id": "ranger_archery_maximum_power",
-      "name": "Maximum Power",
-      "description": "Skirmish lasts 1 turn longer per rank.",
+      "talent_id": "ranger_archery_superb_shot",
+      "name": "Superb Shot",
+      "description": "Your ranged attacks restore 8 Focus.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_skirmish"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 8
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Auto Shot now restores 4 Focus.' PORTS VERBATIM. archery_points IS CoA's Focus - Ranger's primary pool with five generators - and grant_resource routes through the same gain_resource() those five use, so the cap is respected. 8 rather than 4 because this fires on a swing where CoA's auto shot fires continuously. The `amount` field is FLAT; there is no pct_max field."
+    },
+    {
+      "talent_id": "ranger_archery_archery_master",
+      "name": "Archery Master",
+      "description": "Your critical strikes restore 12 Focus.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_skirmish"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "archery_points",
+          "amount": 12
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Quick Shot now generate an additional stack of Advantage.' CoA scales this off ADVANTAGE STACKS. The stacking effect itself is buildable (max_stacks is honoured) but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped and the node lands on the flat value CoA's typical stack count comes to. Ten Archery talents take this loss. Built as the Focus equivalent instead, which is the pool that actually exists - 12 is what Quick Shot itself generates, so a crit on it now pays double, which is CoA's intent even if the currency differs. Only the Quick-Shot scoping goes (no per-ability proc trigger)."
+    },
+    {
+      "talent_id": "ranger_archery_pierced",
+      "name": "Pierced",
+      "description": "Your critical strikes open a bleed dealing damage over 3 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_serrations"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "pierced",
+          "name": "Pierced",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 26,
+          "damage_school": "physical",
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Skullpiercer and Precision Shot cause the enemy to bleed for an additional 50% damage of the damage dealt over 4 sec.' PORTS ALMOST EXACTLY - only the two-ability scoping goes (no per-ability proc trigger) and the '50% of the damage dealt' becomes a fixed potency, because apply_effect cannot read the triggering hit's amount (only bonus_pct, leech_pct and smart heals do, and none of them apply an effect). 4 sec -> 3 turns. A proc-applied dot carries `potency` as PER-TURN damage, unlike an ability rank's effect_value, which is the TOTAL and gets divided - so 26 here is 26 a turn, 78 over the bleed."
+    },
+    {
+      "talent_id": "ranger_archery_skirmish",
+      "name": "Skirmish",
+      "description": "Increases your critical strike chance by 10% and reduces all your ability costs by 15%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -2,
       "effects": {
-        "ability_ranger_skirmish_duration": 1
+        "crit_chance_physical": 3.3333,
+        "all_ability_cost_pct": 0.05
       },
       "connected_to": [
         "ranger_archery_mortal_shots"
       ],
-      "_source": "CoA: 'Abilities used with 5 stacks of Advantage now refresh the duration of your active Skirmish by 5 sec'. Conditional refresh becomes flat uptime."
+      "_source": "CoA: 'Increases your critical strike chance by 15% and reduces your Focus costs by 25%. Lasts 4 sec for each stack of Advantage.' CoA scales this off ADVANTAGE STACKS. The stacking effect itself is buildable (max_stacks is honoured) but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped and the node lands on the flat value CoA's typical stack count comes to. Ten Archery talents take this loss. Since the duration was the part that scaled, and a self-buff with no readable stack count has no duration to compute, this becomes a flat passive at two-thirds the values - a permanent 10%/15% rather than a burst window. The ranger_skirmish ABILITY still exists separately as a 3-turn crit buff, so the burst form is in the game; this node is its passive floor. all_ability_cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION; crit_chance_physical is percentage points."
     },
     {
-      "talent_id": "ranger_archery_hawkeye",
-      "name": "Hawkeye",
-      "description": "Your shots have a 12% chance per rank to loose a free Quick Shot at your target.",
+      "talent_id": "ranger_archery_serrations",
+      "name": "Serrations",
+      "description": "Increases the damage of your periodic effects by 20%.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "ranger_archery_opportunist"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 12,
-        "icd": 1,
-        "cast_ability": "ranger_quick_shot"
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "dot_damage": 0.0667
       },
-      "_source": "CoA: 'You now fire an arrow every 3 sec at enemies within 30 yds affected by your Hunting Shot'. A timed background arrow has no scheduler here; cast_ability fires the real Quick Shot for free (Ability.use(free=True)), which also means it banks its Archery Points."
+      "connected_to": [
+        "ranger_archery_strike_where_it_hurts"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your damage against bleeding or Poisoned targets by 5%.' NOTHING READS A TARGET'S DEBUFFS, so the condition cannot be built and a condition that silently never fires is worse than none. Re-pointed to dot_damage, which keeps the node about the same thing - this spec's bleeds and poisons - from the causing side rather than the reading side. Folded in CoA's Lethal Wounds and Razorquills, both of which change 'tick rate': meaningless when a dot ticks exactly once per turn. A FRACTION."
     },
     {
-      "talent_id": "ranger_archery_masterful_archery",
-      "name": "Masterful Archery",
-      "description": "Increases your Physical damage by 2% per rank.",
+      "talent_id": "ranger_archery_mortal_shots",
+      "name": "Mortal Shots",
+      "description": "Reduces the cooldown of Crippling Shot by 40% and of Skullpiercer by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_ranger_crippling_shot_cooldown_pct": 0.1333,
+        "ability_ranger_skullpiercer_cooldown_pct": 0.0833
+      },
+      "connected_to": [
+        "ranger_archery_swiftshot"
+      ],
+      "_source": "CoA: 'Reduces the cooldown of Crippling Shot by -4 sec.' Crippling Shot's cooldown is 4 turns, so -4 sec is about 40% there. Extended to Skullpiercer so the node is not a one-ability pick. *_cooldown_pct keys are FRACTIONS and POSITIVE MEANS A REDUCTION - the opposite sign convention from most of this file; talented_cooldown floors at 1 turn. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "ranger_archery_swiftshot",
+      "name": "Swiftshot",
+      "description": "Your ranged attacks have a 30% chance to leave the target taking 11% more physical damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_hunting_with_precision"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "swiftshot",
+          "name": "Swiftshot",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "physical_damage_taken_pct": 11
+          },
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Precision Shot now increases enemy Physical damage taken by 11% for 10 sec.' PORTS ALMOST EXACTLY; only the Precision-Shot scoping goes (no per-ability proc trigger). 10 sec -> 3 turns, CoA's 11% kept verbatim. CAREFUL: physical_damage_taken_pct is PERCENTAGE POINTS inside a status effect (monster.py:736 divides by 100) where as a TALENT effect it is a fraction - so 11 here is 11%, and 0.11 would have delivered 0.11%."
+    },
+    {
+      "talent_id": "ranger_archery_strike_where_it_hurts",
+      "name": "Strike Where It Hurts",
+      "description": "Your critical strikes increase the damage the target takes from you by 10% for 4 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_silent_but_deadly"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "strike_where_it_hurts",
+          "name": "Strike Where It Hurts",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your ability critical strikes now increase the damage the target takes from bleeds by 30% for 15 sec.' The bleed scoping cannot be built - there is no bleed-specific damage-taken key and bleed_dot_damage is dead data on the caster side - so it becomes a general damage-taken debuff at 10%. 15 sec -> 4 turns. CAREFUL: bare damage_taken_pct is read RAW ON BOTH SIDES (no /100), unlike its physical_ and magic_ siblings, so 0.10 is 10% and authoring 10 would be +1000%. Asserted in main(). Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "ranger_archery_hunting_with_precision",
+      "name": "Hunting with Precision",
+      "description": "Increases the damage of Hunting Shot by 35% and of Precision Shot by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_ranger_hunting_shot_damage": 0.1167,
+        "ability_ranger_precision_shot_damage": 0.0833
+      },
+      "connected_to": [
+        "ranger_archery_maximum_power"
+      ],
+      "_source": "CoA: 'Your Hunting Shot now deals 25% increased damage for each subsequent target it ricochets to.' Nothing counts how many targets an ability hit, so the per-target scaling is dropped and the flat damage raised to 35% to compensate. Extended to Precision Shot from CoA's New-Age Archery. Hunting Shot generates 15 Focus, the most of any Ranger ability. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "ranger_archery_maximum_power",
+      "name": "Maximum Power",
+      "description": "Increases the damage of your ranged abilities by 8% and your critical damage by 20%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -359,35 +321,89 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "physical_damage": 0.02
+        "physical_damage": 0.0267,
+        "crit_damage_physical": 0.0667
       },
       "connected_to": [
-        "ranger_archery_strike_where_it_hurts"
+        "ranger_archery_one_shot_one_kill"
       ],
-      "_source": "CoA: 'While in Elude, gain a stack of Masterful Archery every 2 sec ... Your next Precision Shot now deals 10% increased damage, stacking up to 5 times'. A stacking out-of-combat ramp is not expressible, so it lands flat."
+      "_source": "CoA: 'Abilities used with 5 stacks of Advantage now refresh the duration of your active Skirmish by 5 sec.' Unbuildable three times over: CoA scales this off ADVANTAGE STACKS. The stacking effect itself is buildable (max_stacks is honoured) but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped and the node lands on the flat value CoA's typical stack count comes to. Ten Archery talents take this loss. no payload extends a LIVE effect's duration, and nothing reads whether Skirmish is active. Rebuilt as the flat damage the node is reached for. Folded in CoA's shared Sharpshooter passive ('Adds 25% to the bonuses that your stacks of Advantage provide'), which has nothing to add to. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "ranger_archery_a_quick_demise",
-      "name": "A Quick Demise",
-      "description": "Serrated Shot lasts 1 turn longer per rank.",
+      "talent_id": "ranger_archery_corrosive_poison",
+      "name": "Corrosive Poison",
+      "description": "Increases your armor penetration by 100.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_ranger_serrated_shot_duration": 1
+        "armor_penetration": 33.3333
       },
       "connected_to": [
-        "ranger_archery_skirmisher"
+        "ranger_archery_silent_but_deadly"
       ],
-      "_source": "CoA: 'Auto shots now have a 20% chance to extend the duration of your Serrated Shot by 2 sec'."
+      "_source": "CoA: 'Your ranged abilities against Poisoned targets now ignores 25% of enemy armor.' The condition cannot be built (nothing reads a target's debuffs) and armor_penetration is FLAT rather than proportional, so '25% of enemy armor' has no expressible form - there is no armor_pen_pct key, and inventing one would have been silent. Built as a flat 100 rating, unconditional. armor_penetration IS live (monster.py:659, via _pen_flat). A FLAT RATING, which is why it looks out of place beside this file's fractions. Was a pure scalar on our side."
     },
     {
-      "talent_id": "ranger_archery_sharpshooter",
-      "name": "Sharpshooter",
-      "description": "Grants ranged attack power equal to 3% of your Agility per rank.",
+      "talent_id": "ranger_archery_silent_but_deadly",
+      "name": "Silent, But Deadly",
+      "description": "Your ranged attacks have a 20% chance to let your next Deadshot be used on a target at any health.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "ranger_archery_one_shot_one_kill"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 7,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "silent_but_deadly",
+          "name": "Silent, But Deadly",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "proc": {
+            "bypass_execute_threshold": true
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Direct Physical damage dealt now has an 8% chance to allow you to use Deadshot regardless of the targets health for 8 seconds.' PORTS VERBATIM, which is rare. bypass_execute_threshold is a real proc flag read at abilities.py:1691, and the engine CONSUMES it on use - its own comment calls it 'a single guaranteed-usable window, not a permanent ignore-HP state'. Our Deadshot already carries execute_threshold_pct 20, matching CoA's 'Only usable on enemies below 20% health' exactly. 8 sec -> 3 turns, 8% -> 20% with a 2-turn ICD since a swing is rarer than CoA's continuous auto shots. THE NESTED `proc` INSIDE apply_effect WORKS BUT IS NOT INSPECTED BY THE AUDIT - without it this applies an empty buff and does nothing while passing every check - so main() asserts it. Same shape as Reaper Harvest's Extinction."
+    },
+    {
+      "talent_id": "ranger_archery_one_shot_one_kill",
+      "name": "One Shot, One Kill",
+      "description": "Increases the damage of Deadshot by 75% and your damage against enemies below 20% health by 20%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_ranger_deadshot_damage": 0.25,
+        "low_health_damage_pct": 0.0667,
+        "low_health_threshold_pct": 0.2
+      },
+      "connected_to": [
+        "ranger_archery_pierced_quiver"
+      ],
+      "_source": "CoA: 'Increases the damage of Deadshot by 75%.' PORTS EXACTLY. The conditional half is added using low_health_damage_pct (the key added 6 Nov 2026 for the 48 CoA talents across 18 classes worded that way), and THIS IS THE ONE NODE IN ALL OF RANGER THAT SETS low_health_threshold_pct: that key SUMS across talents, is UNSCALED so rank does not divide it, and a character can spend in several trees of their class. 0.20 is CoA's own Deadshot threshold, so the whole class's execute window matches the ability's gate. Brigand's Marked for Death and Dastardly inherit it rather than setting their own - a second setter would push the window to 40%, and Tinker once shipped two summing to 0.8. main() asserts exactly one setter, and tools/qa_summing_thresholds.py enforces it class-wide. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "ranger_archery_pierced_quiver",
+      "name": "Elven Enchantments",
+      "description": "Increases the damage of your Poison and Searing Quivers by 25% and your periodic damage by a further 10%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -395,53 +411,71 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "ranged_ap_from_agility_pct": 0.03
+        "ability_ranger_poison_quiver_damage": 0.0833,
+        "ability_ranger_searing_quiver_damage": 0.0833,
+        "dot_damage": 0.0333
       },
       "connected_to": [
         "ranger_archery_hawkeye"
       ],
-      "_source": "CoA: 'Adds 25% to the bonuses that your stacks of Advantage provide'. A real <target>_from_<source>_pct conversion, resolved against the shared STAT_CONVERSION_TARGETS/SOURCES maps in character.py. This is the only working way to raise a Ranger's ranged attack power from a talent: there is no ranged_attack_power_pct key, and a flat ranged_attack_power effect is dropped because _recalculate_derived_stats computes that stat from Agility and Strength with no bonus-pool term."
+      "_source": "CoA: 'Increases the damage dealt by your Searing and Poison Quivers by 25%. In addition, dealing damage with Searing or Poison Quiver now grants a stack of Elven Enchantments: cast time of the next Incendiary Shot within 10 sec is reduced by 10% and critical strike chance increased by 10%, stacking 10 times.' The first clause ports exactly. The second fails three ways: there are no cast times, The stacking effect itself is buildable (max_stacks is honoured) but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped and the node lands on the flat value CoA's typical stack count comes to, and nothing reads whether another effect is active. Replaced with dot_damage, since both Quivers are damage-over-time flavours in our data."
     },
     {
-      "talent_id": "ranger_archery_bleeding_edge",
-      "name": "Bleeding Edge",
-      "description": "Increases the damage of your periodic effects by a further 5% per rank.",
+      "talent_id": "ranger_archery_neurotoxin_arrow",
+      "name": "Neurotoxin Arrow",
+      "description": "Increases the damage of Neurotoxin Arrow by 30% and reduces the duration of stuns against you by 25%.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_ranger_neurotoxin_arrow_damage": 0.1,
+        "stun_duration_reduction_pct": 0.0833
+      },
+      "connected_to": [
+        "ranger_archery_devastating_shots"
+      ],
+      "_source": "CoA: 'Shoot at an enemy's throat with a toxin-laced arrow, dealing Nature damage and silencing them for 1 sec. Duration increased by 1 sec per stack of Advantage.' The ability already exists in our data. THERE IS NO SILENCE OR INTERRUPT KEY anywhere in this engine - the same gap that killed Reaper's Sever and Brigand's Throatpunch - and The stacking effect itself is buildable (max_stacks is honoured) but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped and the node lands on the flat value CoA's typical stack count comes to. So the node becomes a damage boost plus the one crowd-control key that IS read: stun_duration_reduction_pct, checked solely against is_stun effects (status_effects.py:699), which inverts CoA's direction but is the only CC mechanic available. BOTH KEYS ARE FRACTIONS - I authored stun_duration_reduction_pct as percentage points on Chronomancer's Timemage and audit_talents caught it as 1000%; there is no way to infer the convention from the name."
+    },
+    {
+      "talent_id": "ranger_archery_masterful_archery",
+      "name": "Masterful Archery",
+      "description": "Your critical strikes increase the damage of your next shots by 10% for 3 turns, stacking up to 5 times.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "dot_damage": 0.05
-      },
+      "hex_y": 2,
+      "effects": {},
       "connected_to": [
-        "ranger_archery_masterful_archery"
+        "ranger_archery_silent_but_deadly"
       ],
-      "_source": "CoA: 'Allows the periodic damage dealt by Serrated Shot to critically strike'. DoTs cannot crit in this engine - _apply_effect's dot branch rolls no crit - so the node pays the average of that crit chance as flat DoT damage instead."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "masterful_archery",
+          "name": "Masterful Archery",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 10
+          },
+          "max_stacks": 5,
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'While in Elude, gain a stack of Masterful Archery every 2 sec. Your next Precision Shot now deals 10% increased damage for 10 seconds, stacking up to 5 times.' The trigger fails twice - nothing reads whether Elude is active, and there is no periodic or tick trigger to accrue stacks on a timer - so it moves to on_crit, which this tree already keys off four times. CoA's 5 stacks and 10% are kept verbatim and genuinely stack; only READING the count is impossible, which is why the buff is general damage rather than Precision-Shot-specific (a status effect cannot carry a per-ability key). 10 sec -> 3 turns. damage_dealt_pct is PERCENTAGE POINTS inside a status effect."
     },
     {
-      "talent_id": "ranger_archery_one_shot_one_kill",
-      "name": "One Shot, One Kill",
-      "description": "Increases the damage of Deadshot by 10% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "ability_ranger_deadshot_damage": 0.1
-      },
-      "connected_to": [
-        "ranger_archery_a_quick_demise"
-      ],
-      "_source": "CoA: 'Increases the damage of Deadshot by 75%'."
-    },
-    {
-      "talent_id": "ranger_archery_silent_but_deadly",
-      "name": "Silent, But Deadly",
-      "description": "Your Physical damage has an 8% chance to let you fire Deadshot at a target of any health for 2 turns, and your Physical damage is increased by 8%.",
+      "talent_id": "ranger_archery_hawkeye",
+      "name": "Hawkeye",
+      "description": "Your ranged attacks have a 35% chance to fire a second Quick Shot, and your periodic damage is increased by 20%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -449,30 +483,16 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "physical_damage": 0.08
+        "dot_damage": 0.2
       },
-      "connected_to": [
-        "ranger_archery_sharpshooter",
-        "ranger_archery_bleeding_edge",
-        "ranger_archery_one_shot_one_kill"
-      ],
+      "connected_to": [],
       "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 8,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "ranger_silent_but_deadly",
-          "name": "Silent, But Deadly",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {},
-          "on_target": false,
-          "proc": {
-            "bypass_execute_threshold": true
-          }
-        }
+        "trigger": "on_weapon_swing",
+        "chance": 35,
+        "icd": 1,
+        "cast_ability": "ranger_quick_shot"
       },
-      "_source": "Capstone. CoA: 'Direct Physical damage dealt now has an 8% chance to allow you to use Deadshot regardless of the targets health for 8 seconds', and 'Finish with the sub-20%-HP execute Deadshot, which Silent, But Deadly can occasionally unlock early'. The real mechanic, not an approximation: Ability.use checks every carried effect for proc['bypass_execute_threshold'] before enforcing execute_threshold_pct, and consumes the window on use."
+      "_source": "CoA: 'You now fire an arrow every 3 sec at enemies within 30 yds affected by your Hunting Shot, dealing 75% Ranged Weapon Damage. Scales with Hunting Shot modifiers.' A repeating timed arrow cannot be built - there is no periodic or tick trigger of any kind, Re-pointed to a live trigger - and nothing reads which targets carry an effect. Rebuilt as a cast_ability proc firing Quick Shot, which is the closest live thing to 'an extra arrow goes out': it costs nothing when it fires and Quick Shot also generates 12 Focus, so the capstone feeds the rotation twice over. Quick Shot is ungated, so cast_ability's known failure mode - it does not check the caster has learned the ability - cannot bite here. The dot_damage half ties the capstone to the bleed theme Serrations and Pierced build."
     }
   ]
 }
