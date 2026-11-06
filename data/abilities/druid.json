@@ -1284,7 +1284,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Shapeshift into Moonkin Form, increasing Armor and spell critical strike chance.",
-      "_source": "Real castable shapeshift, unlocked by the Balance capstone talent. Uses the existing combat/forms.py 'moonkin' form data (Lvl 40, Mana resource - no resource change, just stat bonuses). Was previously a fake always-on passive stat bundle rather than a real toggleable form.",
+      "_source": "Real castable shapeshift, unlocked by the Balance capstone talent. Uses the existing combat/forms.py 'moonkin' form data (Lvl 40, Mana resource - no resource change, just stat bonuses). Was previously a fake always-on passive stat bundle rather than a real toggleable form. Gated behind the Balance talent on 6 Nov 2026. The _source note already said 'unlocked by the Balance capstone talent' and druid_balance has carried an unlock_ability node for it all along - requires_talent was simply never set, so the form was auto-learned at 40 and the talent point bought nothing. Confirmed a real talent in 3.3.5a: Balance row 6 (1 rank), so our tier-6 placement is two tiers too deep - the Balance rebuild moves it to tier 4. See data/reference/wotlk_worksheets/druid.md.",
       "target_type": "self",
       "ranks": [
         {
@@ -1295,7 +1295,8 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "moonkin"
+      "shapeshift_form": "moonkin",
+      "requires_talent": true
     },
     {
       "ability_id": "druid_tree_of_life",
@@ -1306,7 +1307,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Shapeshift into Tree of Life, increasing healing done and reducing heal-over-time Mana costs.",
-      "_source": "Real castable shapeshift, unlocked by the Restoration capstone talent. Uses the existing combat/forms.py 'tree_of_life' form data (Lvl 50, Mana resource). Was previously a fake always-on passive stat bundle rather than a real toggleable form.",
+      "_source": "Real castable shapeshift, unlocked by the Restoration capstone talent. Uses the existing combat/forms.py 'tree_of_life' form data (Lvl 50, Mana resource). Was previously a fake always-on passive stat bundle rather than a real toggleable form. Gated behind the Restoration talent on 6 Nov 2026, same half-finished change as Moonkin Form. Confirmed a real talent in 3.3.5a: Restoration row 8 (1 rank), so it belongs at tier 5; ours sits at tier 3 and stays there because druid_restoration is on Kyle's no-touch list. Only the ability's requires_talent flag changed - the tree is untouched.",
       "target_type": "self",
       "ranks": [
         {
@@ -1317,7 +1318,8 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "tree_of_life"
+      "shapeshift_form": "tree_of_life",
+      "requires_talent": true
     },
     {
       "ability_id": "druid_dire_bear_form",
@@ -1328,7 +1330,7 @@
       "duration": 0,
       "stat_mods": {},
       "description": "Shapeshift into Dire Bear Form, an improved Bear Form with more Armor, Stamina, and Attack Power.",
-      "_source": "Real castable shapeshift, unlocked by the Feral capstone talent. Uses the existing combat/forms.py 'dire_bear' form data (Lvl 40, Rage resource).",
+      "_source": "Real castable shapeshift, unlocked by the Feral capstone talent. Uses the existing combat/forms.py 'dire_bear' form data (Lvl 40, Rage resource). Gated behind the Feral talent on 6 Nov 2026. THIS ONE IS A DELIBERATE DEPARTURE FROM REAL WoW: Dire Bear Form is trainer-learned at 40 in 3.3.5a and appears nowhere in the Feral tree. But druid_feral already carries a dire_bear unlock node, and druid_feral is on the no-touch list - so the choice was a live talent that deviates, or a dead 1-point node that matches. A dead node is strictly worse for the player. Gating it costs no edit to the no-touch tree at all.",
       "target_type": "self",
       "ranks": [
         {
@@ -1339,7 +1341,8 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "dire_bear"
+      "shapeshift_form": "dire_bear",
+      "requires_talent": true
     }
   ]
 }
