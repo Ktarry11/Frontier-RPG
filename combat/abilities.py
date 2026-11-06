@@ -1595,6 +1595,42 @@ class Ability:
         # nature_dot_damage, aoe_damage). Five talents were authored on these
         # and none were read.
         if school != "healing":
+            # low_health_damage_pct: "your damage is N% higher against
+            # enemies below X% health" - the offensive mirror of
+            # low_health_healing_pct above, added 6 Nov 2026.
+            #
+            # THIS IS THE MOST-WANTED MISSING CONDITIONAL IN THE WHOLE CoA
+            # DATA SET: 48 talents across 18 of the 21 classes are worded
+            # exactly this way (reaper 7, bloodmage 6, witch_hunter 5,
+            # barbarian 4, ranger 4, ...). Without it every one of them has
+            # to be repriced as a flat scalar, which is precisely what this
+            # rebuild exists to stop doing. execute_threshold_pct already
+            # gates whether an ABILITY may be used on a wounded target
+            # (Slaughter, Execute); this is the damage side of the same
+            # idea, and it keys off the TARGET, not the caster.
+            #
+            # Shares low_health_threshold_pct with every other conditional
+            # in this engine (default 35%) rather than inventing a second
+            # number. Note that key SUMS across talents - two at 0.35 give
+            # "below 70%" - so a tree should carry at most one.
+            #
+            # In AoE this is approximate: the multiplier is computed once
+            # per cast, so the bonus applies to the whole swing based on the
+            # primary target. The healing path has the same shape, and
+            # threading it per-recipient would mean recomputing the
+            # multiplier inside every recipient loop in this file.
+            if recipient is not None:
+                bonus = self._talent(caster, "low_health_damage_pct")
+                if bonus:
+                    max_hp = getattr(recipient, "health", 0) or 0
+                    cur_hp = getattr(recipient, "current_health", None)
+                    if max_hp and cur_hp is not None:
+                        threshold = 0.35
+                        if hasattr(caster, "get_talent_effect"):
+                            threshold = caster.get_talent_effect(
+                                "low_health_threshold_pct", 0.35) or 0.35
+                        if cur_hp / max_hp <= threshold:
+                            global_key += bonus
             if self.target_type == "enemy_aoe":
                 global_key += self._talent(caster, "aoe_damage")
             if self.effect_type in ("dot", "spell_dot"):
@@ -2363,7 +2399,8 @@ class Ability:
         judge_school = self._resolve_damage_school(caster) or "magic"
         base_damage = int(self.effect_value + caster.get_effective_spell_power(judge_school) * 1.0)
         seal_bonus = on_judgement.get("damage", 0)
-        total_damage = int((base_damage + seal_bonus) * self._damage_multiplier(caster, "spell"))
+        total_damage = int((base_damage + seal_bonus)
+                           * self._damage_multiplier(caster, "spell", recipient=t))
 
         actual = t.take_damage(total_damage, judge_school, attacker_level=getattr(caster, "level", None), attacker=caster)
         self._last_threat_events.append((t, actual, True))
@@ -2464,7 +2501,8 @@ class Ability:
                     weapon_dmg = caster.get_weapon_damage_roll() if hasattr(caster, "get_weapon_damage_roll") else 0
                     ap = caster.attack_power
                 base_damage = int(self.effect_value + ap * 0.5) + weapon_dmg
-                base_damage = int(base_damage * self._damage_multiplier(caster, "physical") * aoe_mult)
+                base_damage = int(base_damage * self._damage_multiplier(
+                    caster, "physical", recipient=target) * aoe_mult)
 
                 hit_lines = []
                 any_hit = False
@@ -2526,7 +2564,8 @@ class Ability:
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 spell_damage_school = self._resolve_damage_school(caster) or "magic"
                 base_damage = int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * 1.5) + wand_dmg
-                base_damage = int(base_damage * self._damage_multiplier(caster, "spell") * aoe_mult)
+                base_damage = int(base_damage * self._damage_multiplier(
+                    caster, "spell", recipient=target) * aoe_mult)
 
                 hit_lines = []
                 any_hit = False
@@ -2617,7 +2656,8 @@ class Ability:
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 cryo_school = self._resolve_damage_school(caster) or "magic"
                 base_damage = int(self.effect_value + caster.get_effective_spell_power(cryo_school) * 1.5) + wand_dmg
-                base_damage = int(base_damage * self._damage_multiplier(caster, "spell") * aoe_mult)
+                base_damage = int(base_damage * self._damage_multiplier(
+                    caster, "spell", recipient=target) * aoe_mult)
 
                 hit_lines = []
                 any_hit = False
@@ -2670,7 +2710,8 @@ class Ability:
                 hit_chance = getattr(caster, "hit_chance_spell", 100.0)
                 discharge_school = self._resolve_damage_school(caster) or "magic"
                 base_damage = int(self.effect_value + caster.get_effective_spell_power(discharge_school) * 1.5)
-                base_damage = int(base_damage * self._damage_multiplier(caster, "spell") * aoe_mult)
+                base_damage = int(base_damage * self._damage_multiplier(
+                    caster, "spell", recipient=target) * aoe_mult)
 
                 hit_lines = []
                 for t in recipients:
@@ -2727,7 +2768,8 @@ class Ability:
                 power = (caster.get_effective_spell_power(school) if school_for_stats == "magic"
                          else caster.attack_power * 0.3)
                 total = (self.effect_value + power) * self._damage_multiplier(
-                    caster, "spell" if school_for_stats == "magic" else "physical") * aoe_mult
+                    caster, "spell" if school_for_stats == "magic" else "physical",
+                    recipient=target) * aoe_mult
 
                 # consumes_stacks_of (Venomancer's Expulsion: "...for 5 sec
                 # PLUS 1 sec per cleared stack" - the ONLY DoT in the game
