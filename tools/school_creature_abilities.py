@@ -124,6 +124,32 @@ WHOLE_WORD = {"sear", "searing", "wind", "star", "light", "lights", "soul",
 #: Holy Resistance gear work against a fire.
 NEEDS_CORROBORATION = {"light", "lights"}
 
+#: THE AUTHOR NAMED THE SCHOOL, so nothing infers over it. A multi-school
+#: caster makes the kit's voice useless for its individual abilities -
+#: Archmage Atiesh casts arcane AND shadow, so his Arcane Bolt disagreed
+#: with his kit and landed in the undecidable pile, as did High Inquisitor
+#: Fairbanks' Holy Smite and Jergosh the Invoker's Immolate. When the name
+#: carries the school's own word, or a verb that means exactly one element
+#: and nothing else, that is a statement and not a hint.
+EXPLICIT = {
+    "arcane": ["arcane"],
+    "fire": ["fire", "immolat", "searing", "sear", "flame", "pyre",
+             "incinerat", "molten", "magma", "inferno"],
+    "frost": ["frost", "glacial", "permafrost"],
+    "nature": ["nature", "lightning", "poison", "venom"],
+    "shadow": ["shadow", "unholy", "necro"],
+    "holy": ["holy", "divine", "consecrat", "sanctif"],
+}
+EXPLICIT_RX = [(re.compile(r"\b(?:%s)" % "|".join(sorted(v, key=len, reverse=True)),
+                          re.I), k) for k, v in EXPLICIT.items()]
+
+
+def from_explicit(name):
+    """The school the name states outright, or None."""
+    hits = {s: rx.search(name or "") for rx, s in EXPLICIT_RX}
+    hits = {s: m.group(0) for s, m in hits.items() if m}
+    return next(iter(hits.items())) if len(hits) == 1 else None
+
 #: ...and these are only useful as whole words, so they live here rather
 #: than in the prefix lists above.
 EXTRA_WHOLE = {
@@ -240,7 +266,10 @@ def main():
                 voice = kit_voice(abilities)
                 named = from_name(a["name"])
                 roots = named
-                if voice and (not named or voice in named):
+                explicit = from_explicit(a["name"])
+                if explicit:
+                    a["school"], src = explicit[0], f'named "{explicit[1]}"'
+                elif voice and (not named or voice in named):
                     a["school"], src = voice, "kit"
                 elif voice and len(named) > 1:
                     a["school"], src = voice, "kit (name scattered)"
