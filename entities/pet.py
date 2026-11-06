@@ -254,6 +254,21 @@ class Pet(StatusEffectMixin):
         from combat.pet_templates import offense_norm, ABILITY_LEVEL_RATE
         scale = (offense_norm(self.template)
                  * (1.0 + (self.level - 1) * ABILITY_LEVEL_RATE))
+
+        # pet_damage HAS TO REACH THE ABILITY, NOT JUST THE STAT. A pet's
+        # hit is effect_value + attack_power * 0.5, and the effect_value
+        # half is the larger one - so a talent that only raised attack
+        # power delivered a fraction of what it said. Measured on a fully
+        # specced Beast Mastery hunter at 60: the tree stacks to +106% pet
+        # damage and the wolf gained 40%.
+        #
+        # Not double-dipping. _apply_template_stats puts the same fraction
+        # on attack/spell power, so the two halves now rise together and
+        # the pet's total damage moves by exactly the advertised amount.
+        owner = getattr(self, "owner", None)
+        if owner is not None and hasattr(owner, "get_talent_effect"):
+            scale *= 1.0 + (owner.get_talent_effect("pet_damage", 0.0) or 0.0)
+
         for ability in self.ability_book.get_all_abilities():
             ability.power_scale = scale
 
