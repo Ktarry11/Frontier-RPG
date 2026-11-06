@@ -1,8 +1,8 @@
 {
   "spec_name": "Felsworn Infernal",
   "tree_id": "felsworn_infernal",
-  "description": "Ranged Felfury caster - Fel Fireball builds, Ruin and Felwrath spend, and Spirit is a real damage stat here.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_felsworn__infernal.txt and the infernal block of reference/coa_sidekick/talents/felsworn.json. CoA's top-rated Felsworn spec (Dungeon A, Raid S, Arena A, BG S) and 'a ranged Felfury-builder-spender caster driven off Spell Power'. The unusual thing about it, and the reason Hidden Power and Nether Spirit are the two biggest nodes in the tree, is the stat priority: SPIRIT > Critical Strike > Intellect > Spell Power > Haste. Spirit is a damage stat here and a crit stat on top of that, which no other caster in the game does. CoA is also explicit that the self-healing is thin on purpose - 'Manafeed is your only heal' - so the tree has no sustain node at all.",
+  "description": "Shadowflame - fel magic that banks its own fury and drops infernals when it crits.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Infernal talents (role DPS, caster). Shadowflame is a COMBINED school (['shadow','fire']) and _school_damage_bonus walks every component, so both shadow_spell_damage and fire_spell_damage apply to the spec's Shadowflame spells - verified live after wrongly calling arcane_spell_damage dead earlier the same day. CoA's Energy and Felfury collapse into our single felfury pool. Fel Infusion's party half is real only because the ABILITY was converted to target_type 'party'. Five talents die on 'while Inner Demon is active' and two on 'above 75% health'.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,317 +16,375 @@
     {
       "talent_id": "felsworn_infernal_wrath_of_sargeras",
       "name": "Wrath of Sargeras",
-      "description": "Increases your magic damage by 2% and your chance to hit with spells by 1% per rank.",
+      "description": "Increases your Shadow and Fire damage by 6% and your hit chance by 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spell_damage": 0.02,
-        "hit_chance_spell": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Magic damage dealt by 3% and your spell hit chance by 2%.'"
-    },
-    {
-      "talent_id": "felsworn_infernal_fel_cannon",
-      "name": "Fel Cannon",
-      "description": "Increases your spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_spell": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the critical strike chance of Fel Fireball and Ruin by 15% on enemies above 75% health.' No per-ability crit key and no above-X%-health conditional, so it is general spell crit - which this spec's stat priority wants second anyway."
-    },
-    {
-      "talent_id": "felsworn_infernal_guldans_prodigy",
-      "name": "Gul'dan's Prodigy",
-      "description": "Increases the damage of Fel Fireball by 6% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "ability_felsworn_fel_fireball_damage": 0.06
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces Energy cost and cast time of Fel Fireball by -15%.' Fel Fireball is already free and instant here, so the node pays out in damage instead."
-    },
-    {
-      "talent_id": "felsworn_infernal_hidden_power",
-      "name": "Hidden Power",
-      "description": "Grants spell power equal to 2% of your Spirit and 2% of your Intellect per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "spell_damage_from_spirit_pct": 0.02,
-        "spell_damage_from_intellect_pct": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell damage by 15% of your Intellect and Spirit.' Two real <target>_from_<source>_pct conversions, resolved against the shared STAT_CONVERSION maps in character.py. This is the node that makes Spirit the spec's primary stat."
-    },
-    {
-      "talent_id": "felsworn_infernal_illidari_smiter",
-      "name": "Illidari Smiter",
-      "description": "Your critical strikes with Fel Fireball have a 25% chance per rank to generate 8 Felfury.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "felsworn_infernal_wrath_of_sargeras"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 0,
-        "ability_filter": [
-          "felsworn_fel_fireball"
-        ],
-        "grant_resource": {
-          "resource": "felfury",
-          "amount": 8
-        }
+      "hex_x": -4,
+      "hex_y": -6,
+      "effects": {
+        "shadow_spell_damage": 0.02,
+        "fire_spell_damage": 0.02,
+        "hit_rating": 1.3333
       },
-      "_source": "CoA: 'Critical strikes with Fel Fireball now generate 1 Felfury.'"
-    },
-    {
-      "talent_id": "felsworn_infernal_cursed_flames",
-      "name": "Cursed Flames",
-      "description": "Your critical strikes with Fel Fireball have a 25% chance per rank to increase your spell critical strike chance by 10% for 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
       "connected_to": [
-        "felsworn_infernal_fel_cannon"
+        "felsworn_infernal_felfire_adept"
       ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 0,
-        "ability_filter": [
-          "felsworn_fel_fireball"
-        ],
-        "apply_effect": {
-          "effect_id": "felsworn_cursed_flames",
-          "name": "Cursed Flames",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "crit_chance_spell": 10.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Critically striking with Fel Fireball now increases the critical strike chance of your next Fel Fireball within 10 seconds by 20%.' A crit that buys the next crit is a real proc shape here - on_crit with an ability_filter and an apply_effect - which is better than a flat stat node AND keeps the crit out of the tree's permanent budget, which this spec was already topping the game in."
+      "_source": "CoA over 2 ranks: 'Increases your Magic damage dealt by 3% and your spell hit chance by 2%.' PORTS EXACTLY, doubled. 'Magic damage' on this class means Shadowflame, which carries damage_school ['shadow','fire'] - and _school_damage_bonus WALKS EVERY COMPONENT OF A SCHOOL LIST (abilities.py:1358-1372, whose own comment says bailing out on lists 'meant a combined-school ability could never receive ANY school damage bonus'), so both keys apply to every Shadowflame spell and stack. Authoring the two separately rather than a combined shadow_fire_spell_damage key also means they reach the spec's pure-shadow abilities (sargeron_smite, bane_of_chaos) and pure fire (immolation_aura). hit_rating is live as a FLAT bonus in PERCENTAGE POINTS - it is only invalid as a CONVERSION target. The two school keys are FRACTIONS. Was a pure scalar on our side."
     },
     {
       "talent_id": "felsworn_infernal_felfire_adept",
       "name": "Felfire Adept",
-      "description": "Increases the damage of Sargeron Smite by 6% per rank.",
+      "description": "Increases the critical strike chance of Sargeron Smite and Fel Fireball by 10%.",
       "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_felsworn_sargeron_smite_damage": 0.06
-      },
-      "connected_to": [
-        "felsworn_infernal_guldans_prodigy"
-      ],
-      "_source": "CoA: 'Increases the critical strike chance of Sargeron Smite by 10%.' Per-ability crit has no key; per-ability damage does."
-    },
-    {
-      "talent_id": "felsworn_infernal_nether_spirit",
-      "name": "Nether Spirit",
-      "description": "Grants spell critical strike chance equal to 2% of your Spirit per rank.",
-      "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -2,
+      "hex_y": -6,
       "effects": {
-        "crit_chance_spell_from_spirit_pct": 0.02
+        "ability_felsworn_sargeron_smite_crit": 3.3333,
+        "ability_felsworn_fel_fireball_crit": 3.3333
       },
       "connected_to": [
+        "felsworn_infernal_black_magic",
         "felsworn_infernal_hidden_power"
       ],
-      "_source": "CoA: 'Increases your spell critical strike chance by 20% of your Spirit.' A real conversion - crit_chance_spell is a live target and spirit a live source. Pairs with Hidden Power to make the spec's odd Spirit-first stat priority actually true."
+      "_source": "CoA over 2 ranks: 'Increases the critical strike chance of Sargeron Smite by 10%.' PORTS EXACTLY, extended to Fel Fireball, which four other nodes in this tree read. This spec keys off crits six times, so crit chance is its real currency. Per-ability crit keys are PERCENTAGE POINTS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_infernal_black_magic",
-      "name": "Black Magic",
-      "description": "Increases the damage of Ruin and Bane of Chaos by 8% per rank.",
+      "talent_id": "felsworn_infernal_hidden_power",
+      "name": "Hidden Power",
+      "description": "Increases your spell damage by 15% of your Intellect and 15% of your Spirit.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -6,
       "effects": {
-        "ability_felsworn_ruin_damage": 0.08,
-        "ability_felsworn_bane_of_chaos_damage": 0.08
+        "spell_damage_from_intellect_pct": 0.05,
+        "spell_damage_from_spirit_pct": 0.05
       },
       "connected_to": [
         "felsworn_infernal_illidari_smiter"
       ],
-      "_source": "CoA: 'Increases the damage of your Bane of Chaos and Ruin by 10%.'"
+      "_source": "CoA level 20 passive: 'Increases your spell damage by 15% of your Intellect and Spirit. In addition, Inner Demon now increases your spell damage and critical strike chance by an additional 20% of your Spirit.' THE FIRST HALF PORTS EXACTLY as two conversions - spell_damage is in STAT_CONVERSION_TARGETS and both intellect and spirit are in SOURCES, so both pairs are legal. CoA gates this on INNER DEMON BEING ACTIVE, and nothing reads whether another effect is live. Dropped, with the value priced unconditional. Five Infernal talents carry this gate. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_infernal_curse_of_argus",
-      "name": "Curse of Argus",
-      "description": "Increases all your periodic damage by 4% per rank.",
+      "talent_id": "felsworn_infernal_black_magic",
+      "name": "Black Magic",
+      "description": "Increases the damage of Bane of Chaos and Ruin by 20%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 2,
+      "hex_y": -6,
       "effects": {
-        "dot_damage": 0.04
+        "ability_felsworn_bane_of_chaos_damage": 0.0667,
+        "ability_felsworn_ruin_damage": 0.0667
       },
       "connected_to": [
-        "felsworn_infernal_cursed_flames"
+        "felsworn_infernal_nether_spirit"
       ],
-      "_source": "CoA: 'Each time Bane of Chaos deals damage its damage is increased on the target by 1% for 6 seconds, stacking 20 times.' A self-ramping DoT has no hook; flat periodic damage instead."
+      "_source": "CoA over 2 ranks: 'Increases the damage of your Bane of Chaos and Ruin by 10%.' PORTS EXACTLY, both abilities, doubled. Bane of Chaos is a shadow spell_dot that generates 20 felfury; Ruin is the spec's Shadowflame nuke. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_infernal_doomsayer",
-      "name": "Doomsayer",
-      "description": "Your critical strikes with Sargeron Smite have a 25% chance per rank to refund 10 Felfury.",
+      "talent_id": "felsworn_infernal_illidari_smiter",
+      "name": "Illidari Smiter",
+      "description": "Your critical strikes generate 10 Felfury.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "felsworn_infernal_felfire_adept"
+        "felsworn_infernal_cursed_flames",
+        "felsworn_infernal_illidari_magi"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 25,
+        "chance": 33,
         "icd": 0,
-        "ability_filter": [
-          "felsworn_sargeron_smite"
-        ],
         "grant_resource": {
           "resource": "felfury",
           "amount": 10
         }
       },
-      "_source": "CoA: 'Critical strikes with Sargeron Smite now refund 1 Felfury. In addition, Sargeron Smite now deals 25% increased damage to enemies above 75% of their maximum health.' The refund is real; the conditional damage is not expressible."
+      "_source": "CoA: 'Critical strikes with Fel Fireball now generate 1 Felfury.' PORTS ALMOST VERBATIM; only the Fel-Fireball scoping goes (no per-ability proc trigger). Folded in CoA's Doomsayer ('critical strikes with Sargeron Smite now refund 1 Felfury'), which is the same mechanic on a different ability - its second clause, +25% damage above 75% health, fails: CoA gates this on the target being ABOVE 75% health. high_health_damage_threshold_pct is DEAD DATA and there is no above-health conditional of any kind - only the below-health low_health_damage_pct added 6 Nov 2026. Dropped. CoA banks Felfury as a 0-5 point mechanic separate from the Energy it spends; ours is the single primary pool, so '1 Felfury' becomes 10 felfury - half what Fel Fireball itself generates. grant_resource's `amount` is FLAT; there is no pct_max field."
     },
     {
-      "talent_id": "felsworn_infernal_fel_infusion",
-      "name": "Fel Infusion",
-      "description": "Increases your critical strike chance by 1% per rank, with weapons and with spells.",
+      "talent_id": "felsworn_infernal_nether_spirit",
+      "name": "Nether Spirit",
+      "description": "Increases your spell critical strike chance by 20% of your Spirit.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "crit_chance_spell": 1.0
+        "crit_chance_spell_from_spirit_pct": 0.0667
       },
       "connected_to": [
-        "felsworn_infernal_nether_spirit"
+        "felsworn_infernal_illidari_magi"
       ],
-      "_source": "CoA: 'Increases critical strike chance of all party and raid members within 100 by 3%... In addition, increases your critical strike chance by 3%.' Talents cannot buff a party, so the node carries the personal half; the party half is the Fel Infusion ABILITY."
+      "_source": "CoA: 'Increases your spell critical strike rating by 20% of your Spirit.' PORTS EXACTLY - crit_chance_spell is in STAT_CONVERSION_TARGETS and spirit is in SOURCES, a legal pair that four other trees in this project already use. Spirit is this spec's secondary stat (Hidden Power converts it to spell damage too), so the two nodes compound. A FRACTION. Was a pure scalar on our side."
     },
     {
       "talent_id": "felsworn_infernal_illidari_magi",
       "name": "Illidari Magi",
-      "description": "Your damaging spells have a 12% chance per rank to generate 8 Felfury.",
+      "description": "Your damaging spells have a 25% chance to generate 10 Felfury.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": 1,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "felsworn_infernal_black_magic"
+        "felsworn_infernal_infernal_summoner"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 12,
+        "chance": 8,
         "icd": 0,
         "grant_resource": {
           "resource": "felfury",
-          "amount": 8
+          "amount": 10
         }
       },
-      "_source": "CoA: 'Your periodic damage now has a 20% chance to generate 1 Felfury', and the spec note that with this specced 'you can spam Felwrath instead of weaving Bane into the mix'. Triggers on damage cast rather than on each DoT tick, which is the trigger the engine has."
+      "_source": "CoA: 'Your periodic damage now has a 20% chance to generate 1 Felfury.' CoA FIRES THIS OFF DOT TICKS, which are not a trigger: status_effects.py:914 ticks a dot by calling the recipient's own take_damage with no caster reference, so there is nobody to fire a proc on. Re-pointed to on_damage_cast at 25%. This is the same loss eight Chronomancer talents, three Necromancer and two Ranger ones take, and it is the single most-repeated unbuildable trigger in the CoA data."
     },
     {
-      "talent_id": "felsworn_infernal_withering",
-      "name": "Withering",
-      "description": "Increases your spell damage by 2% and the damage your spells deal to additional targets by 2% per rank.",
+      "talent_id": "felsworn_infernal_cursed_flames",
+      "name": "Cursed Flames",
+      "description": "Your critical strikes increase your spell critical strike chance by 20% for 3 turns.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "spell_damage": 0.02,
-        "aoe_damage": 0.02
-      },
+      "hex_y": -2,
+      "effects": {},
       "connected_to": [
-        "felsworn_infernal_curse_of_argus"
+        "felsworn_infernal_malice_of_guldan"
       ],
-      "_source": "CoA: 'Your Fel Fireballs used with Felforged active now deal 30% increased damage.' Felforged is itself a proc; a proc gating a damage bonus is two hooks deep, so this is flat."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "cursed_flames",
+          "name": "Cursed Flames",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_chance_spell": 20.0
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Critically striking with Fel Fireball now increases the critical strike chance of your next Fel Fireball within 10 seconds by 20%.' PORTS ALMOST VERBATIM - CoA's 20% kept - with only the two Fel-Fireball scopings widened: there is no per-ability proc trigger, and a status effect cannot carry a per-ability crit key, only the generic one. 10 sec -> 3 turns, and a 1-turn internal cooldown so it cannot chain off itself indefinitely. crit_chance_spell inside a status effect is PERCENTAGE POINTS, same as on the talent side."
     },
     {
-      "talent_id": "felsworn_infernal_archimondes_wrath",
-      "name": "Archimonde's Wrath",
-      "description": "Increases your spell critical strike damage by 3% per rank.",
+      "talent_id": "felsworn_infernal_infernal_summoner",
+      "name": "Infernal Summoner",
+      "description": "Your damaging spells have a 10% chance to reset the cooldown of Infernal.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "crit_damage_spell": 0.03
-      },
+      "effects": {},
       "connected_to": [
-        "felsworn_infernal_doomsayer"
+        "felsworn_infernal_oppressive_ruin"
       ],
-      "_source": "CoA: 'Increases the critical strike chance of your Felfury spenders by 1% for every 10 points of Energy you have at the time of casting.' Crit that scales off the resource you are sitting on has no hook, and there is no Energy pool here anyway."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 2,
+        "reset_cooldown": [
+          "felsworn_infernal"
+        ]
+      },
+      "_source": "CoA: 'Direct damage dealt now has a 5% chance to reset the cooldown of Infernal.' PORTS VERBATIM in shape - reset_cooldown WITH A BARE LIST is a full reset, as against the {abilities, turns} form which only shaves turns. 5% -> 10% with a 2-turn internal cooldown, because Infernal is a 15-turn summon and chaining resets off a caster's rapid casts would flood the field. felsworn_infernal IS a real summon_pet ability, so this genuinely produces a pet. CoA's Infernal Ruin ('every 3rd Ruin or Felwrath spawns an Infernal') cannot be built: there is no cast counter anywhere in the engine."
     },
     {
-      "talent_id": "felsworn_infernal_reckoning",
-      "name": "Reckoning",
-      "description": "Increases the damage your spells deal to additional targets by 3% per rank.",
+      "talent_id": "felsworn_infernal_malice_of_guldan",
+      "name": "Malice of Gul'dan",
+      "description": "Your critical strikes have a 60% chance to burn the target for 3 turns and restore 5 Felfury.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "felsworn_infernal_unphased"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 5
+        },
+        "apply_effect": {
+          "effect_id": "felstrike_proc",
+          "name": "Felstrike",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 28,
+          "damage_school": "shadow",
+          "max_stacks": 3,
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Direct critical strikes now have a 60% chance to trigger a Felstrike and generate a Fragment of Malice. Felstrike: burn an enemy for Shadowflame Damage over 6 sec, stacking 3 times. Fragment of Malice: restores 5 Energy and increases your critical strike chance by 10% for 5 sec.' PORTS UNUSUALLY WELL: the 60% chance, the 3-stack dot and the resource restore all build, with CoA's Energy being our felfury. A single proc can carry both a grant_resource and an apply_effect, which is why this one node does both halves. The Fragment's crit buff is dropped - Cursed Flames already supplies that window and stacking a second would double-count. 6 sec -> 3 turns. The dot is authored shadow rather than the combined ['shadow','fire'] because a status effect's damage_school is a single string."
+    },
+    {
+      "talent_id": "felsworn_infernal_oppressive_ruin",
+      "name": "Oppressive Ruin",
+      "description": "Your damaging spells have a 30% chance to reduce the target's healing received by 25% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_infernal_fel_infusion"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "oppressive_ruin",
+          "name": "Oppressive Ruin",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_taken_pct": -25
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Ruin now absorbs the next 99 healing on the target based on rank, up to 226 at rank 7, for 8 sec.' A HEALING ABSORB ON AN ENEMY HAS NO MECHANIC - absorbs are caster-side proc payloads (shield_pct, absorb_pct_max_health) and cannot be applied to a target - so this becomes a percentage healing reduction, which is the readable equivalent: healing_taken_pct is one of only eight status stat_mods a monster reads. The Ruin scoping goes (no per-ability proc trigger). 8 sec -> 3 turns. PERCENTAGE POINTS inside a status effect (character.py:2904 divides by 100), so -25 is -25% and -0.25 would have been -0.25%. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_infernal_unphased",
+      "name": "Unphased",
+      "description": "Increases your spell penetration by 20 and your Shadow and Fire damage by a further 5%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "spell_penetration": 6.6667,
+        "shadow_spell_damage": 0.0167,
+        "fire_spell_damage": 0.0167
+      },
+      "connected_to": [
+        "felsworn_infernal_mannari_teachings"
+      ],
+      "_source": "CoA level 40 passive: 'Increases your spell penetration by 20, scaling with your level. In addition, reduces spell pushback suffered from damaging attacks by 50% while Inner Demon is active.' The penetration PORTS EXACTLY: spell_penetration is a FLAT rating fed into a real attribute (character.py:1382) and read attacker-side by both Character and Monster take_damage against magic_resistance, so it works today - and it is one of the talents that will pay for Kyle's shelved per-school resistance system. Spell pushback does not exist as a mechanic, and CoA gates this on INNER DEMON BEING ACTIVE, and nothing reads whether another effect is live. Dropped, with the value priced unconditional. Five Infernal talents carry this gate. The level-scaling clause is dropped: talent effects do not scale with character level. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_infernal_fel_infusion",
+      "name": "Fel Infusion",
+      "description": "Increases your spell critical strike chance by 3% and reduces the cooldown of Fel Infusion by 35%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_spell": 1,
+        "ability_felsworn_fel_infusion_cooldown_pct": 0.1167
+      },
+      "connected_to": [
+        "felsworn_infernal_mannari_teachings"
+      ],
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members within 100 by 3%. Does not stack with similar effects. In addition, increases your critical strike chance by 3%.' THE PARTY HALF IS REAL BUT NOT FROM HERE: a talent effect can never reach an ally. The felsworn_fel_infusion ABILITY carries the party crit (crit_chance_physical and crit_chance_spell) and was converted from target_type 'self' to 'party' on 6 Nov 2026 - the same call Kyle made for Guardian's four auras on 5 Nov and that was applied to Reaper's two and Necromancer's three today. So this talent does what a talent can: CoA's own selfish 3% plus making that aura available more often. The does-not-stack clause has no mechanism short of every class's equivalent aura sharing an exclusive_group, which is a project-wide decision. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_infernal_sargeras_embrace",
+      "name": "Sargeras Embrace",
+      "description": "Increases the damage of Sargeras Embrace by 45% and its duration by 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_felsworn_sargeras_embrace_damage": 0.45,
+        "ability_felsworn_sargeras_embrace_duration": 2
+      },
+      "connected_to": [
+        "felsworn_infernal_mannari_teachings"
+      ],
+      "_source": "CoA: 'Channel a beam of fel magic upon an enemy, slowing their movement speed by 60% for 5.5 sec and dealing Shadowflame Damage at the end of the duration.' The ability already exists as a 2-turn shadow spell_dot. CoA's channel, its slow and its end-of-duration payload are all unbuildable - there is no channelling, movement speed is not a mechanic, and no trigger fires when an effect expires - so the node boosts the dot we have. +2 TURNS IS +2 FULL-VALUE TICKS, not a dilution: abilities.py:2777 derives per-turn damage from the ability's OWN base duration, so the dot doubles from 2 turns to 4 at unchanged per-tick damage. SMALL INTEGER IN TURNS, so talent_ranks.spread() refuses to rank this node."
+    },
+    {
+      "talent_id": "felsworn_infernal_guldans_prodigy",
+      "name": "Gul'dan's Prodigy",
+      "description": "Reduces the cost of Fel Fireball and Felwrath by 25% and increases Felwrath's damage by 25%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_felsworn_fel_fireball_cost_pct": 0.0833,
+        "ability_felsworn_felwrath_cost_pct": 0.0833,
+        "ability_felsworn_felwrath_damage": 0.0833
+      },
+      "connected_to": [
+        "felsworn_infernal_wrath_of_sargeras"
+      ],
+      "_source": "CoA: 'Reduces Energy cost and cast time of Fel Fireball by -15%.' The cost half ports - CoA's Energy is our felfury, the single primary pool - and the cast-time half is dropped, since there are no cast times. Extended to Felwrath, CoA's 'Consumes 2 Felfury' AoE, whose own talents all key on Inner Demon and are therefore unbuildable. Fel Fireball generates 20 felfury, so cheapening it compounds. *_cost_pct keys are FRACTIONS where POSITIVE MEANS A REDUCTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_infernal_fel_cannon",
+      "name": "Fel Cannon",
+      "description": "Increases the critical strike chance of Ruin and Felwrath by 15%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {
+        "ability_felsworn_ruin_crit": 5,
+        "ability_felsworn_felwrath_crit": 5
+      },
+      "connected_to": [
+        "felsworn_infernal_felfire_adept"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Fel Fireball and Ruin by 15% on enemies above 75% health.' CoA gates this on the target being ABOVE 75% health. high_health_damage_threshold_pct is DEAD DATA and there is no above-health conditional of any kind - only the below-health low_health_damage_pct added 6 Nov 2026. Dropped. So CoA's 15% is kept unconditional - a straight buff relative to CoA, flagged rather than pocketed quietly, because the alternative was a node that silently never fired. Pointed at Ruin and Felwrath rather than Fel Fireball, which Felfire Adept already covers. Per-ability crit keys are PERCENTAGE POINTS. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_infernal_shadow_magi",
+      "name": "Shadow Magi",
+      "description": "Reduces the cooldown of Annihilation, Sunder and Ruin by 35%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -334,154 +392,83 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "aoe_damage": 0.03
+        "ability_felsworn_annihilation_cooldown_pct": 0.1167,
+        "ability_felsworn_sunder_cooldown_pct": 0.1167,
+        "ability_felsworn_ruin_cooldown_pct": 0.1167
       },
-      "connected_to": [
-        "felsworn_infernal_fel_infusion"
-      ],
-      "_source": "CoA class tree: 'For 10 seconds, your Fel Fireball is free of cost, instant cast, and strikes up to 4 targets.' Fel Fireball is already free and instant, so what is left of Reckoning is the multi-target half."
-    },
-    {
-      "talent_id": "felsworn_infernal_infernal_summoner",
-      "name": "Infernal Summoner",
-      "description": "Your damaging spells have a 5% chance per rank to reset the cooldown of Infernal.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {},
       "connected_to": [
         "felsworn_infernal_illidari_magi"
       ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 5,
-        "icd": 3,
-        "reset_cooldown": {
-          "ability": "felsworn_infernal"
-        }
-      },
-      "_source": "CoA: 'Direct damage dealt now has a 5% chance to reset the cooldown of Infernal.'"
+      "_source": "CoA: 'Reduces the cooldown of Annihilation by -15 sec and Sunder by -4 sec.' PORTS EXACTLY in shape, with Ruin added as the spec's main nuke. Annihilation is a 8-turn self-buff and Sunder is an AoE with no cooldown in our data, so the percentages land differently than CoA's flat seconds - the key is proportional and there is no flat-seconds form. FRACTIONS where POSITIVE MEANS A REDUCTION; talented_cooldown floors at 1 turn."
     },
     {
-      "talent_id": "felsworn_infernal_herald_of_the_legion",
-      "name": "Herald of the Legion",
-      "description": "Increases the damage your spells deal to additional targets by 4% and your periodic damage by 3% per rank.",
+      "talent_id": "felsworn_infernal_withering",
+      "name": "Withering",
+      "description": "Increases the damage of Fel Fireball by 30% and your spell damage by 5%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "aoe_damage": 0.04,
-        "dot_damage": 0.03
+        "ability_felsworn_fel_fireball_damage": 0.1,
+        "spell_damage": 0.0167
       },
       "connected_to": [
-        "felsworn_infernal_withering"
+        "felsworn_infernal_oppressive_ruin"
       ],
-      "_source": "CoA: 'Damage dealt by Bane of Chaos now radiates fel energy around the enemy, dealing 50% of the damage dealt to up to 8 nearby enemies.' A DoT that splashes has no hook, so the node pays in cleave and periodic damage."
+      "_source": "CoA: 'Your Fel Fireballs used with Felforged active now deal 30% increased damage.' Felforged is a cast-time proc ('your next 3 Fel Fireballs have a -30% reduced cast time') and there are no cast times, so it does not exist here - which means nothing can gate off it either. CoA's 30% is therefore kept unconditional on Fel Fireball, with a small global added. Fel Fireball is the spec's filler and a 20-felfury generator, so three nodes in this tree point at it. Both FRACTIONS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_infernal_dark_magician",
-      "name": "Dark Magician",
-      "description": "Reduces the Felfury cost of your abilities by 3% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "all_ability_cost_pct": 0.03
-      },
-      "connected_to": [
-        "felsworn_infernal_archimondes_wrath"
-      ],
-      "_source": "CoA: 'While Inner Demon is active, casting Ruin, Sunder, or Felwrath now refunds 20 Energy.' With one pool and no window conditional, a cost reduction is the same thing from the player's side. NOTE THE SIGN: Ability.talented_cost computes cost * (1.0 - pct), so a POSITIVE all_ability_cost_pct is the discount. Authored negative here first and measured: every cost went UP 15%. data/talents/guardian_vanguard.json's Seasoned Fighter still ships at -0.03 with the tooltip 'Reduces the Energy cost of your abilities by 3% per rank', so it currently makes that spec 15% more expensive at 5/5."
-    },
-    {
-      "talent_id": "felsworn_infernal_manari_teachings",
-      "name": "Man'ari Teachings",
-      "description": "Increases your spell critical strike damage by 5% per rank.",
+      "talent_id": "felsworn_infernal_felshock",
+      "name": "Felshock",
+      "description": "Your critical strikes leave the target taking 8% more magic damage for 4 turns.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 4,
-      "effects": {
-        "crit_damage_spell": 0.05
-      },
+      "effects": {},
       "connected_to": [
-        "felsworn_infernal_infernal_summoner"
+        "felsworn_infernal_unphased"
       ],
-      "_source": "CoA: 'Level 50 Passive. Increases your critical damage dealt by 100%.' CoA hands this out free at 50; Frontier has no free passives, so it costs points and is sized like a talent rather than a level reward."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "felshock",
+          "name": "Felshock",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "magic_damage_taken_pct": 8
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Direct critical strikes with Felfury spenders now extend the duration of Inner Demon by 1 sec and cause enemies struck to have a 3% increased chance to be hit by spells for 12 sec.' TWO CLAUSES, BOTH REBUILT: no payload extends a LIVE effect's duration, and there is no recipient-side 'chance to be hit' key anywhere - the eight stat_mods a monster reads are armor, attack_power, damage_taken_pct, healing_taken_pct, magic/physical/spell_damage_taken_pct and magic_resistance. Repriced as magic damage taken, which is the same direction (more of this caster's damage lands) through a key that works, and raised to 8% since it replaces both clauses. 12 sec -> 4 turns. PERCENTAGE POINTS inside a status effect, and positive INCREASES damage taken, so 8 is right in both sign and magnitude - 0.08 would have been 0.08%."
     },
     {
-      "talent_id": "felsworn_infernal_oppressive_ruin",
-      "name": "Oppressive Ruin",
-      "description": "Increases the damage of Ruin by 8% per rank.",
+      "talent_id": "felsworn_infernal_mannari_teachings",
+      "name": "Man'ari Teachings",
+      "description": "Increases your critical damage by 100% and your Shadow and Fire damage by a further 10%.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_felsworn_ruin_damage": 0.08
-      },
-      "connected_to": [
-        "felsworn_infernal_herald_of_the_legion"
-      ],
-      "_source": "CoA: 'Damage dealt by Ruin now absorbs the next 99 healing on the target.' No healing-absorb key exists, so Ruin simply hits harder."
-    },
-    {
-      "talent_id": "felsworn_infernal_unphased",
-      "name": "Unphased",
-      "description": "Increases your spell penetration by 4 per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "spell_penetration": 4
-      },
-      "connected_to": [
-        "felsworn_infernal_dark_magician"
-      ],
-      "_source": "CoA: 'Level 40 Passive. Increases your spell penetration by 20, scaling with your level. In addition, reduces spell pushback suffered from damaging attacks by 50% while Inner Demon is active.' spell_penetration is real and read on both Character and Monster mitigation; there is no cast pushback to reduce."
-    },
-    {
-      "talent_id": "felsworn_infernal_malice_of_guldan",
-      "name": "Malice of Gul'dan",
-      "description": "Everything you land now sets something burning behind it. +3% spell critical strike chance and +8% spell critical damage.",
-      "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "crit_chance_spell": 3.0,
-        "crit_damage_spell": 0.08
+        "crit_damage_pct": 1.0,
+        "shadow_spell_damage": 0.1,
+        "fire_spell_damage": 0.1
       },
-      "connected_to": [
-        "felsworn_infernal_manari_teachings",
-        "felsworn_infernal_oppressive_ruin",
-        "felsworn_infernal_unphased"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 40,
-        "icd": 1,
-        "cast_ability": "felsworn_felstrike"
-      },
-      "_source": "Capstone. CoA names it as the endgame pick outright: 'At that crit level, drop Chaotic Intuition for Malice of Gul'dan, since Malice procs Felstrikes off your crits and out-scales the longer a fight runs.' cast_ability is the engine's real free-cast payload, so this one lands exactly as described."
+      "connected_to": [],
+      "_source": "CoA level 50 passive: 'Increases your critical damage dealt by 100%.' PORTS VERBATIM, which for a capstone of this size is worth noting - CoA really does double crit damage here. crit_damage_pct is read at abilities.py:1438 and is a FRACTION, so 1.00 is +100%; it stacks on top of CRIT_DAMAGE_MULTIPLIER rather than replacing it. Paired with the tree's school theme so the capstone pays off everything below it: with Wrath of Sargeras and Unphased that is +21% to every Shadowflame spell, and this spec crits six different ways to cash the crit damage in. All three keys are FRACTIONS. Was a pure scalar on our side."
     }
   ]
 }

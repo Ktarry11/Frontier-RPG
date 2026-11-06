@@ -1,8 +1,8 @@
 {
   "spec_name": "Felsworn Slayer",
   "tree_id": "felsworn_slayer",
-  "description": "Dual-wield fel melee - crits spill into off-hand strikes, spenders peel armour off the target, and the leech only runs while Inner Demon is up.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_felsworn__slayer.txt and the slayer block of reference/coa_sidekick/talents/felsworn.json. CoA calls this 'a Fury-Warrior-tempo cleave bruiser with Demon Hunter self-leech and a channeled AoE spin'. Its stat priority is Hit > Expertise > Agility > Critical Strike > Haste > Armor Penetration, which is why the tree opens on Agility, crit and hit rather than raw damage, and why Unbound - the one node that converts Agility into both dodge and hit - is the biggest in it. Expertise and Armor Penetration have no live talent keys at all, so the three CoA nodes built on them (Azzinoth's Rage, Fel Blades, Fel Haze) are translated rather than transcribed.",
+  "description": "Two glaives and no patience - crits that feed themselves and a cooldown that resets on contact.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Slayer talents (role DPS). CoA splits Energy and Felfury into two currencies and we have one pool (FELFURY, primary, eleven generators), so costs and generation both land on it while the two-currency interplay does not. Expertise and dodge are live keys only since creature avoidance landed on 5 Nov 2026. Five talents die on 'while Inner Demon is active' and two more on 'above 75% health', neither of which the engine can read.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,379 +16,426 @@
     {
       "talent_id": "felsworn_slayer_azzinoths_rage",
       "name": "Azzinoth's Rage",
-      "description": "Increases your physical damage by 2% per rank.",
+      "description": "Increases your armor penetration by 120 and your expertise by 12.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "physical_damage": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Armor penetration by 10% and your expertise by 4.' Neither armour penetration nor expertise has a live talent key - Guardian's Dirty Tactics hit the same wall - so this lands as flat physical damage, the same effect against an armoured target without inventing a dead key."
-    },
-    {
-      "talent_id": "felsworn_slayer_slice_and_dice",
-      "name": "Slice & Dice",
-      "description": "Increases the damage of Twin Slice by 6% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_felsworn_twin_slice_damage": 0.06
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your off-hand weapon damage by 25% and reduces the Energy cost of Twin Slice by -5.' Twin Slice is already free here, so the whole node goes into its damage. ability_<id>_<stat> keys are built by interpolation in abilities.py, not literals."
-    },
-    {
-      "talent_id": "felsworn_slayer_spite",
-      "name": "Spite",
-      "description": "Increases your Agility by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "agility_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Agility by 8% and dodge chance by 3%.' agility_pct is PERCENT POINTS (eff *= 1 + v/100), unlike max_health_pct. The dodge half is dropped on purpose: Agility already feeds dodge at a quarter point each, and with Unbound in the same column this spec was ending up with the largest dodge budget of any tree in the game, tank trees included."
-    },
-    {
-      "talent_id": "felsworn_slayer_chaos_soldier",
-      "name": "Chaos Soldier",
-      "description": "Increases your critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 5%.' Per-ability crit has no key, so it is general crit - the spec's stat priority puts Critical Strike fourth anyway."
-    },
-    {
-      "talent_id": "felsworn_slayer_twin_fury",
-      "name": "Twin Fury",
-      "description": "Your critical strikes with Twin Slice and Annihilan Strike have a 20% chance per rank to generate 8 Felfury.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "felsworn_slayer_azzinoths_rage"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 0,
-        "ability_filter": [
-          "felsworn_twin_slice",
-          "felsworn_annihilan_strike"
-        ],
-        "grant_resource": {
-          "resource": "felfury",
-          "amount": 8
-        }
-      },
-      "_source": "CoA: 'Critically striking with Twin Slice or Annihilan Strike now generates an additional 1 Felfury.' A real grant_resource proc, scoped with ability_filter."
-    },
-    {
-      "talent_id": "felsworn_slayer_dancing_blades",
-      "name": "Dancing Blades",
-      "description": "Your melee critical strikes have a 15% chance per rank to land an immediate off-hand strike.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "felsworn_slayer_slice_and_dice"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 1,
-        "extra_attack": 1
-      },
-      "_source": "CoA: 'Critical strikes with melee abilities now trigger Dancing Blades, dealing off-hand Weapon Damage to up to 5 nearby enemies.' extra_attack is the engine's real free-swing payload; the 5-target spread is not expressible, so it hits one."
-    },
-    {
-      "talent_id": "felsworn_slayer_unbound",
-      "name": "Unbound",
-      "description": "Grants dodge equal to 1% of your Agility, and 1 hit rating, per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
+      "hex_x": -4,
+      "hex_y": -6,
       "effects": {
-        "dodge_from_agility_pct": 0.01,
-        "hit_rating": 1
+        "armor_penetration": 40,
+        "expertise": 4
       },
       "connected_to": [
         "felsworn_slayer_spite"
       ],
-      "_source": "CoA: 'Increases your dodge by 15% of your Agility and your hit rating by 6% of your Agility.' The dodge half is a real <target>_from_<source>_pct conversion; the hit half cannot be, because hit_rating is a local feeding base_miss_chance_* rather than a Character attribute, so it is flat - the same wall Guardian's Bulwark hit. CoA's 15% of Agility is cut to 5% at full rank: Felsworn's base Agility already puts it at 18% dodge before a single point is spent, and at CoA's ratio this DPS spec measured higher avoidance than any tank in the game."
+      "_source": "CoA over 3 ranks: 'Increases your Armor penetration by 10% and your expertise by 4.' BOTH HALVES PORT, and the second would not have a day ago: `expertise` was read by NO engine code for most of this audit - it reduces a target's dodge and parry, and monsters had neither - which cost Guardian's Stalwart and Gladiator's Double Duty their text outright. Kyle had creature avoidance added on 5 Nov 2026 (dodge on every template, parry on humanoids) and expertise became a real stat. It is in PERCENTAGE POINTS and subtracts from dodge AND parry independently. armor_penetration is FLAT, not proportional, so CoA's '10%' has no expressible form - there is no armor_pen_pct key. Both tripled for the three ranks. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_slayer_true_self",
-      "name": "True Self",
-      "description": "Increases your chance to dodge by 1% and your critical strike damage by 4% per rank.",
+      "talent_id": "felsworn_slayer_spite",
+      "name": "Spite",
+      "description": "Increases your Agility by 16% and your dodge by 6%.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -2,
+      "hex_y": -6,
       "effects": {
-        "dodge": 1.0,
-        "crit_damage_physical": 0.04
+        "agility_pct": 5.3333,
+        "dodge": 2
       },
       "connected_to": [
-        "felsworn_slayer_chaos_soldier"
-      ],
-      "_source": "CoA: 'Your Inner Demon now grants 10% increased dodge chance and critical damage dealt while active.' There is no while-a-buff-is-up conditional key, so both halves are always on at a smaller value."
-    },
-    {
-      "talent_id": "felsworn_slayer_fel_blades",
-      "name": "Fel Blades",
-      "description": "Increases the damage of Azzinoth's Assault by 8% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "ability_felsworn_azzinoths_assault_damage": 0.08
-      },
-      "connected_to": [
+        "felsworn_slayer_chaos_soldier",
         "felsworn_slayer_twin_fury"
       ],
-      "_source": "CoA: 'Damage dealt by Azzinoth's Assault now reduces the enemy's armor by -4% for 10 seconds, stacking 5 times.' No talent applies a debuff to a target through effects, and there is no armour-shred key, so the shred is folded into the ability's own damage. The real armour break is the Bane of Frailty ability."
+      "_source": "CoA over 2 ranks: 'Increases your Agility by 8% and dodge chance by 3%.' PORTS EXACTLY, doubled. NOTE `dodge` IS THE LIVE KEY: `dodge_chance` is dead data that several talents in this project author, and the same trap exists for parry/parry_chance and block/block_chance. agility_pct is PERCENTAGE POINTS (character.py:1266 divides by 100) and so is dodge - two keys, same convention for once. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_slayer_a_thousand_cuts",
-      "name": "A Thousand Cuts",
-      "description": "Azzinoth's Assault has a 10% chance per rank to strike a second time for 30% damage.",
+      "talent_id": "felsworn_slayer_chaos_soldier",
+      "name": "Chaos Soldier",
+      "description": "Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 10%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "felsworn_slayer_dancing_blades"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 0,
-        "ability_filter": [
-          "felsworn_azzinoths_assault"
-        ],
-        "bonus_pct": 0.3
-      },
-      "_source": "CoA: 'Azzinoth's Assault now has a 30% chance to hit an additional time with your main-hand Weapon.' bonus_pct adds to the same hit, which is what an extra main-hand swing amounts to."
-    },
-    {
-      "talent_id": "felsworn_slayer_fel_instincts",
-      "name": "Fel Instincts",
-      "description": "Increases your haste by 2 per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -6,
       "effects": {
-        "haste": 2.0
-      },
-      "connected_to": [
-        "felsworn_slayer_unbound"
-      ],
-      "_source": "CoA: 'Increases the damage of Azzinoth's Assault by 10% and causes it to increase your melee haste by 20% for 5 seconds.' The damage half is already Fel Blades' job, so this node is the haste."
-    },
-    {
-      "talent_id": "felsworn_slayer_you_cheat_guldan",
-      "name": "You Cheat, Gul'dan!",
-      "description": "Increases your critical strike damage by 4% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "crit_damage_physical": 0.04
-      },
-      "connected_to": [
-        "felsworn_slayer_true_self"
-      ],
-      "_source": "CoA: 'Increases your critical damage by 50% against enemies above 75% health.' No above-X%-health conditional exists (only the low_health_* pair), so it is unconditional and much smaller."
-    },
-    {
-      "talent_id": "felsworn_slayer_reckless_assault",
-      "name": "Reckless Assault",
-      "description": "Increases the damage of Annihilan Strike by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_felsworn_annihilan_strike_damage": 0.08
-      },
-      "connected_to": [
-        "felsworn_slayer_fel_blades"
-      ],
-      "_source": "CoA: 'Increases the damage of Azzinoth's Assault, Annihilan Strike, and Twin Slice by 15% against slowed enemies.' The other two already have damage nodes and there is no against-slowed conditional, so this one takes Annihilan Strike unconditionally."
-    },
-    {
-      "talent_id": "felsworn_slayer_legionfall",
-      "name": "Legionfall",
-      "description": "Your melee ability damage has a 7% chance per rank to reset the cooldown of Annihilan Strike.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "felsworn_slayer_a_thousand_cuts"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 7,
-        "icd": 2,
-        "reset_cooldown": {
-          "ability": "felsworn_annihilan_strike"
-        }
-      },
-      "_source": "CoA: 'Melee ability damage now has a 15% chance to reset the cooldown of Annihilan Strike.' reset_cooldown is a real proc payload - the thing Guardian's King's Guard could not reach, because it wanted to reset a different ability than the one that triggered it."
-    },
-    {
-      "talent_id": "felsworn_slayer_consumed_by_fel",
-      "name": "Consumed By Fel",
-      "description": "Increases the damage of Immolation Aura by 8% and all your periodic damage by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_felsworn_immolation_aura_damage": 0.08,
-        "dot_damage": 0.03
-      },
-      "connected_to": [
-        "felsworn_slayer_fel_instincts"
-      ],
-      "_source": "CoA: 'Increases the tick rate of Immolation Aura by -25%.' Tick rate is fixed at one per turn here, so a faster tick is authored as more damage per tick."
-    },
-    {
-      "talent_id": "felsworn_slayer_blighted_strikes",
-      "name": "Blighted Strikes",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "felsworn_slayer_you_cheat_guldan"
-      ],
-      "_source": "CoA: 'While Inner Demon is active your melee attacks reduce the target's healing received by -20%.' There is no healing-taken key anywhere in the engine, so the node carries flat damage and the anti-heal identity is lost. Worth saying plainly: this is the weakest translation in the tree."
-    },
-    {
-      "talent_id": "felsworn_slayer_felguard",
-      "name": "Felguard",
-      "description": "Your damaging abilities have a 30% chance per rank to heal you for 6% of the damage dealt.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "felsworn_slayer_reckless_assault"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 30,
-        "icd": 0,
-        "leech_pct": {
-          "pct": 0.06
-        }
-      },
-      "_source": "CoA: 'while Inner Demon is active, you now heal for 15% of all melee damage dealt', 'Felguard's Inner-Demon melee leech keeps you topped up'. leech_pct is the engine's real on-damage leech. Window-gating is not expressible, so the rate is cut and made chance-based instead of always-on."
-    },
-    {
-      "talent_id": "felsworn_slayer_perpetual_fury",
-      "name": "Perpetual Fury",
-      "description": "Reduces the cooldown of Fury Unleashed by 10% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_felsworn_fury_unleashed_cooldown_pct": 0.1
+        "ability_felsworn_azzinoths_assault_crit": 3.3333,
+        "ability_felsworn_sargeron_smite_crit": 3.3333
       },
       "connected_to": [
         "felsworn_slayer_legionfall"
       ],
-      "_source": "CoA: 'Dealing damage with Dancing Blades reduces the cooldown of Fury Unleashed by -1 sec.' A proc that shortens a cooldown has no shape, so it is a flat cooldown reduction on the same ability."
+      "_source": "CoA: 'Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 5%.' PORTS EXACTLY, both abilities, doubled. This tree keys off crits five times (Twin Fury, Legionfall, Demonic Machinations, Oblivion, the capstone), so crit chance is its real currency. Per-ability crit keys are PERCENTAGE POINTS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_slayer_nether_champion",
-      "name": "Nether Champion",
-      "description": "Increases your critical strike chance by 1% and your haste by 1 per rank.",
+      "talent_id": "felsworn_slayer_unbound",
+      "name": "Unbound",
+      "description": "Increases your dodge by 15% of your Agility.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "dodge_from_agility_pct": 0.05
+      },
+      "connected_to": [
+        "felsworn_slayer_fel_blades"
+      ],
+      "_source": "CoA level 30 passive: 'Increases your dodge by 15% of your Agility and your hit rating by 6% of your Agility.' The dodge half PORTS EXACTLY - dodge is in STAT_CONVERSION_TARGETS and agility in STAT_CONVERSION_SOURCES, a legal pair. The hit half is DROPPED: hit_rating is NOT a valid conversion target, which with stamina has now cost nine nodes half their text across eight classes and is the most-repeated mistake in this audit. A conversion target must name a REAL attribute - 'block' wrote a phantom one for months and silently killed Sun Cleric Seraphim's Clarity of the Heavens. A FRACTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_slayer_twin_fury",
+      "name": "Twin Fury",
+      "description": "Your critical strikes generate 10 Felfury.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_fel_instincts"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Critically striking with Twin Slice or Annihilan Strike now generates an additional 1 Felfury.' PORTS ALMOST VERBATIM - only the two-ability scoping goes, since there is no per-ability proc trigger. CoA'S TWO CURRENCIES COLLAPSE INTO ONE HERE: CoA banks Felfury as a 0-5 point mechanic separate from the Energy it spends, while ours is the single primary pool, so '1 Felfury' becomes 10 felfury - half what Twin Slice itself generates. grant_resource routes through the same gain_resource() the eleven generators use, so the cap holds, and its `amount` is FLAT (there is no pct_max field)."
+    },
+    {
+      "talent_id": "felsworn_slayer_legionfall",
+      "name": "Legionfall",
+      "description": "Your attacks have a 15% chance to reset the cooldown of Annihilan Strike.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_fel_instincts"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 5,
+        "icd": 0,
+        "reset_cooldown": [
+          "felsworn_annihilan_strike"
+        ]
+      },
+      "_source": "CoA: 'Melee ability damage now has a 15% chance to reset the cooldown of Annihilan Strike.' PORTS VERBATIM, chance included. reset_cooldown WITH A BARE LIST is a full reset, as against the {abilities, turns} form which only shaves turns - confusing the two is silent and easy. Annihilan Strike has a 3-turn cooldown and generates 25 felfury, the second-biggest generator, so this node is the spec's engine."
+    },
+    {
+      "talent_id": "felsworn_slayer_fel_blades",
+      "name": "Fel Blades",
+      "description": "Your attacks have a 35% chance to strip the target's armor for 3 turns, stacking up to 5 times.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_demonic_machinations"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "fel_blades",
+          "name": "Fel Blades",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -140
+          },
+          "max_stacks": 5,
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Damage dealt by Azzinoth's Assault now reduces the enemy's armor by -4% for 10 seconds, stacking 5 times.' The debuff and its 5 stacks port. Two departures: the Azzinoth's-Assault scoping goes (no per-ability proc trigger), and `armor` on a monster is FLAT - Monster.armor is max(0, base_armor + get_status_stat_mod('armor')) - so CoA's '-4%' becomes -140 per stack, -700 at five. armor is one of only eight status stat_mods a monster reads. 10 sec -> 3 turns. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_slayer_fel_instincts",
+      "name": "Fel Instincts",
+      "description": "Increases the damage of Azzinoth's Assault by 20%, and your critical strikes increase your haste by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_felsworn_azzinoths_assault_damage": 0.0667
+      },
+      "connected_to": [
+        "felsworn_slayer_a_thousand_cuts"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "fel_instincts",
+          "name": "Fel Instincts",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Increases the damage of Azzinoth's Assault by 10% and causes it to increase your melee haste by 20% for 5 seconds.' BOTH HALVES PORT, the second re-pointed from Azzinoth's Assault to any crit (no per-ability proc trigger) with a 1-turn internal cooldown so it cannot chain. The melee scoping on haste is dropped: there is no separate melee-haste key, only `haste`, which in a turn-based engine means acting more often. 5 sec -> 2 turns, CoA's 20% kept verbatim. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_slayer_demonic_machinations",
+      "name": "Demonic Machinations",
+      "description": "Your critical strikes open a bleed dealing damage over 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_pit_lords_strength"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "apply_effect": {
+          "effect_id": "demonic_machinations",
+          "name": "Demonic Machinations",
+          "effect_type": "dot",
+          "duration": 3,
+          "potency": 30,
+          "damage_school": "physical",
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Sargeron Smite now cause the target to bleed for an additional 50% of the damage dealt over 5 sec.' PORTS ALMOST EXACTLY. Only the Sargeron-Smite scoping goes, and '50% of the damage dealt' becomes a fixed potency because apply_effect cannot read the triggering hit's amount - only bonus_pct, leech_pct and smart heals do, and none of those apply an effect. 5 sec -> 3 turns. A proc-applied dot carries `potency` as PER-TURN damage (30 a turn, 90 total) where an ABILITY rank's effect_value is the TOTAL and gets divided (abilities.py:2695)."
+    },
+    {
+      "talent_id": "felsworn_slayer_a_thousand_cuts",
+      "name": "A Thousand Cuts",
+      "description": "Your attacks have a 30% chance to strike an additional time.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_scars_of_the_past"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "extra_attack": true
+      },
+      "_source": "CoA: 'Azzinoth's Assault now has a 30% chance to hit an additional time with your main-hand Weapon.' PORTS ALMOST VERBATIM - `extra_attack` is a BOOLEAN giving exactly one extra attack, which is precisely what CoA asks for here (unlike Ranger's Tip of the Spear, where CoA wanted three and the key cannot express it). The main-hand scoping is dropped: the engine's weapon roll does not separate hands, which is also why Slice & Dice and Infernal Constitution lose their off-hand clauses. The Azzinoth's-Assault scoping goes too (no per-ability proc trigger), and CoA's 30% is kept."
+    },
+    {
+      "talent_id": "felsworn_slayer_pit_lords_strength",
+      "name": "Pit Lord's Strength",
+      "description": "Increases the damage of Annihilation and Annihilan Strike by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "crit_chance_physical": 1.0,
-        "haste": 1.0
+        "ability_felsworn_annihilation_damage": 0.1,
+        "ability_felsworn_annihilan_strike_damage": 0.1
       },
       "connected_to": [
-        "felsworn_slayer_consumed_by_fel"
+        "felsworn_slayer_oblivion"
       ],
-      "_source": "CoA: 'Triggering Dancing Blades now increases the damage of next Sargeron Smite by 8%, stacking 5 times.' A stacking per-ability buff off another talent's proc is two hooks deep; this is the honest flat version."
+      "_source": "CoA over 2 ranks: 'Your Annihilation now affects 1 additional attack.' Annihilation is a self-buff in our data, not an attack-counting mechanic, and nothing adds attacks to an ability (extra_attack is a proc payload, not an ability modifier), so the node becomes flat damage on both Annihilan abilities. Annihilan Strike generates 25 felfury. Both FRACTIONS."
     },
     {
-      "talent_id": "felsworn_slayer_scars_of_suffering",
-      "name": "Scars of Suffering",
-      "description": "Increases your attack power by 4% per rank.",
+      "talent_id": "felsworn_slayer_scars_of_the_past",
+      "name": "Scars of the Past",
+      "description": "Reduces the cost of Chaos Rush by 25%, and your attacks have a 25% chance to heal you for 20% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "ability_felsworn_chaos_rush_cost_pct": 0.0833
+      },
+      "connected_to": [
+        "felsworn_slayer_oblivion"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 8,
+        "icd": 0,
+        "leech_pct": 20
+      },
+      "_source": "CoA: 'Reduces the Energy cost of Chaos Rush by -5 and casting Chaos Rush now heals you for 81 + 20% Stamina + 33% AP.' Both halves port in shape. CoA's Energy is our felfury (the single primary pool), so the cost reduction is real. The heal becomes a leech off any swing rather than a flat Stamina/AP-scaled number on one ability: leech_pct is one of only THREE proc payloads that READ the triggering hit's amount, which makes it the honest way to express 'heals based on your attack power' - and it is the right trigger for it, unlike on an avoidance trigger where the amount is always zero. Folded in CoA's Felguard second clause ('while Inner Demon is active you heal for 15% of all melee damage dealt'): CoA gates this on INNER DEMON BEING ACTIVE. Nothing reads whether another effect is live - the same gap that killed Hard Bargain, Pathfinder, Chaos Fusion and Permafrost on other classes - so the condition is dropped and the node priced for being unconditional. Five Slayer talents carry this gate; it is CoA's main conditional for the spec."
+    },
+    {
+      "talent_id": "felsworn_slayer_oblivion",
+      "name": "Oblivion",
+      "description": "Your critical strikes increase your damage by 2% for 3 turns, stacking up to 10 times.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "felsworn_slayer_pit_lords_rage"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "oblivion",
+          "name": "Oblivion",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 2
+          },
+          "max_stacks": 10,
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Critically striking now increases your damage dealt by 1% for 4 seconds, stacking 10 times.' PORTS ALMOST VERBATIM - trigger, 10 stacks and shape all intact, the rate doubled to 2% because 4 seconds is barely more than one turn and the window here is 3. max_stacks is genuinely honoured even though nothing can READ the count. damage_dealt_pct is PERCENTAGE POINTS inside a status effect, which is the BUFF-side companion to the talent damage keys. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_slayer_you_cheat_guldan",
+      "name": "You Cheat, Gul'dan!",
+      "description": "Increases your physical critical damage by 50%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "crit_damage_physical": 0.1667
+      },
+      "connected_to": [
+        "felsworn_slayer_pit_lords_rage"
+      ],
+      "_source": "CoA: 'Increases your critical damage by 50% against enemies above 75% health.' CoA gates this on the target being ABOVE 75% health. high_health_damage_threshold_pct is DEAD DATA - authored somewhere in this project and read by nothing - and there is no above-health conditional of any kind, only the below-health low_health_damage_pct added 6 Nov 2026. Dropped. So CoA's 50% is kept unconditional, which is a straight buff relative to CoA and is flagged as such rather than quietly pocketed - the alternative was a node that silently never fired. Folded in Annihilan Strike's 'guaranteed to critically strike against enemies above 75% health', which fails for the same reason plus a second one: nothing grants a guaranteed crit on a specific ability. crit_damage_* keys are FRACTIONS, unlike the crit_chance_* family. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_slayer_burning_rage",
+      "name": "Burning Rage",
+      "description": "Increases the damage of Sunder and Immolation Aura by 20% and reduces their cost by 20%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_felsworn_sunder_damage": 0.0667,
+        "ability_felsworn_immolation_aura_damage": 0.0667,
+        "ability_felsworn_sunder_cost_pct": 0.0667,
+        "ability_felsworn_immolation_aura_cost_pct": 0.0667
+      },
+      "connected_to": [
+        "felsworn_slayer_azzinoths_rage"
+      ],
+      "_source": "CoA: 'Increases the damage and reduces the cost of Sunder and Immolation Aura by 20%.' PORTS VERBATIM, both halves and both abilities - one of the few CoA talents in this tree that needs no translation at all. Immolation Aura is a fire dot at target_type enemy_aoe. *_damage keys are FRACTIONS; *_cost_pct keys are fractions too, but POSITIVE MEANS A REDUCTION, which is the opposite sign convention from most of this file."
+    },
+    {
+      "talent_id": "felsworn_slayer_glaiving",
+      "name": "Glaiving",
+      "description": "Increases the damage of Fury Unleashed and Glaiving by 40% and reduces Fury Unleashed's cost by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_felsworn_fury_unleashed_damage": 0.1333,
+        "ability_felsworn_glaiving_damage": 0.1333,
+        "ability_felsworn_fury_unleashed_cost_pct": 0.1
+      },
+      "connected_to": [
+        "felsworn_slayer_spite"
+      ],
+      "_source": "CoA: 'Increases the damage dealt and reduces the Energy cost of Fury Unleashed by 50%.' PORTS EXACTLY (40%/30%), extended to Glaiving, which generates 20 felfury and had no node. CoA's Energy is our felfury - the single primary pool - so the cost reduction is real. Fury Unleashed is CoA's 5-second spinning channel; ours is a 6-turn-cooldown AoE strike, since there is no channelling, which also drops its movement-speed and CC-immunity clauses."
+    },
+    {
+      "talent_id": "felsworn_slayer_reachwalker",
+      "name": "Reachwalker",
+      "description": "Reduces the cooldown of Felhoof Charge, Chaos Rush and Fury of the Illidari by 35%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_felsworn_felhoof_charge_cooldown_pct": 0.1167,
+        "ability_felsworn_chaos_rush_cooldown_pct": 0.1167,
+        "ability_felsworn_fury_of_the_illidari_cooldown_pct": 0.1167
+      },
+      "connected_to": [
+        "felsworn_slayer_fel_blades"
+      ],
+      "_source": "CoA: 'Casting Chaos Rush now reduces the cooldown of Felhoof Charge by 2 sec.' The proc form cannot be built (no per-ability proc trigger) so it becomes a flat reduction, extended to both named abilities plus Fury of the Illidari. Folded in CoA's Perpetual Fury, which reduces Fury Unleashed's cooldown off Dancing Blades - an on-crit cleave that does not exist as an ability here, so nothing can trigger off it. FRACTIONS where POSITIVE MEANS A REDUCTION; talented_cooldown floors at 1 turn, so stacking these cannot make the abilities spammable."
+    },
+    {
+      "talent_id": "felsworn_slayer_felcaked_blades",
+      "name": "Felcaked Blades",
+      "description": "Increases your attack power by 20% of your Agility and the damage of Twin Slice by 25%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "attack_power_from_agility_pct": 0.0667,
+        "ability_felsworn_twin_slice_damage": 0.0833
+      },
+      "connected_to": [
+        "felsworn_slayer_demonic_machinations"
+      ],
+      "_source": "CoA level 50 passive: 'Twin Slice and Sargeron Smite now additionally scale with your Agility.' A per-ability stat SCALING coefficient is not something any key reaches - the ability keys are _damage, _healing, _crit, _crit_damage, _cost, _cooldown, _duration and _potency, and none touch how an ability scales off a stat. Built as a real global conversion instead: attack_power is in STAT_CONVERSION_TARGETS and agility in SOURCES, a legal pair, so a Slayer's Agility genuinely becomes attack power and reaches every ability rather than two. Plus flat damage on Twin Slice, the spec's filler and a 20-felfury generator. Both FRACTIONS."
+    },
+    {
+      "talent_id": "felsworn_slayer_whirling_vengeance",
+      "name": "Whirling Vengeance",
+      "description": "Reduces the cooldown of Fury Unleashed by 40%, and your attacks have a 30% chance to leave the target taking 12% more damage for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -396,69 +443,54 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "attack_power_pct": 4.0
+        "ability_felsworn_fury_unleashed_cooldown_pct": 0.1333
       },
       "connected_to": [
-        "felsworn_slayer_felguard"
+        "felsworn_slayer_a_thousand_cuts"
       ],
-      "_source": "CoA: 'Casting Azzinoth's Assault now scars the enemy, increasing your allies' attack power against them by 15% Agility.' Nothing scopes a buff to one target, and CoA itself calls this spec 'a bruiser, not a support', so the attack power lands on you."
-    },
-    {
-      "talent_id": "felsworn_slayer_whirling_vengeance",
-      "name": "Whirling Vengeance",
-      "description": "Increases the damage your abilities deal to additional targets by 10% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "aoe_damage": 0.1
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "whirling_vengeance",
+          "name": "Whirling Vengeance",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": 0.12
+          },
+          "dispel_type": null,
+          "on_target": true
+        }
       },
-      "connected_to": [
-        "felsworn_slayer_perpetual_fury"
-      ],
-      "_source": "CoA: 'When Fury Unleashed ends, you strike all nearby enemies for AP Shadowflame Damage and increase their damage taken from Sunder by 100%.' The cleave half survives as aoe_damage."
-    },
-    {
-      "talent_id": "felsworn_slayer_oblivion",
-      "name": "Oblivion",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "all_damage": 0.02
-      },
-      "connected_to": [
-        "felsworn_slayer_nether_champion"
-      ],
-      "_source": "CoA: 'Critically striking now increases your damage dealt by 1% for 4 seconds, stacking 10 times.' A stacking self-buff off crits is a proc shape the engine has, but with no stack cap on a talent-synthesised effect it would run away; flat damage instead."
+      "_source": "CoA: 'Reduces the cooldown of Fury Unleashed by -60 sec. When Fury Unleashed ends, you strike all nearby enemies for Shadowflame Damage and increase their damage taken from Sunder by 100% for 15 seconds.' The cooldown ports. THE SECOND HALF NEEDS AN ON-EXPIRY TRIGGER, which does not exist - no trigger fires when an effect ends, the same gap that killed Chronomancer's End of Time and The Vast Infinite, Reaper's Blood Frenzy burst and Painmail, and Ranger's Chasing Death. So the damage-taken debuff is re-pointed to a swing proc and widened from Sunder-only to all damage at 12% rather than 100%. CAREFUL: bare damage_taken_pct is read RAW ON BOTH SIDES - unlike physical_ and magic_, which divide by 100 inside a status effect - so 0.12 is 12% and authoring 12 would be +1200%. Was a pure scalar on our side."
     },
     {
       "talent_id": "felsworn_slayer_pit_lords_rage",
       "name": "Pit Lord's Rage",
-      "description": "There is nothing left of you that was holding anything back. +12% physical damage and +3% physical critical strike chance.",
-      "node_type": "active",
+      "description": "Increases your physical damage by 15% and your critical strike chance by 6%, and your critical strikes generate a further 10 Felfury.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "physical_damage": 0.12,
-        "crit_chance_physical": 3.0
+        "physical_damage": 0.15,
+        "crit_chance_physical": 6.0
       },
-      "connected_to": [
-        "felsworn_slayer_scars_of_suffering",
-        "felsworn_slayer_whirling_vengeance",
-        "felsworn_slayer_oblivion"
-      ],
-      "_source": "Capstone. CoA: 'Casting Chaos Rush now increases your Physical damage by 15% for 10 seconds. Casting Felhoof Charge increases your critical strike chance by 6% for 15 seconds.' Both riders fold into one always-on payoff, which suits a spec CoA rates Dungeon C / Raid A on 'strong sustained single-target DPS' rather than burst."
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Casting Chaos Rush now increases your Physical damage by 15% for 10 sec. Casting Felhoof Charge increases your critical strike chance by 6% for 15 sec.' Both values port verbatim; what cannot is their per-ability triggering, since there is no per-ability proc trigger, so two short windows become two passives. The felfury grant stacks with Twin Fury so a fully-talented Slayer banks 20 per crit - which is one full Twin Slice's worth, and the closest this single-pool engine gets to CoA's separate 0-5 Felfury bank filling up. Was a pure scalar on our side. physical_damage is a FRACTION; crit_chance_physical is percentage points."
     }
   ]
 }

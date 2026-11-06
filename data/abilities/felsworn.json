@@ -368,8 +368,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'the Inner Demon window, the kit's periodic power state' - the Demon Form every spec builds riders onto. NOT effect_type shapeshift: combat/forms.py has no Felsworn form and FORMS is keyed by class, and shifting zeroes the current resource pool by design, which would empty the Felfury bar on entering the damage window. A plain self-buff instead. Free to cast so the window is never gated behind the resource it is meant to spend.",
-      "target_type": "self"
+      "_source": "CoA: 'the Inner Demon window, the kit's periodic power state' - the Demon Form every spec builds riders onto. NOT effect_type shapeshift: combat/forms.py has no Felsworn form and FORMS is keyed by class, and shifting zeroes the current resource pool by design, which would empty the Felfury bar on entering the damage window. A plain self-buff instead. Free to cast so the window is never gated behind the resource it is meant to spend. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_hateforged_barrier",
@@ -389,9 +390,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Hateforged Barrier adds a Stamina-scaled absorb that also regenerates a slice of your max health each tick'. absorb_pct_max_health is the engine's real absorb hook and already scales off max health, which is itself Stamina-derived, so the Stamina scaling comes free. The regen-while-it-holds half has no hook and is dropped.",
+      "_source": "CoA: 'Hateforged Barrier adds a Stamina-scaled absorb that also regenerates a slice of your max health each tick'. absorb_pct_max_health is the engine's real absorb hook and already scales off max health, which is itself Stamina-derived, so the Stamina scaling comes free. The regen-while-it-holds half has no hook and is dropped. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
       "absorb_pct_max_health": 0.25,
-      "target_type": "self"
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_cripple",
@@ -555,8 +557,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health'. No guaranteed-crit flag exists, so it is a large crit window instead; the health cost has no hook and is dropped rather than faked.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health'. No guaranteed-crit flag exists, so it is a large crit window instead; the health cost has no hook and is dropped rather than faked. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_skull_of_guldan",
@@ -579,8 +582,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'increasing your maximum health and Energy by 25% for 10 seconds'. max_health_pct is a FRACTION - health * (1.0 + value) - so 0.15 is +15%, not 15.0. The Energy half has no Energy pool to raise here.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'increasing your maximum health and Energy by 25% for 10 seconds'. max_health_pct is a FRACTION - health * (1.0 + value) - so 0.15 is +15%, not 15.0. The Energy half has no Energy pool to raise here. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_illidans_guile",
@@ -603,8 +607,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'becoming immune to all physical attacks and spells for 8 seconds, but during that time you cannot attack, move or cast spells'. There is no immunity flag, so -80% damage taken stands in, and the cannot-act cost is paid as a heavy haste penalty rather than a turn-skip the engine cannot express.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'becoming immune to all physical attacks and spells for 8 seconds, but during that time you cannot attack, move or cast spells'. There is no immunity flag, so -80% damage taken stands in, and the cannot-act cost is paid as a heavy haste penalty rather than a turn-skip the engine cannot express. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_azzinoths_assault",
@@ -1009,8 +1014,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA, Fel Haze: 'While active, Blood of Mannoroth now also causes you to ignore all enemy Armor'. The armour-ignore half has no talent-side key, so the buff carries attack power and crit instead.",
-      "target_type": "self"
+      "_source": "CoA, Fel Haze: 'While active, Blood of Mannoroth now also causes you to ignore all enemy Armor'. The armour-ignore half has no talent-side key, so the buff carries attack power and crit instead. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_ruin",
@@ -1369,8 +1375,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Increases critical strike chance of all party and raid members within 100 by 3%... In addition, increases your critical strike chance by 3%', and 'its real group contribution is the passive Fel Infusion party/raid crit buff'. Passive auras have no shape here, so it is a party-scoped cooldown.",
-      "target_type": "self",
+      "_source": "CoA: 'Increases critical strike chance of all party and raid members within 100 by 3%... In addition, increases your critical strike chance by 3%', and 'its real group contribution is the passive Fel Infusion party/raid crit buff'. Passive auras have no shape here, so it is a party-scoped cooldown. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party aura ('3% increased critical strike chance to party and raid members. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY; a party-targeted ABILITY does, since abilities.py:2064 resolves 'party' to all living allies and degrades to the caster alone with no party context. Same call Kyle made for Guardian's four auras on 5 Nov 2026, applied to Reaper's two and Necromancer's three today. Felsworn's talents now shorten these auras' cooldowns instead of trying to be them.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
@@ -1509,12 +1515,13 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Generates 1 Felfury. Strengthen your will, reducing Physical damage taken by -30% for 10 seconds. While active, direct damaging abilities heal you for 3% of your maximum health.' The heal-on-damage rider has no ability-side hook; it lives on the Straight to the Nether talent instead.  UNIT FIXED 2026-10-29, and the note that used to sit here said the opposite: it claimed physical_damage_taken_pct is a FRACTION, authored -0.3, and therefore delivered -0.3% instead of -30%. In an ABILITY's stat_mods this key is PERCENT POINTS - Character.take_damage divides get_status_stat_mod('physical_damage_taken_pct') by 100, while the bare damage_taken_pct key four lines away in the same method is added undivided and IS a fraction. The convention is per-key with no naming rule. Measured: 0.04 took 736 from a 1000 hit, 4.0 took 766. The fix was made in the emitted JSON earlier the same day and not ported here, so re-running this script silently restored the broken value - which is how it was found. tools/validate_class.py now errors on both directions and names the corrected number.",
+      "_source": "CoA: 'Generates 1 Felfury. Strengthen your will, reducing Physical damage taken by -30% for 10 seconds. While active, direct damaging abilities heal you for 3% of your maximum health.' The heal-on-damage rider has no ability-side hook; it lives on the Straight to the Nether talent instead.  UNIT FIXED 2026-10-29, and the note that used to sit here said the opposite: it claimed physical_damage_taken_pct is a FRACTION, authored -0.3, and therefore delivered -0.3% instead of -30%. In an ABILITY's stat_mods this key is PERCENT POINTS - Character.take_damage divides get_status_stat_mod('physical_damage_taken_pct') by 100, while the bare damage_taken_pct key four lines away in the same method is added undivided and IS a fraction. The convention is per-key with no naming rule. Measured: 0.04 took 736 from a 1000 hit, 4.0 took 766. The fix was made in the emitted JSON earlier the same day and not ported here, so re-running this script silently restored the broken value - which is how it was found. tools/validate_class.py now errors on both directions and names the corrected number. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
       "target_type": "self",
       "generates": {
         "resource": "felfury",
         "amount": 20
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_burning_hatred",
@@ -1536,12 +1543,13 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Enrages you, instantly generating 6 Felfury and causing your melee damage to leech health to you equal to 50% of the damage dealt as Chaos damage for 15 seconds.' The 6-Felfury dump is the whole point, so this generates 40 - twice a builder. The leech lives on Felguard and Straight to the Nether, where a proc can carry it.",
+      "_source": "CoA: 'Enrages you, instantly generating 6 Felfury and causing your melee damage to leech health to you equal to 50% of the damage dealt as Chaos damage for 15 seconds.' The 6-Felfury dump is the whole point, so this generates 40 - twice a builder. The leech lives on Felguard and Straight to the Nether, where a proc can carry it. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
       "target_type": "self",
       "generates": {
         "resource": "felfury",
         "amount": 40
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_tyrannical_resolve",
@@ -1565,8 +1573,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds', 'your emergency button against anything threatening to kill you'. stat_mods taunt is the engine's real taunt hook (Ability._apply_effect reads it directly); the Felfire burst on expiry has no hook. Note ability stat_mods threat_generation_pct is percent POINTS, unlike the talent key of the same name, which is a fraction.",
-      "target_type": "self"
+      "_source": "CoA: 'Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds', 'your emergency button against anything threatening to kill you'. stat_mods taunt is the engine's real taunt hook (Ability._apply_effect reads it directly); the Felfire burst on expiry has no hook. Note ability stat_mods threat_generation_pct is percent POINTS, unlike the talent key of the same name, which is a fraction. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "felsworn_tyrants_gaze",
@@ -1645,8 +1654,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Grant 10% increased melee and ranged haste to party and raid members within 100 yds... In addition, your attack power is increased by 5%', 'save Eye of the Tyrant's party haste for the pull or burn phase you want to reinforce'.",
-      "target_type": "self",
+      "_source": "CoA: 'Grant 10% increased melee and ranged haste to party and raid members within 100 yds... In addition, your attack power is increased by 5%', 'save Eye of the Tyrant's party haste for the pull or burn phase you want to reinforce'. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party aura ('10% increased melee and ranged haste to party and raid members. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY; a party-targeted ABILITY does, since abilities.py:2064 resolves 'party' to all living allies and degrades to the caster alone with no party context. Same call Kyle made for Guardian's four auras on 5 Nov 2026, applied to Reaper's two and Necromancer's three today. Felsworn's talents now shorten these auras' cooldowns instead of trying to be them.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {
@@ -1670,8 +1679,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Enrage up to 8 allies within 20 yds, reducing their damage taken by -15% and increasing their haste by 10% for 10 seconds', 'drop Infernal Whipcrack to enrage the group'. The external-cooldown layer CoA says Vengeance Demon Hunter does not have.",
-      "target_type": "self",
+      "_source": "CoA: 'Enrage up to 8 allies within 20 yds, reducing their damage taken by -15% and increasing their haste by 10% for 10 seconds', 'drop Infernal Whipcrack to enrage the group'. The external-cooldown layer CoA says Vengeance Demon Hunter does not have. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party aura ('15% reduced damage taken and 10% haste to party and raid members. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY; a party-targeted ABILITY does, since abilities.py:2064 resolves 'party' to all living allies and degrades to the caster alone with no party context. Same call Kyle made for Guardian's four auras on 5 Nov 2026, applied to Reaper's two and Necromancer's three today. Felsworn's talents now shorten these auras' cooldowns instead of trying to be them.",
+      "target_type": "party",
       "buff_scope": "party"
     },
     {

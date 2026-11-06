@@ -1,8 +1,8 @@
 {
   "spec_name": "Felsworn Tyrant",
   "tree_id": "felsworn_tyrant",
-  "description": "Avoidance tank - dodge and parry are the chassis, Felfury comes back from being hit, and the party gets a cut of your cooldowns.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_felsworn__tyrant.txt and the tyrant block of reference/coa_sidekick/talents/felsworn.json. CoA rates it Dungeon A / Raid S / Arena S / BG S and calls it 'a Vengeance-DH self-sustain tank with a raid-buff layer stapled on'. Two things shape the tree. First, there is no shield anywhere in this spec, so every point that would go to block in a plate tree goes to dodge, parry or flat Armor instead - its stat priority ends on 'Dodge Rating (fuels self-buff scaling)'. Second, CoA's own weakness list says the resource economy only works while something is meleeing you, which is why Illidari Training, Vengeance and the capstone are all Felfury procs and why Burning Legionnaire's cost reduction sits in tier 0. The group-facing layer (Infernal Whipcrack, Eye of the Tyrant, Doomscarring) lives in the ability kit, because talents cannot buff a party.",
+  "description": "A demon that gets paid for being hit - avoidance into felfury, felfury into everything else.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 42 real CoA Tyrant talents (role TANK), the largest Felsworn spec. Built on the avoidance triggers, which only became meaningful when creature avoidance landed on 5 Nov 2026 - four CoA talents port off them. Nine Felsworn buffs whose durations were never read had to be fixed first, because this tree is built around them and Demonic Will's -30% physical damage taken was permanently active. Tyrant owns low_health_threshold_pct for the class at CoA's 35%, matching tyrants_gaze's own execute gate.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,257 +16,177 @@
     {
       "talent_id": "felsworn_tyrant_nether_disciple",
       "name": "Nether Disciple",
-      "description": "Increases your chance to dodge and to parry by 1% per rank.",
+      "description": "Increases your dodge and parry by 8%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "dodge": 1.0,
-        "parry": 1.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your dodge and parry chance by 3%.' This spec has no shield and no block, so dodge and parry are the whole avoidance story - CoA: 'The defense is anchored to dodge and parry.'"
-    },
-    {
-      "talent_id": "felsworn_tyrant_demon_hide",
-      "name": "Demon Hide",
-      "description": "Increases your Armor by 5% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "armor_pct": 5.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'While Inner Demon is active, your Armor contribution from cloth and leather items is increased by 120%.' No per-armour-class key and no window conditional, so it is unconditional Armor. Sized large on purpose: this is the only tank in the game in leather with no shield AND no form, and the note at the top of combat/forms.py says armor_pct is exactly the lever a shieldless sub-plate tank is meant to be balanced with (Bear and Beetle Form carry 70% and 22% for the same reason). With Burning Commander this tree reaches 35 armor_pct, the same as Guardian Vanguard, which needs less because it wears plate and carries a shield. armor_pct is PERCENT POINTS, not a fraction."
-    },
-    {
-      "talent_id": "felsworn_tyrant_burning_legionnaire",
-      "name": "Burning Legionnaire",
-      "description": "Reduces the Felfury cost of your abilities by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {
-        "all_ability_cost_pct": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Reduces the Energy cost of Twin Slice and Sunder by -10.' One pool here, so it is a general cost cut - which this spec needs, because CoA's own weakness list says its resource income dries up the moment it stops being the focus. POSITIVE is the discount - see Dark Magician in felsworn_infernal for the measurement."
-    },
-    {
-      "talent_id": "felsworn_tyrant_infernal_constitution",
-      "name": "Infernal Constitution",
-      "description": "Increases your total health by 3% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "max_health_pct": 0.03
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your maximum health by 10% and increases your off-hand weapon damage by 30%.' NOTE max_health_pct is a FRACTION - health * (1.0 + value) - not percent points like armor_pct. Guardian shipped this key at 2.0 and granted +200% health a rank, reaching 99,156 effective HP against the next tank's 2,987; tools/validate_class.py now fails a value that far off convention."
-    },
-    {
-      "talent_id": "felsworn_tyrant_hulking_demon",
-      "name": "Hulking Demon",
-      "description": "Grants attack power equal to 3% of your Stamina, and 1 hit rating, per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ap_from_stamina_pct": 0.03,
-        "hit_rating": 1
-      },
-      "connected_to": [
-        "felsworn_tyrant_nether_disciple"
-      ],
-      "_source": "CoA: 'Increases your attack power by 30% of your Stamina and your hit rating by 6% of your Agility.' The Stamina half is a real conversion; hit_rating cannot be a conversion target (it is a local feeding base_miss_chance_*), so it is flat. CoA puts Hit first in this spec's stat priority, which is why it is here at all."
-    },
-    {
-      "talent_id": "felsworn_tyrant_pure_hatred",
-      "name": "Pure Hatred",
-      "description": "Increases your Stamina by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": -4,
+      "hex_y": -6,
       "effects": {
-        "stamina_pct": 2.0
-      },
-      "connected_to": [
-        "felsworn_tyrant_demon_hide"
-      ],
-      "_source": "CoA: 'Your Hateforged Barrier now also scales with your dodge rating.' Hateforged Barrier absorbs a share of max health, which is Stamina-derived, so Stamina is the one stat that really does make the barrier bigger here. The dodge-scaling half has no hook."
-    },
-    {
-      "talent_id": "felsworn_tyrant_dark_lord",
-      "name": "Dark Lord",
-      "description": "Reduces all damage you take by 1% and increases your physical damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "damage_taken_pct": -0.01,
-        "physical_damage": 0.02
-      },
-      "connected_to": [
-        "felsworn_tyrant_burning_legionnaire"
-      ],
-      "_source": "CoA: 'While above 75% health, your damage taken is reduced by -5% and damage dealt is increased by 5%.' The engine has a low_health_* conditional pair and nothing for the other direction, so both halves are unconditional at a smaller value. damage_taken_pct is a FRACTION."
-    },
-    {
-      "talent_id": "felsworn_tyrant_felblade",
-      "name": "Felblade",
-      "description": "Grants spell power equal to 2% of your Agility per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "spell_damage_from_agility_pct": 0.02
+        "dodge": 2.6667,
+        "parry": 2.6667
       },
       "connected_to": [
         "felsworn_tyrant_infernal_constitution"
       ],
-      "_source": "CoA: 'Level 40 Passive. Damage dealt by Fel Fireball, Sargeron Smite, and Twin Slice now additionally scales with your Agility.' The spell side of that is a real conversion; the physical abilities already scale off Agility through attack power."
+      "_source": "CoA over 2 ranks: 'Increases your dodge and parry chance by 4%.' PORTS EXACTLY, doubled - and it would have been nearly inert a day earlier. Kyle had creature avoidance added on 5 Nov 2026 (dodge on every template, parry on humanoids only), which is what makes both stats and this whole tree's avoidance triggers worth having. NOTE `dodge` AND `parry` ARE THE LIVE KEYS: dodge_chance, parry_chance and block_chance are all dead data that several talents in this project author. Both in PERCENTAGE POINTS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_tyrant_illidari_training",
-      "name": "Illidari Training",
-      "description": "Damage you take has a 20% chance per rank to generate 8 Felfury.",
+      "talent_id": "felsworn_tyrant_infernal_constitution",
+      "name": "Infernal Constitution",
+      "description": "Increases your maximum health by 12% and your armor by 15%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "felsworn_tyrant_hulking_demon"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "felfury",
-          "amount": 8
-        }
-      },
-      "_source": "CoA: 'Dodging an attack now generates 3 Energy', and 'Resource income comes from being hit, through Illidari Training's dodge-to-Energy'. There is no on-dodge trigger, so on_damage_taken carries it - the same trigger Warrior Protection's Shield Specialization already uses for exactly this."
-    },
-    {
-      "talent_id": "felsworn_tyrant_unholy_endurance",
-      "name": "Unholy Endurance",
-      "description": "Increases the damage of Carve by 8% and your threat generation by 4% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": -2,
+      "hex_y": -6,
       "effects": {
-        "ability_felsworn_carve_damage": 0.08,
-        "threat_generation_pct": 0.04
+        "max_health_pct": 0.04,
+        "armor_pct": 5
       },
       "connected_to": [
-        "felsworn_tyrant_pure_hatred"
+        "felsworn_tyrant_hulking_demon",
+        "felsworn_tyrant_burning_legionnaire"
       ],
-      "_source": "CoA: 'Increases the damage and threat generated from Carve by 15%.' Note the key: threat_generation_pct as a TALENT effect is a fraction and only started working in 992ed62 - every threat talent in the game read a key the combat engine did not."
+      "_source": "CoA: 'Increases your maximum health by 10% and increases your off-hand weapon damage by 30%.' The health ports. THE OFF-HAND HALF CANNOT: the engine's weapon damage roll does not separate hands, and there is no off-hand damage key - which also cost Slayer's Slice & Dice and Trueshot Lodge Training their text. Replaced with armour, which a tank wants more than off-hand damage anyway. KEPT UNDER THE CAP DELIBERATELY: check_talent_balance enforces an armor_pct ceiling of 60 and Venomancer Fortitude currently breaches it at 62 from two stacking nodes, so this tree carries exactly one armour node. max_health_pct as a talent effect is a FRACTION; armor_pct is PERCENTAGE POINTS. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_tyrant_vengeance",
-      "name": "Vengeance",
-      "description": "Twin Slice and Felrend have a 20% chance per rank to generate 5 extra Felfury.",
+      "talent_id": "felsworn_tyrant_hulking_demon",
+      "name": "Hulking Demon",
+      "description": "Increases your attack power by 30% of your Stamina.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "felsworn_tyrant_dark_lord"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 0,
-        "ability_filter": [
-          "felsworn_twin_slice",
-          "felsworn_felrend"
-        ],
-        "grant_resource": {
-          "resource": "felfury",
-          "amount": 5
-        }
-      },
-      "_source": "CoA: 'Your Twin Slice and Felrend now have a 60% chance to generate 1 additional Felfury.' 3 ranks at 20% is CoA's 60% exactly, because _sync_talent_procs scales a proc's chance by points_spent."
-    },
-    {
-      "talent_id": "felsworn_tyrant_burning_commander",
-      "name": "Burning Commander",
-      "description": "Increases your Armor by 2%, and grants a further Armor equal to 2% of your Agility, per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": 0,
+      "hex_y": -6,
       "effects": {
-        "armor_pct": 2.0,
-        "armor_from_agility_pct": 0.02
-      },
-      "connected_to": [
-        "felsworn_tyrant_felblade"
-      ],
-      "_source": "CoA: 'Level 10 Passive. Allows you to wield a Two-Handed Axe, Mace, or Sword in each hand and grants you additional Armor and magic resistance based on your dodge rating.' Weapon proficiency is set in weapon_types.json, not by a talent, and dodge rating is not a conversion source - Agility, which feeds dodge, is. The magic-resistance half is dropped."
-    },
-    {
-      "talent_id": "felsworn_tyrant_demonic_fortitude",
-      "name": "Demonic Fortitude",
-      "description": "While below 35% health, you take 8% less damage per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.08,
-        "low_health_threshold_pct": 0.35
+        "attack_power_from_stamina_pct": 0.1
       },
       "connected_to": [
         "felsworn_tyrant_illidari_training"
       ],
-      "_source": "CoA: 'While Demonic Will or Hateforged Barrier are active, all damage taken or avoided now has a 20% chance to generate 1 Felfury.' Illidari Training already covers damage-taken-to-Felfury, and a while-a-defensive-is-up conditional has no hook, so this node takes the engine's real last-stand pair instead - the thing a tank tree needs and CoA's version of the spec gets from Tyrannical Resolve."
+      "_source": "CoA level 20 passive: 'Increases your attack power by 30% of your Stamina and your hit rating by 6% of your Agility.' The first half PORTS EXACTLY - attack_power is in STAT_CONVERSION_TARGETS and stamina is in STAT_CONVERSION_SOURCES, a legal pair, and it is the node that lets a Tyrant stack Stamina and still hit hard. The second half is DROPPED: hit_rating is NOT a valid conversion target, which with stamina-as-a-target has now cost ten nodes half their text across eight classes and is the most-repeated mistake in this audit. Note the asymmetry - stamina is a valid SOURCE but not a valid TARGET. A FRACTION. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_tyrant_straight_to_the_nether",
-      "name": "Straight to the Nether",
-      "description": "Carve and Sargeron Smite have a 34% chance per rank to leech 10% of the damage dealt as health.",
+      "talent_id": "felsworn_tyrant_burning_legionnaire",
+      "name": "Burning Legionnaire",
+      "description": "Reduces the cost of Twin Slice, Sunder and Felrend by 25%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "ability_felsworn_twin_slice_cost_pct": 0.0833,
+        "ability_felsworn_sunder_cost_pct": 0.0833,
+        "ability_felsworn_felrend_cost_pct": 0.0833
+      },
+      "connected_to": [
+        "felsworn_tyrant_outland_slaver"
+      ],
+      "_source": "CoA: 'Reduces the Energy cost of Twin Slice and Sunder by -10.' CoA's Energy is our felfury - the single primary pool - so this is a real cost reduction, extended to Felrend, which CoA's Outland Slaver also discounts. Twin Slice and Felrend each generate 20 felfury, so cheapening them compounds with Vengeance below. *_cost_pct keys are FRACTIONS where POSITIVE MEANS A REDUCTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_tyrant_illidari_training",
+      "name": "Illidari Training",
+      "description": "Dodging an attack generates 10 Felfury.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_vengeance",
+        "felsworn_tyrant_betrayer"
+      ],
+      "proc": {
+        "trigger": "on_dodge",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Dodging an attack now generates 3 Energy.' PORTS VERBATIM, and it is the node this whole tree is built on: a Tyrant funds his spenders by being attacked, which is what a tank does anyway. on_dodge is a live trigger and CoA's Energy is our felfury. 10 is what Twin Slice generates - one swing's worth per dodge. LEECH_PCT WOULD BE WRONG HERE and is asserted against in main(): a dodged attack deals ZERO damage, so an amount-reading payload silently yields nothing. grant_resource takes a FLAT `amount`; there is no pct_max field."
+    },
+    {
+      "talent_id": "felsworn_tyrant_outland_slaver",
+      "name": "Outland Slaver",
+      "description": "Increases the damage of Felrend and Fel Fireball by 30%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_felsworn_felrend_damage": 0.1,
+        "ability_felsworn_fel_fireball_damage": 0.1
+      },
+      "connected_to": [
+        "felsworn_tyrant_unholy_endurance"
+      ],
+      "_source": "CoA over 2 ranks: 'Reduces the cost of your Felrend and Fel Fireball by 3 and increases their damage dealt by 15%.' The damage half ports exactly, doubled for the two ranks. The cost half is already covered by Burning Legionnaire above, so it is not duplicated here - stacking two cost reductions on Felrend would reach 50% off a 20-felfury generator, which on a tank that also gains felfury from dodging would be close to free. Both FRACTIONS."
+    },
+    {
+      "talent_id": "felsworn_tyrant_vengeance",
+      "name": "Vengeance",
+      "description": "Your attacks have a 60% chance to generate 10 additional Felfury.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_demonic_fortitude"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 20,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'Your Twin Slice and Felrend now have a 60% chance to generate 1 additional Felfury.' PORTS ALMOST VERBATIM, chance included; only the two-ability scoping goes, since there is no per-ability proc trigger - and both named abilities are weapon strikes, so on_weapon_swing is close to the same thing. Stacks with Illidari Training so a Tyrant gains felfury from both attacking and being attacked, which is CoA's design for the spec."
+    },
+    {
+      "talent_id": "felsworn_tyrant_betrayer",
+      "name": "Betrayer",
+      "description": "Dodging or parrying an attack strikes the attacker for 90 physical damage.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_demonic_fortitude"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 33,
+        "icd": 0,
+        "damage_flat": 90,
+        "school": "physical"
+      },
+      "_source": "CoA: 'Dodging attacks causes 40% off-hand Weapon Damage to attackers and enrages your party and raid members within 20 yds, increasing their critical strike chance by 2% for 10 seconds.' THE COUNTERATTACK PORTS: on_avoid is a live trigger covering dodge, parry and block, and damage_flat delivers a real hit. Two things do not. The off-hand scaling has no key (the weapon roll does not separate hands), so the damage is a flat number. And the party enrage cannot come from a talent at all - a talent effect never reaches an ally - with no Felsworn aura ABILITY of that shape to convert either, unlike Eye of the Tyrant and Infernal Whipcrack, which were converted to target_type 'party' on 6 Nov 2026. damage_flat RATHER THAN leech_pct IS LOAD-BEARING: a dodged attack deals zero damage, so an amount-reading payload would deal nothing. `school` only TYPES the payload; it is not a trigger-side filter."
+    },
+    {
+      "talent_id": "felsworn_tyrant_demonic_fortitude",
+      "name": "Demonic Fortitude",
+      "description": "Taking damage has a 20% chance to generate 10 Felfury.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -274,218 +194,315 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_expose"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 7,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        }
+      },
+      "_source": "CoA: 'While Demonic Will or Hateforged Barrier are active, all damage taken or avoided now has a 20% chance to generate 1 Felfury.' PORTS ALMOST EXACTLY, chance included - on_damage_taken is a live trigger. CoA gates this on INNER DEMON BEING ACTIVE, and nothing reads whether another effect is live. Dropped, priced unconditional. Four Tyrant talents carry this gate. (Both named buffs would in fact have been permanently active before 6 Nov 2026, when nine Felsworn buffs were found to be 30-real-minute raid-scope effects whose turn duration was never read, so the condition would have been trivially true and the node would have looked correct for the wrong reason.) The 'or avoided' half is covered by Illidari Training two tiers up."
+    },
+    {
+      "talent_id": "felsworn_tyrant_unholy_endurance",
+      "name": "Unholy Endurance",
+      "description": "Increases the damage of Carve by 20% and your threat generation by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "ability_felsworn_carve_damage": 0.0667,
+        "threat_generation_pct": 0.0833
+      },
+      "connected_to": [
+        "felsworn_tyrant_expose"
+      ],
+      "_source": "CoA: 'Increases the damage and threat generated from Carve by 15%.' BOTH HALVES BUILD, the threat as a global rather than per-ability: threat_generation_pct is live, a FRACTION, and POSITIVE INCREASES threat - which is what a tank wants and is the opposite sign convention from the *_cost_pct and *_cooldown_pct families in this same file, where positive means a reduction. CoA scales this off HOW LONG CARVE WAS CHANNELLED. There is no channelling in this engine at all - our Carve is a 2-turn cooldown AoE strike - so nothing can scale off channel duration. Five Tyrant talents depend on it. so Carve is a plain 2-turn-cooldown AoE strike here. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_tyrant_expose",
+      "name": "Expose",
+      "description": "Your damaging spells have a 35% chance to leave the target taking 10% more damage from you for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_vengeance_is_mine"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "expose",
+          "name": "Expose",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": 0.1
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Direct Fire and Shadow spell damage dealt now applies Expose to enemies. Expose: damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3% for 8 seconds.' The debuff's first clause ports at CoA's exact 10%. The ally crit cannot: a per-target ally buff is beyond even a party ABILITY, which can only carry flat stat_mods on the caster's allies, not conditional-on-a-target ones. The Fire/Shadow filter is dropped - proc['school'] only TYPES a damage_flat payload and is not a trigger-side filter. 8 sec -> 3 turns. CAREFUL: bare damage_taken_pct is read RAW ON BOTH SIDES, unlike physical_ and magic_, so 0.10 is 10% and authoring 10 would be +1000%. Asserted in main()."
+    },
+    {
+      "talent_id": "felsworn_tyrant_tyrants_gaze",
+      "name": "Tyrant's Gaze",
+      "description": "Increases the damage of Tyrant's Gaze by 40%, its healing by 30%, and your damage against enemies below 35% health by 20%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_felsworn_tyrants_gaze_damage": 0.1333,
+        "ability_felsworn_tyrants_gaze_healing": 0.1,
+        "low_health_damage_pct": 0.0667,
+        "low_health_threshold_pct": 0.35
+      },
+      "connected_to": [
+        "felsworn_tyrant_vengeance_is_mine"
+      ],
+      "_source": "CoA: 'Set your fiery gaze upon an enemy, dealing Shadowflame Damage. Damaging an enemy in this way heals you and generates 1 Felfury. Only usable on enemies below 35% health.' THE EXECUTE GATE IS ALREADY REAL: felsworn_tyrants_gaze carries execute_threshold_pct 35, matching CoA exactly, enforced at abilities.py:1691. It is effect_type damage_and_heal, so it needs BOTH ability_<id>_damage AND ability_<id>_healing - authoring only _damage would buff the hit and leave the self-heal untouched, which is the mistake that left 18 talents across four classes silently doing nothing before _healing was accepted. THIS IS THE ONE NODE IN ALL OF FELSWORN THAT SETS low_health_threshold_pct, deliberately at CoA's 35% so the class's execute window matches this ability's own gate: that key SUMS across talents, is UNSCALED so rank does not divide it, and a character can spend in several trees of their class. Slayer and Infernal inherit it; a second setter would give 70%. Tinker once shipped two summing to 0.8. main() asserts exactly one, and tools/qa_summing_thresholds.py enforces it class-wide."
+    },
+    {
+      "talent_id": "felsworn_tyrant_vengeance_is_mine",
+      "name": "Vengeance Is Mine",
+      "description": "Avoiding an attack increases your damage by 15% for 3 turns and generates 10 Felfury.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_fel_monstrosity"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 33,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "felfury",
+          "amount": 10
+        },
+        "apply_effect": {
+          "effect_id": "vengeance_is_mine",
+          "name": "Vengeance Is Mine",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_dealt_pct": 15
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Dodging or parrying an attack now gives you a 10% chance to make your next 10 instances of damage with Twin Slice deal 30% increased damage and generate 1 Felfury.' PORTS WELL IN SHAPE: on_avoid covers dodging and parrying together, and one proc can carry both a grant_resource and an apply_effect. What cannot be built is 'your next 10 instances' - there is no charge or use-count system, which also killed Reaper's The Grim Reaper and Chronomancer Time's Timeblender - so it becomes a 3-turn window, and 'with Twin Slice' widens to all damage because a status effect carries only generic keys. 10% chance -> 100% with a 1-turn ICD, since CoA's low chance was compensating for a 10-instance payout. damage_dealt_pct is PERCENTAGE POINTS inside a status effect."
+    },
+    {
+      "talent_id": "felsworn_tyrant_nether_strength",
+      "name": "Nether Strength",
+      "description": "Reduces the cooldown of Burning Hatred, Hateforged Barrier and Demonic Will by 35%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_felsworn_burning_hatred_cooldown_pct": 0.1167,
+        "ability_felsworn_hateforged_barrier_cooldown_pct": 0.1167,
+        "ability_felsworn_demonic_will_cooldown_pct": 0.1167
+      },
+      "connected_to": [
+        "felsworn_tyrant_fel_monstrosity"
+      ],
+      "_source": "CoA: 'Casting Felfury spenders now reduces the cooldown of Burning Hatred, Hateforged Barrier, and Demonic Will by -1 sec.' The proc form cannot be built - there is no per-ability proc trigger and no 'Felfury spender' category - so it becomes a flat reduction on all three, exactly the abilities CoA names. Folded in CoA's Mannoroth's Rage, which reduces Burning Hatred's cooldown by 60 sec. ALL THREE OF THESE WERE AMONG THE NINE FELSWORN BUFFS whose turn duration was never read until 6 Nov 2026 - they inherited the 'raid' default, meaning 30 real minutes - so before that fix this node would have been shortening the cooldown on effects that never expired. FRACTIONS where POSITIVE MEANS A REDUCTION; talented_cooldown floors at 1 turn."
+    },
+    {
+      "talent_id": "felsworn_tyrant_eye_of_the_tyrant",
+      "name": "Eye of the Tyrant",
+      "description": "Increases your Stamina and attack power by 6%, and reduces the cooldown of your Eye of the Tyrant and Infernal Whipcrack auras by 35%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "stamina_pct": 2,
+        "attack_power_pct": 2,
+        "ability_felsworn_eye_of_the_tyrant_cooldown_pct": 0.1167,
+        "ability_felsworn_infernal_whipcrack_cooldown_pct": 0.1167
+      },
+      "connected_to": [
+        "felsworn_tyrant_fel_monstrosity"
+      ],
+      "_source": "CoA: 'Grant 10% increased melee and ranged haste to party and raid members within 100 yds. Does not stack with similar effects. In addition, your Stamina and attack power is increased by 4%.' THE SELFISH HALF PORTS (raised to 6%); THE PARTY HALF IS REAL BUT NOT FROM HERE, because a talent effect can never reach an ally. Both felsworn_eye_of_the_tyrant and felsworn_infernal_whipcrack were converted from target_type 'self' to 'party' on 6 Nov 2026 - the same call Kyle made for Guardian's four auras on 5 Nov and that was applied to Reaper's two and Necromancer's three today - so the aura is live and this talent does what a talent can: make both available far more often. Folded in CoA's Taskmaster's Army, which reduces Infernal Whipcrack's cooldown. BOTH PERCENTAGE-STAT KEYS ARE POINTS: stamina_pct and attack_power_pct both divide by 100, and audit_talents caught me authoring attack_power_pct as a fraction on Ranger Brigand tonight."
+    },
+    {
+      "talent_id": "felsworn_tyrant_pure_hatred",
+      "name": "Pure Hatred",
+      "description": "Increases your maximum health by a further 8% and reduces your magic damage taken by 8%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.0267,
+        "magic_damage_taken_pct": -0.0267
+      },
+      "connected_to": [
+        "felsworn_tyrant_nether_disciple"
+      ],
+      "_source": "CoA: 'Your Hateforged Barrier now also scales with your maximum health.' Hateforged Barrier is a 3-turn self-buff in our data with no absorb amount to rescale - there is no key that changes what a buff's shield scales off, and shield_pct and absorb_pct_max_health are PROC PAYLOAD fields rather than ability modifiers. So the node delivers the health itself plus magic mitigation, which is what 'your barrier scales with health' amounts to for a tank. BOTH KEYS ARE FRACTIONS AS TALENT EFFECTS and both flip inside a status effect, where max_health_pct becomes percentage points and magic_damage_taken_pct becomes points AND positive increases damage taken. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "felsworn_tyrant_doomscarring",
+      "name": "Doomscarring",
+      "description": "Your attacks have a 35% chance to scar the target, lowering their armor for 4 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "felsworn_tyrant_outland_slaver"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "doomscarring",
+          "name": "Doomscarring",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": -160
+          },
+          "max_stacks": 3,
+          "dispel_type": null,
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Twin Slice now deals an additional Physical damage and scars enemies for 12 seconds, increasing your allies' attack power against them by 45 + 15% Agility.' AN ALLY BUFF SCOPED TO ONE TARGET is beyond anything the engine offers - a talent effect never reaches an ally, and even a party ABILITY can only carry flat stat_mods, not per-target conditional ones, which is the same wall Expose's ally-crit clause and Reaper's Scars of Suffering hit. Rebuilt as an armour strip, which lets the PARTY's physical damage land harder on that target - the same outcome by a readable route. `armor` on a monster is FLAT (Monster.armor is base_armor + the status mod), so -160 per stack and -480 at three. 12 sec -> 4 turns."
+    },
+    {
+      "talent_id": "felsworn_tyrant_fel_daze",
+      "name": "Fel Daze",
+      "description": "Increases the critical strike chance of Fel Fireball by 10%, and your damaging spells have a 30% chance to weaken the target's attacks for 3 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 0,
+      "effects": {
+        "ability_felsworn_fel_fireball_crit": 3.3333
+      },
       "connected_to": [
         "felsworn_tyrant_unholy_endurance"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 34,
+        "chance": 10,
         "icd": 0,
-        "ability_filter": [
-          "felsworn_carve",
-          "felsworn_sargeron_smite"
-        ],
-        "leech_pct": {
-          "pct": 0.1
-        }
-      },
-      "_source": "CoA: 'While Inner Demon is active, Carve and Sargeron Smite now leeches 20% of the damage dealt from the initial strike as Shadowflame Damage', and 'Sustain hangs on channeling Carve, your biggest heal window through Straight to the Nether's leech'. Window-gating is not expressible, so the rate is halved and made chance-based."
-    },
-    {
-      "talent_id": "felsworn_tyrant_expose",
-      "name": "Expose",
-      "description": "Your damaging abilities have a 34% chance per rank to leave the target taking 4% more physical damage for 3 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "felsworn_tyrant_vengeance"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 34,
-        "icd": 1,
         "apply_effect": {
-          "effect_id": "felsworn_expose",
-          "name": "Expose",
+          "effect_id": "fel_daze",
+          "name": "Fel Daze",
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "physical_damage_taken_pct": 4.0
+            "attack_power": -95
           },
+          "dispel_type": "magic",
           "on_target": true
         }
       },
-      "_source": "PHYSICAL_DAMAGE_TAKEN_PCT IN A STATUS STAT_MOD IS IN PERCENT POINTS, NOT A FRACTION. This was 0.04, i.e. +0.04% instead of +4%, so the debuff did nothing measurable - verified by applying it and taking a 1000-damage hit: 0.04 gave 736, 4.0 gives 766. Note that the bare damage_taken_pct key beside it IS a fraction, and so is block_value_pct; the convention is per-key with no naming rule, so check how the engine reads the exact key before authoring a value. CoA: 'Damage taken from the Felsworn increased by 10% and the critical strike chance of all allies against this target is increased by 3%.' The ally-crit half cannot be scoped to a target, so only the damage-amplification half ships."
+      "_source": "CoA: 'Increases the critical strike chance of Fel Fireball by 10% and it's damage dealt now reduces the enemy's chance to hit by 3% for 6 sec.' The crit ports verbatim. THERE IS NO RECIPIENT-SIDE 'CHANCE TO BE HIT' OR ATTACKER-SIDE hit-reduction KEY a debuff can carry - the eight stat_mods a monster reads are armor, attack_power, damage_taken_pct, healing_taken_pct, magic/physical/spell_damage_taken_pct and magic_resistance - so this becomes a flat attack power reduction, which reduces incoming damage the same way fewer landed hits would. Ranger Farstrider's Venom-Coated Seeds needed the identical substitution. attack_power is FLAT on a monster. 6 sec -> 3 turns."
     },
     {
-      "talent_id": "felsworn_tyrant_betrayer",
-      "name": "Betrayer",
-      "description": "Blows that land on you are answered with an off-hand strike for 70 damage, 15% of the time per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "felsworn_tyrant_burning_commander"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 0,
-        "damage_flat": 70
-      },
-      "_source": "CoA: 'Dodging attacks causes 40% off-hand Weapon Damage to attackers and enrages your party and raid members within 20 yds, increasing their critical strike chance by 2%.' No on-dodge trigger and no party-scoped proc payload, so only the counter-strike survives."
-    },
-    {
-      "talent_id": "felsworn_tyrant_bulwark_of_azzinoth",
-      "name": "Bulwark of Azzinoth",
-      "description": "Reduces all damage you take by 2% per rank.",
+      "talent_id": "felsworn_tyrant_dark_lord",
+      "name": "Dark Lord",
+      "description": "Reduces all damage you take by a further 5% and increases your damage dealt by 5%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 4,
       "hex_y": 2,
       "effects": {
-        "damage_taken_pct": -0.02
+        "damage_taken_pct": -0.0167,
+        "all_damage": 0.0167
       },
       "connected_to": [
-        "felsworn_tyrant_demonic_fortitude"
+        "felsworn_tyrant_tyrants_gaze"
       ],
-      "_source": "CoA: 'Inner Demon now also reduces your damage taken by -10%.' No window conditional, so it is always on at a fifth the value."
+      "_source": "CoA: 'While above 75% health, your damage taken is reduced by -5% and damage dealt is increased by 5%.' Both values port; the condition does not. high_health_damage_threshold_pct is DEAD DATA - authored somewhere in this project and read by nothing - and there is no above-health conditional of any kind, only the below-health low_health_damage_pct added 6 Nov 2026. A tank node gated on being healthy is also the least useful shape of that conditional, so making it unconditional loses little of CoA's intent. BOTH FRACTIONS as talent effects; damage_taken_pct is read RAW (character.py:2696), so -0.05 is -5%. Was a pure scalar on our side."
     },
     {
-      "talent_id": "felsworn_tyrant_grommashs_folly",
-      "name": "Grommash's Folly",
-      "description": "Your critical strikes have a 34% chance per rank to heal you for 70.",
+      "talent_id": "felsworn_tyrant_tyrannical_resolve",
+      "name": "Tyrannical Resolve",
+      "description": "Reduces the cooldown of Tyrannical Resolve by 40% and increases your threat generation by a further 25%.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "felsworn_tyrant_straight_to_the_nether"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 34,
-        "icd": 0,
-        "heal_flat": 70
-      },
-      "_source": "CoA: 'you now heal equal to 50% of all damage dealt by critical strikes with auto attacks', 'Grommash's Folly heals off crits during Inner Demon'. A flat heal rather than a share of the hit, because heal_flat is what the on_crit trigger carries."
-    },
-    {
-      "talent_id": "felsworn_tyrant_abyssal_conditioning",
-      "name": "Abyssal Conditioning",
-      "description": "Increases your haste by 1 and your threat generation by 5% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
+      "hex_x": 4,
+      "hex_y": 4,
       "effects": {
-        "haste": 1.0,
-        "threat_generation_pct": 0.05
+        "ability_felsworn_tyrannical_resolve_cooldown_pct": 0.1333,
+        "threat_generation_pct": 0.0833
       },
       "connected_to": [
-        "felsworn_tyrant_expose"
+        "felsworn_tyrant_tyrants_gaze"
       ],
-      "_source": "CoA: 'Casting Felfury spenders now increases your Energy regeneration by 5% for 10 seconds, stacking up to 4 times.' Felfury has no regeneration to speed up, so the node buys turns instead - haste, plus the threat a dungeon tank wants out of them."
+      "_source": "CoA: 'Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds, up to 100% of your maximum health. When this ends, you unleash a Felfire Blast that leeches health from nearby enemies based on how many times you took damage with the effect active.' The ability already exists as a 2-turn self-buff. ITS PAYOUT NEEDS TWO THINGS THAT DO NOT EXIST: an accumulator to count damage taken during the window (the gap that killed Chronomancer's The Vast Infinite, Puppeteer's Threads and Oathkeeper) and a trigger on the effect EXPIRING. So the node makes the existing cooldown available more often and adds threat, stacking with Unholy Endurance to +50%. THIS BUFF WAS ONE OF THE NINE whose turn duration was never read until 6 Nov 2026 - at 'raid' scope its stated 2 turns were actually 30 real minutes, so a -damage-taken tank cooldown on a 16-turn cooldown was simply permanent. threat_generation_pct is a FRACTION where POSITIVE INCREASES threat."
     },
     {
       "talent_id": "felsworn_tyrant_fel_monstrosity",
       "name": "Fel Monstrosity",
-      "description": "Increases your Stamina by 3% per rank.",
+      "description": "Increases your Stamina by 25%, reduces all damage you take by 8%, and avoiding an attack heals you.",
       "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
-      "effects": {
-        "stamina_pct": 3.0
-      },
-      "connected_to": [
-        "felsworn_tyrant_bulwark_of_azzinoth"
-      ],
-      "_source": "CoA: 'Level 50 Passive. Increases your Stamina by 25% and size by 10%.' Frontier has no free passives, so it costs points; there is no character scale to change."
-    },
-    {
-      "talent_id": "felsworn_tyrant_mannoroths_rage",
-      "name": "Mannoroth's Rage",
-      "description": "Reduces the cooldown of Burning Hatred by 15% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {
-        "ability_felsworn_burning_hatred_cooldown_pct": 0.15
-      },
-      "connected_to": [
-        "felsworn_tyrant_grommashs_folly"
-      ],
-      "_source": "CoA: 'Reduces the cooldown of Burning Hatred by -60 sec and removes its Energy cost.' Burning Hatred is already free here, so the node is purely the cooldown."
-    },
-    {
-      "talent_id": "felsworn_tyrant_taskmasters_army",
-      "name": "Taskmaster's Army",
-      "description": "Infernal Whipcrack lasts 1 turn longer per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": 4,
-      "effects": {
-        "ability_felsworn_infernal_whipcrack_duration": 1
-      },
-      "connected_to": [
-        "felsworn_tyrant_abyssal_conditioning"
-      ],
-      "_source": "CoA: 'Reduces the cooldown of Infernal Whipcrack by -30 sec and it now affects all allies and its radius is increased by 15 yds.' buff_scope party already reaches the whole group, so the node buys uptime instead."
-    },
-    {
-      "talent_id": "felsworn_tyrant_vengeance_is_mine",
-      "name": "Vengeance Is Mine",
-      "description": "They have been hitting you for a while now. It has been going into something. +3% dodge chance and 6% less damage taken.",
-      "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "damage_taken_pct": -0.06,
-        "dodge": 3.0
+        "stamina_pct": 25,
+        "damage_taken_pct": -0.08
       },
-      "connected_to": [
-        "felsworn_tyrant_fel_monstrosity",
-        "felsworn_tyrant_mannoroths_rage",
-        "felsworn_tyrant_taskmasters_army"
-      ],
+      "connected_to": [],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 25,
-        "icd": 1,
-        "grant_resource": {
-          "resource": "felfury",
-          "amount": 15
-        }
+        "trigger": "on_avoid",
+        "chance": 100,
+        "icd": 0,
+        "heal_flat": 95
       },
-      "_source": "Capstone. CoA: 'Dodging or parrying an attack now gives you a 10% chance to make your next 10 instances of damage with Twin Slice deal 30% increased damage and generate 1 Felfury.' Kept as the thing CoA says this spec lives and dies on - mitigation plus avoidance plus resource off being hit - since its listed weakness is that 'Resource income comes from being hit... Stop being the focus and your Energy and Felfury dry up right when you want to fight back'."
+      "_source": "CoA level 50 passive: 'Increases your Stamina by 25% and size by 10%.' The Stamina ports verbatim (size is cosmetic and there is no model scaling). Folded in CoA's Bulwark of Azzinoth ('Inner Demon now also reduces your damage taken by 10%'), whose condition cannot be built - CoA gates this on INNER DEMON BEING ACTIVE, and nothing reads whether another effect is live. Dropped, priced unconditional. Four Tyrant talents carry this gate. - and CoA's Demonic Will self-heal clause, as the capstone's payoff on the trigger this entire tree is built on. A fully-talented Tyrant who dodges now gains felfury (Illidari Training), damage (Vengeance Is Mine), a counterattack (Betrayer) and a heal, all from one roll. heal_flat RATHER THAN leech_pct IS THE WHOLE POINT and is asserted in main(): an avoided attack deals ZERO damage, so an amount-reading payload would heal nothing while looking correct. stamina_pct is PERCENTAGE POINTS; damage_taken_pct as a talent effect is read RAW (character.py:2696), so -0.08 is -8%."
     }
   ]
 }
