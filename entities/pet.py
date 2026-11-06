@@ -82,6 +82,7 @@ class Pet(StatusEffectMixin):
             self.ability_book.add_ability(_ability_from_data(entry))
         for ability in self.ability_book.get_all_abilities():
             ability.refresh_rank_for_level(self.level)
+        self._scale_ability_power()
 
         self.hotbar = [None] * 10
         self._autofill_hotbar()
@@ -108,14 +109,79 @@ class Pet(StatusEffectMixin):
         t = self.template
         level_mult = 1.0 + (self.level - 1) * 0.15  # same curve as Monster
 
-        self.max_health = int(t["base_hp"] * level_mult)
+        # A PET IS A SHARE OF ITS OWNER, NOT A MONSTER THAT FOLLOWS YOU.
+        #
+        # These stats used to be `template_base * level_mult` and nothing
+        # else, which is the Monster curve - so a pet's power was decided
+        # entirely by which template it was and what level the owner had
+        # reached, and the owner's own gear did not touch it. Measured on
+        # geared characters (tools/sim_class_balance.dress) that produced:
+        #
+        #   level 60 Hunter   1252 hp / 186 ap
+        #     wolf            1379 hp / 216 ap   - beat its owner at both
+        #   level 60 Warrior  1796 hp
+        #     mechano_bear    2561 hp            - more than a plate tank
+        #   level 60 Warlock  1100 hp /  83 sp
+        #     voidwalker      2167 hp / 256 ap   - the pet WAS the class
+        #
+        # Two things were wrong with that and they pull in opposite
+        # directions. The pet outgrew the player, AND gearing the player
+        # did nothing for the pet - so the one fantasy a pet class has
+        # ("my beast gets better as I do") was the part that didn't work.
+        #
+        # So each template now declares what SHARE of its owner it is, and
+        # the template's old absolute numbers are what those shares are
+        # derived from (see pet_templates.shares_for), which keeps every
+        # pet's relative identity - a mechano_bear is still the tanky one,
+        # a war_falcon is still glass - while tying the whole roster to
+        # whoever is holding the leash.
+        #
+        # The old curve is kept ONLY for an owner with no usable stats -
+        # a pet built in a test, or before recalculate_stats has run. It
+        # is not blended in: a curve floor that keeps climbing at 15% a
+        # level overtakes the share and reinstates exactly the bug this
+        # replaces (measured: it put a level-60 voidwalker at 2.04x its
+        # Warlock's offensive stat, which is where it already was).
+        from combat.pet_templates import shares_for
+        hp_share, power_share, armor_share = shares_for(t)
+
+        owner = getattr(self, "owner", None)
+        o_hp = float(getattr(owner, "health", 0) or 0)
+        # Character carries `.armor`; Monster-shaped code carries
+        # `.base_armor`. Both spellings have to work here.
+        o_arm = float(getattr(owner, "base_armor", 0)
+                      or getattr(owner, "armor", 0) or 0)
+        # The owner's MAIN offensive stat, whichever it is. A Warlock has
+        # 18 attack power and 83 spell power at 60; scaling his voidwalker
+        # off attack power would have made the demon useless the moment it
+        # stopped being a free-standing monster.
+        o_pow = max(float(getattr(owner, "attack_power", 0) or 0),
+                    float(getattr(owner, "spell_power", 0) or 0))
+
+        if o_hp <= 0:
+            self.max_health = int(t["base_hp"] * level_mult)
+            self.base_armor = int(t.get("base_armor", 0) * level_mult)
+            self.attack_power = int(t.get("base_attack", 0) * level_mult)
+            self.spell_power = int(t.get("base_spell_power", 0) * level_mult)
+        else:
+            self.max_health = max(1, int(o_hp * hp_share))
+            self.base_armor = int(o_arm * armor_share)
+            # Melee pets put the share into attack power, casters into
+            # spell power, decided by which the template was authored
+            # around. The other stat is left at a token value so a caster
+            # pet's auto-attack is not literally zero.
+            power = max(1, int(o_pow * power_share))
+            if t.get("base_spell_power", 0) > t.get("base_attack", 0):
+                self.spell_power = power
+                self.attack_power = max(1, int(power * 0.25))
+            else:
+                self.attack_power = power
+                self.spell_power = max(0, int(power * 0.25)) \
+                    if t.get("base_spell_power", 0) else 0
+
         self.current_health = getattr(self, "current_health", self.max_health)
         self.current_health = min(self.current_health, self.max_health)
-
-        self.base_armor = int(t.get("base_armor", 0) * level_mult)
         self.magic_resistance = int(t.get("base_magic_resist", 0) * level_mult)
-        self.attack_power = int(t.get("base_attack", 0) * level_mult)
-        self.spell_power = int(t.get("base_spell_power", 0) * level_mult)
 
         # Owner talents that scale the pet. pet_damage, pet_health and
         # pet_armor were authored by five talents across Hunter Beast Mastery
@@ -163,6 +229,33 @@ class Pet(StatusEffectMixin):
 
         self.crit_chance_physical = t.get("crit_chance", 5.0)
         self.crit_chance_spell = t.get("crit_chance", 5.0)
+        # Guarded because __init__ calls this BEFORE the ability book is
+        # built; the construction path calls it again afterwards.
+        if getattr(self, "ability_book", None) is not None:
+            self._scale_ability_power()
+
+    def _scale_ability_power(self):
+        """Put this pet's ability damage on the same footing as the rest
+        of the roster, then grow it with level.
+
+        Two separate corrections, both measured (see
+        combat/pet_templates.offense_norm and ABILITY_LEVEL_RATE):
+
+          - every one of the 57 pet abilities is authored with a SINGLE
+            rank, so a wolf's Bite was 45 damage at level 1 and still 45
+            at level 60 while player abilities ranked up nine times. A
+            pet stopped contributing almost entirely past the twenties.
+          - the authored values were never balanced against each other,
+            running 18 to 90 at rank 1 with no role behind the spread.
+
+        Applied per-instance rather than written back into the shared
+        template dicts, which every pet built from that template reads.
+        """
+        from combat.pet_templates import offense_norm, ABILITY_LEVEL_RATE
+        scale = (offense_norm(self.template)
+                 * (1.0 + (self.level - 1) * ABILITY_LEVEL_RATE))
+        for ability in self.ability_book.get_all_abilities():
+            ability.power_scale = scale
 
     #: A Character's maximum health is .health and a Monster's is .max_health, and a Pet is
     #: treated as a party member by combat (is_ally, living_allies, the turn order) while being
@@ -201,6 +294,7 @@ class Pet(StatusEffectMixin):
             self._apply_template_stats()
             for ability in self.ability_book.get_all_abilities():
                 ability.refresh_rank_for_level(self.level)
+            self._scale_ability_power()
             self._autofill_hotbar()
 
     def _autofill_hotbar(self):

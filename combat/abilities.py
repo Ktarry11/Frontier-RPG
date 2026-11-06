@@ -911,7 +911,21 @@ class Ability:
 
     @property
     def effect_value(self):
-        return self.current_rank["effect_value"]
+        # power_scale exists for PET abilities and is 1.0 for everything
+        # else. Every one of the 57 pet abilities in pet_templates is
+        # authored with a SINGLE rank, so a wolf's Bite was effect_value
+        # 45 at level 1 and still 45 at level 60, while the player
+        # abilities it is standing next to rank up nine times (Starsunder
+        # goes 44 -> 472). A pet therefore stopped contributing almost
+        # entirely past the twenties, no matter how its stats scaled.
+        #
+        # Scaled here rather than by mutating the rank dicts, because
+        # those dicts are module-level template state shared by every pet
+        # ever built from that template - writing to them would have each
+        # new pet re-scale the previous one's numbers.
+        scale = getattr(self, "power_scale", 1.0)
+        base = self.current_rank["effect_value"]
+        return int(base * scale) if scale != 1.0 else base
 
     @property
     def heal_value(self):

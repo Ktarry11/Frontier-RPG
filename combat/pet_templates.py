@@ -1874,3 +1874,119 @@ def pets_for_class(pet_type, level):
         if t["pet_type"] == pet_type and level >= t.get("level_req", 1)
     ]
     return sorted(matches, key=lambda pair: pair[1].get("level_req", 1))
+
+
+#: Divisors that turn a template's authored base stats into the SHARE of
+#: its owner that pet is worth. See entities/pet._apply_template_stats for
+#: why pets scale off their owner at all.
+#:
+#: Deriving the shares from the existing numbers rather than hand-writing
+#: 28 new fields is deliberate: the roster was tuned relative to itself
+#: over months (a mechano_bear is the tanky one, a war_falcon is glass,
+#: an imp is a squishy caster), and that relative tuning is worth keeping.
+#: Only the absolute scale was wrong. The divisors below are the scale.
+#:
+#: Chosen so that, measured against geared characters at levels 10/30/60:
+#:   - a middling damage pet (wolf, 140 hp base) lands near 0.70 of its
+#:     owner's health and 0.37 of its owner's main offensive stat
+#:   - a dedicated tank pet (voidwalker, mechano_bear) lands at 1.1-1.3x
+#:     owner health but well under half its damage
+#:   - a caster pet (imp, mindbender) is squishy and hits with spell power
+#: which is roughly where a WotLK pet sits next to its owner.
+HP_SHARE_DIVISOR = 200.0
+MELEE_POWER_DIVISOR = 60.0
+CASTER_POWER_DIVISOR = 40.0
+ARMOR_SHARE_DIVISOR = 30.0
+
+#: Nothing should out-tank a plate wearer or out-hit its own owner on the
+#: strength of being a pet, however the template was authored. The power
+#: cap in particular catches the rusthound, whose authored base_attack of
+#: 44 is double the wolf's and would otherwise have put it at 0.73x its
+#: owner's offensive stat - most of a second character.
+MAX_HP_SHARE = 1.20
+MAX_POWER_SHARE = 0.60
+MAX_ARMOR_SHARE = 1.20
+
+
+def shares_for(template):
+    """(hp_share, power_share, armor_share) for one template.
+
+    Returned as fractions of the owner's health, main offensive stat and
+    armor respectively.
+    """
+    hp = template.get("base_hp", 0) / HP_SHARE_DIVISOR
+    atk = template.get("base_attack", 0)
+    sp = template.get("base_spell_power", 0)
+    if sp > atk:
+        power = sp / CASTER_POWER_DIVISOR
+    else:
+        power = atk / MELEE_POWER_DIVISOR
+    armor = template.get("base_armor", 0) / ARMOR_SHARE_DIVISOR
+    return (min(hp, MAX_HP_SHARE),
+            min(power, MAX_POWER_SHARE),
+            min(armor, MAX_ARMOR_SHARE))
+
+
+#: Offensive effect_types, for working out what a template's damage
+#: actually is. Mirrors tools/sim_class_balance.OFFENSIVE.
+_OFFENSIVE = {"damage", "ranged_damage", "spell_damage", "dot",
+              "damage_and_heal", "damage_and_restore_mana"}
+
+#: Median per-turn effect_value of a PLAYER offensive ability available by
+#: level 5, measured across data/abilities (n=73). The yardstick a pet's
+#: damage is set against.
+PLAYER_BASELINE = 42.0
+
+#: How much of that baseline a pet's best ability is worth. A pet takes a
+#: full turn of its own and costs no party slot, so it is pure addition to
+#: a group - this is the dial that decides how much. Raise it to make
+#: every pet in the game hit harder, lower it to make pets more of a
+#: companion than a sixth party member.
+PET_OFFENSE_SHARE = 0.55
+
+#: Per-level growth of pet ability damage. Matched to how PLAYER ability
+#: damage actually grows - measured at 52/84/162 per turn at levels
+#: 10/30/60, which is ~1 + 0.037*(level-1), NOT the 15%-a-level monster
+#: stat curve. Scaling pet abilities on the monster curve instead put a
+#: level-60 wolf at 1.5x its owner's per-turn damage and a rusthound at
+#: 2.3x, because player ability values grow about three times over a
+#: career while monster stats grow nearly ten.
+ABILITY_LEVEL_RATE = 0.037
+
+
+def _best_offense(template):
+    """The template's strongest authored per-turn offensive value."""
+    best = 0.0
+    for a in template.get("abilities", []):
+        if a.get("effect_type") not in _OFFENSIVE:
+            continue
+        ranks = a.get("ranks") or []
+        if not ranks:
+            continue
+        ev = ranks[0].get("effect_value", 0) or 0
+        dur = a.get("duration", 0) or 0
+        best = max(best, ev / dur if dur > 1 else ev)
+    return best
+
+
+def offense_norm(template):
+    """Factor that brings one template's authored ability damage onto the
+    same footing as the rest of the roster.
+
+    The authored values were never balanced against each other: measured
+    at rank 1 they run from 18 (ZIGGI-6K) to 90 (succubus), a five-fold
+    spread with no role behind it - a ghoul hit for 22 and a succubus for
+    90 and nothing in the design said why. Scaling every pet by the same
+    level curve preserved that spread and multiplied it.
+
+    Each template is now given an offensive budget from its own tankiness
+    - the classic trade, and one the hp numbers already encode - and its
+    abilities are scaled as a group onto that budget, so the relationship
+    BETWEEN a template's own abilities is untouched.
+    """
+    best = _best_offense(template)
+    if best <= 0:
+        return 1.0
+    hp_share = min(template.get("base_hp", 0) / HP_SHARE_DIVISOR, MAX_HP_SHARE)
+    budget = PLAYER_BASELINE * PET_OFFENSE_SHARE / (0.5 + hp_share)
+    return budget / best

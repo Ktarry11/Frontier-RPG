@@ -3324,6 +3324,20 @@ class Character(StatusEffectMixin):
         char.current_health = data.get("current_health", char.health)
         char.current_mana = data.get("current_mana", char.mana)
         char.sanitize_hotbar()
+
+        # RE-SYNC PETS NOW THAT THE OWNER IS A REAL CHARACTER AGAIN.
+        # The pets are restored at the top of this method - they have to
+        # be, because summon_pet enforces level and class rules and those
+        # read the constructor's values - but at that point this character
+        # has base stats, no gear and no talents. A Pet's stats are now a
+        # share of its owner's (see entities/pet._apply_template_stats), so
+        # building one against that half-restored character gave a loaded
+        # save a pet scaled off a naked level-1-ish owner. Harmless before
+        # pets scaled off anything, wrong the moment they did.
+        for pet in char.all_pets:
+            kept = pet.current_health
+            pet._apply_template_stats()
+            pet.current_health = min(pet.max_health, max(1, int(kept)))
         if char.recruit_id == "asher_coleman":
             # Kyle (2026-10-22): Asher's surname stays hidden early in the game; migrate older saves.
             char.name = "Asher"
