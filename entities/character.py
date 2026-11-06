@@ -1322,11 +1322,50 @@ class Character(StatusEffectMixin):
         # No base-stat contribution (unlike Crit/Haste) - this is purely a
         # gear stat, matching WoW's convention where Hit Rating has no
         # baseline from STR/AGI/INT.
-        hit_rating = bonuses.get("hit_rating", 0)
-        self.base_miss_chance_physical = max(0.0, 8.0 - hit_rating)
-        self.base_miss_chance_spell = max(0.0, 6.0 - hit_rating)
-        self.hit_chance_physical = 100.0 - self.base_miss_chance_physical
+        # CAPPED, and split three ways - Kyle: "we need a cap for hit
+        # rating, we need to show hit % for spells, mainhand and offhand
+        # too. WoW has this."
+        #
+        # There was no cap at all, so hit rating kept being worth something
+        # on an item long after it had zeroed every miss in the game. The
+        # ceiling is the worst miss a character can face, which is a
+        # dual-wielder's main hand, so it is derived from the two constants
+        # rather than written down separately and left to drift.
+        hit_rating = min(float(bonuses.get("hit_rating", 0) or 0),
+                         self.HIT_RATING_CAP)
+        self.hit_rating = hit_rating
+
+        # DUAL WIELDING COSTS ACCURACY. It did not before: an off-hand
+        # weapon added half its damage to every swing (get_weapon_damage_roll)
+        # for no downside whatsoever, so two weapons were strictly better
+        # than one for anybody who could hold them. In WoW that extra damage
+        # is paid for with a large miss penalty on both weapons, which is the
+        # whole reason hit rating is a dual-wielder's most wanted stat.
+        # THE PENALTY IS THE OFF HAND'S, NOT THE WHOLE CHARACTER'S. In WoW
+        # the dual-wield miss penalty lands on white swings; special
+        # attacks are unaffected. hit_chance_physical here is rolled for
+        # EVERY physical ability, so charging the penalty to it would take
+        # a fifth of a dual-wielder's entire output rather than a fifth of
+        # its off-hand - measured on a geared level-60 Rogue, 76.9% hit on
+        # everything it pressed. The off hand carries it alone, which is
+        # also why WoW bothers to show the two numbers separately.
+        self.is_dual_wielding = bool(self._offhand_weapon())
+
+        self.base_miss_chance_spell = max(0.0, self.BASE_MISS_SPELL - hit_rating)
+        self.base_miss_chance_physical = max(
+            0.0, self.BASE_MISS_PHYSICAL - hit_rating)
+
         self.hit_chance_spell = 100.0 - self.base_miss_chance_spell
+        self.hit_chance_main_hand = 100.0 - self.base_miss_chance_physical
+        # With no off-hand weapon there is nothing to miss with, so it
+        # reads as a full 100 rather than as a penalty nobody is paying.
+        self.hit_chance_off_hand = (
+            100.0 - max(0.0, self.BASE_MISS_PHYSICAL
+                        + self.DUAL_WIELD_MISS_PENALTY - hit_rating)
+            if self.is_dual_wielding else 100.0)
+        #: Kept as the name every existing caller uses (combat/abilities.py's
+        #: miss roll, Monster, the sim) - it is the main hand.
+        self.hit_chance_physical = self.hit_chance_main_hand
         
         # Avoidance
         # dodge_rating/parry_rating/block_rating (real gear suffix stats,
@@ -1603,12 +1642,30 @@ class Character(StatusEffectMixin):
             total += random.randint(main_hand.weapon_damage_min, main_hand.weapon_damage_max)
 
         if include_offhand:
-            off_hand = self.equipment.slots.get("off_hand")
-            if off_hand and off_hand.weapon_damage_max > 0:
+            off_hand = self._offhand_weapon()
+            # THE OFF HAND SWINGS ON ITS OWN ACCURACY. Its damage used to be
+            # added unconditionally, so hit_chance_off_hand would have been a
+            # number on the sheet that described nothing - and dual wielding
+            # was free damage with no accuracy cost anywhere in the game.
+            # It misses independently, as in WoW, which is what makes the
+            # dual-wield miss penalty something a player can feel and gear
+            # against.
+            if off_hand and (random.uniform(0, 100)
+                             <= getattr(self, "hit_chance_off_hand", 100.0)):
                 offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
                 total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
 
         return total
+
+    def _offhand_weapon(self):
+        """The equipped off-hand weapon, or None. A shield or an off-hand
+        held item is not a weapon and carries no dual-wield penalty, so
+        this checks for real weapon damage rather than for an occupied
+        slot."""
+        off_hand = self.equipment.slots.get("off_hand")
+        if off_hand and getattr(off_hand, "weapon_damage_max", 0) > 0:
+            return off_hand
+        return None
 
     def get_weapon_dps(self, use_ranged=False):
         """Return the DPS of the equipped main-hand (or ranged) weapon. 0 if unarmed."""
@@ -2418,6 +2475,20 @@ class Character(StatusEffectMixin):
     #:
     #: Flat across levels is the point. Armour class stays a real difference - a plate wearer takes
     #: a bit over half what a cloth wearer takes from a sword - without either becoming immune.
+    #: HIT, in percentage points. A point of hit rating removes a point of
+    #: miss, which is the convention the stat already used - this only adds
+    #: the ceiling and the dual-wield penalty.
+    #:
+    #: The numbers are WoW's shape: a caster misses less than a swinger, and
+    #: holding a second weapon is a big accuracy cost paid for extra damage.
+    BASE_MISS_PHYSICAL = 8.0
+    BASE_MISS_SPELL = 6.0
+    DUAL_WIELD_MISS_PENALTY = 19.0
+    #: The most hit rating that can ever do anything: enough to zero the
+    #: worst miss in the game, which is a dual-wielder's. Derived rather
+    #: than written down twice.
+    HIT_RATING_CAP = BASE_MISS_PHYSICAL + DUAL_WIELD_MISS_PENALTY
+
     MITIGATION_BASE = 200
     MITIGATION_PER_LEVEL = 35
 
@@ -3097,6 +3168,13 @@ class Character(StatusEffectMixin):
                 "block": f"{self.block_chance:.1f}% / {self.block_value:.0f}",
                 "parry": f"{self.parry:.1f}%",
                 "haste": f"{self.haste:.1f}%",
+                # Three hit numbers, as WoW shows them - Kyle: "we need to
+                # show hit % for spells, mainhand and offhand too".
+                "hit_spell": f"{self.hit_chance_spell:.1f}%",
+                "hit_main_hand": f"{self.hit_chance_main_hand:.1f}%",
+                "hit_off_hand": (f"{self.hit_chance_off_hand:.1f}%"
+                                 if self.is_dual_wielding else "-"),
+                "hit_rating": f"{self.hit_rating:.0f} / {self.HIT_RATING_CAP:.0f}",
             },
             "defense": {
                 # display_health rounds the real internal float (Kyle:

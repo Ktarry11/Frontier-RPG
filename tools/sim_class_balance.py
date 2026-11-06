@@ -651,9 +651,18 @@ def main():
         dress(c, gen, levels[-1])
         print(f"  {display:<14}{c.armor:>7}{c.get_physical_reduction_percent():>17.0f}%"
               f"{c.get_magic_reduction_percent():>14.0f}%")
-    print(f"  Character.MITIGATION_CONSTANT is {Character.MITIGATION_CONSTANT}, flat - it does not "
-          f"scale with\n  level or attacker, so armour climbs with gear forever while magic "
-          f"resistance stays at zero.")
+    # This used to say armour climbed with gear forever while magic
+    # resistance stayed at zero, which was true while BOTH ran through
+    # mitigation_from (denominator 200 + 35*level = 2300 at 60, so a
+    # resistance rating of 100 was worth 4.2%). Resistance has its own
+    # scale now - 0-60 points, half a percent each, capped at 30%, not
+    # level-scaled - so the note describes the curve as it actually is.
+    print(f"  Armour runs on mitigation_from (denominator "
+          f"{Character.MITIGATION_BASE} + {Character.MITIGATION_PER_LEVEL}*level)"
+          f" and climbs with gear.\n  Resistance is a separate 0-"
+          f"{Character.RESIST_MAX} scale at "
+          f"{Character.RESIST_PCT_PER_POINT*100:.1f}% a point, capped at "
+          f"{Character.RESIST_CAP*100:.0f}%, which spell penetration cancels 1 for 1.")
 
     # ---- outliers, measured against the spread rather than an invented target
     print("\nSPECS BEHIND THEIR OWN CLASS'S BEST BUILD")

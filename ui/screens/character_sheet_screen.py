@@ -256,6 +256,22 @@ class CharacterSheetScreen(BaseScreen):
         mid_y += 22
         self.renderer.draw_text(screen, f"Haste: {derived['haste']}", (mid_x, mid_y))
         mid_y += 28
+        # HIT, three ways. A dual-wielder and a caster face completely
+        # different miss chances off the same hit rating, so one number
+        # could not tell either of them what they needed - Kyle: "we need
+        # to show hit % for spells, mainhand and offhand too. WoW has this."
+        self.renderer.draw_text(
+            screen, f"Hit Rating: {derived['hit_rating']}", (mid_x, mid_y))
+        mid_y += 22
+        self.renderer.draw_text(
+            screen, f"Hit (Spell): {derived['hit_spell']}", (mid_x, mid_y))
+        mid_y += 22
+        self.renderer.draw_text(
+            screen, f"Hit (Main Hand): {derived['hit_main_hand']}", (mid_x, mid_y))
+        mid_y += 22
+        self.renderer.draw_text(
+            screen, f"Hit (Off Hand): {derived['hit_off_hand']}", (mid_x, mid_y))
+        mid_y += 28
         self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (mid_x, mid_y))
         mid_y += 22
         self.renderer.draw_text(screen, f"Block: {derived['block']}", (mid_x, mid_y))
