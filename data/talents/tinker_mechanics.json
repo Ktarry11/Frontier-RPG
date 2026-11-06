@@ -107,10 +107,12 @@
           "max_stacks": 2,
           "stat_mods": {
             "pet_damage": 0.05
-          }
+          },
+          "effect_type": "buff",
+          "on_target": false
         }
       },
-      "_source": "CoA: 'Casting Spanner Smash and Scrap Shot now increases your pet's attack power by 5% for 15 sec, stacking 2 times.' 15 sec -> 5 turns. Replaces a pure-scalar node of the same name."
+      "_source": "CoA: 'Casting Spanner Smash and Scrap Shot now increases your pet's attack power by 5% for 15 sec, stacking 2 times.' 15 sec -> 5 turns. Replaces a pure-scalar node of the same name. || FIXED 6 Nov 2026: this apply_effect declared no `effect_type`, which is a REQUIRED positional argument of StatusEffect.__init__ - so the proc raised TypeError and CRASHED COMBAT the moment it fired. All four of these are self-buffs (stat_mods only, no potency, benefiting the caster), so effect_type 'buff' is correct. Found by tools/sim_class_balance.py playing real fights; ten Tinker nodes across these two trees were crashing in total, six on an unaccepted `school` key and four on this. tools/qa_apply_effect_fields.py now checks both shapes by introspecting the real constructor signature rather than a hard-coded field list."
     },
     {
       "talent_id": "tinker_mechanics_master_builder",
@@ -370,11 +372,12 @@
           "name": "Living Flame",
           "duration": 3,
           "max_stacks": 5,
-          "school": "fire",
-          "dot_damage": 32
+          "damage_school": "fire",
+          "effect_type": "dot",
+          "potency": 32
         }
       },
-      "_source": "CoA: 'While inside your Mechsuit, damage dealt by your Scrap Shot and Makeshift Dynamite now applies Living Flame... Deals 32 Fire Damage every 2 sec... stacking 5 times.' The Combustion-damage-taken rider is dropped: there is no per-source damage-taken modifier here."
+      "_source": "CoA: 'While inside your Mechsuit, damage dealt by your Scrap Shot and Makeshift Dynamite now applies Living Flame... Deals 32 Fire Damage every 2 sec... stacking 5 times.' The Combustion-damage-taken rider is dropped: there is no per-source damage-taken modifier here. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. Also carried `dot_damage`, which StatusEffect does not accept either and which is a TALENT key, not a status-effect field: a proc-applied dot states its per-turn damage as `potency` and must declare effect_type 'dot' or it is not a dot at all. Both corrected, so the description's 'damage over N turns' is now true."
     },
     {
       "talent_id": "tinker_mechanics_arclight_core",
@@ -402,11 +405,12 @@
           "name": "Arclight Mark",
           "duration": 2,
           "max_stacks": 1,
-          "school": "fire",
-          "dot_damage": 30
+          "damage_school": "fire",
+          "effect_type": "dot",
+          "potency": 30
         }
       },
-      "_source": "CoA: 'Makeshift Dynamite now marks enemies for 6 sec. The next damaging ability used on this target by your pet consumes the mark to deal Fire damage.' 6 sec -> 2 turns. The pet-consumes-the-mark half is NOT ported: it would need a new proc payload, and an invented key reads as working while doing nothing. Shipped as the burn it becomes; the consume is in the handoff list."
+      "_source": "CoA: 'Makeshift Dynamite now marks enemies for 6 sec. The next damaging ability used on this target by your pet consumes the mark to deal Fire damage.' 6 sec -> 2 turns. The pet-consumes-the-mark half is NOT ported: it would need a new proc payload, and an invented key reads as working while doing nothing. Shipped as the burn it becomes; the consume is in the handoff list. || FIXED 6 Nov 2026: this apply_effect passed `school`, which StatusEffect.__init__ does not accept, so the proc raised TypeError and CRASHED COMBAT the moment it fired. The field is `damage_school`. Found by tools/sim_class_balance.py, which plays real fights - no static check in the project could see it, because the key is only passed to the constructor at proc time. Six Tinker nodes across two trees had it. Also carried `dot_damage`, which StatusEffect does not accept either and which is a TALENT key, not a status-effect field: a proc-applied dot states its per-turn damage as `potency` and must declare effect_type 'dot' or it is not a dot at all. Both corrected, so the description's 'damage over N turns' is now true."
     },
     {
       "talent_id": "tinker_mechanics_overload",
@@ -532,10 +536,12 @@
           "max_stacks": 1,
           "stat_mods": {
             "pet_damage": 0.2
-          }
+          },
+          "effect_type": "buff",
+          "on_target": false
         }
       },
-      "_source": "CoA: 'Casting Mechsuit abilities now causes your pet to enter a haywired state for 6 seconds... auto attacks now zap up to 10 nearby enemies.' 6 sec -> 2 turns. Pet AoE is not modelled, so the chain is expressed as a pet damage buff rather than invented."
+      "_source": "CoA: 'Casting Mechsuit abilities now causes your pet to enter a haywired state for 6 seconds... auto attacks now zap up to 10 nearby enemies.' 6 sec -> 2 turns. Pet AoE is not modelled, so the chain is expressed as a pet damage buff rather than invented. || FIXED 6 Nov 2026: this apply_effect declared no `effect_type`, which is a REQUIRED positional argument of StatusEffect.__init__ - so the proc raised TypeError and CRASHED COMBAT the moment it fired. All four of these are self-buffs (stat_mods only, no potency, benefiting the caster), so effect_type 'buff' is correct. Found by tools/sim_class_balance.py playing real fights; ten Tinker nodes across these two trees were crashing in total, six on an unaccepted `school` key and four on this. tools/qa_apply_effect_fields.py now checks both shapes by introspecting the real constructor signature rather than a hard-coded field list."
     },
     {
       "talent_id": "tinker_mechanics_turbo_upgrade",

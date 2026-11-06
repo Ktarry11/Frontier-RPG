@@ -312,8 +312,8 @@ N.append(node(
     "Increases the duration of Flesh to Worms and Plague of Undeath by 2 "
     "turns.",
     3, 2,
-    effects={"ability_necromancer_flesh_to_worms_duration": 2,
-             "ability_necromancer_plague_of_undeath_duration": 2},
+    effects={"ability_necromancer_flesh_to_worms_duration": 1,
+             "ability_necromancer_plague_of_undeath_duration": 1},
     connect=["unholy_runes"],
     source="CoA: 'Applying Crypt Plague now extends the duration of Flesh "
            "to Worms on the target by 1 sec.' The trigger cannot be built "
@@ -581,24 +581,27 @@ N.append(node(
 # ---- tier 6 -------------------------------------------------------------
 N.append(node(
     "waking_crypts", "Waking Crypts",
-    "Increases the duration of your diseases by a further 30%, their "
-    "damage by 25%, and the damage of Crypt Plague by 50%.",
+    "Increases the damage of your periodic effects by a further 45% and "
+    "your Shadow damage by 10%.",
     6, 0,
-    effects={"dot_duration_pct": 0.30, "dot_damage": 0.25,
-             "shadow_spell_damage": 0.10},
+    effects={"dot_damage": 0.45, "shadow_spell_damage": 0.10},
     source="CoA: 'Increases the damage of Crypt Plague by 50% and Crypt "
            "Swarm now deals 4% more damage for each Necromancer disease you "
            "have on the target.' The per-disease scaling cannot be built - "
            "nothing counts how many effects are on a target, which is the "
            "same gap that killed Lichplague's and Fiend's conditionals - so "
            "the capstone instead doubles down on what this tree is for. "
-           "dot_duration_pct stacks additively with Necrosis for +55% "
-           "disease duration, which on a Flesh to Worms already extended "
-           "+2 turns by Foul Contagion is 6 base turns becoming 9 - at full "
-           "per-tick value, so it is a genuine 50% damage increase on the "
-           "spec's core dot rather than a slower one. Crypt Plague's 50% "
-           "arrives through shadow_spell_damage, since the proc-applied dot "
-           "has no per-ability key to target. ALL THREE ARE FRACTIONS."))
+           "ORIGINALLY THIS CARRIED +30% DOT DURATION TOO, removed on "
+           "6 Nov 2026 after fight length was measured: stacked with "
+           "Necrosis's 25% and Foul Contagion's flat +2 it took Flesh to "
+           "Worms to NINE turns, which delivers about a third of its damage "
+           "on trash (2-3 turns) and two thirds on a boss (5-6). ONE "
+           "duration node per tree is the rule now - Necrosis keeps it, "
+           "because it is CoA verbatim, and this trades its share for "
+           "damage. A fully talented Flesh to Worms lands at 6 turns. "
+           "Crypt Plague's 50% arrives through shadow_spell_damage, since "
+           "the proc-applied dot has no per-ability key to target. ALL "
+           "FRACTIONS."))
 
 
 # ---- rank policy --------------------------------------------------------

@@ -230,49 +230,49 @@
       "resource_type": "mana",
       "cooldown": 2,
       "effect_type": "spell_dot",
-      "duration": 8,
+      "duration": 5,
       "stat_mods": {},
-      "description": "Deals Arcane damage to the target over time for 8 turns.",
+      "description": "Deals Arcane damage to the target over time for 5 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 8,
           "cost": 26,
-          "effect_value": 114
+          "effect_value": 110
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 39,
-          "effect_value": 163
+          "effect_value": 157
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 51,
-          "effect_value": 211
+          "effect_value": 204
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 64,
-          "effect_value": 260
+          "effect_value": 251
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 77,
-          "effect_value": 309
+          "effect_value": 298
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 89,
-          "effect_value": 357
+          "effect_value": 344
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Eternal increases the duration of your Accelerated Recovery and Decomposition'. Infinite seeds it for proc uptime, Artificer turns it into a Distortion spell. || Duration 3 -> 8 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.73x alongside (3->8 is 2.67x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~73%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA class tree: 'Eternal increases the duration of your Accelerated Recovery and Decomposition'. Infinite seeds it for proc uptime, Artificer turns it into a Distortion spell. || Duration 3 -> 8 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.73x alongside (3->8 is 2.67x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~73%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 5 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the sustained bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 22.0, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy",
       "damage_school": "arcane"
     },
@@ -282,7 +282,7 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "hot",
-      "duration": 7,
+      "duration": 5,
       "stat_mods": {},
       "description": "Their body heals at the pace it would have taken a month to manage.",
       "ranks": [
@@ -290,47 +290,47 @@
           "rank": 1,
           "level_req": 10,
           "cost": 35,
-          "effect_value": 57
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 51,
-          "effect_value": 80
+          "effect_value": 88
         },
         {
           "rank": 3,
           "level_req": 25,
           "cost": 67,
-          "effect_value": 102
+          "effect_value": 112
         },
         {
           "rank": 4,
           "level_req": 32,
           "cost": 84,
-          "effect_value": 125
+          "effect_value": 137
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 100,
-          "effect_value": 148
+          "effect_value": 162
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 116,
-          "effect_value": 171
+          "effect_value": 188
         },
         {
           "rank": 7,
           "level_req": 55,
           "cost": 132,
-          "effect_value": 193
+          "effect_value": 212
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree ability, and half of Time's core loop. || Duration 4 -> 7 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.14x alongside (4->7 is 1.75x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~14%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA class tree ability, and half of Time's core loop. || Duration 4 -> 7 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.14x alongside (4->7 is 1.75x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~14%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 5 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the sustained bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 12.5, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "ally"
     },
     {
@@ -732,37 +732,37 @@
       "resource_type": "mana",
       "cooldown": 8,
       "effect_type": "spell_dot",
-      "duration": 5,
+      "duration": 2,
       "stat_mods": {},
-      "description": "Deals Arcane damage to up to 5 targets over time for 5 turns.",
+      "description": "Deals Arcane damage to up to 5 targets over time for 2 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 44,
           "cost": 55,
-          "effect_value": 114
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 48,
           "cost": 77,
-          "effect_value": 153
+          "effect_value": 94
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 98,
-          "effect_value": 192
+          "effect_value": 119
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 120,
-          "effect_value": 231
+          "effect_value": 143
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree tier 2: 'After 6 seconds they explode for Chromatic Damage in a 10 yds radius. Directly before the explosion occurs, all enemies within 15 yds are teleported to the initial target.' The delay and the teleport-in have no hooks; a two-turn AoE DoT is the detonation. || Duration 2 -> 5 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.62x alongside (2->5 is 2.50x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~62%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA class tree tier 2: 'After 6 seconds they explode for Chromatic Damage in a 10 yds radius. Directly before the explosion occurs, all enemies within 15 yds are teleported to the initial target.' The delay and the teleport-in have no hooks; a two-turn AoE DoT is the detonation. || Duration 2 -> 5 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.62x alongside (2->5 is 2.50x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~62%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 2 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the burst bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 35.2, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "damage_school": "arcane"
@@ -838,55 +838,55 @@
       "resource_type": "mana",
       "cooldown": 4,
       "effect_type": "spell_dot",
-      "duration": 10,
+      "duration": 6,
       "stat_mods": {},
-      "description": "Deals Arcane damage to the target over time for 10 turns.",
+      "description": "Deals Arcane damage to the target over time for 6 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 12,
           "cost": 45,
-          "effect_value": 182
+          "effect_value": 168
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 63,
-          "effect_value": 247
+          "effect_value": 228
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 82,
-          "effect_value": 312
+          "effect_value": 288
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 100,
-          "effect_value": 377
+          "effect_value": 348
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 119,
-          "effect_value": 442
+          "effect_value": 408
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 137,
-          "effect_value": 507
+          "effect_value": 468
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 156,
-          "effect_value": 572
+          "effect_value": 528
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload. || Duration 4 -> 9 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.46x alongside (4->9 is 2.25x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~46%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Corrected to 10 turns, matching CoA exactly: 'Chromatic Damage every 3 sec for 30 sec' is 10 ticks at this engine's ~3 sec per turn. 9 was my own rounding; CoA's own number was better. Total scaled by 1.11 so per-tick is unchanged from the 9-turn version.",
+      "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload. || Duration 4 -> 9 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.46x alongside (4->9 is 2.25x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~46%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Corrected to 10 turns, matching CoA exactly: 'Chromatic Damage every 3 sec for 30 sec' is 10 ticks at this engine's ~3 sec per turn. 9 was my own rounding; CoA's own number was better. Total scaled by 1.11 so per-tick is unchanged from the 9-turn version. || Duration corrected to 6 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the boss-finisher bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 28.0, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy",
       "damage_school": "arcane"
     },
@@ -896,55 +896,55 @@
       "resource_type": "mana",
       "cooldown": 2,
       "effect_type": "spell_dot",
-      "duration": 6,
+      "duration": 4,
       "stat_mods": {},
-      "description": "Deals Arcane damage to the target over time for 6 turns.",
+      "description": "Deals Arcane damage to the target over time for 4 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 14,
           "cost": 22,
-          "effect_value": 86
+          "effect_value": 88
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 31,
-          "effect_value": 115
+          "effect_value": 118
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 39,
-          "effect_value": 144
+          "effect_value": 148
         },
         {
           "rank": 4,
           "level_req": 35,
           "cost": 48,
-          "effect_value": 174
+          "effect_value": 179
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 56,
-          "effect_value": 203
+          "effect_value": 209
         },
         {
           "rank": 6,
           "level_req": 49,
           "cost": 65,
-          "effect_value": 232
+          "effect_value": 238
         },
         {
           "rank": 7,
           "level_req": 56,
           "cost": 74,
-          "effect_value": 261
+          "effect_value": 268
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Transforms your Wand of Time into Timerend. Rend the fabric of time, dealing Chromatic Damage over 6 seconds.' Authored as its own spell rather than a transform - nothing in the engine replaces one ability with another. || Duration 2 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.95x alongside (2->6 is 3.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~95%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA: 'Transforms your Wand of Time into Timerend. Rend the fabric of time, dealing Chromatic Damage over 6 seconds.' Authored as its own spell rather than a transform - nothing in the engine replaces one ability with another. || Duration 2 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.95x alongside (2->6 is 3.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~95%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 4 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the tail bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 22.1, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy",
       "damage_school": "arcane"
     },
@@ -1744,37 +1744,37 @@
       "resource_type": "mana",
       "cooldown": 6,
       "effect_type": "spell_dot",
-      "duration": 6,
+      "duration": 3,
       "stat_mods": {},
-      "description": "Deals Arcane damage to up to 3 targets over time for 6 turns.",
+      "description": "Deals Arcane damage to up to 3 targets over time for 3 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 48,
           "cost": 48,
-          "effect_value": 81
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 51,
           "cost": 68,
-          "effect_value": 109
+          "effect_value": 84
         },
         {
           "rank": 3,
           "level_req": 54,
           "cost": 87,
-          "effect_value": 138
+          "effect_value": 106
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 107,
-          "effect_value": 166
+          "effect_value": 128
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Distortion Spell. Create a timestorm around an enemy that causes them and up to 2 nearby enemies to take Arcane damage, repeating over 4 seconds.' CoA is blunt that it is 'a capped, undertuned timestorm rather than a pack nuke - don't build around it', so it is capped at 3 and carries no talent support. || Duration 3 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.30x alongside (3->6 is 2.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~30%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns.",
+      "_source": "CoA: 'Distortion Spell. Create a timestorm around an enemy that causes them and up to 2 nearby enemies to take Arcane damage, repeating over 4 seconds.' CoA is blunt that it is 'a capped, undertuned timestorm rather than a pack nuke - don't build around it', so it is capped at 3 and carries no talent support. || Duration 3 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.30x alongside (3->6 is 2.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~30%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 3 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the standard bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 20.8, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
       "damage_school": "arcane"

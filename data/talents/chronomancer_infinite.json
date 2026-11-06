@@ -524,7 +524,7 @@
     {
       "talent_id": "chronomancer_infinite_infinite_keeper",
       "name": "Infinite Keeper",
-      "description": "Increases the duration of your periodic effects by 30% and their damage by 25%. Your critical strikes have a 40% chance to launch an Anomaly Spike.",
+      "description": "Increases the damage of your periodic effects by 45%. Your critical strikes have a 40% chance to launch an Anomaly Spike.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -532,8 +532,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "dot_duration_pct": 0.3,
-        "dot_damage": 0.25
+        "dot_damage": 0.45
       },
       "connected_to": [],
       "proc": {
@@ -542,7 +541,7 @@
         "icd": 0,
         "cast_ability": "chronomancer_anomaly_spike"
       },
-      "_source": "CoA: 'Using Unmake on an enemy affected by your Timerend now causes the enemy to erupt in a vortex of sand, dealing Chromatic Damage every 1 sec to up to 8 enemies for 6 sec in an 8 yd radius.' The combo condition is unbuildable twice over - nothing reads a target's debuffs, and there is no per-ability proc trigger - and the 8-yard radius has no positioning to stand on. Rebuilt as the capstone the spec's own tree has been building toward: the two dot keys together, plus Anomaly Spikes firing off crits as well as casts. dot_duration_pct is the payoff key - because per-turn damage derives from the ability's OWN base duration (abilities.py:2777), +30% duration is +30% total damage at full per-tick value, and it stacks additively with Distorted Time's 20% for a Chronomancer who takes both. Melt Reality at 10 base turns becomes 15. A capstone that makes the dots genuinely long is the point of Kyle's 'Chronomancer is a lot of DoTs'. Both FRACTIONS."
+      "_source": "CoA: 'Using Unmake on an enemy affected by your Timerend now causes the enemy to erupt in a vortex of sand, dealing Chromatic Damage every 1 sec to up to 8 enemies for 6 sec in an 8 yd radius.' The combo condition is unbuildable twice over - nothing reads a target's debuffs, and there is no per-ability proc trigger - and the 8-yard radius has no positioning to stand on. Rebuilt as the capstone the spec's own tree has been building toward. ORIGINALLY THIS CARRIED +30% DOT DURATION TOO, and it was removed on 6 Nov 2026 after fight length was measured: stacked with Distorted Time's 20% it took Melt Reality to 9 turns, and a 9-turn dot delivers about a third of its damage on trash (2-3 turns) and two thirds on a boss (5-6). ONE duration node per tree is the rule now - Distorted Time keeps it, this trades its share for damage, so a fully talented Melt Reality lands at 7 turns rather than 9. dot_damage reaches the same place without pushing the dot past the window it is played in. A FRACTION."
     }
   ]
 }

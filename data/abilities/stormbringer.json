@@ -1009,36 +1009,36 @@
       "resource_type": "mana",
       "cooldown": 6,
       "effect_type": "spell_dot",
-      "duration": 1,
+      "duration": 2,
       "stat_mods": {
         "healing_taken_pct": -20
       },
       "description": "Attempt to drown an enemy, reducing their healing received, then unleash a creature from the depths.",
-      "_source": "Confirmed screenshot: Maelstrom-locked, Requires Lvl 24, 31 Mana, 'reducing their healing received by 20% for 8 sec. At the end of the duration, unleash a creature from the depths dealing 147 Frost Damage. Each stack of Conductive increases this effect's damage, stacking up to 8 times.'",
+      "_source": "Confirmed screenshot: Maelstrom-locked, Requires Lvl 24, 31 Mana, 'reducing their healing received by 20% for 8 sec. At the end of the duration, unleash a creature from the depths dealing 147 Frost Damage. Each stack of Conductive increases this effect's damage, stacking up to 8 times.' || Duration 1 -> 2 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 1 turns this delivered only its full value but in a single hit of its value in normal play. Bucket: burst - a one-beat drowning hit, not a maintained dot. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 24,
           "cost": 31,
-          "effect_value": 147
+          "effect_value": 294
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 38,
-          "effect_value": 178
+          "effect_value": 356
         },
         {
           "rank": 3,
           "level_req": 46,
           "cost": 46,
-          "effect_value": 216
+          "effect_value": 432
         },
         {
           "rank": 4,
           "level_req": 60,
           "cost": 55,
-          "effect_value": 260
+          "effect_value": 520
         }
       ],
       "icon_id": null,

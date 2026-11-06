@@ -241,41 +241,41 @@
       "resource_type": "mana",
       "cooldown": 4,
       "effect_type": "spell_dot",
-      "duration": 1,
+      "duration": 2,
       "stat_mods": {},
       "description": "Tag an enemy with a charge that will not come off, then wait for the part everyone standing near them regrets.",
-      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence. Fixed during DPS niche audit (Oct 2026): had no target_type at all despite its own tooltip explicitly hitting 'the target and 4 enemies within 8 yds' - same dead-is_aoe-tagging pattern already fixed this session for Spider Bomb/Mechsuit: Combustion. Added target_type=enemy_aoe so the explosion actually hits multiple enemies.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.\"",
+      "_source": "Real screenshot: Requires Level 4. Demolition leveling sequence. Fixed during DPS niche audit (Oct 2026): had no target_type at all despite its own tooltip explicitly hitting 'the target and 4 enemies within 8 yds' - same dead-is_aoe-tagging pattern already fixed this session for Spider Bomb/Mechsuit: Combustion. Added target_type=enemy_aoe so the explosion actually hits multiple enemies.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw a bomb that sticks to the enemy for 5 sec. At the end of the duration the bomb explodes, dealing 20 Fire damage to the target and 4 enemies within 8 yds of the target.\" || Duration 1 -> 2 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 1 turns this delivered only its full value but in a single hit of its value in normal play. Bucket: burst - a bomb goes off, it does not linger. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "target_type": "enemy_aoe",
       "ranks": [
         {
           "rank": 1,
           "level_req": 4,
           "cost": 30,
-          "effect_value": 54
+          "effect_value": 108
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 42,
-          "effect_value": 76
+          "effect_value": 152
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 53,
-          "effect_value": 97
+          "effect_value": 194
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 65,
-          "effect_value": 149
+          "effect_value": 298
         },
         {
           "rank": 5,
           "level_req": 54,
           "cost": 77,
-          "effect_value": 175
+          "effect_value": 350
         }
       ],
       "icon_id": null,

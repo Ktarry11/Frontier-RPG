@@ -865,65 +865,65 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "hot",
-      "duration": 8,
+      "duration": 4,
       "stat_mods": {},
       "description": "Bring the glory of Shadra to an ally, healing them immediately and over time.",
-      "_source": "Confirmed screenshot: Lvl 2, Vizier-locked, 65 Mana, 40yd, 2s cast, '48 healing, plus 9 every 3 sec for 24 sec' (higher-rank numbers - rank 1 is '32 healing, plus 5 every 3 sec').",
+      "_source": "Confirmed screenshot: Lvl 2, Vizier-locked, 65 Mana, 40yd, 2s cast, '48 healing, plus 9 every 3 sec for 24 sec' (higher-rank numbers - rank 1 is '32 healing, plus 5 every 3 sec'). || Duration 8 -> 4 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 8 turns this delivered only 44% of its value in normal play. Bucket: tail - a direct heal with a trailing hot. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "target_type": "ally",
       "ranks": [
         {
           "rank": 1,
           "level_req": 2,
           "cost": 50,
-          "effect_value": 62
+          "effect_value": 31
         },
         {
           "rank": 2,
           "level_req": 9,
           "cost": 68,
-          "effect_value": 85
+          "effect_value": 42
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 87,
-          "effect_value": 108
+          "effect_value": 54
         },
         {
           "rank": 4,
           "level_req": 23,
           "cost": 105,
-          "effect_value": 131
+          "effect_value": 66
         },
         {
           "rank": 5,
           "level_req": 30,
           "cost": 124,
-          "effect_value": 154
+          "effect_value": 77
         },
         {
           "rank": 6,
           "level_req": 37,
           "cost": 142,
-          "effect_value": 177
+          "effect_value": 88
         },
         {
           "rank": 7,
           "level_req": 44,
           "cost": 160,
-          "effect_value": 200
+          "effect_value": 100
         },
         {
           "rank": 8,
           "level_req": 51,
           "cost": 179,
-          "effect_value": 223
+          "effect_value": 112
         },
         {
           "rank": 9,
           "level_req": 58,
           "cost": 197,
-          "effect_value": 246
+          "effect_value": 123
         }
       ],
       "icon_id": null
@@ -985,47 +985,47 @@
       "resource_type": "mana",
       "cooldown": 4,
       "effect_type": "hot",
-      "duration": 10,
+      "duration": 5,
       "stat_mods": {},
       "description": "Spread a mist across the party, healing them over time then again shortly after.",
-      "_source": "Confirmed screenshot: Lvl 22, 'heal for 15 every 1 sec for 10 sec. After 1.6 sec, an additional 149.' Party-wide (up to 8 allies) - target_type party not currently supported cleanly for hot, modeled single-target for now.",
+      "_source": "Confirmed screenshot: Lvl 22, 'heal for 15 every 1 sec for 10 sec. After 1.6 sec, an additional 149.' Party-wide (up to 8 allies) - target_type party not currently supported cleanly for hot, modeled single-target for now. || Duration 10 -> 5 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 10 turns this delivered only 35% of its value in normal play. Bucket: sustained - a maintained healer hot. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 22,
           "cost": 240,
-          "effect_value": 300
+          "effect_value": 150
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 278,
-          "effect_value": 348
+          "effect_value": 174
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 317,
-          "effect_value": 396
+          "effect_value": 198
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 355,
-          "effect_value": 444
+          "effect_value": 222
         },
         {
           "rank": 5,
           "level_req": 51,
           "cost": 394,
-          "effect_value": 492
+          "effect_value": 246
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 432,
-          "effect_value": 540
+          "effect_value": 270
         }
       ],
       "icon_id": null
@@ -1036,47 +1036,47 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "hot",
-      "duration": 7,
+      "duration": 4,
       "stat_mods": {},
       "description": "Envelop an ally with a restorative balm, healing them over time.",
-      "_source": "Confirmed screenshot: Lvl 24, 'healing them for 41 every 3 sec for 21 sec.'",
+      "_source": "Confirmed screenshot: Lvl 24, 'healing them for 41 every 3 sec for 21 sec.' || Duration 7 -> 4 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 7 turns this delivered only 50% of its value in normal play. Bucket: tail - a direct heal with a trailing hot. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "target_type": "ally",
       "ranks": [
         {
           "rank": 1,
           "level_req": 24,
           "cost": 230,
-          "effect_value": 287
+          "effect_value": 164
         },
         {
           "rank": 2,
           "level_req": 31,
           "cost": 265,
-          "effect_value": 331
+          "effect_value": 189
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 300,
-          "effect_value": 375
+          "effect_value": 214
         },
         {
           "rank": 4,
           "level_req": 46,
           "cost": 336,
-          "effect_value": 419
+          "effect_value": 239
         },
         {
           "rank": 5,
           "level_req": 53,
           "cost": 371,
-          "effect_value": 463
+          "effect_value": 265
         },
         {
           "rank": 6,
           "level_req": 60,
           "cost": 406,
-          "effect_value": 507
+          "effect_value": 290
         }
       ],
       "icon_id": null

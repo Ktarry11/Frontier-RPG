@@ -94,7 +94,7 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "spell_dot",
-      "duration": 3,
+      "duration": 4,
       "stat_mods": {},
       "description": "Burns the target with lunar fire over 3 turns.",
       "ranks": [
@@ -102,58 +102,59 @@
           "rank": 1,
           "level_req": 1,
           "cost": 30,
-          "effect_value": 96
+          "effect_value": 128
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 38,
-          "effect_value": 126
+          "effect_value": 168
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 46,
-          "effect_value": 156
+          "effect_value": 208
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 54,
-          "effect_value": 186
+          "effect_value": 248
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 62,
-          "effect_value": 216
+          "effect_value": 288
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 70,
-          "effect_value": 246
+          "effect_value": 328
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 78,
-          "effect_value": 276
+          "effect_value": 368
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 86,
-          "effect_value": 306
+          "effect_value": 408
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 94,
-          "effect_value": 336
+          "effect_value": 448
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_source": " || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - the dot you open with and leave running. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength."
     },
     {
       "ability_id": "druid_rejuvenation",
@@ -161,7 +162,7 @@
       "resource_type": "mana",
       "cooldown": 1,
       "effect_type": "hot",
-      "duration": 4,
+      "duration": 3,
       "stat_mods": {},
       "description": "Nature's energy restores your health over 4 turns.",
       "ranks": [
@@ -169,54 +170,54 @@
           "rank": 1,
           "level_req": 4,
           "cost": 49,
-          "effect_value": 73
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 11,
           "cost": 65,
-          "effect_value": 95
+          "effect_value": 71
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 81,
-          "effect_value": 118
+          "effect_value": 88
         },
         {
           "rank": 4,
           "level_req": 25,
           "cost": 97,
-          "effect_value": 140
+          "effect_value": 105
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 114,
-          "effect_value": 163
+          "effect_value": 122
         },
         {
           "rank": 6,
           "level_req": 39,
           "cost": 130,
-          "effect_value": 185
+          "effect_value": 139
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 146,
-          "effect_value": 208
+          "effect_value": 156
         },
         {
           "rank": 8,
           "level_req": 53,
           "cost": 162,
-          "effect_value": 230
+          "effect_value": 172
         }
       ],
       "target_type": "ally",
       "icon_id": null,
-      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question."
+      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question. || Duration 4 -> 3 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: standard - the cheap blanket you keep rolling. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength."
     },
     {
       "ability_id": "druid_mark_of_the_wild",
@@ -452,7 +453,7 @@
       "resource_type": "mana",
       "cooldown": 2,
       "effect_type": "hot",
-      "duration": 3,
+      "duration": 2,
       "stat_mods": {},
       "description": "Blankets the party in rapid healing that fades as it winds down. Heals up to 5 allies over 3 turns.",
       "ranks": [
@@ -460,25 +461,26 @@
           "rank": 1,
           "level_req": 40,
           "cost": 130,
-          "effect_value": 450
+          "effect_value": 300
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 142,
-          "effect_value": 493
+          "effect_value": 329
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 155,
-          "effect_value": 536
+          "effect_value": 357
         }
       ],
       "target_type": "party",
       "requires_talent": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Wild Growth talent in the Restoration tree. Blankets the party with rapid, powerful healing that fades as it winds down. Heals up to 5 allies over 3 turns."
+      "_design_note": "Not learned from level alone - granted by the Wild Growth talent in the Restoration tree. Blankets the party with rapid, powerful healing that fades as it winds down. Heals up to 5 allies over 3 turns.",
+      "_source": " || Duration 3 -> 2 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: burst - emergency AoE, front-loaded fat ticks. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength."
     },
     {
       "ability_id": "druid_swiftmend",
@@ -1008,7 +1010,7 @@
       "resource_type": "mana",
       "cooldown": 1,
       "effect_type": "hot",
-      "duration": 3,
+      "duration": 4,
       "stat_mods": {},
       "description": "Heals the target and continues healing over time.",
       "ranks": [
@@ -1016,48 +1018,48 @@
           "rank": 1,
           "level_req": 12,
           "cost": 63,
-          "effect_value": 89
+          "effect_value": 119
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 73,
-          "effect_value": 104
+          "effect_value": 139
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 85,
-          "effect_value": 120
+          "effect_value": 160
         },
         {
           "rank": 4,
           "level_req": 32,
           "cost": 98,
-          "effect_value": 140
+          "effect_value": 187
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 113,
-          "effect_value": 161
+          "effect_value": 215
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 127,
-          "effect_value": 179
+          "effect_value": 239
         },
         {
           "rank": 7,
           "level_req": 56,
           "cost": 141,
-          "effect_value": 200
+          "effect_value": 267
         }
       ],
       "target_type": "ally",
       "icon_id": null,
-      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question."
+      "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question. || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - a direct heal with a long weak trailing hot. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength."
     },
     {
       "ability_id": "druid_thorns",

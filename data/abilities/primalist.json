@@ -1339,47 +1339,47 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "hot",
-      "duration": 8,
+      "duration": 5,
       "stat_mods": {},
       "description": "A party-wide heal-over-time spell.",
-      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch.",
+      "_source": "Kept from earlier pass - real numbers not yet confirmed via this screenshot batch. || Duration 8 -> 5 turns, 6 Nov 2026, from the measured dot/hot window. tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), and effect_value is the TOTAL across the duration (abilities.py:2695) - so at 8 turns this delivered only 44% of its value in normal play. Bucket: sustained - a maintained healer hot. PER-TICK IS HELD at the shipped value and the total scales with duration, so this is a repricing rather than a nerf: the effect is the same strength per turn and simply stops wasting turns the fight never reaches. See tools/qa_dot_durations.py, which now enforces the 2-6 window.",
       "target_type": "party",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
           "cost": 160,
-          "effect_value": 200
+          "effect_value": 125
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 187,
-          "effect_value": 233
+          "effect_value": 146
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 214,
-          "effect_value": 267
+          "effect_value": 167
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 240,
-          "effect_value": 300
+          "effect_value": 188
         },
         {
           "rank": 5,
           "level_req": 49,
           "cost": 267,
-          "effect_value": 334
+          "effect_value": 209
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 294,
-          "effect_value": 367
+          "effect_value": 229
         }
       ],
       "icon_id": null
