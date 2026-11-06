@@ -76,6 +76,45 @@ def numbers_in(text):
     return found
 
 
+def count_conflicts(quest, text):
+    """Numbers in the prose that contradict an objective's own count.
+
+    DELIBERATELY NARROW. An earlier version flagged every small number in
+    the text against the set of objective counts, and drowned in false
+    positives the moment the prose had any life in it - "I have lost two
+    boots to them", "three travellers in a month", "don't take more than
+    two at once", "an hour, maybe two". None of those are quantities of
+    anything the quest tracks.
+
+    The bug actually worth catching is the one all over the old text:
+    a number sitting directly in front of the thing being counted, saying
+    something different from the objective. "Eight worgs" against a kill
+    count of five. So a number is only a conflict when the objective's own
+    target noun follows it within a few words.
+    """
+    out = []
+    low = (text or "").lower()
+    for obj in quest.get("objectives") or []:
+        count = obj.get("count")
+        target = obj.get("target")
+        if not isinstance(count, int) or count < 2 or not target:
+            continue
+        # The noun as a player would say it: last word of the target,
+        # singular or plural ("Bleak Worg" -> worg/worgs).
+        noun = re.sub(r"[^a-z ]", "", str(target).lower()).split()
+        if not noun:
+            continue
+        noun = noun[-1]
+        pattern = rf"\b(\d{{1,3}}|{'|'.join(WORDS)})\b[\w' ]{{0,24}}?{noun}s?\b"
+        for m in re.finditer(pattern, low):
+            tok = m.group(1)
+            said = int(tok) if tok.isdigit() else WORDS[tok]
+            if said != count:
+                out.append(f"text says \"{m.group(0).strip()}\" but the "
+                           f"objective wants {count}")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("zone")
@@ -106,19 +145,11 @@ def main():
             problems.append(f"{qid}: unknown field(s) {bad}")
             continue
         if not args.allow_numbers:
-            want = counts_for(quest)
             for fname, text in fields.items():
                 if fname == "title":
                     continue
-                claimed = numbers_in(text)
-                # Only quantities that look like objective counts matter;
-                # a number that matches nothing and is small is almost
-                # certainly a count the writer invented.
-                suspect = {n for n in claimed if 2 <= n <= 20} - want
-                if suspect and want:
-                    problems.append(
-                        f"{qid}.{fname}: text says {sorted(suspect)} but the "
-                        f"objectives want {sorted(want)}")
+                for msg in count_conflicts(quest, text):
+                    problems.append(f"{qid}.{fname}: {msg}")
         for fname, text in fields.items():
             if quest.get(fname) != text:
                 quest[fname] = text
