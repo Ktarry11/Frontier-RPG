@@ -2819,7 +2819,35 @@ class Ability:
             total = (self.effect_value + caster.healing_power * 0.8) * \
                 self._damage_multiplier(caster, "healing", recipient=target)
             duration = self.talented_duration(caster)
-            per_turn = max(1, int(total / duration))
+            # hot_duration_pct lengthens every HoT this caster applies - the
+            # healing companion to dot_duration_pct, added 6 Nov 2026
+            # because the DoT side had a global key and the HoT side had
+            # none, so a healer tree could only extend one ability at a
+            # time. A fraction (0.20 = +20% duration), applied after the
+            # flat per-ability extension so it scales the real final length.
+            hot_pct = self._talent(caster, "hot_duration_pct")
+            if hot_pct:
+                duration = max(1, int(round(duration * (1.0 + hot_pct))))
+
+            # per_turn is derived from the ability's OWN base duration, not
+            # the talented one - the same fix the DoT branch above already
+            # carries, applied here 6 Nov 2026 after measuring it.
+            #
+            # THIS WAS BACKWARDS AND MADE HEALER DURATION TALENTS HARMFUL.
+            # Dividing the fixed total by the TALENTED duration meant a
+            # +4-turn talent on Accelerated Recovery took it from 7 turns at
+            # 29 per turn (203 total) to 11 turns at 18 (198 total) - less
+            # healing, delivered more slowly, for points spent. A healer was
+            # strictly worse off for taking it, and nothing in the data
+            # distinguished such a talent from one that worked. Measured on
+            # a live Chronomancer before the change and after.
+            #
+            # CoA leans on these heavily - Eternal ("Increases the duration
+            # of your Accelerated Recovery by 6 sec"), Time Beacon, Mark of
+            # Order, Chronicler - and Kyle has a whole dot/hot duration pass
+            # planned, so every one of those would have shipped inverted.
+            base_duration = max(1, self.duration or 1)
+            per_turn = max(1, int(total / base_duration))
 
             recipients = self._recipients(caster, target)
             # Same per-target AoE reduction as the "heal" branch above and
