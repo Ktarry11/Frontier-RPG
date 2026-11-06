@@ -360,6 +360,24 @@ def main(argv):
             bosses = [k for k in data if not k.startswith("_")
                       and isinstance(data[k], list)]
             boss = sorted(bosses)[i % len(bosses)]
+            # THE POOL SETS THE ITEM LEVEL, not this file's authored table.
+            # The level above was chosen to fill a band; the boss is chosen
+            # separately, by index, so the two had nothing to do with each
+            # other and 29 of these items ended up in a pool whose every
+            # other drop sat at a different level - an Aspen Snow-Dart at 30
+            # among four items at 33. A boss's drops should look like they
+            # came off the same boss, and the per-zone content checks were
+            # right to call it. The offset is deliberately NOT hardcoded:
+            # most pools in the game sit at creature level + 2 and the Aspen
+            # and Underdark ones at + 3, so the pool's own items are the only
+            # honest authority. See tools/fix_gap_item_levels.py, which did
+            # the one-off repair and carries the same rule.
+            from tools.fix_gap_item_levels import pool_level, rescale
+            want = pool_level(data[boss])
+            if want is not None and want != item["item_level"]:
+                rescale(item, item["item_level"], want)
+                item["item_level"] = want
+                item["required_level"] = max(1, want - 3)
             data[boss].append(item)
             where = f"{rel}  boss {boss}"
         placed.append((wt, ilvl, name, where))

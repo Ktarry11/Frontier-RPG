@@ -31,8 +31,14 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 SLOTS = {"back", "chest", "feet", "hands", "head", "legs", "main_hand", "neck", "off_hand",
          "ranged", "ring", "shoulder", "trinket", "waist", "wrist"}
-WEAPONS = {"axe_1h", "axe_2h", "bow", "crossbow", "dagger", "fist_weapon", "gun", "mace_1h", "mace_2h",
-           "polearm", "shield", "staff", "sword_1h", "sword_2h", "thrown", "tome", "totem", "wand"}
+#: THE REAL TYPE LIST, read from the data rather than typed out. This was a
+#: literal set of 18 and the game has 20: libram and idol were added on
+#: 2026-10-31 (the same day the loot-balance pass authored the first items
+#: for them), so a perfectly legal Libram of the Last Rite in Shardmaw's
+#: pool read as an "illegal weapon type". A hardcoded list of the game's own
+#: types is a list that goes stale the first time Kyle adds one.
+WEAPONS = set(json.loads(
+    (ROOT / "data/items/weapon_types.json").read_text())["weapon_types"])
 CAST = {"intellect", "spirit", "spell_power", "healing_power", "mp5", "crit_chance_spell",
         "spell_penetration"}
 PHYS = {"strength", "agility", "attack_power", "crit_chance_physical", "dodge_rating", "defense_rating",
@@ -90,8 +96,18 @@ def main():
     if nopool:
         fails.append(f"no loot pool: {nopool}")
     for n, items in sorted(pools.items()):
-        if len(items) != 4:
-            fails.append(f"{n} has {len(items)} items, want 4")
+        # THE ZONE'S OWN FOUR, not counting the cross-zone loot-balance
+        # overlay. tools/build_loot_gap_items.py added 64 items for the five
+        # starved weapon types across every boss and quest file in the game
+        # (Kyle: "fix loot balance. Throw in an item throughout caves or
+        # Dungeons or quest rewards"), and four of them landed in Underdark
+        # pools. That is a deliberate addition, so counting it here reported
+        # three pools as over budget and the tome count as hoarded for
+        # something nobody did wrong. Gap items carry a "label"; they are
+        # still held to the item level and schema rules below.
+        own = [i for i in items if "label" not in i]
+        if len(own) != 4:
+            fails.append(f"{n} has {len(own)} items, want 4")
         want = cre.get(n, {}).get("level_range", [None])[0]
         if want is None:
             fails.append(f"loot pool for unknown creature: {n}")
@@ -117,11 +133,20 @@ def main():
         fails.append(f"armour spread {lo}-{hi}, max gap 2")
 
     # ---- 6: weapon types
-    print("\n== weapon types  (18 exist; a zone that only drops swords and bows fails 30 classes)")
-    wt = collections.Counter(i["weapon_type"] for i in items if i.get("weapon_type"))
-    absent = sorted(WEAPONS - set(wt))
+    print(f"\n== weapon types  ({len(WEAPONS)} exist; a zone that only drops swords and bows fails 30 classes)")
+    wt = collections.Counter(i["weapon_type"] for i in items
+                             if i.get("weapon_type") and "label" not in i)
+    #: A CLASS RELIC IS NOT EXPECTED IN EVERY ZONE. "Every type appears" is a
+    #: fair demand of the eighteen types many classes hold, and an unfair one
+    #: of the three that serve one to three classes each: the whole game
+    #: contains 3 idols, 6 librams and 9 totems against 134 one-handed maces.
+    #: Asking the Crystalline Underdark specifically to stock an idol would
+    #: mean a third of every idol in existence lives in one zone. They stay
+    #: legal and still count against hoarding; they are just not required.
+    RELICS = {"idol", "libram", "totem"}
+    absent = sorted(WEAPONS - RELICS - set(wt))
     worst = wt.most_common(1)[0] if wt else ("-", 0)
-    print(f"  {len(wt)}/18 types present, {sum(wt.values())} weapons; most common {worst[0]} x{worst[1]}")
+    print(f"  {len(wt)}/{len(WEAPONS)} types present, {sum(wt.values())} weapons; most common {worst[0]} x{worst[1]}")
     if absent:
         print(f"  absent: {absent}")
         fails.append(f"weapon types absent: {absent}")

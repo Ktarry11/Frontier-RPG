@@ -52,12 +52,32 @@ CASTER_WEAPONS = {"staff", "wand", "tome", "totem", "dagger"}
 
 loot = json.loads((ROOT / "data/loot/aspen_boss_loot.json").read_text())
 pools = {k: v for k, v in loot.items() if not k.startswith("_")}
-items = [i for v in pools.values() for i in v]
+all_items = [i for v in pools.values() for i in v]
 
-print(f"--- loot budget ({len(items)} items across {len(pools)} pools)")
+#: THE ZONE'S OWN LOOT, separated from the cross-zone loot-balance overlay.
+#: tools/build_loot_gap_items.py added 64 items for the five starved weapon
+#: types across every boss and quest file in the game (Kyle: "fix loot
+#: balance. Throw in an item throughout caves or Dungeons or quest rewards"
+#: - thrown 4 -> 21, tome 7 -> 32, fist_weapon 17 -> 32, libram 0 -> 5, idol
+#: 0 -> 2), and it put an Aspen Snow-Dart into The Last Drift's pool. That is
+#: a deliberate addition and it is NOT a budget error, but the budget checks
+#: below describe what this zone was authored to hold - so counting the
+#: overlay in made the zone read as over budget on three counts at once (25
+#: items, a 5-item pool, 7 weapons) for one item nobody did wrong.
+#:
+#: Gap items carry a "label"; the zone's own items do not. Both sets still
+#: have to obey the per-pool item level, which is checked over ALL items
+#: further down - that check is how the Snow-Dart's real bug surfaced (ilvl
+#: 30 in a pool of 33s, since fixed).
+GAP = [i for i in all_items if "label" in i]
+items = [i for i in all_items if "label" not in i]
+zone_pools = {k: [i for i in v if "label" not in i] for k, v in pools.items()}
+
+print(f"--- loot budget ({len(items)} authored items across {len(pools)} pools"
+      + (f", plus {len(GAP)} from the loot-balance overlay" if GAP else "") + ")")
 check(len(items) == 24, "twenty-four items", f"{len(items)}")
-check(all(len(v) == 4 for v in pools.values()), "four items per pool",
-      str({k: len(v) for k, v in pools.items()}))
+check(all(len(v) == 4 for v in zone_pools.values()), "four items per pool",
+      str({k: len(v) for k, v in zone_pools.items()}))
 
 weapons = [i for i in items if i.get("weapon_type")]
 wtypes = [i["weapon_type"] for i in weapons]
@@ -111,14 +131,34 @@ for label, t in tables:
 check(not missing, "every creature in every table exists", str(missing[:4]))
 check(not kitless, "every creature's ability kit resolves", str(kitless[:4]))
 
-# Boss kit rule: 20+ bosses carry four abilities, named rares are exempt and carry three.
+# BOSS KIT RULE, post-rework. This asserted four abilities for the boss and
+# three for each named rare, which was the shape before
+# tools/rework_boss_kits.py ran - Kyle, 2026-10-24, on bosses being
+# "glorified punching bags". That pass set the rule the game actually
+# follows now, in its own words: MIN_ATTACKS = 4, "basic + 3 distinct
+# attacks, not counting the phase ability", plus a one-shot phase ability at
+# 35% health for every boss without a heal. Five entries is therefore the
+# MINIMUM a reworked boss carries, and across the whole game the level-20+
+# bosses and rares come in at 3:1, 4:14, 5:120, 6:103 - five and six are the
+# norm and four is the leftover. All six Aspen creatures sit at five and
+# carry the rework's own boss_rework marker on their opener.
 BOSS = "Rimehowl"
 RARES = ["Snowmaw", "The Last Drift", "The Last Kodo", "Goldcrown", "Bristlehide the Wintered"]
-nb = len(kits[cre[BOSS]["ability_kit"]])
-check(nb == 4, f"the boss carries four abilities (20+ rule)", f"{BOSS}: {nb}")
-for r in RARES:
-    n = len(kits[cre[r]["ability_kit"]])
-    check(n == 3, f"named rare carries three abilities", f"{r}: {n}")
+MIN_ATTACKS = 4  # kept in step with tools/rework_boss_kits.py
+
+
+def kit_shape(name):
+    """(attacks, has_phase_ability) for one creature's kit."""
+    kit = kits[cre[name]["ability_kit"]]
+    phase = [a for a in kit if a.get("hp_below")]
+    return len(kit) - len(phase), bool(phase)
+
+
+for who in [BOSS] + RARES:
+    attacks, phase = kit_shape(who)
+    check(attacks >= MIN_ATTACKS and phase,
+          f"{who} carries {MIN_ATTACKS}+ attacks and a phase ability",
+          f"{who}: {attacks} attacks, phase={phase}")
 
 # First ability of every kit must be a zero-cooldown damage ability.
 bad_open = []
@@ -134,10 +174,23 @@ bad_pool = [p for p in pools if p not in cre or not cre[p].get("is_boss")]
 check(not bad_pool, "every loot pool belongs to a real boss or rare", str(bad_pool))
 
 # Standing cave level rule: a cave is never BELOW its zone.
-zone_hi = max(cre[c]["level_range"][1] for t in tables[:-1] for c in t[1]["creatures"] if c in cre)
-cave_lo = min(cre[c]["level_range"][0] for c in enc["caves"]["The Weeping Ice"]["creatures"] if c in cre)
-check(cave_lo >= zone_hi - 1, "the cave is not below its zone (cave level rule)",
-      f"cave starts {cave_lo}, zone tops out {zone_hi}")
+#
+# zone_hi was read off tables[:-1], which drops the LAST table on the
+# assumption that the only cave is last. The Aspen Wilderness has TWO
+# caves - The Weeping Ice and Rocky Pass - so the slice left one of them
+# inside the "zone" set and the cave was being compared against itself:
+# Meltwater Yeti (29-31) lives in The Weeping Ice, so the cave's own top
+# became the zone's top and the cave read as starting two levels below a
+# number it had supplied. The real zone tops out at 30 (Bristlehide the
+# Wintered, Beaverdam Benches) and the cave starts at 29, which the rule
+# allows. Selected by what each table IS rather than by position.
+OPEN_AND_SUBZONES = [t for label, t in tables if not label.startswith("cave/")]
+zone_hi = max(cre[c]["level_range"][1] for t in OPEN_AND_SUBZONES
+              for c in t["creatures"] if c in cre)
+for cave_name, cave in enc["caves"].items():
+    cave_lo = min(cre[c]["level_range"][0] for c in cave["creatures"] if c in cre)
+    check(cave_lo >= zone_hi - 1, f"{cave_name} is not below its zone (cave level rule)",
+          f"cave starts {cave_lo}, zone tops out {zone_hi}")
 
 # item_level = creature level + 3
 off = []
