@@ -517,6 +517,38 @@ N.append(node(
            "here uses. Rebuilt as flat per-ability damage plus crit damage, "
            "which is where a guaranteed crit would have landed anyway."))
 
+N.append(node(
+    "callous_soul", "Callous Soul",
+    "Increases your armor penetration by 60.",
+    1, 2,
+    effects={"armor_penetration": 60},
+    connect=["genocide"],
+    source="CoA: 'Increases the amount of armor Soulrend causes you to "
+           "ignore by 10%.' armor_penetration is live (monster.py:659, via "
+           "_pen_flat) but FLAT, not proportional, so CoA's '10% more of an "
+           "amount' has no expressible form - there is no armor_pen_pct key "
+           "and inventing one would have been silent. Built as a flat 60 "
+           "rating, and generalised off Soulrend because the key is "
+           "attacker-side and global rather than per-ability. A FLAT "
+           "RATING, deliberately not a fraction, which is why the value "
+           "looks out of place next to this tree's 0.x effects."))
+
+N.append(node(
+    "blood_wraith", "Blood Wraith",
+    "Increases the damage of Wraithblade by 50% and reduces its mana cost "
+    "by a further 15%.",
+    4, 5,
+    effects={"ability_reaper_wraithblade_damage": 0.50,
+             "ability_reaper_wraithblade_cost_pct": 0.15},
+    connect=["executioner"],
+    source="CoA: 'Wraithblade now deals an additional 100% Weapon Damage "
+           "and its Runic Power cost is reduced by -20.' Both halves port - "
+           "CoA's Runic Power is our mana - with the damage priced at 50% "
+           "rather than 100% because Wraithblade is already this class's "
+           "biggest soul generator at 25 and Dark Fate at tier 0 discounts "
+           "it too. Stacking the two cost reductions reaches 35%, and "
+           "*_cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION."))
+
 # ---- tier 6 -------------------------------------------------------------
 N.append(node(
     "deathbringer", "Deathbringer",

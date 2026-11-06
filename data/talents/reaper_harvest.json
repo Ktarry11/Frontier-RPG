@@ -440,6 +440,43 @@
       "_source": "CoA: 'Your Reliquary of the Lost is now guaranteed to critically strike for 25% increased damage on enemies below 20% health.' Three separate problems: nothing grants a guaranteed crit on a specific ability; a second low_health_threshold_pct would SUM with Executioner's and move the whole tree's window to 55%; and CoA's 20% differs from the 35% every other node here uses. Rebuilt as flat per-ability damage plus crit damage, which is where a guaranteed crit would have landed anyway."
     },
     {
+      "talent_id": "reaper_harvest_callous_soul",
+      "name": "Callous Soul",
+      "description": "Increases your armor penetration by 60.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "armor_penetration": 20
+      },
+      "connected_to": [
+        "reaper_harvest_genocide"
+      ],
+      "_source": "CoA: 'Increases the amount of armor Soulrend causes you to ignore by 10%.' armor_penetration is live (monster.py:659, via _pen_flat) but FLAT, not proportional, so CoA's '10% more of an amount' has no expressible form - there is no armor_pen_pct key and inventing one would have been silent. Built as a flat 60 rating, and generalised off Soulrend because the key is attacker-side and global rather than per-ability. A FLAT RATING, deliberately not a fraction, which is why the value looks out of place next to this tree's 0.x effects."
+    },
+    {
+      "talent_id": "reaper_harvest_blood_wraith",
+      "name": "Blood Wraith",
+      "description": "Increases the damage of Wraithblade by 50% and reduces its mana cost by a further 15%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {
+        "ability_reaper_wraithblade_damage": 0.1667,
+        "ability_reaper_wraithblade_cost_pct": 0.05
+      },
+      "connected_to": [
+        "reaper_harvest_executioner"
+      ],
+      "_source": "CoA: 'Wraithblade now deals an additional 100% Weapon Damage and its Runic Power cost is reduced by -20.' Both halves port - CoA's Runic Power is our mana - with the damage priced at 50% rather than 100% because Wraithblade is already this class's biggest soul generator at 25 and Dark Fate at tier 0 discounts it too. Stacking the two cost reductions reaches 35%, and *_cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION."
+    },
+    {
       "talent_id": "reaper_harvest_deathbringer",
       "name": "Deathbringer",
       "description": "Doubles the duration of Blood Frenzy and Harvest Time, increases your damage against enemies below 35% health by a further 30%, and your critical strikes generate 20 additional souls.",

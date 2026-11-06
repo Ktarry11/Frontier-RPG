@@ -539,6 +539,68 @@ N.append(node(
            "convention from most of this file. talented_cooldown floors at "
            "1 turn, so this cannot delete a cooldown outright."))
 
+N.append(node(
+    "conduction_burst", "Conduction Burst",
+    "Increases the damage of Shatter Echo by a further 25% and of Crystal "
+    "Cannon by 20%.",
+    3, 5,
+    effects={"ability_chronomancer_shatter_echo_damage": 0.25,
+             "ability_chronomancer_crystal_cannon_damage": 0.20},
+    connect=["elder_wand"],
+    source="CoA: 'Your Shatter Echo now deals 20% additional damage while a "
+           "Continuum spell is active.' The conditional cannot be built - "
+           "nothing reads whether another effect is live, which also killed "
+           "Pulse Driver and Chaos Fusion - so rather than ship a condition "
+           "that silently never fires it becomes unconditional at 25%, "
+           "stacking with Hyperwand's 30%. Extended to Crystal Cannon so "
+           "the node pairs with Wand Mastery, and because CoA's Splitting "
+           "Time ('Crystal Cannon strikes 2 additional nearby enemies') "
+           "cannot be built either - nothing adds targets to an ability - "
+           "so its intent lands here as damage instead. Both FRACTIONS."))
+
+N.append(node(
+    "concentrated_fate", "Concentrated Fate",
+    "Increases your spell damage by 10% and your ranged attack power by a "
+    "further 15% of your Spirit.",
+    4, 4,
+    effects={"spell_damage": 0.10, "ranged_ap_from_spirit_pct": 0.15},
+    connect=["resonance"],
+    source="CoA: 'Increases the effectiveness of your Echo Fragments by "
+           "20%.' " + FRAGMENTS + " With nothing to be 20% more effective, "
+           "the node is rebuilt along the tree's actual spine - Spirit into "
+           "ranged damage - stacking with Wand Expert's 100% and the "
+           "capstone's 10%. Was a pure scalar on our side. spell_damage is "
+           "a FRACTION; the conversion key is a fraction too, and both read "
+           "raw."))
+
+N.append(node(
+    "timemage", "Timemage",
+    "Reduces the duration of stuns against you by 30% and increases your "
+    "maximum health by 5%.",
+    5, -3,
+    effects={"stun_duration_reduction_pct": 0.30, "max_health_pct": 0.05},
+    connect=["wand_mastery"],
+    source="CoA: 'Reduces the duration of harmful magic effects on you by "
+           "-30%.' THE GENERAL VERSION DOES NOT EXIST: the only "
+           "duration-reduction key the engine reads is "
+           "stun_duration_reduction_pct, and status_effects.py:699 checks "
+           "it SOLELY against effects flagged is_stun. So the description "
+           "promises stuns and only stuns - the same correction Witch "
+           "Doctor Brewing's Spice: Peacebloom needed after it invented "
+           "`cc_duration_taken_pct`, which was caught by the audit. Roots "
+           "and snares have no mechanic to shorten at all. The health is "
+           "added so the node is worth a point on a class that is not "
+           "stunned every fight. BOTH KEYS ARE FRACTIONS, and I authored "
+           "the first as 30.0 on the assumption it was percentage points - "
+           "audit_talents caught it as '1000%' and it was right. So "
+           "stun_duration_reduction_pct joins crit_damage_*, all_damage and "
+           "the *_cost_pct family as a fraction, against the "
+           "crit_chance_*/haste/hit_rating family, which are points. There "
+           "is no rule to infer it from the name; the audit is the only "
+           "reliable check. max_health_pct is a fraction as a TALENT effect "
+           "too, though it becomes percentage points inside a status "
+           "effect."))
+
 # ---- tier 6 -------------------------------------------------------------
 N.append(node(
     "reverse_engineering", "Reverse Engineering",

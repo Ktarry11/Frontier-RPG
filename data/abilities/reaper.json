@@ -662,8 +662,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: '2 Charges. 50% increased movement speed for 5 seconds, stacking 2 times. Removes all movement impairing effects.' Movement speed is not modelled in a turn engine and 'movement' is NOT a real DispelType (see DispelType.ALL), so authoring this as a dispel would have made a button that always fails and refunds. Haste and dodge are the honest turn-based reading of moving faster than the thing swinging at you.",
-      "target_type": "self"
+      "_source": "CoA class tree: '2 Charges. 50% increased movement speed for 5 seconds, stacking 2 times. Removes all movement impairing effects.' Movement speed is not modelled in a turn engine and 'movement' is NOT a real DispelType (see DispelType.ALL), so authoring this as a dispel would have made a button that always fails and refunds. Haste and dodge are the honest turn-based reading of moving faster than the thing swinging at you. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_soul_tap",
@@ -754,8 +755,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Tormented Souls: Reduces all direct damage you take by 10% and heals you for Stamina, removing 1 stack.' The stack-consuming heal has no hook; the 10% mitigation is literal. NOTE damage_taken_pct in a buff's stat_mods is read RAW by take_damage, so -0.10 is -10% - the OPPOSITE convention to the school-specific variants beside it, which are divided by 100.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'Tormented Souls: Reduces all direct damage you take by 10% and heals you for Stamina, removing 1 stack.' The stack-consuming heal has no hook; the 10% mitigation is literal. NOTE damage_taken_pct in a buff's stat_mods is read RAW by take_damage, so -0.10 is -10% - the OPPOSITE convention to the school-specific variants beside it, which are divided by 100. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_jailers_bargain",
@@ -775,9 +777,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'gaining a shield that absorbs damage equal to 30% of your maximum health for 10 seconds. While this is active you are considered Undead and are immune to fear, sleep, and charm effects.' The absorb is literal; there is no creature-type swap or immunity-to-a-school-of-CC primitive.",
+      "_source": "CoA class tree: 'gaining a shield that absorbs damage equal to 30% of your maximum health for 10 seconds. While this is active you are considered Undead and are immune to fear, sleep, and charm effects.' The absorb is literal; there is no creature-type swap or immunity-to-a-school-of-CC primitive. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "absorb_pct_max_health": 0.3
+      "absorb_pct_max_health": 0.3,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_withering_touch",
@@ -828,8 +831,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'Rip out of your mortal shell for 5 seconds, making you immune to all harmful spell effects and instantly restoring 30% of your maximum health and Runic Power.' All three specs name it as the answer to magic burst. There is no immunity primitive and no way to pair a heal with a buff on one cast, so it is a heavy magic-damage reduction plus a smaller flat one; the health-and-resource restore is gone and Jailer's Bargain carries the shield half of the class's defensive kit.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'Rip out of your mortal shell for 5 seconds, making you immune to all harmful spell effects and instantly restoring 30% of your maximum health and Runic Power.' All three specs name it as the answer to magic burst. There is no immunity primitive and no way to pair a heal with a buff on one cast, so it is a heavy magic-damage reduction plus a smaller flat one; the health-and-resource restore is gone and Jailer's Bargain carries the shield half of the class's defensive kit. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_shadows_embrace",
@@ -873,8 +877,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA class tree: 'After a 1 sec delay, you suffer AP damage, enraging you and increasing your damage dealt by 20% for 15 seconds.' The self-damage cost has no hook, so a long cooldown pays for it instead. damage_dealt_pct in a buff is percentage POINTS.",
-      "target_type": "self"
+      "_source": "CoA class tree: 'After a 1 sec delay, you suffer AP damage, enraging you and increasing your damage dealt by 20% for 15 seconds.' The self-damage cost has no hook, so a long cooldown pays for it instead. damage_dealt_pct in a buff is percentage POINTS. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_soulstone_lure",
@@ -1168,9 +1173,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Increases your damage and critical strike chance by 15% ... for 15 seconds', 'your burst window when you can commit to a heavy trade'. Taught by the Harvest Time talent; the Soul-Infusion-preservation clause has no equivalent with a single Souls pool.",
+      "_source": "CoA: 'Increases your damage and critical strike chance by 15% ... for 15 seconds', 'your burst window when you can commit to a heavy trade'. Taught by the Harvest Time talent; the Soul-Infusion-preservation clause has no equivalent with a single Souls pool. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "requires_talent": true
+      "requires_talent": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_blood_frenzy",
@@ -1439,8 +1445,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Imbue your weapon with ghostly power for 15 seconds, causing melee attacks to deal 25% additional damage as Frost damage.' An imbue that re-schools your autoattacks is not expressible, so it is a flat damage-dealt window; Lamenting's heal off that Frost damage is folded into the Soul tree as a leech proc.",
-      "target_type": "self"
+      "_source": "CoA: 'Imbue your weapon with ghostly power for 15 seconds, causing melee attacks to deal 25% additional damage as Frost damage.' An imbue that re-schools your autoattacks is not expressible, so it is a flat damage-dealt window; Lamenting's heal off that Frost damage is folded into the Soul tree as a leech proc. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_shade",
@@ -1463,8 +1470,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Become a shade, entering an improved stealth mode for 10 seconds and entering Underwalk. Removes all movement impairing effects.' No stealth in combat, so 'nothing can find you' lands as heavy avoidance plus flat mitigation - the second of the spec's two defensive outs.",
-      "target_type": "self"
+      "_source": "CoA: 'Become a shade, entering an improved stealth mode for 10 seconds and entering Underwalk. Removes all movement impairing effects.' No stealth in combat, so 'nothing can find you' lands as heavy avoidance plus flat mitigation - the second of the spec's two defensive outs. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
+      "target_type": "self",
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_deaths_presence",
@@ -1486,8 +1494,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' The spec's whole party toolkit, which the reference lists as a weakness: 'A partner under pressure gets no heal, no shield and no CC-break from you.'",
-      "target_type": "self",
+      "_source": "CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' The spec's whole party toolkit, which the reference lists as a weakness: 'A partner under pressure gets no heal, no shield and no CC-break from you.' || target_type 'self' -> 'party', 6 Nov 2026. CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' A TALENT EFFECT CAN NEVER REACH AN ALLY, but a party-targeted ABILITY can - abilities.py:2064 resolves target_type 'party' to all living allies, and ui/screens/combat_screen.py:594 passes living_allies(); with no party context it degrades to the caster alone. This is the same call Kyle made on 5 Nov 2026 for Guardian's four auras (Song of Steel, Inspiring Presence, Standard of Valiance, Champion's Presence), applied to the one Reaper ability of the same shape. duration 0 with 'raid' scope is correct here and left alone: a passive aura is meant to sit there, unlike the combat cooldowns above.",
+      "target_type": "party",
       "buff_scope": "raid",
       "requires_talent": true
     },
@@ -1512,9 +1520,10 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Become an Endbringer for 15 seconds, increasing the damage of Dirge by 30%, the range by 20 yds, and causes it to generate 3 Reaped Souls. For the duration, Dirge will heal you for 75% of its damage dealt.' A buff cannot reach inside one named ability, so it is a general burst window; Gravesite's crit damage rides on the same talent.",
+      "_source": "CoA: 'Become an Endbringer for 15 seconds, increasing the damage of Dirge by 30%, the range by 20 yds, and causes it to generate 3 Reaped Souls. For the duration, Dirge will heal you for 75% of its damage dealt.' A buff cannot reach inside one named ability, so it is a general burst window; Gravesite's crit damage rides on the same talent. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "requires_talent": true
+      "requires_talent": true,
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_sepulchral_renewal",
@@ -1721,12 +1730,13 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Assume a bolstered form for 15 seconds, generating 30 Runic Power, increasing your Armor by 25%, and increasing your parry chance by 25%.' Costs nothing and GENERATES, exactly as written. Parry trimmed from 25 to 10 points because nothing else in the game hands out a quarter of an avoidance table. armor_pct in stat_mods is percentage POINTS, which is why it is 25.0.",
+      "_source": "CoA: 'Assume a bolstered form for 15 seconds, generating 30 Runic Power, increasing your Armor by 25%, and increasing your parry chance by 25%.' Costs nothing and GENERATES, exactly as written. Parry trimmed from 25 to 10 points because nothing else in the game hands out a quarter of an avoidance table. armor_pct in stat_mods is percentage POINTS, which is why it is 25.0. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
       "generates": {
         "resource": "mana",
         "amount": 60
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_spectral_scythe",
@@ -1818,7 +1828,7 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Reaching 3 Reaped Souls now reduces your Physical damage taken by -10% and you regain 1% of your maximum health every 2 sec for 10 seconds.' A resource THRESHOLD trigger has no hook, so it is a Souls-costed cooldown instead - you still have to bank three souls' worth to press it. The regen half is the on-damage-taken heal proc, since the buff is only up while being hit anyway. physical_damage_taken_pct on a buff is POINTS.",
+      "_source": "CoA: 'Reaching 3 Reaped Souls now reduces your Physical damage taken by -10% and you regain 1% of your maximum health every 2 sec for 10 seconds.' A resource THRESHOLD trigger has no hook, so it is a Souls-costed cooldown instead - you still have to bank three souls' worth to press it. The regen half is the on-damage-taken heal proc, since the buff is only up while being hit anyway. physical_damage_taken_pct on a buff is POINTS. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
       "requires_talent": true,
       "proc": {
@@ -1826,7 +1836,8 @@
         "chance": 100,
         "icd": 0,
         "heal_flat": 70
-      }
+      },
+      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_soulsight",

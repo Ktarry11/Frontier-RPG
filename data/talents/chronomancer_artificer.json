@@ -455,6 +455,63 @@
       "_source": "CoA: 'Reduces the cooldown of Unstable Chronoglass by 30 sec.' Its 1-minute cooldown halved is CoA's 30 seconds exactly, so this is a faithful port expressed as a percentage because the key is proportional. Collapse added so the node is not a one-ability pick on a 10-turn cooldown. *_cooldown_pct keys are FRACTIONS and POSITIVE MEANS A REDUCTION - the opposite sign convention from most of this file. talented_cooldown floors at 1 turn, so this cannot delete a cooldown outright."
     },
     {
+      "talent_id": "chronomancer_artificer_conduction_burst",
+      "name": "Conduction Burst",
+      "description": "Increases the damage of Shatter Echo by a further 25% and of Crystal Cannon by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 0,
+      "effects": {
+        "ability_chronomancer_shatter_echo_damage": 0.0833,
+        "ability_chronomancer_crystal_cannon_damage": 0.0667
+      },
+      "connected_to": [
+        "chronomancer_artificer_elder_wand"
+      ],
+      "_source": "CoA: 'Your Shatter Echo now deals 20% additional damage while a Continuum spell is active.' The conditional cannot be built - nothing reads whether another effect is live, which also killed Pulse Driver and Chaos Fusion - so rather than ship a condition that silently never fires it becomes unconditional at 25%, stacking with Hyperwand's 30%. Extended to Crystal Cannon so the node pairs with Wand Mastery, and because CoA's Splitting Time ('Crystal Cannon strikes 2 additional nearby enemies') cannot be built either - nothing adds targets to an ability - so its intent lands here as damage instead. Both FRACTIONS."
+    },
+    {
+      "talent_id": "chronomancer_artificer_concentrated_fate",
+      "name": "Concentrated Fate",
+      "description": "Increases your spell damage by 10% and your ranged attack power by a further 15% of your Spirit.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "spell_damage": 0.0333,
+        "ranged_ap_from_spirit_pct": 0.05
+      },
+      "connected_to": [
+        "chronomancer_artificer_resonance"
+      ],
+      "_source": "CoA: 'Increases the effectiveness of your Echo Fragments by 20%.' CoA scales this off ECHO FRAGMENTS, which are not a resource this engine has: Chronomancer is (ResourceType.MANA, None) at abilities.py:151 and no Chronomancer ability carries a `generates` block, so there is nothing to count. Flattened to the unconditional version at roughly what CoA's typical Fragment count comes to. Same call as Venomancer Stalking's Brood Marks; the lesson both times is to check the resource before porting the talent, since Templar's Combo and Knight of Xoroth's Deathfire ARE real and did port. With nothing to be 20% more effective, the node is rebuilt along the tree's actual spine - Spirit into ranged damage - stacking with Wand Expert's 100% and the capstone's 10%. Was a pure scalar on our side. spell_damage is a FRACTION; the conversion key is a fraction too, and both read raw."
+    },
+    {
+      "talent_id": "chronomancer_artificer_timemage",
+      "name": "Timemage",
+      "description": "Reduces the duration of stuns against you by 30% and increases your maximum health by 5%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "stun_duration_reduction_pct": 0.1,
+        "max_health_pct": 0.0167
+      },
+      "connected_to": [
+        "chronomancer_artificer_wand_mastery"
+      ],
+      "_source": "CoA: 'Reduces the duration of harmful magic effects on you by -30%.' THE GENERAL VERSION DOES NOT EXIST: the only duration-reduction key the engine reads is stun_duration_reduction_pct, and status_effects.py:699 checks it SOLELY against effects flagged is_stun. So the description promises stuns and only stuns - the same correction Witch Doctor Brewing's Spice: Peacebloom needed after it invented `cc_duration_taken_pct`, which was caught by the audit. Roots and snares have no mechanic to shorten at all. The health is added so the node is worth a point on a class that is not stunned every fight. BOTH KEYS ARE FRACTIONS, and I authored the first as 30.0 on the assumption it was percentage points - audit_talents caught it as '1000%' and it was right. So stun_duration_reduction_pct joins crit_damage_*, all_damage and the *_cost_pct family as a fraction, against the crit_chance_*/haste/hit_rating family, which are points. There is no rule to infer it from the name; the audit is the only reliable check. max_health_pct is a fraction as a TALENT effect too, though it becomes percentage points inside a status effect."
+    },
+    {
       "talent_id": "chronomancer_artificer_reverse_engineering",
       "name": "Reverse Engineering",
       "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 60 mana.",

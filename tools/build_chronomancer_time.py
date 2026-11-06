@@ -525,6 +525,53 @@ N.append(node(
            "come to. Was a pure scalar on our side. healing_power_pct is "
            "PERCENTAGE POINTS, the ability key is a FRACTION."))
 
+N.append(node(
+    "overcorrection", "Overcorrection",
+    "Your healing spells have a 30% chance to leave a mending that heals "
+    "you over 4 turns.",
+    1, 4,
+    proc={"trigger": "on_heal_cast", "chance": 30, "icd": 1,
+          "apply_effect": {"effect_id": "overcorrection",
+                           "name": "Overcorrection",
+                           "effect_type": "hot", "duration": 4,
+                           "potency": 18, "dispel_type": None,
+                           "on_target": False}},
+    connect=["cadence_of_time"],
+    source="CoA: 'Overhealing done by Correct the Mistake now applies a "
+           "heal over time effect to the ally equal to 30% of the healing "
+           "done over 5 seconds.' Three separate gaps: nothing measures "
+           "OVERHEALING (the heal path returns the amount healed, not the "
+           "surplus); there is no per-ability proc trigger; and " + ALLY + " "
+           "So it becomes a self-mending HoT off any heal, which keeps the "
+           "node's shape (heal a lot, get a trailing heal) while being "
+           "honest about who receives it. 5 sec -> 4 turns. A proc-applied "
+           "hot carries `potency` as its PER-TURN healing, unlike an "
+           "ability rank's effect_value, which is the TOTAL across the "
+           "duration and gets divided - so 18 here is 18 per turn, 72 over "
+           "the effect."))
+
+N.append(node(
+    "titans_gaze", "Titan's Gaze",
+    "Reduces all damage you take by 6% and increases your maximum health "
+    "by 5%.",
+    4, -1,
+    effects={"damage_taken_pct": -0.06, "max_health_pct": 0.05},
+    connect=["cycling_aeons"],
+    source="CoA: 'Your Time Out! no longer breaks on damage, but now only "
+           "reduces damage taken by 15%.' Time Out! is a channel and "
+           "nothing controls whether an effect breaks on damage, so the "
+           "node is rebuilt as the passive survivability a healer actually "
+           "needs, at the mitigation CoA's own clause names. Folded in "
+           "CoA's Nozdormu's Gaze, which also modifies Time Out! and is "
+           "unbuildable for the same reason. CAREFUL, TWO CONVENTIONS IN "
+           "ONE DICT AND BOTH DELIBERATE: as a TALENT effect "
+           "damage_taken_pct is read RAW (character.py:2696, so -0.06 is "
+           "-6%) and max_health_pct is a FRACTION too - but inside a STATUS "
+           "EFFECT max_health_pct becomes percentage points and "
+           "damage_taken_pct stays raw, so the pair flips apart depending "
+           "on where it is written. These are talent effects, so both are "
+           "fractions."))
+
 # ---- tier 6 -------------------------------------------------------------
 N.append(node(
     "the_vast_infinite", "The Vast Infinite",
