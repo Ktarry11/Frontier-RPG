@@ -59,7 +59,51 @@ def main():
     player, party = build(cls, lvl)
     sm = StubSM(player, party)
 
-    if which == "cast":
+    if which == "quest_offer":
+        # The quest OFFER screen, rendered with a REAL Quest built from
+        # data/quests so the text length is the real one. Added 6 Nov 2026
+        # while checking whether WoW-length quest prose actually fits:
+        # _render_offer draws accept_text at y=130 and description at y=260
+        # with no scrolling, and the level line sits at y=380.
+        import json, glob, types
+        from world.quest import Quest
+        from ui.screens.quest_dialog_screen import QuestDialogScreen
+        qid = sys.argv[sys.argv.index("--quest") + 1] if "--quest" in sys.argv else None
+        found = None
+        for f in sorted(glob.glob("data/quests/*.json")):
+            raw = json.load(open(f))
+            block = raw if isinstance(raw, list) else raw.get("quests", raw)
+            items = block if isinstance(block, list) else list(block.values())
+            for it in items:
+                if isinstance(it, dict) and (not qid or it.get("quest_id") == qid):
+                    found = it
+                    break
+            if found:
+                break
+        quest = Quest(**{k: v for k, v in found.items()
+                         if k in Quest.__init__.__code__.co_varnames})
+        # Look the giver's REAL name up, so the shot shows what a player
+        # sees. Using giver_npc_id as the name made the header read
+        # "durotar_tiragarde_scout" instead of "Watchwarden Kelgrim", which
+        # looked like a game bug in a screenshot and was purely this stub.
+        gid = found.get("giver_npc_id")
+        gname = gid or "Quest Giver"
+        for nf in sorted(glob.glob("data/npcs/*.json")):
+            blob = json.load(open(nf))
+            rows = blob if isinstance(blob, list) else list(blob.values())
+            flat = []
+            for r in rows:
+                flat.extend(r if isinstance(r, list) else [r])
+            for r in flat:
+                if isinstance(r, dict) and r.get("npc_id") == gid and r.get("name"):
+                    gname = r["name"]
+                    break
+        npc = types.SimpleNamespace(name=gname, npc_id=gid, greeting="")
+        scr = QuestDialogScreen(sm, npc)
+        scr._refresh = lambda *a, **k: None
+        scr.mode = "offer"
+        scr.active_quest = quest
+    elif which == "cast":
         from ui.screens.cast_screen import CastScreen
         scr = CastScreen(sm)
         scr.selected_caster = player

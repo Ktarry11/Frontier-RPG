@@ -30,6 +30,42 @@ from world.quest import QuestStatus
 from world.travel_manager import get_travel_manager, services_for_npc
 
 
+_QUEST_ITEM_NAMES = None
+
+
+def _quest_item_name(item_id):
+    """Display name for a quest item id, or None.
+
+    Quest objectives store an item_id ("tan_hex_fetish") while the item is
+    really called "Hex Fetish" - printing the raw id slugified produced
+    "Collect 5 tan hex fetishes" in the objectives block. The names live
+    beside the drop tables in data/creatures/quest_drops.json, keyed by
+    item_id, so they are read once and cached here rather than threading an
+    item lookup through the UI.
+    """
+    global _QUEST_ITEM_NAMES
+    if _QUEST_ITEM_NAMES is None:
+        _QUEST_ITEM_NAMES = {}
+        import json as _json
+        from pathlib import Path as _Path
+        root = _Path(__file__).resolve().parents[2]
+        for rel in ("data/creatures/quest_drops.json",):
+            try:
+                blob = _json.loads((root / rel).read_text())
+            except Exception:
+                continue
+            stack = [blob]
+            while stack:
+                node = stack.pop()
+                if isinstance(node, dict):
+                    if node.get("item_id") and node.get("name"):
+                        _QUEST_ITEM_NAMES.setdefault(node["item_id"], node["name"])
+                    stack.extend(node.values())
+                elif isinstance(node, list):
+                    stack.extend(node)
+    return _QUEST_ITEM_NAMES.get(item_id)
+
+
 class QuestDialogScreen(BaseScreen):
     def __init__(self, state_manager, npc):
         super().__init__(state_manager)
@@ -422,16 +458,51 @@ class QuestDialogScreen(BaseScreen):
         player_level = self.state_manager.player.level
         available = self.quest_mgr.is_quest_available_to_player(quest, player_level)
 
-        self.renderer.draw_text(screen, quest.title, (40, 90), color=COLOR_WHITE)
-        self._draw_wrapped_text(screen, quest.accept_text, (40, 130), max_width=SCREEN_WIDTH - 80)
-        self._draw_wrapped_text(screen, quest.description, (40, 260), max_width=SCREEN_WIDTH - 80,
-                                 color=(170, 170, 170))
+        # LAID OUT BY FLOW, NOT BY FIXED Y. Every section used to be nailed
+        # to a constant - accept_text at 130, description at 260, the level
+        # line at 380 - so a quest whose prose ran long wrote straight
+        # THROUGH the next section. Our best-written quest (Durotar's The
+        # Stranded Garrison, 797 characters) already collided with "Requires
+        # level 6" before this change, which is what a screenshot showed
+        # when Kyle asked for the quests to read like real WoW quests.
+        # Sections now stack from the previous one's measured bottom.
+        #
+        # ONE BODY, NOT TWO. The offer used to print accept_text AND
+        # description, which is the same NPC saying the same thing twice in
+        # two different voices. WoW's offer window shows a single body, then
+        # Quest Objectives, then Rewards - which is the shape of every
+        # screenshot Kyle sent. description is the body here because it is
+        # the longer, authored prose; accept_text still has its own job on
+        # the accept-confirmation path below.
+        BODY_W = SCREEN_WIDTH - 80
+        y = 84
+        self.renderer.draw_text(screen, quest.title, (40, y), color=COLOR_GOLD)
+        y += 34
+
+        body = (quest.description or "").strip()
+        y = self._draw_wrapped_text(screen, body, (40, y), max_width=BODY_W,
+                                    color=(214, 206, 184))
+        y += 10
+
+        obj_lines = self._objective_lines(quest)
+        if obj_lines:
+            self.renderer.draw_text(screen, "Quest Objectives", (40, y),
+                                    color=COLOR_GOLD, font_size=18)
+            y += 26
+            for line in obj_lines:
+                y = self._draw_wrapped_text(screen, line, (56, y),
+                                            max_width=BODY_W - 16,
+                                            color=(190, 190, 190),
+                                            line_height=22)
+            y += 8
 
         level_text = f"Requires level {quest.level_min}"
         if quest.level_max:
             level_text += f" (recommended through {quest.level_max})"
         level_color = COLOR_WHITE if available else (200, 90, 90)
-        self.renderer.draw_text(screen, level_text, (40, 380), color=level_color)
+        self.renderer.draw_text(screen, level_text, (40, y), color=level_color)
+        y += 28
+        self._offer_flow_y = y
 
         reward_lines = [f"Reward: {quest.reward_exp} XP"]
         if quest.reward_gold:
@@ -449,7 +520,13 @@ class QuestDialogScreen(BaseScreen):
                 reward_lines.append(f"+{amt} {fm.get(fid).name}")
         except Exception:
             pass        # a reward preview must never be what stops a quest being readable
-        self.renderer.draw_text(screen, "   ".join(reward_lines), (40, 410), color=COLOR_GOLD)
+        reward_y = self._offer_flow_y
+        self.renderer.draw_text(screen, "Rewards", (40, reward_y),
+                                color=COLOR_GOLD, font_size=18)
+        reward_y += 24
+        self.renderer.draw_text(screen, "   ".join(reward_lines), (56, reward_y),
+                                color=COLOR_GOLD)
+        reward_y += 28
 
         # Real reward preview instead of a vague "+ choice of gear" line
         # (Kyle: "let's have the rewards previewed when the quest is
@@ -461,10 +538,14 @@ class QuestDialogScreen(BaseScreen):
         if quest.gear_reward_gear_level is not None:
             from entities.loot_generator import LootGenerator
             choices = quest.get_gear_choices(LootGenerator(), self.state_manager.player.char_class)
-            self._render_reward_preview_row(screen, choices, y=440)
+            # Clamped so a long quest cannot push the gear cards off the
+            # bottom or under the Accept button, which sits near y=630.
+            self._render_reward_preview_row(
+                screen, choices, y=min(reward_y, SCREEN_HEIGHT - 300))
+            reward_y = min(reward_y, SCREEN_HEIGHT - 300) + 130
 
         # What this quest hands you / where it is handed in (deliver and "report to" quests).
-        info_y = 410 + 28
+        info_y = reward_y
         grants = (quest.grant_items or {}).get("on_accept") or []
         if grants:
             names = ", ".join(g["name"] for g in grants)
@@ -672,27 +753,126 @@ class QuestDialogScreen(BaseScreen):
         if self.result_message:
             self.renderer.draw_text(screen, self.result_message, (40, SCREEN_HEIGHT - 120), color=(120, 220, 140))
 
+    def _objective_lines(self, quest):
+        """The "Quest Objectives" block, in the player's words.
+
+        WoW states the task plainly under the prose ("Kill 7 Young
+        Nightsabers and 4 Young Thistle Boars and return to Conservator
+        Ilthalaine"), and this screen had NO objectives section at all -
+        the player read a paragraph of flavour and was never told what the
+        quest actually wanted. Every screenshot Kyle sent has this block.
+
+        Built from the objective data rather than authored per quest, so
+        it cannot drift from what the quest actually tracks - and so 1087
+        quests do not each need a hand-written sentence that could lie.
+        """
+        def field(obj, *names, default=None):
+            """Objectives arrive as Objective instances in the live game and
+            as raw dicts from some loaders, and the attribute is
+            `objective_type` on one and `type` on the other. Reading only
+            the attribute form produced "None: the objective." for every
+            quest."""
+            for n in names:
+                if isinstance(obj, dict):
+                    if n in obj:
+                        return obj[n]
+                else:
+                    v = getattr(obj, n, None)
+                    if v is not None:
+                        return v
+            return default
+
+        def plural(name, n):
+            """"Slay 8 Stranded Marine" reads like a typo. Crude on
+            purpose - creature names here are plain English nouns, and a
+            real pluraliser would be a dependency for one line of UI."""
+            if n <= 1 or not name:
+                return name
+            low = name.lower()
+            if low.endswith(("s", "x", "z", "ch", "sh")):
+                return name + "es"
+            if low.endswith("y") and len(name) > 1 and low[-2] not in "aeiou":
+                return name[:-1] + "ies"
+            if low.endswith("f"):
+                return name[:-1] + "ves"
+            return name + "s"
+
+        out = []
+        for obj in (quest.objectives or []):
+            kind = field(obj, "objective_type", "type")
+            target = field(obj, "target")
+            count = field(obj, "count", default=1) or 1
+            alts = list(field(obj, "alt_targets", default=[]) or [])
+            # Item objectives carry an ITEM ID, not a display name, so
+            # "Collect 5 tan hex fetishes" was shown where the item is
+            # really called "Hex Fetish". Creature objectives already carry
+            # the display name, so only the item kinds need resolving.
+            name = _quest_item_name(target) if kind in ("fetch", "gather", "deliver") \
+                else (str(target).replace("_", " ") if target else "the objective")
+            if not name:
+                name = str(target).replace("_", " ") if target else "the objective"
+            if kind == "kill":
+                shown = plural(name, count)
+                who = shown if not alts else (
+                    f"{shown} (or {', '.join(plural(a, count) for a in alts)})")
+                out.append(f"Slay {count} {who}." if count > 1 else f"Slay {who}.")
+            elif kind == "kill_boss":
+                out.append(f"Defeat {name}.")
+            elif kind in ("fetch", "gather"):
+                out.append(f"Collect {count} {plural(name, count)}." if count > 1
+                           else f"Collect {name}.")
+            elif kind == "deliver":
+                out.append(f"Deliver {name}.")
+            elif kind == "craft":
+                out.append(f"Craft {count} {name}." if count > 1 else f"Craft {name}.")
+            elif kind == "explore":
+                where = field(obj, "zone") or name
+                # Zones are stored as ids ("northern_tanaris"); title-case
+                # them so the line reads as a place, not a database key.
+                pretty = str(where).replace("_", " ").strip()
+                if pretty and pretty == pretty.lower():
+                    pretty = pretty.title()
+                out.append(f"Scout {pretty}.")
+            elif kind == "dialogue":
+                out.append(f"Speak with {name}.")
+            else:
+                out.append(f"{str(kind).replace('_', ' ').title()}: {name}.")
+        return out
+
     def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=26):
         """Simple word-wrap for dialog text - the renderer has no built-in
         multi-line text helper, and quest accept/turn-in lines run well
         past a single line at any reasonable font size."""
         if not text:
-            return
-        words = text.split(" ")
+            return pos[1]
+        # SPLIT ON NEWLINES FIRST. draw_text draws a single line, so an
+        # embedded "\n" came out as missing-glyph boxes in the middle of a
+        # sentence - visible in Tanaris as "where it all goes.<box><box>
+        # Nobody on the pan...". The greeting path already had this fix
+        # (see _render_greeting); the body text never did, and quest prose
+        # is exactly where paragraph breaks belong.
         lines = []
-        current = ""
-        for word in words:
-            test = f"{current} {word}".strip()
-            width = self.renderer.font_normal.size(test)[0]
-            if width > max_width and current:
+        for para in str(text).replace("\r\n", "\n").split("\n"):
+            para = para.strip()
+            if not para:
+                lines.append("")      # keep the blank line between paragraphs
+                continue
+            current = ""
+            for word in para.split(" "):
+                test = f"{current} {word}".strip()
+                if self.renderer.font_normal.size(test)[0] > max_width and current:
+                    lines.append(current)
+                    current = word
+                else:
+                    current = test
+            if current:
                 lines.append(current)
-                current = word
-            else:
-                current = test
-        if current:
-            lines.append(current)
 
         x, y = pos
         for line in lines:
             self.renderer.draw_text(screen, line, (x, y), color=color)
             y += line_height
+        # RETURNS THE BOTTOM so callers can stack the next section under
+        # this one instead of guessing a constant. Every caller that does
+        # not care can keep ignoring the return value.
+        return y
