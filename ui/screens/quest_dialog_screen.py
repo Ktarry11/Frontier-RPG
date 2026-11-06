@@ -96,6 +96,11 @@ class QuestDialogScreen(BaseScreen):
         self.menu_rects = []
         self.menu_visible = []
         self.menu_scroll = 0
+        # Offer-panel prose scroll. The reward cards are pinned to the
+        # bottom, so a quest whose text is longer than the space above
+        # them scrolls rather than pushing the cards off the panel.
+        self.offer_scroll = 0
+        self.offer_max_scroll = 0
         self.menu_max_scroll = 0
         self.came_from_menu = False
         self.back_button = pygame.Rect(40, SCREEN_HEIGHT - 70, 150, 44)
@@ -146,6 +151,9 @@ class QuestDialogScreen(BaseScreen):
         when the player first walked up."""
         self.gear_choice_stage = False
         self.selected_gear_index = None
+        # A different quest starts at the top of its own text, or the
+        # second quest on an NPC opens halfway down the first one's.
+        self.offer_scroll = 0
 
         # FETCH / DELIVER progress is read off the bag; bring it up to date so a quest whose items the player
         # just collected (or was just handed on accept) is turn-in-ready the moment we look.
@@ -247,6 +255,15 @@ class QuestDialogScreen(BaseScreen):
                        self.menu_scroll + (-1 if event.button == 4 else 1)))
             return
 
+        # Same for the offer panel's prose, which scrolls independently of
+        # the pinned reward block below it.
+        if self.mode == "offer" and event.type == pygame.MOUSEBUTTONDOWN \
+                and event.button in (4, 5):
+            self.offer_scroll = max(
+                0, min(self.offer_max_scroll,
+                       self.offer_scroll + (-40 if event.button == 4 else 40)))
+            return
+
         if event.type != pygame.MOUSEBUTTONDOWN:
             return
         mouse_pos = event.pos
@@ -273,6 +290,7 @@ class QuestDialogScreen(BaseScreen):
                     self.came_from_menu = True
                     self.gear_choice_stage = False
                     self.result_message = None
+                    self.offer_scroll = 0
                     return
             return
 
@@ -638,7 +656,97 @@ class QuestDialogScreen(BaseScreen):
         # the longer, authored prose; accept_text still has its own job on
         # the accept-confirmation path below.
         BODY_W = SCREEN_WIDTH - 80
-        y = 84
+
+        # REWARDS ARE PINNED TO THE BOTTOM AND THE PROSE SCROLLS ABOVE
+        # THEM. Flowing everything top-down meant a long quest pushed the
+        # gear cards off the panel, and the previous attempt at handling
+        # that - print the item NAMES on one line instead - threw away the
+        # whole reason the preview exists (Kyle: "let's have the rewards
+        # previewed when the quest is given... so we can see if we even
+        # care about the quest", and then "it doesn't show items? We need
+        # to have items shown"). The cards, with their stats, are the
+        # point. So the reward block gets its space reserved first and the
+        # text region above takes whatever is left, scrolling when the
+        # prose is longer than that.
+        gear_choices = None
+        if quest.gear_reward_gear_level is not None:
+            from entities.loot_generator import LootGenerator
+            gear_choices = quest.get_gear_choices(
+                LootGenerator(), self.state_manager.player.char_class)
+        CARD_H = 130
+        TEXT_TOP = 84
+
+        # WHAT TO DO AND WHAT YOU GET ARE BOTH PINNED. Only the flavour
+        # scrolls. Putting Quest Objectives in the scrolling region meant
+        # a long quest hid the one block that tells the player what the
+        # quest actually wants, which is the opposite of why that block
+        # was added.
+        #
+        # Both the pinned block and the prose are MEASURED by running
+        # their own drawing code against an empty clip, so a measurement
+        # can never disagree with the render.
+        prev_clip = screen.get_clip()
+        screen.set_clip(pygame.Rect(0, 0, 0, 0))
+        pinned_h = self._draw_offer_pinned(screen, quest, available, 0,
+                                           BODY_W, gear_choices, CARD_H)
+        screen.set_clip(prev_clip)
+        reward_top = max(TEXT_TOP + 120, self.accept_button.y - 24 - pinned_h)
+
+        screen.set_clip(pygame.Rect(0, 0, 0, 0))
+        content_h = self._draw_offer_text(screen, quest, TEXT_TOP, BODY_W) - TEXT_TOP
+        screen.set_clip(prev_clip)
+
+        view_h = max(80, reward_top - TEXT_TOP - 8)
+        self.offer_max_scroll = max(0, content_h - view_h)
+        self.offer_scroll = max(0, min(self.offer_scroll, self.offer_max_scroll))
+
+        screen.set_clip(pygame.Rect(0, TEXT_TOP - 4, SCREEN_WIDTH, view_h + 8))
+        self._draw_offer_text(screen, quest, TEXT_TOP - self.offer_scroll, BODY_W)
+        screen.set_clip(prev_clip)
+
+        if self.offer_max_scroll:
+            self.renderer.draw_text(
+                screen, "scroll for more" if self.offer_scroll < self.offer_max_scroll
+                else "scroll up", (SCREEN_WIDTH - 200, reward_top - 22),
+                color=(130, 126, 114), font_size=14)
+
+        self._offer_flow_y = reward_top
+        self._draw_offer_pinned(screen, quest, available, reward_top,
+                                BODY_W, gear_choices, CARD_H)
+
+    def _draw_offer_pinned(self, screen, quest, available, y, BODY_W,
+                           gear_choices, CARD_H):
+        """Quest Objectives, the level line and the whole reward block -
+        the parts a player is deciding on, pinned to the bottom of the
+        panel so prose length can never push them off it. Returns its own
+        height when called from y=0, which is how the pin point is found."""
+        top = y
+        obj_lines = self._objective_lines(quest)
+        if obj_lines:
+            self.renderer.draw_text(screen, "Quest Objectives", (40, y),
+                                    color=COLOR_GOLD, font_size=18)
+            y += 26
+            for line in obj_lines:
+                y = self._draw_wrapped_text(screen, line, (56, y),
+                                            max_width=BODY_W - 16,
+                                            color=(190, 190, 190),
+                                            line_height=22)
+            y += 8
+
+        level_text = f"Requires level {quest.level_min}"
+        if quest.level_max:
+            level_text += f" (recommended through {quest.level_max})"
+        level_color = COLOR_WHITE if available else (200, 90, 90)
+        self.renderer.draw_text(screen, level_text, (40, y), color=level_color)
+        y += 28
+
+        y = self._render_offer_rewards(screen, quest, gear_choices, y,
+                                       CARD_H, available)
+        return y - top
+
+    def _draw_offer_text(self, screen, quest, y, BODY_W):
+        """Title and prose - the only part that scrolls. Split out of
+        _render_offer so the exact same code both measures and draws."""
         self.renderer.draw_text(screen, quest.title, (40, y), color=COLOR_GOLD)
         y += 34
 
@@ -701,27 +809,13 @@ class QuestDialogScreen(BaseScreen):
         y = self._draw_wrapped_text(screen, body, (40, y), max_width=BODY_W,
                                     color=(214, 206, 184))
         y += 10
+        return y
 
-        obj_lines = self._objective_lines(quest)
-        if obj_lines:
-            self.renderer.draw_text(screen, "Quest Objectives", (40, y),
-                                    color=COLOR_GOLD, font_size=18)
-            y += 26
-            for line in obj_lines:
-                y = self._draw_wrapped_text(screen, line, (56, y),
-                                            max_width=BODY_W - 16,
-                                            color=(190, 190, 190),
-                                            line_height=22)
-            y += 8
-
-        level_text = f"Requires level {quest.level_min}"
-        if quest.level_max:
-            level_text += f" (recommended through {quest.level_max})"
-        level_color = COLOR_WHITE if available else (200, 90, 90)
-        self.renderer.draw_text(screen, level_text, (40, y), color=level_color)
-        y += 28
-        self._offer_flow_y = y
-
+    def _render_offer_rewards(self, screen, quest, gear_choices, reward_y,
+                              CARD_H, available):
+        """The bottom-pinned reward block: XP/gold/rep, then the real gear
+        cards. Never clipped and never scrolled - this is the part the
+        player is deciding on."""
         reward_lines = [f"Reward: {quest.reward_exp} XP"]
         if quest.reward_gold:
             reward_lines.append(coins(quest.reward_gold))
@@ -738,7 +832,6 @@ class QuestDialogScreen(BaseScreen):
                 reward_lines.append(f"+{amt} {fm.get(fid).name}")
         except Exception:
             pass        # a reward preview must never be what stops a quest being readable
-        reward_y = self._offer_flow_y
         self.renderer.draw_text(screen, "Rewards", (40, reward_y),
                                 color=COLOR_GOLD, font_size=18)
         reward_y += 24
@@ -753,37 +846,11 @@ class QuestDialogScreen(BaseScreen):
         # on the Quest itself via get_gear_choices, so viewing the
         # preview doesn't roll anything different from what turn-in
         # will actually offer - same fixed set, just shown earlier.
-        if quest.gear_reward_gear_level is not None:
-            from entities.loot_generator import LootGenerator
-            choices = quest.get_gear_choices(LootGenerator(), self.state_manager.player.char_class)
-            # The clamp used to be min(reward_y, SCREEN_HEIGHT - 300),
-            # which stopped the cards running under the Accept button and
-            # instead drew them straight THROUGH the quest prose whenever
-            # the flow had already passed y=420 - which every long quest
-            # does. Valley of Trials' opener had three gear cards sitting
-            # on top of its last two paragraphs.
-            #
-            # So only draw the cards where they actually fit. When they
-            # don't, name the choices on one line instead: the player
-            # still learns what is on offer, and nothing is drawn over
-            # anything else.
-            CARD_H = 130
-            if reward_y + CARD_H <= SCREEN_HEIGHT - 170:
-                self._render_reward_preview_row(screen, choices, y=reward_y)
-                reward_y += CARD_H
-            else:
-                # The name lives on choice.item - a QuestRewardGearChoice
-                # is a (armor_type_label, item) pair and has no name of
-                # its own, so a getattr fallback printed repr() strings.
-                names = ", ".join(
-                    getattr(getattr(c, "item", None), "name", None)
-                    or getattr(c, "armor_type_label", "?")
-                    for c in choices)
-                reward_y = self._draw_wrapped_text(
-                    screen, f"Choice of: {names}", (56, reward_y),
-                    max_width=SCREEN_WIDTH - 96, color=(120, 200, 120),
-                    line_height=22)
-                reward_y += 8
+        # The cards always draw, because space for them was reserved
+        # before any prose was laid out.
+        if gear_choices:
+            self._render_reward_preview_row(screen, gear_choices, y=reward_y)
+            reward_y += CARD_H
 
         # What this quest hands you / where it is handed in (deliver and "report to" quests).
         info_y = reward_y
@@ -799,6 +866,7 @@ class QuestDialogScreen(BaseScreen):
             if where:
                 self.renderer.draw_text(screen, f"Hand in to: {where}", (40, info_y),
                                         color=(120, 170, 230), font_size=16)
+                info_y += 22
         if self.result_message:
             self.renderer.draw_text(screen, self.result_message, (40, SCREEN_HEIGHT - 130), color=(220, 120, 110))
 
@@ -809,6 +877,7 @@ class QuestDialogScreen(BaseScreen):
             self.renderer.draw_text(screen, "Too low level", (self.accept_button.x, self.accept_button.y - 24),
                                     color=(200, 90, 90), font_size=16)
         self.renderer.draw_button(screen, self.decline_button, "Not Now")
+        return info_y
 
     def _render_reward_preview_row(self, screen, choices, y):
         """Compact single-row preview of a quest's gear reward options -
