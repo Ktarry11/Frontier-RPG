@@ -667,11 +667,34 @@ class QuestDialogScreen(BaseScreen):
         # take the quest ("Take the west road down to the Vale"), which is
         # a different beat and reads as a duplicate if it is also printed
         # above the body.
-        if len(speech) > len(desc):
-            body, lead = speech, desc
+        # A THIRD CASE the longer-wins rule got wrong, and it was eating
+        # whole speeches. Arathi, both southern Stranglethorns, Southern
+        # Needles and Aspen write a real framing PARAGRAPH in `description`
+        # (300-470 chars) as well as a real speech in `accept_text`
+        # (270-400). Longer-wins picked the framing as the body, and the
+        # 160-character cap below then discarded the NPC's own words
+        # entirely - 56 quests across those five zones showed the player
+        # narration and never printed what the quest giver actually said.
+        #
+        # So pick by ROLE rather than by length:
+        #   both long            -> description is framing, accept_text is
+        #                           the speech (the Arathi case)
+        #   accept_text longer   -> description is a teaser lead
+        #   otherwise            -> description IS the speech and
+        #                           accept_text is the short parting
+        #                           direction, drawn under it
+        # and never drop a field for being too long to be a lead.
+        # In the third convention `description` IS the speech and
+        # accept_text is a short parting direction, which already has its
+        # own job on the accept-confirmation path - printing it here too
+        # reads as the NPC repeating himself and pushes the body past the
+        # reward row.
+        LONG = 200
+        if len(speech) > len(desc) or (len(desc) > LONG and len(speech) > LONG):
+            lead, body = desc, speech
         else:
-            body, lead = desc, ""
-        if lead and len(lead) <= 160 and lead != body:
+            lead, body = "", desc
+        if lead and lead != body:
             y = self._draw_wrapped_text(screen, lead, (40, y), max_width=BODY_W,
                                         color=(150, 146, 132), line_height=24)
             y += 8
@@ -733,11 +756,34 @@ class QuestDialogScreen(BaseScreen):
         if quest.gear_reward_gear_level is not None:
             from entities.loot_generator import LootGenerator
             choices = quest.get_gear_choices(LootGenerator(), self.state_manager.player.char_class)
-            # Clamped so a long quest cannot push the gear cards off the
-            # bottom or under the Accept button, which sits near y=630.
-            self._render_reward_preview_row(
-                screen, choices, y=min(reward_y, SCREEN_HEIGHT - 300))
-            reward_y = min(reward_y, SCREEN_HEIGHT - 300) + 130
+            # The clamp used to be min(reward_y, SCREEN_HEIGHT - 300),
+            # which stopped the cards running under the Accept button and
+            # instead drew them straight THROUGH the quest prose whenever
+            # the flow had already passed y=420 - which every long quest
+            # does. Valley of Trials' opener had three gear cards sitting
+            # on top of its last two paragraphs.
+            #
+            # So only draw the cards where they actually fit. When they
+            # don't, name the choices on one line instead: the player
+            # still learns what is on offer, and nothing is drawn over
+            # anything else.
+            CARD_H = 130
+            if reward_y + CARD_H <= SCREEN_HEIGHT - 170:
+                self._render_reward_preview_row(screen, choices, y=reward_y)
+                reward_y += CARD_H
+            else:
+                # The name lives on choice.item - a QuestRewardGearChoice
+                # is a (armor_type_label, item) pair and has no name of
+                # its own, so a getattr fallback printed repr() strings.
+                names = ", ".join(
+                    getattr(getattr(c, "item", None), "name", None)
+                    or getattr(c, "armor_type_label", "?")
+                    for c in choices)
+                reward_y = self._draw_wrapped_text(
+                    screen, f"Choice of: {names}", (56, reward_y),
+                    max_width=SCREEN_WIDTH - 96, color=(120, 200, 120),
+                    line_height=22)
+                reward_y += 8
 
         # What this quest hands you / where it is handed in (deliver and "report to" quests).
         info_y = reward_y
