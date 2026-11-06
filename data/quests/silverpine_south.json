@@ -7,7 +7,7 @@
       "zone": "silverpine_south",
       "level_min": 15,
       "level_max": 16,
-      "description": "Deathguard Lyle has watched the south road from the gate for months. He has a short, grim report for Sergeant Dallow at Valgan's Field and no one to send. He would very much like it to arrive without having been read.",
+      "description": "Deathguard Lyle. You'll be going south, and I've something that needs to go south, and those two facts are about to become the same fact.\n\nThis is for Sergeant Dallow at Valgan's Field. It's a report on the south road - what I've counted off this gate for the last few months, and it is short, and it is not good.\n\nI'd send a runner. The March doesn't have runners to spare and the Rear Guard won't lend me one for something I can't justify as urgent, and I can't justify it as urgent because the whole point of the report is that nothing has happened YET.\n\nIt's sealed. Keep it that way. Not because I don't trust you - because if Dallow gets it open he'll know nobody's had a chance to soften it, and a soft report is worth nothing to a man holding a field.",
       "objectives": [
         {
           "type": "deliver",
@@ -18,8 +18,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "South along the trunk road. The field camp is under the banners, past the crossroad. Dallow will take it from you.",
-      "turn_in_text": "Lyle always did write short. Two lines, a smudge, and a warning. I'll make something of it.",
+      "accept_text": "South to Sergeant Dallow at Valgan's Field. Sealed.",
+      "turn_in_text": "[Dallow reads it twice and sets it face down.]\n\nLyle's counted the same thing I've counted, from the other end, without either of us saying it to the other.\n\nThat's what I needed. Not the numbers - the fact that two men looking at opposite ends of the same road arrived somewhere unpleasant independently.",
       "next_quest_id": null,
       "turn_in_npc_id": "sp_south_march_sergeant",
       "grant_items": {
@@ -111,7 +111,7 @@
       "zone": "silverpine_south",
       "level_min": 15,
       "level_max": 16,
-      "description": "The March exists to keep the road to Ambermill open, and the road is full of wolves and the leavings of bears that died of something the Apothecaries haven't named. Dallow wants both thinned before the next supply train.",
+      "description": "Sergeant Dallow. This is the March, and the March exists for one reason: the road to Ambermill stays open.\n\nThat's it. That's the whole mission. Everything else we do here is in service of a supply train getting through, and at the moment a supply train would not get through.\n\nThe wolves have the verge - diseased, half of them falling apart, and absolutely undeterred by that. And the bears died of something the Apothecaries still haven't put a name to, and then got up again, and now the road is lined with the leavings of both.\n\nThin them before the next train. I'd rather lose a day of your time than a cart of someone else's.",
       "objectives": [
         {
           "type": "kill",
@@ -128,8 +128,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "Anywhere in the pines south of the gate. Wolves and bears. If it's limping and drooling, it's the one.",
-      "turn_in_text": "Quieter roads, fewer drovers screaming. You're a credit to the March.",
+      "accept_text": "Along the Ambermill road, both verges. Before the next supply train.",
+      "turn_in_text": "Train came through clean this morning. Didn't even slow at the bend.\n\nThat's the job. Nobody writes songs about a cart arriving on time and nobody should.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -189,7 +189,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "Some of the March did not stay. A few dozen Forsaken, tired of orders, walked off Valgan's Field and set up as brigands on the farm. Dallow takes this personally, as the walking-off was done under his nose.",
+      "description": "Now something I'd rather not be asking a stranger to do.\n\nSome of the March walked off. Not a rout, not a panic - they simply stopped, and left, and went up to the Bucklebree farm and set themselves up as brigands on it.\n\nThey did it under my nose. That's the part I'd like on the record, because I've been round it a hundred times and I cannot find the morning where I'd have done differently, and it still happened on my watch and in my sight.\n\nThey're robbing carters on my road now. That makes them my problem twice over. Deal with them, and understand that I'm not asking you to do anything I wouldn't - I'm asking because a sergeant going up there personally becomes a story, and this is bad enough without being a story.",
       "objectives": [
         {
           "type": "kill",
@@ -200,8 +200,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "Valgan's Field, the ruined farm around my camp. They wear March coats with the insignia torn off.",
-      "turn_in_text": "I'd hoped they'd come back on their own. They didn't. Thank you for doing what I couldn't.",
+      "accept_text": "Up on the Bucklebree farm. They've set up as brigands on my road.",
+      "turn_in_text": "Right.\n\nI'll not pretend that's a victory. Those were my people and the fact that they stopped being my people is a thing that happened TO this command, not something that was done to us from outside.\n\nThank you for doing it cleanly.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_forsaken_march"
@@ -270,7 +270,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "Every March soldier is issued an iron tag, stamped with a number. Dallow keeps the roll, and wants the tags of the deserters, so that when someone else asks who left, he can say who and by what number.",
+      "description": "One more thing, and it matters more than the killing did.\n\nEvery soldier in the March carries an iron tag. Number stamped on it, matched against the roll on this desk. It's an old system and it's a good one.\n\nI want the deserters' tags. All of them I can get.\n\nHere's why. In a year somebody from the Undercity will come down this road and ask how many walked off, and the answer they want is 'a few'. 'A few' is how a command gets kept. And I'm going to open this book and tell them WHO, and by what number, and that it was this many and not a few.\n\nI'd rather be the man who kept the count than the man who kept his post.",
       "objectives": [
         {
           "type": "fetch",
@@ -280,8 +280,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "Off the bodies of the deserters. Iron tags on a cord. Six of them.",
-      "turn_in_text": "Six names off the roll. They'll be remembered, though perhaps not kindly.",
+      "accept_text": "Iron tags, stamped with a number. Off the deserters on the farm.",
+      "turn_in_text": "[He enters each number against the roll by hand, in ink.]\n\nThere. Written down, in a book, in my hand.\n\nNow it's a fact rather than an impression, and facts are harder to shrug at.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_forsaken_march"
@@ -348,7 +348,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 18,
-      "description": "A letter, taken from a dead deserter's pocket, addressed to someone in the Undercity. The seal is unbroken. Whatever it says, someone in the March ought to read it before it's posted.",
+      "description": "A letter taken from a dead deserter's coat, folded twice and gone soft at the creases from being carried a long time.\n\nIt's addressed to someone in the Undercity. The hand is careful - the writing of somebody who was not confident of their letters and took their time over every one.\n\nThe seal has not been broken. Whoever wrote it never sent it, and whoever carried it never opened it, and it has been going up and down a field in a dead man's pocket for months waiting for a post that was never coming.\n\nSomeone in the March ought to read it before it goes any further.",
       "objectives": [
         {
           "type": "deliver",
@@ -359,8 +359,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "Dallow, at Valgan's Field. He will want to know who the deserters were writing to.",
-      "turn_in_text": "A mother, in Brill. The man was nineteen. Gods. I'll see she's told the right way.",
+      "accept_text": "Take it to Sergeant Dallow at Valgan's Field.",
+      "turn_in_text": "[Dallow breaks the seal with his thumb, reads, and puts it down carefully.]\n\nIt's to his sister. He's telling her he's coming home and asking her not to tell anyone until he's there.\n\nThat's it. That's the whole letter. No politics in it, no complaint about the March - he just wanted to go home and he knew enough to know he couldn't say so out loud.\n\n[A pause.]\n\nI'll post it. I'll post it and I will not put 'deserter' anywhere on the outside of it.",
       "next_quest_id": null,
       "turn_in_npc_id": "sp_south_march_sergeant",
       "unique_item_defs": [
@@ -423,7 +423,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "Field Surgeon Ashe has run out of replacement bone. The battlefield wights of Valgan's Field wear the bones of better men, and she is not too proud to recycle them.",
+      "description": "Field Surgeon Ashe. Hold still - no, you're fine, I was checking the shoulder. Habit.\n\nI've run out of bone. Say that to a living surgeon and they'll look at you strangely; say it to me and you'll understand immediately why it's a crisis. Half the March is held together with replacements and the other half is about to need some.\n\nThe battlefield wights out on Valgan's Field are wearing the bones of better men than any of us. Third War dead, mostly - good stock, properly grown, nothing rickets about them.\n\nI'm not too proud to recycle, and neither is anyone who's had a femur out of me. Bring me what you can and I'll be glad of it.",
       "objectives": [
         {
           "type": "fetch",
@@ -433,8 +433,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The wights on the field. Take the long bones - arms and legs. Cleaned, if you can.",
-      "turn_in_text": "These'll do. Slightly used, slightly regretful. Thank you.",
+      "accept_text": "Off the battlefield wights on Valgan's Field. Long bones for preference.",
+      "turn_in_text": "[She sorts them by length without looking up.]\n\nThese are excellent. Somebody fed these men properly once.\n\nI'll have three of the March back on their feet by the week's end. Don't tell them where it came from - some of them still have opinions about that, which I find remarkable given where the rest of them came from.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -496,7 +496,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 18,
-      "description": "A Deathguard Captain has been fighting the Third War on Valgan's Field since before Dallow arrived. He does not answer to orders, rank, or reason, and the March cannot hold the field while he walks it.",
+      "description": "There's one out on that field who was here before I was, and he is the reason the March cannot hold Valgan's.\n\nA Deathguard Captain. He is still fighting the Third War. Not metaphorically - he is fighting it, out there, to the original orders, against an enemy that stopped existing before I was posted to this command.\n\nI've sent men to talk to him. I've sent a cleric. I have stood in front of him personally and used my rank, which was the most humiliating ten minutes of my career, because rank is exactly the thing he's still listening to and I am not in his chain of command and he knew it instantly.\n\nHe'll not stop and he cannot be moved and the field is his while he walks it. Put him down. He's earned better and there isn't any better on offer.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -507,8 +507,8 @@
       ],
       "reward_exp": 1508,
       "reward_gold": 6630,
-      "accept_text": "Deep in the field, where the wights gather. He's the one still giving commands.",
-      "turn_in_text": "He was a good officer once. The best of us, maybe. Thank you for ending the watch.",
+      "accept_text": "Out on Valgan's Field. He's still fighting the Third War - he won't listen.",
+      "turn_in_text": "[Dallow is quiet a long time.]\n\nThat man held this ground when holding it meant something, and he never got the order to stop.\n\nI'm going to write that down and send it up, and some clerk in the Undercity is going to file it, and that's the whole of what any of us get. Thank you.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_deserters"
@@ -593,7 +593,7 @@
       "zone": "silverpine_south",
       "level_min": 15,
       "level_max": 16,
-      "description": "The Forsaken Hunter wants six clean wolf pelts. 'Diseased' is fine; 'dissolving' is not. He's making a cloak for someone he used to know, and refuses to say who.",
+      "description": "Pelts. Clean ones.\n\nAnd before you shrug and go - listen, because the difference matters and I'll not take a bag of ruined work. 'Diseased' is fine. Half the wolves in Silverpine are diseased and the fur comes off a diseased wolf perfectly well. 'Dissolving' is not fine. You'll know the difference the moment you put a knife in.\n\nI'm making a cloak.\n\n[He waits to see whether you'll ask.]\n\nNo. For somebody I used to know. That's the whole of the answer and you can take it or you can go and be useful somewhere else.",
       "objectives": [
         {
           "type": "fetch",
@@ -603,8 +603,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "The diseased wolves along the road. Skin them carefully. The cloak is a gift.",
-      "turn_in_text": "Good work. A bit mangy, but a cloak that's been through something is worth more.",
+      "accept_text": "Clean wolf pelts. Diseased is fine. Dissolving is not.",
+      "turn_in_text": "[He goes through every one, feeling the backing.]\n\nThese'll do. These'll more than do.\n\n...She was my daughter. She's buried at Ambermill and she was cold her whole life, even in summer, and she used to complain about it and I used to tell her to put something on.\n\nThat's the answer. Don't make me give it twice.",
       "next_quest_id": "sps_hunter_roost",
       "unique_item_defs": [
         {
@@ -670,7 +670,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "The carrion birds have been following the Hunter's traps and stealing the kills. He doesn't mind sharing, much. He minds the birds taking the traps.",
+      "description": "Second thing, and this one's pure temper, so I'll not dress it up as strategy.\n\nThe carrion birds follow my trap line. They've worked out the route - they genuinely have, they sit ahead of me now - and they take the kills before I've walked it.\n\nI don't mind sharing. I'm not sentimental about a wolf carcass and there's more wolf in Silverpine than there is hunter.\n\nWhat I mind is that they've started taking the TRAPS. Lifting them, carrying them, dropping them somewhere else for no reason I can establish. I've lost a season's worth of good traps to birds that cannot eat them and do not need them.\n\nClear them off my line.",
       "objectives": [
         {
           "type": "kill",
@@ -681,8 +681,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "Anywhere in the pines. They're bold. Show them what boldness gets.",
-      "turn_in_text": "That'll teach them manners. Doubt it, but it's a start.",
+      "accept_text": "Along my trap line. They sit ahead of me and take the kills - and the traps.",
+      "turn_in_text": "Walked the whole line this morning and every trap was where I left it.\n\nSmall thing. Been the most aggravating small thing in my life for a season.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_hunter_pelts"
@@ -747,7 +747,7 @@
       "zone": "silverpine_south",
       "level_min": 15,
       "level_max": 16,
-      "description": "The Bucklebree hogs went wrong the same week the plague reached the farm. They still root in the dirt, but what they root up is worse. Farmer Bucklebree wants the herd put down before it breeds.",
+      "description": "Bucklebree. That's my farm, and that noise is my herd, and I'd ask you not to go near the fence.\n\nThe hogs went wrong the same week the plague came through. Same week - not after, not gradually. They were a herd, and then overnight they were whatever that is.\n\nThey still root. That's what I can't get past. Rooting's what a hog does, and mine still do it, all day, up and down the same ground. It's just that what comes up now isn't turnips.\n\nAnd they're breeding. That's the part that turns this from a sad thing into a thing somebody has to do something about. Put the herd down before there's a second generation of them in Silverpine.",
       "objectives": [
         {
           "type": "kill",
@@ -764,8 +764,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "The pens and the barn. The hogs won't run. The ghouls will, and then come back.",
-      "turn_in_text": "It's quiet on the farm for the first time in months. Odd how much I miss the noise.",
+      "accept_text": "In the pens and the near field. Before they breed.",
+      "turn_in_text": "Quiet.\n\nForty years of pigs. I'd have told you I'd be glad to see the back of them on any given day and I'd have been lying every time.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -826,7 +826,7 @@
       "zone": "silverpine_south",
       "level_min": 15,
       "level_max": 16,
-      "description": "Merriam sewed a quilt for every child born on the farm. The barn ghouls drag them off and sleep on them. She wants six scraps back, to piece together whatever's left of the family.",
+      "description": "Sit down a minute, you've been walking.\n\nMerriam Bucklebree. I sewed a quilt for every child born on this farm - mine, the hands', anyone's. Every one of them different, and I can still tell you whose is whose by the backing.\n\nThe barn ghouls have dragged them off. They sleep on them. That's all they want them for - they've nested in the hay with my quilts under them, and I've watched them do it from the kitchen window.\n\nI'd like the pieces back. Not whole, I'm not daft, there'll be nothing whole left. But if I can get scraps I can piece them together into one, and then this family will be in a single blanket instead of a barn full of bedding for the dead.",
       "objectives": [
         {
           "type": "fetch",
@@ -836,8 +836,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "The barn ghouls. They keep the scraps tucked into their rags.",
-      "turn_in_text": "That's the blue one. That's my mother's stitching. Thank you. Thank you.",
+      "accept_text": "In the barn, under the ghouls. Scraps will do - I'm not expecting whole.",
+      "turn_in_text": "[She lays them out on the table and sorts them without hesitating once.]\n\nThat's Tam. That's little Annie. That blue's my eldest, and this one here with the bad corner is the first I ever made and it was always the worst.\n\nI'll have them in one by winter. Thank you, love. Go and get something to eat.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -896,7 +896,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 17,
-      "description": "The old sow of the Bucklebree herd was the biggest hog in Silverpine. She did not die with the others. She grew. Bucklebree has a knife, and no stomach to use it.",
+      "description": "There's one more and she's not in the pens.\n\nGorra. The old sow - biggest hog in Silverpine before any of this, and I say that as a man who has been to the Ambermill fairs and seen what they bring.\n\nShe didn't die with the others. She didn't go wrong with them either, not at first. She GREW. She's been growing for two years and she's out past the top field now and she's the size of a cart, and she remembers this yard, and she comes back to it at night and stands where the trough was.\n\n[He produces a knife and looks at it.]\n\nI've had this out three times. Three times I've got as far as the top field. She raised more litters on this farm than I raised children. Do it for me.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -907,8 +907,8 @@
       ],
       "reward_exp": 1404,
       "reward_gold": 6240,
-      "accept_text": "In the east field, past the fence. You'll hear her before you see her.",
-      "turn_in_text": "She nursed forty litters. She was a good mother, in her way. Thank you.",
+      "accept_text": "Past the top field. She comes back to the yard at night.",
+      "turn_in_text": "[Bucklebree takes the knife back without a word and puts it in the drawer.]\n\nThat's the farm finished, then. Hogs, sow and all.\n\nI'll stay on. Somebody ought to be here when the March comes through, and I've nowhere to be that isn't this.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_hogs"
@@ -990,7 +990,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "Marshwalker Thorne has walked the edge of Olivia's Pond for two years, and for the last three weeks something has walked it with him. Marsh oozes, swamp ghouls, bloated things. He'd like fewer companions.",
+      "description": "Marshwalker Thorne. Keep to the firm ground - follow where I've trodden, it's trodden for a reason.\n\nI've walked the edge of Olivia's Pond every day for two years. I know this water. I know where it's shallow and I know which stones move.\n\nFor about three weeks now, something's been walking it with me. Oozes out of the marsh, swamp ghouls, bloated things that were people - and they're not wandering in from elsewhere, they're coming up out of the pond itself, and they're doing it on my circuit.\n\nI'd like fewer companions. And I'd like to stop checking behind me on a walk I could do with my eyes shut.",
       "objectives": [
         {
           "type": "kill",
@@ -1007,8 +1007,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "Around the pond. The oozes hug the shore. The ghouls come out at dusk.",
-      "turn_in_text": "A little quieter. A little less of me sinking in the mud. Thank you.",
+      "accept_text": "Around the pond edge, on the firm ground. They come up out of the water.",
+      "turn_in_text": "Walked the whole circuit alone. Took me the usual time, which it hasn't for a month.\n\nThat's better. Now come back tomorrow, because that's the symptom and I want to talk to you about the cause.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1069,7 +1069,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "Thorne wants someone to circle the pond on foot and tell him what's changed. He has a theory about where the water is going, and a stronger theory about where it's coming from.",
+      "description": "Right. Here's what I actually think, and you're the first person I've said it to because the March haven't the time and the Apothecaries would want it in writing.\n\nThe pond is DRAINING. Slowly - a hand's width a season, maybe - and it's been doing it since before the oozes started. I've got marks on three stones to prove it.\n\nAnd here's the part I like less. The water's going somewhere, and something's coming the other way. Whatever rises in that pond isn't drowning in it. It's arriving.\n\nWalk the whole edge for me. Not my circuit - the WHOLE edge, the far side included, and tell me where the ground is wet that shouldn't be and dry that shouldn't be.",
       "objectives": [
         {
           "type": "explore",
@@ -1095,8 +1095,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "Three points: the east bank, the south bank, the south-west reeds. Count the dead fish. If there are none, run.",
-      "turn_in_text": "No fish at all. That's the answer I was afraid of.",
+      "accept_text": "The whole edge, far side included. Where's wet that shouldn't be.",
+      "turn_in_text": "[He marks it on a board scratched with his own survey.]\n\nThere. That's the low point and that's where it's going, and that's nowhere near the stream.\n\nSo it isn't draining away. It's draining DOWN. Which means there's a space under this pond big enough to take two years of water.",
       "next_quest_id": "sps_pond_samples",
       "requires_quests": [
         "sps_pond_ooze"
@@ -1164,7 +1164,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "The bloated corpses of the pond carry bladders of marsh gas, and Thorne wants five, sealed, to test. He claims the gas is the source of the oozes. It has a simple remedy: stop it at the source.",
+      "description": "The bloated ones carry gas. You'll have noticed, if you've been close enough and regretted it.\n\nIt's in bladders, under the skin, and it's not rot - rot smells of rot and this does not. I've a strong suspicion it's what's coming UP as the water goes down, collecting in whatever's nearest and hollow.\n\nI want sealed samples. Properly sealed, mind - if it's what I think it is, a sample in an open jar is a sample of air by the time you're back here.\n\nIf I'm right, the oozes aren't the problem and the ghouls aren't the problem. They're both just what happens to anything that sits in this gas long enough, and the remedy is at the source.",
       "objectives": [
         {
           "type": "fetch",
@@ -1174,8 +1174,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The bloated corpses, by the south bank. Pierce them carefully. Do not breathe.",
-      "turn_in_text": "That smell is worse than I'd hoped. That's how I know it's the right stuff.",
+      "accept_text": "Bladders off the bloated ones at the pond. Sealed, or you'll bring me nothing.",
+      "turn_in_text": "[He opens one a crack, sniffs, and shuts it fast.]\n\nThat's it. That's what's in the air on the far side on a still morning.\n\nI've been breathing that for two years. Which explains a number of things about my last two years that I had attributed to the job.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pond_ooze"
@@ -1242,7 +1242,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 18,
-      "description": "At the pond's heart lies a corpse so swollen it can no longer rise. It lashes at anything that comes near, and what it bursts into is worse than what it was. Thorne has finally found the source.",
+      "description": "I've found the source. It's been in the middle of my pond the whole time, and I've walked past it every day for two years thinking it was a sunken log.\n\nThere's a corpse at the heart of the water so swollen it can't rise any more. It's past rising. It just lies there and lashes at whatever comes near, and everything that bursts off it goes into the water and comes out of the water as something else.\n\nThat's the gas, that's the oozes, that's the whole business.\n\nIt'll burst. I want you going in knowing that, because the thing that comes out of it is worse than the thing that was lying there. Finish it anyway.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1253,8 +1253,8 @@
       ],
       "reward_exp": 1508,
       "reward_gold": 6630,
-      "accept_text": "The middle of the pond, up to your ankles in muck. Strike and step back. Strike and step back.",
-      "turn_in_text": "It's burst, and it's done. I'll wash for a week. Thank you.",
+      "accept_text": "The heart of the pond. It'll burst - and what comes out is worse.",
+      "turn_in_text": "[Thorne is standing further out than you have ever seen him stand.]\n\nWater's clearing. Slowly, but clearing.\n\nIt'll still be draining, mind. That space under the pond is still down there and it's still filling, and one day somebody will have to care about that.\n\nNot today. Today I've got my pond back.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pond_ooze"
@@ -1336,7 +1336,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "Overseer Hobart held the Deep Elem Mine through the plague, the Scourge and the second strike. The kobolds that moved in after the collapse have moved in for good. He wants the gallery cleared, and he wants to see them go first.",
+      "description": "Overseer Hobart. Mind the lintel, it's lower than it looks and it's dropped since it was cut.\n\nI held the Deep Elem through the plague. Held it through the Scourge, and held it through the second strike when half the gallery came down and we dug out from the inside.\n\nThen the kobolds moved in. After all that.\n\nThey've got the main gallery and the diggings, and they've made it theirs - properly theirs, candles and all, the way kobolds do. And every day they're in there is another day this mine is a kobold warren with my name over the door.\n\nClear the gallery. And I want them out FIRST, before the diggers, because I want this to be a mine with a problem rather than a warren we're visiting.",
       "objectives": [
         {
           "type": "kill",
@@ -1353,8 +1353,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "At the mine mouth and the old galleries. Kobolds, rotting and digging. Both bite.",
-      "turn_in_text": "That's a clear gallery. I can almost smell the ore again.",
+      "accept_text": "The main gallery. Kobolds first - I want it to be a mine again, not a warren.",
+      "turn_in_text": "I walked to the second junction with a lamp and nothing moved.\n\nPlague, Scourge, a collapse and kobolds. This mine has outlasted every single one and so have I, and I intend to be extremely tiresome about that for the rest of the season.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1416,7 +1416,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "Shamblers of dead miners still walk Deep Elem's galleries, carrying the lamps they died with. Hobart wants six. 'They belonged to the company,' he says, a little too firmly.",
+      "description": "The shamblers in the galleries are our own. I'll say that plainly rather than have you work it out halfway down.\n\nDeep Elem men, every one, still walking the drifts they died in and still carrying the lamps they died holding. They don't drop them. Whatever's left in a man after all that, the habit of not dropping your lamp underground outlasts it.\n\nI want the lamps back.\n\n[A beat.] They belonged to the company. They're company property and they go in the lamp room at the end of a shift, and that's the rule, and that's why.\n\n...And because a man ought not to be carrying a lamp round a mine forever with nobody to light the way for. But put the first reason in the ledger.",
       "objectives": [
         {
           "type": "fetch",
@@ -1426,8 +1426,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The shamblers at the mine mouth. Take the lamps from their hands. Mind the oil.",
-      "turn_in_text": "Six lamps, six names. The company will be pleased. I can stop pretending there's a company.",
+      "accept_text": "Off the shamblers in the galleries. They'll not drop them easily.",
+      "turn_in_text": "[Hobart hangs each one on its own numbered hook without being told which.]\n\nThat's the shift in.\n\nThirty-one years I called that at the end of a day. I'd not expected to call it again.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_mine_kobolds"
@@ -1492,7 +1492,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "The main gallery collapsed the day of the plague, and Hobart has never been back to look. He wants someone to stand at its mouth, and tell him whether the supports held.",
+      "description": "There's one thing in this mine I've not looked at, and I'd like it looked at by somebody who didn't know it before.\n\nThe main gallery came down the day the plague reached us. I was on the surface. Everybody who wasn't is still in it.\n\nI've not been back to the mouth of it. Not once, in all the years since, and I've had every reason and every opportunity and I've found something else to do each time.\n\nStand at it. Look at the supports - the big timbers at the mouth, that's all I'm asking about. Tell me whether they held.\n\nI need to know whether it came down because the world was ending or because I signed off on those timbers.",
       "objectives": [
         {
           "type": "explore",
@@ -1504,8 +1504,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The mine mouth to the west. Don't go in. Stand at the threshold, and tell me what you see.",
-      "turn_in_text": "Supports gone. Ore everywhere. And the foreman's lamp, still lit. I knew it.",
+      "accept_text": "The mouth of the collapsed gallery. Look at the big timbers.",
+      "turn_in_text": "[He listens very carefully and makes you describe the timbers twice.]\n\nThey held. The ROOF went and the timbers held.\n\n[He sits down on an ore box.]\n\nI've carried that for years. I'd got so used to the weight of it I'd stopped noticing I was carrying anything.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_mine_kobolds"
@@ -1570,7 +1570,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 18,
-      "description": "Gnawbone was the kobold foreman of Deep Elem, and the only one that kept his job after the collapse. He wears the company's hard-hat and gives orders in a tongue Hobart half-remembers. He has to go.",
+      "description": "And then there's Gnawbone.\n\nHe was the kobold foreman before the collapse - we had kobolds on the lower drifts, everyone did, it was perfectly ordinary. He was good. I'll say that out loud: he was good, he kept his crew working and he kept his counts honest, which is more than I could say for two of my human gangers.\n\nHe's the only one that kept his job. He's down there now in the company hard-hat, giving orders, and the half of it I can make out is RIGHT - rotations, shoring, the order you work a face in. He learned it off me.\n\nThat's the whole trouble. He's running my mine properly and it isn't his, and I can't have both of those be true.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1581,8 +1581,8 @@
       ],
       "reward_exp": 1508,
       "reward_gold": 6630,
-      "accept_text": "Deep in the mine, among the carts. He's the one with the bone pick and the helmet.",
-      "turn_in_text": "My old foreman's helmet... on a kobold. I'll take it back. Thank you.",
+      "accept_text": "In the lower drifts, in the company hard-hat. He's still running it.",
+      "turn_in_text": "[Hobart turns the hard-hat over in his hands.]\n\nHe kept honest counts. I want that said by somebody.\n\nI'll put it back in the lamp room with the rest. It's company property and he was company, whatever anybody upstairs thinks about that.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_mine_kobolds"
@@ -1665,7 +1665,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "The worgen of Pyrewood Village were people once, and ambush from the treeline is still how they hunt. Hearthwarden Brand wants the ambushers and the ferals thinned before the dead come to the village next.",
+      "description": "Hearthwarden Brand. Stand by the fire, not in the doorway - the doorway is where they look.\n\nThe worgen out there were the people of this village. I say that to everyone who comes through and most of them nod and then go out and get surprised anyway, so I'll put it differently: they hunt like PYREWOOD. Ambush from the treeline, same as the men here always worked a deer, because the trick is the same trick and the knowing of it stayed.\n\nThe ambushers hold the treeline and the ferals come in behind.\n\nThin them. I'd rather not have to say this, but the dead are drifting this way too, and I can hold one of those problems or the other.",
       "objectives": [
         {
           "type": "kill",
@@ -1682,8 +1682,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The village streets and the treeline. They hunt in packs. Don't be alone.",
-      "turn_in_text": "Fewer fangs in the dark. I'll almost let myself breathe.",
+      "accept_text": "Along the treeline. They ambush the way this village always hunted.",
+      "turn_in_text": "Treeline's quiet enough that I had the shutters open an hour.\n\nI grew up here. I'd like to be able to look at my own trees without doing arithmetic about them.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1748,7 +1748,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "A cult has taken up in Pyrewood's burned houses, casting spells over the dead hearths. Brand does not know which god they pray to. He knows it answers.",
+      "description": "Now the ones in the burned houses, and this is the part that frightens me rather than merely occupying me.\n\nThere's a cult in Pyrewood. They've taken the gutted houses at the south end and they're casting over the dead hearths - the actual hearths, the stone ones that are all that's left standing of those homes.\n\nI don't know which god they pray to. I've listened from the lane and the name isn't one I've heard, and I was a hearthwarden in this village when it had people in it so I've heard most of them.\n\nHere's what I do know, and it's why you're getting this one before anything else: something ANSWERS. Clear them out of my neighbours' houses.",
       "objectives": [
         {
           "type": "kill",
@@ -1759,8 +1759,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The burned houses on the east side. They chant. They don't stop for you.",
-      "turn_in_text": "Quiet at last. Whatever answered them has gone quiet too.",
+      "accept_text": "The burned houses at the south end. They cast over the dead hearths.",
+      "turn_in_text": "Nothing answered tonight. I stood in the lane an hour to be sure.\n\nThat's the first hour I've spent in this village not listening for it.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pyre_ambush"
@@ -1826,7 +1826,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "Each cultist carries an iron sigil, stamped with a cipher Brand doesn't recognise. He wants five, for a scholar in the Undercity who might.",
+      "description": "Every one of them carries an iron sigil. I've had one off a body and it's in a box under this hearth and I have not been able to stop thinking about it.\n\nIt's stamped. A cipher, properly cut, not scratched - which means somebody had these MADE, in a quantity, by a smith, for a cult operating out of burned houses in a village with no living residents.\n\nI don't recognise the cipher and I'm not going to pretend I'm the man to work it out.\n\nGet me more of them. There's a scholar in the Undercity who reads this sort of thing, and I'd rather send her a handful than the one, because one is a curiosity and a handful is a pattern.",
       "objectives": [
         {
           "type": "fetch",
@@ -1836,8 +1836,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "From the cultists. Iron discs on cords. Don't read the cipher aloud.",
-      "turn_in_text": "I'll have them sent to Sennarath in the Undercity. If anyone can read them, she can.",
+      "accept_text": "Iron sigils, off the cultists. They've been stamped, not scratched.",
+      "turn_in_text": "[He lays them out on the hearthstone, cipher-side up.]\n\nThey're not all the same. Look - that one and that one differ at the edge.\n\nSo it's a cipher with VARIANTS. That's a rank, or a house, or a posting. These people are organised and they are organised somewhere other than here.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pyre_ambush"
@@ -1906,7 +1906,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "Pyrewood Hall stands at the north end of the village, its roof half-gone and its doors barred from the inside. Brand wants someone to stand at its steps and tell him what's behind them.",
+      "description": "Pyrewood Hall. North end, you'll have seen the roofline from the lane.\n\nHalf the roof's gone. What's left of the doors is barred - and barred from the INSIDE, which I have confirmed from the steps and which is the detail that has kept me out of it for two years.\n\nSomething barred those doors. Something that could work a bar, and wanted to be on the inside, and has not come out.\n\nI'm not asking you to go in. I'm asking you to stand on the steps, properly, long enough to listen - and tell me what's behind them. Then I'll decide whether this village has a hall or a problem with a roof on it.",
       "objectives": [
         {
           "type": "explore",
@@ -1918,8 +1918,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The Hall, at the north end of the green. Don't go in. Look at the doors.",
-      "turn_in_text": "Barred from the inside, as I feared. Whatever's in there wants to stay.",
+      "accept_text": "The steps of Pyrewood Hall, north end. Stand and listen - don't go in.",
+      "turn_in_text": "[Brand goes very still.]\n\nA voice giving ORDERS.\n\nThere's nobody in that hall to give orders to and there hasn't been since before the worgen. Which means either he's talking to the dead, or the dead are in there with him and listening.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pyre_ambush"
@@ -1984,7 +1984,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 19,
-      "description": "What stands in Pyrewood Hall is what the lord of the village left behind: a ghost in a noble's coat, pistol in one hand and cane in the other, still giving the dead orders.",
+      "description": "Then I know who it is, and I've known since you said 'orders' and I'd been avoiding knowing for two years.\n\nLord Godfrey. He held this village - held it properly, in the old way, and this place ran on his say-so down to which fields got cut first.\n\nWhat's in that hall is what he left behind. A ghost in a good coat with a pistol in one hand and a cane in the other, still giving the orders he was giving the night it all went wrong.\n\nHere's what I want you to understand before you go up those steps. The dead of Pyrewood still obey him. That's why the worgen hunt like this village hunted and the cult found a hall with a bar on the inside. He's not a haunting. He's a chain of command.\n\nBreak it.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1995,8 +1995,8 @@
       ],
       "reward_exp": 1612,
       "reward_gold": 7020,
-      "accept_text": "Inside the Hall. Mind the pistol. It never misses, and it never reloads.",
-      "turn_in_text": "He was a decent man, once. Not a good one. A decent one. That's more than most. Thank you.",
+      "accept_text": "Inside the hall, past the barred doors. The dead in Pyrewood still obey him.",
+      "turn_in_text": "[Brand stands in the lane looking up at the hall for a long moment.]\n\nThe worgen scattered. All at once, about an hour ago - no fight in them, they just went.\n\nTwo years I've been treating this village as four problems. It was one man with four sets of orders out.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_pyre_ambush",
@@ -2080,7 +2080,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "Berard's Talon is a ridge of broken stone above the old keep road. Crag stalkers hunt its slopes, and wraiths drift along its crest. Trapper Hask wants both cleared, so he can finally set his lines.",
+      "description": "Trapper Hask. Don't come up the scree, come round - that slope moves and it'll take you down into the stalkers, which is where they prefer their meals delivered.\n\nBerard's Talon. Broken stone the whole ridge, above the old keep road.\n\nThe crag stalkers work the slopes and the wraiths drift the crest, and between the two of them I have not set a line on this hill in a year and a half. A trapper who can't set lines is a man standing on a hill with opinions.\n\nClear the slopes and the crest. Then I can work, and when I'm working I notice things, and this hill has a great deal worth noticing on it.",
       "objectives": [
         {
           "type": "kill",
@@ -2097,8 +2097,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The hill west of the keep road. Stalkers on the rocks, wraiths on the crest.",
-      "turn_in_text": "The lines can go out tonight. Thank you.",
+      "accept_text": "The slopes and the crest of the Talon. Come round, not up the scree.",
+      "turn_in_text": "Set six lines this afternoon. Six!\n\nAnd you're right about the crest - you can see the whole keep road from up there. I'd forgotten that was the reason anybody ever cared about this hill.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2163,7 +2163,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "The wraiths of Berard's Talon carry small tokens of the dead - coins, buttons, rings - clutched in spectral fingers. Hask wants five, and plans to return them to the graves they came from.",
+      "description": "Here's the thing I noticed, now I can get up there.\n\nThe wraiths carry tokens. Little things - a coin, a button, a ring - held in the fingers, and every one of them has got one and not one of them has got two.\n\nThat's not scavenging. A scavenger has a pocketful. That's each of them holding the one thing, and I've a strong feeling it's the one thing they were buried with and somebody has taken them OUT of those graves.\n\nGet the tokens for me. I know the plots along the keep road - there's a burying ground at the bottom of this hill that nobody's tended since Berard's day.\n\nI'd like to put them back. A trapper's got time in the winter and I've not had anything worth doing with it.",
       "objectives": [
         {
           "type": "fetch",
@@ -2173,8 +2173,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "Off the wraiths. Don't hold them too long. They remember.",
-      "turn_in_text": "Five graves to visit. It'll take all winter. Good. I'm not in a hurry.",
+      "accept_text": "Off the wraiths on the crest. Each holds one thing and only one.",
+      "turn_in_text": "[He turns a button over.]\n\nGilnean work, that. And the coin's older than the keep.\n\nI'll start at the bottom plots and work up. It'll take me the winter and I've got the winter.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_talon_stalkers"
@@ -2243,7 +2243,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 19,
-      "description": "The hill is named for Berard, a man whose face no longer appears in any record. He walks the ridge each night and no one remembers what he is looking for.",
+      "description": "And then there's the man the hill's named for.\n\nBerard. That's all anyone has - the name on the hill. I've asked at Ambermill, I've asked the March, I've had a Forsaken clerk go through what's left of the keep rolls as a favour, and his face isn't in any record anywhere. Just the Talon, named for a man nobody can describe.\n\nHe walks the ridge every night. Same route as the wraiths but not with them - they give way to him. And he's LOOKING for something. You can see it in how he moves; he's not patrolling, he's searching, and he's been searching this ridge every night for longer than there's been a record of him.\n\nNobody knows what for. Nobody's left who could. Let him stop looking.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2254,8 +2254,8 @@
       ],
       "reward_exp": 1612,
       "reward_gold": 7020,
-      "accept_text": "On the crest, under the old stone ring. He moves like a man trying to remember.",
-      "turn_in_text": "Maybe he'll rest now. Maybe someone will remember his face. Thank you.",
+      "accept_text": "On the ridge after dark. The wraiths give way to him.",
+      "turn_in_text": "[Hask is quiet a while.]\n\nSo that's the hill done, and we still don't know what he was after.\n\nI'll keep the tokens going back regardless. Could be one of them was his and he'll never know we found it. That's the sort of thought a man has on a hill in winter.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_talon_stalkers"
@@ -2342,7 +2342,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "A worgen pack has dug in under the hills of Beren's Peril, led by packmasters who've learned to hold a line. Packbreaker Rynn wants the line broken, and the stalkers that run in front of it.",
+      "description": "Packbreaker Rynn. That's a title the March invented for me and I've decided to be proud of it.\n\nBeren's Peril. There's a worgen pack dug in under those hills and they are not a pack in the way the Pyrewood ones are a pack. These have PACKMASTERS, and the packmasters hold a line - an actual line, with flanks, that reforms when you break it.\n\nI've broken a good many worgen in Silverpine. I have never had one hold a line on me.\n\nThe stalkers run out in front and screen them. Take the screen, then the line. And don't give them time to reform between, because they will, and that's the part that's been costing me people.",
       "objectives": [
         {
           "type": "kill",
@@ -2359,8 +2359,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The hills south-east of Pyrewood. They hold the high ground. Don't give them the high ground.",
-      "turn_in_text": "That's the pack broken. A good start. The alpha next.",
+      "accept_text": "Under the hills of the Peril. Screen first, then the line - don't let them reform.",
+      "turn_in_text": "Broken and stayed broken. That's the difference.\n\nI've been fighting that line for a season and losing it back every time I went for a drink.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2422,7 +2422,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "A packmaster wears the teeth of every rival he has bested. Rynn wants five of those necklaces, to show the Dark Lady what the Peril has been chewing on.",
+      "description": "Something I want, and I'll be honest that the wanting is personal.\n\nA packmaster wears the teeth of every rival he's bested. Strung at the throat, and the longer the string the longer he's held, and they display it - it's not a trophy, it's a RANK. You can read a packmaster's whole career off his collar at twenty paces.\n\nI want the necklaces. Not loose teeth. The strings, whole.\n\nThe Dark Lady's court thinks Beren's Peril is a wolf problem. I'd like to put a row of those on a table in front of somebody and have them count, and then explain to me again why this is a job for one packbreaker and a borrowed sergeant.",
       "objectives": [
         {
           "type": "fetch",
@@ -2432,8 +2432,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "From the packmasters. They wear the teeth on their necks. Don't pull too hard.",
-      "turn_in_text": "That's a lot of rivals. I want the one who gave them the idea.",
+      "accept_text": "The strings whole, off the packmasters. Not loose teeth.",
+      "turn_in_text": "[She lays them out longest to shortest.]\n\nLook at the length of that one.\n\nThat's not a wolf problem. That's a succession, and it's been running up here for years while the court has been filing us under vermin.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_peril_pack"
@@ -2498,7 +2498,7 @@
       "zone": "silverpine_south",
       "level_min": 20,
       "level_max": 20,
-      "description": "At the heart of the Peril lives Bloodmaw, a grey-muzzled alpha who has outlived every challenger. He wears a collar of wolf teeth and a scar down his flank, and he is the only reason the pack still holds.",
+      "description": "Bloodmaw. The reason the Peril holds.\n\nGrey-muzzled, old, and he has outlived every single challenger - and in a pack that advertises its rank in teeth, you can read exactly how many on the collar he wears. He's got a scar the length of his flank that somebody earned and didn't survive collecting.\n\nI want you to understand what he actually is, because 'alpha' makes it sound like he's just the biggest. He isn't the biggest any more. He's the one who taught them the line, and the packmasters are HIS, and every one of those strings you brought me came off a wolf he trained.\n\nTake him and the Peril stops being a succession and goes back to being wolves.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2509,8 +2509,8 @@
       ],
       "reward_exp": 1716,
       "reward_gold": 7410,
-      "accept_text": "At the den, deep in the hills. He isn't hiding. He's waiting.",
-      "turn_in_text": "A pack without an alpha scatters. We'll see how many come back. Thank you.",
+      "accept_text": "The heart of the Peril. He's not the biggest any more - he's the one who taught them.",
+      "turn_in_text": "[Rynn examines the collar for a long time before she says anything.]\n\nThey're scattering. Not regrouping under a new one - scattering, which is what should have happened years ago.\n\nI'll send the collar up with the rest. And then I'd like the title retired, if it's all the same. There's nothing left up there to break.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_peril_pack"
@@ -2591,7 +2591,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "Worgen throw themselves at the Greymane Wall every night, and the dead of the wall rise to meet them. Corporal Teague wants the breakers thinned, and the ghosts calmed, if either can be done.",
+      "description": "Corporal Teague, Greymane Wall detail, and I'll tell you up front that this posting makes no sense and I'm doing it anyway.\n\nThe worgen come at that wall every night. Every night. They throw themselves at a sealed gate in a wall that nothing has come through in years, and they do it until they can't, and then the next night they do it again.\n\nAnd the dead of the Wall Guard rise to meet them. The GILNEANS. They form up on their side, in their own kit, and they hold a gate nobody is defending against an enemy that cannot get through it.\n\nThin the breakers. Calm the ghosts if there's a way, and I don't believe there is. Both sides of that wall have been fighting a war that ended, and I'd settle for one quiet night.",
       "objectives": [
         {
           "type": "kill",
@@ -2608,8 +2608,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The long wall, along the southern edge. They come in waves. Meet them one at a time.",
-      "turn_in_text": "The wall holds. Another night. Thank you.",
+      "accept_text": "At the Wall. Breakers on our side, the Guard's ghosts on theirs.",
+      "turn_in_text": "Quiet. Nothing at the gate at all.\n\n[He listens.]\n\nI've been on this detail eleven months and I have never heard that wall be silent. I don't like it half as much as I expected to.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2669,7 +2669,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "The ghosts of the Wall Guard carry the seals they swore their oaths on. Teague wants five, to lay on the shut gate when the next Forsaken relief arrives.",
+      "description": "There's something the Wall Guard carry and I'd like it off them before anybody else thinks of it.\n\nSeals. The ones they swore their oaths on - every Gilnean guardsman had one, and they went into the wall with them, and they're still holding them.\n\nThe Forsaken relief comes down this road next month. Somebody in that column is going to look at a row of ghosts holding Gilnean seals and see salvage, and I would very much like the seals to be somewhere else by then.\n\nI'm going to lay them on the shut gate. All of them, on the step, where they'd have been laid if there'd been anybody left to do it properly.\n\nThen whatever the relief does, that part will already have been done right.",
       "objectives": [
         {
           "type": "fetch",
@@ -2679,8 +2679,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "From the wraiths. Iron seals, stamped with a lion. Handle gently.",
-      "turn_in_text": "They'll rest easier on the gate than on the dead. Thank you.",
+      "accept_text": "Off the Wall Guard's ghosts. Before the relief column comes down.",
+      "turn_in_text": "[Teague sets them out along the gate step one at a time, in no order you can see.]\n\nThat's done.\n\nI'm Forsaken, corporal in an army that'd take this wall tomorrow if it could. And I've just laid out a dead enemy's oaths on his own doorstep, and I'd do it again, and I'd thank you not to put that in anything written.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_wall_breakers"
@@ -2743,7 +2743,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "The great gate in the Greymane Wall has not opened since the night Gilneas shut itself off from the world. Teague wants someone to stand before it and report whether there's any sign of change.",
+      "description": "I want you to go and look at the gate itself. Properly, up close, and I'll tell you why in a moment.\n\nThat gate has not opened since the night Gilneas shut itself off. Not a crack, not a hinge-shift, nothing - and I have the detail's log going back to before I took it and every corporal has written the same word in it every night.\n\nHere's my trouble. I've been writing that word for eleven months, and about a month ago I realised I had stopped actually looking before I wrote it. You get into the habit of a thing being true.\n\nSo go and look, and come back and tell me what you see rather than what the log says. If it's still shut, I'd like to have been told so by somebody who checked.",
       "objectives": [
         {
           "type": "explore",
@@ -2755,8 +2755,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "The gate's in the middle of the wall. Don't touch it. Don't knock. Just look.",
-      "turn_in_text": "Not a hair of change. Good. I'd rather the thing stay closed than learn what's behind it.",
+      "accept_text": "The great gate itself. Look properly - and tell me what you see, not what's in the log.",
+      "turn_in_text": "Shut. Still shut.\n\n[He writes it in the log, and this time he goes and looks himself before he does.]\n\nGood. Now it's true because it's true, not because it's always been true. That's worth the walk.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_wall_breakers"
@@ -2820,7 +2820,7 @@
       "zone": "silverpine_south",
       "level_min": 20,
       "level_max": 20,
-      "description": "The ghost of the Wall's last commander still walks the parapet, enforcing a sentence that was never lifted: nothing in, nothing out. The Forsaken cannot pass him either. He has to be put down.",
+      "description": "There's one on the parapet and he's the reason none of this ends.\n\nThe Wall's last commander. He's still enforcing the order he was given on the night it went up, and the order was: nothing in, nothing out.\n\nNothing. He's not holding it against the worgen and he's not holding it against us. He's holding it against EVERYTHING, which is what the order said, and he has been holding it for years against a country that has not sent anybody out to be stopped.\n\nAnd before you ask - yes, I've tried the obvious. The Forsaken can't pass him either. I've watched our own people turned back off that parapet by a dead Gilnean doing his job.\n\nHe was given a sentence and nobody ever lifted it. So we lift it.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2831,8 +2831,8 @@
       ],
       "reward_exp": 1716,
       "reward_gold": 7410,
-      "accept_text": "Along the parapet, by the gate. He challenges everyone. He means it.",
-      "turn_in_text": "He was doing his duty. I'm sorry it came to this. I'm sorry for all of us.",
+      "accept_text": "On the parapet. He turns back everything, ours included.",
+      "turn_in_text": "[Teague looks up at the empty parapet.]\n\nThat's the sentence served, then.\n\nI'll put it in the log as 'the detail is complete', which is the only honest thing I've written on this posting.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_wall_breakers"
@@ -2919,7 +2919,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 19,
-      "description": "Ambermill was a Dalaran lumber village until the plague took its mages. Their ghosts stayed behind, along with the wards they set on the mill. Millwright Haskell can't tell which are guarding the place, and which are guarding themselves.",
+      "description": "Millwright Haskell. Watch the doorway - don't go through it yet, there's a ward on it and I'd rather find out about it from a distance.\n\nAmbermill was a Dalaran village. Lumber, mostly - we cut and they bought, and they kept a handful of mages here to keep the saws turning and the wards fresh.\n\nThe plague took the mages. Their ghosts stayed, and so did everything they'd set, and now I cannot tell you which of them is guarding the mill and which is guarding ITSELF. Some of them turn you back politely. Some of them don't.\n\nThin them out - the ghost-mages and the wardens both. I've a mill under all this and I'd like to get to it before the roof decides the matter.",
       "objectives": [
         {
           "type": "kill",
@@ -2936,8 +2936,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The village and the mill-yard. The ghost-mages cast. The wardens hit.",
-      "turn_in_text": "Fewer ghosts, fewer wards. I might get a plank cut before dark.",
+      "accept_text": "In and around the mill. Ghost-mages and the wardens - mind the doorway ward.",
+      "turn_in_text": "I got into the saw-room. First time in years.\n\nThe blades are seized but the shaft turns, which means the water's still doing its job under there. That's a mill. That's nearly a mill.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2996,7 +2996,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "The mill's wardens are made of amber resin, hardened by magic. Haskell wants six lumps. 'Fuel for the stove,' he says, and then admits it's for the stove he plans to build in a house that isn't there any more.",
+      "description": "The wardens aren't ghosts, whatever anyone tells you. They're resin.\n\nAmber resin out of the lumber, hardened with magic until it holds a shape and walks about - the mages made them so there'd be something minding the yard at night. Perfectly sensible. Very Dalaran.\n\nWhen they go down they leave lumps of it, and amber resin burns long and hot and clean.\n\nI want it for the stove.\n\n[He stops.]\n\nI should be straight with you, since you've done the work. There isn't a stove. There isn't a house for a stove to be in. I've been collecting fuel for two years for a hearth in a building that burned, and I know exactly what that is, and I'm going to keep doing it until I've got enough.",
       "objectives": [
         {
           "type": "fetch",
@@ -3006,8 +3006,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "From the wardens. Warm to the touch. Don't lick them.",
-      "turn_in_text": "Six lumps. That's my winter. Thank you. Truly.",
+      "accept_text": "Lumps of amber resin, off the wardens in the yard.",
+      "turn_in_text": "[He stacks them with the rest, in a neat square, under a tarpaulin.]\n\nThat's nearly a winter's worth.\n\nI'll build the house when the mill turns. That's the order I've decided it goes in, and arguing with me about it is how people end up not being spoken to.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_amber_ghosts"
@@ -3074,7 +3074,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "Magister Orsolo studied the Ambermill waygate for forty years. It leads somewhere, and he has finally decided he does not want to know where. He wants someone to stand at the gate and tell him what it looks like now.",
+      "description": "Magister Orsolo. Forty years I studied the Ambermill waygate, and I am going to tell you my conclusion, which is that I have stopped wanting to know where it goes.\n\nThat is not resignation. It is the single most considered opinion of my career.\n\nIt leads somewhere. It has always led somewhere, it is still leading somewhere, and the work I did for four decades was all in service of establishing WHERE. Then the world moved, three years ago, and a great many things that were fixed stopped being fixed, and I went to the gate one morning and looked at it and understood that the answer had changed and that I did not want the new one.\n\nSo you go. Stand at it. Describe it to me - only describe it. Do not speculate, and do not touch it.",
       "objectives": [
         {
           "type": "explore",
@@ -3086,8 +3086,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "East of the mill, below the cliff. Stand at its feet. Don't touch the runes.",
-      "turn_in_text": "Violet. Brighter than it was. So it's still listening. Thank you. I'll keep my distance.",
+      "accept_text": "The waygate below the tower. Describe it to me. Don't speculate. Don't touch it.",
+      "turn_in_text": "[Orsolo listens with his eyes shut and does not interrupt.]\n\nThank you. That is exactly what I did not want to hear and precisely why I needed to hear it.\n\nIt is still open. It is open WIDER. And in forty years of measuring that thing I never once recorded it changing on its own.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_amber_ghosts"
@@ -3152,7 +3152,7 @@
       "zone": "silverpine_south",
       "level_min": 20,
       "level_max": 20,
-      "description": "Orsolo's colleague, Magister Quillfire, never left the tower. Now he casts spells on anyone who nears it, and the waygate answers him. Orsolo cannot bring himself to do it, and asks that you do.",
+      "description": "There is a colleague of mine in that tower and I have run out of ways to avoid this conversation.\n\nMagister Quillfire. He never left. When the plague came the rest of us went out the south road and he stayed at his work, and he has been at his work ever since.\n\nHe casts at anyone who approaches now. That alone I could live with - plenty of things in Silverpine cast at people.\n\nWhat I cannot live with is that the waygate ANSWERS him. When he works, it moves. He is not a ghost rattling about a tower, he is a magister still conducting an experiment, and he is the reason the thing you just described to me is open wider than it was.\n\nI cannot do it. I have tried twice to walk up that stair. Please.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3163,8 +3163,8 @@
       ],
       "reward_exp": 1716,
       "reward_gold": 7410,
-      "accept_text": "Near the waygate. He writes in the air. Don't read it.",
-      "turn_in_text": "He was a gentle man, and a better mage than I. I'm sorry it fell to you.",
+      "accept_text": "In the tower. When he works, the waygate answers him - that's the part that matters.",
+      "turn_in_text": "[The old magister does not ask how it went.]\n\nThe gate has steadied. I can feel it from here, which I could not this morning.\n\nHe was better than me. That is the thing I would like said while there is somebody to say it to. He was better than me and he stayed, and I did not, and both of those have been true for years and I have only just put them in the same sentence.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_amber_ghosts"
@@ -3249,7 +3249,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 17,
-      "description": "The ferry's crew drowned the night the boat went down, and walked back up the lake bed the next morning. They work the pier from dusk to dawn and will not let Gael sleep. He asks that you send them back.",
+      "description": "Gael. Ferryman - the current one, which is a title with more history in it than I'd like.\n\nThe crew drowned when the boat went down. All of them, in one night, and they walked back up the lake bed the next morning and went straight to the pier.\n\nThey WORK it. That's what I can't make anyone understand. Dusk to dawn, loading cargo that isn't there off a boat that isn't there, and they're good at it, and they were good at it when they were breathing.\n\nI sleep in the hut at the end of that pier. I have not slept properly in a year. Send them back - and mind the carrion birds, they've learned the crew's hours and they come in with them.",
       "objectives": [
         {
           "type": "kill",
@@ -3266,8 +3266,8 @@
       ],
       "reward_exp": 1080,
       "reward_gold": 4800,
-      "accept_text": "On and around the pier. The deckhands hold the boat-hooks. The birds hold grudges.",
-      "turn_in_text": "A quieter dock. I may even sleep.",
+      "accept_text": "On the pier from dusk to dawn. The carrion birds come in with them.",
+      "turn_in_text": "Slept the whole night.\n\nI'd got so used to the sound of them working that the quiet woke me twice. Isn't that a thing.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -3331,7 +3331,7 @@
       "zone": "silverpine_south",
       "level_min": 17,
       "level_max": 18,
-      "description": "Cargo crates wash up on the shore at all hours, and the deckhands guard them as if they were gold. Dockhand Pim wants five of them, delivered to the Rear Guard. 'If it's gold,' she says, 'the Dark Lady should have it.'",
+      "description": "Pim, dockhand. Mind where you put your feet, half these boards are new and the other half are a matter of opinion.\n\nCargo keeps washing up. Crates, at all hours, off a boat that went down a long time ago - and the deckhands guard them. Properly guard them, stand over them, won't let anything near.\n\nWhich tells you the cargo mattered to somebody once, and I'd quite like to know who.\n\nGet me some crates and I'll have them sent up to the Rear Guard rather than opened on this pier. If it's grain, fine. If it's gold, then the Dark Lady should have it and I should be seen to have said so loudly and in front of witnesses.",
       "objectives": [
         {
           "type": "fetch",
@@ -3341,8 +3341,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "Off the deckhands. They carry them as if by instinct. Five crates.",
-      "turn_in_text": "It's mostly rotten fish. But five of them sealed with Dalaran wax? Someone's lost something.",
+      "accept_text": "Crates off the pier, from under the deckhands. They're taken up to the Rear Guard.",
+      "turn_in_text": "Straight up the road, unopened, with my name on the manifest.\n\n[A shrug.]\n\nI'd love to tell you I'm honest. I'm a dockhand on a lake with one road out. Being honest in front of enough people is just the cheaper way of being safe.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_ferry_deckhands"
@@ -3405,7 +3405,7 @@
       "zone": "silverpine_south",
       "level_min": 16,
       "level_max": 18,
-      "description": "A ticket stub for the Decrepit Ferry, stamped with a date from the last winter before the plague. The destination is Fenris Isle. Gael may remember who it was sold to.",
+      "description": "A ticket stub for the Decrepit Ferry, soft with water and gone brown at the edges.\n\nThe stamp is still readable. It's dated the last winter before the plague.\n\nThe destination is Fenris Isle - and nobody has taken passengers to Fenris Isle in years, not since well before the boat went down. Whoever bought this bought it for a crossing they may never have made.\n\nThe ferryman at the pier has been on this lake long enough to remember who was travelling that winter.",
       "objectives": [
         {
           "type": "deliver",
@@ -3416,8 +3416,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The ferryman, at the pier. He keeps every stub.",
-      "turn_in_text": "Last passenger I carried to the isle. I never saw him come back.",
+      "accept_text": "Show it to Gael the ferryman at the pier.",
+      "turn_in_text": "[Gael holds it up to the light.]\n\nThat's the old man's stamp. My predecessor - the one at the bottom of this lake.\n\nLast winter before the plague. He'd have sold maybe a dozen Fenris crossings that whole season and he knew every one of them by name.\n\n[He hands it back.]\n\nKeep it. If you ever do get over to the isle, somebody over there may know whose it was. I'd like it to arrive.",
       "next_quest_id": null,
       "turn_in_npc_id": "sp_ferryman",
       "unique_item_defs": [
@@ -3483,7 +3483,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 18,
-      "description": "The first ferryman drowned with the boat, and rose to take it back. He steers at night, and his passengers are not the sort who pay. Gael wants him put in his grave.",
+      "description": "Now the one at the bottom of the lake.\n\nThe first ferryman. He drowned with the boat, and he came up for it - not for us, for the BOAT, and he's been steering it at night ever since.\n\nI've seen it from the hut. There's a shape out there on the water at the right hour, going the right line, and there are passengers standing on it, and they are not the sort who pay.\n\nHe taught me this crossing. Every stone and every wind on this lake I had off him, and he was a hard old man about it and a fair one.\n\nI'd like him in his grave rather than on my water. And I'd like to be the one who asked for it, rather than letting the March do it to him eventually without knowing who he was.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3494,8 +3494,8 @@
       ],
       "reward_exp": 1508,
       "reward_gold": 6630,
-      "accept_text": "On the pier head. He leans on his oar like it's holding him up.",
-      "turn_in_text": "He taught me the trade. He deserves a better ending than that. Thank you.",
+      "accept_text": "On the water at night, steering the old line. He taught me this crossing.",
+      "turn_in_text": "[Gael is on the pier head with a lamp when you get back.]\n\nLake's empty.\n\nI'll take the crossing myself now, properly, in daylight, with people who pay. That's what he'd have wanted and he'd have been unbearable about saying so.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_ferry_deckhands"
@@ -3578,7 +3578,7 @@
       "zone": "silverpine_south",
       "level_min": 18,
       "level_max": 18,
-      "description": "With the old ferryman gone, Gael has agreed to take passengers to Fenris Isle again. He says he'll go as far as the pier head and no farther, and wants you to check the moorings.",
+      "description": "Right. With him off the water, I can run a boat again.\n\nI've told the March I'll take passengers to Fenris Isle. First time in years anyone's said that out loud on this lake.\n\nBut I'll go as far as the pier head and not one foot past it, and I want that understood before anyone books. Whatever's on that island is the island's business.\n\nGo and check the moorings for me. The Fenris side hasn't had a boat tied to it in a long while and I'd rather find out the rings have rusted out of the stone from you than from a rope going slack with a load on it.",
       "objectives": [
         {
           "type": "explore",
@@ -3590,8 +3590,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "The end of the pier. The boat'll take you across when you're ready.",
-      "turn_in_text": "Moorings hold. The lake's flat. The isle's waiting, if you've the stomach.",
+      "accept_text": "Over to the Fenris pier head. Check the moorings - I'll go no further than that.",
+      "turn_in_text": "Two rings sound, one gone. That's enough to work with.\n\nI'll run the crossing from next week. Tell them at the Rear Guard - they've been asking after a way over there for a year and I've been telling them no.",
       "next_quest_id": null,
       "requires_quests": [
         "sps_ferryman"
@@ -3659,7 +3659,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "Ghouls and stalkers crowd the keep road, drawn by whatever Arugal keeps inside. Gatekeeper Marl wants the road clear before the next party goes in.",
+      "description": "Gatekeeper Marl. You'll want to keep moving while we talk, they don't like a stationary target and neither do I.\n\nThis is the keep road, and that's Shadowfang at the top of it.\n\nThe ghouls and the stalkers crowd this road - and they're not coming DOWN it, which is the thing I'd want anyone to notice. They're pressed up against it, facing the keep, drawn to whatever Arugal keeps in there.\n\nThere's a party going in shortly. I'd rather they spent what they've got on what's inside instead of on the approach.\n\nClear the road.",
       "objectives": [
         {
           "type": "kill",
@@ -3676,8 +3676,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "Near the gate. Ghouls on the road, stalkers in the trees.",
-      "turn_in_text": "A clear road. Whatever you're walking into, you'll walk in with fresh boots.",
+      "accept_text": "On the keep road. They're pressed against it facing the keep, not coming down it.",
+      "turn_in_text": "Road's open to the portcullis.\n\nThey'll drift back. They always drift back - whatever's pulling them hasn't stopped pulling. But a party can get up there now without arriving tired.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -3741,7 +3741,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "Marl has stood at Shadowfang's gate for years and cannot say whether the howling has grown louder or he has grown used to it. He wants someone to stand in the forecourt and tell him honestly.",
+      "description": "I want to ask you something and I want an honest answer rather than a kind one.\n\nI've stood at this gate for years. The howling comes down out of that keep every night and it has never once stopped.\n\nAnd I cannot tell you any more whether it's got LOUDER, or whether I've simply got used to it and lost my measure. Those are very different facts and I've no way to tell them apart from here, because the only instrument I had was me and I've been standing in it too long.\n\nGo and stand in the forecourt. Not inside - the forecourt. Listen to it with ears that haven't heard it before, and then come back and tell me straight.",
       "objectives": [
         {
           "type": "explore",
@@ -3753,8 +3753,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "In front of the portcullis. Stand, listen, report.",
-      "turn_in_text": "Louder. I thought so. Gods help whoever's inside.",
+      "accept_text": "The forecourt, not inside. Listen with fresh ears, then tell me straight.",
+      "turn_in_text": "[Marl takes that without flinching.]\n\nLouder. Right.\n\nThen it isn't me. I'd half hoped it was me - a man going strange at his post is a smaller problem than a keep getting worse.\n\nI'll send that up tonight and they'll do nothing with it, and I'll have said it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -3820,7 +3820,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "Five reports lie on Dallow's table: the Deathguard Captain is down, the Bloated One is down, Lord Godfrey's Remnant is down, Berard rests, and Bloodmaw's pack has scattered. The March has not seen five victories in a row since the war.",
+      "description": "Come in. Shut it. I want to read you something.\n\nFive reports on this table.\n\nThe Deathguard Captain is down. The Bloated One is down. Godfrey's remnant is down. Berard rests. Bloodmaw's pack has scattered.\n\nFive. In a row. The March has not had five in a row since the war, and I include the war.\n\nAnd here's what I keep turning over. Every one of those came from somebody small - a pond warden, a hearthwarden, a trapper on a hill nobody's heard of, a packbreaker with an invented title. None of them had the authority to ask for what they asked for. Every one of them asked anyway, and somebody did it.\n\nI've written that up and sent it to the Undercity. They'll file it. But it's written down.",
       "objectives": [
         {
           "type": "explore",
@@ -3832,8 +3832,8 @@
       ],
       "reward_exp": 2112,
       "reward_gold": 9120,
-      "accept_text": "Come back to Valgan's Field. Stand where the March can see you.",
-      "turn_in_text": "Five victories. A medal for each, if we had medals. Instead, take this. The March doesn't forget.",
+      "accept_text": "Come and stand at Sergeant Dallow's table at Valgan's Field.",
+      "turn_in_text": "That's the March's thanks, for whatever a sergeant's thanks is worth.\n\nSouth road's open, pond's clear, Pyrewood's quiet and the Peril's scattered. I came to this command expecting to lose Silverpine slowly.\n\nGo and get something to eat. You look like a man who's been holding four conversations a day for a month.",
       "next_quest_id": null,
       "turn_in_npc_id": "sp_south_march_sergeant",
       "requires_quests": [
@@ -3903,7 +3903,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "Godfrey's remnant is dealt with and the Hearthwarden has run out of reasons to keep anyone in Silverpine. South of the pyre the pines thin out, the blight stops at a line you can stand on, and the road goes down into a valley that still grows things.",
+      "description": "Godfrey's dealt with, and that was the last of it. I've been going through what's left and there isn't a reason to keep anybody here any more.\n\nSo I'll tell you what's south, since you'll not have been.\n\nThe pines thin out past the pyre. And then there's a LINE - an actual line you can stand on, where the blight stops. I've stood with one boot either side of it. Behind you it's Silverpine and in front of you the grass is green, and the road goes down from there into a valley that still grows things.\n\nI've not crossed it. I was born in Pyrewood and I'll likely end in it.\n\nYou go. Stand on the line, and then go down the road, and see what a valley looks like when it never got this.",
       "objectives": [
         {
           "type": "explore",
@@ -3915,8 +3915,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "Go south. Down the pass, past the last of the pines, and keep going until the ground changes colour.\n\nThere is a tower called Southpoint at the bottom of it with our banner on it, and a commander in it who is short of everything including people. You have done what there is to do here. Hillsbrad has not run out of work in living memory.",
-      "turn_in_text": "You saw it, then. The green.\n\nEveryone comes back up this road eventually and nobody ever describes it the same way twice. Go on - she needs you more than I do.",
+      "accept_text": "South past the pyre, to where the blight stops. Then down into Hillsbrad.",
+      "turn_in_text": "[Brand asks you to describe it twice, and the second time she doesn't look at you.]\n\nGreen the whole way down. And people working in it.\n\nThank you. I'd got to where I couldn't quite believe that was still a thing that existed somewhere, and believing it is worth something even from here.",
       "next_quest_id": null,
       "rewards": [
         {
@@ -3980,7 +3980,7 @@
       "zone": "silverpine_south",
       "level_min": 19,
       "level_max": 20,
-      "description": "The Ashen Cult burned something in that hall that did not burn like wood, and the Hearthwarden has a phial of what was left. There is nobody in Silverpine qualified to tell her what it is. There is an apothecary at Southpoint Tower who has spent four years with nothing to work on but blight and would very likely open the phial in the road.",
+      "description": "One last thing, and it's the thing that's been bothering me since the hall.\n\nThe cult burned something in there. Not wood - I've been a hearthwarden my whole life, I know what wood does, and whatever that was did not do it. It went to ash at the wrong colour and it has not stopped being warm.\n\nI've got a phial of it.\n\nThere is nobody in Silverpine qualified to tell me what it is. There's an apothecary at Southpoint Tower, down in Hillsbrad, who has had four years of blight and nothing else to work on, and who will almost certainly open this in the road rather than wait to get indoors.\n\nTake it to her anyway. I'd rather a reckless answer than no answer.",
       "objectives": [
         {
           "type": "deliver",
@@ -3991,8 +3991,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "Sealed, and it stays sealed. South to Southpoint Tower in Hillsbrad - ask for Vane.\n\nI will be plain: I do not know what is in it, which is precisely why it is going to someone who does. Do not open it to satisfy yourself on the road. People have.",
-      "turn_in_text": "Silverpine pyre ash. In a sealed phial. For ME.\n\nYou have no idea how long it has been since anyone sent me a question instead of an order. Tell her it will take a week and that it will be worth the week.",
+      "accept_text": "To the apothecary at Southpoint Tower in Hillsbrad. She'll likely open it in the road.",
+      "turn_in_text": "[She opens it in the road.]\n\n...That's not from here.\n\nI don't mean Hillsbrad and I don't mean Silverpine. I've handled blight from every corner of this continent for four years and I'm telling you this ash is not from any of it.\n\nWhere did you say this came from? No - sit down. Start at the beginning, and don't leave anything out.",
       "next_quest_id": null,
       "rewards": [
         {
