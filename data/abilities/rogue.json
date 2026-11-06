@@ -260,8 +260,9 @@
       "target_type": "self",
       "icon_id": null,
       "buff_scope": "combat",
-      "requires_talent": true,
-      "_design_note": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time."
+      "requires_talent": false,
+      "_design_note": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time.",
+      "_source": "UNGATED 5 Nov 2026. It was requires_talent, and its only unlock node was a node in rogue_combat whose talent_id was rogue_combat_RIPOSTE while its display name read 'Evasion' - a leftover from an earlier pass. The Combat rebuild gave Riposte its own correctly-named node (Riposte IS a real 3.3.5a Combat talent at row 2), which left Evasion with nothing unlocking it. Ungating is the faithful fix rather than inventing an Evasion talent: in real WoW Evasion is a baseline rogue ability learned from a trainer at level 8, and it appears nowhere in any of the three 3.3.5a talent trees."
     },
     {
       "ability_id": "rogue_expose_armor",
@@ -880,7 +881,9 @@
       "icon_id": null,
       "target_type": "self",
       "is_instant": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "requires_talent": true,
+      "_source": "Gated 5 Nov 2026. rogue_combat has carried a blade_flurry unlock_ability node all along while this ability was NOT requires_talent, so the ability was trainable by level and the talent point bought nothing - the same half-finished change found on the Druid forms. Blade Flurry is a real 3.3.5a Combat talent (row 2), so the gate is faithful."
     },
     {
       "ability_id": "rogue_kidney_shot",
@@ -1013,7 +1016,9 @@
       ],
       "icon_id": null,
       "target_type": "self",
-      "is_instant": true
+      "is_instant": true,
+      "requires_talent": true,
+      "_source": "Gated 5 Nov 2026, same reason: rogue_subtlety's preparation node was a no-op. Preparation is a real 3.3.5a Subtlety talent (row 4)."
     },
     {
       "ability_id": "rogue_killing_spree",
@@ -1033,7 +1038,9 @@
         }
       ],
       "icon_id": null,
-      "is_instant": true
+      "is_instant": true,
+      "requires_talent": true,
+      "_source": "Gated 5 Nov 2026, same reason as Blade Flurry: a real unlock node in rogue_combat against an ungated ability. Killing Spree is the real Combat CAPSTONE in 3.3.5a (row 10)."
     }
   ]
 }

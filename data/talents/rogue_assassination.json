@@ -1,7 +1,7 @@
 {
   "spec_name": "Rogue Assassination",
   "tree_id": "rogue_assassination",
-  "description": "Poison and precision - lethal openers and devastating finishers.",
+  "description": "Poisons and bleeds, built into lethal finishing moves.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,45 +15,43 @@
     {
       "talent_id": "rogue_assassination_improved_eviscerate",
       "name": "Improved Eviscerate",
-      "description": "Increases the damage of Eviscerate by 10% per rank.",
+      "description": "Increases the damage of your Eviscerate by 7% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_rogue_eviscerate_damage": 0.1
+        "ability_rogue_eviscerate_damage": 0.07
       },
-      "connected_to": [
-        "rogue_assassination_murder"
-      ]
+      "_source": "WotLK row 0: 'Increases the damage done by your Eviscerate ability by 20%' over 3 ranks. 7% per rank reaches 21%, the nearest whole percent to the real 20%. The outgoing version was 10% per rank, which reached 30%.",
+      "connected_to": []
     },
     {
       "talent_id": "rogue_assassination_remorseless_attacks",
       "name": "Remorseless Attacks",
-      "description": "Killing a target has a 20% chance per rank to grant Remorseless, increasing your critical strike chance by 20% for 2 turns.",
+      "description": "After a killing blow, your next strikes land with 40% increased critical strike chance for 2 turns. 50% chance per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {},
-      "connected_to": [
-        "rogue_assassination_puncturing_wounds"
-      ],
+      "_source": "WotLK row 0: 'After killing an opponent that yields experience or honor, gives you a 40% increased critical strike chance on your next Sinister Strike, Hemorrhage, Backstab, Mutilate, Ambush, or Ghostly Strike. Lasts 20 sec.' on_kill is a real trigger and 40% is the real number. Scoping the buff to those six abilities is not possible - a status effect's stat_mods apply to everything - so it is a general crit buff for 2 turns (20 sec). Corrected from 5 ranks to the real 2.",
+      "connected_to": [],
       "proc": {
         "trigger": "on_kill",
-        "chance": 20,
+        "chance": 50,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "remorseless",
-          "name": "Remorseless",
+          "effect_id": "remorseless_attacks",
+          "name": "Remorseless Attacks",
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "crit_chance_physical": 20.0
+            "crit_chance_physical": 40
           },
           "on_target": false
         }
@@ -62,410 +60,519 @@
     {
       "talent_id": "rogue_assassination_malice",
       "name": "Malice",
-      "description": "Increases the critical strike chance of Mutilate and Eviscerate by 2% per rank.",
+      "description": "Increases your critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_rogue_mutilate_crit": 2,
-        "ability_rogue_eviscerate_crit": 2
+        "crit_chance_physical": 1.0
       },
-      "connected_to": [
-        "rogue_assassination_relentless_strikes"
-      ]
+      "_source": "WotLK row 0: 'Increases your critical strike chance by 5%' over 5 ranks. Built verbatim. The outgoing version was 2 points of crit on Mutilate and Eviscerate specifically, which is a different talent - and it mattered, because Lethality and Seal Fate below both pay off crit, so the tree's whole engine was running on a per-ability trickle.",
+      "connected_to": []
     },
     {
       "talent_id": "rogue_assassination_ruthlessness",
       "name": "Ruthlessness",
-      "description": "Reduces the Energy cost of Eviscerate by 3 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_rogue_eviscerate_cost": 3
-      },
-      "connected_to": [
-        "rogue_assassination_lethality"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_murder",
-      "name": "Murder",
-      "description": "Increases the damage of Garrote and Rupture by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_rogue_garrote_damage": 0.08,
-        "ability_rogue_rupture_damage": 0.08
-      },
-      "connected_to": [
-        "rogue_assassination_improved_eviscerate",
-        "rogue_assassination_vile_poisons"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_puncturing_wounds",
-      "name": "Puncturing Wounds",
-      "description": "Increases the damage of Backstab by 15% per rank.",
+      "description": "Your finishing moves have a 20% chance per rank to award a combo point.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_rogue_backstab_damage": 0.15
-      },
-      "connected_to": [
-        "rogue_assassination_remorseless_attacks",
-        "rogue_assassination_improved_poisons"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_relentless_strikes",
-      "name": "Relentless Strikes",
-      "description": "Your finishing moves have a 30% chance to restore 25 Energy.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -4,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Gives your melee finishing moves a 20%/40%/60% chance to add a combo point to your target.' Built verbatim now that combo points exist. The outgoing version was a 3-energy cost cut on Eviscerate.",
       "connected_to": [
-        "rogue_assassination_malice",
-        "rogue_assassination_fleet_footed"
+        "rogue_assassination_improved_eviscerate"
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 30,
+        "chance": 20,
         "icd": 0,
         "ability_filter": [
           "rogue_eviscerate",
-          "rogue_envenom",
-          "rogue_rupture"
+          "rogue_rupture",
+          "rogue_slice_and_dice",
+          "rogue_expose_armor",
+          "rogue_kidney_shot",
+          "rogue_envenom"
         ],
         "grant_resource": {
-          "resource": "energy",
-          "amount": 25
+          "resource": "combo",
+          "amount": 20
         }
       }
     },
     {
-      "talent_id": "rogue_assassination_lethality",
-      "name": "Lethality",
-      "description": "Increases the damage of your finishing moves - Eviscerate, Envenom and Rupture - by 3% per rank.",
+      "talent_id": "rogue_assassination_vigor",
+      "name": "Vigor",
+      "description": "You fight on past exhaustion, recovering 10 Energy whenever you strike.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": -4,
-      "effects": {
-        "ability_rogue_eviscerate_damage": 0.03,
-        "ability_rogue_envenom_damage": 0.03,
-        "ability_rogue_rupture_damage": 0.03
-      },
-      "connected_to": [
-        "rogue_assassination_ruthlessness",
-        "rogue_assassination_cold_blood"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_vile_poisons",
-      "name": "Vile Poisons",
-      "description": "Your weapon swings have a 10% chance per rank to apply a vile venom, dealing Nature damage over 3 turns.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 1, NEW to our tree: 'Increases your maximum Energy by 10.' DEPARTURE - max_energy_bonus is DEAD DATA. Probed with tools/probe_talent_key.py: it reaches the talent bus and has zero read sites, and the project had already recorded it as dead. A larger pool is not expressible, so the talent delivers the same thing the real one does in practice - more Energy to spend - as 10 Energy on a strike every other turn.",
       "connected_to": [
-        "rogue_assassination_murder",
-        "rogue_assassination_deadened_nerves"
+        "rogue_assassination_improved_eviscerate"
       ],
       "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 10,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "vile_venom",
-          "name": "Vile Venom",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 25,
-          "damage_school": "nature",
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "rogue_assassination_improved_poisons",
-      "name": "Improved Poisons",
-      "description": "Increases the potency of Deadly Poison by 10% per rank and the damage of Envenom by 5% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "ability_rogue_deadly_poison_potency": 0.1,
-        "ability_rogue_envenom_damage": 0.05
-      },
-      "connected_to": [
-        "rogue_assassination_puncturing_wounds",
-        "rogue_assassination_mutilate"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_fleet_footed",
-      "name": "Fleet Footed",
-      "description": "Increases Dodge by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "dodge": 2.0
-      },
-      "connected_to": [
-        "rogue_assassination_relentless_strikes",
-        "rogue_assassination_seal_fate"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_cold_blood",
-      "name": "Cold Blood",
-      "description": "Grants Cold Blood: your next attack is a guaranteed critical strike.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "rogue_cold_blood"
-      },
-      "connected_to": [
-        "rogue_assassination_lethality",
-        "rogue_assassination_quick_recovery"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_mutilate",
-      "name": "Mutilate",
-      "description": "Grants Mutilate, a vicious double-dagger strike.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "rogue_mutilate"
-      },
-      "connected_to": [
-        "rogue_assassination_improved_poisons",
-        "rogue_assassination_hunger_for_blood"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_seal_fate",
-      "name": "Seal Fate",
-      "description": "Your critical strikes have a 20% chance per rank to restore 15 Energy.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "rogue_assassination_fleet_footed",
-        "rogue_assassination_find_weakness"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 15
-        }
-      }
-    },
-    {
-      "talent_id": "rogue_assassination_quick_recovery",
-      "name": "Quick Recovery",
-      "description": "Your critical strikes have a 50% chance per rank to heal you for 50.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "rogue_assassination_cold_blood",
-        "rogue_assassination_blood_spatter"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 50,
-        "icd": 1,
-        "heal_flat": 50
-      }
-    },
-    {
-      "talent_id": "rogue_assassination_deadened_nerves",
-      "name": "Deadened Nerves",
-      "description": "Reduces all damage taken by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "rogue_assassination_vile_poisons"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_hunger_for_blood",
-      "name": "Hunger for Blood",
-      "description": "After landing a critical strike, you deal 10% more damage for 3 turns.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "rogue_assassination_mutilate",
-        "rogue_assassination_cut_to_the_chase"
-      ],
-      "proc": {
-        "trigger": "on_crit",
+        "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 2,
-        "apply_effect": {
-          "effect_id": "hunger_for_blood",
-          "name": "Hunger for Blood",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "damage_dealt_pct": 10
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "rogue_assassination_find_weakness",
-      "name": "Find Weakness",
-      "description": "Your Backstab has a 34% chance per rank to find a weakness, leaving the target taking 8% more physical damage for 3 turns.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "rogue_assassination_seal_fate",
-        "rogue_assassination_turn_the_tables"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 34,
-        "icd": 0,
-        "ability_filter": [
-          "rogue_backstab"
-        ],
-        "apply_effect": {
-          "effect_id": "find_weakness",
-          "name": "Find Weakness",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "physical_damage_taken_pct": 8
-          },
-          "on_target": true
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 10
         }
       }
     },
     {
       "talent_id": "rogue_assassination_blood_spatter",
       "name": "Blood Spatter",
-      "description": "Increases the damage of Rupture by 12% per rank.",
+      "description": "Increases the damage of your Garrote and Rupture by 15% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "ability_rogue_garrote_damage": 0.15,
+        "ability_rogue_rupture_damage": 0.15
+      },
+      "_source": "WotLK row 1, built verbatim - the real pair of abilities and the real 30% over 2 ranks. The outgoing version was 12% per rank on Rupture alone.",
+      "connected_to": [
+        "rogue_assassination_remorseless_attacks"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_improved_expose_armor",
+      "name": "Improved Expose Armor",
+      "description": "Reduces the Energy cost of your Expose Armor by 5 per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_rogue_expose_armor_cost": 5
+      },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim: the real 10 Energy over 2 ranks. ability_<id>_cost is FLAT.",
+      "connected_to": [
+        "rogue_assassination_malice"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_lethality",
+      "name": "Lethality",
+      "description": "Increases the critical strike damage of your abilities by 6% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "crit_damage_physical": 0.06
+      },
+      "_source": "WotLK row 1: 'Increases the critical strike damage bonus of all combo point-generating abilities that do not require stealth by 30%' over 5 ranks. Scoping crit damage to a set of abilities is possible only one ability at a time via ability_<id>_crit_damage, and the 'do not require stealth' clause has no meaning here anyway, so this uses the school-wide crit_damage_physical at the real 6% per rank. That key is a FRACTION and is read at abilities.py:1460 inside a ternary - the probe reports no literal read site for it, which is a limitation of the probe, not evidence of death. The real talent requires Malice; connected_to reproduces that. The outgoing version was 3% damage scattered across Eviscerate and Envenom.",
+      "connected_to": [
+        "rogue_assassination_malice"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_puncturing_wounds",
+      "name": "Puncturing Wounds",
+      "description": "Increases the critical strike chance of your Backstab by 10% per rank and of your Mutilate by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -4,
+      "effects": {
+        "ability_rogue_backstab_crit": 10.0,
+        "ability_rogue_mutilate_crit": 5.0
+      },
+      "_source": "WotLK row 1, built verbatim - the real 30% Backstab and 15% Mutilate over 3 ranks. The outgoing version had the Backstab half as damage rather than crit, and omitted Mutilate. ability_<id>_crit is PERCENTAGE POINTS.",
+      "connected_to": [
+        "rogue_assassination_lethality"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_fleet_footed",
+      "name": "Fleet Footed",
+      "description": "Increases your dodge by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "dodge": 1.0
+      },
+      "_source": "WotLK row 2: 'Reduces the duration of all movement impairing effects by 30% and increases your movement speed by 15%.' DEPARTURE - this engine has neither movement speed nor snares, and there is no caster-side speed debuff at all. Light footwork becomes dodge. The outgoing version did the same thing at 2% per rank; reduced to 1% because this is a tier-2 filler, not a defensive pillar.",
+      "connected_to": [
+        "rogue_assassination_ruthlessness"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_vile_poisons",
+      "name": "Vile Poisons",
+      "description": "Increases the damage of your Deadly Poison and Envenom by 7% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_rogue_deadly_poison_damage": 0.07,
+        "ability_rogue_envenom_damage": 0.07
+      },
+      "_source": "WotLK row 2: 'Increases the damage dealt by your poisons and Envenom ability by 20%' over 3 ranks, plus a 30% dispel resistance clause. The damage half is built verbatim. Dispel RESISTANCE does not exist - dispel_type marks what CAN be removed and nothing modifies the chance - so that half is dropped.",
+      "connected_to": [
+        "rogue_assassination_vigor"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_cold_blood",
+      "name": "Cold Blood",
+      "description": "Teaches Cold Blood, guaranteeing a critical strike on your next offensive ability.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "rogue_cold_blood"
+      },
+      "_source": "WotLK row 2, kept - the ONLY unlock for rogue_cold_blood, which is requires_talent, so dropping this node would strand the ability (qa_abilities_obtainable). The real talent's '+100% crit chance on your next ability' is the ability's own business; there is no guaranteed-crit key for a talent to set.",
+      "connected_to": [
+        "rogue_assassination_blood_spatter"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_improved_poisons",
+      "name": "Improved Poisons",
+      "description": "Increases the potency of your Deadly Poison by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_rogue_deadly_poison_potency": 0.04
+      },
+      "_source": "WotLK row 2: 'Increases the chance to apply Deadly Poison to your target by 20% and the frequency of applying Instant Poison by 50%.' DEPARTURE - poisons here are ordinary abilities you cast, with no application-chance roll and no application frequency to raise, so there is nothing for the real talent to modify. Potency is the nearest real knob. Kept from the outgoing tree, which had reached the same conclusion.",
+      "connected_to": [
+        "rogue_assassination_improved_expose_armor"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_improved_kidney_shot",
+      "name": "Improved Kidney Shot",
+      "description": "Your Kidney Shot has a 33% chance per rank to leave the target taking 9% more damage from all sources for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {},
+      "_source": "WotLK row 2, NEW to our tree: 'While affected by your Kidney Shot ability, the target receives an additional 9% damage from all sources.' Built with the real 9%. It has to be a PROC rather than ability_rogue_kidney_shot_potency, because _potency scales a buff's OWN stat_mods and rogue_kidney_shot has an EMPTY stat_mods dict - there would be nothing to scale. damage_taken_pct is read RAW on both sides, so 0.09 is 9%; it is also one of the eight stat_mods a MONSTER can actually read. Ranked by chance because a proc's payload does not scale with points.",
+      "connected_to": [
+        "rogue_assassination_lethality"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_kidney_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "improved_kidney_shot",
+          "name": "Improved Kidney Shot",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_taken_pct": 0.09
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_quick_recovery",
+      "name": "Quick Recovery",
+      "description": "Increases all healing you receive by 10% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -2,
+      "effects": {
+        "healing_taken_pct": 0.1
+      },
+      "_source": "WotLK row 2: 'All healing effects on you are increased by 20%. In addition, your finishing moves refund 80% of their Energy cost when they fail to hit.' The healing half is built verbatim over 2 ranks. The refund-on-miss half is dropped - there is no on-miss trigger, and the cast has already been charged by the time a miss is rolled. The outgoing version was a proc.",
+      "connected_to": [
+        "rogue_assassination_puncturing_wounds"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_seal_fate",
+      "name": "Seal Fate",
+      "description": "Your critical strikes have a 20% chance per rank to award an additional combo point.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "_source": "WotLK row 3: 'Your critical strikes from abilities that add combo points have a 20%-100% chance to add an additional combo point.' Built faithfully now that combo points exist - the real 20%-per-rank curve to 100% at 5 ranks. The 'abilities that add combo points' restriction is dropped rather than filtered, because on_crit fires per damaging hit and listing the nine generators in an ability_filter would also exclude the auto-attack crit the real talent does count. The real talent requires Cold Blood, which connected_to reproduces.",
+      "connected_to": [
+        "rogue_assassination_cold_blood"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 20,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 20
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_murder",
+      "name": "Murder",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 0,
+      "effects": {
+        "all_damage": 0.02
+      },
+      "_source": "WotLK row 3: 'Increases all damage caused by 4%' over 2 ranks. Built verbatim - a genuine flat scalar in the real game too. The outgoing version was 8% damage on Garrote and Rupture, which is Blood Spatter's job.",
+      "connected_to": [
+        "rogue_assassination_improved_poisons"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_deadly_brew",
+      "name": "Deadly Brew",
+      "description": "Applying Deadly Poison has a 50% chance per rank to also apply Crippling Poison.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
       "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'When you apply Instant, Wound or Mind-Numbing poison to a target, you have a 100% chance to apply Crippling poison.' Built with the real mechanic - cast_ability is a real proc payload (status_effects.py:1530) and both poisons exist here. Only Deadly Poison is in the filter because Instant, Wound and Mind-Numbing do not exist. 50% per rank reaches the real 100% at 2 ranks.",
+      "connected_to": [
+        "rogue_assassination_seal_fate"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_deadly_poison"
+        ],
+        "cast_ability": "rogue_crippling_poison"
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_focused_attacks",
+      "name": "Focused Attacks",
+      "description": "Your critical strikes have a 33% chance per rank to restore 10 Energy.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'Your melee critical strikes have a 100% chance to give you 2 energy.' on_crit and the Energy grant are both real. 2 Energy against a 100-point pool regenerating 25 a turn is beneath notice here, so the amount is 10 and the chance carries the rank curve to 99%, which is the only way a multi-rank proc can scale.",
+      "connected_to": [
+        "rogue_assassination_seal_fate"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 10
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_overkill",
+      "name": "Overkill",
+      "description": "A killing blow restores 30 Energy.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'While stealthed, and for 20 seconds after breaking stealth, you regenerate 30% additional energy.' DEPARTURE - no stealth, and no energy-regeneration key either (energy_regen and energy_regen_pct are both dead data). The talent is about Energy arriving faster at the start of a fight; on_kill is the nearest real moment, and 30 keeps the real number. The real talent is Mutilate's prerequisite, which connected_to preserves below.",
+      "connected_to": [
+        "rogue_assassination_seal_fate"
+      ],
+      "proc": {
+        "trigger": "on_kill",
+        "chance": 100,
+        "icd": 0,
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 30
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_deadened_nerves",
+      "name": "Deadened Nerves",
+      "description": "Reduces all damage you take by 2% per rank, and by a further 5% per rank while you are below half health.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "damage_taken_pct": -0.02,
+        "low_health_damage_reduction_pct": 0.05
+      },
+      "_source": "WotLK row 4: 'Reduces all damage taken by 6%' over 3 ranks, built verbatim - damage_taken_pct is read RAW on both sides, so -0.02 per rank is -6% at full rank. The low-health half is inherited from the DROPPED Assassin's Resolve, a Cataclysm talent with no WotLK counterpart: rather than lose a real working conditional, it moves onto the tree's actual damage-reduction talent. low_health_damage_reduction_pct reads the ACTOR's own health and defaults to a 50% threshold, so low_health_threshold_pct is not authored.",
+      "connected_to": [
+        "rogue_assassination_murder"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_find_weakness",
+      "name": "Find Weakness",
+      "description": "Increases all damage you deal by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_rogue_rupture_damage": 0.12
+        "all_damage": 0.02
       },
+      "_source": "WotLK row 4: 'Offensive ability damage increased by 6%' over 3 ranks. all_damage is the closest real key - there is no ability-versus-autoattack split - so it is built at 2% per rank. Stacks with Murder, as the real pair does. The outgoing version was a proc.",
       "connected_to": [
-        "rogue_assassination_quick_recovery"
+        "rogue_assassination_murder"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_master_poisoner",
+      "name": "Master Poisoner",
+      "description": "Increases your critical strike chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 1.0
+      },
+      "_source": "WotLK row 5: 'Increases the critical hit chance of all attacks made against any target you have poisoned by 3%, reduces the duration of all Poison effects applied to you by 50%, and gives Envenom a 100% chance not to consume Deadly Poison.' DEPARTURE on all three clauses - nothing reads whether the TARGET carries a given debuff, nothing modifies an incoming effect's duration by school, and no proc flag prevents a consume. The crit is kept unconditionally at the real 1% per rank, which is strictly weaker than the real talent against a poisoned target and stronger against an unpoisoned one.",
+      "connected_to": [
+        "rogue_assassination_focused_attacks"
+      ]
+    },
+    {
+      "talent_id": "rogue_assassination_mutilate",
+      "name": "Mutilate",
+      "description": "Teaches Mutilate, attacking with both weapons and awarding combo points.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "rogue_mutilate"
+      },
+      "_source": "WotLK row 5, kept - the ONLY unlock for rogue_mutilate, which is requires_talent, so dropping it would strand the ability. The real talent requires Overkill, which connected_to reproduces. 'Awards 2 combo points' is now partly true: rogue_mutilate is a combo generator granting one point. The '20% more damage against Poisoned targets' clause needs a target-debuff read, which does not exist.",
+      "connected_to": [
+        "rogue_assassination_overkill"
       ]
     },
     {
       "talent_id": "rogue_assassination_cut_to_the_chase",
       "name": "Cut to the Chase",
-      "description": "Increases the damage of Eviscerate by 8% per rank.",
+      "description": "Your Eviscerate and Envenom have a 20% chance per rank to quicken your attacks by 30% for 3 turns.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "ability_rogue_eviscerate_damage": 0.08
-      },
-      "connected_to": [
-        "rogue_assassination_hunger_for_blood",
-        "rogue_assassination_assassins_resolve"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_turn_the_tables",
-      "name": "Turn the Tables",
-      "description": "Being struck has a 20% chance per rank to turn the tables, granting 15% critical strike chance for 2 turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'Your Eviscerate and Envenom abilities have a 100% chance to refresh your Slice and Dice duration to its 5 combo point maximum.' DEPARTURE - nothing in this engine can refresh or extend ANOTHER buff's duration from a proc. The real talent's whole purpose is keeping Slice and Dice up, so the finishers grant its effect directly instead: haste 30 is exactly rogue_slice_and_dice's own stat_mod. The real ability pair and the real 100%-at-full-rank are kept.",
       "connected_to": [
-        "rogue_assassination_find_weakness",
-        "rogue_assassination_assassination_mastery"
+        "rogue_assassination_find_weakness"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
+        "trigger": "on_cast",
         "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_eviscerate",
+          "rogue_envenom"
+        ],
+        "apply_effect": {
+          "effect_id": "cut_to_the_chase",
+          "name": "Cut to the Chase",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 30
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_assassination_turn_the_tables",
+      "name": "Turn the Tables",
+      "description": "Avoiding an attack has a 33% chance per rank to raise your critical strike chance by 6% for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 5: 'Whenever anyone in your party or raid blocks, dodges, or parries an attack your chance to critically hit with all combo moves is increased by 6% for 8 sec.' DEPARTURE on the source only - a talent effect can never reach an ally and no trigger reports a party member's avoidance, so it fires on the rogue's own. on_avoid covers block, dodge and parry together, which is exactly the real talent's list. The real 6% and the real 8 seconds (2 turns) are kept. NOTE: on an avoidance trigger the incoming amount is ZERO, so a bonus_pct or leech_pct payload would be worthless here - apply_effect is the right shape.",
+      "connected_to": [
+        "rogue_assassination_find_weakness"
+      ],
+      "proc": {
+        "trigger": "on_avoid",
+        "chance": 33,
         "icd": 1,
         "apply_effect": {
           "effect_id": "turn_the_tables",
@@ -473,33 +580,16 @@
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "crit_chance_physical": 15.0
+            "crit_chance_physical": 6
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "rogue_assassination_assassins_resolve",
-      "name": "Assassin's Resolve",
-      "description": "While at low health, you take 15% less damage and deal 10% more.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.15
-      },
-      "connected_to": [
-        "rogue_assassination_cut_to_the_chase"
-      ]
-    },
-    {
-      "talent_id": "rogue_assassination_assassination_mastery",
-      "name": "Envenom",
-      "description": "Your poisons have a 30% chance to erupt when you land a critical strike, dealing 120 Nature damage.",
+      "talent_id": "rogue_assassination_hunger_for_blood",
+      "name": "Hunger For Blood",
+      "description": "Applying a bleed enrages you, increasing all your damage by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -507,21 +597,27 @@
       "hex_x": 1,
       "hex_y": 6,
       "effects": {},
+      "_source": "WotLK row 10, the capstone: 'Enrages you, increasing all damage caused by 5%. Requires a bleed effect to be active on the target. Lasts 1 min.' DEPARTURE on the gate - nothing reads a debuff on the target, so 'requires a bleed' cannot be checked. Instead the two bleeds themselves grant it, which satisfies the same condition from the other direction: you cannot have it without having applied a bleed. The real 5% is kept; 1 minute becomes 3 turns, the standard bucket for a maintained window.",
       "connected_to": [
-        "rogue_assassination_turn_the_tables"
+        "rogue_assassination_cut_to_the_chase"
       ],
       "proc": {
-        "trigger": "on_crit",
-        "chance": 30,
-        "icd": 1,
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_rupture",
+          "rogue_garrote"
+        ],
         "apply_effect": {
-          "effect_id": "envenom_eruption",
-          "name": "Envenom",
-          "effect_type": "dot",
-          "duration": 1,
-          "potency": 120,
-          "damage_school": "nature",
-          "on_target": true
+          "effect_id": "hunger_for_blood",
+          "name": "Hunger For Blood",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "all_damage": 0.05
+          },
+          "on_target": false
         }
       }
     }
