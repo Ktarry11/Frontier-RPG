@@ -132,7 +132,26 @@ class SkillsScreen(BaseScreen):
 
         from ui.spellbook_tree_map import get_owning_tree
         tree_id = get_owning_tree(player.char_class, ability)
-        return tree_id or "core"
+        if tree_id:
+            return tree_id
+
+        # Nothing owns it. That used to mean Core, which is how Core filled
+        # up with real combat spells - and for the nine vanilla-derived
+        # classes it still would, since they never consult
+        # spellbook_tabs_coa.json at all (a Warrior's Shield Block has no
+        # elemental school to place it by). Core is now universals only, so
+        # the honest home for an unowned CLASS ability is the class tab.
+        return "core" if self._is_universal(ability) else self.CLASS_TAB
+
+    #: Abilities every character has regardless of class or spec. These are
+    #: the only things Core holds. Racial skills join them when they exist.
+    UNIVERSAL_SUFFIXES = ("_attack", "_shoot", "_wand")
+
+    def _is_universal(self, ability):
+        ability_id = getattr(ability, "ability_id", "") or ""
+        return (ability_id.startswith("universal_")
+                or ability_id.endswith(self.UNIVERSAL_SUFFIXES)
+                or bool(getattr(ability, "is_racial", False)))
 
     def _build_tabs(self, player):
         """Real {tab_key: [abilities]} grouping for the subject's whole
@@ -156,8 +175,15 @@ class SkillsScreen(BaseScreen):
                 if unlock_id:
                     unlock_map[unlock_id] = tree_id
 
-        groups = {"core": []}
-        tab_order = [("core", "Core")]
+        # Core holds ONLY universals - the basic attack, Shoot, Wand, and
+        # racials when they exist. Kyle, 6 Nov: "core should ONLY be stuff
+        # like auto attack, wand, shoot, eventually things like racial
+        # skills etc." Everything else that no spec owns goes in the class
+        # tab, which is CoA's own shared Class tree (classTab 87) under our
+        # name for it. Folding that into Core is what filled Core with real
+        # combat spells - Chastise, Ram, Pulverize, Advance.
+        groups = {"core": [], self.CLASS_TAB: []}
+        tab_order = [("core", "Core"), (self.CLASS_TAB, player.char_class)]
         seen_trees = set()
 
         for ability in self._learned_abilities(player):
@@ -177,6 +203,13 @@ class SkillsScreen(BaseScreen):
                 tab_order.append((tab_key, label))
                 seen_trees.add(tab_key)
             groups[tab_key].append(ability)
+
+        # A tab with nothing in it is noise - a level-1 character may
+        # have no class abilities yet. Core always shows (it has the basic
+        # attack); the class tab only shows once it has content.
+        if not groups[self.CLASS_TAB]:
+            del groups[self.CLASS_TAB]
+            tab_order = [t for t in tab_order if t[0] != self.CLASS_TAB]
 
         return groups, tab_order
 
@@ -225,6 +258,12 @@ class SkillsScreen(BaseScreen):
     #: leaves 21px between rows and the "Row 2 (Press Shift+1-0):" label
     #: needs ~18 of them - it was being drawn at PANEL_Y + 110, four
     #: pixels INSIDE row 1's slots, which is the text overlap.
+    #: Tab key for a class's shared, non-spec abilities. Mirrors CoA's
+    #: own Class tree (classTab 87). Kept in sync with
+    #: tools/rebuild_spellbook_tabs.py's CLASS_TAB, which writes this
+    #: string into data/spellbook_tabs_coa.json.
+    CLASS_TAB = "class"
+
     SLOT_PX = 64
     COL_PITCH = 70
     ROW_PITCH = 95

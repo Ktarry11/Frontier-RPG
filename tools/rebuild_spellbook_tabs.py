@@ -68,6 +68,28 @@ SLUGS = {
     "witch_hunter": "witch-hunter",
 }
 
+#: CoA spec name -> our tree suffix, where the two drifted apart. Both
+#: were inferred from the data rather than guessed: every talent in one of
+#: our trees was looked up by name in CoA's and voted on its tabId.
+#:
+#:     runemaster_engravement   Runic 16, Arcane 2
+#:     runemaster_glyphic       Arcane 25
+#:     runemaster_riftblade     Riftblade 19, Runic 2
+#:
+#: Without these, 25 abilities whose spec CoA states plainly fell back to
+#: core because "runemaster_arcane" is not a tree we have.
+SPEC_ALIASES = {
+    "runemaster": {"runic": "engravement", "arcane": "glyphic"},
+    "witch_doctor": {"shadow_hunting": "shadowhunting"},
+}
+
+#: The tab key for a class's shared, non-spec abilities. CoA has exactly
+#: this: classTab 87, a Class tree sitting alongside the three spec trees.
+#: We used to fold it into Core, which is why Core filled with real combat
+#: spells. Kyle, 6 Nov: "core should ONLY be stuff like auto attack, wand,
+#: shoot, eventually things like racial skills etc."
+CLASS_TAB = "class"
+
 #: Display class name in the output file -> our class-file prefix.
 DISPLAY = {
     "Barbarian": "barbarian", "Bloodmage": "bloodmage",
@@ -144,14 +166,16 @@ def main():
             if suffix is None:
                 continue
             if suffix == "core":
-                coa.setdefault(norm(node["name"]), "core")
+                # CoA's shared Class tree. NOT our Core - see CLASS_TAB.
+                coa.setdefault(norm(node["name"]), CLASS_TAB)
                 continue
+            suffix = SPEC_ALIASES.get(prefix, {}).get(suffix, suffix)
             tree_id = f"{prefix}_{suffix}"
             # Only trust a tree we actually have. CoA spec names and ours
             # agree almost everywhere, but a rename on either side must
             # fall back to core rather than invent a tab the spellbook
             # would then render empty.
-            coa[norm(node["name"])] = tree_id if tree_id in trees else "core"
+            coa[norm(node["name"])] = tree_id if tree_id in trees else CLASS_TAB
 
         mapping, n_core, n_unknown = {}, 0, 0
         for aid, name in sorted(our_abilities(prefix).items()):
@@ -165,12 +189,20 @@ def main():
                 # "they are all core" complaint this tool exists to fix.
                 n_unknown += 1
                 unknown.append((display, aid, name))
-                tab = old.get(display, {}).get(aid, "core")
+                was = old.get(display, {}).get(aid)
+                # An ability of ours that the old map had in core is a
+                # class ability with no spec owner, not a universal one.
+                # Core is now reserved for universals only, so it belongs
+                # in the class tab alongside CoA's own shared abilities.
+                tab = CLASS_TAB if was in (None, "core") else was
             # ...with one exception. The universal basic attack is ours, so
             # CoA cannot vouch for it, and it is the entry that was most
             # visibly wrong (templar_attack -> templar_zealot). Auto attack
             # is never spec content.
-            if aid.endswith("_attack"):
+            # The only things that stay in Core: the universal basic
+            # attack and the universal ranged attacks. Racials join them
+            # when they exist.
+            if aid.endswith(("_attack", "_shoot", "_wand")):
                 tab = "core"
             if tab == "core":
                 n_core += 1
