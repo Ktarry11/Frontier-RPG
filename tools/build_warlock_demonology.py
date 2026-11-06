@@ -223,17 +223,26 @@ T.node("soul_link", "Soul Link",
               "authored as 5.0 in Warrior Death Wish and meant 500%.")
 
 T.node("fel_domination", "Fel Domination",
-       "Reduces the cooldown of your demon summons by 2 turns.",
+       "Your demon arrives braced - 20% more armor.",
        1, 4, 1,
-       effects={f"ability_warlock_summon_{d}_cooldown": 2 for d in DEMONS},
+       effects={"pet_armor": 0.20},
        connected_to=["soul_link"],
        source="WotLK row 2: 'Your next Imp, Voidwalker, Succubus, Felhunter "
               "or Felguard Summoning spell has its casting time reduced by "
               "5.5 sec and its Mana cost reduced by 50%.' DEPARTURE - there "
               "is no next-cast-modifier mechanic at all (no cast counter, no "
-              "streak, no accumulator), so the emergency resummon the talent "
-              "exists FOR becomes a shorter cooldown on all four. _cooldown "
-              "is FLAT turns and talented_cooldown clamps at 1.")
+              "streak, no accumulator). The first draft made it a shorter "
+              "cooldown on all four summons AND ALL FOUR KEYS WERE DEAD - "
+              "every warlock_summon_* ability has cooldown 0, so the node "
+              "did NOTHING AT ALL. Caught by "
+              "tools/qa_ability_scoped_fields.py, which exists because "
+              "audit_talents checks unit conventions and probe --audit-all "
+              "only checks the ability EXISTS; both passed this. Summoning "
+              "here is free, instant and off cooldown, so the real talent "
+              "has NO CONTENT TO PORT in any form. It is retargeted onto "
+              "the demon itself. pet_armor rather than pet_damage "
+              "deliberately: pet_damage already carries six talents and "
+              "reaches +104% in this tree, and pet_armor carries one.")
 
 T.node("demonic_aegis", "Demonic Aegis",
        "Increases the armor your Demon Armor grants by 10% per rank.",
@@ -256,17 +265,24 @@ T.node("unholy_power", "Unholy Power",
               "all. Fourth of six.")
 
 T.node("master_summoner", "Master Summoner",
-       "Reduces the cost of your demon summons by 10% per rank.",
+       "Increases your demon's health by 5% per rank.",
        2, 0, 2,
-       effects={f"ability_warlock_summon_{d}_cost_pct": 0.10 for d in DEMONS},
+       effects={"pet_health": 0.05},
        connected_to=["improved_succubus"],
        source="WotLK row 3: 'Reduces the casting time of your summoning "
               "spells by 2/4 sec and the Mana cost by 20%/40%.' No cast "
               "times, so only the mana half survives, at 10% per rank "
               "rather than 20% because summoning is a one-off rather than a "
-              "rotational cost. _cost_pct is a FRACTION and POSITIVE IS A "
-              "REDUCTION - the opposite sign to every other _pct key in "
-              "the file. Mana Feed and Master Conjuror, the other two real "
+              "rotational cost. THE FIRST DRAFT DID EXACTLY THAT AND ALL "
+              "FOUR KEYS WERE DEAD: every warlock_summon_* ability has cost "
+              "0 on every rank, so there was nothing to reduce and the node "
+              "did nothing. Same cause and same catch as Fel Domination "
+              "above (tools/qa_ability_scoped_fields.py). Summoning is free "
+              "AND instant AND off cooldown, so both of this tree's "
+              "summoning talents have no content in this engine and both "
+              "are retargeted onto the demon. pet_health, not pet_damage, "
+              "for the pile-up reason given on Fel Domination. Mana Feed "
+              "and Master Conjuror, the other two real "
               "talents on these rows, are DROPPED: demons have no resource, "
               "and Firestone and Spellstone are items in a game with no "
               "item-creation system.")

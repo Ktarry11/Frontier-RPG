@@ -1,7 +1,7 @@
 {
   "spec_name": "Druid Balance",
   "tree_id": "druid_balance",
-  "description": "Caster form drawing on the raw power of sun, moon, and stars.",
+  "description": "Sun and moon turned on the same wheel - the druid who fights with the sky instead of claws.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,143 +15,136 @@
     {
       "talent_id": "druid_balance_starlight_wrath",
       "name": "Starlight Wrath",
-      "description": "Increases the damage of Wrath and Starfire by 4% per rank.",
+      "description": "Increases the damage of your Wrath and Starfire by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_druid_wrath_damage": 0.04,
-        "ability_druid_starfire_damage": 0.04
+        "ability_druid_wrath_damage": 0.02,
+        "ability_druid_starfire_damage": 0.02
       },
-      "connected_to": [
-        "druid_balance_improved_moonfire"
-      ]
+      "_source": "WotLK row 0: 'Reduces the cast time of your Wrath and Starfire spells by 0.1-0.5 sec.' DEPARTURE - THERE ARE NO CAST TIMES in this engine, so the talent has no content to port. Faster casting is more damage per fight, so it becomes damage on exactly the two spells the real talent names. Same translation used for Bane in warlock_destruction, deliberately, so the pattern is legible rather than ad-hoc.",
+      "connected_to": []
     },
     {
       "talent_id": "druid_balance_genesis",
       "name": "Genesis",
-      "description": "Increases the potency of your Moonfire and Insect Swarm by 10% per rank.",
+      "description": "Increases the damage and healing of your periodic effects by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_druid_moonfire_potency": 0.1,
-        "ability_druid_insect_swarm_potency": 0.1
+        "dot_damage": 0.01,
+        "healing_done": 0.01
       },
-      "connected_to": [
-        "druid_balance_brambles"
-      ]
+      "_source": "WotLK row 0: 'Increases the damage and healing done by your periodic spell damage and healing effects by 1%-5%.' The dot half is verbatim. THE HEALING HALF IS BROADER THAN THE REAL TALENT and that is a knowing trade: the first draft used 'hot_healing' to scope it to periodic healing only, and audit_talents correctly flagged it as READ BY NO ENGINE CODE. There is no hot-specific healing key - the only periodic-healing key that exists is hot_duration_pct, which is a duration, not a magnitude - so it lands on healing_done, which boosts ALL the druid's healing rather than only hots. healing_done is LIVE on the talent channel (abilities.py:1585) and is TALENT-CHANNEL ONLY: inside a proc's stat_mods it would be silent dead data, where the status channel's equivalent is healing_done_pct in POINTS (abilities.py:1680). dot_damage is a FRACTION.",
+      "connected_to": []
     },
     {
       "talent_id": "druid_balance_moonglow",
       "name": "Moonglow",
-      "description": "Reduces the Mana cost of Moonfire, Wrath and Starfire by 5 per rank.",
+      "description": "Reduces the cost of your damage and healing spells by 3% per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": -6,
+      "hex_y": -4,
       "effects": {
-        "ability_druid_moonfire_cost": 5,
-        "ability_druid_wrath_cost": 5,
-        "ability_druid_starfire_cost": 5
+        "ability_druid_moonfire_cost_pct": 0.03,
+        "ability_druid_starfire_cost_pct": 0.03,
+        "ability_druid_wrath_cost_pct": 0.03,
+        "ability_druid_healing_touch_cost_pct": 0.03,
+        "ability_druid_regrowth_cost_pct": 0.03,
+        "ability_druid_rejuvenation_cost_pct": 0.03
       },
+      "_source": "WotLK row 1, built verbatim for the spells that exist: 'Reduces the Mana cost of your Moonfire, Starfire, Starfall, Wrath, Healing Touch, Nourish, Regrowth and Rejuvenation spells by 3%/6%/9%.' Nourish does not exist, and Starfall is left off because it is not learnable until the capstone. _cost_pct is a FRACTION and POSITIVE IS A REDUCTION - the opposite sign to every other _pct key here.",
       "connected_to": [
-        "druid_balance_natures_grace"
+        "druid_balance_starlight_wrath"
       ]
     },
     {
       "talent_id": "druid_balance_natures_majesty",
       "name": "Nature's Majesty",
-      "description": "Increases the critical strike chance of Starfire and Wrath by 3% per rank.",
+      "description": "Increases the critical strike chance of your Wrath, Starfire and Healing Touch by 2% per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
+      "hex_x": -4,
+      "hex_y": -4,
       "effects": {
-        "ability_druid_starfire_crit": 3,
-        "ability_druid_wrath_crit": 3
+        "ability_druid_wrath_crit": 2.0,
+        "ability_druid_starfire_crit": 2.0,
+        "ability_druid_healing_touch_crit": 2.0
       },
+      "_source": "WotLK row 1, built verbatim for the spells that exist: 'Increases the critical strike chance of your Wrath, Starfire, Starfall, Nourish and Healing Touch spells by 2%/4%.' ability_<id>_crit is PERCENTAGE POINTS while ability_<id>_crit_damage is a FRACTION - a greedy regex in probe_talent_key.py once mis-split this exact key family and falsely accused all 20 legitimate _crit_damage keys in the project.",
       "connected_to": [
-        "druid_balance_celestial_focus"
+        "druid_balance_starlight_wrath"
       ]
     },
     {
       "talent_id": "druid_balance_improved_moonfire",
       "name": "Improved Moonfire",
-      "description": "Increases the damage of Moonfire by 8% per rank and its critical strike chance by 3% per rank.",
+      "description": "Increases the damage and critical strike chance of your Moonfire by 5% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_druid_moonfire_damage": 0.08,
-        "ability_druid_moonfire_crit": 3
+        "ability_druid_moonfire_damage": 0.05,
+        "ability_druid_moonfire_crit": 5.0
       },
+      "_source": "WotLK row 1, built verbatim: 'Increases the damage and critical strike chance of your Moonfire spell by 5%/10%.' NOTE the two keys carry the SAME NUMBER in different units - 0.05 is a fraction and 5.0 is points, both meaning 5%. This is the single easiest line in the file to get wrong.",
       "connected_to": [
-        "druid_balance_starlight_wrath",
-        "druid_balance_lunar_guidance"
+        "druid_balance_starlight_wrath"
       ]
     },
     {
       "talent_id": "druid_balance_brambles",
       "name": "Brambles",
-      "description": "Attacks against you have a 33% chance per rank to lash the attacker with thorns, dealing Nature damage over 2 turns.",
+      "description": "Increases the damage of your Thorns and Entangling Roots by 25% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "ability_druid_thorns_potency": 0.25,
+        "ability_druid_entangling_roots_potency": 0.25
+      },
+      "_source": "WotLK row 2: 'Damage from your Thorns and Entangling Roots increased by 25%-75% and damage done by your Treants increased by 15%. In addition, damage from your Treants and attacks done to you while you have Barkskin active have a 15% chance to daze.' Treants do not exist (no druid pet template), and the daze is unbuildable - there is no movement speed, snare or root system, and a daze is not a stun, so is_stun would be the wrong substitute.\n\nUSES _potency, NOT _damage, AND THAT IS THE WHOLE POINT OF THIS NODE. The first draft authored ability_druid_thorns_damage and ability_druid_entangling_roots_damage, reading the real talent's word 'damage' literally. BOTH WOULD HAVE BEEN SILENT DEAD DATA, and nothing in the QA chain catches it: audit_talents only checks unit conventions, and probe --audit-all only checks that the ABILITY EXISTS, which both did. Neither ability has damage of its own to scale:\n  druid_thorns is effect_type 'buff' with stat_mods {'damage_dealt_pct': 3.0} - it is an ALLY BUFF that raises the target's damage, because THIS ENGINE HAS NO REFLECT-DAMAGE-ON-BEING-HIT MECHANIC AT ALL, so Thorns has always been an approximation (see its _design_note, which records it being dead twice over until 2026-10-29).\n  druid_entangling_roots is effect_type 'debuff' with stat_mods {'haste': -18, 'dodge': -12} - a pure snare with no damage component whatsoever.\nability_<id>_potency scales an ability's own stat_mods, so it is the only key that reaches either of these. Brambles therefore makes Thorns a STRONGER DAMAGE BUFF and Roots a stronger snare. Kyle, 5 Nov, confirming this directly: 'I do want to keep thorns as a damage buff' - so Thorns stays an ally damage buff and is NOT converted to a reflect here; a real reflect remains his call and a bigger change than a talent pass.",
       "connected_to": [
-        "druid_balance_genesis",
-        "druid_balance_insect_swarm"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 33,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "brambles_lash",
-          "name": "Brambles",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 15,
-          "damage_school": "nature",
-          "on_target": true
-        }
-      }
+        "druid_balance_genesis"
+      ]
     },
     {
       "talent_id": "druid_balance_natures_grace",
       "name": "Nature's Grace",
-      "description": "Your spell critical strikes have a 33% chance per rank to grant Nature's Grace, increasing your haste by 15% for 2 turns.",
+      "description": "Your spell crits have a 34% chance per rank to quicken your casting for 2 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 2, built close to verbatim: 'All non-periodic spell criticals have a 100% chance to grace you with a blessing of nature, increasing your spell casting speed by 20% for 3 sec.' KEPT AS A PROC - the real text is trigger-shaped. CHANCE IS 34, NOT THE REAL 100%: only a proc's CHANCE scales with points, never its PAYLOAD, so a 3-rank node at 100% would make ranks 2 and 3 buy literally nothing. check_talent_balance.py caught exactly that in four Warlock nodes this session. 34 x 3 clamps to 100 at full rank. The 'non-periodic' clause needs no enforcing because DOTS NEVER ROLL CRIT in this engine. haste is LIVE and measured as POINTS (probe: haste=3 moved the attribute +3).",
       "connected_to": [
-        "druid_balance_moonglow",
-        "druid_balance_dreamstate"
+        "druid_balance_genesis"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 33,
+        "chance": 34,
         "icd": 1,
         "apply_effect": {
           "effect_id": "natures_grace",
@@ -159,206 +152,302 @@
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "haste": 15.0
+            "haste": 20
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "druid_balance_celestial_focus",
-      "name": "Celestial Focus",
-      "description": "Reduces the cooldown of Starfall by 1 turn per rank.",
+      "talent_id": "druid_balance_natures_splendor",
+      "name": "Nature's Splendor",
+      "description": "Increases the duration of your Moonfire and Insect Swarm by 1 turn.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_druid_starfall_cooldown": 1
+        "ability_druid_moonfire_duration": 1,
+        "ability_druid_insect_swarm_duration": 1
       },
+      "_source": "WotLK row 2, built verbatim for the spells that exist: 'Increases the duration of your Moonfire and Rejuvenation by 3 sec, your Regrowth by 6 sec, and your Insect Swarm and Lifebloom by 2 sec.' Lifebloom does not exist; Rejuvenation and Regrowth are left to the Restoration tree so the duration work sits in one place. DURATIONS WERE CHECKED BEFORE EXTENDING: Moonfire and Insect Swarm both sit at 4 turns, so +1 lands them at 5, inside the 2-6 turn window measured from real fights. ability_<id>_duration is FLAT TURNS and POSITIVE EXTENDS.",
       "connected_to": [
-        "druid_balance_natures_majesty",
-        "druid_balance_moonfury"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_lunar_guidance",
-      "name": "Lunar Guidance",
-      "description": "Increases your Intellect by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "intellect_pct": 2.0
-      },
-      "connected_to": [
-        "druid_balance_improved_moonfire",
-        "druid_balance_natures_reach"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_insect_swarm",
-      "name": "Insect Swarm",
-      "description": "Grants Insect Swarm, a Nature damage-over-time spell.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "druid_insect_swarm"
-      },
-      "connected_to": [
-        "druid_balance_brambles",
-        "druid_balance_starfall"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_dreamstate",
-      "name": "Dreamstate",
-      "description": "Your Wrath and Starfire casts have a 20% chance per rank to restore 60 Mana.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "druid_balance_natures_grace",
-        "druid_balance_balance_of_power"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 0,
-        "ability_filter": [
-          "druid_wrath",
-          "druid_starfire"
-        ],
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 60
-        }
-      }
-    },
-    {
-      "talent_id": "druid_balance_moonfury",
-      "name": "Moonfury",
-      "description": "Increases the damage of Moonfire, Starfire and Wrath by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_druid_moonfire_damage": 0.02,
-        "ability_druid_starfire_damage": 0.02,
-        "ability_druid_wrath_damage": 0.02
-      },
-      "connected_to": [
-        "druid_balance_celestial_focus",
-        "druid_balance_vengeance"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_starfall",
-      "name": "Starfall",
-      "description": "Grants Starfall, calling down a rain of stars that damages all enemies over time.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "druid_starfall"
-      },
-      "connected_to": [
-        "druid_balance_insect_swarm",
-        "druid_balance_eclipse"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_balance_of_power",
-      "name": "Balance of Power",
-      "description": "Increases your spell hit chance by 1% per rank and reduces Magic damage taken by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "hit_rating": 1.0,
-        "magic_damage_taken_pct": -0.02
-      },
-      "connected_to": [
-        "druid_balance_dreamstate",
-        "druid_balance_gale_winds"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_vengeance",
-      "name": "Vengeance",
-      "description": "Increases your spell critical strike chance by 1.5% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "crit_chance_spell": 1.5
-      },
-      "connected_to": [
-        "druid_balance_moonfury",
-        "druid_balance_earth_and_moon"
+        "druid_balance_natures_grace"
       ]
     },
     {
       "talent_id": "druid_balance_natures_reach",
       "name": "Nature's Reach",
-      "description": "Increases the duration of your Moonfire and Insect Swarm by 1 turn per rank.",
+      "description": "Reduces the threat your spells generate by 15% per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 6,
+      "hex_y": -4,
+      "effects": {
+        "threat_multiplier": -0.15
+      },
+      "_source": "WotLK row 2, built for the half that works: 'Increases the range of your Balance spells and Faerie Fire by 10%/20%, and reduces the threat generated by your Balance spells by 15%/30%.' THERE IS NO RANGE OR POSITIONING in this engine at all, so only the threat half survives - at its real rate. threat_multiplier is TALENT-CHANNEL ONLY and would be SILENT DEAD DATA inside a proc's stat_mods.",
+      "connected_to": [
+        "druid_balance_natures_grace"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_vengeance",
+      "name": "Vengeance",
+      "description": "Increases the critical damage of your spells by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "crit_damage_spell": 0.08
+      },
+      "_source": "WotLK row 3: 'Increases the critical strike damage bonus of your Starfire, Starfall, Moonfire and Wrath spells by 20%-100%.' Scaled down hard to 40% at full rank, exactly as Ruin was in warlock_destruction: the real 100% assumes an 80-level raid, and Frontier fights run 2-3 turns on trash and 5-6 on a boss, so a doubled crit bonus would make one lucky Starfire the whole encounter. crit_damage_spell IS LIVE - it is read at abilities.py:1460 INSIDE A TERNARY, which is why a literal read-site probe reports nothing for it and why it was nearly declared dead.",
+      "connected_to": [
+        "druid_balance_moonglow"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_celestial_focus",
+      "name": "Celestial Focus",
+      "description": "Increases your spell haste by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "haste": 1.0
+      },
+      "_source": "WotLK row 3: 'Reduces the pushback suffered from damaging attacks while casting Starfire, Hibernate and Hurricane by 70% and increases your total spell haste by 3%.' The haste half is VERBATIM at 1% per rank. The pushback half has no content - no cast times means no pushback - and unlike Starlight Wrath this node does not need it, because the real talent already carries a second effect that works. haste measured LIVE as POINTS.",
+      "connected_to": [
+        "druid_balance_moonglow"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_lunar_guidance",
+      "name": "Lunar Guidance",
+      "description": "You gain spell power equal to 4% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "spell_power_from_intellect_pct": 0.04
+      },
+      "_source": "WotLK row 4, built verbatim: 'Increases your spell power by 4%/8%/12% of your total Intellect.' CRITICAL CONVENTION: the *_from_*_pct family is a FRACTION READ AS A RAW MULTIPLIER (character.py:1551, gained = source * pct), so authoring 4 for '4%' would grant FOUR TIMES the druid's Intellect as spell power. The family is LIVE but invisible to a read-site probe by literal name - it was confirmed by MEASUREMENT on a warlock this session (spell_power_from_stamina_pct moved spell power 15 -> 21). intellect is a valid conversion SOURCE and spell_power a valid TARGET (STAT_CONVERSION_TARGETS, character.py:18).",
+      "connected_to": [
+        "druid_balance_natures_splendor"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_insect_swarm",
+      "name": "Insect Swarm",
+      "description": "Teaches Insect Swarm, a cloud of stinging insects.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "druid_insect_swarm"
+      },
+      "_source": "WotLK row 4, kept - the ONLY unlock for druid_insect_swarm, which is requires_talent. The one Balance unlock that was ALREADY at its correct tier.",
+      "connected_to": [
+        "druid_balance_natures_splendor"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_improved_insect_swarm",
+      "name": "Improved Insect Swarm",
+      "description": "Increases your Wrath damage by 3% per rank and your Starfire crit by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "ability_druid_wrath_damage": 0.03,
+        "ability_druid_starfire_crit": 3.0
+      },
+      "_source": "WotLK row 4: 'Increases your damage done by your Wrath spell to targets afflicted by your Insect Swarm by 1%-3%, and increases the critical strike chance of your Starfire spell by 1%-3% on targets afflicted by your Moonfire spell.' DEPARTURE - NOTHING READS A DEBUFF ON THE TARGET, one of the hardest confirmed engine limits and the same gap that blocks Fire and Brimstone for the warlock. The real talent's entire design is that pair of conditions, so losing them is a genuine loss; both bonuses become unconditional at the real 3% rather than being inflated to compensate, because the node already gains a lot by shedding its setup.",
+      "connected_to": [
+        "druid_balance_insect_swarm"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_dreamstate",
+      "name": "Dreamstate",
+      "description": "Restores 6 mana every 5 seconds per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_druid_moonfire_duration": 1,
-        "ability_druid_insect_swarm_duration": 1
+        "mp5": 6
       },
+      "_source": "WotLK row 5: 'Regenerate mana equal to 4%/7%/10% of your Intellect every 5 sec, even while casting.' DEPARTURE - mp5 is FLAT and there is no mp5_from_intellect conversion (STAT_CONVERSION_TARGETS has no mana or regen target), so the Intellect scaling is lost and the value is sized against a level-60 druid's pool. mp5 measured LIVE (probe: mp5=10 moved the attribute +10). The 'even while casting' clause needs no enforcing - there are no cast times.",
+      "connected_to": [
+        "druid_balance_celestial_focus"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_moonfury",
+      "name": "Moonfury",
+      "description": "Increases the damage of your Starfire, Moonfire and Wrath by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "ability_druid_starfire_damage": 0.03,
+        "ability_druid_moonfire_damage": 0.03,
+        "ability_druid_wrath_damage": 0.03
+      },
+      "_source": "WotLK row 5, built verbatim: 'Increases the damage done by your Starfire, Moonfire and Wrath spells by 3%-10%.' Stacks with Starlight Wrath, Improved Moonfire and Wrath of Cenarius, as all four real talents do.",
       "connected_to": [
         "druid_balance_lunar_guidance"
       ]
     },
     {
-      "talent_id": "druid_balance_eclipse",
-      "name": "Eclipse",
-      "description": "Your Starfire critical strikes have a 33% chance per rank to trigger Eclipse, granting 40 spell power for 2 turns.",
+      "talent_id": "druid_balance_balance_of_power",
+      "name": "Balance of Power",
+      "description": "Increases your spell hit chance by 2% per rank and reduces spell damage taken by 3% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 0,
+      "effects": {
+        "hit_rating": 2.0,
+        "spell_damage_taken_pct": -0.03
+      },
+      "_source": "WotLK row 5, built verbatim: 'Increases your chance to hit with all spells by 2%/4% and reduces your damage taken from all spells by 3%/6%.' TWO KEYS, TWO CONVENTIONS: hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET, while spell_damage_taken_pct is a FRACTION AS A TALENT EFFECT and POINTS inside a status effect - Nether Protection in warlock_destruction uses the points form of this same key.",
+      "connected_to": [
+        "druid_balance_improved_insect_swarm"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_moonkin_form",
+      "name": "Moonkin Form",
+      "description": "Teaches Moonkin Form, the shape of the owl and the bear together.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "druid_moonkin_form"
+      },
+      "_source": "WotLK row 6 - MOVED FROM TIER 6 TO TIER 4, which is Kyle's own flag ('The healing form can be a lvl 40 talent and the DPS form can be lvl 40 talent, think of it like Tree of Life or moonkin') and is also simply where the real tree puts it. The ONLY unlock for druid_moonkin_form, which is requires_talent - that gate was added earlier this session when all five druid forms turned out to be auto-learned, so three talent points were buying nothing at all.",
+      "connected_to": [
+        "druid_balance_dreamstate"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_improved_moonkin_form",
+      "name": "Improved Moonkin Form",
+      "description": "You gain spell power equal to 10% of your Spirit per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "spell_power_from_spirit_pct": 0.1
+      },
+      "_source": "WotLK row 6: 'Your Moonkin Aura also causes affected targets to gain 3% haste and you to gain 30% of your spirit as additional spell damage.' The SELF half is verbatim at 10% per rank. The aura half is unbuildable: A TALENT EFFECT CAN NEVER REACH AN ALLY - only a party-targeted ABILITY can (abilities.py:2064) - which is the same wall that cost Demonic Pact its raid identity in warlock_demonology. spirit is a valid conversion SOURCE; the RAW MULTIPLIER convention applies, so 0.10 and not 10.",
+      "connected_to": [
+        "druid_balance_moonkin_form"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_owlkin_frenzy",
+      "name": "Owlkin Frenzy",
+      "description": "In Moonkin Form, being struck has a 15% chance to raise your damage by 10% for 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
       "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 7, built close to verbatim: 'Attacks done to you while in Moonkin form have a 5%-15% chance to cause you to go into a Frenzy, increasing your damage by 10%, cause you to be immune to pushback while casting Balance spells and restore 2% base mana every 2 sec.' USES require_form, which is a REAL proc field and is the right gate here - the real talent is explicitly Moonkin-only, and this node sits directly under the Moonkin Form unlock so the gate is always satisfiable. The pushback clause has no content (no cast times) and the mana tick is dropped to keep the node to one readable effect. CHANCE IS 15 FLAT, NOT rank-scaled, because 15 x 3 would reach 45% against a real 15% ceiling; the damage_dealt_pct payload carries the full real value instead, and ranks buy the node's position in the tree. damage_dealt_pct is POINTS and is the ONLY damage key a status effect can carry.",
       "connected_to": [
-        "druid_balance_starfall",
-        "druid_balance_wrath_of_cenarius"
+        "druid_balance_moonkin_form"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 15,
+        "icd": 1,
+        "require_form": "moonkin",
+        "apply_effect": {
+          "effect_id": "owlkin_frenzy",
+          "name": "Owlkin Frenzy",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 10.0
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "druid_balance_wrath_of_cenarius",
+      "name": "Wrath of Cenarius",
+      "description": "Increases the damage of your Starfire and Wrath by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_druid_wrath_damage": 0.02,
+        "ability_druid_starfire_damage": 0.02
+      },
+      "_source": "WotLK row 7: 'Your Starfire spell gains an additional 4%-20% and your Wrath gains an additional 2%-10% of your bonus damage effects.' Spell-power coefficients are not exposed to talents, so it becomes direct damage. The real talent's asymmetry (Starfire twice Wrath) is flattened because the two spells are not differentiated enough here for it to read as anything but a number. Improved Faerie Fire, the other row-6 talent, is DROPPED - no Faerie Fire ability exists.",
+      "connected_to": [
+        "druid_balance_balance_of_power"
+      ]
+    },
+    {
+      "talent_id": "druid_balance_eclipse",
+      "name": "Eclipse",
+      "description": "Your Starfire crits raise your damage by 5% per rank for 3 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 8: 'When you critically hit with Starfire, you have a 100% chance of increasing damage done by Wrath by 40%. When you critically hit with Wrath, you have a 60% chance of increasing your critical strike chance with Starfire by 40%.' DEPARTURE on the ABILITY SCOPING: a status effect cannot carry an ability-scoped key - ability_<id>_damage is TALENT-CHANNEL ONLY and would be silent dead data inside a proc - so the Wrath-specific buff becomes general damage. Only the Starfire half is built; both halves would be two procs doing the same thing once the ability scoping is gone. CHANCE IS 34 x 3, not the real 100%, for the multi-rank reason given on Nature's Grace.",
+      "connected_to": [
+        "druid_balance_owlkin_frenzy"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 33,
+        "chance": 34,
         "icd": 1,
         "ability_filter": [
           "druid_starfire"
@@ -367,53 +456,74 @@
           "effect_id": "eclipse",
           "name": "Eclipse",
           "effect_type": "buff",
-          "duration": 2,
+          "duration": 3,
           "stat_mods": {
-            "spell_power": 40
+            "damage_dealt_pct": 15.0
           },
           "on_target": false
         }
       }
     },
     {
+      "talent_id": "druid_balance_typhoon",
+      "name": "Typhoon",
+      "description": "Teaches Typhoon, a blast of wind that throws enemies back.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "druid_typhoon"
+      },
+      "_source": "WotLK row 8 - MOVED FROM TIER 6 to its real tier 5. The ONLY unlock for druid_typhoon, which is requires_talent.",
+      "connected_to": [
+        "druid_balance_eclipse"
+      ]
+    },
+    {
       "talent_id": "druid_balance_gale_winds",
       "name": "Gale Winds",
-      "description": "Increases the damage of Typhoon and Starfall by 10% per rank.",
+      "description": "Increases the damage of your Typhoon by 15% per rank.",
       "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
+      "tier": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
+      "hex_x": 0,
+      "hex_y": 4,
       "effects": {
-        "ability_druid_typhoon_damage": 0.1,
-        "ability_druid_starfall_damage": 0.1
+        "ability_druid_typhoon_damage": 0.15
       },
+      "_source": "WotLK row 8, built verbatim for the one spell we have: 'Increases damage done by your Hurricane and Typhoon spells by 15%/30%, and increases the range of your Cyclone spell by 4 yards.' Hurricane and Cyclone do not exist, and there is no range. Force of Nature, the other row-8 talent, is DROPPED: it summons treants, there is no druid pet template, and PETS NEVER FIRE PROCS even if there were.",
       "connected_to": [
-        "druid_balance_balance_of_power",
-        "druid_balance_owlkin_frenzy"
+        "druid_balance_typhoon"
       ]
     },
     {
       "talent_id": "druid_balance_earth_and_moon",
       "name": "Earth and Moon",
-      "description": "Your Wrath casts have a 33% chance per rank to leave the target taking 4% more Magic damage for 3 turns.",
+      "description": "Increases your spell damage by 2% per rank, and your Wrath and Starfire leave the target taking 13% more spell damage.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {},
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "spell_damage": 0.02
+      },
+      "_source": "WotLK row 9, BOTH HALVES BUILT, which is rare in this tree: 'Your Wrath and Starfire spells have a 100% chance to apply the Earth and Moon effect, increasing spell damage taken by 13% for 12 sec. Also increases your spell damage by 2%-6%.' The chance is a real 100% AND the node has a scaling effects dict alongside the proc, so ranks 2 and 3 still buy something - this is the one case where a 100% multi-rank proc is legitimate, and check_talent_balance.py accepts it for exactly that reason. CRITICAL: spell_damage_taken_pct is POINTS INSIDE A STATUS EFFECT (13.0) and a FRACTION as a talent effect - Balance of Power three tiers down uses the fraction form of this same key, so the two conventions sit in one file deliberately. It is also one of only EIGHT stat_mods a MONSTER can read, so the debuff really lands. 12 sec is 3 turns.",
       "connected_to": [
-        "druid_balance_vengeance"
+        "druid_balance_wrath_of_cenarius"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 33,
+        "chance": 100,
         "icd": 0,
         "ability_filter": [
-          "druid_wrath"
+          "druid_wrath",
+          "druid_starfire"
         ],
         "apply_effect": {
           "effect_id": "earth_and_moon",
@@ -421,100 +531,27 @@
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "magic_damage_taken_pct": 4
-          },
-          "on_target": true
+            "spell_damage_taken_pct": 13.0
+          }
         }
       }
     },
     {
-      "talent_id": "druid_balance_wrath_of_cenarius",
-      "name": "Wrath of Cenarius",
-      "description": "Increases the damage of Starfire by 4% per rank and the critical strike chance of Wrath by 1% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "ability_druid_starfire_damage": 0.04,
-        "ability_druid_wrath_crit": 1
-      },
-      "connected_to": [
-        "druid_balance_eclipse",
-        "druid_balance_moonkin_form"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_owlkin_frenzy",
-      "name": "Owlkin Frenzy",
-      "description": "While in Moonkin Form, being struck has a 15% chance per rank to send you into an Owlkin Frenzy, granting 50 spell power for 2 turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "druid_balance_gale_winds",
-        "druid_balance_balance_mastery"
-      ],
-      "require_form": [
-        "moonkin"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 1,
-        "require_form": [
-          "moonkin"
-        ],
-        "apply_effect": {
-          "effect_id": "owlkin_frenzy",
-          "name": "Owlkin Frenzy",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "spell_power": 50
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "druid_balance_moonkin_form",
-      "name": "Moonkin Form",
-      "description": "Learn Moonkin Form, a real shapeshift that increases Armor and spell critical strike chance.",
+      "talent_id": "druid_balance_starfall",
+      "name": "Starfall",
+      "description": "Teaches Starfall, calling the stars down on everything nearby.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "druid_moonkin_form"
+        "unlock_ability": "druid_starfall"
       },
+      "_source": "WotLK row 10, the capstone - MOVED FROM TIER 3, which was the worst placement in the tree: Balance's capstone ability was buyable a third of the way up it. The ONLY unlock for druid_starfall, which is requires_talent.",
       "connected_to": [
-        "druid_balance_wrath_of_cenarius"
-      ]
-    },
-    {
-      "talent_id": "druid_balance_balance_mastery",
-      "name": "Typhoon",
-      "description": "Grants Typhoon, a violent gust of wind that damages all enemies.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "druid_typhoon"
-      },
-      "connected_to": [
-        "druid_balance_owlkin_frenzy"
+        "druid_balance_earth_and_moon"
       ]
     }
   ]

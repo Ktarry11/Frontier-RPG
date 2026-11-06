@@ -121,7 +121,7 @@
     {
       "talent_id": "warlock_affliction_improved_life_tap",
       "name": "Improved Life Tap",
-      "description": "Increases the mana your Life Tap returns by 10% per rank.",
+      "description": "Reduces the cooldown of your Life Tap by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -129,9 +129,9 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_warlock_life_tap_potency": 0.1
+        "ability_warlock_life_tap_cooldown": 1
       },
-      "_source": "WotLK row 1, built verbatim: 'Increases the amount of Mana awarded by your Life Tap spell by 10%/20%.' The outgoing version reduced Life Tap's COOLDOWN instead, which is a different talent.",
+      "_source": "WotLK row 1, built verbatim: 'Increases the amount of Mana awarded by your Life Tap spell by 10%/20%.' DEPARTURE, and the first draft of this node got it wrong: it authored ability_warlock_life_tap_potency, which is SILENT DEAD DATA because warlock_life_tap is effect_type 'restore_resource' and carries NO stat_mods for _potency to scale. Nothing in the QA chain caught it - audit_talents checks unit conventions and probe --audit-all only checks the ability EXISTS - which is why tools/qa_ability_scoped_fields.py was written. The mana a restore_resource returns is its effect_value and no talent key reaches it, so the node becomes Life Tap's cooldown (a real 3 turns) instead, which delivers more total mana per fight by another route.",
       "connected_to": [
         "warlock_affliction_suppression"
       ]
@@ -139,7 +139,7 @@
     {
       "talent_id": "warlock_affliction_amplify_curse",
       "name": "Amplify Curse",
-      "description": "Reduces the cooldown of your curses by 1 turn.",
+      "description": "Reduces the cooldown of your Curse of Weakness by 1 turn and the cost of all your curses by 10%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -147,11 +147,12 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_warlock_curse_of_agony_cooldown": 1,
         "ability_warlock_curse_of_weakness_cooldown": 1,
-        "ability_warlock_curse_of_recklessness_cooldown": 1
+        "ability_warlock_curse_of_agony_cost_pct": 0.1,
+        "ability_warlock_curse_of_weakness_cost_pct": 0.1,
+        "ability_warlock_curse_of_recklessness_cost_pct": 0.1
       },
-      "_source": "WotLK row 1: 'Reduces the global cooldown of your Curses by 0.5 sec.' There is no global cooldown in this engine, so it becomes a per-curse cooldown reduction across all three real curses. talented_cooldown clamps at 1 turn. It is Curse of Exhaustion's prerequisite in the real tree; that ability does not exist here.",
+      "_source": "WotLK row 1: 'Reduces the global cooldown of your Curses by 0.5 sec.' There is no global cooldown in this engine. The first draft reduced the cooldown of ALL THREE curses, and TWO OF THE THREE KEYS WERE DEAD: curse_of_agony and curse_of_recklessness both have cooldown 0, so there was nothing to reduce. Only curse_of_weakness has a real cooldown (3 turns). Caught by tools/qa_ability_scoped_fields.py. The node now reduces the one real cooldown AND the cost of all three, which every curse does have, so each rank buys something on every curse. _cost_pct is a FRACTION where POSITIVE IS A REDUCTION. It is Curse of Exhaustion's prerequisite in the real tree; that ability does not exist here.",
       "connected_to": [
         "warlock_affliction_improved_corruption"
       ]
@@ -167,9 +168,9 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_warlock_drain_life_healing": 0.1
+        "ability_warlock_drain_life_damage": 0.1
       },
-      "_source": "WotLK row 1: 'Increases the amount drained by your Drain Life and Drain Soul spells by an additional 3%/6% for each of your Affliction effects on the target.' DEPARTURE - nothing counts how many of your own effects are on a target, so the per-effect scaling is impossible. Delivered as a flat increase. USES _healing because Drain Life's return is a heal - _damage would be silently dead, the mistake that left 18 talents dead across four classes.",
+      "_source": "WotLK row 1: 'Increases the amount drained by your Drain Life and Drain Soul spells by an additional 3%/6% for each of your Affliction effects on the target.' DEPARTURE - nothing counts how many of your own effects are on a target, so the per-effect scaling is impossible. Delivered as a flat increase. USES _damage, NOT _healing: the first draft reasoned that Drain Life's return is a heal and so wanted _healing, but warlock_drain_life is effect_type 'spell_damage' in this project - the drain is modelled as damage with a leech, not as a heal - and _healing is read ONLY when school == 'healing' (abilities.py:1584), so it was SILENT DEAD DATA. _damage is read for every ability at abilities.py:1574, before that branch, so it lands. Caught by tools/qa_ability_scoped_fields.py.",
       "connected_to": [
         "warlock_affliction_improved_corruption"
       ]
@@ -446,7 +447,7 @@
       "hex_x": -4,
       "hex_y": 4,
       "effects": {
-        "ability_warlock_drain_life_healing": 0.1,
+        "ability_warlock_drain_life_damage": 0.1,
         "low_health_damage_reduction_pct": 0.03
       },
       "_source": "WotLK row 5: 'Increases the amount drained by your Drain Life by 10%/20%/30% while your health is at or below 20%.' DEPARTURE on the condition for the drain half - there is no low-health conditional that scopes to one ABILITY, only the global low_health_* family - so the Drain Life bonus is unconditional and a real low-health mitigation rider is added alongside it. low_health_damage_reduction_pct reads the ACTOR's own health and defaults to a 50% threshold, so low_health_threshold_pct is NOT authored - the outgoing version DID author it at 0.35.",
