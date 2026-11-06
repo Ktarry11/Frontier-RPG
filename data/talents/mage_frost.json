@@ -1,7 +1,7 @@
 {
   "spec_name": "Mage Frost",
   "tree_id": "mage_frost",
-  "description": "Control and survivability, freezing enemies before shattering them.",
+  "description": "Ice and control - and, for those who learn it, the Light held in frozen form.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,143 +15,140 @@
     {
       "talent_id": "mage_frost_frostbite",
       "name": "Frostbite",
-      "description": "Your damaging spells have a 10% chance per rank to freeze the target solid for 1 turn.",
+      "description": "Your Frost spells have a 5% chance per rank to freeze the target for 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -5,
       "hex_y": -6,
       "effects": {},
-      "connected_to": [
-        "mage_frost_frost_warding"
-      ],
+      "_source": "WotLK row 0: 'Gives your Chill effects a 5%/10%/15% chance to freeze the target for 5 sec.' Built as a real stun - is_stun is this engine's only incapacitate and is exactly what 'freeze the target' means. DEPARTURE on the source: there are no Chill effects to attach to, so it fires on any Frost damage cast. icd 1 holds it to once a turn. The outgoing node had an EMPTY effects dict and no proc - it did nothing for 3 points.",
+      "connected_to": [],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 10,
+        "chance": 5,
         "icd": 1,
         "apply_effect": {
-          "effect_id": "frostbite_freeze",
+          "effect_id": "frostbite",
           "name": "Frostbite",
           "effect_type": "debuff",
-          "duration": 1,
-          "stat_mods": {},
-          "is_stun": true,
-          "on_target": true
+          "duration": 2,
+          "is_stun": true
         }
       }
     },
     {
       "talent_id": "mage_frost_improved_frostbolt",
       "name": "Improved Frostbolt",
-      "description": "Increases the damage of Frostbolt by 5% and its critical strike chance by 1% per rank.",
+      "description": "Increases the damage of your Frostbolt by 3% per rank and its critical chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_mage_frostbolt_damage": 0.05,
+        "ability_mage_frostbolt_damage": 0.03,
         "ability_mage_frostbolt_crit": 1.0
       },
-      "connected_to": [
-        "mage_frost_permafrost"
-      ]
+      "_source": "WotLK row 0: 'Reduces the casting time of your Frostbolt spell by 0.1-0.5 sec.' DEPARTURE - no cast times. A shorter cast is more throughput, so it is delivered as damage plus a little crit. Kept from the outgoing tree at the same values.",
+      "connected_to": []
     },
     {
-      "talent_id": "mage_frost_elemental_precision",
-      "name": "Elemental Precision",
-      "description": "Increases your Hit Rating by 1 per rank, reducing the chance your spells miss.",
+      "talent_id": "mage_frost_ice_floes",
+      "name": "Ice Floes",
+      "description": "Reduces the cooldown of your Frost Nova, Cone of Cold and Icy Veins by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0
+        "ability_mage_frost_nova_cooldown": 1,
+        "ability_mage_cone_of_cold_cooldown": 1,
+        "ability_mage_icy_veins_cooldown": 1
       },
-      "connected_to": [
-        "mage_frost_piercing_ice"
-      ]
+      "_source": "WotLK row 0, NEW to our tree: 'Reduces the cooldown of your Frost Nova, Cone of Cold, Ice Block and Icy Veins spells by 7%/13%/20%.' Ice Block does not exist; the other three do. Authored as FLAT turns rather than the real percentage because _cooldown_pct would compound awkwardly across three different cooldowns. talented_cooldown clamps at 1 turn.",
+      "connected_to": []
     },
     {
       "talent_id": "mage_frost_ice_shards",
       "name": "Ice Shards",
-      "description": "Your critical strikes have a 20% chance per rank to shatter into shards, adding 15% of the hit again as frost damage.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {},
-      "connected_to": [
-        "mage_frost_icy_veins"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 0,
-        "bonus_pct": 0.15
-      }
-    },
-    {
-      "talent_id": "mage_frost_frost_warding",
-      "name": "Frost Warding",
-      "description": "Increases the Armor and Magic Resistance granted by Ice Barrier by 10% per rank. When you take damage, 12% chance per rank to form a ward absorbing 5% of your maximum Health for 3 turns.",
+      "description": "Increases the critical damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -7,
       "hex_y": -4,
       "effects": {
-        "ability_mage_ice_barrier_potency": 0.1
+        "crit_damage_spell": 0.2
       },
+      "_source": "WotLK row 1: 'Increases the critical strike damage bonus of your Frost spells by 33%/66%/100%.' Built as school-wide spell crit damage - crit_damage_spell is a FRACTION, read at abilities.py:1460 inside a ternary (so the probe finds no literal read site and it is nonetheless live), and it cannot be scoped to one school. NOTE it is DEAD inside a status effect; only the talent-effect form works, which is what this is. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_frostbite",
-        "mage_frost_blizzard"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 12,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "frost_warding_shield",
-          "name": "Frost Warding",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {},
-          "absorb_pct_max_health": 0.05,
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "mage_frost_permafrost",
-      "name": "Permafrost",
-      "description": "Increases the duration of Blizzard and Frost Nova by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_mage_blizzard_duration": 1,
-        "ability_mage_frost_nova_duration": 1
-      },
-      "connected_to": [
-        "mage_frost_improved_frostbolt",
-        "mage_frost_arctic_reach"
+        "mage_frost_frostbite"
       ]
     },
     {
       "talent_id": "mage_frost_piercing_ice",
       "name": "Piercing Ice",
-      "description": "Increases your spell damage by 3% per rank. Your damaging spells also have a 10% chance per rank to slow the target for 3 turns, reducing its Haste by 15.",
+      "description": "Increases your Frost spell damage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {
+        "frost_spell_damage": 0.02
+      },
+      "_source": "WotLK row 1: 'Increases the damage done by your Frost spells by 2%/4%/6%.' USES THE PER-SCHOOL KEY DELIBERATELY. frost_spell_damage is built as f'{school}_spell_damage' at abilities.py:1371, so a literal grep cannot see it - the exact family that caused arcane_spell_damage to be WRONGLY declared dead in this project, published in a commit and a doc before correction. It is LIVE and it is the right key for a school-scoped talent. The outgoing version used the school-agnostic spell_damage, which also lifted the mage's Fire and Arcane damage.",
+      "connected_to": [
+        "mage_frost_frostbite"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_frost_warding",
+      "name": "Frost Warding",
+      "description": "Increases the absorption of your Ice Barrier by 15% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -4,
+      "effects": {
+        "ability_mage_ice_barrier_potency": 0.15
+      },
+      "_source": "WotLK row 1: 'Increases the armor and resistances given by your Frost Armor and Ice Armor spells by 25%/50%.' DEPARTURE - neither Armor spell exists as a distinct Frost spell (mage_armor is generic). Ice Barrier is this tree's real protective spell, so the potency lands there. Kept from the outgoing tree.",
+      "connected_to": [
+        "mage_frost_improved_frostbolt"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_icy_veins",
+      "name": "Icy Veins",
+      "description": "Teaches Icy Veins, hastening your casting.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "mage_icy_veins"
+      },
+      "_source": "WotLK row 1, kept - the ONLY unlock for mage_icy_veins, which is requires_talent. Its pushback-reduction clause has nothing to act on.",
+      "connected_to": [
+        "mage_frost_improved_frostbolt"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_precision",
+      "name": "Elemental Precision",
+      "description": "Increases your chance to hit by 1% per rank and reduces your spell costs by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -159,50 +156,75 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "spell_damage": 0.03
+        "hit_rating": 1.0,
+        "all_ability_cost_pct": 0.02
       },
+      "_source": "WotLK row 1 ('Precision'): 'Reduces the mana cost and increases your chance to hit with spells by 1%/2%/3%.' Built with BOTH halves, where the outgoing version had hit_rating alone. The display name keeps the outgoing tree's 'Elemental Precision' so nothing referring to it by name breaks. all_ability_cost_pct is a FRACTION where POSITIVE IS A REDUCTION and FLIPS to points inside a status effect.",
       "connected_to": [
-        "mage_frost_elemental_precision",
-        "mage_frost_frost_channeling"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "piercing_ice_slow",
-          "name": "Piercing Ice",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": -15
-          },
-          "on_target": true
-        }
-      }
+        "mage_frost_ice_floes"
+      ]
     },
     {
-      "talent_id": "mage_frost_icy_veins",
-      "name": "Icy Veins",
-      "description": "Teaches Icy Veins, increasing your casting speed for a few turns.",
-      "node_type": "active",
+      "talent_id": "mage_frost_permafrost",
+      "name": "Permafrost",
+      "description": "Increases the duration of your Blizzard and Frost Nova by 1 turn per rank.",
+      "node_type": "passive",
       "tier": 1,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "mage_icy_veins"
+        "ability_mage_blizzard_duration": 1,
+        "ability_mage_frost_nova_duration": 1
       },
+      "_source": "WotLK row 1: 'Increases the duration of your Chill effects by 1-3 secs, reduces the target's speed by an additional 4%-10%.' DEPARTURE - there are no Chill effects and no movement speed. Delivered as duration on the tree's two control spells, which is the nearest real reading. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. Kept from the outgoing tree.",
       "connected_to": [
-        "mage_frost_ice_shards",
-        "mage_frost_shatter"
+        "mage_frost_ice_floes"
       ]
     },
     {
-      "talent_id": "mage_frost_blizzard",
-      "name": "Blizzard",
-      "description": "Teaches Blizzard, pelting an area with ice over several turns.",
+      "talent_id": "mage_frost_arctic_reach",
+      "name": "Arctic Reach",
+      "description": "Increases the damage of your Ice Lance and Blizzard by 8% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -7,
+      "hex_y": -2,
+      "effects": {
+        "ability_mage_ice_lance_damage": 0.08,
+        "ability_mage_blizzard_damage": 0.08
+      },
+      "_source": "WotLK row 2: 'Increases the range of your Frostbolt, Ice Lance, Deep Freeze and Blizzard spells.' DEPARTURE - there is no range. A longer reach is more casts landed, so it is delivered as damage on the two of the four that are not already covered by Improved Frostbolt. The outgoing version granted flat frost_spell_power, which is Piercing Ice's territory.",
+      "connected_to": [
+        "mage_frost_ice_shards"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_frost_channeling",
+      "name": "Frost Channeling",
+      "description": "Reduces the cost of your spells by 3% per rank and the threat they generate by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "all_ability_cost_pct": 0.03,
+        "threat_generation_pct": -0.03
+      },
+      "_source": "WotLK row 2, built verbatim with both halves: 'Reduces the mana cost of all spells by 4%/7%/10% and reduces the threat caused by your Frost spells by 4%/7%/10%.' There is no per-school threat key, only the global threat_generation_pct, which is a FRACTION. Stacks with Elemental Precision on cost. The outgoing version was flat per-ability cost cuts.",
+      "connected_to": [
+        "mage_frost_piercing_ice"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_cold_snap",
+      "name": "Cold Snap",
+      "description": "Teaches Cold Snap, finishing the cooldown on your Frost spells.",
       "node_type": "active",
       "tier": 2,
       "max_points": 1,
@@ -210,36 +232,35 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "mage_blizzard"
+        "unlock_ability": "mage_cold_snap"
       },
-      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was named 'Improved Blizzard' (the real Classic WoW Frost talent that upgrades an existing baseline Blizzard spell) but no baseline Blizzard ability ever existed in this game's data, and the talent only buffed Arcane Explosion instead - another templated-filler artifact with no _source citation, same pattern as Fire's Blast Wave. Renamed to just 'Blizzard' and changed to grant the real spell directly (data/abilities/mage.json), same requires_talent/unlock_ability shape Priest's Mind Sear already uses, rather than half-building an 'Improved' upgrade on a baseline that still wouldn't exist. Gives Frost its own sustained AoE DoT, distinct from Fire's instant Blast Wave nuke and the shared baseline Arcane Explosion. max_points reduced from 3 to 1 (rank-up-a-flat-%-buff no longer applies; this is now a learn-the-spell unlock talent, same single-rank shape as every other unlock_ability talent in the game).",
+      "_source": "WotLK row 2, kept - the ONLY unlock for mage_cold_snap, which is requires_talent. It is Ice Barrier's and Cold as Ice's prerequisite in the real tree, both preserved below.",
       "connected_to": [
-        "mage_frost_frost_warding",
-        "mage_frost_frozen_core"
+        "mage_frost_frost_warding"
       ]
     },
     {
-      "talent_id": "mage_frost_arctic_reach",
-      "name": "Arctic Reach",
-      "description": "Increases your Frost Spell Power by 10 per rank.",
+      "talent_id": "mage_frost_shatter",
+      "name": "Shatter",
+      "description": "Increases your spell critical chance by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "frost_spell_power": 10
+        "crit_chance_spell": 2.0
       },
+      "_source": "WotLK row 2: 'Increases the critical strike chance of all your spells against frozen targets by 17%/34%/50%.' DEPARTURE - NOTHING in this engine reads a debuff on the target, so 'against frozen targets' cannot be checked. Delivered unconditionally at a far smaller value, since it is now always on rather than situational. Frost's whole frozen-target identity runs into this wall - see also Fingers of Frost and Deep Freeze. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_permafrost",
-        "mage_frost_ice_barrier"
+        "mage_frost_icy_veins"
       ]
     },
     {
-      "talent_id": "mage_frost_frost_channeling",
-      "name": "Frost Channeling",
-      "description": "Reduces the Mana cost of Frostbolt and Blizzard by 4 per rank.",
+      "talent_id": "mage_frost_improved_cone_of_cold",
+      "name": "Improved Cone of Cold",
+      "description": "Increases the damage of your Cone of Cold by 12% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -247,221 +268,222 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_mage_frostbolt_cost": 4,
-        "ability_mage_blizzard_cost": 4
+        "ability_mage_cone_of_cold_damage": 0.12
       },
+      "_source": "WotLK row 2, NEW to our tree, built verbatim: 'Increases the damage dealt by your Cone of Cold spell by 15%/25%/35%.' 12% per rank reaches 36%, the nearest whole percent per rank.",
       "connected_to": [
-        "mage_frost_piercing_ice",
-        "mage_frost_arctic_winds"
+        "mage_frost_precision"
       ]
     },
     {
-      "talent_id": "mage_frost_shatter",
-      "name": "Shatter",
-      "description": "Casting Frost Nova or Cone of Cold has a 20% chance per rank to open a Shatter window for 3 turns, increasing your spell critical strike chance by 20.",
+      "talent_id": "mage_frost_frozen_core",
+      "name": "Frozen Core",
+      "description": "Reduces spell damage taken by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {},
+      "effects": {
+        "spell_damage_taken_pct": -0.02
+      },
+      "_source": "WotLK row 2, built verbatim: 'Reduces the damage taken from all spells by 2%/4%/6%.' spell_damage_taken_pct is a FRACTION as a talent effect and NEGATIVE reduces. The outgoing version used low_health_damage_reduction_pct AND low_health_threshold_pct, which is a different talent entirely (Fiery Payback, in Fire) and put this class one node from a summing-threshold breach.",
       "connected_to": [
-        "mage_frost_icy_veins",
-        "mage_frost_empowered_frostbolt"
+        "mage_frost_permafrost"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_cold_as_ice",
+      "name": "Cold as Ice",
+      "description": "Reduces the cooldown of your Cold Snap and Ice Barrier by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 0,
+      "effects": {
+        "ability_mage_cold_snap_cooldown": 1,
+        "ability_mage_ice_barrier_cooldown": 1
+      },
+      "_source": "WotLK row 3, NEW to our tree: 'Reduces the cooldown of your Cold Snap, Ice Barrier and Summon Water Elemental spells by 10%/20%.' Summon Water Elemental does not exist. The real talent requires Cold Snap, which connected_to reproduces.",
+      "connected_to": [
+        "mage_frost_cold_snap"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_winters_chill",
+      "name": "Winter's Chill",
+      "description": "Increases the critical chance of your Frostbolt by 1% per rank and your Frost spell damage by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {
+        "ability_mage_frostbolt_crit": 1.0,
+        "frost_spell_damage": 0.01
+      },
+      "_source": "WotLK row 3: 'Increases your chance to critically hit with Frostbolt by an additional 1%/2%/3% and gives your Frost damage spells a chance to apply the Winter's Chill effect, increasing the chance of a critical strike against the target.' The self-crit half is built; the target-debuff half needs something to read a debuff on the target, which does not exist, so a small Frost damage bonus stands in. The outgoing version was flat spell_damage.",
+      "connected_to": [
+        "mage_frost_shatter"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_shattered_barrier",
+      "name": "Shattered Barrier",
+      "description": "Your Ice Barrier has a 50% chance per rank to freeze nearby enemies for 1 turn.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'Gives your Ice Barrier spell a 50%/100% chance to freeze all enemies within 10 yds for 8 sec when it is destroyed.' DEPARTURE on the trigger - there is no event for an absorb shield being CONSUMED or an effect EXPIRING, so it fires when the barrier is CAST instead. A 1-turn stun rather than 8 seconds, because a stun that lands on cast rather than on break is far easier to arrange. The real talent requires Ice Barrier, which connected_to reproduces.",
+      "connected_to": [
+        "mage_frost_cold_as_ice"
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 20,
-        "icd": 1,
+        "chance": 50,
+        "icd": 0,
         "ability_filter": [
-          "mage_frost_nova",
-          "mage_cone_of_cold"
+          "mage_ice_barrier"
         ],
         "apply_effect": {
-          "effect_id": "shatter_window",
-          "name": "Shatter",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "crit_chance_spell": 20
-          },
-          "on_target": false
+          "effect_id": "shattered_barrier",
+          "name": "Shattered Barrier",
+          "effect_type": "debuff",
+          "duration": 1,
+          "is_stun": true
         }
       }
     },
     {
       "talent_id": "mage_frost_ice_barrier",
       "name": "Ice Barrier",
-      "description": "Teaches Ice Barrier, sheathing you in ice that adds Armor and Magic Resistance.",
+      "description": "Teaches Ice Barrier, shielding you in ice.",
       "node_type": "active",
-      "tier": 3,
+      "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": -3,
+      "hex_y": 2,
       "effects": {
         "unlock_ability": "mage_ice_barrier"
       },
+      "_source": "WotLK row 4, kept - the ONLY unlock for mage_ice_barrier, which is requires_talent. The real talent requires Cold Snap, which connected_to reproduces.",
       "connected_to": [
-        "mage_frost_arctic_reach",
         "mage_frost_cold_snap"
+      ]
+    },
+    {
+      "talent_id": "mage_frost_empowered_frostbolt",
+      "name": "Empowered Frostbolt",
+      "description": "Increases the damage of your Frostbolt by 5% per rank and its critical chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {
+        "ability_mage_frostbolt_damage": 0.05,
+        "ability_mage_frostbolt_crit": 2.0
+      },
+      "_source": "WotLK row 4: 'Increases the damage of your Frostbolt spell by an amount equal to 5%/10% of your spell power and reduces its cast time.' Spell-power coefficients are not exposed to talents and there are no cast times, so it is direct damage plus crit. Kept from the outgoing tree, which ALSO carried frost_spell_power=40 inside a proc's stat_mods - verified live as readable, so that was not the dead-key problem, but it is dropped here as duplicating Piercing Ice.",
+      "connected_to": [
+        "mage_frost_winters_chill"
       ]
     },
     {
       "talent_id": "mage_frost_arctic_winds",
       "name": "Arctic Winds",
-      "description": "Your Frostbolt has a 10% chance per rank to catch the wind, adding 12% of the hit again as frost damage.",
+      "description": "Increases your Frost spell damage by 1% per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
+      "hex_y": 2,
+      "effects": {
+        "frost_spell_damage": 0.01
+      },
+      "_source": "WotLK row 4: 'Increases all Frost damage you cause by 1%-5% and reduces the chance melee and ranged attacks will hit you.' The damage half is built verbatim with the per-school key. There is no caster-side miss chance for INCOMING attacks - hit_chance_spell is a dead talent key, set once in Character.__init__. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_frost_channeling",
-        "mage_frost_brain_freeze"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 0,
-        "ability_filter": [
-          "mage_frostbolt"
-        ],
-        "bonus_pct": 0.12
-      }
+        "mage_frost_winters_chill"
+      ]
     },
     {
-      "talent_id": "mage_frost_empowered_frostbolt",
-      "name": "Empowered Frostbolt",
-      "description": "Increases the damage of Frostbolt by 4% per rank. Your Frostbolt also has an 8% chance per rank to grant 40 Frost Spell Power for 2 turns.",
+      "talent_id": "mage_frost_fingers_of_frost",
+      "name": "Fingers of Frost",
+      "description": "Your Frost spells have a 7% chance per rank to grant a guaranteed critical strike window.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
+      "tier": 4,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "ability_mage_frostbolt_damage": 0.04
-      },
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4: 'Gives your Chill effects a 7%/15% chance to grant you the Fingers of Frost effect, which treats your next 2 spells as if the target were frozen.' DEPARTURE - nothing reads whether a target is frozen, so 'as if frozen' has no referent. What being frozen BUYS in the real game is Shatter's enormous crit bonus, so this grants crit chance directly - which is the same payoff by the only route the engine has. 'Next 2 spells' becomes a 2-turn window. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_shatter",
-        "mage_frost_winters_chill"
+        "mage_frost_arctic_winds"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 8,
-        "icd": 1,
-        "ability_filter": [
-          "mage_frostbolt"
-        ],
+        "chance": 7,
+        "icd": 0,
         "apply_effect": {
-          "effect_id": "empowered_frostbolt_buff",
-          "name": "Empowered Frostbolt",
+          "effect_id": "fingers_of_frost",
+          "name": "Fingers of Frost",
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "frost_spell_power": 40
+            "crit_chance_spell": 50
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "mage_frost_frozen_core",
-      "name": "Frozen Core",
-      "description": "While below 35% Health, reduces all damage you take by 4% per rank.",
+      "talent_id": "mage_frost_brain_freeze",
+      "name": "Brain Freeze",
+      "description": "Your Frost spells have a 5% chance per rank to make your next spells cheaper and sharper for 2 turns.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.04,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "mage_frost_blizzard"
-      ]
-    },
-    {
-      "talent_id": "mage_frost_cold_snap",
-      "name": "Cold Snap",
-      "description": "Teaches Cold Snap, resetting the cooldowns of your Frost spells.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "mage_cold_snap"
-      },
-      "connected_to": [
-        "mage_frost_ice_barrier",
-        "mage_frost_chilled_to_the_bone"
-      ]
-    },
-    {
-      "talent_id": "mage_frost_brain_freeze",
-      "name": "Brain Freeze",
-      "description": "Your critical strikes have a 15% chance per rank to free up an instant Ice Lance at no Mana cost.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
+      "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'Your Frost damage spells with chilling effects have a 5%/10%/15% chance to cause your next Fireball or Frostfire Bolt spell to be instant cast and cost no mana.' DEPARTURE - no cast times and no Frostfire Bolt. The 'cost no mana' clause IS buildable and is the real payoff, so all_ability_cost_pct 100 inside the status effect makes the window free. MIND THE FLIP: that key is PERCENTAGE POINTS inside a status effect and a FRACTION as a talent effect. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_arctic_winds",
-        "mage_frost_deep_freeze"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 1,
-        "cast_ability": "mage_ice_lance"
-      }
-    },
-    {
-      "talent_id": "mage_frost_winters_chill",
-      "name": "Winter's Chill",
-      "description": "Your damaging spells have a 20% chance per rank to apply Winter's Chill for 3 turns, increasing magic damage the target takes by 2%. Stacks up to 5 times.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "mage_frost_empowered_frostbolt"
+        "mage_frost_shattered_barrier"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 20,
+        "chance": 5,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "winters_chill_stack",
-          "name": "Winter's Chill",
-          "effect_type": "debuff",
-          "duration": 3,
-          "max_stacks": 5,
+          "effect_id": "brain_freeze",
+          "name": "Brain Freeze",
+          "effect_type": "buff",
+          "duration": 2,
           "stat_mods": {
-            "magic_damage_taken_pct": 2
+            "all_ability_cost_pct": 100.0,
+            "crit_chance_spell": 10
           },
-          "on_target": true
+          "on_target": false
         }
       }
     },
     {
       "talent_id": "mage_frost_chilled_to_the_bone",
       "name": "Chilled to the Bone",
-      "description": "Increases your spell damage by 2% per rank. Your damaging spells also have a 10% chance per rank to chill the target to the bone for 3 turns, stripping 40 Armor.",
+      "description": "Increases the damage of your Frostbolt and Ice Lance by 1% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -469,32 +491,18 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "spell_damage": 0.02
+        "ability_mage_frostbolt_damage": 0.01,
+        "ability_mage_ice_lance_damage": 0.01
       },
+      "_source": "WotLK row 5: 'Increases the damage caused by your Frostbolt, Frostfire Bolt and Ice Lance spells by 1%-5% and reduces the movement speed of all chilled targets.' Frostfire Bolt does not exist and there is no movement speed. The outgoing version was flat spell_damage.",
       "connected_to": [
-        "mage_frost_cold_snap",
-        "mage_frost_water_elemental"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "chilled_to_the_bone_debuff",
-          "name": "Chilled to the Bone",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "armor": -40
-          },
-          "on_target": true
-        }
-      }
+        "mage_frost_empowered_frostbolt"
+      ]
     },
     {
       "talent_id": "mage_frost_deep_freeze",
       "name": "Deep Freeze",
-      "description": "Your Frost Nova has a 33% chance per rank to lock the target in a Deep Freeze, stunning it for 2 turns.",
+      "description": "Your Frost spells have a 5% chance per rank to stun the target.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -502,77 +510,20 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 10 in the real tree, moved here: 'Stuns the target for 5 sec. Only usable on Frozen targets.' DEPARTURE - there is no mage_deep_freeze ability to unlock, and 'only usable on Frozen targets' cannot be checked. Delivered as a chance to stun off any Frost cast, with icd 2 so it is not permanent control. It sits at tier 5 rather than 6 because the capstone row belongs to the Cryotherapist's Frostfall. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
-        "mage_frost_brain_freeze",
-        "mage_frost_frost_mastery"
+        "mage_frost_fingers_of_frost"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 33,
-        "icd": 1,
-        "ability_filter": [
-          "mage_frost_nova"
-        ],
+        "chance": 5,
+        "icd": 2,
         "apply_effect": {
-          "effect_id": "deep_freeze_stun",
+          "effect_id": "deep_freeze",
           "name": "Deep Freeze",
           "effect_type": "debuff",
           "duration": 2,
-          "stat_mods": {},
-          "is_stun": true,
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "mage_frost_water_elemental",
-      "name": "Summon Water Elemental",
-      "description": "Your Water Elemental fights beside you: your damaging spells have a 25% chance to loose a free Frostbolt at no Mana cost.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "mage_frost_chilled_to_the_bone"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 1,
-        "cast_ability": "mage_frostbolt"
-      }
-    },
-    {
-      "talent_id": "mage_frost_frost_mastery",
-      "name": "Fingers of Frost",
-      "description": "Your damaging spells have a 25% chance to grant Fingers of Frost, making your next spell a guaranteed critical strike.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "mage_frost_deep_freeze"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "fingers_of_frost_buff",
-          "name": "Fingers of Frost",
-          "effect_type": "buff",
-          "duration": 15,
-          "stat_mods": {},
-          "on_target": false,
-          "proc": {
-            "guarantee_next_crit": true
-          }
+          "is_stun": true
         }
       }
     },
@@ -589,6 +540,7 @@
       "effects": {
         "cryo_convert_frostbolt": 1
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. This is the entry point of the healing branch and the reason the Cryotherapist works at all.",
       "connected_to": [
         "mage_cryotherapist_spirit_frost"
       ],
@@ -607,6 +559,7 @@
       "effects": {
         "cryo_convert_ice_lance": 1
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. The second entry point; both feed Spirit Frost.",
       "connected_to": [
         "mage_cryotherapist_spirit_frost"
       ],
@@ -623,10 +576,10 @@
       "hex_x": 6,
       "hex_y": -4,
       "effects": {},
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. Its effects dict is empty and all its work is in the proc, which is legitimate.",
       "connected_to": [
         "mage_cryotherapist_cryotherapy"
       ],
-      "icon_id": "mage_cryotherapist_spirit_frost",
       "proc": {
         "trigger": "on_heal_cast",
         "chance": 100,
@@ -635,7 +588,8 @@
           "resource": "mana",
           "amount": 40
         }
-      }
+      },
+      "icon_id": "mage_cryotherapist_spirit_frost"
     },
     {
       "talent_id": "mage_cryotherapist_cryotherapy",
@@ -650,16 +604,17 @@
       "effects": {
         "healing_done": 0.05
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. Carries BOTH effects and a proc, which the engine supports and which this node is the clearest example of in the project.",
       "connected_to": [
         "mage_cryotherapist_keystone"
       ],
-      "icon_id": "mage_cryotherapist_cryotherapy",
       "proc": {
         "trigger": "on_heal_cast",
         "chance": 33,
         "icd": 0,
         "smart_heal": 60
-      }
+      },
+      "icon_id": "mage_cryotherapist_cryotherapy"
     },
     {
       "talent_id": "mage_cryotherapist_keystone",
@@ -674,17 +629,18 @@
       "effects": {
         "healing_done": 0.1
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. The branch's keystone - the node that turns a Frost mage into a healer rather than a mage who sometimes heals.",
       "connected_to": [
         "mage_cryotherapist_frozen_light",
         "mage_cryotherapist_lesser_frozen_light"
       ],
-      "icon_id": "mage_cryotherapist_keystone",
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
         "icd": 2,
         "smart_heal": 50
-      }
+      },
+      "icon_id": "mage_cryotherapist_keystone"
     },
     {
       "talent_id": "mage_cryotherapist_frozen_light",
@@ -697,10 +653,10 @@
       "hex_x": 5,
       "hex_y": 2,
       "effects": {},
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. healing_done_pct inside a status effect is the status-channel healing key, read at abilities.py:1661 in PERCENTAGE POINTS - correct here, and NOT the same as healing_done, which is talent-channel only and would be dead in this position.",
       "connected_to": [
         "mage_cryotherapist_icy_penance"
       ],
-      "icon_id": "mage_cryotherapist_frozen_light",
       "proc": {
         "trigger": "on_heal_cast",
         "chance": 100,
@@ -715,7 +671,8 @@
           },
           "on_target": false
         }
-      }
+      },
+      "icon_id": "mage_cryotherapist_frozen_light"
     },
     {
       "talent_id": "mage_cryotherapist_lesser_frozen_light",
@@ -728,10 +685,10 @@
       "hex_x": 7,
       "hex_y": 2,
       "effects": {},
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. The multi-rank sibling of Frozen Light, ranked by chance - which is the only thing a talent proc can scale with points.",
       "connected_to": [
         "mage_cryotherapist_icy_penance"
       ],
-      "icon_id": "mage_cryotherapist_lesser_frozen_light",
       "proc": {
         "trigger": "on_heal_cast",
         "chance": 33,
@@ -746,7 +703,8 @@
           },
           "on_target": false
         }
-      }
+      },
+      "icon_id": "mage_cryotherapist_lesser_frozen_light"
     },
     {
       "talent_id": "mage_cryotherapist_icy_penance",
@@ -761,6 +719,7 @@
       "effects": {
         "unlock_ability": "mage_icy_penance"
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. MANDATORY: the ONLY unlock for mage_icy_penance, which is requires_talent.",
       "connected_to": [
         "mage_cryotherapist_frostfall"
       ],
@@ -779,8 +738,27 @@
       "effects": {
         "unlock_ability": "mage_frostfall"
       },
+      "_source": "KYLE'S HOMEBREW CRYOTHERAPIST, preserved exactly through the Frost rebuild of 5 Nov 2026 - same talent_id, effects, proc, values, tier, column, links and icon_id. NOT a WotLK talent. The whole branch was verified live before anything was touched: cryo_convert_frostbolt and cryo_convert_ice_lance are read at character.py:1928 and turn the mage's nukes into smart-heals; on_heal_cast and on_damage_cast are real triggers; smart_heal is a real payload; healing_done_pct inside a status effect is read at abilities.py:1661. MANDATORY: the ONLY unlock for mage_frostfall, which is requires_talent. It is the branch's capstone and the tree's tier-6 node, which is why the real Frost capstone Deep Freeze sits at tier 5.",
       "connected_to": [],
       "icon_id": "mage_cryotherapist_frostfall"
+    },
+    {
+      "talent_id": "mage_frost_blizzard",
+      "name": "Blizzard",
+      "description": "Teaches Blizzard, pelting an area with ice over several turns.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -9,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "mage_blizzard"
+      },
+      "_source": "Kept - the ONLY unlock for mage_blizzard, which is requires_talent. Blizzard is a TRAINED spell in real 3.3.5a rather than a talent, so this node is a Frontier addition; it stays because dropping it would strand the ability. Improved Blizzard IS a real Frost talent (row 1) but adds a Chill effect, which does not exist, so it is not built.",
+      "connected_to": [
+        "mage_frost_ice_shards"
+      ]
     }
   ]
 }

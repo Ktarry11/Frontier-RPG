@@ -1,7 +1,7 @@
 {
   "spec_name": "Mage Fire",
   "tree_id": "mage_fire",
-  "description": "Devastating burn damage built on critical strikes and lingering flame.",
+  "description": "Fire and ruin - critical strikes that leave the target burning.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -13,199 +13,254 @@
   },
   "nodes": [
     {
-      "talent_id": "mage_fire_improved_fireball",
-      "name": "Improved Fireball",
-      "description": "Increases the damage of Fireball by 5% and its critical strike chance by 1% per rank.",
+      "talent_id": "mage_fire_improved_fire_blast",
+      "name": "Improved Fire Blast",
+      "description": "Reduces the cooldown of your Fire Blast by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_mage_fireball_damage": 0.05,
-        "ability_mage_fireball_crit": 1.0
+        "ability_mage_fire_blast_cooldown": 1
       },
-      "connected_to": [
-        "mage_fire_incineration"
-      ]
+      "_source": "WotLK row 0: 'Reduces the cooldown of your Fire Blast spell by 0.5/1 sec.' Built verbatim as cooldown. ability_<id>_cooldown is FLAT turns and talented_cooldown clamps at 1, so it cannot reach zero.",
+      "connected_to": []
     },
     {
-      "talent_id": "mage_fire_impact",
-      "name": "Impact",
-      "description": "Your Fire Blast has a 10% chance per rank to stun the target for 1 turn.",
+      "talent_id": "mage_fire_incineration",
+      "name": "Incineration",
+      "description": "Increases the critical chance of your Fire Blast and Cone of Cold by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "ability_mage_fire_blast_crit": 2.0,
+        "ability_mage_cone_of_cold_crit": 2.0
+      },
+      "_source": "WotLK row 0: 'Increases the critical strike chance of your Fire Blast, Scorch, Arcane Blast and Cone of Cold spells by 2%/4%/6%.' Built verbatim for the two that exist. ability_<id>_crit is PERCENTAGE POINTS.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "mage_fire_improved_fireball",
+      "name": "Improved Fireball",
+      "description": "Increases the damage of your Fireball by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -6,
-      "effects": {},
-      "connected_to": [
-        "mage_fire_burning_soul"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 1,
-        "ability_filter": [
-          "mage_fire_blast"
-        ],
-        "apply_effect": {
-          "effect_id": "fire_impact_stun",
-          "name": "Impact",
-          "effect_type": "debuff",
-          "duration": 1,
-          "stat_mods": {},
-          "is_stun": true,
-          "on_target": true
-        }
-      }
+      "effects": {
+        "ability_mage_fireball_damage": 0.03
+      },
+      "_source": "WotLK row 0: 'Reduces the casting time of your Fireball spell by 0.1-0.5 sec.' DEPARTURE - no cast times. A shorter cast is more throughput, so it is delivered as damage.",
+      "connected_to": []
     },
     {
       "talent_id": "mage_fire_ignite",
       "name": "Ignite",
-      "description": "Your critical strikes have a 20% chance per rank to set the target burning for 2 turns.",
+      "description": "Your critical strikes set the target burning for 3 turns.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": -6,
+      "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Your critical strikes from Fire damage spells cause the target to burn for an additional 8%-40% of your spell's damage over 4 sec.' THE TREE'S ENGINE, and almost exactly buildable: on_crit applying a dot is native here. Percentage-of-the-triggering-damage is not available to a dot payload - potency is a FLAT PER-TURN number, where an ABILITY rank's effect_value is the TOTAL and gets divided - so 50 a turn over 3 turns stands in. Ranked by chance, since a proc's payload does not scale with points.",
       "connected_to": [
-        "mage_fire_improved_scorch"
+        "mage_fire_improved_fire_blast"
       ],
       "proc": {
         "trigger": "on_crit",
         "chance": 20,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "ignite_burn",
+          "effect_id": "ignite",
           "name": "Ignite",
           "effect_type": "dot",
-          "duration": 2,
-          "potency": 25,
-          "damage_school": "fire",
-          "on_target": true
+          "duration": 3,
+          "potency": 50,
+          "damage_school": "fire"
         }
       }
     },
     {
-      "talent_id": "mage_fire_flame_throwing",
-      "name": "Flame Throwing",
-      "description": "Increases your Fire Spell Power by 10 per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "fire_spell_power": 10
-      },
-      "connected_to": [
-        "mage_fire_master_of_elements"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_incineration",
-      "name": "Incineration",
-      "description": "Increases the critical strike chance of Fire Blast and Arcane Explosion by 2% per rank.",
+      "talent_id": "mage_fire_impact",
+      "name": "Impact",
+      "description": "Your damaging spells have a 3% chance per rank to stun the target.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1: 'Gives your damaging spells a 3%/7%/10% chance to cause the next Fire Blast you cast to stun the target for 2 sec.' Built with the real chance curve and a real stun - is_stun is this engine's only incapacitate. DEPARTURE on the delivery: 'the next Fire Blast you cast' needs a buff that is consumed on use, which does not exist, so the stun lands directly. icd 2 keeps it from being permanent control.",
+      "connected_to": [
+        "mage_fire_improved_fire_blast"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 3,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "impact",
+          "name": "Impact",
+          "effect_type": "debuff",
+          "duration": 2,
+          "is_stun": true
+        }
+      }
+    },
+    {
+      "talent_id": "mage_fire_world_in_flames",
+      "name": "World in Flames",
+      "description": "Increases the critical chance of your Pyroblast, Blast Wave and Living Flame by 2% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_mage_fire_blast_crit": 2.0,
-        "ability_mage_arcane_explosion_crit": 2.0
+        "ability_mage_pyroblast_crit": 2.0,
+        "ability_mage_blast_wave_crit": 2.0,
+        "ability_mage_living_flame_crit": 2.0
       },
+      "_source": "WotLK row 1, built verbatim for the three real spells that exist: 'Increases the critical strike chance of your Flamestrike, Pyroblast, Blast Wave, Dragon's Breath and Living Bomb spells by 2%/4%/6%.' Living Flame is this kit's Living Bomb. Feeds Ignite, which is the point.",
       "connected_to": [
-        "mage_fire_improved_fireball",
-        "mage_fire_playing_with_fire"
+        "mage_fire_incineration"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_pyroblast",
+      "name": "Pyroblast",
+      "description": "Teaches Pyroblast, hurling an immense fiery boulder.",
+      "node_type": "active",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -4,
+      "effects": {
+        "unlock_ability": "mage_pyroblast"
+      },
+      "_source": "WotLK row 1, kept - the ONLY unlock for mage_pyroblast, which is requires_talent. It is Blast Wave's prerequisite in the real tree, preserved below.",
+      "connected_to": [
+        "mage_fire_incineration"
       ]
     },
     {
       "talent_id": "mage_fire_burning_soul",
       "name": "Burning Soul",
-      "description": "When you take damage, 20% chance per rank to sear the attacker, burning them for 2 turns.",
+      "description": "Reduces the threat your spells generate by 10% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "threat_generation_pct": -0.1
+      },
+      "_source": "WotLK row 1: 'Reduces the pushback suffered from damaging attacks while casting Fire spells by 35%/70% and reduces the threat caused by your Fire spells by 5%/10%.' The threat half is built - there is no per-school threat key, only the global threat_generation_pct, which is a FRACTION. No cast times means no pushback.",
       "connected_to": [
-        "mage_fire_impact",
-        "mage_fire_critical_mass"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "burning_soul_sear",
-          "name": "Burning Soul",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 18,
-          "damage_school": "fire",
-          "on_target": true
-        }
-      }
+        "mage_fire_improved_fireball"
+      ]
     },
     {
-      "talent_id": "mage_fire_improved_scorch",
-      "name": "Improved Scorch",
-      "description": "Your Living Flame has a 15% chance per rank to apply Fire Vulnerability for 4 turns, increasing magic damage the target takes by 3%. Stacks up to 5 times.",
+      "talent_id": "mage_fire_burning_determination",
+      "name": "Burning Determination",
+      "description": "Reduces the duration of Stun effects against you by 15% per rank.",
       "node_type": "passive",
       "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "stun_duration_reduction_pct": 0.15
+      },
+      "_source": "WotLK row 1, NEW to our tree: 'When Interrupted or Silenced you have a 50%/100% chance to become immune to the next Interrupt or Silence effect for 10 sec.' DEPARTURE - there is no interrupt and no silence; is_stun is this engine's only incapacitate, so the resistance applies to that. stun_duration_reduction_pct is a FRACTION and floors a stun at 1 turn.",
+      "connected_to": [
+        "mage_fire_improved_fireball"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_playing_with_fire",
+      "name": "Playing with Fire",
+      "description": "Increases all your spell damage by 1% per rank, and all spell damage you take by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {},
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "spell_damage": 0.01,
+        "spell_damage_taken_pct": 0.01
+      },
+      "_source": "WotLK row 2, built verbatim with BOTH halves including the drawback: 'Increases all spell damage caused by 1%/2%/3% and all spell damage taken by 1%/2%/3%.' The downside is kept because it is what makes the talent a choice. spell_damage_taken_pct is a FRACTION as a talent effect and POSITIVE INCREASES damage taken.",
       "connected_to": [
-        "mage_fire_ignite",
-        "mage_fire_blast_wave"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 0,
-        "ability_filter": [
-          "mage_living_flame"
-        ],
-        "apply_effect": {
-          "effect_id": "fire_vulnerability_stack",
-          "name": "Fire Vulnerability",
-          "effect_type": "debuff",
-          "duration": 4,
-          "max_stacks": 5,
-          "stat_mods": {
-            "magic_damage_taken_pct": 3
-          },
-          "on_target": true
-        }
-      }
+        "mage_fire_ignite"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_critical_mass",
+      "name": "Critical Mass",
+      "description": "Increases your spell critical chance by 2% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "crit_chance_spell": 2.0
+      },
+      "_source": "WotLK row 2: 'Increases the critical strike chance of your Fire spells by 2%/4%/6%.' crit_chance_spell covers all spells rather than one school - there is no per-school crit key - and every spell this tree cares about is Fire anyway. It is Combustion's prerequisite, preserved below.",
+      "connected_to": [
+        "mage_fire_world_in_flames"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_blast_wave",
+      "name": "Blast Wave",
+      "description": "Teaches Blast Wave, a ring of flame radiating outward.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "mage_blast_wave"
+      },
+      "_source": "WotLK row 2, kept - the ONLY unlock for mage_blast_wave, which is requires_talent. The real talent requires Pyroblast, which connected_to reproduces.",
+      "connected_to": [
+        "mage_fire_pyroblast"
+      ]
     },
     {
       "talent_id": "mage_fire_master_of_elements",
       "name": "Master of Elements",
-      "description": "Your critical strikes have a 33% chance per rank to refund 60 Mana.",
+      "description": "Your spell criticals refund 120 mana.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": 2,
+      "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2, NEW to our tree: 'Your spell criticals will refund 10%/20%/30% of their base mana cost.' Built on the real trigger. A refund proportional to the spell's cost is not available - grant_resource takes a FLAT amount with no pct_max - so 120 stands in, with the chance carrying the rank curve.",
       "connected_to": [
-        "mage_fire_flame_throwing",
-        "mage_fire_fire_power"
+        "mage_fire_burning_soul"
       ],
       "proc": {
         "trigger": "on_crit",
@@ -213,372 +268,217 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 60
+          "amount": 120
         }
       }
     },
     {
-      "talent_id": "mage_fire_playing_with_fire",
-      "name": "Playing with Fire",
-      "description": "Increases your spell damage by 3% per rank, but you take 1% more damage per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "spell_damage": 0.03,
-        "damage_taken_pct": 0.01
-      },
-      "connected_to": [
-        "mage_fire_incineration",
-        "mage_fire_pyromaniac"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_critical_mass",
-      "name": "Critical Mass",
-      "description": "Increases your spell critical strike chance by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "crit_chance_spell": 2.0
-      },
-      "connected_to": [
-        "mage_fire_burning_soul",
-        "mage_fire_combustion"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_blast_wave",
-      "name": "Blast Wave",
-      "description": "Teaches Blast Wave, a ring of fire that damages every nearby enemy.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "mage_blast_wave"
-      },
-      "_source": "Fixed during DPS niche audit (Oct 2026): this talent was literally named after the real Classic WoW Fire spell Blast Wave but only trimmed Arcane Explosion's cooldown instead of being its own ability - no _source citation on the original, a templated-filler artifact from the bulk 621-talent pass (see HANDOFF_MASTER.md). Now actually grants the real Blast Wave as a new ability (data/abilities/mage.json), giving Fire its own instant AoE nuke distinct from Arcane Explosion (shared with Arcane/Frost) and Frost's new Blizzard DoT.",
-      "connected_to": [
-        "mage_fire_improved_scorch",
-        "mage_fire_molten_fury"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_fire_power",
-      "name": "Fire Power",
-      "description": "Increases the damage of Pyroblast, Blast Wave and Living Flame by 4% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_mage_pyroblast_damage": 0.04,
-        "ability_mage_blast_wave_damage": 0.04,
-        "ability_mage_living_flame_damage": 0.04
-      },
-      "connected_to": [
-        "mage_fire_master_of_elements",
-        "mage_fire_empowered_fireball"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_combustion",
-      "name": "Combustion",
-      "description": "Teaches Combustion, sharply raising your spell critical strike chance for a few turns.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "mage_combustion"
-      },
-      "connected_to": [
-        "mage_fire_critical_mass",
-        "mage_fire_dragons_breath"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_molten_fury",
-      "name": "Molten Fury",
-      "description": "Killing an enemy has a 33% chance per rank to send you into Molten Fury for 3 turns, increasing all damage you deal by 10%.",
+      "talent_id": "mage_fire_blazing_speed",
+      "name": "Blazing Speed",
+      "description": "Being struck has a 10% chance per rank to quicken you by 20% for 2 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {},
+      "_source": "WotLK row 3, NEW to our tree: 'Gives you a 5%/10% chance when hit by a melee or ranged attack to increase your movement speed by 50% and dispel all movement impairing effects.' DEPARTURE - there is no movement speed and no movement impairment. Moving faster becomes acting faster. haste inside status stat_mods is PERCENTAGE POINTS.",
       "connected_to": [
-        "mage_fire_blast_wave",
-        "mage_fire_hot_streak"
+        "mage_fire_playing_with_fire"
       ],
       "proc": {
-        "trigger": "on_kill",
-        "chance": 33,
-        "icd": 0,
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 1,
         "apply_effect": {
-          "effect_id": "molten_fury_buff",
-          "name": "Molten Fury",
+          "effect_id": "blazing_speed",
+          "name": "Blazing Speed",
           "effect_type": "buff",
-          "duration": 3,
+          "duration": 2,
           "stat_mods": {
-            "damage_dealt_pct": 10
+            "haste": 20
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "mage_fire_empowered_fireball",
-      "name": "Empowered Fireball",
-      "description": "Increases the damage of Fireball by 4% per rank. Your Fireball also has a 10% chance per rank to erupt, adding 15% of the hit again as fire damage.",
+      "talent_id": "mage_fire_fire_power",
+      "name": "Fire Power",
+      "description": "Increases your Fire spell damage by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_mage_fireball_damage": 0.04
+        "fire_spell_damage": 0.02
       },
+      "_source": "WotLK row 3, built verbatim: 'Increases the damage done by your Fire spells by 2%-10%.' USES THE PER-SCHOOL KEY DELIBERATELY. fire_spell_damage is built as f'{school}_spell_damage' at abilities.py:1371, so a literal grep cannot see it - the family that caused arcane_spell_damage to be WRONGLY declared dead in this project. It is LIVE and it is the right key here.",
       "connected_to": [
-        "mage_fire_fire_power",
-        "mage_fire_burnout"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 10,
-        "icd": 0,
-        "ability_filter": [
-          "mage_fireball"
-        ],
-        "bonus_pct": 0.15
-      }
+        "mage_fire_critical_mass"
+      ]
     },
     {
       "talent_id": "mage_fire_pyromaniac",
       "name": "Pyromaniac",
-      "description": "Reduces the Mana cost of Fireball and Pyroblast by 4 per rank.",
+      "description": "Increases your spell critical chance by 1% per rank and restores 5 mana every 5 seconds per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": -4,
+      "hex_y": 2,
       "effects": {
-        "ability_mage_fireball_cost": 4,
-        "ability_mage_pyroblast_cost": 4
+        "crit_chance_spell": 1.0,
+        "mp5": 5
       },
+      "_source": "WotLK row 4, built with both halves: 'Increases chance to critically hit by 1%/2%/3% and allows 17%/33%/50% of your mana regeneration to continue while casting.' There are no cast times, so the regeneration clause becomes flat mp5, which is FLAT and lands on the attribute.",
       "connected_to": [
-        "mage_fire_playing_with_fire"
+        "mage_fire_blazing_speed"
       ]
     },
     {
-      "talent_id": "mage_fire_dragons_breath",
-      "name": "Dragon's Breath",
-      "description": "Reduces the cooldown of Blast Wave by 2 turns, and Blast Wave now disorients every enemy it hits for 2 turns.",
+      "talent_id": "mage_fire_fiery_payback",
+      "name": "Fiery Payback",
+      "description": "While below half health, reduces all damage you take by 10% per rank.",
       "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.1
+      },
+      "_source": "WotLK row 4, NEW to our tree: 'When below 35% health all damage taken is reduced by 10%/20% and your Pyroblast spell's cast time is reduced.' The mitigation half is built as a REAL conditional: low_health_damage_reduction_pct reads the ACTOR's own health and defaults to a 50% threshold, so low_health_threshold_pct is NOT authored - it SUMS across talents. No cast times for the second half.",
+      "connected_to": [
+        "mage_fire_critical_mass"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_combustion",
+      "name": "Combustion",
+      "description": "Teaches Combustion, stoking your criticals into an inferno.",
+      "node_type": "active",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_mage_blast_wave_cooldown": 2
+        "unlock_ability": "mage_combustion"
       },
+      "_source": "WotLK row 4, kept - the ONLY unlock for mage_combustion, which is requires_talent. The real talent requires Critical Mass, which connected_to reproduces.",
       "connected_to": [
-        "mage_fire_combustion",
-        "mage_fire_living_bomb"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "ability_filter": [
-          "mage_blast_wave"
-        ],
-        "apply_effect": {
-          "effect_id": "dragons_breath_disorient",
-          "name": "Dragon's Breath",
-          "effect_type": "debuff",
-          "duration": 2,
-          "stat_mods": {},
-          "is_stun": true,
-          "on_target": true
-        }
-      }
+        "mage_fire_critical_mass"
+      ]
     },
     {
-      "talent_id": "mage_fire_hot_streak",
-      "name": "Hot Streak",
-      "description": "Your critical strikes have a 15% chance per rank to start a Hot Streak, making your next spell a guaranteed critical strike.",
+      "talent_id": "mage_fire_molten_fury",
+      "name": "Molten Fury",
+      "description": "Increases your damage by 6% per rank against targets below 35% health.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "low_health_damage_pct": 0.06
+      },
+      "_source": "WotLK row 4, NEW to our tree, built almost verbatim: 'Increases damage of all spells against targets with less than 35% health by 6%/12%.' A REAL conditional - low_health_damage_pct reads the TARGET's health and defaults to exactly the 35% threshold the real talent names, which is why low_health_threshold_pct is NOT authored.",
+      "connected_to": [
+        "mage_fire_master_of_elements"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_empowered_fire",
+      "name": "Empowered Fire",
+      "description": "Increases the damage of your Fireball and Pyroblast by 3% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 4,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "ability_mage_fireball_damage": 0.03,
+        "ability_mage_pyroblast_damage": 0.03
+      },
+      "_source": "WotLK row 4: 'Increases the damage of your Fireball, Frostfire Bolt and Pyroblast spells by an amount equal to 5%/10%/15% of your spell power.' Spell-power coefficients are not exposed to talents, so it is direct damage. Frostfire Bolt does not exist.",
       "connected_to": [
-        "mage_fire_molten_fury",
-        "mage_fire_firestarter"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "hot_streak_buff",
-          "name": "Hot Streak",
-          "effect_type": "buff",
-          "duration": 10,
-          "stat_mods": {},
-          "on_target": false,
-          "proc": {
-            "guarantee_next_crit": true
-          }
-        }
-      }
+        "mage_fire_master_of_elements"
+      ]
     },
     {
       "talent_id": "mage_fire_burnout",
       "name": "Burnout",
-      "description": "Your critical strikes have a 20% chance per rank to burn hotter, adding 10% of the hit again as fire damage.",
+      "description": "Increases the critical damage of your spells by 10% per rank.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 5,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {},
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "crit_damage_spell": 0.1
+      },
+      "_source": "WotLK row 5: 'Increases your spell critical damage bonus with all spells by 10%-50% but your non-periodic spell criticals cost 1% more mana.' The crit-damage half is built verbatim; the mana drawback has no per-crit cost mechanism. crit_damage_spell is a FRACTION, read at abilities.py:1460 inside a ternary - live despite the probe finding no literal read site, and DEAD inside a status effect, so the talent-effect form used here is the only one that works.",
       "connected_to": [
-        "mage_fire_empowered_fireball"
+        "mage_fire_pyromaniac"
+      ]
+    },
+    {
+      "talent_id": "mage_fire_hot_streak",
+      "name": "Hot Streak",
+      "description": "Your critical strikes have a 33% chance per rank to make your next spells hit 30% harder for 2 turns.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 5: 'Any time you score 2 non-periodic spell criticals IN A ROW using Fireball, Fire Blast, Scorch, Living Bomb or Frostfire Bolt, you have a 33%-100% chance your next Pyroblast spell is instant cast.' DEPARTURE, and the biggest one in the Mage: nothing in this engine remembers the previous cast's outcome - there is no cast counter, no streak and no accumulator - so 'two criticals in a row' cannot be detected. It fires on a single crit instead, and since there are no cast times either, the payoff is damage rather than an instant Pyroblast. NOTE the stat_mod is damage_dealt_pct in PERCENTAGE POINTS: spell_damage would be SILENT DEAD DATA here, read through the talent channel while a status effect's stat_mods go to get_status_stat_mod.",
+      "connected_to": [
+        "mage_fire_combustion"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 20,
+        "chance": 33,
         "icd": 0,
-        "bonus_pct": 0.1
+        "apply_effect": {
+          "effect_id": "hot_streak",
+          "name": "Hot Streak",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 30.0
+          },
+          "on_target": false
+        }
       }
     },
     {
       "talent_id": "mage_fire_living_bomb",
       "name": "Living Bomb",
-      "description": "Increases the duration of Living Flame by 1 turn per rank. Your Living Flame also has a 15% chance per rank to turn the target into a Living Bomb, burning it for 3 turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "ability_mage_living_flame_duration": 1
-      },
-      "connected_to": [
-        "mage_fire_dragons_breath",
-        "mage_fire_pyroblast"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 0,
-        "ability_filter": [
-          "mage_living_flame"
-        ],
-        "apply_effect": {
-          "effect_id": "living_bomb_dot",
-          "name": "Living Bomb",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 30,
-          "damage_school": "fire",
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "mage_fire_firestarter",
-      "name": "Firestarter",
-      "description": "Reduces the cooldown of Combustion by 2 turns per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "ability_mage_combustion_cooldown": 2
-      },
-      "connected_to": [
-        "mage_fire_hot_streak",
-        "mage_fire_fire_mastery"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_pyroblast",
-      "name": "Pyroblast",
-      "description": "Teaches Pyroblast, a slow, heavy fire bolt.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "mage_pyroblast"
-      },
-      "connected_to": [
-        "mage_fire_living_bomb"
-      ]
-    },
-    {
-      "talent_id": "mage_fire_fire_mastery",
-      "name": "Improved Flamestrike",
-      "description": "Increases the damage of Blast Wave and Arcane Explosion by 25%, and Blast Wave now leaves a 3-turn firestorm burning everything it hits.",
+      "description": "Increases the damage of your Living Flame by 40%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_mage_blast_wave_damage": 0.25,
-        "ability_mage_arcane_explosion_damage": 0.25
+        "ability_mage_living_flame_damage": 0.4
       },
+      "_source": "WotLK row 10, the capstone: 'The target becomes a Living Bomb, taking 612 Fire damage over 12 sec. After 12 sec or when the spell is dispelled, the target explodes.' DEPARTURE - there is no mage_living_bomb ability to unlock, and no trigger on an effect EXPIRING for the explosion. mage_living_flame is this kit's equivalent burn spell, so the capstone makes it hit considerably harder. The delayed-explosion mechanic is the single most distinctive thing lost in the Mage rebuild and is recorded as such.",
       "connected_to": [
-        "mage_fire_firestarter"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "ability_filter": [
-          "mage_blast_wave"
-        ],
-        "apply_effect": {
-          "effect_id": "flamestrike_ground",
-          "name": "Improved Flamestrike",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 40,
-          "damage_school": "fire",
-          "on_target": true
-        }
-      }
+        "mage_fire_hot_streak"
+      ]
     }
   ]
 }

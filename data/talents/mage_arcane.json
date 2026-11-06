@@ -1,7 +1,7 @@
 {
   "spec_name": "Mage Arcane",
   "tree_id": "mage_arcane",
-  "description": "Raw magical force, deep mana reserves, and burst potential.",
+  "description": "Raw arcane power - Intellect turned into armour, mana and destruction.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,304 +15,416 @@
     {
       "talent_id": "mage_arcane_arcane_subtlety",
       "name": "Arcane Subtlety",
-      "description": "When you take damage, 15% chance per rank to wrap yourself in arcane static for 2 turns, reducing magic damage taken by 8%.",
+      "description": "Reduces the threat your spells generate by 10% per rank, and your spells lower the target's resistances for 3 turns.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_magic_absorption"
-      ],
+      "effects": {
+        "threat_generation_pct": -0.1
+      },
+      "_source": "WotLK row 0: 'Reduces the chance your helpful spells and damage over time effects will be dispelled by 15%/30% and reduces your target's resistance to all your spells.' Dispel resistance does not exist, so that half becomes threat. The SECOND half IS buildable and was missed on the first pass: magic_resistance is one of only EIGHT stat_mods a MONSTER can actually read, and it is FLAT on a monster - so a debuff really can strip a target's resistance. That is more faithful than the flat threat node this started as.",
+      "connected_to": [],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 2,
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 0,
         "apply_effect": {
-          "effect_id": "arcane_subtlety_ward",
+          "effect_id": "arcane_subtlety",
           "name": "Arcane Subtlety",
-          "effect_type": "buff",
-          "duration": 2,
+          "effect_type": "debuff",
+          "duration": 3,
           "stat_mods": {
-            "magic_damage_taken_pct": -8
-          },
-          "on_target": false
+            "magic_resistance": -20
+          }
         }
       }
     },
     {
       "talent_id": "mage_arcane_arcane_focus",
       "name": "Arcane Focus",
-      "description": "Increases your Hit Rating by 1 per rank, reducing the chance your spells miss.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "hit_rating": 1.0
-      },
-      "connected_to": [
-        "mage_arcane_arcane_concentration"
-      ]
-    },
-    {
-      "talent_id": "mage_arcane_improved_arcane_explosion",
-      "name": "Improved Arcane Explosion",
-      "description": "Reduces the Mana cost of Arcane Explosion by 6 and increases its critical strike chance by 2% per rank.",
+      "description": "Increases your chance to hit by 1% per rank and reduces your spell costs by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_mage_arcane_explosion_cost": 6,
-        "ability_mage_arcane_explosion_crit": 2.0
+        "hit_rating": 1.0,
+        "all_ability_cost_pct": 0.01
       },
-      "connected_to": [
-        "mage_arcane_magic_attunement"
-      ]
+      "_source": "WotLK row 0, built verbatim with both halves: 'Increases your chance to hit and reduces the mana cost of your Arcane spells by 1%/2%/3%.' There is no way to scope either to one school. all_ability_cost_pct is a FRACTION where POSITIVE IS A REDUCTION.",
+      "connected_to": []
     },
     {
-      "talent_id": "mage_arcane_wand_specialization",
-      "name": "Wand Specialization",
-      "description": "Your wand attacks have a 25% chance per rank to restore 30 Mana.",
+      "talent_id": "mage_arcane_arcane_stability",
+      "name": "Arcane Stability",
+      "description": "Increases the damage of your Arcane Explosion by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 2,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": -6,
-      "effects": {},
+      "effects": {
+        "ability_mage_arcane_explosion_damage": 0.03
+      },
+      "_source": "WotLK row 0: 'Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 14%-70%.' DEPARTURE - no cast times, so no pushback, and neither named spell exists. arcane_explosion is the kit's only real Arcane nuke, so the throughput lands there.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "mage_arcane_arcane_fortitude",
+      "name": "Arcane Fortitude",
+      "description": "Increases your armor by 50% of your Intellect per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "armor_from_intellect_pct": 0.5
+      },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim: 'Increases your armor by an amount equal to 50%-150% of your Intellect.' A REAL stat conversion - armor is a valid STAT_CONVERSION_TARGET and intellect a valid source. THE UNIT IS A RAW MULTIPLIER, not a percentage (character.py:1551), so 0.50 per rank reaches the real 150%. Pairs with Arcane Mind two tiers down.",
       "connected_to": [
-        "mage_arcane_arcane_impact"
-      ],
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 25,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 30
-        }
-      }
+        "mage_arcane_arcane_subtlety"
+      ]
     },
     {
       "talent_id": "mage_arcane_magic_absorption",
       "name": "Magic Absorption",
-      "description": "When you take damage, 8% chance per rank to absorb the next 4% of your maximum Health for 3 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_arcane_subtlety",
-        "mage_arcane_arcane_mind"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 8,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "magic_absorption_shield",
-          "name": "Magic Absorption",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {},
-          "absorb_pct_max_health": 0.04,
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "mage_arcane_arcane_concentration",
-      "name": "Arcane Concentration",
-      "description": "Your damaging spells have a 4% chance per rank to leave you Clearcasting, refunding 80 Mana.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_arcane_focus",
-        "mage_arcane_presence_of_mind"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 4,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 80
-        }
-      }
-    },
-    {
-      "talent_id": "mage_arcane_magic_attunement",
-      "name": "Magic Attunement",
-      "description": "Increases your Arcane Spell Power by 10 per rank.",
+      "description": "Increases all your resistances by 10 per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "arcane_spell_power": 10
+        "fire_resistance": 10,
+        "frost_resistance": 10,
+        "nature_resistance": 10,
+        "shadow_resistance": 10,
+        "arcane_resistance": 10,
+        "holy_resistance": 10
       },
+      "_source": "WotLK row 1, NEW to our tree: 'Increases all resistances by 1 per level and causes all spells you fully resist to restore 2% of your total mana.' The resistance half is built across all six schools; there is no full-resist event for the mana half. NOTE Kyle's standing rule that magic resistance gear comes only after level 45 - this is a talent rather than gear, and a level-60 mage spending here is well past that line.",
       "connected_to": [
-        "mage_arcane_improved_arcane_explosion",
-        "mage_arcane_arcane_instability"
+        "mage_arcane_arcane_subtlety"
       ]
     },
     {
-      "talent_id": "mage_arcane_arcane_impact",
-      "name": "Arcane Impact",
-      "description": "Your critical strikes have a 20% chance per rank to detonate, adding 20% of the hit again as arcane damage.",
+      "talent_id": "mage_arcane_spell_impact",
+      "name": "Spell Impact",
+      "description": "Increases the damage of your Arcane Explosion, Fire Blast and Fireball by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 0,
       "hex_y": -4,
-      "effects": {},
+      "effects": {
+        "ability_mage_arcane_explosion_damage": 0.02,
+        "ability_mage_fire_blast_damage": 0.02,
+        "ability_mage_fireball_damage": 0.02
+      },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim for the three real spells that exist: 'Increases the damage of your Arcane Explosion, Arcane Blast, Blast Wave, Fire Blast, Scorch, Fireball and Frostfire Bolt spells by 2%-6%.'",
       "connected_to": [
-        "mage_arcane_wand_specialization",
-        "mage_arcane_student_of_the_mind"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 20,
-        "icd": 1,
-        "bonus_pct": 0.2
-      }
+        "mage_arcane_arcane_focus"
+      ]
     },
     {
-      "talent_id": "mage_arcane_arcane_mind",
-      "name": "Arcane Mind",
-      "description": "Increases your Intellect by 3 and your maximum Mana by 2% per rank.",
+      "talent_id": "mage_arcane_arcane_concentration",
+      "name": "Arcane Concentration",
+      "description": "Your damaging spells have a 2% chance per rank to make your next spells cost 40% less for 2 turns.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "intellect": 3,
-        "max_mana_pct": 0.02
-      },
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1: 'Gives you a 2%-10% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.' Built with the real chance curve and the real Clearcasting name. 'Next spell' becomes a 2-turn window, at 40% rather than 100%, because a window is more generous than a single cast. MIND THE FLIP: all_ability_cost_pct is PERCENTAGE POINTS inside a status effect and a FRACTION as a talent effect. It is Arcane Potency's trigger in the real tree.",
       "connected_to": [
-        "mage_arcane_magic_absorption",
-        "mage_arcane_improved_counterspell"
-      ]
-    },
-    {
-      "talent_id": "mage_arcane_presence_of_mind",
-      "name": "Presence of Mind",
-      "description": "Teaches Presence of Mind, letting you cast your next spell instantly.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "mage_presence_of_mind"
-      },
-      "connected_to": [
-        "mage_arcane_arcane_concentration",
-        "mage_arcane_arcane_power"
-      ]
-    },
-    {
-      "talent_id": "mage_arcane_arcane_instability",
-      "name": "Arcane Instability",
-      "description": "Increases your spell damage by 2% per rank. Your damaging spells also have a 10% chance per rank to destabilise the target for 3 turns, increasing magic damage it takes by 4%.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "spell_damage": 0.02
-      },
-      "connected_to": [
-        "mage_arcane_magic_attunement",
-        "mage_arcane_mind_mastery"
+        "mage_arcane_arcane_focus"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 10,
+        "chance": 2,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "arcane_instability_mark",
-          "name": "Arcane Instability",
-          "effect_type": "debuff",
-          "duration": 3,
+          "effect_id": "clearcasting",
+          "name": "Clearcasting",
+          "effect_type": "buff",
+          "duration": 2,
           "stat_mods": {
-            "magic_damage_taken_pct": 4
+            "all_ability_cost_pct": 40.0
           },
-          "on_target": true
+          "on_target": false
         }
       }
     },
     {
       "talent_id": "mage_arcane_student_of_the_mind",
       "name": "Student of the Mind",
-      "description": "Reduces the cooldown of Presence of Mind by 2 turns per rank.",
+      "description": "Increases your Spirit by 3% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "spirit_pct": 3.0
+      },
+      "_source": "WotLK row 1, NEW to our tree, built verbatim: 'Increases your total Spirit by 4%/7%/10%.' spirit_pct is PERCENTAGE POINTS, read off `bonuses` at character.py and divided by 100.",
+      "connected_to": [
+        "mage_arcane_arcane_concentration"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_focus_magic",
+      "name": "Focus Magic",
+      "description": "Your critical strikes grant 3% spell critical chance for 3 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -4,
+      "effects": {},
+      "_source": "WotLK row 1, NEW to our tree: 'Increases the target's chance to critically hit with spells by 3%. When the target critically hits, the caster gains 3% spell crit for 10 sec.' DEPARTURE on the source only - A TALENT EFFECT CAN NEVER REACH AN ALLY and no trigger reports an ally's crit, so it fires on the MAGE'S OWN crit. But the real talent's SHAPE is a proc, so it is built as one rather than flattened: the real 3% for the real 10 seconds (3 turns), self-sustaining off your own crits exactly as the real version self-sustains off the target's.",
+      "connected_to": [
+        "mage_arcane_arcane_concentration"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 100,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "focus_magic",
+          "name": "Focus Magic",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "crit_chance_spell": 3
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "mage_arcane_arcane_shielding",
+      "name": "Arcane Shielding",
+      "description": "Increases the absorption of your Mana Shield by 15% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "ability_mage_mana_shield_potency": 0.15
+      },
+      "_source": "WotLK row 2, built verbatim: 'Decreases the mana lost per point of damage taken when Mana Shield is active by 17%/33% and increases the amount absorbed.' The mana-per-point exchange rate is not modelled, so only the absorb half is built. ability_<id>_potency scales the ability's own stat_mods.",
+      "connected_to": [
+        "mage_arcane_arcane_fortitude"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_improved_counterspell",
+      "name": "Improved Counterspell",
+      "description": "Reduces the cooldown of your Counterspell by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -2,
+      "effects": {
+        "ability_mage_counterspell_cooldown": 1
+      },
+      "_source": "WotLK row 2, NEW to our tree: 'Your Counterspell also silences the target for 2/4 sec.' DEPARTURE - there is no silence and no interrupt key in this engine at all. Delivered as availability instead, which is the only way to make Counterspell better here.",
+      "connected_to": [
+        "mage_arcane_magic_absorption"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_presence_of_mind",
+      "name": "Presence of Mind",
+      "description": "Teaches Presence of Mind, letting you cast without hesitation.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "mage_presence_of_mind"
+      },
+      "_source": "WotLK row 2, kept - the ONLY unlock for mage_presence_of_mind, which is requires_talent. Its instant-cast clause lives in the ability. It is Arcane Instability's and Arcane Potency's prerequisite in the real tree, both preserved below.",
+      "connected_to": [
+        "mage_arcane_spell_impact"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_meditation",
+      "name": "Arcane Meditation",
+      "description": "Restores 8 mana every 5 seconds per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_mage_presence_of_mind_cooldown": 2
+        "mp5": 8
       },
+      "_source": "WotLK row 2: 'Allows 17%/33%/50% of your mana regeneration to continue while casting.' DEPARTURE - there are no cast times, so regeneration never stops and there is nothing to restore. Delivered as flat regeneration. mp5 is FLAT and lands on the attribute.",
       "connected_to": [
-        "mage_arcane_arcane_impact",
-        "mage_arcane_torment_the_weak"
+        "mage_arcane_arcane_concentration"
       ]
     },
     {
-      "talent_id": "mage_arcane_arcane_power",
-      "name": "Arcane Power",
-      "description": "Casting Presence of Mind surrounds you with Arcane Power for 3 turns, increasing all damage you deal by 20%.",
+      "talent_id": "mage_arcane_torment_the_weak",
+      "name": "Torment the Weak",
+      "description": "Increases your damage by 4% per rank against targets below 35% health.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "low_health_damage_pct": 0.04
+      },
+      "_source": "WotLK row 2: 'Your Frostbolt, Fireball, Pyroblast, Arcane Missiles, Arcane Blast and Arcane Barrage spells deal 2%/4%/6% more damage to targets afflicted by a movement slowing effect.' DEPARTURE - there are no movement slowing effects and nothing reads a debuff on the target. The engine's own low-health conditional stands in: low_health_damage_pct reads the TARGET's health and defaults to a 35% threshold. low_health_threshold_pct is NOT authored - it SUMS across talents and the default is already right.",
+      "connected_to": [
+        "mage_arcane_student_of_the_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_mind",
+      "name": "Arcane Mind",
+      "description": "Increases your Intellect by 3% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": -2,
+      "effects": {
+        "intellect_pct": 3.0
+      },
+      "_source": "WotLK row 2, built verbatim: 'Increases your total Intellect by 3%-15%.' intellect_pct is PERCENTAGE POINTS. This is the node that makes Arcane Fortitude and Mind Mastery worth taking, which is exactly the role it plays in the real tree.",
+      "connected_to": [
+        "mage_arcane_focus_magic"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_prismatic_cloak",
+      "name": "Prismatic Cloak",
+      "description": "Reduces all damage you take by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "damage_taken_pct": -0.02
+      },
+      "_source": "WotLK row 3, NEW to our tree: 'Reduces all damage taken by 2%/4%/6% and reduces the fade time of your Invisibility spell.' The mitigation half is built verbatim; Invisibility does not exist. damage_taken_pct is read RAW on both sides.",
+      "connected_to": [
+        "mage_arcane_arcane_shielding"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_instability",
+      "name": "Arcane Instability",
+      "description": "Increases your spell damage and critical chance by 1% per rank.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.01,
+        "crit_chance_spell": 1.0
+      },
+      "_source": "WotLK row 3, built verbatim with both halves: 'Increases the damage done by your spells and your critical strike chance by 1%/2%/3%.' spell_damage is a FRACTION and crit_chance_spell is PERCENTAGE POINTS - mixed conventions on one node, which no rule infers from the key names. The real talent requires Presence of Mind, reproduced.",
+      "connected_to": [
+        "mage_arcane_presence_of_mind"
+      ]
+    },
+    {
+      "talent_id": "mage_arcane_arcane_potency",
+      "name": "Arcane Potency",
+      "description": "Casting Presence of Mind sharpens your spells, granting 15% spell critical chance per rank for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
       "hex_y": 0,
       "effects": {},
+      "_source": "WotLK row 3: 'Increases the critical strike chance of your next damaging spell by 15%/30% after gaining Clearcasting or casting Presence of Mind.' Built as the real PROC rather than flattened into permanent crit, because the real talent's shape is a trigger and a window. The Presence-of-Mind half is exact via ability_filter; the Clearcasting half cannot be built, since nothing reads whether the ACTOR carries a specific buff. 'Next spell' becomes a 2-turn window - nothing consumes a buff on use - and the payload is the real 30%, not rank-scaled, because a proc's payload does not scale with points. The real talent requires Presence of Mind, reproduced.",
       "connected_to": [
-        "mage_arcane_presence_of_mind",
-        "mage_arcane_arcane_barrage"
+        "mage_arcane_presence_of_mind"
       ],
       "proc": {
         "trigger": "on_cast",
         "chance": 100,
-        "icd": 5,
+        "icd": 0,
         "ability_filter": [
           "mage_presence_of_mind"
         ],
         "apply_effect": {
-          "effect_id": "arcane_power_window",
-          "name": "Arcane Power",
+          "effect_id": "arcane_potency",
+          "name": "Arcane Potency",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "crit_chance_spell": 30
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "mage_arcane_incanters_absorption",
+      "name": "Incanter's Absorption",
+      "description": "Your Mana Shield and Ice Barrier raise your spell damage by 10% for 3 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, NEW to our tree: 'When your Mana Shield, Frost Ward, Fire Ward, or Ice Barrier absorbs damage your spell damage is increased by 5%-15% for 10 sec.' DEPARTURE on the trigger - there is no event for an absorb being consumed - so it fires when the shield is CAST. The two real shields are in the filter. 10 seconds is 3 turns. NOTE the stat_mod is damage_dealt_pct in PERCENTAGE POINTS: spell_damage would be SILENT DEAD DATA here, because it is read through the talent channel and a status effect's stat_mods go to get_status_stat_mod.",
+      "connected_to": [
+        "mage_arcane_prismatic_cloak"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "mage_mana_shield",
+          "mage_ice_barrier"
+        ],
+        "apply_effect": {
+          "effect_id": "incanters_absorption",
+          "name": "Incanter's Absorption",
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "damage_dealt_pct": 20
+            "damage_dealt_pct": 10.0
           },
           "on_target": false
         }
@@ -321,263 +433,101 @@
     {
       "talent_id": "mage_arcane_mind_mastery",
       "name": "Mind Mastery",
-      "description": "Increases the Intellect and Spell Power granted by your Arcane Intellect by 8% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "ability_mage_arcane_intellect_potency": 0.08
-      },
-      "connected_to": [
-        "mage_arcane_arcane_instability",
-        "mage_arcane_netherwind_presence"
-      ]
-    },
-    {
-      "talent_id": "mage_arcane_torment_the_weak",
-      "name": "Torment the Weak",
-      "description": "Your critical strikes have a 33% chance per rank to torment the target for 4 turns, increasing magic damage it takes by 3%. Stacks up to 3 times.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_student_of_the_mind",
-        "mage_arcane_spell_power_mastery"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 33,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "torment_the_weak_stack",
-          "name": "Torment the Weak",
-          "effect_type": "debuff",
-          "duration": 4,
-          "max_stacks": 3,
-          "stat_mods": {
-            "magic_damage_taken_pct": 3
-          },
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "mage_arcane_improved_counterspell",
-      "name": "Improved Counterspell",
-      "description": "Increases the duration of Counterspell's silence by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_mage_counterspell_duration": 1
-      },
-      "connected_to": [
-        "mage_arcane_arcane_mind"
-      ]
-    },
-    {
-      "talent_id": "mage_arcane_arcane_barrage",
-      "name": "Arcane Barrage",
-      "description": "Increases the damage of Arcane Explosion by 20% and reduces its cooldown by 1 turn.",
+      "description": "Increases your spell power by 3% of your Intellect per rank.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_mage_arcane_explosion_damage": 0.2,
-        "ability_mage_arcane_explosion_cooldown": 1
+        "spell_power_from_intellect_pct": 0.03
       },
+      "_source": "WotLK row 4, built verbatim: 'Increases spell power by 3%-15% of your total Intellect.' A REAL stat conversion, and the tree's payoff node. THE UNIT IS A RAW MULTIPLIER (character.py:1551: `gained = source * pct`), so 0.03 per rank reaches the real 15%; authoring 15 would have granted fifteen times the mage's Intellect as spell power.",
       "connected_to": [
-        "mage_arcane_arcane_power",
-        "mage_arcane_missile_barrage"
+        "mage_arcane_arcane_instability"
       ]
     },
     {
       "talent_id": "mage_arcane_netherwind_presence",
       "name": "Netherwind Presence",
-      "description": "Your critical strikes have a 25% chance per rank to grant 15 Haste for 2 turns.",
+      "description": "Increases your haste by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "haste": 2.0
+      },
+      "_source": "WotLK row 5 in the real tree, moved up one tier: 'Increases your spell haste by 2%/4%/6%.' Built verbatim. haste is PERCENTAGE POINTS. Moved because this tree lost five talents to missing abilities and tier 4 would otherwise be thin.",
       "connected_to": [
-        "mage_arcane_mind_mastery",
-        "mage_arcane_potent_spirit"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "netherwind_presence_buff",
-          "name": "Netherwind Presence",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "haste": 15
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "mage_arcane_spell_power_mastery",
-      "name": "Spell Power",
-      "description": "Your damaging spells have a 20% chance per rank to grant 12 Spell Power for 3 turns, stacking up to 5 times.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_torment_the_weak"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "spell_power_mastery_stack",
-          "name": "Spell Power",
-          "effect_type": "buff",
-          "duration": 3,
-          "max_stacks": 5,
-          "stat_mods": {
-            "spell_power": 12
-          },
-          "on_target": false
-        }
-      }
+        "mage_arcane_arcane_potency"
+      ]
     },
     {
       "talent_id": "mage_arcane_missile_barrage",
       "name": "Missile Barrage",
-      "description": "Your Arcane Explosion has a 15% chance per rank to loose a barrage of missiles, adding 25% of the hit again as arcane damage.",
+      "description": "Your Fireball and Frostbolt have a 8% chance per rank to strike again.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'Gives your Arcane Blast a 40% chance, and your Arcane Barrage, Fireball, Frostbolt and Frostfire Bolt a 8%-40% chance, to reduce the channel time of your next Arcane Missiles.' DEPARTURE - no channelling and no Arcane Missiles. The real talent's purpose is a free extra volley, so it is delivered as flat Arcane damage off the two real spells in its list. proc['school'] only TYPES a damage_flat payload; it is not a trigger-side filter.",
       "connected_to": [
-        "mage_arcane_arcane_barrage",
-        "mage_arcane_arcane_blast"
+        "mage_arcane_mind_mastery"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 15,
+        "chance": 8,
         "icd": 0,
         "ability_filter": [
-          "mage_arcane_explosion"
+          "mage_fireball",
+          "mage_frostbolt"
         ],
-        "bonus_pct": 0.25
+        "damage_flat": 100,
+        "school": "arcane"
       }
     },
     {
-      "talent_id": "mage_arcane_potent_spirit",
-      "name": "Potent Spirit",
-      "description": "When you take damage, 20% chance per rank to draw 50 Mana from the pain.",
+      "talent_id": "mage_arcane_spell_power",
+      "name": "Spell Power",
+      "description": "Increases the critical damage of your spells by 25% per rank.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
-      "effects": {},
+      "effects": {
+        "crit_damage_spell": 0.25
+      },
+      "_source": "WotLK row 5, built verbatim: 'Increases critical strike damage bonus of all spells by 25%/50%.' crit_damage_spell is a FRACTION, read at abilities.py:1460 inside a ternary - so the probe finds no literal read site and it is nonetheless live. NOTE it is DEAD inside a status effect; only the talent-effect form works, which is what this is.",
       "connected_to": [
-        "mage_arcane_netherwind_presence",
-        "mage_arcane_arcane_mastery"
-      ],
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 50
-        }
-      }
+        "mage_arcane_netherwind_presence"
+      ]
     },
     {
-      "talent_id": "mage_arcane_arcane_blast",
-      "name": "Arcane Blast",
-      "description": "Every damaging spell you cast grants Arcane Blast for 3 turns: 25 Spell Power and 5% increased damage, stacking up to 4 times.",
+      "talent_id": "mage_arcane_arcane_barrage",
+      "name": "Arcane Barrage",
+      "description": "Increases the damage of your Arcane Explosion by 30%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 6,
-      "effects": {},
+      "effects": {
+        "ability_mage_arcane_explosion_damage": 0.3
+      },
+      "_source": "WotLK row 10, the capstone: 'Launches several missiles at the enemy target, causing 386 to 470 Arcane damage.' DEPARTURE - there is no mage_arcane_barrage ability to unlock. The capstone instead makes the tree's one real Arcane nuke hit considerably harder, which is the nearest honest reading. This is the thinnest capstone in the Mage and is marked as such: the real talent is a new spell, and a damage bonus is not a new spell.",
       "connected_to": [
         "mage_arcane_missile_barrage"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "arcane_blast_stack",
-          "name": "Arcane Blast",
-          "effect_type": "buff",
-          "duration": 3,
-          "max_stacks": 4,
-          "stat_mods": {
-            "spell_power": 25,
-            "damage_dealt_pct": 5
-          },
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "mage_arcane_arcane_mastery",
-      "name": "Slow",
-      "description": "Your damaging spells slow the target for 3 turns, reducing its Haste by 20 and increasing magic damage it takes by 5%.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
-      "connected_to": [
-        "mage_arcane_potent_spirit"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "arcane_mastery_slow",
-          "name": "Slow",
-          "effect_type": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": -20,
-            "magic_damage_taken_pct": 5
-          },
-          "on_target": true
-        }
-      }
+      ]
     }
   ]
 }

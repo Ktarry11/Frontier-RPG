@@ -98,7 +98,7 @@ class Tree:
     def node(self, talent_id, name, description, tier, hex_x, max_points,
              effects=None, proc=None, connected_to=None,
              node_type="passive", source="", require_form=None,
-             raw_id=False, raw_links=()):
+             raw_id=False, raw_links=(), icon_id=None):
         """Add one node.
 
         raw_id=True uses `talent_id` VERBATIM instead of prefixing it with
@@ -130,6 +130,10 @@ class Tree:
             n["proc"] = proc
         if require_form:
             n["require_form"] = require_form
+        # Preserved homebrew branches ship their own art; dropping the
+        # icon_id would leave those nodes blank in the talent screen.
+        if icon_id:
+            n["icon_id"] = icon_id
         self.data["nodes"].append(n)
         return n
 
