@@ -111,7 +111,10 @@ def build_keep():
                    "The Arathor capital, fallen: roofless wards, a Syndicate garrison squatting the "
                    "stonework, and an undercroft older than the keep above it.")
     zone.is_cave = True
-    zone.region = "Arathi Highlands"
+    # The PARENT OPEN ZONE, which is also the encounter-table key - see
+    # tools/handbuilt_arathi_caves.py. "Arathi Highlands" is prose and
+    # names no zone, so this cave resolved no table at all.
+    zone.region = "Arathi West"
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
 

@@ -253,8 +253,9 @@ class ZoneManager:
         # common case (no active quest has a position gate).
         if self.current_zone:
             from world.quest_manager import get_quest_manager
-            zone_key = self.current_zone.name.lower().replace(" ", "_").replace("'", "")
-            get_quest_manager().record_position_reached(zone_key, new_x, new_y)
+            from world.zone_keys import zone_slug
+            get_quest_manager().record_position_reached(
+                zone_slug(self.current_zone.name), new_x, new_y)
 
         return True
     
@@ -542,17 +543,21 @@ class ZoneManager:
             self.player_y = target_y
 
             # Advance any active EXPLORE quest objective targeting this
-            # zone - same slug normalization every other zone-keyed
-            # lookup uses (VendorManager._zone_key, combat_screen.py's
-            # combat_zone_key, race_registry.get_zone_default_race).
+            # zone. zone_slug, NOT zone_key: the quest system keys explore
+            # objectives on the unstripped slug, so ten Underdark
+            # objectives really are authored `the_crystalline_underdark`
+            # and friends. This comment used to claim the raw chain here
+            # was the "same slug normalization every other zone-keyed
+            # lookup uses (VendorManager._zone_key, ...)" - it is not, and
+            # world/zone_keys.py now spells out where the two part ways.
             # Fires on every successful transition, including re-entering
             # a zone already explored - record_zone_entered is itself
             # idempotent (is_complete() guards it), so this is safe to
             # call unconditionally rather than needing a "have I already
             # told the quest system about this zone" check here too.
             from world.quest_manager import get_quest_manager
-            zone_key = new_zone.name.lower().replace(" ", "_").replace("'", "")
-            get_quest_manager().record_zone_entered(zone_key)
+            from world.zone_keys import zone_slug
+            get_quest_manager().record_zone_entered(zone_slug(new_zone.name))
 
             # BANTER. A town gets the town trigger and everywhere else gets the zone one; leaving a
             # dungeon whose boss is down is its own beat. The manager decides whether anybody actually

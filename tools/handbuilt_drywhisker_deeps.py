@@ -97,7 +97,10 @@ def build_deeps():
                    "A kobold working dug four levels into the gorge wall, the bottom one below the "
                    "waterline and filling.")
     zone.is_cave = True
-    zone.region = "Arathi Highlands"
+    # The PARENT OPEN ZONE, which is also the encounter-table key - see
+    # tools/handbuilt_arathi_caves.py. "Arathi Highlands" is prose and
+    # names no zone, so this cave resolved no table at all.
+    zone.region = "Arathi Central"
     L = CaveLayout(zone, (PORTAL[0], PORTAL[1] - 2))
     b = L.b
 

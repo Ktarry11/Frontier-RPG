@@ -39,5 +39,35 @@ def zone_key(zone):
     "Grom'gol"                              -> gromgol
     "The Sepulcher" / "sepulcher"           -> sepulcher
     """
-    key = str(zone).strip().lower().replace(" ", "_").replace("'", "").replace("’", "")
+    key = zone_slug(zone)
     return key[4:] if key.startswith("the_") else key
+
+
+def zone_slug(zone):
+    """The same key WITHOUT dropping a leading "the_".
+
+    TWO CONVENTIONS EXIST AND THEY DISAGREE ON EVERY "The ..." ZONE. This
+    is not a second normaliser of the kind the module docstring is about -
+    it is the other half of the one above, pulled into this file so the
+    disagreement is written down in one place instead of living as a
+    duplicated .replace() chain at each call site.
+
+    The quest system keys explore objectives on the UNSTRIPPED slug:
+    QuestManager.record_zone_entered and record_position_reached compare
+    objective.target to what world/zone_manager.py passes them, and the
+    authored data says `the_crystalline_underdark`, `the_frostward_descent`,
+    `the_hollow_geode`, `the_deep_bloom`. The managers (vendors, gathering,
+    recruits, ambient NPCs) key on the STRIPPED one.
+
+    Both halves work, because each side is internally consistent - index
+    and query go through the same rule, which is the invariant this module
+    exists to hold. What was wrong was the comment at zone_manager.py:554
+    claiming the raw chain there was "same slug normalization every other
+    zone-keyed lookup uses (VendorManager._zone_key, ...)". It is not: for
+    any zone beginning with "The" the two differ by exactly four
+    characters, and anyone who "unified" them on the strength of that
+    comment would have silently broken ten Underdark explore objectives.
+    Use zone_slug for anything the quest system compares, zone_key for
+    anything a manager indexes, and never the raw chain.
+    """
+    return str(zone).strip().lower().replace(" ", "_").replace("'", "").replace("’", "")

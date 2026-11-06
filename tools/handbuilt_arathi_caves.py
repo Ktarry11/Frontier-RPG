@@ -189,7 +189,14 @@ BOULDERGOR = dict(
     CHESTS=[(10, 25), (41, 25), (19, 26), (52, 20)],
     BAKED=f"{BAKED_ROOT}/bouldergor/baked",
     DESC="A two-hall ogre hold on the high moor, joined by a crawl neither band likes using.",
-    REGION="Arathi Highlands",
+    REGION="Arathi West",  # THE PARENT OPEN ZONE'S NAME, which is also its encounter-table key
+    # (data/creatures/encounters.json). "Arathi Highlands" is the region in
+    # prose and the name of nothing in the game: the three open maps are
+    # Arathi West/Central/East, and CreatureManager.get_encounter_table looks
+    # a cave up at zones[region]["caves"][name]. All seven Arathi caves were
+    # set to the prose name, so all seven resolved NO table - their pinned
+    # bosses never spawned and the player met the open zone's own mobs
+    # instead (qa_encounter_tables).
 )
 
 
@@ -257,7 +264,7 @@ BOULDERFIST = dict(
     CHESTS=[(21, 33), (8, 21), (28, 18), (52, 40), (49, 60)],
     BAKED=f"{BAKED_ROOT}/boulderfist/baked",
     DESC="The larger ogre hold: a feast hall with four dens off it, grown rather than planned.",
-    REGION="Arathi Highlands",
+    REGION="Arathi Central",  # parent open zone, see BOULDERGOR
 )
 
 
@@ -340,7 +347,7 @@ BARROW = dict(
     CHESTS=[(23, 44), (34, 34), (21, 15), (35, 15), (13, 36)],
     BAKED=f"{BAKED_ROOT}/barrow/baked",
     DESC="An Arathor barrow dug into a hill that is now below the waterline. The far end is water.",
-    REGION="Arathi Highlands",
+    REGION="Arathi East",  # parent open zone, see BOULDERGOR
 )
 
 
@@ -408,7 +415,7 @@ WRACKLINE = dict(
     CHESTS=[(16, 46), (34, 21), (52, 21), (18, 8), (40, 7)],
     BAKED=f"{BAKED_ROOT}/wrackline/baked",
     DESC="A sea cave in three shelves: boats at the tideline, cargo above it, the crew above that.",
-    REGION="Arathi Highlands",
+    REGION="Arathi East",  # parent open zone, see BOULDERGOR
 )
 
 
@@ -476,7 +483,7 @@ TIDEWRACK = dict(
     CHESTS=[(32, 32), (20, 44), (55, 30), (24, 12)],
     BAKED=f"{BAKED_ROOT}/tidewrack/baked",
     DESC="A round flooded sump with a ringed island in the middle and a shelf round the wall.",
-    REGION="Arathi Highlands",
+    REGION="Arathi East",  # parent open zone, see BOULDERGOR
 )
 
 

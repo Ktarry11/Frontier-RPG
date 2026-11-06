@@ -41,9 +41,24 @@ from world.zone_manager import ZoneManager  # noqa: E402
 OURS = ["hillsbrad", "hillsbrad_dungeons"]
 INBOUND_IDS = {"sps_road_south", "sps_ashes_south", "spn_orchard_graft",
                "sfk_annotated_page", "ucq_hillsbrad_writ"}
-ZONE_MAP = {"western_hillsbrad": "Western Hillsbrad", "eastern_hillsbrad": "Eastern Hillsbrad",
-            "tarren_mill": "Tarren Mill", "azurelode_mine": "Azurelode Mine",
-            "dun_garok": "Dun Garok", "durnholde_keep": "Durnholde Keep"}
+def zone_map(zm):
+    """quest zone key -> real zone display name, DERIVED, never typed.
+
+    This was a hand-written dict of the six zones this script happened to
+    test, so any quest pointing anywhere else failed as "does not exist"
+    whether or not it was real. arw_through_the_wall explores
+    `arathi_west`, which is exactly what the engine normalises "Arathi
+    West" to (QuestManager.record_zone_entered and record_position_reached
+    both go through world/zone_keys.zone_slug) - the quest worked in game
+    and failed here, which is the worst way round.
+
+    world/zone_keys.py exists because six managers each wrote their own
+    normaliser and three of them disagreed; a seventh copy typed out by
+    hand in a QA script is the same mistake in the place that is supposed
+    to catch it. Keyed off the real zone list through the real function.
+    """
+    from world.zone_keys import zone_slug
+    return {zone_slug(name): name for name in zm.zones}
 
 
 def load(name):
@@ -52,6 +67,8 @@ def load(name):
 
 
 def main():
+    _ZM = ZoneManager()
+    ZONE_MAP = zone_map(_ZM)
     fails, warns = [], []
 
     quests = []
@@ -141,9 +158,17 @@ def main():
         s = set(z.get("open_zone", {}).get("creatures", {}))
         for sub in z.get("subzones", {}).values():
             s |= set(sub["creatures"])
-        spawns[zname] = s
+        spawns[zname] = spawns.get(zname, set()) | s
         for cname, cv in z.get("caves", {}).items():
-            spawns[cname] = set(cv["creatures"])
+            # UNION, NOT ASSIGN. A cave and a top-level zone entry can carry
+            # the same name, and a plain assignment let whichever came last
+            # in file order win silently. encounters.json had a stale
+            # top-level "The Frostward Descent" holding a copy of the cave's
+            # roster from before its bosses were added, so this line
+            # overwrote the real table and the three pinned bosses read as
+            # not spawning in their own cave. The duplicate is gone; the
+            # union is here so the next one cannot hide the same way.
+            spawns[cname] = spawns.get(cname, set()) | set(cv["creatures"])
     for q in quests:
         for o in q["objectives"]:
             if o["type"] not in ("kill", "kill_boss"):
@@ -156,7 +181,7 @@ def main():
                 fails.append(f"{q['quest_id']}: '{o['target']}' does not spawn in {zname}")
 
     # ---- 7. explore targets
-    zm = ZoneManager()
+    zm = _ZM
     for q in quests:
         for o in q["objectives"]:
             if o["type"] != "explore":
