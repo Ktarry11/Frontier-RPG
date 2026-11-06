@@ -661,7 +661,16 @@ class QuestDialogScreen(BaseScreen):
         # it as a framing line when it genuinely differs.
         desc = (quest.description or "").strip()
         speech = (quest.accept_text or "").strip()
-        body, lead = (speech, desc) if len(speech) > len(desc) else (desc, speech)
+        # The lead line is only drawn when `description` is the TEASER -
+        # i.e. when accept_text won and is the body. In the other
+        # convention accept_text is the short line the NPC says as you
+        # take the quest ("Take the west road down to the Vale"), which is
+        # a different beat and reads as a duplicate if it is also printed
+        # above the body.
+        if len(speech) > len(desc):
+            body, lead = speech, desc
+        else:
+            body, lead = desc, ""
         if lead and len(lead) <= 160 and lead != body:
             y = self._draw_wrapped_text(screen, lead, (40, y), max_width=BODY_W,
                                         color=(150, 146, 132), line_height=24)

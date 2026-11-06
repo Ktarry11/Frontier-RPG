@@ -7,7 +7,7 @@
       "zone": "brill",
       "level_min": 6,
       "level_max": 8,
-      "description": "Bleak Worgs have been trotting up the Deathknell road after dark. They haven't bitten anyone in Brill yet, which Rennick considers a stroke of luck and a warning. Thin the pack in Nightmare Vale before the luck runs out.",
+      "description": "You'll forgive me if I don't stand. Deathguard Rennick, and this gate is mine from dusk until whenever somebody remembers to relieve me.\n\nThe Bleak Worgs have been coming up the Deathknell road after dark. Not at us yet - at the edges, the way a thing does when it is working out whether we are worth the trouble. Nobody in Brill has been bitten. The living would call that luck. I have stood at a gate long enough to call it a question being asked.\n\nGo down into Nightmare Vale and answer it. Thin the pack, and leave enough of a mess that the rest of them draw the right conclusion.",
       "objectives": [
         {
           "type": "kill",
@@ -18,8 +18,8 @@
       ],
       "reward_exp": 500,
       "reward_gold": 1800,
-      "accept_text": "Take the west road down to the Vale. Eight worgs. Bring me the count and I'll pretend I'm not worried.",
-      "turn_in_text": "Eight? Good. Brill sleeps lighter than it admits. Take something from the crate.",
+      "accept_text": "Take the west road down to the Vale. Bring me the count and I'll pretend I'm not worried.",
+      "turn_in_text": "Good. That's the answer I wanted them to have.\n\nBrill sleeps lighter than it admits, friend. Take something out of the crate - nobody in there is using it.",
       "next_quest_id": "brl_nightmare",
       "unique_item_defs": [
         {
@@ -73,7 +73,7 @@
       "zone": "brill",
       "level_min": 7,
       "level_max": 9,
-      "description": "Nobody has walked Nightmare Vale's lower road since the worgs came. Rennick wants someone to walk it end to end and report what is waiting at the bottom, because 'something' is a poor basis for a patrol roster.",
+      "description": "One more thing, since you came back with your arms attached.\n\nNobody has walked the lower road through Nightmare Vale since the worgs settled in. I have three patrol rosters on this post and every one of them says the same word about what is down there, and the word is 'something'. You cannot set a watch against something. You cannot tell a frightened farmer anything useful about something.\n\nWalk it. End to end, the whole length, and look properly at the bottom of it. Then come back and give me a noun.",
       "objectives": [
         {
           "type": "explore",
@@ -85,8 +85,8 @@
       ],
       "reward_exp": 560,
       "reward_gold": 2100,
-      "accept_text": "South-west of the Cold Hearth road, past the Deathknell gate, the road goes into the trees. Walk it. Don't dawdle.",
-      "turn_in_text": "So it's quiet down there. I like quiet less than you'd think. Good work.",
+      "accept_text": "South-west of the Cold Hearth road, past the Deathknell gate, where the road goes into the trees. Don't dawdle.",
+      "turn_in_text": "Quiet. You're certain.\n\nI like quiet less than you'd think. Quiet is what a place sounds like when whatever lives there has already seen you and decided there's no hurry.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -138,7 +138,7 @@
       "zone": "brill",
       "level_min": 6,
       "level_max": 8,
-      "description": "The Wretched Zombies that wander the glades west of Brill have started drifting toward the gate. They are slow and stupid and mean no harm, but the gate guard has a quota of corpses he is willing to step over.",
+      "description": "Stop there. You see that? Out past the posts, in the long grass - that drifting about.\n\nWretched Zombies out of the western glades. They're slow, they're stupid, and I'll say it plain because the Deathguard won't: they mean nothing by it. There's no malice left in one of those. They just wander, and lately they've been wandering at my gate.\n\nI have a quota of corpses I'm willing to step over on my way to this post, and it has been exceeded. Go and put them down properly, which is more mercy than they'd get from anyone else on this road.",
       "objectives": [
         {
           "type": "kill",
@@ -149,8 +149,8 @@
       ],
       "reward_exp": 500,
       "reward_gold": 1800,
-      "accept_text": "Out along the road west. Zombies. Put eight of them down and I'll let you back in without a lecture.",
-      "turn_in_text": "That's the road clear. I was getting a crick from all the stepping over.",
+      "accept_text": "Out along the road west. Put them down and I'll let you back in without a lecture.",
+      "turn_in_text": "That's the road clear. I was getting a crick in my neck from all the stepping over.\n\nThey'll come back eventually. They always do. But not this week, and this week is what I'm paid for.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -205,7 +205,7 @@
       "zone": "brill",
       "level_min": 7,
       "level_max": 9,
-      "description": "Wexley prides himself on hearing everything first, and he has heard the Undercity zeppelin tower east of Brill is open for passengers. He has no way to confirm it. He would very much like you to go and look.",
+      "description": "Wexley. Town crier, Brill, and the first man in this town to know anything - a position I hold by effort, not by luck.\n\nWhich is why it galls me to be standing here repeating a rumour I cannot confirm. They are saying the zeppelin tower east of here, out at the Landing, is open and taking passengers. Goblins, ropes, the whole swaying business of it. If that's true, it is the biggest thing to happen to this town since the Dark Lady took the Undercity, and I will not be the last man in Brill to say so out loud.\n\nGo east and look at it with your own eyes. I'll not cry a thing I haven't had confirmed.",
       "objectives": [
         {
           "type": "explore",
@@ -217,8 +217,8 @@
       ],
       "reward_exp": 560,
       "reward_gold": 2100,
-      "accept_text": "East along the high road, then south. The tower is a tangle of ropes and goblin curses. Go and tell me if it's real.",
-      "turn_in_text": "Real! Real, and open for custom. I shall cry it from the steps. Thank you.",
+      "accept_text": "East along the high road, then south. The tower is a tangle of ropes and goblin cursing. Go and tell me if it's real.",
+      "turn_in_text": "Real. Real, and open for custom!\n\nI shall cry it from the steps within the hour, and I shall mention that I had it confirmed before anyone. Thank you - genuinely. A crier is only ever as good as the man he sent to check.",
       "next_quest_id": "brl_news_ruins",
       "unique_item_defs": [
         {
@@ -273,7 +273,7 @@
       "zone": "brill",
       "level_min": 9,
       "level_max": 11,
-      "description": "The Landing is one thing. The Ruins of Lordaeron, just south, are another: the old capital, gate to the Undercity, and full of rumours the town crier cannot afford to miss. Walk the approach and see who is still home.",
+      "description": "The Landing is a story about commerce. This one is a story about us, and I'd rather have it right.\n\nSouth of the tower are the Ruins of Lordaeron - the old capital, what's left of it, and the gate down into the Undercity. Every week somebody comes up that road with a tale: that the throne room's been cleared, that there are lights in the upper halls, that something's moved in where the Menethil line used to sit.\n\nI need the approach walked by someone who will tell me what they actually saw rather than what makes a better evening at the inn. Go and see who is still home.",
       "objectives": [
         {
           "type": "explore",
@@ -285,8 +285,8 @@
       ],
       "reward_exp": 720,
       "reward_gold": 2700,
-      "accept_text": "South of the landing, along the road the Dark Lady took. Don't linger. The ghosts remember being important.",
-      "turn_in_text": "The old throne's cold, then. Pity. It was a lovely rumour.",
+      "accept_text": "South of the Landing, along the road the Dark Lady took. Don't linger - the ghosts up there remember being important.",
+      "turn_in_text": "Mm. That matches two of the four versions I've been told, which is about as close to truth as this town gets.\n\nI'll cry the careful version. People think a crier's job is noise. It's mostly deciding what not to say.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -350,7 +350,7 @@
       "zone": "brill",
       "level_min": 6,
       "level_max": 8,
-      "description": "Assistant Grael needs the pumpkins the Solliden thrashers are growing: swollen, grey-green things that ferment into the Apothecary's best base for plague reagents. He will not go near them himself. The thrashers hit back.",
+      "description": "Keep your voice down, the Apothecary's just through there and he does not like to be interrupted by errands he considers beneath the work.\n\nGrael. Assistant, which in this building means I fetch. What I need fetched are the pumpkins out of the Solliden fields - swollen things, grey-green, gone soft at the shoulder. They ferment into the finest reagent base we have, and nothing else in Tirisfal does it half as well.\n\nThe Grain Threshers are growing them and the Grain Threshers hit back, which is precisely why I am standing here asking you instead of walking out there myself. Uncracked, please. I am very particular about cracks.",
       "objectives": [
         {
           "type": "fetch",
@@ -360,8 +360,8 @@
       ],
       "reward_exp": 500,
       "reward_gold": 1800,
-      "accept_text": "The Grain Threshers in the Solliden fields carry them. Five, uncracked, please. I'm very particular about cracks.",
-      "turn_in_text": "Perfectly foul. Look at the colour. Take something from the shelf, you've earned it.",
+      "accept_text": "The threshers in the Solliden fields carry them. Uncracked. I'll know.",
+      "turn_in_text": "Oh, those are lovely. Not a split in them.\n\nDon't tell the Apothecary how pleased I am. He thinks enthusiasm is a symptom.",
       "next_quest_id": "brl_grael_pearls",
       "unique_item_defs": [
         {
@@ -418,7 +418,7 @@
       "zone": "brill",
       "level_min": 7,
       "level_max": 9,
-      "description": "The Vile Fin oracles on Whispering Shore wear salt-pearls the Apothecary can grind into a calming powder. Grael has no idea what the Vile Fins want them for, and not much interest in the answer.",
+      "description": "Another one, if you have the stomach for the smell of the bay.\n\nThe Vile Fin murlocs out on the Whispering Shore wear little salt-pearls - the oracles do, specifically, the ones that stand at the back and make the noise. Ground fine, they settle a plague draught that would otherwise take the lining out of a person. We use a great deal of it.\n\nI have no idea what the murlocs want them for. I asked, once, in the way you ask a murloc things, and I came away wet and no wiser. Whatever it means to them, they can spare some.",
       "objectives": [
         {
           "type": "fetch",
@@ -428,8 +428,8 @@
       ],
       "reward_exp": 560,
       "reward_gold": 2100,
-      "accept_text": "North-west, where the bay meets the dead marsh. The little oracles. Five pearls, and don't scratch them.",
-      "turn_in_text": "Lovely lustre. Ground fine, these'll keep a grave-robber asleep for a month. Take your pick.",
+      "accept_text": "North-west, where the bay meets the dead marsh. The little oracles. Don't scratch them.",
+      "turn_in_text": "Perfect. Look at the lustre on that - you can see why they bother.\n\nI do sometimes wonder whether we're taking something from them that matters. Then I grind it up, and the wondering passes.",
       "next_quest_id": "brl_grael_iceshard",
       "unique_item_defs": [
         {
@@ -482,7 +482,7 @@
       "zone": "brill",
       "level_min": 8,
       "level_max": 10,
-      "description": "Brightwater Lake sheds shards of black ice no matter the weather, and the weeping shades that stalk its shore carry them like keepsakes. The Apothecary uses them for cold-fixing. Grael needs five.",
+      "description": "Last errand, and the cold one, so I've saved it for someone who looked like they could take a walk in bad weather.\n\nBrightwater Lake sheds shards of black ice all year - summer, winter, makes no difference, which should tell you something about that water. The shades along the shore pick them up and carry them about like keepsakes. I've watched one hold a shard for an hour and do nothing with it at all.\n\nWe use them for cold-fixing, which keeps a reagent from turning while it sits. Bring me what the shades and the drowned are carrying. And wear gloves - I am not being delicate, that ice takes fingers.",
       "objectives": [
         {
           "type": "fetch",
@@ -492,8 +492,8 @@
       ],
       "reward_exp": 620,
       "reward_gold": 2400,
-      "accept_text": "Eastern Tirisfal, Brightwater Lake. The shades and the drowned wretches carry fragments. Bring five, and gloves.",
-      "turn_in_text": "Cold enough to hurt. Excellent. Your reward is on the third shelf. Do not touch the fourth.",
+      "accept_text": "Eastern Tirisfal, Brightwater Lake. The shades and the drowned carry fragments. Gloves.",
+      "turn_in_text": "Still cold. They always are, hours later, no matter what you wrap them in.\n\nThank you. Go and stand near the fire a while - you've gone the colour of the lake.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -546,7 +546,7 @@
       "zone": "brill",
       "level_min": 8,
       "level_max": 10,
-      "description": "Gravedigger Hollis has been digging graves for thirty years, living and dead, and he knows when one's been robbed. Rot Hide gnolls up at Garren's Haunt are doing it, and they leave the bodies in the wrong places.",
+      "description": "Thirty years I've dug in this ground. Dug for the living when it was the living we buried, and dug for whatever we are now, and I'll tell you the one thing both have in common: a grave is a promise. You put a person in the earth and the earth keeps them.\n\nSomebody's been breaking that promise up at Garren's Haunt. Rot Hide gnolls - graverobbers, working the old plots, and doing it badly. They take what's valuable and leave the rest lying out in the wrong arrangement. Not scattered. Arranged. I don't like that at all.\n\nAnd here's the part that has me in a temper: they're using my shovels. Stolen out of this very yard. Put them in the ground with them.",
       "objectives": [
         {
           "type": "kill",
@@ -557,8 +557,8 @@
       ],
       "reward_exp": 620,
       "reward_gold": 2400,
-      "accept_text": "The graverobbers use shovels. I recognise the shovels. They're mine. Put them in the ground.",
-      "turn_in_text": "Six less. I'd say rest in peace, but they never earned it. Take your pick.",
+      "accept_text": "Up at Garren's Haunt. They use shovels. I recognise the shovels. They're mine.",
+      "turn_in_text": "And my shovels back. Chipped, but back.\n\nYou'd think a man in my condition would have made his peace with bodies being moved about. Turns out that's precisely why I haven't.",
       "next_quest_id": "brl_hollis_relics",
       "unique_item_defs": [
         {
@@ -610,7 +610,7 @@
       "zone": "brill",
       "level_min": 8,
       "level_max": 10,
-      "description": "Whatever the robbers and the crypt wights took, Hollis wants it back in the ground where it belongs: rings, seals, little carved relics from the Agamand family vault.",
+      "description": "Now the other half of it, and this is the half that actually matters to me.\n\nWhatever those gnolls lifted is still out there, and the crypt wights in the Agamand vault have been at the same work for longer. Rings. Seals. Little carved things an Agamand was buried holding, because somebody who loved them thought they ought to have it.\n\nI don't want it sold and I don't want it kept. I want it back in the ground. I've dug for this family since before the plague and I'd like the ledger to balance before I stop. Bring me what you find, and bring all of it - I'll know the shape of a gap.",
       "objectives": [
         {
           "type": "fetch",
@@ -620,8 +620,8 @@
       ],
       "reward_exp": 620,
       "reward_gold": 2400,
-      "accept_text": "The wights in the Agamand crypt and the robbers at Garren's Haunt carry the best of it. Five relics, and no keeping any.",
-      "turn_in_text": "All present. I'll bury them tonight with a proper word. Take something from the barrow.",
+      "accept_text": "The wights in the Agamand crypt and the robbers at Garren's Haunt carry the best of it. And no keeping any.",
+      "turn_in_text": "Every piece. I did wonder.\n\nI'll put these back tonight, properly, with the right names over them. It won't matter to the Agamands. It matters to the ground, and it matters to me, and that'll do.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -678,7 +678,7 @@
       "zone": "brill",
       "level_min": 7,
       "level_max": 9,
-      "description": "Meryl Ashdown has a brother in the Scarlet Crusade. She wants to know if he is still alive, still sane, or still listed. Convert orders from the Crusader Outpost might tell her. She will not ask what you do to get them.",
+      "description": "You're not from the Deathguard. Good. I'll say this once and quietly.\n\nMy name is Meryl Ashdown and my brother is in the Scarlet Crusade. He marched off while he was still breathing and I stopped being able to follow it after that. I don't know if he's alive. I don't know if he's still himself - you hear what the Crusade does to a man's thinking, and he was never the steadiest of us.\n\nThe recruits at the Crusader Outpost carry their orders on them. Convert rosters, postings, names. Somewhere in that paper is whether he is still listed. I'm not going to ask how you get them, and I'd rather you didn't tell me. But if you meet a thin man with our mother's jaw - please.",
       "objectives": [
         {
           "type": "fetch",
@@ -688,8 +688,8 @@
       ],
       "reward_exp": 560,
       "reward_gold": 2100,
-      "accept_text": "The Crusader Outpost west of the Solliden farms. The recruits carry their orders on them. Please. Five. And don't hurt him if you meet him.",
-      "turn_in_text": "...He's on the roster. Alive, at least. Thank you. I won't forget this. Take something. It was his.",
+      "accept_text": "The Crusader Outpost, west of the Solliden farms. Please. And don't hurt him if you meet him.",
+      "turn_in_text": "[She reads each sheet twice before she sets it down.]\n\nHe isn't here. Not listed, not struck off, not anywhere in this. Which means nothing, and I'll be honest with you - nothing is better than what I was braced for.\n\nThank you. You're the first person in three years to come back to me with an answer instead of a kindness.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -745,7 +745,7 @@
       "zone": "brill",
       "level_min": 6,
       "level_max": 8,
-      "description": "Old Farmer Nettles swears the duskbats over the glades are the crows that used to eat his barley, and that they're still after it. Nothing grows, but he insists on the principle.",
+      "description": "Them bats. Out over the glades, the big grey ones. You see them?\n\nThey're the crows. Same crows that took my barley every autumn for forty years, and don't you start - I know what people in town say about Old Nettles and his crows. I know what they turned into, and I know what I turned into, and I notice nobody wants to discuss the second one.\n\nNothing grows in that field now. Nothing has grown there since before the plague. I'm aware. But a man either keeps the pact he made with his land or he doesn't, and I'm not having the principle of the thing decided by a bat. Go and see them off.",
       "objectives": [
         {
           "type": "kill",
@@ -756,8 +756,8 @@
       ],
       "reward_exp": 500,
       "reward_gold": 1800,
-      "accept_text": "Out in the glades, the big grey ones. They've had my crop and my patience. Eight of them, if you please.",
-      "turn_in_text": "Eight. I'll hang them on the fence. It's what you do. Take some of the old tack.",
+      "accept_text": "Out in the glades, the big grey ones. They've had my crop and my patience.",
+      "turn_in_text": "Hah! That's them told.\n\nField's still dead. I'm still dead. But that's a proper field with a proper crop of nothing in it, and it's mine, and the birds can keep off it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -813,7 +813,7 @@
       "zone": "brill",
       "level_min": 6,
       "level_max": 8,
-      "description": "Pruit tends the scarecrows that guard Brill's plots. The Rotting Dead that stumble in from the glades keep knocking them down and, worse, leaving their own shapes on the posts. He wants them cleared.",
+      "description": "Careful of the posts. I've only just got that one standing straight.\n\nI tend the scarecrows on Brill's plots - have done since there were crops worth guarding, and I've kept at it since there weren't. Somebody has to. A field with a scarecrow in it is a field somebody still means something by.\n\nThe Rotting Dead come in off the glades and knock them flat, and that I could live with. What I can't live with is what they do after. They lean on the posts. They stay there. And when you come out in the morning there's a shape up on the frame that is not straw and not mine, and I have to take it down, and I have to decide what to do with it. I'd like that to stop.",
       "objectives": [
         {
           "type": "kill",
@@ -824,8 +824,8 @@
       ],
       "reward_exp": 500,
       "reward_gold": 1800,
-      "accept_text": "Seven, and don't bring them back. I'll make do with straw.",
-      "turn_in_text": "Straw's easier to stand up than they are. Thank you, friend. Take what you need.",
+      "accept_text": "Out in the plots. Don't bring them back here - I'll make do with straw.",
+      "turn_in_text": "Thank you. I mean that.\n\nI'll re-stuff the frames this evening and they'll be scarecrows again. Just straw and a coat. That's all they were ever supposed to be.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -878,7 +878,7 @@
       "zone": "brill",
       "level_min": 8,
       "level_max": 10,
-      "description": "The bell-ringer rings once a day for those lost at Brightwater Lake. Lately the Drowned Wretches ring back, from the water. He wants them quiet.",
+      "description": "The bell goes once a day, at dusk. One stroke, for everyone Brightwater Lake has kept.\n\nIt isn't a ceremony and the Apothecary has told me more than once that it isn't useful. He's right. It's a habit I had when I was breathing and it's a habit I have now, and I've lost enough else that I'd rather not examine that one too closely.\n\nHere's the trouble. For the last month or so, when I ring it - the lake rings back. The Drowned Wretches come up out of the shallows and they make a sound that is not an echo, and they keep making it after I've stopped. I'd like them quiet. I'd like to be able to ring for them without them answering.",
       "objectives": [
         {
           "type": "kill",
@@ -889,8 +889,8 @@
       ],
       "reward_exp": 620,
       "reward_gold": 2400,
-      "accept_text": "East past Brill, the big lake on the north side. They rise at dusk and wail. Seven, please.",
-      "turn_in_text": "Quieter, I think. Or I've gone deaf. Either way, thank you.",
+      "accept_text": "East past Brill, the big lake on the north side. They rise at dusk and wail.",
+      "turn_in_text": "[He listens for a long moment, head tilted toward the water.]\n\nNothing. Just the bell, and then the bell stopping.\n\nI'll ring for them tomorrow as well. It's only right. But I'd rather do the remembering on my own, thank you.",
       "next_quest_id": "brl_ohmsted_shades",
       "unique_item_defs": [
         {
