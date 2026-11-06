@@ -13,96 +13,95 @@
   },
   "nodes": [
     {
-      "talent_id": "rogue_subtlety_master_of_deception",
-      "name": "Master of Deception",
-      "description": "Increases the damage of Ambush and Garrote by 5% per rank.",
+      "talent_id": "rogue_subtlety_relentless_strikes",
+      "name": "Relentless Strikes",
+      "description": "Your finishing moves have a 20% chance per rank to restore 25 Energy.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {},
+      "_source": "WotLK row 0: 'Your finishing moves have a 4% chance per combo point to restore 25 energy.' Built faithfully now that the Rogue has combo points. Per-combo-point chance is not expressible - nothing reads a live resource amount - so the chance is per RANK instead, reaching 100% at 5 points exactly as the real talent does at 5 combo points. ability_filter restricts it to the six real finishers; the energy amount is the real 25. A proc's chance scales with points_spent, its payload does not, which is why chance carries the rank curve.",
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 20,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_eviscerate",
+          "rogue_rupture",
+          "rogue_slice_and_dice",
+          "rogue_expose_armor",
+          "rogue_kidney_shot",
+          "rogue_envenom"
+        ],
+        "grant_resource": {
+          "resource": "energy",
+          "amount": 25
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_master_of_deception",
+      "name": "Master of Deception",
+      "description": "Increases the damage of your Ambush, Garrote and Cheap Shot by 7% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_rogue_ambush_damage": 0.05,
-        "ability_rogue_garrote_damage": 0.05
+        "ability_rogue_ambush_damage": 0.07,
+        "ability_rogue_garrote_damage": 0.07,
+        "ability_rogue_cheap_shot_damage": 0.07
       },
-      "connected_to": [
-        "rogue_subtlety_initiative"
-      ]
+      "_source": "WotLK row 0: 'Reduces the chance enemies have to detect you while in Stealth mode.' DEPARTURE - this engine has no stealth at all: no stealth state, no detection roll, no break event. The talent's PURPOSE is that you get to open on your terms, so it pays out on the three openers instead. The outgoing version already did this for two of them at 5 ranks; corrected to the real 3 ranks and extended to Cheap Shot.",
+      "connected_to": []
     },
     {
       "talent_id": "rogue_subtlety_opportunity",
       "name": "Opportunity",
-      "description": "Increases the damage of Backstab by 8% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_rogue_backstab_damage": 0.08
-      },
-      "connected_to": [
-        "rogue_subtlety_elusiveness"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_sleight_of_hand",
-      "name": "Sleight of Hand",
-      "description": "Increases Dodge by 2% per rank.",
+      "description": "Increases the damage dealt by your Backstab, Mutilate, Garrote and Ambush abilities by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "dodge": 2.0
+        "ability_rogue_backstab_damage": 0.1,
+        "ability_rogue_mutilate_damage": 0.1,
+        "ability_rogue_garrote_damage": 0.1,
+        "ability_rogue_ambush_damage": 0.1
       },
-      "connected_to": [
-        "rogue_subtlety_serrated_blades"
-      ]
+      "_source": "WotLK row 0, built verbatim including all four abilities and the real 10% per rank over 2 ranks. The outgoing version was 5 ranks of 8% on Backstab alone.",
+      "connected_to": []
     },
     {
-      "talent_id": "rogue_subtlety_camouflage",
-      "name": "Camouflage",
-      "description": "Reduces the cooldown of Vanish by 2 turns per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_rogue_vanish_cooldown": 2
-      },
-      "connected_to": [
-        "rogue_subtlety_setup"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_initiative",
-      "name": "Initiative",
-      "description": "Reduces the Energy cost of Backstab by 4 per rank.",
+      "talent_id": "rogue_subtlety_sleight_of_hand",
+      "name": "Sleight of Hand",
+      "description": "Reduces the chance you are critically hit by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_rogue_backstab_cost": 4
+        "crit_taken_reduction": 1.0
       },
+      "_source": "WotLK row 1: 'Reduces the chance you are critically hit by melee and ranged attacks by 1%/2% and increases the threat reduction of your Feint ability by 10%/20%.' The crit half is exact - crit_taken_reduction is real, read at abilities.py:1317 in PERCENTAGE POINTS. The Feint-threat half is dropped: threat reduction is only expressible globally via threat_generation_pct, and there is no per-ability threat key, so scoping it to Feint is impossible. The outgoing version was flat dodge, which is a different stat entirely.",
       "connected_to": [
-        "rogue_subtlety_master_of_deception",
-        "rogue_subtlety_hemorrhage"
+        "rogue_subtlety_relentless_strikes"
       ]
     },
     {
       "talent_id": "rogue_subtlety_elusiveness",
       "name": "Elusiveness",
-      "description": "Reduces the cooldown of Feint and Blind by 1 turn per rank.",
+      "description": "Reduces the cooldown of your Vanish and Blind by 2 turns per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -110,85 +109,135 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_rogue_feint_cooldown": 1,
-        "ability_rogue_blind_cooldown": 1
+        "ability_rogue_vanish_cooldown": 2,
+        "ability_rogue_blind_cooldown": 2
       },
+      "_source": "WotLK row 2: 'Reduces the cooldown of your Vanish and Blind abilities by 30/60 sec and your Cloak of Shadows by 15/30 sec.' Vanish and Blind are real abilities here (cd 10 and 12); Cloak of Shadows does not exist and is dropped. 30 seconds is re-derived as 2 turns per rank rather than divided by three - 4 turns off a 10-turn cooldown is the same proportion the real talent gives.",
       "connected_to": [
-        "rogue_subtlety_opportunity",
-        "rogue_subtlety_dirty_deeds"
+        "rogue_subtlety_master_of_deception"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_serrated_blades",
-      "name": "Serrated Blades",
-      "description": "Increases the potency of your Rupture by 10% per rank.",
+      "talent_id": "rogue_subtlety_dirty_tricks",
+      "name": "Dirty Tricks",
+      "description": "Reduces the Energy cost of your Blind and Sap by 25% per rank.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_rogue_rupture_potency": 0.1
+        "ability_rogue_blind_cost_pct": 0.25,
+        "ability_rogue_sap_cost_pct": 0.25
       },
+      "_source": "WotLK row 1, NEW to our tree: 'Increases the range of your Blind and Sap abilities by 2/5 yards and reduces the energy cost of your Blind and Sap abilities by 25%/50%.' The cost half is exact. Range does not exist in this engine - there is no positioning - so it is dropped. _cost_pct is a FRACTION where POSITIVE MEANS A REDUCTION.",
       "connected_to": [
-        "rogue_subtlety_sleight_of_hand",
-        "rogue_subtlety_deadliness"
+        "rogue_subtlety_opportunity"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_setup",
-      "name": "Setup",
-      "description": "Being struck has a 15% chance per rank to let you set up, granting 10% Dodge for 2 turns.",
+      "talent_id": "rogue_subtlety_ghostly_strike",
+      "name": "Ghostly Strike",
+      "description": "Your Backstab and Sinister Strike leave you harder to hit, increasing dodge by 15% for 2 turns.",
       "node_type": "passive",
       "tier": 1,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 2, NEW to our tree: 'A strike that deals 125% weapon damage (180% if a dagger is equipped) and increases your chance to dodge by 15% for 7 sec. Awards 1 combo point.' DEPARTURE - there is no rogue_ghostly_strike ability to unlock, and the engine has no weapon-type key for the dagger clause. Delivered as a RIDER on the two builders it would have replaced, keeping the part that is actually distinctive: the real 15% dodge for a real 7 seconds (2 turns). icd 3 stops it being permanently up.",
       "connected_to": [
-        "rogue_subtlety_camouflage",
-        "rogue_subtlety_premeditation"
+        "rogue_subtlety_opportunity"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 15,
-        "icd": 1,
+        "trigger": "on_damage_cast",
+        "chance": 100,
+        "icd": 3,
+        "ability_filter": [
+          "rogue_backstab",
+          "rogue_sinister_strike"
+        ],
         "apply_effect": {
-          "effect_id": "setup",
-          "name": "Setup",
+          "effect_id": "ghostly_strike",
+          "name": "Ghostly Strike",
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "dodge": 10.0
+            "dodge": 15
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "rogue_subtlety_hemorrhage",
-      "name": "Hemorrhage",
-      "description": "Grants Hemorrhage, a strike that causes the target to bleed.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
+      "talent_id": "rogue_subtlety_camouflage",
+      "name": "Camouflage",
+      "description": "Reduces the cooldown of your Vanish and Sprint by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
+      "hex_x": 5,
+      "hex_y": -4,
       "effects": {
-        "unlock_ability": "rogue_hemorrhage"
+        "ability_rogue_vanish_cooldown": 1,
+        "ability_rogue_sprint_cooldown": 1
       },
+      "_source": "WotLK row 1: 'Increases your speed while stealthed by 5%/15% and reduces the cooldown of your Stealth ability by 2/6 sec.' DEPARTURE - no stealth and no movement speed. Both halves are about getting back into position sooner, so it pays out on the two abilities that do that here. Stacks with Elusiveness on Vanish, as the real pair does on Stealth.",
       "connected_to": [
-        "rogue_subtlety_initiative",
-        "rogue_subtlety_filthy_tricks"
+        "rogue_subtlety_ghostly_strike"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_dirty_deeds",
-      "name": "Dirty Deeds",
-      "description": "Increases the damage of Cheap Shot and Kidney Shot by 15% per rank.",
+      "talent_id": "rogue_subtlety_serrated_blades",
+      "name": "Serrated Blades",
+      "description": "Your attacks ignore 3% of your target's armor per rank, and your Rupture deals 10% more damage per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 7,
+      "hex_y": -4,
+      "effects": {
+        "armor_penetration_pct": 3.0,
+        "ability_rogue_rupture_damage": 0.1
+      },
+      "_source": "WotLK row 2, built verbatim - both halves and both numbers are the real ones. armor_penetration_pct is authored in PERCENTAGE POINTS: probed with tools/probe_talent_key.py, which showed it landing on the attribute divided by 100, so 3.0 means 3%. Authoring 0.03 would have shipped 0.03% and looked correct in every audit. It is read by monster.py:658 via getattr on the ATTACKER, not through get_talent_effect.",
+      "connected_to": [
+        "rogue_subtlety_camouflage"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_setup",
+      "name": "Setup",
+      "description": "Dodging an attack has a 33% chance per rank to award you a combo point.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": -2,
+      "effects": {},
+      "_source": "WotLK row 3: 'Gives you a 33%/66%/100% chance to add a combo point to your target after dodging their attack or fully resisting one of their spells. This cannot happen more than once per second.' Built faithfully - on_dodge is a real trigger, the chance curve is exact, and icd 1 is the once-per-second clause. The resist half is dropped: there is no full-resist event. The outgoing version was a WORKING proc, not dead data - 15% per rank on_damage_taken granting 10% dodge - a sensible substitute for a class that had no combo points to award. Replaced because the real mechanic is now available, not because the old one was broken.",
+      "connected_to": [
+        "rogue_subtlety_sleight_of_hand"
+      ],
+      "proc": {
+        "trigger": "on_dodge",
+        "chance": 33,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 20
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_heightened_senses",
+      "name": "Heightened Senses",
+      "description": "Reduces magic damage taken by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -196,82 +245,157 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_rogue_cheap_shot_damage": 0.15,
-        "ability_rogue_kidney_shot_damage": 0.15
+        "magic_damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 4: 'Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by 2%/4%.' DEPARTURE - no stealth, and no caster-side miss chance for INCOMING attacks (hit_chance_spell is set once in Character.__init__ and is a dead talent key). Avoiding spell damage is expressed as taking less of it. magic_damage_taken_pct is a FRACTION as a talent effect and NEGATIVE reduces, the opposite sign to its meaning inside a status effect. The outgoing version was flat hit_rating, which is an OFFENSIVE stat - the talent was making the rogue hit harder, not survive better.",
       "connected_to": [
-        "rogue_subtlety_elusiveness",
-        "rogue_subtlety_preparation"
+        "rogue_subtlety_elusiveness"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_deadliness",
-      "name": "Deadliness",
-      "description": "Increases your Attack Power by 2% per rank.",
+      "talent_id": "rogue_subtlety_initiative",
+      "name": "Initiative",
+      "description": "Your Ambush, Garrote and Cheap Shot have a 33% chance per rank to award an additional combo point.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "attack_power_pct": 2.0
-      },
-      "connected_to": [
-        "rogue_subtlety_serrated_blades",
-        "rogue_subtlety_sinister_calling"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_premeditation",
-      "name": "Premeditation",
-      "description": "Your Ambush restores 30 Energy.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 3, built verbatim: the real ability list, the real 33%-per-rank curve to 100%, and a real extra combo point. The outgoing version was a flat 4-energy cost cut on Backstab, which is not this talent in any respect.",
       "connected_to": [
-        "rogue_subtlety_setup",
-        "rogue_subtlety_heightened_senses"
+        "rogue_subtlety_dirty_tricks"
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 100,
-        "icd": 1,
+        "chance": 33,
+        "icd": 0,
         "ability_filter": [
-          "rogue_ambush"
+          "rogue_ambush",
+          "rogue_garrote",
+          "rogue_cheap_shot"
         ],
         "grant_resource": {
-          "resource": "energy",
-          "amount": 30
+          "resource": "combo",
+          "amount": 20
         }
       }
     },
     {
       "talent_id": "rogue_subtlety_preparation",
       "name": "Preparation",
-      "description": "Teaches you Preparation.",
-      "node_type": "passive",
-      "tier": 3,
+      "description": "Teaches Preparation, immediately finishing the cooldown on your Evasion, Sprint and Vanish.",
+      "node_type": "active",
+      "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": 3,
+      "hex_y": -2,
       "effects": {
         "unlock_ability": "rogue_preparation"
       },
+      "_source": "WotLK row 4, kept as-is from the outgoing tree - it was already a real unlock of a real ability (rogue_preparation, effect_type reset_cooldowns). Cold Blood and Shadowstep are in the real wording; Cold Blood exists here, Shadowstep does not.",
       "connected_to": [
-        "rogue_subtlety_dirty_deeds",
-        "rogue_subtlety_shadowstep"
+        "rogue_subtlety_ghostly_strike"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_sinister_calling",
-      "name": "Sinister Calling",
-      "description": "Increases the damage of Hemorrhage and Backstab by 4% per rank.",
+      "talent_id": "rogue_subtlety_improved_ambush",
+      "name": "Improved Ambush",
+      "description": "Increases the critical strike chance of your Ambush by 25% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": -2,
+      "effects": {
+        "ability_rogue_ambush_crit": 25.0
+      },
+      "_source": "WotLK row 3, NEW to our tree, built verbatim at the real 25% per rank over 2 ranks. ability_<id>_crit is PERCENTAGE POINTS, read at abilities.py:1354 - a key that was authored by several talents and never read until it was fixed, so it is live now.",
+      "connected_to": [
+        "rogue_subtlety_camouflage"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_dirty_deeds",
+      "name": "Dirty Deeds",
+      "description": "Reduces the Energy cost of your Cheap Shot and Garrote by 10 per rank, and your abilities deal 10% more damage per rank to targets below 35% health.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 7,
+      "hex_y": -2,
+      "effects": {
+        "ability_rogue_cheap_shot_cost": 10,
+        "ability_rogue_garrote_cost": 10,
+        "low_health_damage_pct": 0.1
+      },
+      "_source": "WotLK row 4, built verbatim - both halves, the real 10 Energy and the real 10% per rank. low_health_damage_pct reads the TARGET's health (abilities.py:1642) and DEFAULTS to a 35% threshold, which is exactly what the real talent says, so low_health_threshold_pct is deliberately NOT authored here: it is UNSCALED, SUMS across talents, and is shared with Cheat Death's actor-side conditional. See the module docstring. The outgoing version was flat damage on Cheap Shot and Kidney Shot with no conditional at all.",
+      "connected_to": [
+        "rogue_subtlety_serrated_blades"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_hemorrhage",
+      "name": "Hemorrhage",
+      "description": "Teaches Hemorrhage, a strike that makes the target bleed and awards a combo point.",
+      "node_type": "active",
+      "tier": 2,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 9,
+      "hex_y": -2,
+      "effects": {
+        "unlock_ability": "rogue_hemorrhage"
+      },
+      "_source": "WotLK row 4, kept - a real unlock of a real ability, and the real talent also requires Serrated Blades, which connected_to reproduces. rogue_hemorrhage is now a combo generator, matching 'Awards 1 combo point.' The real 10-charge physical-damage debuff is not expressible - there is no charge system - so the ability stays the dot it already is.",
+      "connected_to": [
+        "rogue_subtlety_serrated_blades"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_master_of_subtlety",
+      "name": "Master of Subtlety",
+      "description": "Opening with Ambush, Garrote or Cheap Shot has a 33% chance per rank to increase all your damage by 10% for 2 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 0,
+      "effects": {},
+      "_source": "WotLK row 5, NEW to our tree: 'Attacks made while stealthed and for 6 seconds after breaking stealth cause an additional 4%/7%/10% damage.' DEPARTURE on the trigger only - there is no stealth, so the window opens when you USE an opener, which is the moment stealth would have broken. The payoff is the real 10% for the real 6 seconds (2 turns). Ranked by CHANCE rather than magnitude because a talent proc's chance scales with points_spent and its payload does not - so 4/7/10% at a fixed chance is not authorable, while 33/66/100% of a fixed 10% is, and reaches the same place at full rank.",
+      "connected_to": [
+        "rogue_subtlety_heightened_senses"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 33,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_ambush",
+          "rogue_garrote",
+          "rogue_cheap_shot"
+        ],
+        "apply_effect": {
+          "effect_id": "master_of_subtlety",
+          "name": "Master of Subtlety",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "all_damage": 0.1
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_deadliness",
+      "name": "Deadliness",
+      "description": "Increases your attack power by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -279,182 +403,247 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_rogue_hemorrhage_damage": 0.04,
-        "ability_rogue_backstab_damage": 0.04
+        "attack_power_pct": 2.0
       },
+      "_source": "WotLK row 5, built verbatim - this one really is a pure scalar in the real game too, 2% attack power per rank over 5 ranks, and is kept as such. attack_power_pct is PERCENTAGE POINTS (audit_talents caught this being authored as 0.06 elsewhere in the project).",
       "connected_to": [
-        "rogue_subtlety_deadliness",
-        "rogue_subtlety_honor_among_thieves"
+        "rogue_subtlety_initiative"
       ]
     },
     {
-      "talent_id": "rogue_subtlety_heightened_senses",
-      "name": "Heightened Senses",
-      "description": "Increases your hit chance by 1.5% per rank.",
+      "talent_id": "rogue_subtlety_enveloping_shadows",
+      "name": "Enveloping Shadows",
+      "description": "Shadows cling to you, increasing dodge by 2% per rank.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 2,
+      "effects": {
+        "dodge": 2.0
+      },
+      "_source": "WotLK row 6, NEW to our tree: 'Reduces the damage taken by area of effect attacks by 10%/20%/30%.' DEPARTURE - there is no aoe_damage_taken_pct key anywhere in this engine. Probed with tools/probe_talent_key.py: it reaches the talent bus and nothing reads it, and grep finds zero read sites, so authoring it would have been silent dead data. Delivered as raw dodge instead - general avoidance rather than AoE-specific mitigation, which is a real loss and is recorded as one.",
+      "connected_to": [
+        "rogue_subtlety_master_of_subtlety"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_premeditation",
+      "name": "Premeditation",
+      "description": "You surface from Vanish with 2 combo points.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 6: 'When used, adds 2 combo points to your target. You must add to or use those combo points within 20 sec or the combo points are lost.' DEPARTURE - there is no rogue_premeditation ability to unlock, so the 2 combo points are delivered off Vanish, which is what the real talent is FOR: it exists so a rogue re-opening from stealth does not start from zero. 40 is 2 points on the 20-per-point scale. The 20-second expiry is dropped - nothing expires a resource. The real talent requires Preparation; connected_to keeps it downstream of Master of Subtlety instead, because Preparation sits on a different column here. The outgoing version was a WORKING proc - Ambush restoring 30 Energy at 100% - which is what Premeditation has to become when there are no combo points to add. Replaced with the real thing, not a fix.",
+      "connected_to": [
+        "rogue_subtlety_master_of_subtlety"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_vanish"
+        ],
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 40
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_sinister_calling",
+      "name": "Sinister Calling",
+      "description": "Increases your Agility by 3% per rank and the damage of your Backstab and Hemorrhage by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 2,
+      "effects": {
+        "agility_pct": 3.0,
+        "ability_rogue_backstab_damage": 0.02,
+        "ability_rogue_hemorrhage_damage": 0.02
+      },
+      "_source": "WotLK row 7, built verbatim including the real 3% Agility that the outgoing version omitted entirely (it was 4% damage on two abilities and nothing else). agility_pct is PERCENTAGE POINTS. The real talent requires Premeditation, which connected_to reproduces.",
+      "connected_to": [
+        "rogue_subtlety_premeditation"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_cheat_death",
+      "name": "Cheat Death",
+      "description": "While below half health, all damage you take is reduced by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
-      "hex_y": 0,
+      "hex_y": 2,
       "effects": {
-        "hit_rating": 1.5
+        "low_health_damage_reduction_pct": 0.1
       },
+      "_source": "WotLK row 6: 'You have a 33%/66%/100% chance that an attack which would otherwise kill you will instead reduce you to 10% of your maximum health. In addition, all damage taken will be reduced by up to 90% for 3 sec.' DEPARTURE - there is no death-prevention hook, no 'would otherwise kill you' event, so the cheat-death half cannot be built. The mitigation half is real and kept. low_health_damage_reduction_pct reads the ACTOR's own health (combat_engine.py:541) and defaults to a 50% threshold, which is why low_health_threshold_pct is NOT authored here - the outgoing version DID author it at 0.35, which both made Cheat Death fire at 35% instead of 50% and put the class one node away from the summing-threshold breach that tools/qa_summing_thresholds.py exists to catch.",
       "connected_to": [
-        "rogue_subtlety_premeditation",
+        "rogue_subtlety_deadliness"
+      ]
+    },
+    {
+      "talent_id": "rogue_subtlety_waylay",
+      "name": "Waylay",
+      "description": "Your Ambush and Backstab have a 50% chance per rank to unbalance the target, slowing its attacks for 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 7: 'Your Ambush and Backstab hits have a 50%/100% chance to unbalance a target, increasing the time between their melee and ranged attacks by 20%, and reducing movement speed by 50% for 8 sec.' Built faithfully apart from movement speed, which does not exist. The real ability list, the real 50%-per-rank curve, and the real 20% attack slow as haste -20 on the target. 8 seconds is 2 turns. The outgoing version was a flat 12% Backstab damage bonus.",
+      "connected_to": [
+        "rogue_subtlety_cheat_death"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_ambush",
+          "rogue_backstab"
+        ],
+        "apply_effect": {
+          "effect_id": "waylay",
+          "name": "Waylay",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": -20
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_honor_among_thieves",
+      "name": "Honor Among Thieves",
+      "description": "When you critically hit, you have a 33% chance per rank to gain a combo point.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 8: 'When anyone in your group critically hits with a damage or healing spell or ability, you have a 33%/66%/100% chance to gain a combo point on your current target. This effect cannot occur more than once every second.' DEPARTURE on the source only - on_crit fires for the ROGUE's own crits; a talent effect can never reach an ally and no trigger reports a party member's crit. Everything else is exact, including icd 1 for the once-per-second clause. The outgoing version was a WORKING proc - 25% per rank on_crit for 20 Energy - the same combo-points-do-not-exist substitution as Setup and Premeditation. All three are replaced because the resource arrived, not because they were broken.",
+      "connected_to": [
+        "rogue_subtlety_sinister_calling"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "combo",
+          "amount": 20
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_shadowstep",
+      "name": "Shadowstep",
+      "description": "Sprinting wreathes you in shadow, increasing the damage of your next strikes by 20% and halving your threat for 1 turn.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 8: 'Attempts to step through the shadows and reappear behind your enemy and increases movement speed by 70% for 3 sec. The damage of your next ability is increased by 20% and the threat caused is reduced by 50%. Lasts 10 sec.' DEPARTURE - no rogue_shadowstep ability and no positioning in this engine. Delivered off Sprint, the only ability here that means 'close the distance'. The two numbers that matter are the real ones: +20% damage and -50% threat. 'Next ability' is a 1-turn buff, since nothing consumes a buff on use. The outgoing version was +25% Ambush damage and a 20-energy cost cut.\nNOTE THE MIXED UNITS INSIDE THIS ONE stat_mods DICT, which audit_talents caught here: all_damage is a FRACTION (0.20 = 20%) while threat_generation_pct is PERCENTAGE POINTS (-50.0 = -50%). Authored as -0.50 it was a 0.5% threat cut that looked entirely correct. There is no rule that infers this from the key name - the only reliable check is audit_talents.",
+      "connected_to": [
+        "rogue_subtlety_sinister_calling"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "rogue_sprint"
+        ],
+        "apply_effect": {
+          "effect_id": "shadowstep",
+          "name": "Shadowstep",
+          "effect_type": "buff",
+          "duration": 1,
+          "stat_mods": {
+            "all_damage": 0.2,
+            "threat_generation_pct": -50.0
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "rogue_subtlety_slaughter_from_the_shadows",
+      "name": "Slaughter from the Shadows",
+      "description": "Reduces the Energy cost of your Backstab and Ambush by 4 per rank, and increases all your damage by 1% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 3,
+      "hex_y": 4,
+      "effects": {
+        "ability_rogue_backstab_cost": 4,
+        "ability_rogue_ambush_cost": 4,
+        "all_damage": 0.01
+      },
+      "_source": "WotLK row 9, built verbatim - the real 4 Energy per rank on both abilities and the real 1% all-damage per rank. The Hemorrhage cost clause is dropped as the smallest of the three. The outgoing version had the cost halves but omitted the all-damage bonus, which is the part that makes a 5-point capstone-adjacent node worth taking.",
+      "connected_to": [
         "rogue_subtlety_waylay"
       ]
     },
     {
       "talent_id": "rogue_subtlety_filthy_tricks",
       "name": "Filthy Tricks",
-      "description": "Reduces the cooldown of Kick and Sap by 1 turn per rank.",
+      "description": "Reduces the cooldown of your Kick and Sap by 1 turn per rank, and of Preparation by 3 turns per rank.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 5,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
+      "hex_x": 5,
+      "hex_y": 4,
       "effects": {
         "ability_rogue_kick_cooldown": 1,
-        "ability_rogue_sap_cooldown": 1
+        "ability_rogue_sap_cooldown": 1,
+        "ability_rogue_preparation_cooldown": 3
       },
+      "_source": "WotLK row 8: 'Reduces the cooldown by 5/10 sec and energy cost by 5/10 of your Tricks of the Trade, Distract and Shadowstep abilities and reduces the cooldown of Preparation by 1.5/3 min.' Tricks of the Trade, Distract and Shadowstep do not exist here; Kick and Sap stand in as the utility cooldowns, which is what the outgoing version already did. The Preparation clause is the real one and is NEW - a 1.5-minute cut on a 20-turn cooldown re-derives as 3 turns per rank.",
       "connected_to": [
-        "rogue_subtlety_hemorrhage"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_shadowstep",
-      "name": "Shadowstep",
-      "description": "Increases the damage of Ambush by 25% and reduces its Energy cost by 20.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "ability_rogue_ambush_damage": 0.25,
-        "ability_rogue_ambush_cost": 20
-      },
-      "connected_to": [
-        "rogue_subtlety_preparation",
-        "rogue_subtlety_slaughter_from_the_shadows"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_honor_among_thieves",
-      "name": "Honor Among Thieves",
-      "description": "Your critical strikes have a 25% chance per rank to restore 20 Energy.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "rogue_subtlety_sinister_calling",
-        "rogue_subtlety_cheat_death"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 0,
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 20
-        }
-      }
-    },
-    {
-      "talent_id": "rogue_subtlety_waylay",
-      "name": "Waylay",
-      "description": "Increases the damage of Backstab by 12% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {
-        "ability_rogue_backstab_damage": 0.12
-      },
-      "connected_to": [
-        "rogue_subtlety_heightened_senses"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_slaughter_from_the_shadows",
-      "name": "Slaughter from the Shadows",
-      "description": "Reduces the Energy cost of Backstab by 3 and Ambush by 5 per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {
-        "ability_rogue_backstab_cost": 3,
-        "ability_rogue_ambush_cost": 5
-      },
-      "connected_to": [
-        "rogue_subtlety_shadowstep",
-        "rogue_subtlety_shadow_dance"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_cheat_death",
-      "name": "Cheat Death",
-      "description": "While below 35% health, you take 10% less damage per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "low_health_damage_reduction_pct": 0.1,
-        "low_health_threshold_pct": 0.35
-      },
-      "connected_to": [
-        "rogue_subtlety_honor_among_thieves",
-        "rogue_subtlety_subtlety_mastery"
+        "rogue_subtlety_waylay"
       ]
     },
     {
       "talent_id": "rogue_subtlety_shadow_dance",
       "name": "Shadow Dance",
-      "description": "Grants Shadow Dance, greatly increasing your Critical Strike chance for a short time.",
+      "description": "Teaches Shadow Dance, letting you strike as though from the shadows.",
       "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "rogue_shadow_dance"
-      },
-      "connected_to": [
-        "rogue_subtlety_slaughter_from_the_shadows"
-      ]
-    },
-    {
-      "talent_id": "rogue_subtlety_subtlety_mastery",
-      "name": "Sanguinary Vein",
-      "description": "Sanguinary Vein - increases the damage of your Rupture and Garrote by 25%.",
-      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
       "effects": {
-        "ability_rogue_rupture_damage": 0.25,
-        "ability_rogue_garrote_damage": 0.25
+        "unlock_ability": "rogue_shadow_dance"
       },
+      "_source": "WotLK row 10, the capstone, kept as-is - already a real unlock of a real ability. The real talent grants the use of opening abilities without stealth; rogue_shadow_dance is a buff, which is the nearest this engine gets, and the ability itself is where that is modelled rather than the talent.",
       "connected_to": [
-        "rogue_subtlety_cheat_death"
+        "rogue_subtlety_slaughter_from_the_shadows"
       ]
     }
   ]
