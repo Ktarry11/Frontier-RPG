@@ -7,7 +7,7 @@
       "zone": "fenris_isle",
       "level_min": 17,
       "level_max": 18,
-      "description": "The only road on Fenris Isle runs from the pier to the manor. Pier-Warden Hask has not walked it since the crossing. He wants someone to walk it to the manor gate and tell him what's changed.",
+      "description": "Pier-Warden Hask. You'll be off Gael's boat, then - he said he'd start running the crossing again and I didn't believe him.\n\nThere's one road on this isle. It runs from this pier up the spine to the manor gate, and that's it. No branches worth the name, nowhere to go but along it.\n\nI haven't walked it since the crossing stopped. That's years now, and I've had every day of those years to do it, and what I've done instead is keep this pier tidy for a boat that wasn't coming.\n\nWalk it to the manor gate. Tell me what's changed.\n\nI'd rather hear it from somebody who never saw it before. You'll notice things I'd have explained away.",
       "objectives": [
         {
           "type": "explore",
@@ -33,8 +33,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "Village, crossroads, manor gate. Stay on the road. The isle doesn't like strays.",
-      "turn_in_text": "The road holds. I thought it wouldn't. Thank you. Take this.",
+      "accept_text": "The spine road, from this pier to the manor gate. The whole length.",
+      "turn_in_text": "[Hask listens the whole way through without once saying 'that was always like that'.]\n\nRight.\n\nThat's a good deal worse than the version I'd settled on. I've been keeping a pier in order on an island that's been getting on with something without me.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -96,7 +96,7 @@
       "zone": "fenris_isle",
       "level_min": 17,
       "level_max": 18,
-      "description": "The shore around the pier is crowded with tidewrack crawlers, picking at what the lake delivers, and rabid wolves that follow them. Hask wants a path he can walk without a knife.",
+      "description": "Before anything else - I'd like to be able to walk my own strand.\n\nThe crawlers come up for what the lake delivers, and the lake delivers a great deal here. That's not new. I've shared this shore with crawlers my whole posting.\n\nWhat's new is the wolves. They follow the crawlers in, and they're rabid - properly rabid, foaming and blind with it - and between the two of them I've spent the last year going from the pier to the hut with a knife in my hand over about forty paces.\n\nClear me a path. That's the entire ambition. Not the island, not the manor. Forty paces of my own shore.",
       "objectives": [
         {
           "type": "kill",
@@ -113,8 +113,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "Anywhere along the shore. Crawlers dig. Wolves snap.",
-      "turn_in_text": "A shore a man can stand on. I'll hang a lantern and see who comes.",
+      "accept_text": "Along the strand either side of the pier. Crawlers and the wolves behind them.",
+      "turn_in_text": "I walked to the hut with my hands in my pockets.\n\nYou'll think that's a small thing to be pleased about. I've been doing that walk with a knife for a year, and a man gets to where he's holding the knife before he's out of the door.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -175,7 +175,7 @@
       "zone": "fenris_isle",
       "level_min": 17,
       "level_max": 18,
-      "description": "Elder Gravemoss guards what's left of Bloodmoon Village. The worgen stalkers have been creeping closer every night, and the cursed villagers have started to look in the windows.",
+      "description": "Elder Gravemoss. Come in past the stones - no, properly past them, don't stand in the gap.\n\nThis is what's left of Bloodmoon Village. There were sixty of us before the curse and there is what you can see now.\n\nThe worgen stalkers come closer every night. I have measured it with stones - I put a stone where the nearest track is each morning, and the line of stones goes from the treeline to about nine paces from this wall.\n\nAnd the cursed villagers have started looking in the windows. Our own. People I knew, standing at the glass at night, not trying the door.\n\nI don't know which of those frightens me more. Push them both back off this village.",
       "objectives": [
         {
           "type": "kill",
@@ -192,8 +192,8 @@
       ],
       "reward_exp": 1160,
       "reward_gold": 5100,
-      "accept_text": "Out in the open ground around the village. Stalkers hunt in threes. Villagers hunt in silence.",
-      "turn_in_text": "I can sleep, now, for a night or two. Thank you. It matters more than you'll know.",
+      "accept_text": "Round the village stones and the treeline beyond. Both - the stalkers and our own.",
+      "turn_in_text": "[He puts a fresh stone down, well out past the others.]\n\nThat's the line tonight. Furthest it's been since I started counting.\n\nI'll keep putting them down. It's the only measurement anybody on this island has got.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -255,7 +255,7 @@
       "zone": "fenris_isle",
       "level_min": 18,
       "level_max": 19,
-      "description": "The drowned still sing along the strand, and the banshees singing back are the worst of it. Gravemoss wants them quiet.",
+      "description": "You'll have heard the strand at night by now. Everyone asks within a day.\n\nThe drowned sing. That I can almost live with - it's a thin, far-off thing and you can tell yourself it's the water in the rocks if you're tired enough.\n\nThe banshees sing BACK. And that you cannot tell yourself anything about, because it's a voice answering a voice, and once you've heard the answer you can't go back to hearing the first one as water.\n\nQuiet them. The banshees, not the drowned - the drowned have as much right to the strand as anyone left here.\n\nI'd like one night where nothing on this island is in conversation with anything else.",
       "objectives": [
         {
           "type": "kill",
@@ -266,8 +266,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "The Cursed Shore, along the beaches. They sing at dusk.",
-      "turn_in_text": "Quiet. I'd forgotten the quiet. It's almost worse.",
+      "accept_text": "Along the strand after dark. The banshees - leave the drowned be.",
+      "turn_in_text": "Nothing answered last night.\n\nThe drowned still sang. I sat and listened to the whole of it and it was just a sound in the dark, the way it was when I was a boy and we all knew it was the water in the rocks.",
       "next_quest_id": "fen_banshee_locks",
       "requires_quests": [
         "fen_cursed_shore"
@@ -353,7 +353,7 @@
       "zone": "fenris_isle",
       "level_min": 19,
       "level_max": 19,
-      "description": "Every banshee leaves a lock of hair behind when she fades. Gravemoss has a theory the locks are anchors, and wants five to bury under the village stones.",
+      "description": "Now, a theory, and you can tell me I'm an old man who's been alone too long.\n\nWhen a banshee fades she leaves a lock of hair. Every time. I've found them on the strand for years and I used to burn them without thinking.\n\nThen it occurred to me to ask why a thing made of grief and air leaves behind the one part of a person that keeps after death.\n\nI think they're anchors. I think that's what's holding them to this strand and that's why they come back no matter how many times the village has put them down.\n\nBring me the locks. I'll bury them under the village stones, in ground that was ours before any of this, and we'll find out whether an old man alone too long is right about something.",
       "objectives": [
         {
           "type": "fetch",
@@ -363,8 +363,8 @@
       ],
       "reward_exp": 1240,
       "reward_gold": 5400,
-      "accept_text": "From the banshees, after they fade. Gently. They remember being people.",
-      "turn_in_text": "They go in the ground by the well. It's the best I can do for them.",
+      "accept_text": "They leave a lock behind when they fade. Gather them off the strand.",
+      "turn_in_text": "[He buries them one at a time, under the stones, and says a different name over each.]\n\nI made those names up. I want you to know that, because I'd not have you think I'm claiming more than I've got.\n\nBut a thing in the ground with a name over it is a grave, and a grave is an anchor to somewhere, and I'd rather they were anchored here than out there.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_isle_banshees"
@@ -432,7 +432,7 @@
       "zone": "fenris_isle",
       "level_min": 21,
       "level_max": 21,
-      "description": "Something older than the curse walks the Cursed Shore: a bear the size of a barn, wrapped in its own rot. The villagers call it the Ancient Curse-Beast, and nobody who hunts it has gone twice.",
+      "description": "There's one more and it's older than the curse.\n\nI want to be precise about that, because everything else on this island dates from the same night and this does not. My grandmother hunted around it. Her grandmother knew it was there.\n\nA bear the size of a barn, wrapped in its own rot, walking the Cursed Shore since before anybody wrote anything down about this place.\n\nThe curse didn't make it. The curse just stopped it dying, which is a far worse thought and one I've had a long time to sit with.\n\nNobody who hunts it goes twice. Some of the rabid ones run with it now - take those off it first.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -449,8 +449,8 @@
       ],
       "reward_exp": 1820,
       "reward_gold": 7800,
-      "accept_text": "It wanders the Shore. Follow the destroyed trees. The wolves won't go near it.",
-      "turn_in_text": "It was already old when the curse came. I'd like to think it's resting.",
+      "accept_text": "The Cursed Shore. Some of the wolves run with it now.",
+      "turn_in_text": "[Gravemoss sits down on the village stones.]\n\nThen the oldest thing on Fenris is gone and the island is only as old as its worst night.\n\nI'd thought I'd be glad. I find I'm something else and I haven't got the word for it yet.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_cursed_shore"
@@ -535,7 +535,7 @@
       "zone": "fenris_isle",
       "level_min": 18,
       "level_max": 18,
-      "description": "The south-west docks are where the drowned come ashore, and the bilge rats come with them. Huntsman Corwell lost a boat there, and a nephew, and wants the docks clear.",
+      "description": "Huntsman Corwell. Sit if you like, though nobody does.\n\nThe south-west docks are where the drowned come ashore. Not the strand - the docks, specifically, every time, as if the arrangement still held and that's where you come in.\n\nThe bilge rats come up with them in a mass. You'll hear that before you see it.\n\nI lost a boat down there. I also lost a nephew, and I'm going to say both in the same breath because that's how the island says it and I'm tired of correcting people.\n\nClear the docks. His name was Tam and he was seventeen and he was not on the boat, which is the part nobody ever asks about.",
       "objectives": [
         {
           "type": "kill",
@@ -619,7 +619,7 @@
       "zone": "fenris_isle",
       "level_min": 19,
       "level_max": 20,
-      "description": "The Drowned Harpooners carry iron heads Corwell's family forged, and every one is bent the same way. He wants five for the smithy, to be melted and made right.",
+      "description": "Something I want off them, and it's a family matter.\n\nThe Drowned Harpooners carry iron heads my family forged. Our mark's on the collar of every one - my father's work, most of them, some of them mine.\n\nAnd every single one is bent the same way. The same bend, the same place, which is not what happens when iron meets a fish or a rock or a hull. That's what happens when a great many of them hit the same thing at the same angle.\n\nI'd like them back for the smithy. Melted down and made right.\n\nAnd I'd like to stop seeing my father's mark on something that's bent like that, which is the real reason, and you may as well have it straight.",
       "objectives": [
         {
           "type": "fetch",
@@ -629,8 +629,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "From the Drowned Harpooners at the docks. Take the heads, not the poles.",
-      "turn_in_text": "Bent by cold lake. I'll bring them back to something honest.",
+      "accept_text": "Off the drowned harpooners at the docks. You'll see our mark on the collar.",
+      "turn_in_text": "[He lays them in a row on the anvil, all bent the same way, and looks at them a long time.]\n\nSame angle. Every one.\n\nI'll melt them tonight. Whatever they all hit, I'd rather it wasn't still written in my family's iron.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_drowned_docks"
@@ -699,7 +699,7 @@
       "zone": "fenris_isle",
       "level_min": 19,
       "level_max": 20,
-      "description": "Waterlogged Wretches drag themselves up the beach at night. They were fishermen, once. Corwell would like to see them off.",
+      "description": "The ones that come up the beach at night were fishermen.\n\nI'll not soften that and I'll not have anybody else soften it to me either. They were the Fenris boats' crews - men I went out with, men who taught me the water off the north head.\n\nThey drag themselves up out of the shallows and they go a little way up the sand and then they stop, and they lie there until the tide comes back for them. Every night.\n\nThey don't come at the village. They've never come at the village.\n\nSee them off anyway. Because the alternative is that this goes on for another twenty years and the last people who remember them as men die of old age watching them do it.",
       "objectives": [
         {
           "type": "kill",
@@ -778,7 +778,7 @@
       "zone": "fenris_isle",
       "level_min": 18,
       "level_max": 20,
-      "description": "A page from a ship's log, pulled from a Drowned Sailor's pocket. The last line reads: 'The Captain locked the hatch from the outside.' Corwell kept the drowned ship's roster.",
+      "description": "A single page from a ship's log, pulled from a drowned sailor's coat and still wet through after all this time.\n\nMost of it has run. What's left is the last entry, in a hand that was pressing hard enough to score the paper:\n\n'The Captain locked the hatch from the outside.'\n\nThat is where it ends. No date under it, no signature, and nothing on the reverse.\n\nThe huntsman in Fenris village keeps the drowned ship's roster in his house, and has done for years.",
       "objectives": [
         {
           "type": "deliver",
@@ -789,8 +789,8 @@
       ],
       "reward_exp": 1320,
       "reward_gold": 5700,
-      "accept_text": "Corwell, in the village. He kept the roster.",
-      "turn_in_text": "So that's what happened to the Captain's crew. I'd wondered. Thank you.",
+      "accept_text": "Take the page to Huntsman Corwell in the village.",
+      "turn_in_text": "[Corwell reads it, gets the roster down, and does not open it.]\n\nWe've had the roster twenty years and we've told ourselves twenty years that the hatch jammed.\n\nEverybody on this island knows somebody on that list. And I've just been handed the sentence that means they didn't drown the way we've all agreed they drowned.\n\n[He sets the page on top of the roster.]\n\nI'm going to have to tell the village. Not tonight.",
       "next_quest_id": null,
       "turn_in_npc_id": "fenris_village_elder",
       "unique_item_defs": [
@@ -854,7 +854,7 @@
       "zone": "fenris_isle",
       "level_min": 22,
       "level_max": 22,
-      "description": "The ship's Captain still walks the docks, wrapped in water and rage, hunting the men he locked below. Corwell has the roster and the shame of it.",
+      "description": "I told the village. You should know that before you go, because it changes what I'm asking for.\n\nThe Captain still walks those docks. Wrapped in water, and furious, and he is hunting the men he locked below - he goes along the line of them every night, looking, and they go into the water to get away from him.\n\nTwenty years.\n\nI had the roster the whole time. I could have opened it any day and counted who was below and who wasn't, and I didn't, because the island had agreed on a story and the story was kinder to everybody including me.\n\nEnd him. And when it's done I'll read the names out properly, all of them, in the right order, and this place can have the true version.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -865,8 +865,8 @@
       ],
       "reward_exp": 1924,
       "reward_gold": 8190,
-      "accept_text": "On the jetty at the Drowned Docks, at night. He looks for his crew.",
-      "turn_in_text": "He'll trouble no more crews. I hope the lake gives him back his rest.",
+      "accept_text": "On the south-west docks at night. He's still hunting the men he locked below.",
+      "turn_in_text": "[Corwell has the roster open on the dock post and the whole village behind him.]\n\nRight. The true version, then.\n\n[He begins to read the names.]\n\nStay for it if you've the time. There's a few of these nobody's said out loud since the night it happened.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_harpoons"
@@ -972,7 +972,7 @@
       "zone": "fenris_isle",
       "level_min": 18,
       "level_max": 19,
-      "description": "The east of the isle is a boneyard for hounds: worgs and curs, bred for the Baron's hunt, buried with their masters. Gravehunter Selke says they've started to dig themselves out.",
+      "description": "Gravehunter Selke. Mind where you tread - the ground east of here is not ground, it's lids.\n\nThe whole east of this isle is a boneyard for hounds. The Baron's hunt - he bred them, he ran them, and when a man of the house died his dogs went in with him. Hundreds of them, over generations, in proper plots with proper stones.\n\nThey've started digging themselves out.\n\nThe worgs come up first and the curs follow, and they come up through the lids rather than round them, which tells you something about what's in the soil here.\n\nThin them. And watch your footing - half of what you'll be standing on is a door.",
       "objectives": [
         {
           "type": "kill",
@@ -1052,7 +1052,7 @@
       "zone": "fenris_isle",
       "level_min": 19,
       "level_max": 20,
-      "description": "The Feral Packmasters wear the Baron's old collars: iron, studded, stamped with the Ashbury crest. Selke wants five, to be sure nobody wears them again.",
+      "description": "The packmasters wear the Baron's collars. That's what I want off them.\n\nIron, studded, stamped with the Ashbury crest - properly made, by a proper smith, because the Barons spent more on their dogs' fittings than on their tenants' roofs and everybody on this island knows it.\n\nBring them to me.\n\nI'm not collecting. I want them in my hand so I can be certain of where they are, and then I'm going to drop the lot off the north head into deep water.\n\nSomebody will come to this island eventually and find a crate of collars with a noble crest on them and decide there's a hunt to be revived. I'd like there to be nothing for them to find.",
       "objectives": [
         {
           "type": "fetch",
@@ -1132,7 +1132,7 @@
       "zone": "fenris_isle",
       "level_min": 20,
       "level_max": 21,
-      "description": "The Cur-Wardens keep the graves and the dogs in them, and they speak in a language nobody has heard since the curse. Selke wants six of them quiet.",
+      "description": "The Cur-Wardens are the part of this I can't explain and I've stopped pretending I can.\n\nThey keep the graves. They keep the dogs in them - that's what they're FOR, and it's why the plots held as long as they did, and it's why the ones they still watch are quiet.\n\nAnd they speak. In a language nobody on this island has heard since the night of the curse, and I've asked everyone who might know, including two people who'd have lied to me rather than admit ignorance.\n\nThey're failing now. The graves they watch are opening anyway.\n\nQuiet them. I'd rather the plots were unguarded and honest than guarded by something that's lost the thread of what it's doing.",
       "objectives": [
         {
           "type": "kill",
@@ -1225,7 +1225,7 @@
       "zone": "fenris_isle",
       "level_min": 22,
       "level_max": 22,
-      "description": "The hounds of Cur's Grave follow one: a scarred, grey, impossibly large cur. The Baron's last hunt-leader. Selke wants it off the boneyard.",
+      "description": "They follow one. Everything down there follows one.\n\nScarred, grey, and bigger than a cur has any business getting - that's the Baron's last hunt-leader, the dog that was running the pack the night the curse took this island.\n\nIt went into the ground with its master like all the rest. The difference is it came back up remembering the job.\n\nThat's what you're walking at: not a mad dog, a dog that still knows what it was FOR, which on this island means bringing down whatever the horn points at. There's no horn any more. It's been deciding on its own for twenty years.\n\nTake it off my boneyard.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1236,8 +1236,8 @@
       ],
       "reward_exp": 1924,
       "reward_gold": 8190,
-      "accept_text": "The middle of the boneyard, among the stones. You'll hear it first.",
-      "turn_in_text": "He led them well. I'll bury him with the rest. It's the least I can do.",
+      "accept_text": "On the boneyard, east. Grey, scarred, and it still remembers the job.",
+      "turn_in_text": "[Selke stands looking over the plots.]\n\nQuiet. Properly quiet, for the first time since I took this post.\n\nI'll start closing the lids that are still open. It's years of work and it's work I can finally do.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_collars"
@@ -1324,7 +1324,7 @@
       "zone": "fenris_isle",
       "level_min": 19,
       "level_max": 20,
-      "description": "Scout Merrin has been watching Baron Ashbury's manor for three nights and hasn't seen a living thing. She wants someone to walk to the gate and into the forecourt.",
+      "description": "Scout Merrin. Keep behind the hedge line and keep your voice down - not for them, for me. I've got used to quiet.\n\nI've watched Ashbury's manor for three nights.\n\nIn three nights I have not seen one living thing. Not a bird on that roof. Not a rat in that forecourt. Nothing crosses the lawn, nothing nests in the gutters, and there is a stand of trees on the north side where nothing sings in the morning.\n\nEverything else on this island is crawling. The manor is empty in a way that takes effort.\n\nWalk up to the gate and into the forecourt and come back. I need somebody to have stood in it, because at this distance I've started filling the gaps in myself and that's not scouting.",
       "objectives": [
         {
           "type": "explore",
@@ -1417,7 +1417,7 @@
       "zone": "fenris_isle",
       "level_min": 20,
       "level_max": 21,
-      "description": "Ashbury's guard never left their posts. Footmen walk the forecourt; guardians hold the gate. Merrin wants them relieved.",
+      "description": "Now you've stood in it, you'll have seen the guard.\n\nAshbury's own. The footmen walk the forecourt on a circuit and the guardians hold the gate, and they are doing it properly - correct intervals, correct relief points, and nobody has come to relieve them in twenty years.\n\nThat's what I meant about the manor being empty on purpose. It isn't abandoned. It's STAFFED.\n\nI've watched a footman walk the same circuit three nights running and stop at the same flagstone each time to look up at a window where nothing has moved since before I was born.\n\nRelieve them. That's the word I want used for it and I'd be glad if you'd use it too.",
       "objectives": [
         {
           "type": "kill",
@@ -1502,7 +1502,7 @@
       "zone": "fenris_isle",
       "level_min": 20,
       "level_max": 21,
-      "description": "The Baron's hounds roam the manor grounds, and the worgen keepers who feed them. Merrin has seen the keepers eat what they were meant to feed.",
+      "description": "There's a thing on the grounds I need you to know before you go in among them.\n\nThe Baron's hounds roam loose and the worgen keepers move with them, and anybody watching from here would say the keepers are handling the pack.\n\nI have seen a keeper eat what it was carrying to feed them.\n\nNot in a frenzy. It stopped on the path, in the open, ate what was in the pail, and then went on to the kennels with an empty pail and stood there a while.\n\nSo whatever hierarchy that household had, it is not the one on paper, and the hounds have been hungry for a long time. Clear the grounds - the hounds and the keepers both.",
       "objectives": [
         {
           "type": "kill",
@@ -1585,7 +1585,7 @@
       "zone": "fenris_isle",
       "level_min": 21,
       "level_max": 21,
-      "description": "The Cursed Nobles of Fenris Proper still wear their house signets. Merrin wants four, to prove to the Rear Guard who sat at Ashbury's table.",
+      "description": "The Cursed Nobles in Fenris Proper still wear their house signets.\n\nThat's the detail I keep coming back to. They've lost the shape of their faces and the use of their hands and they have NOT lost the rings.\n\nI want them. Not for the gold - for the crests.\n\nThe Rear Guard's position has always been that Fenris was a minor holding with a minor lord and a local misfortune. I'd like to put four house crests on a table in Silverpine and ask them to explain what four noble houses were doing at a minor lord's table on the night the curse was cast.\n\nIt won't change what's on this island. It'll change how seriously the mainland takes it.",
       "objectives": [
         {
           "type": "fetch",
@@ -1663,7 +1663,7 @@
       "zone": "fenris_isle",
       "level_min": 22,
       "level_max": 22,
-      "description": "Baron Ashbury ruled Fenris Isle alive, and rules it worse dead. He sits in the manor hall and waits for the next guest to disappoint him. Merrin would like to see him disappointed.",
+      "description": "And the Baron himself, in the hall, at the end of it.\n\nHe ruled this island alive and he rules it worse dead. Everything you've cleared out there - the footmen on their circuit, the hounds, the keepers, the nobles with their rings on - is still arranged around him. He is the reason the manor is staffed.\n\nHe sits in the hall and he waits for the next guest to disappoint him. I've watched through the long window. He's sitting the way a man sits when he expects somebody to be shown in.\n\nI would very much like him disappointed.\n\nAnd then I would like this island to stop being a household and go back to being a place.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1675,7 +1675,7 @@
       "reward_exp": 2220,
       "reward_gold": 9450,
       "accept_text": "In the manor, past the forecourt. Dress for a funeral.",
-      "turn_in_text": "The manor's quiet. The Baron is down. It's an odd thing to say, after all this.",
+      "turn_in_text": "[Merrin comes out from behind the hedge line for the first time.]\n\nThe forecourt's empty. The whole thing - no circuit, no relief points, nothing on the lawn.\n\nThere's a bird on the roof. There is a BIRD on that roof. Three nights I watched and nothing would land on it.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_manor_guards",
@@ -1763,7 +1763,7 @@
       "zone": "fenris_isle",
       "level_min": 20,
       "level_max": 20,
-      "description": "The curse was cast under the west ridge, in the Shadowpine Altar, and Warden Orlan has watched its arch for ten years. He wants someone to stand at the foot of the stair and tell him the air is still wrong.",
+      "description": "Warden Orlan. Ten years I've watched that arch and I'll tell you exactly what I've got for it: nothing new.\n\nThe curse was cast under the west ridge, in the Shadowpine Altar, and the arch at the top of the stair is where it came out. That much everyone on this island agrees on.\n\nWhat I need is somebody standing at the foot of that stair telling me the air is still wrong.\n\nBecause I'll be honest with you - I've stood there so many times that I can no longer tell whether it's wrong or whether I simply expect it to be. That's what ten years at one post does and nobody warns you about it.\n\nGo down. Stand at the bottom. Then tell me.",
       "objectives": [
         {
           "type": "explore",
@@ -1842,7 +1842,7 @@
       "zone": "fenris_isle",
       "level_min": 20,
       "level_max": 21,
-      "description": "The Shadowpine Circle never left: cultists and risen bone-warders keep the altar's rites going, long after the cause was lost. Orlan wants them thinned.",
+      "description": "The Shadowpine Circle never left.\n\nThat's the part that takes people a while. The curse was cast, it worked, the island went the way it went - and the cult that did it STAYED, and kept the rites going, and has kept them going ever since.\n\nThere's no cause left. Whatever they wanted, they got it or they didn't, and either way it was settled before any of us were born.\n\nThey're still down there doing the daily work of it. Cultists on the stair, bone-warders risen to help, and the whole apparatus turning over like a mill with no grain in it.\n\nThin them. I've no better word for what I'm asking and no better reason than that it ought to stop.",
       "objectives": [
         {
           "type": "kill",
@@ -1929,7 +1929,7 @@
       "zone": "fenris_isle",
       "level_min": 21,
       "level_max": 21,
-      "description": "Bonewarden Aldric keeps the Bone Circle, west of the stair, and has for centuries. He's made of the things he keeps. Orlan wants him unmade.",
+      "description": "West of the stair is the Bone Circle, and Aldric keeps it.\n\nCenturies. That's not a figure of speech and I've checked it against three sources that don't agree about anything else.\n\nHere's what you need to understand before you go west: he's made of the things he keeps. Not armoured in them - MADE of them, and the Circle and the Bonewarden are not two things that happen to be in the same chamber.\n\nWhich means the Circle gets smaller when he does. I'd rather you knew that going in than worked it out in the middle.\n\nUnmake him.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2026,7 +2026,7 @@
       "zone": "fenris_isle",
       "level_min": 22,
       "level_max": 22,
-      "description": "Curse Keeper Tael tends the Moon Circle in the east, feeding the moonstone with whatever the cult throws at it. He doesn't need to be there. He's been there for centuries.",
+      "description": "East, then. The Moon Circle, and the thing tending it.\n\nCurse Keeper Tael feeds the moonstone whatever the cult throws at it. That's the whole job. It's been the whole job for centuries.\n\nAnd here's the thing I cannot get past, and I've had ten years: he doesn't need to be there.\n\nThe stone doesn't require a keeper. I've watched long enough to be certain - it does what it does whether he's at it or not. He is not maintaining the curse. He's attending it.\n\nSomething decided a very long time ago that it would stand in a cave and tend a stone that doesn't need tending, and it has never once stopped, and that frightens me considerably more than the Bonewarden does.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2123,7 +2123,7 @@
       "zone": "fenris_isle",
       "level_min": 22,
       "level_max": 23,
-      "description": "The Altar's worgen howl at a moon the cavern can't see. Orlan wants eight of them down, five of the wraiths that walk with them, and five moon-fangs for the cairn.",
+      "description": "The worgen at the Altar howl at a moon the cavern cannot see.\n\nThere's no sky down there. No shaft, no crack, nothing - I've been over that ceiling with a lamp. And they howl on the nights the moon is full and they are quiet on the nights it isn't, and they are never wrong about which is which.\n\nThe wraiths move with them. Same nights, same hours.\n\nThin both, and bring me the moon-fangs off the worgen.\n\nI'm building a cairn at the stair-head. Not a monument - a marker, so that whoever has this post after me knows the thing down there keeps a calendar.",
       "objectives": [
         {
           "type": "kill",
@@ -2214,7 +2214,7 @@
       "zone": "fenris_isle",
       "level_min": 24,
       "level_max": 24,
-      "description": "At the top of the Altar Ring, the curse has a shape: Alpha Fenris, the first worgen, the one the isle is named for. Orlan has waited ten years to see him dead.",
+      "description": "Top of the Altar Ring. This is the one.\n\nAlpha Fenris. The first worgen - not the first on this island, the FIRST, the one the curse made before it had been made twice and the one this isle took its name from.\n\nEverything you have fought on Fenris descends from what is standing at the top of that ring. The pack at Bloodmoon. The keepers at the manor. The Moonhowl below him.\n\nI've waited ten years at the bottom of that stair to be able to ask somebody this.\n\nGo up and finish it. And then I'd like to go home, which is a sentence I've not let myself say out loud since I took the post.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2226,7 +2226,7 @@
       "reward_exp": 2624,
       "reward_gold": 11040,
       "accept_text": "The Altar Ring, at the top of the long climb. Take whichever road you prefer. They all end at his door.",
-      "turn_in_text": "Fenris is dead. After ten years, I'll sit, and stop watching the arch.",
+      "turn_in_text": "[Orlan does not look at the arch.]\n\nIt's quiet. The air's just air.\n\nTen years. I'd built the whole of myself around standing at the bottom of a stair, and now there's a stair and nothing at the top of it, and I've no idea what I am tomorrow.\n\nThat's not your problem and it's not ungratefulness. Thank you. Truly.",
       "next_quest_id": null,
       "requires_quests": [
         "fen_altar_aldric",
@@ -2315,7 +2315,7 @@
       "zone": "fenris_isle",
       "level_min": 21,
       "level_max": 22,
-      "description": "Four reports have reached Gravemoss: the Curse-Beast, the Captain, the Alpha Cur and the Baron are all down. He'd like the person who carried those four threads back to stand at the well, where he can thank them properly.",
+      "description": "Come to the well, and stand there a moment while I say this properly.\n\nFour reports have reached me since you came off that boat.\n\nThe Curse-Beast is down - the oldest thing on this island, older than the curse. The Captain is down, and Corwell read the true roster out on the dock in front of everyone. The Alpha Cur is off the boneyard. The Baron is out of his hall.\n\nI have lived on Fenris my whole life and I have never known four of those to be true at once. I'd have told you it wasn't possible for them to be true at once, because this island doesn't get better, it only gets later.\n\nSo: thank you. From Bloodmoon, and from a village that is down to its last few people and has had nothing to say thank you for in twenty years.",
       "objectives": [
         {
           "type": "explore",
@@ -2327,8 +2327,8 @@
       ],
       "reward_exp": 2220,
       "reward_gold": 9450,
-      "accept_text": "Back to the village square. Stand by the well.",
-      "turn_in_text": "Four bosses, four reports, one hero. Bloodmoon Village has no gold to give you, so it gives you what it has.",
+      "accept_text": "Come and stand at the Bloodmoon well.",
+      "turn_in_text": "[He puts a stone down on the far side of the well - well past the line he has been marking.]\n\nThat's where the nearest track was this morning. Right out at the treeline, where it was when I was a boy.\n\nI'll keep putting them down. But I think I'll be putting them down for a different reason from now on.",
       "next_quest_id": null,
       "turn_in_npc_id": "bloodmoon_elder",
       "requires_quests": [
