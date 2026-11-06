@@ -1642,14 +1642,14 @@
       "ability_id": "chronomancer_singularity_core",
       "name": "Singularity Core",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 5,
       "effect_type": "buff",
-      "duration": 60,
+      "duration": 4,
       "stat_mods": {
         "damage_dealt_pct": 10,
         "crit_chance_physical": 6
       },
-      "description": "Damage dealt +10%, Physical crit chance +6 for 60 turns.",
+      "description": "Damage dealt +10%, Physical crit chance +6 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1659,9 +1659,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Continuum Spell. Empower your Wand attacks to deal an additional 50% Ranged Weapon Damage ... Can only have 1 Continuum spell active at a time.' The one-at-a-time rule is exclusive_group, the same mechanic the Aeons use. The per-fragment duration extension is not expressible.",
+      "_source": "CoA: 'Continuum Spell. Empower your Wand attacks to deal an additional 50% Ranged Weapon Damage ... Can only have 1 Continuum spell active at a time.' The one-at-a-time rule is exclusive_group, the same mechanic the Aeons use. The per-fragment duration extension is not expressible. || Fixed 6 Nov 2026. Cooldown 0 -> 5 turns, duration 60 -> 4 turns, and exclusive_group 'chronomancer_continuum' added. All three were broken together: with no cooldown and a 60-turn duration the player cast BOTH Continuum spells on turn one and kept them for the rest of any fight, which is the opposite of CoA, where each is '15 sec cooldown' and 'Can only have 1 Continuum spell active at a time'. The exclusivity is the real find - exclusive_group is read straight off ability JSON (abilities.py:3460) and passed to the StatusEffect (abilities.py:2934), where applying one effect drops any other sharing the tag. It is how the five Weapon Engravings enforce 'only one Engraving active', and it builds CoA's Continuum rule exactly. 15 sec -> 5 turns; the duration is CoA's '3 sec plus 5 sec per Echo Fragment' flattened to 4 turns, because Echo Fragments are not a resource this engine has - Chronomancer is (MANA, None) in abilities.py:151 and no Chronomancer ability carries a `generates` block, so there are no Fragments to scale off. Paradox Cannon and Aether Compression are the other two CoA Continuum spells but apply no status effect (restore_resource and enable_instant_cast), so the tag cannot reach them and they stay independent. || buff_scope 'raid' -> 'combat', 6 Nov 2026, and this was the real breakage rather than the duration. abilities.py:638-640: 'raid' sets real_time_seconds to BUFF_DURATION_SECONDS (30 real minutes) and the turn `duration` is then IGNORED - tick_status_effects skips any buff with a real_time_seconds value. So a Continuum spell cast once was live for every fight in the next half hour, which is why the 60-turn duration looked harmless. CoA has these on a 15 sec cooldown lasting seconds; they are short combat cooldowns in the same family as Icy Veins and Evasion, which is exactly what 'combat' scope is for. 68 buffs across 15 classes have this same shape project-wide - see tools/qa_buff_scope.py.",
       "target_type": "self",
-      "buff_scope": "raid",
+      "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
       "requires_talent": true
     },
@@ -1669,14 +1669,14 @@
       "ability_id": "chronomancer_flux_emitter",
       "name": "Flux Emitter",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 5,
       "effect_type": "buff",
-      "duration": 60,
+      "duration": 4,
       "stat_mods": {
         "damage_dealt_pct": 6,
         "haste": 8.0
       },
-      "description": "Damage dealt +6%, Haste +8 for 60 turns.",
+      "description": "Damage dealt +6%, Haste +8 for 4 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1686,9 +1686,9 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Continuum Spell. Empower Wand attacks to affect up to 2 additional nearby enemies ... Affected attacks deal less damage per additional enemy hit.' A buff cannot change another ability's target count, so the cleave lives on Splitting Time's aoe_damage and this is the throughput half - weaker per hit than Singularity Core, matching the trade CoA describes.",
+      "_source": "CoA: 'Continuum Spell. Empower Wand attacks to affect up to 2 additional nearby enemies ... Affected attacks deal less damage per additional enemy hit.' A buff cannot change another ability's target count, so the cleave lives on Splitting Time's aoe_damage and this is the throughput half - weaker per hit than Singularity Core, matching the trade CoA describes. || Fixed 6 Nov 2026. Cooldown 0 -> 5 turns, duration 60 -> 4 turns, and exclusive_group 'chronomancer_continuum' added. All three were broken together: with no cooldown and a 60-turn duration the player cast BOTH Continuum spells on turn one and kept them for the rest of any fight, which is the opposite of CoA, where each is '15 sec cooldown' and 'Can only have 1 Continuum spell active at a time'. The exclusivity is the real find - exclusive_group is read straight off ability JSON (abilities.py:3460) and passed to the StatusEffect (abilities.py:2934), where applying one effect drops any other sharing the tag. It is how the five Weapon Engravings enforce 'only one Engraving active', and it builds CoA's Continuum rule exactly. 15 sec -> 5 turns; the duration is CoA's '3 sec plus 5 sec per Echo Fragment' flattened to 4 turns, because Echo Fragments are not a resource this engine has - Chronomancer is (MANA, None) in abilities.py:151 and no Chronomancer ability carries a `generates` block, so there are no Fragments to scale off. Paradox Cannon and Aether Compression are the other two CoA Continuum spells but apply no status effect (restore_resource and enable_instant_cast), so the tag cannot reach them and they stay independent. || buff_scope 'raid' -> 'combat', 6 Nov 2026, and this was the real breakage rather than the duration. abilities.py:638-640: 'raid' sets real_time_seconds to BUFF_DURATION_SECONDS (30 real minutes) and the turn `duration` is then IGNORED - tick_status_effects skips any buff with a real_time_seconds value. So a Continuum spell cast once was live for every fight in the next half hour, which is why the 60-turn duration looked harmless. CoA has these on a 15 sec cooldown lasting seconds; they are short combat cooldowns in the same family as Icy Veins and Evasion, which is exactly what 'combat' scope is for. 68 buffs across 15 classes have this same shape project-wide - see tools/qa_buff_scope.py.",
       "target_type": "self",
-      "buff_scope": "raid",
+      "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
       "requires_talent": true
     },
