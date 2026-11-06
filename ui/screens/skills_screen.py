@@ -182,8 +182,15 @@ class SkillsScreen(BaseScreen):
         # tab, which is CoA's own shared Class tree (classTab 87) under our
         # name for it. Folding that into Core is what filled Core with real
         # combat spells - Chastise, Ram, Pulverize, Advance.
+        #
+        # It is labelled "Class", not the class's own name. Naming it
+        # "Barbarian" tripped qa_class_name_lookups' rule that no tab label
+        # may repeat the class name - the rule that turns "Mage Fire" into
+        # "Fire" - and the rule is right: the spellbook already belongs to
+        # one character, so the class name on a tab is noise. "Class" is
+        # also what CoA itself calls that tree.
         groups = {"core": [], self.CLASS_TAB: []}
-        tab_order = [("core", "Core"), (self.CLASS_TAB, player.char_class)]
+        tab_order = [("core", "Core"), (self.CLASS_TAB, "Class")]
         seen_trees = set()
 
         for ability in self._learned_abilities(player):
