@@ -577,12 +577,14 @@
           "effect_value": 122
         }
       ],
-      "target_type": "self",
+      "target_type": "party",
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Mana Tide Totem talent in the Restoration tree. PLACEHOLDER: real WOTLK Mana Tide Totem is a party-wide mana-regeneration totem - this engine has no totem-placement system yet, so this is a temporary self-only Spirit buff instead until that exists."
+      "_design_note": "Not learned from level alone - granted by the Mana Tide Totem talent in the Restoration tree. PLACEHOLDER: real WOTLK Mana Tide Totem is a party-wide mana-regeneration totem - this engine has no totem-placement system yet, so this is a temporary self-only Spirit buff instead until that exists.",
+      "exclusive_group": "shaman_totem_water",
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. was target_type 'self', which made a Restoration shaman's signature mana cooldown refill only its own bar. The real 3.3.5a spell restores mana 'to group members within 30 yards' - quoted from Spell.dbc via data/reference/wotlk/shaman.json."
     },
     {
       "ability_id": "shaman_earth_shield",
@@ -726,7 +728,9 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead."
+      "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead.",
+      "exclusive_group": "shaman_totem_earth",
+      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_searing_totem",
@@ -789,7 +793,10 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Fire totem. PLACEHOLDER: real WOTLK Searing Totem repeatedly attacks the nearest enemy on its own for as long as it stands - no persistent-independent-actor totem system exists here, so this applies a direct Fire damage-over-time effect to the target instead."
+      "_design_note": "Fire totem. PLACEHOLDER: real WOTLK Searing Totem repeatedly attacks the nearest enemy on its own for as long as it stands - no persistent-independent-actor totem system exists here, so this applies a direct Fire damage-over-time effect to the target instead.",
+      "exclusive_group": "shaman_totem_fire",
+      "target_type": "enemy",
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. target_type was ABSENT, and abilities.py:199 reads a missing target_type as friendly (anything not in enemy/enemy_aoe). A spell_dot the engine believed was a friendly spell. Set to 'enemy' - the real Searing Totem attacks one target at a time."
     },
     {
       "ability_id": "shaman_mana_spring_totem",
@@ -814,7 +821,9 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists."
+      "_design_note": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists.",
+      "exclusive_group": "shaman_totem_water",
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_windfury_totem",
@@ -863,7 +872,9 @@
         "chance": 20,
         "icd": 3,
         "extra_attack": true
-      }
+      },
+      "exclusive_group": "shaman_totem_air",
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_call_of_ancestors",
@@ -1307,7 +1318,10 @@
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "Earth totem. PLACEHOLDER: real WOTLK Earthbind Totem is a placed object that roots/slows all nearby enemies - no persistent-independent-actor totem or root mechanic exists here, so this directly reduces the target's Haste instead."
+      "_design_note": "Earth totem. PLACEHOLDER: real WOTLK Earthbind Totem is a placed object that roots/slows all nearby enemies - no persistent-independent-actor totem or root mechanic exists here, so this directly reduces the target's Haste instead.",
+      "exclusive_group": "shaman_totem_earth",
+      "target_type": "enemy_aoe",
+      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. target_type was ABSENT, same friendly-by-default bug as Searing Totem. Set to 'enemy_aoe' - the real Earthbind Totem pulses an area snare rather than hitting one target."
     },
     {
       "ability_id": "shaman_reincarnation",
@@ -1428,7 +1442,8 @@
       "icon_id": null,
       "_design_note": "Earth totem. Shields the caster, absorbing a burst of damage. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
       "absorb_pct_max_health": 0.12,
-      "_source": "  ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized low because the description says 'a burst of damage', not a sustained shield, and it is a totem rather than a cooldown."
+      "_source": "ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized low because the description says 'a burst of damage', not a sustained shield, and it is a totem rather than a cooldown. Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "exclusive_group": "shaman_totem_earth"
     },
     {
       "ability_id": "shaman_magma_totem",
@@ -1468,7 +1483,9 @@
       "target_type": "enemy_aoe",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Fire totem. Deals Fire damage to all nearby enemies. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
+      "_design_note": "Fire totem. Deals Fire damage to all nearby enemies. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "exclusive_group": "shaman_totem_fire",
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_grounding_totem",
@@ -1505,7 +1522,9 @@
       "buff_scope": "combat",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Air totem. Redirects the next harmful spell cast at the caster onto the totem instead, approximated as a brief massive Magic Resistance spike. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
+      "_design_note": "Air totem. Redirects the next harmful spell cast at the caster onto the totem instead, approximated as a brief massive Magic Resistance spike. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "exclusive_group": "shaman_totem_air",
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_stoneskin_totem",
@@ -1572,7 +1591,9 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead."
+      "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
+      "exclusive_group": "shaman_totem_earth",
+      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "ability_id": "shaman_shamanistic_rage",
@@ -1663,7 +1684,9 @@
         "fire_resistance": 90
       },
       "description": "Fire totem. Grants your party a large Fire resistance bonus.",
-      "_design_note": "Fire totem. Grants your party a large Fire resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "_design_note": "Fire totem. Grants your party a large Fire resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
+      "exclusive_group": "shaman_totem_water",
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "resource_type": "mana",
@@ -1706,7 +1729,9 @@
         "frost_resistance": 90
       },
       "description": "Frost totem. Grants your party a large Frost resistance bonus.",
-      "_design_note": "Frost totem. Grants your party a large Frost resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "_design_note": "Frost totem. Grants your party a large Frost resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
+      "exclusive_group": "shaman_totem_fire",
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     },
     {
       "resource_type": "mana",
@@ -1749,7 +1774,9 @@
         "nature_resistance": 90
       },
       "description": "Earth totem. Grants your party a large Nature resistance bonus.",
-      "_design_note": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses."
+      "_design_note": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
+      "exclusive_group": "shaman_totem_air",
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
     }
   ]
 }

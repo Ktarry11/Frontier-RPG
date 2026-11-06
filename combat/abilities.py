@@ -2836,6 +2836,19 @@ class Ability:
                         potency=per_turn, damage_school=school,
                         source_name=caster.name,
                         dispel_type=self.dispel_type,
+                        # exclusive_group was plumbed everywhere EXCEPT here.
+                        # It is read off the ability JSON (:3502), stored on
+                        # the Ability (:360) and passed through by the buff
+                        # branch (:2976) and the debuff branch (:3020) - but
+                        # a dot dropped it on the floor, so any dot carrying
+                        # the tag silently stacked instead of replacing.
+                        # Found by live-casting Searing Totem and Magma
+                        # Totem back to back and watching both sit on the
+                        # target: the two Fire-slot damage totems could not
+                        # share a slot, because no dot could. An omission,
+                        # not a design decision - a dot is as capable of
+                        # occupying a one-at-a-time slot as a buff is.
+                        exclusive_group=self.exclusive_group,
                     )
                     t.apply_status_effect(effect)
                     hit_names.append(t.name)
