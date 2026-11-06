@@ -3,7 +3,7 @@
     {
       "quest_id": "vot_first_blood",
       "title": "First Blood",
-      "description": "You woke up in this valley with sand in your mouth and no memory of the fall. Farseer Nakhtar found you first - orc, older than he looks, the kind of calm that comes from having seen worse mornings than this one. He didn't ask where you came from. He asked if you could still hold a weapon. That's the only question that matters to him right now. The valley is thick with Mottled Boars - stupid, aggressive, and exactly the right size of problem for someone who doesn't yet know what their own arms can do. Kill five of them. Not for the valley's sake. For yours.",
+      "description": "Easy. Sit up slowly - you've had a fall and the ground will still be there in a moment.\n\nI'm Nakhtar. Farseer, for whatever that's worth out here, which on most days is a tent and an opinion.\n\nI'm not going to ask you where you came from. You wouldn't have a good answer and I've stopped finding the bad ones interesting - you're the fourth this season and every one of you wakes up with sand in your mouth and the same look.\n\nHere is the only question that matters today: can you still hold a weapon?\n\nThe valley's thick with mottled boars. Stupid, aggressive, and exactly the right size of problem for somebody who doesn't yet know what his own arms do.\n\nGo and find out. Not for the valley's sake. For yours.",
       "giver_npc_id": "vot_greeter",
       "zone": "valley_of_trials",
       "objectives": [
@@ -15,8 +15,8 @@
       ],
       "reward_exp": 150,
       "reward_gold": 500,
-      "accept_text": "Oh - another one from that blue planet everyone keeps talking about. Don't worry about it, it happens more than you'd think. What matters is whether you can still fight, whatever you were before. Boars won't kill you if you're paying attention. They'll certainly try. Go find out which kind of person you still are.",
-      "turn_in_text": "Five down, and you're still standing without a limp. Good - your body remembers things your head hasn't caught up to yet. That happens to all of you, the ones who fall into this valley instead of walking into it. Rest here a moment if you need it. There's more work, if you want it, and I think you do.",
+      "accept_text": "Out on the flat, anywhere west. The boars will find you before you find them.",
+      "turn_in_text": "Still standing, and you came back by the road instead of across the rocks. Good - that's two things learned and you'll only remember one of them.\n\nSit down. Eat something. The valley's got more to say to you and it's in no hurry.",
       "next_quest_id": "vot_scorpid_trouble",
       "level_min": 1,
       "level_max": 3,
@@ -73,7 +73,7 @@
     {
       "quest_id": "vot_scorpid_trouble",
       "title": "Scorpid Trouble",
-      "description": "The scorpid nest in the north-east of the valley has been unusually restless for three days running, and Nakhtar doesn't believe in coincidence. Something's stirred them - could be nothing, could be the same wrongness that's been creeping into this valley since before you arrived. Either way, six fewer Scorpid Workers means six fewer things trying to sting a recruit half to death on the road. He's not sending you in blind - scorpids are slow, predictable, easy to read once you've seen the pattern. This is the last easy lesson he's got for you.",
+      "description": "The scorpids have been pushing further from the nest than they should. Three days running now.\n\nI don't like things that change their habits for no reason. A boar is a boar every day of its life - that's what makes it useful for teaching. A scorpid that's started behaving differently is telling you something about the valley, and I'd rather read it early.\n\nCould be nothing. Could be the same wrongness that's been creeping in here since before you arrived, which I'll talk to you about when I've got more than a feeling.\n\nThin the workers out. And watch their tails, not their claws - the claws are what they show you.\n\nThis is the last easy lesson I've got. Take it slowly.",
       "giver_npc_id": "vot_greeter",
       "zone": "valley_of_trials",
       "objectives": [
@@ -157,7 +157,7 @@
     {
       "quest_id": "vot_den_scout",
       "title": "Into the Den",
-      "description": "Elder Kuraw has no patience for Nakhtar's gentler approach to newcomers. In his experience, the valley teaches best when you're standing in it, not being told about it. The Den is a shallow cave just west of camp - nothing in there should kill a careful person, which is exactly why he wants you to go first, before anywhere that could. He's not interested in a report of what you fought. He wants to know what you noticed: the sound of water somewhere you didn't expect it, a draft where there shouldn't be one, the shape of a room before you're standing in the middle of it with something already swinging. That's the difference between someone who survives this valley and someone who gets remembered by it.",
+      "description": "Nakhtar talks. That's his function and I don't begrudge it, but you'll learn more in an hour underground than in a week of being told about it.\n\nKuraw. The Den's the shallow cave west of camp. Nothing in there should kill a careful person, which is exactly why I want you in THAT one first rather than somewhere that will.\n\nAnd here's the thing about caves, since nobody's told you: they fight differently. Tight rooms, narrow tunnels. On open ground you take them one at a time because they come to you one at a time. Step into the wrong corner down there and you'll have three on you at once.\n\nI don't want a report of what you fought. I want what you NOTICED - water where there shouldn't be any, a draught, the shape of a room before you're standing in the middle of it.\n\nThat's the difference between surviving this valley and being remembered by it.",
       "giver_npc_id": "vot_elder",
       "zone": "valley_of_trials",
       "objectives": [
@@ -180,7 +180,7 @@
     {
       "quest_id": "vot_nest_guardian",
       "title": "The Nest Guardian",
-      "description": "The Den's guardian creature has grown territorial enough that it's no longer content to lurk - it's started patrolling, which in Kuraw's estimation makes it either a genuine problem or a very useful lesson, and possibly both. He's not sugarcoating this one: it's not the worst thing in this valley, not close, but it is the first thing that can actually kill you if you get sloppy. Everything before this has been boars and scorpids - creatures that punish carelessness with a scar. This will punish carelessness with your life, if you let it. He wants you to feel that difference now, on his terms, in a fight he's confident you can win, rather than discovering it later somewhere he isn't.",
+      "description": "The thing in the Den has stopped lurking and started patrolling. That makes it either a real problem or a very useful lesson and I see no reason it can't be both.\n\nI'll not dress this up for you. It isn't the worst thing in this valley - it isn't close - but it is the first thing you'll meet that can actually kill you if you get sloppy.\n\nEverything until now has punished carelessness with a scar. Boars, scorpids, a bad step in the dark. This one punishes it with your life.\n\nI want you to feel that difference now. On my terms, in a fight I'm confident you can win, with me close enough to be useful - rather than discovering it in six months somewhere I am not.\n\nIt's a soft one, as these go. Don't get comfortable because I said soft.",
       "giver_npc_id": "vot_elder",
       "zone": "valley_of_trials",
       "objectives": [
@@ -283,7 +283,7 @@
     {
       "quest_id": "vot_vile_familiars",
       "title": "Fel Taint",
-      "description": "The Valley Grunt keeping watch near the Burning Blade Coven doesn't bother hiding how much he hates this posting. Demons don't belong in a valley this young - he's served three seasons on this line and never once saw so much as a whiff of fel energy until last week. Now there's a cave full of it, crawling with Vile Familiars that answer to something worse still inside. He's not asking you to solve the whole problem. He's asking you to thin the herd - four familiars, enough to buy the valley some breathing room while whoever's actually in charge figures out what opened that door and why it opened here, of all places. Don't go past the familiars alone. That part matters.",
+      "description": "Demons. In this valley.\n\nI've stood this watch three seasons. Three. And in all that time I never saw so much as a whiff of fel energy anywhere near this ridge, and now there's a cave full of it up at the Burning Blade Coven.\n\nThat's not a complaint about my posting, though I've got several. It's that this valley is YOUNG. Nothing has had time to go wrong here yet. Whatever opened that door, it didn't open by itself and it didn't open here by accident.\n\nI'm not asking you to solve it. I'm asking you to thin the familiars out and buy us breathing room while somebody with more rank than me works out what we're looking at.\n\nAnd don't go past the familiars on your own. That part isn't advice.",
       "giver_npc_id": "vot_guard_1",
       "zone": "valley_of_trials",
       "objectives": [
@@ -361,7 +361,7 @@
     {
       "quest_id": "vot_yarrog_baneshadow",
       "title": "Baneshadow",
-      "description": "Whatever commands the Burning Blade Coven's demons has a name now, dragged out of a captured familiar before it stopped answering questions entirely: Yarrog Baneshadow. The Grunt has seen what happens to careless fighters who go looking for cave bosses without a plan, and he won't send you in blind. Baneshadow doesn't fight fair - he'll keep summoning familiars the longer the fight drags on, building a crowd around himself while you're still trying to reach him. The trick, such as it is, isn't cleverness. It's discipline: ignore the noise, focus the head of the snake, and don't let the fight turn into a war of attrition you can't win. Kill him, and whatever foothold the fel has carved into this valley dies with him.",
+      "description": "It's got a name now. We pulled it out of a familiar before the thing stopped answering questions altogether.\n\nYarrog Baneshadow. That's what's been giving the orders in that cave.\n\nHere's how he fights, and I'd rather you heard it from me than found out in the dark: he summons. The longer the fight runs, the more of them are in the room with you, and if you let it turn into a long fight you will end up fighting the whole coven at once with your back to a wall.\n\nThe answer isn't clever. It's discipline. Ignore the noise, go for the head of the snake, finish it fast.\n\nKill him and whatever foothold the fel has carved here dies with him. I'd go myself if the valley could spare the watch. It can't. So it's you.",
       "giver_npc_id": "vot_guard_1",
       "zone": "valley_of_trials",
       "objectives": [
@@ -461,7 +461,7 @@
     {
       "quest_id": "vot_sagewood_petals",
       "title": "Sagewood Petals",
-      "description": "Old Marta has tended more disoriented strangers through this valley than she can count, and she's long past the point of prying into where any of them came from. What she needs right now is practical: five Sagewood Petals, gathered fresh from the sprites that guard Sagewood Grove, for a remedy she's been brewing for the recruits who keep stumbling back into camp half-poisoned by scorpid venom. The sprites don't give the petals up easily - they startle and scatter the moment anything gets close, dropping what they're carrying only in the panic of the moment. It's not dangerous work, just patient work, and you look steady enough on your feet to manage both.",
+      "description": "You've got that look. The one they all have when they first wake up here, like the ground isn't quite convinced it's holding you.\n\nIt passes. Give it a week and stop thinking about it.\n\nMarta. I've tended more disoriented strangers through this valley than I can count and I stopped asking where any of them came from a long time ago, which you may find restful.\n\nWhat I need is practical. Sagewood petals, from the sprites in the grove, for a remedy I'm brewing - half the recruits come back off that ridge with scorpid venom in them and the other half will.\n\nThe sprites drop them when they're startled badly enough to run. It isn't dangerous work, it's patient work, and you look steady enough for both. Fresh as you can manage, they wilt fast.",
       "giver_npc_id": "valley_vendor",
       "zone": "valley_of_trials",
       "objectives": [
@@ -482,7 +482,7 @@
     {
       "quest_id": "vot_felstalkers",
       "title": "Hounds of the Coven",
-      "description": "The demons infesting the Burning Blade Coven brought hounds with them - Felstalker Whelps and their smaller cousins, Fel Pups, both quick, both vicious, both bred for exactly one purpose. The Valley Grunt wants their numbers thinned alongside the familiars, and he doesn't much care which of the two you find first - a dead hound is a dead hound, whelp or pup. Kill 6 of either, in any combination, while you're already in there dealing with the rest.",
+      "description": "You'll meet the hounds before the familiars, most likely.\n\nThe demons brought their own dogs with them - whelps, and the smaller pups running with them. Quick, vicious, and bred for precisely one thing, which they do well.\n\nI don't care which of the two you put down. A dead hound is a dead hound, whelp or pup, and anybody who tells you different is making conversation.\n\nDo it while you're in there for the rest of it. No sense making two trips into a cave full of demons for the sake of tidiness.",
       "giver_npc_id": "vot_guard_1",
       "zone": "valley_of_trials",
       "objectives": [
@@ -566,7 +566,7 @@
     {
       "quest_id": "vot_graduation",
       "title": "Beyond the Valley",
-      "description": "Farseer Nakhtar has watched you long enough to know the valley doesn't have much left to teach you. The boars, the scorpid, even the coven's demons - you've handled what this place can throw at a green recruit, and there's a wider world waiting past the ridge that won't wait forever. Razor Hill sits at the heart of Durotar, the real town where real orcs make their real lives, and Nakhtar says it's time you saw it. Weapons Trainer Grokk holds court there and takes in every recruit who graduates out of this valley - find him, and your training truly begins.",
+      "description": "Come here. Sit down - no, properly sit, this is the last time I'll get to say any of this.\n\nThis valley hasn't got much left to teach you. The boars, the scorpids, the coven's demons - you've handled everything this place can throw at a green recruit, and standing here collecting more of the same would only make you confident about the wrong things.\n\nRazor Hill sits at the heart of Durotar. It's a real town, with real orcs making real lives in it, and it's time you saw one.\n\nFollow the road east and keep it under your feet the whole way. Durotar doesn't forgive wandering off the road - not yet, not for someone still as green as you are underneath everything you've survived here.\n\nFind Weapons Trainer Grokk. Tell him I sent you, though I expect he'll know the moment he sees how you carry yourself.",
       "giver_npc_id": "vot_greeter",
       "zone": "valley_of_trials",
       "objectives": [
@@ -581,7 +581,7 @@
       "reward_exp": 300,
       "reward_gold": 1000,
       "accept_text": "Follow the road east out of the valley and keep it under your feet the whole way - Durotar doesn't forgive wandering off it, not yet, not for someone as green as you still are underneath everything you've survived here. Razor Hill sits at the heart of it. Find Grokk. Tell him Nakhtar sent you, though I suspect he'll know the second he sees you carry yourself.",
-      "turn_in_text": "You made it. Of course you made it - I wouldn't have sent you otherwise. This is farther than most of you get, in either direction of what that means. Go find Grokk properly now. What happens from here isn't mine to teach you anymore.",
+      "turn_in_text": "[Grokk looks you over without hurrying about it.]\n\nNakhtar. He didn't need to send word - you've got the valley all over you. Everyone who comes up that road does.\n\nRight. Whatever you learned down there was about staying alive. Here you'll learn what to do with the time that buys you.",
       "next_quest_id": null,
       "level_min": 4,
       "level_max": 6,
@@ -641,7 +641,7 @@
       "zone": "valley_of_trials",
       "level_min": 2,
       "level_max": 4,
-      "description": "Grulnok has watched this ridge for six seasons and he knows every boar on it by its tracks. One set of tracks he doesn't like: a boar the size of a cart, tusks worn yellow, with a habit of walking straight through the training dummies on Sagebrush Flat as if they were an insult. The recruits call it Old Tusk. Grulnok calls it a matter of time before someone's mother gets bad news. Thin out the boars on the flat, and when the old one shows himself, put him down.",
+      "description": "Six seasons I've watched this ridge and I know every boar on it by its tracks.\n\nThere's one set I don't like. Boar the size of a cart, tusks worn yellow, and it walks straight through the training dummies on Sagebrush Flat - not round them, THROUGH them, like the dummies have said something.\n\nThe recruits call it Old Tusk, which is the sort of name you give a thing when you've decided it's funny rather than dangerous.\n\nI call it a matter of time before somebody's mother gets bad news.\n\nThin the boars on the flat, and when the old one shows himself, put him down. He's the one that doesn't run. Don't fight him on open ground with your back to a hill - use the dummies. He hates the dummies.",
       "objectives": [
         {
           "type": "kill",
@@ -726,7 +726,7 @@
       "zone": "valley_of_trials",
       "level_min": 2,
       "level_max": 5,
-      "description": "Torgak can't walk the ridge yet and the carrion birds have noticed. They've started circling the camp in the afternoons, patient as tax collectors, and the jackals that follow them keep creeping closer to the fire. He says it's nothing personal. He says it with the look of someone who has taken it personally. Clear out the vultures and the jackals running with them until the sky gets boring again.",
+      "description": "Don't tell Nakhtar I'm giving out work. He's got views about what a man on his back should be doing with his day.\n\nTorgak. I can't walk the ridge yet and the carrion birds have noticed.\n\nThey've started circling the camp in the afternoons. Patient, the way a tax collector is patient. And the jackals that follow them have been creeping in closer to the fire each night, because jackals only get brave when there's something circling.\n\nIt's nothing personal.\n\n[A pause.]\n\nThey think I'm already dead. I would very much like to change their minds, and I would like it done where they can see it happening.\n\nBirds first. The jackals lose their nerve on their own after that.",
       "objectives": [
         {
           "type": "kill",
@@ -810,7 +810,7 @@
       "level_min": 1,
       "level_max": 3,
       "next_quest_id": "vot_gulpjaw",
-      "description": "The spring at the lake south of camp has fed this valley since before the Horde had a name for it, and lately Old Marta can't brew a clean batch with water from it. Marsh skimmers have been skating over the shallows in numbers she's never seen, and the toads are bolder than toads should be. She isn't asking for a massacre - just enough dead things that the water runs clear again.",
+      "description": "The spring at the lake south of camp has fed this valley since before the Horde had a name for itself.\n\nI can't get a clean batch out of it.\n\nThe marsh skimmers are skating the shallows in numbers I've not seen in my lifetime here, and the toads have gone bold - and a bold toad is a small thing that tells you something larger is going on, which I'd rather not think about before I've had a brew that works.\n\nI'm not asking for a massacre. I want enough dead things that the water runs clear.\n\nGo south. Mind the mud, it's deeper than it looks. Skimmers or toads, I don't care which you reach first - I just want the shallows still for an hour.",
       "objectives": [
         {
           "type": "kill",
@@ -882,7 +882,7 @@
       "zone": "valley_of_trials",
       "level_min": 3,
       "level_max": 5,
-      "description": "The skimmers are only the symptom. Something huge has taken up residence at Trailwater Spring - a toad bigger than a boar that the recruits have started calling Old Gulpjaw, mostly in the tone people use for weather. It's been eating whatever drifts in, and now it's eating whatever walks in. Marta needs the spring back. Bring a friend if you can find one. Bring a plan if you can't.",
+      "description": "The skimmers were the symptom. I thought they might be.\n\nSomething's taken up residence at Trailwater Spring. A toad bigger than a boar - the recruits have started calling it Old Gulpjaw, in the tone people use for weather they can't do anything about.\n\nIt's been eating whatever drifts in. Now it's eating whatever walks in, and the difference between those two sentences is the reason I'm asking.\n\nI need my spring back.\n\nHe sits at the bottom of the shallows and waits. Don't wade in after him - everything slow is worse in water than out of it. Pull him onto the bank and fight him there.\n\nBring a friend if you can find one. Bring a plan if you can't.",
       "objectives": [
         {
           "type": "kill",
@@ -969,7 +969,7 @@
       "zone": "valley_of_trials",
       "level_min": 3,
       "level_max": 5,
-      "description": "The petals did their job. Now Marta wants the thing that makes the petals worth gathering: heartwood from the old sagewood in the Grove east of camp. Lately the saplings there have started walking - thornroot saplings, quick and mean - and something older has begun to move among them. Bramblethorn the Ancient has been in that grove longer than the valley has had a name. She doesn't ask you to fell it. She asks that it stop.",
+      "description": "The petals did their job and the recruits are keeping their feet. Now I want the thing that makes the petals worth gathering in the first place.\n\nHeartwood, out of the old sagewood in the grove east of camp.\n\nThere's a difficulty. The saplings in there have started walking - thornroots, quick and mean and entirely new this season. And something older has begun moving among them.\n\nBramblethorn has been in that grove longer than this valley has had a name. Longer than the Horde, if you believe my grandmother, and I generally did.\n\nI'm not asking you to fell it. I want that said plainly, because somebody will tell you later that I did.\n\nI'm asking that it stop.",
       "objectives": [
         {
           "type": "kill",
@@ -1056,7 +1056,7 @@
       "level_min": 3,
       "level_max": 5,
       "next_quest_id": "vot_nest_guardian",
-      "description": "You came back from the Den's mouth with an observant eye. Now Elder Kuraw wants the next lesson: the deeper chambers where the eggs are kept. The Den is a scorpid-and-spider brood cave and its guardians are only as dangerous as the numbers behind them. Thin them out - skitterers and webspinners in the halls, egg tenders in the nursery - so that whatever comes for the guardian does not come into a room full of its children.",
+      "description": "You came back from the Den's mouth with your eyes working. Good. Now the deeper chambers.\n\nThat cave is a brood. That's what it's FOR - it isn't a lair that happens to have eggs in it, it's a nursery with guards, and the guards are only ever as dangerous as the numbers standing behind them.\n\nSkitterers and webspinners in the halls. Egg tenders in the nursery itself.\n\nThin them out, and do it in that order, so that whoever eventually goes for the guardian isn't fighting it in a room full of its children.\n\nThat's not squeamishness. A fight in a nursery is a fight where every single thing in the room has a reason to be reckless.",
       "objectives": [
         {
           "type": "kill",
@@ -1147,7 +1147,7 @@
       "level_min": 4,
       "level_max": 6,
       "next_quest_id": "vot_cinderjaw",
-      "description": "Elder Kuraw reads weather the way other orcs read faces, and the weather in the Windrift Dunes southeast of camp is saying something he doesn't like. Dust devils have been walking the road with intent, and sandpincer crawlers keep pushing up out of the sand where there was nothing before. He wants the dunes quiet before whatever is stirring them decides to finish waking.",
+      "description": "I read weather the way other orcs read faces, and the weather in the Windrift Dunes is saying something I don't care for.\n\nDust devils walking the road. Not drifting across it - WALKING it, along its length, with the sort of consistency that stops being weather somewhere around the third day.\n\nAnd the sandpincers keep pushing up out of ground where there was nothing before. I've dug. There's no burrow under them. They are arriving rather than emerging.\n\nI want the dunes quiet before whatever is stirring them finishes waking up and takes an interest in which direction the camp is.\n\nGo south-east. Don't stand still on open sand.",
       "objectives": [
         {
           "type": "kill",
@@ -1231,7 +1231,7 @@
       "zone": "valley_of_trials",
       "level_min": 5,
       "level_max": 6,
-      "description": "There is a stretch of valley far to the south-west where the ground itself is burnt: the Cinderjaw Wastes. Ember wisps drift there like loose sparks, ashback basilisks sleep on the warm stone, and something called Smolderhide has been seen walking at night with fire on its back. Elder Kuraw wants it dealt with before the wastes creep any closer to the lake. This is the hardest thing he has ever asked of a recruit. He asks it quietly.",
+      "description": "[Kuraw takes a while to start.]\n\nFar to the south-west the ground itself is burnt. We call it the Cinderjaw Wastes and no one goes there, and for most of my life that was a sensible arrangement that required no thought.\n\nEmber wisps drift across it like loose sparks. Ashback basilisks sleep on the warm stone. And there is something out there the scouts have named Smolderhide, which walks at night with fire on its back.\n\nThe wastes are creeping toward the lake. Slowly. But I've watched the edge for eleven years and I know where it used to be.\n\nThis is the hardest thing I have ever asked a recruit to do. I want you to understand that I know it, and that I'm asking anyway, and that if you'd rather not I will think no less of you and will not raise it again.",
       "objectives": [
         {
           "type": "kill",
@@ -1318,7 +1318,7 @@
       "zone": "valley_of_trials",
       "level_min": 4,
       "level_max": 6,
-      "description": "Grosk the Younger has decided that a real orc leaves the valley with a trophy, and he has decided on Sandfang - the pale, scarred jackal that haunts the Windrift Dunes and has outrun every hunter in the valley. He has not decided how he'll do it, which is why he is asking you. Thin the pack, find the old one, and bring him proof. His mother has opinions about the whole idea. She may be right. Do it anyway.",
+      "description": "Right - you're the one everyone's talking about. Good. Listen.\n\nA real orc doesn't just leave this valley. He leaves it with a trophy. That's the whole of my thinking and I've been working on it for a while.\n\nI've picked Sandfang. The pale one, all scars, out in the Windrift Dunes - he's outrun every hunter in this valley including two who were genuinely good.\n\n[A pause.]\n\nI haven't worked out how yet. That's the part where you come in and I'd be grateful if you didn't make a thing of it.\n\nThin the pack, find the old one, bring me proof.\n\nMy mother has views about this entire idea. She may well be right. We're doing it anyway.",
       "objectives": [
         {
           "type": "kill",
@@ -1405,7 +1405,7 @@
       "zone": "valley_of_trials",
       "level_min": 3,
       "level_max": 5,
-      "description": "Fizzcrank Sprocketspin has discovered that the crystals lining the Burning Blade Coven give off a heat he finds personally offensive: it should not be possible to be warm and wrong at the same time. He wants five shards - tiny ones, pocket-sized, the kind the acolytes carry on their belts - to measure what's wrong with them. He is fairly sure it's not dangerous. He is also fairly sure it was on fire a moment ago.",
+      "description": "You! Yes, you, the one who isn't on fire. Perfect.\n\nFizzcrank Sprocketspin. The crystals lining that Coven give off a heat that I find personally offensive, and I want you to understand I mean that technically rather than emotionally.\n\nIt should not be possible for a thing to be warm AND wrong at the same time. Warm is a measurement. Wrong is a judgement. Those are different departments and something in that cave has them filed together.\n\nGet me shards. Small ones - pocket-sized, the kind the acolytes keep on their belts, not the big ones in the walls because I've seen what happened to the last fellow.\n\nI'm fairly sure they're not dangerous.\n\nI'm also fairly sure that one was on fire a moment ago. Both can be true.",
       "objectives": [
         {
           "type": "fetch",
@@ -1480,7 +1480,7 @@
       "zone": "valley_of_trials",
       "level_min": 2,
       "level_max": 4,
-      "description": "Rhaka's son went up the ridge to prove himself last week, and he came back. She'd like to keep it that way, and in her experience the surest way to do that is a good cloak. Not a ratty hide thing - silk, strong enough to turn a scorpid sting, the kind the webspinners in the Den spin in their halls. Six spools. She has the loom. She does not have the nerve to go into that cave.",
+      "description": "My son went up the ridge last week to prove himself.\n\nHe came back. I'd like to keep that arrangement going, and in my experience the surest way is a good cloak.\n\nNot a ratty hide thing off a vendor's cart. Silk - proper silk, strong enough to turn a scorpid sting, the sort the webspinners make in the halls of the Den.\n\nI have the loom. I've had the loom since my mother's day and I know exactly what I'd do with the spools.\n\nI do not have the nerve to go into that cave, and I'd rather say so to your face than invent a reason. I've stood at the mouth of it twice.\n\nBring me the silk and he'll have the cloak before the next climb.",
       "objectives": [
         {
           "type": "fetch",
@@ -1554,7 +1554,7 @@
       "level_min": 4,
       "level_max": 6,
       "next_quest_id": "vot_graduation",
-      "description": "The scorpids you've been killing have a mother. Broodmother Sarrix has held the north-eastern nest for longer than the Horde has held the valley, and she is the reason the workers keep coming. Nakhtar doesn't want you to fight her. He wants you to fight everything around her first, and then to decide whether you're ready. He suspects you'll go anyway.",
+      "description": "The scorpids you've been killing have a mother. I thought you should know that from me rather than from her.\n\nBroodmother Sarrix has held the north-eastern nest longer than the Horde has held this valley. She's the reason the workers keep coming and she'll be the reason they keep coming after you've thinned them twice more.\n\nI am not asking you to fight her.\n\nI'm asking you to fight everything around her first - the venomtails, the ones that will be at her side when it matters - and then to stand at the edge of that nest and decide honestly whether you're ready.\n\n[He looks at you.]\n\nI suspect you'll go anyway. I'd rather you went having been asked to think about it.",
       "objectives": [
         {
           "type": "kill",
@@ -1640,7 +1640,7 @@
       "level_min": 4,
       "level_max": 5,
       "next_quest_id": "vot_yarrog_baneshadow",
-      "description": "The familiars were only the bait. Deeper in the Coven, the Burning Blade have been drawing a circle - a real one, with a real summoning, in a hall the Valley Grunt has only seen from a distance. Initiates guard the approaches and ritual guards stand between them and any fool with a sword. Break up the ritual before it finishes, or there won't be a Baneshadow to fight. There will be something worse.",
+      "description": "The familiars were bait. I want to be plain about that, because I sent you at them and I'd rather own it.\n\nDeeper in the Coven they've been drawing a circle. A real one, in a hall I've only ever seen from the mouth of the passage, and there is a summoning going into it.\n\nInitiates hold the approaches and the ritual guards stand between them and anybody with a sword and an opinion.\n\nBreak it up before it finishes.\n\nBecause if that circle closes there won't be a Baneshadow to go and fight afterwards. There'll be whatever Baneshadow has spent all this effort trying to get hold of, and I don't have a plan for that and neither does anybody above me.",
       "objectives": [
         {
           "type": "kill",
