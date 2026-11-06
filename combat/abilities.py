@@ -119,7 +119,20 @@ class ResourceType(Enum):
 CLASS_RESOURCE_MAP = {
     # Original 9
     "Warrior": (ResourceType.RAGE, None),
-    "Rogue": (ResourceType.ENERGY, None),
+    # Combo points added 5 Nov 2026 on Kyle's call. They were missing
+    # entirely - the Rogue was Energy-only - and 13 of the 83 real WotLK
+    # Rogue talents are written in terms of them (Relentless Strikes, Seal
+    # Fate, Setup, Initiative, Premeditation, Honor Among Thieves, Cut to
+    # the Chase, Lethality, Ruthlessness, Riposte, ...). COMBO already
+    # existed as a ResourceType because Templar uses it as a PRIMARY; the
+    # Rogue is the first class to carry it as a second pool, which is what
+    # needed Ability.secondary_cost - a finisher pays Energy AND combo,
+    # and one cost field cannot do both.
+    #
+    # Scaled to the 100-point bar the engine gives every resource, exactly
+    # as Templar does it: a generator grants 20 (one "combo point") and a
+    # finisher costs 20/40/60, so the familiar 1-5 points read as 20-100.
+    "Rogue": (ResourceType.ENERGY, ResourceType.COMBO),
     "Hunter": (ResourceType.MANA, None),
     "Mage": (ResourceType.MANA, None),
     "Warlock": (ResourceType.MANA, None),
@@ -309,6 +322,7 @@ class Ability:
     def __init__(self, ability_id, name, resource_type, ranks,
                  cooldown=0, effect_type="damage", description="",
                  duration=0, stat_mods=None, generates=None,
+                 secondary_cost=0,
                  target_type=None, buff_scope=None, requires_talent=False,
                  is_instant=False, consumes_hot=False, consumable_hot_ids=None,
                  dispel_type=None, requires_form=None, heal_scope="lowest_ally",
@@ -352,6 +366,11 @@ class Ability:
         # Optional secondary-resource generation, e.g. a Stormbringer builder
         # that costs Mana but banks Static: {"resource": "static", "amount": 20}
         self.generates = generates or None
+        #: Flat amount of the CASTER'S secondary resource this ability
+        #: spends on top of its ordinary cost. 0/absent means none, so
+        #: every ability written before this field keeps its old behaviour.
+        #: The ability names the amount; the caster's class names the pool.
+        self.secondary_cost = int(secondary_cost or 0)
         # Tinker's Rounds (and any future ammo/loadout-style ability): the
         # exclusive_group tag passed straight through to the StatusEffect
         # this ability creates, so applying a new Round replaces whichever
@@ -2023,6 +2042,11 @@ class Ability:
         dict-backed CoA resources (Static, Insanity, Deathfire, ...). Monsters
         and anything else without the generic API are treated as always able
         to pay, so enemy ability use never crashes on a missing pool.
+
+        secondary_cost is checked here too, so a finisher that cannot be
+        paid for is unaffordable everywhere at once - is_usable_by() calls
+        this exact method, which is what keeps the hotbar from rendering a
+        green "ready" button for an ability the caster cannot cast.
         """
         if cost is None:
             cost = self.cost
@@ -2031,8 +2055,54 @@ class Ability:
         resource_type = self._effective_resource_type(caster)
         # Health is special: spending it must never be lethal.
         if resource_type == ResourceType.HEALTH:
-            return caster.current_health > cost
-        return caster.get_resource(resource_type) >= cost
+            affordable = caster.current_health > cost
+        else:
+            affordable = caster.get_resource(resource_type) >= cost
+        return affordable and self._has_secondary_resource(caster)
+
+    def _secondary_resource_type(self, caster):
+        """The caster's SECONDARY resource, or None if they have one pool.
+
+        Read off the caster rather than the ability, because a finisher
+        belongs to a class, and that class's second pool is what it spends -
+        the ability data only says HOW MUCH.
+        """
+        getter = getattr(caster, "get_secondary_resource_type", None)
+        return getter() if getter else None
+
+    def _has_secondary_resource(self, caster):
+        """True if the caster can pay this ability's secondary_cost.
+
+        WHY THIS EXISTS. Until now an ability could cost exactly one
+        resource, which is fine for every CoA builder/spender - a
+        Stormbringer builder pays Mana and banks Static, and the payoff pays
+        Static INSTEAD of Mana, so one cost field covers both. It does not
+        cover a combo-point finisher, which pays in BOTH currencies at once:
+        real WoW Eviscerate costs 35 Energy *and* consumes the combo points
+        you built. With a single cost field, a Rogue finisher could charge
+        Energy or Combo but not both, and charging Combo alone would make
+        Energy irrelevant to the only buttons that matter.
+
+        Kyle's call, 5 Nov 2026: the Rogue gets combo points, because 13 of
+        the 83 real Rogue talents are written in terms of them (Relentless
+        Strikes, Seal Fate, Setup, Initiative, Premeditation, Honor Among
+        Thieves...) and a Rogue without them is not a Rogue.
+
+        Absent or zero means no secondary cost, so every ability authored
+        before this field existed behaves exactly as it did.
+        """
+        if not self.secondary_cost:
+            return True
+        if not hasattr(caster, "get_resource"):
+            return True
+        secondary = self._secondary_resource_type(caster)
+        if secondary is None:
+            # The ability asks for a second pool its caster does not have.
+            # Treated as free rather than uncastable: a recruit or monster
+            # borrowing a class's ability should not be bricked by it, and
+            # tools/qa_secondary_costs.py reports the mismatch statically.
+            return True
+        return caster.get_resource(secondary) >= self.secondary_cost
 
     def _consume_resource(self, caster, cost=None):
         """Consume this ability's resource, then apply any generation."""
@@ -2044,6 +2114,14 @@ class Ability:
                 caster.current_health -= cost
             else:
                 caster.spend_resource(resource_type, cost)
+
+            # Spend the secondary pool AFTER the primary, and only if the
+            # caster actually has that pool - see _has_secondary_resource
+            # for why a mismatch is free rather than fatal.
+            if self.secondary_cost:
+                secondary = self._secondary_resource_type(caster)
+                if secondary is not None:
+                    caster.spend_resource(secondary, self.secondary_cost)
 
         self._generate_resource(caster)
 
@@ -3488,6 +3566,11 @@ def _ability_from_data(entry):
         duration=entry.get("duration", 0),
         stat_mods=entry.get("stat_mods", {}),
         generates=entry.get("generates"),
+        # secondary_cost: a flat amount of the CASTER'S secondary resource
+        # spent alongside the ordinary cost, for an ability that pays in two
+        # currencies at once (a Rogue finisher: Energy AND combo points).
+        # See Ability._has_secondary_resource.
+        secondary_cost=entry.get("secondary_cost", 0),
         target_type=entry.get("target_type"),
         buff_scope=entry.get("buff_scope"),
         requires_talent=entry.get("requires_talent"),

@@ -85,7 +85,12 @@
           "effect_value": 125
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. the baseline builder."
     },
     {
       "ability_id": "rogue_backstab",
@@ -128,7 +133,12 @@
           "effect_value": 151
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Subtlety's core."
     },
     {
       "ability_id": "rogue_eviscerate",
@@ -171,7 +181,9 @@
           "effect_value": 153
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "secondary_cost": 40,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 40 means it spends 2 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. the heavy direct finisher. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_rupture",
@@ -209,7 +221,9 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "secondary_cost": 40,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 40 means it spends 2 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. the heavy bleed finisher. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_evasion",
@@ -281,7 +295,9 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "secondary_cost": 20,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. debuff finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_adrenaline_rush",
@@ -347,7 +363,12 @@
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Mutilate talent in the Assassination tree. A vicious double-dagger strike, requiring daggers in both hands."
+      "_design_note": "Not learned from level alone - granted by the Mutilate talent in the Assassination tree. A vicious double-dagger strike, requiring daggers in both hands.",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Assassination's core."
     },
     {
       "ability_id": "rogue_cold_blood",
@@ -414,7 +435,12 @@
       "is_instant": true,
       "icon_id": null,
       "damage_school": "physical",
-      "_design_note": "Not learned from level alone - granted by the Hemorrhage talent in the Subtlety tree. A vicious strike that deals damage and causes the target to bleed."
+      "_design_note": "Not learned from level alone - granted by the Hemorrhage talent in the Subtlety tree. A vicious strike that deals damage and causes the target to bleed.",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, awards 1 point in 3.3.5a."
     },
     {
       "ability_id": "rogue_shadow_dance",
@@ -464,7 +490,9 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "secondary_cost": 20,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. cheap self-buff finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_sap",
@@ -557,7 +585,12 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. awards 1 point in 3.3.5a."
     },
     {
       "ability_id": "rogue_feint",
@@ -651,7 +684,12 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. opener, awards 1 point."
     },
     {
       "ability_id": "rogue_cheap_shot",
@@ -673,7 +711,12 @@
       "icon_id": null,
       "is_stun": true,
       "is_instant": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. opener, awards 1 point."
     },
     {
       "ability_id": "rogue_deadly_poison",
@@ -748,7 +791,12 @@
           "effect_value": 215
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. opener, awards 1 point."
     },
     {
       "ability_id": "rogue_crippling_poison",
@@ -803,7 +851,12 @@
         }
       ],
       "icon_id": null,
-      "is_instant": true
+      "is_instant": true,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. awards 1 point."
     },
     {
       "ability_id": "rogue_blade_flurry",
@@ -849,7 +902,9 @@
       "icon_id": null,
       "is_stun": true,
       "is_instant": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "secondary_cost": 20,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. stun finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_blind",
@@ -903,7 +958,9 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "secondary_cost": 20,
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. poison finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
     },
     {
       "ability_id": "rogue_fan_of_knives",
