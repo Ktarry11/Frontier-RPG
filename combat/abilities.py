@@ -3498,27 +3498,57 @@ class Ability:
                 return f"{caster.name} has no totems slotted!"
 
             party = self._recipients(caster, target) if target else [caster]
-            enemy_target = None
-            # A damage-type totem (Searing Totem) needs an enemy, not the
-            # party target this ability itself was cast with (Call of the
-            # Ancestors is target_type="party") - the caller's `target`
-            # kwarg IS the party in that case, so hostile totems fall back
-            # to whatever the combat engine's default enemy target is via
-            # the ability_book lookup below rather than mistakenly firing
-            # at an ally.
-            cast_names = []
+            # A damage-type totem needs an ENEMY, and this is where it has to
+            # come from. Call of the Ancestors is target_type="party", so the
+            # caller's `target` kwarg IS the party - and the line below used
+            # to hand that straight to a hostile totem. The comment here
+            # claimed they "fall back to whatever the combat engine's default
+            # enemy target is via the ability_book lookup below"; no such
+            # fallback existed, so all three hostile totems fired at the
+            # shaman's own side. Measured, with a loadout of Magma Totem and
+            # Stoneskin Totem on a party of two:
+            #
+            #   Magma Totem     "afflicts all enemies ... - Testo, Buddy
+            #                    afflicted!"   (the caster and his ally)
+            #   Searing Totem   "afflicts Testo"            (the caster)
+            #   Earthbind Totem "weakens all enemies (haste -50)" on the party
+            #
+            # The engine is the only thing that knows which side is which, and
+            # the player's cast path already passes it
+            # (CombatEngine.execute_player_action). With no engine - an
+            # out-of-combat cast, a tool, a test - a hostile totem is SKIPPED
+            # rather than pointed at the party, because dropping one totem is
+            # a smaller wrong than DoTing your own healer.
+            enemies = None
+            if engine is not None and hasattr(engine, "living_enemies"):
+                enemies = engine.living_enemies()
+            cast_names, skipped = [], []
             book = caster.ability_book if hasattr(caster, "ability_book") else None
             for element, totem_id in loadout.items():
                 totem_ability = book.get_ability(totem_id) if book else None
                 if totem_ability is None:
                     continue
-                totem_target = party if totem_ability.target_type in ("party", "ally", "self") else target
-                success_inner, _ = totem_ability.use(caster, totem_target)
+                friendly = totem_ability.target_type in ("party", "ally", "self")
+                if friendly:
+                    totem_target = party
+                else:
+                    if not enemies:
+                        skipped.append(totem_ability.name)
+                        continue
+                    totem_target = enemies
+                success_inner, _ = totem_ability.use(
+                    caster, totem_target, party=party, engine=engine)
                 if success_inner:
                     cast_names.append(totem_ability.name)
             if not cast_names:
+                if skipped:
+                    return (f"{caster.name} has no target for "
+                            f"{', '.join(skipped)}!")
                 return f"{caster.name}'s totems failed to activate!"
-            return f"{caster.name} calls forth: {', '.join(cast_names)}!"
+            msg = f"{caster.name} calls forth: {', '.join(cast_names)}!"
+            if skipped:
+                msg += f" ({', '.join(skipped)} had no enemy to target.)"
+            return msg
 
         return f"{caster.name} uses {self.name}!"
     
