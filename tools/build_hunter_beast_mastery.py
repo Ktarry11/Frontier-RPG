@@ -54,11 +54,27 @@ speed) - all have to land on pet_damage, because it is one of only three
 pet keys that exist. Each substitution is individually faithful and
 together they pile onto one key.
 
-It was checked rather than assumed: tools/sim_class_balance.py plays real
-fights and reports the Hunter inside the spread at every level, with
-beast_mastery correctly its best build. The pet is only part of a hunter's
-damage, so doubling it does not double the class. If that ever stops being
-true, this node set is where to look first.
+THE ORIGINAL CHECK HERE WAS VACUOUS AND IS CORRECTED. This docstring used
+to say the pile-up "was checked rather than assumed" because
+tools/sim_class_balance.py reported the Hunter inside the spread at every
+level with beast_mastery its best build. THAT SIM CONTAINS NO PET
+MODELLING AT ALL - grep 'pet' in tools/sim_class_balance.py returns
+nothing - so it could not have detected a pet problem in either
+direction, and citing it was false reassurance. The error was caught while
+building warlock_demonology, which hits the identical wall.
+
+The honest measurement is on a live pet, and on a level-60 imp the
+equivalent Warlock pile-up roughly doubles the pet (ap 78 -> 159,
+sp 137 -> 279). A doubled pet on the pet spec is defensible, and the spec
+pays for it elsewhere in the tree. BUT THE CLAIM NOW RESTS ON A DIRECT
+MEASUREMENT, not on a sim that cannot see pets. If a pet-aware sim is ever
+added, re-run this tree against it; this node set is where to look first.
+
+SEPARATE PRE-EXISTING FINDING, not caused by these talents: pet templates
+scale off their own level curve rather than the owner's, so an untalented
+level-60 pet out-stats its owner by a wide margin. That is a pet-template
+balance question for its own pass, flagged rather than patched inside a
+talent rebuild.
 """
 
 import sys

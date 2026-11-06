@@ -1,7 +1,7 @@
 {
   "spec_name": "Warlock Affliction",
   "tree_id": "warlock_affliction",
-  "description": "Curses and corruption that drain the life from an enemy over time.",
+  "description": "Curses and corruption - damage that arrives slowly and does not stop.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -13,368 +13,516 @@
   },
   "nodes": [
     {
-      "talent_id": "warlock_affliction_improved_corruption",
-      "name": "Improved Corruption",
-      "description": "Increases the damage of Corruption by 6% per rank.",
+      "talent_id": "warlock_affliction_improved_curse_of_agony",
+      "name": "Improved Curse of Agony",
+      "description": "Increases the damage of your Curse of Agony by 5% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_warlock_corruption_damage": 0.06
+        "ability_warlock_curse_of_agony_damage": 0.05
       },
-      "connected_to": [
-        "warlock_affliction_improved_drain_soul"
-      ]
+      "_source": "WotLK row 0, built verbatim: 'Increases the damage done by your Curse of Agony by 5%/10%.' The outgoing tree had this as 'Amplify Curse' with a 1-point stub; Amplify Curse is a separate real talent, built below.",
+      "connected_to": []
     },
     {
       "talent_id": "warlock_affliction_suppression",
       "name": "Suppression",
-      "description": "Increases your chance to hit with spells by 1% per rank.",
+      "description": "Increases your chance to hit by 1% per rank and reduces the cost of your curses by 2% per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "hit_rating": 1.0,
+        "ability_warlock_curse_of_agony_cost_pct": 0.02,
+        "ability_warlock_curse_of_weakness_cost_pct": 0.02,
+        "ability_warlock_curse_of_recklessness_cost_pct": 0.02
+      },
+      "_source": "WotLK row 0, built with both halves: 'Increases your chance to hit with spells by 1%/2%/3%, and reduces the mana cost of your Affliction spells.' Kept from the outgoing tree, which had hit_rating alone at 5 ranks. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "warlock_affliction_improved_corruption",
+      "name": "Improved Corruption",
+      "description": "Increases the damage of your Corruption by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0
+        "ability_warlock_corruption_damage": 0.02
       },
+      "_source": "WotLK row 0: 'Increases the damage done by your Corruption by 2%-10%, and increases the critical strike chance of your Corruption.' The damage half is verbatim; the crit half cannot be built because DOTS NEVER ROLL CRIT in this engine. Kept from the outgoing tree, corrected from 6% to the real 2% per rank.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "warlock_affliction_improved_curse_of_weakness",
+      "name": "Improved Curse of Weakness",
+      "description": "Increases the effect of your Curse of Weakness by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "ability_warlock_curse_of_weakness_potency": 0.1
+      },
+      "_source": "WotLK row 1, built verbatim: 'Increases the amount of attack power reduced by your Curse of Weakness by 10%/20%.' ability_<id>_potency scales the ability's own stat_mods, which is the right key for a debuff whose whole content is an attack-power reduction. Note attack_power on a monster is FLAT and is one of only eight stat_mods a MONSTER can read, so this debuff really does land.",
       "connected_to": [
-        "warlock_affliction_amplify_curse"
+        "warlock_affliction_improved_curse_of_agony"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_improved_fear",
+      "name": "Improved Fear",
+      "description": "Increases the duration of your Fear by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_warlock_fear_duration": 1
+      },
+      "_source": "WotLK row 1: 'Causes your Fear spell to inflict a Nightmare on the target when the fear effect ends.' DEPARTURE - there is no trigger on an effect EXPIRING, which is the same gap that blocks Living Bomb for the Mage. Delivered as Fear lasting longer instead. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS.",
+      "connected_to": [
+        "warlock_affliction_improved_curse_of_agony"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_fel_concentration",
+      "name": "Fel Concentration",
+      "description": "Reduces the cost of your Drain Life and Corruption by 5% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_warlock_drain_life_cost_pct": 0.05,
+        "ability_warlock_corruption_cost_pct": 0.05
+      },
+      "_source": "WotLK row 1: 'Reduces the pushback suffered from damaging attacks while casting Drain Life, Drain Mana, Drain Soul and Corruption by 70%.' DEPARTURE - no cast times and so no pushback. Being able to keep channelling becomes being able to afford it. Kept from the outgoing tree, which used the FLAT _cost key.",
+      "connected_to": [
+        "warlock_affliction_suppression"
       ]
     },
     {
       "talent_id": "warlock_affliction_improved_life_tap",
       "name": "Improved Life Tap",
-      "description": "Reduces the cooldown of Life Tap by 1 turn per rank.",
+      "description": "Increases the mana your Life Tap returns by 10% per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "ability_warlock_life_tap_cooldown": 1
+        "ability_warlock_life_tap_potency": 0.1
       },
+      "_source": "WotLK row 1, built verbatim: 'Increases the amount of Mana awarded by your Life Tap spell by 10%/20%.' The outgoing version reduced Life Tap's COOLDOWN instead, which is a different talent.",
       "connected_to": [
-        "warlock_affliction_nightfall"
+        "warlock_affliction_suppression"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_amplify_curse",
+      "name": "Amplify Curse",
+      "description": "Reduces the cooldown of your curses by 1 turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "ability_warlock_curse_of_agony_cooldown": 1,
+        "ability_warlock_curse_of_weakness_cooldown": 1,
+        "ability_warlock_curse_of_recklessness_cooldown": 1
+      },
+      "_source": "WotLK row 1: 'Reduces the global cooldown of your Curses by 0.5 sec.' There is no global cooldown in this engine, so it becomes a per-curse cooldown reduction across all three real curses. talented_cooldown clamps at 1 turn. It is Curse of Exhaustion's prerequisite in the real tree; that ability does not exist here.",
+      "connected_to": [
+        "warlock_affliction_improved_corruption"
       ]
     },
     {
       "talent_id": "warlock_affliction_soul_siphon",
       "name": "Soul Siphon",
-      "description": "Your Shadow Bolt and Drain Life hits heal you for 60. 50% chance per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {},
-      "connected_to": [
-        "warlock_affliction_empowered_corruption"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 50,
-        "icd": 0,
-        "ability_filter": [
-          "warlock_shadow_bolt",
-          "warlock_drain_life"
-        ],
-        "heal_flat": 60
-      }
-    },
-    {
-      "talent_id": "warlock_affliction_improved_drain_soul",
-      "name": "Improved Drain Soul",
-      "description": "Killing an enemy restores 250 Mana. 40% chance per rank.",
+      "description": "Increases the amount your Drain Life returns by 10% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 4,
+      "hex_y": -4,
+      "effects": {
+        "ability_warlock_drain_life_healing": 0.1
+      },
+      "_source": "WotLK row 1: 'Increases the amount drained by your Drain Life and Drain Soul spells by an additional 3%/6% for each of your Affliction effects on the target.' DEPARTURE - nothing counts how many of your own effects are on a target, so the per-effect scaling is impossible. Delivered as a flat increase. USES _healing because Drain Life's return is a heal - _damage would be silently dead, the mistake that left 18 talents dead across four classes.",
+      "connected_to": [
+        "warlock_affliction_improved_corruption"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_soul_harvest",
+      "name": "Soul Harvest",
+      "description": "When you kill an enemy you recover 60 mana per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 6,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1 'Improved Drain Soul': 'Returns 7%/14% of your maximum mana if the target is killed by your Drain Soul.' Drain Soul DOES NOT EXIST in this project, but the talent's entire content - mana back when a kill lands - IS buildable, so it is kept and renamed rather than dropped. This is the Mage Arcane lesson applied: dropping a node because its NAMED ability is missing threw away a working proc the first time, when the real text was proc-shaped all along. The outgoing tree had exactly this proc and was right to. grant_resource takes a FLAT amount - there is no pct_max - so the real percentage cannot be expressed and 60 is sized against a level-60 warlock's pool. CHANCE IS 50, NOT 100, because a proc's PAYLOAD does not scale with points and only its CHANCE does - at 100% a 2-rank node would give rank 2 NOTHING, which is what the first draft did until check_talent_balance.py caught it. 50 x 2 = 100, so full rank is the certainty the real talent implies. Warlock resource confirmed MANA before authoring, per the standing check-the-resource rule.",
       "connected_to": [
-        "warlock_affliction_improved_corruption",
-        "warlock_affliction_shadow_embrace"
+        "warlock_affliction_improved_corruption"
       ],
       "proc": {
         "trigger": "on_kill",
-        "chance": 40,
+        "chance": 50,
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 250
+          "amount": 60
         }
       }
-    },
-    {
-      "talent_id": "warlock_affliction_amplify_curse",
-      "name": "Amplify Curse",
-      "description": "Increases the damage of Curse of Agony by 20% and extends Curse of Weakness by 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_warlock_curse_of_agony_damage": 0.2,
-        "ability_warlock_curse_of_weakness_duration": 2
-      },
-      "connected_to": [
-        "warlock_affliction_suppression",
-        "warlock_affliction_siphon_life"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_nightfall",
-      "name": "Nightfall",
-      "description": "Your spellcasts have a 15% chance per rank to send you into a Shadow Trance, granting 120 Spell Power for 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "warlock_affliction_improved_life_tap",
-        "warlock_affliction_shadow_mastery"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 15,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "warlock_shadow_trance",
-          "name": "Shadow Trance",
-          "effect_type": "buff",
-          "duration": 2,
-          "stat_mods": {
-            "spell_power": 120
-          },
-          "real_time_seconds": null,
-          "on_target": false
-        }
-      }
-    },
-    {
-      "talent_id": "warlock_affliction_empowered_corruption",
-      "name": "Empowered Corruption",
-      "description": "Increases the damage of Corruption by 7% per rank and reduces its Mana cost by 6 per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "ability_warlock_corruption_damage": 0.07,
-        "ability_warlock_corruption_cost": 6
-      },
-      "connected_to": [
-        "warlock_affliction_soul_siphon",
-        "warlock_affliction_curse_of_exhaustion"
-      ]
     },
     {
       "talent_id": "warlock_affliction_shadow_embrace",
       "name": "Shadow Embrace",
-      "description": "Your Shadow Bolt and Drain Life hits have an 8% chance per rank to wrap the target in Shadow Embrace, dealing 90 Shadow damage per turn for 3 turns.",
+      "description": "Your Shadow Bolt leaves the target taking 5% more damage for 3 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -6,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2: 'Your Shadow Bolt and Haunt spells apply the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by 1%-5%.' Haunt does not exist. Built with the real 5% as a general damage-taken debuff, since there is no shadow-periodic-specific taken key. BARE damage_taken_pct is read RAW on both sides, so 0.05 is 5%, and it is one of only eight stat_mods a MONSTER can read. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warlock_affliction_improved_drain_soul",
-        "warlock_affliction_fel_concentration"
+        "warlock_affliction_improved_curse_of_weakness"
       ],
-      "_source": "Warlock is one of the nine vanilla classes, so it has no CoA sidekick page - the reference here is live WoW, where Shadow Embrace is applied by the Affliction warlock's own casts (Shadow Bolt in the WotLK version, Corruption/Curse of Agony/Siphon Life in the TBC one) and never by Shadowburn, which is a Destruction talent in every version of the game. warlock_shadowburn was in this filter and is unlocked only by warlock_destruction, so a third of the proc was dead for an Affliction spec; removed, leaving the two direct-damage casts an Affliction warlock actually makes.",
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 8,
+        "chance": 20,
         "icd": 0,
         "ability_filter": [
-          "warlock_shadow_bolt",
+          "warlock_shadow_bolt"
+        ],
+        "apply_effect": {
+          "effect_id": "shadow_embrace",
+          "name": "Shadow Embrace",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": 0.05
+          }
+        }
+      }
+    },
+    {
+      "talent_id": "warlock_affliction_nightfall",
+      "name": "Nightfall",
+      "description": "Your Corruption and Drain Life have a 2% chance per rank to make your next spells hit harder.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {},
+      "_source": "WotLK row 2: 'Gives your Corruption and Drain Life spells a 2%/4% chance to cause you to enter a Shadow Trance state after damaging the opponent. The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.' DEPARTURE - no cast times, so an instant Shadow Bolt is not expressible. The real ability pair, chance and Shadow Trance name are kept, and the payoff becomes damage. NOTE the stat_mod is damage_dealt_pct in PERCENTAGE POINTS: spell_damage would be SILENT DEAD DATA inside a status effect.",
+      "connected_to": [
+        "warlock_affliction_improved_fear"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 2,
+        "icd": 0,
+        "ability_filter": [
+          "warlock_corruption",
           "warlock_drain_life"
         ],
         "apply_effect": {
-          "effect_id": "warlock_shadow_embrace",
-          "name": "Shadow Embrace",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 90,
-          "damage_school": "shadow",
-          "on_target": true
+          "effect_id": "shadow_trance",
+          "name": "Shadow Trance",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "damage_dealt_pct": 25.0
+          },
+          "on_target": false
         }
       }
     },
     {
       "talent_id": "warlock_affliction_siphon_life",
       "name": "Siphon Life",
-      "description": "Whenever you deal damage you siphon 40 health from the target. This can occur once every turn.",
+      "description": "Your Corruption heals you as it burns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -2,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2, built almost verbatim: 'When you deal damage with your Corruption spell, you are instantly healed for 40% of the damage done.' leech_pct is one of only THREE payloads that read the triggering hit's amount (the others being bonus_pct and smart heals), so this is one of the few talents in the project that genuinely scales off damage dealt - and the real 40% is exact. It is Shadow Mastery's prerequisite, preserved below. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warlock_affliction_amplify_curse",
-        "warlock_affliction_unstable_affliction"
+        "warlock_affliction_fel_concentration"
       ],
       "proc": {
         "trigger": "on_damage_cast",
         "chance": 100,
-        "icd": 1,
-        "heal_flat": 40
+        "icd": 0,
+        "ability_filter": [
+          "warlock_corruption"
+        ],
+        "leech_pct": 0.4
       }
+    },
+    {
+      "talent_id": "warlock_affliction_empowered_corruption",
+      "name": "Empowered Corruption",
+      "description": "Increases the damage of your Corruption by 4% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {
+        "ability_warlock_corruption_damage": 0.04
+      },
+      "_source": "WotLK row 2: 'Increases the damage of your Corruption spell by an amount equal to 12%/24%/36% of your spell power.' Spell-power coefficients are not exposed to talents, so it is direct damage. Stacks with Improved Corruption, as the real pair does. Kept from the outgoing tree.",
+      "connected_to": [
+        "warlock_affliction_improved_life_tap"
+      ]
     },
     {
       "talent_id": "warlock_affliction_shadow_mastery",
       "name": "Shadow Mastery",
-      "description": "Increases your Shadow spell power by 12 per rank.",
+      "description": "Increases your Shadow spell damage by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "shadow_spell_power": 12
+        "shadow_spell_damage": 0.02
       },
+      "_source": "WotLK row 3, built verbatim: 'Increases the damage dealt or life drained by your Shadow spells by 2%-10%.' USES THE PER-SCHOOL KEY DELIBERATELY. shadow_spell_damage is built as f'{school}_spell_damage' at abilities.py:1371, so a literal grep cannot see it - the family that caused arcane_spell_damage to be WRONGLY declared dead in this project. It is LIVE and correct for a school-scoped talent. The outgoing version granted FLAT shadow_spell_power, which is a different stat. The real talent requires Siphon Life, which connected_to reproduces.",
       "connected_to": [
-        "warlock_affliction_nightfall",
-        "warlock_affliction_pandemic"
+        "warlock_affliction_siphon_life"
       ]
     },
     {
-      "talent_id": "warlock_affliction_curse_of_exhaustion",
-      "name": "Curse of Exhaustion",
-      "description": "Increases the duration of Curse of Recklessness by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "ability_warlock_curse_of_recklessness_duration": 1
-      },
-      "connected_to": [
-        "warlock_affliction_empowered_corruption",
-        "warlock_affliction_malediction"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_unstable_affliction",
-      "name": "Unstable Affliction",
-      "description": "Teaches Unstable Affliction, a shadow affliction that festers on the target.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "warlock_unstable_affliction"
-      },
-      "connected_to": [
-        "warlock_affliction_siphon_life",
-        "warlock_affliction_haunt"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_pandemic",
-      "name": "Pandemic",
-      "description": "Your critical strikes have a 33% chance per rank to spread Pandemic, dealing 140 Shadow damage per turn for 2 turns.",
+      "talent_id": "warlock_affliction_improved_felhunter",
+      "name": "Improved Felhunter",
+      "description": "Increases your demon's damage by 5% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "warlock_affliction_shadow_mastery",
-        "warlock_affliction_everlasting_affliction"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 33,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "warlock_pandemic",
-          "name": "Pandemic",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 140,
-          "damage_school": "shadow",
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "warlock_affliction_malediction",
-      "name": "Malediction",
-      "description": "Increases the damage of Curse of Agony by 8% per rank and of Unstable Affliction by 6% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_warlock_curse_of_agony_damage": 0.08,
-        "ability_warlock_unstable_affliction_damage": 0.06
+        "pet_damage": 0.05
       },
-      "connected_to": [
-        "warlock_affliction_curse_of_exhaustion",
-        "warlock_affliction_death_embrace"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_fel_concentration",
-      "name": "Fel Concentration",
-      "description": "Reduces the Mana cost of Corruption and Curse of Agony by 7 per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_warlock_corruption_cost": 7,
-        "ability_warlock_curse_of_agony_cost": 7
-      },
+      "_source": "WotLK row 3: 'Your Felhunter regains 8%/16% of its maximum mana each time it hits with its Shadow Bite ability.' DEPARTURE - demons have NO RESOURCE in this engine and PETS NEVER FIRE PROCS (there is no fire_proc_trigger in entities/pet.py at all), so neither half is buildable. pet_damage is one of only three pet keys that work, read at pet.py:139. Kept as a concept from the outgoing tree, which was a proc with an empty effects dict.",
       "connected_to": [
         "warlock_affliction_shadow_embrace"
       ]
     },
     {
-      "talent_id": "warlock_affliction_haunt",
-      "name": "Haunt",
-      "description": "Your Shadow Bolt strikes for 40% additional Shadow damage and returns 150 health to you. This can occur once every 2 turns.",
+      "talent_id": "warlock_affliction_malediction",
+      "name": "Malediction",
+      "description": "Increases your spell damage by 1% per rank.",
       "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "spell_damage": 0.01
+      },
+      "_source": "WotLK row 4: 'Increases your spell damage by 1%/2%/3%, and increases the periodic critical strike chance of your Corruption and Unstable Affliction.' The spell damage is verbatim; the periodic-crit clause CANNOT BE BUILT because DOTS NEVER ROLL CRIT in this engine. The outgoing version was Curse of Agony damage, which is Improved Curse of Agony's job.",
+      "connected_to": [
+        "warlock_affliction_empowered_corruption"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_eradication",
+      "name": "Eradication",
+      "description": "Your Corruption has a 6% chance to quicken your casting by 20% for 2 turns.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 2,
+      "effects": {},
+      "_source": "WotLK row 4, built almost verbatim: 'When you deal damage with Corruption, you have 6% chance to increase your spell casting speed by 6%-20% for 10 sec.' The real trigger, real ability_filter, real 6% chance and real 20% at full rank. The chance is NOT rank-scaled because the real talent scales its MAGNITUDE, and a proc's payload cannot scale with points - so the payload carries the full value. 10 seconds is 2 turns. Kept as a proc from the outgoing tree.",
+      "connected_to": [
+        "warlock_affliction_improved_felhunter"
+      ],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 6,
+        "icd": 0,
+        "ability_filter": [
+          "warlock_corruption"
+        ],
+        "apply_effect": {
+          "effect_id": "eradication",
+          "name": "Eradication",
+          "effect_type": "buff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": 20
+          },
+          "on_target": false
+        }
+      }
+    },
+    {
+      "talent_id": "warlock_affliction_contagion",
+      "name": "Contagion",
+      "description": "Increases the damage of your Curse of Agony and Corruption by 1% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "ability_warlock_curse_of_agony_damage": 0.01,
+        "ability_warlock_corruption_damage": 0.01
+      },
+      "_source": "WotLK row 4, built verbatim for the two that exist: 'Increases the damage of Curse of Agony, Corruption and Seed of Corruption by 1%-5%.' Seed of Corruption does not exist. It is Unstable Affliction's prerequisite, preserved below. Kept from the outgoing tree.",
+      "connected_to": [
+        "warlock_affliction_malediction"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_dark_pact",
+      "name": "Dark Pact",
+      "description": "Teaches Dark Pact, draining your demon's power into your own.",
+      "node_type": "active",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "unlock_ability": "warlock_dark_pact"
+      },
+      "_source": "WotLK row 4, kept - the ONLY unlock for warlock_dark_pact, which is requires_talent. Moved from the outgoing tree's tier 6 to its real row.",
       "connected_to": [
-        "warlock_affliction_unstable_affliction",
+        "warlock_affliction_malediction"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_deaths_embrace",
+      "name": "Death's Embrace",
+      "description": "While below half health, your Drain Life returns 10% more per rank and you take 3% less damage per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 4,
+      "effects": {
+        "ability_warlock_drain_life_healing": 0.1,
+        "low_health_damage_reduction_pct": 0.03
+      },
+      "_source": "WotLK row 5: 'Increases the amount drained by your Drain Life by 10%/20%/30% while your health is at or below 20%.' DEPARTURE on the condition for the drain half - there is no low-health conditional that scopes to one ABILITY, only the global low_health_* family - so the Drain Life bonus is unconditional and a real low-health mitigation rider is added alongside it. low_health_damage_reduction_pct reads the ACTOR's own health and defaults to a 50% threshold, so low_health_threshold_pct is NOT authored - the outgoing version DID author it at 0.35.",
+      "connected_to": [
         "warlock_affliction_eradication"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_unstable_affliction",
+      "name": "Unstable Affliction",
+      "description": "Teaches Unstable Affliction, shadow energy that destroys slowly.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "warlock_unstable_affliction"
+      },
+      "_source": "WotLK row 5, kept - the ONLY unlock for warlock_unstable_affliction, which is requires_talent. The real talent requires Contagion, which connected_to reproduces. Moved from tier 3 to its real row.",
+      "connected_to": [
+        "warlock_affliction_contagion"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_everlasting_affliction",
+      "name": "Everlasting Affliction",
+      "description": "Increases the damage of your Corruption and Unstable Affliction by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_warlock_corruption_damage": 0.02,
+        "ability_warlock_unstable_affliction_damage": 0.02
+      },
+      "_source": "WotLK row 5: 'Your Corruption and Unstable Affliction spells gain an additional 1%-5% of your bonus spell damage, and your Drain Life has a chance to refresh Corruption.' Spell-power coefficients are not exposed to talents, so it is direct damage. The refresh clause cannot be built - nothing can refresh another effect's duration from a proc; cast_ability re-casting Corruption was considered and rejected because it would stack with Contagion and Improved Corruption into an unreadable pile on one dot. The outgoing version was Shadow Bolt damage.",
+      "connected_to": [
+        "warlock_affliction_contagion"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_pandemic",
+      "name": "Pandemic",
+      "description": "Increases the damage of your dots by 10%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.1
+      },
+      "_source": "WotLK row 5: 'Grants the periodic damage from your Corruption and Unstable Affliction spells the ability to critically hit.' DEPARTURE, AND THE BIGGEST ONE IN THIS TREE: DOTS NEVER ROLL CRIT in this engine - there is no mechanism at all, and status_effects.py applies a dot tick with a bare take_damage call that has no crit roll in it. The talent's entire content is unbuildable, so it becomes flat dot damage, which delivers roughly the same expected value without the variance. dot_damage is a FRACTION. The real talent requires Unstable Affliction, reproduced.",
+      "connected_to": [
+        "warlock_affliction_unstable_affliction"
+      ]
+    },
+    {
+      "talent_id": "warlock_affliction_haunt",
+      "name": "Haunt",
+      "description": "Your Shadow Bolt leaves the target taking 10% more damage for 3 turns.",
+      "node_type": "passive",
+      "tier": 6,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 6,
+      "effects": {},
+      "_source": "WotLK row 10, the capstone: 'You send a ghostly soul into the target, dealing Shadow damage and increasing all damage done by your Shadow spells to the target by 20%.' DEPARTURE - there is no warlock_haunt ability to unlock. The debuff half IS buildable and is the half that matters, so it rides Shadow Bolt with icd 2 to keep it a cooldown rather than permanent. 10% rather than 20% because it is now free. It stacks with Shadow Embrace, which is the real interaction.",
+      "connected_to": [
+        "warlock_affliction_everlasting_affliction"
       ],
       "proc": {
         "trigger": "on_damage_cast",
@@ -383,137 +531,15 @@
         "ability_filter": [
           "warlock_shadow_bolt"
         ],
-        "bonus_pct": 0.4,
-        "heal_flat": 150
-      }
-    },
-    {
-      "talent_id": "warlock_affliction_everlasting_affliction",
-      "name": "Everlasting Affliction",
-      "description": "Increases the damage of Shadow Bolt and Unstable Affliction by 5% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "ability_warlock_shadow_bolt_damage": 0.05,
-        "ability_warlock_unstable_affliction_damage": 0.05
-      },
-      "connected_to": [
-        "warlock_affliction_pandemic",
-        "warlock_affliction_contagion"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_death_embrace",
-      "name": "Death's Embrace",
-      "description": "While you are below 35% health, you take 6% less damage per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 2,
-      "effects": {
-        "low_health_threshold_pct": 0.35,
-        "low_health_damage_reduction_pct": 0.06
-      },
-      "connected_to": [
-        "warlock_affliction_malediction"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_eradication",
-      "name": "Eradication",
-      "description": "Your spellcasts have a 20% chance per rank to grant Eradication, granting 40 Haste for 2 turns.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "warlock_affliction_haunt",
-        "warlock_affliction_dark_pact"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 20,
-        "icd": 1,
         "apply_effect": {
-          "effect_id": "warlock_eradication",
-          "name": "Eradication",
-          "effect_type": "buff",
-          "duration": 2,
+          "effect_id": "haunt",
+          "name": "Haunt",
+          "effect_type": "debuff",
+          "duration": 3,
           "stat_mods": {
-            "haste": 40
-          },
-          "real_time_seconds": null,
-          "on_target": false
+            "damage_taken_pct": 0.1
+          }
         }
-      }
-    },
-    {
-      "talent_id": "warlock_affliction_contagion",
-      "name": "Contagion",
-      "description": "Increases the damage of Corruption, Curse of Agony and Unstable Affliction by 5% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
-      "effects": {
-        "ability_warlock_corruption_damage": 0.05,
-        "ability_warlock_curse_of_agony_damage": 0.05,
-        "ability_warlock_unstable_affliction_damage": 0.05
-      },
-      "connected_to": [
-        "warlock_affliction_everlasting_affliction",
-        "warlock_affliction_affliction_mastery"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_dark_pact",
-      "name": "Dark Pact",
-      "description": "Teaches Dark Pact, drawing Mana from your demon's reserves.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "warlock_dark_pact"
-      },
-      "connected_to": [
-        "warlock_affliction_eradication"
-      ]
-    },
-    {
-      "talent_id": "warlock_affliction_affliction_mastery",
-      "name": "Seed of Corruption",
-      "description": "Increases all your damage by 6%, and your damaging hits seed a free Corruption on the target once every 3 turns.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {
-        "all_damage": 0.06
-      },
-      "connected_to": [
-        "warlock_affliction_contagion"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 3,
-        "cast_ability": "warlock_corruption"
       }
     }
   ]
