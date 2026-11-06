@@ -283,7 +283,6 @@
       "hex_y": 0,
       "effects": {
         "ability_druid_healing_touch_crit": 5.0,
-        "ability_druid_regrowth_crit": 5.0,
         "ability_druid_swiftmend_crit": 5.0
       },
       "_source": "WotLK row 5: 'Increases the critical strike chance of your Regrowth, Healing Touch, Nourish and Swiftmend spells by 5%-25%.' BUILT VERBATIM, and it only became buildable TODAY. Until 5 Nov 2026 heals never rolled crit in this engine - _roll_crit was called from the four DAMAGE branches and nowhere in the healing path - so the outgoing tree's ability_druid_healing_touch_crit and ability_druid_swiftmend_crit were SILENT DEAD DATA, found by tools/qa_ability_scoped_fields.py. An interim version of this node was rebuilt on _healing to work around it. Then Kyle said 'spells should be able to crit!' and healing crits were added to combat/abilities.py, so the real talent is now authorable as written and the workaround is reverted. ability_<id>_crit is PERCENTAGE POINTS and feeds crit_chance_spell, which is the stat the new healing crit roll reads. Nourish does not exist.",

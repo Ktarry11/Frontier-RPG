@@ -247,7 +247,7 @@ T.node("puncture", "Puncture",
 
 T.node("gag_order", "Gag Order",
        "Increases the damage of your Pummel by 10% per rank.",
-       2, 5, 2, effects={"ability_warrior_pummel_damage": 0.10},
+       2, 5, 2, effects={"ability_warrior_pummel_potency": 0.10},
        connected_to=["toughness"],
        source="WotLK row 2, NEW to our tree: 'Gives your Shield Bash and "
               "Heroic Throw abilities a 50%/100% chance to silence the "

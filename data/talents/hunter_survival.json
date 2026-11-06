@@ -353,7 +353,7 @@
     {
       "talent_id": "hunter_survival_noxious_stings",
       "name": "Noxious Stings",
-      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 5% per rank.",
+      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 5% per rank, and reduces your Wyvern Sting cooldown by 1 turn per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -362,7 +362,7 @@
       "hex_y": 2,
       "effects": {
         "ability_hunter_serpent_sting_damage": 0.05,
-        "ability_hunter_wyvern_sting_damage": 0.05
+        "ability_hunter_wyvern_sting_cooldown": 1
       },
       "_source": "WotLK row 4: 'If Wyvern Sting is dispelled, the dispeller is also afflicted by Wyvern Sting, and increases all damage done by your Stings by 5%/10%/15%.' There is no dispel trigger, so only the damage half is built - verbatim, across both real Stings. The real talent requires Wyvern Sting, reproduced. Kept from the outgoing tree.",
       "connected_to": [

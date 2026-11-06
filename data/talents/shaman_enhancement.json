@@ -101,8 +101,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_shaman_windfury_weapon_damage": 0.1,
-        "ability_shaman_flametongue_weapon_damage": 0.1
+        "ability_shaman_windfury_weapon_duration": 1,
+        "ability_shaman_flametongue_weapon_potency": 0.1
       },
       "_source": "WotLK row 1: 'Increases the damage caused by your Windfury Weapon effect by 13%-40%, increases the spell damage on your Flametongue Weapon.' Both weapon imbues exist here as real abilities. The outgoing node had an EMPTY effects dict and no proc - it did nothing at all for 3 points.",
       "connected_to": [
@@ -176,7 +176,7 @@
       "hex_x": -5,
       "hex_y": -2,
       "effects": {
-        "ability_shaman_windfury_totem_potency": 0.1
+        "ability_shaman_windfury_totem_duration": 1
       },
       "_source": "WotLK row 2: 'Increases the melee haste granted by your Windfury totem by 2%/4%.' Built as potency, which scales the totem's own stat_mods. The outgoing node had an EMPTY effects dict and no proc.",
       "connected_to": [
@@ -320,7 +320,7 @@
         "ability_shaman_lightning_bolt_damage": 0.05,
         "ability_shaman_chain_lightning_damage": 0.05,
         "ability_shaman_earth_shock_damage": 0.05,
-        "ability_shaman_frost_shock_damage": 0.05
+        "ability_shaman_frost_shock_potency": 0.05
       },
       "_source": "WotLK row 3: 'Increases the damage done by your Lightning Bolt, Chain Lightning, Lava Lash and Shock spells by 5%/10% on targets afflicted by your Frost Shock.' Lava Lash does not exist, and the Frost-Shock condition cannot be read - nothing reads a debuff on the target - so the damage is unconditional. The outgoing node had an EMPTY effects dict.",
       "connected_to": [
@@ -379,7 +379,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_shaman_stormstrike_damage": 0.15
+        "ability_shaman_stormstrike_potency": 0.15
       },
       "_source": "WotLK row 4, built with BOTH halves: 'When you Stormstrike, you have a 100% chance to immediately grant you 10%/20% of your base mana.' The mana clause is the real mechanic, delivered as a flat 100 since grant_resource takes no pct_max. The damage half is carried over from the outgoing version. The real talent requires Stormstrike, reproduced.",
       "connected_to": [

@@ -31,7 +31,7 @@
     {
       "talent_id": "paladin_holy_seals_of_the_pure",
       "name": "Seals of the Pure",
-      "description": "Increases the damage of your Seal of Righteousness by 3% per rank.",
+      "description": "Increases the duration of your Seal of Righteousness by 1 turn per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -39,7 +39,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_paladin_seal_of_righteousness_potency": 0.03
+        "ability_paladin_seal_of_righteousness_duration": 1
       },
       "_source": "WotLK row 0: 'Increases the damage done by your Seal of Righteousness, Seal of Vengeance and Seal of Corruption and their Judgement effects by 3%-15%.' Only Seal of Righteousness exists here. Built at the real 3% per rank. ability_<id>_potency scales the ability's own stat_mods, which is the right key for a seal. The outgoing version was a proc with an empty effects dict.",
       "connected_to": []

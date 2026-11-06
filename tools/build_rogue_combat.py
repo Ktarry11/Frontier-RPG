@@ -193,7 +193,7 @@ T.node("precision", "Precision",
 # ----------------------------------------------------------------- tier 2
 T.node("improved_kick", "Improved Kick",
        "Your Kick deals 15% more damage per rank.",
-       2, -5, 2, effects={"ability_rogue_kick_damage": 0.15},
+       2, -5, 2, effects={"ability_rogue_kick_potency": 0.15},
        connected_to=["improved_slice_and_dice"],
        source="WotLK row 2: 'Gives your Kick ability a 50%/100% chance to "
               "silence the target for 2 sec.' DEPARTURE - there is no "
@@ -416,7 +416,7 @@ T.node("surprise_attacks", "Suprise Attacks",
                 "ability_rogue_backstab_damage": 0.10,
                 "ability_rogue_shiv_damage": 0.10,
                 "ability_rogue_hemorrhage_damage": 0.10,
-                "ability_rogue_gouge_damage": 0.10},
+                "ability_rogue_gouge_duration": 1},
        connected_to=["adrenaline_rush"],
        source="WotLK row 9: 'Your finishing moves can no longer be dodged, "
               "and the damage dealt by your Sinister Strike, Backstab, "

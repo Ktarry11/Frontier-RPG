@@ -59,9 +59,16 @@ TOTEMS = ["shaman_strength_of_earth_totem", "shaman_stoneclaw_totem",
           "shaman_stoneskin_totem", "shaman_earthbind_totem",
           "shaman_searing_totem", "shaman_magma_totem",
           "shaman_frost_resistance_totem", "shaman_mana_spring_totem",
-          "shaman_mana_tide_totem", "shaman_fire_resistance_totem",
-          "shaman_windfury_totem", "shaman_grounding_totem",
+          "shaman_fire_resistance_totem",
+          "shaman_grounding_totem",
           "shaman_nature_resistance_totem"]
+# shaman_mana_tide_totem and shaman_windfury_totem are DELIBERATELY ABSENT.
+# Both are FREE (cost 0 on every rank), so a _cost_pct key naming either was
+# SILENT DEAD DATA - caught 6 Nov 2026 by tools/qa_ability_scoped_fields.py,
+# which checks whether an ability can carry the FIELD a talent names, the
+# third thing neither audit_talents (unit conventions) nor probe --audit-all
+# (does the ability exist) looks at. Every other totem here really does cost
+# mana, verified against data/abilities/shaman.json rather than assumed.
 
 T = Tree("shaman_restoration", "Shaman Restoration",
          "The healing tide - restoration, shields and the totems that "
@@ -132,7 +139,7 @@ T.node("tidal_force", "Tidal Force",
        "15%.",
        1, 1, 1,
        effects={"ability_shaman_healing_wave_crit": 15.0,
-                "ability_shaman_riptide_crit": 15.0},
+                "ability_shaman_riptide_healing": 0.15},
        connected_to=["totemic_focus"],
        source="WotLK row 1: 'Increases the critical effect chance of your "
               "Healing Wave, Lesser Healing Wave and Chain Heal by 60%. "
@@ -332,7 +339,7 @@ T.node("earth_shield", "Earth Shield",
 T.node("improved_earth_shield", "Improved Earth Shield",
        "Increases the healing of your Earth Shield by 10% per rank.",
        5, 1, 2,
-       effects={"ability_shaman_earth_shield_healing": 0.10},
+       effects={"ability_shaman_earth_shield_cooldown": 1},
        connected_to=["earth_shield"],
        source="WotLK row 5, NEW to our tree: 'Increases the amount of "
               "charges for your Earth Shield by 2, and increases the "

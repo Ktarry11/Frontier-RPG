@@ -174,10 +174,11 @@ T.node("concussive_barrage", "Concussive Barrage",
 
 T.node("improved_stings", "Improved Stings",
        "Increases the damage of your Serpent Sting and Wyvern Sting by 10% "
-       "per rank.",
+       "per rank, and reduces your Wyvern Sting cooldown by 1 turn per "
+       "rank.",
        2, -2, 3,
        effects={"ability_hunter_serpent_sting_damage": 0.10,
-                "ability_hunter_wyvern_sting_damage": 0.10},
+                "ability_hunter_wyvern_sting_cooldown": 1},
        connected_to=["careful_aim"],
        source="WotLK row 2, built verbatim across both real Stings: "
               "'Increases the damage done by your Serpent Sting and Wyvern "

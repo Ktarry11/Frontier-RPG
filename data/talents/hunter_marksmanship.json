@@ -200,7 +200,7 @@
     {
       "talent_id": "hunter_marksmanship_improved_stings",
       "name": "Improved Stings",
-      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 10% per rank.",
+      "description": "Increases the damage of your Serpent Sting and Wyvern Sting by 10% per rank, and reduces your Wyvern Sting cooldown by 1 turn per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -209,7 +209,7 @@
       "hex_y": -2,
       "effects": {
         "ability_hunter_serpent_sting_damage": 0.1,
-        "ability_hunter_wyvern_sting_damage": 0.1
+        "ability_hunter_wyvern_sting_cooldown": 1
       },
       "_source": "WotLK row 2, built verbatim across both real Stings: 'Increases the damage done by your Serpent Sting and Wyvern Sting by 10%/20%/30%.' Kept from the outgoing tree, corrected from 5 ranks to the real 3.",
       "connected_to": [

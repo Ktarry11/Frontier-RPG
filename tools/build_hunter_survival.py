@@ -285,10 +285,11 @@ T.node("wyvern_sting", "Wyvern Sting",
 
 T.node("noxious_stings", "Noxious Stings",
        "Increases the damage of your Serpent Sting and Wyvern Sting by 5% "
-       "per rank.",
+       "per rank, and reduces your Wyvern Sting cooldown by 1 turn per "
+       "rank.",
        4, 2, 3,
        effects={"ability_hunter_serpent_sting_damage": 0.05,
-                "ability_hunter_wyvern_sting_damage": 0.05},
+                "ability_hunter_wyvern_sting_cooldown": 1},
        connected_to=["wyvern_sting"],
        source="WotLK row 4: 'If Wyvern Sting is dispelled, the dispeller is "
               "also afflicted by Wyvern Sting, and increases all damage "

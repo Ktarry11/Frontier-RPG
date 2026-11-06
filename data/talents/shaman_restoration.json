@@ -47,9 +47,7 @@
         "ability_shaman_magma_totem_cost_pct": 0.05,
         "ability_shaman_frost_resistance_totem_cost_pct": 0.05,
         "ability_shaman_mana_spring_totem_cost_pct": 0.05,
-        "ability_shaman_mana_tide_totem_cost_pct": 0.05,
         "ability_shaman_fire_resistance_totem_cost_pct": 0.05,
-        "ability_shaman_windfury_totem_cost_pct": 0.05,
         "ability_shaman_grounding_totem_cost_pct": 0.05,
         "ability_shaman_nature_resistance_totem_cost_pct": 0.05
       },
@@ -131,7 +129,7 @@
       "hex_y": -4,
       "effects": {
         "ability_shaman_healing_wave_crit": 15.0,
-        "ability_shaman_riptide_crit": 15.0
+        "ability_shaman_riptide_healing": 0.15
       },
       "_source": "WotLK row 1: 'Increases the critical effect chance of your Healing Wave, Lesser Healing Wave and Chain Heal by 60%. Each critical heal reduces the bonus by 20%.' DEPARTURE - there is no ability to unlock and nothing decrements a buff on use, so the real talent's spend-down cannot be modelled. Delivered as a permanent but far smaller crit bonus on the two real heals. ability_<id>_crit is PERCENTAGE POINTS.",
       "connected_to": [
@@ -420,7 +418,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_shaman_earth_shield_healing": 0.1
+        "ability_shaman_earth_shield_cooldown": 1
       },
       "_source": "WotLK row 5, NEW to our tree: 'Increases the amount of charges for your Earth Shield by 2, and increases the healing done by your Earth Shield by 10%/20%.' The healing half is built verbatim; charges do not exist. The real talent requires Earth Shield, reproduced. USES _healing.",
       "connected_to": [

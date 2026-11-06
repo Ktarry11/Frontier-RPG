@@ -189,7 +189,7 @@
       "hex_x": -5,
       "hex_y": -2,
       "effects": {
-        "ability_rogue_kick_damage": 0.15
+        "ability_rogue_kick_potency": 0.15
       },
       "_source": "WotLK row 2: 'Gives your Kick ability a 50%/100% chance to silence the target for 2 sec.' DEPARTURE - there is no silence and no interrupt key in this engine; is_stun is the only incapacitate, and turning a Kick into a stun would make a tier-2 filler stronger than Kidney Shot. Delivered as Kick damage instead, which is the weakest honest reading of the talent and is recorded as such.",
       "connected_to": [
@@ -503,7 +503,7 @@
         "ability_rogue_backstab_damage": 0.1,
         "ability_rogue_shiv_damage": 0.1,
         "ability_rogue_hemorrhage_damage": 0.1,
-        "ability_rogue_gouge_damage": 0.1
+        "ability_rogue_gouge_duration": 1
       },
       "_source": "WotLK row 9: 'Your finishing moves can no longer be dodged, and the damage dealt by your Sinister Strike, Backstab, Shiv, Hemorrhage and Gouge abilities is increased by 10%.' The damage half is built verbatim across all five real abilities. 'Can no longer be dodged' is dropped - there is no per-ability undodgeable flag, and expertise is the only avoidance-reduction channel. The real talent requires Adrenaline Rush, which connected_to reproduces. The name keeps Blizzard's original typo, 'Suprise Attacks', because that is what the source data says. The outgoing version covered Eviscerate and Envenom, which are finishers - the opposite of this talent's list.",
       "connected_to": [

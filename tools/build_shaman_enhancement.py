@@ -144,8 +144,8 @@ T.node("elemental_weapons", "Elemental Weapons",
        "Increases the damage of your Windfury Weapon and Flametongue Weapon "
        "by 10% per rank.",
        1, -3, 3,
-       effects={"ability_shaman_windfury_weapon_damage": 0.10,
-                "ability_shaman_flametongue_weapon_damage": 0.10},
+       effects={"ability_shaman_windfury_weapon_duration": 1,
+                "ability_shaman_flametongue_weapon_potency": 0.10},
        connected_to=["ancestral_knowledge"],
        source="WotLK row 1: 'Increases the damage caused by your Windfury "
               "Weapon effect by 13%-40%, increases the spell damage on your "
@@ -191,7 +191,7 @@ T.node("anticipation", "Anticipation",
 T.node("improved_windfury_totem", "Improved Windfury Totem",
        "Increases the effect of your Windfury Totem by 10% per rank.",
        2, -5, 2,
-       effects={"ability_shaman_windfury_totem_potency": 0.10},
+       effects={"ability_shaman_windfury_totem_duration": 1},
        connected_to=["guardian_totems"],
        source="WotLK row 2: 'Increases the melee haste granted by your "
               "Windfury totem by 2%/4%.' Built as potency, which scales the "
@@ -289,7 +289,7 @@ T.node("frozen_power", "Frozen Power",
        effects={"ability_shaman_lightning_bolt_damage": 0.05,
                 "ability_shaman_chain_lightning_damage": 0.05,
                 "ability_shaman_earth_shock_damage": 0.05,
-                "ability_shaman_frost_shock_damage": 0.05},
+                "ability_shaman_frost_shock_potency": 0.05},
        connected_to=["toughness"],
        source="WotLK row 3: 'Increases the damage done by your Lightning "
               "Bolt, Chain Lightning, Lava Lash and Shock spells by 5%/10% "
@@ -327,7 +327,7 @@ T.node("stormstrike", "Stormstrike",
 T.node("improved_stormstrike", "Improved Stormstrike",
        "Your Stormstrike restores 100 mana and strikes 15% harder per rank.",
        4, 1, 2,
-       effects={"ability_shaman_stormstrike_damage": 0.15},
+       effects={"ability_shaman_stormstrike_potency": 0.15},
        proc={"trigger": "on_cast", "chance": 50, "icd": 0,
              "ability_filter": ["shaman_stormstrike"],
              "grant_resource": {"resource": "mana", "amount": 100}},

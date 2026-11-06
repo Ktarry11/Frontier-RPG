@@ -268,7 +268,7 @@ T.node("cold_blood", "Cold Blood",
 
 T.node("improved_poisons", "Improved Poisons",
        "Increases the potency of your Deadly Poison by 4% per rank.",
-       2, 2, 5, effects={"ability_rogue_deadly_poison_potency": 0.04},
+       2, 2, 5, effects={"ability_rogue_deadly_poison_damage": 0.04},
        connected_to=["improved_expose_armor"],
        source="WotLK row 2: 'Increases the chance to apply Deadly Poison to "
               "your target by 20% and the frequency of applying Instant "

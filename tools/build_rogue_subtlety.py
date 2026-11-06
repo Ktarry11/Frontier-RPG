@@ -175,7 +175,7 @@ node("master_of_deception", "Master of Deception",
      0, 0, 3,
      effects={"ability_rogue_ambush_damage": 0.07,
               "ability_rogue_garrote_damage": 0.07,
-              "ability_rogue_cheap_shot_damage": 0.07},
+              "ability_rogue_cheap_shot_duration": 1},
      source="WotLK row 0: 'Reduces the chance enemies have to detect you "
             "while in Stealth mode.' DEPARTURE - this engine has no stealth "
             "at all: no stealth state, no detection roll, no break event. "

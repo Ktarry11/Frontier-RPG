@@ -65,7 +65,12 @@ from wotlk_tree_kit import Tree  # noqa: E402
 
 SHIFTS = ["druid_bear_form", "druid_cat_form", "druid_moonkin_form",
           "druid_tree_of_life", "druid_dire_bear_form"]
-DIRECT_HEALS = ["druid_healing_touch", "druid_regrowth", "druid_swiftmend"]
+# Regrowth is DELIBERATELY ABSENT: it is effect_type 'hot' in this
+# project, and only DIRECT heals roll crit (the crit roll added 5 Nov
+# lives in the direct-heal branch, not the per-tick one), so
+# ability_druid_regrowth_crit would be silent dead data. It gets a
+# _healing bonus from Empowered Rejuvenation instead.
+DIRECT_HEALS = ["druid_healing_touch", "druid_swiftmend"]
 
 T = Tree("druid_restoration", "Druid Restoration",
          "Life given back - the slow green work of keeping everyone "

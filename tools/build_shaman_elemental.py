@@ -43,6 +43,12 @@ from wotlk_tree_kit import Tree  # noqa: E402
 
 #: The Shock spells and the Lightning spells, used by several talents.
 SHOCKS = ["shaman_earth_shock", "shaman_flame_shock", "shaman_frost_shock"]
+# Frost Shock is effect_type 'debuff' in this project - a pure slow with
+# stat_mods {haste:-16, attack_power:-25} and NO DAMAGE OF ITS OWN - so an
+# ability_shaman_frost_shock_damage key is silent dead data. It still takes
+# _cost_pct, _cooldown and _potency, so only the DAMAGE node excludes it.
+# Caught 6 Nov 2026 by tools/qa_ability_scoped_fields.py.
+DAMAGING_SHOCKS = ["shaman_earth_shock", "shaman_flame_shock"]
 LIGHTNING = ["shaman_lightning_bolt", "shaman_chain_lightning"]
 
 T = Tree("shaman_elemental", "Shaman Elemental",
@@ -66,7 +72,7 @@ T.node("concussion", "Concussion",
        "rank.",
        0, 1, 5,
        effects={f"ability_{a}_damage": 0.01
-                for a in SHOCKS + LIGHTNING + ["shaman_lava_burst"]},
+                for a in DAMAGING_SHOCKS + LIGHTNING + ["shaman_lava_burst"]},
        source="WotLK row 0, built verbatim: 'Increases the damage done by "
               "your Lightning Bolt, Chain Lightning, Thunderstorm, Lava "
               "Burst and Shock spells by 1%-5%.' All five real spells that "
@@ -233,7 +239,7 @@ T.node("booming_echoes", "Booming Echoes",
        effects={"ability_shaman_flame_shock_cooldown": 1,
                 "ability_shaman_frost_shock_cooldown": 1,
                 "ability_shaman_flame_shock_damage": 0.10,
-                "ability_shaman_frost_shock_damage": 0.10},
+                "ability_shaman_frost_shock_potency": 0.10},
        connected_to=["elemental_precision"],
        source="WotLK row 4, NEW to our tree, built verbatim with both "
               "halves: 'Reduces the cooldown of your Flame Shock and Frost "

@@ -112,7 +112,7 @@
     {
       "talent_id": "mage_frost_frost_warding",
       "name": "Frost Warding",
-      "description": "Increases the absorption of your Ice Barrier by 15% per rank.",
+      "description": "Increases the duration of your Ice Barrier by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -120,7 +120,7 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_mage_ice_barrier_potency": 0.15
+        "ability_mage_ice_barrier_duration": 1
       },
       "_source": "WotLK row 1: 'Increases the armor and resistances given by your Frost Armor and Ice Armor spells by 25%/50%.' DEPARTURE - neither Armor spell exists as a distinct Frost spell (mage_armor is generic). Ice Barrier is this tree's real protective spell, so the potency lands there. Kept from the outgoing tree.",
       "connected_to": [

@@ -88,9 +88,10 @@ T.node("spiritual_focus", "Spiritual Focus",
               "lands on the attribute.")
 
 T.node("seals_of_the_pure", "Seals of the Pure",
-       "Increases the damage of your Seal of Righteousness by 3% per rank.",
+       "Increases the duration of your Seal of Righteousness by 1 turn per "
+       "rank.",
        0, 1, 5,
-       effects={"ability_paladin_seal_of_righteousness_potency": 0.03},
+       effects={"ability_paladin_seal_of_righteousness_duration": 1},
        source="WotLK row 0: 'Increases the damage done by your Seal of "
               "Righteousness, Seal of Vengeance and Seal of Corruption and "
               "their Judgement effects by 3%-15%.' Only Seal of "

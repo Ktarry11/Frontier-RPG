@@ -150,9 +150,9 @@ T.node("piercing_ice", "Piercing Ice",
               "Fire and Arcane damage.")
 
 T.node("frost_warding", "Frost Warding",
-       "Increases the absorption of your Ice Barrier by 15% per rank.",
+       "Increases the duration of your Ice Barrier by 1 turn per rank.",
        1, -3, 2,
-       effects={"ability_mage_ice_barrier_potency": 0.15},
+       effects={"ability_mage_ice_barrier_duration": 1},
        connected_to=["improved_frostbolt"],
        source="WotLK row 1: 'Increases the armor and resistances given by "
               "your Frost Armor and Ice Armor spells by 25%/50%.' DEPARTURE "

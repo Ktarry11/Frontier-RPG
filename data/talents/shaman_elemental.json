@@ -46,7 +46,6 @@
       "effects": {
         "ability_shaman_earth_shock_damage": 0.01,
         "ability_shaman_flame_shock_damage": 0.01,
-        "ability_shaman_frost_shock_damage": 0.01,
         "ability_shaman_lightning_bolt_damage": 0.01,
         "ability_shaman_chain_lightning_damage": 0.01,
         "ability_shaman_lava_burst_damage": 0.01
@@ -299,7 +298,7 @@
         "ability_shaman_flame_shock_cooldown": 1,
         "ability_shaman_frost_shock_cooldown": 1,
         "ability_shaman_flame_shock_damage": 0.1,
-        "ability_shaman_frost_shock_damage": 0.1
+        "ability_shaman_frost_shock_potency": 0.1
       },
       "_source": "WotLK row 4, NEW to our tree, built verbatim with both halves: 'Reduces the cooldown of your Flame Shock and Frost Shock spells by an additional 1/2 sec., and increases the direct damage of those spells by 10%/20%.' Stacks with Reverberation on both Shocks; talented_cooldown clamps at 1 turn.",
       "connected_to": [
