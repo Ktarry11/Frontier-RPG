@@ -1,8 +1,8 @@
 {
   "spec_name": "Chronomancer Artificer",
   "tree_id": "chronomancer_artificer",
-  "description": "Wand builder/spender - wand attacks run off Spirit through ranged attack power, Distortion spells are the payoff, and only one Continuum can be active at a time.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_chronomancer__artificer.txt: 'Closest to a builder/spender ranged caster: a stack-driven Arcane Mage crossed with the Essence loop of an Evoker.' Two things shape this tree. First, Echo Fragments cannot be a resource, so the build-and-spend rhythm is carried by cooldowns and six ability unlocks rather than a bar. Second, the wand line is authored as ranged_damage so Wand Expert's Spirit conversion is real - which splits the spec's damage across two engine paths, physical (wand) and arcane (Distortion), and is why crit and critical damage appear here in both flavours while arcane_spell_damage appears only on the spell side. Stat priority is Spell Hit > Spell Penetration > Spirit > Crit > Haste > Spell Power > Intellect, and Spell Power sits that low precisely because most of this kit is not spell damage at all.",
+  "description": "A wand and a workshop - ranged attacks empowered by Continuum devices, one at a time.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 40 real CoA Artificer talents (role DPS). ECHO FRAGMENTS DO NOT EXIST - Chronomancer is (MANA, None) and no ability generates a secondary resource - so CoA's entire Fragment/Distortion/Continuum economy is flattened to its unconditional form, the same call Venomancer Stalking's Brood Marks needed. What the Continuum spells DID gain is CoA's exclusivity: exclusive_group 'chronomancer_continuum' on Singularity Core and Flux Emitter means casting one drops the other, which is 'Can only have 1 Continuum spell active at a time' built exactly. Three talents port almost verbatim (Temporal Convergence, Wand Mastery, Borrowed Time) because they are cooldown and proc mechanics rather than resource counting. Six load-bearing unlocks, the most of any tree.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -16,177 +16,148 @@
     {
       "talent_id": "chronomancer_artificer_artificers_empowerment",
       "name": "Artificer's Empowerment",
-      "description": "Increases your Spirit by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "spirit_pct": 2.0
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Spirit by 8%', 3 ranks. With Wand Expert below, this is the whole gearing story: 'Artificer's Empowerment raises Spirit and Wand Expert converts part of it into ranged attack power. Nearly the whole kit runs off one stat.'"
-    },
-    {
-      "talent_id": "chronomancer_artificer_wand_master",
-      "name": "Wand Master",
-      "description": "Increases the damage of Wand of Time and Artificer's Wand by 4% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -6,
-      "effects": {
-        "ability_chronomancer_wand_of_time_damage": 0.04,
-        "ability_chronomancer_artificers_wand_damage": 0.04
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Wand of Time and Artificer's Wand by 10%.'"
-    },
-    {
-      "talent_id": "chronomancer_artificer_discovery",
-      "name": "Discovery",
-      "description": "Your damaging casts have a 30% chance to grant you 5 haste and 2% physical critical strike chance for 3 turns.",
+      "description": "Increases your Spirit by 24%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
-      "effects": {},
-      "connected_to": [],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 30,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "chronomancer_discovery",
-          "name": "Discovery",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": 5.0,
-            "crit_chance_physical": 2
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Casting Artificer's Wand and Wand of Time now grants Discovery for 30 seconds, stacking 4 times. At 3 stacks, your next Wand of Time or Artificer's Wand causes an additional Arcane hit.' A proc payload cannot stack or count to a threshold, so the stack build is a flat window. crit_chance_physical, not spell - the wand line rolls its crits off hit_chance_physical and crit_chance_physical, because ranged_damage is resolved as physical in Ability._roll_crit."
-    },
-    {
-      "talent_id": "chronomancer_artificer_concentrated_fate",
-      "name": "Concentrated Fate",
-      "description": "Increases all damage you deal by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.02
+        "spirit_pct": 8
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the effectiveness of your Echo Fragments by 20%.' Echo Fragments are not a resource (see the module docstring), and every spell in the spec is either a fragment generator or a fragment spender, so the honest reading of 'all your fragments are worth more' is all your damage. all_damage also happens to be the only key that covers BOTH halves of this spec - arcane_spell_damage misses the wand line entirely."
+      "connected_to": [
+        "chronomancer_artificer_wand_master"
+      ],
+      "_source": "CoA over 3 ranks: 'Increases your Spirit by 8%.' Three ranks at 8% is 24%, authored as the ceiling at one rank so talent_ranks.spread() divides it back into three - the opposite of hand-authoring max_points=3, which leaves the ceiling as the PER-RANK value and triples it in play. That bug shipped on Guardian Vanguard's Iron Guardian (promised 15% Stamina, delivered 45%) and on all four Gladiator Training nodes, and only a live character reading the stat back caught it. Spirit is this spec's whole stat: CoA converts it into ranged attack power, spell damage and hit. spirit_pct is PERCENTAGE POINTS (character.py:1265 divides by 100)."
+    },
+    {
+      "talent_id": "chronomancer_artificer_wand_master",
+      "name": "Wand Master",
+      "description": "Increases the damage of Wand of Time and Artificer's Wand by 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "ability_chronomancer_wand_of_time_damage": 0.0667,
+        "ability_chronomancer_artificers_wand_damage": 0.0667
+      },
+      "connected_to": [
+        "chronomancer_artificer_wand_expert",
+        "chronomancer_artificer_hyperwand"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases the damage of Wand of Time and Artificer's Wand by 10%.' PORTS EXACTLY, both abilities, doubled for the two ranks. Was a pure scalar on our side. Per-ability damage keys are FRACTIONS."
+    },
+    {
+      "talent_id": "chronomancer_artificer_wand_expert",
+      "name": "Wand Expert",
+      "description": "Increases your ranged attack power by 100% of your Spirit.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "ranged_ap_from_spirit_pct": 0.3333
+      },
+      "connected_to": [
+        "chronomancer_artificer_artificers_wand"
+      ],
+      "_source": "CoA level 20 passive: 'Increases your ranged attack power by 100% of your Spirit and your hit rating by 5% of your Spirit.' The first half PORTS EXACTLY - ranged_ap is in STAT_CONVERSION_TARGETS and spirit in STAT_CONVERSION_SOURCES. The second half is DROPPED: hit_rating is NOT a valid conversion target, which has now cost seven nodes half their text across six classes and is the single most-repeated mistake in this audit. Paired with Artificer's Empowerment this is the spec's engine - Spirit becomes ranged damage. Was a pure scalar on our side. A FRACTION."
+    },
+    {
+      "talent_id": "chronomancer_artificer_hyperwand",
+      "name": "Hyperwand",
+      "description": "Increases the damage of Shatter Echo by 30% and your critical damage by 15%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -6,
+      "effects": {
+        "ability_chronomancer_shatter_echo_damage": 0.1,
+        "crit_damage_pct": 0.05
+      },
+      "connected_to": [
+        "chronomancer_artificer_temporal_convergence"
+      ],
+      "_source": "CoA: 'Increases the damage and critical damage of your Shatter Echo by 30%.' The damage half is per-ability and exact. There is no per-ability critical-damage key paired with a per-ability damage key (crit_damage is global or by school), so the crit half becomes crit_damage_pct at a lower value, since it now applies to everything. crit_damage_pct is read at abilities.py:1438 and is a FRACTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "chronomancer_artificer_borrowed_time",
+      "name": "Borrowed Time",
+      "description": "Taking physical damage heals you for 10% of the damage dealt.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -6,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_artificer_erode_armaments"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 33,
+        "icd": 1,
+        "leech_pct": 10
+      },
+      "_source": "CoA: 'Taking Physical damage now heals you equal to 10% of the damage dealt. Can only occur once per sec.' PORTS ALMOST EXACTLY, and it is one of the few talents in this class that does. leech_pct is one of only THREE proc payloads that read the triggering hit's amount (the others being bonus_pct and smart heals), so '10% of the damage dealt' is literally what it computes. CoA's once-per-second becomes a 1-turn internal cooldown. The Physical-only filter is dropped: on_damage_taken gets no attacker and no ability_id from a monster, so there is nothing to test the school against - a limit that has bitten bonus_pct, cast_ability and ability_filter on this trigger too."
     },
     {
       "talent_id": "chronomancer_artificer_artificers_wand",
       "name": "Artificer's Wand",
-      "description": "Teaches Artificer's Wand, two quick wand strikes with no cooldown.",
-      "node_type": "active",
+      "description": "Teaches Artificer's Wand, focusing the wand into a pair of rapid strikes.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {
         "unlock_ability": "chronomancer_artificers_wand"
       },
       "connected_to": [
-        "chronomancer_artificer_artificers_empowerment"
+        "chronomancer_artificer_discovery",
+        "chronomancer_artificer_shatter_echo"
       ],
-      "_source": "CoA: 'Artificer's Wand is your filler and main Echo Fragment generator.' The spec does not work without it, so it is the first unlock."
+      "_source": "CoA: 'Transforms your Unmake into Artificer's Wand. Focus to unleash 2 wand attacks dealing Ranged Weapon damage plus 5 over 1 seconds. Generates 1 Echo Fragment.' LOAD-BEARING UNLOCK - chronomancer_artificers_wand carries requires_talent and this is its only unlock node. CoA scales this off ECHO FRAGMENTS, which are not a resource this engine has: Chronomancer is (ResourceType.MANA, None) at abilities.py:151 and no Chronomancer ability carries a `generates` block, so there is nothing to count. Flattened to the unconditional version at roughly what CoA's typical Fragment count comes to. Same call as Venomancer Stalking's Brood Marks; the lesson both times is to check the resource before porting the talent, since Templar's Combo and Knight of Xoroth's Deathfire ARE real and did port. The ability replacing Unmake is also not a mechanism here (nothing swaps one ability for another), so both simply coexist."
     },
     {
-      "talent_id": "chronomancer_artificer_wand_expert",
-      "name": "Wand Expert",
-      "description": "Grants ranged attack power equal to 5% of your Spirit per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ranged_ap_from_spirit_pct": 0.05
-      },
-      "connected_to": [
-        "chronomancer_artificer_wand_master"
-      ],
-      "_source": "CoA's level-20 free passive: 'Increases your ranged attack power by 100% of your Spirit.' A real conversion against the shared STAT_CONVERSION maps, and the reason the wand line is authored as ranged_damage - this is what feeds it. 25% at 5/5 rather than CoA's 100%, because this engine's ranged attack power is a much larger multiplier on a wand roll than CoA's is."
-    },
-    {
-      "talent_id": "chronomancer_artificer_bronze_echoes",
-      "name": "Bronze Echoes",
-      "description": "Reduces the Mana cost of Artificer's Wand by 3% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_chronomancer_artificers_wand_cost_pct": 0.03
-      },
-      "connected_to": [
-        "chronomancer_artificer_discovery"
-      ],
-      "_source": "CoA: 'Reduces the cast time of Artificer's Wand by -0.2 sec.' No cast times; a filler you press constantly is gated by its cost instead. Positive is the reduction."
-    },
-    {
-      "talent_id": "chronomancer_artificer_caverns_of_time",
-      "name": "Caverns of Time",
-      "description": "Increases the damage of Discordance by 5% per rank.",
+      "talent_id": "chronomancer_artificer_temporal_convergence",
+      "name": "Temporal Convergence",
+      "description": "Your ranged attacks have a 40% chance to reset the cooldown of Wand of Time.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": -4,
-      "effects": {
-        "ability_chronomancer_discordance_damage": 0.05
-      },
+      "effects": {},
       "connected_to": [
-        "chronomancer_artificer_concentrated_fate"
+        "chronomancer_artificer_elder_wand"
       ],
-      "_source": "CoA: 'Your Discordance now generates 1 Echo Fragment', and Discordance is pressed on cooldown in both of this spec's rotations."
-    },
-    {
-      "talent_id": "chronomancer_artificer_singularity_core",
-      "name": "Singularity Core",
-      "description": "Teaches Singularity Core, the single-target Continuum.",
-      "node_type": "active",
-      "tier": 2,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {
-        "unlock_ability": "chronomancer_singularity_core"
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 13,
+        "icd": 0,
+        "reset_cooldown": [
+          "chronomancer_wand_of_time"
+        ]
       },
-      "connected_to": [
-        "chronomancer_artificer_artificers_wand"
-      ],
-      "_source": "CoA: 'keep Singularity Core and Decomposition up' on a boss. The default Continuum."
+      "_source": "CoA: 'Your Wand of Time now has a 40% chance to reset its own cooldown.' PORTS ALMOST EXACTLY - reset_cooldown with a BARE LIST is a full reset, as against the {abilities, turns} form which only shaves turns; getting those two the wrong way round is an easy and silent mistake. The trigger is on_weapon_swing rather than Wand of Time specifically, because there is no per-ability proc trigger, and a wand spec swinging is the closest honest equivalent. Wand of Time has a 1-turn cooldown, so this effectively makes it spammable in bursts, which is what CoA's version does too."
     },
     {
       "talent_id": "chronomancer_artificer_shatter_echo",
       "name": "Shatter Echo",
-      "description": "Teaches Shatter Echo, the spec's burst spender.",
-      "node_type": "active",
+      "description": "Teaches Shatter Echo, flinging a distorted echo of your wand at the target.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
@@ -196,273 +167,328 @@
         "unlock_ability": "chronomancer_shatter_echo"
       },
       "connected_to": [
-        "chronomancer_artificer_wand_expert"
+        "chronomancer_artificer_magic_sensitivity"
       ],
-      "_source": "CoA: 'Spend banked fragments on Shatter Echo, your main burst spender.'"
+      "_source": "CoA: 'Launch a distorted echo from your wand at an enemy, dealing 90% Ranged Weapon damage plus Arcane damage. Damage increased by 40% for each Echo Fragment consumed.' LOAD-BEARING UNLOCK. CoA scales this off ECHO FRAGMENTS, which are not a resource this engine has: Chronomancer is (ResourceType.MANA, None) at abilities.py:151 and no Chronomancer ability carries a `generates` block, so there is nothing to count. Flattened to the unconditional version at roughly what CoA's typical Fragment count comes to. Same call as Venomancer Stalking's Brood Marks; the lesson both times is to check the resource before porting the talent, since Templar's Combo and Knight of Xoroth's Deathfire ARE real and did port. The Fragment scaling is absorbed into Hyperwand's flat +30% instead, so the ability still hits hard for a talented Artificer."
     },
     {
-      "talent_id": "chronomancer_artificer_elder_wand",
-      "name": "Elder Wand",
-      "description": "Increases your physical critical strike chance by 1% per rank.",
+      "talent_id": "chronomancer_artificer_discovery",
+      "name": "Discovery",
+      "description": "Your ranged attacks have a 30% chance to unleash a burst of Arcane damage and restore 30 mana.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
-      "effects": {
-        "crit_chance_physical": 1.0
-      },
+      "effects": {},
       "connected_to": [
-        "chronomancer_artificer_bronze_echoes"
+        "chronomancer_artificer_elder_wand"
       ],
-      "_source": "CoA: 'Your Wand attacks now have a 30% chance to increase the damage of Artificer's Wand against the target by 3%, stacking 10 times.' A ten-stack ramp on one target is not expressible; crit on the wand line is, and Critical Strike is third in this spec's stat priority."
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "damage_flat": 40,
+        "school": "arcane",
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 30
+        }
+      },
+      "_source": "CoA: 'Casting Artificer's Wand and Wand of Time now grants Discovery for 30 sec, stacking 4 times. At 3 stacks, your next Wand of Time or Artificer's Wand causes an additional Arcane Damage, scaling with Spirit.' The at-3-stacks gate cannot be built - nothing reads a stack count - so the stacking bookkeeping collapses into a flat 30% chance for the payoff itself, which is the part the player actually sees. Folded in CoA's Archaeology ('Your Discovery now also generates 3% of your base mana and health') as the mana grant, since that talent exists only to modify this one. grant_resource takes a FLAT `amount` - there is no `pct_max` field, and inventing one on Witch Doctor's Spiritual Devotee would have granted NOTHING while passing every check. The health half is dropped; grant_resource does not do health. `school` only types the damage_flat payload; it is not a trigger-side filter."
+    },
+    {
+      "talent_id": "chronomancer_artificer_erode_armaments",
+      "name": "Erode Armaments",
+      "description": "Your ranged attacks have a 40% chance to sap the target's weapons, reducing the damage they deal for 2 turns.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_artificer_magic_sensitivity"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 13,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "erode_armaments",
+          "name": "Erode Armaments",
+          "effect_type": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "attack_power": -120
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Your Wand attacks now reduce enemy attack power by 208 for 5 seconds.' PORTS ALMOST EXACTLY and is the node that justified Infinite's Mind Melt using flat AP too: CoA itself debuffs a flat attack power number on this class, so flat is the house style rather than a fudge. attack_power is one of only eight status stat_mods a monster reads, and it is FLAT - Monster.ability_power_bonus is 'Flat damage/healing swing from active buffs and debuffs'. 208 scaled down to 120 because our monster damage numbers are smaller than CoA's. 5 sec -> 2 turns."
     },
     {
       "talent_id": "chronomancer_artificer_crystal_cannon",
       "name": "Crystal Cannon",
-      "description": "Your damaging casts have a 30% chance to fire the Crystal Cannon.",
+      "description": "Teaches Crystal Cannon, a pair of quick lesser wand strikes that scale with your Spirit.",
       "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
+      "tier": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": -2,
+      "hex_y": 0,
       "effects": {
         "unlock_ability": "chronomancer_crystal_cannon"
       },
       "connected_to": [
-        "chronomancer_artificer_caverns_of_time"
+        "chronomancer_artificer_wand_mastery"
       ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 30,
-        "icd": 1,
-        "cast_ability": "chronomancer_crystal_cannon"
-      },
-      "_source": "CoA's level-30 free passive: 'Casting Discordance now unleashes the Crystal Cannon, launching 2 quick lesser Wand attacks at the enemy.' A real free cast via cast_ability; the trigger is any damaging cast rather than Discordance specifically, since procs cannot name the ability that fired them."
+      "_source": "CoA level 30 passive: 'Casting Discordance now unleashes the Crystal Cannon, launching 2 quick lesser Wand attacks at the enemy over 1 sec, scaling with Spirit.' LOAD-BEARING UNLOCK. CoA has it fire automatically off Discordance, which needs a per-ability trigger that does not exist; Wand Mastery at tier 5 gives it a real proc instead, so the ability does end up firing on its own for a player who takes both. CoA's Splitting Time ('Crystal Cannon strikes 2 additional nearby enemies') is not built - nothing adds targets to an ability."
     },
     {
-      "talent_id": "chronomancer_artificer_flux_emitter",
-      "name": "Flux Emitter",
-      "description": "Teaches Flux Emitter, the cleave Continuum.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "unlock_ability": "chronomancer_flux_emitter"
-      },
-      "connected_to": [
-        "chronomancer_artificer_singularity_core"
-      ],
-      "_source": "CoA: 'On a pack, swap your Continuum to Flux Emitter for its 3-4-target cleave.'"
-    },
-    {
-      "talent_id": "chronomancer_artificer_hyperwand",
-      "name": "Hyperwand",
-      "description": "Increases the damage of Shatter Echo by 4% per rank.",
+      "talent_id": "chronomancer_artificer_magic_sensitivity",
+      "name": "Magic Sensitivity",
+      "description": "Your critical strikes increase the damage the target takes from you by 8% for 3 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {
-        "ability_chronomancer_shatter_echo_damage": 0.04
-      },
-      "connected_to": [
-        "chronomancer_artificer_shatter_echo"
-      ],
-      "_source": "CoA: 'Increases the damage and critical damage of your Shatter Echo by 30%.'"
-    },
-    {
-      "talent_id": "chronomancer_artificer_infinity_stone",
-      "name": "Infinity Stone",
-      "description": "Increases your physical and spell critical strike chance by 1% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 0,
-      "effects": {
-        "crit_chance_physical": 1.0,
-        "crit_chance_spell": 1.0
-      },
+      "effects": {},
       "connected_to": [
-        "chronomancer_artificer_elder_wand"
+        "chronomancer_artificer_singularity_core"
       ],
-      "_source": "CoA: 'Increases the critical strike chance of all party and raid members by 3% ... In addition, increases your critical strike chance by 3%.' Only the personal half can exist - talent effects never reach a party - so the node covers both of the spec's two crit pools instead."
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "magic_sensitivity",
+          "name": "Magic Sensitivity",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "damage_taken_pct": 0.08
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Critical strikes with Shatter Echo now increases the enemy's damage taken from you by 10% for 8 seconds.' PORTS ALMOST EXACTLY; only the Shatter-Echo scoping goes, since there is no per-ability proc trigger, and on_crit keeps CoA's critical requirement intact. 8 sec -> 3 turns, 10% -> 8% because it now fires off any crit. CAREFUL: bare damage_taken_pct is read RAW ON BOTH SIDES (monster.py adds the status mod with no division, unlike physical_ and magic_ which divide by 100), so 0.08 is 8% and authoring 8 would be +800% damage taken. Asserted in main(). Was a pure scalar on our side."
     },
     {
-      "talent_id": "chronomancer_artificer_splitting_time",
-      "name": "Splitting Time",
-      "description": "Increases the damage your area spells deal by 5% per rank.",
+      "talent_id": "chronomancer_artificer_elder_wand",
+      "name": "Elder Wand",
+      "description": "Your ranged attacks have a 30% chance to increase your ranged attack power for 5 turns, stacking up to 10 times.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 0,
-      "effects": {
-        "aoe_damage": 0.05
-      },
-      "connected_to": [
-        "chronomancer_artificer_crystal_cannon"
-      ],
-      "_source": "CoA: 'Your Crystal Cannon now strikes 2 additional nearby enemies', and Sporadic Incantations' 'Your Flux Emitter now strikes 1 additional enemy'. Target counts are fixed on the ability, so the extra targets become harder area damage - which is also CoA's honest verdict on this spec: 'No uncapped AoE.'"
-    },
-    {
-      "talent_id": "chronomancer_artificer_paradox_cannon",
-      "name": "Paradox Cannon",
-      "description": "Teaches Paradox Cannon, which banks Mana between pulls.",
-      "node_type": "active",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 2,
-      "effects": {
-        "unlock_ability": "chronomancer_paradox_cannon"
-      },
+      "effects": {},
       "connected_to": [
         "chronomancer_artificer_flux_emitter"
       ],
-      "_source": "CoA: 'Bank ahead with Paradox Cannon between pulls.'"
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "elder_wand",
+          "name": "Elder Wand",
+          "effect_type": "buff",
+          "duration": 5,
+          "stat_mods": {
+            "ranged_ap": 25
+          },
+          "max_stacks": 10,
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Your Wand attacks now have a 30% chance to increase the damage of Artificer's Wand against the target by 3% for 15 seconds, stacking 10 times.' The chance, duration and stack count all port; what cannot is a per-ability damage bonus living inside a status effect, and 'against the target' would need the stack to sit on the enemy while buffing the caster. Turned into a caster-side ranged attack power ramp, which produces the same shape in play - keep swinging, hit harder - and still rewards a long fight. 15 sec -> 5 turns. max_stacks is genuinely honoured even though nothing can READ the count. Was a pure scalar on our side."
     },
     {
-      "talent_id": "chronomancer_artificer_conduction_burst",
-      "name": "Conduction Burst",
-      "description": "Increases your Arcane spell damage by 3% per rank.",
+      "talent_id": "chronomancer_artificer_singularity_core",
+      "name": "Singularity Core",
+      "description": "Teaches Singularity Core, a Continuum device that empowers your wand.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "arcane_spell_damage": 0.03
+        "unlock_ability": "chronomancer_singularity_core"
       },
       "connected_to": [
-        "chronomancer_artificer_hyperwand"
+        "chronomancer_artificer_resonance"
       ],
-      "_source": "CoA: 'Your Shatter Echo now deals 20% additional damage while a Continuum spell is active.' The Continuum condition cannot be read, so it is the spec's Arcane damage - which covers Shatter Echo and Arc Collision but deliberately not the wand line (ranged_damage resolves as physical)."
+      "_source": "CoA: 'Empower your Wand attacks to deal an additional 50% Ranged Weapon Damage plus additional Arcane damage for 3 sec plus 5 sec per Echo Fragment. Can only have 1 Continuum spell active at a time.' LOAD-BEARING UNLOCK. CoA scales this off ECHO FRAGMENTS, which are not a resource this engine has: Chronomancer is (ResourceType.MANA, None) at abilities.py:151 and no Chronomancer ability carries a `generates` block, so there is nothing to count. Flattened to the unconditional version at roughly what CoA's typical Fragment count comes to. Same call as Venomancer Stalking's Brood Marks; the lesson both times is to check the resource before porting the talent, since Templar's Combo and Knight of Xoroth's Deathfire ARE real and did port. THE EXCLUSIVITY IS REAL THOUGH, and it was added to the ability on 6 Nov 2026: exclusive_group 'chronomancer_continuum' on both this and Flux Emitter means casting either drops the other, which is CoA's rule verbatim. The same commit fixed the ability's buff_scope from 'raid' (30 real minutes, turn duration ignored) to 'combat', and gave it a 5-turn cooldown; before that both Continuum spells were simply permanent. CoA's Pulse Driver and Conduction Burst both read 'while a Continuum spell is active', which nothing can do, so neither is built."
     },
     {
-      "talent_id": "chronomancer_artificer_reverse_engineering",
-      "name": "Reverse Engineering",
-      "description": "Your casts have a 15% chance to grant you 8 haste for 3 turns and return a little Mana.",
+      "talent_id": "chronomancer_artificer_flux_emitter",
+      "name": "Flux Emitter",
+      "description": "Teaches Flux Emitter, a Continuum device that spreads your wand attacks wide.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "chronomancer_artificer_infinity_stone"
-      ],
-      "proc": {
-        "trigger": "on_damage_or_heal_cast",
-        "chance": 15,
-        "icd": 2,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 40
-        },
-        "apply_effect": {
-          "effect_id": "chronomancer_reverse_engineering",
-          "name": "Reverse Engineering",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": 8.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Periodic damage and healing now has a 15% chance to increase your haste by 15% for 6 seconds and grant allies Replenishment.' Replenishment reaches the party, which a proc cannot, so the mana goes to the Chronomancer."
-    },
-    {
-      "talent_id": "chronomancer_artificer_intuition",
-      "name": "Intuition",
-      "description": "Increases the damage of your critical strikes by 5% per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": 4,
       "effects": {
-        "crit_damage_physical": 0.05,
-        "crit_damage_spell": 0.05
+        "unlock_ability": "chronomancer_flux_emitter"
       },
       "connected_to": [
         "chronomancer_artificer_paradox_cannon"
       ],
-      "_source": "CoA's level-50 free passive: 'Increases your critical damage by 25%.' Both pools, because this spec crits with both."
+      "_source": "CoA: 'Empower Wand attacks to affect up to 2 additional nearby enemies for 3 sec plus 5 sec per Echo Fragment. Affected attacks deal less damage per additional enemy hit. Can only have 1 Continuum spell active at a time.' LOAD-BEARING UNLOCK. Shares exclusive_group 'chronomancer_continuum' with Singularity Core, so the two genuinely compete - the choice CoA built the spec around. The additional-targets half lives on the ability's own effects; a talent cannot add targets. Sporadic Incantations ('strikes 1 additional enemy') and Cheating Time ('extends the duration of Flux Emitter by 4 sec') are both unbuildable - the second because no payload extends a LIVE effect's duration."
     },
     {
-      "talent_id": "chronomancer_artificer_time_is_a_circle",
-      "name": "Time Is A Circle",
-      "description": "Your Continuum spells last 1 turn longer per rank.",
+      "talent_id": "chronomancer_artificer_intuition",
+      "name": "Intuition",
+      "description": "Increases your critical damage by 25% and your critical strike chance by 4%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_pct": 0.0833,
+        "crit_chance_physical": 1.3333
+      },
+      "connected_to": [
+        "chronomancer_artificer_wand_mastery"
+      ],
+      "_source": "CoA level 50 passive: 'Increases your critical damage by 25%.' Ports exactly. Folded in CoA's Infinity Stone ('Increases the critical strike chance of all party and raid members by 3%. In addition, increases your critical strike chance by 3%') as the crit-chance half, keeping only the selfish clause: A TALENT EFFECT CAN NEVER REACH AN ALLY - only a party-targeted ABILITY can (abilities.py:2064) - and Chronomancer has no aura ability to convert, unlike Guardian, whose four auras were changed to target_type 'party' on 5 Nov 2026 for exactly this reason. crit_damage_pct is a FRACTION; crit_chance_physical is PERCENTAGE POINTS. Physical rather than spell because this is the wand spec and its damage comes off ranged attacks. Both were pure scalars on our side."
+    },
+    {
+      "talent_id": "chronomancer_artificer_wand_mastery",
+      "name": "Wand Mastery",
+      "description": "Your ranged attacks have a 30% chance to unleash Crystal Cannon.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {},
+      "connected_to": [
+        "chronomancer_artificer_reverse_engineering"
+      ],
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 0,
+        "cast_ability": "chronomancer_crystal_cannon"
+      },
+      "_source": "CoA: 'Wand of Time and Shatter Echo now have a 25% chance to unleash Crystal Cannon, launching 2 quick lesser Wand auto attacks at the enemy over 1 seconds, scaling with Spirit. While Paradox Cannon is active, the chance to trigger this effect is increased by 10%.' PORTS ALMOST EXACTLY via a cast_ability proc, which takes a bare ability id. The two-ability scoping becomes on_weapon_swing (no per-ability trigger) and the 'while Paradox Cannon is active' bonus is dropped (nothing reads whether an effect is live), so 25% is set at a flat 30%. NOTE: cast_ability does NOT check that the character has learned the ability, so this would fire even without Crystal Cannon's unlock node - but that node is in this tree and at a lower tier, so a player with this talent has it."
+    },
+    {
+      "talent_id": "chronomancer_artificer_paradox_cannon",
+      "name": "Paradox Cannon",
+      "description": "Teaches Paradox Cannon, a Continuum device that restores your mana.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "chronomancer_paradox_cannon"
+      },
+      "connected_to": [
+        "chronomancer_artificer_reverse_engineering"
+      ],
+      "_source": "CoA: 'Generate 1 Echo Fragment every 2.5 sec for 5 sec, plus an additional 5 sec per Echo Fragment consumed. Can only have 1 Continuum spell active at a time.' LOAD-BEARING UNLOCK. CoA scales this off ECHO FRAGMENTS, which are not a resource this engine has: Chronomancer is (ResourceType.MANA, None) at abilities.py:151 and no Chronomancer ability carries a `generates` block, so there is nothing to count. Flattened to the unconditional version at roughly what CoA's typical Fragment count comes to. Same call as Venomancer Stalking's Brood Marks; the lesson both times is to check the resource before porting the talent, since Templar's Combo and Knight of Xoroth's Deathfire ARE real and did port. Our version is already authored as restore_resource on mana, which is the honest translation of a resource generator when the resource it generates does not exist. It applies no status effect, so exclusive_group cannot reach it and it does not compete with the other two Continuum spells - half of CoA's rule, and the half that could not be built."
+    },
+    {
+      "talent_id": "chronomancer_artificer_resonance",
+      "name": "Resonance",
+      "description": "Your ranged attacks have a 35% chance to reduce the cooldown of Hasten by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
-      "effects": {
-        "ability_chronomancer_singularity_core_duration": 1,
-        "ability_chronomancer_flux_emitter_duration": 1
-      },
+      "effects": {},
       "connected_to": [
-        "chronomancer_artificer_conduction_burst"
+        "chronomancer_artificer_reverse_engineering"
       ],
-      "_source": "CoA's level-40 free passive: 'Casting Wand of Time now extends the duration of your Continuum spells by 3 sec.' Extension on cast has no hook, so the Continuums simply last longer."
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "reset_cooldown": {
+          "abilities": [
+            "chronomancer_hasten"
+          ],
+          "turns": 2
+        }
+      },
+      "_source": "CoA: 'Casting Artificer's Wand or Crystal Cannon now has a 35% chance to reduce the cooldown of Hasten by 1 sec.' PORTS ALMOST EXACTLY - the {abilities, turns} form of reset_cooldown shaves turns rather than resetting outright, which is what CoA describes. Only the two-ability scoping goes (no per-ability proc trigger); on_weapon_swing is the wand spec's equivalent. 1 sec -> 2 turns, since a sub-turn reduction would round to nothing and Hasten's cooldown is long enough to absorb it."
     },
     {
-      "talent_id": "chronomancer_artificer_magic_sensitivity",
-      "name": "Magic Sensitivity",
-      "description": "Grants 5 spell penetration per rank.",
+      "talent_id": "chronomancer_artificer_fate_twister",
+      "name": "Fate Twister",
+      "description": "Reduces the cooldown of Unstable Chronoglass by 50% and Collapse by 30%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 4,
       "hex_y": 4,
       "effects": {
-        "spell_penetration": 5
+        "ability_chronomancer_unstable_chronoglass_cooldown_pct": 0.1667,
+        "ability_chronomancer_collapse_cooldown_pct": 0.1
       },
       "connected_to": [
-        "chronomancer_artificer_splitting_time"
+        "chronomancer_artificer_reverse_engineering"
       ],
-      "_source": "CoA: 'Critical strikes with Shatter Echo now increases the enemy's damage taken from you by 10%.' A damage-taken debuff is inert against creatures, and this spec's stat priority puts Spell Penetration second, so the node grants the stat the reference says to gear for."
+      "_source": "CoA: 'Reduces the cooldown of Unstable Chronoglass by 30 sec.' Its 1-minute cooldown halved is CoA's 30 seconds exactly, so this is a faithful port expressed as a percentage because the key is proportional. Collapse added so the node is not a one-ability pick on a 10-turn cooldown. *_cooldown_pct keys are FRACTIONS and POSITIVE MEANS A REDUCTION - the opposite sign convention from most of this file. talented_cooldown floors at 1 turn, so this cannot delete a cooldown outright."
     },
     {
-      "talent_id": "chronomancer_artificer_pulse_driver",
-      "name": "Pulse Driver",
-      "description": "Shatter Echo hits half again as hard, and your critical strikes land heavier still. +15% Shatter Echo damage, +10% physical critical damage and +10% spell critical damage.",
-      "node_type": "active",
+      "talent_id": "chronomancer_artificer_reverse_engineering",
+      "name": "Reverse Engineering",
+      "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 60 mana.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_chronomancer_shatter_echo_damage": 0.15,
-        "crit_damage_physical": 0.1,
-        "crit_damage_spell": 0.1
+        "ranged_ap_from_spirit_pct": 0.1
       },
-      "connected_to": [
-        "chronomancer_artificer_intuition",
-        "chronomancer_artificer_time_is_a_circle",
-        "chronomancer_artificer_magic_sensitivity"
-      ],
-      "_source": "Capstone. CoA: 'Singularity Core now increases the damage of Shatter Echo while its active by 30% and allows Shatter Echo to trigger its damage.' The Continuum condition is not readable, so the payoff is unconditional and smaller - which also matches what CoA says the spec is for: 'Bank Echo Fragments into an empowered Singularity Core, dump them on Shatter Echo, and the sustained spike holds up. Single-target is the identity here.'"
+      "connected_to": [],
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 25,
+        "icd": 1,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        },
+        "apply_effect": {
+          "effect_id": "reverse_engineering",
+          "name": "Reverse Engineering",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
+      },
+      "_source": "CoA: 'Periodic damage and healing now has a 15% chance to increase your haste by 15% for 6 seconds and grant allies Replenishment. Replenishment replenishes 5% of maximum mana per 5 sec for 15 seconds.' CoA hangs it off PERIODIC TICKS, which are not a trigger - status_effects.py:914 ticks a dot by calling the recipient's own take_damage with no caster reference, so there is nobody to fire a proc on. Re-pointed to on_damage_cast, the eighth and last talent in this class to take that loss. The ally Replenishment becomes mana for the caster: a proc cannot grant a resource to an ally. 6 sec -> 3 turns, 15% -> 25% because a per-cast roll is far rarer than a per-tick one. The Spirit conversion is added so the capstone closes the loop the tree opened with Wand Expert and Artificer's Empowerment - Spirit into ranged damage - rather than being a proc alone. haste is PERCENTAGE POINTS; the conversion key is a FRACTION."
     }
   ]
 }
