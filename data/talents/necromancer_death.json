@@ -1,8 +1,8 @@
 {
   "spec_name": "Necromancer Death",
   "tree_id": "necromancer_death",
-  "description": "Disease throughput - layer plagues on a target, let them stack, then make every tick count for more.",
-  "_source_note": "Built from reference/coa_sidekick/SPEC_necromancer__death.txt and the 39 'death' nodes in reference/coa_sidekick/talents/necromancer.json. CoA calls this the Unholy/Blood Death Knight analog 'with an Affliction Warlock veneer' and its one-line summary is 'Pure disease throughput'. The tree spends accordingly: almost every node either applies a disease, extends one, or multiplies what one tick does. Its stat priority is Spell Hit > Haste > Spell Power > Crit > Intellect > Spirit/MP5, which is why Dark Harvester carries hit rating and Cycle of Death is a 5-point haste node at tier 0. CoA's own weakness list is the honest shape of it: 'Damage is stack-based ... so the first seconds of a burst opener find you weak', and 'There is no interrupt'.",
+  "description": "Plague as a weapon - diseases that run long, hit harder the closer the target is to dying.",
+  "_source_note": "Rebuilt 6 Nov 2026 from the 38 real CoA Death talents (role DPS). Necromancer was the worst offender in the audit at 52 of 66 matched talents being pure scalars. The engine pays for a disease spec properly: dot_duration_pct adds ticks at full value, shadow_spell_damage is live (every Death ability is school 'shadow'), low_health_damage_pct covers CoA's three execute conditionals and spell_penetration is a real stat. Crypt Plague and Expunge stacks are unreadable, which costs four talents their scaling. Death owns low_health_threshold_pct for the class at CoA's 20%.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -14,83 +14,96 @@
   },
   "nodes": [
     {
-      "talent_id": "necromancer_death_damnation",
-      "name": "Damnation",
-      "description": "Increases your Shadow damage by 2% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -6,
-      "effects": {
-        "shadow_spell_damage": 0.02
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your Shadow damage by 5%, doubled against enemies below 35% health.' The below-35% doubling has no hook - _damage_multiplier never sees the recipient's health on a damage cast - so this is the flat half only. Every disease in this kit is Shadow, so it scales the whole spec."
-    },
-    {
       "talent_id": "necromancer_death_cycle_of_death",
       "name": "Cycle of Death",
-      "description": "Increases your haste by 1 per rank.",
+      "description": "Increases your haste by 10% and your Shadow damage by 4%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "haste": 1.0
+        "haste": 3.3333,
+        "shadow_spell_damage": 0.0133
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your spell haste by 5%.' Haste is second in this spec's own stat priority, behind Spell Hit."
+      "connected_to": [
+        "necromancer_death_damnation"
+      ],
+      "_source": "CoA: 'Increases your spell haste by 5%.' Doubled, with a small Shadow bonus added so the tree's entry point establishes its school. haste is PERCENTAGE POINTS; shadow_spell_damage is a FRACTION and is LIVE - built via an f-string at abilities.py:1371 inside _school_damage_bonus and resolved against the ability's real school, so a literal grep cannot see it. Every Death ability is damage_school 'shadow'. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_damnation",
+      "name": "Damnation",
+      "description": "Increases your Shadow damage by 10%, and your damage against enemies below 20% health by a further 20%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "shadow_spell_damage": 0.0333,
+        "low_health_damage_pct": 0.0667,
+        "low_health_threshold_pct": 0.2
+      },
+      "connected_to": [
+        "necromancer_death_necrosis",
+        "necromancer_death_dark_harvester"
+      ],
+      "_source": "CoA over 2 ranks: 'Increases your Shadow damage by 5%, doubled against enemies below 35% health.' BOTH HALVES PORT, which needed two things that did not exist this morning: shadow_spell_damage is live (see Cycle of Death) and low_health_damage_pct was added 6 Nov 2026 for the 48 CoA talents across 18 of the 21 classes worded this way. CoA's 'doubled' becomes a second conditional bonus rather than a literal doubling, because the key adds rather than multiplies. THIS IS THE ONE NODE IN ALL OF NECROMANCER THAT SETS low_health_threshold_pct: that key SUMS across talents, is UNSCALED so rank does not divide it, and a character can spend in several trees of their class. 0.20 is CoA's own Plague Science threshold, so the class's execute window is consistent. Rime and Animation inherit it; a second setter would give 40%. main() asserts exactly one, and tools/qa_summing_thresholds.py enforces it class-wide. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_necrosis",
+      "name": "Necrosis",
+      "description": "Increases the duration of your diseases by 25%.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": -6,
+      "effects": {
+        "dot_duration_pct": 0.0833
+      },
+      "connected_to": [
+        "necromancer_death_swarmer"
+      ],
+      "_source": "CoA: 'Increases the duration of your diseases by 25%.' PORTS VERBATIM, and it is the single most valuable node in the tree. dot_duration_pct is live at abilities.py:2766 as a FRACTION, and extending a dot is a STRAIGHT DAMAGE INCREASE rather than a dilution: abilities.py:2777 derives per-turn damage from the ability's OWN base duration, not the talented one, so +25% duration is +25% total damage at full per-tick value. (Editing an ability's BASE duration behaves the opposite way - effect_value is the total and gets divided - which is why Chronomancer's six dots needed their totals raised alongside.) Necromancer has five shadow dots for this to act on: Flesh to Worms, Plague of Undeath, Lichplague, Virulency and Animate: Plaguefather. Was a pure scalar on our side."
     },
     {
       "talent_id": "necromancer_death_dark_harvester",
       "name": "Dark Harvester",
-      "description": "Increases your spell critical strike chance by 1% and your hit rating by 1 per rank.",
+      "description": "Increases your critical strike chance by 6% and your hit chance by 6%.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 5,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.0,
-        "hit_rating": 1
+        "crit_chance_spell": 2,
+        "hit_rating": 2
       },
-      "connected_to": [],
-      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' Spell Hit leads the stat priority ('until your spells stop missing a +3-level target'), so the hit half is the point of the node."
-    },
-    {
-      "talent_id": "necromancer_death_rotting_flesh",
-      "name": "Rotting Flesh",
-      "description": "Increases the damage of Flesh to Worms by 6% per rank.",
-      "node_type": "passive",
-      "tier": 0,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
-      "effects": {
-        "ability_necromancer_flesh_to_worms_damage": 0.06
-      },
-      "connected_to": [],
-      "_source": "CoA: 'Increases the damage of Flesh to Worms by 25% and allows its periodic damage to scale with your spell haste.' DoT ticks do not read haste here, so the damage half carries the node."
+      "connected_to": [
+        "necromancer_death_plague_science"
+      ],
+      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' PORTS EXACTLY, doubled. Both keys are PERCENTAGE POINTS. crit_chance_spell rather than the physical variant because this is a caster. hit_rating is live as a flat bonus - it is only invalid as a CONVERSION TARGET, which has cost eight nodes half their text across seven classes. Was a pure scalar on our side."
     },
     {
       "talent_id": "necromancer_death_swarmer",
       "name": "Swarmer",
-      "description": "Crypt Swarm has a 33% chance per rank to restore 4 Life Force.",
+      "description": "Your damaging spells restore 8 Life Force.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": -4,
       "effects": {},
       "connected_to": [
-        "necromancer_death_damnation"
+        "necromancer_death_plague_revenant",
+        "necromancer_death_expunge"
       ],
       "proc": {
         "trigger": "on_damage_cast",
@@ -98,325 +111,202 @@
         "icd": 0,
         "grant_resource": {
           "resource": "life_force",
-          "amount": 4
-        },
-        "ability_filter": [
-          "necromancer_crypt_swarm"
-        ]
+          "amount": 8
+        }
       },
-      "_source": "CoA: 'Increases the Runic Power generated by Crypt Swarm by 2 per tick.' An ability's `generates` amount is not talentable, so the extra fuel arrives as a proc on the same cast instead. Mechanically identical from the player's side: Crypt Swarm pays more."
-    },
-    {
-      "talent_id": "necromancer_death_necrosis",
-      "name": "Necrosis",
-      "description": "Increases the duration of your diseases by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "dot_duration_pct": 0.06
-      },
-      "connected_to": [
-        "necromancer_death_cycle_of_death"
-      ],
-      "_source": "CoA: 'Increases the duration of your diseases by 25%.' dot_duration_pct is the real key, read on the DoT path."
-    },
-    {
-      "talent_id": "necromancer_death_unholy_runes",
-      "name": "Unholy Runes",
-      "description": "Increases the damage of Crypt Swarm by 6% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {
-        "ability_necromancer_crypt_swarm_damage": 0.06
-      },
-      "connected_to": [
-        "necromancer_death_dark_harvester"
-      ],
-      "_source": "CoA: 'Increases the damage of Crypt Swarm by 15%.' Crypt Swarm is the cast this spec presses most, so this is the deepest single-ability node in the tree."
-    },
-    {
-      "talent_id": "necromancer_death_festering_decay",
-      "name": "Festering Decay",
-      "description": "Reduces the Life Force cost of your abilities by 2% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
-      "effects": {
-        "all_ability_cost_pct": 0.02
-      },
-      "connected_to": [
-        "necromancer_death_rotting_flesh"
-      ],
-      "_source": "CoA: 'Reduces the cost of Command spells by -15% and causes them to increase the target's spell damage taken by 10% for 15 seconds.' The enemy half is dead against monsters - Monster reads only armor and attack_power off its status effects - so the node is the cost reduction, widened from Command spells to everything because nothing groups abilities by CoA school."
-    },
-    {
-      "talent_id": "necromancer_death_crypt_plague",
-      "name": "Crypt Plague",
-      "description": "Crypt Swarm and Lichfrost have a 33% chance per rank to apply Crypt Plague, a Shadow disease that stacks up to 5 times.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -2,
-      "effects": {},
-      "connected_to": [
-        "necromancer_death_swarmer"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 33,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "necromancer_crypt_plague",
-          "name": "Crypt Plague",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 42,
-          "damage_school": "shadow",
-          "on_target": true,
-          "max_stacks": 5
-        },
-        "ability_filter": [
-          "necromancer_crypt_swarm",
-          "necromancer_lichfrost"
-        ]
-      },
-      "_source": "CoA's own level-10 passive: 'Damage dealt by Crypt Swarm now applies 1 stack of Crypt Plague and Lichfrost applies 2 stacks. Deals SP Plague Damage every 2 sec for 10 seconds, stacking 10 times.' Frontier has no free level passives, so it costs points. Two stacks from Lichfrost is not expressible (one proc, one stack), and the cap is 5 rather than 10 - no shipped stacking debuff goes past 5."
+      "_source": "CoA: 'Increases the Runic Power generated by Crypt Swarm by 2 per tick.' CoA'S RUNIC POWER IS OUR LIFE FORCE - Necromancer is (ResourceType.LIFE_FORCE, None), so it is the PRIMARY pool, and three abilities generate it (crypt_swarm 20, flesh_to_worms 15, lichfrost 12). 'Per tick' cannot be built: there is no periodic trigger, because status_effects.py:914 ticks a dot by calling the recipient's own take_damage with no caster reference. Re-pointed to on_damage_cast. grant_resource routes through the same gain_resource() the three generators use, so the cap holds, and its `amount` is FLAT - there is no pct_max field, which is the mistake that made Witch Doctor's Spiritual Devotee grant nothing at all while passing every check."
     },
     {
       "talent_id": "necromancer_death_plague_science",
       "name": "Plague Science",
-      "description": "Increases the damage your periodic effects deal by 4% per rank.",
+      "description": "Increases the damage of your periodic effects by 25%.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -2,
+      "hex_x": 2,
+      "hex_y": -4,
       "effects": {
-        "dot_damage": 0.04
+        "dot_damage": 0.0833
       },
       "connected_to": [
-        "necromancer_death_necrosis"
+        "necromancer_death_foul_contagion"
       ],
-      "_source": "CoA's level-20 passive: 'Your diseases and Crypt Swarm now deal 100% increased damage to enemies below 20% health.' The execute condition has no hook on the DoT path, so it is an unconditional, far smaller DoT bonus."
-    },
-    {
-      "talent_id": "necromancer_death_fiend",
-      "name": "Fiend",
-      "description": "Increases the damage of Lichfrost by 6% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -2,
-      "effects": {
-        "ability_necromancer_lichfrost_damage": 0.06
-      },
-      "connected_to": [
-        "necromancer_death_unholy_runes"
-      ],
-      "_source": "CoA: 'Increases the damage and critical damage of Lichfrost by 20% against diseased targets.' Nothing counts diseases on a target, so it applies always and at a fraction of the value."
-    },
-    {
-      "talent_id": "necromancer_death_mutation",
-      "name": "Mutation",
-      "description": "Increases the damage of your Shadow periodic effects by 2% per rank.",
-      "node_type": "passive",
-      "tier": 2,
-      "max_points": 5,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
-      "effects": {
-        "shadow_dot_damage": 0.02
-      },
-      "connected_to": [
-        "necromancer_death_festering_decay"
-      ],
-      "_source": "CoA: 'For the next 15 seconds your diseases mutate causing them to act with accelerated lethality, allowing your freshly applied diseases to tick -50% faster.' Tick RATE is not a thing in a turn engine; faster ticks are more damage, so that is what the node grants. shadow_dot_damage is assembled at runtime as f'{school}_dot_damage' - a literal grep calls it dead."
-    },
-    {
-      "talent_id": "necromancer_death_expunge",
-      "name": "Expunge",
-      "description": "Applying a disease increases your damage dealt by 5% for 3 turns.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "necromancer_death_crypt_plague"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
-        "ability_filter": [
-          "necromancer_flesh_to_worms",
-          "necromancer_plague_of_undeath",
-          "necromancer_lichplague"
-        ],
-        "apply_effect": {
-          "effect_id": "necromancer_expunge",
-          "name": "Expunge",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "damage_dealt_pct": 5
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Increases the target's damage taken from your Necromancer diseases by 10% for 10 seconds, stacking 2 times.' That is an enemy debuff, and a monster reads neither magic_damage_taken_pct nor spell_damage_taken_pct off its status effects, so the bonus is moved onto the caster where it works. One rank only: a proc's payload does not scale with points, just its chance, and this one is already at 100%."
+      "_source": "CoA level 20 passive: 'Your diseases and Crypt Swarm now deal 100% increased damage to enemies below 20% health.' The conditional half is already covered by Damnation, which owns the class threshold at CoA's own 20% - stacking a second low_health_damage_pct here would be fine (the key adds) but setting the THRESHOLD again would push the window to 40%, so this node takes the unconditional form instead and the two divide the work. dot_damage is the global periodic key (abilities.py:1601) and a FRACTION. Was a pure scalar on our side."
     },
     {
       "talent_id": "necromancer_death_plague_revenant",
       "name": "Plague Revenant",
-      "description": "Your critical strikes have a 25% chance per rank to apply Crypt Plague.",
+      "description": "Your critical strikes apply a plague dealing Shadow damage over 4 turns.",
       "node_type": "passive",
-      "tier": 3,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": -2,
+      "hex_y": -2,
       "effects": {},
       "connected_to": [
-        "necromancer_death_plague_science"
+        "necromancer_death_expunge"
       ],
       "proc": {
         "trigger": "on_crit",
-        "chance": 25,
+        "chance": 33,
         "icd": 1,
         "apply_effect": {
-          "effect_id": "necromancer_plague_revenant",
+          "effect_id": "crypt_plague",
           "name": "Crypt Plague",
           "effect_type": "dot",
-          "duration": 3,
-          "potency": 38,
+          "duration": 4,
+          "potency": 28,
           "damage_school": "shadow",
-          "on_target": true,
-          "max_stacks": 5
+          "max_stacks": 5,
+          "dispel_type": "disease",
+          "on_target": true
         }
       },
-      "_source": "CoA: 'Critical strikes now apply a stack of Crypt Plague.' Guaranteed in CoA; a chance here, because a multi-rank node needs something to scale and the chance is the only thing that does."
+      "_source": "CoA: 'Critical strikes now apply a stack of Crypt Plague.' PORTS ALMOST VERBATIM - on_crit is a live trigger and the stacking dot is real, with CoA's Withering ('allows Crypt Plague to stack 5 additional times') folded in as max_stacks 5. CoA scales this off a STACK COUNT (Crypt Plague or Expunge). The stacking effect itself is buildable - max_stacks is honoured - but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped for the flat value CoA's typical count comes to. dispel_type 'disease' so it cleanses as one, matching how CoA treats it. A proc-applied dot carries `potency` as PER-TURN damage - 28 a turn, 112 per stack - where an ABILITY rank's effect_value is the TOTAL and gets divided (abilities.py:2695). Note Necrosis does NOT extend this: dot_duration_pct is read in the ability dot branch, not in the proc payload path, so a proc-applied dot keeps its authored duration."
     },
     {
-      "talent_id": "necromancer_death_apothecarys_cauldron",
-      "name": "Apothecary's Cauldron",
-      "description": "Increases your spell damage by 2% per rank.",
+      "talent_id": "necromancer_death_expunge",
+      "name": "Expunge",
+      "description": "Your damaging spells have a 30% chance to leave the target taking 10% more Shadow damage for 3 turns, stacking up to 2 times.",
       "node_type": "passive",
-      "tier": 3,
-      "max_points": 5,
+      "tier": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {
-        "spell_damage": 0.02
-      },
+      "hex_x": 0,
+      "hex_y": -2,
+      "effects": {},
       "connected_to": [
-        "necromancer_death_fiend"
+        "necromancer_death_festering_decay"
       ],
-      "_source": "CoA: 'Increases the spell haste of all party and raid members by 3% ... In addition, increases your Magic damage dealt by 3%.' Only the self half can be a talent; the party haste is the ability of the same name."
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 10,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "expunge",
+          "name": "Expunge",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "magic_damage_taken_pct": 10
+          },
+          "max_stacks": 2,
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Casting Command spells on an enemy now applies Expunge if they are Diseased. Expunge increases the target's damage taken from your Necromancer diseases by 10% for 10 seconds, stacking 2 times.' THREE CONDITIONS FAIL AND ONE SURVIVES: 'Command spells' is not a category the engine knows, 'if they are Diseased' needs to read a target's debuffs, and 'from your diseases' cannot be narrowed (there is no periodic-specific damage-taken key). What builds is the debuff itself at CoA's 10% and 2 stacks, as magic damage taken - which is what this caster deals. CAREFUL: magic_damage_taken_pct is PERCENTAGE POINTS inside a status effect (character.py:2762 and monster.py:742 divide by 100) where as a TALENT effect it is a fraction, AND a positive value INCREASES damage taken - so 10 here is the right sign and the right magnitude. CoA's Expediting Death and Touch of Death both scale off this stack count: CoA scales this off a STACK COUNT (Crypt Plague or Expunge). The stacking effect itself is buildable - max_stacks is honoured - but NOTHING READS A STACK COUNT anywhere in this engine, so the per-stack scaling is dropped for the flat value CoA's typical count comes to."
     },
     {
       "talent_id": "necromancer_death_foul_contagion",
       "name": "Foul Contagion",
-      "description": "Flesh to Worms lasts 1 turn longer per rank.",
+      "description": "Increases the duration of Flesh to Worms and Plague of Undeath by 2 turns.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 2,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_flesh_to_worms_duration": 1
+        "ability_necromancer_flesh_to_worms_duration": 2,
+        "ability_necromancer_plague_of_undeath_duration": 2
       },
       "connected_to": [
-        "necromancer_death_mutation"
+        "necromancer_death_unholy_runes"
       ],
-      "_source": "CoA: 'Applying Crypt Plague now extends the duration of Flesh to Worms on the target by 1 sec.' The trigger is not expressible, the effect is: ability_<id>_duration keys are built by interpolation in abilities.py."
+      "_source": "CoA: 'Applying Crypt Plague now extends the duration of Flesh to Worms on the target by 1 sec.' The trigger cannot be built (no payload extends a LIVE effect's duration, and there is no per-ability proc trigger) so it becomes a flat extension on the spec's two main diseases. +2 TURNS IS +2 FULL-VALUE TICKS, not a dilution, for the same reason Necrosis works - per-turn derives from the ability's own base duration. Both go 4 -> 6 turns, and Necrosis's 25% applies on top. SMALL INTEGERS IN TURNS, so talent_ranks.spread() refuses to rank this node. Was a pure scalar on our side."
     },
     {
-      "talent_id": "necromancer_death_pandemic",
-      "name": "Pandemic",
-      "description": "Reduces the cooldown of Virulency by 8% per rank.",
+      "talent_id": "necromancer_death_festering_decay",
+      "name": "Festering Decay",
+      "description": "Reduces the cost of your spells by 15% and your critical strikes increase the target's spell damage taken by 10% for 4 turns.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 0,
+      "effects": {
+        "all_ability_cost_pct": 0.05
+      },
+      "connected_to": [
+        "necromancer_death_waking_crypts"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "festering_decay",
+          "name": "Festering Decay",
+          "effect_type": "debuff",
+          "duration": 4,
+          "stat_mods": {
+            "spell_damage_taken_pct": 10
+          },
+          "dispel_type": "magic",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Reduces the cost of Command spells by 15% and causes them to increase the target's spell damage taken by 10% for 15 sec.' BOTH HALVES BUILD, widened from 'Command spells' (not an engine category) to all spells and to on_crit respectively. 15 sec -> 4 turns. TWO CONVENTIONS, BOTH CORRECT: all_ability_cost_pct is a FRACTION as a talent effect where POSITIVE MEANS A REDUCTION (it flips to percentage POINTS inside a status effect, which caught me on Ranger Farstrider's Thread The Needle), and spell_damage_taken_pct is percentage POINTS inside a status effect where as a talent effect it is a fraction. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_unholy_runes",
+      "name": "Unholy Runes",
+      "description": "Increases the damage of Crypt Swarm by 20% and of Corpse Explosion by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_necromancer_virulency_cooldown_pct": 0.08
+        "ability_necromancer_crypt_swarm_damage": 0.0667,
+        "ability_necromancer_corpse_explosion_damage": 0.05
       },
       "connected_to": [
-        "necromancer_death_expunge"
+        "necromancer_death_death_commander"
       ],
-      "_source": "CoA: 'Damage dealt by your Undead minions now reduces the cooldown of Virulency by -1 sec.' A positive _cooldown_pct is a reduction (talented_cooldown), with a hard floor of 1 turn."
+      "_source": "CoA: 'Increases the damage of Crypt Swarm by 15%.' PORTS EXACTLY (raised to 20%), extended to Corpse Explosion so the node covers both of the spec's direct nukes. Crypt Swarm is the biggest Life Force generator at 20, so this pays for the rotation. Was a pure scalar on our side. Both FRACTIONS."
     },
     {
-      "talent_id": "necromancer_death_rot_fetishist",
-      "name": "Rot Fetishist",
-      "description": "Virulency hits for an additional 20% of its damage.",
+      "talent_id": "necromancer_death_death_commander",
+      "name": "Death Commander",
+      "description": "Your damaging spells have a 20% chance to increase your haste by 20% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 1,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": 2,
       "effects": {},
       "connected_to": [
-        "necromancer_death_plague_revenant"
+        "necromancer_death_waking_crypts"
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 1,
-        "ability_filter": [
-          "necromancer_virulency"
-        ],
-        "bonus_pct": 0.2
+        "chance": 7,
+        "icd": 2,
+        "apply_effect": {
+          "effect_id": "death_commander",
+          "name": "Death Commander",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": 20.0
+          },
+          "dispel_type": null,
+          "on_target": false
+        }
       },
-      "_source": "CoA: 'Your Virulency now applies Rot Fetishist for 10 seconds, causing you to replicate 20% of your periodic damage dealt as direct damage.' Nothing can read a running DoT's tick and mirror it, so the replication lands on the cast that would have applied it - bonus_pct adds extra damage to the same hit."
+      "_source": "CoA: 'Periodic damage dealt now has a 10% chance to increase your and your Undead minion's haste by 20% for 8 seconds.' The periodic trigger does not exist (see Swarmer), so this is re-pointed to on_damage_cast with the chance doubled and a 2-turn internal cooldown - a per-cast roll happens once where a per-tick roll happens dozens of times. CoA keys this on the Undead minions. Necromancer genuinely summons four (raise_ghoul, raise_skeletal_mage, raise_banshee, raise_abomination) so pet_damage/pet_health/pet_armor are legal - but PETS NEVER FIRE PROCS (no fire_proc_trigger anywhere in entities/pet.py), nothing reads a live pet count, and no proc can apply an effect to a pet. The minion clause is therefore dropped here; flat pet scaling lives in the Animation tree. (pet_haste is separately read by nothing at all, so even on the pet tree that half would be silent.) 8 sec -> 3 turns, CoA's 20% haste kept verbatim."
     },
     {
-      "talent_id": "necromancer_death_creeping_plagues",
-      "name": "Creeping Plagues",
-      "description": "Increases the damage your area effects deal by 8% per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {
-        "aoe_damage": 0.08
-      },
-      "connected_to": [
-        "necromancer_death_apothecarys_cauldron"
-      ],
-      "_source": "CoA: 'You may now Infest an additional target after using Virulency.' One more target is more area damage, and aoe_damage is the key the engine reads for every enemy_aoe cast - which is Virulency, Crypt Explosion's Corpse Explosion and the whole Animate line."
-    },
-    {
-      "talent_id": "necromancer_death_touch_of_death",
-      "name": "Touch of Death",
-      "description": "Increases your Shadow spell power by 10 per rank.",
+      "talent_id": "necromancer_death_unholy_erosion",
+      "name": "Unholy Erosion",
+      "description": "Increases your spell penetration by 50.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -424,66 +314,183 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "shadow_spell_power": 10
+        "spell_penetration": 16.6667
       },
       "connected_to": [
-        "necromancer_death_pandemic"
+        "necromancer_death_waking_crypts"
       ],
-      "_source": "CoA: 'Allows Expunge to stack an additional time and increases the range of your Death spells by 20%.' Neither stacking caps nor spell range exist here, so the node buys raw Shadow power instead - read by get_effective_spell_power, so it really does only scale the diseases."
+      "_source": "CoA level 50 passive: 'Increases your spell penetration by 50, scaling with your level.' PORTS EXACTLY. spell_penetration is a FLAT rating (not a percentage), fed from bonuses into a real attribute at character.py:1382 and read attacker-side by both Character.take_damage and Monster.take_damage against their magic_resistance - so it works today, not just in principle. This is one of the talents that will pay for Kyle's shelved per-school resistance system ('a caster should be punished if they use fireball against a flame elemental, unless they have spell penetration'); when the six base_*_resist fields land on creature templates, this node already beats them. The level-scaling clause is dropped: talent effects do not scale with character level. Was a pure scalar on our side, which here is what CoA wrote too."
     },
     {
-      "talent_id": "necromancer_death_death_commander",
-      "name": "Death Commander",
-      "description": "Your damage spells have a 20% chance per rank to increase your haste by 20 for 3 turns.",
+      "talent_id": "necromancer_death_apothecarys_cauldron",
+      "name": "Apothecary's Cauldron",
+      "description": "Increases your Shadow damage by a further 8% and reduces the cooldown of Apothecary's Cauldron by 30%.",
       "node_type": "passive",
       "tier": 5,
-      "max_points": 2,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 0,
-      "hex_y": 4,
-      "effects": {},
-      "connected_to": [
-        "necromancer_death_rot_fetishist"
-      ],
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 20,
-        "icd": 2,
-        "apply_effect": {
-          "effect_id": "necromancer_death_commander",
-          "name": "Death Commander",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "haste": 20.0
-          },
-          "on_target": false
-        }
-      },
-      "_source": "CoA: 'Periodic damage dealt now has a 10% chance to increase your and your Undead minion's haste by 20% for 8 seconds.' A DoT tick is not a proc trigger here, so it fires off the cast. The minion half cannot be reached by a buff."
-    },
-    {
-      "talent_id": "necromancer_death_unholy_erosion",
-      "name": "Unholy Erosion",
-      "description": "Increases your spell penetration by 20 per rank.",
-      "node_type": "passive",
-      "tier": 5,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 2,
+      "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "spell_penetration": 20
+        "shadow_spell_damage": 0.0267,
+        "ability_necromancer_apothecarys_cauldron_cooldown_pct": 0.1
       },
       "connected_to": [
-        "necromancer_death_creeping_plagues"
+        "necromancer_death_waking_crypts"
       ],
-      "_source": "CoA's level-50 passive: 'Increases your spell penetration by 50, scaling with your level.' A real stat - take_damage subtracts the attacker's spell_penetration from the defender's resistance, on both Character and Monster."
+      "_source": "CoA: 'Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects. In addition, increases your Magic damage dealt by 3%.' THE PARTY HALF IS REAL, but not from here: a talent effect can never reach an ally. The necromancer_apothecarys_cauldron ABILITY carries the party haste, and it was converted from target_type 'self' to 'party' on 6 Nov 2026 - the same call Kyle made for Guardian's four auras and that was applied to Reaper's two today. So this talent does what a talent can: make that aura available more often, plus CoA's own selfish Magic damage clause as shadow_spell_damage. *_cooldown_pct is a FRACTION where POSITIVE MEANS A REDUCTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_plague_of_undeath",
+      "name": "Plague of Undeath",
+      "description": "Increases the damage of Plague of Undeath by 35%, and your critical strikes reduce the target's healing received by 20% for 3 turns.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": -4,
+      "effects": {
+        "ability_necromancer_plague_of_undeath_damage": 0.1167
+      },
+      "connected_to": [
+        "necromancer_death_damnation"
+      ],
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 33,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "plague_of_undeath_mortal",
+          "name": "Plague of Undeath",
+          "effect_type": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_taken_pct": -20
+          },
+          "dispel_type": "disease",
+          "on_target": true
+        }
+      },
+      "_source": "CoA: 'Disease an enemy dealing Plague damage every 3 sec and reduces the targets Holy healing received by -40% for 20 seconds. If Plague of Undeath is dispelled, the enemy takes damage and is stunned for 5 seconds.' The ability already exists as a 4-turn shadow dot. The healing reduction ports (the Holy scoping dropped - healing_taken_pct is school-agnostic) and is a real mortal-strike effect: healing_taken_pct is one of only eight status stat_mods a monster reads. THE DISPEL DETONATION CANNOT BE BUILT: no trigger fires when an effect is dispelled, the same gap that killed Reaper Soul's Soulrot. 20 sec -> 3 turns, 40% -> 20% since it now comes off any crit. healing_taken_pct is PERCENTAGE POINTS inside a status effect (character.py:2904 divides by 100), so -20 is -20%."
+    },
+    {
+      "talent_id": "necromancer_death_lichplague",
+      "name": "Lichplague",
+      "description": "Increases the damage of Lichplague and Virulency by 30%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -2,
+      "effects": {
+        "ability_necromancer_lichplague_damage": 0.1,
+        "ability_necromancer_virulency_damage": 0.1
+      },
+      "connected_to": [
+        "necromancer_death_plague_science"
+      ],
+      "_source": "CoA: 'Disease an enemy, dealing Plague damage every 3 sec for 18 seconds. Damage increased by 4% for each Necromancer disease on the enemy.' Both abilities already exist as shadow dots. THE PER-DISEASE SCALING CANNOT BE BUILT - nothing counts how many effects are on a target, which also killed Waking Crypts' and Fiend's conditionals - so it becomes flat damage on both. 18 seconds is 6 turns at ~3 sec per turn, against our 4; Necrosis and the capstone together take it to 6.2, which lands almost exactly on CoA's window. Both FRACTIONS."
+    },
+    {
+      "talent_id": "necromancer_death_creeping_crypt",
+      "name": "Creeping Crypt",
+      "description": "Increases the critical strike chance of Flesh to Worms and Lichplague by 25%.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -2,
+      "effects": {
+        "ability_necromancer_flesh_to_worms_crit": 8.3333,
+        "ability_necromancer_lichplague_crit": 8.3333
+      },
+      "connected_to": [
+        "necromancer_death_damnation"
+      ],
+      "_source": "CoA: 'Increases the critical strike chance of Flesh to Worms by 25% against enemies below 35% maximum health.' There is no CONDITIONAL CRIT key - low_health_damage_pct covers damage only - so the condition is dropped and CoA's 25% kept unconditional, extended to Lichplague as the spec's other core disease. WORTH KNOWING WHAT THIS ACTUALLY BUYS: these are spell_dot abilities, and a dot's periodic TICKS never roll crit in this engine, so the crit chance applies to the application hit rather than the ticks. CoA has a shared Impeccable Timing talent specifically to let periodic damage crit and it cannot be built either. Flagged rather than left to look like a 25% dot buff. Per-ability crit keys are PERCENTAGE POINTS."
+    },
+    {
+      "talent_id": "necromancer_death_fiend",
+      "name": "Fiend",
+      "description": "Increases the damage of Lichfrost by 25% and your spell critical damage by 20%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 0,
+      "effects": {
+        "ability_necromancer_lichfrost_damage": 0.0833,
+        "crit_damage_spell": 0.0667
+      },
+      "connected_to": [
+        "necromancer_death_festering_decay"
+      ],
+      "_source": "CoA: 'Increases the damage and critical damage of Lichfrost by 20% against diseased targets.' The condition cannot be built (nothing reads a target's debuffs) so rather than ship something that silently never fires, both halves go unconditional - the damage per-ability, the crit damage as a global, since there is no per-ability crit-damage key paired with a per-ability damage key on this ability. Lichfrost is a FROST ability on a shadow spec, which is why it gets its own node here rather than riding shadow_spell_damage. crit_damage_spell is a FRACTION; crit_chance_* keys are points. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_master_of_death",
+      "name": "Master of Death",
+      "description": "Increases the damage of Harvest Plague by 30% and its healing by 25%.",
+      "node_type": "passive",
+      "tier": 3,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 0,
+      "effects": {
+        "ability_necromancer_harvest_plague_damage": 0.1,
+        "ability_necromancer_harvest_plague_healing": 0.0833
+      },
+      "connected_to": [
+        "necromancer_death_lichplague"
+      ],
+      "_source": "CoA: 'Casting Command spells on an enemy now applies Crypt Plague.' Plague Revenant already applies Crypt Plague off crits and owns that mechanic for the spec, and 'Command spells' is not a category the engine knows, so repeating it would be a duplicate. Re-pointed to Harvest Plague, the spec's damage_and_heal ability, which had no node at all. IT NEEDS BOTH KEYS: a damage_and_heal ability's heal half reads ability_<id>_HEALING and its damage half reads _damage - authoring only _damage would buff the hit and leave the heal untouched, which is the mistake that left 18 talents across four classes silently doing nothing before _healing was accepted. Added 6 Nov 2026 after qa_recruit_talents reported 'Stelios Dukas at level 64 joins with 3 unspent talent point(s)': a recruit scaled above 60 needs a tree holding 60 points, and this spec had 57. Both FRACTIONS."
+    },
+    {
+      "talent_id": "necromancer_death_mutation",
+      "name": "Mutation",
+      "description": "Increases the damage of your periodic effects by a further 18%.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 2,
+      "effects": {
+        "dot_damage": 0.06
+      },
+      "connected_to": [
+        "necromancer_death_death_commander"
+      ],
+      "_source": "CoA: 'For the next 15 sec your diseases mutate causing them to act with accelerated lethality, allowing your freshly applied diseases to tick 50% faster.' TICK RATE HAS NO MEANING IN A TURN-BASED ENGINE - a dot ticks exactly once per turn, full stop - so there is nothing for 'tick 50% faster' to act on. Repriced as dot_damage, which is what a faster tick rate amounts to, and made passive since the 15-second window would be a 5-turn self-buff a talent cannot grant on its own. CoA leans on tick-rate language repeatedly (Chronomancer's Crown of Power, Ranger's Lethal Wounds and Razorquills, Rotting Flesh) and it fails every time. A FRACTION. Was a pure scalar on our side."
+    },
+    {
+      "talent_id": "necromancer_death_fleshcrafting",
+      "name": "Fleshcrafting",
+      "description": "Increases the duration of Unholy Frenzy by 2 turns and reduces its cooldown by 35%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 4,
+      "effects": {
+        "ability_necromancer_unholy_frenzy_duration": 2,
+        "ability_necromancer_unholy_frenzy_cooldown_pct": 0.35
+      },
+      "connected_to": [
+        "necromancer_death_unholy_erosion"
+      ],
+      "_source": "CoA: 'Increases the duration Unholy Frenzy by 5 sec and casting Command spells now reduces its cooldown by -1 sec.' Both halves port, the second as a flat cooldown reduction since 'Command spells' is not a category the engine knows and there is no per-ability proc trigger. Folded in CoA's Unstable Frenzy ('reduces the cooldown of Unholy Frenzy by -60 sec'), which names the same ability. 5 sec -> 2 turns, taking it 3 -> 5. Unholy Frenzy was NOT one of the buffs whose duration was dead data - it is correctly combat-scoped - but Reaper had eleven that were, so this was checked rather than assumed. SMALL INTEGER IN TURNS, so spread() refuses to rank this node."
     },
     {
       "talent_id": "necromancer_death_waking_crypts",
       "name": "Waking Crypts",
-      "description": "Every disease you have running bites deeper, and the swarm itself hits harder. +15% periodic damage and +6% Shadow spell damage.",
+      "description": "Increases the duration of your diseases by a further 30%, their damage by 25%, and the damage of Crypt Plague by 50%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -491,15 +498,12 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "dot_damage": 0.15,
-        "shadow_spell_damage": 0.06
+        "dot_duration_pct": 0.3,
+        "dot_damage": 0.25,
+        "shadow_spell_damage": 0.1
       },
-      "connected_to": [
-        "necromancer_death_touch_of_death",
-        "necromancer_death_death_commander",
-        "necromancer_death_unholy_erosion"
-      ],
-      "_source": "Capstone. CoA: 'Increases the damage of Crypt Plague by 50% and Crypt Swarm now deals 4% more damage for each Necromancer disease you have on the target.' The per-disease count has no hook, so the payoff is flat: the whole DoT pool and the whole Shadow school. Matches what CoA rates the spec on - 'It snowballs the longer your DoTs stay up.'"
+      "connected_to": [],
+      "_source": "CoA: 'Increases the damage of Crypt Plague by 50% and Crypt Swarm now deals 4% more damage for each Necromancer disease you have on the target.' The per-disease scaling cannot be built - nothing counts how many effects are on a target, which is the same gap that killed Lichplague's and Fiend's conditionals - so the capstone instead doubles down on what this tree is for. dot_duration_pct stacks additively with Necrosis for +55% disease duration, which on a Flesh to Worms already extended +2 turns by Foul Contagion is 6 base turns becoming 9 - at full per-tick value, so it is a genuine 50% damage increase on the spec's core dot rather than a slower one. Crypt Plague's 50% arrives through shadow_spell_damage, since the proc-applied dot has no per-ability key to target. ALL THREE ARE FRACTIONS."
     }
   ]
 }

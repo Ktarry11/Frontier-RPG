@@ -837,8 +837,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Apothecary's Cauldron gives the party a spell-haste raid buff and boosts your own Magic damage. That, plus Plague of Undeath's Holy-healing debuff, is the closest thing to \"support\" you bring.' A talent cannot reach an ally (get_talent_effect reads the caster only), so the party half is this ability and the self half is the Death talent of the same name.",
-      "target_type": "self",
+      "_source": "CoA: 'Apothecary's Cauldron gives the party a spell-haste raid buff and boosts your own Magic damage. That, plus Plague of Undeath's Holy-healing debuff, is the closest thing to \"support\" you bring.' A talent cannot reach an ally (get_talent_effect reads the caster only), so the party half is this ability and the self half is the Death talent of the same name. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party/raid aura ('Increases the spell haste of all party and raid members by 3%. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY, but a party-targeted ABILITY does: abilities.py:2064 resolves target_type 'party' to all living allies and ui/screens/combat_screen.py:594 passes living_allies(); with no party context it degrades to the caster alone. Same call Kyle made for Guardian's four auras on 5 Nov 2026 and applied to Reaper's two today. The does-not-stack clause has no mechanism short of every class's equivalent aura sharing an exclusive_group, which is a project-wide decision rather than this class's.",
+      "target_type": "party",
       "buff_scope": "party",
       "is_instant": true
     },
@@ -1046,8 +1046,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: '\"Support\" here means Chilling Presence for the party crit aura' - 'Increases critical strike chance of all party and raid members by 3%'. Party-scoped for the same reason Apothecary's Cauldron is.",
-      "target_type": "self",
+      "_source": "CoA: '\"Support\" here means Chilling Presence for the party crit aura' - 'Increases critical strike chance of all party and raid members by 3%'. Party-scoped for the same reason Apothecary's Cauldron is. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party/raid aura ('Increases the critical strike chance of all party and raid members by 3%. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY, but a party-targeted ABILITY does: abilities.py:2064 resolves target_type 'party' to all living allies and ui/screens/combat_screen.py:594 passes living_allies(); with no party context it degrades to the caster alone. Same call Kyle made for Guardian's four auras on 5 Nov 2026 and applied to Reaper's two today. The does-not-stack clause has no mechanism short of every class's equivalent aura sharing an exclusive_group, which is a project-wide decision rather than this class's.",
+      "target_type": "party",
       "buff_scope": "party",
       "is_instant": true
     },
@@ -1491,8 +1491,8 @@
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'Corpse Wagon adds a party/raid damage aura for the group' - 'Increases all damage dealt by party and raid members by 3%'. damage_dealt_pct is percent points from a buff. Party-scoped; the Animation talent of the same name carries only the self half.",
-      "target_type": "self",
+      "_source": "CoA: 'Corpse Wagon adds a party/raid damage aura for the group' - 'Increases all damage dealt by party and raid members by 3%'. damage_dealt_pct is percent points from a buff. Party-scoped; the Animation talent of the same name carries only the self half. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party/raid aura ('Increases the damage dealt of all party and raid members by 3%. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY, but a party-targeted ABILITY does: abilities.py:2064 resolves target_type 'party' to all living allies and ui/screens/combat_screen.py:594 passes living_allies(); with no party context it degrades to the caster alone. Same call Kyle made for Guardian's four auras on 5 Nov 2026 and applied to Reaper's two today. The does-not-stack clause has no mechanism short of every class's equivalent aura sharing an exclusive_group, which is a project-wide decision rather than this class's.",
+      "target_type": "party",
       "buff_scope": "party",
       "is_instant": true
     }
