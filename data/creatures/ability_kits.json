@@ -1533,7 +1533,7 @@
         "amount": 26,
         "cooldown": 4,
         "mana_cost": 20,
-        "school": "magic"
+        "school": "holy"
       }
     ],
     "cultist_shadow": [
@@ -1892,7 +1892,7 @@
         "amount": 32,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "frost",
+        "school": "nature",
         "boss_rework": 1
       },
       {
@@ -1901,7 +1901,7 @@
         "amount": 14,
         "cooldown": 3,
         "mana_cost": 24,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       },
       {
@@ -1910,7 +1910,7 @@
         "amount": 26,
         "cooldown": 3,
         "mana_cost": 20,
-        "school": "frost",
+        "school": "magic",
         "rider": {
           "effect": "buff",
           "duration": 4,
@@ -1920,29 +1920,29 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Thorned Lash",
         "kind": "damage",
         "amount": 42,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "nature"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Thrashing Storm",
         "kind": "damage",
         "amount": 22,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "is_aoe": true
       },
       {
-        "name": "Arcane Overload",
+        "name": "Wild Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -1966,7 +1966,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 16,
-        "school": "magic",
+        "school": "frost",
         "duration": 2,
         "stat_mods": {
           "agility": -10
@@ -2516,7 +2516,7 @@
         "amount": 12,
         "cooldown": 0,
         "mana_cost": 6,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Blinding Sand",
@@ -2524,7 +2524,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 8,
-        "school": "magic",
+        "school": "nature",
         "duration": 3,
         "stat_mods": {
           "attack_power": -7
@@ -2546,7 +2546,7 @@
         "amount": 6,
         "cooldown": 3,
         "mana_cost": 8,
-        "school": "magic",
+        "school": "fire",
         "duration": 3
       }
     ],
@@ -2949,7 +2949,7 @@
         "amount": 9,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "fire",
         "duration": 3
       },
       {
@@ -4014,7 +4014,7 @@
         "amount": 9,
         "cooldown": 3,
         "mana_cost": 16,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       }
     ],
@@ -4088,7 +4088,7 @@
         "amount": 32,
         "cooldown": 0,
         "mana_cost": 28,
-        "school": "holy",
+        "school": "magic",
         "boss_rework": 1
       },
       {
@@ -4990,7 +4990,7 @@
         "amount": 44,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "is_aoe": true
       },
       {
@@ -5014,7 +5014,7 @@
         "amount": 36,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "shadow",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -5025,12 +5025,12 @@
         }
       },
       {
-        "name": "Arcane Overload",
+        "name": "Wild Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -5089,12 +5089,12 @@
         }
       },
       {
-        "name": "Enrage",
+        "name": "Wild Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "physical",
+        "school": "nature",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -5137,7 +5137,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 18,
-        "school": "magic",
+        "school": "nature",
         "duration": 3,
         "stat_mods": {
           "agility": -14
@@ -5151,7 +5151,7 @@
         "amount": 20,
         "cooldown": 0,
         "mana_cost": 18,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Entangling Roots",
@@ -5567,7 +5567,7 @@
         "amount": 24,
         "cooldown": 0,
         "mana_cost": 20,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Storm's Fury",
@@ -5651,7 +5651,7 @@
         "amount": 10,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       }
     ],
@@ -6857,20 +6857,20 @@
         "school": "fire"
       },
       {
-        "name": "Arcane Burst",
+        "name": "Searing Blast",
         "kind": "damage",
         "amount": 39,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "fire"
       },
       {
-        "name": "Arcane Overload",
+        "name": "Inferno Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "fire",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -6895,7 +6895,7 @@
         "amount": 13,
         "cooldown": 3,
         "mana_cost": 34,
-        "school": "fire",
+        "school": "magic",
         "duration": 4
       },
       {
@@ -6913,7 +6913,7 @@
         "amount": 22,
         "cooldown": 4,
         "mana_cost": 26,
-        "school": "fire",
+        "school": "magic",
         "rider": {
           "effect": "debuff",
           "duration": 4,
@@ -6929,23 +6929,23 @@
         "amount": 70,
         "cooldown": 6,
         "mana_cost": 45,
-        "school": "shadow"
+        "school": "magic"
       },
       {
-        "name": "Arcane Burst",
+        "name": "Shadow Rend",
         "kind": "damage",
         "amount": 44,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "shadow"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Wave of Dread",
         "kind": "damage",
         "amount": 24,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "shadow",
         "is_aoe": true
       }
     ],
@@ -6956,7 +6956,7 @@
         "amount": 24,
         "cooldown": 0,
         "mana_cost": 18,
-        "school": "magic"
+        "school": "shadow"
       },
       {
         "name": "Consuming Gaze",
@@ -6964,7 +6964,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 22,
-        "school": "magic",
+        "school": "shadow",
         "duration": 3,
         "stat_mods": {
           "intellect": -12
@@ -7180,7 +7180,7 @@
         "amount": 13,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "fire",
         "duration": 4
       },
       {
@@ -7200,29 +7200,29 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Searing Blast",
         "kind": "damage",
         "amount": 39,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "fire"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Fire Nova",
         "kind": "damage",
         "amount": 21,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "fire",
         "is_aoe": true
       },
       {
-        "name": "Arcane Overload",
+        "name": "Inferno Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "fire",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -7247,7 +7247,7 @@
         "amount": 12,
         "cooldown": 3,
         "mana_cost": 30,
-        "school": "magic",
+        "school": "shadow",
         "duration": 5
       },
       {
@@ -7271,23 +7271,23 @@
         "amount": 64,
         "cooldown": 5,
         "mana_cost": 42,
-        "school": "shadow"
+        "school": "magic"
       },
       {
-        "name": "Arcane Burst",
+        "name": "Shadow Rend",
         "kind": "damage",
         "amount": 40,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "shadow"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Wave of Dread",
         "kind": "damage",
         "amount": 22,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "shadow",
         "is_aoe": true
       }
     ],
@@ -7732,7 +7732,7 @@
         "amount": 30,
         "cooldown": 0,
         "mana_cost": 26,
-        "school": "magic",
+        "school": "nature",
         "boss_rework": 1
       },
       {
@@ -7741,7 +7741,7 @@
         "amount": 13,
         "cooldown": 3,
         "mana_cost": 22,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       },
       {
@@ -7750,7 +7750,7 @@
         "amount": 24,
         "cooldown": 3,
         "mana_cost": 20,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "buff",
           "duration": 4,
@@ -7760,29 +7760,29 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Thorned Lash",
         "kind": "damage",
         "amount": 39,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "nature"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Thrashing Storm",
         "kind": "damage",
         "amount": 21,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "is_aoe": true
       },
       {
-        "name": "Arcane Overload",
+        "name": "Wild Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -8840,7 +8840,7 @@
         "amount": 23,
         "cooldown": 3,
         "mana_cost": 22,
-        "school": "magic",
+        "school": "shadow",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -9242,7 +9242,7 @@
         "amount": 20,
         "cooldown": 3,
         "mana_cost": 22,
-        "school": "magic",
+        "school": "shadow",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -9931,7 +9931,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 24,
-        "school": "magic",
+        "school": "shadow",
         "duration": 3,
         "stat_mods": {
           "strength": -18
@@ -10183,7 +10183,7 @@
         "amount": 30,
         "cooldown": 3,
         "mana_cost": 26,
-        "school": "magic",
+        "school": "shadow",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -10685,7 +10685,7 @@
         "amount": 32,
         "cooldown": 3,
         "mana_cost": 28,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -11170,7 +11170,7 @@
         "amount": 40,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 4,
@@ -13120,7 +13120,7 @@
         "amount": 0,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "shadow",
         "duration": 3,
         "stat_mods": {
           "attack_power": -18
@@ -14664,7 +14664,7 @@
         "amount": 18,
         "cooldown": 0,
         "mana_cost": 16,
-        "school": "magic"
+        "school": "fire"
       },
       {
         "name": "Immolate",
@@ -14797,7 +14797,7 @@
         "amount": 36,
         "cooldown": 3,
         "mana_cost": 35,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Stoneskin",
@@ -15381,7 +15381,7 @@
         "amount": 11,
         "cooldown": 3,
         "mana_cost": 18,
-        "school": "magic",
+        "school": "shadow",
         "duration": 4
       },
       {
@@ -15443,7 +15443,7 @@
         "amount": 7,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       }
     ],
@@ -16111,7 +16111,7 @@
         "amount": 40,
         "cooldown": 0,
         "mana_cost": 12,
-        "school": "arcane",
+        "school": "magic",
         "boss_rework": 1
       },
       {
@@ -18439,7 +18439,7 @@
         "amount": 19,
         "cooldown": 4,
         "mana_cost": 12,
-        "school": "magic",
+        "school": "holy",
         "rider": {
           "effect": "buff",
           "duration": 4,
@@ -18449,20 +18449,20 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Holy Smite",
         "kind": "damage",
         "amount": 31,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "holy"
       },
       {
-        "name": "Arcane Overload",
+        "name": "Zealous Fury",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "holy",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -18805,7 +18805,7 @@
         "amount": 30,
         "cooldown": 0,
         "mana_cost": 14,
-        "school": "magic",
+        "school": "frost",
         "boss_rework": 1
       },
       {
@@ -18839,20 +18839,20 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Frost Lance",
         "kind": "damage",
         "amount": 39,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "frost"
       },
       {
-        "name": "Arcane Overload",
+        "name": "Killing Chill",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "frost",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -18958,7 +18958,7 @@
         "amount": 22,
         "cooldown": 4,
         "mana_cost": 12,
-        "school": "magic",
+        "school": "holy",
         "rider": {
           "effect": "buff",
           "duration": 4,
@@ -21337,7 +21337,7 @@
         "amount": 25,
         "cooldown": 3,
         "mana_cost": 12,
-        "school": "shadow",
+        "school": "magic",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -21449,7 +21449,7 @@
         "amount": 42,
         "cooldown": 0,
         "mana_cost": 14,
-        "school": "arcane",
+        "school": "magic",
         "boss_rework": 1
       },
       {
@@ -22161,7 +22161,7 @@
         "amount": 32,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "shadow",
         "is_aoe": true
       },
       {
@@ -22834,7 +22834,7 @@
         "amount": 0,
         "cooldown": 3,
         "mana_cost": 15,
-        "school": "magic",
+        "school": "frost",
         "duration": 3,
         "stat_mods": {
           "intellect": -18,
@@ -23018,7 +23018,7 @@
         "amount": 14,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
       }
     ],
@@ -23038,7 +23038,7 @@
         "amount": 36,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "frost",
+        "school": "magic",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -23129,7 +23129,7 @@
         "amount": 31,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -23160,7 +23160,7 @@
         "amount": 17,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
       },
       {
@@ -23329,7 +23329,7 @@
         "amount": 20,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
       },
       {
@@ -23338,7 +23338,7 @@
         "amount": 38,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -23403,7 +23403,7 @@
         "amount": 18,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "fire",
         "duration": 4
       },
       {
@@ -23469,7 +23469,7 @@
         "amount": 19,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
       },
       {
@@ -23698,7 +23698,7 @@
         "amount": 17,
         "cooldown": 4,
         "mana_cost": 20,
-        "school": "magic",
+        "school": "shadow",
         "duration": 4
       }
     ],
@@ -24324,7 +24324,7 @@
         "amount": 46,
         "cooldown": 3,
         "mana_cost": 24,
-        "school": "magic",
+        "school": "holy",
         "rider": {
           "effect": "buff",
           "duration": 4,
@@ -24340,7 +24340,7 @@
         "amount": 23,
         "cooldown": 4,
         "mana_cost": 20,
-        "school": "magic",
+        "school": "holy",
         "duration": 4
       },
       {
@@ -27134,7 +27134,7 @@
         "amount": 42,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Downdraft",
@@ -27142,7 +27142,7 @@
         "amount": 38,
         "cooldown": 4,
         "mana_cost": 30,
-        "school": "magic",
+        "school": "nature",
         "is_aoe": true
       },
       {
@@ -27151,7 +27151,7 @@
         "amount": 0,
         "cooldown": 5,
         "mana_cost": 25,
-        "school": "magic",
+        "school": "nature",
         "duration": 4,
         "stat_mods": {
           "stamina": -18
@@ -35506,7 +35506,7 @@
         "amount": 20,
         "cooldown": 3,
         "mana_cost": 20,
-        "school": "magic",
+        "school": "shadow",
         "duration": 3
       }
     ],
@@ -35560,7 +35560,7 @@
         "amount": 24,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 3,
         "stat_mods": {
           "agility": -22
@@ -35874,7 +35874,7 @@
         "amount": 54,
         "cooldown": 0,
         "mana_cost": 20,
-        "school": "magic"
+        "school": "nature"
       },
       {
         "name": "Seam of Rot",
@@ -35909,7 +35909,7 @@
         "amount": 28,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 3
       }
     ],
@@ -35920,7 +35920,7 @@
         "amount": 58,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic"
+        "school": "frost"
       },
       {
         "name": "Undertow",
@@ -36081,7 +36081,7 @@
         "amount": 28,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "frost",
         "duration": 4
       }
     ],
@@ -36604,7 +36604,7 @@
         "amount": 80,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "holy",
         "boss_rework": 1
       },
       {
@@ -36613,7 +36613,7 @@
         "amount": 34,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "holy",
         "duration": 4
       },
       {
@@ -36630,7 +36630,7 @@
         "amount": 52,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "holy",
         "rider": {
           "effect": "debuff",
           "duration": 3,
@@ -36640,20 +36640,20 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Holy Smite",
         "kind": "damage",
         "amount": 104,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "holy"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Consecrated Wave",
         "kind": "damage",
         "amount": 56,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "holy",
         "is_aoe": true
       }
     ],
@@ -36996,7 +36996,7 @@
         "amount": 96,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "boss_rework": 1
       },
       {
@@ -37005,7 +37005,7 @@
         "amount": 62,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 4,
@@ -37021,33 +37021,33 @@
         "amount": 38,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 4
       },
       {
-        "name": "Arcane Burst",
+        "name": "Thorned Lash",
         "kind": "damage",
         "amount": 125,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "nature"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Thrashing Storm",
         "kind": "damage",
         "amount": 67,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "is_aoe": true
       },
       {
-        "name": "Arcane Overload",
+        "name": "Wild Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -37129,7 +37129,7 @@
         "amount": 96,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "fire",
         "boss_rework": 1
       },
       {
@@ -37157,29 +37157,29 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Searing Blast",
         "kind": "damage",
         "amount": 125,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "fire"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Fire Nova",
         "kind": "damage",
         "amount": 67,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "fire",
         "is_aoe": true
       },
       {
-        "name": "Arcane Overload",
+        "name": "Inferno Surge",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "fire",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -37343,7 +37343,7 @@
         "amount": 101,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "shadow",
         "rider": {
           "effect": "buff",
           "duration": 5,
@@ -37353,20 +37353,20 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Shadow Rend",
         "kind": "damage",
         "amount": 164,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "shadow"
       },
       {
-        "name": "Arcane Overload",
+        "name": "Dark Frenzy",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "shadow",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -37511,7 +37511,7 @@
         "amount": 122,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "boss_rework": 1
       },
       {
@@ -37520,7 +37520,7 @@
         "amount": 44,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "duration": 5
       },
       {
@@ -37529,7 +37529,7 @@
         "amount": 79,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 4,
@@ -37544,23 +37544,23 @@
         "amount": 124,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "frost"
+        "school": "magic"
       },
       {
-        "name": "Arcane Burst",
+        "name": "Thorned Lash",
         "kind": "damage",
         "amount": 159,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "nature"
       },
       {
-        "name": "Arcane Wave",
+        "name": "Thrashing Storm",
         "kind": "damage",
         "amount": 85,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "nature",
         "is_aoe": true
       }
     ],
@@ -37651,7 +37651,7 @@
         "amount": 40,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "shadow",
+        "school": "magic",
         "duration": 4
       },
       {
@@ -37693,7 +37693,7 @@
         "amount": 118,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "shadow",
         "boss_rework": 1
       },
       {
@@ -37718,7 +37718,7 @@
         "amount": 94,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "shadow",
         "rider": {
           "effect": "buff",
           "duration": 5,
@@ -37728,20 +37728,20 @@
         }
       },
       {
-        "name": "Arcane Burst",
+        "name": "Shadow Rend",
         "kind": "damage",
         "amount": 153,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "shadow"
       },
       {
-        "name": "Arcane Overload",
+        "name": "Dark Frenzy",
         "kind": "buff",
         "amount": 0,
         "cooldown": 99,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "shadow",
         "duration": 30,
         "self_only": true,
         "hp_below": 0.35,
@@ -38996,7 +38996,7 @@
         "amount": 19,
         "cooldown": 3,
         "mana_cost": 0,
-        "school": "magic",
+        "school": "nature",
         "is_aoe": true
       }
     ],
