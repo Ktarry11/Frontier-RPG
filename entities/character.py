@@ -3126,6 +3126,25 @@ class Character(StatusEffectMixin):
             "profession_tiers": dict(self.profession_tiers),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
+            # SHAPESHIFT FORM AND THE GUARDIAN TOGGLE WERE NEVER SAVED.
+            # Both are documented as PERSISTENT (see the comment on
+            # guardian_stance_active in __init__: "PERSISTENT like
+            # current_form, not per-fight like current_stance") and neither
+            # was in this dict, so a Druid logged out in Bear Form and came
+            # back human, and a Shaman tank logged out as a tank and came
+            # back a DPS.
+            #
+            # It showed up as smoke_play_all_classes.py reporting Venomancer
+            # "save round trip LOST health: 874 -> 616" - the form's own
+            # stat_mods go through get_talent_effects (character.py:635), so
+            # dropping the form silently drops its health, armour and the
+            # rest. The health loss was the visible half of a bug that was
+            # really losing the whole form.
+            #
+            # current_stance is deliberately NOT saved: a Warrior stance is
+            # per-fight, which is the distinction the __init__ comment draws.
+            "current_form": self.current_form,
+            "guardian_stance_active": bool(self.guardian_stance_active),
             "consumable_cooldown": self.consumable_cooldown,
             "guardian_buff": self.guardian_buff,
             "battle_buff": self.battle_buff,
@@ -3281,6 +3300,19 @@ class Character(StatusEffectMixin):
 
         # Class training (save v8).  A save without the field predates trainers: the player's character is grandfathered
         # with every rank their level already allows; companions stay level-based.
+        # Restore the persistent form/toggle before the final stat
+        # recalculation, so the form's stat_mods are folded back in rather
+        # than the character being rebuilt in its humanoid shape. Both are
+        # read through getattr-with-default elsewhere, so an older save
+        # without these keys loads exactly as it did before.
+        saved_form = data.get("current_form")
+        if saved_form:
+            char.current_form = saved_form
+        if data.get("guardian_stance_active"):
+            char.guardian_stance_active = True
+        if saved_form or data.get("guardian_stance_active"):
+            char._recalculate_derived_stats()
+
         if "training_enabled" in data:
             char.training_enabled = bool(data["training_enabled"])
             char.trained_ranks = {k: int(v) for k, v in data.get("trained_ranks", {}).items()}
