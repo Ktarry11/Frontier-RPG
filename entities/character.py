@@ -707,7 +707,26 @@ class Character(StatusEffectMixin):
         # Pass the current form down so form-gated talents (TalentNode.
         # require_form) only contribute while that form is active - a Cat Form
         # mastery must do nothing in Bear Form.
-        active_form = getattr(self, "current_form", None)
+        # A STANCE COUNTS AS A FORM FOR TALENT GATING, same as it already
+        # does for ABILITY gating. abilities.py:812 resolves an ability's
+        # requires_form against `current_form or current_stance`, but this
+        # passed current_form ALONE - so an ability could be stance-gated
+        # and a talent could not, and a talent authored "while in Berserker
+        # Stance" silently did nothing for a Warrior, whose current_form is
+        # always None.
+        #
+        # Found while building Fury's Improved Berserker Stance ("+20%
+        # Strength and -10% threat while in Berserker Stance", a real
+        # 3.3.5a talent) - the node loaded, the audit passed, and
+        # strength_pct measured 0 in every stance including the right one.
+        #
+        # Purely additive: before this change exactly one talent in the
+        # project gated on a stance id, and it is that new node. Every
+        # other require_form value in use is a shapeshift (shadowform,
+        # moonkin, cat, bear/dire_bear), which current_form still serves
+        # first.
+        active_form = (getattr(self, "current_form", None)
+                       or getattr(self, "current_stance", None))
         for tree in getattr(self, "talent_trees", {}).values():
             for key, value in tree.get_total_effects(active_form).items():
                 if isinstance(value, (int, float)):

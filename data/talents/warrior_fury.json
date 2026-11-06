@@ -1,7 +1,7 @@
 {
   "spec_name": "Warrior Fury",
   "tree_id": "warrior_fury",
-  "description": "Dual-wielding berserker who trades defense for relentless damage.",
+  "description": "Two-weapon frenzy - rage, haste and relentless aggression.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -13,74 +13,126 @@
   },
   "nodes": [
     {
-      "talent_id": "warrior_fury_booming_voice",
-      "name": "Booming Voice",
-      "description": "Increases the duration of Battle Shout and Demoralizing Shout by 1 turn per rank.",
+      "talent_id": "warrior_fury_armored_to_the_teeth",
+      "name": "Armored to the Teeth",
+      "description": "Increases your attack power by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
+      "hex_y": -6,
+      "effects": {
+        "attack_power_pct": 1.0
+      },
+      "_source": "WotLK row 0: 'Increases your attack power by 1/2/3 for every 108 armor value you have.' DEPARTURE - armour is not a STAT_CONVERSION_SOURCE, so attack power cannot be derived from it; the sources are strength, agility, intellect, spirit, stamina, ap, attack_power, spell_power, weapon and str_int. Delivered as flat attack power instead. The outgoing version was armor_pct, which is the input side of the real talent rather than its output.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "warrior_fury_booming_voice",
+      "name": "Booming Voice",
+      "description": "Increases the duration of your Battle Shout and Demoralizing Shout by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 0,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
         "ability_warrior_battle_shout_duration": 1,
         "ability_warrior_demoralizing_shout_duration": 1
       },
-      "connected_to": [
-        "warrior_fury_improved_cleave"
-      ]
+      "_source": "WotLK row 0: 'Increases the area of effect and duration of your Battle Shout, Demoralizing Shout and Commanding Shout by 25%/50%.' Area of effect has no meaning here and Commanding Shout does not exist. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
+      "connected_to": []
     },
     {
       "talent_id": "warrior_fury_cruelty",
       "name": "Cruelty",
-      "description": "Increases your physical critical strike chance by 1% per rank.",
+      "description": "Increases your critical strike chance by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 2,
       "hex_y": -6,
       "effects": {
         "crit_chance_physical": 1.0
       },
+      "_source": "WotLK row 0: 'Increases your chance to get a critical strike with melee weapons by 5%' over 5 ranks. Built verbatim, weapon gate dropped. Kept from the outgoing tree.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "warrior_fury_improved_cleave",
+      "name": "Improved Cleave",
+      "description": "Increases the damage of your Cleave by 15% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -4,
+      "effects": {
+        "ability_warrior_cleave_damage": 0.15
+      },
+      "_source": "WotLK row 1: 'Increases the bonus damage done by your Cleave ability by 40%/80%/120%.' DEPARTURE in magnitude - the real talent scales Cleave's flat BONUS damage component, which this engine does not model separately from the ability's damage, so authoring 40% per rank would be a 120% increase to the whole ability. 15% per rank reaching 45% is the conservative reading. Kept from the outgoing tree at the same value.",
       "connected_to": [
-        "warrior_fury_piercing_howl"
+        "warrior_fury_armored_to_the_teeth"
       ]
     },
     {
       "talent_id": "warrior_fury_improved_demoralizing_shout",
       "name": "Improved Demoralizing Shout",
-      "description": "Increases the potency of Demoralizing Shout by 10% per rank.",
+      "description": "Increases the attack-power reduction of your Demoralizing Shout by 8% per rank.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
+      "tier": 1,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": -3,
+      "hex_y": -4,
       "effects": {
-        "ability_warrior_demoralizing_shout_potency": 0.1
+        "ability_warrior_demoralizing_shout_potency": 0.08
       },
+      "_source": "WotLK row 1: 'Increases the melee attack power reduction of your Demoralizing Shout by 8%-40%.' Built verbatim at the real 8% per rank over the real 5 ranks; the outgoing version was 3 ranks of 10%. ability_<id>_potency scales the ability's own stat_mods, which is exactly what this needs.",
       "connected_to": [
-        "warrior_fury_blood_craze"
+        "warrior_fury_armored_to_the_teeth"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_piercing_howl",
+      "name": "Piercing Howl",
+      "description": "Increases the duration of your Intimidating Shout by 1 turn.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": -4,
+      "effects": {
+        "ability_warrior_intimidating_shout_duration": 1
+      },
+      "_source": "WotLK row 1: 'Causes all enemies within 10 yards to be Dazed, reducing movement speed by 50% for 6 sec.' DEPARTURE - no daze, no movement speed, no radius. Delivered as duration on the warrior's actual fear/crowd-control shout, which is the nearest thing in the kit. Kept from the outgoing tree.",
+      "connected_to": [
+        "warrior_fury_booming_voice"
       ]
     },
     {
       "talent_id": "warrior_fury_unbridled_wrath",
       "name": "Unbridled Wrath",
-      "description": "Your weapon swings have a 15% chance per rank to generate 5 Rage.",
+      "description": "Your swings have a 10% chance per rank to generate 5 Rage.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
+      "tier": 1,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
+      "hex_x": 1,
+      "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Gives you a chance to generate an additional rage point when you deal melee damage with a weapon.' Built as the real mechanic. One rage is beneath notice against a 100-point pool, so the amount is 5 and the chance carries the rank curve to 50%. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warrior_fury_commanding_presence"
+        "warrior_fury_booming_voice"
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 15,
+        "chance": 10,
         "icd": 0,
         "grant_resource": {
           "resource": "rage",
@@ -89,108 +141,92 @@
       }
     },
     {
-      "talent_id": "warrior_fury_improved_cleave",
-      "name": "Improved Cleave",
-      "description": "Increases the damage of Cleave by 15% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": -4,
-      "effects": {
-        "ability_warrior_cleave_damage": 0.15
-      },
-      "connected_to": [
-        "warrior_fury_booming_voice",
-        "warrior_fury_dual_wield_specialization"
-      ]
-    },
-    {
-      "talent_id": "warrior_fury_piercing_howl",
-      "name": "Piercing Howl",
-      "description": "Increases the duration of Intimidating Shout by 1 turn and reduces its cooldown by 2 turns.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
-      "effects": {
-        "ability_warrior_intimidating_shout_duration": 1,
-        "ability_warrior_intimidating_shout_cooldown": 2
-      },
-      "connected_to": [
-        "warrior_fury_cruelty",
-        "warrior_fury_improved_execute"
-      ]
-    },
-    {
       "talent_id": "warrior_fury_blood_craze",
       "name": "Blood Craze",
-      "description": "Being struck has a 20% chance per rank to heal you for 60.",
+      "description": "Being struck has a 33% chance per rank to regenerate health over 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": -4,
       "effects": {},
+      "_source": "WotLK row 1: 'Regenerates 2%/4%/6% of your total Health over 6 sec after being the victim of a critical strike.' DEPARTURE on the trigger - there is no on-crit-TAKEN event, only on_damage_taken, so icd 1 keeps it to once a turn rather than firing on everything. A proc-applied hot states PER-TURN healing as `potency`, and percentage-of-health healing is not available to a proc payload, so 25 a turn over 3 turns (6 seconds) is a flat equivalent. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warrior_fury_improved_demoralizing_shout",
-        "warrior_fury_enrage"
+        "warrior_fury_cruelty"
       ],
       "proc": {
         "trigger": "on_damage_taken",
-        "chance": 20,
+        "chance": 33,
         "icd": 1,
-        "heal_flat": 60
+        "apply_effect": {
+          "effect_id": "blood_craze",
+          "name": "Blood Craze",
+          "effect_type": "hot",
+          "duration": 3,
+          "potency": 25,
+          "on_target": false
+        }
       }
     },
     {
       "talent_id": "warrior_fury_commanding_presence",
       "name": "Commanding Presence",
-      "description": "Increases the potency of your Battle Shout by 8% per rank.",
+      "description": "Increases the attack power your Battle Shout grants by 5% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": 5,
       "hex_y": -4,
       "effects": {
-        "ability_warrior_battle_shout_potency": 0.08
+        "ability_warrior_battle_shout_potency": 0.05
       },
+      "_source": "WotLK row 1: 'Increases the melee attack power bonus of your Battle Shout and the health bonus of your Commanding Shout by 5%-25%.' Commanding Shout does not exist. Built verbatim for Battle Shout; kept from the outgoing tree, corrected from 8% to the real 5% per rank.",
       "connected_to": [
-        "warrior_fury_unbridled_wrath",
-        "warrior_fury_precision"
+        "warrior_fury_cruelty"
       ]
     },
     {
       "talent_id": "warrior_fury_dual_wield_specialization",
       "name": "Dual Wield Specialization",
-      "description": "Your weapon swings have an 8% chance per rank to grant an immediate extra attack.",
+      "description": "Your two-weapon fighting increases all your damage by 1% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
       "cost_per_point": 1,
+      "hex_x": -5,
+      "hex_y": -2,
+      "effects": {
+        "all_damage": 0.01
+      },
+      "_source": "WotLK row 2: 'Increases the damage done by your offhand weapon by 5%-25%.' DEPARTURE - there is no off-hand in this engine and no off-hand damage key. An off-hand carries roughly a third of a dual-wielder's damage, so +25% off-hand is on the order of +8% total; 1% per rank reaching 5% is deliberately UNDER that, because the conversion is an estimate. The outgoing version was a proc.",
+      "connected_to": [
+        "warrior_fury_improved_cleave"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_precision",
+      "name": "Precision",
+      "description": "Increases your chance to hit by 1% per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 3,
+      "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
-      "effects": {},
+      "effects": {
+        "hit_rating": 1.0
+      },
+      "_source": "WotLK row 2: 'Increases your chance to hit with melee weapons by 1%/2%/3%.' Built verbatim and kept from the outgoing tree. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET - it can be granted directly but never converted into from another stat.",
       "connected_to": [
-        "warrior_fury_improved_cleave",
-        "warrior_fury_flurry"
-      ],
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 8,
-        "icd": 1,
-        "extra_attack": 1
-      }
+        "warrior_fury_improved_demoralizing_shout"
+      ]
     },
     {
       "talent_id": "warrior_fury_improved_execute",
       "name": "Improved Execute",
-      "description": "Reduces the Rage cost of Execute by 3 per rank and increases its damage by 8% per rank.",
+      "description": "Reduces the Rage cost of your Execute by 2 per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -198,230 +234,195 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_warrior_execute_cost": 3,
-        "ability_warrior_execute_damage": 0.08
+        "ability_warrior_execute_cost": 2
       },
+      "_source": "WotLK row 2: 'Reduces the rage cost of your Execute ability by 2/5.' Built at 2 per rank, reaching 4 against the real 5. Kept from the outgoing tree.",
       "connected_to": [
-        "warrior_fury_piercing_howl",
-        "warrior_fury_bloodthirst"
+        "warrior_fury_piercing_howl"
       ]
     },
     {
-      "talent_id": "warrior_fury_enrage",
-      "name": "Enrage",
-      "description": "Being struck has a 20% chance per rank to Enrage you, granting 60 Attack Power for 3 turns.",
+      "talent_id": "warrior_fury_death_wish",
+      "name": "Death Wish",
+      "description": "Your Berserker Rage now also increases your physical damage by 20% while increasing damage taken by 5%.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 2, NEW to our tree: 'When activated you become enraged, increasing your physical damage by 20% but increasing all damage taken by 5%. Lasts 30 sec.' DEPARTURE - there is no warrior_death_wish ability to unlock, so it rides Berserker Rage, the ability it most resembles. Both real numbers are kept. MIND THE UNITS: physical_damage is a FRACTION (0.20) while damage_taken_pct inside a status stat_mods is PERCENTAGE POINTS (5.0) - mixed conventions in one dict, which audit_talents is the only reliable check for. It is also Bloodthirst's prerequisite in the real tree, preserved below.",
       "connected_to": [
-        "warrior_fury_blood_craze",
-        "warrior_fury_improved_whirlwind"
+        "warrior_fury_unbridled_wrath"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
-        "icd": 1,
+        "trigger": "on_cast",
+        "chance": 100,
+        "icd": 0,
+        "ability_filter": [
+          "warrior_berserker_rage"
+        ],
         "apply_effect": {
-          "effect_id": "enrage",
-          "name": "Enrage",
+          "effect_id": "death_wish",
+          "name": "Death Wish",
           "effect_type": "buff",
           "duration": 3,
           "stat_mods": {
-            "attack_power": 60
+            "physical_damage": 0.2,
+            "damage_taken_pct": 0.05
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "warrior_fury_precision",
-      "name": "Precision",
-      "description": "Increases your hit chance by 1% per rank.",
+      "talent_id": "warrior_fury_enrage",
+      "name": "Enrage",
+      "description": "Being struck has a 6% chance per rank to enrage you, increasing all your damage by 10% for 4 turns.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -2,
-      "effects": {
-        "hit_rating": 1.0
-      },
+      "effects": {},
+      "_source": "WotLK row 2: 'Gives you a 6%-30% chance to receive a 10% damage bonus for 12 sec after being the victim of a damaging attack. This effect does not stack with Wrecking Crew.' Built verbatim including the real 6%-per-rank curve to 30%, the real 10%, and the real 12 seconds (4 turns). THE NON-STACKING CLAUSE IS REAL AND NOW ENFORCED: both this and Arms' Wrecking Crew carry exclusive_group 'warrior_enrage', so applying either drops the other (status_effects.py:717) - the same one-at-a-time mechanism the Tinker's ammo rounds use. The outgoing version was a proc with no exclusivity, so an Arms/Fury hybrid could hold both.",
       "connected_to": [
-        "warrior_fury_commanding_presence",
-        "warrior_fury_armored_to_the_teeth"
-      ]
+        "warrior_fury_blood_craze"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 6,
+        "icd": 0,
+        "apply_effect": {
+          "effect_id": "enrage",
+          "name": "Enrage",
+          "effect_type": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "all_damage": 0.1
+          },
+          "exclusive_group": "warrior_enrage",
+          "on_target": false
+        }
+      }
     },
     {
-      "talent_id": "warrior_fury_bloodthirst",
-      "name": "Bloodthirst",
-      "description": "Grants Bloodthirst, an instant attack that scales with Attack Power.",
-      "node_type": "active",
-      "tier": 3,
-      "max_points": 1,
+      "talent_id": "warrior_fury_improved_intercept",
+      "name": "Improved Intercept",
+      "description": "Reduces the cooldown of your Intercept by 1 turn per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
+      "hex_x": 5,
+      "hex_y": -2,
       "effects": {
-        "unlock_ability": "warrior_bloodthirst"
+        "ability_warrior_intercept_cooldown": 1
       },
+      "_source": "WotLK row 2, NEW to our tree: 'Reduces the cooldown of your Intercept ability by 5/10 sec.' ability_<id>_cooldown is FLAT turns; 10 seconds re-derives as 2 turns over 2 ranks.",
       "connected_to": [
-        "warrior_fury_improved_execute",
-        "warrior_fury_rampage"
+        "warrior_fury_commanding_presence"
       ]
     },
     {
-      "talent_id": "warrior_fury_improved_whirlwind",
-      "name": "Improved Whirlwind",
-      "description": "Increases the damage of Whirlwind by 12% per rank and reduces its cooldown by 1 turn per rank.",
+      "talent_id": "warrior_fury_improved_berserker_rage",
+      "name": "Improved Berserker Rage",
+      "description": "Your Berserker Rage generates 20 Rage.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -2,
       "hex_y": 0,
-      "effects": {
-        "ability_warrior_whirlwind_damage": 0.12,
-        "ability_warrior_whirlwind_cooldown": 1
-      },
+      "effects": {},
+      "_source": "WotLK row 3, NEW to our tree: 'The Berserker Rage ability will generate 10/20 rage when used.' Built as the real mechanic with the real 20 rage; the chance carries the rank curve to 100% because a proc's payload does not scale with points. A talent cannot modify an ability's own `generates` block, and rage_generation_pct is dead data.",
       "connected_to": [
-        "warrior_fury_enrage",
-        "warrior_fury_bloodsurge"
-      ]
-    },
-    {
-      "talent_id": "warrior_fury_armored_to_the_teeth",
-      "name": "Armored to the Teeth",
-      "description": "Increases your total Armor by 2% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
-      "effects": {
-        "armor_pct": 2.0
-      },
-      "connected_to": [
-        "warrior_fury_precision",
-        "warrior_fury_intensify_rage"
-      ]
+        "warrior_fury_dual_wield_specialization"
+      ],
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 50,
+        "icd": 0,
+        "ability_filter": [
+          "warrior_berserker_rage"
+        ],
+        "grant_resource": {
+          "resource": "rage",
+          "amount": 20
+        }
+      }
     },
     {
       "talent_id": "warrior_fury_flurry",
       "name": "Flurry",
-      "description": "Your critical strikes have a 20% chance per rank to grant Flurry, increasing your haste by 20% for 2 turns.",
+      "description": "Your critical strikes have a 20% chance per rank to quicken your attacks by 25% for 2 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 0,
       "hex_y": 0,
       "effects": {},
+      "_source": "WotLK row 3: 'Increases your attack speed by 5%-25% for your next 3 swings after dealing a melee critical strike.' Built with the real 25% at full rank. 'Next 3 swings' is not expressible - nothing counts swings or consumes a buff on use - so it is a 2-turn window instead. Ranked by chance because a proc's payload does not scale. haste inside status stat_mods is PERCENTAGE POINTS. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warrior_fury_dual_wield_specialization"
+        "warrior_fury_enrage"
       ],
       "proc": {
         "trigger": "on_crit",
         "chance": 20,
         "icd": 0,
         "apply_effect": {
-          "effect_id": "warrior_flurry",
+          "effect_id": "flurry",
           "name": "Flurry",
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "haste": 20.0
+            "haste": 25
           },
           "on_target": false
         }
       }
     },
     {
-      "talent_id": "warrior_fury_rampage",
-      "name": "Rampage",
-      "description": "Increases your physical critical strike chance by 4%.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
-      "effects": {
-        "crit_chance_physical": 4.0
-      },
-      "connected_to": [
-        "warrior_fury_bloodthirst",
-        "warrior_fury_furious_attacks"
-      ]
-    },
-    {
-      "talent_id": "warrior_fury_bloodsurge",
-      "name": "Bloodsurge",
-      "description": "Your Bloodthirst has a 20% chance per rank to generate 15 Rage.",
+      "talent_id": "warrior_fury_intensify_rage",
+      "name": "Intensify Rage",
+      "description": "Reduces the cooldown of your Bloodrage, Berserker Rage and Recklessness by 1 turn per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 2,
-      "effects": {},
-      "connected_to": [
-        "warrior_fury_improved_whirlwind",
-        "warrior_fury_bloodbath"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 20,
-        "icd": 0,
-        "ability_filter": [
-          "warrior_bloodthirst"
-        ],
-        "grant_resource": {
-          "resource": "rage",
-          "amount": 15
-        }
-      }
-    },
-    {
-      "talent_id": "warrior_fury_intensify_rage",
-      "name": "Intensify Rage",
-      "description": "Reduces the cooldown of Berserker Rage by 1 turn per rank and Recklessness by 2 turns per rank.",
-      "node_type": "passive",
-      "tier": 4,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": 2,
       "effects": {
+        "ability_warrior_bloodrage_cooldown": 1,
         "ability_warrior_berserker_rage_cooldown": 1,
-        "ability_warrior_recklessness_cooldown": 2
+        "ability_warrior_recklessness_cooldown": 1
       },
+      "_source": "WotLK row 4: 'Reduces the cooldown of your Bloodrage, Berserker Rage, Recklessness and Death Wish abilities by 11%/22%/33%.' All three real abilities that exist here are covered; Death Wish is a talent rather than an ability in our build. Authored as FLAT turns rather than the real percentage because _cooldown_pct would compound awkwardly across three different cooldowns. The outgoing version covered two of the three.",
       "connected_to": [
-        "warrior_fury_armored_to_the_teeth"
+        "warrior_fury_improved_berserker_rage"
       ]
     },
     {
       "talent_id": "warrior_fury_furious_attacks",
       "name": "Furious Attacks",
-      "description": "Your weapon swings have a 15% chance per rank to rip at the target's armor, reducing it by 200 for 3 turns.",
+      "description": "Your swings have a 25% chance per rank to reduce healing on the target by 25% for 3 turns.",
       "node_type": "passive",
-      "tier": 5,
+      "tier": 4,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
+      "hex_x": -2,
+      "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 4: 'Your normal melee attacks have a chance to reduce all healing done to the target by 25% for 10 sec. This can stack up to 2 times.' Built with the real 25% and the real 10 seconds (3 turns). Stacking is dropped - max_stacks exists on StatusEffect but nothing in this engine READS a stack count, so a 2-stack version would be indistinguishable from a 1-stack one. healing_taken_pct is one of the eight stat_mods a MONSTER can actually read, and inside a status effect it is PERCENTAGE POINTS. Kept as a proc from the outgoing tree.",
       "connected_to": [
-        "warrior_fury_rampage",
-        "warrior_fury_titans_grip"
+        "warrior_fury_improved_berserker_rage"
       ],
       "proc": {
         "trigger": "on_weapon_swing",
-        "chance": 15,
+        "chance": 25,
         "icd": 0,
         "apply_effect": {
           "effect_id": "furious_attacks",
@@ -429,83 +430,170 @@
           "effect_type": "debuff",
           "duration": 3,
           "stat_mods": {
-            "armor": -200
-          },
-          "on_target": true
+            "healing_taken_pct": -25.0
+          }
         }
       }
     },
     {
-      "talent_id": "warrior_fury_bloodbath",
-      "name": "Bloodbath",
-      "description": "Your Bloodthirst has a 34% chance per rank to heal you for 70.",
+      "talent_id": "warrior_fury_bloodthirst",
+      "name": "Bloodthirst",
+      "description": "Teaches Bloodthirst, a strike that feeds on the wounds it opens.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "warrior_bloodthirst"
+      },
+      "_source": "WotLK row 4, kept - the ONLY unlock for warrior_bloodthirst, which is requires_talent. The real talent requires Death Wish, which connected_to reproduces.",
+      "connected_to": [
+        "warrior_fury_death_wish"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_whirlwind",
+      "name": "Improved Whirlwind",
+      "description": "Increases the damage of your Whirlwind by 10% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "ability_warrior_whirlwind_damage": 0.1
+      },
+      "_source": "WotLK row 4: 'Increases the damage of your Whirlwind ability by 10%/20%.' Built verbatim; kept from the outgoing tree, corrected from 12% to the real 10% per rank.",
+      "connected_to": [
+        "warrior_fury_flurry"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_improved_berserker_stance",
+      "name": "Improved Berserker Stance",
+      "description": "While in Berserker Stance, increases your Strength by 4% per rank and reduces your threat by 2% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "strength_pct": 4.0,
+        "threat_generation_pct": -0.02
+      },
+      "_source": "WotLK row 4, NEW to our tree: 'Increases Strength by 4%-20% and reduces threat caused by 2%-10% while in Berserker Stance.' BUILT WITH THE REAL STANCE CONDITION, which makes this the first talent in the project to use require_form for a STANCE rather than a shapeshift. A talent's require_form is checked against both current_form and current_stance (abilities.py:812), and combat/stances.py defines battle/defensive/berserker, so 'while in Berserker Stance' is expressible exactly as written instead of being dropped or made unconditional. strength_pct is PERCENTAGE POINTS (read at character.py:1262 off `bonuses`, divided by 100) and threat_generation_pct is a FRACTION.",
+      "connected_to": [
+        "warrior_fury_flurry"
+      ],
+      "require_form": "berserker"
+    },
+    {
+      "talent_id": "warrior_fury_heroic_fury",
+      "name": "Heroic Fury",
+      "description": "Being struck resets the cooldown of your Intercept.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -3,
+      "hex_y": 4,
+      "effects": {},
+      "_source": "WotLK row 5, NEW to our tree: 'Removes any Immobilization effects and refreshes the cooldown of your Intercept ability.' The Intercept reset is real and built with reset_cooldown (status_effects.py:1207). Immobilisation does not exist to remove. DEPARTURE on the trigger - the real talent is an activated ability and we have none, so it fires reactively with icd 5 to keep it a cooldown rather than a permanent reset.",
+      "connected_to": [
+        "warrior_fury_intensify_rage"
+      ],
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 100,
+        "icd": 5,
+        "reset_cooldown": "warrior_intercept"
+      }
+    },
+    {
+      "talent_id": "warrior_fury_rampage",
+      "name": "Rampage",
+      "description": "Increases your critical strike chance by 5%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -1,
+      "hex_y": 4,
+      "effects": {
+        "crit_chance_physical": 5.0
+      },
+      "_source": "WotLK row 5: 'Increases ranged and melee critical hit chance of all party and raid members within 100 yds by 5%.' DEPARTURE - A TALENT EFFECT CAN NEVER REACH AN ALLY in this engine; only a party-targeted ABILITY can (abilities.py:2064). So the real 5% applies to the warrior alone. Kept from the outgoing tree, which was 4%. The real talent requires Bloodthirst, which connected_to reproduces.",
+      "connected_to": [
+        "warrior_fury_bloodthirst"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_unending_fury",
+      "name": "Unending Fury",
+      "description": "Increases the damage of your Whirlwind and Bloodthirst by 2% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 1,
+      "hex_y": 4,
+      "effects": {
+        "ability_warrior_whirlwind_damage": 0.02,
+        "ability_warrior_bloodthirst_damage": 0.02
+      },
+      "_source": "WotLK row 5, NEW to our tree: 'Increases the damage done by your Slam, Whirlwind and Bloodthirst abilities by 2%-10%.' Slam does not exist; the other two are built verbatim at the real 2% per rank.",
+      "connected_to": [
+        "warrior_fury_bloodthirst"
+      ]
+    },
+    {
+      "talent_id": "warrior_fury_bloodsurge",
+      "name": "Bloodsurge",
+      "description": "Your Heroic Strike, Bloodthirst and Whirlwind have a 20% chance per rank to grant an extra attack.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 3,
       "hex_y": 4,
       "effects": {},
+      "_source": "WotLK row 5: 'Your Heroic Strike, Bloodthirst, and Whirlwind hits have a 7%/13%/20% chance of making your next Slam instant for 5 sec.' DEPARTURE - there is no Slam ability and no cast-time system, so 'makes your next Slam instant' has nothing to act on. The real ability list is kept exactly and the payoff becomes an extra attack, which is the nearest thing to a free follow-up swing. extra_attack is a BOOLEAN. The real talent requires Bloodthirst, reproduced.",
       "connected_to": [
-        "warrior_fury_bloodsurge",
-        "warrior_fury_fury_mastery"
+        "warrior_fury_bloodthirst"
       ],
       "proc": {
         "trigger": "on_cast",
-        "chance": 34,
+        "chance": 20,
         "icd": 0,
         "ability_filter": [
-          "warrior_bloodthirst"
+          "warrior_heroic_strike",
+          "warrior_bloodthirst",
+          "warrior_whirlwind"
         ],
-        "heal_flat": 70
+        "extra_attack": true
       }
     },
     {
       "talent_id": "warrior_fury_titans_grip",
       "name": "Titan's Grip",
-      "description": "Increases your Attack Power by 8%.",
-      "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "attack_power_pct": 8.0
-      },
-      "connected_to": [
-        "warrior_fury_furious_attacks"
-      ]
-    },
-    {
-      "talent_id": "warrior_fury_fury_mastery",
-      "name": "Wrecking Crew",
-      "description": "Wrecking Crew - your critical strikes grant 10% increased damage dealt for 3 turns.",
+      "description": "Increases your attack power by 8%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 6,
-      "effects": {},
+      "effects": {
+        "attack_power_pct": 8.0
+      },
+      "_source": "WotLK row 10, the capstone: 'Allows you to equip two-handed axes, maces and swords in one hand. While you have a two-handed weapon equipped in one hand, your physical damage done is reduced by 10%.' DEPARTURE - there are no weapon slots or weapon classes to change, so the real talent's entire mechanism is absent. Its PURPOSE is a large damage gain bought with a penalty; delivered as flat attack power. Kept from the outgoing tree at the same value. attack_power_pct is PERCENTAGE POINTS.",
       "connected_to": [
-        "warrior_fury_bloodbath"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 100,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "wrecking_crew",
-          "name": "Wrecking Crew",
-          "effect_type": "buff",
-          "duration": 3,
-          "stat_mods": {
-            "damage_dealt_pct": 10
-          },
-          "on_target": false
-        }
-      }
+        "warrior_fury_unending_fury"
+      ]
     }
   ]
 }
