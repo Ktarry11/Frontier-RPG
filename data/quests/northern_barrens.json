@@ -3,7 +3,7 @@
     {
       "quest_id": "taurajo_centaur_wind",
       "title": "Centaur on the Wind",
-      "description": "Scout Ashhoof has watched the Kolkar raiding parties grow bolder along the eastern approach to Camp Taurajo. They strike the road near Far Watch Post, hit fast, and scatter before a proper warband can answer. She wants their numbers thinned before it becomes a real problem instead of a nuisance.",
+      "description": "Scout Ashhoof. Walk with me, I don't like standing where the road can see us.\n\nThe Kolkar raiding parties along the eastern approach have grown bolder every week this season, and I can put a date on when it started.\n\nHere's what makes them hard. They strike the road near Far Watch Post, they hit fast, and they're scattered before a proper warband can even form up - never mind ride out.\n\nSo we've never fought them. Not once. We've only ever arrived afterward.\n\nAnd a war you only ever arrive after is one you're losing on a schedule somebody else sets.\n\nI want their numbers thinned while this is still a nuisance.\n\nThey ride in small bands out past Far Watch Post. Hit a wagon, hit a scout, vanish.\n\nThin them and maybe they'll think twice before the next one. Maybe. I'd not promise it.",
       "giver_npc_id": "taurajo_warband_scout",
       "zone": "camp_taurajo",
       "objectives": [
@@ -16,8 +16,8 @@
       ],
       "reward_exp": 950,
       "reward_gold": 4000,
-      "accept_text": "Eight of them, out past Far Watch Post. They ride in small bands, hit a wagon or a scout, and vanish before we can pin them down. Thin their numbers and maybe they'll think twice before the next raid.",
-      "turn_in_text": "Eight down. Good. The road's quieter already, though I doubt it'll stay that way for long. Kolkar don't give up territory easy.",
+      "accept_text": "Out past Far Watch Post, along the eastern road.",
+      "turn_in_text": "Good. The road's quieter already.\n\nThough I doubt it stays that way for long. Kolkar don't give up territory easy, and I'd think less of them if they did.",
       "next_quest_id": "taurajo_scout_outposts",
       "level_min": 12,
       "level_max": 15,
@@ -43,7 +43,7 @@
     {
       "quest_id": "taurajo_scout_outposts",
       "title": "Scout the Outposts",
-      "description": "With the raiders thinned near Far Watch Post, Scout Ashhoof wants eyes on the outpost itself - Camp Taurajo needs to know it's still standing and still Horde.",
+      "description": "Raiders are thinned. Now I want eyes on the Post itself.\n\nFar Watch sits east, right where the road bends toward Durotar.\n\nAnd I'll be honest with you about why I'm asking rather than sending a runner: it's been eleven days since anything came down that road from them.\n\nThat's not alarming on its own. Kelsara runs a quiet post and she's never been one to send word for the sake of it.\n\nIt's eleven days in a season where the Kolkar have been doing exactly what they've been doing.\n\nSo I'd like somebody to stand in it and look at it. Not ask after it. Stand in it.\n\nCamp Taurajo needs to know the Post is still standing and still ours, and those are two separate questions, and the second one is the one I'm actually asking.",
       "giver_npc_id": "taurajo_warband_scout",
       "zone": "camp_taurajo",
       "objectives": [
@@ -57,8 +57,8 @@
       ],
       "reward_exp": 800,
       "reward_gold": 3000,
-      "accept_text": "Far Watch Post sits east, right where the road bends toward Durotar. Walk it yourself - I want to know it's still standing, still ours.",
-      "turn_in_text": "Still standing. Good. Outrider Kelsara's holding that post with fewer grunts than I'd like, but she's holding it.",
+      "accept_text": "Far Watch Post, east where the road bends toward Durotar.",
+      "turn_in_text": "Still standing. Good.\n\nOutrider Kelsara's holding that post with fewer grunts than I'd like.\n\nBut she's holding it, and I'd rather have her with four than most captains with twenty.",
       "next_quest_id": "taurajo_outriders_warning",
       "level_min": 12,
       "level_max": 14
@@ -66,7 +66,7 @@
     {
       "quest_id": "taurajo_outriders_warning",
       "title": "The Outriders' Warning",
-      "description": "Word from Far Watch Post is grim - the Kolkar aren't just raiding anymore, they're massing near Mor'shan Base Camp. Scout Ashhoof wants that buildup broken before it turns into a real assault on the checkpoint.",
+      "description": "Word's come down from Far Watch and it's worse than raiding.\n\nThe Kolkar are massing near Mor'shan Base Camp.\n\nNot gathering. Massing - which is a word I use carefully, and the difference is that a gathering disperses and a mass is waiting for something.\n\nAnd it's not just raiders out there now. Marauders too.\n\nThat's what changed my mind about this whole season. Raiders are opportunists and they go where the wagons are. Marauders don't move for wagons. They move for ground.\n\nSo somebody over there has decided the checkpoint is worth taking, and they've started putting the pieces in place to do it.\n\nBreak the buildup before it turns into a siege, because once it's a siege we're fighting on their timing again, and I've had a season of that.",
       "giver_npc_id": "taurajo_warband_scout",
       "zone": "camp_taurajo",
       "objectives": [
@@ -82,8 +82,8 @@
       ],
       "reward_exp": 1150,
       "reward_gold": 5500,
-      "accept_text": "Mor'shan Base Camp's seeing more Kolkar than usual, and not just raiders - Marauders too, which means they're serious about it. Break it up before it becomes a siege.",
-      "turn_in_text": "That's a real dent in their numbers. Warsong Outrider Dask owes you a drink, if orcs drank anything but blackrock ale.",
+      "accept_text": "Near Mor'shan Base Camp, where they're massing.",
+      "turn_in_text": "That's a real dent in their numbers.\n\nWarsong Outrider Dask owes you a drink - if orcs drank anything but blackrock ale, which they don't, and I've tried.",
       "level_min": 13,
       "level_max": 16,
       "gear_reward_gear_level": 14,
@@ -108,7 +108,7 @@
     {
       "quest_id": "taurajo_salvage_wagons",
       "title": "Salvage from the Wagons",
-      "description": "Grainkeeper Yura has lost more than one supply wagon to Kolkar raiders along the eastern road. She doesn't expect the wagons back, but the grain sacks the centaur scatter when they raid are still good, if someone's willing to collect them.",
+      "description": "Grainkeeper Yura. Mind the sacks, what's left of them.\n\nI've lost more than one supply wagon to the Kolkar along the eastern road this season. More than one is doing some work in that sentence and I'd rather not give you the figure.\n\nI don't expect the wagons back. A wagon's a wagon and it's gone.\n\nThe grain is a different matter.\n\nBecause the centaur don't take it. They scatter it - out of the wagon, across the road, and then they ride off and leave it lying there.\n\nThey don't eat grain, as far as anyone's established. They do that out of spite, and spite is wasteful, and waste is the thing I actually can't forgive out of all of it.\n\nThe sacks are still good. Dirty on the outside, fine underneath.\n\nBring back what you find, wherever you find it, and the camp eats a little better this week.",
       "giver_npc_id": "taurajo_provisioner",
       "zone": "camp_taurajo",
       "objectives": [
@@ -120,15 +120,15 @@
       ],
       "reward_exp": 850,
       "reward_gold": 3500,
-      "accept_text": "Kolkar don't eat grain, far as I know. They just scatter it when they hit a wagon, out of spite more than anything. Six sacks, wherever you find them, and the camp eats a little better this week.",
-      "turn_in_text": "Six sacks. Dirty, but the grain's fine underneath. The camp thanks you, even if the wagons don't.",
+      "accept_text": "Scattered along the eastern road, wherever the wagons were hit.",
+      "turn_in_text": "Dirty, but the grain's fine underneath. It usually is.\n\nThe camp thanks you, even if the wagons don't.",
       "level_min": 12,
       "level_max": 14
     },
     {
       "quest_id": "taurajo_carvers_materials",
       "title": "A Carver's Materials",
-      "description": "Carver Ahonen works centaur horn into totems when he can get it, though he won't say why he prefers it to plain wood. Kolkar Marauders carry sun-bleached horns worth collecting, if the Marauders can be convinced to part with them.",
+      "description": "Carver Ahonen. Don't move the shavings, they're sorted.\n\nI work centaur horn into totems when I can get it.\n\nI'm aware that's unusual. Plain wood is easier, it's closer, and nobody asks a question about a wooden totem.\n\nI'm not going to tell you why I prefer the horn.\n\n[He keeps working.]\n\nYou'll see it eventually. That's not me being difficult, it's that the answer is the finished thing and I'd rather it spoke for itself than have me speak for it badly.\n\nWhat I need is sun-bleached horn, and only the Marauders carry it. Not the Raiders - theirs is too young and it splits under the knife at the second cut.\n\nThe Marauders can occasionally be convinced to part with it.\n\nClean breaks, if you can manage. A cracked horn is a week of work that ends in a fire.",
       "giver_npc_id": "taurajo_totem_carver",
       "zone": "camp_taurajo",
       "objectives": [
@@ -140,8 +140,8 @@
       ],
       "reward_exp": 850,
       "reward_gold": 3500,
-      "accept_text": "Kolkar Marauders, not the Raiders - their horns are worth something, carved right. Five, and don't ask me what I'm making. You'll see it eventually.",
-      "turn_in_text": "Good horn. Clean break, no cracks. This'll carve into something worth having.",
+      "accept_text": "Off the Kolkar marauders - not the raiders, their horn's too young.",
+      "turn_in_text": "Good horn. Clean break, no cracks.\n\nThis'll carve into something worth having.\n\nCome back in a season and I'll show you what it was for.",
       "level_min": 13,
       "level_max": 15,
       "gear_reward_gear_level": 15,
@@ -163,7 +163,7 @@
     {
       "quest_id": "taurajo_old_grudges",
       "title": "Old Grudges",
-      "description": "Elder Longtread remembers a Barrens before the Kolkar pressed this far east. He's willing to talk about it, if someone's willing to listen.",
+      "description": "[The elder does not get up.]\n\nSit a while.\n\nYou're out there fighting the Kolkar - I've watched you come and go three times this week, and you've got the look of someone who's stopped asking why halfway through a job.\n\nYou might as well know why they fight us back.\n\nI remember a Barrens before they pressed this far east. Not a story I was told. A thing I walked in, as a young man, when this road went through country that belonged to nobody and we didn't think twice about it.\n\nThey remember it too. That's the part nobody at the camp wants said out loud.\n\nI'm not asking you to stop. The raids are real and the wagons are real and my own people are the ones dying on that road.\n\nI'm asking you to carry the whole of it rather than half.\n\nIt's easier to swing at a thing you've decided is simple. It is not simple and it never was.",
       "giver_npc_id": "taurajo_elder",
       "zone": "camp_taurajo",
       "objectives": [
@@ -178,15 +178,15 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "Sit a while. You're fighting the Kolkar out there - might as well know why they fight us back.",
-      "turn_in_text": "Now you understand it isn't just territory. It's memory, on both sides. That's worth carrying with you.",
+      "accept_text": "Sit with Elder Longtread a while.",
+      "turn_in_text": "Now you understand it isn't just territory.\n\nIt's memory, on both sides, and memory doesn't negotiate.\n\nThat's worth carrying with you. It'll make you worse company and better at the job.",
       "level_min": 14,
       "level_max": 16
     },
     {
       "quest_id": "taurajo_windhoofs_ledger",
       "title": "Windhoof's Ledger",
-      "description": "Hela Windhoof keeps Camp Taurajo's supply ledger, and the losses from Kolkar raids are piling up faster than she can write them off. She wants the raiding parties dealt with directly - enough to make a real dent in the numbers, not just a token thinning.",
+      "description": "Hela Windhoof. Quartermaster. I keep this camp's supply ledger and I'd like to show you a page of it.\n\nNo - actually, I won't. You'd take it the wrong way and I'd have to explain, and the explaining is the part I'm tired of.\n\nHere's the shape of it.\n\nThe losses from Kolkar raids are piling up faster than I can write them off. Not faster than we can replace - faster than I can RECORD. I am behind on my own arithmetic.\n\nThat's the figure that matters and nobody above me wants it in those words.\n\nSo I want the raiding parties dealt with directly. Properly. Enough to make a real dent and not the token thinning that lets everyone report progress.\n\nI know what I'm asking for and I know it's a lot.\n\nWhichever Kolkar you find - raider, marauder, drudge - it all counts against the same column.",
       "giver_npc_id": "taurajo_quartermaster",
       "zone": "camp_taurajo",
       "objectives": [
@@ -203,8 +203,8 @@
       ],
       "reward_exp": 1400,
       "reward_gold": 7000,
-      "accept_text": "Twelve. I know that's a lot to ask, but the ledger doesn't lie - we're losing more to raids than the camp can absorb. Whichever Kolkar you find, Raider, Marauder, Drudge, it all counts against the same problem.",
-      "turn_in_text": "Twelve down. The ledger breathes a little easier, and so do I. Thank you for this.",
+      "accept_text": "Wherever the Kolkar are raiding. Any of them count.",
+      "turn_in_text": "The ledger breathes a little easier, and so do I.\n\nI closed three columns this morning that have been open since spring.\n\nThank you for this.",
       "level_min": 15,
       "level_max": 18,
       "gear_reward_gear_level": 17,
@@ -229,7 +229,7 @@
     {
       "quest_id": "ratchet_trouble_coast",
       "title": "Trouble on the Coast",
-      "description": "Customs Officer Prynn has heard reports of pirate activity along Merchant Coast, north of Ratchet's usual patrol routes. She wants confirmation before she takes it to Gazlowe.",
+      "description": "Customs Officer Prynn. Don't lean on the rail, it's customs property and it's rotten.\n\nI've had reports of pirate activity along Merchant Coast, north of our usual patrol routes.\n\nNow - sailors talk. That's most of what sailors do between jobs and about a third of what they do during one, and if I filed a report on every set of sails somebody swore they saw, Gazlowe would stop reading my reports entirely.\n\nWhich is exactly the problem. I get one go at this.\n\nIf I take him fishermen's gossip and it's nothing, the next one I bring him - the real one - gets the same shrug.\n\nSo I need somebody to actually go and look before I put my name on anything.\n\nMerchant Coast, north of here.\n\nI want colours. Not sails. Colours, and whose they are, from somebody who was standing on the beach.",
       "giver_npc_id": "ratchet_customs_officer",
       "zone": "ratchet",
       "objectives": [
@@ -243,8 +243,8 @@
       ],
       "reward_exp": 800,
       "reward_gold": 3000,
-      "accept_text": "Merchant Coast, north of here. Sailors are talking about pirate sails again. I need someone to actually go look before I file a report that turns out to be fishermen's gossip.",
-      "turn_in_text": "So it's real. Southsea colors, you said? Gazlowe's not going to like hearing that.",
+      "accept_text": "Merchant Coast, north of Ratchet.",
+      "turn_in_text": "So it's real.\n\nSouthsea colours, you said?\n\nGazlowe is not going to like hearing that, and I am going to enjoy watching him not like it rather more than is professional.",
       "next_quest_id": "ratchet_cutting_supply_lines",
       "level_min": 12,
       "level_max": 14
@@ -252,7 +252,7 @@
     {
       "quest_id": "ratchet_cutting_supply_lines",
       "title": "Cutting the Supply Lines",
-      "description": "With pirate presence confirmed on Merchant Coast, Customs Officer Prynn wants their numbers cut down before they set up a permanent camp and start raiding Ratchet's shipping in earnest.",
+      "description": "Confirmed is confirmed, so now we move.\n\nAnd we move now specifically because they haven't finished.\n\nA pirate crew on a beach is a crew. Give them a season and it's a camp - huts, a fire pit, a reason to defend the place rather than sail off it - and then you're not chasing raiders, you're laying siege to neighbours.\n\nI've watched that happen twice on this coast. Once it took four years to undo.\n\nSo I want their numbers cut before they dig in and start raiding Ratchet's shipping in earnest, because at the moment they're robbing opportunistically and badly.\n\nThe brigands on Merchant Coast. Don't be gentle about it.\n\nEvery one you drop is one less problem for this port's trade, and I can put that in a report with a straight face.",
       "giver_npc_id": "ratchet_customs_officer",
       "zone": "ratchet",
       "objectives": [
@@ -265,15 +265,15 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "Eight Brigands, and don't be gentle about it. Every one you drop is one less problem for Ratchet's trade.",
-      "turn_in_text": "That'll slow them down. Won't stop them, but it'll slow them down, and right now I'll take it.",
+      "accept_text": "The Southsea brigands on Merchant Coast.",
+      "turn_in_text": "That'll slow them down. Won't stop them.\n\nBut it'll slow them, and this week I will take slower.",
       "level_min": 13,
       "level_max": 16
     },
     {
       "quest_id": "ratchet_silence_guns",
       "title": "Silence the Guns",
-      "description": "Fuzzek Boomwick doesn't like competition, and the Southsea Cannoneers dug in on Merchant Coast are exactly that - amateur artillery aimed at Ratchet's harbor. He wants them gone, partly for Ratchet's sake and partly out of professional pride.",
+      "description": "Fuzzek Boomwick. Mind the crates, mind the other crates, don't mind that smell.\n\nThe Southsea have dug cannoneers in on Merchant Coast and they are aiming at this harbour.\n\nI want to be straight with you about my motives, because there are two and they're not equal.\n\nThe first is Ratchet. That's real. Those are my neighbours and some of them owe me money.\n\nThe second is professional and it's the one keeping me up.\n\nThat is amateur artillery. I have watched them through a glass and their aim is terrible - genuinely, impressively terrible - and their powder is real.\n\nThose two facts in the same crew is how a harbour loses a warehouse by accident.\n\nI don't like anyone playing with explosives who isn't me, and I'd say that in front of a magistrate.\n\nThe cannoneers, on the coast. Gone.",
       "giver_npc_id": "ratchet_explosives_dealer",
       "zone": "ratchet",
       "objectives": [
@@ -286,8 +286,8 @@
       ],
       "reward_exp": 1150,
       "reward_gold": 5500,
-      "accept_text": "Cannoneers, on the coast. Their aim's terrible but their powder's real, and I don't like anyone playing with explosives who isn't me. Six of them, gone.",
-      "turn_in_text": "Six fewer amateurs with gunpowder. The harbor's safer, and so is my professional reputation.",
+      "accept_text": "The Southsea cannoneers dug in on Merchant Coast.",
+      "turn_in_text": "Fewer amateurs with gunpowder on my coastline.\n\nThe harbour's safer, and so is my professional reputation, and I'd struggle to rank those.",
       "level_min": 14,
       "level_max": 17,
       "gear_reward_gear_level": 17,
@@ -312,7 +312,7 @@
     {
       "quest_id": "ratchet_recovered_cargo",
       "title": "Recovered Cargo",
-      "description": "The Fence deals in things that fell off a ship, no questions asked - and the Southsea Brigands on Merchant Coast are sitting on strongboxes worth recovering, if someone's willing to take them by force.",
+      "description": "[The fence does not give a name and does not offer one.]\n\nI deal in things that fell off a ship.\n\nThat's the whole of the description and it's holding up in every port I've worked, and I'd encourage you not to improve on it.\n\nThe Southsea brigands on Merchant Coast are sitting on strongboxes.\n\nNow. Those came off ships. They fell off, in the sense that the ship is at the bottom of something and the box isn't.\n\nWhich makes them exactly the sort of goods I handle, and the brigands exactly the sort of previous owner I'm comfortable with.\n\nBring them to me still locked.\n\nThat part isn't negotiable and I'd rather say why than have you wonder: a locked box is a box nobody has to have an opinion about. Open one on that beach and suddenly there's a conversation, and conversations are how people end up in front of a customs officer.\n\nDon't ask what's inside. You wouldn't get a cut anyway.",
       "giver_npc_id": "ratchet_black_market_fence",
       "zone": "ratchet",
       "objectives": [
@@ -324,8 +324,8 @@
       ],
       "reward_exp": 900,
       "reward_gold": 4000,
-      "accept_text": "Strongboxes, off the Brigands on the coast. I don't care how you get them off their bodies, just bring me five, still locked.",
-      "turn_in_text": "Still locked, just how I like them. Don't ask what's inside. You wouldn't get a cut anyway.",
+      "accept_text": "Off the Southsea brigands on Merchant Coast. Still locked.",
+      "turn_in_text": "Still locked. Exactly how I like them.\n\nPleasure. Don't make it a habit and don't make it a story.",
       "level_min": 13,
       "level_max": 15,
       "gear_reward_gear_level": 15,
@@ -349,7 +349,7 @@
     {
       "quest_id": "ratchet_loose_lips",
       "title": "Loose Lips",
-      "description": "Smuggler Fintan hears things he probably shouldn't, and lately what he's hearing about the Southsea Freebooters' plans is making him nervous enough to actually share it.",
+      "description": "Keep your voice down and don't look at me while I'm talking.\n\nFintan. I move things through this port that other people would rather were moved quietly, and that means I spend a great deal of time standing near conversations I'm not part of.\n\nI hear things at the docks. Always have. It's the actual asset, more than the boat.\n\nWhat I've been hearing lately about the Southsea Freebooters has me looking over my shoulder on a street I've walked for nine years.\n\nI want to be clear that I'm not a brave man and I'm not pretending to be one now.\n\nI'm telling you because I've worked out that keeping it to myself is the more dangerous of the two options, and I only worked that out about two days ago.\n\nAsk me what you want to know. Quietly.\n\nAnd then let me go back to being a man who didn't say anything.",
       "giver_npc_id": "ratchet_smuggler",
       "zone": "ratchet",
       "objectives": [
@@ -364,15 +364,15 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "I hear things at the docks. Lately what I'm hearing has me looking over my shoulder more than usual. Ask me what you want to know, quietly.",
-      "turn_in_text": "That's everything I know, and now I'm going to pretend I never said any of it. Good luck out there.",
+      "accept_text": "Talk to Fintan at the docks. Quietly.",
+      "turn_in_text": "That's everything I know.\n\nAnd now I'm going to spend a considerable amount of effort pretending I never said any of it.\n\nGood luck out there. Don't come back to this spot.",
       "level_min": 13,
       "level_max": 16
     },
     {
       "quest_id": "ratchet_bounty_saltspray",
       "title": "Bounty: Captain Saltspray",
-      "description": "Bounty Hunter Drask has taken a contract on Captain Saltspray, the Southsea officer holding The Maiden's Dagger on Merchant Coast. The bounty's real, and so is the danger - Saltspray didn't get to captain by being careless.",
+      "description": "Drask. Bounty hunter, and before you ask - yes, it's a real contract, and no, I'm not telling you who wrote it.\n\nThe mark is Captain Saltspray. Southsea officer, holding the Maiden's Dagger on Merchant Coast.\n\nI'll give you my read for nothing, since you're going and I'm not.\n\nSaltspray is the thing holding that operation together. Not because he's good - I've watched him and he isn't, particularly - but because he's the only one on that beach with a rank the others recognise.\n\nTake the head off and the rest scatters. That's not a theory, that's how every crew I've ever hunted has come apart.\n\nIt won't be easy. The contract wouldn't pay what it pays if it were, and I've read enough contracts to price a fight off the number.\n\nHe didn't make captain by being careless.\n\nHe made it by being louder than everyone who was.",
       "giver_npc_id": "ratchet_bounty_hunter",
       "zone": "ratchet",
       "objectives": [
@@ -385,8 +385,8 @@
       ],
       "reward_exp": 1600,
       "reward_gold": 8500,
-      "accept_text": "Saltspray's the one holding that fort together. Take the head off the operation and the rest scatters. This won't be easy - contract wouldn't pay this well if it was.",
-      "turn_in_text": "Saltspray's done. I'll collect my contract fee, you collect yours. Fair trade.",
+      "accept_text": "The Maiden's Dagger, on Merchant Coast.",
+      "turn_in_text": "Saltspray's done.\n\nI'll collect my contract fee, you collect yours. Fair trade and no hard feelings about which of us did the walking.",
       "level_min": 16,
       "level_max": 18,
       "gear_reward_gear_level": 18,
@@ -413,7 +413,7 @@
     {
       "quest_id": "ratchet_barnacle_bet",
       "title": "Barnacle Bill's Bet",
-      "description": "Barnacle Bill missed his ship again, and in typical Bill fashion he's turned it into a bet - he's wagered a drinking buddy that adventurers passing through can clear out a few Southsea stragglers faster than he can finish his tankard.",
+      "description": "Oi! Oi, you - yes. Come here. This is important and it's also a bet.\n\nBarnacle Bill. I missed my ship. Again.\n\nThird time this year and the second time this month, and I want it on the record that twice of those were not my fault and the other one absolutely was.\n\nSo rather than sit here being sad about it, I've made a wager with Grizzik over there.\n\nI've bet him that an adventurer passing through could clear out a few Southsea stragglers faster than I can finish this tankard.\n\n[He looks at the tankard.]\n\nI'll grant you I bet against someone who wasn't standing here yet, which Grizzik says is not how a bet works, and I say shows initiative.\n\nFive of them. Any kind.\n\nI've got coin on this. Not much coin. But all of it.",
       "giver_npc_id": "ratchet_drunk_sailor",
       "zone": "ratchet",
       "objectives": [
@@ -429,8 +429,8 @@
       ],
       "reward_exp": 800,
       "reward_gold": 3000,
-      "accept_text": "Five pirates, any kind, before I finish this tankard. I've got coin riding on it. Probably shouldn't have bet against someone who wasn't even standing here yet, but here we are.",
-      "turn_in_text": "You actually did it! I owe Grizzik a round now, but I owe you more. Here.",
+      "accept_text": "Southsea stragglers, anywhere along the coast. Before the tankard's done.",
+      "turn_in_text": "You actually DID it!\n\nI owe Grizzik a round now - that's how it worked out, he bet on me finishing the drink, and I have been nursing it for an hour out of pure tactics.\n\nI owe you more. Here.",
       "level_min": 12,
       "level_max": 14,
       "gear_reward_gear_level": 14,
@@ -452,7 +452,7 @@
     {
       "quest_id": "org_word_from_road",
       "title": "Word from the Road",
-      "description": "Scout Windrider's reports on the Gold Road have gone quiet longer than they should. Orgrimmar wants someone to walk the road itself and confirm it's still passable.",
+      "description": "Scout Windrider. Orgrimmar's eyes on the Gold Road, which sounds grander than a tent and one spyglass.\n\nMy reports have gone quiet.\n\nNot my reports - the ones coming IN to me. That's the distinction and it's the whole problem.\n\nThe Gold Road runs from Mor'shan Rampart down toward the Crossroads, and the caravan masters who use it have always been free with information, because a caravan master who tells you about a bad stretch gets told about one in return.\n\nThe last few have been thin. Short. Three lines where there used to be a page, from men who like the sound of their own voice.\n\nThat's not silence. That's people choosing what to leave out, and I'd like to know what.\n\nWalk the road yourself. The whole length.\n\nSee what's slowing them down, and more to the point, see what they've decided not to mention.",
       "giver_npc_id": "org_scout",
       "zone": "orgrimmar",
       "objectives": [
@@ -466,8 +466,8 @@
       ],
       "reward_exp": 800,
       "reward_gold": 3000,
-      "accept_text": "The Gold Road runs from Mor'shan Rampart down toward the Crossroads. My last few reports from caravan masters have been thin. Walk it, see what's slowing them down.",
-      "turn_in_text": "Bandits, you say. That tracks. The road's held worse, but it needs clearing before it holds much more.",
+      "accept_text": "The Gold Road, from Mor'shan Rampart down toward the Crossroads.",
+      "turn_in_text": "Bandits, you say.\n\nThat tracks. That's exactly the thing a caravan master leaves out, because a road with bandits on it is a road people stop hiring him for.\n\nThe road's held worse. It needs clearing before it holds much more.",
       "next_quest_id": "org_keep_road_clear",
       "level_min": 12,
       "level_max": 14
@@ -475,7 +475,7 @@
     {
       "quest_id": "org_keep_road_clear",
       "title": "Keep the Road Clear",
-      "description": "With bandit activity confirmed on the Gold Road, Scout Windrider wants their numbers cut - caravans need to move, and they can't do that with highwaymen picking them off one wagon at a time.",
+      "description": "Bandits confirmed, so now we clear them, and I'd like to be precise about what clearing means.\n\nIt does not mean none.\n\nThere have been men robbing people on that road since before it was called the Gold Road, and there will be after. Any officer who promises you an empty highway has never held one.\n\nWhat it means is: few enough that a caravan can take the loss and keep running.\n\nThat's the actual line. A caravan master prices in a certain amount of theft the way he prices in a lame ox. When it goes past what he can price, he stops using the road, and then the road dies and takes four towns with it.\n\nWe are currently just past that line.\n\nThe bandits stage ambushes along the whole length of it.\n\nCut them back under it. That's the job and it's smaller than it sounds and more important than it looks.",
       "giver_npc_id": "org_scout",
       "zone": "orgrimmar",
       "objectives": [
@@ -488,8 +488,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "Eight bandits, wherever they're staging their ambushes along the road. The caravans need it clear, and clear means fewer bandits, not zero patience for them.",
-      "turn_in_text": "Eight down. The road's breathing easier, and so is every caravan master who runs it.",
+      "accept_text": "Along the Gold Road, wherever they stage their ambushes.",
+      "turn_in_text": "The road's breathing easier, and so is every caravan master who runs it.\n\nTwo of them have already started telling me things again.",
       "next_quest_id": "org_escalation",
       "level_min": 13,
       "level_max": 16
@@ -497,7 +497,7 @@
     {
       "quest_id": "org_escalation",
       "title": "Escalation",
-      "description": "The bandits on the Gold Road aren't just highwaymen anymore - Scout Windrider's reports now mention organized Cutthroats and mounted Outriders, which means someone is running this operation with real coordination.",
+      "description": "This has stopped being banditry and I want to walk you through how I know.\n\nMy reports now mention cutthroats. And mounted outriders.\n\nHighwaymen are a trade for men who have run out of other trades. They work alone or in threes, they take what's on top of a wagon, and they do not acquire horses, because a horse eats whether or not you rob anybody.\n\nCutthroats and outriders in the same operation means somebody is feeding horses through a lean season on the promise of a return.\n\nThat's not desperation. That's investment.\n\nSomeone is running this with real coordination and real money behind it, and I have no idea who, and that's the part I'd like you to understand before you go out.\n\nBreak up whatever this is before it gets any further along.\n\nAnd if you see anything that looks like an order being given rather than a fight being had - that's what I actually want to hear about.",
       "giver_npc_id": "org_scout",
       "zone": "orgrimmar",
       "objectives": [
@@ -513,8 +513,8 @@
       ],
       "reward_exp": 1300,
       "reward_gold": 6500,
-      "accept_text": "This isn't random banditry anymore - Cutthroats and Outriders don't organize themselves. Break up whatever this is before it gets worse.",
-      "turn_in_text": "Nine down, and no sign of who's running them - yet. That's a problem for another day. Today, the road's clear.",
+      "accept_text": "Along the Gold Road. The organised ones, not the stragglers.",
+      "turn_in_text": "Nine down, and no sign of who's running them. Yet.\n\nThat's a problem for another day and it is going to be a large one.\n\nToday, the road's clear.",
       "level_min": 15,
       "level_max": 18,
       "gear_reward_gear_level": 16,
@@ -539,7 +539,7 @@
     {
       "quest_id": "org_feathers_fury",
       "title": "Feathers and Fury",
-      "description": "Rethok the Hunter collects harpy feathers for reasons he doesn't fully explain, but he pays well and the Witchwing Harpies in Dry Hills have plenty to spare.",
+      "description": "Rethok. Hunter.\n\nI want harpy feathers. Witchwing, out of the Dry Hills.\n\n[He waits to see if you'll ask.]\n\nI collect them. That's as much as I generally say and it's as much as most people want, and I've found that the ones who push tend to be the ones I'd rather not sell to.\n\nI'll tell you this much, because you're the one going out there and it's useful.\n\nThe feathers hum. Not all of them - maybe one in six, and it's never the biggest or the brightest, and I have never worked out what makes the difference.\n\nThe ones that hum are the ones worth something to the right buyer, and no, I'm not telling you who.\n\nThey're nasty things, the Witchwing. Out in the hills proper, not the fringe.\n\nBring me what you get and I'll sort them myself.",
       "giver_npc_id": "org_hunter",
       "zone": "orgrimmar",
       "objectives": [
@@ -551,8 +551,8 @@
       ],
       "reward_exp": 1000,
       "reward_gold": 4500,
-      "accept_text": "Witchwing Harpies, out in the Dry Hills. Nasty things, but their feathers are worth something to the right buyer. Six, and don't ask who the buyer is.",
-      "turn_in_text": "Good feathers. Still humming with a little magic. Exactly what I needed.",
+      "accept_text": "Off the Witchwing harpies out in the Dry Hills.",
+      "turn_in_text": "Good feathers. And still humming with a little magic.\n\nExactly what I needed. I'll not say for what.",
       "next_quest_id": "org_slayers_ring",
       "level_min": 13,
       "level_max": 16,
@@ -575,7 +575,7 @@
     {
       "quest_id": "org_slayers_ring",
       "title": "The Slayers' Ring",
-      "description": "The Witchwing Slayers are no ordinary harpies - they're Serena Bloodfeather's lieutenants, marked by the rings they carry, and Rethok wants them dealt with before going after Serena herself.",
+      "description": "Now the part that isn't trade.\n\nThe Witchwing slayers are not ordinary harpies and I'd not send you at them for feathers.\n\nThey're Serena Bloodfeather's lieutenants. You'll know them by the rings they carry - every one of them, the same make, which tells you they were given and not found.\n\nThat's a chain of command. Out here, among harpies, somebody sat down and decided who answers to whom and gave out tokens to prove it.\n\nI've hunted in these hills eighteen years and I have never seen harpies do that before her.\n\nSo: the slayers first, and Serena after. Not the other way round.\n\nKill her with the slayers alive and the hills have four leaders inside a month, and I'd be starting again against people I've not learned yet.\n\nTake the rings off them. I want to lay them out and count.",
       "giver_npc_id": "org_hunter",
       "zone": "orgrimmar",
       "objectives": [
@@ -588,8 +588,8 @@
       ],
       "reward_exp": 1250,
       "reward_gold": 6000,
-      "accept_text": "The Slayers lead the underlings in Dry Hills - you can tell them by the rings they carry. Four of them, and Serena loses her chain of command.",
-      "turn_in_text": "Four rings, four Slayers. Serena's down to just herself now. That's exactly where I want her.",
+      "accept_text": "The Witchwing slayers in the Dry Hills. They carry the rings.",
+      "turn_in_text": "Four rings, four slayers.\n\nSerena's down to just herself now.\n\nThat's exactly where I want her, and it took two years to get there.",
       "next_quest_id": "org_serenas_head",
       "level_min": 16,
       "level_max": 19,
@@ -615,7 +615,7 @@
     {
       "quest_id": "org_serenas_head",
       "title": "Serena's Head",
-      "description": "With her lieutenants dead, Serena Bloodfeather stands alone in the Dry Hills - still attacking Horde caravans out of grief and revenge for her sister's death at Rexxar's hands. Rethok wants it ended, cleanly and for good.",
+      "description": "She's alone now. So here's the last of it, and I'll tell it straight because she's earned that much from somebody.\n\nSerena Bloodfeather attacks Horde caravans. She has for years. People have died on that road because of her and I'm not going to soften it.\n\nShe does it out of grief.\n\nHer sister was killed - by Rexxar, if you want the name, and I'd rather you had it than a rumour. And Serena has spent every season since turning that into other people's funerals.\n\nShe won't stop. Grief doesn't stop just because everyone you sent ahead of you is dead, and she sent the slayers out precisely so she wouldn't have to be the one standing there.\n\nEnd it.\n\nShe deserves better than to keep bleeding for a sister who isn't coming back.\n\nAnd the caravans deserve to stop paying for it. Both of those are true at once and I've stopped trying to put one first.",
       "giver_npc_id": "org_hunter",
       "zone": "orgrimmar",
       "objectives": [
@@ -628,8 +628,8 @@
       ],
       "reward_exp": 1700,
       "reward_gold": 9000,
-      "accept_text": "Serena's alone now. She won't stop - grief doesn't stop just because the people you sent to spare you the fight are all dead. End it. She deserves better than to keep bleeding for a sister who isn't coming back, and the caravans deserve to stop paying for it.",
-      "turn_in_text": "It's done. I won't pretend that's a clean kind of victory. But the road's safer, and sometimes that has to be enough.",
+      "accept_text": "In the Dry Hills. She's alone now.",
+      "turn_in_text": "It's done.\n\nI won't pretend that's a clean kind of victory, and I'd think less of you if you did.\n\nBut the road's safer. Sometimes that has to be enough, and most days out here it is.",
       "level_min": 18,
       "level_max": 20,
       "gear_reward_gear_level": 19,

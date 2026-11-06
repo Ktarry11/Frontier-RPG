@@ -3,7 +3,7 @@
     {
       "quest_id": "taurajo_two_tribes",
       "title": "Two Tribes, One Grudge",
-      "description": "Tanner Mosswalker has heard the old stories about the Bristleback and Razormane quilboar warring over territory north of the camp - Agama'gor and Bramblescar, facing each other across the same stretch of road. She wants confirmation the old rivalry still holds, since a distracted enemy is easier to manage than a unified one.",
+      "description": "Tanner Mosswalker. Don't sit on the frames.\n\nThere are two quilboar camps north of here. Agama'gor and Bramblescar, facing each other across the same stretch of road.\n\nBristleback in one, Razormane in the other, and they have hated each other since long before any tauren put a camp on this plain.\n\nThat's the old story. I grew up on it.\n\nI'd like to know whether it's still true, and I'd like somebody to have looked rather than assumed.\n\nBecause a divided enemy is a manageable one. Two quilboar tribes busy with each other is two quilboar tribes not busy with Taurajo, and the whole of this camp's southern policy has been quietly resting on that for about fifteen years.\n\nIf they've stopped fighting each other, everything we think we know about this road is wrong.\n\nGo and look. If they're still at it, that's one less thing fighting us.",
       "giver_npc_id": "taurajo_hide_tanner",
       "zone": "camp_taurajo",
       "objectives": [
@@ -17,8 +17,8 @@
       ],
       "reward_exp": 750,
       "reward_gold": 3300,
-      "accept_text": "Agama'gor and Bramblescar, north of here. Bristleback and Razormane, still at each other's throats last I heard. Go look - if they're still fighting each other, that's one less thing fighting us.",
-      "turn_in_text": "Still at war, good. Let them bleed each other. Saves us the trouble, for now.",
+      "accept_text": "Agama'gor and Bramblescar, north of the camp.",
+      "turn_in_text": "Still at war. Good.\n\nLet them bleed each other. It saves us the trouble, for now, and for now is what anybody out here gets.",
       "next_quest_id": "taurajo_bristleback_advance",
       "level_min": 13,
       "level_max": 15
@@ -26,7 +26,7 @@
     {
       "quest_id": "taurajo_bristleback_advance",
       "title": "The Bristleback Advance",
-      "description": "Word from Agama'gor is the Bristlebacks are winning their war against the Razormane and growing bold enough to raid toward Camp Taurajo itself. Tanner Mosswalker wants their advance blunted before it reaches the camp's grazing lands.",
+      "description": "Word's come from Agama'gor and it's the half of this I was afraid of.\n\nThe Bristlebacks are winning.\n\nAnd a winning quilboar tribe is a worse neighbour than two losing ones, which is exactly the thing I was watching for.\n\nThey've grown bold enough to raid toward Camp Taurajo itself. Not far yet - the edges, the outer grazing, the places a herder goes alone.\n\nThat's how it starts. Nobody raids a camp first. They raid the furthest thing from it and see what comes out.\n\nSo far nothing has come out, and they'll have noticed that.\n\nI want the advance blunted before it reaches the grazing lands proper, because once the herds have to move we've lost the season whether or not anybody dies.\n\nThin them. Enough that they remember there's something out here to fear besides the Razormane.",
       "giver_npc_id": "taurajo_hide_tanner",
       "zone": "camp_taurajo",
       "objectives": [
@@ -42,8 +42,8 @@
       ],
       "reward_exp": 1050,
       "reward_gold": 5000,
-      "accept_text": "Bristlebacks are winning their little war and it's making them bold. Eight of them, thinned out, and maybe they remember to fear something other than the Razormane.",
-      "turn_in_text": "Eight down. The grazing lands are safe a while longer. Thank you for this.",
+      "accept_text": "The Bristleback raiders pushing toward the grazing lands.",
+      "turn_in_text": "The grazing lands are safe a while longer.\n\nAnd they came out and got hit, which is the message I actually wanted sent.\n\nThank you for this.",
       "level_min": 14,
       "level_max": 17,
       "gear_reward_gear_level": 17,
@@ -65,7 +65,7 @@
     {
       "quest_id": "taurajo_hides_of_war",
       "title": "Hides of War",
-      "description": "Trader Bloodhorn has a standing interest in quilboar hide - tough, useful material regardless of which tribe it came from. He doesn't much care about the rivalry, only the hides.",
+      "description": "Trader Bloodhorn. Come round this side, the light's better for looking at leather.\n\nI want quilboar hide.\n\nBristleback, Razormane - makes no difference to me, and I'd like that understood up front because everyone assumes a trader out here has a side.\n\nTheir hide is the same tough leather either way. I've worked both. If you put two finished pieces in front of me I could not tell you which tribe died for which, and I've tested myself on it.\n\nSo I don't much care about the rivalry.\n\nThat's not callousness, it's trade. Everybody north of here has a position on that war and all of them are losing money on it.\n\nBattle-scarred is fine. Better, actually - a scarred hide is a hide that's been proved, and I'd rather sell armour made from something that already survived something.\n\nBring me a stack and I'll pay fair.",
       "giver_npc_id": "taurajo_hide_trader",
       "zone": "camp_taurajo",
       "objectives": [
@@ -77,8 +77,8 @@
       ],
       "reward_exp": 900,
       "reward_gold": 4000,
-      "accept_text": "Bristleback or Razormane, doesn't matter to me - their hide's the same tough leather either way. Six, and I'll pay fair.",
-      "turn_in_text": "Good hide. Battle-scarred, but that just means it's proven itself. This'll make something worth having.",
+      "accept_text": "Off the quilboar at either camp. Both tribes work the same.",
+      "turn_in_text": "Good hide. Battle-scarred, but that only means it's proved itself.\n\nThis'll make something worth having, and somebody will wear it without ever asking where it came from.",
       "level_min": 13,
       "level_max": 16,
       "gear_reward_gear_level": 16,
@@ -100,7 +100,7 @@
     {
       "quest_id": "taurajo_the_stronger_tribe",
       "title": "The Stronger Tribe",
-      "description": "Liaison Grukdar has taken an interest in which quilboar tribe actually wins the Agama'gor-Bramblescar war - Orgrimmar wants to know which one will need dealing with once the fighting's over, and he needs firsthand intelligence to report back.",
+      "description": "Liaison Grukdar. Orgrimmar's man here, which makes me popular with nobody and useful to everybody.\n\nI have an interest in which quilboar tribe actually wins the war up north.\n\nNot a sporting interest. A practical one, and I'll lay it out because you should know what you're part of.\n\nThat war ends. They always do. And when it ends, Taurajo has exactly one quilboar tribe on its northern road instead of two, and that tribe has a victory, a grudge and no one left to spend either on.\n\nSo Orgrimmar wants to know which one we'll be dealing with - and I need it from somebody who stood in both camps, not from a report that's been round three desks.\n\nWeaken the Razormane.\n\nThen we see how the Bristlebacks handle winning outright, which in my experience is the hardest thing any tribe ever has to do.",
       "giver_npc_id": "taurajo_orc_liaison",
       "zone": "camp_taurajo",
       "objectives": [
@@ -116,15 +116,15 @@
       ],
       "reward_exp": 1050,
       "reward_gold": 5000,
-      "accept_text": "Orgrimmar wants to know which tribe survives this war. Weaken the Razormane and we'll see how the Bristlebacks handle winning outright.",
-      "turn_in_text": "Noted. The Razormane won't recover from this quickly. Orgrimmar will want to hear it.",
+      "accept_text": "The Razormane veterans at Bramblescar.",
+      "turn_in_text": "Noted. The Razormane won't recover from that quickly.\n\nOrgrimmar will want to hear it, and I'll make sure they hear it from me before they hear it from anyone else.",
       "level_min": 14,
       "level_max": 17
     },
     {
       "quest_id": "taurajo_earthsongs_warning",
       "title": "Earthsong's Warning",
-      "description": "Earthsong Mara senses something wrong in the land north of the camp - not the quilboar war itself, but something the fighting has disturbed. She wants to talk it through with someone willing to listen before deciding whether to act on it.",
+      "description": "Sit with me a moment.\n\nEarthsong Mara. I'm the healer here, which means I'm also the one who notices things nobody asked me to notice.\n\nSomething's stirring north of here, and it isn't quilboar spears.\n\nI want to be careful how I put this, because I've been wrong before in a way that cost somebody a season of worry.\n\nThe war isn't the thing. The war is loud and it's awful and it's ordinary - quilboar have been killing quilboar on that road since my grandmother walked it.\n\nWhat I'm feeling is underneath it. Something the fighting has disturbed rather than caused.\n\nAnd I can't tell whether that's the land speaking or an old woman who's been listening too hard for too long, and that is a real question and not modesty.\n\nSo talk it through with me.\n\nI'd rather decide what to do about this with somebody in the room than alone at three in the morning, which is where I've been doing it so far.",
       "giver_npc_id": "taurajo_healer",
       "zone": "camp_taurajo",
       "objectives": [
@@ -139,15 +139,15 @@
       ],
       "reward_exp": 950,
       "reward_gold": 4200,
-      "accept_text": "Sit with me a moment. Something's stirring north of here, and it isn't just quilboar spears.",
-      "turn_in_text": "You've helped me think it through. Whatever's coming, at least I'm not carrying the worry alone anymore.",
+      "accept_text": "Sit with Earthsong Mara a while.",
+      "turn_in_text": "You've helped me think it through.\n\nWhatever's coming, at least I'm not carrying the worry alone anymore.\n\nThat's not nothing. That's most of what a healer ever gets.",
       "level_min": 14,
       "level_max": 16
     },
     {
       "quest_id": "ratchet_farm_supply_run",
       "title": "The Farm Needs Supplies",
-      "description": "Cargo Master Blix has a standing contract to keep Grol'dom Farm stocked, but the caravans keep getting harassed along the way. He wants someone to make the run safer, or at least prove it's still possible.",
+      "description": "Cargo Master Blix. Quickly, I've got a manifest doing something terrible behind me.\n\nI hold a standing contract to keep Grol'dom Farm stocked.\n\nStanding, meaning I don't get to renegotiate it when the road goes bad, which is a lesson I paid for.\n\nAnd the caravans keep getting harassed on the way. Not robbed - harassed. Slowed, turned back, nibbled at. Which costs me more than a robbery because a robbery at least ends.\n\nI want somebody to make the run safer. Or, failing that, to prove it's still possible at all, because I'm two bad weeks from telling Kranal Fiss I can't service him and I'd very much rather not.\n\nGrol'dom's out past Lushwater.\n\nKranal runs it, and he holds the road between Orgrimmar and the Crossroads together a good deal more than anybody gives him credit for.\n\nMake sure that route's still walkable.",
       "giver_npc_id": "ratchet_shipping_trader",
       "zone": "ratchet",
       "objectives": [
@@ -161,8 +161,8 @@
       ],
       "reward_exp": 750,
       "reward_gold": 3300,
-      "accept_text": "Grol'dom Farm, out past Lushwater. Kranal Fiss runs it, holds the road between Orgrimmar and Crossroads together more than people realize. Make sure the route's still walkable.",
-      "turn_in_text": "Good. Kranal's farm keeps the caravans fed and the road worth using. That matters more than people give it credit for.",
+      "accept_text": "The route to Grol'dom Farm, out past Lushwater.",
+      "turn_in_text": "Good.\n\nKranal's farm keeps the caravans fed and the road worth using.\n\nThat matters more than people give it credit for, and I say that as a man who gives almost nothing credit.",
       "next_quest_id": "ratchet_bandits_and_bristlebacks",
       "level_min": 13,
       "level_max": 15
@@ -170,7 +170,7 @@
     {
       "quest_id": "ratchet_bandits_and_bristlebacks",
       "title": "Bandits and Bristlebacks",
-      "description": "With the route to Grol'dom Farm confirmed open, Cargo Master Blix wants the stragglers along it cleared - bandits and quilboar alike have been picking off supply runs headed for the farm.",
+      "description": "Route's open. Now the stragglers on it.\n\nAnd I want to explain why this is a separate job rather than lumping it in, because it cost me a quarter to learn.\n\nAn open road isn't a safe one. I've had routes confirmed walkable by three different scouts and still lost wagons every week, because walkable means a person got through and a wagon is not a person.\n\nBandits, Kolkar stragglers, quilboar come down off the ridge - whatever's been picking at the supply runs headed for that farm.\n\nThey don't take much. That's what makes them survivable and that's what makes them permanent.\n\nClear them and Kranal stops losing wagons, and I stop having a conversation with him every fortnight that we both find humiliating.\n\nNear the farm, along the last stretch. That's where they sit.",
       "giver_npc_id": "ratchet_shipping_trader",
       "zone": "ratchet",
       "objectives": [
@@ -186,8 +186,8 @@
       ],
       "reward_exp": 1050,
       "reward_gold": 5000,
-      "accept_text": "Bandits, Kolkar stragglers, whatever's picking off the supply runs near the farm - eight of them, and Kranal stops losing wagons.",
-      "turn_in_text": "That's a real dent. The farm's caravans should move easier now.",
+      "accept_text": "Along the last stretch of road near Grol'dom Farm.",
+      "turn_in_text": "That's a real dent.\n\nThe farm's caravans should move easier now, and I can go back to worrying about things I'm actually paid to worry about.",
       "level_min": 14,
       "level_max": 17,
       "gear_reward_gear_level": 17,
@@ -212,7 +212,7 @@
     {
       "quest_id": "ratchet_fintans_other_favor",
       "title": "A Fence's Other Interest",
-      "description": "Gazlowe's Cousin Nixx has heard the Burning Blade cultists on Dreadmist Peak are sitting on real valuables, looted from caravans over the years. He's not above paying for someone else to do the looting for him this time.",
+      "description": "Nixx. Gazlowe's cousin - one of them, there are a number and I'm the useful one.\n\nThe Burning Blade cultists on Dreadmist Peak are sitting on real valuables.\n\nNot cult trash. Not ritual nonsense nobody can sell. Actual coin, looted off caravans over years of this.\n\nAnd here's the detail that makes it a business proposition rather than a crime: it was robbed from people first.\n\nThose are caravan purses. They came off this road, out of the pockets of men who were working, and they've been sitting in a cave on a mountain funding somebody's chanting.\n\nSo I'm not above paying to have it robbed back, and I'd argue I'm barely robbing anything.\n\nPouches of hoarded coin. Off the cultists on the Peak.\n\nI'll make it worth the trip, and I'll not ask how you came by them, and neither should you ask what I do with them.",
       "giver_npc_id": "ratchet_trader",
       "zone": "ratchet",
       "objectives": [
@@ -224,15 +224,15 @@
       ],
       "reward_exp": 900,
       "reward_gold": 4000,
-      "accept_text": "Cultists on Dreadmist Peak have been robbing caravans for their little rituals. Might as well rob them back. Five pouches of hoarded coin, and I'll make it worth the trip.",
-      "turn_in_text": "Cultist gold spends the same as anyone's. Pleasure doing business.",
+      "accept_text": "Off the Burning Blade cultists on Dreadmist Peak.",
+      "turn_in_text": "Cultist gold spends exactly the same as anyone's.\n\nPleasure doing business. Come back when you're next feeling morally flexible.",
       "level_min": 13,
       "level_max": 16
     },
     {
       "quest_id": "ratchet_barnacles_barrens_tale",
       "title": "Barnacle Bill's Barrens Tale",
-      "description": "Barnacle Bill claims he once wandered into the Barrens and stumbled onto a shrine dedicated to a fallen hero - though nobody believes his stories usually. He wants proof he's not making it up this time.",
+      "description": "Right, you're going to want to hear this, and Grizzik over there is going to tell you not to.\n\nBarnacle Bill. Yes, that one.\n\nI wandered into the Barrens once. Properly into it - not the road, the actual plain, which I'd like noted took some doing for a man who gets lost in Ratchet.\n\nAnd I found a shrine.\n\nSouth-west of the Crossroads. Some memorial to a fallen warrior, stone, old, with a keeper tending it and everything.\n\nNobody believes me.\n\nAnd I want to be fair to them about that, because I have told a number of stories in this port that did not survive contact with the facts, including one about a whale.\n\nThis one's true.\n\nGo and look. Prove me right, or prove me wrong - either settles it, and I've had four years of this.",
       "giver_npc_id": "ratchet_dock_laborer",
       "zone": "ratchet",
       "objectives": [
@@ -246,15 +246,15 @@
       ],
       "reward_exp": 700,
       "reward_gold": 3000,
-      "accept_text": "There's a shrine out there, southwest of the Crossroads - some memorial to a fallen warrior. Bill swears he's seen it. Prove him right, or wrong, either's fine by me.",
-      "turn_in_text": "So he wasn't lying for once. Wonders never cease. Thanks for settling the argument.",
+      "accept_text": "South-west of the Crossroads, out on the plain.",
+      "turn_in_text": "So he wasn't lying. For once.\n\nWonders never cease and I'll be hearing about this for a month.\n\nThanks for settling the argument.",
       "level_min": 13,
       "level_max": 15
     },
     {
       "quest_id": "org_dreadmist_rumors",
       "title": "Rumors from Dreadmist",
-      "description": "Elder Torgun has heard old warnings about Dreadmist Peak - a fel taint that never fully faded, and cultists who never fully left. Orgrimmar wants confirmation before committing real resources to the problem.",
+      "description": "Elder Torgun. Sit - I'm too old to shout across a tent.\n\nDreadmist Peak. North-west of the Crossroads.\n\nThe old warnings say the fog up there isn't natural. A fel taint that never fully faded, and cultists who never fully left, and I heard all of that as a young orc from people who'd heard it as young orcs.\n\nWhich is precisely my problem.\n\nA warning repeated for sixty years stops being information and becomes a habit. I've watched it happen to three other places on this plain - the camp still avoids them and nobody alive can tell you why.\n\nSo Orgrimmar wants confirmation before committing anything real, and they're right to.\n\nGo and see for yourself.\n\nI want to know whether the stories are still true, or whether we've been walking round an empty mountain for two generations because somebody's grandfather saw something.",
       "giver_npc_id": "org_elder_2",
       "zone": "orgrimmar",
       "objectives": [
@@ -268,8 +268,8 @@
       ],
       "reward_exp": 750,
       "reward_gold": 3300,
-      "accept_text": "Dreadmist Peak, northwest of the Crossroads. The old stories say the fog up there isn't natural. Go see for yourself - I want to know if the stories are still true.",
-      "turn_in_text": "Still true, then. I was hoping age had exaggerated the memory. It hadn't.",
+      "accept_text": "Dreadmist Peak, north-west of the Crossroads.",
+      "turn_in_text": "Still true, then.\n\nI was hoping age had exaggerated the memory. It generally does.\n\nIt hadn't.",
       "next_quest_id": "org_cultists_of_dreadmist",
       "level_min": 13,
       "level_max": 15
@@ -277,7 +277,7 @@
     {
       "quest_id": "org_cultists_of_dreadmist",
       "title": "Cultists of Dreadmist",
-      "description": "With the fel taint on Dreadmist Peak confirmed, Elder Torgun wants the Burning Blade presence there thinned before they grow bold enough to threaten the Gold Road itself.",
+      "description": "Confirmed, so now I'll ask for something I'd rather not.\n\nThe Burning Blade presence on that Peak needs thinning.\n\nNot ended. I want to be honest with you rather than send you up a mountain under a false impression - I have no expectation that this ends the cult, and neither does anyone above me.\n\nWhat it does is buy time, and here's why that's worth the trip.\n\nThey're not threatening the Gold Road yet. They're up on their mountain doing whatever it is, and the road runs below them unbothered.\n\nThe moment they're bold enough to come down, the road becomes a different kind of problem - and a road that can't be used is Orgrimmar's problem, and Orgrimmar solves problems with warbands.\n\nI'd rather spend your afternoon than a warband's season.\n\nWhichever rank you find up there. They won't stop on their own - somebody has to make them.",
       "giver_npc_id": "org_elder_2",
       "zone": "orgrimmar",
       "objectives": [
@@ -293,8 +293,8 @@
       ],
       "reward_exp": 1100,
       "reward_gold": 5300,
-      "accept_text": "Nine cultists, whichever rank you find on the Peak. They won't stop what they're doing on their own - somebody has to make them stop.",
-      "turn_in_text": "Nine fewer voices chanting up there. It won't end the Burning Blade's hold on that mountain, but it's a real wound.",
+      "accept_text": "On Dreadmist Peak, whichever rank you find.",
+      "turn_in_text": "Nine fewer voices chanting up there.\n\nIt won't end the Burning Blade's hold on that mountain. It's a real wound, and real wounds are what I can offer.",
       "next_quest_id": "org_seed_and_seal",
       "level_min": 14,
       "level_max": 17,
@@ -320,7 +320,7 @@
     {
       "quest_id": "org_seed_and_seal",
       "title": "The Seed and the Seal",
-      "description": "Elder Torgun's research confirms the old legends - the Burning Blade guards a fel artifact called the Demon Seed deep in Dreadmist Den, watched over by their leader Rathorian and a felguard named Xelnaz. He wants both of them dead and the Seed's location confirmed before deciding what to do about it.",
+      "description": "My research has caught up with the legends, and I'd rather it hadn't.\n\nThere's a fel artifact in Dreadmist Den. The Demon Seed.\n\nI'd treated that name as superstition for forty years - it's exactly the sort of thing a story invents, and I've debunked two others like it in my life.\n\nIt's in the Den. It's guarded. And it has been guarded continuously, by a cult that has never once relaxed about it, for longer than this camp has existed.\n\nThat last part is what convinced me. You don't post a permanent watch on a rumour.\n\nRathorian leads them. Xelnaz guards whatever they're protecting, and given the company he keeps I'd wager on a demon.\n\nKill them both.\n\nI need to know what we're truly dealing with before this becomes Orgrimmar's problem rather than my rumour - because the difference between those two sentences is about four hundred dead orcs.",
       "giver_npc_id": "org_elder_2",
       "zone": "orgrimmar",
       "objectives": [
@@ -339,8 +339,8 @@
       ],
       "reward_exp": 1650,
       "reward_gold": 8800,
-      "accept_text": "Rathorian leads them. Xelnaz guards whatever they're protecting - a demon, I'd wager, given the company he keeps. Kill them both. I need to know what we're truly dealing with before this becomes Orgrimmar's problem instead of just a rumor.",
-      "turn_in_text": "Both dead, and the Seed's location confirmed. That's not the end of this - a thing like that doesn't just sit quiet once its guardians are gone - but it's a start, and a start is more than I had yesterday.",
+      "accept_text": "Deep in Dreadmist Den - Rathorian and the felguard Xelnaz.",
+      "turn_in_text": "Both dead, and the Seed's location confirmed.\n\nThat's not the end of this. A thing like that doesn't sit quiet once its guardians are gone.\n\nBut it's a start, and a start is a great deal more than I had yesterday.",
       "level_min": 16,
       "level_max": 18,
       "gear_reward_gear_level": 17,
@@ -366,7 +366,7 @@
     {
       "quest_id": "org_grokkas_curiosity",
       "title": "Grokka's Curiosity",
-      "description": "Grokka Fireforge trades in oddities as much as goods, and she's heard the quilboar at Agama'gor carry ceremonial tusks worth more to a collector than to a quilboar. She wants a few, no questions asked about how they were acquired.",
+      "description": "Grokka Fireforge. Trader, mostly in goods, increasingly in oddities, and I'd like you to notice which direction that's moving.\n\nThe quilboar at Agama'gor carry ceremonial tusks.\n\nCarved ones. Proper work - and I've handled one, briefly, which is a story I don't tell at the stall.\n\nHere's the thing about them. They're worth almost nothing to a quilboar. Every adult in that camp has one and they're buried with it.\n\nAnd they're worth a genuinely absurd amount to a collector in Orgrimmar who has never been within forty miles of a quilboar.\n\nI've stopped trying to explain that to myself. It's the trade and it pays better than honest ironwork ever did.\n\nFive of them, however you come by them.\n\nAnd thank you in advance for not asking what I sell them for, because the answer is unflattering to everybody involved.",
       "giver_npc_id": "org_market_trader_1",
       "zone": "orgrimmar",
       "objectives": [
@@ -378,8 +378,8 @@
       ],
       "reward_exp": 900,
       "reward_gold": 4000,
-      "accept_text": "Bristleback quilboar at Agama'gor carry carved tusks, ceremonial things. Collectors pay well for the genuine article. Five, however you come by them.",
-      "turn_in_text": "Beautiful work, for quilboar craftsmanship. These'll sell well. Thank you for not asking what I'm selling them for.",
+      "accept_text": "Off the Bristleback quilboar at Agama'gor.",
+      "turn_in_text": "Beautiful work, for quilboar craftsmanship. And I mean that - I've seen worse carving on orcish altars.\n\nThese'll sell well.\n\nThank you for not asking.",
       "level_min": 15,
       "level_max": 18,
       "gear_reward_gear_level": 18,
@@ -403,7 +403,7 @@
     {
       "quest_id": "org_kranals_thanks",
       "title": "Kranal's Thanks",
-      "description": "Word has reached Orgrimmar that Grol'dom Farm has held the caravan route steady despite everything the Barrens throws at it. Quartermaster Grosh wants that effort formally recognized, and Kranal Fiss himself has requests for anyone willing to carry them.",
+      "description": "Quartermaster Grosh. Word's reached Orgrimmar about Grol'dom Farm, and for once it's good word.\n\nThat farm has held the caravan route steady despite everything this plain throws at it. Quilboar, bandits, drought, and a season I'd rather not get into.\n\nI want that recognised formally, and I'm aware of exactly how much a formal recognition is worth to a man with a broken fence.\n\nWhich is why I'm not sending a letter.\n\nI'm sending you to ask him what the farm actually needs.\n\nBecause here's what happens otherwise, and I've watched it happen four times from this desk: the capital decides what a place needs, sends it, feels generous, and the place quietly sells the lot and buys what it was short of.\n\nKranal Fiss has kept that farm running since before most of us were born.\n\nGo and talk to him. Let him tell us.",
       "giver_npc_id": "orgrimmar_quartermaster",
       "zone": "orgrimmar",
       "objectives": [
@@ -418,8 +418,8 @@
       ],
       "reward_exp": 850,
       "reward_gold": 3800,
-      "accept_text": "Kranal Fiss has kept that farm running since before most of us were born. Go talk to him - see what the farm actually needs, beyond what we assume.",
-      "turn_in_text": "Good. Now we actually know what to send instead of guessing. Small farms hold up big roads more than the capital ever gives them credit for.",
+      "accept_text": "Speak with Kranal Fiss at Grol'dom Farm.",
+      "turn_in_text": "Good. Now we actually know what to send instead of guessing at it.\n\nSmall farms hold up big roads a great deal more than the capital ever gives them credit for.\n\nI'll make sure the list goes out as he gave it.",
       "level_min": 13,
       "level_max": 16
     }
