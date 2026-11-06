@@ -151,14 +151,23 @@ def check(aid, field, a):
                     f"{what}"
                     + (" (use _potency)" if has_stat_mods(a) else ""))
     elif field in ("crit", "crit_damage"):
-        # HEALS DO NOT ROLL CRIT in this engine: _roll_crit is called only
-        # from the four damage branches (abilities.py:2597/2656/2748/2799)
-        # and nowhere in the healing path, so ability_<heal>_crit is dead.
-        # Measured by reading the call sites, not assumed.
-        if not deals_damage(a):
-            if heals(a):
-                return (f"{aid} is effect_type '{a.get('effect_type')}' - it "
-                        f"HEALS, and heals never roll crit in this engine")
+        # HEALS CRIT AS OF 5 Nov 2026 (Kyle: "spells should be able to
+        # crit!"). _roll_crit is now called from the direct-heal and
+        # smart-heal branches as well as the four damage ones, so
+        # ability_<heal>_crit is LIVE and must NOT be flagged - this check
+        # reported 19 such keys as dead right up until the engine changed
+        # underneath it, which is exactly the kind of staleness that makes a
+        # QA tool start lying.
+        #
+        # HOTS still do not crit, matching dots: the crit roll is in the
+        # direct-heal path only, not the per-tick one.
+        et = (a.get("effect_type") or "").lower()
+        if not deals_damage(a) and not heals(a):
+            return (f"{aid} is effect_type '{a.get('effect_type')}' - it "
+                    f"neither damages nor heals, so there is no crit to buy")
+        if et == "hot":
+            return (f"{aid} is effect_type 'hot' - periodic healing does not "
+                    f"crit (only direct heals do)")
             what = ("stat_mods " + str(a.get("stat_mods"))
                     if has_stat_mods(a) else "no damage of any kind")
             return (f"{aid} is effect_type '{a.get('effect_type')}' with "

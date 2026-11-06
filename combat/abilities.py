@@ -2265,6 +2265,15 @@ class Ability:
         # recipient-conditional healing talent cannot apply to a smart heal.
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing"))
 
+        # Smart heals crit too - same change as the direct-heal branch, see
+        # the long note there. target is None at this point (the recipient
+        # has not been chosen yet), which _roll_crit handles: it only reads
+        # the TARGET for crit-avoidance, and None simply means no avoidance.
+        is_crit, crit_mult = self._roll_crit(caster, None, "healing")
+        if is_crit:
+            heal_amt = int(heal_amt * crit_mult)
+            self._last_crit = True
+
         if self.heal_scope == "party":
             recipients = party if party else [caster]
             recipients = [p for p in recipients if p is not None and getattr(p, "is_alive", lambda: True)()] or [caster]
@@ -2367,6 +2376,34 @@ class Ability:
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
         heal_amt = int(self.effect_value + caster.healing_power * 1.2)
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
+
+        # HEALS CRIT. Kyle, 5 Nov 2026: "spells should be able to crit!"
+        #
+        # Until now _roll_crit was called ONLY from the four damage branches
+        # and never from the healing path, so healing crits did not exist -
+        # which silently killed every talent that tried to buy healing crit
+        # chance. tools/qa_ability_scoped_fields.py found 19 of them across
+        # the project, including three in Druid Restoration alone (Nature's
+        # Bounty and Improved Regrowth both wanted _crit on a heal).
+        #
+        # Uses school="healing", which _roll_crit resolves to
+        # crit_chance_spell - the right stat for a healer, and the one
+        # ability_<id>_crit already adds into at line ~1354. That means
+        # per-ability healing crit talents now work with no further change.
+        #
+        # Sets self._last_crit like the damage branches do, so a crit heal
+        # fires ProcTrigger.ON_CRIT. That is deliberate: Living Seed's real
+        # WotLK text triggers off a critical HEAL, and it could not be built
+        # before this existed.
+        #
+        # HOTS STILL DO NOT CRIT, matching dots - this is the direct-heal
+        # branch only. A per-tick crit would need the same mechanism dots
+        # lack, and Primal Gore/Pandemic are both still translated as flat
+        # periodic damage for that reason.
+        is_crit, crit_mult = self._roll_crit(caster, target, "healing")
+        if is_crit:
+            heal_amt = int(heal_amt * crit_mult)
+            self._last_crit = True
 
         # target_type="party" (Circle of Healing, etc) passes a LIST of
         # combatants rather than one - the single-target path below

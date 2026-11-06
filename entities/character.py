@@ -1867,6 +1867,31 @@ class Character(StatusEffectMixin):
                         effective_proc = dict(proc)
                         effective_proc["chance"] = min(100, proc["chance"] * node.points_spent)
 
+                    # DROP ANY EXISTING COPY FIRST. Without this, the
+                    # rank-scaled chance computed just above never actually
+                    # reached the character: apply_status_effect() keeps the
+                    # effect already carrying this effect_id, so the
+                    # synthetic proc created when the FIRST point was spent
+                    # survived every later point, frozen at its rank-1
+                    # chance for the rest of the game.
+                    #
+                    # That made the scaling code above dead on arrival and
+                    # silently broke EVERY multi-rank proc talent in the
+                    # project. Measured on a level-60 Holy Paladin with 5/5
+                    # Illumination: the node reported points_spent=5 while
+                    # its synthetic effect still carried chance=20, and the
+                    # talent fired on 3 of 20 guaranteed-crit heals instead
+                    # of all 20.
+                    #
+                    # It went unnoticed because the bug is invisible from
+                    # the data side - audit_talents, qa_proc_stat_mods and
+                    # probe --audit-all all inspect authored values, and the
+                    # authored value was correct. Only spending real points
+                    # on a real character and reading the resulting effect
+                    # shows it.
+                    self.active_effects = [
+                        e for e in self._effects() if e.effect_id != synthetic_id
+                    ]
                     effect = StatusEffect(
                         effect_id=synthetic_id, name=node.name,
                         effect_type=EffectType.BUFF, duration=999999,

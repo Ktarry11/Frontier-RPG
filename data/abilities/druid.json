@@ -310,7 +310,8 @@
         "bear",
         "dire_bear"
       ],
-      "_design_note": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted."
+      "_design_note": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted. 2026-11-06: requires_talent set. Mangle IS a talent in the real 3.3.5a Feral tree (row 8), and druid_feral now carries the unlock node. It was form-gated to bear/dire_bear only, which is NOT a talent gate - without this flag the talent node would have unlocked an ability every druid already had, which is exactly the 'three talent points buying nothing' bug Kyle flagged for moonkin/tree_of_life/dire_bear earlier in the same session. The form gate is unchanged and still applies.",
+      "requires_talent": true
     },
     {
       "ability_id": "druid_entangling_roots",

@@ -1,7 +1,7 @@
 {
-  "spec_name": "Druid Feral",
+  "spec_name": "Druid Feral Combat",
   "tree_id": "druid_feral",
-  "description": "Shapeshifted predator - claws, teeth, and thick hide.",
+  "description": "Claw and hide - the druid who stops talking and starts biting.",
   "tier_requirements": {
     "0": 0,
     "1": 5,
@@ -15,184 +15,201 @@
     {
       "talent_id": "druid_feral_ferocity",
       "name": "Ferocity",
-      "description": "Reduces the Energy cost of Claw and Shred by 3 per rank.",
+      "description": "Reduces the cost of your Maul, Swipe, Claw, Rake and Mangle by 1 per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_druid_claw_cost": 3,
-        "ability_druid_shred_cost": 3
+        "ability_druid_maul_cost": 1,
+        "ability_druid_swipe_cat_cost": 1,
+        "ability_druid_claw_cost": 1,
+        "ability_druid_rake_cost": 1,
+        "ability_druid_mangle_cost": 1
       },
-      "connected_to": [
-        "druid_feral_sharpened_claws"
-      ]
+      "_source": "WotLK row 0, built verbatim: 'Reduces the cost of your Maul, Swipe, Claw, Rake and Mangle abilities by 1-5 Rage or Energy.' All five abilities exist and ALL FIVE CARRY A REAL COST (maul 20, swipe 45, claw 40, rake 40, mangle 30), which was CHECKED rather than assumed - tools/qa_ability_scoped_fields.py found 19 keys elsewhere in the project reducing the cost of abilities that are free. ability_<id>_cost is FLAT, not a fraction.",
+      "connected_to": []
     },
     {
       "talent_id": "druid_feral_feral_aggression",
       "name": "Feral Aggression",
-      "description": "While in Cat Form, increases your damage dealt by 2% per rank.",
+      "description": "Increases the damage of your Ferocious Bite by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "physical_damage": 0.02
+        "ability_druid_ferocious_bite_damage": 0.03
       },
+      "_source": "WotLK row 0: 'Increases the attack power reduction of your Demoralizing Roar by 8%-40% and the damage caused by your Ferocious Bite by 3%-15%.' Demoralizing Roar does not exist. The Ferocious Bite half is VERBATIM at 3% per rank.",
+      "connected_to": []
+    },
+    {
+      "talent_id": "druid_feral_feral_instinct",
+      "name": "Feral Instinct",
+      "description": "Increases the damage of your Swipe by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -6,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_swipe_cat_damage": 0.1
+      },
+      "_source": "WotLK row 1: 'Increases the damage done by your Swipe ability by 10%-30% and reduces the chance enemies have to detect you while Prowling.' The Swipe half is VERBATIM. THERE IS NO STEALTH SYSTEM in this engine - no Prowl, no detection - which is the same gap that reshaped three Rogue Subtlety nodes earlier this session.",
       "connected_to": [
-        "druid_feral_shredding_attacks"
-      ],
-      "require_form": [
-        "cat"
+        "druid_feral_ferocity"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_savage_fury",
+      "name": "Savage Fury",
+      "description": "Increases the damage of your Claw, Rake, Mangle and Maul by 10% per rank.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": -4,
+      "effects": {
+        "ability_druid_claw_damage": 0.1,
+        "ability_druid_rake_damage": 0.1,
+        "ability_druid_mangle_damage": 0.1,
+        "ability_druid_maul_damage": 0.1
+      },
+      "_source": "WotLK row 1, built verbatim: 'Increases the damage caused by your Claw, Rake, Mangle (Cat), Mangle (Bear) and Maul abilities by 10%/20%.' Cat and Bear Mangle are one ability here. All four deal real damage (rake is a dot, the rest are damage), so _damage lands on every one.",
+      "connected_to": [
+        "druid_feral_ferocity"
       ]
     },
     {
       "talent_id": "druid_feral_thick_hide",
       "name": "Thick Hide",
-      "description": "Increases your total Armor by 2% per rank.",
+      "description": "Increases your armor by 3% per rank, and a further 4% of your Agility per rank.",
       "node_type": "passive",
-      "tier": 0,
+      "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -6,
+      "hex_x": -2,
+      "hex_y": -4,
       "effects": {
-        "armor_pct": 2.0
+        "armor_pct": 3.0,
+        "armor_from_agility_pct": 0.04
       },
+      "_source": "WotLK row 1: 'Increases your Armor contribution from cloth and leather items by 4%-10%.' There is no armour-by-item-type key, so it is general armour - AND A SECOND HALF IS ADDED DELIBERATELY. Kyle, 5 Nov: 'druid tank is an agility/dodge/armor based tank'. armor_from_agility_pct makes the tank's own stacked Agility feed his armour, which is the real WoW bear relationship and the thing that makes agi-stacking work. MEASURED: armor_pct=20 moved armour 80->96 (POINTS), armor_from_agility_pct=0.5 moved it 80->94 (A RAW MULTIPLIER, gained = source * pct, character.py:1551 - so 0.04 and never 4).",
       "connected_to": [
-        "druid_feral_predatory_strikes"
+        "druid_feral_ferocity"
       ]
     },
     {
-      "talent_id": "druid_feral_feral_instinct",
-      "name": "Feral Instinct",
-      "description": "While in Bear Form, increases threat you generate by 6% per rank.",
+      "talent_id": "druid_feral_feral_swiftness",
+      "name": "Feral Swiftness",
+      "description": "Increases your dodge by 2% per rank.",
       "node_type": "passive",
-      "tier": 0,
-      "max_points": 3,
+      "tier": 1,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -6,
+      "hex_x": 0,
+      "hex_y": -4,
       "effects": {
-        "threat_generation_pct": 0.06
+        "dodge": 2.0
       },
+      "_source": "WotLK row 2: 'Increases your movement speed by 15%/30% in Cat Form and increases your chance to dodge while in Cat Form, Bear Form and Dire Bear Form by 2%/4%.' THERE IS NO MOVEMENT SPEED in this engine. The dodge half is verbatim and is left UNGATED by form on purpose: the real talent covers all three forms, which is every form this tree uses, so a gate would only cost the caster forms a small dodge bonus for no design gain. NOTE dodge lands SCALED x0.9524 (probe: dodge=2 moved the attribute +1.905), not 1:1.",
       "connected_to": [
-        "druid_feral_savage_fury"
-      ],
-      "require_form": [
-        "bear",
-        "dire_bear"
+        "druid_feral_feral_aggression"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_survival_instincts",
+      "name": "Survival Instincts",
+      "description": "Increases your maximum health by 8%.",
+      "node_type": "passive",
+      "tier": 1,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": -4,
+      "effects": {
+        "max_health_pct": 0.08
+      },
+      "_source": "WotLK row 2: 'When activated, temporarily grants you 30% of your maximum health for 20 sec while in Bear, Cat or Dire Bear Form.' DEPARTURE - there is no druid_survival_instincts ability to unlock and no temporary-max-health mechanic, so the panic button becomes a permanent, much smaller cushion. max_health_pct is a FRACTION and was MEASURED (0.10 moved health 420->462), unlike stamina_pct which is POINTS - two health keys, opposite conventions.",
+      "connected_to": [
+        "druid_feral_feral_aggression"
       ]
     },
     {
       "talent_id": "druid_feral_sharpened_claws",
       "name": "Sharpened Claws",
-      "description": "Increases the damage of your Rake by 10% per rank.",
+      "description": "Increases your critical strike chance by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_druid_rake_damage": 0.1
+        "crit_chance": 2.0
       },
+      "_source": "WotLK row 2, built verbatim: 'Increases your critical strike chance while in Bear, Dire Bear or Cat Form by 2%-6%.' Left ungated for the same reason as Feral Swiftness - the real gate covers every form this tree uses. crit_chance is PERCENTAGE POINTS.",
       "connected_to": [
-        "druid_feral_ferocity",
-        "druid_feral_primal_fury"
+        "druid_feral_feral_aggression"
       ]
     },
     {
       "talent_id": "druid_feral_shredding_attacks",
       "name": "Shredding Attacks",
-      "description": "Reduces the Energy cost of Shred by 6 per rank and increases its damage by 5% per rank.",
+      "description": "Reduces the cost of your Shred by 9 per rank.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": -4,
+      "hex_x": -6,
+      "hex_y": -2,
       "effects": {
-        "ability_druid_shred_cost": 6,
-        "ability_druid_shred_damage": 0.05
+        "ability_druid_shred_cost": 9
       },
+      "_source": "WotLK row 3: 'Reduces the energy cost of your Shred ability by 9/18 and the rage cost of your Lacerate ability by 1/2.' The Shred half is VERBATIM (shred costs 60, so two ranks cut it by nearly a third). Lacerate does not exist.",
       "connected_to": [
-        "druid_feral_feral_aggression",
-        "druid_feral_survival_of_the_fittest"
+        "druid_feral_feral_instinct"
       ]
     },
     {
       "talent_id": "druid_feral_predatory_strikes",
       "name": "Predatory Strikes",
-      "description": "While in Cat Form, your critical strikes have a 15% chance per rank to restore 20 Energy.",
+      "description": "Increases your attack power by 4% per rank.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 2,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": -4,
-      "effects": {},
-      "connected_to": [
-        "druid_feral_thick_hide",
-        "druid_feral_heart_of_the_wild"
-      ],
-      "require_form": [
-        "cat"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 15,
-        "icd": 0,
-        "require_form": [
-          "cat"
-        ],
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 20
-        }
-      }
-    },
-    {
-      "talent_id": "druid_feral_savage_fury",
-      "name": "Savage Fury",
-      "description": "Increases the damage of Mangle and Maul by 8% per rank.",
-      "node_type": "passive",
-      "tier": 1,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -4,
+      "hex_x": -4,
+      "hex_y": -2,
       "effects": {
-        "ability_druid_mangle_damage": 0.08,
-        "ability_druid_maul_damage": 0.08
+        "attack_power_pct": 4.0
       },
+      "_source": "WotLK row 3: 'Increases your melee attack power in Cat, Bear and Dire Bear Forms by 50%-150% of your level and 20% of any attack power on your equipped weapon.' There is no attack-power-from-level or from-weapon conversion (weapon is a valid conversion SOURCE but level is not a stat), so it becomes a straight percentage. MEASURED: attack_power_pct=20 moved attack power 34->40, so POINTS.",
       "connected_to": [
-        "druid_feral_feral_instinct",
-        "druid_feral_natural_reaction"
+        "druid_feral_savage_fury"
       ]
     },
     {
       "talent_id": "druid_feral_primal_fury",
       "name": "Primal Fury",
-      "description": "While in Bear Form, your critical strikes have a 50% chance per rank to generate 5 Rage.",
+      "description": "Your critical strikes in bear form generate 5 extra Rage.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -3,
+      "hex_x": -2,
       "hex_y": -2,
       "effects": {},
+      "_source": "WotLK row 3, built close to verbatim: 'Gives you a 100% chance to gain an additional 5 Rage anytime you get a critical strike while in Bear and Dire Bear Form.' rage_generation_pct IS A DEAD KEY (measured), so the rage has to arrive as a proc payload. CHANCE IS 50, NOT THE REAL 100%: only a proc's CHANCE scales with points, never its payload, so a 2-rank node at 100% would give rank 2 nothing - the bug check_talent_balance.py caught in four Warlock nodes this session. 50 x 2 = 100 at full rank. GATED ON THE BEAR LIST ['bear','dire_bear'], never the bare string 'bear', because Dire Bear Form is unlocked inside this very tree and a single-form gate would switch itself off when the player took their own upgrade (see talent_node.form_matches).",
       "connected_to": [
-        "druid_feral_sharpened_claws",
-        "druid_feral_brutal_impact"
-      ],
-      "require_form": [
-        "bear",
-        "dire_bear"
+        "druid_feral_thick_hide"
       ],
       "proc": {
         "trigger": "on_crit",
@@ -209,65 +226,80 @@
       }
     },
     {
-      "talent_id": "druid_feral_survival_of_the_fittest",
-      "name": "Survival of the Fittest",
-      "description": "Reduces all damage taken by 2% per rank.",
+      "talent_id": "druid_feral_primal_precision",
+      "name": "Primal Precision",
+      "description": "Increases your chance to hit by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": -1,
+      "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "damage_taken_pct": -0.02
+        "hit_rating": 2.0
       },
+      "_source": "WotLK row 3: 'Increases your expertise by 10/20, and you are refunded 80% of the energy cost of a finishing move if it fails to land.' Kyle, this session: 'So expertise is basically hit rating' - so expertise becomes hit_rating, which is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET. The refund clause needs no building: there is no on-miss trigger, and with hit rating applied there is less to refund.",
       "connected_to": [
-        "druid_feral_shredding_attacks",
-        "druid_feral_mangle"
+        "druid_feral_thick_hide"
       ]
     },
     {
-      "talent_id": "druid_feral_heart_of_the_wild",
-      "name": "Heart of the Wild",
-      "description": "Increases your Agility by 2% per rank.",
+      "talent_id": "druid_feral_brutal_impact",
+      "name": "Brutal Impact",
+      "description": "Increases the duration of your Bash by 1 turn and reduces its cooldown by 1 turn per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 5,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "agility_pct": 2.0
+        "ability_druid_bash_duration": 1,
+        "ability_druid_bash_cooldown": 1
       },
+      "_source": "WotLK row 4, built verbatim for the one ability we have: 'Increases the stun duration of your Bash and Pounce abilities by 0.5/1 sec and decreases the cooldown of Bash by 15/30 sec.' Pounce does not exist. BOTH KEYS WERE CHECKED AGAINST THE ABILITY: druid_bash really does carry duration 1 and cooldown 5, so both land - the first draft of this file used ability_druid_bash_damage, which qa_ability_scoped_fields.py correctly flagged as dead, because bash is effect_type 'debuff' with no damage at all. _duration is FLAT TURNS and POSITIVE EXTENDS; _cooldown is FLAT turns and clamps at 1.",
       "connected_to": [
-        "druid_feral_predatory_strikes",
-        "druid_feral_leader_of_the_pack"
+        "druid_feral_feral_swiftness"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_nurturing_instinct",
+      "name": "Nurturing Instinct",
+      "description": "You gain healing power equal to 15% of your Agility per rank.",
+      "node_type": "passive",
+      "tier": 2,
+      "max_points": 2,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": -2,
+      "effects": {
+        "healing_power_from_agility_pct": 0.15
+      },
+      "_source": "WotLK row 4: 'Increases your healing spells by up to 35%/70% of your Agility, and increases healing done to you by 10%/20% while in Cat form.' The Agility half is VERBATIM and is exactly the agility-stacking payoff Kyle described - a feral druid's Agility making his out-of-form healing matter. agility is a valid conversion SOURCE and healing_power a valid TARGET (STAT_CONVERSION_TARGETS, character.py:18). RAW MULTIPLIER convention, so 0.15 and never 15. The healing-taken half is dropped: healing_taken_pct is a status key, not a talent one, and there is no self-scoped form of it.",
+      "connected_to": [
+        "druid_feral_feral_swiftness"
       ]
     },
     {
       "talent_id": "druid_feral_natural_reaction",
       "name": "Natural Reaction",
-      "description": "While in Bear Form, increases Dodge by 1% per rank, and being struck has a 20% chance per rank to generate 5 Rage.",
+      "description": "Increases your dodge by 2% per rank, and dodging in bear form generates Rage.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": -2,
+      "hex_x": -4,
+      "hex_y": 0,
       "effects": {
-        "dodge": 1.0
+        "dodge": 2.0
       },
+      "_source": "WotLK row 5, BOTH HALVES BUILT VERBATIM: 'Increases your dodge while in Bear Form or Dire Bear Form by 2%-6%, and you regenerate 1-3 rage every time you dodge.' This is the tank's engine and the clearest expression of Kyle's agi/dodge brief - more Agility means more dodges means more Rage. The 100% proc chance is legitimate here because the node ALSO carries a scaling effects dict, so ranks 2 and 3 still buy dodge; check_talent_balance.py accepts a 100% multi-rank proc for exactly that reason. ON AN AVOIDANCE TRIGGER THE INCOMING AMOUNT IS ZERO, so the payload must be grant_resource/damage_flat/heal_flat/apply_effect - a leech_pct or bonus_pct here would silently do nothing.",
       "connected_to": [
-        "druid_feral_savage_fury",
-        "druid_feral_protector_of_the_pack"
-      ],
-      "require_form": [
-        "bear",
-        "dire_bear"
+        "druid_feral_predatory_strikes"
       ],
       "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 20,
+        "trigger": "on_dodge",
+        "chance": 100,
         "icd": 0,
         "require_form": [
           "bear",
@@ -275,227 +307,124 @@
         ],
         "grant_resource": {
           "resource": "rage",
-          "amount": 5
+          "amount": 3
         }
       }
     },
     {
-      "talent_id": "druid_feral_mangle",
-      "name": "Mangle",
-      "description": "Your Mangle leaves the target taking 10% more physical damage for 4 turns.",
+      "talent_id": "druid_feral_heart_of_the_wild",
+      "name": "Heart of the Wild",
+      "description": "Increases your Intellect by 4% per rank and your Agility by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
-      "max_points": 1,
+      "max_points": 5,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "druid_feral_survival_of_the_fittest",
-        "druid_feral_rend_and_tear"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
-        "icd": 0,
-        "ability_filter": [
-          "druid_mangle"
-        ],
-        "apply_effect": {
-          "effect_id": "mangle_wound",
-          "name": "Mangle",
-          "effect_type": "debuff",
-          "duration": 4,
-          "stat_mods": {
-            "physical_damage_taken_pct": 10
-          },
-          "on_target": true
-        }
-      }
-    },
-    {
-      "talent_id": "druid_feral_leader_of_the_pack",
-      "name": "Leader of the Pack",
-      "description": "Your critical strikes heal you for 80.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 0,
-      "effects": {},
-      "connected_to": [
-        "druid_feral_heart_of_the_wild",
-        "druid_feral_infected_wounds"
-      ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 100,
-        "icd": 1,
-        "heal_flat": 80
-      }
-    },
-    {
-      "talent_id": "druid_feral_protector_of_the_pack",
-      "name": "Protector of the Pack",
-      "description": "While in Bear Form, increases your maximum Health by 3% per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 3,
-      "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "max_health_pct": 0.03
+        "intellect_pct": 4.0,
+        "agility_pct": 2.0
       },
-      "connected_to": [
-        "druid_feral_natural_reaction",
-        "druid_feral_king_of_the_jungle"
-      ],
-      "require_form": [
-        "bear",
-        "dire_bear"
-      ]
-    },
-    {
-      "talent_id": "druid_feral_brutal_impact",
-      "name": "Brutal Impact",
-      "description": "Increases the damage of Bash by 20% per rank and reduces its cooldown by 1 turn per rank.",
-      "node_type": "passive",
-      "tier": 3,
-      "max_points": 2,
-      "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 0,
-      "effects": {
-        "ability_druid_bash_damage": 0.2,
-        "ability_druid_bash_cooldown": 1
-      },
+      "_source": "WotLK row 5: 'Increases your Intellect by 4%-20%. In addition, while in Bear or Dire Bear Form your Stamina is increased by 10% and while in Cat Form your attack power is increased by 10%.' The Intellect half is VERBATIM. THE FORM-SPLIT HALVES ARE DELIBERATELY MERGED INTO AGILITY rather than built as two form-gated nodes, and that is a design call from Kyle's brief: agility_pct feeds DODGE AND ATTACK POWER AT ONCE (measured: agility_pct=20 moved dodge 12.25->13.7 AND attack power 34->37), so one key delivers the bear's survivability and the cat's damage exactly as the real talent's two branches do - with the bonus that it keeps paying when the druid swaps forms mid-fight. Both keys are POINTS.",
       "connected_to": [
         "druid_feral_primal_fury"
       ]
     },
     {
-      "talent_id": "druid_feral_rend_and_tear",
-      "name": "Rend and Tear",
-      "description": "Increases the damage of Ferocious Bite and Maul by 6% per rank.",
+      "talent_id": "druid_feral_survival_of_the_fittest",
+      "name": "Survival of the Fittest",
+      "description": "Increases all your attributes by 2% per rank and your armor by 2% per rank.",
       "node_type": "passive",
-      "tier": 4,
-      "max_points": 5,
+      "tier": 3,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 2,
+      "hex_x": 0,
+      "hex_y": 0,
       "effects": {
-        "ability_druid_ferocious_bite_damage": 0.06,
-        "ability_druid_maul_damage": 0.06
+        "all_stats_pct": 2.0,
+        "armor_pct": 2.0
       },
+      "_source": "WotLK row 5, built close to verbatim: 'Increases all attributes by 2%-6%, reduces the chance you'll be critically hit by melee attacks by 2%-6%, and increases your armor contribution in Bear Form by 11%-33%.' CRIT_TAKEN_REDUCTION IS A DEAD TALENT KEY - measured, and the same dead key replaced in sun_cleric_blessings and warlock_demonology this session - so that third is dropped rather than faked. all_stats_pct is POINTS and multiplies every attribute INCLUDING Agility, which is why it belongs in an agi-stacking tank tree; armor_pct is POINTS too.",
       "connected_to": [
-        "druid_feral_mangle",
-        "druid_feral_nurturing_instinct"
+        "druid_feral_primal_precision"
       ]
     },
     {
-      "talent_id": "druid_feral_infected_wounds",
-      "name": "Infected Wounds",
-      "description": "Your Rake and Mangle have a 33% chance per rank to infect the wound, dealing Nature damage over 3 turns.",
+      "talent_id": "druid_feral_leader_of_the_pack",
+      "name": "Leader of the Pack",
+      "description": "Increases your critical strike chance by 5%.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 1,
+      "hex_x": -6,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "crit_chance": 5.0
+      },
+      "_source": "WotLK row 6: 'While in Cat, Bear or Dire Bear Form, increases ranged and melee critical chance of all party and raid members by 5%.' A TALENT EFFECT CAN NEVER REACH AN ALLY - only a party-targeted ABILITY can (abilities.py:2064) - so the aura becomes self-only at the real 5%. The same wall cost Demonic Pact its raid identity in warlock_demonology and Improved Moonkin Form its aura in druid_balance; it is the single most-hit limit across these nine classes.",
       "connected_to": [
-        "druid_feral_leader_of_the_pack",
-        "druid_feral_improved_bear_form"
-      ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 33,
-        "icd": 0,
-        "ability_filter": [
-          "druid_rake",
-          "druid_mangle"
-        ],
-        "apply_effect": {
-          "effect_id": "infected_wound",
-          "name": "Infected Wound",
-          "effect_type": "dot",
-          "duration": 3,
-          "potency": 20,
-          "damage_school": "nature",
-          "on_target": true
-        }
-      }
+        "druid_feral_natural_reaction"
+      ]
     },
     {
-      "talent_id": "druid_feral_king_of_the_jungle",
-      "name": "King of the Jungle",
-      "description": "While in Cat Form, Ferocious Bite has a 34% chance per rank to refund 15 Energy.",
+      "talent_id": "druid_feral_improved_leader_of_the_pack",
+      "name": "Improved Leader of the Pack",
+      "description": "Your critical strikes heal you.",
       "node_type": "passive",
       "tier": 4,
-      "max_points": 3,
+      "max_points": 2,
       "cost_per_point": 1,
-      "hex_x": 3,
+      "hex_x": -4,
       "hex_y": 2,
       "effects": {},
+      "_source": "WotLK row 6: 'Your Leader of the Pack ability also causes affected targets to heal themselves for 4% of their total health when they critically hit.' The party half is unbuildable as above, so it is the druid healing himself. heal_flat is FLAT - there is no heal-for-%-of-max-health payload - so 90 is sized against a level-60 druid's pool. CHANCE IS 50 x 2 rather than the real 100% so the second rank buys something; icd 1 stops a crit streak chaining it.",
       "connected_to": [
-        "druid_feral_protector_of_the_pack"
-      ],
-      "require_form": [
-        "cat"
+        "druid_feral_leader_of_the_pack"
       ],
       "proc": {
-        "trigger": "on_cast",
-        "chance": 34,
+        "trigger": "on_crit",
+        "chance": 50,
         "icd": 1,
-        "require_form": [
-          "cat"
-        ],
-        "ability_filter": [
-          "druid_ferocious_bite"
-        ],
-        "grant_resource": {
-          "resource": "energy",
-          "amount": 15
-        }
+        "heal_flat": 90
       }
     },
     {
-      "talent_id": "druid_feral_nurturing_instinct",
-      "name": "Nurturing Instinct",
-      "description": "Increases the healing of your Regrowth and Rejuvenation by 5% per rank.",
+      "talent_id": "druid_feral_primal_tenacity",
+      "name": "Primal Tenacity",
+      "description": "Reduces the duration of stuns by 10% per rank and the damage you take by 2% per rank.",
       "node_type": "passive",
-      "tier": 5,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 4,
+      "hex_x": -2,
+      "hex_y": 2,
       "effects": {
-        "ability_druid_regrowth_healing": 0.05,
-        "ability_druid_rejuvenation_healing": 0.05
+        "stun_duration_reduction_pct": 0.1,
+        "damage_taken_pct": -0.02
       },
+      "_source": "WotLK row 6: 'Reduces the duration of fear effects by 10%-30%, reduces all damage taken while stunned by 10%-30% while in Cat Form.' There is no fear-duration key, and nothing branches on BEING stunned, so the two clauses merge into the nearest pair that works: stun_duration_reduction_pct (a FRACTION, and it floors a stun at 1 turn) and flat mitigation. BARE damage_taken_pct is read RAW ON BOTH SIDES, so -0.02 is 2% - this is the key that was authored as 5.0 in Warrior Death Wish and meant 500%.",
       "connected_to": [
-        "druid_feral_rend_and_tear",
-        "druid_feral_berserk"
+        "druid_feral_heart_of_the_wild"
       ]
     },
     {
-      "talent_id": "druid_feral_improved_bear_form",
-      "name": "Improved Bear Form",
-      "description": "While in Bear Form, increases your total Armor by 3% per rank.",
+      "talent_id": "druid_feral_protector_of_the_pack",
+      "name": "Protector of the Pack",
+      "description": "In bear form, increases your attack power by 2% per rank and reduces damage taken by 4% per rank.",
       "node_type": "passive",
-      "tier": 5,
+      "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 4,
+      "hex_x": 0,
+      "hex_y": 2,
       "effects": {
-        "armor_pct": 3.0
+        "attack_power_pct": 2.0,
+        "damage_taken_pct": -0.04
       },
+      "_source": "WotLK row 7, built verbatim: 'Increases your attack power by 2%-6% and reduces the damage you take by 4%-12%, while in Bear or Dire Bear Form.' THE FORM GATE IS REAL AND IS ENFORCED - this is the tank's main mitigation talent and it should do nothing in cat form, which require_form delivers (TalentNode.require_form, read through talent_tree.get_total_effects). Gated on the LIST, never the bare string 'bear', because Dire Bear Form is unlocked in this same tree.",
       "connected_to": [
-        "druid_feral_infected_wounds",
-        "druid_feral_feral_mastery"
+        "druid_feral_survival_of_the_fittest"
       ],
       "require_form": [
         "bear",
@@ -503,47 +432,141 @@
       ]
     },
     {
-      "talent_id": "druid_feral_berserk",
-      "name": "Berserk",
-      "description": "For a short time, your melee damage is greatly increased.",
-      "node_type": "active",
-      "tier": 6,
-      "max_points": 1,
-      "cost_per_point": 1,
-      "hex_x": -1,
-      "hex_y": 6,
-      "effects": {
-        "unlock_ability": "druid_berserk"
-      },
-      "connected_to": [
-        "druid_feral_nurturing_instinct"
-      ]
-    },
-    {
-      "talent_id": "druid_feral_feral_mastery",
+      "talent_id": "druid_feral_predatory_instincts",
       "name": "Predatory Instincts",
-      "description": "Your critical strikes have a 25% chance to grant you an immediate extra attack.",
+      "description": "In cat form, increases your critical strike damage by 10% per rank.",
       "node_type": "passive",
-      "tier": 6,
-      "max_points": 1,
+      "tier": 4,
+      "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 1,
-      "hex_y": 6,
-      "effects": {},
+      "hex_x": 2,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_physical": 0.1
+      },
+      "_source": "WotLK row 7: 'While in Cat Form increases your damage from melee critical strikes by 3%-10% and reduces the damage taken from area of effect attacks by 10%-30%.' aoe_damage_taken_pct IS A DEAD KEY (measured), so only the crit half is built. crit_damage_physical IS LIVE - it is read at abilities.py:1460 INSIDE A TERNARY, which is why a literal read-site probe reports nothing for it and why it was nearly declared dead. The cat gate is a single form id, which is safe here because there is no second cat form.",
       "connected_to": [
-        "druid_feral_improved_bear_form"
+        "druid_feral_survival_of_the_fittest"
       ],
-      "proc": {
-        "trigger": "on_crit",
-        "chance": 25,
-        "icd": 1,
-        "extra_attack": 1
-      }
+      "require_form": "cat"
     },
     {
       "talent_id": "druid_feral_dire_bear_form",
       "name": "Dire Bear Form",
-      "description": "Learn Dire Bear Form, an improved Bear Form with more Armor, Stamina, and Attack Power.",
+      "description": "Teaches Dire Bear Form, the greater shape.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "druid_dire_bear_form"
+      },
+      "_source": "NOT A REAL WOTLK TALENT - Dire Bear Form is trained at level 40 in 3.3.5a. It exists as a node here because druid_dire_bear_form is requires_talent IN THIS PROJECT (set earlier this session, when all five druid forms turned out to be auto-learned and three talent points were buying nothing), and THIS TREE IS ITS ONLY SOURCE. Removing the node would make the ability unobtainable, which qa_abilities_obtainable.py would catch - the same failure that hit rogue_evasion earlier this session. Kept rather than ungated because taking a form out of the tank spec's progression is a bigger gameplay change than a talent pass should make unasked. Placed at tier 4, whose 20-point gate lands around level 40, matching where it is really learned, and matching Kyle's own framing of forms as level-40 talents. Infected Wounds, the other real row-7 talent, is DROPPED: its content is a movement-speed and attack-speed debuff, and neither is buildable - there is no movement speed, and HASTE IS NOT ONE OF THE EIGHT STAT_MODS A MONSTER CAN READ, so a haste debuff on an enemy is silently dead.",
+      "connected_to": [
+        "druid_feral_protector_of_the_pack"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_king_of_the_jungle",
+      "name": "King of the Jungle",
+      "description": "In bear form, increases your damage by 5% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": -4,
+      "hex_y": 4,
+      "effects": {
+        "physical_damage": 0.05
+      },
+      "_source": "WotLK row 8: 'While using your Enrage ability in Bear Form, your damage is increased by 5%-15%, and your Tiger's Fury ability also instantly restores 20-60 energy.' Tiger's Fury does not exist, and NOTHING BRANCHES ON ANOTHER BUFF BEING ACTIVE - there is no way to read 'while Enrage is up' - so the Enrage condition is dropped and the bonus is gated on bear form instead, which is the part that can be enforced. ability_druid_enrage_potency was considered and rejected: druid_enrage is effect_type 'restore_resource' with NO stat_mods, so _potency would be silent dead data (qa_ability_scoped_fields.py).",
+      "connected_to": [
+        "druid_feral_protector_of_the_pack"
+      ],
+      "require_form": [
+        "bear",
+        "dire_bear"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_mangle",
+      "name": "Mangle",
+      "description": "Teaches Mangle, a wound that will not close.",
+      "node_type": "active",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": -2,
+      "hex_y": 4,
+      "effects": {
+        "unlock_ability": "druid_mangle"
+      },
+      "_source": "WotLK row 8, kept as a talent because IT IS ONE in the real tree. NOTE this requires druid_mangle to be requires_talent in data/abilities/druid.json; it was form-gated only before this rebuild, so the gate is set alongside this builder, the same treatment moonkin/tree_of_life/dire_bear got earlier this session. A FORM GATE IS NOT A TALENT GATE: without the flag, this node would unlock an ability every druid already had, which is precisely the 'three talent points buying nothing' bug Kyle flagged.",
+      "connected_to": [
+        "druid_feral_king_of_the_jungle"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_improved_mangle",
+      "name": "Improved Mangle",
+      "description": "Reduces the cost of your Mangle by 3 per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 3,
+      "cost_per_point": 1,
+      "hex_x": 0,
+      "hex_y": 4,
+      "effects": {
+        "ability_druid_mangle_cost": 3
+      },
+      "_source": "WotLK row 8: 'Reduces the cooldown of your Mangle (Bear) by 0.5-1.5 sec and reduces the energy cost of your Mangle (Cat) by 2-6.' Mangle is ONE ability here with a cooldown of 1 turn, which is already the floor talented_cooldown clamps to - so a cooldown reduction would be dead on arrival and only the cost half is built. Mangle costs 30, so three ranks cut it by nearly a third.",
+      "connected_to": [
+        "druid_feral_mangle"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_rend_and_tear",
+      "name": "Rend and Tear",
+      "description": "Increases the damage of your Maul and Shred by 4% per rank.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 2,
+      "hex_y": 4,
+      "effects": {
+        "ability_druid_maul_damage": 0.04,
+        "ability_druid_shred_damage": 0.04
+      },
+      "_source": "WotLK row 9: 'Increases damage done by your Maul and Shred attacks on bleeding targets by 4%-20%, and increases the critical strike chance of your Ferocious Bite on bleeding targets.' DEPARTURE - NOTHING READS A DEBUFF ON THE TARGET, one of the hardest confirmed engine limits, so the bleeding condition is dropped from both halves. The Ferocious Bite clause is dropped entirely rather than made unconditional, because Feral Aggression at tier 0 already buffs that ability and two unconditional Ferocious Bite nodes would read as one talent printed twice.",
+      "connected_to": [
+        "druid_feral_mangle"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_primal_gore",
+      "name": "Primal Gore",
+      "description": "Increases the damage of your bleeds by 15%.",
+      "node_type": "passive",
+      "tier": 5,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 4,
+      "effects": {
+        "dot_damage": 0.15
+      },
+      "_source": "WotLK row 9: 'Grants the periodic damage from your Lacerate and Rip abilities the ability to critically hit.' DEPARTURE, and the same one Pandemic hit in warlock_affliction: DOTS NEVER ROLL CRIT in this engine - there is no mechanism at all - so the talent's entire content is unbuildable and becomes flat dot damage, which delivers roughly the same expected value without the variance. Lacerate and Rip do not exist either; Rake is the druid's bleed here. dot_damage is a FRACTION.",
+      "connected_to": [
+        "druid_feral_rend_and_tear"
+      ]
+    },
+    {
+      "talent_id": "druid_feral_berserk",
+      "name": "Berserk",
+      "description": "Teaches Berserk, a brief and total abandon.",
       "node_type": "active",
       "tier": 6,
       "max_points": 1,
@@ -551,12 +574,12 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "druid_dire_bear_form"
+        "unlock_ability": "druid_berserk"
       },
+      "_source": "WotLK row 10, the capstone, kept - the ONLY unlock for druid_berserk, which is requires_talent. Already at its real row in the outgoing tree.",
       "connected_to": [
-        "druid_feral_improved_bear_form"
-      ],
-      "_source": "Real castable shapeshift upgrade over base Bear Form, matching combat/forms.py's 'dire_bear' entry (Lvl 40, more Armor/Stamina/AP). Was previously entirely unbuilt - forms.py had the data but no talent or ability ever unlocked it."
+        "druid_feral_primal_gore"
+      ]
     }
   ]
 }
