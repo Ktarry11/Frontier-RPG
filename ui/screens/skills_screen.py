@@ -214,19 +214,51 @@ class SkillsScreen(BaseScreen):
         self.return_state = GameState.CHARACTER_SHEET
         self.game_state_manager.transition_to(destination)
 
+    #: Hotbar grid geometry, in one place. These used to be open-coded at
+    #: three call sites and two of them disagreed: render() drew slots at
+    #: PANEL_Y + 50 + row*85 while both hit-tests looked for them at
+    #: PANEL_Y + 60 + row*85. Every slot therefore had a 10px dead strip
+    #: along its top and a 10px phantom strip under it, which reads as
+    #: "the hotbar sometimes ignores me" rather than as an off-by-ten.
+    #:
+    #: ROW_PITCH is 90, not 85, because a 64px slot at an 85px pitch
+    #: leaves 21px between rows and the "Row 2 (Press Shift+1-0):" label
+    #: needs ~18 of them - it was being drawn at PANEL_Y + 110, four
+    #: pixels INSIDE row 1's slots, which is the text overlap.
+    SLOT_PX = 64
+    COL_PITCH = 70
+    ROW_PITCH = 95
+    ROW0_TOP = 50          # first slot row, relative to HOTBAR_PANEL_Y
+    LABEL_GAP = 24         # label sits this far above its row of slots
+
+    def _hotbar_slot_rect(self, index):
+        """Rect for hotbar slot `index` (0-19). The single source of truth
+        for both drawing and hit-testing - see the note above."""
+        row, col = divmod(index, 10)
+        return pygame.Rect(
+            self.HOTBAR_PANEL_X + 20 + col * self.COL_PITCH,
+            self.HOTBAR_PANEL_Y + self.ROW0_TOP + row * self.ROW_PITCH,
+            self.SLOT_PX, self.SLOT_PX)
+
+    def _hotbar_label_y(self, row):
+        """Baseline for a row's keybind caption, clear of the slots above."""
+        return (self.HOTBAR_PANEL_Y + self.ROW0_TOP
+                + row * self.ROW_PITCH - self.LABEL_GAP)
+
     def _extra_slot_rects(self):
         """Rects for the 8 click-only extra ability slots, laid out as 2
         rows x 4 cols below the real 20-slot hotbar grid - same panel,
         same slot size, just a visually separated block since these have
         no keybind (see Character.extra_slots)."""
         rects = []
-        base_y = self.HOTBAR_PANEL_Y + 50 + 2 * 85 + 40  # below both hotbar rows + gap
+        base_y = (self.HOTBAR_PANEL_Y + self.ROW0_TOP
+                  + 2 * self.ROW_PITCH + 40)  # below both hotbar rows + gap
         for i in range(8):
             row = i // 4
             col = i % 4
-            slot_x = self.HOTBAR_PANEL_X + 20 + col * 70
-            slot_y = base_y + row * 85
-            rects.append(pygame.Rect(slot_x, slot_y, 64, 64))
+            slot_x = self.HOTBAR_PANEL_X + 20 + col * self.COL_PITCH
+            slot_y = base_y + row * self.ROW_PITCH
+            rects.append(pygame.Rect(slot_x, slot_y, self.SLOT_PX, self.SLOT_PX))
         return rects
 
     def handle_event(self, event):
@@ -268,11 +300,7 @@ class SkillsScreen(BaseScreen):
             # Then the hotbar slots - real Ability lookup by id, skipping
             # Consumable entries (no get_tooltip_lines to show).
             for i in range(20):
-                row = i // 10
-                col = i % 10
-                slot_x = self.HOTBAR_PANEL_X + 20 + col * 70
-                slot_y = self.HOTBAR_PANEL_Y + 60 + row * 85
-                slot_rect = pygame.Rect(slot_x, slot_y, 64, 64)
+                slot_rect = self._hotbar_slot_rect(i)
                 if slot_rect.collidepoint(mouse_x, mouse_y):
                     content = player.hotbar[i]
                     if content and not isinstance(content, Consumable):
@@ -339,11 +367,7 @@ class SkillsScreen(BaseScreen):
             
             # Click hotbar slot
             for i in range(20):
-                row = i // 10
-                col = i % 10
-                slot_x = self.HOTBAR_PANEL_X + 20 + col * 70
-                slot_y = self.HOTBAR_PANEL_Y + 60 + row * 85
-                slot_rect = pygame.Rect(slot_x, slot_y, 64, 64)
+                slot_rect = self._hotbar_slot_rect(i)
                 
                 if slot_rect.collidepoint(mouse_x, mouse_y):
                     if right_click:
@@ -553,20 +577,17 @@ class SkillsScreen(BaseScreen):
             color=(200, 200, 100), size="large")
         self.renderer.draw_text(
             screen, "Row 1 (Press 1-0):",
-            (self.HOTBAR_PANEL_X + 20, self.HOTBAR_PANEL_Y + 20),
+            (self.HOTBAR_PANEL_X + 20, self._hotbar_label_y(0)),
             color=(150, 150, 150))
         self.renderer.draw_text(
             screen, "Row 2 (Press Shift+1-0):",
-            (self.HOTBAR_PANEL_X + 20, self.HOTBAR_PANEL_Y + 110),
+            (self.HOTBAR_PANEL_X + 20, self._hotbar_label_y(1)),
             color=(150, 150, 150))
 
         # Render hotbar slots with icons
         for i in range(20):
-            row_i = i // 10
-            col = i % 10
-            slot_x = self.HOTBAR_PANEL_X + 20 + col * 70
-            slot_y = self.HOTBAR_PANEL_Y + 50 + row_i * 85
-            slot_rect = pygame.Rect(slot_x, slot_y, 64, 64)
+            slot_rect = self._hotbar_slot_rect(i)
+            slot_x, slot_y = slot_rect.x, slot_rect.y
 
             hotbar_content = player.hotbar[i]
             
@@ -630,7 +651,10 @@ class SkillsScreen(BaseScreen):
                 pygame.draw.rect(screen, (40, 40, 50), slot_rect)
                 pygame.draw.rect(screen, (80, 80, 100), slot_rect, 1)
 
-            # Slot number (1-0)
+            # Slot number (1-0). Derived from the index rather than a loop
+            # variable so it cannot drift from _hotbar_slot_rect's own
+            # divmod - the whole point of routing geometry through one place.
+            col = i % 10
             slot_num = (col + 1) if col < 9 else 0
             self.renderer.draw_text(screen, str(slot_num), (slot_x + 50, slot_y + 50),
                                     color=(100, 150, 200))
