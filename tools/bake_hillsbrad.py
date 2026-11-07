@@ -52,7 +52,8 @@ ZONES = {"hillsbrad_east": "tools.handbuilt_hillsbrad_east",
          # Hammerfall is its own zone as of 7 Nov and bakes from the same set for
          # the same reason Tarren Mill does: it is Arathi country and the player
          # walks straight out of its gate into Arathi Central.
-         "hammerfall": "tools.handbuilt_hammerfall"}
+         "hammerfall": "tools.handbuilt_hammerfall",
+         "saltspur_landing": "tools.handbuilt_saltspur_landing"}
 
 MATERIALS = {
     "grass":   ("hb_grass", "hb_grass2", 1.0),

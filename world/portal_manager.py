@@ -566,6 +566,8 @@ class PortalManager:
                 (34, 38): ("The Drowned Barrow", 30, 52),
                 (150, 60): ("Wrackline Hold", 28, 48),       # sea cave, under Gallowmast
                 (160, 132): ("The Tidewrack", 34, 50),       # sea cave, the southern rocks
+                # Saltspur became its own zone on 7 Nov; the beachhead is a door now.
+                (50, 96): ("Saltspur Landing", 2, 28),
             },
             # Leaving a cave arrives at the destination tile +3, which is why each of these sits three
             # tiles north of the overworld mouth it came out of.
@@ -622,6 +624,10 @@ class PortalManager:
                 # which cuts the gate column AFTER forcing the map rim to rock so a later
                 # edit cannot reopen the back of the town by accident.
                 (52, 85): ("Arathi Central", 138, 62),           # arrive (138,64), on the basin road
+            },
+            "Saltspur Landing": {
+                # The bluff cut - the one hole in the rim, carved after it is forced.
+                (2, 28): ("Arathi East", 50, 96),               # arrive (50,98), on the coast road
             },
             "Tarren Mill": {
                 # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a

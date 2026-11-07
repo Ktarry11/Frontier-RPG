@@ -48,6 +48,7 @@ TOWN_REGION = {
     # for the Hillsbrad it opens onto - a town outfits people heading into the
     # country around it, not people farming its own yard.
     "hammerfall": "Arathi Central",
+    "saltspur_landing": "Arathi East",
     "kaels_bastion": "The Crystalline Underdark",
     "freewind_post": "Southern Thousand Needles",
     "undercity": "Undercity",

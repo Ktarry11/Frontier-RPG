@@ -351,16 +351,13 @@ COBBLE = [(46, 96, 8, 6, 0.9), (34, 42, 6, 5, 0.85)]
 # Saltspur Landing is a CAMP, not a town - so no inn and no flight master, and the standing "every town
 # needs both" rule does not bite. Hammerfall one zone west is the hub for this whole stretch.
 NPC_POSITIONS = {
-    "saltspur_bosun": (44, 94),
-    "saltspur_quartermaster": (50, 98),
-    "saltspur_shipwright": (42, 100),
-    "saltspur_scout": (54, 92),
-    # Saltspur is a beachhead, not a town, but it is the ONLY settlement in the 37-40 band and it
-    # is across an archipelago from everywhere else. A player who dies out on the flats with no
-    # hearth here and no wyvern out of here walks the whole east coast back, so the standing rule
-    # that every town gets an inn and a flight master applies to this one too.
-    "saltspur_innkeeper": (47, 98),
-    "saltspur_windrider_master": (51, 92),     # roost up the slope, clear of the jetty
+    # SALTSPUR'S SIX MOVED OUT on 7 Nov - the landing is its own zone now
+    # (tools/handbuilt_saltspur_landing.py). They are listed there, spread one per
+    # thing the landing does instead of six in a 12x6 box of open coast. Leaving
+    # them here would paint "npc" interaction tiles on ground nobody stands on.
+    # The inn and the flight master go WITH them: the reasoning that earned this
+    # beachhead both - only settlement in the 37-40 band, across an archipelago
+    # from anywhere else - is unchanged by which zone they stand in.
     "arathi_barrow_warden": (38, 50),          # outside the barrow, not going in
     "arathi_wreck_salvager": (82, 108),        # working the shore south of the jetty
     "arathi_bothy_hermit": (120, 105),         # on Bothy Rock, the only soul out there
@@ -380,10 +377,12 @@ def dress(L):
     p, b = L.prop, L.bld
     ENT = T.ENT
 
-    # ---- SALTSPUR LANDING: a Horde beachhead on the last of the solid ground ------------------------
-    b("orc_guard_post", 44, 92, 9, nudge=2)
-    b("orc_supply_store", 50, 98, 9, nudge=2)
-    b("ek_boathouse", 42, 102, 9, nudge=2)
+    # ---- SALTSPUR LANDING: the cut in the bluff, and what is outside it ----------------------------
+    # The landing itself became its own zone on 7 Nov. What stays on this side is the
+    # way in and the working shore around it, so the coast road ends at a door rather
+    # than at a thickening of props. Portal tile (50,96) - world/portal_manager.py.
+    b("orc_great_gatehouse", 50, 94, 13, solid=False, road_ok=True, nudge=0)
+    b("orc_watch_tower", 44, 92, 12, nudge=2)
     b("orc_signal_beacon", 54, 90, 11, nudge=2)
     p("ek_signpost", 56, 98, 4)
     p(CO + "fish_drying_rack.png", 48, 104, 4)

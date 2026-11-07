@@ -5622,6 +5622,7 @@ def create_all_zones():
     from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_tarren_mill as dtm
     from tools import handbuilt_hammerfall as dhf
+    from tools import handbuilt_saltspur_landing as dssl
     from tools import handbuilt_frostward_descent as dfwd
     from tools import handbuilt_underdark as dud
     from tools import handbuilt_kaels_bastion as dkb
@@ -5735,6 +5736,9 @@ def create_all_zones():
         # HAMMERFALL IS ITS OWN ZONE as of 7 Nov. It was nine props on the open moor
         # inside Arathi Central with nineteen NPCs standing in a 34x31 box of it.
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)
+        # Ratchet-sized on purpose (Kyle, 7 Nov: "keep saltspur small"): a beachhead,
+        # not a port - one jetty and a camp still unpacking.
+        "Saltspur Landing": dssl.generate_saltspur_landing(),  # tools/handbuilt_saltspur_landing.py
 
         # ===== THE CRYSTALLINE UNDERDARK CLUSTER - the first home-brew zone =====
         "The Frostward Descent": dfwd.generate_frostward_descent(),  # (tools/handbuilt_frostward_descent.py)

@@ -244,11 +244,19 @@ COBBLE = [(36, 146, 12, 8, 0.95), (66, 104, 8, 6, 0.9), (8, 118, 6, 5, 0.85)]
 NPC_POSITIONS = {
     # Refuge Pointe - the hub. Every town needs an inn and a flight master (standing rule); this is a camp
     # rather than a town, so the inn is a field tent and the flight master keeps a hitched gryphon.
-    "arathi_refuge_commander": (64, 100),
-    "arathi_refuge_quartermaster": (70, 102),
-    "arathi_refuge_innkeeper": (62, 108),
-    "arathi_refuge_flightmaster": (72, 110),
-    "arathi_refuge_scout": (58, 104),
+    # SPREAD, NOT REBUILT. Kyle, 7 Nov: "leave refuge point as external. DONT make
+    # it into a town" - so this stays a camp on the open moor, which is what a
+    # forward camp should look like. But the five of them were standing in a 14x10
+    # box of it, which is the cramming complaint and applies to a camp as much as a
+    # town. Now they sit one per thing the camp does, across 22x16: the scout out
+    # west watching the road in, the commander at the tent, the quartermaster by
+    # the stores, the innkeeper at the inn and the wind rider keeper out at the
+    # stable, where the wyverns are.
+    "arathi_refuge_commander": (64, 96),
+    "arathi_refuge_quartermaster": (74, 104),
+    "arathi_refuge_innkeeper": (58, 110),
+    "arathi_refuge_flightmaster": (76, 112),
+    "arathi_refuge_scout": (54, 98),
     # the wall, and the road in
     "arathi_wall_warden": (12, 118),
     # Stromgarde's edge - someone watching the ruin from outside it
