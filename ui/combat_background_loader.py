@@ -13,6 +13,8 @@ Loading is best-effort: a missing/corrupt file returns None so
 combat_screen.py can skip drawing a background and fall back to its
 existing flat-color fill exactly as before this system existed.
 """
+import hashlib
+import json
 import os
 import random
 import pygame
@@ -40,15 +42,65 @@ def _list_images(folder_path):
 
 
 def _resolve_folder_path(folder_name, variant=None):
-    """folder_name + optional variant -> the actual directory to pick an
-    image from. Falls back to the flat folder if the requested variant
-    doesn't exist for this pack (e.g. asking dark_dungeon for "Night")."""
+    """folder_name + optional variant -> (directory, resolved_variant_or_None).
+
+    Falls back to the flat folder if the requested variant doesn't exist for
+    this pack (e.g. asking dark_dungeon for "Night"). Returns the variant it
+    actually settled on as well as the path, because the assignment map is
+    keyed on the real folder - "nautical/Flooded", not "nautical" - and
+    rebuilding that key from the path afterwards is how you get it wrong."""
     base = os.path.join(BACKGROUNDS_ROOT, folder_name)
     options = get_variant_options(folder_name)
     if not options:
-        return base
+        return base, None
     chosen = variant if variant in options else options[0]
-    return os.path.join(base, chosen)
+    return os.path.join(base, chosen), chosen
+
+
+# place -> image, dealt evenly by tools/build_background_assignments.py.
+# Loaded once, lazily, and allowed to be absent or stale: a place it does not
+# cover falls back to the hash below, so the map never has to be rebuilt to
+# keep the game working. Rebuilding it only makes the spread even again.
+_assignments = None
+
+
+def _assignment_map():
+    global _assignments
+    if _assignments is None:
+        path = os.path.join(BACKGROUNDS_ROOT, "assignments.json")
+        try:
+            with open(path) as fh:
+                _assignments = json.load(fh)
+        except (OSError, ValueError):
+            _assignments = {}
+    return _assignments
+
+
+def _pick(images, zone_name, place, folder_name, variant=None):
+    """Which image in this pack does `place` get?
+
+    NOT random.choice. Two reasons, and the second is the one that makes the
+    whole repetition effort worth anything:
+
+    1. STABILITY. A random pick is frozen for the session, so Shadowfang Keep
+       looked like one room today and a different room after a restart. A
+       place should look like itself.
+    2. SPREAD. dark_dungeon serves 84 places from 15 images. Rolling a die 84
+       times does not deal 15 cards evenly - it leaves some images drawn ten
+       times and others never, which is exactly the repetition the art was
+       bought to fix, arriving by a different road.
+
+    So: hash the place name to an index. Deterministic across runs, and
+    uniform over the pack rather than clumped. hashlib, not hash() - the
+    builtin is salted per process, which would have been random-with-extra-
+    steps and would have looked correct in any single session.
+    """
+    key = f"{folder_name}/{variant}" if variant else folder_name
+    dealt = _assignment_map().get(f"{key}\t{zone_name}\t{place}")
+    if dealt in images:
+        return dealt
+    digest = hashlib.md5(f"{key}/{zone_name}/{place}".encode("utf-8")).digest()
+    return sorted(images)[int.from_bytes(digest[:8], "big") % len(images)]
 
 
 def _load_raw(path):
@@ -93,17 +145,19 @@ def get_background_for_zone(zone_name, is_cave=False, variant=None,
         # The whole precedence chain lives in resolve_place() so the QA tool
         # can ask the same question this does and get the same answer.
         folder_name, pinned, _biome = resolve_place(zone_name, subzone_name, is_cave)
-        folder_path = _resolve_folder_path(folder_name, pinned or variant)
+        folder_path, chosen_variant = _resolve_folder_path(folder_name, pinned or variant)
         images = _list_images(folder_path)
         if not images:
             # Variant subfolder came up empty (e.g. mossy_forest/Dark has
             # fewer entries than Normal) - fall back to the flat base
             # folder for this pack before giving up entirely.
             folder_path = os.path.join(BACKGROUNDS_ROOT, folder_name)
+            chosen_variant = None
             images = _list_images(folder_path)
         if not images:
             return None
-        path = os.path.join(folder_path, random.choice(images))
+        path = os.path.join(folder_path,
+                            _pick(images, zone_name, place, folder_name, chosen_variant))
         if cache_key:
             _zone_choice[cache_key] = path
 

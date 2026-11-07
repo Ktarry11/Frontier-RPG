@@ -351,3 +351,32 @@ Distinct from `mossy_forest`, which is outdoor farm country.
 >    root walls, dry dirt floor, low red light
 > 2. A sunken clearing walled by thorn thickets, bone and hide lashed to
 >    stakes, overcast sky far above
+
+---
+
+## CLOSED — 7 Nov
+
+Kyle, after the savanna/mossy_dungeon/mountain sheets: *"Nope, this is good.
+Start wiring them in. This is all you get, some reused is fine."*
+
+**Everything above this line is reference, not a request.** No more sheets are
+owed. The prompts stay because they are the record of what each pack is FOR -
+useful when judging whether a future image belongs in a pack, and ready if
+anyone ever wants to deepen one - but nothing in the game is waiting on them.
+
+Where it finished: 80 backgrounds filed across seventeen sheets, 23 packs,
+836 places. Four packs are still above an even share of 10 places per image
+and that is accepted:
+
+    blighted       7 images /  73 places   10.4
+    ice_dungeon    3 images /  34 places   11.3
+    nautical/Hold  1 image  /   9 places    9.0
+
+`cave_webbed` (11 places) and `cave_thornscrub` (13) still borrow
+`dark_dungeon` rather than having packs of their own. Also accepted.
+
+Reuse is now DEALT rather than rolled - see
+`tools/build_background_assignments.py`. Every place gets a specific image,
+spread as evenly as the pack allows, stable across restarts. So "some reused"
+means each image covers its fair share of places, not that one image turns up
+everywhere while another is never seen.
