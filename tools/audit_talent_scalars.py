@@ -83,11 +83,92 @@ def collect(pattern):
     return rows
 
 
+PCT = re.compile(r"(\d+(?:\.\d+)?)\s*%")
+
+
+def audit_descriptions():
+    """Does a multi-rank talent's description state the PER-RANK value or
+    the FULL-RANK TOTAL, and does it say which?
+
+    This is the bug Kyle actually hit. Pyromancer's Searing Flames stores
+    0.1 across 3 ranks - a sane 30% total - and describes itself as
+    "Increases the damage of Lava Shard by 30%." Shaman's Lightning Mastery
+    stores 0.02 across 5 ranks and describes itself as "...by 2% PER RANK".
+
+    Both numbers are honest. The conventions are not the same, and a player
+    who learned the Shaman phrasing reads 30% on a 0/3 node as 30/60/90.
+    """
+    tol = 0.75  # percentage points, to absorb 0.1167 x 3 = 35.01 vs "35%"
+    buckets = collections.Counter()
+    mismatched = []
+    offenders = collections.Counter()
+    for path in sorted(TALENTS.glob("*.json")):
+        tree = path.stem
+        for node in json.loads(path.read_text()).get("nodes", []):
+            if not isinstance(node, dict):
+                continue
+            ranks = node.get("max_points") or 1
+            if ranks < 2:
+                continue
+            desc = node.get("description") or ""
+            said = [float(x) for x in PCT.findall(desc)]
+            vals = [abs(v) for v in (node.get("effects") or {}).values()
+                    if isinstance(v, (int, float)) and v]
+            if not said or not vals:
+                continue
+            says_per_rank = "per rank" in desc.lower()
+            kind = None
+            for v in vals:
+                for scale in (100, 1):
+                    if any(abs(x - v * scale) <= tol for x in said):
+                        kind = "per_rank"
+                        break
+                    if any(abs(x - v * ranks * scale) <= tol for x in said):
+                        kind = "total"
+                        break
+                if kind:
+                    break
+            if kind is None:
+                kind = "neither"
+                mismatched.append((tree, node.get("name"), said, vals[:2], ranks))
+            buckets[f"{kind}/{'per rank' if says_per_rank else 'bare'}"] += 1
+            if kind == "total" and not says_per_rank:
+                offenders[tree.split("_")[0]] += 1
+
+    total = sum(buckets.values())
+    print(f"\n{total} multi-rank talents state a percentage in their "
+          f"description\n")
+    for key, count in buckets.most_common():
+        print(f"  {count:>5} ({count / total:4.0%})  {key}")
+
+    amb = buckets["total/bare"]
+    print(f"\n  {amb} ({amb / total:.0%}) state the FULL-RANK TOTAL with no "
+          f"'per rank' qualifier.")
+    van = sum(n for c, n in offenders.items() if c in VANILLA)
+    coa = sum(n for c, n in offenders.items() if c not in VANILLA)
+    print(f"  vanilla classes: {van}      CoA classes: {coa}")
+    if van == 0:
+        print("  The split is total: every vanilla class says 'per rank', "
+              "no CoA class does.")
+    print("  worst:", ", ".join(f"{c} {n}" for c, n in offenders.most_common(8)))
+
+    print(f"\n  {len(mismatched)} descriptions match NEITHER reading - real "
+          f"data bugs, not convention:")
+    for tree, name, said, vals, ranks in mismatched:
+        print(f"    {tree:26}{str(name)[:24]:26}says {said}  data {vals} x{ranks}")
+
+
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--descriptions", action="store_true",
+                    help="audit per-rank vs total wording instead of magnitudes")
     ap.add_argument("--pattern", default=r"ability_(.+)_damage$",
                     help="effect-key regex to audit (default: per-ability damage)")
     args = ap.parse_args()
+
+    if args.descriptions:
+        audit_descriptions()
+        return 0
 
     rows = collect(re.compile(args.pattern))
     if not rows:
