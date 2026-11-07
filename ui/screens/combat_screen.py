@@ -619,11 +619,32 @@ class CombatScreen(BaseScreen):
             # it explicitly keeps this branch's intent honest rather than
             # relying on a downstream override to paper over a nonsense
             # single target.
-            targets = self.combat_engine.living_enemies()
-            if not targets:
+            # AIM IT AT A ROW. This used to skip targeting entirely and cast
+            # on every living enemy, because execute_ability overrode the
+            # pick anyway - true at the time and no longer true: an AoE now
+            # hits ONE row and the row comes from whoever was clicked (see
+            # the enemy_aoe branch in CombatEngine.execute_ability).
+            #
+            # So the click is meaningful again. targetable_rows decides which
+            # rows this caster may aim at - a melee cleave is stuck on the
+            # front rank until it is dead, a spell may pick either - and the
+            # selectable enemies are everyone standing in one of them.
+            from combat import rows as rowrules
+            living = self.combat_engine.living_enemies()
+            if not living:
                 self.message_log.append("No valid targets!")
                 return
-            self._execute_ability(actor, ability_id, targets)
+            allowed = rowrules.targetable_rows(actor, ability, living)
+            valid = [c for c in living if rowrules.row_of(c) in allowed] or living
+            # Only one row occupied, or one enemy left: nothing to choose.
+            if len({rowrules.row_of(c) for c in valid}) <= 1:
+                self._execute_ability(actor, ability_id, valid[0])
+                return
+            self.targeting_mode = (ability_id, slot_index, ability, actor)
+            self.targeting_valid_targets = valid
+            self.targeting_hovered = valid[0]
+            self.message_log.append(
+                f"{ability.name} — click an enemy to hit their row (ESC to cancel)")
             return
 
         # Manually targetable: pick between allies or enemies

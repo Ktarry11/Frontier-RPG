@@ -2713,7 +2713,7 @@ class Ability:
                             self._apply_earthen_attunement_shred(caster, t)
 
                 if is_aoe and len(recipients) > 1:
-                    return f"{caster.name} uses {self.name} on all enemies ({', '.join(hit_lines)})!"
+                    return f"{caster.name} uses {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)})!"
                 if not any_hit:
                     return f"{caster.name}'s {self.name} misses {recipients[0].name}!"
                 return f"{caster.name} uses {self.name} on {recipients[0].name} for {first_hit_amount} damage!" + (" (CRIT!)" if first_hit_crit else "")
@@ -2760,7 +2760,7 @@ class Ability:
                         self._last_threat_events.append((t, actual_damage, True))
 
                 if is_aoe and len(recipients) > 1:
-                    summary = f"{caster.name} casts {self.name} on all enemies ({', '.join(hit_lines)})!"
+                    summary = f"{caster.name} casts {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)})!"
                 elif not any_hit:
                     summary = f"{caster.name}'s {self.name} misses {recipients[0].name}!"
                 else:
@@ -3564,6 +3564,25 @@ class Ability:
 
         return f"{caster.name} uses {self.name}!"
     
+
+    @staticmethod
+    def _aoe_scope(recipients):
+        """'the front row' / 'the back row' / 'all enemies'.
+
+        An AoE hits ONE row now (Kyle's spec, wired up in
+        CombatEngine.execute_ability's enemy_aoe branch), so a log line
+        reading "on all enemies" while two of the four enemies took nothing
+        is the log describing behaviour the game stopped having.
+        """
+        try:
+            from combat.rows import row_of
+            rows = {row_of(r) for r in recipients}
+        except Exception:
+            return "all enemies"
+        if len(rows) == 1:
+            return f"the {rows.pop()} row"
+        return "all enemies"
+
     def decrement_cooldown(self):
         """Decrement cooldown by 1 turn (called after turn ends)."""
         if self.turns_remaining > 0:

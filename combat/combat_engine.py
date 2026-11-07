@@ -403,7 +403,35 @@ class CombatEngine:
         # ability shouldn't be limited to whichever one enemy happened to
         # be highlighted.
         if getattr(ability, "target_type", None) == "enemy_aoe":
-            target = self.living_enemies()
+            # AN AOE HITS ONE ROW, AND THE PLAYER PICKS IT. Kyle's spec,
+            # 6 Nov: "a warrior cleave only hits the front row when other
+            # front liners are up, but a mage can pick an aoe on front or
+            # back row. Then when front row is destroyed then the melee can
+            # cleave the back row."
+            #
+            # combat/rows.targetable_rows has existed since the row system
+            # landed and nothing ever called it, so every AoE in the game
+            # hit the entire enemy side and rows did not apply to area
+            # damage at all - which is most of what makes a back line mean
+            # anything.
+            #
+            # The row is taken from whoever the player clicked rather than
+            # from a new widget: a click already picks a combatant, and the
+            # combatant it picks is standing in exactly one row. If the call
+            # site passed a list (an AoE with no aimed target, or a monster
+            # casting one), fall back to every living enemy, which is the
+            # old behaviour.
+            from combat import rows as rowrules
+            living = self.living_enemies()
+            aimed = target if not isinstance(target, (list, tuple)) else None
+            if aimed is not None and aimed in living:
+                row = rowrules.row_of(aimed)
+                allowed = rowrules.targetable_rows(actor, ability, living)
+                if row not in allowed and allowed:
+                    row = allowed[0]
+                target = rowrules.in_row(living, row) or living
+            else:
+                target = living
 
         # Nature's Swiftness-style effects: a buff that makes the CASTER'S
         # NEXT cast instant, rather than the triggering ability itself
