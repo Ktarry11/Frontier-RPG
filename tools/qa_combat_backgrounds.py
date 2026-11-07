@@ -178,7 +178,13 @@ def _empty_packs(by_pack):
     root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                         "assets", "backgrounds")
     bad = []
-    for folder in sorted(set(BIOME_TO_BACKGROUND.values()) | set(by_pack)):
+    # A BIOME_TO_BACKGROUND value may be a (folder, variant) pair, same as
+    # ZONE_BACKGROUND - take the folder. Sorting the raw values crashed the
+    # moment cave_flooded_ruins became a pair, and it crashed AFTER printing
+    # the whole report, so the output looked complete and the exit code was
+    # the only thing that said otherwise.
+    routed = {v[0] if isinstance(v, tuple) else v for v in BIOME_TO_BACKGROUND.values()}
+    for folder in sorted(routed | set(by_pack)):
         path = os.path.join(root, folder)
         n = sum(1 for _, _, fs in os.walk(path)
                 for f in fs if f.lower().endswith((".png", ".jpg", ".jpeg")))
