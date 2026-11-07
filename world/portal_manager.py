@@ -557,6 +557,9 @@ class PortalManager:
                 (186, 92): ("Arathi East", 6, 94),
                 (38, 40): ("Boulderfist Hall", 32, 50),
                 (170, 114): ("Drywhisker Deeps", 76, 154),   # the kobold mine, 37-40
+                # The Hammerfall gate. The town used to BE this patch of moor; now it is
+                # a door in it, which is the whole point of giving it its own zone.
+                (138, 62): ("Hammerfall", 52, 85),
             },
             "Arathi East": {
                 (4, 92): ("Arathi Central", 184, 94),
@@ -613,6 +616,12 @@ class PortalManager:
             },
             "Kael's Bastion": {
                 (48, 86): ("The Crystalline Underdark", 72, 84),    # arrive (72,82), on the forecourt
+            },
+            "Hammerfall": {
+                # The one hole in the stockade rim - see handbuilt_hammerfall.cliff_field,
+                # which cuts the gate column AFTER forcing the map rim to rock so a later
+                # edit cannot reopen the back of the town by accident.
+                (52, 85): ("Arathi Central", 138, 62),           # arrive (138,64), on the basin road
             },
             "Tarren Mill": {
                 # The town's south gate sits on the WEST bank - the race runs x=43..49 at that latitude, so a

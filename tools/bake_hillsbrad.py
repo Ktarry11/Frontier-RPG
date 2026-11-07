@@ -48,7 +48,11 @@ ZONES = {"hillsbrad_east": "tools.handbuilt_hillsbrad_east",
          # materials do.
          "arathi_west": "tools.handbuilt_arathi_west",
          "arathi_central": "tools.handbuilt_arathi_central",
-         "arathi_east": "tools.handbuilt_arathi_east"}
+         "arathi_east": "tools.handbuilt_arathi_east",
+         # Hammerfall is its own zone as of 7 Nov and bakes from the same set for
+         # the same reason Tarren Mill does: it is Arathi country and the player
+         # walks straight out of its gate into Arathi Central.
+         "hammerfall": "tools.handbuilt_hammerfall"}
 
 MATERIALS = {
     "grass":   ("hb_grass", "hb_grass2", 1.0),

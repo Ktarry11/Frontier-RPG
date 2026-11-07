@@ -235,23 +235,11 @@ COBBLE = [(142, 56, 16, 12, 0.95), (62, 88, 8, 7, 0.8), (94, 88, 8, 7, 0.8), (12
 # undercity, and thunderbluff depending on npcs." The orc garrison answers to Orgrimmar, the apothecary
 # wing to the Forsaken, and the two tauren who came up with the supply caravan to Thunder Bluff.
 NPC_POSITIONS = {
-    # --- Hammerfall: command (Orgrimmar)
-    "hammerfall_commander": (142, 50),
-    "hammerfall_quartermaster": (134, 58),
-    "hammerfall_sergeant": (150, 52),
-    # --- Hammerfall: services
-    "hammerfall_innkeeper": (136, 64),
-    "hammerfall_windrider_master": (154, 62),      # the wind rider
-    "hammerfall_weaponsmith": (128, 60),
-    "hammerfall_general_goods": (146, 66),
-    "hammerfall_reagent_vendor": (132, 68),
-    "hammerfall_stablemaster": (156, 56),
-    # --- Hammerfall: the Forsaken wing (the_forsaken)
-    "hammerfall_apothecary": (122, 54),
-    "hammerfall_deathguard": (124, 62),
-    # --- Hammerfall: the Thunder Bluff caravan (thunder_bluff)
-    "hammerfall_tauren_envoy": (148, 44),
-    "hammerfall_tauren_herbalist": (152, 46),
+    # HAMMERFALL'S PEOPLE ARE NOT HERE ANY MORE. All nineteen of them moved into
+    # the Hammerfall zone on 7 Nov (tools/handbuilt_hammerfall.py NPC_POSITIONS),
+    # where they are spread one per quarter instead of standing in a 34x31 box of
+    # open moor. Leaving them listed here would paint "npc" interaction tiles on
+    # ground nobody stands on - a tile that says talk to me with nothing behind it.
     # --- out in the zone
     # OUTSIDE the stones. (94,80) is 8 tiles from ring two's centre, which is inside the
     # annulus - the flood-fill caught him standing in a standing stone.
@@ -278,24 +266,18 @@ def dress(L):
     # Built out of the orc garrison sheet rather than the Valley-of-Trials huts, because this hold has
     # stood in hostile country for years and hide-over-poles says the opposite (claude/orc_building_
     # prompts.md). The Forsaken wing is west of the yard, the tauren caravan north of it.
-    b("orc_great_gatehouse", 142, 44, 13, nudge=2)
-    b("orc_war_hall", 142, 54, 12, nudge=2)
-    b("orc_warchief_lodge", 150, 50, 12, nudge=2)
-    b("orc_barracks_longhouse", 132, 50, 10, nudge=2)
-    b("orc_mess_hall", 136, 64, 10, nudge=2)         # the inn: a Horde garrison's inn is its mess hall
-    b("orc_quartermaster_post", 146, 66, 9, nudge=2)
-    b("orc_war_forge", 128, 60, 10, nudge=2)
-    b("orc_supply_store", 132, 68, 9, nudge=2)
-    b("orc_warbeast_stable", 156, 56, 9, nudge=2)    # the wind rider roost
-    b("orc_watch_tower", 160, 48, 13, nudge=2)
-    b("orc_guard_post", 124, 46, 9, nudge=2)
-    # the Forsaken wing
-    b("orc_forsaken_apothecary", 122, 54, 10, nudge=2)
-    b("orc_deathguard_post", 124, 62, 9, nudge=2)
-    # the tauren caravan, camped north of the yard rather than housed in it
-    b("orc_totem_court", 148, 42, 7, nudge=2)
-    p("ek_farm_well", 142, 60, 4)
-    p("ek_signpost", 128, 74, 4)
+    # HAMMERFALL IS A DOOR NOW, not a scatter of buildings on the moor. The town
+    # became its own zone on 7 Nov; what is left on this side is its outer wall and
+    # the gate you walk through, so the basin road ends at something you enter
+    # rather than something you wander into. Portal tile (138,62) - see
+    # world/portal_manager.py.
+    b("orc_great_gatehouse", 138, 60, 14, solid=False, road_ok=True, nudge=0)
+    for x in (126, 132, 146, 152):
+        b("orc_stockade_section", x, 58, 7, solid=True, nudge=0)
+    b("orc_watch_tower", 122, 56, 13, nudge=2)
+    b("orc_watch_tower", 158, 56, 13, nudge=2)
+    b("orc_signal_beacon", 140, 48, 8, nudge=2)
+    p("ek_signpost", 136, 72, 4)
     for (x, y) in ((126, 42), (158, 42)):
         p(RU + "ruin_wall_arch.png", x, y, 6)
 
