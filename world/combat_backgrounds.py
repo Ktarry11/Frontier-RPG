@@ -27,9 +27,9 @@ VARIANT_FOLDERS = {
     # drowned mine on a sunlit quarterdeck. ZONE_BACKGROUND pins every nautical place.
     "nautical": ("Deck", "Hold", "Flooded"),
 }
-FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "savanna", "savanna_oasis", "jungle", "mountain",
+FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "savanna", "savanna_oasis", "coast", "jungle", "mountain",
                 "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
-                "keep", "arena")
+                "keep", "arena", "abyssal_sands", "glittervein", "frozen_ruins")
 
 # Nearest-match: every ZONE_BIOME / CAVE_BIOME tag in world/tile_textures.py
 # routed to whichever of the 7 available packs reads closest. Chosen by eye
@@ -91,6 +91,15 @@ BIOME_TO_BACKGROUND = {
     # Slug Fens - waterlogged bog. jungle is right for this one: standing
     # water and dense green, not open grass.
     "barrens_fen": "jungle",
+    # COAST, new 7 Nov. Seven shorelines were fighting inland - The Wrackline
+    # Shore in mossy_forest, Scuttle Coast in desert, Razorjaw Reef in
+    # jungle - because no coast pack existed and `nautical` is the WRONG
+    # answer for them: its three variants are a weather deck, a hold and
+    # flooded ruins, so a beach would have been fought on a ship. Kyle
+    # generated the pack against docs/background_prompts.md; the four
+    # climates in it are why one folder can serve Durotar's red rock and
+    # Tirisfal's dead northern shore from the same table.
+    "coast": "coast",
 
     # Cave variants -> the three dungeon packs by color temperature, per
     # tile_textures.py's own warm/cold/sick/dark/mossy descriptions.
@@ -145,17 +154,25 @@ ZONE_BACKGROUND = {
 
     # --- desert and salt ---------------------------------------------------
     "Northern Tanaris": "desert",
-    "The Abyssal Sands": "desert",                # collapse pits across open desert
+    # THESE THREE NO LONGER BORROW. Kyle, 7 Nov: "We now have like 60+
+    # backgrounds. No reason to reuse the same background over and over."
+    # Each of these is a named, written place that was drawing generic art
+    # from a neighbour's pack - the Abyssal Sands and Glittervein both drew
+    # the same three Tanaris dunes, and Rocky Pass drew whatever the mountain
+    # pack happened to pick. One bespoke image each is a thin pack, and that
+    # is fine: a thin pack of the right place beats a deep pack of the wrong
+    # one, which is the whole lesson of the Barrens-as-Egypt bug.
+    "The Abyssal Sands": "abyssal_sands",         # collapse pits across open desert
     # "The Shimmering Flats" is set in the .update() below, to salt_flat. The salt pack DOES
     # exist (assets/backgrounds/salt_flat); the note that once sat here saying otherwise was
     # stale, and the dead "desert" entry it justified has been removed.
-    "Glittervein": "desert",                      # dead desert rim; the lake is the floor, not the backdrop
+    "Glittervein": "glittervein",                 # dead desert rim; the lake is the floor, not the backdrop
 
     # --- rock, canyon, highland. The mountain pack has 30 images and until
     #     now served nothing at all.
     "Southern Thousand Needles": "mountain",      # mesas and sheer rims
     "The Aspen Wilderness": "mountain",           # real elevation, headwalls, glacial benches
-    "Rocky Pass": "mountain",                     # "an alpine dungeon above the treeline... outside"
+    "Rocky Pass": "frozen_ruins",                 # "an alpine dungeon above the treeline... outside"
     "Serena's Hollow": "mountain",                # "THE CLIFF GORGE"
     "Thunder Ridge": "mountain",                  # canyon rooms in red-rock Durotar
     "Boulder Lode Mine": "mountain",              # switchback terraces cut into cliffs

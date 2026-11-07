@@ -574,6 +574,27 @@ SUBZONE_BIOME = {
     # rubble scatter on top, for genuine "excavated ruins" character
     # beyond just "rocky area" (which Harpy Roost already covers).
     "Bael Modan": "bael_modan",
+
+    # ------------------------------------------------------------------
+    # SHORELINES, 7 Nov. Seven subzones whose names promise a coast sat
+    # inside land zones and inherited the parent's pack, so The Wrackline
+    # Shore fought in a mossy forest, Scuttle Coast in a desert and
+    # Razorjaw Reef in a jungle. qa_combat_backgrounds has been listing
+    # them; the blocker was that no coast art existed and `nautical` is a
+    # ship's deck, not a beach. The pack exists now.
+    #
+    # These entries only change the COMBAT BACKDROP. They are read by
+    # get_subzone_biome_by_name, which ui/combat_background_loader consults
+    # before falling back to the zone - the overworld ground textures these
+    # subzones draw are unaffected, because nothing here feeds them.
+    # ------------------------------------------------------------------
+    "The Wrackline Shore": "coast",
+    "Coast Bluffs": "coast",
+    "Zoram Coast": "coast",
+    "Scuttle Coast": "coast",
+    "The Eastern Strand": "coast",
+    "The North Coast": "coast",
+    "Razorjaw Reef": "coast",
 }
 
 

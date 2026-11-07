@@ -177,3 +177,45 @@ Once the folder exists: add `"coast"` to `FLAT_FOLDERS` and
 `BIOME_TO_BACKGROUND` in `world/combat_backgrounds.py`, then give the seven
 subzones above a `"coast"` entry in `SUBZONE_BIOME` (`world/tile_textures.py`).
 The loader already consults subzone biomes, so that is the whole wiring.
+
+---
+
+## Three one-image packs (7 Nov, second batch)
+
+`abyssal_sands`, `glittervein` and `frozen_ruins` each exist to stop a named,
+written place from borrowing a neighbour's art. Each currently holds ONE
+image, so the same backdrop draws every fight in that place until the pack
+grows. These are the next three to fill, in that order.
+
+Same house style as every other pack: painterly fantasy matte, no text, no
+characters, no UI, horizon low enough that the lower third is empty ground.
+
+**abyssal_sands** - sunken, haunted desert. Its one image is violet sky over
+black runed monoliths in red sand.
+
+> 1. A collapsed sinkhole in red desert sand, the rim crumbling inward, violet
+>    dusk sky, black obelisks half-swallowed at the edge
+> 2. A buried causeway of dark carved stone emerging from a dune field under a
+>    bruised purple sky, drifting sand, no vegetation
+> 3. A night desert of deep red dunes lit by cold violet light from beneath the
+>    sand, thin crystal spires, heavy stars
+
+**glittervein** - a mining canyon whose rock is full of ore. Its one image is
+a red canyon split by green-gold crystal seams.
+
+> 1. A worked quarry face in red sandstone, gold and green crystal exposed in
+>    the cut, spoil heaps and timber shoring, dusty sunlight from above
+> 2. A narrow red-rock gorge floor at midday, glittering gold dust on the sand,
+>    green crystal clusters growing from fallen boulders
+> 3. The mouth of a mine driven into a red cliff, gold seams running out of the
+>    dark into daylight, broken carts and rail, haze
+
+**frozen_ruins** - alpine ruins above the treeline, outdoors. Its one image is
+snowbound arches and blue crystal under an aurora.
+
+> 1. A snowbound stone courtyard in a high pass, broken columns, blowing snow,
+>    overcast daylight, dark pines far below
+> 2. A frozen lake between ruined walls, blue ice, snow-laden firs, pale
+>    winter sun low on the horizon
+> 3. A high stair of weathered stone climbing out of deep snow toward a ridge,
+>    ice-glazed carvings, aurora over the peaks
