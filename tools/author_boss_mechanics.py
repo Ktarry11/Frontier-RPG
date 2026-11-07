@@ -118,18 +118,57 @@ SCHOOL_TO_DISPEL = {
 #: cleanse against a root. The ability's own name is the better signal: a
 #: nature effect that says it is venomous is a poison, and everything else
 #: nature is treated as magic.
-POISON_WORDS = ("poison", "venom", "toxin", "toxic", "blight", "rot", "sting",
-                "spore", "plague", "pestil", "bile", "sickness", "fester")
+POISON_WORDS = ("poison", "venom", "toxin", "toxic", "sting", "spore", "bile",
+                "fang", "nettle")
+
+#: SHADOW IS NOT ALL CURSE EITHER, and this one was worse than the nature
+#: case because of what it did to the distribution. Mapping shadow -> curse
+#: wholesale made CURSE the commonest enemy school by a mile - and curse is
+#: the school the FEWEST player abilities can remove. Measured across
+#: data/abilities/*.json:
+#:
+#:     magic    16 player dispels      enemy effects: 84
+#:     disease  10 player dispels      enemy effects: 0
+#:     poison    8 player dispels      enemy effects: 26
+#:     curse     5 player dispels      enemy effects: 122
+#:
+#: The most common thing to be afflicted by was the hardest thing to
+#: answer, and the ten disease cleanses in the game had literally nothing
+#: to act on. That is the same "the player's toolkit has nothing to act on"
+#: problem this whole pass exists to fix, reintroduced one layer down.
+#:
+#: Resolved by the ability's own name, the same technique as the nature
+#: case: a shadow effect that names itself a curse is a curse, one that
+#: names itself a sickness is a disease, and the rest are magic.
+CURSE_WORDS = ("curse", "hex", "jinx", "doom", "malediction", "bane",
+               "mark of", "evil eye", "ill omen", "shadow word")
+DISEASE_WORDS = ("rot", "plague", "pestil", "fever", "pox", "blight",
+                 "decay", "infect", "sick", "fester", "canker", "putrid",
+                 "contagion", "miasma", "corrupt")
 
 
 def dispel_for(ability):
+    """Which cleanse answers this effect. Name first, school as the fallback.
+
+    The school alone is too coarse: it is what made every nature debuff a
+    poison and every shadow one a curse. The author already said what the
+    thing IS in its name.
+    """
+    name = (ability.get("name") or "").lower()
     school = ability.get("school", "physical")
     base = SCHOOL_TO_DISPEL.get(school)
-    if base == "poison":
-        name = (ability.get("name") or "").lower()
-        if not any(w in name for w in POISON_WORDS):
-            return "magic"
-    return base
+    if base is None:
+        return None
+    if any(w in name for w in DISEASE_WORDS):
+        return "disease"
+    if any(w in name for w in CURSE_WORDS):
+        return "curse"
+    if any(w in name for w in POISON_WORDS):
+        return "poison"
+    # Nothing in the name: fall back to the school, except that shadow
+    # defaults to magic rather than curse so the scarcest cleanse in the
+    # game is not also the most demanded.
+    return "magic" if base in ("curse", "poison") else base
 
 #: Titles stripped before naming an added ability after a boss, so the result
 #: is "Hedessa's Ward" rather than "Admiral's Ward" - several bosses share a
