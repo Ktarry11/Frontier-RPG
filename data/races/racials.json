@@ -35,7 +35,9 @@
     "on bosses.' War Stomp's stun and Arcane Torrent's silence are exactly the effects that",
     "would otherwise trivialise a boss. The damage, heal or resource half still applies.",
     "",
-    "DEAD-KEY CHECK, run before committing: every stat key here was checked against the engine. arcane_damage_pct is live (combat/abilities.py reads <school>_damage_pct through an f-string, which a naive grep misses). expertise, pet_damage, stun_duration_reduction_pct, crit_damage_physical and cc_immune are all live. spell_power_pct was DEAD and is now live - entities/character.py had a final multiplier for attack_power_pct and healing_power_pct but none for spell power, so Orc's Blood Fury would have done half its job. reputation_gain_pct is still dead and is marked as such on the Human entry rather than left to be discovered."
+    "DEAD-KEY CHECK, run before committing: every stat key here was checked against the engine. arcane_damage_pct is live (combat/abilities.py reads <school>_damage_pct through an f-string, which a naive grep misses). expertise, pet_damage, stun_duration_reduction_pct, crit_damage_physical and cc_immune are all live. spell_power_pct was DEAD and is now live - entities/character.py had a final multiplier for attack_power_pct and healing_power_pct but none for spell power, so Orc's Blood Fury would have done half its job. reputation_gain_pct is still dead and is marked as such on the Human entry rather than left to be discovered.",
+    "",
+    "COOLDOWNS MATCH THE PERSONAL KITS: 10-15 turns on anything that swings a fight, is_instant so it does not cost the turn, and no boss_immune. Kyle, 6 Nov: 'if they have cooldowns that long, they can work in boss fights.' War Stomp and Arcane Torrent lost the flag and the caveat sentence with it - a 12-turn stun or silence is a trump card a boss fight can carry."
   ],
   "human": {
     "label": "Human",
@@ -54,7 +56,7 @@
         "engine": "needs: clear all control effects on self",
         "effect_type": "dispel",
         "target_type": "self",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -75,7 +77,7 @@
         "engine": "needs: reveal stealthed enemies",
         "effect_type": "buff",
         "target_type": "party",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {
@@ -108,7 +110,7 @@
         "engine": "existing (self buff with stat_mods)",
         "effect_type": "buff",
         "target_type": "self",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {
@@ -168,12 +170,11 @@
         "engine": "needs: silence; resource restore keyed to the caster's own resource type",
         "effect_type": "debuff",
         "target_type": "all_enemies",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 2,
         "is_instant": true,
-        "boss_immune": true,
         "stat_mods": {},
-        "description": "Silences all enemies for 2 turns and restores 6% of your maximum resource. The silence does not work on bosses.",
+        "description": "Silences all enemies for 2 turns and restores 6% of your maximum resource.",
         "ranks": [
           {
             "rank": 1,
@@ -222,7 +223,7 @@
         "engine": "needs: timed immunity to a category of control",
         "effect_type": "buff",
         "target_type": "self",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {
@@ -245,7 +246,7 @@
         "engine": "needs: ability usable only after an enemy died this fight",
         "effect_type": "heal",
         "target_type": "self",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -276,13 +277,12 @@
         "engine": "existing (is_stun + all_enemies)",
         "effect_type": "debuff",
         "target_type": "all_enemies",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 1,
         "is_instant": true,
         "is_stun": true,
-        "boss_immune": true,
         "stat_mods": {},
-        "description": "Stuns all enemies for 1 turn. Does not work on bosses.",
+        "description": "Stuns all enemies for 1 turn.",
         "ranks": [
           {
             "rank": 1,

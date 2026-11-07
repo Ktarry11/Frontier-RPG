@@ -29,7 +29,11 @@
     "",
     "DESCRIPTIONS STATE THE MECHANIC. Kyle, 6 Nov: 'dont give weird ass \"and they dont say why\" etc.' The character lives in the 'from' field and in the ability NAME; the description says what the button does. Coy withholding in a tooltip is a player reading the same sentence twice and still not knowing the number.",
     "",
-    "LIVES IN data/npcs/, NOT data/abilities/. It was authored there first and broke two QA scripts: qa_ability_scoped_fields globs data/abilities/*.json and CRASHED on a file keyed by recruit_id rather than ability_id, and qa_ability_text flagged four descriptions for stating no number. A personal kit is per-RECRUIT data, so it belongs beside recruits.json; nothing in data/abilities/ is keyed by anything but ability_id and this file should not have been the exception."
+    "LIVES IN data/npcs/, NOT data/abilities/. It was authored there first and broke two QA scripts: qa_ability_scoped_fields globs data/abilities/*.json and CRASHED on a file keyed by recruit_id rather than ability_id, and qa_ability_text flagged four descriptions for stating no number. A personal kit is per-RECRUIT data, so it belongs beside recruits.json; nothing in data/abilities/ is keyed by anything but ability_id and this file should not have been the exception.",
+    "",
+    "COOLDOWNS ARE TRUMP-CARD LENGTH. Kyle, 6 Nov: 'a lot of these are strong as fuck and will need shit like 10 turn + cooldowns... a lot of them will register as instant to not consume a turn. They will be trump cards and anywhere between 10-15 turn cooldowns. And if they have cooldowns that long, they can work in boss fights.' So: 10-15 turns on anything that swings a fight, is_instant so using one does not cost the turn, and NO boss_immune anywhere - a 12-turn cooldown is what buys it a place in a boss fight. A handful sit at 0 because they are passive triggers rather than buttons (One Door Closes, He Catalogues, Committed Middle, He Has the Names).",
+    "",
+    "NO CONFUSION MECHANICS. Kyle: 'we wont do confusion stuff like this, scrap it.' Silas's The Man Standing Next To Him turned two enemies on each other and is gone, replaced by Sharper Rules Than Antwerp, an execute. Nothing else in the file charms, confuses or turns an enemy."
   ],
   "dan_warrior": {
     "name": "Dan Okafor",
@@ -47,7 +51,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
-        "cooldown": 3,
+        "cooldown": 12,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
@@ -65,15 +69,15 @@
         "ability_id": "personal_dan_four_men_long_shifts",
         "name": "Four Men, Long Shifts",
         "from": "'A crew. Four men, long shifts, a Friday.' / 'a four-man crew and the kind of trust you can't talk about without sounding daft'",
-        "engine": "needs: stat_mod scaled by count of living party members",
+        "engine": "needs: stat_mod scaled by living party members; cooldown that starts on expiry",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 4 turns Dan takes 6% less damage for each ally still alive. At full party he also forces all enemies to target him. The taunt does not work on bosses.",
+        "description": "For 4 turns Dan takes 6% less damage for each ally still alive. At full party he also forces all enemies to target him. The cooldown begins when it ends.",
         "ranks": [
           {
             "rank": 1,
@@ -82,7 +86,7 @@
             "effect_value": 6
           }
         ],
-        "boss_immune": true
+        "cooldown_starts_after_expiry": true
       },
       {
         "ability_id": "personal_dan_shift_change",
@@ -92,7 +96,7 @@
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "rage",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -145,7 +149,7 @@
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Heals the four most wounded allies, each for more the lower their health is.",
@@ -156,21 +160,22 @@
             "cost": 35,
             "effect_value": 55
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_ama_no_limit_at_all",
         "name": "No Limit At All",
         "from": "'Here there's light in her hands and no limit at all, and for a year nothing in the world told her to stop.'",
-        "engine": "needs: free-cast window that bills the caster's own health",
+        "engine": "needs: free-cast window billed to caster health; caster excluded as a target",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 10,
+        "cooldown": 15,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 3 turns Ama's heals cost no mana and land for 50% more. Each heal costs her 6% of her maximum health instead.",
+        "description": "For 3 turns Ama's heals cost no mana and land for 50% more, and cannot target her. Each heal costs her 15% of her maximum health.",
         "ranks": [
           {
             "rank": 1,
@@ -198,7 +203,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 3,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -213,41 +218,18 @@
         ]
       },
       {
-        "ability_id": "personal_silas_the_man_standing_next_to_him",
-        "name": "The Man Standing Next To Him",
-        "from": "'who's about to be robbed by the man standing next to him'",
-        "engine": "needs: force an enemy to attack another enemy",
-        "effect_type": "debuff",
-        "target_type": "enemy",
-        "resource_type": "energy",
-        "cooldown": 6,
-        "duration": 2,
-        "is_instant": true,
-        "stat_mods": {},
-        "description": "Turns two enemies on each other for 2 turns. Does not work on bosses.",
-        "ranks": [
-          {
-            "rank": 1,
-            "level_req": 1,
-            "cost": 35,
-            "effect_value": 0
-          }
-        ],
-        "boss_immune": true
-      },
-      {
         "ability_id": "personal_silas_the_retainer",
         "name": "The Retainer",
         "from": "'a goblin on the middle pier paying him a retainer not to tell anyone else what he notices'",
-        "engine": "needs: single-source damage immunity flag",
+        "engine": "needs: single-source damage immunity that also suppresses area damage",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 3 turns that enemy cannot attack Silas. Does not work on bosses.",
+        "description": "For 3 turns that enemy cannot damage Silas at all, including with area attacks.",
         "ranks": [
           {
             "rank": 1,
@@ -255,8 +237,30 @@
             "cost": 30,
             "effect_value": 0
           }
-        ],
-        "boss_immune": true
+        ]
+      },
+      {
+        "ability_id": "personal_silas_sharper_rules",
+        "name": "Sharper Rules Than Antwerp",
+        "from": "'a frontier with sharper rules than Antwerp ever had, because out here the people who break them don't get a hearing'",
+        "engine": "needs: execute threshold",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 10,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "execute_threshold_pct": 30,
+        "description": "Against an enemy below 30% health, deals triple damage. Above that it does nothing.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 90
+          }
+        ]
       }
     ]
   },
@@ -275,7 +279,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -298,7 +302,7 @@
         "damage_school": "shadow",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Shadow damage that scales up with the target's current health, hitting hardest on a full-health enemy.",
@@ -309,7 +313,8 @@
             "cost": 40,
             "effect_value": 120
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_emre_one_door_closes",
@@ -351,7 +356,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
@@ -363,8 +368,7 @@
             "cost": 20,
             "effect_value": 0
           }
-        ],
-        "boss_immune": true
+        ]
       },
       {
         "ability_id": "personal_kiet_the_fastest_route",
@@ -374,7 +378,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 3,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -396,7 +400,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "energy",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {
@@ -430,7 +434,7 @@
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
@@ -452,7 +456,7 @@
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -474,7 +478,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 10,
+        "cooldown": 15,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
@@ -506,7 +510,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
@@ -529,7 +533,7 @@
         "damage_school": "nature",
         "target_type": "enemy_row",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "Calls lightning onto an enemy row for 4 turns, striking everything standing in it.",
@@ -540,7 +544,8 @@
             "cost": 40,
             "effect_value": 45
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_marcus_the_biggest_one_there_is",
@@ -551,7 +556,7 @@
         "damage_school": "nature",
         "target_type": "all_enemies",
         "resource_type": "mana",
-        "cooldown": 9,
+        "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
         "description": "Heavy nature damage to all enemies. Marcus takes 25% of his maximum health doing it.",
@@ -562,7 +567,8 @@
             "cost": 55,
             "effect_value": 190
           }
-        ]
+        ],
+        "is_instant": true
       }
     ]
   },
@@ -582,7 +588,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "focus",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 1,
         "is_instant": true,
         "stat_mods": {},
@@ -604,7 +610,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "focus",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -626,7 +632,7 @@
         "effect_type": "ranged_damage",
         "target_type": "enemy",
         "resource_type": "focus",
-        "cooldown": 3,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "A ranged shot at any enemy in any row, ignoring whatever stands in front.",
@@ -637,7 +643,8 @@
             "cost": 25,
             "effect_value": 80
           }
-        ]
+        ],
+        "is_instant": true
       }
     ]
   },
@@ -657,7 +664,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 1,
         "is_instant": true,
         "stat_mods": {},
@@ -679,7 +686,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 15,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
@@ -701,7 +708,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
@@ -733,7 +740,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -755,7 +762,7 @@
         "effect_type": "buff",
         "target_type": "pet",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {
@@ -780,7 +787,7 @@
         "effect_type": "restore_resource",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -812,7 +819,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
@@ -834,7 +841,7 @@
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
@@ -856,7 +863,7 @@
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Heals the party and removes one harmful effect from each ally.",
@@ -867,7 +874,8 @@
             "cost": 40,
             "effect_value": 50
           }
-        ]
+        ],
+        "is_instant": true
       }
     ]
   },
@@ -887,7 +895,7 @@
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 5,
         "stat_mods": {},
         "description": "Heals an ally each turn for 5 turns, healing 40% more with each turn it continues.",
@@ -898,7 +906,8 @@
             "cost": 30,
             "effect_value": 28
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_amber_a_mistake_corrects_itself",
@@ -908,7 +917,7 @@
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -930,7 +939,7 @@
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -1005,7 +1014,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
-        "cooldown": 8,
+        "cooldown": 15,
         "duration": 2,
         "is_instant": true,
         "stat_mods": {
@@ -1039,7 +1048,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
@@ -1061,7 +1070,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 10,
+        "cooldown": 15,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -1083,7 +1092,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 12,
+        "cooldown": 15,
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
@@ -1115,7 +1124,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Extends every buff on the party by 2 turns.",
@@ -1158,7 +1167,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 3,
         "stat_mods": {
           "crit_chance_spell": 4
@@ -1192,7 +1201,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 6,
         "stat_mods": {},
         "description": "Pasang takes 4% less damage for each turn this fight has lasted, up to 32%.",
@@ -1214,7 +1223,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns Pasang absorbs 30% of all damage dealt to the party.",
@@ -1229,26 +1238,26 @@
         "is_instant": true
       },
       {
-        "ability_id": "personal_pasang_routes_never_written_down",
-        "name": "Routes Never Written Down",
-        "from": "'routes that were never written down. He has written four of them down.'",
-        "engine": "needs: party ignores row restriction",
+        "ability_id": "personal_pasang_he_has_the_names",
+        "name": "He Has the Names",
+        "from": "'Four of his cousins did the same work. Two of them died on it. He has the names and he keeps them to himself.'",
+        "engine": "needs: permanent on-ally-death trigger",
         "effect_type": "buff",
-        "target_type": "party",
+        "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 10,
-        "duration": 3,
+        "cooldown": 0,
+        "duration": 0,
+        "is_instant": true,
         "stat_mods": {},
-        "description": "For 3 turns the party can strike any row and cannot be blocked by front-row enemies.",
+        "description": "When an ally falls, Pasang takes 25% less damage and deals 25% more for the rest of the fight. Does not stack.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
-            "cost": 25,
-            "effect_value": 0
+            "cost": 0,
+            "effect_value": 25
           }
-        ],
-        "is_instant": true
+        ]
       }
     ]
   },
@@ -1268,7 +1277,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
         "description": "Once per fight. One attack that cannot miss and always critically strikes.",
@@ -1279,7 +1288,8 @@
             "cost": 20,
             "effect_value": 130
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_haruto_eleven_years_before_praise",
@@ -1289,7 +1299,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Repeats Haruto's last ability at no resource cost.",
@@ -1311,7 +1321,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "Copies one buff from an enemy onto Haruto for 4 turns.",
@@ -1343,7 +1353,7 @@
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Removes fear and panic from the party and heals each ally.",
@@ -1365,7 +1375,7 @@
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Heals the party, healing 25% more for each ally below half health.",
@@ -1376,7 +1386,8 @@
             "cost": 45,
             "effect_value": 60
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_liam_four_lines_long",
@@ -1386,10 +1397,10 @@
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes every damage-over-time effect from the party.",
+        "description": "Removes one damage-over-time effect from each ally.",
         "ranks": [
           {
             "rank": 1,
@@ -1418,7 +1429,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns the target's lowest resistance is reduced by 30.",
@@ -1440,7 +1451,7 @@
         "effect_type": "heal",
         "target_type": "pet",
         "resource_type": "energy",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Fully repairs every device and pet the party controls.",
@@ -1462,7 +1473,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Every device Marta has out lasts 3 turns longer and deals 20% more damage.",
@@ -1494,7 +1505,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns Callum takes 50% less damage from whichever school last hit him.",
@@ -1516,7 +1527,7 @@
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "energy",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 3,
         "stat_mods": {},
         "description": "For 3 turns every enemy attacks Callum and nobody else. Does not work on bosses.",
@@ -1528,8 +1539,7 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true,
-        "boss_immune": true
+        "is_instant": true
       },
       {
         "ability_id": "personal_callum_the_thing_that_bites_back",
@@ -1539,7 +1549,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns 40% of the melee damage Callum takes is returned as nature damage.",
@@ -1571,7 +1581,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "focus",
-        "cooldown": 10,
+        "cooldown": 15,
         "duration": 99,
         "stat_mods": {},
         "description": "For the rest of the fight the party sees each enemy's next action.",
@@ -1593,7 +1603,7 @@
         "effect_type": "restore_resource",
         "target_type": "party",
         "resource_type": "focus",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Restores 20% of each ally's maximum resource.",
@@ -1615,7 +1625,7 @@
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "focus",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Returns Bakyt's eagle at full health. If it is already alive it gains 40% damage for 4 turns.",
@@ -1647,7 +1657,7 @@
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "Shields an ally. The shield absorbs damage for 4 turns and cannot be broken early.",
@@ -1669,7 +1679,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 3,
         "stat_mods": {},
         "description": "For 3 turns Henrik's spells always deal their maximum damage.",
@@ -1691,7 +1701,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 12,
+        "cooldown": 15,
         "duration": 10,
         "stat_mods": {},
         "description": "The next hit that would reduce Henrik below 20% health instead leaves him at 20%.",
@@ -1723,7 +1733,7 @@
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "Heals an ally slightly for 4 turns, then heals them heavily when it finishes.",
@@ -1734,7 +1744,8 @@
             "cost": 28,
             "effect_value": 150
           }
-        ]
+        ],
+        "is_instant": true
       },
       {
         "ability_id": "personal_anjali_the_ability_to_answer_back",
@@ -1744,10 +1755,10 @@
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Ends one of Anjali's heal-over-time effects early and deals its remaining value as nature damage.",
+        "description": "Ends one of Anjali's heal-over-time effects early and deals its remaining value to an enemy as nature damage.",
         "ranks": [
           {
             "rank": 1,
@@ -1767,7 +1778,7 @@
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Removes the single strongest harmful effect from each ally.",
@@ -1799,7 +1810,7 @@
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Usable only on an ally below 25% health. Heals them for 60% of their maximum.",
@@ -1821,7 +1832,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 2,
         "stat_mods": {},
         "description": "For 2 turns the first attack on each ally lands for 40% less.",
@@ -1843,7 +1854,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns any healing beyond full health becomes a shield instead of being wasted.",
@@ -1897,7 +1908,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 5,
         "stat_mods": {},
         "description": "For 5 turns the target's resistances and abilities are shown, and its resistances are reduced by 20.",
@@ -1919,7 +1930,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "Kesten spends 15% of his health. For 4 turns his spell damage is increased by 25%.",
@@ -1947,14 +1958,14 @@
         "ability_id": "personal_tarek_which_springs_are_clean",
         "name": "Which Springs Are Clean",
         "from": "'He has mapped which springs are still clean and which only look it.'",
-        "engine": "needs: detect and strip disguised or delayed effects",
+        "engine": "existing (dispel by category on party)",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes every poison and disease from the party, including ones not yet active.",
+        "description": "Removes one poison and one disease from each ally.",
         "ranks": [
           {
             "rank": 1,
@@ -1973,7 +1984,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns Tarek deals 35% more damage to any enemy that has applied a harmful effect to the party.",
@@ -1995,7 +2006,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
-        "cooldown": 9,
+        "cooldown": 15,
         "duration": 5,
         "stat_mods": {},
         "description": "For 5 turns the party gains a shield at the start of each turn. It does not stack; it is replaced.",
@@ -2027,7 +2038,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
-        "cooldown": 4,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Strikes whichever enemy is closest to dying, ignoring row order, for 40% extra damage.",
@@ -2049,7 +2060,7 @@
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "rage",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Removes every buff from the target and deals damage for each one taken.",
@@ -2071,7 +2082,7 @@
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "rage",
-        "cooldown": 5,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns the target attacks only Fiona and deals 20% less damage. Does not work on bosses.",
@@ -2083,8 +2094,7 @@
             "effect_value": 20
           }
         ],
-        "is_instant": true,
-        "boss_immune": true
+        "is_instant": true
       }
     ]
   },
@@ -2104,7 +2114,7 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
-        "cooldown": 8,
+        "cooldown": 12,
         "duration": 3,
         "stat_mods": {
           "cc_immune": 1
@@ -2128,7 +2138,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 4,
+        "cooldown": 0,
         "duration": 4,
         "stat_mods": {},
         "description": "If Pavlo does not attack, he takes 35% less damage that turn and returns 20% of it.",
@@ -2143,26 +2153,26 @@
         "is_instant": true
       },
       {
-        "ability_id": "personal_pavlo_whatever_he_can_remember",
-        "name": "Whatever He Can Remember",
-        "from": "'Six children in Southshore, twice a week, whatever he can remember of a world that isn't coming back.'",
-        "engine": "needs: grant an ally a copy of an ability for one use",
+        "ability_id": "personal_pavlo_the_same_four_wars",
+        "name": "The Same Four Wars Every Spring",
+        "from": "'He taught the same four wars every spring.'",
+        "engine": "needs: per-ability damage reduction that grows each time that ability is used",
         "effect_type": "buff",
-        "target_type": "ally",
+        "target_type": "party",
         "resource_type": "rage",
-        "cooldown": 10,
-        "duration": 3,
+        "cooldown": 12,
+        "duration": 6,
+        "is_instant": true,
         "stat_mods": {},
-        "description": "Gives an ally one use of any ability Pavlo knows.",
+        "description": "For 6 turns, each time an enemy repeats an ability it has already used this fight, it lands for 25% less, stacking.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
-            "cost": 20,
-            "effect_value": 0
+            "cost": 25,
+            "effect_value": 25
           }
-        ],
-        "is_instant": true
+        ]
       }
     ]
   },
@@ -2204,7 +2214,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 6,
+        "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
         "description": "For 4 turns, every attack that misses Jun-seo is answered immediately.",
@@ -2226,7 +2236,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
-        "cooldown": 7,
+        "cooldown": 10,
         "duration": 2,
         "stat_mods": {},
         "description": "Lands at the end of two turns for triple damage. Cannot be interrupted.",
@@ -2251,28 +2261,6 @@
     },
     "abilities": [
       {
-        "ability_id": "personal_minh_forty_futures",
-        "name": "Forty Futures",
-        "from": "'holding forty futures in your head simultaneously and choosing the one in which nobody dies'",
-        "engine": "needs: preview and re-roll the coming round",
-        "effect_type": "buff",
-        "target_type": "party",
-        "resource_type": "mana",
-        "cooldown": 9,
-        "duration": 1,
-        "stat_mods": {},
-        "description": "Shows what every enemy will do next turn, then lets the party act before any of them.",
-        "ranks": [
-          {
-            "rank": 1,
-            "level_req": 1,
-            "cost": 40,
-            "effect_value": 0
-          }
-        ],
-        "is_instant": true
-      },
-      {
         "ability_id": "personal_minh_the_handover",
         "name": "The Handover",
         "from": "'he has said that the handover was the hardest part... He means the handover.'",
@@ -2280,7 +2268,7 @@
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 7,
+        "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
         "description": "Moves every cooldown on one ally to Minh, and every buff on Minh to that ally.",
@@ -2302,7 +2290,7 @@
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 12,
+        "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
         "description": "Returns one ally to the health they had two turns ago.",
@@ -2315,6 +2303,28 @@
           }
         ],
         "is_instant": true
+      },
+      {
+        "ability_id": "personal_minh_the_one_in_which_nobody_dies",
+        "name": "The One In Which Nobody Dies",
+        "from": "'holding forty futures in your head simultaneously and choosing the one in which nobody dies'",
+        "engine": "needs: party-wide single-instance death prevention",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "For 3 turns, the first blow that would kill any ally leaves them at 1 health instead. Once per ally.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 50,
+            "effect_value": 1
+          }
+        ]
       }
     ]
   }
