@@ -23,9 +23,12 @@
     "belong to that person and should not exist.",
     "",
     "The 'engine' field is honest about cost: 'existing' means the effect_type already works,",
-    "anything else names the hook that has to be built before that ability does what it says."
+    "anything else names the hook that has to be built before that ability does what it says.",
+    "",
+    "BOSS IMMUNITY: an ability with \"boss_immune\": true has its CONTROL portion ignored by anything flagged is_boss. Kyle, 6 Nov: 'for the really strong skills make it so they dont work on bosses.' Forced targeting, forced enemy-vs-enemy and threat wipes are the effects that would otherwise trivialise a boss fight; the damage or self-buff half of the same ability still applies.",
+    "",
+    "DESCRIPTIONS STATE THE MECHANIC. Kyle, 6 Nov: 'dont give weird ass \"and they dont say why\" etc.' The character lives in the 'from' field and in the ability NAME; the description says what the button does. Coy withholding in a tooltip is a player reading the same sentence twice and still not knowing the number."
   ],
-
   "dan_warrior": {
     "name": "Dan Okafor",
     "passives": {
@@ -46,8 +49,15 @@
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
-        "description": "The next attack aimed at any ally is aimed at Dan instead, and he takes half of it.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 50}]
+        "description": "The next attack aimed at any ally is redirected to Dan, and he takes 50% less from it.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 50
+          }
+        ]
       },
       {
         "ability_id": "personal_dan_four_men_long_shifts",
@@ -61,8 +71,16 @@
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 4 turns Dan takes 6% less damage for every ally still standing. With a full crew behind him, enemies strike at him and nobody else.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 10, "effect_value": 6}]
+        "description": "For 4 turns Dan takes 6% less damage for each ally still alive. At full party he also forces all enemies to target him. The taunt does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 10,
+            "effect_value": 6
+          }
+        ],
+        "boss_immune": true
       },
       {
         "ability_id": "personal_dan_shift_change",
@@ -76,12 +94,18 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "Dan trades places with an ally. Anything already swinging at them hits him, and he does not flinch.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+        "description": "Dan swaps row position with an ally. Any attack already aimed at them hits Dan instead.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
       }
     ]
   },
-
   "ama_priest": {
     "name": "Ama Boateng",
     "passives": {
@@ -101,8 +125,15 @@
         "cooldown": 0,
         "duration": 0,
         "stat_mods": {},
-        "description": "A heal that is worth more the closer the patient is to dying. On someone who is fine, it is barely worth casting.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 18, "effect_value": 40}]
+        "description": "Heals an ally for more the lower their health is, up to double at critical.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 18,
+            "effect_value": 40
+          }
+        ]
       },
       {
         "ability_id": "personal_ama_four_cots_to_a_bay",
@@ -115,8 +146,15 @@
         "cooldown": 4,
         "duration": 0,
         "stat_mods": {},
-        "description": "She works four at once, in the order they need it rather than the order they asked.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 35, "effect_value": 55}]
+        "description": "Heals the four most wounded allies, each for more the lower their health is.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 55
+          }
+        ]
       },
       {
         "ability_id": "personal_ama_no_limit_at_all",
@@ -130,12 +168,18 @@
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 3 turns her heals cost no mana and land for half again. Each one takes 6% of her own health instead. Nothing in the world tells her to stop.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 6}]
+        "description": "For 3 turns Ama's heals cost no mana and land for 50% more. Each heal costs her 6% of her maximum health instead.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 6
+          }
+        ]
       }
     ]
   },
-
   "silas_rogue": {
     "name": "Silas Vance",
     "passives": {
@@ -156,8 +200,15 @@
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
-        "description": "One look tells him where it is thin. For 4 turns the party's damage against this target is dealt as whatever it resists least.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 0}]
+        "description": "For 4 turns the party's damage against this target is dealt as whichever school it resists least.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 0
+          }
+        ]
       },
       {
         "ability_id": "personal_silas_the_man_standing_next_to_him",
@@ -171,8 +222,16 @@
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He points out, quietly and to the wrong person, who has been taking more than their share. They settle it themselves.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 35, "effect_value": 0}]
+        "description": "Turns two enemies on each other for 2 turns. Does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 0
+          }
+        ],
+        "boss_immune": true
       },
       {
         "ability_id": "personal_silas_the_retainer",
@@ -186,12 +245,19 @@
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "An arrangement is reached. For 3 turns that enemy will not touch him, and he will not say why.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 0}]
+        "description": "For 3 turns that enemy cannot attack Silas. Does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "boss_immune": true
       }
     ]
   },
-
   "emre_rogue": {
     "name": "Emre Kaya",
     "passives": {
@@ -211,8 +277,15 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He does not force it. He asks it something. This cannot miss, and cannot be dodged, parried or blocked.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 85}]
+        "description": "An attack that cannot miss and cannot be dodged, parried or blocked.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 85
+          }
+        ]
       },
       {
         "ability_id": "personal_emre_the_thing_behind_the_door",
@@ -226,8 +299,15 @@
         "cooldown": 7,
         "duration": 0,
         "stat_mods": {},
-        "description": "Whatever was on the other side that night has been answering ever since. It hits hardest on things that are still whole.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 120}]
+        "description": "Shadow damage that scales up with the target's current health, hitting hardest on a full-health enemy.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 120
+          }
+        ]
       },
       {
         "ability_id": "personal_emre_one_door_closes",
@@ -241,12 +321,18 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "When Emre lands a killing blow he acts again immediately. His mother said it constantly. He decided it was about him.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+        "description": "When Emre lands a killing blow he immediately takes another action.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
       }
     ]
   },
-
   "kiet_rogue": {
     "name": "Kiet Somsak",
     "passives": {
@@ -267,8 +353,16 @@
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He stops being worth watching. Every enemy forgets him, and the next thing he does lands as a critical.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 20, "effect_value": 0}]
+        "description": "Wipes Kiet's threat entirely and makes his next attack a guaranteed critical. The threat wipe does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 0
+          }
+        ],
+        "boss_immune": true
       },
       {
         "ability_id": "personal_kiet_the_fastest_route",
@@ -282,8 +376,15 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He is already there. Reaches any enemy in any row, ignoring whatever is in front of them.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 70}]
+        "description": "Strikes any enemy in any row, ignoring whatever stands in front of them.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 70
+          }
+        ]
       },
       {
         "ability_id": "personal_kiet_two_rooms_away",
@@ -296,13 +397,21 @@
         "cooldown": 8,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {"dodge": 10},
-        "description": "He hears them breathing. For 3 turns the party knows what each enemy is about to do, and is harder to land a hit on.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 0}]
+        "stat_mods": {
+          "dodge": 10
+        },
+        "description": "For 3 turns the party sees each enemy's next ability before it is used, and gains 10% dodge.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ]
       }
     ]
   },
-
   "marco_paladin": {
     "name": "Marco Rossi",
     "passives": {
@@ -323,8 +432,15 @@
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "For 3 turns, whatever is meant for them arrives at him instead, reduced by a third. Nobody asked him to.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 33}]
+        "description": "For 3 turns, damage dealt to the chosen ally is redirected to Marco, reduced by 33%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 33
+          }
+        ]
       },
       {
         "ability_id": "personal_marco_he_fixes_other_things",
@@ -338,8 +454,15 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "Clears one affliction from everyone and mends what it left behind. He does not mention having done it.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 30}]
+        "description": "Removes one harmful effect from every ally and heals each for a small amount.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 30
+          }
+        ]
       },
       {
         "ability_id": "personal_marco_a_formality_arrived_late",
@@ -353,12 +476,18 @@
         "duration": 3,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He was doing this before anything blessed him for it. For 3 turns his Holy abilities cost nothing.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+        "description": "For 3 turns Marco's Holy abilities cost no mana.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
       }
     ]
   },
-
   "marcus_stormbringer": {
     "name": "Marcus Okafor",
     "passives": {
@@ -379,8 +508,15 @@
         "duration": 2,
         "is_instant": true,
         "stat_mods": {},
-        "description": "He calls it before it happens, the way he always did. The enemy's next ability is named aloud and lands for 40% less. Here, for once, saying so changes something.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 40}]
+        "description": "Reveals the enemy's next ability and reduces its damage by 25%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 40
+          }
+        ]
       },
       {
         "ability_id": "personal_marcus_where_the_strikes_land",
@@ -394,8 +530,15 @@
         "cooldown": 6,
         "duration": 4,
         "stat_mods": {},
-        "description": "He does not aim it. He works out where it was always going to go, and says so first.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 45}]
+        "description": "Calls lightning onto an enemy row for 4 turns, striking everything standing in it.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 45
+          }
+        ]
       },
       {
         "ability_id": "personal_marcus_the_biggest_one_there_is",
@@ -409,8 +552,15 @@
         "cooldown": 9,
         "duration": 0,
         "stat_mods": {},
-        "description": "Fifteen years behind a window. He walks into the middle of it and takes a quarter of his own health doing so. He has never once looked happier.",
-        "ranks": [{"rank": 1, "level_req": 1, "cost": 55, "effect_value": 190}]
+        "description": "Heavy nature damage to all enemies. Marcus takes 25% of his maximum health doing it.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 55,
+            "effect_value": 190
+          }
+        ]
       }
     ]
   }
