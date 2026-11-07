@@ -109,7 +109,12 @@ class MonsterAbility:
     "hex" in the bestiary resolved as a plain hit with a scary name.
     """
 
-    KINDS = ("damage", "heal", "dot", "buff", "debuff")
+    #: "summon" is new: Kyle, 7 Nov, "build the boss summon add mechanics."
+    #: tools/audit_boss_threat reported 0 of 358 bosses presenting "adds to
+    #: handle" and the cause was structural, the same as the stun - there
+    #: was no kind for it, and CombatEngine built its enemy list once in
+    #: __init__ with nothing able to append.
+    KINDS = ("damage", "heal", "dot", "buff", "debuff", "summon")
 
     #: Same convention as the player-side Ability.AOE_DAMAGE_MULTIPLIER -
     #: each target of an AoE monster ability takes a reduced share rather
@@ -122,7 +127,7 @@ class MonsterAbility:
                  mana_cost=0, school="physical", duration=0,
                  stat_mods=None, self_only=False, is_aoe=False,
                  rider=None, hp_below=None, lifesteal=0.0,
-                 dispel_type=None, is_stun=False, absorb=0):
+                 dispel_type=None, is_stun=False, absorb=0, summon=None):
         if kind not in self.KINDS:
             raise ValueError(f"{name}: unknown ability kind '{kind}'")
         self.name = name
@@ -186,6 +191,15 @@ class MonsterAbility:
         # this is untouched.
         self.is_stun = bool(is_stun)
         self.absorb = int(absorb or 0)
+
+        #: SUMMON SPEC, for kind="summon":
+        #:   {"creature": "<creatures.json name>",   (or "template"/"kit")
+        #:    "count": 2, "level_offset": -2, "max_alive": 3}
+        #: `max_alive` is the one field that stops this being a bug: without
+        #: a live cap a boss on a 6-turn summon in a long fight fills the
+        #: screen, and the party is fighting an arithmetic problem rather
+        #: than an encounter.
+        self.summon = dict(summon) if summon else None
 
         # Stable id so re-applying refreshes rather than stacks, matching
         # how player DoTs behave.
@@ -260,6 +274,60 @@ class MonsterAbility:
             out.append(r.apply_status_effect(effect))
         return out
 
+    @staticmethod
+    def _plural(name):
+        """'Pack Wolf' -> 'Pack Wolves'. English, roughly."""
+        if name.endswith(("s", "x", "z", "ch", "sh")):
+            return name + "es"
+        if name.endswith("f"):
+            return name[:-1] + "ves"
+        if name.endswith("fe"):
+            return name[:-2] + "ves"
+        if name.endswith("y") and name[-2:-1] not in "aeiou":
+            return name[:-1] + "ies"
+        return name + "s"
+
+    def _summon(self, caster, engine):
+        """Call reinforcements into the fight. Returns (success, message).
+
+        NEEDS THE ENGINE, and this is the one monster ability that does.
+        Everything else a monster can do resolves against a caster and a
+        target; adding combatants is a change to the fight itself. If no
+        engine was passed - a sim, a tool, an older call site - the summon
+        refuses rather than silently doing nothing, because "the boss used
+        Call the Pack and nothing happened" is the kind of quiet failure
+        this codebase keeps finding months later.
+        """
+        spec = self.summon or {}
+        if engine is None or not hasattr(engine, "summon_enemies"):
+            return False, f"{self.name} has nothing to summon into"
+
+        # LIVE CAP FIRST. A boss on a 6-turn summon in a long fight fills
+        # the screen otherwise, and the party ends up fighting arithmetic.
+        max_alive = int(spec.get("max_alive", 3))
+        alive = sum(1 for e in engine.living_enemies()
+                    if getattr(e, "summoned_by", None) == caster.name)
+        room = max(0, max_alive - alive)
+        if room <= 0:
+            return False, f"{self.name} has nothing left to call"
+
+        count = max(1, min(int(spec.get("count", 1)), room))
+        level = max(1, caster.level + int(spec.get("level_offset", -2)))
+
+        made = []
+        for _ in range(count):
+            try:
+                made.append(Monster(spec.get("name") or spec.get("creature") or "Summoned",
+                                    spec["template"], level=level, kit=spec.get("kit")))
+            except Exception:
+                break
+        if not made:
+            return False, f"{self.name} fizzles"
+
+        engine.summon_enemies(caster, made)
+        who = made[0].name if len(made) == 1 else f"{len(made)} {self._plural(made[0].name)}"
+        return True, f"{caster.name} uses {self.name} and calls in {who}!"
+
     def use(self, caster, target, party=None, engine=None):
         """party/engine are accepted and ignored.
 
@@ -287,6 +355,9 @@ class MonsterAbility:
             caster.current_mana = max(0, caster.current_mana - self.mana_cost)
 
         power = getattr(caster, "ability_power_bonus", 0)
+
+        if self.kind == "summon":
+            return self._summon(caster, engine)
 
         if self.kind == "heal":
             healed = self.amount + power
@@ -594,6 +665,7 @@ class Monster(StatusEffectMixin):
                 dispel_type=entry.get("dispel_type"),
                 is_stun=entry.get("is_stun", False),
                 absorb=entry.get("absorb", 0),
+                summon=entry.get("summon"),
             ))
 
         # Combat state
@@ -998,6 +1070,16 @@ class Monster(StatusEffectMixin):
 
         for a in options:
             if a.hp_below is not None:
+                return a
+
+        # CALL FOR HELP BEFORE THROWING A PUNCH. A summon is worth a turn
+        # precisely because the adds then take turns of their own, so it
+        # wants to land early rather than as the thing a boss does once it
+        # has run out of attacks. It still sits below the heal and the
+        # phase gate - a boss about to die should save itself first - and
+        # _summon's own max_alive cap stops this looping.
+        for a in options:
+            if a.kind == "summon":
                 return a
 
         # A PURE SELF-BUFF IS NEVER THE OPENING MOVE, FOR ANYBODY.

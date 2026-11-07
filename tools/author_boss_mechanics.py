@@ -174,6 +174,62 @@ def _prefer_distinctive(cands):
     return own or cands
 
 
+#: Words in a boss's name that say it commands something. A summon is the
+#: rarest of the signatures on purpose - "this one brings friends" should be
+#: a thing a dungeon has once or twice, not every fight - so eligibility is
+#: thematic rather than a quota.
+LEADER_WORDS = ("King", "Queen", "Lord", "Lady", "Warlord", "Chief", "Captain",
+                "Matriarch", "Patriarch", "Broodmother", "Overseer", "Foreman",
+                "Master", "Alpha", "Commander", "Sergeant", "Warden", "Keeper",
+                "Mother", "Father", "Elder", "Prime", "High", "Bosun",
+                "Houndmaster", "Packleader", "Hunt-King")
+
+#: Templates that summon because of WHAT they are rather than what they are
+#: called - a necromancer raises, a warlock calls.
+SUMMONER_TEMPLATES = ("undead_caster", "demon_caster", "humanoid_caster")
+
+#: At most this many summoners per dungeon, so adds stay an event.
+SUMMONERS_PER_DUNGEON = 2
+
+#: How many adds, and how far below the boss they come in.
+SUMMON_COUNT = 2
+SUMMON_LEVEL_OFFSET = -2
+SUMMON_MAX_ALIVE = 3
+SUMMON_COOLDOWN = 7
+
+
+def dungeon_rosters():
+    """-> {dungeon name: (set of boss names, [trash creature names])}
+
+    A boss summoning its OWN DUNGEON'S trash is the whole reason this reads
+    as an encounter rather than as a generic mechanic: Hunt-King Valorin
+    calling Howling Barrows wolves is a fight, calling "Summoned Minion" is
+    a placeholder. Both lists are read off the generated zone, which is
+    where the game gets them.
+    """
+    from world.zone_generator import create_all_zones
+    out = {}
+    for name, tm in create_all_zones().items():
+        if not getattr(tm, "is_cave", False):
+            continue
+        bosses = set()
+        for b in (getattr(tm, "boss_positions", None) or []):
+            if isinstance(b, dict):
+                nm = b.get("name") or b.get("creature")
+                if nm:
+                    bosses.add(nm)
+            elif isinstance(b, (list, tuple)) and len(b) > 2 and isinstance(b[2], str):
+                bosses.add(b[2])
+        trash = []
+        for t in (getattr(tm, "trash_spawns", None) or []):
+            nm = t[2] if isinstance(t, (list, tuple)) and len(t) > 2 else None
+            if isinstance(nm, str) and nm not in trash:
+                trash.append(nm)
+        if bosses and trash:
+            out[name] = (bosses, trash)
+    return out
+
+
 def subzone_rares():
     """Named is_boss creatures that live in a SUBZONE encounter table.
 
@@ -307,12 +363,82 @@ HANDLERS = {"stun": apply_stun, "shield": apply_shield, "curse": apply_curse}
 FALLBACK = ["curse", "stun", "shield"]
 
 
+def author_summons(creatures, kits, kitdoc, args):
+    """A couple of bosses per dungeon call in that dungeon's own trash."""
+    rows = []
+    for dungeon, (bosses, trash) in sorted(dungeon_rosters().items()):
+        eligible = []
+        for name in sorted(bosses):
+            c = creatures.get(name)
+            if not c or not c.get("is_boss"):
+                continue
+            kit = kits.get(c.get("ability_kit"))
+            if not kit or any(a.get("kind") == "summon" for a in kit):
+                continue
+            by_name = any(w in name for w in LEADER_WORDS)
+            by_type = c.get("template", "") in SUMMONER_TEMPLATES
+            if by_name or by_type:
+                # Name beats template, so the Hunt-King summons before the
+                # anonymous caster standing next to him does.
+                eligible.append((0 if by_name else 1, name, c, kit))
+        eligible.sort()
+        # Weakest trash first - adds are a tax on the party's time and
+        # attention, not a second boss - but each summoner in a dungeon takes
+        # a DIFFERENT one, so two bosses down the same corridor do not both
+        # shout for the identical mob with the identical ability name.
+        ladder = sorted(
+            (t for t in trash if (creatures.get(t) or {}).get("template")),
+            key=lambda t: (creatures.get(t, {}).get("level_range") or [99])[0])
+        if not ladder:
+            continue
+        for slot, (_rank, name, c, kit) in enumerate(eligible[:SUMMONERS_PER_DUNGEON]):
+            pick = ladder[slot % len(ladder)]
+            tc = creatures.get(pick) or {}
+            if not tc.get("template"):
+                continue
+            verb = "Raise" if c.get("template", "").startswith("undead") else "Call"
+            label = f"{verb} the {pick.split()[-1]}s" if verb == "Raise" \
+                else f"Call the {pick.split()[-1]}s"
+            kit.append({
+                "name": label, "kind": "summon", "amount": 0,
+                "cooldown": SUMMON_COOLDOWN, "mana_cost": 0,
+                "school": "physical", "duration": 0,
+                "summon": {
+                    "name": pick, "template": tc["template"],
+                    "kit": tc.get("ability_kit"),
+                    "count": SUMMON_COUNT,
+                    "level_offset": SUMMON_LEVEL_OFFSET,
+                    "max_alive": SUMMON_MAX_ALIVE,
+                },
+                "authored_mechanic": "summon",
+            })
+            rows.append((dungeon, name, label, pick))
+
+    print(f"  {len(rows)} bosses across {len({r[0] for r in rows})} dungeons "
+          f"can now call for help\n")
+    print(f"  {'dungeon':26}{'boss':28}{'ability':24}{'summons'}")
+    for d, b, label, pick in rows[:args.show or 20]:
+        print(f"  {d[:25]:26}{b[:27]:28}{label[:23]:24}{pick}")
+    if len(rows) > (args.show or 20):
+        print(f"  ... and {len(rows) - (args.show or 20)} more")
+    if args.apply:
+        with open(KITS, "w") as fh:
+            json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
+            fh.write("\n")
+        print(f"\n  written to {KITS}")
+    else:
+        print("\n  (report only; pass --apply to write)")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--show", type=int, default=20)
     ap.add_argument("--rares", action="store_true",
                     help="the 170 subzone rares instead of the 185 dungeon bosses")
+    ap.add_argument("--summons", action="store_true",
+                    help="give a couple of bosses per dungeon a call-for-help")
     args = ap.parse_args()
 
     with open(CREATURES) as fh:
@@ -320,6 +446,9 @@ def main():
     with open(KITS) as fh:
         kitdoc = json.load(fh)
     kits = kitdoc["kits"]
+
+    if args.summons:
+        return author_summons(creatures, kits, kitdoc, args)
 
     rotation = collections.defaultdict(int)
     rare = args.rares

@@ -135,6 +135,44 @@ class CombatEngine:
     def living_enemies(self):
         return [e for e in self.enemies if e.is_alive()]
 
+    def summon_enemies(self, summoner, monsters, head_start=0.0):
+        """Bring reinforcements into a fight already in progress.
+
+        Kyle, 7 Nov: "build the boss summon add mechanics." Before this,
+        tools/audit_boss_threat reported 0 of 358 bosses presenting "adds to
+        handle", and the reason was structural the same way the stun was -
+        the enemy list was built once in __init__ and nothing could ever
+        append to it.
+
+        Three things have to happen or a summoned add is scenery:
+
+          enemies        so it can be targeted and counts toward the fight
+                         being over
+          combatants     so take_damage, AoE and row resolution see it
+          turn_meter     so it ever gets a turn - see
+                         TurnMeter.add_combatant
+
+        Adds are marked is_summoned, which _calculate_exp_reward and the
+        loot roll both check. A boss that can call help every six turns
+        would otherwise be an infinite XP and loot faucet for anyone
+        willing to stand there, which turns a mechanic into a farm.
+        """
+        added = []
+        for m in monsters:
+            if m is None:
+                continue
+            m.is_summoned = True
+            m.summoned_by = getattr(summoner, "name", None)
+            # An add inherits its summoner's row so melee still has to come
+            # through the front line to reach a back-row caster's help.
+            if not getattr(m, "row", None):
+                m.row = getattr(summoner, "row", None) or "front"
+            self.enemies.append(m)
+            self.combatants.append(m)
+            self.turn_meter.add_combatant(m, head_start=head_start)
+            added.append(m)
+        return added
+
     def is_ally(self, combatant):
         return combatant in self.allies or combatant in self.pets
 
@@ -928,6 +966,12 @@ class CombatEngine:
         # must not fall through to the procedural roll, or he adds a fourth
         # drop to a fight specified as three. `is None` would have let him.
         for enemy in self.enemies:
+            # A SUMMONED ADD DROPS NOTHING. A boss that calls for help every
+            # six turns would otherwise be an infinite loot faucet for anyone
+            # willing to stand there and keep killing the help, which turns a
+            # mechanic into a farm. Same reasoning in _calculate_exp_reward.
+            if getattr(enemy, "is_summoned", False):
+                continue
             if getattr(enemy, "is_boss", False):
                 drops = get_fixed_boss_loot_all(enemy.name)
                 if not drops and not shares_hoard(enemy.name):
@@ -1211,6 +1255,11 @@ class CombatEngine:
         from combat.difficulty import kill_xp_multiplier, party_average_level
 
         enemy = enemy or self.enemy
+        # A summoned add pays no XP - see summon_enemies. Killing the help a
+        # boss keeps calling should cost the party time and resources, not
+        # reward them for letting the fight run long.
+        if getattr(enemy, "is_summoned", False):
+            return 0
         base_exp = enemy.get_exp_reward()
 
         # WoW con colours, against the PARTY AVERAGE rather than the player's

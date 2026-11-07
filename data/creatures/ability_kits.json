@@ -1740,6 +1740,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Shamans",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Ragefire Shaman",
+          "template": "humanoid_caster",
+          "kit": "ragefire_shaman",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "earthborer": [
@@ -4789,6 +4807,24 @@
         "stat_mods": {
           "attack_power": 24
         }
+      },
+      {
+        "name": "Call the Warriors",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Naga Warrior",
+          "template": "humanoid_warrior",
+          "kit": "naga_warrior",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "murloc_hydra": [
@@ -5066,6 +5102,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Hydras",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Murloc Hydra",
+          "template": "beast_fast",
+          "kit": "murloc_hydra",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "akumai": [
@@ -7717,6 +7771,24 @@
         "mana_cost": 0,
         "school": "shadow",
         "is_aoe": true
+      },
+      {
+        "name": "Call the Diggers",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Ragefire Digger",
+          "template": "humanoid_ranged",
+          "kit": "ragefire_digger",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "coconut_crab": [
@@ -11709,6 +11781,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Drones",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Hive Drone",
+          "template": "vermin_swarm",
+          "kit": "hive_drone",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "the_broodkeeper": [
@@ -11926,6 +12016,24 @@
         "stat_mods": {
           "attack_power": 37
         }
+      },
+      {
+        "name": "Call the Guardians",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Silithid Guardian",
+          "template": "vermin_sneaky",
+          "kit": "silithid_guardian",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "mother_amberwing": [
@@ -12820,6 +12928,24 @@
         "stat_mods": {
           "attack_power": 40
         }
+      },
+      {
+        "name": "Call the Bristleboars",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Kraul Bristleboar",
+          "template": "beast_basic",
+          "kit": "kraul_bristleboar",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "death_speaker_jargba": [
@@ -13103,6 +13229,24 @@
         "stat_mods": {},
         "absorb": 555,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Spearhides",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Razorfen Spearhide",
+          "template": "humanoid_warrior",
+          "kit": "razorfen_spearhide",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "lady_anacondra": [
@@ -13156,6 +13300,24 @@
         "mana_cost": 0,
         "school": "nature",
         "is_aoe": true
+      },
+      {
+        "name": "Call the Broodlings",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Deviate Broodling",
+          "template": "vermin_swarm",
+          "kit": "deviate_broodling",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "lord_cobrahn": [
@@ -13224,6 +13386,24 @@
         "stat_mods": {
           "attack_power": 28
         }
+      },
+      {
+        "name": "Call the Pythons",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Deviate Python",
+          "template": "vermin_sneaky",
+          "kit": "deviate_python",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "kresh": [
@@ -17187,6 +17367,24 @@
         "stat_mods": {},
         "absorb": 297,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Warriors",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Forsaken Warrior",
+          "template": "humanoid_warrior",
+          "kit": "forsaken_warrior",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "hollow_rotlasher": [
@@ -18202,6 +18400,24 @@
         "stat_mods": {},
         "absorb": 398,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Treants",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Corrupted Treant",
+          "template": "elemental_bruiser",
+          "kit": "corrupted_treant",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "groms_lord_nightmare": [
@@ -18280,6 +18496,24 @@
         "stat_mods": {},
         "absorb": 398,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Revenants",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Buried Revenant",
+          "template": "undead_basic",
+          "kit": "undead_skeleton",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "plagued_stray": [
@@ -21183,6 +21417,24 @@
         "stat_mods": {},
         "absorb": 369,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Worms",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Rot Worm",
+          "template": "beast_basic",
+          "kit": "pd_rot_worm",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "pd_vile_plague_abomination": [
@@ -21340,6 +21592,24 @@
         "stat_mods": {},
         "absorb": 422,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Rats",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Plagued Rat",
+          "template": "beast_basic",
+          "kit": "pd_plagued_rat",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "farthing_hound": [
@@ -26076,6 +26346,24 @@
         "stat_mods": {
           "attack_power": 37
         }
+      },
+      {
+        "name": "Call the Spellbinders",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Syndicate Spellbinder",
+          "template": "humanoid_caster",
+          "kit": "syndicate_spellbinder",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "houndmaster_sable": [
@@ -26160,6 +26448,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Bandits",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Syndicate Bandit",
+          "template": "humanoid_rogue",
+          "kit": "syndicate_bandit",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "magister_yvaine": [
@@ -28450,6 +28756,24 @@
         "stat_mods": {
           "attack_power": 59
         }
+      },
+      {
+        "name": "Call the Thralls",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Bloom Thrall",
+          "template": "undead_basic",
+          "kit": "bloom_thrall",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "the_second_copy": [
@@ -37290,6 +37614,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Swabbies",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Southsea Swabbie",
+          "template": "humanoid_rogue",
+          "kit": "southsea_swabbie",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "sailmaker_oona_flay": [
@@ -37554,6 +37896,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Rats",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Hulk Rat",
+          "template": "vermin_sneaky",
+          "kit": "hulk_rat",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "syndicate_footpad": [
@@ -38841,6 +39201,24 @@
         "mana_cost": 0,
         "school": "holy",
         "is_aoe": true
+      },
+      {
+        "name": "Call the Watchmans",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Syndicate Watchman",
+          "template": "humanoid_warrior",
+          "kit": "syndicate_watchman",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "lord_falconcrest": [
@@ -38918,6 +39296,24 @@
         "stat_mods": {},
         "absorb": 716,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Footpads",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Syndicate Footpad",
+          "template": "humanoid_rogue",
+          "kit": "syndicate_footpad",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "the_vault_thing": [
@@ -39513,6 +39909,24 @@
         "stat_mods": {},
         "absorb": 621,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Diggers",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Drywhisker Digger",
+          "template": "vermin_swarm",
+          "kit": "drywhisker_digger",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "the_pick_mother": [
@@ -39575,6 +39989,24 @@
         "duration": 4,
         "dispel_type": "curse",
         "authored_mechanic": "curse"
+      },
+      {
+        "name": "Call the Tunnelers",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Drywhisker Tunneler",
+          "template": "humanoid_warrior",
+          "kit": "drywhisker_tunneler",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "what_they_dug_into": [
@@ -42263,6 +42695,24 @@
           "attack_power": 34
         },
         "self_only": true
+      },
+      {
+        "name": "Call the Swabs",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Bloodsail Swab",
+          "template": "humanoid_warrior",
+          "kit": "bloodsail_swab",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "topman_yanni_sear": [
@@ -42429,6 +42879,24 @@
         "stat_mods": {},
         "absorb": 630,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Swabs",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Bloodsail Swab",
+          "template": "humanoid_warrior",
+          "kit": "bloodsail_swab",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "shorebreaker_teska_vohl": [
@@ -42611,6 +43079,24 @@
         "stat_mods": {},
         "absorb": 327,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Deckmasters",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Bloodsail Deckmaster",
+          "template": "humanoid_warrior",
+          "kit": "bloodsail_deckmaster",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "keelwarden_orso_brann": [
@@ -42979,6 +43465,24 @@
         "stat_mods": {},
         "absorb": 555,
         "authored_mechanic": "shield"
+      },
+      {
+        "name": "Call the Rams",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Cliff-Backed Ram",
+          "template": "beast_basic",
+          "kit": "cliff_backed_ram",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "hagra_stormcrown": [
@@ -43027,6 +43531,24 @@
           "dodge_rating": -26,
           "agility": -28
         }
+      },
+      {
+        "name": "Call the Quilboars",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Pass-Climber Quilboar",
+          "template": "humanoid_warrior",
+          "kit": "pass_climber_quilboar",
+          "count": 2,
+          "level_offset": -2,
+          "max_alive": 3
+        },
+        "authored_mechanic": "summon"
       }
     ],
     "gorrek_passkeeper": [

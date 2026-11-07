@@ -113,6 +113,26 @@ class TurnMeter:
         
         return next_char
     
+    def add_combatant(self, char, head_start=0.0):
+        """Bring a combatant into a fight already in progress.
+
+        Needed by summons: until bosses could call for help, every
+        combatant existed before the first tick and this list never
+        changed. A summoned add that is not registered here never
+        accumulates turn meter, so it stands in the fight and never acts -
+        which is worse than not summoning it.
+
+        `head_start` is a fraction of TURN_THRESHOLD. 0 means the add waits
+        its full turn before acting, which is the right default: arriving
+        AND swinging in the same instant reads as the boss getting two
+        turns out of one.
+        """
+        if char in self.combatants:
+            return
+        self.combatants.append(char)
+        char.turn_meter = TURN_THRESHOLD * max(0.0, min(1.0, head_start))
+        self._refresh_turn_speed(char)
+
     def consume_turn(self, char):
         """Character takes their turn. Reset their meter to whatever
         overflowed past the threshold, not a hard 0.
