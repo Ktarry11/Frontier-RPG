@@ -103,24 +103,35 @@ def main():
 
     from PIL import Image
     sheet = Image.open(args.sheet).convert("RGB")
-    cw, ch = sheet.width // cols, sheet.height // rows
+    # FLOAT BOUNDARIES, not an integer cell size. 1024 / 6 rows = 170.67, so
+    # an int cell of 170 drops two thirds of a pixel per row and by the
+    # bottom row the crop window sits ~4px high - which pulled the tip of the
+    # polearm above into the top-left of the shield icon. Each edge is
+    # computed from the full sheet dimension instead, so error never
+    # accumulates.
+    cw, ch = sheet.width / cols, sheet.height / rows
     dest = Path(args.out) if args.out else GEAR
-    trim = max(2, min(cw, ch) // 48)
+    # 1/48th of a cell was not enough and neither was 1/20th: the generator
+    # does not respect the cell edge exactly, so a long weapon in one cell -
+    # the polearm's tassel, a bow tip - overhangs into its neighbour. 1/14th
+    # clears the overhang. The prompt asks the art to fill ~85% of a cell, so
+    # this still cannot bite into the icon itself.
+    trim = max(3, int(min(cw, ch) // 14))
 
     written = []
     for idx, stem in enumerate(names):
         r, c = divmod(idx, cols)
         if r >= rows:
             break
-        cell = sheet.crop((c * cw + trim, r * ch + trim,
-                           (c + 1) * cw - trim, (r + 1) * ch - trim))
+        cell = sheet.crop((round(c * cw) + trim, round(r * ch) + trim,
+                           round((c + 1) * cw) - trim, round((r + 1) * ch) - trim))
         if args.apply:
             dest.mkdir(parents=True, exist_ok=True)
             cell.save(dest / f"{stem}.png")
         written.append(stem)
 
     print(f"  {layout}: {len(written)} icons from a {rows}x{cols} grid "
-          f"({cw}x{ch} cells)\n")
+          f"({cw:.1f}x{ch:.1f} cells, {trim}px trim)\n")
     for i in range(0, len(written), cols):
         print("   " + "  ".join(n.replace("gear_epic_", "") for n in written[i:i + cols]))
     print("\n  written to " + str(dest) if args.apply
