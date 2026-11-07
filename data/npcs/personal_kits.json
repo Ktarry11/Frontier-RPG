@@ -35,14 +35,17 @@
     "",
     "NO CONFUSION MECHANICS. Kyle: 'we wont do confusion stuff like this, scrap it.' Silas's The Man Standing Next To Him turned two enemies on each other and is gone, replaced by Sharper Rules Than Antwerp, an execute. Nothing else in the file charms, confuses or turns an enemy.",
     "",
-    "NO FIGHT-LONG OR PERMANENT EFFECTS. Kyle, 6 Nov: 'we will not being doing full fight-based abilities.' Everything now has a stated duration and a cooldown. Five were caught: Pasang's He Has the Names (was permanent on trigger), Bakyt's A Sky Other People Call Clear (duration 99), Kesten's He Catalogues (accrued permanently and ACROSS fights), Haruto's A Single Stroke (once per fight) and Pasang's Day Four (scaled off total fight length). A long cooldown does the same job as a once-per-fight limit without needing fight-scoped state."
+    "NO FIGHT-LONG OR PERMANENT EFFECTS. Kyle, 6 Nov: 'we will not being doing full fight-based abilities.' Everything now has a stated duration and a cooldown. Five were caught: Pasang's He Has the Names (was permanent on trigger), Bakyt's A Sky Other People Call Clear (duration 99), Kesten's He Catalogues (accrued permanently and ACROSS fights), Haruto's A Single Stroke (once per fight) and Pasang's Day Four (scaled off total fight length). A long cooldown does the same job as a once-per-fight limit without needing fight-scoped state.",
+    "",
+    "PASSIVES ARE NAMED. Kyle, 6 Nov: 'even with passives they still get icons bro!' An icon needs something to be an icon of, and a stat line is not it, so each character's passive block carries a _name drawn from the same backstory line as its _from. One passive per character, not one per stat: Dan's +10% health and +12% armour are both 'Twenty-Two Years', the steel floor he stood on."
   ],
   "dan_warrior": {
     "name": "Dan Okafor",
     "passives": {
       "_from": "'Twenty-two years on a Sheffield steel floor.' / 'He's a shield. That's the whole arrangement.'",
       "max_health_pct": 10,
-      "armor_pct": 12
+      "armor_pct": 12,
+      "_name": "Twenty-Two Years"
     },
     "abilities": [
       {
@@ -119,7 +122,8 @@
     "passives": {
       "_from": "'a ward sister who taught her to keep her voice level while her hands did something frightening'",
       "pushback_reduction_pct": 100,
-      "spirit": 8
+      "spirit": 8,
+      "_name": "A Level Voice"
     },
     "abilities": [
       {
@@ -194,7 +198,8 @@
     "passives": {
       "_from": "'he reads a dock the way other people read a face' / 'He sells that at a fair price'",
       "crit_chance_physical": 4,
-      "gold_find_pct": 15
+      "gold_find_pct": 15,
+      "_name": "Reads a Dock"
     },
     "abilities": [
       {
@@ -270,7 +275,8 @@
     "name": "Emre Kaya",
     "passives": {
       "_from": "'Thirty doors a week for most of his life.' - a lifetime of opening what was meant to stay shut",
-      "armor_penetration_pct": 15
+      "armor_penetration_pct": 15,
+      "_name": "Thirty Doors a Week"
     },
     "abilities": [
       {
@@ -347,7 +353,8 @@
     "passives": {
       "_from": "'eleven years of being invisible in traffic and arriving before anyone expected'",
       "threat_pct": -30,
-      "haste": 8
+      "haste": 8,
+      "_name": "Invisible in Traffic"
     },
     "abilities": [
       {
@@ -425,7 +432,8 @@
     "passives": {
       "_from": "'he was the only one everybody owed a favour' - thirty years of credit, and the neighbourhood pays it back",
       "healing_taken_pct": 25,
-      "max_health_pct": 8
+      "max_health_pct": 8,
+      "_name": "Everybody Owed Him"
     },
     "abilities": [
       {
@@ -501,7 +509,8 @@
     "passives": {
       "_from": "'He spent a career being right early and watching it change nothing.' / 'Here the storm answers him.'",
       "nature_damage_pct": 10,
-      "crit_chance_spell": 3
+      "crit_chance_spell": 3,
+      "_name": "The Storm Answers"
     },
     "abilities": [
       {
@@ -579,7 +588,8 @@
     "passives": {
       "_from": "'a great deal of sitting absolutely still in the dark' / 'A year of being outclassed by pigs.'",
       "crit_chance_physical": 4,
-      "beast_damage_pct": 8
+      "beast_damage_pct": 8,
+      "_name": "Absolutely Still in the Dark"
     },
     "abilities": [
       {
@@ -655,7 +665,8 @@
     "passives": {
       "_from": "'you hold a sentence in one tongue while it finishes in another' / fourteen years of sustained attention",
       "crit_chance_spell": 3,
-      "pushback_reduction_pct": 50
+      "pushback_reduction_pct": 50,
+      "_name": "Four Languages"
     },
     "abilities": [
       {
@@ -731,7 +742,8 @@
     "passives": {
       "_from": "'His demons are on contracts he drafted and can recite clause by clause. He pays on time, exactly on time.'",
       "pet_damage": 12,
-      "pet_health": 15
+      "pet_health": 15,
+      "_name": "Paid Exactly On Time"
     },
     "abilities": [
       {
@@ -810,7 +822,8 @@
     "passives": {
       "_from": "'She learned to feel the bottom through the hull.' / 'the spirits of water hold a conversation with her'",
       "dodge": 5,
-      "nature_damage_pct": 8
+      "nature_damage_pct": 8,
+      "_name": "Through the Hull"
     },
     "abilities": [
       {
@@ -886,7 +899,8 @@
     "passives": {
       "_from": "'She planted sedge and waited. She pulled invasive grass for nine years in one basin.'",
       "healing_done": 6,
-      "nature_resistance": 10
+      "nature_resistance": 10,
+      "_name": "Nine Years in One Basin"
     },
     "abilities": [
       {
@@ -962,7 +976,8 @@
     "passives": {
       "_from": "'slow start, committed middle, and knowing exactly how long it takes to stop'",
       "crit_damage_physical": 0.1,
-      "stun_duration_reduction_pct": 20
+      "stun_duration_reduction_pct": 20,
+      "_name": "How Long It Takes to Stop"
     },
     "abilities": [
       {
@@ -1039,7 +1054,8 @@
     "passives": {
       "_from": "'eight years of talking to nobody is good preparation for talking to something'",
       "shadow_resistance": 15,
-      "max_health_pct": 6
+      "max_health_pct": 6,
+      "_name": "Good Preparation"
     },
     "abilities": [
       {
@@ -1115,7 +1131,8 @@
     "passives": {
       "_from": "'the four hours before dawn when the astronomers slept and the mountain belonged to him'",
       "mp5": 8,
-      "healing_done": 5
+      "healing_done": 5,
+      "_name": "Four Hours Before Dawn"
     },
     "abilities": [
       {
@@ -1192,7 +1209,8 @@
     "passives": {
       "_from": "'He has seen what high ground does to a body and to a personality.'",
       "armor_pct": 12,
-      "frost_resistance": 15
+      "frost_resistance": 15,
+      "_name": "What High Ground Does"
     },
     "abilities": [
       {
@@ -1268,7 +1286,8 @@
     "passives": {
       "_from": "'The discipline is a single stroke, studied until the hand no longer requires the mind.'",
       "crit_damage_physical": 0.12,
-      "hit_rating": 3
+      "hit_rating": 3,
+      "_name": "The Hand No Longer Requires the Mind"
     },
     "abilities": [
       {
@@ -1344,7 +1363,8 @@
     "passives": {
       "_from": "'The most useful thing in a burning room is a calm voice.'",
       "pushback_reduction_pct": 100,
-      "healing_done": 7
+      "healing_done": 7,
+      "_name": "A Calm Voice in a Burning Room"
     },
     "abilities": [
       {
@@ -1420,7 +1440,8 @@
     "passives": {
       "_from": "'the only person in the building who could tell what was wrong from the sound'",
       "crit_chance_physical": 5,
-      "fire_damage_pct": 6
+      "fire_damage_pct": 6,
+      "_name": "Knows It From the Sound"
     },
     "abilities": [
       {
@@ -1496,7 +1517,8 @@
     "passives": {
       "_from": "'He's been envenomated more often than any person should be and files all of it under professional development.'",
       "nature_resistance": 20,
-      "max_health_pct": 8
+      "max_health_pct": 8,
+      "_name": "Filed Under Professional Development"
     },
     "abilities": [
       {
@@ -1572,7 +1594,8 @@
     "passives": {
       "_from": "'He reads weather in a sky other people call clear and finds water where there is apparently none.'",
       "pet_damage": 15,
-      "pet_health": 20
+      "pet_health": 20,
+      "_name": "Weather in a Clear Sky"
     },
     "abilities": [
       {
@@ -1648,7 +1671,8 @@
     "passives": {
       "_from": "'The discipline is being certain that a thing will hold before anybody stands on it.'",
       "frost_damage_pct": 8,
-      "crit_chance_spell": 3
+      "crit_chance_spell": 3,
+      "_name": "Certain Before Anyone Stands On It"
     },
     "abilities": [
       {
@@ -1724,7 +1748,8 @@
     "passives": {
       "_from": "'Three decades of patience with slow things, and with students who wanted results by Friday.'",
       "healing_done": 6,
-      "mp5": 6
+      "mp5": 6,
+      "_name": "Patience With Slow Things"
     },
     "abilities": [
       {
@@ -1801,7 +1826,8 @@
     "passives": {
       "_from": "'Take what's offered, give back, never turn your back on it.'",
       "healing_done": 5,
-      "dodge": 4
+      "dodge": 4,
+      "_name": "Take What's Offered"
     },
     "abilities": [
       {
@@ -1877,7 +1903,8 @@
     "passives": {
       "_from": "'the quiet conviction that a thing unrecorded has not quite happened'",
       "shadow_resistance": 15,
-      "crit_chance_spell": 4
+      "crit_chance_spell": 4,
+      "_name": "Unrecorded Has Not Quite Happened"
     },
     "abilities": [
       {
@@ -1953,7 +1980,8 @@
     "passives": {
       "_from": "'Water systems: pressure, pumps, the unglamorous arithmetic of a city that drinks.'",
       "armor_pct": 10,
-      "max_health_pct": 6
+      "max_health_pct": 6,
+      "_name": "Pressure and Pumps"
     },
     "abilities": [
       {
@@ -2029,7 +2057,8 @@
     "passives": {
       "_from": "'noticing the one entry that doesn't fit and then being unbearable about it until somebody checks'",
       "crit_chance_physical": 4,
-      "shadow_resistance": 10
+      "shadow_resistance": 10,
+      "_name": "The Entry That Doesn't Fit"
     },
     "abilities": [
       {
@@ -2105,7 +2134,8 @@
     "passives": {
       "_from": "'standing in front of a room that would rather be anywhere else and keeping it together by presence alone'",
       "armor_pct": 10,
-      "stun_duration_reduction_pct": 25
+      "stun_duration_reduction_pct": 25,
+      "_name": "Presence Alone"
     },
     "abilities": [
       {
@@ -2183,7 +2213,8 @@
     "passives": {
       "_from": "'His body learned things his mind never had a say in.' / 'he moves without deciding to and it's fast'",
       "haste": 10,
-      "dodge": 5
+      "dodge": 5,
+      "_name": "His Body Learned It"
     },
     "abilities": [
       {
@@ -2259,7 +2290,8 @@
     "passives": {
       "_from": "'holding forty futures in your head simultaneously and choosing the one in which nobody dies'",
       "pushback_reduction_pct": 100,
-      "healing_done": 5
+      "healing_done": 5,
+      "_name": "Forty Futures"
     },
     "abilities": [
       {

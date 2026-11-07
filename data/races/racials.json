@@ -46,7 +46,8 @@
       "_wow": "The Human Spirit (+spirit) and Diplomacy (+reputation gain)",
       "spirit_pct": 3,
       "reputation_gain_pct": 10,
-      "_needs_engine": "reputation_gain_pct is not read by anything yet - the faction manager has no hook for a multiplier on rep gain. Authored because it is Diplomacy and Diplomacy is half of what Human IS; it does nothing until that hook exists, and this line is here so nobody has to discover that the hard way."
+      "_needs_engine": "reputation_gain_pct is not read by anything yet - the faction manager has no hook for a multiplier on rep gain. Authored because it is Diplomacy and Diplomacy is half of what Human IS; it does nothing until that hook exists, and this line is here so nobody has to discover that the hard way.",
+      "_name": "The Human Spirit"
     },
     "abilities": [
       {
@@ -100,7 +101,8 @@
     "passives": {
       "_wow": "Hardiness (stun duration reduction) and Command (pet damage)",
       "stun_duration_reduction_pct": 15,
-      "pet_damage": 5
+      "pet_damage": 5,
+      "_name": "Hardiness"
     },
     "abilities": [
       {
@@ -160,7 +162,8 @@
       "frost_resistance": 10,
       "nature_resistance": 10,
       "shadow_resistance": 10,
-      "arcane_resistance": 10
+      "arcane_resistance": 10,
+      "_name": "Magic Resistance"
     },
     "abilities": [
       {
@@ -213,7 +216,8 @@
     "label": "Forsaken",
     "passives": {
       "_wow": "Shadow Resistance",
-      "shadow_resistance": 10
+      "shadow_resistance": 10,
+      "_name": "Shadow Resilience"
     },
     "abilities": [
       {
@@ -267,7 +271,8 @@
     "passives": {
       "_wow": "Endurance (+health) and Nature Resistance",
       "max_health_pct": 5,
-      "nature_resistance": 10
+      "nature_resistance": 10,
+      "_name": "Endurance"
     },
     "abilities": [
       {
