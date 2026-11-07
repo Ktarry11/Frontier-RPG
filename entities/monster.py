@@ -979,6 +979,49 @@ class Monster(StatusEffectMixin):
         # been magic mechanics. A physical DoT ticking will roll this, exactly
         # as it does against a Character - consistent rather than correct, and
         # noted here rather than silently differing.
+        # ABSORB SHIELDS, WHICH MONSTER COULD NOT USE UNTIL NOW.
+        #
+        # StatusEffect.absorb has existed since Tinker's Reactive Plating,
+        # and Character.take_damage drains it - but MONSTER HAS ITS OWN
+        # take_damage, and that copy never looked at shields. It did not
+        # matter while only a player talent granted one. It mattered the
+        # moment 66 bosses were given one tonight: the shield was applied,
+        # the chip appeared, the log announced it, and it absorbed nothing.
+        #
+        # I verified absorbs on a Character and shipped them on Monsters.
+        # Two take_damage implementations is the shape this repo keeps
+        # getting caught by - the same bug as the two block formulas and
+        # the two XP curves before it.
+        #
+        # Placed before avoidance and mitigation for the same reason as
+        # Character's: a shield soaks the full incoming hit, not one already
+        # discounted by armour.
+        if amount > 0 and hasattr(self, "_effects"):
+            soaked_total, broke = 0, []
+            for effect in list(self._effects()):
+                if amount <= 0:
+                    break
+                if getattr(effect, "absorb", 0) <= 0:
+                    continue
+                soaked = min(effect.absorb, amount)
+                effect.absorb -= soaked
+                amount -= soaked
+                soaked_total += soaked
+                if effect.absorb <= 0:
+                    broke.append(effect.name)
+                    self._effects().remove(effect)
+            if soaked_total:
+                note = f"{self.name}'s shield absorbs {int(soaked_total)}"
+                if broke:
+                    note += " and breaks"
+                pending = getattr(self, "_pending_proc_messages", None)
+                if pending is None:
+                    pending = []
+                    self._pending_proc_messages = pending
+                pending.append(note + "!")
+            if amount <= 0:
+                return 0
+
         if damage_type == "physical" and (self.dodge or self.parry
                                           or self.block_chance):
             import random

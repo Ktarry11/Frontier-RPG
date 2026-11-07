@@ -1813,5 +1813,22 @@ class StatusEffectMixin:
         ]
 
     def get_effects_summary(self):
-        """Compact list for UI display: [(name, turns_left, type), ...]"""
-        return [(e.name, e.duration, e.effect_type) for e in self._effects()]
+        """Compact list for UI display: [(name, label, type), ...]
+
+        The second item is what the chip prints after the name. For almost
+        everything that is the turns left, which is the part that matters at
+        a glance.
+
+        AN ABSORB SHIELD IS THE EXCEPTION, and it matters now that bosses
+        carry them. A chip reading "Silverlaine's Ward 4" tells a player
+        nothing about why their 200-damage hit moved the health bar not at
+        all - the shield is the reason, and its SIZE is the number they are
+        fighting. So a shield prints what is left of the pool instead of how
+        long it lasts, which is also how it ends: a shield breaks when it is
+        spent, usually long before its duration runs out.
+        """
+        out = []
+        for e in self._effects():
+            absorb = getattr(e, "absorb", 0) or 0
+            out.append((e.name, absorb if absorb else e.duration, e.effect_type))
+        return out

@@ -3099,6 +3099,15 @@ class Character(StatusEffectMixin):
         # loop over zero matching effects, identical to before this
         # existed.
         if hasattr(self, "_effects") and amount > 0:
+            # A SHIELD HAS TO SAY SO. This used to soak the hit and
+            # `return 0` in silence, so the log read "uses Crushing Blow for
+            # 0 damage!" and the player was left to guess. Kyle, 7 Nov, on
+            # exactly this class of line: "a lot of bosses do shit that
+            # doesnt even say what it does" / "or hits for nothing...."
+            # It mattered little while only one talent granted an absorb;
+            # it matters now that 66 bosses carry one.
+            soaked_total = 0
+            broke = []
             for effect in list(self._effects()):
                 if amount <= 0:
                     break
@@ -3107,8 +3116,22 @@ class Character(StatusEffectMixin):
                 soaked = min(effect.absorb, amount)
                 effect.absorb -= soaked
                 amount -= soaked
+                soaked_total += soaked
                 if effect.absorb <= 0:
+                    broke.append(effect.name)
                     self._effects().remove(effect)
+            if soaked_total:
+                note = f"{self.name}'s shield absorbs {int(soaked_total)}"
+                if broke:
+                    note += f" and {'breaks' if len(broke) == 1 else 'shatters'}"
+                # Same defensive shape the proc path uses: Monster mixes in
+                # StatusEffectMixin too, and not every construction path has
+                # run _init_status_effects by the time something hits it.
+                pending = getattr(self, "_pending_proc_messages", None)
+                if pending is None:
+                    pending = []
+                    self._pending_proc_messages = pending
+                pending.append(note + "!")
             if amount <= 0:
                 self._on_status_effects_changed()
                 return 0
