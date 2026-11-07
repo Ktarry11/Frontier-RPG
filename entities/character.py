@@ -2532,6 +2532,13 @@ class Character(StatusEffectMixin):
     BASE_CRIT_PHYSICAL = 5.0
     BASE_CRIT_SPELL = 5.0
 
+    #: The most of a hit a block may absorb. See take_damage's block branch:
+    #: block_value is flat and outgrew the damage curve, so a block became a
+    #: full negate against level-appropriate content. 0.5 keeps a blocked hit
+    #: meaningfully halved - which is a lot - while guaranteeing a hit that
+    #: landed always costs something.
+    BLOCK_MAX_SHARE = 0.5
+
     #: Dodge every class has before agility, talents or gear. See _recalculate_derived_stats.
     BASE_DODGE = 5.0
 
@@ -3323,6 +3330,29 @@ class Character(StatusEffectMixin):
             bonus = self.get_talent_effect("block_bonus_reduction", 0.0)
             if bonus:
                 absorbed += actual * bonus
+            # A BLOCK REDUCES A HIT. IT DOES NOT ERASE ONE.
+            #
+            # block_value is FLAT and grows with Strength, shield and
+            # talents, so once it passed a post-mitigation hit the shield ate
+            # the entire thing and `actual` floored at 1. A previous pass
+            # noted this and deferred it as "a tuning question". Measured on
+            # a geared level-40 Warrior: block_value 124 against a 161-damage
+            # trash hit that armour had already cut to 72. Roughly one attack
+            # in six simply did not happen, and the log said "for 0 damage"
+            # with no explanation of why.
+            #
+            # Kyle, 7 Nov: enemies "hit like a wet noodle". This is one of
+            # the three things making that true, and the one most likely to
+            # have been made worse by raising block chance earlier the same
+            # day.
+            #
+            # Capped at a share of the hit rather than removed: every
+            # block_value talent and every bigger shield still does exactly
+            # what it says up to the cap, which is the thing the
+            # subtract-the-value change existed to fix in the first place.
+            # Classic behaves this way for the same reason - its damage curve
+            # stays ahead of shields, so a block is always a reduction.
+            absorbed = min(absorbed, actual * self.BLOCK_MAX_SHARE)
             actual = max(1, int(actual - absorbed))
             # A block is a partial hit, so ON_BLOCK fires here AND
             # ON_DAMAGE_TAKEN fires below, off the reduced amount. A talent

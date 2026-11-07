@@ -1000,11 +1000,25 @@ class Monster(StatusEffectMixin):
             if a.hp_below is not None:
                 return a
 
-        if not boss:
-            for a in options:
-                if a.kind == "buff" and not self.has_status_effect(a.effect_id):
-                    return a
-
+        # A PURE SELF-BUFF IS NEVER THE OPENING MOVE, FOR ANYBODY.
+        #
+        # Bosses already had this rule - it was added when they were
+        # "glorified punching bags" burning a third of their turns recasting
+        # +20 Attack Power - and it was never extended to trash, so for every
+        # non-boss the buff branch sat ABOVE the damage branch and fired on
+        # turn one. Traced across 14 level-40 mobs: thirteen of fourteen
+        # dealt zero damage on their first turn, every one of them a self-buff.
+        #
+        # Kyle, 7 Nov: "most dungeon mobs just shit out loot as they either
+        # buff themselves for piddly shit then proceed to hit like a wet
+        # noodle." The opening move of literally every normal mob in the game
+        # was to preen at the party.
+        #
+        # The buffs are kept - they work and they are flavour - they just
+        # fall through to the same place the boss rule puts them: cast when
+        # there is no real attack available, below. Trash keeps its DoT and
+        # debuff priority, which open a fight fine because they do something
+        # to the player.
         for a in options:
             if a.kind == "dot" or (a.kind == "debuff" and not boss):
                 recipient = self if a.self_only else target
@@ -1024,12 +1038,14 @@ class Monster(StatusEffectMixin):
                 return max(lapsed, key=lambda a: a.amount)
             return max(damage_options, key=lambda a: a.amount)
 
-        if boss:
-            for a in options:
-                if a.kind in ("buff", "debuff"):
-                    recipient = self if a.self_only else target
-                    if not recipient.has_status_effect(a.effect_id):
-                        return a
+        # Buffs and debuffs land here for EVERYBODY now, not just bosses -
+        # cast when there is no real attack to throw instead of ahead of one.
+        # See the note above the dot/debuff branch.
+        for a in options:
+            if a.kind in ("buff", "debuff"):
+                recipient = self if a.self_only else target
+                if not recipient.has_status_effect(a.effect_id):
+                    return a
 
         if basic.is_available(self):
             return basic
