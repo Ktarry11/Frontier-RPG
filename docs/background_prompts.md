@@ -13,6 +13,7 @@ list under "thin pack"; re-run it after adding art.
 | `fungal` | 2 | 4 | spore caverns |
 | `salt_flat` | 2 | 4 | The Shimmering Flats, Saltwheel |
 | `sky` | 2 | 4 | the three zeppelin towers, Freewind Post |
+| `coast` | **0** | 4 | 8 shoreline subzones that currently fight inland — see below |
 
 These are **landscape backdrops**, not icons — wide, deep, and empty in the
 middle third, because the party and the enemies are drawn standing on top of
@@ -134,3 +135,45 @@ Up high: zeppelin towers and wind-riding mesas, looking out over cloud.
 >    windsock, the land far below showing through a gap
 > 2. A wind-carved mesa top at sunrise, cloud filling the valleys between
 >    other mesas, long warm light
+
+---
+
+## COAST — 4 images, a pack that does not exist yet
+
+`tools/qa_combat_backgrounds.py` lists subzones whose NAME promises terrain
+their parent zone's pack cannot show. After tightening the match to whole
+words it reports 78, and most of those are still the tool being cautious — a
+grove in a forest is a forest, and "Entrance Caverns" inside a cave dungeon is
+already right.
+
+The one genuinely actionable cluster is **shorelines inside land zones**:
+
+    The Wrackline Shore    Arathi East         fights in mossy_forest
+    Coast Bluffs           Ashenvale West      fights in fantasy_forest
+    Zoram Coast            Ashenvale West      fights in fantasy_forest
+    Scuttle Coast          Durotar             fights in desert
+    The Eastern Strand     Eastern Hillsbrad   fights in mossy_forest
+    The North Coast        Eastern Tirisfal    fights in blighted
+    Razorjaw Reef          Echo Isles          fights in jungle
+
+**`nautical` is not the answer** — its three variants are a weather deck, a
+hold, and flooded ruins. Routing a beach there puts the fight on a ship.
+
+These want four shorelines, deliberately spread across climates so one pack
+serves Durotar's red-rock coast and Tirisfal's dead northern one:
+
+> [preamble]
+>
+> 1. A rocky northern shoreline under grey overcast, dark wet stone, cold
+>    green-grey surf, driftwood and kelp above the tide line
+> 2. A warm red-rock coast at midday, ochre cliffs meeting turquoise shallows,
+>    pale sand, scrub clinging to the rock
+> 3. A temperate beach at golden hour, pale sand, low dunes with marram grass,
+>    a long calm sea and a distant headland
+> 4. A reef shore at low tide, exposed coral and tidal pools, bright shallow
+>    water, jagged rock, seabirds in the distance
+
+Once the folder exists: add `"coast"` to `FLAT_FOLDERS` and
+`BIOME_TO_BACKGROUND` in `world/combat_backgrounds.py`, then give the seven
+subzones above a `"coast"` entry in `SUBZONE_BIOME` (`world/tile_textures.py`).
+The loader already consults subzone biomes, so that is the whole wiring.

@@ -16,7 +16,7 @@ working one. So this tool does not pass or fail - it PRINTS the resolved backdro
 for every zone, grouped by pack, so a wrong one can be seen rather than stumbled
 into during play.
 """
-import sys, os, collections
+import sys, os, re, collections
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from world.combat_backgrounds import (get_background_for_place, ZONE_BACKGROUND,
@@ -75,6 +75,13 @@ def _subzones(zones):
     # Names that promise terrain the open zone does not have. A subzone
     # matching one of these and STILL sharing its parent's pack is the
     # shortlist to review - it is not a failure, it is where to look.
+    #
+    # MATCHED ON WORD BOUNDARIES, not substrings. The first version used
+    # `w in name.lower()` and reported 101 subzones, most of which were its
+    # own fault: "Fenris Proper" matched 'fen', "Burning Blade Coven" and
+    # "The Druids' Alcove" both matched 'cove', "Moonwhisper Grove" is a
+    # grove in a forest and always was. A shortlist that is mostly noise is
+    # a shortlist nobody reads.
     WATER = ("fen", "pool", "oasis", "spring", "lake", "marsh", "bog", "shore",
              "coast", "strand", "falls", "river", "delta", "cove", "reef")
     STONE = ("cave", "cavern", "hollow", "mine", "quarry", "ridge", "cliff",
@@ -97,9 +104,13 @@ def _subzones(zones):
                 differs += 1
                 rows.append((name, zname, pp, sp, "own biome"))
                 continue
-            low = name.lower()
+            # A subzone that IS its zone (a one-room cave registering
+            # itself) shares the parent's pack because it is the parent.
+            if name == zname:
+                continue
+            words = set(re.findall(r"[a-z]+", name.lower()))
             hit = next((w for group in (WATER, STONE, GREEN) for w in group
-                        if w in low), None)
+                        if w in words or w + "s" in words), None)
             if hit and not own:
                 flagged += 1
                 rows.append((name, zname, pp, sp, f"shares parent; name says '{hit}'"))
