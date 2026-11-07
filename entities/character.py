@@ -1425,7 +1425,8 @@ class Character(StatusEffectMixin):
         agility_block_bonus = eff_agility * bonuses.get("spirit_guard_block_from_agility", 0.0)
         # BLOCK VALUE: how much a blocked hit loses. Strength, the shield itself, and the talent
         # conversions - block_rating and Spirit Guard's agility conversion are rating, i.e. value.
-        self.block_value = (eff_strength * 0.3 + self.equipment.get_total_block_value()
+        self.block_value = (eff_strength * self.BLOCK_VALUE_FROM_STRENGTH
+                            + self.equipment.get_total_block_value()
                             + bonuses.get("block_rating", 0) + agility_block_bonus)
         # block_value_pct scales the VALUE, which is what its name always said and what the two
         # talents using it meant. Before the split it scaled the number being used as a chance.
@@ -2532,12 +2533,17 @@ class Character(StatusEffectMixin):
     BASE_CRIT_PHYSICAL = 5.0
     BASE_CRIT_SPELL = 5.0
 
-    #: The most of a hit a block may absorb. See take_damage's block branch:
-    #: block_value is flat and outgrew the damage curve, so a block became a
-    #: full negate against level-appropriate content. 0.5 keeps a blocked hit
-    #: meaningfully halved - which is a lot - while guaranteeing a hit that
-    #: landed always costs something.
-    BLOCK_MAX_SHARE = 0.5
+    #: Block value per point of Strength. Was 0.3, which put block_value at
+    #: 124 on a geared level-40 Warrior against post-mitigation trash hits of
+    #: about 72 - so the shield did not reduce those hits, it deleted them,
+    #: and roughly one attack in six simply did not happen.
+    #:
+    #: Kyle, 7 Nov: "block value should still be a value, not half. But its
+    #: not a very high value, should be better for trash, worse for bosses."
+    #: A flat value already gives him that shape for free; it was only ever
+    #: the magnitude that was wrong. At 0.1 a level-40 Warrior blocks for
+    #: about 95 - over half a trash hit, about a third of a boss hit.
+    BLOCK_VALUE_FROM_STRENGTH = 0.15
 
     #: Dodge every class has before agility, talents or gear. See _recalculate_derived_stats.
     BASE_DODGE = 5.0
@@ -3330,29 +3336,22 @@ class Character(StatusEffectMixin):
             bonus = self.get_talent_effect("block_bonus_reduction", 0.0)
             if bonus:
                 absorbed += actual * bonus
-            # A BLOCK REDUCES A HIT. IT DOES NOT ERASE ONE.
+            # BLOCK STAYS A FLAT VALUE. Kyle, 7 Nov: "block value should
+            # still be a value, not half. But its not a very high value,
+            # should be better for trash, worse for bosses."
             #
-            # block_value is FLAT and grows with Strength, shield and
-            # talents, so once it passed a post-mitigation hit the shield ate
-            # the entire thing and `actual` floored at 1. A previous pass
-            # noted this and deferred it as "a tuning question". Measured on
-            # a geared level-40 Warrior: block_value 124 against a 161-damage
-            # trash hit that armour had already cut to 72. Roughly one attack
-            # in six simply did not happen, and the log said "for 0 damage"
-            # with no explanation of why.
+            # He is right, and a first attempt at this capped the absorb at
+            # half the hit - which would have thrown away the exact property
+            # he is describing. A FLAT subtraction is already proportionally
+            # large against a small hit and small against a big one, so it
+            # is better against trash and worse against a boss for free. A
+            # percentage cap makes a block worth the same share of every hit
+            # in the game, which is the opposite.
             #
-            # Kyle, 7 Nov: enemies "hit like a wet noodle". This is one of
-            # the three things making that true, and the one most likely to
-            # have been made worse by raising block chance earlier the same
-            # day.
-            #
-            # Capped at a share of the hit rather than removed: every
-            # block_value talent and every bigger shield still does exactly
-            # what it says up to the cap, which is the thing the
-            # subtract-the-value change existed to fix in the first place.
-            # Classic behaves this way for the same reason - its damage curve
-            # stays ahead of shields, so a block is always a reduction.
-            absorbed = min(absorbed, actual * self.BLOCK_MAX_SHARE)
+            # What was actually wrong was the SIZE of the value, not the
+            # subtraction: block_value reached 124 on a geared level-40
+            # Warrior against post-mitigation trash hits of ~72, so the
+            # shield ate whole attacks. See BLOCK_VALUE_FROM_STRENGTH.
             actual = max(1, int(actual - absorbed))
             # A block is a partial hit, so ON_BLOCK fires here AND
             # ON_DAMAGE_TAKEN fires below, off the reduced amount. A talent
