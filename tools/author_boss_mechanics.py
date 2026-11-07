@@ -215,6 +215,10 @@ SUMMON_COUNT = 2
 SUMMON_LEVEL_OFFSET = -2
 SUMMON_MAX_ALIVE = 3
 SUMMON_COOLDOWN = 7
+#: Times a boss may call for help in one fight. See MonsterAbility._summon:
+#: without this a live cap alone just tops the adds back up forever and the
+#: fight stops resolving.
+SUMMON_MAX_CASTS = 2
 
 
 def dungeon_rosters():
@@ -479,6 +483,7 @@ def author_summons(creatures, kits, kitdoc, args):
                     "count": SUMMON_COUNT,
                     "level_offset": SUMMON_LEVEL_OFFSET,
                     "max_alive": SUMMON_MAX_ALIVE,
+                    "max_casts": SUMMON_MAX_CASTS,
                 },
                 "authored_mechanic": "summon",
             })

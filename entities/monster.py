@@ -194,11 +194,22 @@ class MonsterAbility:
 
         #: SUMMON SPEC, for kind="summon":
         #:   {"creature": "<creatures.json name>",   (or "template"/"kit")
-        #:    "count": 2, "level_offset": -2, "max_alive": 3}
-        #: `max_alive` is the one field that stops this being a bug: without
-        #: a live cap a boss on a 6-turn summon in a long fight fills the
-        #: screen, and the party is fighting an arithmetic problem rather
-        #: than an encounter.
+        #:    "count": 2, "level_offset": -2, "max_alive": 3, "max_casts": 2}
+        #:
+        #: TWO CAPS, and they stop different things.
+        #:
+        #: `max_alive` stops the screen filling up: without it a boss on a
+        #: short summon cooldown has the party fighting an arithmetic
+        #: problem rather than an encounter.
+        #:
+        #: `max_casts` stops the fight never ENDING, and it was added after
+        #: measuring. With a live cap alone, a 7-turn summon simply tops the
+        #: adds back up to three forever, so party damage is permanently
+        #: divided and a simulated boss fight ran 80 turns without
+        #: resolving. That is the HP-sponge feel Kyle rejected arriving by a
+        #: different road - not more health, more things to kill. A boss now
+        #: brings help a fixed number of times and then it is a boss fight
+        #: again.
         self.summon = dict(summon) if summon else None
 
         # Stable id so re-applying refreshes rather than stacks, matching
@@ -304,6 +315,11 @@ class MonsterAbility:
 
         # LIVE CAP FIRST. A boss on a 6-turn summon in a long fight fills
         # the screen otherwise, and the party ends up fighting arithmetic.
+        used = getattr(self, "_summons_cast", 0)
+        max_casts = int(spec.get("max_casts", 2))
+        if used >= max_casts:
+            return False, f"{self.name} has nothing left to call"
+
         max_alive = int(spec.get("max_alive", 3))
         alive = sum(1 for e in engine.living_enemies()
                     if getattr(e, "summoned_by", None) == caster.name)
@@ -324,6 +340,7 @@ class MonsterAbility:
         if not made:
             return False, f"{self.name} fizzles"
 
+        self._summons_cast = used + 1
         engine.summon_enemies(caster, made)
         who = made[0].name if len(made) == 1 else f"{len(made)} {self._plural(made[0].name)}"
         return True, f"{caster.name} uses {self.name} and calls in {who}!"
