@@ -42,11 +42,9 @@ COLS = ROWS = 2
 #: The description is the record of WHY a cell landed where it did; it is
 #: the only thing that makes a wrong call reviewable later.
 MANIFEST = {
-    # RETIRED 7 Nov. These four came back as PHOTOGRAPHS - the only ones in a
-    # game of paintings - and sheet 5d5b8924 redraws the same four subjects in
-    # the house style. The entry stays so the framed-sheet handling below has
-    # a worked example if another captioned sheet ever turns up; the files are
-    # gone from assets/backgrounds/coast.
+    # These four came back photoreal rather than painted, and 5d5b8924 redraws
+    # the same four subjects in the house style. Both sets are kept - Kyle,
+    # 7 Nov: "We can mix..it's fine."
     "3e8f539f": ("framed", [
         (0, 0, "coast", "c_tropical_cove", "palms and a wrecked hull on turquoise shallows"),
         (0, 1, "coast", "c_basalt_cliffs", "grey northern shore, sea stacks, cold surf"),
@@ -103,6 +101,12 @@ MANIFEST = {
     # a wreck cove, a working dock, a tropical shallows - redrawn in the house
     # style. The photoreal originals are retired in the same commit; they were
     # the only photographs in a game of paintings.
+    "1f479cbc": ("plain", [
+        (0, 0, "abyssal_sands", "s_abyssal_dunes", "runed black steles across gold dunes, violet sky"),
+        (0, 1, "desert", "s_desert_colonnade", "rune-lit sandstone columns half-buried in sand"),
+        (1, 0, "glittervein", "s_glittervein_pool", "gold-veined canyon pool, green crystal on the rim"),
+        (1, 1, "glittervein", "s_glittervein_grotto", "sunlit cave pool, gold and blue crystal, palms"),
+    ]),
     "15a0003e": ("plain", [
         (0, 0, "hive", "s_hive_amber_vault", "amber honeycomb vault, glowing cells"),
         (0, 1, "hive", "s_hive_deep_chitin", "violet chitin columns over a molten-veined floor"),
