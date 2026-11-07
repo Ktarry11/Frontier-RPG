@@ -2984,13 +2984,10 @@ class Character(StatusEffectMixin):
         else:
             reduction = 0
         
-        # Party row positioning (soft rows): the front line absorbs more
-        # physical damage, the back line is exposed to spells instead. Applied
-        # AFTER armor so it modifies real incoming damage rather than being
-        # swallowed by the mitigation curve.
-        from entities.party import row_damage_multiplier
-        row = getattr(self, "row", None)
-        row_mult = row_damage_multiplier(row, damage_type) if row else 1.0
+        # ROWS NO LONGER CHANGE DAMAGE - they decide reach only, in
+        # combat/rows.py. See ROW_DAMAGE_MODIFIERS in entities/party.py for
+        # why the old front/back multipliers came out.
+        row_mult = 1.0
 
         from combat.abilities import level_diff_multiplier
         level_mult = level_diff_multiplier(attacker_level, self.level)

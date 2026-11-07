@@ -13,7 +13,7 @@ Layout:
            backstory, and the action buttons that operate on them.
 
 Actions available on the selected member:
-  Front/Back   - move between rows (applies ROW_DAMAGE_MODIFIERS in combat)
+  Front/Back   - move between rows (decides who can reach them; see combat/rows.py)
   Bench/Active - swap between the active five and the bench
   Gear         - open the inventory screen bound to THAT character
   Talents      - open the talent screen bound to THAT character, spec-locked

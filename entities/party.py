@@ -35,16 +35,21 @@ MAX_PARTY_SIZE = 5
 #: Share of XP a benched (recruited but not active) member earns.
 BENCH_XP_RATIO = 0.5
 
-#: Incoming damage multipliers by (row, damage_type). Physical/melee damage
-#: is partly absorbed by the front line; ranged and magical attacks reach
-#: over it, so the back row gains nothing against them and the front row is
-#: slightly better shielded from them by comparison.
-ROW_DAMAGE_MODIFIERS = {
-    (FRONT_ROW, "physical"): 1.15,
-    (FRONT_ROW, "magic"): 0.95,
-    (BACK_ROW, "physical"): 0.70,
-    (BACK_ROW, "magic"): 1.05,
-}
+#: A ROW IS A POSITION, NOT A MULTIPLIER. Kyle, 6 Nov: "We can remove the
+#: things from front/back from our guys. The armor and resistances are baked
+#: into the classes."
+#:
+#: This used to hold front 1.15 physical / 0.95 magic and back 0.70 / 1.05,
+#: written when rows were soft and a back-row character could still be
+#: reached by anything. combat/rows.py made rows a hard reach gate - melee
+#: cannot touch the back row at all while the front row stands - so the 0.70
+#: was protecting a character who was already unreachable, on top of the
+#: lighter armour their class already gives them. It paid twice for one
+#: decision.
+#:
+#: Kept as an empty mapping rather than deleted so row_damage_multiplier
+#: keeps its shape for any caller that still asks.
+ROW_DAMAGE_MODIFIERS = {}
 
 #: Which row a class defaults to when recruited or created. Melee and tanks
 #: hold the line; casters and ranged sit behind it. The player can move

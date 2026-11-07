@@ -380,8 +380,8 @@ class Pet(StatusEffectMixin):
         else:
             reduction = 0
 
-        from entities.party import row_damage_multiplier
-        row_mult = row_damage_multiplier(self.row, damage_type)
+        # Rows decide reach, not damage - see entities/party.py.
+        row_mult = 1.0
 
         from combat.abilities import level_diff_multiplier
         level_mult = level_diff_multiplier(attacker_level, self.level)
