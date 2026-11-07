@@ -153,13 +153,17 @@ NPC_POSITIONS = {
     "saltspur_scout":            (9, 27),    # Scout Vel Ashgrave, watching the bluff cut
     "saltspur_quartermaster":    (21, 16),   # Quartermaster Dreg, up at the stores
     "saltspur_innkeeper":        (24, 31),   # Innkeeper Vara Dunn, at the one timber building
-    "saltspur_bosun":            (34, 28),   # Bosun Kaz Tidewright, at the jetty head
+    "saltspur_bosun":            (32, 28),   # Bosun Kaz Tidewright, at the landward end of the jetty  # moved off shallow water 7 Nov
     "saltspur_windrider_master": (33, 22),   # Wind Rider Keeper Ozra, on the rock above the yard
     "saltspur_shipwright":       (28, 43),   # Shipwright Oona Keelsplice, at the hauled-up hull
 }
 CHESTS = [(15, 10), (16, 48), (50, 28)]
 
-FOREST = dict(seed=63, count=14, rim=5, thorn=9, names=[
+# rim=2 and count=8: at rim=5 the edge planting reached into the strand and put
+# pines THROUGH the camp buildings - Kyle, 7 Nov: "don't overlap houses". The
+# strand is 14 tiles wide at its widest, so anything reaching 5 tiles in from the
+# bluff is standing in the town.
+FOREST = dict(seed=63, count=8, rim=2, thorn=9, names=[
     ("ek_thorn_bush", 4, 0.46), ("ek_dead_oak", 6, 0.28), ("ek_pine_trio", 7, 0.26)])
 
 
@@ -179,10 +183,17 @@ def dress(L):
     p("ek_signpost", 15, 28, 4)
     p("ek_forsaken_banner", 30, 24, 6)
 
-    # ---- the camp: tents, not houses - nothing here was built to last
-    b("generic_tent_a", 31, 37, 8, nudge=2)
-    b("generic_tent_b", 24, 39, 7, nudge=2)
-    b("orc_smokehouse", 20, 45, 9, nudge=2)
+    # ---- the camp. NOT generic_tent_a/b, which is what shipped here first and
+    # what Kyle called "that old Horde one": those two are from the older chunky
+    # low-resolution family and - worse - they have a DIRT PATCH PAINTED INTO THE
+    # SPRITE, so each one sat on a brown oval of its own that had nothing to do
+    # with the ground under it. On shingle that reads as a bug. The orc set from
+    # the 30-building sheet is the newer painterly family and has no baked ground.
+    b("orc_healer_house", 31, 37, 9, nudge=2)
+    b("orc_officers_house", 23, 40, 9, nudge=2)
+    # Pulled in off the bluff: at x=19 the strand is barely three tiles wide here
+    # and the bluff planting grew straight through the roof.
+    b("orc_smokehouse", 24, 45, 8, nudge=2)
 
     # ---- the shipwright's beach: the hull she pulled up
     p("ek_farm_cart", 32, 46, 4)

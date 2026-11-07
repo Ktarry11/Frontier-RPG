@@ -255,7 +255,7 @@ NPC_POSITIONS = {
     "arathi_refuge_commander": (64, 96),
     "arathi_refuge_quartermaster": (74, 104),
     "arathi_refuge_innkeeper": (58, 110),
-    "arathi_refuge_flightmaster": (76, 112),
+    "arathi_refuge_flightmaster": (76, 113),  # moved off shallow water 7 Nov
     "arathi_refuge_scout": (54, 98),
     # the wall, and the road in
     "arathi_wall_warden": (12, 118),

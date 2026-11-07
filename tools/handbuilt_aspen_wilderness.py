@@ -510,16 +510,16 @@ NPC_POSITIONS = {
     # the rim: the people whose whole trade is the drop
     "asp_rope_master": (100, 38),
     "asp_rim_runner": (105, 45),
-    "asp_cave_watch": (142, 52),          # near the cave mouth at (145, 48)
+    "asp_cave_watch": (144, 54),          # near the cave mouth at (145, 48)  # moved off shallow water 7 Nov
     # Longstand Camp, in the Gold Stands
-    "asp_camp_elder": (92, 78),
+    "asp_camp_elder": (91, 78),  # moved off shallow water 7 Nov
     "asp_logger": (96, 80),
     "asp_camp_hunter": (85, 79),
     "asp_camp_cook": (90, 82),
     "asp_camp_smith": (94, 84),
     # downslope
     "asp_meadow_scout": (100, 118),
-    "asp_bench_warden": (104, 152),
+    "asp_bench_warden": (104, 157),  # moved off shallow water 7 Nov
 }
 CHESTS = [(36, 46), (176, 44), (24, 120), (168, 96), (104, 158), (90, 82)]
 #: The Pass tile, carved and marked but NOT registered - Southern Needles does not exist yet and an

@@ -381,9 +381,13 @@ def dress(L):
     # The landing itself became its own zone on 7 Nov. What stays on this side is the
     # way in and the working shore around it, so the coast road ends at a door rather
     # than at a thickening of props. Portal tile (50,96) - world/portal_manager.py.
+    # Spaced by FOOTPRINT, not by anchor distance. First pass put the tower six
+    # tiles from the gatehouse, which sounds clear and is not: these are twelve
+    # and thirteen tiles tall, so the gate was drawn 94% through the tower.
+    # tools/qa_building_overlap.py measures the rectangles.
     b("orc_great_gatehouse", 50, 94, 13, solid=False, road_ok=True, nudge=0)
-    b("orc_watch_tower", 44, 92, 12, nudge=2)
-    b("orc_signal_beacon", 54, 90, 11, nudge=2)
+    b("orc_watch_tower", 40, 100, 12, nudge=2)
+    b("orc_signal_beacon", 60, 88, 11, nudge=2)
     p("ek_signpost", 56, 98, 4)
     p(CO + "fish_drying_rack.png", 48, 104, 4)
     p(CO + "fish_crates_traps.png", 40, 106, 4)

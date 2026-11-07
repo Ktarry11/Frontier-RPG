@@ -192,7 +192,7 @@ NPC_POSITIONS = {
     "ud_shard_harvester": (32, 50),
     "ud_lattice_surveyor": (134, 44),
     "ud_geode_campkeeper": (146, 58),
-    "ud_marsh_naturalist": (112, 94),
+    "ud_marsh_naturalist": (114, 92),  # moved off shallow water 7 Nov
     "ud_colonnade_scholar": (76, 118),
     "ud_archive_overseer": (132, 138),
     "ud_archive_digger": (128, 144),

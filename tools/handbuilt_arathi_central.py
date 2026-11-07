@@ -244,7 +244,7 @@ NPC_POSITIONS = {
     # OUTSIDE the stones. (94,80) is 8 tiles from ring two's centre, which is inside the
     # annulus - the flood-fill caught him standing in a standing stone.
     "arathi_ring_scholar": (94, 74),               # camped off the second ring, counting stones
-    "arathi_gorge_prospector": (160, 108),         # watching the kobold dig from above
+    "arathi_gorge_prospector": (162, 107),         # watching the kobold dig from above, out of the stream  # moved off shallow water 7 Nov
     "arathi_refuge_runner": (96, 134),             # on the southern track
 }
 
@@ -276,7 +276,9 @@ def dress(L):
         b("orc_stockade_section", x, 58, 7, solid=True, nudge=0)
     b("orc_watch_tower", 122, 56, 13, nudge=2)
     b("orc_watch_tower", 158, 56, 13, nudge=2)
-    b("orc_signal_beacon", 140, 48, 8, nudge=2)
+    # Same footprint lesson as the Arathi East gate: eight tiles from a
+    # fourteen-tile gatehouse is inside it.
+    b("orc_signal_beacon", 148, 44, 8, nudge=2)
     p("ek_signpost", 136, 72, 4)
     for (x, y) in ((126, 42), (158, 42)):
         p(RU + "ruin_wall_arch.png", x, y, 6)
