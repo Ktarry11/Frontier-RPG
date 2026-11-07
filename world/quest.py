@@ -519,11 +519,35 @@ def build_unique_reward_set(item_defs):
             weapon_damage_max=item_def.get("weapon_damage_max", 0),
             attack_speed=item_def.get("attack_speed", 0.0),
             block_value=item_def.get("block_value", 0),
-            icon_id=item_def.get("icon_id"),
+            # SAME SEEDED PICK AS A FIXED BOSS DROP. A unique quest reward is
+            # authored exactly like one, and it passed icon_id straight
+            # through - which almost no entry sets, so these rendered as a
+            # flat rarity-coloured box with the name written on it. Seeded on
+            # the name so the reward shown in the quest dialog, the one in the
+            # bag and the one on the character sheet are the same picture.
+            icon_id=item_def.get("icon_id") or _reward_icon(item_def),
         )
         label = item_def.get("label", item.name)
         choices.append(QuestRewardGearChoice(label, item))
     return choices
+
+
+def _reward_icon(item_def):
+    """Stable icon for one authored quest reward, seeded on its name.
+
+    None if the slot has no icon family, which keeps the old coloured-box
+    rendering for anything gear_icons.py cannot match rather than inventing a
+    wrong picture.
+    """
+    try:
+        from gear_icons import pick_armor_icon, pick_weapon_icon
+    except ImportError:
+        return None
+    seed = f"questreward:{item_def.get('name', '')}"
+    weapon_type = item_def.get("weapon_type")
+    if weapon_type:
+        return pick_weapon_icon(weapon_type, seed=seed)
+    return pick_armor_icon(item_def.get("slot"), item_def.get("armor_type"), seed=seed)
 
 
 def build_reward_gear_set(loot_generator, item_level, slot="chest", rarity="uncommon", choices_plan=None):

@@ -66,6 +66,9 @@ ARMOR_ICON_PREFIXES = {
 
     ("neck", None): ["gear_inv_jewelry_necklace", "gear_inv_jewelry_amulet"],
 
+    # Five authored off-hand items declare no weapon_type; a held oddment is
+    # closest to a tome, and anything is closer than a coloured box.
+    ("off_hand", None): ["gear_inv_tome_", "gear_inv_idol_"],
     ("trinket", None): ["gear_inv_jewelry_talisman"],
 
     ("ranged", None): ["gear_inv_misc_quiver"],
@@ -95,6 +98,16 @@ WEAPON_ICON_PREFIXES = {
     # No totem-specific icons in this pack either - wand is the closest
     # "small caster implement" silhouette available.
     "totem": ["gear_inv_wand"],
+    # RELICS. These three weapon_types had no entry at all, so 28 hand-authored
+    # boss drops - tomes, librams and idols - came back with icon_id None and
+    # rendered as a flat rarity-coloured box with the name written on it. The
+    # art existed the whole time in assets/icons/coa, which get_icon_surface
+    # does not search; copied into the gear pack under the naming this picker
+    # globs for rather than widening the search path, since one pipeline that
+    # works beats two that disagree.
+    "tome": ["gear_inv_tome_"],
+    "libram": ["gear_inv_libram_"],
+    "idol": ["gear_inv_idol_"],
     "shield": ["gear_inv_shield"],
     "polearm": ["gear_inv_weapon_halberd", "gear_inv_spear"],
 }
@@ -147,10 +160,27 @@ def pick_armor_icon(slot, armor_type, seed=None):
     return random.choice(candidates)
 
 
-def pick_weapon_icon(weapon_type):
-    """Random icon_id for a weapon_type, or None if nothing matches."""
+def pick_weapon_icon(weapon_type, seed=None):
+    """Random icon_id for a weapon_type, or None if nothing matches.
+
+    `seed` does the same job it does in pick_armor_icon above: pass a stable
+    string and that string always yields the same icon. Armour got this
+    treatment when Asher Coleman's breastplate kept re-rolling; weapons never
+    did, so every hand-authored boss weapon re-rolled its icon on each drop
+    and one named sword could sit in the bag three times wearing three
+    different pictures.
+
+    Sorted before seeding, for the same reason: _all_gear_files() is a
+    directory glob and its order is whatever the filesystem hands back, so
+    seeding a pick over it would be deterministic within one process and
+    nothing more.
+    """
     prefixes = WEAPON_ICON_PREFIXES.get(weapon_type)
     if not prefixes:
         return None
     candidates = _icons_for_prefixes(prefixes)
-    return random.choice(candidates) if candidates else None
+    if not candidates:
+        return None
+    if seed is not None:
+        return random.Random(seed).choice(sorted(candidates))
+    return random.choice(candidates)

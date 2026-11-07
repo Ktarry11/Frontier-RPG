@@ -73,10 +73,28 @@ def _item_from_def(item_def):
     slug = weapon_type or armor_type or item_def["slot"]
     item_id = f"fixedboss_{slug}_{uuid.uuid4().hex[:6]}"
 
-    if weapon_type:
-        icon_id = pick_weapon_icon(weapon_type)
+    # SEEDED ON THE ITEM'S NAME, not rolled. Kyle, 7 Nov: "hand crafted boss
+    # items don't always link to the same gear icon. This should be fixed as
+    # they're hand crafted. Right now I can have 1 unique shield with 3
+    # icons."
+    #
+    # He is right and the comment above this function was the tell - it says
+    # these use "the same icon-picking calls" as the procedural generator,
+    # and that was exactly the bug. A procedural drop SHOULD roll its icon:
+    # it is a random item and no two copies are the same object. A fixed boss
+    # drop is one authored object with one name, so rolling meant the item
+    # had no stable identity - kill the boss three times and Stormbreak Aegis
+    # came back as three different shields.
+    #
+    # An explicit icon_id in the JSON wins over both, so a drop that wants a
+    # specific picture can simply say so.
+    icon_seed = f"fixedboss:{item_def['name']}"
+    if item_def.get("icon_id"):
+        icon_id = item_def["icon_id"]
+    elif weapon_type:
+        icon_id = pick_weapon_icon(weapon_type, seed=icon_seed)
     else:
-        icon_id = pick_armor_icon(item_def["slot"], armor_type)
+        icon_id = pick_armor_icon(item_def["slot"], armor_type, seed=icon_seed)
 
     return Item(
         item_id=item_id,
