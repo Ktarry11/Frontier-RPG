@@ -529,3 +529,159 @@ Both are direction for the real layout, not criticisms of the concept:
 Also recorded from the art: the game ships **30 classes and 70
 specializations**, which is the roster any real node list has to be built
 against — see the class-mismatch gap in §16.
+
+---
+
+## 18. Topology — the ring, the layers, the corridors (dump 2, 7 Nov)
+
+### 18.0 Settled: symmetry
+
+> *"One thing I want to settle: should the tree be symmetrical? My vote is
+> **visually symmetrical, mechanically asymmetrical.** The overall circle
+> should look balanced and intentional. But the actual pathways should be
+> organic. Some regions might have dense webs of smaller nodes. Others might
+> have fewer, more expensive paths. Some cross-class corridors should be
+> short, others long. This creates a beautiful map without sacrificing
+> meaningful progression."*
+
+**This is a decision, not an open question.** It also resolves §6's
+allocation: regions deliberately differ in node count and path cost, so
+"every class gets the same number of nodes" is explicitly rejected.
+
+### 18.1 The outer ring — 30 starting positions
+
+Evenly spaced, clockwise from 12 o'clock, ordered so neighbours have a
+plausible mechanical relationship. Eight neighbourhoods, **not eight separate
+trees** — eight regions of one continuous system.
+
+| Neighbourhood | Classes, clockwise |
+|---|---|
+| Martial | Warrior → Barbarian → Guardian → Knight of Xoroth → Templar |
+| Holy | Paladin → Sun Cleric → Priest |
+| Forbidden | Bloodmage → Warlock → Felsworn → Cultist → Necromancer → Reaper |
+| Shadow | Witch Doctor → Venomancer → Rogue → Witch Hunter |
+| Wilds | Ranger → Hunter → Primalist → Druid |
+| Elemental | Shaman → Stormbringer → Pyromancer |
+| Arcane | Mage → Starcaller → Chronomancer → Runemaster |
+| Engineering | Tinker |
+
+The ring closes **Tinker → Warrior** — engineering beside martial, connecting
+weapon modification and battlefield equipment.
+
+Each starting position gets: a unique class emblem; a small starting cluster of
+inexpensive nodes; two or three initial directions; connections to its
+immediate neighbours; and at least one route to a distant region through the
+wider web.
+
+### 18.2 The five structural layers
+
+Routes weave *between* layers rather than marching outward through them.
+
+| Layer | Name | Content | Cost band |
+|---|---|---|---|
+| 1 | Class Starting Ring | 30 starting points, origin and class identity | 1 |
+| 2 | Class Development Regions | class mechanics, spec interactions | 1–5 |
+| 3 | Cross-Class Corridors | hybrid interactions, borrowed philosophies | 3–8 |
+| 4 | Keystone Ring | major build-defining choices | 8–12 |
+| 5 | The Legendary Heart | the rarest transformations | 12–20 |
+
+### 18.3 The six cross-class corridors
+
+> *"This is where I would spend the most design effort. I don't want every
+> class connected to every other class directly. That would turn the tree into
+> a tangled mess and make distance meaningless."*
+
+| Corridor | Theme | Classes |
+|---|---|---|
+| **A — The Warpath** | Martial / Engineering | Warrior · Barbarian · Guardian · Knight of Xoroth · Templar · Tinker |
+| **B — The Divine Covenant** | Holy / Life | Paladin · Sun Cleric · Priest · Bloodmage |
+| **C — The Arcane Nexus** | Arcane / Elemental | Mage · Chronomancer · Starcaller · Runemaster · Shaman · Stormbringer · Pyromancer |
+| **D — The Forbidden Pact** | Dark Magic / Death | Warlock · Felsworn · Cultist · Necromancer · Reaper · Bloodmage |
+| **E — The Predator's Path** | Hunt / Poison / Execution | Rogue · Venomancer · Witch Hunter · Hunter · Ranger · Witch Doctor |
+| **F — The Primal Convergence** | Nature / Elemental / Beasts | Druid · Primalist · Hunter · Shaman · Witch Doctor · Stormbringer |
+
+Shared themes per corridor: **A** weapon mastery, physical damage, armor,
+defensive reactions, equipment mods. **B** healing, shields, health
+manipulation, sacrifice, divine damage. **C** spell power, cooldown
+manipulation, elemental interactions, resource efficiency. **D** sacrifice,
+summons, DoTs, souls, death triggers. **E** crits, debuffs, poison, marks,
+executions, enemy weaknesses. **F** nature, animal companions, elemental
+forces, transformations, HoTs.
+
+**The overlaps are intentional.** Bloodmage sits in both Divine Covenant and
+Forbidden Pact; Shaman in both Arcane Nexus and Primal Convergence; Hunter,
+Witch Doctor and Stormbringer each span two. These overlap points are where
+travel decisions get interesting.
+
+### 18.4 Three kinds of connection
+
+- **A. Neighbour** — every class connects to the class clockwise and
+  counterclockwise. The easiest cross-class routes, still an investment.
+- **B. Corridor** — deeper branches between mechanically similar classes:
+  Warrior→Tinker, Paladin→Priest, Mage→Chronomancer, Warlock→Necromancer,
+  Rogue→Venomancer, Hunter→Ranger, Druid→Primalist.
+- **C. Long-distance** — rare, expensive shortcuts across the tree, rewarding
+  unusual combinations: Warrior→Shaman, Paladin→Bloodmage, Rogue→Chronomancer,
+  Mage→Warlock, Necromancer→Witch Doctor, Tinker→Pyromancer.
+
+### 18.5 The Legendary Heart — six districts
+
+> *"I would not make the centre one giant cluster of random powerful bonuses."*
+
+| District | Mechanical identity |
+|---|---|
+| The Colossus | Physical power, defense, retaliation |
+| The Divine | Healing, protection, sacrifice |
+| The Archmage | Spell manipulation, cooldowns, resource mastery |
+| The Harbinger | Death, summons, curses, damage over time |
+| The Predator | Execution, critical strikes, debilitation |
+| The Ascendant | Nature, elemental power, transformation |
+
+Each is reachable from several outer regions — a Warrior might reach The
+Archmage through Shaman influence, a Mage reach The Colossus through
+Spellblade-style weapon interactions. **The districts are build identities,
+not class locks.**
+
+**Central access rules:**
+- Reach the Keystone Ring by investing in **at least two distinct regions**.
+- Reach a Legendary District by taking **at least one Keystone**.
+- Legendary nodes cost 12–20 points and can have mutually exclusive alternatives.
+- **No character can buy every legendary node.** The centre is where builds
+  diverge, not where everyone eventually collects everything.
+
+### 18.6 Node budget
+
+Classes deliberately do **not** get equal space — some mechanical identities
+need more room (and see §18.0).
+
+| Region type | Approximate nodes |
+|---|---|
+| 30 class starting clusters | 180–240 |
+| Class development branches | 300–450 |
+| Cross-class corridors | 150–220 |
+| Keystone ring | 40–60 |
+| Legendary heart | 18–30 |
+| **Total** | **688–1,000** |
+
+> *"These are topology targets, not a requirement to fill every space. A
+> smaller tree with meaningful choices is better than a giant tree padded with
+> filler."*
+
+### 18.7 What this dump resolves, and what it does not
+
+**Resolved:** symmetry (§18.0); the ring order and its 8 neighbourhoods;
+5 layers with cost bands; 6 named corridors with membership and themes; 3
+connection types with concrete examples; 6 legendary districts; central access
+rules; a node budget of 688–1,000.
+
+**Note against §17:** this budget is *below* the "WAY more nodes" instinct
+and well below PoE's ~1,500. The two are reconcilable — §18.6 is explicitly a
+topology target rather than a cap — but if the tree should feel PoE-dense, the
+class-development band (300–450) is the one to grow, since that is where cheap
+padding nodes make paths long.
+
+**Still open:** the ring lists classes that need checking against the live
+30-class roster (Witch Doctor, Warlock and Witch Hunter appear here; §16 and
+§17 flag the same mismatch). Node *contents* per region are unassigned — §6's
+28 pairs and §8's capstones have not been placed on this map. And nothing
+says how the constellation attaches to the existing level-60 prestige reset.

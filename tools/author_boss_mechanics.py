@@ -230,7 +230,15 @@ def signature_for(template, rotation):
 
 def apply_stun(kit, boss_name=None, rare=False):
     """The boss's biggest distinctive hit also costs you your next turn."""
-    hits = [a for a in kit if a.get("kind") == "damage"
+    # NEVER SLOT 0. kit[0] is the basic attack and the engine's guaranteed
+    # free swing - Monster.choose_action falls back to it when everything
+    # else is on cooldown, and qa_aspen_content asserts "every kit opens
+    # with a 0-cooldown damage ability". A first run put the stun's 4-turn
+    # cooldown floor on slot 0 for four bosses (Gorrek Passkeeper, Hagra
+    # Stormcrown, Rimehowl, Snowmaw) and broke that invariant: a monster
+    # whose only free attack is on cooldown spends turns hesitating, which
+    # is the opposite of the point of this pass.
+    hits = [a for a in kit[1:] if a.get("kind") == "damage"
             and (a.get("amount") or 0) > 0 and not a.get("is_aoe")]
     if not hits:
         return None

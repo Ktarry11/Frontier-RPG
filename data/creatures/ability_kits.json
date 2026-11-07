@@ -831,32 +831,27 @@
         "name": "Slash",
         "kind": "damage",
         "amount": 128,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rushing Charge",
         "kind": "damage",
         "amount": 103,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 40
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Dervish Whirl",
@@ -2114,17 +2109,10 @@
         "name": "Venomous Sting",
         "kind": "damage",
         "amount": 45,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Brood Poison",
@@ -2139,16 +2127,18 @@
         "name": "Egg-Guard Carapace",
         "kind": "damage",
         "amount": 35,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 12
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -2825,17 +2815,10 @@
         "name": "Crushing Gulp",
         "kind": "damage",
         "amount": 58,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Bog Belch",
@@ -2850,16 +2833,18 @@
         "name": "Swollen Hide",
         "kind": "damage",
         "amount": 45,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 12
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -3043,32 +3028,27 @@
         "name": "Scorching Bite",
         "kind": "damage",
         "amount": 77,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Molten Hide",
         "kind": "damage",
         "amount": 61,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Ashen Breath",
@@ -3210,17 +3190,10 @@
         "name": "Fel Bolt",
         "kind": "damage",
         "amount": 144,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 34,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rain of Fire",
@@ -3236,16 +3209,18 @@
         "name": "Demonic Ward",
         "kind": "damage",
         "amount": 114,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 30,
         "school": "shadow",
         "rider": {
-          "effect": "buff",
-          "duration": 5,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": 24
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Shadow Rend",
@@ -3962,17 +3937,10 @@
         "name": "Bog Bite",
         "kind": "damage",
         "amount": 103,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Death Roll",
@@ -3987,9 +3955,16 @@
         "name": "Crushing Blow",
         "kind": "damage",
         "amount": 134,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Sweeping Cleave",
@@ -4058,32 +4033,27 @@
         "name": "Deathguard Strike",
         "kind": "damage",
         "amount": 113,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rally the Deathguard",
         "kind": "damage",
         "amount": 92,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Plague Slash",
@@ -4708,17 +4678,10 @@
         "name": "Trample",
         "kind": "damage",
         "amount": 169,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Aqua Shell",
@@ -4728,12 +4691,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 5,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -4772,17 +4737,10 @@
         "name": "Naga Fury",
         "kind": "damage",
         "amount": 154,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Forked Lightning",
@@ -4797,16 +4755,18 @@
         "name": "Tidal Ward",
         "kind": "damage",
         "amount": 123,
-        "cooldown": 3,
+        "cooldown": 4,
         "mana_cost": 24,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": 20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -4855,32 +4815,27 @@
         "name": "Tidal Bolt",
         "kind": "damage",
         "amount": 115,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 18,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Fishing Net",
         "kind": "damage",
         "amount": 77,
-        "cooldown": 3,
+        "cooldown": 4,
         "mana_cost": 12,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -5851,17 +5806,10 @@
         "name": "Bone Crunch",
         "kind": "damage",
         "amount": 109,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Corpsegrind",
@@ -5878,7 +5826,14 @@
         "amount": 141,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Sweeping Cleave",
@@ -5969,17 +5924,10 @@
         "name": "Piercing Talon",
         "kind": "damage",
         "amount": 97,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Cyclone Slash",
@@ -5999,11 +5947,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -6052,17 +6002,10 @@
         "name": "Thunder Slam",
         "kind": "damage",
         "amount": 105,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Lightning Nova",
@@ -6077,16 +6020,18 @@
         "name": "Thick Hide",
         "kind": "damage",
         "amount": 85,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -6363,17 +6308,10 @@
         "name": "Seismic Bite",
         "kind": "damage",
         "amount": 112,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Ground Tremor",
@@ -6388,16 +6326,18 @@
         "name": "Hardened Plates",
         "kind": "damage",
         "amount": 89,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 30
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -6427,32 +6367,27 @@
         "name": "Crippled Charge",
         "kind": "damage",
         "amount": 105,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rage of the Lamed",
         "kind": "damage",
         "amount": 85,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Trample",
@@ -6536,32 +6471,27 @@
         "name": "Gore",
         "kind": "damage",
         "amount": 90,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Sow's Fury",
         "kind": "damage",
         "amount": 70,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Rotting Bile",
@@ -6654,32 +6584,27 @@
         "name": "Hooked Blade",
         "kind": "damage",
         "amount": 84,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rending Net",
         "kind": "damage",
         "amount": 55,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Tidal Mend",
@@ -6750,32 +6675,27 @@
         "name": "Fel Whip",
         "kind": "damage",
         "amount": 100,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 22,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rally the Hounds",
         "kind": "damage",
         "amount": 80,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Shadow Brand",
@@ -7083,17 +7003,10 @@
         "name": "Stormclaw Rend",
         "kind": "damage",
         "amount": 120,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Brood Roar",
@@ -7103,12 +7016,14 @@
         "mana_cost": 0,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Chain Lightning",
@@ -8282,17 +8197,10 @@
         "name": "Tide Bolt",
         "kind": "damage",
         "amount": 100,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 26,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Drowning Whisper",
@@ -8307,16 +8215,18 @@
         "name": "Sea Veil",
         "kind": "damage",
         "amount": 80,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 20,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": 22
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -8355,32 +8265,27 @@
         "name": "Shellcrusher Slam",
         "kind": "damage",
         "amount": 98,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Barnacle Plate",
         "kind": "damage",
         "amount": 79,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 34
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Rending Pincer",
@@ -8953,17 +8858,10 @@
         "name": "Shadow Bolt",
         "kind": "damage",
         "amount": 132,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 28,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Siphon Soul",
@@ -8978,16 +8876,18 @@
         "name": "Curse of Tongues",
         "kind": "damage",
         "amount": 87,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 26,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 4,
+          "duration": 1,
           "stat_mods": {
             "intellect": -20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Dark Mending",
@@ -9337,32 +9237,27 @@
         "name": "Chitin Lash",
         "kind": "damage",
         "amount": 105,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Swarm Call",
         "kind": "damage",
         "amount": 85,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "agility": 22
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Hive Sting",
@@ -9540,32 +9435,27 @@
         "name": "Warbringer's Cleave",
         "kind": "damage",
         "amount": 132,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Battle Roar",
         "kind": "damage",
         "amount": 104,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Hamstring",
@@ -9829,17 +9719,10 @@
         "name": "Void Lance",
         "kind": "damage",
         "amount": 124,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 28,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Rift Corruption",
@@ -9854,16 +9737,18 @@
         "name": "Hollow Ward",
         "kind": "damage",
         "amount": 100,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 24,
         "school": "shadow",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Shadow Rend",
@@ -9902,32 +9787,27 @@
         "name": "Spectral Blade",
         "kind": "damage",
         "amount": 105,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Echo of Valour",
         "kind": "damage",
         "amount": 85,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Mournful Cry",
@@ -9972,17 +9852,10 @@
         "name": "Pitchfork Jab",
         "kind": "damage",
         "amount": 97,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Sticky Fingers",
@@ -10003,16 +9876,18 @@
         "name": "Scrap Plate",
         "kind": "damage",
         "amount": 77,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 28
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -10409,32 +10284,27 @@
         "name": "Taurenbane Cleave",
         "kind": "damage",
         "amount": 184,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Trophy Hunter",
         "kind": "damage",
         "amount": 147,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 34
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Hamstring Chop",
@@ -10912,32 +10782,27 @@
         "name": "Colossal Backhand",
         "kind": "damage",
         "amount": 167,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Titan's Dread",
         "kind": "damage",
         "amount": 109,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 26,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "strength": -24
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Rattling Dirge",
@@ -11048,17 +10913,10 @@
         "name": "Thorn Bolt",
         "kind": "damage",
         "amount": 162,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 30,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Strangling Briar",
@@ -11073,16 +10931,18 @@
         "name": "Bark of the Queen",
         "kind": "damage",
         "amount": 129,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 28,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 44
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -11272,32 +11132,27 @@
         "name": "Ironvein's Maul",
         "kind": "damage",
         "amount": 186,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Stand Fast",
         "kind": "damage",
         "amount": 149,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 56
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Sundering Blow",
@@ -12004,17 +11859,10 @@
         "name": "Queen's Rend",
         "kind": "damage",
         "amount": 233,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Hivemind Screech",
@@ -12039,12 +11887,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 42
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Corrosive Ichor",
@@ -12083,17 +11933,10 @@
         "name": "Amberwing Lash",
         "kind": "damage",
         "amount": 151,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Egg-Mother's Rage",
@@ -12103,12 +11946,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 30
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Sticky Web",
@@ -12232,17 +12077,10 @@
         "name": "Chitter Bolt",
         "kind": "damage",
         "amount": 193,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 30,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Skrix's Swarm",
@@ -12261,12 +12099,14 @@
         "mana_cost": 26,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": 40
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -12632,17 +12472,10 @@
         "name": "Blind Shot",
         "kind": "damage",
         "amount": 214,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Hunter's Mark",
@@ -12653,11 +12486,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 4,
+          "duration": 1,
           "stat_mods": {
             "armor": -42
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Serrated Arrow",
@@ -12992,17 +12827,10 @@
         "name": "Shadow Bolt",
         "kind": "damage",
         "amount": 272,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 30,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Dominate Mind",
@@ -13013,11 +12841,13 @@
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 4,
+          "duration": 1,
           "stat_mods": {
             "attack_power": -46
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Death's Head Hex",
@@ -13280,17 +13110,10 @@
         "name": "Lightning Bolt",
         "kind": "damage",
         "amount": 157,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 24,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Healing Touch",
@@ -13309,11 +13132,13 @@
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -30
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -13478,17 +13303,10 @@
         "name": "Lightning Bolt",
         "kind": "damage",
         "amount": 175,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 26,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Thunderclap",
@@ -13499,11 +13317,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "attack_power": -40
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Slumber",
@@ -13616,17 +13436,10 @@
         "name": "Crushing Coil",
         "kind": "damage",
         "amount": 135,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Venom Fangs",
@@ -13646,11 +13459,13 @@
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "attack_power": -30
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -14735,32 +14550,27 @@
         "name": "Plunder Dive",
         "kind": "damage",
         "amount": 134,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Shrieking Gale",
         "kind": "damage",
         "amount": 88,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Talon Rake",
@@ -15231,32 +15041,27 @@
         "name": "Cutlass Flurry",
         "kind": "damage",
         "amount": 132,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Grog Splash",
         "kind": "damage",
         "amount": 87,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Broadside",
@@ -15599,17 +15404,10 @@
         "name": "Foreman's Hammer",
         "kind": "damage",
         "amount": 139,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Overcharged Blast",
@@ -15629,12 +15427,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 48
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -15673,32 +15473,27 @@
         "name": "Wrench Bash",
         "kind": "damage",
         "amount": 120,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Oil Slick",
         "kind": "damage",
         "amount": 77,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -22
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Pressure Valve",
@@ -16111,17 +15906,10 @@
         "name": "Trident Thrust",
         "kind": "damage",
         "amount": 80,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Tail Sweep",
@@ -16150,11 +15938,13 @@
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -14
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -16636,17 +16426,10 @@
         "name": "Waterlogged Cutlass",
         "kind": "damage",
         "amount": 87,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Captain's Curse",
@@ -16667,16 +16450,18 @@
         "name": "Call the Crew",
         "kind": "damage",
         "amount": 71,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -16747,17 +16532,10 @@
         "name": "Venomous Fang",
         "kind": "damage",
         "amount": 104,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Brood Poison",
@@ -16777,11 +16555,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -17111,17 +16891,10 @@
         "name": "Butcher's Cleave",
         "kind": "damage",
         "amount": 147,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Gushing Wound",
@@ -17155,12 +16928,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -18111,17 +17886,10 @@
         "name": "Void Lance",
         "kind": "damage",
         "amount": 190,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 30,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Enveloping Dark",
@@ -18155,12 +17923,14 @@
         "mana_cost": 40,
         "school": "shadow",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 60
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Shadow Rend",
@@ -19044,17 +18814,10 @@
         "name": "Rusted Scythe",
         "kind": "damage",
         "amount": 64,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Harvest Wound",
@@ -19069,16 +18832,18 @@
         "name": "Hard Cold Earth",
         "kind": "damage",
         "amount": 51,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -19117,17 +18882,10 @@
         "name": "Halberd Cleave",
         "kind": "damage",
         "amount": 67,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Sunder Armor",
@@ -19148,16 +18906,18 @@
         "name": "Rally Cry",
         "kind": "damage",
         "amount": 54,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 14
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -19261,17 +19021,10 @@
         "name": "Pale Fang",
         "kind": "damage",
         "amount": 64,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Weaver's Venom",
@@ -19291,11 +19044,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -19722,17 +19477,10 @@
         "name": "Needle Bite",
         "kind": "damage",
         "amount": 58,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Needle Venom",
@@ -19747,16 +19495,18 @@
         "name": "Shrill Screech",
         "kind": "damage",
         "amount": 38,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "attack_power": -10
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -19905,17 +19655,10 @@
         "name": "Pitchfork Thrust",
         "kind": "damage",
         "amount": 80,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Sour Harvest",
@@ -19930,16 +19673,18 @@
         "name": "Scarecrow's Vigil",
         "kind": "damage",
         "amount": 64,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20046,17 +19791,10 @@
         "name": "Family Blade",
         "kind": "damage",
         "amount": 93,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Dargol's Curse",
@@ -20077,16 +19815,18 @@
         "name": "Ancestral Fury",
         "kind": "damage",
         "amount": 74,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20116,17 +19856,10 @@
         "name": "Maggot Club",
         "kind": "damage",
         "amount": 83,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Festering Wound",
@@ -20141,16 +19874,18 @@
         "name": "Gnoll War Cry",
         "kind": "damage",
         "amount": 67,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20189,17 +19924,10 @@
         "name": "Harvest Cleave",
         "kind": "damage",
         "amount": 86,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Soul Reap",
@@ -20214,16 +19942,18 @@
         "name": "Death's Hour",
         "kind": "damage",
         "amount": 70,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20413,17 +20143,10 @@
         "name": "Crusader Strike",
         "kind": "damage",
         "amount": 86,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Shield Bash",
@@ -20444,16 +20167,18 @@
         "name": "Righteous Fury",
         "kind": "damage",
         "amount": 70,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 12,
         "school": "holy",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 14
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20483,17 +20208,10 @@
         "name": "Venomous Fang",
         "kind": "damage",
         "amount": 97,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Venom Cloud",
@@ -20508,16 +20226,18 @@
         "name": "Web Cocoon",
         "kind": "damage",
         "amount": 65,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -20824,17 +20544,10 @@
         "name": "Plague Bolt",
         "kind": "damage",
         "amount": 98,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 14,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Festering Wound",
@@ -20854,11 +20567,13 @@
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -16
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -21790,17 +21505,10 @@
         "name": "Straw-King's Blow",
         "kind": "damage",
         "amount": 119,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Crow Swarm",
@@ -21815,16 +21523,18 @@
         "name": "Hollow Crown",
         "kind": "damage",
         "amount": 78,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -21892,17 +21602,10 @@
         "name": "Root Slam",
         "kind": "damage",
         "amount": 127,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Thorn Barrage",
@@ -21917,16 +21620,18 @@
         "name": "Bark Hide",
         "kind": "damage",
         "amount": 103,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 40
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -22084,17 +21789,10 @@
         "name": "Gore",
         "kind": "damage",
         "amount": 139,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Trampling Charge",
@@ -22109,16 +21807,18 @@
         "name": "Mother's Rage",
         "kind": "damage",
         "amount": 111,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 24
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -22338,17 +22038,10 @@
         "name": "Phantom Blow",
         "kind": "damage",
         "amount": 157,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Soul Rend",
@@ -22363,16 +22056,18 @@
         "name": "Wailing Grief",
         "kind": "damage",
         "amount": 103,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Shadow Rend",
@@ -22980,17 +22675,10 @@
         "name": "Arcane Missiles",
         "kind": "damage",
         "amount": 140,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 14,
         "school": "arcane",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Frost Nova",
@@ -23024,12 +22712,14 @@
         "mana_cost": 0,
         "school": "arcane",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 45
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Arcane Overload",
@@ -23673,17 +23363,10 @@
         "name": "Crushing Maul",
         "kind": "damage",
         "amount": 138,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Festering Bite",
@@ -23698,16 +23381,18 @@
         "name": "Curse Roar",
         "kind": "damage",
         "amount": 91,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "attack_power": -20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Blighted Stomp",
@@ -23814,17 +23499,10 @@
         "name": "Spectral Cutlass",
         "kind": "damage",
         "amount": 147,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "shadow",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Drowning Curse",
@@ -23839,16 +23517,18 @@
         "name": "Ghostly Wail",
         "kind": "damage",
         "amount": 96,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 12,
         "school": "shadow",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -20
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Capsize",
@@ -23887,17 +23567,10 @@
         "name": "Alpha Bite",
         "kind": "damage",
         "amount": 147,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Savage Rend",
@@ -23927,9 +23600,16 @@
         "name": "Bone-Crunch Leap",
         "kind": "damage",
         "amount": 125,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -24182,17 +23862,10 @@
         "name": "Cursed Maw",
         "kind": "damage",
         "amount": 180,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Lycan Rend",
@@ -24226,12 +23899,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 32
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -24327,17 +24002,10 @@
         "name": "Marshal's Sabre",
         "kind": "damage",
         "amount": 180,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Break Their Line",
@@ -24358,17 +24026,19 @@
         "name": "Hold the Fields",
         "kind": "damage",
         "amount": 143,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 34,
             "attack_power": 18
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Rallying Cry",
@@ -24453,17 +24123,10 @@
         "name": "Avalanche Swipe",
         "kind": "damage",
         "amount": 196,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Hoarfrost Breath",
@@ -24493,16 +24156,18 @@
         "name": "Thicken Hide",
         "kind": "damage",
         "amount": 158,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 44
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -24582,17 +24247,10 @@
         "name": "Harpoon Thrust",
         "kind": "damage",
         "amount": 190,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Drag Under",
@@ -24607,16 +24265,18 @@
         "name": "Bloodscent Frenzy",
         "kind": "damage",
         "amount": 152,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 32
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Tideline Snare",
@@ -25076,17 +24736,10 @@
         "name": "Overseer's Mattock",
         "kind": "damage",
         "amount": 223,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Silver-Shot Veins",
@@ -25121,13 +24774,15 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 50,
             "attack_power": 26
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -25604,33 +25259,28 @@
         "name": "Warden's Greatsword",
         "kind": "damage",
         "amount": 248,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Durnholde Discipline",
         "kind": "damage",
         "amount": 198,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 54,
             "attack_power": 30
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Stillwater's Sundering",
@@ -26160,17 +25810,10 @@
         "name": "Keeper's Maul",
         "kind": "damage",
         "amount": 225,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Light of the Vault",
@@ -26184,17 +25827,19 @@
         "name": "Sanctified Stone",
         "kind": "damage",
         "amount": 178,
-        "cooldown": 3,
+        "cooldown": 4,
         "mana_cost": 24,
         "school": "holy",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 52,
             "magic_resistance": 38
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Judgement of the Hold",
@@ -26693,17 +26338,10 @@
         "name": "Perenolde's Blade",
         "kind": "damage",
         "amount": 296,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Alterac Treachery",
@@ -26725,17 +26363,19 @@
         "name": "Call the Syndicate",
         "kind": "damage",
         "amount": 236,
-        "cooldown": 3,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 42,
             "armor": 34
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Bleed the Lowlands",
@@ -27245,10 +26885,18 @@
         "name": "Lattice Fist",
         "kind": "damage",
         "amount": 306,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Lattice Fist",
+        "kind": "damage",
+        "amount": 306,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "arcane",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -27256,14 +26904,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Lattice Fist",
-        "kind": "damage",
-        "amount": 306,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "arcane"
       },
       {
         "name": "Repeating Growth",
@@ -27868,10 +27508,18 @@
         "name": "Thousandth Facet",
         "kind": "damage",
         "amount": 301,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Thousandth Facet",
+        "kind": "damage",
+        "amount": 301,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "arcane",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -27879,14 +27527,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Thousandth Facet",
-        "kind": "damage",
-        "amount": 301,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "arcane"
       },
       {
         "name": "Count Again",
@@ -29036,17 +28676,10 @@
         "name": "Reaching Through",
         "kind": "damage",
         "amount": 360,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "What It Has Learned",
@@ -29082,14 +28715,16 @@
         "mana_cost": 0,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 6,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 70,
             "armor": 90,
             "spell_power": 64
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Wild Surge",
@@ -29618,17 +29253,10 @@
         "name": "Gilded Antler",
         "kind": "damage",
         "amount": 259,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Scatter the Stand",
@@ -29643,16 +29271,18 @@
         "name": "Light Through the Leaves",
         "kind": "damage",
         "amount": 208,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "agility": 34
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -29682,17 +29312,10 @@
         "name": "Wintered Cleaver",
         "kind": "damage",
         "amount": 288,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Break the Dam",
@@ -29707,16 +29330,18 @@
         "name": "Thorns Against the Cold",
         "kind": "damage",
         "amount": 232,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 60
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -29897,17 +29522,10 @@
         "name": "Frozen Maul",
         "kind": "damage",
         "amount": 303,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Howl of the Last Cold",
@@ -29941,12 +29559,14 @@
         "mana_cost": 0,
         "school": "frost",
         "rider": {
-          "effect": "buff",
-          "duration": 5,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 68
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Killing Chill",
@@ -29968,17 +29588,10 @@
         "name": "Denmother's Claw",
         "kind": "damage",
         "amount": 280,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Stand Over the Den",
@@ -29988,12 +29601,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 58
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Warning Bellow",
@@ -30442,17 +30057,10 @@
         "name": "Crusted Horn",
         "kind": "damage",
         "amount": 278,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Shed the Salt",
@@ -30471,12 +30079,14 @@
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 66
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -30926,10 +30536,18 @@
         "name": "Never Lands",
         "kind": "damage",
         "amount": 287,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Out of the Sun",
+        "kind": "damage",
+        "amount": 234,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -30937,14 +30555,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Out of the Sun",
-        "kind": "damage",
-        "amount": 234,
-        "cooldown": 4,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "Only Waiting",
@@ -31057,17 +30667,10 @@
         "name": "Toll-Taker",
         "kind": "damage",
         "amount": 294,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Decides What It Costs",
@@ -31088,16 +30691,18 @@
         "name": "Barded and Good",
         "kind": "damage",
         "amount": 235,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 5,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 68
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -31127,17 +30732,10 @@
         "name": "Fusing Gaze",
         "kind": "damage",
         "amount": 299,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "The Pan Behind It",
@@ -31152,16 +30750,18 @@
         "name": "Sheet of Your Own Face",
         "kind": "damage",
         "amount": 196,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 4,
+          "duration": 1,
           "stat_mods": {
             "agility": -36
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Thorned Lash",
@@ -34370,17 +33970,10 @@
         "name": "Scourbite's Pincer",
         "kind": "damage",
         "amount": 361,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Venom Sac",
@@ -34395,16 +33988,18 @@
         "name": "Backed Into the Rim",
         "kind": "damage",
         "amount": 287,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 48
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -34443,17 +34038,10 @@
         "name": "Gearjaw's Spanner",
         "kind": "damage",
         "amount": 381,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Sapper's Answer",
@@ -34468,16 +34056,18 @@
         "name": "Seize the Axle",
         "kind": "damage",
         "amount": 246,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -34
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -34584,17 +34174,10 @@
         "name": "Hollowcrust's Reach",
         "kind": "damage",
         "amount": 403,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Bring the Mound Down",
@@ -34609,16 +34192,18 @@
         "name": "Carapace of Salt",
         "kind": "damage",
         "amount": 322,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 66
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -35196,17 +34781,10 @@
         "name": "Nesting Bite",
         "kind": "damage",
         "amount": 384,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Bring the Roof",
@@ -35221,16 +34799,18 @@
         "name": "Hoarded Scrap",
         "kind": "damage",
         "amount": 307,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 64
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -35260,32 +34840,27 @@
         "name": "Milepost Charge",
         "kind": "damage",
         "amount": 387,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Road Dust",
         "kind": "damage",
         "amount": 251,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "hit_rating": -36
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Trample",
@@ -35324,17 +34899,10 @@
         "name": "Marrow Crack",
         "kind": "damage",
         "amount": 402,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Worry the Bone",
@@ -35349,16 +34917,18 @@
         "name": "Pack of One",
         "kind": "damage",
         "amount": 320,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 3,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "attack_power": 66
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -35397,17 +34967,10 @@
         "name": "Saltjaw's Bite",
         "kind": "damage",
         "amount": 386,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Shake the Shore",
@@ -35422,16 +34985,18 @@
         "name": "Brine-Crusted Hide",
         "kind": "damage",
         "amount": 309,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 78
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -35530,10 +35095,18 @@
         "name": "Vaile's Cutlass",
         "kind": "damage",
         "amount": 402,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Cut the Chain",
+        "kind": "damage",
+        "amount": 344,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -35541,14 +35114,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Cut the Chain",
-        "kind": "damage",
-        "amount": 344,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "All Hands to the Rail",
@@ -35900,17 +35465,10 @@
         "name": "The First Down",
         "kind": "damage",
         "amount": 394,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Still Harnessed",
@@ -35931,16 +35489,18 @@
         "name": "Four Years Standing",
         "kind": "damage",
         "amount": 316,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 88
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -35970,17 +35530,10 @@
         "name": "Axleback's Weight",
         "kind": "damage",
         "amount": 406,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Shake the Rim",
@@ -36004,9 +35557,16 @@
         "name": "Crushing Blow",
         "kind": "damage",
         "amount": 527,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Sweeping Cleave",
@@ -36037,17 +35597,10 @@
         "name": "Brood Reach",
         "kind": "damage",
         "amount": 387,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Up Through Everything",
@@ -36062,17 +35615,19 @@
         "name": "Hollowed Out",
         "kind": "damage",
         "amount": 252,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "defense_rating": -54,
             "armor": -70
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -36235,17 +35790,10 @@
         "name": "Longcollapse Sweep",
         "kind": "damage",
         "amount": 380,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Take the Ground",
@@ -36260,16 +35808,18 @@
         "name": "Nothing Left Standing",
         "kind": "damage",
         "amount": 246,
-        "cooldown": 5,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -82
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -36645,17 +36195,10 @@
         "name": "Riser's Weight",
         "kind": "damage",
         "amount": 376,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Up the Step",
@@ -36670,16 +36213,18 @@
         "name": "Older Than the Hole",
         "kind": "damage",
         "amount": 301,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 96
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -37230,17 +36775,10 @@
         "name": "Glassmaw's Bite",
         "kind": "damage",
         "amount": 307,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Swallow the Light",
@@ -37248,7 +36786,14 @@
         "amount": 269,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane"
+        "school": "arcane",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Cut on Every Edge",
@@ -37888,17 +37433,10 @@
         "name": "The Share-Out",
         "kind": "damage",
         "amount": 441,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Everything Is Logged",
@@ -37909,11 +37447,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -118
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Court's Decision",
@@ -39042,10 +38582,18 @@
         "name": "Jawbreaker",
         "kind": "damage",
         "amount": 320,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hurl Milestone",
+        "kind": "damage",
+        "amount": 268,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -39053,14 +38601,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Hurl Milestone",
-        "kind": "damage",
-        "amount": 268,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "Stone Skin",
@@ -39635,17 +39175,10 @@
         "name": "Bone Flail",
         "kind": "damage",
         "amount": 314,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Marrow Feast",
@@ -39664,11 +39197,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "armor": -62
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -39693,33 +39228,28 @@
         "name": "Binding Strike",
         "kind": "damage",
         "amount": 315,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "nature",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Close the Circle",
         "kind": "damage",
         "amount": 204,
-        "cooldown": 4,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 4,
+          "duration": 1,
           "stat_mods": {
             "agility": -52,
             "intellect": -40
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "What the Stones Hold",
@@ -39767,17 +39297,10 @@
         "name": "Silt Lash",
         "kind": "damage",
         "amount": 296,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Drag Under",
@@ -39792,16 +39315,18 @@
         "name": "Shell Up",
         "kind": "damage",
         "amount": 237,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
-          "effect": "buff",
-          "duration": 4,
+          "effect": "debuff",
+          "duration": 1,
           "stat_mods": {
             "armor": 84
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -40213,17 +39738,10 @@
         "name": "Tally Hook",
         "kind": "damage",
         "amount": 301,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Mark the Debt",
@@ -40243,11 +39761,13 @@
         "school": "magic",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "magic_resistance": -62
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Crushing Blow",
@@ -40644,32 +40164,27 @@
         "name": "Stooping Talons",
         "kind": "damage",
         "amount": 325,
-        "cooldown": 6,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Scatter the Flock",
         "kind": "damage",
         "amount": 213,
-        "cooldown": 3,
+        "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 1,
           "stat_mods": {
             "agility": -48
-          }
-        }
+          },
+          "is_stun": true
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Carrion Feast",
@@ -42707,10 +42222,18 @@
         "name": "Bosun's Starter",
         "kind": "damage",
         "amount": 383,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Crack of the Rope",
+        "kind": "damage",
+        "amount": 342,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -42718,14 +42241,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Crack of the Rope",
-        "kind": "damage",
-        "amount": 342,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "Lay About You",
@@ -43471,10 +42986,18 @@
         "name": "Stormcrown's Talons",
         "kind": "damage",
         "amount": 386,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Drop From the Crag",
+        "kind": "damage",
+        "amount": 331,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -43482,14 +43005,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Drop From the Crag",
-        "kind": "damage",
-        "amount": 331,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "Everything On The Wind",
@@ -43519,10 +43034,18 @@
         "name": "Passkeeper's Cleaver",
         "kind": "damage",
         "amount": 428,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Nobody Crosses",
+        "kind": "damage",
+        "amount": 367,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -43530,14 +43053,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Nobody Crosses",
-        "kind": "damage",
-        "amount": 367,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "physical"
       },
       {
         "name": "Sweep the Ledge",
@@ -43576,17 +43091,10 @@
         "name": "Windsnapped Talons",
         "kind": "damage",
         "amount": 483,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        },
-        "authored_mechanic": "stun"
+        "boss_rework": 1
       },
       {
         "name": "Nothing Left To Lose",
@@ -43594,7 +43102,14 @@
         "amount": 407,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        },
+        "authored_mechanic": "stun"
       },
       {
         "name": "Frostbitten Wounds",
@@ -43731,10 +43246,18 @@
         "name": "The Queen's Reach",
         "kind": "damage",
         "amount": 431,
-        "cooldown": 4,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1,
+        "boss_rework": 1
+      },
+      {
+        "name": "Birthing Shriek",
+        "kind": "damage",
+        "amount": 366,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
         "rider": {
           "effect": "debuff",
           "duration": 1,
@@ -43742,14 +43265,6 @@
           "stat_mods": {}
         },
         "authored_mechanic": "stun"
-      },
-      {
-        "name": "Birthing Shriek",
-        "kind": "damage",
-        "amount": 366,
-        "cooldown": 3,
-        "mana_cost": 0,
-        "school": "nature"
       },
       {
         "name": "The Whole Brood Answers",
