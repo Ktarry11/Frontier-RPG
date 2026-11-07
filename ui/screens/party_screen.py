@@ -504,6 +504,13 @@ class PartyScreen(BaseScreen):
                ("Arcane", "arcane_spell_power"), ("Shadow", "shadow_spell_power"),
                ("Nature", "nature_spell_power"), ("Holy", "holy_spell_power"))
 
+    #: The six schools take_damage actually resists against, in the order
+    #: get_resistance knows them. Display names only - the lookup goes
+    #: through Character.get_resistance so a future school lands here by
+    #: adding one row rather than by finding every attribute read.
+    RESIST_SCHOOLS = (("Fire", "fire"), ("Frost", "frost"), ("Arcane", "arcane"),
+                      ("Shadow", "shadow"), ("Nature", "nature"), ("Holy", "holy"))
+
     def _render_tabs(self, screen, panel):
         self.tab_rects = []
         x = panel.x + 10
@@ -693,7 +700,14 @@ class PartyScreen(BaseScreen):
             ("Stamina", self._num(self._eff(member, "stamina"))),
             ("Intellect", self._num(self._eff(member, "intellect"))),
             ("Spirit", self._num(self._eff(member, "spirit"))),
-            ("Armor", self._num(getattr(member, "armor", 0))),
+            # Armor is the one attribute whose raw number tells you nothing:
+            # 723 is excellent at 26 and thin at 60, because the mitigation
+            # curve's denominator scales with the attacker's level. Kyle,
+            # 7 Nov: "Looks like we need armor % and also resistances."
+            # Shown against a same-level attacker, which is what the %
+            # actually means and why it moves when you level without the
+            # armour number changing.
+            ("Armor", self._armor_line(member)),
         ], x, y)
 
         y = block("OFFENCE", [
@@ -715,6 +729,16 @@ class PartyScreen(BaseScreen):
             ("Spell pen.", self._num(getattr(member, "spell_penetration", 0))),
         ], col2, start)
 
+        # RESISTANCES. Always shown, including the zeroes - a resistance of 0
+        # is the answer to "why did that Fire elemental hurt so much", and a
+        # block that appears only when you already have some can never give
+        # it. Rating and the mitigation it buys side by side, same reasoning
+        # as Armor above: the rating alone does not tell you what it does,
+        # and the curve moves with level.
+        y2 = block("RESISTANCES",
+                   [(name, self._resist_line(member, school))
+                    for name, school in self.RESIST_SCHOOLS], col2, y2)
+
         schools = [(n, getattr(member, a, 0) or 0) for n, a in self.SCHOOLS]
         live = [(n, v) for n, v in schools if v]
         if live:
@@ -723,6 +747,24 @@ class PartyScreen(BaseScreen):
         else:
             self.renderer.draw_text(screen, "No school-specific spell power.",
                                     (col2, y2), font_size=13, color=COLOR_MUTED)
+
+    def _armor_line(self, member):
+        """'723  (31.4%)' - the rating and what it currently mitigates."""
+        armor = getattr(member, "armor", 0)
+        try:
+            pct = member.get_physical_reduction_percent()
+        except Exception:
+            return self._num(armor)
+        return f"{self._num(armor)}  ({pct:.1f}%)"
+
+    def _resist_line(self, member, school):
+        """Same shape as _armor_line, per school. '0  (0.0%)' is useful."""
+        try:
+            rating = member.get_resistance(school)
+            pct = member.get_resistance_percent(school)
+        except Exception:
+            return "-"
+        return f"{self._num(rating)}  ({pct:.1f}%)"
 
     def _render_party_buffs(self, screen, party, panel, top):
         """Every member's buffs on one page, so a missing one is visible.

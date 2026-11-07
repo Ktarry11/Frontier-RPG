@@ -1320,9 +1320,17 @@ class Character(StatusEffectMixin):
         self.healing_power = int((int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0)))
                                   * (1.0 + bonuses.get("healing_power_pct", 0) / 100.0))
         
-        # Crits
-        self.crit_chance_physical = eff_agility * 0.5 + bonuses.get("crit_chance_physical", 0)
-        self.crit_chance_spell = eff_intellect * 0.5 + bonuses.get("crit_chance_spell", 0)
+        # Crits. The stat term is level-scaled (see AGI_PER_CRIT); gear and
+        # talent crit is NOT, because a flat "+1% crit" suffix means what it
+        # says and is already budgeted against item level. No cap - Kyle's
+        # standing rule - so the only thing holding the number down is how
+        # much a point of Agility is worth, which is the thing that was wrong.
+        self.crit_chance_physical = (self.BASE_CRIT_PHYSICAL
+                                     + self._from_stat(self.AGI_PER_CRIT, eff_agility)
+                                     + bonuses.get("crit_chance_physical", 0))
+        self.crit_chance_spell = (self.BASE_CRIT_SPELL
+                                  + self._from_stat(self.INT_PER_CRIT, eff_intellect)
+                                  + bonuses.get("crit_chance_spell", 0))
 
         # Hit Rating (Phase 5c): gear-only secondary stat, 1 rating = 1% less
         # miss chance, capped so it can't go negative (min 0% miss / 100% hit).
@@ -1403,7 +1411,8 @@ class Character(StatusEffectMixin):
         # something only a talent or a gear suffix can buy.
         # Base-stat dodge is NOT diminished (see AVOIDANCE_DR_K); only what
         # talents, gear suffixes and defense rating add on top of it.
-        self.dodge = (self.BASE_DODGE + eff_agility * 0.25
+        self.dodge = (self.BASE_DODGE
+                      + self._from_stat(self.AGI_PER_DODGE, eff_agility)
                       + self._diminish(bonuses.get("dodge", 0)
                                        + bonuses.get("dodge_rating", 0)
                                        + defense_bonus))
@@ -1427,13 +1436,24 @@ class Character(StatusEffectMixin):
         # raises it the same way it raises dodge and parry.
         self.block_chance = 0.0
         if self.equipment.get_shield_armor() > 0 or self.equipment.get_total_block_value() > 0:
-            self.block_chance = (self.BASE_BLOCK_CHANCE + bonuses.get("block", 0) + defense_bonus)
+            # Strength now feeds block chance (STR_PER_BLOCK). It did not
+            # before, which is why "more block chance" had no answer except
+            # a talent: a tank could triple its Strength and block exactly
+            # as often as it did at level 1.
+            self.block_chance = (self.BASE_BLOCK_CHANCE
+                                 + self._from_stat(self.STR_PER_BLOCK, eff_strength)
+                                 + bonuses.get("block", 0) + defense_bonus)
         self.block_chance = max(0.0, min(self.BLOCK_CHANCE_CAP, self.block_chance))
-        avg_stat = (eff_agility + eff_strength) / 2
         # Parry previously ignored the bonus pool entirely, so gear and
         # talents rolling Parry did nothing. Now additive like Dodge.
-        self.parry = avg_stat * 0.2 + self._diminish(
-            bonuses.get("parry", 0) + bonuses.get("parry_rating", 0) + defense_bonus)
+        # STRENGTH ONLY - see STR_PER_PARRY. It was the average of Strength
+        # and Agility, so every Agility point bought crit AND dodge AND
+        # parry, which is how a Rogue ended up out-avoiding a Warrior.
+        self.parry = (self.BASE_PARRY
+                      + self._from_stat(self.STR_PER_PARRY, eff_strength)
+                      + self._diminish(bonuses.get("parry", 0)
+                                       + bonuses.get("parry_rating", 0)
+                                       + defense_bonus))
 
         # Joint ceiling on outright avoidance. Scaled proportionally rather
         # than clipped one stat at a time, so a build that leaned on parry
@@ -1446,7 +1466,12 @@ class Character(StatusEffectMixin):
             self.dodge *= scale
             self.parry *= scale
 
-        self.haste = (eff_intellect + eff_agility) * 0.1 + bonuses.get("haste", 0)
+        # Haste is the fourth member of the same family and was left flat at
+        # 0.1% per point of Intellect AND of Agility, so a geared 60 caster
+        # was quietly carrying ~20% of it. Scaled with the others rather
+        # than left as the one that still runs away.
+        self.haste = (self._from_stat(self.STAT_PER_HASTE, eff_intellect + eff_agility)
+                      + bonuses.get("haste", 0))
 
         # New real gear-suffix stats - see Character.__init__ for what
         # each does. Pure pass-through from gear bonuses; none of these
@@ -2383,7 +2408,15 @@ class Character(StatusEffectMixin):
         If you change a formula there, change it here - these are deliberately
         written as "per point" values so they stay readable, and the totals
         shown come from the live derived stats rather than being recomputed.
+
+        THE PERCENTAGE LINES ARE COMPUTED, NOT TYPED. They used to be string
+        literals ("+0.5% Physical Crit per point") and stayed literal when
+        the conversions became level-scaled, which would have made this
+        tooltip confidently wrong at every level except the one it was
+        written for. _pct_per_point asks the same function the stat does.
         """
+        def _pct_per_point(pair):
+            return 1.0 / self._stat_per_percent(pair, max(1, self.level))
         from combat.abilities import get_class_resource, ResourceType
         is_mana = get_class_resource(self.char_class, self) == ResourceType.MANA
 
@@ -2391,8 +2424,8 @@ class Character(StatusEffectMixin):
         if stat_name == "strength":
             return [
                 "+2 Attack Power per point",
-                "+0.3% Block per point",
-                "+0.1% Parry per point",
+                f"+{_pct_per_point(self.STR_PER_BLOCK):.2f}% Block per point",
+                f"+{_pct_per_point(self.STR_PER_PARRY):.2f}% Parry per point",
             ]
         if stat_name == "stamina":
             return [
@@ -2404,8 +2437,8 @@ class Character(StatusEffectMixin):
             lines = [
                 "+0.2 Spell Power per point",
                 "+0.2 Healing Power per point",
-                "+0.5% Spell Crit per point",
-                "+0.1% Haste per point",
+                f"+{_pct_per_point(self.INT_PER_CRIT):.2f}% Spell Crit per point",
+                f"+{_pct_per_point(self.STAT_PER_HASTE):.2f}% Haste per point",
             ]
             if is_mana:
                 lines.insert(0, "+15 Max Mana per point")
@@ -2424,19 +2457,94 @@ class Character(StatusEffectMixin):
             return [
                 "+0.5 Attack Power per point",
                 "+2 Ranged Attack Power per point",
-                "+0.5% Physical Crit per point",
-                "+0.25% Dodge per point",
-                "+0.1% Parry per point",
-                "+0.1% Haste per point",
+                f"+{_pct_per_point(self.AGI_PER_CRIT):.2f}% Physical Crit per point",
+                f"+{_pct_per_point(self.AGI_PER_DODGE):.2f}% Dodge per point",
+                f"+{_pct_per_point(self.STAT_PER_HASTE):.2f}% Haste per point",
                 "+1% Turn Speed per point",
             ]
         return []
 
+    # ------------------------------------------------------------------
+    # PRIMARY STAT -> PERCENTAGE CONVERSION.
+    #
+    # Kyle, 7 Nov, holding a level-26 melee recruit in greens showing 32.25%
+    # dodge, 29.25% parry and 42.5% physical crit: "we need to turn down
+    # avoidance. a tank should struggle to reach 40% avoidance before lvl 60
+    # bro!" / "crit shouldnt go over 50% even on a really geared character"
+    # / "more block chance, lower dodge and parry unless you stack agi then
+    # you can have higher dodge."
+    #
+    # Every one of these conversions was a FLAT per-point rate with no level
+    # term - crit_physical = agility * 0.5, dodge = 5 + agility * 0.25,
+    # parry = (str+agi)/2 * 0.2. A primary stat is the number that grows
+    # fastest with both level and gear, so pinning a percentage to it with a
+    # constant makes the percentage grow without limit. Measured by
+    # tools/audit_avoidance_and_crit.py before the change: a geared level-60
+    # Rogue had 97.4% physical crit and a Mage 94.7% spell crit, and dodge +
+    # parry hit the 60% cap by level 40 on two of five archetypes.
+    #
+    # THE FIX IS NOT A CAP. Kyle's standing rule is no crit cap, ever, and
+    # he is right that a cap would only hide this - a character would sit
+    # pinned at the ceiling and every point of Agility after that would be
+    # worth nothing, which is the same bug wearing a hat. What changes is
+    # the conversion: how many points of a primary stat buy 1%, and that
+    # number now RISES with level, exactly as Classic's does (roughly 12
+    # Agility per 1% crit at 20, roughly 20 at 60). The same item is strong
+    # when you find it and ordinary later, and 60 is where the curve is
+    # tuned rather than where it explodes.
+    #
+    # Each pair below is (points per 1% at level 1, points per 1% at 60),
+    # interpolated linearly by _stat_per_percent().
+    # ------------------------------------------------------------------
+
+    #: Agility -> physical crit. Was a flat 2.0 (0.5% per point) at every
+    #: level, which is where the 97% came from.
+    AGI_PER_CRIT = (3.0, 6.0)
+    #: Intellect -> spell crit. Same flat 2.0 before, same runaway.
+    INT_PER_CRIT = (3.0, 6.0)
+    #: Agility -> dodge. Kept the most generous of the three conversions on
+    #: purpose: Kyle wants stacking Agility to still buy real dodge, and
+    #: dodge is the one avoidance stat he said should reward it.
+    AGI_PER_DODGE = (5.0, 10.0)
+    #: Strength -> parry, and ONLY Strength. It used to be the average of
+    #: Strength and Agility, which handed every Rogue and Hunter a large
+    #: free parry for stacking the stat that was already buying them dodge
+    #: and crit - the single biggest contributor to a leather wearer out-
+    #: avoiding a tank. Parry is a weapon-and-footing stat; Agility gets
+    #: dodge, Strength gets parry, and nobody gets both from one stat.
+    STR_PER_PARRY = (15.0, 40.0)
+    #: Strength -> block chance, with a shield equipped. New: block had no
+    #: stat contribution at all, which is why "more block chance" could not
+    #: be answered by gear or by levelling, only by a talent.
+    STR_PER_BLOCK = (10.0, 26.0)
+    #: Intellect and Agility -> haste. Was a flat 0.1% per point of each,
+    #: i.e. 0.2% per point of combined stat, with the same no-level-term
+    #: shape. Scaled with the rest of the family rather than left as the one
+    #: member that still runs away - a 60 Mage was carrying ~20% haste off
+    #: Intellect alone and nothing in the game was accounting for it.
+    STAT_PER_HASTE = (12.0, 36.0)
+
+    #: Everybody crits sometimes. With the conversions above, Agility alone
+    #: now buys a Rogue single digits, so without a floor the early game
+    #: would read as "crit does not exist" - Classic's own base was ~5%.
+    BASE_CRIT_PHYSICAL = 5.0
+    BASE_CRIT_SPELL = 5.0
+
     #: Dodge every class has before agility, talents or gear. See _recalculate_derived_stats.
     BASE_DODGE = 5.0
 
-    #: Block chance a shield gives before any talent. Classic gave 5% for carrying one.
-    BASE_BLOCK_CHANCE = 5.0
+    #: Parry every class has before Strength, talents or gear. New, and the
+    #: reason parry could lose its Agility half without a class that relied
+    #: on it falling off a cliff: the floor moved from 0 to 5, so what used
+    #: to come from a stat now comes from standing there with a weapon.
+    BASE_PARRY = 5.0
+
+    #: Block chance a shield gives before any talent. Classic gave 5% for
+    #: carrying one; raised to 10 on Kyle's "more block chance". Block is
+    #: the mitigation that SHOULD be big here, because unlike dodge and
+    #: parry it reduces a hit rather than erasing it - a tank built on block
+    #: still takes damage, still needs healing, and still feels like a tank.
+    BASE_BLOCK_CHANCE = 10.0
 
     #: Block chance cannot exceed this. Dodge and parry avoid the hit outright, so an uncapped
     #: block chance on top of them left three tanks with no physical hit ever landing unreduced.
@@ -2476,7 +2584,31 @@ class Character(StatusEffectMixin):
     #: it, and it already has its own cap above. 60% leaves two in five
     #: attacks landing on even the most avoidance-stacked build, which is
     #: roughly where a well-geared Classic tank sat.
-    AVOIDANCE_COMBINED_CAP = 60.0
+    #:
+    #: 60 -> 50 on Kyle's "a tank should struggle to reach 40% avoidance
+    #: before lvl 60". This is a BACKSTOP, not the fix: the conversions
+    #: above are what keep a level-26 character off it, and before them two
+    #: of five archetypes were pinned here by level 40, which means the cap
+    #: was doing the balancing and the formula was doing none.
+    AVOIDANCE_COMBINED_CAP = 50.0
+
+    @staticmethod
+    def _stat_per_percent(pair, level):
+        """How many points of a primary stat buy 1%, at this level.
+
+        `pair` is (at level 1, at level 60); between them it is linear, and
+        past 60 it holds at the level-60 value rather than continuing to
+        climb - a character above 60 should not be punished for existing.
+        """
+        at_1, at_60 = pair
+        t = min(1.0, max(0.0, (level - 1) / 59.0))
+        return at_1 + (at_60 - at_1) * t
+
+    def _from_stat(self, pair, points):
+        """points of a primary stat -> percentage, at this character's level."""
+        if points <= 0:
+            return 0.0
+        return points / self._stat_per_percent(pair, max(1, self.level))
 
     @classmethod
     def _diminish(cls, bonus):
