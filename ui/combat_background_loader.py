@@ -17,9 +17,7 @@ import os
 import random
 import pygame
 
-from world.tile_textures import get_biome_for_zone
-from world.combat_backgrounds import (get_background_folder, get_variant_options,
-                                      get_background_for_place)
+from world.combat_backgrounds import get_variant_options, resolve_place
 
 BACKGROUNDS_ROOT = "assets/backgrounds"
 
@@ -65,7 +63,7 @@ def _load_raw(path):
 
 
 def get_background_for_zone(zone_name, is_cave=False, variant=None,
-                             size=None, reroll=False):
+                             size=None, reroll=False, subzone_name=None):
     """Main entry point. Returns a pygame.Surface scaled to `size`
     (width, height), or None if nothing could be loaded.
 
@@ -79,16 +77,22 @@ def get_background_for_zone(zone_name, is_cave=False, variant=None,
         from config import SCREEN_WIDTH, SCREEN_HEIGHT
         size = (SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    cache_key = zone_name if not reroll else None
+    # A subzone is a different PLACE, so it gets its own frozen pick. Keying
+    # the cache on the zone alone would have handed Slug Fens whichever
+    # image the open Barrens rolled first, which is the inheritance bug this
+    # parameter exists to fix, just moved one layer down.
+    place = subzone_name or zone_name
+    cache_key = (zone_name, place) if not reroll else None
     if cache_key and cache_key in _zone_choice:
         path = _zone_choice[cache_key]
     else:
-        biome = get_biome_for_zone(zone_name, is_cave=is_cave)
         # The per-place override comes first and may pin a variant of its own. Without this the
         # 43 zones and dungeons missing from the biome tables all resolved to the same green
         # forest, and the tables could not simply be filled in because they also choose the
         # FLOOR AND WALL TEXTURES of a zone - see ZONE_BACKGROUND's comment.
-        folder_name, pinned = get_background_for_place(zone_name, biome)
+        # The whole precedence chain lives in resolve_place() so the QA tool
+        # can ask the same question this does and get the same answer.
+        folder_name, pinned, _biome = resolve_place(zone_name, subzone_name, is_cave)
         folder_path = _resolve_folder_path(folder_name, pinned or variant)
         images = _list_images(folder_path)
         if not images:
@@ -100,8 +104,8 @@ def get_background_for_zone(zone_name, is_cave=False, variant=None,
         if not images:
             return None
         path = os.path.join(folder_path, random.choice(images))
-        if not reroll:
-            _zone_choice[zone_name] = path
+        if cache_key:
+            _zone_choice[cache_key] = path
 
     scale_key = (path, size)
     if scale_key in _scaled_cache:
@@ -137,5 +141,9 @@ def clear_zone_choice(zone_name=None):
     rolls a fresh image. Useful for a future 'vary backgrounds' setting."""
     if zone_name is None:
         _zone_choice.clear()
-    else:
-        _zone_choice.pop(zone_name, None)
+        return
+    # Keys are (zone, place) since subzones started getting their own pick,
+    # so clearing a zone clears its subzones' picks with it - the caller
+    # asked to re-roll that whole map, not just the open ground on it.
+    for key in [k for k in _zone_choice if k[0] == zone_name]:
+        del _zone_choice[key]

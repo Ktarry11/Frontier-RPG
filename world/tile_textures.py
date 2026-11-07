@@ -592,6 +592,21 @@ def get_subzone_biome(tilemap, x, y):
     return SUBZONE_BIOME.get(subzone["name"])
 
 
+def get_subzone_biome_by_name(subzone_name):
+    """SUBZONE_BIOME lookup for callers that have a NAME and no tilemap.
+
+    get_subzone_biome() above needs a tilemap and a tile coordinate, which
+    the overworld renderer has and the combat background loader does not -
+    by the time a fight starts, all it is handed is a place name. That
+    mismatch is why the loader never consulted this table at all: every
+    subzone silently inherited its parent zone's background, so Slug Fens
+    fought in the same open scrub as the Crossroads above it.
+    """
+    if not subzone_name:
+        return None
+    return SUBZONE_BIOME.get(subzone_name)
+
+
 # ---------------------------------------------------------------------------
 # Per-biome tile_id -> (sheet_key, rect, smooth?) mapping.
 # rect = (x, y, w, h) in source sheet pixels. smooth=True routes through

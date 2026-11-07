@@ -52,7 +52,84 @@ def main():
             mark = "" if src == "override" else "   <- from biome, never reviewed"
             print(f"       {name:42s} {src}{mark}")
         print()
+
+    _subzones(zones)
+    _empty_packs(by_pack)
     return 0
+
+
+def _subzones(zones):
+    """Which subzones differ from the ground they stand on.
+
+    Until 7 Nov this was unanswerable, because the loader never consulted
+    SUBZONE_BIOME at all - it resolved a background from the zone name and
+    that was the end of it, so Slug Fens fought on the same backdrop as the
+    open scrub above it. Now that get_background_for_zone takes a subzone,
+    the thing worth printing is the DIFFERENCE: a subzone that resolves to
+    its parent's pack is not necessarily wrong, but a fen, pool, grove or
+    cave that does is the bug class Kyle hit.
+    """
+    from world.combat_backgrounds import resolve_place
+    from world.tile_textures import SUBZONE_BIOME
+
+    # Names that promise terrain the open zone does not have. A subzone
+    # matching one of these and STILL sharing its parent's pack is the
+    # shortlist to review - it is not a failure, it is where to look.
+    WATER = ("fen", "pool", "oasis", "spring", "lake", "marsh", "bog", "shore",
+             "coast", "strand", "falls", "river", "delta", "cove", "reef")
+    STONE = ("cave", "cavern", "hollow", "mine", "quarry", "ridge", "cliff",
+             "crag", "peak", "barrow", "crypt", "ruin", "dig")
+    GREEN = ("grove", "glade", "thicket", "wood", "orchard", "garden", "copse")
+
+    total = differs = flagged = 0
+    rows = []
+    for zname, z in sorted(zones.items()):
+        for sz in getattr(z, "subzones", []) or []:
+            name = sz["name"] if isinstance(sz, dict) else getattr(sz, "name", None)
+            if not name:
+                continue
+            total += 1
+            is_cave = bool(getattr(z, "is_cave", False) or getattr(z, "boss_positions", None))
+            own = SUBZONE_BIOME.get(name)
+            pp, _, _ = resolve_place(zname, None, is_cave)
+            sp, _, _ = resolve_place(zname, name, is_cave)
+            if sp != pp:
+                differs += 1
+                rows.append((name, zname, pp, sp, "own biome"))
+                continue
+            low = name.lower()
+            hit = next((w for group in (WATER, STONE, GREEN) for w in group
+                        if w in low), None)
+            if hit and not own:
+                flagged += 1
+                rows.append((name, zname, pp, sp, f"shares parent; name says '{hit}'"))
+
+    print(f"  -- subzones --------------------------------------------------")
+    print(f"  {total} subzones; {len(SUBZONE_BIOME)} have a biome of their own")
+    print(f"  {differs} now resolve a DIFFERENT backdrop than their parent zone")
+    print(f"  {flagged} are named for terrain their parent pack does not show\n")
+    for name, zname, pp, sp, why in rows:
+        arrow = f"{pp} -> {sp}" if pp != sp else pp
+        print(f"       {name:34s} {zname:22s} {arrow:26s} {why}")
+    print()
+
+
+def _empty_packs(by_pack):
+    """A pack routed to by nothing, or holding no images, is a black screen."""
+    root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "assets", "backgrounds")
+    bad = []
+    for folder in sorted(set(BIOME_TO_BACKGROUND.values()) | set(by_pack)):
+        path = os.path.join(root, folder)
+        n = sum(1 for _, _, fs in os.walk(path)
+                for f in fs if f.lower().endswith((".png", ".jpg", ".jpeg")))
+        if n == 0:
+            bad.append(folder)
+        elif n <= 2:
+            print(f"  thin pack: {folder} has {n} image(s)")
+    for folder in bad:
+        print(f"  EMPTY PACK: assets/backgrounds/{folder} has no images")
+    print()
 
 
 if __name__ == "__main__":

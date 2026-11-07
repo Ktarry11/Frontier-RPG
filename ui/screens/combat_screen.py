@@ -236,8 +236,15 @@ class CombatScreen(BaseScreen):
             from ui.combat_background_loader import get_background_for_zone
             is_cave = zone_manager.is_in_cave()
             zone_name = zone_manager.current_zone.name
+            # get_location_name() returns the SUBZONE when the player is
+            # standing in one and the zone name otherwise, which is exactly
+            # the "where is this fight" the loader wants. Without it every
+            # subzone inherited its parent zone's backdrop - Kyle, 7 Nov:
+            # "Slug fens (water) shouldnt look like a desert!"
+            place = zone_manager.get_location_name() or zone_name
             self.combat_background = get_background_for_zone(
-                zone_name, is_cave=is_cave, size=(SCREEN_WIDTH, SCREEN_HEIGHT))
+                zone_name, is_cave=is_cave, size=(SCREEN_WIDTH, SCREEN_HEIGHT),
+                subzone_name=None if place == zone_name else place)
             # Same slug normalization every other NPC/quest lookup uses
             # (VendorManager._zone_key, race_registry.get_zone_default_race)
             # - current_zone.name is already the RIGHT specific location

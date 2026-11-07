@@ -27,7 +27,7 @@ VARIANT_FOLDERS = {
     # drowned mine on a sunlit quarterdeck. ZONE_BACKGROUND pins every nautical place.
     "nautical": ("Deck", "Hold", "Flooded"),
 }
-FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "jungle", "mountain",
+FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "savanna", "savanna_oasis", "jungle", "mountain",
                 "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
                 "keep", "arena")
 
@@ -56,13 +56,40 @@ BIOME_TO_BACKGROUND = {
     "orgrimmar": "desert",          # red-rock urban stone, closest to desert set
     "bael_modan": "mountain",
 
-    # Savanna variants - Barrens is dry grassland/scrub, no savanna pack
-    # exists so desert reads closest (open, sparse, warm-toned).
-    "savanna": "desert",
-    "savanna_bones": "desert",
+    # Savanna variants. These pointed at "desert" because no savanna pack
+    # existed - Kyle, 7 Nov: "We need to fix up barrens background, its a
+    # savanna, not a desert." He was right twice over: the Barrens is dry
+    # grassland, AND the desert pack it borrowed from is Tanaris art -
+    # pyramids, dunes and a sun-bleached kodo skeleton on cracked hardpan.
+    # Every fight in the Crossroads was happening in Egypt.
+    #
+    # THE ART ALREADY EXISTED, FILED WRONG. desert/ held five images and
+    # two of them were not deserts: s2_01 is an acacia against golden grass
+    # at sunset, which is the Barrens exactly, and s7_02 is a palm-ringed
+    # pool, which is Lushwater. Both moved to assets/backgrounds/savanna/
+    # rather than copied - desert keeps the three that really are desert
+    # (bone field, open dunes, sandstone ruins) and is no longer carrying
+    # art that contradicts it.
+    #
+    # They are two SEPARATE packs, not one pack of two. Open scrub and a
+    # palm-ringed pool are different places, and a single savanna/ folder
+    # holding both would have put the oasis on screen for half the fights
+    # in the open Crossroads - the same category of wrongness as the desert
+    # it replaced, just prettier. One image each for now, which is thin but
+    # honest; prompts for more are in docs/background_prompts.md.
+    "savanna": "savanna",
+    "savanna_bones": "savanna",
+    "savanna_thornscrub": "savanna",
+    # The three Central Barrens oases. savanna_oasis was in SUBZONE_BIOME
+    # but NEVER IN THIS TABLE, so it fell through get_background_folder's
+    # default and Lushwater fought in a mossy forest.
+    "savanna_oasis": "savanna_oasis",
+    # Orphaned by the oasis remap (see SUBZONE_BIOME) but still routed, so
+    # it degrades to savanna rather than a rainforest if anything revives it.
+    "savanna_pond": "savanna_oasis",
     "savanna_cliff": "mountain",
-    "savanna_pond": "jungle",
-    "savanna_thornscrub": "desert",
+    # Slug Fens - waterlogged bog. jungle is right for this one: standing
+    # water and dense green, not open grass.
     "barrens_fen": "jungle",
 
     # Cave variants -> the three dungeon packs by color temperature, per
@@ -250,3 +277,26 @@ def get_variant_options(folder_name):
     """Return the sub-variant folder names for a background folder, or None
     if that folder is flat (no sub-variants)."""
     return VARIANT_FOLDERS.get(folder_name)
+
+
+def resolve_place(zone_name, subzone_name=None, is_cave=False):
+    """-> (folder, variant_or_None, biome) for wherever a fight is happening.
+
+    THE ONE PLACE this decision is made. It used to live inline in
+    ui/combat_background_loader.py, which meant qa_combat_combat_backgrounds
+    could only approximate it - and an audit that approximates the thing it
+    is auditing reports bugs that are its own. Precedence, most specific
+    first: a ZONE_BACKGROUND override on the subzone, the subzone's own
+    SUBZONE_BIOME entry, an override on the parent zone, the parent's biome.
+    """
+    from world.tile_textures import get_biome_for_zone, get_subzone_biome_by_name
+
+    own = get_subzone_biome_by_name(subzone_name)
+    biome = own or get_biome_for_zone(zone_name, is_cave=is_cave)
+    if subzone_name and subzone_name in ZONE_BACKGROUND:
+        folder, variant = get_background_for_place(subzone_name, biome)
+        return folder, variant, biome
+    if own:
+        return get_background_folder(own), None, biome
+    folder, variant = get_background_for_place(zone_name, biome)
+    return folder, variant, biome
