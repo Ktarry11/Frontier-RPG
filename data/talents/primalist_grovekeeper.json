@@ -66,7 +66,7 @@
     {
       "talent_id": "primalist_grovekeeper_tranquil_mind",
       "name": "Tranquil Mind",
-      "description": "Increases your damage and healing done by up to 4%.",
+      "description": "Increases your damage and healing done by up to 2.1%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -74,8 +74,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.0133,
-        "healing_done": 0.0133
+        "all_damage": 0.007,
+        "healing_done": 0.007
       },
       "connected_to": [
         "primalist_grovekeeper_power_hammer"
@@ -206,7 +206,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_wildclaw_damage": 0.05
+        "ability_primalist_wildclaw_damage": 0.027
       },
       "connected_to": [
         "primalist_grovekeeper_elemental_cascade"
@@ -336,7 +336,7 @@
     {
       "talent_id": "primalist_grovekeeper_crashing_out",
       "name": "Crashing Out",
-      "description": "Increases the damage of Seismic Crash by 30%.",
+      "description": "Increases the damage of Seismic Crash by 16.2%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -344,7 +344,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.1
+        "ability_primalist_seismic_crash_damage": 0.054
       },
       "connected_to": [
         "primalist_grovekeeper_thorns"
@@ -512,7 +512,7 @@
       "hex_y": 2,
       "effects": {
         "magic_damage_taken_pct": -0.0333,
-        "healing_done": 0.02
+        "healing_done": 0.011
       },
       "connected_to": [
         "primalist_grovekeeper_ancient_of_lore"
@@ -597,7 +597,7 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "low_mana_healing_pct": 0.04
+        "low_mana_healing_pct": 0.021
       },
       "connected_to": [
         "primalist_grovekeeper_earthmothers_warden"
@@ -615,9 +615,9 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.1,
-        "ability_primalist_seismic_tremor_damage": 0.1,
-        "ability_primalist_seismic_wave_damage": 0.1
+        "ability_primalist_seismic_crash_damage": 0.054,
+        "ability_primalist_seismic_tremor_damage": 0.054,
+        "ability_primalist_seismic_wave_damage": 0.054
       },
       "connected_to": [
         "primalist_grovekeeper_aftershock"

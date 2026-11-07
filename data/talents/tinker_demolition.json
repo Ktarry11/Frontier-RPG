@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_scrap_shot_damage": 0.1,
+        "ability_tinker_scrap_shot_damage": 0.054,
         "hit_rating": 1.3333
       },
       "connected_to": [
@@ -35,7 +35,7 @@
     {
       "talent_id": "tinker_demolition_bomb_builder",
       "name": "Bomb Builder",
-      "description": "Increases Fire damage dealt by you and your constructs by 5%.",
+      "description": "Increases Fire damage dealt by you and your constructs by 2.1%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -44,7 +44,7 @@
       "hex_y": -6,
       "effects": {
         "fire_spell_power": 0.0167,
-        "pet_damage": 0.0167
+        "pet_damage": 0.007
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -62,8 +62,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_bomb_toss_crit": 3.3333,
-        "ability_tinker_rocket_launcher_crit_damage": 0.0333
+        "ability_tinker_bomb_toss_crit": 2.0,
+        "ability_tinker_rocket_launcher_crit_damage": 0.018
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -184,7 +184,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.05
+        "ability_tinker_sticky_bomb_damage": 0.027
       },
       "connected_to": [
         "tinker_demolition_target_acquired"
@@ -308,8 +308,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.1,
-        "ability_tinker_spider_bomb_damage": 0.1
+        "ability_tinker_sticky_bomb_damage": 0.054,
+        "ability_tinker_spider_bomb_damage": 0.054
       },
       "connected_to": [
         "tinker_demolition_bombastic"
@@ -319,7 +319,7 @@
     {
       "talent_id": "tinker_demolition_duobombers",
       "name": "Duobombers",
-      "description": "Build: Spider Bomb sends out a second bomb, dealing 100% more damage.",
+      "description": "Build: Spider Bomb sends out a second bomb, dealing 54% more damage.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -327,7 +327,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_spider_bomb_damage": 0.3333
+        "ability_tinker_spider_bomb_damage": 0.18
       },
       "connected_to": [
         "tinker_demolition_rocket_engineering"
@@ -435,7 +435,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_rocket_launcher_crit": 33.3333
+        "ability_tinker_rocket_launcher_crit": 20.0
       },
       "connected_to": [
         "tinker_demolition_bomb_squad"
@@ -453,7 +453,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.0667,
+        "ability_tinker_sticky_bomb_damage": 0.036,
         "aoe_damage": 0.05
       },
       "connected_to": [
@@ -524,7 +524,7 @@
     {
       "talent_id": "tinker_demolition_rockadier",
       "name": "Rockadier",
-      "description": "Your Scrap Shot and Rocket Launcher deal 100% more damage.",
+      "description": "Your Scrap Shot and Rocket Launcher deal 54% more damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -532,8 +532,8 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_tinker_scrap_shot_damage": 1.0,
-        "ability_tinker_rocket_launcher_damage": 1.0
+        "ability_tinker_scrap_shot_damage": 0.54,
+        "ability_tinker_rocket_launcher_damage": 0.54
       },
       "connected_to": [],
       "_source": "CoA: 'Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec to deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.' A 3-minute cooldown window is not a talent shape this tree supports, so the capstone grants the empowerment permanently at the cost of being the last pick. Replaces a pure-scalar node of the same name. The splash half is DROPPED, not approximated: aoe_damage was on this node and did nothing for it, because neither tinker_scrap_shot nor tinker_rocket_launcher is is_aoe - aoe_damage would have buffed other abilities entirely, while the prose promised a splash that never happened. 'Nearby enemies' is also positional language in an engine with no positions."

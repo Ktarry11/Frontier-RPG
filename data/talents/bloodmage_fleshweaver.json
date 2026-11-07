@@ -60,7 +60,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 4
+        "healing_power_pct": 2.1
       },
       "connected_to": [
         "bloodmage_fleshweaver_spice_of_life"
@@ -70,7 +70,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_heart_rupturer",
       "name": "Heart Rupturer",
-      "description": "Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 20%.",
+      "description": "Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -78,10 +78,10 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_claw_sweep_damage": 0.0667,
-        "ability_bloodmage_sanguine_rupture_damage": 0.0667,
-        "ability_bloodmage_ravenous_strike_damage": 0.0667,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.0667
+        "ability_bloodmage_claw_sweep_damage": 0.036,
+        "ability_bloodmage_sanguine_rupture_damage": 0.036,
+        "ability_bloodmage_ravenous_strike_damage": 0.036,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.036
       },
       "connected_to": [
         "bloodmage_fleshweaver_spice_of_life"
@@ -91,7 +91,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_blood_redistribution",
       "name": "Blood Redistribution",
-      "description": "Increases the healing done by Fleshcraft by 25%.",
+      "description": "Increases the healing done by Fleshcraft by 13.2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_fleshcraft_healing": 0.0833
+        "ability_bloodmage_fleshcraft_healing": 0.044
       },
       "connected_to": [
         "bloodmage_fleshweaver_dissipation"
@@ -195,8 +195,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_sanguine_mend_crit": 3.3333,
-        "ability_bloodmage_bloodbolt_crit": 3.3333
+        "ability_bloodmage_sanguine_mend_crit": 2.0,
+        "ability_bloodmage_bloodbolt_crit": 2.0
       },
       "connected_to": [
         "bloodmage_fleshweaver_excess_blood"
@@ -517,8 +517,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.0333,
-        "healing_done": 0.0333
+        "all_damage": 0.017,
+        "healing_done": 0.018
       },
       "connected_to": [
         "bloodmage_fleshweaver_vitality_for_later"
@@ -713,7 +713,7 @@
       "hex_y": 4,
       "effects": {
         "dot_damage": 0.0833,
-        "healing_power_pct": 3.3333
+        "healing_power_pct": 1.8
       },
       "connected_to": [
         "bloodmage_fleshweaver_blood_rituals"

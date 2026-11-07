@@ -83,7 +83,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "pet_damage": 0.0833,
+        "pet_damage": 0.033,
         "pet_health": 0.0667
       },
       "connected_to": [
@@ -103,7 +103,7 @@
       "hex_y": -4,
       "effects": {
         "ability_ranger_survival_potion_cooldown_pct": 0.1,
-        "ability_ranger_survival_potion_healing": 0.0667
+        "ability_ranger_survival_potion_healing": 0.036
       },
       "connected_to": [
         "ranger_farstrider_gutpiercer"
@@ -204,7 +204,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "pet_damage": 0.1,
+        "pet_damage": 0.04,
         "pet_armor": 0.0833
       },
       "connected_to": [
@@ -255,8 +255,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_ranger_falconstrike_crit": 5,
-        "ability_ranger_emerald_arrow_crit": 5
+        "ability_ranger_falconstrike_crit": 3.0,
+        "ability_ranger_emerald_arrow_crit": 3.0
       },
       "connected_to": [
         "ranger_farstrider_thalassian_brand"
@@ -305,7 +305,7 @@
     {
       "talent_id": "ranger_farstrider_thalassian_brand",
       "name": "Thalassian Brand",
-      "description": "Increases the damage of Thalassian Brand by 40% and its duration by 2 turns.",
+      "description": "Increases the damage of Thalassian Brand by 21.6% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -313,7 +313,7 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "ability_ranger_thalassian_brand_damage": 0.4,
+        "ability_ranger_thalassian_brand_damage": 0.216,
         "ability_ranger_thalassian_brand_duration": 2
       },
       "connected_to": [
@@ -370,8 +370,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_skullpiercer_damage": 0.1,
-        "ability_ranger_falconstrike_damage": 0.0833
+        "ability_ranger_skullpiercer_damage": 0.054,
+        "ability_ranger_falconstrike_damage": 0.045
       },
       "connected_to": [
         "ranger_farstrider_scavenger"
@@ -492,7 +492,7 @@
         "ability_ranger_battle_screech_cooldown_pct": 0.3,
         "ability_ranger_frenzy_cooldown_pct": 0.3,
         "ability_ranger_command_aura_cooldown_pct": 0.3,
-        "pet_damage": 0.25
+        "pet_damage": 0.1
       },
       "connected_to": [],
       "proc": {

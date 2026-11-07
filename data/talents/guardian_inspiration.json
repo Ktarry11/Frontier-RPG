@@ -110,7 +110,7 @@
     {
       "talent_id": "guardian_inspiration_battle_bard",
       "name": "Battle Bard",
-      "description": "Increases the damage of your Ballads by 15%.",
+      "description": "Increases the damage of your Ballads by 8.1%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -118,8 +118,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_ballad_of_steel_damage": 0.05,
-        "ability_guardian_song_of_battle_damage": 0.05
+        "ability_guardian_ballad_of_steel_damage": 0.027,
+        "ability_guardian_song_of_battle_damage": 0.027
       },
       "connected_to": [
         "guardian_inspiration_minstrel"
@@ -129,7 +129,7 @@
     {
       "talent_id": "guardian_inspiration_soundwave",
       "name": "Soundwave",
-      "description": "Increases the damage of Sound of War by 15%.",
+      "description": "Increases the damage of Sound of War by 8.1%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -137,7 +137,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_sound_of_war_damage": 0.05
+        "ability_guardian_sound_of_war_damage": 0.027
       },
       "connected_to": [
         "guardian_inspiration_minstrel"
@@ -155,8 +155,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_ballad_of_steel_crit": 3.3333,
-        "ability_guardian_song_of_battle_crit": 3.3333
+        "ability_guardian_ballad_of_steel_crit": 2.0,
+        "ability_guardian_song_of_battle_crit": 2.0
       },
       "connected_to": [
         "guardian_inspiration_into_the_fray"
@@ -249,7 +249,7 @@
     {
       "talent_id": "guardian_inspiration_pied_piper",
       "name": "Pied Piper",
-      "description": "Increases the damage of Ram by 20%.",
+      "description": "Increases the damage of Ram by 10.8%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -257,7 +257,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_guardian_ram_damage": 0.0667
+        "ability_guardian_ram_damage": 0.036
       },
       "connected_to": [
         "guardian_inspiration_knights_song"
@@ -519,8 +519,8 @@
       "hex_y": 4,
       "effects": {
         "ability_guardian_harrowing_melody_potency": 0.1667,
-        "ability_guardian_ballad_of_steel_damage": 0.1,
-        "ability_guardian_song_of_battle_damage": 0.1
+        "ability_guardian_ballad_of_steel_damage": 0.054,
+        "ability_guardian_song_of_battle_damage": 0.054
       },
       "connected_to": [
         "guardian_inspiration_inspiring_presence_mastery"
@@ -556,7 +556,7 @@
     {
       "talent_id": "guardian_inspiration_field_commander",
       "name": "Field Commander",
-      "description": "Your Song of Steel and Inspiring Presence each last a turn longer, and all your damage rises by 8%.",
+      "description": "Your Song of Steel and Inspiring Presence each last a turn longer, and all your damage rises by 4%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -566,7 +566,7 @@
       "effects": {
         "ability_guardian_song_of_steel_duration": 1,
         "ability_guardian_inspiring_presence_duration": 1,
-        "all_damage": 0.08
+        "all_damage": 0.04
       },
       "connected_to": [
         "guardian_inspiration_inspiring_presence_mastery"

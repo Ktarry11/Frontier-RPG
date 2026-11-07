@@ -34,7 +34,7 @@
     {
       "talent_id": "chronomancer_artificer_wand_master",
       "name": "Wand Master",
-      "description": "Increases the damage of Wand of Time and Artificer's Wand by 20%.",
+      "description": "Increases the damage of Wand of Time and Artificer's Wand by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,8 +42,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_wand_of_time_damage": 0.0667,
-        "ability_chronomancer_artificers_wand_damage": 0.0667
+        "ability_chronomancer_wand_of_time_damage": 0.036,
+        "ability_chronomancer_artificers_wand_damage": 0.036
       },
       "connected_to": [
         "chronomancer_artificer_wand_expert",
@@ -80,7 +80,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_shatter_echo_damage": 0.1,
+        "ability_chronomancer_shatter_echo_damage": 0.054,
         "crit_damage_pct": 0.05
       },
       "connected_to": [
@@ -465,8 +465,8 @@
       "hex_x": 5,
       "hex_y": 0,
       "effects": {
-        "ability_chronomancer_shatter_echo_damage": 0.0833,
-        "ability_chronomancer_crystal_cannon_damage": 0.0667
+        "ability_chronomancer_shatter_echo_damage": 0.045,
+        "ability_chronomancer_crystal_cannon_damage": 0.036
       },
       "connected_to": [
         "chronomancer_artificer_elder_wand"

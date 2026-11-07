@@ -87,7 +87,7 @@
       "hex_y": -6,
       "effects": {
         "haste": 4,
-        "pet_damage": 0.0667
+        "pet_damage": 0.027
       },
       "connected_to": [
         "necromancer_animation_mindless_fury"
@@ -105,7 +105,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.1
+        "pet_damage": 0.04
       },
       "connected_to": [
         "necromancer_animation_bone_king",
@@ -142,7 +142,7 @@
       "effects": {
         "ability_necromancer_sacrifice_undead_cost_pct": 0.0833,
         "ability_necromancer_sacrifice_undead_cooldown_pct": 0.0833,
-        "ability_necromancer_sacrifice_undead_healing": 0.1
+        "ability_necromancer_sacrifice_undead_healing": 0.053
       },
       "connected_to": [
         "necromancer_animation_mindless_fury"
@@ -225,8 +225,8 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_animate_skeletal_archers_damage": 0.1333,
-        "ability_necromancer_animate_plaguefather_damage": 0.1
+        "ability_necromancer_animate_skeletal_archers_damage": 0.072,
+        "ability_necromancer_animate_plaguefather_damage": 0.054
       },
       "connected_to": [
         "necromancer_animation_anti_magic_shell"
@@ -346,7 +346,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_necromancer_corpse_explosion_damage": 0.0833,
+        "ability_necromancer_corpse_explosion_damage": 0.045,
         "ability_necromancer_corpse_wagon_cooldown_pct": 0.1167
       },
       "connected_to": [
@@ -357,7 +357,7 @@
     {
       "talent_id": "necromancer_animation_depravity",
       "name": "Depravity",
-      "description": "Increases your pets' damage by a further 25%, and your critical strikes deal additional Shadow damage.",
+      "description": "Increases your pets' damage by a further 9.9%, and your critical strikes deal additional Shadow damage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -365,7 +365,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.0833
+        "pet_damage": 0.033
       },
       "connected_to": [
         "necromancer_animation_graverobber"
@@ -390,7 +390,7 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_crypt_swarm_damage": 0.1,
+        "ability_necromancer_crypt_swarm_damage": 0.054,
         "aoe_damage": 0.0667,
         "pet_health": 0.0667
       },
@@ -477,7 +477,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "pet_damage": 0.35,
+        "pet_damage": 0.14,
         "pet_health": 0.3,
         "ability_necromancer_raise_ghoul_cost_pct": 0.3,
         "ability_necromancer_raise_skeletal_mage_cost_pct": 0.3,

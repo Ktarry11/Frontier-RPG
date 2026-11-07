@@ -61,8 +61,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_venom_fang_crit": 3.3333,
-        "ability_venomancer_nerubian_sting_crit": 3.3333
+        "ability_venomancer_venom_fang_crit": 2.0,
+        "ability_venomancer_nerubian_sting_crit": 2.0
       },
       "connected_to": [
         "venomancer_stalking_virulent_resonance"
@@ -81,9 +81,9 @@
       "hex_y": -6,
       "effects": {
         "hit_rating": 1.6667,
-        "ability_venomancer_widowmaker_damage": 0.0333,
-        "ability_venomancer_rotfang_damage": 0.0333,
-        "ability_venomancer_facemelter_damage": 0.0333
+        "ability_venomancer_widowmaker_damage": 0.018,
+        "ability_venomancer_rotfang_damage": 0.018,
+        "ability_venomancer_facemelter_damage": 0.018
       },
       "connected_to": [
         "venomancer_stalking_venomagus"
@@ -93,7 +93,7 @@
     {
       "talent_id": "venomancer_stalking_venomagus",
       "name": "Venomagus",
-      "description": "Increases the damage of Withering Venom by 40%.",
+      "description": "Increases the damage of Withering Venom by 21.6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -101,7 +101,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_withering_venom_damage": 0.1333
+        "ability_venomancer_withering_venom_damage": 0.072
       },
       "connected_to": [
         "venomancer_stalking_vile_fangs"
@@ -137,7 +137,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_venom_fang_damage": 0.05
+        "ability_venomancer_venom_fang_damage": 0.027
       },
       "connected_to": [
         "venomancer_stalking_withered"
@@ -166,7 +166,7 @@
     {
       "talent_id": "venomancer_stalking_withered",
       "name": "Withered",
-      "description": "Increases the damage of Withering Venom by a further 15%.",
+      "description": "Increases the damage of Withering Venom by a further 8.1%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -174,7 +174,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_withering_venom_damage": 0.05
+        "ability_venomancer_withering_venom_damage": 0.027
       },
       "connected_to": [
         "venomancer_stalking_corrosive_toxin"
@@ -300,7 +300,7 @@
     {
       "talent_id": "venomancer_stalking_deadly_kiss",
       "name": "Deadly Kiss",
-      "description": "Increases the critical strike damage of Widowmaker and Venom Fang by 50%.",
+      "description": "Increases the critical strike damage of Widowmaker and Venom Fang by 27%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -308,8 +308,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_widowmaker_crit_damage": 0.1667,
-        "ability_venomancer_venom_fang_crit_damage": 0.1667
+        "ability_venomancer_widowmaker_crit_damage": 0.09,
+        "ability_venomancer_venom_fang_crit_damage": 0.09
       },
       "connected_to": [
         "venomancer_stalking_widowmaker_mastery"
@@ -327,7 +327,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_widowmaker_crit": 10
+        "ability_venomancer_widowmaker_crit": 6.0
       },
       "connected_to": [
         "venomancer_stalking_widowmaker_mastery"
@@ -337,7 +337,7 @@
     {
       "talent_id": "venomancer_stalking_widowmaker_mastery",
       "name": "Widowmaker",
-      "description": "Increases the damage of Widowmaker by 60%.",
+      "description": "Increases the damage of Widowmaker by 32.4%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -345,7 +345,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_widowmaker_damage": 0.2
+        "ability_venomancer_widowmaker_damage": 0.108
       },
       "connected_to": [
         "venomancer_stalking_rotting_sores"
@@ -363,7 +363,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_rotfang_damage": 0.2,
+        "ability_venomancer_rotfang_damage": 0.108,
         "dot_damage": 0.05
       },
       "connected_to": [
@@ -374,7 +374,7 @@
     {
       "talent_id": "venomancer_stalking_shadras_seance",
       "name": "Shadra's Seance",
-      "description": "Increases the duration of Facemelter by 1 turn and its damage by 50%.",
+      "description": "Increases the duration of Facemelter by 1 turn and its damage by 27%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -382,7 +382,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_facemelter_damage": 0.1667
+        "ability_venomancer_facemelter_damage": 0.09
       },
       "connected_to": [
         "venomancer_stalking_virulent_opening"
@@ -516,8 +516,8 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_venomancer_widowmaker_damage": 0.0667,
-        "all_damage": 0.0167
+        "ability_venomancer_widowmaker_damage": 0.036,
+        "all_damage": 0.008
       },
       "connected_to": [
         "venomancer_stalking_contagion"
@@ -557,7 +557,7 @@
     {
       "talent_id": "venomancer_stalking_contagion_spread",
       "name": "Shadra's Favour",
-      "description": "Increases the damage of your finishers by a further 25%.",
+      "description": "Increases the damage of your finishers by a further 13.5%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -565,9 +565,9 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_venomancer_widowmaker_damage": 0.0833,
-        "ability_venomancer_rotfang_damage": 0.0833,
-        "ability_venomancer_facemelter_damage": 0.0833
+        "ability_venomancer_widowmaker_damage": 0.045,
+        "ability_venomancer_rotfang_damage": 0.045,
+        "ability_venomancer_facemelter_damage": 0.045
       },
       "connected_to": [
         "venomancer_stalking_noxious_empowerment"

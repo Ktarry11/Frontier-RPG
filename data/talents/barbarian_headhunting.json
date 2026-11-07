@@ -24,11 +24,11 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_headhunters_spear_damage": 0.0833,
+        "ability_barbarian_headhunters_spear_damage": 0.045,
         "ability_barbarian_maiming_spear_potency": 0.0833,
-        "ability_barbarian_impaling_spear_damage": 0.0833,
-        "ability_barbarian_barbed_spear_damage": 0.0833,
-        "ability_barbarian_javelin_toss_damage": 0.0833,
+        "ability_barbarian_impaling_spear_damage": 0.045,
+        "ability_barbarian_barbed_spear_damage": 0.045,
+        "ability_barbarian_javelin_toss_damage": 0.045,
         "hit_rating": 2
       },
       "connected_to": [
@@ -39,7 +39,7 @@
     {
       "talent_id": "barbarian_headhunting_gruesome",
       "name": "Gruesome",
-      "description": "Increases the damage of Throw Weapon, Gutspiller and Berserker Axe by 20%.",
+      "description": "Increases the damage of Throw Weapon, Gutspiller and Berserker Axe by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -47,9 +47,9 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_throw_weapon_damage": 0.0667,
-        "ability_barbarian_gutspiller_damage": 0.0667,
-        "ability_barbarian_berserker_axe_damage": 0.0667
+        "ability_barbarian_throw_weapon_damage": 0.036,
+        "ability_barbarian_gutspiller_damage": 0.036,
+        "ability_barbarian_berserker_axe_damage": 0.036
       },
       "connected_to": [
         "barbarian_headhunting_puncture_wounds",
@@ -202,10 +202,10 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_barbarian_headhunters_spear_crit": 5.3333,
-        "ability_barbarian_barbed_spear_crit": 5.3333,
-        "ability_barbarian_impaling_spear_crit": 5.3333,
-        "ability_barbarian_berserker_axe_crit": 5.3333
+        "ability_barbarian_headhunters_spear_crit": 3.2,
+        "ability_barbarian_barbed_spear_crit": 3.2,
+        "ability_barbarian_impaling_spear_crit": 3.2,
+        "ability_barbarian_berserker_axe_crit": 3.2
       },
       "connected_to": [
         "barbarian_headhunting_payback"
@@ -251,8 +251,8 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_barbarian_gutspiller_damage": 0.1333,
-        "ability_barbarian_impaling_spear_damage": 0.1333,
+        "ability_barbarian_gutspiller_damage": 0.072,
+        "ability_barbarian_impaling_spear_damage": 0.072,
         "dot_damage": 0.05
       },
       "connected_to": [
@@ -400,7 +400,7 @@
     {
       "talent_id": "barbarian_headhunting_brutal_form",
       "name": "Brutal Form",
-      "description": "Increases the healing of Ancestral Roar and Savage Revelry by 30%.",
+      "description": "Increases the healing of Ancestral Roar and Savage Revelry by 15.9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -408,8 +408,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_barbarian_ancestral_roar_healing": 0.1,
-        "ability_barbarian_savage_revelry_healing": 0.1
+        "ability_barbarian_ancestral_roar_healing": 0.053,
+        "ability_barbarian_savage_revelry_healing": 0.053
       },
       "connected_to": [
         "barbarian_headhunting_puncture_wounds"
@@ -427,8 +427,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_spite_damage": 0.1167,
-        "ability_barbarian_javelin_toss_damage": 0.1167,
+        "ability_barbarian_spite_damage": 0.063,
+        "ability_barbarian_javelin_toss_damage": 0.063,
         "ability_barbarian_spite_cooldown_pct": 0.1
       },
       "connected_to": [

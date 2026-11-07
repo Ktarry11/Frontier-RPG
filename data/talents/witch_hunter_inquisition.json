@@ -211,7 +211,7 @@
     {
       "talent_id": "witch_hunter_inquisition_protector_of_darkshire",
       "name": "Protector of Darkshire",
-      "description": "Increases the damage of Dawn Blade and Dusk Blade by 15%.",
+      "description": "Increases the damage of Dawn Blade and Dusk Blade by 8.1%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_dawn_blade_damage": 0.05,
-        "ability_witch_hunter_dusk_blade_damage": 0.05
+        "ability_witch_hunter_dawn_blade_damage": 0.027,
+        "ability_witch_hunter_dusk_blade_damage": 0.027
       },
       "connected_to": [
         "witch_hunter_inquisition_interrogator"
@@ -370,7 +370,7 @@
     {
       "talent_id": "witch_hunter_inquisition_cinder_and_ashes",
       "name": "Cinder and Ashes",
-      "description": "Increases the damage of Purifier's Edge and Fiery Judgement by 25%.",
+      "description": "Increases the damage of Purifier's Edge and Fiery Judgement by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -378,8 +378,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_purifiers_edge_damage": 0.0833,
-        "ability_witch_hunter_fiery_judgement_damage": 0.0833
+        "ability_witch_hunter_purifiers_edge_damage": 0.045,
+        "ability_witch_hunter_fiery_judgement_damage": 0.045
       },
       "connected_to": [
         "witch_hunter_inquisition_sinner"
@@ -451,7 +451,7 @@
     {
       "talent_id": "witch_hunter_inquisition_sinner",
       "name": "Sinner",
-      "description": "Increases the damage of Torchlight by 100%.",
+      "description": "Increases the damage of Torchlight by 54%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -459,7 +459,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_torchlight_damage": 0.3333
+        "ability_witch_hunter_torchlight_damage": 0.18
       },
       "connected_to": [
         "witch_hunter_inquisition_burned_alive"
@@ -617,7 +617,7 @@
       "hex_y": 2,
       "effects": {
         "haste": 3.3333,
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "witch_hunter_inquisition_lightbringer"
@@ -635,7 +635,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_witch_hunter_stake_crit": 10
+        "ability_witch_hunter_stake_crit": 6.0
       },
       "connected_to": [
         "witch_hunter_inquisition_lightbringer"
@@ -671,7 +671,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.0333,
+        "all_damage": 0.017,
         "haste": 3.3333
       },
       "connected_to": [

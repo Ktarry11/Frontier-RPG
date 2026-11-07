@@ -72,7 +72,7 @@
     {
       "talent_id": "bloodmage_sanguine_blood_banquet",
       "name": "Blood Banquet",
-      "description": "Increases the damage of Valanar's Vengeance and Taldaram's Torment by up to 30%.",
+      "description": "Increases the damage of Valanar's Vengeance and Taldaram's Torment by up to 16.2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -80,8 +80,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_valanars_vengeance_damage": 0.1,
-        "ability_bloodmage_taldarams_torment_damage": 0.1
+        "ability_bloodmage_valanars_vengeance_damage": 0.054,
+        "ability_bloodmage_taldarams_torment_damage": 0.054
       },
       "connected_to": [
         "bloodmage_sanguine_the_cup_runneth_over"
@@ -91,7 +91,7 @@
     {
       "talent_id": "bloodmage_sanguine_night_feast",
       "name": "Night Feast",
-      "description": "Increases the damage of Bloodbolt by 40%.",
+      "description": "Increases the damage of Bloodbolt by 21.6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.1333
+        "ability_bloodmage_bloodbolt_damage": 0.072
       },
       "connected_to": [
         "bloodmage_sanguine_hematoma"
@@ -169,7 +169,7 @@
     {
       "talent_id": "bloodmage_sanguine_the_cup_runneth_over",
       "name": "The Cup Runneth Over",
-      "description": "Increases the damage of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 20%.",
+      "description": "Increases the damage of Bloodmoon Blast, Taldaram's Torment and Bloodbolt by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -177,9 +177,9 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_bloodmoon_blast_damage": 0.0667,
-        "ability_bloodmage_taldarams_torment_damage": 0.0667,
-        "ability_bloodmage_bloodbolt_damage": 0.0667
+        "ability_bloodmage_bloodmoon_blast_damage": 0.036,
+        "ability_bloodmage_taldarams_torment_damage": 0.036,
+        "ability_bloodmage_bloodbolt_damage": 0.036
       },
       "connected_to": [
         "bloodmage_sanguine_bloodsores"
@@ -236,7 +236,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_bloodbolt_crit": 8.3333
+        "ability_bloodmage_bloodbolt_crit": 5.0
       },
       "connected_to": [
         "bloodmage_sanguine_enthraller"
@@ -278,7 +278,7 @@
     {
       "talent_id": "bloodmage_sanguine_lifedrinker",
       "name": "Lifedrinker",
-      "description": "Increases the damage of Vampiric Fang by 25%.",
+      "description": "Increases the damage of Vampiric Fang by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -286,7 +286,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_bloodmage_vampiric_fang_damage": 0.0833
+        "ability_bloodmage_vampiric_fang_damage": 0.045
       },
       "connected_to": [
         "bloodmage_sanguine_malediction"
@@ -296,7 +296,7 @@
     {
       "talent_id": "bloodmage_sanguine_dominion_of_blood",
       "name": "Dominion of Blood",
-      "description": "Vampiric Fang heals you for 50% more.",
+      "description": "Vampiric Fang heals you for 26.7% more.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -304,7 +304,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_bloodmage_vampiric_fang_healing": 0.1667
+        "ability_bloodmage_vampiric_fang_healing": 0.089
       },
       "connected_to": [
         "bloodmage_sanguine_malediction"
@@ -360,8 +360,8 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_bloodmage_valanars_vengeance_crit": 3.3333,
-        "ability_bloodmage_keleseths_calamity_crit": 3.3333
+        "ability_bloodmage_valanars_vengeance_crit": 2.0,
+        "ability_bloodmage_keleseths_calamity_crit": 2.0
       },
       "connected_to": [
         "bloodmage_sanguine_agonizing_pain"
@@ -616,7 +616,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_vampiric_fang_healing": 0.1667
+        "ability_bloodmage_vampiric_fang_healing": 0.089
       },
       "connected_to": [
         "bloodmage_sanguine_crimson_terror"
@@ -673,7 +673,7 @@
     {
       "talent_id": "bloodmage_sanguine_vampyr_lord",
       "name": "Vampyr Lord",
-      "description": "Increases the damage of Keleseth's Calamity by 35%.",
+      "description": "Increases the damage of Keleseth's Calamity by 18.9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -681,7 +681,7 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_keleseths_calamity_damage": 0.1167
+        "ability_bloodmage_keleseths_calamity_damage": 0.063
       },
       "connected_to": [
         "bloodmage_sanguine_crimson_terror"

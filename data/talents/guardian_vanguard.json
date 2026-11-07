@@ -131,7 +131,7 @@
     {
       "talent_id": "guardian_vanguard_footmans_call",
       "name": "Footman's Call",
-      "description": "Increases the damage of Pulverize by 20%.",
+      "description": "Increases the damage of Pulverize by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -139,7 +139,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_pulverize_damage": 0.0667
+        "ability_guardian_pulverize_damage": 0.036
       },
       "connected_to": [
         "guardian_vanguard_retaliation"
@@ -539,7 +539,7 @@
     {
       "talent_id": "guardian_vanguard_valiant_defender",
       "name": "Valiant Defender",
-      "description": "Increases the damage of Pulverize and Broad Sweep by 10%.",
+      "description": "Increases the damage of Pulverize and Broad Sweep by 5.4%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -547,8 +547,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_guardian_pulverize_damage": 0.0333,
-        "ability_guardian_broad_sweep_damage": 0.0333
+        "ability_guardian_pulverize_damage": 0.018,
+        "ability_guardian_broad_sweep_damage": 0.018
       },
       "connected_to": [
         "guardian_vanguard_wreck_formation"
@@ -639,8 +639,8 @@
       "hex_y": 6,
       "effects": {
         "stamina_pct": 15.0,
-        "ability_guardian_heavy_blow_damage": 0.4,
-        "ability_guardian_hammer_of_the_law_damage": 0.4
+        "ability_guardian_heavy_blow_damage": 0.216,
+        "ability_guardian_hammer_of_the_law_damage": 0.216
       },
       "connected_to": [],
       "_source": "CoA verbatim: 'You may now use two-handed Maces and can now equip two-handed Maces with a shield. Your Heavy Blow and Hammer of the Law now deal additional damage scaling with your Stamina and your Stamina is increased by 15%.' The weapon-rule half is not a talent effect - equip rules live on items, and a two-hander with a shield would need the slot system changed, which is well outside a talent. Stamina-scaling damage has no key (coefficients live on the ability), so it is paid as flat damage. CoA's 15% Stamina ports exactly, and stacks with Iron Guardian at tier 0 for 30% on a pure-Vanguard build. CoA's own Paragon node at this tier is the unresolved token '$32' and is not built."

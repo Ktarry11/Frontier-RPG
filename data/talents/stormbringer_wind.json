@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "pet_damage": 0.0667,
+        "pet_damage": 0.027,
         "spell_damage": 0.0133
       },
       "connected_to": [
@@ -61,8 +61,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.0333,
-        "ability_stormbringer_aeroblast_damage": 0.0667
+        "ability_stormbringer_shock_damage": 0.018,
+        "ability_stormbringer_aeroblast_damage": 0.036
       },
       "connected_to": [
         "stormbringer_wind_air_flow"
@@ -120,7 +120,7 @@
     {
       "talent_id": "stormbringer_wind_invigoration",
       "name": "Invigoration",
-      "description": "Increases the damage your Air Elemental deals by a further 30%.",
+      "description": "Increases the damage your Air Elemental deals by a further 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -128,7 +128,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.1
+        "pet_damage": 0.04
       },
       "connected_to": [
         "stormbringer_wind_tailwind"
@@ -164,7 +164,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_freewind_crit": 5
+        "ability_stormbringer_freewind_crit": 3.0
       },
       "connected_to": [
         "stormbringer_wind_comforting_winds"
@@ -174,7 +174,7 @@
     {
       "talent_id": "stormbringer_wind_quickdraft",
       "name": "Quickdraft",
-      "description": "Increases the duration of Gust of Wind by 1 turn and the damage of your wind spells by 16%.",
+      "description": "Increases the duration of Gust of Wind by 1 turn and the damage of your wind spells by 8.6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -183,7 +183,7 @@
       "hex_y": -4,
       "effects": {
         "ability_stormbringer_gust_of_wind_duration": 1,
-        "ability_stormbringer_freewind_damage": 0.16
+        "ability_stormbringer_freewind_damage": 0.086
       },
       "connected_to": [
         "stormbringer_wind_comforting_winds"
@@ -331,7 +331,7 @@
     {
       "talent_id": "stormbringer_wind_flow",
       "name": "Flow",
-      "description": "Increases the healing of Invigorating Surge by 40%.",
+      "description": "Increases the healing of Invigorating Surge by 21.3%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -339,7 +339,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_invigorating_surge_healing": 0.1333
+        "ability_stormbringer_invigorating_surge_healing": 0.071
       },
       "connected_to": [
         "stormbringer_wind_everlasting_invigoration"
@@ -368,7 +368,7 @@
     {
       "talent_id": "stormbringer_wind_hurricanes",
       "name": "Hurricanes",
-      "description": "Increases all damage you deal by 15%.",
+      "description": "Increases all damage you deal by 7.5%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -376,7 +376,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "all_damage": 0.05
+        "all_damage": 0.025
       },
       "connected_to": [
         "stormbringer_wind_gift_of_air"
@@ -490,7 +490,7 @@
     {
       "talent_id": "stormbringer_wind_unbound_elementalist",
       "name": "Unbound Elementalist",
-      "description": "Increases the damage your Air Elemental deals by a further 40%.",
+      "description": "Increases the damage your Air Elemental deals by a further 15.9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -498,7 +498,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "pet_damage": 0.1333
+        "pet_damage": 0.053
       },
       "connected_to": [
         "stormbringer_wind_surge_of_might"
@@ -535,7 +535,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_stormbringer_invigorating_surge_healing": 0.1,
+        "ability_stormbringer_invigorating_surge_healing": 0.053,
         "crit_chance_spell": 1.6667
       },
       "connected_to": [

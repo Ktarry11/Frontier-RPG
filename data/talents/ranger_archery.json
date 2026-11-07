@@ -35,7 +35,7 @@
     {
       "talent_id": "ranger_archery_improved_serrated_shot",
       "name": "Improved Serrated Shot",
-      "description": "Increases the damage of Serrated Shot by 30% and its duration by 2 turns.",
+      "description": "Increases the damage of Serrated Shot by 16.2% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -43,7 +43,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_serrated_shot_damage": 0.3,
+        "ability_ranger_serrated_shot_damage": 0.162,
         "ability_ranger_serrated_shot_duration": 2
       },
       "connected_to": [
@@ -63,8 +63,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_quick_shot_damage": 0.0667,
-        "ability_ranger_skullpiercer_damage": 0.05
+        "ability_ranger_quick_shot_damage": 0.036,
+        "ability_ranger_skullpiercer_damage": 0.027
       },
       "connected_to": [
         "ranger_archery_archery_master"
@@ -302,8 +302,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_ranger_hunting_shot_damage": 0.1167,
-        "ability_ranger_precision_shot_damage": 0.0833
+        "ability_ranger_hunting_shot_damage": 0.063,
+        "ability_ranger_precision_shot_damage": 0.045
       },
       "connected_to": [
         "ranger_archery_maximum_power"
@@ -391,7 +391,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_ranger_deadshot_damage": 0.25,
+        "ability_ranger_deadshot_damage": 0.135,
         "low_health_damage_pct": 0.0667,
         "low_health_threshold_pct": 0.2
       },
@@ -431,7 +431,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_ranger_neurotoxin_arrow_damage": 0.1,
+        "ability_ranger_neurotoxin_arrow_damage": 0.054,
         "stun_duration_reduction_pct": 0.0833
       },
       "connected_to": [

@@ -79,7 +79,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_primalist_totemic_smash_crit": 6.6667
+        "ability_primalist_totemic_smash_crit": 4.0
       },
       "connected_to": [
         "primalist_wildwalker_totemic_smash"
@@ -285,7 +285,7 @@
     {
       "talent_id": "primalist_wildwalker_earthshaker",
       "name": "Earthshaker",
-      "description": "Increases the damage dealt by your Seismic abilities by 10%.",
+      "description": "Increases the damage dealt by your Seismic abilities by 5.4%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -293,9 +293,9 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.0333,
-        "ability_primalist_seismic_tremor_damage": 0.0333,
-        "ability_primalist_seismic_wave_damage": 0.0333
+        "ability_primalist_seismic_crash_damage": 0.018,
+        "ability_primalist_seismic_tremor_damage": 0.018,
+        "ability_primalist_seismic_wave_damage": 0.018
       },
       "connected_to": [
         "primalist_wildwalker_tremors"
@@ -313,7 +313,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "pet_damage": 0.06,
+        "pet_damage": 0.024,
         "pet_health": 0.06
       },
       "connected_to": [

@@ -45,7 +45,7 @@
       "hex_y": -6,
       "effects": {
         "agility_pct": 2,
-        "all_damage": 0.02
+        "all_damage": 0.01
       },
       "connected_to": [
         "witch_doctor_shadowhunting_village_wisdom"
@@ -64,7 +64,7 @@
       "hex_y": -6,
       "effects": {
         "hit_rating": 1.6667,
-        "ability_witch_doctor_reclamation_damage": 0.05
+        "ability_witch_doctor_reclamation_damage": 0.027
       },
       "connected_to": [
         "witch_doctor_shadowhunting_improved_malefic_arrow"
@@ -92,7 +92,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_shadow_enchantments",
       "name": "Shadow Enchantments",
-      "description": "Increases the duration of your Jinxes by 1 turn and the damage of Hex of Malice by 50%.",
+      "description": "Increases the duration of your Jinxes by 1 turn and the damage of Hex of Malice by 27%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -103,7 +103,7 @@
         "ability_witch_doctor_shrinking_jinx_duration": 1,
         "ability_witch_doctor_lethargy_jinx_duration": 1,
         "ability_witch_doctor_malignant_jinx_duration": 1,
-        "ability_witch_doctor_hex_of_malice_damage": 0.5
+        "ability_witch_doctor_hex_of_malice_damage": 0.27
       },
       "connected_to": [
         "witch_doctor_shadowhunting_hex_of_death"
@@ -113,7 +113,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_soul_feeder",
       "name": "Soul Feeder",
-      "description": "Increases the damage of Malefic Arrow by 25%.",
+      "description": "Increases the damage of Malefic Arrow by 13.5%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -121,7 +121,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_malefic_arrow_damage": 0.0833
+        "ability_witch_doctor_malefic_arrow_damage": 0.045
       },
       "connected_to": [
         "witch_doctor_shadowhunting_spirit_hunting"
@@ -159,7 +159,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_umbral_glaive",
       "name": "Umbral Glaive",
-      "description": "Increases the damage of Spirit Glaive by 20%.",
+      "description": "Increases the damage of Spirit Glaive by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -167,7 +167,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_spirit_glaive_damage": 0.0667
+        "ability_witch_doctor_spirit_glaive_damage": 0.036
       },
       "connected_to": [
         "witch_doctor_shadowhunting_eye_of_kimbul"
@@ -351,7 +351,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_dambalas_lethality",
       "name": "Dambala's Lethality",
-      "description": "Increases the damage of Shadowflare by 50%.",
+      "description": "Increases the damage of Shadowflare by 27%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -359,7 +359,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_doctor_shadowflare_damage": 0.1667
+        "ability_witch_doctor_shadowflare_damage": 0.09
       },
       "connected_to": [
         "witch_doctor_shadowhunting_bwonsamdis_edge"
@@ -398,7 +398,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_bwonsamdis_edge",
       "name": "Bwonsamdi's Edge",
-      "description": "Increases the damage of Spirit Eclipse by 40%.",
+      "description": "Increases the damage of Spirit Eclipse by 21.6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -406,7 +406,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_spirit_eclipse_damage": 0.1333
+        "ability_witch_doctor_spirit_eclipse_damage": 0.072
       },
       "connected_to": [
         "witch_doctor_shadowhunting_the_true_spirit"
@@ -416,7 +416,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_the_true_spirit",
       "name": "The True Spirit",
-      "description": "Increases the damage of Spirit Glaive and Spirit Eclipse by 30%.",
+      "description": "Increases the damage of Spirit Glaive and Spirit Eclipse by 16.2%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -424,8 +424,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_spirit_glaive_damage": 0.1,
-        "ability_witch_doctor_spirit_eclipse_damage": 0.1
+        "ability_witch_doctor_spirit_glaive_damage": 0.054,
+        "ability_witch_doctor_spirit_eclipse_damage": 0.054
       },
       "connected_to": [
         "witch_doctor_shadowhunting_residual_energy"
@@ -645,7 +645,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_witch_doctor_call_of_sseratus_damage": 0.1333,
+        "ability_witch_doctor_call_of_sseratus_damage": 0.072,
         "dot_damage": 0.05
       },
       "connected_to": [
@@ -665,7 +665,7 @@
       "hex_y": 6,
       "effects": {
         "haste": 15.0,
-        "ability_witch_doctor_reclamation_damage": 0.6
+        "ability_witch_doctor_reclamation_damage": 0.324
       },
       "connected_to": [],
       "proc": {

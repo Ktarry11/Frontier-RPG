@@ -16,7 +16,7 @@
     {
       "talent_id": "chronomancer_time_sands_of_life",
       "name": "Sands of Life",
-      "description": "Increases your healing power by 25% of your Spirit.",
+      "description": "Increases your healing power by 13.2% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_spirit_pct": 0.0833
+        "healing_power_from_spirit_pct": 0.044
       },
       "connected_to": [
         "chronomancer_time_patient_mending"
@@ -61,9 +61,9 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_reverse_wound_crit": 2.6667,
-        "ability_chronomancer_epoch_crit": 2.6667,
-        "ability_chronomancer_correct_the_mistake_crit": 2.6667
+        "ability_chronomancer_reverse_wound_crit": 1.6,
+        "ability_chronomancer_epoch_crit": 1.6,
+        "ability_chronomancer_correct_the_mistake_crit": 1.6
       },
       "connected_to": [
         "chronomancer_time_fabric_of_time"
@@ -91,7 +91,7 @@
     {
       "talent_id": "chronomancer_time_carbon_dating",
       "name": "Carbon Dating",
-      "description": "Increases the healing of Epoch by 20%.",
+      "description": "Increases the healing of Epoch by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_epoch_healing": 0.0667
+        "ability_chronomancer_epoch_healing": 0.036
       },
       "connected_to": [
         "chronomancer_time_cadence_of_time"
@@ -349,7 +349,7 @@
       "hex_y": 2,
       "effects": {
         "hot_duration_pct": 0.0833,
-        "healing_power_pct": 5
+        "healing_power_pct": 2.7
       },
       "connected_to": [
         "chronomancer_time_timeline_tether"
@@ -448,8 +448,8 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "healing_power_pct": 3.3333,
-        "ability_chronomancer_reverse_wound_healing": 0.0667
+        "healing_power_pct": 1.8,
+        "ability_chronomancer_reverse_wound_healing": 0.036
       },
       "connected_to": [
         "chronomancer_time_the_vast_infinite"
@@ -517,7 +517,7 @@
       "hex_y": 6,
       "effects": {
         "hot_duration_pct": 0.35,
-        "healing_power_pct": 20
+        "healing_power_pct": 10.7
       },
       "connected_to": [],
       "proc": {

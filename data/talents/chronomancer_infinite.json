@@ -79,7 +79,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_unmake_crit": 1.6667
+        "ability_chronomancer_unmake_crit": 1.0
       },
       "connected_to": [
         "chronomancer_infinite_mind_melt"
@@ -139,7 +139,7 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_chronomancer_chromatic_shard_damage": 0.0667
+        "ability_chronomancer_chromatic_shard_damage": 0.036
       },
       "connected_to": [
         "chronomancer_infinite_hourglass_of_eternity"
@@ -173,7 +173,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_chronomancer_anomaly_spike_damage": 0.0667,
+        "ability_chronomancer_anomaly_spike_damage": 0.036,
         "dot_damage": 0.0267
       },
       "connected_to": [
@@ -293,7 +293,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_chronomancer_decomposition_damage": 0.05
+        "ability_chronomancer_decomposition_damage": 0.027
       },
       "connected_to": [
         "chronomancer_infinite_null_orbs"
@@ -337,7 +337,7 @@
     {
       "talent_id": "chronomancer_infinite_crown_of_power",
       "name": "Crown of Power",
-      "description": "Increases the damage of Melt Reality by 25%.",
+      "description": "Increases the damage of Melt Reality by 13.5%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -345,7 +345,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_chronomancer_melt_reality_damage": 0.0833
+        "ability_chronomancer_melt_reality_damage": 0.045
       },
       "connected_to": [
         "chronomancer_infinite_incarnation_of_chaos"
@@ -458,7 +458,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_chronomancer_discordance_damage": 0.0833,
+        "ability_chronomancer_discordance_damage": 0.045,
         "spell_damage": 0.0133
       },
       "connected_to": [
@@ -469,7 +469,7 @@
     {
       "talent_id": "chronomancer_infinite_eternity",
       "name": "Eternity",
-      "description": "While a target is rooted by your Clasp of Infinity, your damage against them is increased. Increases all damage you deal by 5%.",
+      "description": "While a target is rooted by your Clasp of Infinity, your damage against them is increased. Increases all damage you deal by 2.4%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -477,7 +477,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.0167
+        "all_damage": 0.008
       },
       "connected_to": [
         "chronomancer_infinite_infinite_keeper"

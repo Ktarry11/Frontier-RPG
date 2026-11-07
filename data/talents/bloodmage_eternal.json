@@ -224,7 +224,7 @@
     {
       "talent_id": "bloodmage_eternal_enduring",
       "name": "Enduring",
-      "description": "Increases the damage of Bloodbolt by 25%.",
+      "description": "Increases the damage of Bloodbolt by 13.5%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -232,7 +232,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.0833
+        "ability_bloodmage_bloodbolt_damage": 0.045
       },
       "connected_to": [
         "bloodmage_eternal_blood_mark"
@@ -369,7 +369,7 @@
       "hex_y": -2,
       "effects": {
         "threat_generation_pct": 0.05,
-        "all_damage": 0.0167
+        "all_damage": 0.008
       },
       "connected_to": [
         "bloodmage_eternal_appetite_for_blood"
@@ -434,7 +434,7 @@
     {
       "talent_id": "bloodmage_eternal_appetite_for_blood",
       "name": "Appetite for Blood",
-      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 20%.",
+      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 10.8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -442,8 +442,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_bloodmage_bloodfang_bite_damage": 0.0667,
-        "ability_bloodmage_claw_sweep_damage": 0.0667
+        "ability_bloodmage_bloodfang_bite_damage": 0.036,
+        "ability_bloodmage_claw_sweep_damage": 0.036
       },
       "connected_to": [
         "bloodmage_eternal_blood_plague_eternal"
@@ -480,7 +480,7 @@
       "hex_y": 2,
       "effects": {
         "max_health_pct": 0.0333,
-        "healing_taken_pct": 0.05
+        "healing_taken_pct": 0.027
       },
       "connected_to": [
         "bloodmage_eternal_no_mercy"
@@ -622,7 +622,7 @@
     {
       "talent_id": "bloodmage_eternal_cursed_strikes",
       "name": "Cursed Strikes",
-      "description": "Increases the damage of Rotclaw and Hypovolemic Shock by up to 50%.",
+      "description": "Increases the damage of Rotclaw and Hypovolemic Shock by up to 27%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -630,8 +630,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_rotclaw_damage": 0.1667,
-        "ability_bloodmage_hypovolemic_shock_damage": 0.1667
+        "ability_bloodmage_rotclaw_damage": 0.09,
+        "ability_bloodmage_hypovolemic_shock_damage": 0.09
       },
       "connected_to": [
         "bloodmage_eternal_eternal_presence"

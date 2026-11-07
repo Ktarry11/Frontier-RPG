@@ -111,7 +111,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_primordial_blast_damage": 0.04
+        "ability_runemaster_primordial_blast_damage": 0.022
       },
       "connected_to": [
         "runemaster_glyphic_cosmic_impact"
@@ -236,8 +236,8 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_runemaster_glyphic_ruin_damage": 0.03,
-        "ability_runemaster_thaumaturgy_damage": 0.03
+        "ability_runemaster_glyphic_ruin_damage": 0.016,
+        "ability_runemaster_thaumaturgy_damage": 0.016
       },
       "connected_to": [
         "runemaster_glyphic_glyphic_ruin",
@@ -581,7 +581,7 @@
     {
       "talent_id": "runemaster_glyphic_unmaker",
       "name": "Unmaker",
-      "description": "Increases the critical strike damage of Glyphic Ruin by 30%, and its critical strikes grant 2 Runes.",
+      "description": "Increases the critical strike damage of Glyphic Ruin by 16.2%, and its critical strikes grant 2 Runes.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -589,7 +589,7 @@
       "hex_x": 2,
       "hex_y": 6,
       "effects": {
-        "ability_runemaster_glyphic_ruin_crit_damage": 0.3
+        "ability_runemaster_glyphic_ruin_crit_damage": 0.162
       },
       "connected_to": [
         "runemaster_glyphic_kirin_tor_agent",
@@ -741,7 +741,7 @@
       "hex_x": -2,
       "hex_y": 6,
       "effects": {
-        "ability_runemaster_glyphic_ruin_crit": 50.0
+        "ability_runemaster_glyphic_ruin_crit": 30.0
       },
       "connected_to": [
         "runemaster_glyphic_unmaker"

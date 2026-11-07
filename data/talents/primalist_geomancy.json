@@ -128,8 +128,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_stoneshard_damage": 0.0667,
-        "ability_primalist_geode_barrage_damage": 0.0667
+        "ability_primalist_stoneshard_damage": 0.036,
+        "ability_primalist_geode_barrage_damage": 0.036
       },
       "connected_to": [
         "primalist_geomancy_rockslide"
@@ -360,7 +360,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_terrasurge_crit": 13.3333
+        "ability_primalist_terrasurge_crit": 8.0
       },
       "connected_to": [
         "primalist_geomancy_golem_form"
@@ -423,7 +423,7 @@
     {
       "talent_id": "primalist_geomancy_magmatism",
       "name": "Magmatism",
-      "description": "Increases the damage of Magma Fissure by 20%.",
+      "description": "Increases the damage of Magma Fissure by 10.8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -431,7 +431,7 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_magma_fissure_damage": 0.0667
+        "ability_primalist_magma_fissure_damage": 0.036
       },
       "connected_to": [
         "primalist_geomancy_heavy_earth"
@@ -548,7 +548,7 @@
     {
       "talent_id": "primalist_geomancy_heavy_earth",
       "name": "Heavy Earth",
-      "description": "Terrasurge spends the shaped earth, dealing 60% more damage and leaving you unable to shape more for 3 turns.",
+      "description": "Terrasurge spends the shaped earth, dealing 32.4% more damage and leaving you unable to shape more for 3 turns.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -556,7 +556,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_primalist_terrasurge_damage": 0.6
+        "ability_primalist_terrasurge_damage": 0.324
       },
       "connected_to": [],
       "proc": {

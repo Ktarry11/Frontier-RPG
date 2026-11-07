@@ -34,7 +34,7 @@
     {
       "talent_id": "stormbringer_maelstrom_cloudsurfer",
       "name": "Cloudsurfer",
-      "description": "Increases the damage of Shock by 20%.",
+      "description": "Increases the damage of Shock by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.0667
+        "ability_stormbringer_shock_damage": 0.036
       },
       "connected_to": [
         "stormbringer_maelstrom_torrential_rage"
@@ -52,7 +52,7 @@
     {
       "talent_id": "stormbringer_maelstrom_torrential_rage",
       "name": "Torrential Rage",
-      "description": "Increases the damage of Torrential Wrath and Stormflow by 30%.",
+      "description": "Increases the damage of Torrential Wrath and Stormflow by 16.2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,8 +60,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_torrential_wrath_damage": 0.1,
-        "ability_stormbringer_stormflow_damage": 0.1
+        "ability_stormbringer_torrential_wrath_damage": 0.054,
+        "ability_stormbringer_stormflow_damage": 0.054
       },
       "connected_to": [
         "stormbringer_maelstrom_disciple_of_thorim"
@@ -115,7 +115,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_stormflow_crit": 8.3333
+        "ability_stormbringer_stormflow_crit": 5.0
       },
       "connected_to": [
         "stormbringer_maelstrom_blessing_of_lei_shen"
@@ -160,7 +160,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_drown_crit": 16.6667
+        "ability_stormbringer_drown_crit": 10.0
       },
       "connected_to": [
         "stormbringer_maelstrom_conduit"
@@ -170,7 +170,7 @@
     {
       "talent_id": "stormbringer_maelstrom_raining_and_pouring",
       "name": "Raining and Pouring",
-      "description": "Increases the critical strike damage of Torrential Wrath and Electrocute by 30%.",
+      "description": "Increases the critical strike damage of Torrential Wrath and Electrocute by 16.2%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -178,8 +178,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_torrential_wrath_crit_damage": 0.1,
-        "ability_stormbringer_electrocute_crit_damage": 0.1
+        "ability_stormbringer_torrential_wrath_crit_damage": 0.054,
+        "ability_stormbringer_electrocute_crit_damage": 0.054
       },
       "connected_to": [
         "stormbringer_maelstrom_conduit"
@@ -263,7 +263,7 @@
     {
       "talent_id": "stormbringer_maelstrom_voltaic_mastery",
       "name": "Voltaic Mastery",
-      "description": "Increases the damage of Deluge by 25%.",
+      "description": "Increases the damage of Deluge by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -271,7 +271,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_stormbringer_deluge_damage": 0.0833
+        "ability_stormbringer_deluge_damage": 0.045
       },
       "connected_to": [
         "stormbringer_maelstrom_kinetic_energy"
@@ -321,7 +321,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_electrocute_crit": 8.3333
+        "ability_stormbringer_electrocute_crit": 5.0
       },
       "connected_to": [
         "stormbringer_maelstrom_bursting"
@@ -331,7 +331,7 @@
     {
       "talent_id": "stormbringer_maelstrom_bursting",
       "name": "Bursting",
-      "description": "Increases the damage of Drown by 30%.",
+      "description": "Increases the damage of Drown by 16.2%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -339,7 +339,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_drown_damage": 0.1
+        "ability_stormbringer_drown_damage": 0.054
       },
       "connected_to": [
         "stormbringer_maelstrom_unbridled_flow"
@@ -349,7 +349,7 @@
     {
       "talent_id": "stormbringer_maelstrom_unbridled_flow",
       "name": "Unbridled Flow",
-      "description": "Increases the damage of Shock by a further 15%.",
+      "description": "Increases the damage of Shock by a further 8.1%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -357,7 +357,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.05
+        "ability_stormbringer_shock_damage": 0.027
       },
       "connected_to": [
         "stormbringer_maelstrom_unstable"
@@ -463,7 +463,7 @@
     {
       "talent_id": "stormbringer_maelstrom_hydromatic",
       "name": "Hydromatic",
-      "description": "Increases the damage of Electrocute by 50%.",
+      "description": "Increases the damage of Electrocute by 27%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -471,7 +471,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_stormbringer_electrocute_damage": 0.1667
+        "ability_stormbringer_electrocute_damage": 0.09
       },
       "connected_to": [
         "stormbringer_maelstrom_static_electricity"
@@ -481,7 +481,7 @@
     {
       "talent_id": "stormbringer_maelstrom_conductor_in_charge",
       "name": "Conductor In Charge",
-      "description": "Increases all damage you deal by 8%.",
+      "description": "Increases all damage you deal by 3.9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -489,7 +489,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.0267
+        "all_damage": 0.013
       },
       "connected_to": [
         "stormbringer_maelstrom_static_electricity"
@@ -552,7 +552,7 @@
     {
       "talent_id": "stormbringer_maelstrom_mystic_thunder",
       "name": "Mystic Thunder",
-      "description": "Increases the damage of Torrential Wrath by 40%.",
+      "description": "Increases the damage of Torrential Wrath by 21.6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -560,7 +560,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_stormbringer_torrential_wrath_damage": 0.1333
+        "ability_stormbringer_torrential_wrath_damage": 0.072
       },
       "connected_to": [
         "stormbringer_maelstrom_stormfury"

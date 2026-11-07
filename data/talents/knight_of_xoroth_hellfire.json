@@ -81,9 +81,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_crit": 1.6667,
-        "ability_knight_of_xoroth_warbringer_crit": 1.6667,
-        "ability_knight_of_xoroth_meatsaw_crit": 1.6667
+        "ability_knight_of_xoroth_skulltaker_crit": 1.0,
+        "ability_knight_of_xoroth_warbringer_crit": 1.0,
+        "ability_knight_of_xoroth_meatsaw_crit": 1.0
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_flamewrath"
@@ -101,7 +101,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_knight_of_xoroth_seeking_flame_crit": 6.6667
+        "ability_knight_of_xoroth_seeking_flame_crit": 4.0
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_hellmaw"
@@ -129,7 +129,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_invasion",
       "name": "Invasion",
-      "description": "Increases all damage you deal by 20%.",
+      "description": "Increases all damage you deal by 9.9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -137,7 +137,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "all_damage": 0.0667
+        "all_damage": 0.033
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_pestilence_of_apocalypse"
@@ -192,7 +192,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_knight_of_xoroth_seeking_flame_damage": 0.1,
+        "ability_knight_of_xoroth_seeking_flame_damage": 0.054,
         "ability_knight_of_xoroth_seeking_flame_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -203,7 +203,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_hellfire_embers",
       "name": "Hellfire Embers",
-      "description": "Increases the damage your Hellfire Imp deals by 30%.",
+      "description": "Increases the damage your Hellfire Imp deals by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -211,7 +211,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.1
+        "pet_damage": 0.04
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_calamity"
@@ -221,7 +221,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_calamity",
       "name": "Calamity",
-      "description": "Increases the damage of Unleash Pestilence by 25%.",
+      "description": "Increases the damage of Unleash Pestilence by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -229,7 +229,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.0833
+        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.045
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_claws_of_hell"
@@ -239,7 +239,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_claws_of_hell",
       "name": "Claws of Hell",
-      "description": "Increases the damage of your Deathfire spenders by 20%.",
+      "description": "Increases the damage of your Deathfire spenders by 10.8%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -247,9 +247,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.0667,
-        "ability_knight_of_xoroth_warbringer_damage": 0.0667,
-        "ability_knight_of_xoroth_meatsaw_damage": 0.0667
+        "ability_knight_of_xoroth_skulltaker_damage": 0.036,
+        "ability_knight_of_xoroth_warbringer_damage": 0.036,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.036
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_seething_strikes"
@@ -267,7 +267,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_sever_damage": 0.1
+        "ability_knight_of_xoroth_sever_damage": 0.054
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_inferno_blast"
@@ -430,7 +430,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_doom",
       "name": "Doom",
-      "description": "Increases the damage your demons deal by a further 40%.",
+      "description": "Increases the damage your demons deal by a further 15.9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -438,7 +438,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "pet_damage": 0.1333
+        "pet_damage": 0.053
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_hellbringer"
@@ -448,7 +448,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_hellbringer",
       "name": "Hellbringer",
-      "description": "Increases all damage you deal by a further 10%.",
+      "description": "Increases all damage you deal by a further 5.1%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -456,7 +456,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_grotesque"
@@ -551,10 +551,10 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_knight_of_xoroth_hellstorm_damage": 0.4,
-        "ability_knight_of_xoroth_hellmaw_damage": 0.4,
-        "ability_knight_of_xoroth_seeking_flame_damage": 0.4,
-        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.4,
+        "ability_knight_of_xoroth_hellstorm_damage": 0.216,
+        "ability_knight_of_xoroth_hellmaw_damage": 0.216,
+        "ability_knight_of_xoroth_seeking_flame_damage": 0.216,
+        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.216,
         "dot_damage": 0.25
       },
       "connected_to": [],

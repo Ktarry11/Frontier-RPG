@@ -63,7 +63,7 @@
       "hex_y": -6,
       "effects": {
         "hit_rating": 1.3333,
-        "ability_templar_chastise_damage": 0.0333
+        "ability_templar_chastise_damage": 0.018
       },
       "connected_to": [
         "templar_crusader_chivalric"
@@ -91,7 +91,7 @@
     {
       "talent_id": "templar_crusader_paladin_training",
       "name": "Paladin Training",
-      "description": "Increases the damage of Righteous Lunge and Argent Blade by 20%.",
+      "description": "Increases the damage of Righteous Lunge and Argent Blade by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,8 +99,8 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_templar_righteous_lunge_damage": 0.0667,
-        "ability_templar_argent_blade_damage": 0.0667
+        "ability_templar_righteous_lunge_damage": 0.036,
+        "ability_templar_argent_blade_damage": 0.036
       },
       "connected_to": [
         "templar_crusader_warrior_of_tyr"
@@ -213,8 +213,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_templar_argent_blade_damage": 0.0667,
-        "ability_templar_argent_blade_crit": 6.6667
+        "ability_templar_argent_blade_damage": 0.036,
+        "ability_templar_argent_blade_crit": 4.0
       },
       "connected_to": [
         "templar_crusader_righteousness"
@@ -277,7 +277,7 @@
     {
       "talent_id": "templar_crusader_tyrs_blessing",
       "name": "Tyr's Blessing",
-      "description": "Increases the damage of Condemn by 25%.",
+      "description": "Increases the damage of Condemn by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -285,7 +285,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_templar_condemn_damage": 0.0833
+        "ability_templar_condemn_damage": 0.045
       },
       "connected_to": [
         "templar_crusader_templars_might"
@@ -295,7 +295,7 @@
     {
       "talent_id": "templar_crusader_templars_might",
       "name": "Templar's Might",
-      "description": "Increases the damage of Righteous Lunge and Chastise by 30%.",
+      "description": "Increases the damage of Righteous Lunge and Chastise by 16.2%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -303,8 +303,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_templar_righteous_lunge_damage": 0.1,
-        "ability_templar_chastise_damage": 0.1
+        "ability_templar_righteous_lunge_damage": 0.054,
+        "ability_templar_chastise_damage": 0.054
       },
       "connected_to": [
         "templar_crusader_scarlet_secrets"
@@ -346,7 +346,7 @@
     {
       "talent_id": "templar_crusader_focused",
       "name": "Focused",
-      "description": "Increases the damage of Blade of Faith and Righteous Tempest by 25%.",
+      "description": "Increases the damage of Blade of Faith and Righteous Tempest by 13.5%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -354,8 +354,8 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_templar_blade_of_faith_damage": 0.0833,
-        "ability_templar_righteous_tempest_damage": 0.0833
+        "ability_templar_blade_of_faith_damage": 0.045,
+        "ability_templar_righteous_tempest_damage": 0.045
       },
       "connected_to": [
         "templar_crusader_holy_tempest"
@@ -394,7 +394,7 @@
     {
       "talent_id": "templar_crusader_judgement",
       "name": "Judgement",
-      "description": "Increases the damage of Scarlet Hammer and Titanstrike by 25%.",
+      "description": "Increases the damage of Scarlet Hammer and Titanstrike by 13.5%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -402,8 +402,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_templar_scarlet_hammer_damage": 0.0833,
-        "ability_templar_titanstrike_damage": 0.0833
+        "ability_templar_scarlet_hammer_damage": 0.045,
+        "ability_templar_titanstrike_damage": 0.045
       },
       "connected_to": [
         "templar_crusader_crusaders_brand"
@@ -487,7 +487,7 @@
     {
       "talent_id": "templar_crusader_scarlet_training",
       "name": "Scarlet Training",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all damage you deal by 5.1%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -495,7 +495,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "templar_crusader_holy_fervor"
@@ -540,12 +540,12 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_templar_righteous_lunge_crit": 2.6667,
-        "ability_templar_condemn_crit": 2.6667,
-        "ability_templar_holy_cleave_crit": 2.6667,
-        "ability_templar_vindication_crit": 2.6667,
-        "ability_templar_sacred_swing_crit": 2.6667,
-        "ability_templar_argent_blade_crit": 2.6667
+        "ability_templar_righteous_lunge_crit": 1.6,
+        "ability_templar_condemn_crit": 1.6,
+        "ability_templar_holy_cleave_crit": 1.6,
+        "ability_templar_vindication_crit": 1.6,
+        "ability_templar_sacred_swing_crit": 1.6,
+        "ability_templar_argent_blade_crit": 1.6
       },
       "connected_to": [
         "templar_crusader_crusading_strike"
@@ -594,9 +594,9 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_templar_scarlet_hammer_damage": 0.5,
-        "ability_templar_titanstrike_damage": 0.5,
-        "all_damage": 0.1
+        "ability_templar_scarlet_hammer_damage": 0.27,
+        "ability_templar_titanstrike_damage": 0.27,
+        "all_damage": 0.05
       },
       "connected_to": [],
       "_source": "Templar's three gated abilities are one per tree and this tree's sits at tier 4 (Righteous Tempest), so unlike Zealot and Oathkeeper this capstone grants no ability - it is a pure payoff node. Built on CoA's execute pair, Titanstrike and Scarlet Hammer, which Judgement at tier 3 also feeds, plus flat damage. The shipped tree had no tier-6 node at all for Crusader, so this is new rather than a rebuild, and it is NOT a port of a specific CoA talent - flagged as such."

@@ -27,7 +27,9 @@
     "",
     "BOSS IMMUNITY: an ability with \"boss_immune\": true has its CONTROL portion ignored by anything flagged is_boss. Kyle, 6 Nov: 'for the really strong skills make it so they dont work on bosses.' Forced targeting, forced enemy-vs-enemy and threat wipes are the effects that would otherwise trivialise a boss fight; the damage or self-buff half of the same ability still applies.",
     "",
-    "DESCRIPTIONS STATE THE MECHANIC. Kyle, 6 Nov: 'dont give weird ass \"and they dont say why\" etc.' The character lives in the 'from' field and in the ability NAME; the description says what the button does. Coy withholding in a tooltip is a player reading the same sentence twice and still not knowing the number."
+    "DESCRIPTIONS STATE THE MECHANIC. Kyle, 6 Nov: 'dont give weird ass \"and they dont say why\" etc.' The character lives in the 'from' field and in the ability NAME; the description says what the button does. Coy withholding in a tooltip is a player reading the same sentence twice and still not knowing the number.",
+    "",
+    "LIVES IN data/npcs/, NOT data/abilities/. It was authored there first and broke two QA scripts: qa_ability_scoped_fields globs data/abilities/*.json and CRASHED on a file keyed by recruit_id rather than ability_id, and qa_ability_text flagged four descriptions for stating no number. A personal kit is per-RECRUIT data, so it belongs beside recruits.json; nothing in data/abilities/ is keyed by anything but ability_id and this file should not have been the exception."
   ],
   "dan_warrior": {
     "name": "Dan Okafor",

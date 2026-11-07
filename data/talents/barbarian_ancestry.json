@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_keg_smash_damage": 0.0667,
+        "ability_barbarian_keg_smash_damage": 0.036,
         "aoe_damage": 0.05
       },
       "connected_to": [
@@ -44,7 +44,7 @@
       "hex_y": -6,
       "effects": {
         "hit_rating": 1.6667,
-        "pet_damage": 0.0667
+        "pet_damage": 0.027
       },
       "connected_to": [
         "barbarian_ancestry_uniting_voice",
@@ -65,7 +65,7 @@
       "effects": {
         "ability_barbarian_ancestral_roar_cooldown_pct": 0.1167,
         "ability_barbarian_warband_cooldown_pct": 0.1167,
-        "ability_barbarian_ancestral_roar_healing": 0.0833
+        "ability_barbarian_ancestral_roar_healing": 0.044
       },
       "connected_to": [
         "barbarian_ancestry_ancestral_wisdom"
@@ -124,9 +124,9 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_barbarian_breath_of_the_north_crit": 5,
-        "ability_barbarian_hodirs_wrath_crit": 5,
-        "ability_barbarian_frozen_tankard_crit": 5
+        "ability_barbarian_breath_of_the_north_crit": 3.0,
+        "ability_barbarian_hodirs_wrath_crit": 3.0,
+        "ability_barbarian_frozen_tankard_crit": 3.0
       },
       "connected_to": [
         "barbarian_ancestry_the_spins"
@@ -169,7 +169,7 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "pet_damage": 0.1,
+        "pet_damage": 0.04,
         "pet_health": 0.0833
       },
       "connected_to": [
@@ -293,8 +293,8 @@
       "effects": {
         "ability_barbarian_ramhorn_rage_cooldown_pct": 0.1333,
         "ability_barbarian_warband_cooldown_pct": 0.1333,
-        "ability_barbarian_ramhorn_rage_healing": 0.0833,
-        "ability_barbarian_warband_healing": 0.0833
+        "ability_barbarian_ramhorn_rage_healing": 0.044,
+        "ability_barbarian_warband_healing": 0.044
       },
       "connected_to": [
         "barbarian_ancestry_ancestral_spirit"
@@ -353,7 +353,7 @@
       "hex_y": -4,
       "effects": {
         "frost_spell_damage": 0.0333,
-        "ability_barbarian_frozen_tankard_damage": 0.1
+        "ability_barbarian_frozen_tankard_damage": 0.054
       },
       "connected_to": [
         "barbarian_ancestry_trip_to_the_alehouse"
@@ -415,7 +415,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_savage_revelry_healing": 0.1167,
+        "ability_barbarian_savage_revelry_healing": 0.062,
         "ability_barbarian_savage_revelry_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -435,7 +435,7 @@
       "hex_y": 6,
       "effects": {
         "all_ability_cost_pct": 0.2,
-        "pet_damage": 0.35
+        "pet_damage": 0.14
       },
       "connected_to": [],
       "proc": {

@@ -43,8 +43,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_venom_bolt_damage": 0.1,
-        "ability_venomancer_venom_bolt_crit": 2.0
+        "ability_venomancer_venom_bolt_damage": 0.054,
+        "ability_venomancer_venom_bolt_crit": 1.2
       },
       "connected_to": [
         "venomancer_venom_rotpriest"
@@ -91,7 +91,7 @@
     {
       "talent_id": "venomancer_venom_serpents_embrace",
       "name": "Serpent's Embrace",
-      "description": "Increases the damage of Serpent's Fang by 30%.",
+      "description": "Increases the damage of Serpent's Fang by 16.2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_serpents_fang_damage": 0.1
+        "ability_venomancer_serpents_fang_damage": 0.054
       },
       "connected_to": [
         "venomancer_venom_fungal_growth"
@@ -222,7 +222,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_wilt_damage": 0.0667,
+        "ability_venomancer_wilt_damage": 0.036,
         "hit_rating": 1
       },
       "connected_to": [
@@ -233,7 +233,7 @@
     {
       "talent_id": "venomancer_venom_mycosis",
       "name": "Mycosis",
-      "description": "Increases the damage of Mycosis by 50%.",
+      "description": "Increases the damage of Mycosis by 27%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -241,7 +241,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_mycosis_damage": 0.1667
+        "ability_venomancer_mycosis_damage": 0.09
       },
       "connected_to": [
         "venomancer_venom_captivation"
@@ -251,7 +251,7 @@
     {
       "talent_id": "venomancer_venom_captivation",
       "name": "Captivation",
-      "description": "Increases the damage of Mycosis by a further 25%.",
+      "description": "Increases the damage of Mycosis by a further 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -259,7 +259,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_mycosis_damage": 0.0833
+        "ability_venomancer_mycosis_damage": 0.045
       },
       "connected_to": [
         "venomancer_venom_a_pit_of_snakes"
@@ -437,7 +437,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_venomancer_decay_damage": 0.1333,
+        "ability_venomancer_decay_damage": 0.072,
         "ability_venomancer_decay_cooldown_pct": 0.0833
       },
       "connected_to": [
@@ -654,8 +654,8 @@
       "hex_y": 6,
       "effects": {
         "dot_damage": 0.4,
-        "ability_venomancer_wilt_damage": 0.5,
-        "ability_venomancer_spore_damage": 0.5
+        "ability_venomancer_wilt_damage": 0.27,
+        "ability_venomancer_spore_damage": 0.27
       },
       "connected_to": [],
       "_source": "CoA's own description for the Rot Lich ability is the unresolved token '$b2', and its Suffocating Coils talent is '$b0', so there is no verbatim text for either and this capstone is NOT a faithful copy - it is named from CoA's own title and built as the payoff the tree points at. Flagged so a later pass can correct it if the real text surfaces, the same situation as Brewing's Mixologist ('$40'), Lightning's Umbral Glaive ('$42') and Wind's Tempest Calling ('$4c'). CoA's Mycelial Ring is the other candidate for this slot and is not built: it places a damaging ring with twelve Mushrooms and then heals allies inside it, which needs ground placement, delayed detonation and an area heal, none of which exist."

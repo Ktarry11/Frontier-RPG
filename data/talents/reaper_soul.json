@@ -42,7 +42,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_deathchaser_damage": 0.05,
+        "ability_reaper_deathchaser_damage": 0.027,
         "hit_rating": 1
       },
       "connected_to": [
@@ -54,7 +54,7 @@
     {
       "talent_id": "reaper_soul_ghostly_magic",
       "name": "Ghostly Magic",
-      "description": "Increases the damage of Reap, Dirge and Reliquary of the Lost by 20%.",
+      "description": "Increases the damage of Reap, Dirge and Reliquary of the Lost by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,9 +62,9 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_reap_damage": 0.0667,
-        "ability_reaper_dirge_damage": 0.0667,
-        "ability_reaper_reliquary_of_the_lost_damage": 0.0667
+        "ability_reaper_reap_damage": 0.036,
+        "ability_reaper_dirge_damage": 0.036,
+        "ability_reaper_reliquary_of_the_lost_damage": 0.036
       },
       "connected_to": [
         "reaper_soul_soul_generator"
@@ -101,9 +101,9 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_murder_damage": 0.1,
-        "ability_reaper_soul_strike_damage": 0.1,
-        "ability_reaper_deathwind_healing": 0.0667
+        "ability_reaper_murder_damage": 0.054,
+        "ability_reaper_soul_strike_damage": 0.054,
+        "ability_reaper_deathwind_healing": 0.036
       },
       "connected_to": [
         "reaper_soul_lamenting"
@@ -188,9 +188,9 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_reaper_reap_crit": 3.3333,
-        "ability_reaper_deathchaser_crit": 3.3333,
-        "ability_reaper_wraithblade_crit": 3.3333,
+        "ability_reaper_reap_crit": 2.0,
+        "ability_reaper_deathchaser_crit": 2.0,
+        "ability_reaper_wraithblade_crit": 2.0,
         "crit_damage_physical": 0.05
       },
       "connected_to": [
@@ -365,7 +365,7 @@
     {
       "talent_id": "reaper_soul_shattered_souls",
       "name": "Shattered Souls",
-      "description": "Increases the damage of Wraithblade by 40%.",
+      "description": "Increases the damage of Wraithblade by 21.6%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -373,7 +373,7 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_reaper_wraithblade_damage": 0.1333
+        "ability_reaper_wraithblade_damage": 0.072
       },
       "connected_to": [
         "reaper_soul_purgatory"
@@ -391,8 +391,8 @@
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_reaper_spectre_stride_damage": 0.1,
-        "ability_reaper_deathchaser_damage": 0.05
+        "ability_reaper_spectre_stride_damage": 0.054,
+        "ability_reaper_deathchaser_damage": 0.027
       },
       "connected_to": [
         "reaper_soul_the_jailers_call"
@@ -443,7 +443,7 @@
     {
       "talent_id": "reaper_soul_endbringer",
       "name": "Endbringer",
-      "description": "Teaches Endbringer. While it is active your critical strikes generate 20 additional souls, and Dirge deals 30% more damage.",
+      "description": "Teaches Endbringer. While it is active your critical strikes generate 20 additional souls, and Dirge deals 16.2% more damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -452,7 +452,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "reaper_endbringer",
-        "ability_reaper_dirge_damage": 0.3
+        "ability_reaper_dirge_damage": 0.162
       },
       "connected_to": [],
       "proc": {

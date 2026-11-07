@@ -34,7 +34,7 @@
     {
       "talent_id": "stormbringer_lightning_electric_energy",
       "name": "Electric Energy",
-      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by 20%.",
+      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,9 +42,9 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.0667,
-        "ability_stormbringer_conjure_storm_damage": 0.0667,
-        "ability_stormbringer_arm_of_thorim_damage": 0.0667
+        "ability_stormbringer_shock_damage": 0.036,
+        "ability_stormbringer_conjure_storm_damage": 0.036,
+        "ability_stormbringer_arm_of_thorim_damage": 0.036
       },
       "connected_to": [
         "stormbringer_lightning_wicked_storms"
@@ -98,9 +98,9 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_stormbringer_shock_crit": 2.6667,
-        "ability_stormbringer_conjure_storm_crit": 2.6667,
-        "ability_stormbringer_arm_of_thorim_crit": 2.6667
+        "ability_stormbringer_shock_crit": 1.6,
+        "ability_stormbringer_conjure_storm_crit": 1.6,
+        "ability_stormbringer_arm_of_thorim_crit": 1.6
       },
       "connected_to": [
         "stormbringer_lightning_invoking_storms"
@@ -110,7 +110,7 @@
     {
       "talent_id": "stormbringer_lightning_invoking_storms",
       "name": "Invoking Storms",
-      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by a further 30%.",
+      "description": "Increases the damage of Shock, Conjure Storm and Arm of Thorim by a further 16.2%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -118,9 +118,9 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_shock_damage": 0.1,
-        "ability_stormbringer_conjure_storm_damage": 0.1,
-        "ability_stormbringer_arm_of_thorim_damage": 0.1
+        "ability_stormbringer_shock_damage": 0.054,
+        "ability_stormbringer_conjure_storm_damage": 0.054,
+        "ability_stormbringer_arm_of_thorim_damage": 0.054
       },
       "connected_to": [
         "stormbringer_lightning_voltaic_bursts"
@@ -130,7 +130,7 @@
     {
       "talent_id": "stormbringer_lightning_superconductor",
       "name": "Superconductor",
-      "description": "Increases the damage of Arm of Thorim by 40%.",
+      "description": "Increases the damage of Arm of Thorim by 21.6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -138,7 +138,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_arm_of_thorim_damage": 0.1333
+        "ability_stormbringer_arm_of_thorim_damage": 0.072
       },
       "connected_to": [
         "stormbringer_lightning_voltaic_bursts"
@@ -174,8 +174,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_electrocute_damage": 0.0667,
-        "ability_stormbringer_electrocute_crit": 6.6667
+        "ability_stormbringer_electrocute_damage": 0.036,
+        "ability_stormbringer_electrocute_crit": 4.0
       },
       "connected_to": [
         "stormbringer_lightning_never_strikes_twice"
@@ -370,7 +370,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_arm_of_thorim_crit": 10
+        "ability_stormbringer_arm_of_thorim_crit": 6.0
       },
       "connected_to": [
         "stormbringer_lightning_thorims_gift"
@@ -413,7 +413,7 @@
     {
       "talent_id": "stormbringer_lightning_stormy_days",
       "name": "Stormy Days",
-      "description": "Increases the damage of Conjure Storm by 25%.",
+      "description": "Increases the damage of Conjure Storm by 13.5%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -421,7 +421,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_stormbringer_conjure_storm_damage": 0.0833
+        "ability_stormbringer_conjure_storm_damage": 0.045
       },
       "connected_to": [
         "stormbringer_lightning_lightning_rod"
@@ -486,7 +486,7 @@
     {
       "talent_id": "stormbringer_lightning_crackling_devastation",
       "name": "Crackling Devastation",
-      "description": "Increases the critical strike damage of Electrocute by 30%.",
+      "description": "Increases the critical strike damage of Electrocute by 16.2%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -494,7 +494,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_stormbringer_electrocute_crit_damage": 0.1
+        "ability_stormbringer_electrocute_crit_damage": 0.054
       },
       "connected_to": [
         "stormbringer_lightning_thundershocker"
@@ -612,9 +612,9 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_stormbringer_forked_lightning_damage": 0.3,
-        "ability_stormbringer_conjure_storm_damage": 0.3,
-        "ability_stormbringer_electrocute_damage": 0.3
+        "ability_stormbringer_forked_lightning_damage": 0.162,
+        "ability_stormbringer_conjure_storm_damage": 0.162,
+        "ability_stormbringer_electrocute_damage": 0.162
       },
       "connected_to": [],
       "proc": {

@@ -208,7 +208,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_warden_of_hellfire",
       "name": "Warden of Hellfire",
-      "description": "Increases the damage of Skulltaker and Flames of Xoroth by 20%.",
+      "description": "Increases the damage of Skulltaker and Flames of Xoroth by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -216,8 +216,8 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.0667,
-        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.0667
+        "ability_knight_of_xoroth_skulltaker_damage": 0.036,
+        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.036
       },
       "connected_to": [
         "knight_of_xoroth_defiance_imp_gang_boss"
@@ -227,7 +227,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_imp_gang_boss",
       "name": "Imp Gang Boss",
-      "description": "Increases the damage and health of your imps by 40%.",
+      "description": "Increases the damage and health of your imps by 15.9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -235,7 +235,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "pet_damage": 0.1333,
+        "pet_damage": 0.053,
         "pet_health": 0.1333
       },
       "connected_to": [
@@ -298,7 +298,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_sacrificial_circle_healing": 0.1667,
+        "ability_knight_of_xoroth_sacrificial_circle_healing": 0.089,
         "ability_knight_of_xoroth_sacrificial_circle_cooldown_pct": 0.0833
       },
       "connected_to": [
@@ -399,7 +399,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_stoke_the_flames",
       "name": "Stoke the Flames",
-      "description": "Increases the damage of Skulltaker and Melt by 30%.",
+      "description": "Increases the damage of Skulltaker and Melt by 16.2%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -407,8 +407,8 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.1,
-        "ability_knight_of_xoroth_melt_damage": 0.1
+        "ability_knight_of_xoroth_skulltaker_damage": 0.054,
+        "ability_knight_of_xoroth_melt_damage": 0.054
       },
       "connected_to": [
         "knight_of_xoroth_defiance_implosion"
@@ -426,7 +426,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_knight_of_xoroth_implosion_damage": 0.1333,
+        "ability_knight_of_xoroth_implosion_damage": 0.072,
         "ability_knight_of_xoroth_implosion_cooldown_pct": 0.0833
       },
       "connected_to": [
@@ -569,7 +569,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_call_hellfire_abyssal",
       "name": "Call: Hellfire Abyssal",
-      "description": "Teaches Call: Hellfire Abyssal, and your demons hit 40% harder.",
+      "description": "Teaches Call: Hellfire Abyssal, and your demons hit 16% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -578,7 +578,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "knight_of_xoroth_call_hellfire_abyssal",
-        "pet_damage": 0.4
+        "pet_damage": 0.16
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: knight_of_xoroth_call_hellfire_abyssal carries requires_talent, so without this node it is unobtainable forever. It completes Knight of Xoroth's five gated abilities - Gore and Brimstone Bludgeon in War, Hellmaw in Hellfire, Shieldgore and this in Defiance - and main() asserts both of this tree's. The pet damage is added because a capstone granting only an ability is thin, and it pays off the swarm the whole tree builds: with Imp Gang Boss and Hellfire Legion it reaches 80% pet damage on a full Defiance build. The key is live because this class really summons."

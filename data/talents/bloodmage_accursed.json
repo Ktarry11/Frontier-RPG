@@ -25,10 +25,10 @@
       "hex_y": -6,
       "effects": {
         "armor_penetration_pct": 10,
-        "ability_bloodmage_bloodbolt_damage": 0.1,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.1,
-        "ability_bloodmage_veinburst_damage": 0.1,
-        "ability_bloodmage_hemoburst_damage": 0.1
+        "ability_bloodmage_bloodbolt_damage": 0.054,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.054,
+        "ability_bloodmage_veinburst_damage": 0.054,
+        "ability_bloodmage_hemoburst_damage": 0.054
       },
       "connected_to": [
         "bloodmage_accursed_puncturing_fangs"
@@ -47,7 +47,7 @@
       "hex_y": -6,
       "effects": {
         "spell_power_from_ap_pct": 0.05,
-        "ability_bloodmage_reave_damage": 0.0667
+        "ability_bloodmage_reave_damage": 0.036
       },
       "connected_to": [
         "bloodmage_accursed_puncturing_fangs"
@@ -66,7 +66,7 @@
       "hex_y": -6,
       "effects": {
         "haste": 2,
-        "all_damage": 0.02
+        "all_damage": 0.01
       },
       "connected_to": [
         "bloodmage_accursed_fang_over_fang"
@@ -228,8 +228,8 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_bloodbolt_crit": 3.3333,
-        "ability_bloodmage_aortic_assault_crit": 3.3333
+        "ability_bloodmage_bloodbolt_crit": 2.0,
+        "ability_bloodmage_aortic_assault_crit": 2.0
       },
       "connected_to": [
         "bloodmage_accursed_gore_barrage"
@@ -276,7 +276,7 @@
     {
       "talent_id": "bloodmage_accursed_terrorizer",
       "name": "Terrorizer",
-      "description": "Increases the damage of Veinburst, Bloodfang Bite and Claw Sweep by 25%.",
+      "description": "Increases the damage of Veinburst, Bloodfang Bite and Claw Sweep by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -284,9 +284,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_bloodmage_veinburst_damage": 0.0833,
-        "ability_bloodmage_bloodfang_bite_damage": 0.0833,
-        "ability_bloodmage_claw_sweep_damage": 0.0833
+        "ability_bloodmage_veinburst_damage": 0.045,
+        "ability_bloodmage_bloodfang_bite_damage": 0.045,
+        "ability_bloodmage_claw_sweep_damage": 0.045
       },
       "connected_to": [
         "bloodmage_accursed_cursed_blood"
@@ -652,8 +652,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_veinburst_damage": 0.1667,
-        "ability_bloodmage_veinburst_crit_damage": 0.0833
+        "ability_bloodmage_veinburst_damage": 0.09,
+        "ability_bloodmage_veinburst_crit_damage": 0.045
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
@@ -671,8 +671,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_ravenous_strike_crit": 3.3333,
-        "ability_bloodmage_claw_sweep_crit": 3.3333,
+        "ability_bloodmage_ravenous_strike_crit": 2.0,
+        "ability_bloodmage_claw_sweep_crit": 2.0,
         "crit_damage_physical": 0.0333
       },
       "connected_to": [
@@ -683,7 +683,7 @@
     {
       "talent_id": "bloodmage_accursed_reave_mastery",
       "name": "Reave",
-      "description": "Increases the damage of Reave by 60%.",
+      "description": "Increases the damage of Reave by 32.4%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -691,7 +691,7 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_reave_damage": 0.2
+        "ability_bloodmage_reave_damage": 0.108
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
@@ -709,10 +709,10 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.25,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.25,
-        "ability_bloodmage_veinburst_damage": 0.25,
-        "ability_bloodmage_hemoburst_damage": 0.25
+        "ability_bloodmage_bloodbolt_damage": 0.135,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.135,
+        "ability_bloodmage_veinburst_damage": 0.135,
+        "ability_bloodmage_hemoburst_damage": 0.135
       },
       "connected_to": [],
       "proc": {

@@ -263,8 +263,8 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_necromancer_crypt_swarm_damage": 0.0667,
-        "ability_necromancer_corpse_explosion_damage": 0.05
+        "ability_necromancer_crypt_swarm_damage": 0.036,
+        "ability_necromancer_corpse_explosion_damage": 0.027
       },
       "connected_to": [
         "necromancer_death_death_commander"
@@ -351,7 +351,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_necromancer_plague_of_undeath_damage": 0.1167
+        "ability_necromancer_plague_of_undeath_damage": 0.063
       },
       "connected_to": [
         "necromancer_death_damnation"
@@ -377,7 +377,7 @@
     {
       "talent_id": "necromancer_death_lichplague",
       "name": "Lichplague",
-      "description": "Increases the damage of Lichplague and Virulency by 30%.",
+      "description": "Increases the damage of Lichplague and Virulency by 16.2%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -385,8 +385,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_lichplague_damage": 0.1,
-        "ability_necromancer_virulency_damage": 0.1
+        "ability_necromancer_lichplague_damage": 0.054,
+        "ability_necromancer_virulency_damage": 0.054
       },
       "connected_to": [
         "necromancer_death_plague_science"
@@ -404,8 +404,8 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_flesh_to_worms_crit": 8.3333,
-        "ability_necromancer_lichplague_crit": 8.3333
+        "ability_necromancer_flesh_to_worms_crit": 5.0,
+        "ability_necromancer_lichplague_crit": 5.0
       },
       "connected_to": [
         "necromancer_death_damnation"
@@ -423,7 +423,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_lichfrost_damage": 0.0833,
+        "ability_necromancer_lichfrost_damage": 0.045,
         "crit_damage_spell": 0.0667
       },
       "connected_to": [
@@ -442,8 +442,8 @@
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_harvest_plague_damage": 0.1,
-        "ability_necromancer_harvest_plague_healing": 0.0833
+        "ability_necromancer_harvest_plague_damage": 0.054,
+        "ability_necromancer_harvest_plague_healing": 0.044
       },
       "connected_to": [
         "necromancer_death_lichplague"

@@ -44,8 +44,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_sargeron_smite_crit": 3.3333,
-        "ability_felsworn_fel_fireball_crit": 3.3333
+        "ability_felsworn_sargeron_smite_crit": 2.0,
+        "ability_felsworn_fel_fireball_crit": 2.0
       },
       "connected_to": [
         "felsworn_infernal_black_magic",
@@ -75,7 +75,7 @@
     {
       "talent_id": "felsworn_infernal_black_magic",
       "name": "Black Magic",
-      "description": "Increases the damage of Bane of Chaos and Ruin by 20%.",
+      "description": "Increases the damage of Bane of Chaos and Ruin by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -83,8 +83,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_bane_of_chaos_damage": 0.0667,
-        "ability_felsworn_ruin_damage": 0.0667
+        "ability_felsworn_bane_of_chaos_damage": 0.036,
+        "ability_felsworn_ruin_damage": 0.036
       },
       "connected_to": [
         "felsworn_infernal_nether_spirit"
@@ -326,7 +326,7 @@
     {
       "talent_id": "felsworn_infernal_sargeras_embrace",
       "name": "Sargeras Embrace",
-      "description": "Increases the damage of Sargeras Embrace by 45% and its duration by 2 turns.",
+      "description": "Increases the damage of Sargeras Embrace by 24.3% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -334,7 +334,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_felsworn_sargeras_embrace_damage": 0.45,
+        "ability_felsworn_sargeras_embrace_damage": 0.243,
         "ability_felsworn_sargeras_embrace_duration": 2
       },
       "connected_to": [
@@ -353,9 +353,9 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_fel_fireball_damage": 0.0833,
+        "ability_felsworn_fel_fireball_damage": 0.045,
         "ability_felsworn_felwrath_cost_pct": 0.0833,
-        "ability_felsworn_felwrath_damage": 0.0833
+        "ability_felsworn_felwrath_damage": 0.045
       },
       "connected_to": [
         "felsworn_infernal_wrath_of_sargeras"
@@ -373,8 +373,8 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_felsworn_ruin_crit": 5,
-        "ability_felsworn_felwrath_crit": 5
+        "ability_felsworn_ruin_crit": 3.0,
+        "ability_felsworn_felwrath_crit": 3.0
       },
       "connected_to": [
         "felsworn_infernal_felfire_adept"
@@ -384,7 +384,7 @@
     {
       "talent_id": "felsworn_infernal_shadow_magi",
       "name": "Shadow Magi",
-      "description": "Reduces the cooldown of Annihilation, Sunder and Ruin by 35%.",
+      "description": "Reduces the cooldown of Annihilation, Sunder and Ruin by 18.9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -393,7 +393,7 @@
       "hex_y": 0,
       "effects": {
         "ability_felsworn_annihilation_cooldown_pct": 0.1167,
-        "ability_felsworn_sunder_damage": 0.1167,
+        "ability_felsworn_sunder_damage": 0.063,
         "ability_felsworn_ruin_cooldown_pct": 0.1167
       },
       "connected_to": [
@@ -412,7 +412,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_fel_fireball_damage": 0.1,
+        "ability_felsworn_fel_fireball_damage": 0.054,
         "spell_damage": 0.0167
       },
       "connected_to": [

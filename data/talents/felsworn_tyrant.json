@@ -73,7 +73,7 @@
     {
       "talent_id": "felsworn_tyrant_burning_legionnaire",
       "name": "Burning Legionnaire",
-      "description": "Reduces the cost of Twin Slice, Sunder and Felrend by 25%.",
+      "description": "Reduces the cost of Twin Slice, Sunder and Felrend by 13.5%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,9 +81,9 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_twin_slice_damage": 0.0833,
+        "ability_felsworn_twin_slice_damage": 0.045,
         "ability_felsworn_sunder_cost_pct": 0.0833,
-        "ability_felsworn_felrend_damage": 0.0833
+        "ability_felsworn_felrend_damage": 0.045
       },
       "connected_to": [
         "felsworn_tyrant_outland_slaver"
@@ -119,7 +119,7 @@
     {
       "talent_id": "felsworn_tyrant_outland_slaver",
       "name": "Outland Slaver",
-      "description": "Increases the damage of Felrend and Fel Fireball by 30%.",
+      "description": "Increases the damage of Felrend and Fel Fireball by 16.2%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,8 +127,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_felrend_damage": 0.1,
-        "ability_felsworn_fel_fireball_damage": 0.1
+        "ability_felsworn_felrend_damage": 0.054,
+        "ability_felsworn_fel_fireball_damage": 0.054
       },
       "connected_to": [
         "felsworn_tyrant_unholy_endurance"
@@ -219,7 +219,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_felsworn_carve_damage": 0.0667,
+        "ability_felsworn_carve_damage": 0.036,
         "threat_generation_pct": 0.0833
       },
       "connected_to": [
@@ -270,8 +270,8 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_tyrants_gaze_damage": 0.1333,
-        "ability_felsworn_tyrants_gaze_healing": 0.1,
+        "ability_felsworn_tyrants_gaze_damage": 0.072,
+        "ability_felsworn_tyrants_gaze_healing": 0.053,
         "low_health_damage_pct": 0.0667,
         "low_health_threshold_pct": 0.35
       },
@@ -420,7 +420,7 @@
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_felsworn_fel_fireball_crit": 3.3333
+        "ability_felsworn_fel_fireball_crit": 2.0
       },
       "connected_to": [
         "felsworn_tyrant_unholy_endurance"
@@ -455,7 +455,7 @@
       "hex_y": 2,
       "effects": {
         "damage_taken_pct": -0.0167,
-        "all_damage": 0.0167
+        "all_damage": 0.008
       },
       "connected_to": [
         "felsworn_tyrant_tyrants_gaze"

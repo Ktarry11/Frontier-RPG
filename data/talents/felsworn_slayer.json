@@ -63,8 +63,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_azzinoths_assault_crit": 3.3333,
-        "ability_felsworn_sargeron_smite_crit": 3.3333
+        "ability_felsworn_azzinoths_assault_crit": 2.0,
+        "ability_felsworn_sargeron_smite_crit": 2.0
       },
       "connected_to": [
         "felsworn_slayer_legionfall"
@@ -182,7 +182,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_felsworn_azzinoths_assault_damage": 0.0667
+        "ability_felsworn_azzinoths_assault_damage": 0.036
       },
       "connected_to": [
         "felsworn_slayer_a_thousand_cuts"
@@ -261,7 +261,7 @@
     {
       "talent_id": "felsworn_slayer_pit_lords_strength",
       "name": "Pit Lord's Strength",
-      "description": "Increases the damage of Annihilation and Annihilan Strike by 30%.",
+      "description": "Increases the damage of Annihilation and Annihilan Strike by 16.2%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -270,7 +270,7 @@
       "hex_y": 2,
       "effects": {
         "ability_felsworn_annihilation_potency": 0.1,
-        "ability_felsworn_annihilan_strike_damage": 0.1
+        "ability_felsworn_annihilan_strike_damage": 0.054
       },
       "connected_to": [
         "felsworn_slayer_oblivion"
@@ -288,7 +288,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_chaos_rush_damage": 0.0833
+        "ability_felsworn_chaos_rush_damage": 0.045
       },
       "connected_to": [
         "felsworn_slayer_oblivion"
@@ -363,8 +363,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_sunder_damage": 0.0667,
-        "ability_felsworn_immolation_aura_damage": 0.0667,
+        "ability_felsworn_sunder_damage": 0.036,
+        "ability_felsworn_immolation_aura_damage": 0.036,
         "ability_felsworn_sunder_cost_pct": 0.0667,
         "ability_felsworn_immolation_aura_cost_pct": 0.0667
       },
@@ -384,8 +384,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_felsworn_fury_unleashed_damage": 0.1333,
-        "ability_felsworn_glaiving_damage": 0.1333,
+        "ability_felsworn_fury_unleashed_damage": 0.072,
+        "ability_felsworn_glaiving_damage": 0.072,
         "ability_felsworn_fury_unleashed_cost_pct": 0.1
       },
       "connected_to": [
@@ -425,7 +425,7 @@
       "hex_y": 2,
       "effects": {
         "attack_power_from_agility_pct": 0.0667,
-        "ability_felsworn_twin_slice_damage": 0.0833
+        "ability_felsworn_twin_slice_damage": 0.045
       },
       "connected_to": [
         "felsworn_slayer_demonic_machinations"

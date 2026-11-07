@@ -98,7 +98,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 8.3333
+        "healing_power_pct": 4.4
       },
       "connected_to": [
         "pyromancer_flameweaving_soothing_flames"
@@ -176,7 +176,7 @@
     {
       "talent_id": "pyromancer_flameweaving_concentrated_fire",
       "name": "Concentrated Fire",
-      "description": "Increases the damage and healing of Cleansing Flames by 20%.",
+      "description": "Increases the damage and healing of Cleansing Flames by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -184,8 +184,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_cleansing_flames_healing": 0.0667,
-        "ability_pyromancer_cleansing_flames_damage": 0.0667
+        "ability_pyromancer_cleansing_flames_healing": 0.036,
+        "ability_pyromancer_cleansing_flames_damage": 0.036
       },
       "connected_to": [
         "pyromancer_flameweaving_warmth"
@@ -232,7 +232,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_ember_touch_crit": 3.3333
+        "ability_pyromancer_ember_touch_crit": 2.0
       },
       "connected_to": [
         "pyromancer_flameweaving_flame_bonding"
@@ -336,7 +336,7 @@
     {
       "talent_id": "pyromancer_flameweaving_burning_crescendo",
       "name": "Burning Crescendo",
-      "description": "Increases the healing of Phoenix Egg by 40%.",
+      "description": "Increases the healing of Phoenix Egg by 21.3%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -344,7 +344,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_phoenix_egg_healing": 0.1333
+        "ability_pyromancer_phoenix_egg_healing": 0.071
       },
       "connected_to": [
         "pyromancer_flameweaving_phoenix_dive_mastery"
@@ -454,7 +454,7 @@
     {
       "talent_id": "pyromancer_flameweaving_unfathomably_hot",
       "name": "Unfathomably Hot!",
-      "description": "Increases the healing of Cleansing Flames by 30%.",
+      "description": "Increases the healing of Cleansing Flames by 15.9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -462,7 +462,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_pyromancer_cleansing_flames_healing": 0.1
+        "ability_pyromancer_cleansing_flames_healing": 0.053
       },
       "connected_to": [
         "pyromancer_flameweaving_sunstrider_array"
@@ -525,7 +525,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "pyromancer_roaring_pyre",
-        "healing_power_pct": 20.0
+        "healing_power_pct": 10.7
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: pyromancer_roaring_pyre carries requires_talent, so without this node it is unobtainable forever. It is target_type 'party' as well. Kept at tier 6, completing Pyromancer's nine-for-nine gated-ability pattern - three trees, three gated abilities each, at tiers 4, 5 and 6, every one accounted for. The flat healing is added because a capstone that only grants an ability is thin; the same shape as Incineration's Pyroclasm and Draconic's Death From Above. The shipped tree's node for this was called Fueling the Fire; renamed to match the ability it grants, as every other unlock node in this class does."

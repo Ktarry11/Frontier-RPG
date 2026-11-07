@@ -55,7 +55,7 @@
     {
       "talent_id": "ranger_brigand_jagged_cuts",
       "name": "Jagged Cuts",
-      "description": "Increases the damage of Toxic Dart and Ravage by 25% and their duration by 2 turns.",
+      "description": "Increases the damage of Toxic Dart and Ravage by 13.5% and their duration by 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -63,8 +63,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_toxic_dart_damage": 0.25,
-        "ability_ranger_ravage_damage": 0.25,
+        "ability_ranger_toxic_dart_damage": 0.135,
+        "ability_ranger_ravage_damage": 0.135,
         "ability_ranger_toxic_dart_duration": 2,
         "ability_ranger_ravage_duration": 2
       },
@@ -84,8 +84,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_wild_strike_crit": 3.3333,
-        "ability_ranger_assault_crit": 3.3333
+        "ability_ranger_wild_strike_crit": 2.0,
+        "ability_ranger_assault_crit": 2.0
       },
       "connected_to": [
         "ranger_brigand_bounty_hunter"
@@ -247,8 +247,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_ranger_skullpiercer_damage": 0.1167,
-        "ability_ranger_flank_damage": 0.1167,
+        "ability_ranger_skullpiercer_damage": 0.063,
+        "ability_ranger_flank_damage": 0.063,
         "physical_damage": 0.0133
       },
       "connected_to": [
@@ -259,7 +259,7 @@
     {
       "talent_id": "ranger_brigand_focused_fighter",
       "name": "Focused Fighter",
-      "description": "Reduces the cost of Flank, Wild Strike and Assault by 20%.",
+      "description": "Reduces the cost of Flank, Wild Strike and Assault by 10.8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -268,7 +268,7 @@
       "hex_y": 0,
       "effects": {
         "ability_ranger_flank_cost_pct": 0.0667,
-        "ability_ranger_wild_strike_damage": 0.0667,
+        "ability_ranger_wild_strike_damage": 0.036,
         "ability_ranger_assault_cost_pct": 0.0667
       },
       "connected_to": [
@@ -409,7 +409,7 @@
     {
       "talent_id": "ranger_brigand_assassin",
       "name": "Assassin",
-      "description": "Increases the duration of Knockout, Crippling Shot and Throatpunch by 1 turn, and the healing of Survival Potion by 25%.",
+      "description": "Increases the duration of Knockout, Crippling Shot and Throatpunch by 1 turn, and the healing of Survival Potion by 13.3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -420,7 +420,7 @@
         "ability_ranger_knockout_duration": 1,
         "ability_ranger_crippling_shot_duration": 1,
         "ability_ranger_throatpunch_duration": 1,
-        "ability_ranger_survival_potion_healing": 0.25
+        "ability_ranger_survival_potion_healing": 0.133
       },
       "connected_to": [
         "ranger_brigand_dice_games"
@@ -438,8 +438,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_wild_strike_damage": 0.1,
-        "ability_ranger_quills_damage": 0.0833
+        "ability_ranger_wild_strike_damage": 0.054,
+        "ability_ranger_quills_damage": 0.045
       },
       "connected_to": [
         "ranger_brigand_focused_fighter"

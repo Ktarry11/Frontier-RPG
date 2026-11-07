@@ -126,7 +126,7 @@
     {
       "talent_id": "guardian_gladiator_legionnaire",
       "name": "Legionnaire",
-      "description": "Increases the critical strike damage of Centurion Strike and Reprisal by 20%.",
+      "description": "Increases the critical strike damage of Centurion Strike and Reprisal by 10.8%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -134,8 +134,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_centurion_strike_crit_damage": 0.0667,
-        "ability_guardian_reprisal_crit_damage": 0.0667
+        "ability_guardian_centurion_strike_crit_damage": 0.036,
+        "ability_guardian_reprisal_crit_damage": 0.036
       },
       "connected_to": [
         "guardian_gladiator_upper_hand"
@@ -145,7 +145,7 @@
     {
       "talent_id": "guardian_gladiator_crashing_force",
       "name": "Crashing Force",
-      "description": "Increases the damage of Centurion Strike and Reprisal by 30%.",
+      "description": "Increases the damage of Centurion Strike and Reprisal by 16.2%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -153,8 +153,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_centurion_strike_damage": 0.1,
-        "ability_guardian_reprisal_damage": 0.1
+        "ability_guardian_centurion_strike_damage": 0.054,
+        "ability_guardian_reprisal_damage": 0.054
       },
       "connected_to": [
         "guardian_gladiator_tactical_combat"
@@ -244,7 +244,7 @@
     {
       "talent_id": "guardian_gladiator_myrmidon",
       "name": "Myrmidon",
-      "description": "Increases the damage of Ram and Broad Sweep by 25%.",
+      "description": "Increases the damage of Ram and Broad Sweep by 13.5%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -252,8 +252,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_guardian_ram_damage": 0.0833,
-        "ability_guardian_broad_sweep_damage": 0.0833
+        "ability_guardian_ram_damage": 0.045,
+        "ability_guardian_broad_sweep_damage": 0.045
       },
       "connected_to": [
         "guardian_gladiator_bulwark_rush"
@@ -263,7 +263,7 @@
     {
       "talent_id": "guardian_gladiator_one_handed_mastery",
       "name": "One-Handed Mastery",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all damage you deal by 5.1%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -271,7 +271,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "guardian_gladiator_deadly_blow"
@@ -535,7 +535,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_guardian_centurion_strike_crit": 8.3333
+        "ability_guardian_centurion_strike_crit": 5.0
       },
       "connected_to": [
         "guardian_gladiator_final_verdict_mastery"
@@ -545,7 +545,7 @@
     {
       "talent_id": "guardian_gladiator_no_retreating",
       "name": "No Retreating!",
-      "description": "Increases the damage of Spear Throw by 45%.",
+      "description": "Increases the damage of Spear Throw by 24.3%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -553,7 +553,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_guardian_spear_throw_damage": 0.15
+        "ability_guardian_spear_throw_damage": 0.081
       },
       "connected_to": [
         "guardian_gladiator_final_verdict_mastery"
@@ -594,7 +594,7 @@
     {
       "talent_id": "guardian_gladiator_final_verdict_mastery",
       "name": "Final Verdict",
-      "description": "Increases the damage of Final Verdict by 50%, and a killing blow readies it again.",
+      "description": "Increases the damage of Final Verdict by 27%, and a killing blow readies it again.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -602,7 +602,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_guardian_final_verdict_damage": 0.5
+        "ability_guardian_final_verdict_damage": 0.27
       },
       "connected_to": [],
       "proc": {

@@ -42,8 +42,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_necromancer_ice_barrage_damage": 0.0833,
-        "ability_necromancer_lichfrost_damage": 0.0667
+        "ability_necromancer_ice_barrage_damage": 0.045,
+        "ability_necromancer_lichfrost_damage": 0.036
       },
       "connected_to": [
         "necromancer_rime_bone_legion",
@@ -62,7 +62,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_necromancer_lichfrost_damage": 0.0667,
+        "ability_necromancer_lichfrost_damage": 0.036,
         "crit_chance_spell": 1.3333
       },
       "connected_to": [
@@ -118,7 +118,7 @@
     {
       "talent_id": "necromancer_rime_frigid_death",
       "name": "Frigid Death",
-      "description": "Increases the damage of Glacial Impact by 50%.",
+      "description": "Increases the damage of Glacial Impact by 27%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -126,7 +126,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_necromancer_glacial_impact_damage": 0.1667
+        "ability_necromancer_glacial_impact_damage": 0.09
       },
       "connected_to": [
         "necromancer_rime_frozen_power"
@@ -322,7 +322,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_necromancer_animate_frost_wyrm_damage": 0.1333,
+        "ability_necromancer_animate_frost_wyrm_damage": 0.072,
         "ability_necromancer_command_bonefreeze_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -360,7 +360,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_glacial_impact_damage": 0.1,
+        "ability_necromancer_glacial_impact_damage": 0.054,
         "aoe_damage": 0.0667
       },
       "connected_to": [
@@ -380,7 +380,7 @@
       "hex_y": 0,
       "effects": {
         "ability_necromancer_raise_skeletal_mage_cost_pct": 0.1333,
-        "pet_damage": 0.0833
+        "pet_damage": 0.033
       },
       "connected_to": [
         "necromancer_rime_arch_lich"

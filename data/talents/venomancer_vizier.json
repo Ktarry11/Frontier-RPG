@@ -25,7 +25,7 @@
       "hex_y": -6,
       "effects": {
         "crit_chance_spell_from_intellect_pct": 0.0667,
-        "healing_power_from_intellect_pct": 0.0667
+        "healing_power_from_intellect_pct": 0.036
       },
       "connected_to": [
         "venomancer_vizier_fang_blessing"
@@ -53,7 +53,7 @@
     {
       "talent_id": "venomancer_vizier_bountiful_gifts",
       "name": "Bountiful Gifts",
-      "description": "Increases the healing of Shadra's Prayer, Green Salve and Alkahest by 20%.",
+      "description": "Increases the healing of Shadra's Prayer, Green Salve and Alkahest by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,9 +61,9 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_shadras_prayer_healing": 0.0667,
-        "ability_venomancer_green_salve_healing": 0.0667,
-        "ability_venomancer_alkahest_healing": 0.0667
+        "ability_venomancer_shadras_prayer_healing": 0.036,
+        "ability_venomancer_green_salve_healing": 0.036,
+        "ability_venomancer_alkahest_healing": 0.036
       },
       "connected_to": [
         "venomancer_vizier_advisors_perfidy"
@@ -73,7 +73,7 @@
     {
       "talent_id": "venomancer_vizier_advisors_perfidy",
       "name": "Advisor's Perfidy",
-      "description": "Increases the healing of Serpent's Fang, Mending Mist and Shadra's Balm by 20%.",
+      "description": "Increases the healing of Serpent's Fang, Mending Mist and Shadra's Balm by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,9 +81,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_serpents_fang_healing": 0.0667,
-        "ability_venomancer_mending_mist_healing": 0.0667,
-        "ability_venomancer_shadras_balm_healing": 0.0667
+        "ability_venomancer_serpents_fang_healing": 0.036,
+        "ability_venomancer_mending_mist_healing": 0.036,
+        "ability_venomancer_shadras_balm_healing": 0.036
       },
       "connected_to": [
         "venomancer_vizier_venom_glands"
@@ -101,7 +101,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 5
+        "healing_power_pct": 2.7
       },
       "connected_to": [
         "venomancer_vizier_fangbinder"
@@ -111,7 +111,7 @@
     {
       "talent_id": "venomancer_vizier_fangbinder",
       "name": "Fangbinder",
-      "description": "Increases the healing of Serpent's Fang by 50%.",
+      "description": "Increases the healing of Serpent's Fang by 26.7%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -119,7 +119,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_serpents_fang_healing": 0.1667
+        "ability_venomancer_serpents_fang_healing": 0.089
       },
       "connected_to": [
         "venomancer_vizier_mycelial_healing"
@@ -161,7 +161,7 @@
     {
       "talent_id": "venomancer_vizier_soothing_venoms",
       "name": "Soothing Venoms",
-      "description": "Increases the critical healing of Shadra's Prayer by 50%.",
+      "description": "Increases the critical healing of Shadra's Prayer by 26.7%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -169,7 +169,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_shadras_prayer_healing": 0.1667
+        "ability_venomancer_shadras_prayer_healing": 0.089
       },
       "connected_to": [
         "venomancer_vizier_the_antidote"
@@ -233,7 +233,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_alkahest_healing": 0.1333,
+        "ability_venomancer_alkahest_healing": 0.071,
         "ability_venomancer_alkahest_cooldown_pct": 0.0833
       },
       "connected_to": [
@@ -304,7 +304,7 @@
     {
       "talent_id": "venomancer_vizier_shadras_presence",
       "name": "Shadra's Presence",
-      "description": "Increases the healing you receive by 6%.",
+      "description": "Increases the healing you receive by 3.3%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -312,7 +312,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "healing_taken_pct": 0.02
+        "healing_taken_pct": 0.011
       },
       "connected_to": [
         "venomancer_vizier_melioration"
@@ -385,7 +385,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_green_salve_healing": 0.0667
+        "ability_venomancer_green_salve_healing": 0.036
       },
       "connected_to": [
         "venomancer_vizier_widows_watch"
@@ -395,7 +395,7 @@
     {
       "talent_id": "venomancer_vizier_widows_watch",
       "name": "Widow's Watch",
-      "description": "Increases the healing of Mending Mist by 40%.",
+      "description": "Increases the healing of Mending Mist by 21.3%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -403,7 +403,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_mending_mist_healing": 0.1333
+        "ability_venomancer_mending_mist_healing": 0.071
       },
       "connected_to": [
         "venomancer_vizier_sage"
@@ -624,7 +624,7 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_venomancer_mending_mist_healing": 0.3
+        "ability_venomancer_mending_mist_healing": 0.16
       },
       "connected_to": [],
       "proc": {

@@ -271,8 +271,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_chitin_rush_crit": 6.6667,
-        "ability_venomancer_chitin_rush_crit_damage": 0.0333
+        "ability_venomancer_chitin_rush_crit": 4.0,
+        "ability_venomancer_chitin_rush_crit_damage": 0.018
       },
       "connected_to": [
         "venomancer_fortitude_natural_weapons"
@@ -290,9 +290,9 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_hivebreak_crit": 3.3333,
-        "ability_venomancer_carapace_crash_crit": 3.3333,
-        "ability_venomancer_chitin_rush_crit": 3.3333
+        "ability_venomancer_hivebreak_crit": 2.0,
+        "ability_venomancer_carapace_crash_crit": 2.0,
+        "ability_venomancer_chitin_rush_crit": 2.0
       },
       "connected_to": [
         "venomancer_fortitude_chitinous_surge"
@@ -363,8 +363,8 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_venomtip_poison_damage": 0.1,
-        "ability_venomancer_expulsion_damage": 0.0667
+        "ability_venomancer_venomtip_poison_damage": 0.054,
+        "ability_venomancer_expulsion_damage": 0.036
       },
       "connected_to": [
         "venomancer_fortitude_wicked_poison"
@@ -504,7 +504,7 @@
       "hex_y": 2,
       "effects": {
         "ability_venomancer_chitin_rush_cooldown_pct": 0.0833,
-        "ability_venomancer_chitin_rush_damage": 0.05
+        "ability_venomancer_chitin_rush_damage": 0.027
       },
       "connected_to": [
         "venomancer_fortitude_unyielding_will"
@@ -586,7 +586,7 @@
     {
       "talent_id": "venomancer_fortitude_spider_lord",
       "name": "Spider Lord",
-      "description": "In Beetle Form your strikes generate 2 Rage, and your Beetle Form strikes hit 30% harder.",
+      "description": "In Beetle Form your strikes generate 2 Rage, and your Beetle Form strikes hit 16.2% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -594,9 +594,9 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_venomancer_hivebreak_damage": 0.3,
-        "ability_venomancer_carapace_crash_damage": 0.3,
-        "ability_venomancer_chitin_rush_damage": 0.3
+        "ability_venomancer_hivebreak_damage": 0.162,
+        "ability_venomancer_carapace_crash_damage": 0.162,
+        "ability_venomancer_chitin_rush_damage": 0.162
       },
       "connected_to": [],
       "proc": {

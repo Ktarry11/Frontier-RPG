@@ -16,7 +16,7 @@
     {
       "talent_id": "reaper_harvest_bountiful_harvest",
       "name": "Bountiful Harvest",
-      "description": "Increases the damage of Reap and Murder by 25%.",
+      "description": "Increases the damage of Reap and Murder by 13.5%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_reap_damage": 0.0833,
-        "ability_reaper_murder_damage": 0.0833
+        "ability_reaper_reap_damage": 0.045,
+        "ability_reaper_murder_damage": 0.045
       },
       "connected_to": [
         "reaper_harvest_maw_knight"
@@ -43,7 +43,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_doomrend_crit": 3.3333
+        "ability_reaper_doomrend_crit": 2.0
       },
       "connected_to": [
         "reaper_harvest_sanguine_harvester",
@@ -193,7 +193,7 @@
     {
       "talent_id": "reaper_harvest_genocide",
       "name": "Genocide",
-      "description": "Increases the damage and critical damage of Slaughter by 20%.",
+      "description": "Increases the damage and critical damage of Slaughter by 10.8%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -201,8 +201,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_reaper_slaughter_damage": 0.0667,
-        "ability_reaper_slaughter_crit_damage": 0.0667
+        "ability_reaper_slaughter_damage": 0.036,
+        "ability_reaper_slaughter_crit_damage": 0.036
       },
       "connected_to": [
         "reaper_harvest_extinction"
@@ -366,7 +366,7 @@
     {
       "talent_id": "reaper_harvest_doomer",
       "name": "Doomer",
-      "description": "Increases the damage of Doomrend and Slaughter by 30%.",
+      "description": "Increases the damage of Doomrend and Slaughter by 16.2%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -374,8 +374,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_reaper_doomrend_damage": 0.1,
-        "ability_reaper_slaughter_damage": 0.1
+        "ability_reaper_doomrend_damage": 0.054,
+        "ability_reaper_slaughter_damage": 0.054
       },
       "connected_to": [
         "reaper_harvest_executioner"
@@ -431,7 +431,7 @@
       "hex_x": 4,
       "hex_y": 4,
       "effects": {
-        "ability_reaper_reliquary_of_the_lost_damage": 0.1333,
+        "ability_reaper_reliquary_of_the_lost_damage": 0.072,
         "crit_damage_physical": 0.05
       },
       "connected_to": [
@@ -468,7 +468,7 @@
       "hex_x": 5,
       "hex_y": 2,
       "effects": {
-        "ability_reaper_wraithblade_damage": 0.1667,
+        "ability_reaper_wraithblade_damage": 0.09,
         "ability_reaper_wraithblade_cost_pct": 0.05
       },
       "connected_to": [

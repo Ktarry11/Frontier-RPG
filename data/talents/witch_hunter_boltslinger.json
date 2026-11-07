@@ -61,7 +61,7 @@
       "hex_y": -6,
       "effects": {
         "ability_witch_hunter_witchbane_cost_pct": 0.0667,
-        "ability_witch_hunter_shadowblast_damage": 0.0667,
+        "ability_witch_hunter_shadowblast_damage": 0.036,
         "hit_rating": 1.3333
       },
       "connected_to": [
@@ -151,7 +151,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_heartseeking_bolt_crit": 6.6667
+        "ability_witch_hunter_heartseeking_bolt_crit": 4.0
       },
       "connected_to": [
         "witch_hunter_boltslinger_silver_bolts"
@@ -169,8 +169,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_shadowblast_damage": 0.0667,
-        "ability_witch_hunter_witchbane_damage": 0.0333
+        "ability_witch_hunter_shadowblast_damage": 0.036,
+        "ability_witch_hunter_witchbane_damage": 0.018
       },
       "connected_to": [
         "witch_hunter_boltslinger_silver_bolts"
@@ -269,7 +269,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_silver_bolts",
       "name": "Silver Bolts",
-      "description": "Increases the damage of Heartseeking Bolt and Damnation by 15%.",
+      "description": "Increases the damage of Heartseeking Bolt and Damnation by 8.1%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -277,8 +277,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_heartseeking_bolt_damage": 0.05,
-        "ability_witch_hunter_damnation_damage": 0.05
+        "ability_witch_hunter_heartseeking_bolt_damage": 0.027,
+        "ability_witch_hunter_damnation_damage": 0.027
       },
       "connected_to": [
         "witch_hunter_boltslinger_relentless"
@@ -296,7 +296,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_tormentor_crit": 5
+        "ability_witch_hunter_tormentor_crit": 3.0
       },
       "connected_to": [
         "witch_hunter_boltslinger_relentless"
@@ -314,7 +314,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_damnation_crit": 5
+        "ability_witch_hunter_damnation_crit": 3.0
       },
       "connected_to": [
         "witch_hunter_boltslinger_resourceful_pursuit"
@@ -378,7 +378,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_relentless",
       "name": "Relentless",
-      "description": "Increases the damage of Witchbane by 20%.",
+      "description": "Increases the damage of Witchbane by 10.8%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -386,7 +386,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_witchbane_damage": 0.0667
+        "ability_witch_hunter_witchbane_damage": 0.036
       },
       "connected_to": [
         "witch_hunter_boltslinger_heavy_crossbows"
@@ -423,7 +423,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_shadowblast_crit": 3.3333
+        "ability_witch_hunter_shadowblast_crit": 2.0
       },
       "connected_to": [
         "witch_hunter_boltslinger_evasive"
@@ -575,7 +575,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_contract_killing",
       "name": "Contract Killing",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all damage you deal by 5.1%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -583,7 +583,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "witch_hunter_boltslinger_bounty_hunter"
@@ -601,7 +601,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_witch_hunter_darkslayer_damage": 0.1667
+        "ability_witch_hunter_darkslayer_damage": 0.09
       },
       "connected_to": [
         "witch_hunter_boltslinger_bounty_hunter"

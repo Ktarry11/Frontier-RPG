@@ -589,6 +589,69 @@ class TalentTreeScreen:
             lines.append(cur)
         return lines or [""]
 
+    #: A stored effect below this is a fraction (0.02 == 2%); at or above it
+    #: the value is already in display units (a crit effect of 5.0 is 5%).
+    #: Both conventions are live in data/talents/ and neither is going away,
+    #: so the tooltip has to read them rather than assume one.
+    _FRACTION_CEILING = 1.0
+
+    @staticmethod
+    def _effect_magnitudes(node):
+        """Distinct magnitudes among a node's numeric effects, in display
+        units. A talent that boosts five abilities by the same amount
+        (Shaman's Concussion) has ONE magnitude, not five."""
+        seen = set()
+        for value in (node.effects or {}).values():
+            if not isinstance(value, (int, float)) or not value:
+                continue
+            magnitude = abs(value)
+            if magnitude < TalentTreeScreen._FRACTION_CEILING:
+                magnitude *= 100
+            seen.add(round(magnitude, 2))
+        return sorted(seen)
+
+    def _rank_value_line(self, node):
+        """"Per rank: +2%   At 5/5: +10%" - computed from effects.
+
+        WHY THIS EXISTS. Kyle, 6 Nov, with a screenshot of Pyromancer's
+        Searing Flames showing "Ranks: 0/3" and "Increases the damage of
+        Lava Shard by 30%": "pyromancer is far from innocent lol".
+
+        The data was fine - 0.1 across 3 ranks, a 30% total. The WORDING was
+        the bug. 695 of the 1242 multi-rank talents that quote a percentage
+        state the FULL-RANK TOTAL as a bare number, and 514 state the
+        PER-RANK value and say "per rank". The split is perfect by heritage:
+        every vanilla class says "per rank", no CoA class does. A player who
+        learned the Shaman phrasing reads 30% on a 0/3 node as 30/60/90,
+        which is exactly what happened.
+
+        Rewriting 695 strings would fix it once and let it drift again. A
+        computed line is right for all 1242 and cannot go stale, so the
+        descriptions become flavour and this becomes the number.
+
+        Deliberately silent when it cannot be certain: a node with several
+        different magnitudes (a talent granting +5% damage AND +10% crit)
+        has no single honest "per rank" figure, and a single-rank node has
+        no per-rank distinction worth the line. Saying nothing beats saying
+        something averaged.
+        """
+        if (node.max_points or 1) < 2:
+            return ""
+        magnitudes = self._effect_magnitudes(node)
+        if len(magnitudes) != 1:
+            return ""
+
+        per_rank = magnitudes[0]
+        at_max = per_rank * node.max_points
+
+        def fmt(value):
+            return f"{value:g}%"
+
+        line = f"Per rank: {fmt(per_rank)}   At {node.max_points}/{node.max_points}: {fmt(at_max)}"
+        if node.points_spent:
+            line += f"   Now: {fmt(per_rank * node.points_spent)}"
+        return line
+
     def _draw_tooltip(self, surface, node, tree):
         """Draw a tooltip for the selected node."""
         TOOLTIP_BODY_W = 420
@@ -602,6 +665,13 @@ class TalentTreeScreen:
         # the talent's numbers belong. Wrapped against the real font rather than
         # left as one line, same reason as every other tooltip in the game.
         tooltip_lines.extend(self._wrap(node.description or "", TOOLTIP_BODY_W))
+
+        # ...and then the arithmetic, computed, because the sentence above
+        # cannot be trusted to say which number it is quoting. See
+        # _rank_value_line.
+        rank_line = self._rank_value_line(node)
+        if rank_line:
+            tooltip_lines.append(rank_line)
 
         # Add tier requirement info
         required = tree.tier_requirements.get(node.tier, 0)

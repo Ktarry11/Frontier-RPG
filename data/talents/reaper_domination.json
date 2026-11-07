@@ -146,7 +146,7 @@
     {
       "talent_id": "reaper_domination_lifestealer",
       "name": "Lifestealer",
-      "description": "Increases the healing of Soul Strike by 30%.",
+      "description": "Increases the healing of Soul Strike by 15.9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -154,7 +154,7 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_reaper_soul_strike_healing": 0.1
+        "ability_reaper_soul_strike_healing": 0.053
       },
       "connected_to": [
         "reaper_domination_soul_knight"
@@ -199,7 +199,7 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_reaper_soul_strike_damage": 0.1,
+        "ability_reaper_soul_strike_damage": 0.054,
         "attack_power_from_strength_pct": 0.05
       },
       "connected_to": [
@@ -340,7 +340,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "pet_damage": 0.1333,
+        "pet_damage": 0.053,
         "pet_health": 0.1
       },
       "connected_to": [
@@ -479,8 +479,8 @@
       "hex_x": 4,
       "hex_y": 2,
       "effects": {
-        "ability_reaper_deathwind_healing": 0.1,
-        "healing_taken_pct": 0.02
+        "ability_reaper_deathwind_healing": 0.053,
+        "healing_taken_pct": 0.011
       },
       "connected_to": [
         "reaper_domination_final_requiem"
@@ -490,7 +490,7 @@
     {
       "talent_id": "reaper_domination_eater_of_souls",
       "name": "Eater of Souls",
-      "description": "Teaches Eater of Souls. Avoiding an attack also mends you, and your pets strike 25% harder.",
+      "description": "Teaches Eater of Souls. Avoiding an attack also mends you, and your pets strike 10% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -499,7 +499,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "reaper_eater_of_souls",
-        "pet_damage": 0.25
+        "pet_damage": 0.1
       },
       "connected_to": [],
       "proc": {

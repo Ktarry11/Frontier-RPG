@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_flare_bolt_crit": 3.3333
+        "ability_pyromancer_flare_bolt_crit": 2.0
       },
       "connected_to": [
         "pyromancer_incineration_searing_power"
@@ -52,7 +52,7 @@
     {
       "talent_id": "pyromancer_incineration_searing_power",
       "name": "Searing Power",
-      "description": "Increases the damage of Flare Bolt by 20%.",
+      "description": "Increases the damage of Flare Bolt by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,7 +60,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_flare_bolt_damage": 0.0667
+        "ability_pyromancer_flare_bolt_damage": 0.036
       },
       "connected_to": [
         "pyromancer_incineration_embrace_the_fire"
@@ -70,7 +70,7 @@
     {
       "talent_id": "pyromancer_incineration_embrace_the_fire",
       "name": "Embrace the Fire",
-      "description": "Increases the damage of Blaze and Ignite by 20%.",
+      "description": "Increases the damage of Blaze and Ignite by 10.8%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -78,8 +78,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_ignite_damage": 0.0667,
-        "ability_pyromancer_blaze_damage": 0.0667
+        "ability_pyromancer_ignite_damage": 0.036,
+        "ability_pyromancer_blaze_damage": 0.036
       },
       "connected_to": [
         "pyromancer_incineration_arsonist"
@@ -107,7 +107,7 @@
     {
       "talent_id": "pyromancer_incineration_cataclysmic_power",
       "name": "Cataclysmic Power",
-      "description": "Increases the damage of Flare Bolt by 27%.",
+      "description": "Increases the damage of Flare Bolt by 14.7%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -115,7 +115,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_flare_bolt_damage": 0.09
+        "ability_pyromancer_flare_bolt_damage": 0.049
       },
       "connected_to": [
         "pyromancer_incineration_combustion"
@@ -125,7 +125,7 @@
     {
       "talent_id": "pyromancer_incineration_combustion",
       "name": "Combustion",
-      "description": "Increases the damage of Explode by 45%.",
+      "description": "Increases the damage of Explode by 24.3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -133,7 +133,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_explode_damage": 0.15
+        "ability_pyromancer_explode_damage": 0.081
       },
       "connected_to": [
         "pyromancer_incineration_scorched"
@@ -308,9 +308,9 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_pyromancer_explode_crit": 1.6667,
-        "ability_pyromancer_flames_of_neltharion_crit": 1.6667,
-        "ability_pyromancer_lava_shard_crit": 1.6667
+        "ability_pyromancer_explode_crit": 1.0,
+        "ability_pyromancer_flames_of_neltharion_crit": 1.0,
+        "ability_pyromancer_lava_shard_crit": 1.0
       },
       "connected_to": [
         "pyromancer_incineration_pyromantic_accelerants"
@@ -320,7 +320,7 @@
     {
       "talent_id": "pyromancer_incineration_pyromantic_accelerants",
       "name": "Pyromantic Accelerants",
-      "description": "Increases the damage of Flames of Neltharion and Explode by 15%.",
+      "description": "Increases the damage of Flames of Neltharion and Explode by 8.1%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -328,8 +328,8 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_flames_of_neltharion_damage": 0.05,
-        "ability_pyromancer_explode_damage": 0.05
+        "ability_pyromancer_flames_of_neltharion_damage": 0.027,
+        "ability_pyromancer_explode_damage": 0.027
       },
       "connected_to": [
         "pyromancer_incineration_fiery_passion"
@@ -521,7 +521,7 @@
     {
       "talent_id": "pyromancer_incineration_magmatic",
       "name": "Magmatic",
-      "description": "Increases all damage you deal by 10%.",
+      "description": "Increases all damage you deal by 5.1%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -529,7 +529,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "pyromancer_incineration_pyroclasm"

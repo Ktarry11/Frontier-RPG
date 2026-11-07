@@ -16,7 +16,7 @@
     {
       "talent_id": "tinker_mechanics_slam_the_cogs",
       "name": "Slam the Cogs!",
-      "description": "Increases the damage you and your constructs deal by up to 8%.",
+      "description": "Increases the damage you and your constructs deal by up to 3.9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.0267,
-        "pet_damage": 0.0267
+        "all_damage": 0.013,
+        "pet_damage": 0.011
       },
       "connected_to": [
         "tinker_mechanics_mechanical_synergy"
@@ -44,7 +44,7 @@
       "hex_y": -6,
       "effects": {
         "crit_chance_physical": 1.3333,
-        "pet_damage": 0.0133
+        "pet_damage": 0.005
       },
       "connected_to": [
         "tinker_mechanics_junker"
@@ -145,9 +145,9 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.1,
-        "ability_tinker_mechsuit_laser_beam_damage": 0.1,
-        "ability_tinker_mechsuit_combustion_damage": 0.1
+        "ability_tinker_sticky_bomb_damage": 0.054,
+        "ability_tinker_mechsuit_laser_beam_damage": 0.054,
+        "ability_tinker_mechsuit_combustion_damage": 0.054
       },
       "connected_to": [
         "tinker_mechanics_arclight_adept"
@@ -211,7 +211,7 @@
     {
       "talent_id": "tinker_mechanics_arclight_adept",
       "name": "Arclight Adept",
-      "description": "Increases the critical damage of your Mechsuit abilities by 15%.",
+      "description": "Increases the critical damage of your Mechsuit abilities by 8.1%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.05,
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.05
+        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.027,
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.027
       },
       "connected_to": [
         "tinker_mechanics_turbo_guns"
@@ -256,7 +256,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_damage": 0.0667
+        "ability_tinker_mechsuit_combustion_damage": 0.036
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -274,8 +274,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.05,
-        "ability_tinker_mechsuit_combustion_damage": 0.0333
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.027,
+        "ability_tinker_mechsuit_combustion_damage": 0.018
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -442,7 +442,7 @@
     {
       "talent_id": "tinker_mechanics_augmechtation",
       "name": "Augmechtation",
-      "description": "Your Mechsuit increases your damage by an additional 10% while active.",
+      "description": "Your Mechsuit increases your damage by an additional 5.1% while active.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -450,7 +450,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.0333
+        "all_damage": 0.017
       },
       "connected_to": [
         "tinker_mechanics_haywired_state"
@@ -554,8 +554,8 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_tinker_mechsuit_laser_beam_damage": 1.0,
-        "ability_tinker_mechsuit_combustion_damage": 1.0,
+        "ability_tinker_mechsuit_laser_beam_damage": 0.54,
+        "ability_tinker_mechsuit_combustion_damage": 0.54,
         "ability_tinker_mechsuit_form_duration": 1.0
       },
       "connected_to": [],

@@ -104,8 +104,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_fist_of_the_ancients_damage": 0.04,
-        "ability_runemaster_runic_brand_damage": 0.04
+        "ability_runemaster_fist_of_the_ancients_damage": 0.022,
+        "ability_runemaster_runic_brand_damage": 0.022
       },
       "connected_to": [
         "runemaster_engravement_primordial_strength"
@@ -398,7 +398,7 @@
     {
       "talent_id": "runemaster_engravement_leyborn",
       "name": "Leyborn",
-      "description": "Runic Brand burns 50% harder, and branding an enemy grants you 1 Rune.",
+      "description": "Runic Brand burns 27% harder, and branding an enemy grants you 1 Rune.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -406,7 +406,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_runemaster_runic_brand_damage": 0.5
+        "ability_runemaster_runic_brand_damage": 0.27
       },
       "connected_to": [
         "runemaster_engravement_magic_etchings"
@@ -515,7 +515,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_runemaster_primordial_blast_crit_damage": 0.08
+        "ability_runemaster_primordial_blast_crit_damage": 0.043
       },
       "connected_to": [
         "runemaster_engravement_runic_tempest"
