@@ -1486,7 +1486,9 @@ class Character(StatusEffectMixin):
         self.shadow_spell_power = bonuses.get("shadow_spell_power", 0)
         self.nature_spell_power = bonuses.get("nature_spell_power", 0)
         self.holy_spell_power = bonuses.get("holy_spell_power", 0)
-        
+
+        self._whole_number_stats()
+
         # Resources (conservative scaling for long-term progression)
         old_health_max = self.health
         self.health = int((100 + eff_stamina * 8) * (1.0 + bonuses.get("max_health_pct", 0)))
@@ -2591,6 +2593,50 @@ class Character(StatusEffectMixin):
     #: of five archetypes were pinned here by level 40, which means the cap
     #: was doing the balancing and the formula was doing none.
     AVOIDANCE_COMBINED_CAP = 50.0
+
+    #: Stats that are COUNTS and must be whole numbers on a character sheet.
+    #: Kyle, 7 Nov, with a ring reading "+3.43 Healing Power": "Lets make it
+    #: so stats, attack power, spell power, resistance, and armor can only be
+    #: whole integers."
+    #:
+    #: Enforced HERE rather than by cleaning the data files, which is what
+    #: tools/round_item_stats.py did on 6 Nov. That pass was right about the
+    #: 1,143 authored values it fixed and wrong as a strategy: a file cleanup
+    #: is a snapshot, and anything that multiplies a stat afterwards - a
+    #: block_value_pct talent, a percentage buff, a suffix roll - puts the
+    #: decimals straight back. block_value and mp5 were doing exactly that on
+    #: a geared Paladin (85.2 and 2.2) with every loot file already clean.
+    #:
+    #: Percentages are deliberately NOT in this set. Crit, dodge, parry,
+    #: block chance, haste and the resistance MITIGATION figures are rates,
+    #: not counts, and a low-level item is supposed to roll "+0.3% Block".
+    WHOLE_NUMBER_STATS = (
+        "strength", "agility", "stamina", "intellect", "spirit",
+        "armor", "attack_power", "ranged_attack_power", "spell_power",
+        "healing_power", "block_value", "mp5", "hp5", "spell_penetration",
+        "magic_resistance", "expertise",
+        "fire_resistance", "frost_resistance", "nature_resistance",
+        "shadow_resistance", "arcane_resistance", "holy_resistance",
+        "fire_spell_power", "frost_spell_power", "arcane_spell_power",
+        "shadow_spell_power", "nature_spell_power", "holy_spell_power",
+    )
+
+    def _whole_number_stats(self):
+        """Round every count stat to an int, once, at the end of the pass.
+
+        Rounds rather than truncates, and never rounds a positive value down
+        to nothing - the same rule tools/round_item_stats.py settled on,
+        because "+0.4 Mp5" that the author meant to be there should read
+        "+1 Mp5" rather than vanish.
+        """
+        for name in self.WHOLE_NUMBER_STATS:
+            value = getattr(self, name, None)
+            if value is None or isinstance(value, bool) or not isinstance(value, (int, float)):
+                continue
+            whole = int(round(value))
+            if whole == 0 and value > 0:
+                whole = 1
+            setattr(self, name, whole)
 
     @staticmethod
     def _stat_per_percent(pair, level):
