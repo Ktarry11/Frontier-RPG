@@ -134,6 +134,21 @@ SHIELD_MULTIPLE = 1.5
 #: An added curse ticks for this share of the boss's biggest hit.
 CURSE_SHARE = 0.28
 
+#: RARES ARE NOT BOSSES. A rare is a named is_boss creature sitting in a
+#: SUBZONE encounter table rather than pinned in a dungeon - 170 of them -
+#: and it is met by whoever is passing through, often without a full party.
+#: Kyle: "open world doesnt have to be VERY dangerous, but there should be
+#: some brainpower. But dungeons should not just be free loot dispensers."
+#:
+#: So they get the same vocabulary at lower intensity, and NO SHIELDS. An
+#: absorb on a world rare does not add a decision, it adds seconds - which
+#: is the HP-sponge feel Kyle explicitly rejected ("i dont want them to be
+#: massive HP sponges"). A stun you have to play around and a curse worth
+#: cleansing are both answerable on the spot.
+RARE_SIGNATURES = ["stun", "curse"]
+RARE_STUN_COOLDOWN = 6      # vs 4 on a boss - it lands, it does not recur
+RARE_CURSE_SHARE = 0.18     # vs 0.28
+
 
 def _short_name(boss_name):
     short = (boss_name or "").split(",")[0].strip()
@@ -157,6 +172,33 @@ def _biggest(kit, kinds=("damage",)):
 def _prefer_distinctive(cands):
     own = [a for a in cands if a.get("name") not in GENERIC_NAMES]
     return own or cands
+
+
+def subzone_rares():
+    """Named is_boss creatures that live in a SUBZONE encounter table.
+
+    Kyle, 30 Oct: "Rares should only be in subzones", and
+    tools/qa_rare_placement.py enforces it - world/creature_manager rolls a
+    named creature in exactly one place, the subzone branch. So the subzone
+    tables ARE the rare roster, and reading them is how this gets the real
+    170 rather than guessing from names.
+
+    They are keyed by name in a weights dict (weight 0 = not in the trash
+    roll), not listed as strings - a first pass walked for string values and
+    found 2 rares instead of 170.
+    """
+    with open(os.path.join(ROOT, "data/creatures/encounters.json")) as fh:
+        zones = json.load(fh)["zones"]
+    with open(CREATURES) as fh:
+        creatures = json.load(fh)["creatures"]
+    bosses = {n for n, c in creatures.items() if c.get("is_boss")}
+    out = set()
+    for _z, d in zones.items():
+        for _sz, sd in (d.get("subzones") or {}).items():
+            for n in (sd.get("creatures") or {}):
+                if n in bosses:
+                    out.add(n)
+    return out
 
 
 def dungeon_bosses():
@@ -186,7 +228,7 @@ def signature_for(template, rotation):
     return "stun", ["stun"]
 
 
-def apply_stun(kit, boss_name=None):
+def apply_stun(kit, boss_name=None, rare=False):
     """The boss's biggest distinctive hit also costs you your next turn."""
     hits = [a for a in kit if a.get("kind") == "damage"
             and (a.get("amount") or 0) > 0 and not a.get("is_aoe")]
@@ -200,15 +242,16 @@ def apply_stun(kit, boss_name=None):
     rider.setdefault("stat_mods", {})
     a["rider"] = rider
     # A stun that lands every turn is a lockout, not a mechanic.
-    if (a.get("cooldown") or 0) < 4:
-        a["cooldown"] = 4
+    floor = RARE_STUN_COOLDOWN if rare else 4
+    if (a.get("cooldown") or 0) < floor:
+        a["cooldown"] = floor
     a["authored_mechanic"] = "stun"
     return a["name"]
 
 
-def apply_shield(kit, boss_name=None):
+def apply_shield(kit, boss_name=None, rare=False):
     """A shield that has to be burned off before the damage lands."""
-    if any(a.get("absorb") for a in kit):
+    if rare or any(a.get("absorb") for a in kit):
         return None
     name = _possessive(_short_name(boss_name), "Ward")
     kit.append({
@@ -221,7 +264,7 @@ def apply_shield(kit, boss_name=None):
     return name
 
 
-def apply_curse(kit, boss_name=None):
+def apply_curse(kit, boss_name=None, rare=False):
     """Tag the boss's own dot/debuff with a real dispel school, or add one."""
     cands = [a for a in kit if a.get("kind") in ("debuff", "dot")
              and not a.get("dispel_type")]
@@ -243,7 +286,8 @@ def apply_curse(kit, boss_name=None):
     name = _possessive(_short_name(boss_name), noun)
     kit.append({
         "name": name, "kind": "dot",
-        "amount": max(4, int(round(_biggest(kit) * CURSE_SHARE))),
+        "amount": max(3, int(round(_biggest(kit)
+                                   * (RARE_CURSE_SHARE if rare else CURSE_SHARE)))),
         "cooldown": 5, "mana_cost": 0, "school": school, "duration": 4,
         "dispel_type": dispel, "authored_mechanic": "curse",
     })
@@ -259,6 +303,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--show", type=int, default=20)
+    ap.add_argument("--rares", action="store_true",
+                    help="the 170 subzone rares instead of the 185 dungeon bosses")
     args = ap.parse_args()
 
     with open(CREATURES) as fh:
@@ -268,7 +314,8 @@ def main():
     kits = kitdoc["kits"]
 
     rotation = collections.defaultdict(int)
-    targets = dungeon_bosses()
+    rare = args.rares
+    targets = subzone_rares() if rare else dungeon_bosses()
     rows, skipped = [], []
     counts = collections.Counter()
 
@@ -280,12 +327,22 @@ def main():
         if not kit:
             skipped.append((name, "no kit"))
             continue
-        want, opts = signature_for(c.get("template", ""), rotation)
+        if rare:
+            # Rares rotate through a two-item list regardless of template:
+            # with shields off the table, the template preferences collapse
+            # to the same two choices anyway, and rotating globally keeps
+            # the split even instead of leaving one subzone all stuns.
+            i = rotation["rare"]
+            rotation["rare"] += 1
+            want = RARE_SIGNATURES[i % len(RARE_SIGNATURES)]
+            opts = RARE_SIGNATURES
+        else:
+            want, opts = signature_for(c.get("template", ""), rotation)
         order = [want] + [o for o in opts if o != want] \
                 + [f for f in FALLBACK if f not in opts]
         done = None
         for sig in order:
-            got = HANDLERS[sig](kit, name)
+            got = HANDLERS[sig](kit, name, rare)
             if got:
                 done = (sig, got)
                 break
@@ -296,7 +353,8 @@ def main():
         rows.append((name, c.get("template", ""), done[0], done[1],
                      done[0] != want))
 
-    print(f"  {len(targets)} dungeon bosses, {len(rows)} given a signature, "
+    label = "subzone rares" if rare else "dungeon bosses"
+    print(f"  {len(targets)} {label}, {len(rows)} given a signature, "
           f"{len(skipped)} skipped")
     print(f"  stun {counts['stun']}   shield {counts['shield']}   "
           f"curse {counts['curse']}\n")
