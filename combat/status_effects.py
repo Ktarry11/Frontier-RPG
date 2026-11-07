@@ -585,6 +585,53 @@ class StatusEffectMixin:
             parts.append(f"{sign}{value} {label}")
         return ", ".join(parts)
 
+    @classmethod
+    def _describe_effect(cls, effect):
+        """' (12 damage/turn, 3 turns)' - what this effect actually DOES.
+
+        Kyle, 7 Nov, three times in a row, with combat logs on screen:
+
+            "a lot of bosses do shit that doesnt even say what it does."
+            "Adrian Mendoza is afflicted by Sumpchoke!"
+            "we need to explain what skills do."
+
+        The log only ever described stat_mods, so anything whose whole
+        mechanic lives somewhere else - a damage-over-time's potency, an
+        absorb shield, a stun - announced its own NAME and nothing else.
+        Sumpchoke is a DOT with no stat_mods, so its line was literally
+        "afflicted by Sumpchoke!" and the player had no way to learn what
+        that meant short of watching their health bar.
+
+        Built from the effect's own fields rather than from authored text,
+        which is the only version that covers every boss in the game: there
+        are hundreds of monster abilities and none of them carry a
+        description, but all of them carry potency, stat_mods, absorb and
+        duration, because that is what the engine reads to resolve them.
+        """
+        parts = []
+        potency = getattr(effect, "potency", 0) or 0
+        if potency:
+            if effect.effect_type == EffectType.DOT:
+                school = getattr(effect, "damage_school", "") or ""
+                tag = f" {school}" if school and school != "physical" else ""
+                parts.append(f"{int(round(potency))}{tag} damage/turn")
+            elif effect.effect_type == EffectType.HOT:
+                parts.append(f"{int(round(potency))} healing/turn")
+        absorb = getattr(effect, "absorb", 0) or 0
+        if absorb:
+            parts.append(f"absorbs {int(round(absorb))}")
+        if getattr(effect, "is_stun", False):
+            parts.append("stunned")
+        stats = cls._describe_stat_mods(getattr(effect, "stat_mods", None))
+        if stats:
+            parts.append(stats)
+        # Duration last, and only alongside something it is the duration OF -
+        # "(3 turns)" on its own is the same empty line in a longer coat.
+        turns = getattr(effect, "duration", 0) or 0
+        if parts and turns:
+            parts.append(f"{int(turns)} turn" + ("s" if int(turns) != 1 else ""))
+        return f" ({', '.join(parts)})" if parts else ""
+
     def _init_status_effects(self):
         self.active_effects = []
         # Drained by CombatEngine/Ability.use() right after take_damage()
@@ -703,8 +750,7 @@ class StatusEffectMixin:
                     effect.duration = reduced
                     effect.max_duration = reduced
 
-        stat_desc = self._describe_stat_mods(effect.stat_mods)
-        suffix = f" ({stat_desc})" if stat_desc else ""
+        suffix = self._describe_effect(effect)
 
         # Exclusive-group replacement (e.g. Tinker's Rounds): applying a new
         # effect in the same group removes any other member of that group
@@ -757,7 +803,13 @@ class StatusEffectMixin:
             return f"{self.name} gains {effect.name}{suffix}."
         elif effect.effect_type == EffectType.DEBUFF:
             return f"{self.name} is afflicted by {effect.name}{suffix}!"
-        return f"{self.name} is afflicted by {effect.name}!"
+        # DOT and HOT land here, and this line never carried the suffix - so
+        # the two effect types whose ENTIRE mechanic is a per-turn number were
+        # the two that printed only a name. "Adrian Mendoza is afflicted by
+        # Sumpchoke!" was this line.
+        if effect.effect_type == EffectType.HOT:
+            return f"{self.name} gains {effect.name}{suffix}."
+        return f"{self.name} is afflicted by {effect.name}{suffix}!"
 
     def _on_status_effects_changed(self):
         """Recompute derived stats (max HP/Mana/etc) after any effect is
