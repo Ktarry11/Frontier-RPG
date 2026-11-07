@@ -50,9 +50,21 @@ OUT = ROOT / "data" / "dungeons" / "dressing.json"
 DP = "assets/tiles/dungeon_props/"
 CP = "assets/tiles/cave_props/"
 
-#: Target pieces per 1,000 walkable tiles. Rocky Pass is 135 and is hand-made;
-#: 55 is a furnished room without pretending a generator can match a person.
-TARGET_PER_1K = 55
+#: Target pieces per 1,000 walkable tiles.
+#:
+#: 18, NOT 55. The first run shipped 55 and Kyle's reply was "That's way too
+#: many props. Omfg." He is right and the rule was already written down - it is
+#: quoted at the top of every town module: "less is more; logical for the room;
+#: a few centrepieces." I set 55 by chasing Rocky Pass's 135, which is a
+#: HAND-BUILT SHOWPIECE where a person chose every piece, not a baseline a
+#: generator should aim at. Scattering 55 a thousand tiles produced rows of
+#: identical prison cages along a wall, which is clutter wearing furniture's
+#: clothes.
+#:
+#: 10 it is, after looking at 55 and at 18 on screen rather than in a table.
+#: Twice the barest interior and a thirteenth of Rocky Pass. A room gets a few
+#: things in it and stays a room.
+TARGET_PER_1K = 10
 
 #: Share of the budget that goes against the walls rather than into the middle.
 WALL_SHARE = 0.82
@@ -279,6 +291,13 @@ def main():
     ap.add_argument("--seed", default="7nov")
     args = ap.parse_args()
 
+    import atexit
+
+    def _restore():
+        if not OUT.exists() and globals().get("_STASH"):
+            OUT.write_text(globals()["_STASH"])
+    atexit.register(_restore)
+
     missing = _check_tables()
     if missing:
         print("  prop names with no file on disk:")
@@ -295,6 +314,7 @@ def main():
     stashed = None
     if OUT.exists():
         stashed = OUT.read_text()
+        globals()["_STASH"] = stashed      # atexit puts it back if this run dies
         OUT.unlink()
     try:
         from world.zone_generator import create_all_zones
