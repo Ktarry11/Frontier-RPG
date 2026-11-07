@@ -507,19 +507,20 @@
     {
       "talent_id": "runemaster_engravement_rune_of_the_elder_magus",
       "name": "Rune of the Elder Magus",
-      "description": "Increases Primordial Blast critical strike damage by 8% per rank.",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "ability_runemaster_primordial_blast_crit_damage": 0.043
+        "crit_damage_spell": 0.2
       },
       "connected_to": [
         "runemaster_engravement_runic_tempest"
-      ]
+      ],
+      "_source": "Standardised 6 Nov: every caster tree carries one 5-point spell-crit-damage talent worth +100% at full rank, matching priest_shadow's Shadow Power and shaman_elemental's Elemental Fury (both WoW-accurate). Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.'"
     },
     {
       "talent_id": "runemaster_engravement_power_engraving",

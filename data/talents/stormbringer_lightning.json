@@ -486,7 +486,7 @@
     {
       "talent_id": "stormbringer_lightning_crackling_devastation",
       "name": "Crackling Devastation",
-      "description": "Increases the critical strike damage of Electrocute by 16.2%.",
+      "description": "Increases the critical strike damage of Electrocute by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -494,7 +494,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_stormbringer_electrocute_crit_damage": 0.054
+        "ability_stormbringer_electrocute_crit_damage": 0.1
       },
       "connected_to": [
         "stormbringer_lightning_thundershocker"

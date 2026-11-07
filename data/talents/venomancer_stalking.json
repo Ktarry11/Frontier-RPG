@@ -300,7 +300,7 @@
     {
       "talent_id": "venomancer_stalking_deadly_kiss",
       "name": "Deadly Kiss",
-      "description": "Increases the critical strike damage of Widowmaker and Venom Fang by 27%.",
+      "description": "Increases the critical strike damage of Widowmaker and Venom Fang by 50%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -308,8 +308,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_widowmaker_crit_damage": 0.09,
-        "ability_venomancer_venom_fang_crit_damage": 0.09
+        "ability_venomancer_widowmaker_crit_damage": 0.1667,
+        "ability_venomancer_venom_fang_crit_damage": 0.1667
       },
       "connected_to": [
         "venomancer_stalking_widowmaker_mastery"
@@ -337,7 +337,7 @@
     {
       "talent_id": "venomancer_stalking_widowmaker_mastery",
       "name": "Widowmaker",
-      "description": "Increases the damage of Widowmaker by 32.4%.",
+      "description": "Increases the damage of Widowmaker by 60%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -374,7 +374,7 @@
     {
       "talent_id": "venomancer_stalking_shadras_seance",
       "name": "Shadra's Seance",
-      "description": "Increases the duration of Facemelter by 1 turn and its damage by 27%.",
+      "description": "Increases the duration of Facemelter by 1 turn and its damage by 50%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -557,7 +557,7 @@
     {
       "talent_id": "venomancer_stalking_contagion_spread",
       "name": "Shadra's Favour",
-      "description": "Increases the damage of your finishers by a further 13.5%.",
+      "description": "Increases the damage of your finishers by a further 25%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,

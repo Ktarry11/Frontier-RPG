@@ -193,7 +193,7 @@
     {
       "talent_id": "reaper_harvest_genocide",
       "name": "Genocide",
-      "description": "Increases the damage and critical damage of Slaughter by 10.8%.",
+      "description": "Increases the damage and critical damage of Slaughter by 20%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -202,7 +202,7 @@
       "hex_y": -2,
       "effects": {
         "ability_reaper_slaughter_damage": 0.036,
-        "ability_reaper_slaughter_crit_damage": 0.036
+        "ability_reaper_slaughter_crit_damage": 0.0667
       },
       "connected_to": [
         "reaper_harvest_extinction"
@@ -366,7 +366,7 @@
     {
       "talent_id": "reaper_harvest_doomer",
       "name": "Doomer",
-      "description": "Increases the damage of Doomrend and Slaughter by 16.2%.",
+      "description": "Increases the damage of Doomrend and Slaughter by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,

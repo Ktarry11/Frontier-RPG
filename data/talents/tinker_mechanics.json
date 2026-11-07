@@ -211,7 +211,7 @@
     {
       "talent_id": "tinker_mechanics_arclight_adept",
       "name": "Arclight Adept",
-      "description": "Increases the critical damage of your Mechsuit abilities by 8.1%.",
+      "description": "Increases the critical damage of your Mechsuit abilities by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.027,
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.027
+        "ability_tinker_mechsuit_laser_beam_crit_damage": 0.05,
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.05
       },
       "connected_to": [
         "tinker_mechanics_turbo_guns"
@@ -274,7 +274,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_crit_damage": 0.027,
+        "ability_tinker_mechsuit_combustion_crit_damage": 0.05,
         "ability_tinker_mechsuit_combustion_damage": 0.018
       },
       "connected_to": [
@@ -442,7 +442,7 @@
     {
       "talent_id": "tinker_mechanics_augmechtation",
       "name": "Augmechtation",
-      "description": "Your Mechsuit increases your damage by an additional 5.1% while active.",
+      "description": "Your Mechsuit increases your damage by an additional 10% while active.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,

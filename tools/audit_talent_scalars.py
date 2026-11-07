@@ -162,7 +162,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--descriptions", action="store_true",
                     help="audit per-rank vs total wording instead of magnitudes")
-    ap.add_argument("--pattern", default=r"ability_(.+)_damage$",
+    ap.add_argument("--pattern", default=r"ability_(.+)(?<!_crit)_damage$",
                     help="effect-key regex to audit (default: per-ability damage)")
     args = ap.parse_args()
 

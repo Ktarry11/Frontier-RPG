@@ -89,20 +89,20 @@
     {
       "talent_id": "stormbringer_maelstrom_hydro_powered",
       "name": "Hydro Powered",
-      "description": "Increases the critical strike damage of your spells by 35%.",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 0,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "crit_damage_spell": 0.1167
+        "crit_damage_spell": 0.2
       },
       "connected_to": [
         "stormbringer_maelstrom_prodigy_of_lei_shen"
       ],
-      "_source": "CoA verbatim: 'Increases your spell critical damage by 35%.' Ports exactly. crit_damage_spell is a FRACTION, unlike crit_chance_spell which is a PERCENT."
+      "_source": "Standardised 6 Nov: every caster tree carries one 5-point spell-crit-damage talent worth +100% at full rank, matching priest_shadow's Shadow Power and shaman_elemental's Elemental Fury (both WoW-accurate). Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.'"
     },
     {
       "talent_id": "stormbringer_maelstrom_prodigy_of_lei_shen",
@@ -170,7 +170,7 @@
     {
       "talent_id": "stormbringer_maelstrom_raining_and_pouring",
       "name": "Raining and Pouring",
-      "description": "Increases the critical strike damage of Torrential Wrath and Electrocute by 16.2%.",
+      "description": "Increases the critical strike damage of Torrential Wrath and Electrocute by 30%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -178,8 +178,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_stormbringer_torrential_wrath_crit_damage": 0.054,
-        "ability_stormbringer_electrocute_crit_damage": 0.054
+        "ability_stormbringer_torrential_wrath_crit_damage": 0.1,
+        "ability_stormbringer_electrocute_crit_damage": 0.1
       },
       "connected_to": [
         "stormbringer_maelstrom_conduit"
@@ -263,7 +263,7 @@
     {
       "talent_id": "stormbringer_maelstrom_voltaic_mastery",
       "name": "Voltaic Mastery",
-      "description": "Increases the damage of Deluge by 13.5%.",
+      "description": "Increases the damage of Deluge by 25%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -331,7 +331,7 @@
     {
       "talent_id": "stormbringer_maelstrom_bursting",
       "name": "Bursting",
-      "description": "Increases the damage of Drown by 16.2%.",
+      "description": "Increases the damage of Drown by 30%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -349,7 +349,7 @@
     {
       "talent_id": "stormbringer_maelstrom_unbridled_flow",
       "name": "Unbridled Flow",
-      "description": "Increases the damage of Shock by a further 8.1%.",
+      "description": "Increases the damage of Shock by a further 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -463,7 +463,7 @@
     {
       "talent_id": "stormbringer_maelstrom_hydromatic",
       "name": "Hydromatic",
-      "description": "Increases the damage of Electrocute by 27%.",
+      "description": "Increases the damage of Electrocute by 50%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -481,7 +481,7 @@
     {
       "talent_id": "stormbringer_maelstrom_conductor_in_charge",
       "name": "Conductor In Charge",
-      "description": "Increases all damage you deal by 3.9%.",
+      "description": "Increases all damage you deal by 8%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -552,7 +552,7 @@
     {
       "talent_id": "stormbringer_maelstrom_mystic_thunder",
       "name": "Mystic Thunder",
-      "description": "Increases the damage of Torrential Wrath by 21.6%.",
+      "description": "Increases the damage of Torrential Wrath by 40%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,

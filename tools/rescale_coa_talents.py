@@ -67,7 +67,10 @@ VANILLA = {"warrior", "rogue", "hunter", "mage", "priest",
 #: that are throughput. Utility (cost, haste, damage taken) is within ~30%
 #: already and flat crit chance is lower on CoA, so none of it is here.
 FAMILIES = {
-    "ability damage": r"^ability_.+_damage$",
+    # NOT ability_X_crit_damage - that key also ends in _damage, and crit
+    # damage is a multiplier on crits, not flat throughput. Including it
+    # cut 19 CoA crit-damage talents by up to 46% in 4837ce4.
+    "ability damage": r"^ability_.+(?<!_crit)_damage$",
     "healing": r"healing",
     "pet damage": r"^pet_damage",
     "all damage": r"^all_damage$",

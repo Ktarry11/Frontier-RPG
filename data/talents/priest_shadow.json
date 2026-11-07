@@ -391,7 +391,7 @@
     {
       "talent_id": "priest_shadow_shadow_power",
       "name": "Shadow Power",
-      "description": "Increases the critical damage of your Mind Blast and Mind Flay by 20% per rank.",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -399,10 +399,9 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_priest_mind_blast_crit_damage": 0.2,
-        "ability_priest_mind_flay_crit_damage": 0.2
+        "crit_damage_spell": 0.2
       },
-      "_source": "WotLK row 4: 'Increases the critical strike damage bonus of your Mind Blast, Mind Flay, and Shadow Word: Death spells by 20%-100%.' Built verbatim for the two that exist. ability_<id>_crit_damage is a FRACTION - and note this is the suffix whose parse must try the LONGEST match first, or ability_X_crit_damage reads as ability 'X_crit' plus field 'damage'. The outgoing version granted flat crit CHANCE and flat shadow_spell_power, neither of which is this talent.",
+      "_source": "Standardised 6 Nov: every caster tree carries one 5-point spell-crit-damage talent worth +100% at full rank, matching priest_shadow's Shadow Power and shaman_elemental's Elemental Fury (both WoW-accurate). Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.'",
       "connected_to": [
         "priest_shadow_shadowform"
       ]

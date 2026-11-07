@@ -416,7 +416,7 @@
     {
       "talent_id": "mage_fire_burnout",
       "name": "Burnout",
-      "description": "Increases the critical damage of your spells by 10% per rank.",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -424,9 +424,9 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "crit_damage_spell": 0.1
+        "crit_damage_spell": 0.2
       },
-      "_source": "WotLK row 5: 'Increases your spell critical damage bonus with all spells by 10%-50% but your non-periodic spell criticals cost 1% more mana.' The crit-damage half is built verbatim; the mana drawback has no per-crit cost mechanism. crit_damage_spell is a FRACTION, read at abilities.py:1460 inside a ternary - live despite the probe finding no literal read site, and DEAD inside a status effect, so the talent-effect form used here is the only one that works.",
+      "_source": "Standardised 6 Nov: every caster tree carries one 5-point spell-crit-damage talent worth +100% at full rank, matching priest_shadow's Shadow Power and shaman_elemental's Elemental Fury (both WoW-accurate). Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.'",
       "connected_to": [
         "mage_fire_pyromaniac"
       ]

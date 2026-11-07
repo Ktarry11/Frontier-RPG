@@ -161,20 +161,20 @@
     {
       "talent_id": "necromancer_rime_frozen_power",
       "name": "Frozen Power",
-      "description": "Increases your Frost critical damage by 50%.",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
       "node_type": "passive",
       "tier": 2,
-      "max_points": 3,
+      "max_points": 5,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "frost_crit_damage_pct": 0.1667
+        "crit_damage_spell": 0.2
       },
       "connected_to": [
         "necromancer_rime_frozen_bodies"
       ],
-      "_source": "CoA: 'Increases your critical damage with Frost spells by 50%.' PORTS VERBATIM via frost_crit_damage_pct, which the project already authors in two places - the per-school crit-damage family (fire_, frost_, shadow_) is read the same dynamic way as the per-school damage family. Folded in CoA's shared Frigidness passive ('increases your critical damage by 100% against Frozen targets'), which cannot be built: CoA gates this on the target being FROZEN. NOTHING READS A TARGET'S DEBUFFS anywhere in this engine, so the condition cannot be built - and a condition that silently never fires is worse than none. Dropped, with the value priced for being unconditional. Eight Rime talents carry this gate. A FRACTION, like every crit_damage_* key and unlike the crit_chance_* family, which are points."
+      "_source": "Standardised 6 Nov: every caster tree carries one 5-point spell-crit-damage talent worth +100% at full rank, matching priest_shadow's Shadow Power and shaman_elemental's Elemental Fury (both WoW-accurate). Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.'"
     },
     {
       "talent_id": "necromancer_rime_frozen_bodies",
