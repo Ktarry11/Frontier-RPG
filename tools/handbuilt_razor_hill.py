@@ -243,7 +243,7 @@ def _dress(L):
     p("vot_war_banner", 24, 27, 5)
     p("vot_war_banner", 36, 27, 5)
     p("vot_totem_pole", 35, 34, 6)
-    b("well_house", 25, 36, 5)
+    b("well_house", 29, 36, 5)
     # ---- west: smithy, inn, elder, garden, training lodge + yard
     b("smithy", 13, 19, 7)
     p("vot_crate_stack", 18, 22, 3)
@@ -261,7 +261,7 @@ def _dress(L):
     # ---- east: market, engineer's workshop, shack, refugee camp
     b("trading_post", 44, 35, 6)
     p("vot_crate_stack", 50, 33, 3)
-    b("bazaar_stall_row", 39, 40, 4)
+    b("bazaar_stall_row", 44, 40, 4)
     b("scrapyard_workshop", 46, 23, 6)
     p("vot_broken_cart", 44, 42, 3)
     b("generic_tent_b", 51, 44, 5)

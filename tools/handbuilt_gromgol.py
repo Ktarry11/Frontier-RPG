@@ -217,7 +217,7 @@ def dress(L):
     # ---- the low side: stores, provisioner, the medic's tent --------------------------------------
     B("gg_supply_store", 22, 46, 8)
     B("gg_command_tent", 21, 38, 5)
-    B("gg_command_tent", 25, 44, 5)
+    B("gg_command_tent", 30, 44, 5)
     B("gg_supply_store", 19, 29, 6)
     B("gg_command_tent", 21, 34, 6)
     D("vot_crate_stack", 18, 46, 3)

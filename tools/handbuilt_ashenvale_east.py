@@ -346,7 +346,7 @@ def dress(L):
         A("large_canopy_tree", int(round(30 + 12.5 * math.cos(ang))), int(round(153 + 9.0 * math.sin(ang))),
           12 if k % 2 == 0 else 11)
     L.bld("nightelf_house_small", 25, 151, 7)
-    L.bld("nightelf_house_small", 35, 150, 7)
+    L.bld("nightelf_house_small", 38, 150, 7)
     L.bld("druid_priestess_hut", 30, 146, 7)
     L.dp("vot_fire_pit", 30, 156, 2, solid=False)
     A("ash_elune_statue", 30, 160, 7)

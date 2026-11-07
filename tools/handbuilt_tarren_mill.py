@@ -204,7 +204,7 @@ def dress(L):
     # with the wheel sitting out over the channel where the art already puts its own water.
     b("ek_watermill", 41, 57, 10, nudge=1)
     b("ek_granary", 28, 65, 6, nudge=1)
-    b("ek_millstone_shelter", 27, 59, 5, nudge=1)
+    b("ek_millstone_shelter", 31, 59, 5, nudge=1)
     b("ek_mill_sluice", 44, 15, 6, nudge=0)                        # the weir that feeds the race
     p("ek_signpost", 36, 81, 4)
 

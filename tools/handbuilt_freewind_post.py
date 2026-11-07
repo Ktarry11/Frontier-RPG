@@ -303,7 +303,7 @@ def _dress(L):
     p(T("tau_stable"), 112, 52, 8)
     p(T("tau_stable"), 124, 46, 8)
     # the warehouses - everything that arrives is stored before it crosses a bridge
-    _row(L, T("tau_storehouse"), 72, 40, 72, 54, 2, 8)
+    _row(L, T("tau_storehouse"), 72, 36, 72, 50, 2, 8)
     _row(L, T("tau_storehouse"), 120, 50, 112, 58, 2, 8)
     p(T("tau_trading_post"), 106, 58, 9)
     p(T("tau_food_cache"), 90, 58, 6)
@@ -327,7 +327,9 @@ def _dress(L):
 
     # --- THE MARKET ROW. Ten stalls down the west side, which is what makes this a city.
     _row(L, T("tau_trading_post"), 24, 106, 24, 134, 4, 9)
-    _row(L, T("tau_tent_medium"), 38, 108, 38, 134, 3, 6)
+    # Shifted west off the longhouse: this is a ROW, so nudging it along its own
+# axis only slides the collision to the next tent in the line.
+    _row(L, T("tau_tent_medium"), 30, 108, 30, 134, 3, 6)
     _row(L, T("tau_tent_small"), 15, 114, 15, 128, 2, 5)
     _row(L, S("sn_hide_banner"), 31, 110, 31, 132, 2, 6, solid=False)
 
@@ -354,7 +356,7 @@ def _dress(L):
     p(T("tau_food_cache"), 36, 88, 6)
     p(T("tau_storehouse"), 24, 92, 8)
     # --- a second market lane, east of the square, and the bunkhouses behind the craft row
-    _row(L, T("tau_tent_medium"), 92, 110, 92, 130, 2, 6)
+    _row(L, T("tau_tent_medium"), 98, 112, 98, 130, 2, 6)
 
     _row(L, T("tau_longhouse"), 72, 140, 86, 142, 2, 10)
     _row(L, S("sn_hide_banner"), 88, 112, 88, 128, 2, 6, solid=False)

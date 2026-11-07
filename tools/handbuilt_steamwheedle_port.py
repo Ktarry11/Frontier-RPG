@@ -88,15 +88,15 @@ BUILDINGS = [
     # the quay
     ("bb_harbourmaster_tower", 24, 28, 18),
     ("bb_harbour_inn", 35, 34, 15),
-    ("bb_counting_house", 45, 30, 13),
+    ("bb_counting_house", 49, 32, 13),
     # INLAND, not against the water. At base_y 32 its core reached from y20 to y32 and sealed the
     # western waterfront strip against the sea - a 44-tile pocket you could see and never stand in.
     # A building on a quay has to leave the quay walkable in front of it.
     ("bb_warehouse", 15, 44, 12),
     ("bb_trade_shop", 29, 40, 11),
-    ("bb_lean_shack", 12, 44, 8),
+    ("bb_lean_shack", 16, 47, 8),
     # the upper yard - newer, scrappier, and a scrapyard workshop is exactly right for it
-    ("scrapyard_workshop", 67, 44, 13),
+    ("scrapyard_workshop", 56, 44, 13),
     ("gg_forge", 75, 42, 12),
     ("ratchet_docks_warehouse", 90, 42, 12),
     ("generic_shack_a", 71, 56, 9),

@@ -93,7 +93,7 @@ def dress(L):
     A("ash_sentinel_banner", 49, 33, 7)
     A("ash_sentinel_banner", 61, 33, 7)
     A("ash_hippogryph_perch", 72, 29, 8)
-    B("nightelf_house_small", 44, 24, 11)
+    B("nightelf_house_small", 38, 24, 11)
     B("nightelf_house_small", 68, 23, 11)
     A("ash_glow_mushroom_ring", 40, 36, 4)
     # ---- west bank: tower, Sentinel camp, drill pavilion

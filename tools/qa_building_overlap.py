@@ -35,40 +35,18 @@ sys.path.insert(0, str(ROOT))
 #: Fraction of the smaller building that may be covered before it is a failure.
 MAX_COVERED = 0.34
 
-#: PRE-EXISTING, AND THEREFORE NOT A FAILURE - YET.
+#: Empty, and that is the point.
 #:
-#: This check found 24 overlapping pairs the day it was written. Three were
-#: mine from that day and were fixed; these 21 are older than the check. A
-#: suite that is permanently red teaches everyone to ignore red, so these are
-#: baselined: the check fails on anything NOT in this list, which is the thing
-#: worth catching - a NEW building drawn through an old one.
+#: This started as 21 baselined pairs - overlaps older than the check, kept out
+#: of the failure count so the suite would not ship permanently red. Kyle, 7
+#: Nov: "If you want to fix the building overlap, go for it. I don't imagine
+#: that'd be hard." It was not hard, it was fiddly, and all 21 are fixed, so
+#: the list is empty and the check is now simply: no building is drawn through
+#: another, anywhere.
 #:
-#: This list is debt, not a decision. Orgrimmar's gate is drawn 100% through a
-#: hut and its trainers' lodge 100% through a house; Razor Hill has a
-#: watchtower 100% through a stall row. Clear them and delete the lines.
-KNOWN = {
-    ("Ashenvale East", "nightelf_house_small", 33, 144, "druid_priestess_hut", 30, 142),
-    ("Astranaar", "sentinel_outpost_hall", 47, 15, "nightelf_house_small", 40, 14),
-    ("Freewind Post", "tau_kodo_pen", 66, 44, "tau_storehouse", 69, 48),
-    ("Freewind Post", "tau_smithy", 92, 103, "tau_tent_medium", 89, 105),
-    ("Freewind Post", "tau_tent_medium", 36, 103, "tau_longhouse", 40, 109),
-    ("Grom'gol", "gg_command_tent", 22, 43, "palisade_gatehouse", 22, 45),
-    ("Orgrimmar", "bazaar_stall_row", 67, 69, "trading_post", 77, 69),
-    ("Orgrimmar", "crossroads_stable", 170, 35, "generic_hut_b", 178, 29),
-    ("Orgrimmar", "orgrimmar_gate", 87, 164, "generic_hut_a", 79, 149),
-    ("Orgrimmar", "orgrimmar_gate", 87, 164, "hide_tanners_hut", 77, 168),
-    ("Orgrimmar", "trading_post", 105, 101, "well_house", 107, 94),
-    ("Orgrimmar", "trainers_lodge", 148, 37, "plain_orc_house_c", 146, 37),
-    ("Orgrimmar", "warchiefs_hall", 22, 5, "watchtower", 14, 8),
-    ("Ratchet", "generic_house_a", 16, 7, "generic_shack_b", 19, 4),
-    ("Ratchet", "scrapyard_workshop", 6, 4, "generic_shack_a", 3, 5),
-    ("Razor Hill", "watchtower", 18, 39, "well_house", 21, 33),
-    ("Razor Hill", "watchtower", 36, 40, "bazaar_stall_row", 37, 36),
-    ("Steamwheedle Port", "bb_harbour_inn", 28, 20, "bb_counting_house", 37, 18),
-    ("Steamwheedle Port", "bb_warehouse", 5, 33, "bb_lean_shack", 6, 37),
-    ("Steamwheedle Port", "scrapyard_workshop", 60, 32, "gg_forge", 66, 31),
-    ("Tarren Mill", "ek_millstone_shelter", 25, 55, "ek_village_inn", 22, 59),
-}
+#: If something has to go in here again, it is debt with a date on it, not a
+#: decision.
+KNOWN = set()
 
 
 def _rect(lm):
@@ -123,8 +101,7 @@ def main():
     print(f"  {checked} buildings across {len(zones) if not want else len(want)} zones, "
           f"tolerance {MAX_COVERED:.0%} of the smaller one")
     if baselined:
-        print(f"  {len(baselined)} known pre-existing overlap(s) baselined - see KNOWN, "
-              f"they are debt, not a decision")
+        print(f"  {len(baselined)} baselined overlap(s) - see KNOWN, debt with a date on it")
 
     if findings:
         total = sum(len(v) for v in findings.values())

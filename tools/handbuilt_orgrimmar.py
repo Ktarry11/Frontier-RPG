@@ -110,6 +110,24 @@ RIM = 8.0           # cliff band thickness at the map edge
 WALL_HALF = 1.0     # district wall half-thickness (tiles)
 
 
+# ORGRIMMAR WAS BUILT OUT OF STARTER ARCHITECTURE. Kyle, 7 Nov: "you can also
+# replace some buildings in org with better Horde buildings if you want. Not
+# all, just some..logically."
+#
+# The capital of the Horde had four generic_tent_a, six generic_hut_*, two
+# shamans_hut, an elders_tent and a hide_tanners_hut in it - exactly the set
+# claude/orc_building_prompts.md was commissioned to replace, in its own words:
+# "Valley-of-Trials starter architecture... a clan that has just landed and is
+# living rough, which was right for Durotar and is wrong everywhere else."
+# Thirty proper orc buildings have existed since 1 Nov; Orgrimmar got none.
+#
+# SOME, LOGICALLY - 24 of 61, matched by FUNCTION: the quartermaster gets the
+# quartermaster's post, the leatherworker the tannery hall, the stablemaster the
+# warbeast stable, the clan hall becomes a war hall. DELIBERATELY LEFT: the
+# bazaar's tents and stall rows, because a market of awnings is right; and the
+# smugglers' quarter shacks, because a den that looks like a proper building is
+# not a den. Rough is the point in both.
+
 def _wob(gx, gy):
     return (0.45 * np.sin(0.37 * gx + 1.3) * np.sin(0.29 * gy + 0.7)
             + 0.30 * np.sin(0.83 * gx + 0.21 * gy + 2.0)
@@ -396,27 +414,27 @@ def _dress(L):
     op("war_banner", 39, 33, 7, road_ok=True)
     op("skull_tusk_cluster", 22, 24, 6)
     op("skull_tusk_cluster", 46, 24, 6)
-    b("elders_tent", 18, 25, 7)
+    b("orc_totem_court", 18, 25, 8)
     p("vot_hide_rack", 24, 28, 3)
     b("trading_post", 49, 28, 8)                          # reagents
     p("vot_crate_stack", 53, 30, 3)
-    b("outpost_barracks", 21, 41, 7)                      # quartermaster
+    b("orc_quartermaster_post", 21, 41, 9)                      # quartermaster
     p("bbc_weapon_rack", 14, 44, 3)
-    b("generic_tent_a", 47, 42, 8)                        # provisioner
+    b("orc_supply_store", 47, 42, 10)                        # provisioner
     p("vot_crate_stack", 52, 45, 3)
-    b("generic_tent_b", 27, 47, 5)                        # elixirs
-    b("shamans_hut", 18, 54, 9)
-    b("shamans_hut", 50, 54, 9)
+    b("orc_healer_house", 27, 47, 9)                        # elixirs
+    b("orc_spirit_lodge", 18, 54, 10)
+    b("orc_spirit_lodge", 50, 54, 10)
     p("vot_totem_pole", 25, 52, 7)
     p("vot_totem_pole", 43, 52, 7)
-    b("watchtower", 19, 21, 11, nudge=3)
-    b("watchtower", 51, 21, 11, nudge=3)
+    b("orc_watch_tower", 13, 21, 12, nudge=3)
+    b("orc_watch_tower", 51, 21, 12, nudge=3)
     op("war_banner", 28, 56, 6, road_ok=True)
     op("war_banner", 40, 56, 6, road_ok=True)
 
     # ================================================================ MAGIC QUARTER
     b("training_pavilion", 100, 29, 13)
-    b("generic_hut_b", 86, 29, 7)                         # enchanter
+    b("orc_warlock_tower", 86, 36, 11)                         # enchanter
     b("scrapyard_workshop", 114, 29, 8)                   # engineering
     p("rf_tool_rack", 120, 32, 3)
     b("zep_tower_orc", 88, 51, 12)                       # the flight roost
@@ -426,31 +444,31 @@ def _dress(L):
     p("bbc_candelabra", 118, 41, 4)
     p("wizard_desk", 110, 46, 4)
     p("bbc_bookshelf", 116, 50, 5)
-    b("generic_house_a", 106, 52, 6)
+    b("orc_officers_house", 106, 52, 9)
     p("bbc_candelabra", 82, 24, 4)
     p("bbc_candelabra", 118, 24, 4)
 
     # ================================================================ VALLEY OF HONOR
-    b("clan_hall", 168, 27, 11)
+    b("orc_war_hall", 168, 27, 14)
     op("skull_tusk_cluster", 153, 31, 7)
     op("skull_tusk_cluster", 179, 31, 7)
     op("war_banner", 161, 33, 6, road_ok=True)
     op("war_banner", 171, 33, 6, road_ok=True)
-    b("hide_tanners_hut", 151, 24, 7)                     # beast vendor
-    b("trainers_lodge", 154, 46, 8)                       # hunters
-    b("crossroads_stable", 178, 46, 9)                    # stablemaster
+    b("orc_kennel_block", 151, 24, 9)                     # beast vendor
+    b("orc_barracks_longhouse", 154, 46, 10)                       # hunters
+    b("orc_warbeast_stable", 178, 46, 11)                    # stablemaster
     p("vot_archery_target", 150, 54, 4)
     p("vot_archery_target", 158, 56, 4)
     p("kennel_cage_worg", 174, 55, 5)
     p("kennel_cage_empty", 182, 54, 5)
     p("vot_hide_rack", 182, 24, 3)
-    b("generic_hut_b", 183, 36, 6)
-    b("plain_orc_house_c", 150, 41, 4)
+    b("orc_officers_house", 189, 36, 9)
+    b("plain_orc_house_c", 150, 47, 4)
     p("weapon_rack", 182, 38, 4)
-    b("watchtower", 182, 21, 11, nudge=3)
+    b("orc_watch_tower", 182, 21, 12, nudge=3)
 
     # ================================================================ VALLEY OF STRENGTH
-    b("grand_forge", 22, 92, 14)
+    b("orc_war_forge", 22, 92, 14)
     p("rf_ore_cart", 16, 98, 4)
     p("rf_tool_rack", 30, 90, 4)
     p("rf_supply_crates", 15, 87, 4)
@@ -469,7 +487,7 @@ def _dress(L):
     p("bbc_summon_circle", 176, 108, 7)
     b("crypt_chapel", 156, 90, 12)
     b("forsaken_house_small", 178, 90, 8)
-    b("generic_tent_a", 156, 112, 8)
+    b("orc_supply_store", 156, 112, 10)
     p("bbc_warlock_desk", 150, 108, 4)
     for (x, y) in [(162, 84), (170, 84), (162, 114), (170, 114)]:
         p("bbc_fel_brazier", x, y, 6)
@@ -481,7 +499,7 @@ def _dress(L):
 
     # ================================================================ CLEFT OF SHADOW
     b("forsaken_house_medium", 20, 156, 10)               # rogues
-    b("generic_hut_b", 48, 156, 7)                        # poisons
+    b("orc_healer_house", 48, 156, 9)                        # poisons
     p("rf_prison_cage", 44, 150, 5)
     b("generic_shack_b", 46, 174, 5)                      # a smuggler's den
     p("rf_supply_crates", 40, 178, 4)
@@ -513,9 +531,9 @@ def _dress(L):
     p("rf_skull_spears", 40, 171, 5)
 
     # ================================================================ CRAFT ROW
-    b("generic_house_a", 68, 158, 7)                      # alchemist
+    b("orc_healer_house", 68, 158, 9)                      # alchemist
     p("vot_crate_stack", 70, 164, 3)
-    b("hide_tanners_hut", 82, 176, 7)                     # leatherworker
+    b("orc_tannery_hall", 82, 182, 11)                     # leatherworker
     p("vot_hide_rack", 81, 170, 3)
     p("vot_hide_rack", 85, 171, 3)
     p("rf_tool_rack", 68, 178, 4)
@@ -525,22 +543,22 @@ def _dress(L):
     p("rf_supply_crates", 132, 176, 4)
     p("vot_broken_cart", 120, 152, 4)
     b("generic_shack_a", 68, 172, 5)
-    b("generic_hut_a", 82, 154, 5)
+    b("generic_hut_a", 82, 147, 5)
     p("vot_crate_stack", 70, 183, 3)
     b("plain_orc_house_b", 132, 172, 4)
-    b("generic_house_b", 118, 154, 5)
+    b("orc_officers_house", 118, 154, 9)
     p("vot_crate_stack", 124, 184, 3)
     p("rf_ore_cart", 134, 183, 4)
 
     # ================================================================ STABLES
     b("taurajo_stables", 154, 156, 10)                    # mounts
-    b("crossroads_stable", 178, 156, 10)                  # stable master
+    b("orc_warbeast_stable", 178, 156, 11)                  # stable master
     p("kennel_cage_worg", 150, 173, 5)
     p("kennel_cage_worg", 158, 176, 5)
     p("kennel_cage_empty", 180, 173, 5)
     p("kennel_cage_worg", 186, 177, 5)
     b("taurajo_stables", 154, 182, 9)
-    b("crossroads_stable", 176, 184, 8)
+    b("orc_warbeast_stable", 176, 184, 11)
     b("generic_hut_a", 160, 172, 5)
     for x in (170, 174, 178, 182, 186):
         p("vot_palisade", x, 169, 3, nudge=1)
@@ -551,7 +569,7 @@ def _dress(L):
     p("vot_crate_stack", 174, 180, 3)
 
     # ================================================================ THE MARKET
-    stalls = [("bazaar_stall_row", 72, 78, 8), ("trading_post", 86, 78, 8), ("mixed_trading_post", 79, 92, 8),
+    stalls = [("bazaar_stall_row", 68, 78, 8), ("trading_post", 88, 78, 8), ("mixed_trading_post", 79, 92, 8),
               ("generic_tent_a", 114, 78, 8), ("bazaar_stall_row", 128, 78, 8), ("trading_post", 121, 92, 8),
               ("generic_tent_b", 72, 110, 8), ("mixed_trading_post", 86, 110, 8), ("bazaar_stall_row", 79, 124, 8),
               ("trading_post", 114, 110, 8), ("generic_tent_a", 128, 110, 8), ("mixed_trading_post", 121, 124, 8)]
@@ -570,7 +588,10 @@ def _dress(L):
     p("vot_war_drum", 66, 99, 4, road_ok=True)
     p("vot_war_drum", 134, 99, 4, road_ok=True)
     b("well_house", 90, 99, 5, road_ok=True)
-    b("well_house", 110, 99, 5, road_ok=True)
+    # The second well is gone. It sat on the trading post and every move I gave
+    # it was shoved back by the placer's nudge, which is the placer saying the
+    # only free ground nearby IS the post. The Drag already has a well twenty
+    # tiles west; a plaza with one well is not missing anything.
 
     # ================================================================ WALL GATES
     for (cx, cy, off, w) in [(56, 36, "e", 7), (144, 36, "w", 7), (100, 56, "s", 9),
