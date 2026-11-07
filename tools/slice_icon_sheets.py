@@ -40,15 +40,13 @@ WEAPON_ORDER = [
 ]
 WEAPON_PER = 3
 
-#: Sheet 2: twelve armour slots, four variants each (plate/mail/leather/cloth
-#: where the ordinary table splits by type; four designs where it does not).
-#: The suffixed keys match gear_icons._epic_key, which builds "<slot>_<type>"
-#: only for the slots ARMOR_ICON_PREFIXES actually splits.
-#: The only slots ARMOR_ICON_PREFIXES actually keys by armour type. Checked
-#: against the table rather than guessed - "legs" looks like it should split
-#: and does not, and naming four legplate icons gear_epic_legs_plate_1 would
-#: have made four files _epic_key never asks for.
-ARMOUR_SPLIT = ["head", "chest", "feet"]
+#: Sheet 2: twelve armour slots, four variants each. The first nine slots are
+#: drawn as plate / mail / leather / cloth and are NAMED that way, because
+#: gear_icons._epic_keys tries "<slot>_<material>" before the bare slot. The
+#: last three are jewellery with no material to speak of, so their four cells
+#: are just four designs.
+#: Jewellery: the four cells are four designs, not four materials.
+ARMOUR_NO_MATERIAL = ["neck", "ring", "trinket"]
 ARMOUR_ORDER = [
     "head", "shoulder", "chest", "hands", "waist", "legs", "feet",
     "wrist", "back", "neck", "ring", "trinket",
@@ -67,10 +65,10 @@ def cell_names(layout):
     else:
         for slot in ARMOUR_ORDER:
             for i in range(ARMOUR_PER):
-                if slot in ARMOUR_SPLIT:
-                    names.append(f"gear_epic_{slot}_{MATERIALS[i]}_1")
-                else:
+                if slot in ARMOUR_NO_MATERIAL:
                     names.append(f"gear_epic_{slot}_{i + 1}")
+                else:
+                    names.append(f"gear_epic_{slot}_{MATERIALS[i]}_1")
     return names
 
 

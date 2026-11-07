@@ -47,8 +47,24 @@ And the thing that makes them read as epic rather than just "nicer":
 > runes, a wisp of arcane light, or a glow from within. Never plain, never
 > rusted, never mundane.
 
-Keep the violet consistent across both sheets — it is the tell that ties the
-family together, and it matches the rarity border the UI already draws.
+**DO NOT say "keep the violet consistent".** That line was in the first
+version of this file and sheet 1 came back as forty-eight purple objects.
+Kyle, 7 Nov: *"we need to fix everything looking violet"*. What ties the
+family together is CRAFTSMANSHIP — elaborate shaping, filigree, gem settings,
+engraved runes, an enchanted sheen — not one hue. The rarity border already
+tells the player it is epic; the icon does not have to shout it in a single
+colour. So instead:
+
+> Vary the accent colour across the grid — amethyst, sapphire, emerald, ruby,
+> amber, teal, pale gold — and vary the cloth and leather dyes too: deep red,
+> forest green, midnight blue, bone white, oxblood, charcoal. No two adjacent
+> cells should share an accent colour. Do not make the sheet monochrome;
+> purple should appear on no more than about a quarter of the items.
+
+Also ask for **generous dark gutters, nothing overhanging into a neighbouring
+cell**, and ~80% fill rather than 85%. On sheet 1 a polearm tassel reached
+into the shield beside it and the slicer had to widen its trim to 1/14th of a
+cell to cut it back out.
 
 ---
 

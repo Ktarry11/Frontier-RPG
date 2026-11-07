@@ -148,19 +148,36 @@ def _icons_for_prefixes(prefixes):
 EPIC_PREFIX = "gear_epic_"
 
 
-def _epic_key(slot, armor_type=None, weapon_type=None):
-    """The gear_epic_ family key for an item, or None.
+def _epic_keys(slot, armor_type=None, weapon_type=None):
+    """The gear_epic_ family keys to try for an item, best first.
 
-    Weapons key on weapon_type. Armour keys on slot+armor_type where the
-    ordinary table splits by type (chest, legs and so on) and on slot alone
-    where it does not - matching the source pack's own structure rather than
-    inventing a split the art does not have.
+    ARMOUR ALWAYS TRIES ITS MATERIAL FIRST, which is where this differs from
+    the ordinary table. That table does not split shoulders, gloves, belts and
+    the rest by armour type, because the source WoW pack genuinely does not -
+    one inv_shoulder icon serves cloth and plate alike. The epic sheet DOES
+    draw them separately: spiked plate pauldrons, ringed mail spaulders,
+    studded leather, a gem-clasped cloth mantle. Keying those on the slot
+    alone would have handed a mage the spiked plate pauldrons, which is worse
+    than the shared icon it replaced.
+
+    The bare slot stays as the fallback so a future sheet that does not split
+    a slot by material still works.
     """
     if weapon_type:
-        return weapon_type
-    if (slot, armor_type) in ARMOR_ICON_PREFIXES and armor_type:
-        return f"{slot}_{armor_type}"
-    return slot
+        return [weapon_type]
+    keys = []
+    if armor_type:
+        keys.append(f"{slot}_{armor_type}")
+    keys.append(slot)
+    return keys
+
+
+def _epic_candidates_for(slot=None, armor_type=None, weapon_type=None):
+    for key in _epic_keys(slot, armor_type, weapon_type):
+        found = _epic_candidates(key)
+        if found:
+            return found
+    return []
 
 
 def _epic_candidates(key):
@@ -195,7 +212,7 @@ def pick_armor_icon(slot, armor_type, seed=None, rarity=None):
     """
     candidates = []
     if rarity in ("epic", "legendary"):
-        candidates = _epic_candidates(_epic_key(slot, armor_type=armor_type))
+        candidates = _epic_candidates_for(slot=slot, armor_type=armor_type)
     if not candidates:
         prefixes = (ARMOR_ICON_PREFIXES.get((slot, armor_type))
                    or ARMOR_ICON_PREFIXES.get((slot, None)))
@@ -229,7 +246,7 @@ def pick_weapon_icon(weapon_type, seed=None, rarity=None):
     """
     candidates = []
     if rarity in ("epic", "legendary"):
-        candidates = _epic_candidates(_epic_key(None, weapon_type=weapon_type))
+        candidates = _epic_candidates_for(weapon_type=weapon_type)
     if not candidates:
         prefixes = WEAPON_ICON_PREFIXES.get(weapon_type)
         if not prefixes:
