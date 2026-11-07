@@ -5943,6 +5943,9 @@ def create_all_zones():
     # tools/build_dungeon_pulls.py; no-op for a dungeon that has no entry).
     from world.dungeon_packs import apply_packs
     apply_packs(zones)
+    # Furniture, same seam and for the same reason - see world/dungeon_dressing.py.
+    from world.dungeon_dressing import apply_dressing
+    apply_dressing(zones)
 
     _mark_portal_tiles(zones)
     return zones
