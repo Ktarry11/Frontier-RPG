@@ -218,6 +218,20 @@ class CombatEngine:
         being mathematically unhittable at zero threat, which is its own kind of fake.
         """
         from entities.party import FRONT_ROW
+        from combat import rows as rowrules
+
+        # ROWS GATE REACH BEFORE THREAT DECIDES. Kyle, 6 Nov: "melee mobs
+        # will be stuck hitting front line, tank can still taunt ranged, but
+        # they can go and attack back row if theyre not taunted." A melee
+        # enemy simply cannot see the party's back line while anyone stands
+        # in front, however much threat the back line has generated - which
+        # is what finally makes a front row mean something. Ranged and caster
+        # enemies are unrestricted, so a tank needs a ranged tool to peel
+        # them. A taunt overrides rows entirely and is applied upstream, by
+        # handing this method a single candidate.
+        reachable = rowrules.reachable(enemy, self._enemy_attack_profile(enemy), living)
+        living = reachable or living
+
         table = self.threat_tables.get(enemy) or {}
         entries = [(a, max(0.0, float(table.get(a, 0.0)))) for a in living]
         top = max((t for _, t in entries), default=0.0)
@@ -229,6 +243,25 @@ class CombatEngine:
         floor = top * self.THREAT_FLOOR
         weights = [max(floor, t) for _, t in entries]
         return random.choices([a for a, _ in entries], weights=weights, k=1)[0]
+
+    def _enemy_attack_profile(self, enemy):
+        """A stand-in ability describing how far this enemy can reach.
+
+        A monster's auto-attack is not an Ability object, so there is
+        nothing for combat/rows.reach_of to read. Its reach comes from where
+        it stands: a back-row creature is a caster or a marksman and reaches
+        either row; a front-row creature swings and does not. That holds for
+        every one of the 18 templates and needs no per-creature authoring.
+        """
+        from combat import rows as rowrules
+
+        class _Profile:
+            reach = (rowrules.RANGED
+                     if rowrules.row_of(enemy) == rowrules.BACK_ROW
+                     else rowrules.MELEE)
+            effect_type = None
+
+        return _Profile
 
     def _owned_pets(self):
         """Every pet currently fielded by an ally, in owner order."""

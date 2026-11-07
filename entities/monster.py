@@ -502,6 +502,13 @@ class Monster(StatusEffectMixin):
         self.crit_chance = template.get("crit_chance", 5.0)
         self.exp_reward_base = template["exp_reward"]
 
+        # Front or back rank. Authored per template, never inferred: a
+        # marksman's kit is entirely physical and belongs at the back, a
+        # scorpion carries a nature poison and belongs at the front, so
+        # damage school says nothing about reach (see combat/rows.py).
+        # Defaults to front for any template authored before this existed.
+        self.row = template.get("row", "front")
+
         # Ability kit
         self.kit_id = kit or template.get("default_kit")
         kits = get_kits()
