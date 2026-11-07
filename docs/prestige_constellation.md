@@ -497,3 +497,35 @@ and potential interactions, exploits and edge cases.
 
 **Design philosophy:** Prestige should not simply make a character bigger. It
 should let the player decide what kind of character they become.
+
+---
+
+## 17. Kyle's notes on the concept art (7 Nov)
+
+Kyle produced a visual of the constellation — 30 class sigils around the rim
+of a single interconnected web, with a legend for Starting Position / Class
+Path / Shared Path / Keystone / Legendary Node, titled *"30 CLASSES · 70
+SPECIALIZATIONS · INFINITE POSSIBILITIES"* and *"CHOOSE · ADAPT · EVOLVE"*.
+
+His two notes on it:
+
+> *"obviously the classes need to be way more seperated, and there needs to be
+> WAY more nodes."*
+
+Both are direction for the real layout, not criticisms of the concept:
+
+- **Class separation.** The art has the 30 class regions crowded onto one rim
+  with short paths between neighbours. The real tree needs far more distance
+  between starting positions, so reaching another class's region is a genuine
+  investment rather than two nodes sideways. This is what makes Class
+  Influence (§3D) cost something and what keeps class identity recognizable
+  (§13). Path of Exile's tree is the reference: a character sees most of the
+  tree as unreachable.
+- **Node count.** The art shows on the order of a few hundred nodes. PoE ships
+  roughly 1,500. The density matters because the cheap attribute nodes (§3A)
+  are what pad the distance between notables — without enough of them, every
+  path is short and every build reaches everything.
+
+Also recorded from the art: the game ships **30 classes and 70
+specializations**, which is the roster any real node list has to be built
+against — see the class-mismatch gap in §16.
