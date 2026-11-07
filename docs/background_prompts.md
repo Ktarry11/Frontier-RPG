@@ -310,3 +310,44 @@ dungeon.
 >    crows
 > 4. A plagued stream through grey reeds, oily surface, dead rushes, the
 >    far bank lost in haze
+
+---
+
+## After the dungeon split (7 Nov) — what is still repeating
+
+Sixteen dungeon interiors landed and `dark_dungeon` was **split**, because the
+28.6 was never one place needing art: EIGHT cave biomes collapsed into that
+one pack. `cave_keep` now goes to `keep`, `cave_mossy` to a new
+`mossy_dungeon`, `cave_flooded_ruins` to `nautical/Flooded`.
+
+    dark_dungeon   5 img / 135 places  28.6   ->   15 / 94   6.3
+
+Two biomes are still borrowing and should get packs of their own once there
+is art for them — `cave_webbed` (11 places: Widow's Lair, Night Web's Hollow)
+and `cave_thornscrub` (13 places: Razorfen Kraul). Both are in `dark_dungeon`
+and neither looks anything like a crypt.
+
+### mossy_dungeon — 2 images, 26 places (13.0)
+Damp overgrown stone. Roofed or half-roofed, green, water on the floor.
+Distinct from `mossy_forest`, which is outdoor farm country.
+
+> 1. A collapsed stone hall open to the sky, ivy down the walls, saplings in
+>    the cracks, shallow water across the flags
+> 2. A green-lit tunnel of fitted blocks, moss and dripping seepage, a
+>    shaft of daylight from a broken vault ahead
+> 3. A flooded cloister, arches reflected in still water, ferns in every
+>    joint, soft overcast light from above
+> 4. A root-broken undercroft, tree roots through the ceiling, wet earth
+>    floor, lantern light on green stone
+
+### cave_webbed — 11 places, no pack
+> 1. A cavern sheeted floor to roof in pale silk, wrapped bundles hanging,
+>    sickly light through the web
+> 2. A tunnel narrowed to a tube of dense spider silk, egg sacs clustered in
+>    the roof, chitin litter underfoot
+
+### cave_thornscrub — 13 places, no pack
+> 1. A warren tunnelled through a mass of dead thorn and bramble, woven
+>    root walls, dry dirt floor, low red light
+> 2. A sunken clearing walled by thorn thickets, bone and hide lashed to
+>    stakes, overcast sky far above

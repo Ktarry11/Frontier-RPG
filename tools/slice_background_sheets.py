@@ -101,6 +101,52 @@ MANIFEST = {
     # a wreck cove, a working dock, a tropical shallows - redrawn in the house
     # style. The photoreal originals are retired in the same commit; they were
     # the only photographs in a game of paintings.
+    # Fifth batch, 7 Nov: sixteen dungeon interiors, generated against the
+    # repetition ranking qa_combat_backgrounds now prints. dark_dungeon was
+    # five images for 135 places because EIGHT cave biomes collapse into it,
+    # so these do two jobs: deepen it, and give three of those biomes a pack
+    # of their own (keep interiors, mossy ruin, flooded stone).
+    # Sixth batch, 7 Nov: woodland, against mossy_forest's 12.6. That pack was
+    # eight images for 101 places and half of them are a farm cottage and a
+    # barn, so it was reading as Hillsbrad everywhere including deep Ashenvale.
+    # The two glowing cells go to fantasy_forest instead - that pack is the
+    # sparkle read by definition.
+    "7261833d": ("plain", [
+        (0, 0, "mossy_forest", "f_old_growth", "mossed old-growth trunks, ferns, dirt path"),
+        (0, 1, "fantasy_forest", "f_teal_mushrooms", "night wood, glowing teal mushrooms, mossed boulders"),
+        (1, 0, "mossy_forest", "f_forest_stream", "stepping stones over a bright forest stream"),
+        (1, 1, "mossy_forest", "f_ivy_deadfall", "ivy-wrapped trunks, fallen log, low gold light"),
+    ]),
+    "2bc6156c": ("plain", [
+        (0, 0, "mossy_forest", "f_redwood_shafts", "huge red trunks, sunbeams through the canopy"),
+        (0, 1, "mossy_forest", "f_gnarled_hollow", "one great gnarled tree over mossed boulders"),
+        (1, 0, "fantasy_forest", "f_violet_glade", "violet mist and blue glowing mushrooms"),
+        (1, 1, "mossy_forest", "f_crossed_deadfall", "crossed fallen trunks, ferns, green shade"),
+    ]),
+    "a20fff3a": ("plain", [
+        (0, 0, "dark_dungeon", "d_mine_gallery", "timbered mine gallery, rails, ore cart, lanterns"),
+        (0, 1, "mossy_dungeon", "d_overgrown_ruin", "vine-hung stone ruin, ferns, standing water"),
+        (1, 0, "nautical/Flooded", "d_flooded_undercroft", "arched undercroft over teal standing water"),
+        (1, 1, "dark_dungeon", "d_sandstone_crypt", "sandstone crypt, sarcophagi, torches, cobwebs"),
+    ]),
+    "ab829493": ("plain", [
+        (0, 0, "dark_dungeon", "d_haunted_arches", "blue gothic arches in ghost mist"),
+        (0, 1, "fire_dungeon", "d_lava_chains", "molten floor, chains hanging from the roof"),
+        (1, 0, "dark_dungeon", "d_plague_cell", "barred chamber flooded with green plague light"),
+        (1, 1, "dark_dungeon", "d_rune_circle", "violet rune circle, skull pillars, floating shards"),
+    ]),
+    "b5f292b6": ("plain", [
+        (0, 0, "dark_dungeon", "d_prison_row", "barred cell doors along a green-lit corridor"),
+        (0, 1, "dark_dungeon", "d_timbered_tunnel", "rough rock tunnel, timber frames, hanging lanterns"),
+        (1, 0, "keep", "d_keep_hall", "carved pillars, barred windows, cold moonlight"),
+        (1, 1, "keep", "d_keep_cellar", "vaulted cellar, chandeliers, barrels, banded doors"),
+    ]),
+    "b2eff840": ("plain", [
+        (0, 0, "dark_dungeon", "d_stalactite_hall", "blue-grey stalactite cavern over a still pool"),
+        (0, 1, "dark_dungeon", "d_warm_rock_chambers", "brown rock chambers opening into one another"),
+        (1, 0, "mossy_dungeon", "d_mossy_tunnel", "grey rock tunnel, moss on the walls, damp floor"),
+        (1, 1, "dark_dungeon", "d_cave_mouth", "cave mouth from inside, daylight at the far end"),
+    ]),
     "1f479cbc": ("plain", [
         (0, 0, "abyssal_sands", "s_abyssal_dunes", "runed black steles across gold dunes, violet sky"),
         (0, 1, "desert", "s_desert_colonnade", "rune-lit sandstone columns half-buried in sand"),

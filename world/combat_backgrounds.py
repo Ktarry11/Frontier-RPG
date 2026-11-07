@@ -29,7 +29,8 @@ VARIANT_FOLDERS = {
 }
 FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "savanna", "savanna_oasis", "coast", "jungle", "mountain",
                 "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
-                "keep", "arena", "abyssal_sands", "glittervein", "frozen_ruins")
+                "keep", "arena", "abyssal_sands", "glittervein", "frozen_ruins",
+                "mossy_dungeon")
 
 # Nearest-match: every ZONE_BIOME / CAVE_BIOME tag in world/tile_textures.py
 # routed to whichever of the 7 available packs reads closest. Chosen by eye
@@ -107,7 +108,10 @@ BIOME_TO_BACKGROUND = {
     "cave_cold": "ice_dungeon",
     "cave_sick": "dark_dungeon",    # purple/wine reads closest to dark, not fire or ice
     "cave_dark": "dark_dungeon",
-    "cave_mossy": "dark_dungeon",   # DampDungeons warm stone, but no green-cave pack exists
+    # THE GREEN-CAVE PACK NOW EXISTS. This line used to end "but no green-cave
+    # pack exists", which was honest and also 26 places fighting in a dry
+    # crypt. mossy_dungeon is vine-hung stone and standing water.
+    "cave_mossy": "mossy_dungeon",
     "cave_swamp": "dark_dungeon",
     "cave_thornscrub": "dark_dungeon",
 
@@ -119,11 +123,18 @@ BIOME_TO_BACKGROUND = {
     "cave_sunken": "ice_dungeon",        # built from cave_cold; kelp and tidepool blues
     "cave_grotto": "ice_dungeon",        # built from cave_naga; same cold water read
     "cave_webbed": "dark_dungeon",
-    "cave_keep": "dark_dungeon",         # dressed stone, not rock
+    # Dressed stone, not rock - which is the keep pack, and was the argument
+    # for this line in the first place. Shadowfang Keep and Tiragarde Keep
+    # are buildings; they were drawing a cave. 15 places.
+    "cave_keep": "keep",
     "cave_demonic": "fire_dungeon",      # Burning Blade Coven, Skull Rock
     "cave_canyon": "mountain",           # Drygulch Ravine - open-air cut, not a roofed cave
     "cave_dustwind": "desert",
-    "cave_flooded_ruins": "dark_dungeon",
+    # NOT dark_dungeon. This biome IS nautical/Flooded's subject - standing
+    # water in drowned stonework - and that variant holds eight images,
+    # including the coral temple added 7 Nov. Eight places were fighting in a
+    # dry crypt next door to the art that was made for them.
+    "cave_flooded_ruins": ("nautical", "Flooded"),
     "cave_troll_ruins": "jungle",        # Zalazane's Hollow, in the Echo Isles
 
     # Fallback used by get_biome_for_zone() itself when a zone has no entry.
@@ -182,6 +193,10 @@ ZONE_BACKGROUND = {
     # the arena has fighters in it - it currently has no encounter table at all - but the wiring
     # should be right before the roster lands, not after.
     "Gurbashi Arena": "arena",
+    # Tiragarde is a KEEP on cave_dark, so the biome split above misses it -
+    # ten places in a stone fort drawing a rock cave. Overridden by name
+    # rather than by changing its biome, which would repaint its floor.
+    "Tiragarde Keep": "keep",
     "Dun Garok": "dark_dungeon",                  # "the dwarves cut it square"
     "Durnholde Keep": "dark_dungeon",             # curtain wall, dead keep, collapsed undercroft
     "The Broodspiral": "dark_dungeon",            # silithid hive spiralling into the earth
@@ -335,15 +350,33 @@ def get_background_for_place(place_name, biome_id):
         return entry[0], entry[1]
     if entry:
         return entry, None
-    return get_background_folder(biome_id), None
+    return get_background_for_biome(biome_id)
+
+
+def get_background_for_biome(biome_id):
+    """Biome tag -> (folder, variant_or_None).
+
+    BIOME_TO_BACKGROUND may hold a (folder, variant) pair, exactly as
+    ZONE_BACKGROUND does, for a biome whose whole subject IS one variant of a
+    variant pack - cave_flooded_ruins is nautical/Flooded and nothing else.
+    Without this it would have to name a flat pack, which is how eight
+    drowned-stonework places ended up in a dry crypt."""
+    entry = BIOME_TO_BACKGROUND.get(biome_id, "mossy_forest")
+    if isinstance(entry, tuple):
+        return entry[0], entry[1]
+    return entry, None
 
 
 def get_background_folder(biome_id):
-    """Biome tag -> background folder name. Always returns something valid
-    (falls back to mossy_forest, the least visually-specific pack, for any
-    biome tag this table hasn't seen yet - new zones/biomes shouldn't have
-    to touch this file just to get *a* background)."""
-    return BIOME_TO_BACKGROUND.get(biome_id, "mossy_forest")
+    """Biome tag -> background folder name, variant discarded. Always returns
+    something valid (falls back to mossy_forest, the least visually-specific
+    pack, for any biome tag this table hasn't seen yet - new zones/biomes
+    shouldn't have to touch this file just to get *a* background).
+
+    Prefer get_background_for_biome: a caller that drops the variant on a
+    variant pack lands on whatever the loader picks first, which for nautical
+    means a drowned mine resolves to a sunlit quarterdeck."""
+    return get_background_for_biome(biome_id)[0]
 
 
 def get_variant_options(folder_name):
@@ -370,6 +403,7 @@ def resolve_place(zone_name, subzone_name=None, is_cave=False):
         folder, variant = get_background_for_place(subzone_name, biome)
         return folder, variant, biome
     if own:
-        return get_background_folder(own), None, biome
+        folder, variant = get_background_for_biome(own)
+        return folder, variant, biome
     folder, variant = get_background_for_place(zone_name, biome)
     return folder, variant, biome
