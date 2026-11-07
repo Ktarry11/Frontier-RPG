@@ -43,7 +43,7 @@ ENC = ROOT / "data/creatures/encounters.json"
 CRE = ROOT / "data/creatures/creatures.json"
 
 
-def _band(entries, creatures):
+def _band(entries, creatures, overrides=None):
     """(lo, hi) - the plain range of levels that spawn here, or None.
 
     JUST THE RANGE. It is on screen so a player can estimate whether they should be in a place,
@@ -53,16 +53,25 @@ def _band(entries, creatures):
     odd creature in it.
 
     `entries` is {creature name: encounter weight}; weight is only used to skip weight-0 rows.
+    `overrides` is the zone's own level_overrides map, which beats a creature's global range.
 
     BOSSES ARE EXCLUDED. They are pinned, fought once, and deliberately sit above their zone - a
     level 53 boss at the end of a 49-52 dungeon would otherwise make the whole place read as 53.
     """
+    overrides = overrides or {}
     lo = hi = None
     for n, w in entries.items():
         c = creatures.get(n)
         if not c or c.get("is_boss") or w <= 0:
             continue
-        a, b = c.get("level_range", [None, None])[:2]
+        # THE ZONE'S OWN OVERRIDE WINS, because it is what actually spawns.
+        # world/creature_manager.py reads level_overrides when it rolls a
+        # creature, so one name sits at different levels in different places:
+        # a Murloc Spearfisher is 11-13 globally and 24-27 on the Ashenvale
+        # coast. Reading the global range here gave Ashenvale West a banner of
+        # 11-27 when nothing under 22 spawns in it. Ten zones use overrides.
+        rng = overrides.get(n) or c.get("level_range", [None, None])
+        a, b = rng[:2]
         if a is None:
             continue
         lo = a if lo is None else min(lo, a)
@@ -80,12 +89,12 @@ def main():
         for sz in z.get("subzones", {}).values():
             for n, w in sz.get("creatures", {}).items():
                 entries[n] = max(entries.get(n, 0), w)
-        b = _band(entries, creatures)
+        b = _band(entries, creatures, z.get("level_overrides"))
         if b:
             bands[zname] = b
         # caves and dungeons carry their own table under the parent
         for cname, cv in z.get("caves", {}).items():
-            cb = _band(dict(cv.get("creatures", {})), creatures)
+            cb = _band(dict(cv.get("creatures", {})), creatures, z.get("level_overrides"))
             if cb:
                 bands[cname] = cb
 
