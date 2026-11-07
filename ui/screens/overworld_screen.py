@@ -663,6 +663,13 @@ class OverworldScreen(BaseScreen):
                 member.update_buff_timers(dt)
                 if hasattr(member, "tick_seconds"):
                     member.tick_seconds(dt)
+                # Ability cooldowns drain out here too, which is what makes
+                # it safe for an out-of-combat cast to SET one - see
+                # Ability.tick_cooldown_seconds. Without this, cooldowns only
+                # ever moved at the end of a combat turn.
+                book = getattr(member, "ability_book", None)
+                if book is not None and hasattr(book, "tick_all_cooldowns_seconds"):
+                    book.tick_all_cooldowns_seconds(dt)
                 if hasattr(member, "tick_out_of_combat_regen"):
                     member.tick_out_of_combat_regen(dt, is_moving=not is_standing_still)
 

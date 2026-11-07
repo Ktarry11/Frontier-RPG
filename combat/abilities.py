@@ -1814,12 +1814,24 @@ class Ability:
             # Consume resource
             self._consume_resource(caster, cost)
 
-        # Apply cooldown (in turns, not seconds; talent-reduced) - only
-        # for in-combat casts. Buffs/heals used to prep before a pull
-        # shouldn't lock the button for the fight that's about to start.
-        # Also skipped for free=True (a proc firing this ability isn't
-        # the player choosing to use their own cooldown-gated action).
-        if in_combat and not free:
+        # Apply cooldown (in turns, not seconds; talent-reduced).
+        #
+        # THIS USED TO BE `if in_combat and not free`. The reasoning was that
+        # a heal used to top the party off before a pull should not lock the
+        # button for the fight about to start - but the real constraint was
+        # mechanical: nothing ticked cooldowns outside combat, so a cooldown
+        # set out there would have frozen until the next fight. The result
+        # was that mana became the only throttle on an out-of-combat cast,
+        # and mana regenerates while standing still, so Kyle, 7 Nov: "i can
+        # just spam temple guardian outside of combat....it seems like
+        # cooldown skills that heal shouldnt be spamable."
+        #
+        # Overworld cooldown ticking now exists (Ability.tick_cooldown_
+        # seconds, driven from overworld_screen's update), so the cooldown
+        # is set either way and drains in real time out of combat. free=True
+        # still skips it - a proc firing an ability is not the player
+        # choosing to spend their own cooldown-gated action.
+        if not free:
             self.turns_remaining = self.talented_cooldown(caster)
         
         # Apply effect
@@ -3557,6 +3569,40 @@ class Ability:
         if self.turns_remaining > 0:
             self.turns_remaining -= 1
 
+    #: Real seconds one turn of cooldown is worth on the overworld.
+    #: A combat turn is not a unit of wall-clock time, so out-of-combat
+    #: cooldowns need a conversion or they cannot tick at all. 3 seconds is
+    #: deliberately a little generous - the point is to stop a 4-turn party
+    #: heal being a button you hold down, not to make walking around feel
+    #: like waiting.
+    OVERWORLD_SECONDS_PER_TURN = 3.0
+
+    def tick_cooldown_seconds(self, dt):
+        """Tick this cooldown down in real time, outside combat.
+
+        Kyle, 7 Nov: "i can just spam temple guardian outside of combat....
+        it seems like cooldown skills that heal shouldnt be spamable."
+
+        He is right, and the reason it was spammable is a genuine dependency
+        rather than an oversight: cooldowns were only ever decremented by
+        CombatEngine at the end of a turn, so an out-of-combat cast that SET
+        one would have frozen that ability until the next fight started. The
+        documented decision in Ability.use was to skip setting them instead.
+        That removed the freeze and removed the throttle with it, leaving
+        mana as the only limit - and mana regenerates while you stand still.
+
+        With a real-time tick there is no longer a reason to skip it, so
+        use() sets cooldowns out of combat too and this drains them.
+        """
+        if self.turns_remaining <= 0:
+            return
+        self._cooldown_seconds = getattr(self, "_cooldown_seconds", 0.0) + float(dt)
+        while self._cooldown_seconds >= self.OVERWORLD_SECONDS_PER_TURN and self.turns_remaining > 0:
+            self._cooldown_seconds -= self.OVERWORLD_SECONDS_PER_TURN
+            self.turns_remaining -= 1
+        if self.turns_remaining <= 0:
+            self._cooldown_seconds = 0.0
+
 
 class AbilityBook:
     """Collection of abilities for a character."""
@@ -3580,6 +3626,12 @@ class AbilityBook:
         """Decrement all ability cooldowns by 1 turn (called at end of turn)."""
         for ability in self.abilities.values():
             ability.decrement_cooldown()
+
+    def tick_all_cooldowns_seconds(self, dt):
+        """Drain every cooldown in real time - the overworld's equivalent of
+        decrement_all_cooldowns. See Ability.tick_cooldown_seconds."""
+        for ability in self.abilities.values():
+            ability.tick_cooldown_seconds(dt)
 
 
 # ============================================================
