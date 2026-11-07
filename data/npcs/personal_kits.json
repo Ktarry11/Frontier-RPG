@@ -2361,5 +2361,1402 @@
         ]
       }
     ]
+  },
+  "alonso_pyromancer": {
+    "name": "Alonso Vega",
+    "passives": {
+      "_name": "Four Hours of Heat",
+      "_from": "'a trade where the whole year's work turns on four hours of heat going exactly right'",
+      "fire_damage_pct": 8,
+      "healing_done": 5
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_alonso_feels_a_draught",
+        "name": "He Feels a Fire",
+        "from": "'He feels a fire the way other people feel a draught.'",
+        "engine": "needs: convert incoming fire damage into healing",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, fire damage taken by the party heals them for 30% of the amount instead.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_alonso_exactly_right",
+        "name": "Exactly Right",
+        "from": "'the whole year's work turns on four hours of heat going exactly right'",
+        "engine": "needs: heal-over-time that pays double if it runs its full length",
+        "effect_type": "hot",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "Heals an ally for 4 turns. If it is not interrupted or overwritten, the final turn heals for triple.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 35
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_alonso_made_a_cup_badly",
+        "name": "Made a Cup, Badly",
+        "from": "'the first thing he did with that was make a cup, badly, and he keeps it on a shelf'",
+        "engine": "needs: absorb shield that persists after the buff ends",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "Shields an ally for 5 turns. Whatever is left of the shield when it expires is kept until the fight ends.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 180
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "delroy_witchdoctor": {
+    "name": "Delroy Beckford",
+    "passives": {
+      "_name": "Measuring By Hand and By Feel",
+      "_from": "'In at eleven, out at seven, measuring by hand and by feel.'",
+      "healing_done": 6,
+      "mp5": 7
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_delroy_everybody_gets_something",
+        "name": "Everybody Gets Something",
+        "from": "'everybody gets something, nobody waits long, and the complaining is part of the process'",
+        "engine": "needs: heal split evenly rather than by need",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals every ally for the same amount, whether they need it or not.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 45
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_delroy_the_weather_in_the_dough",
+        "name": "The Weather in the Dough",
+        "from": "'He knew the weather by how the dough behaved'",
+        "engine": "needs: pre-apply a heal-over-time that only begins on damage",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns, the next time each ally takes damage they begin healing over the following 3 turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_delroy_an_order_going_out_at_dawn",
+        "name": "An Order Going Out at Dawn",
+        "from": "'He treats a wounded party like an order going out at dawn'",
+        "engine": "needs: queued heal that lands at the start of the next round",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party at the start of the next round, for 60% more than an immediate heal.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 45,
+            "effect_value": 70
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "imelda_primalist": {
+    "name": "Imelda Salonga",
+    "passives": {
+      "_name": "Hands Wrapped Before Breakfast",
+      "_from": "'She still wraps her hands before anything else, breakfast included.'",
+      "healing_done": 6,
+      "crit_chance_physical": 4
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_imelda_she_hits_things",
+        "name": "She Hits Things and Her People Get Better",
+        "from": "'Her healing isn't gentle and doesn't look like healing. She hits things and her people get better.'",
+        "engine": "needs: damage dealt converted to party healing",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "An attack that heals the most wounded ally for 80% of the damage dealt.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 75
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_imelda_ten_fights_a_year",
+        "name": "Ten Fights a Year",
+        "from": "'Ten fights a year and she won more than she lost.'",
+        "engine": "needs: stacking buff on consecutive successful attacks",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns each of Imelda's attacks that lands gives her 8% more healing done, stacking to 40%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 15,
+            "effect_value": 8
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_imelda_rules_a_count",
+        "name": "Rules, A Count, Somebody Keeping Time",
+        "from": "'whether anybody here fights properly. Rules. A count. Somebody keeping time.'",
+        "engine": "needs: duel - force one enemy and one ally into isolated exchange",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 15,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns Imelda and the target can only attack each other, and both deal 30% more damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "tomas_warrior": {
+    "name": "Tomas Havel",
+    "passives": {
+      "_name": "Never the Reason Something Fell",
+      "_from": "'The job was leverage, timing, and never being the reason something fell.'",
+      "crit_damage_physical": 0.1,
+      "armor_pct": 8
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_tomas_through_small_gaps",
+        "name": "Heavy Things Through Small Gaps",
+        "from": "'He swings a two-hander like a man who's spent his life moving heavy things through small gaps.'",
+        "engine": "needs: attack that ignores a share of armour",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "An attack that ignores 60% of the target's armour.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 95
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_tomas_hanging_weight",
+        "name": "Hanging Weight Overhead",
+        "from": "'hanging weight over the heads of people who'd never once look up'",
+        "engine": "needs: delayed area strike on a chosen row",
+        "effect_type": "damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {},
+        "description": "Drops a heavy strike on one enemy row at the end of two turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 130
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_tomas_tie_off_badly",
+        "name": "They Tie Off Badly",
+        "from": "'people here build fast and tie off badly and he physically can't walk past it'",
+        "engine": "needs: remove an enemy's defensive buffs",
+        "effect_type": "dispel",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Removes every defensive buff from the target and reduces its armour by 25% for 4 turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "eino_barbarian": {
+    "name": "Eino Virtanen",
+    "passives": {
+      "_name": "The Axe Is the Same Axe",
+      "_from": "'The axe is the same axe. The cold's the same cold.'",
+      "frost_resistance": 20,
+      "crit_damage_physical": 0.12
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_eino_the_same_axe",
+        "name": "The Same Axe",
+        "from": "'The axe is the same axe.'",
+        "engine": "needs: attack whose damage rises with repeated identical use",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 0,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Deals 12% more damage for each time Eino has used it already this fight, up to 60%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 15,
+            "effect_value": 65
+          }
+        ]
+      },
+      {
+        "ability_id": "personal_eino_timber_the_size_of_towers",
+        "name": "Timber the Size of Towers",
+        "from": "'Winterspring. Snow, dark, and timber the size of towers.'",
+        "engine": "needs: single-target felling strike against high-health enemies",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Deals double damage to an enemy above 60% health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 110
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_eino_six_months_of_dark",
+        "name": "Six Months of Dark",
+        "from": "'Six months of dark a year, machinery, and nobody to talk to for days at a stretch.'",
+        "engine": "needs: self-buff with no party component",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns Eino deals 25% more damage and gains nothing from any ally's buffs.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "ziad_felsworn": {
+    "name": "Ziad Haddad",
+    "passives": {
+      "_name": "Triage as a Reflex",
+      "_from": "'a city that taught him triage as a reflex and the bitter arithmetic of a van with four spaces'",
+      "haste": 8,
+      "fire_damage_pct": 6
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_ziad_first_on_scene",
+        "name": "First On Scene. Always.",
+        "from": "'He is first on scene. Always.'",
+        "engine": "needs: move to a fallen ally and stabilise",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Reaches any ally below 25% health immediately and heals them for 50% of their maximum.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 50
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_ziad_a_van_with_four_spaces",
+        "name": "A Van With Four Spaces",
+        "from": "'the bitter arithmetic of a van with four spaces'",
+        "engine": "needs: heal exactly four allies, strongest first",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the four most wounded allies. A fifth gets nothing.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 65
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_ziad_the_arithmetic_in_public",
+        "name": "The Arithmetic, In Public",
+        "from": "'three years on he is still doing the arithmetic in public, out loud, for anyone who wants to argue'",
+        "engine": "needs: self-damage converted to party healing",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Ziad spends 25% of his maximum health and heals the party for twice that amount.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "pieter_guardian": {
+    "name": "Pieter Malan",
+    "passives": {
+      "_name": "A Precaution Costs Less",
+      "_from": "'A precaution costs less than the thing it prevents, every time, on any world.'",
+      "armor_pct": 10,
+      "max_health_pct": 6
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_pieter_exclusion_zone",
+        "name": "Exclusion Zone",
+        "from": "'Harnesses, exclusion zones, and the deeply unglamorous business of nobody dying today.'",
+        "engine": "needs: deny one enemy row for a window",
+        "effect_type": "debuff",
+        "target_type": "enemy_aoe",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns enemies in one row deal 30% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_pieter_nine_men_in_three_years",
+        "name": "Nine Men In Three Years",
+        "from": "'Pieter has pulled nine men out in three years. He keeps the number because somebody should.'",
+        "engine": "needs: interrupt a lethal blow on an ally",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 15,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, the first blow that would kill that ally instead leaves them at 15% health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 15
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_pieter_shouted_at_by_thousands",
+        "name": "Shouted At By Thousands",
+        "from": "'He's been shouted at by thousands of men in a hurry and outlasted all of them.'",
+        "engine": "needs: threat generation with damage reduction",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns Pieter generates triple threat and takes 20% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "esteban_bloodmage": {
+    "name": "Esteban Ruiz",
+    "passives": {
+      "_name": "A Violent Thing For a Good Reason",
+      "_from": "'The trade consists of doing a violent thing for a good reason, with absolute precision.'",
+      "crit_chance_physical": 5,
+      "armor_penetration_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_esteban_absolute_precision",
+        "name": "Absolute Precision",
+        "from": "'doing a violent thing for a good reason, with absolute precision'",
+        "engine": "needs: guaranteed critical strike",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "An attack that always critically strikes.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 85
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_esteban_the_formalities_removed",
+        "name": "The Formalities Removed",
+        "from": "'Blood magic is the identical proposition with the formalities removed.'",
+        "engine": "needs: convert damage dealt into healing on an ally",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "An attack that heals the lowest-health ally for 60% of the damage dealt.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 80
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_esteban_he_asks_every_time",
+        "name": "He Asks. Every Time.",
+        "from": "'He asks. Every time, on the record, and then treats them anyway.'",
+        "engine": "needs: remove a harmful effect and convert it to damage",
+        "effect_type": "dispel",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Removes one harmful effect from an ally and deals its remaining damage to the enemy that applied it.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "stelios_necromancer": {
+    "name": "Stelios Dukas",
+    "passives": {
+      "_name": "Unshockable",
+      "_from": "'He is unshockable in a way that has nothing to do with callousness.'",
+      "shadow_resistance": 15,
+      "pushback_reduction_pct": 100
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_stelios_the_steadiest_person",
+        "name": "The Steadiest Person in the Worst Room",
+        "from": "'being the steadiest person in the worst room of somebody's life'",
+        "engine": "needs: party-wide fear and panic immunity",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {
+          "cc_immune": 1,
+          "shadow_resistance": 15
+        },
+        "description": "For 4 turns the party cannot be feared or panicked and takes 15% less shadow damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 15
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_stelios_who_a_body_was",
+        "name": "Who a Body Was",
+        "from": "'he has used it four times now to find out who a body was before it stopped being anyone'",
+        "engine": "needs: raise a slain enemy as a temporary ally",
+        "effect_type": "summon_pet",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "Raises the most recently slain enemy to fight for 4 turns at half its strength.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 45,
+            "effect_value": 50
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_stelios_one_hundred_and_forty",
+        "name": "One Hundred and Forty",
+        "from": "'He has conducted one hundred and forty. He keeps a register.'",
+        "engine": "needs: heal scaled by allies lost this fight",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party. Heals 40% more for each ally who has fallen this fight.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 45,
+            "effect_value": 55
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "ratih_ranger": {
+    "name": "Ratih Pranoto",
+    "passives": {
+      "_name": "The One Wrong Thing",
+      "_from": "'She learned to read a forest for the one wrong thing in it: a snare, a path, a silence where there should be birds.'",
+      "crit_chance_physical": 5,
+      "nature_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_ratih_a_silence_where_there_should_be_birds",
+        "name": "A Silence Where There Should Be Birds",
+        "from": "'a snare, a path, a silence where there should be birds'",
+        "engine": "needs: detect ambush and pre-empt it",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "focus",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {
+          "hit_rating": 8
+        },
+        "description": "For 4 turns the party cannot be ambushed or surprised, and gains 8 hit rating.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 8
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_ratih_a_route_she_drew_herself",
+        "name": "A Route She Drew Herself",
+        "from": "'walking a route she drew herself, looking for the one wrong thing'",
+        "engine": "needs: ranged strike at any row",
+        "effect_type": "ranged_damage",
+        "target_type": "enemy",
+        "resource_type": "focus",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A shot at any enemy in any row, dealing 40% more damage to a full-health target.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 85
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_ratih_signed_none_of_the_reports",
+        "name": "Signed None of the Reports",
+        "from": "'She has reported every find to the Sentinels and signed none of the reports.'",
+        "engine": "needs: threat transfer away from self",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "focus",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns Ratih generates no threat, and her threat so far passes to the ally with the most.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "kourosh_mage": {
+    "name": "Kourosh Behzadi",
+    "passives": {
+      "_name": "For Once the Numbers Hold Still",
+      "_from": "'He finds arcane magic restful by comparison because for once the numbers hold still.'",
+      "crit_chance_spell": 4,
+      "arcane_damage_pct": 8
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_kourosh_how_likely_a_thing_is",
+        "name": "How Likely a Thing Is",
+        "from": "'The work of establishing, very carefully, how likely a thing is.'",
+        "engine": "needs: remove randomness from a window of casts",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns Kourosh's spells cannot miss and cannot critically strike. They deal exactly their average.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_kourosh_finish_the_sum",
+        "name": "Finish the Sum",
+        "from": "'the first thing he did on this world was finish the sum'",
+        "engine": "needs: delayed spell that resolves for accumulated value",
+        "effect_type": "spell_damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "Builds for 3 turns, then deals arcane damage equal to everything Kourosh cast in that time.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "arcane"
+      },
+      {
+        "ability_id": "personal_kourosh_characterising_it",
+        "name": "Characterising It",
+        "from": "'the lattice does something to arcane magic that nobody has characterised. He's characterising it.'",
+        "engine": "needs: read and lower one resistance",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns the target's arcane resistance is reduced by 40.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 40
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "driss_shaman": {
+    "name": "Driss Alaoui",
+    "passives": {
+      "_name": "Reads Sand the Way a Sailor Reads Water",
+      "_from": "'He reads sand the way a sailor reads water.'",
+      "nature_damage_pct": 8,
+      "mp5": 6
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_driss_a_wrong_turn",
+        "name": "A Wrong Turn Costs a Camel",
+        "from": "'across ground where a wrong turn costs a camel and a second wrong turn costs a man'",
+        "engine": "needs: escalating penalty on a repeating enemy",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns the target takes 15% more damage each time it repeats an ability, stacking to 45%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 15
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_driss_asked_permission",
+        "name": "He Asked the Land for Permission",
+        "from": "'He asked the land for permission in his own language and something answered.'",
+        "engine": "needs: terrain-based party buff",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {
+          "dodge": 20
+        },
+        "description": "For 4 turns the ground steadies the party: 20% more dodge and immunity to knockback.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_driss_the_water_allowance",
+        "name": "The Water Allowance",
+        "from": "'He has refused two contracts over the water allowance and both parties came back with a better one.'",
+        "engine": "needs: resource restore with a refusal condition",
+        "effect_type": "restore_resource",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Restores 25% of each ally's maximum resource. Allies above half resource get nothing.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "marisol_priest": {
+    "name": "Marisol Quintero",
+    "passives": {
+      "_name": "Keep a Frightened Person Talking",
+      "_from": "'She learned to keep a frightened person talking while her hands did something they would rather not watch.'",
+      "shadow_resistance": 12,
+      "crit_chance_spell": 4
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_marisol_one_more_instrument",
+        "name": "One More Instrument on a Tray",
+        "from": "'The Light moves through her easily and she treats it as one more instrument on a tray.'",
+        "engine": "needs: shadow damage that heals the lowest ally",
+        "effect_type": "spell_damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Shadow damage that heals the lowest-health ally for 70% of the amount.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 80
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "shadow"
+      },
+      {
+        "ability_id": "personal_marisol_the_habit_of_narrating",
+        "name": "The Habit of Narrating",
+        "from": "'The habit of narrating came with her and half the party finds it steadying and half find it maddening.'",
+        "engine": "needs: party buff that also mildly hinders",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {
+          "damage_taken_pct": -0.2,
+          "damage_dealt_pct": -5
+        },
+        "description": "For 4 turns the party takes 20% less damage and deals 5% less.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_marisol_she_reaches_them_faster",
+        "name": "She Reaches Them Faster",
+        "from": "'the raptors take travellers and the garrison gets to them slowly. She reaches them faster.'",
+        "engine": "needs: instant heal with no cast time at any range",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "An instant heal on any ally, for 30% more if they are below half health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 60
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "diego_tinker": {
+    "name": "Diego Salazar",
+    "passives": {
+      "_name": "Faster Than He Can Explain Why",
+      "_from": "'He can take a thing apart faster than he can explain why.'",
+      "haste": 10,
+      "crit_chance_physical": 4
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_diego_working_in_the_dark",
+        "name": "Everybody Learned to Keep Working in the Dark",
+        "from": "'a mall where the power went off twice a day and everybody had learned to keep working in the dark'",
+        "engine": "needs: immunity to blind, silence and interrupt",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "energy",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns Diego cannot be blinded, silenced or interrupted, and his abilities cost 30% less.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_diego_take_a_thing_apart",
+        "name": "Take a Thing Apart",
+        "from": "'He can take a thing apart faster than he can explain why.'",
+        "engine": "needs: strip buffs and reduce armour",
+        "effect_type": "dispel",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Removes two buffs from the target and reduces its armour by 30% for 4 turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_diego_the_clockwork_beetle",
+        "name": "The Clockwork Beetle",
+        "from": "'He has a half-built clockwork beetle that has been nearly finished for eleven months. Nobody has seen it move.'",
+        "engine": "needs: summon a temporary construct",
+        "effect_type": "summon_pet",
+        "target_type": "self",
+        "resource_type": "energy",
+        "cooldown": 15,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "The beetle finally moves. It fights for 5 turns and then stops working again.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 60
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "freja_priest": {
+    "name": "Freja Lindqvist",
+    "passives": {
+      "_name": "The Calmest Person in the Room",
+      "_from": "'The job is being the calmest person in a room where something enormous is happening.'",
+      "healing_done": 7,
+      "pushback_reduction_pct": 100
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_freja_the_first_ninety_seconds",
+        "name": "The First Ninety Seconds",
+        "from": "'Six years of her life were about the first ninety seconds of somebody else's.'",
+        "engine": "needs: revive at low health with a short window",
+        "effect_type": "revive",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Returns a fallen ally to the fight at 25% health. Usable only within two turns of them falling.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 50,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_freja_a_working_pair_of_hands",
+        "name": "A Working Pair of Hands",
+        "from": "'What she had was a working pair of hands and a world full of people who needed them.'",
+        "engine": "needs: heal that ignores cast time and cannot be interrupted",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party. Cannot be interrupted or pushed back.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 50
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_freja_taught_four_women",
+        "name": "She Taught Four Women",
+        "from": "'She has taught four women to do what she does with their hands when she is not there.'",
+        "engine": "needs: grant an ally a heal-over-time they apply themselves",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns that ally heals whoever they damage or defend for 20% of the amount.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "sondre_stormbringer": {
+    "name": "Sondre Haugen",
+    "passives": {
+      "_name": "Sees Weather An Hour Out",
+      "_from": "'The high open ground, where he can see weather coming for an hour before it arrives.'",
+      "nature_damage_pct": 10,
+      "crit_chance_spell": 3
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_sondre_something_he_had_not_asked_for",
+        "name": "Something He Had Not Asked For",
+        "from": "'the wind did something he had not asked for and a barn went over with people inside it'",
+        "engine": "needs: high-damage area strike with a self penalty",
+        "effect_type": "spell_damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heavy nature damage to one enemy row. Sondre is stunned for the following turn.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 45,
+            "effect_value": 160
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "nature"
+      },
+      {
+        "ability_id": "personal_sondre_control_not_power",
+        "name": "Control, Not Power",
+        "from": "'Control. Not power. He has plenty of power and it is the whole problem.'",
+        "engine": "needs: trade damage for accuracy",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns Sondre's spells deal 20% less damage and cannot miss, be resisted or go astray.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_sondre_first_awake_every_morning",
+        "name": "First Awake Every Morning",
+        "from": "'He is first awake every morning and has made the fire before anybody else is up.'",
+        "engine": "needs: party acts first next round",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 1,
+        "stat_mods": {},
+        "description": "The party acts before every enemy next round.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "berat_tinker": {
+    "name": "Berat Yilmaz",
+    "passives": {
+      "_name": "Better Hands Than Almost Anybody",
+      "_from": "'He arrived with better hands than almost anybody and no idea what to do with the rest of himself.'",
+      "healing_done": 6,
+      "haste": 6
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_berat_small_careful_work",
+        "name": "Small Careful Work Inside a Fist",
+        "from": "'The job is small careful work inside a space the size of a fist, on a person who would rather be anywhere else.'",
+        "engine": "needs: precise single-target heal with no overheal",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "energy",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals an ally for exactly what they are missing, up to a limit. Nothing is wasted.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 35,
+            "effect_value": 120
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_berat_a_frightened_patient_moves",
+        "name": "A Frightened Patient Moves",
+        "from": "'a frightened patient is a patient who moves'",
+        "engine": "needs: heal plus movement or action grant",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "energy",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals an ally and lets them act again immediately.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 55
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_berat_to_see_round_a_corner",
+        "name": "To See Round a Corner",
+        "from": "'He still carries the mouth mirror behind his ear. He has used it twice for its actual purpose and perhaps forty times to see round a corner.'",
+        "engine": "needs: reveal enemy intent",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "energy",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns the party sees what each enemy will do next.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "matias_reaper": {
+    "name": "Matías Fuentes",
+    "passives": {
+      "_name": "Watching All of Them at Once",
+      "_from": "'What he is good at is standing still in a crowd of strangers for nine hours and watching all of them at once.'",
+      "dodge": 6,
+      "crit_chance_physical": 4
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_matias_the_same_forty_faces",
+        "name": "The Same Forty Faces",
+        "from": "'A route, a fare box, and the same forty faces every morning.'",
+        "engine": "needs: damage bonus against a target already struck this fight",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "rage",
+        "cooldown": 0,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Deals 30% more damage to any enemy Matías has already hit this fight.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 15,
+            "effect_value": 70
+          }
+        ]
+      },
+      {
+        "ability_id": "personal_matias_clicks_it_twice",
+        "name": "He Clicks It Twice",
+        "from": "'He carries the ticket punch and clicks it twice before a fight, every time.'",
+        "engine": "needs: opening-turn buff",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns Matías deals 25% more damage and takes 15% less. Best used before the first blow.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 25
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_matias_standing_still_in_a_crowd",
+        "name": "Standing Still in a Crowd",
+        "from": "'standing still in a crowd of strangers for nine hours'",
+        "engine": "needs: retaliation against every attacker",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns every enemy that attacks Matías takes 30% of the damage back.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true
+      }
+    ]
   }
 }
