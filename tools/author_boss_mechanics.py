@@ -112,6 +112,25 @@ SCHOOL_TO_DISPEL = {
     "holy": "magic", "nature": "poison", "physical": None,
 }
 
+#: NATURE IS NOT ALWAYS POISON, and the school alone cannot tell them apart.
+#: A first run tagged "Entangling Roots" and "Earthbind" as poison purely
+#: because they are nature, which would send a player reaching for a poison
+#: cleanse against a root. The ability's own name is the better signal: a
+#: nature effect that says it is venomous is a poison, and everything else
+#: nature is treated as magic.
+POISON_WORDS = ("poison", "venom", "toxin", "toxic", "blight", "rot", "sting",
+                "spore", "plague", "pestil", "bile", "sickness", "fester")
+
+
+def dispel_for(ability):
+    school = ability.get("school", "physical")
+    base = SCHOOL_TO_DISPEL.get(school)
+    if base == "poison":
+        name = (ability.get("name") or "").lower()
+        if not any(w in name for w in POISON_WORDS):
+            return "magic"
+    return base
+
 #: Titles stripped before naming an added ability after a boss, so the result
 #: is "Hedessa's Ward" rather than "Admiral's Ward" - several bosses share a
 #: rank and none of them share a name.
@@ -332,11 +351,11 @@ def apply_curse(kit, boss_name=None, rare=False):
     """Tag the boss's own dot/debuff with a real dispel school, or add one."""
     cands = [a for a in kit if a.get("kind") in ("debuff", "dot")
              and not a.get("dispel_type")]
-    magic = [c for c in cands if SCHOOL_TO_DISPEL.get(c.get("school", "physical"))]
+    magic = [c for c in cands if dispel_for(c)]
     if magic:
         a = max(magic, key=lambda x: (x.get("kind") == "dot",
                                       x.get("amount", 0) or 0))
-        a["dispel_type"] = SCHOOL_TO_DISPEL[a.get("school", "shadow")]
+        a["dispel_type"] = dispel_for(a) or "magic"
         a["authored_mechanic"] = "curse"
         return f"{a['name']} ({a['dispel_type']})"
 
@@ -361,6 +380,57 @@ def apply_curse(kit, boss_name=None, rare=False):
 HANDLERS = {"stun": apply_stun, "shield": apply_shield, "curse": apply_curse}
 #: Tried in order when the chosen signature has nothing to work with.
 FALLBACK = ["curse", "stun", "shield"]
+
+
+def author_trash(creatures, kits, kitdoc, args):
+    """Caster trash gets a dispel school on the debuff it already casts.
+
+    Kyle: "EVEN TRASH MOBS!" - but trash does NOT get stuns, shields or
+    summons. There are 744 of them, and if every gnoll stuns you the
+    mechanic stops meaning anything on the things that are supposed to be
+    dangerous. Kyle's own line draws it: "open world doesnt have to be VERY
+    dangerous, but there should be some brainpower."
+
+    Measured: 145 trash creatures use a caster template and exactly ONE of
+    them applies anything dispellable, while 105 already cast a dot or
+    debuff that is simply untagged. So this changes no numbers and adds no
+    abilities - it makes the spell the mob was already casting the kind of
+    thing a Cleanse answers, which is texture on a pull rather than a
+    second boss.
+
+    Physical effects stay undispellable. A bleed is not a curse.
+    """
+    rows = []
+    for name, c in sorted(creatures.items()):
+        if c.get("is_boss") or "caster" not in c.get("template", ""):
+            continue
+        kit = kits.get(c.get("ability_kit"))
+        if not kit or any(a.get("dispel_type") for a in kit):
+            continue
+        cands = [a for a in kit if a.get("kind") in ("dot", "debuff")
+                 and dispel_for(a)]
+        if not cands:
+            continue
+        a = max(cands, key=lambda x: (x.get("kind") == "dot",
+                                      x.get("amount", 0) or 0))
+        a["dispel_type"] = dispel_for(a) or "magic"
+        a["authored_mechanic"] = "trash_curse"
+        rows.append((name, c.get("template", ""), a["name"], a["dispel_type"]))
+
+    print(f"  {len(rows)} caster trash mobs now cast something dispellable\n")
+    print(f"  {'creature':30}{'template':20}{'ability':24}{'school'}")
+    for n, t, ab, sch in rows[:args.show or 20]:
+        print(f"  {n[:29]:30}{t[:19]:20}{ab[:23]:24}{sch}")
+    if len(rows) > (args.show or 20):
+        print(f"  ... and {len(rows) - (args.show or 20)} more")
+    if args.apply:
+        with open(KITS, "w") as fh:
+            json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
+            fh.write("\n")
+        print(f"\n  written to {KITS}")
+    else:
+        print("\n  (report only; pass --apply to write)")
+    return 0
 
 
 def author_summons(creatures, kits, kitdoc, args):
@@ -437,6 +507,8 @@ def main():
     ap.add_argument("--show", type=int, default=20)
     ap.add_argument("--rares", action="store_true",
                     help="the 170 subzone rares instead of the 185 dungeon bosses")
+    ap.add_argument("--trash", action="store_true",
+                    help="tag caster trash debuffs with a dispel school")
     ap.add_argument("--summons", action="store_true",
                     help="give a couple of bosses per dungeon a call-for-help")
     args = ap.parse_args()
@@ -447,6 +519,8 @@ def main():
         kitdoc = json.load(fh)
     kits = kitdoc["kits"]
 
+    if args.trash:
+        return author_trash(creatures, kits, kitdoc, args)
     if args.summons:
         return author_summons(creatures, kits, kitdoc, args)
 

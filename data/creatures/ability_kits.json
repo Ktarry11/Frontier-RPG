@@ -656,7 +656,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "deviate_adder": [
@@ -1512,7 +1514,9 @@
         "cooldown": 3,
         "mana_cost": 30,
         "school": "fire",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Renew",
@@ -1565,7 +1569,9 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Dark Mending",
@@ -1663,7 +1669,9 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "bazzalan": [
@@ -1873,7 +1881,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -12
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "hex_troll": [
@@ -2620,7 +2630,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -7
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "ember_wisp": [
@@ -2639,7 +2651,9 @@
         "cooldown": 3,
         "mana_cost": 8,
         "school": "fire",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "den_spinner": [
@@ -3125,7 +3139,9 @@
         "cooldown": 3,
         "mana_cost": 32,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Dark Mending",
@@ -3662,7 +3678,9 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "nightsaber_stalker": [
@@ -4043,7 +4061,9 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "deathguard_captain": [
@@ -5502,7 +5522,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -14
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "bristleback_thornweaver": [
@@ -5521,7 +5543,9 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Thorns",
@@ -5970,7 +5994,9 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "matriarch_vessra": [
@@ -6721,7 +6747,9 @@
         "cooldown": 3,
         "mana_cost": 10,
         "school": "fire",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "houndmaster_kraygh": [
@@ -7000,7 +7028,9 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Cyclone Veil",
@@ -7144,7 +7174,9 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "frost",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "drowned_buccaneer": [
@@ -7439,7 +7471,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -12
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "ragefire_digger": [
@@ -7512,7 +7546,9 @@
         "cooldown": 3,
         "mana_cost": 32,
         "school": "fire",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Flame Ward",
@@ -8800,7 +8836,9 @@
         "duration": 4,
         "stat_mods": {
           "attack_power": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "dreadmist_warlock": [
@@ -8819,7 +8857,9 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Fel Armor",
@@ -8899,7 +8939,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "riverbank_snapper": [
@@ -11655,7 +11697,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -26
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Amber Ward",
@@ -12351,7 +12395,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -30
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Stoneskin",
@@ -12394,7 +12440,9 @@
         "duration": 3,
         "stat_mods": {
           "armor": -36
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "razorfen_ward_keeper": [
@@ -12416,7 +12464,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -32
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Ward Barrier",
@@ -12448,7 +12498,9 @@
         "cooldown": 3,
         "mana_cost": 22,
         "school": "shadow",
-        "duration": 5
+        "duration": 5,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Siphon Essence",
@@ -12487,7 +12539,9 @@
         "cooldown": 3,
         "mana_cost": 26,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "kraul_bristleboar": [
@@ -13555,7 +13609,7 @@
         "mana_cost": 28,
         "school": "nature",
         "duration": 4,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -13859,7 +13913,9 @@
         "duration": 3,
         "stat_mods": {
           "armor": -22
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "deviate_raptor": [
@@ -13926,7 +13982,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "dreadfang": [
@@ -13990,7 +14048,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -26
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "deviate_broodling": [
@@ -14161,7 +14221,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Mending Gale",
@@ -14365,7 +14427,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -22
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "kolkar_scoutrider": [
@@ -14527,7 +14591,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -22
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "dervish_hound": [
@@ -14654,7 +14720,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -16
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "old_mire_maw": [
@@ -15780,7 +15848,9 @@
         "cooldown": 3,
         "mana_cost": 28,
         "school": "fire",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "demon_hound": [
@@ -15965,7 +16035,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -12
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "naga_warrior": [
@@ -16002,7 +16074,9 @@
         "cooldown": 3,
         "mana_cost": 13,
         "school": "shadow",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "crab_giant": [
@@ -16517,7 +16591,9 @@
         "cooldown": 3,
         "mana_cost": 18,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Unholy Frenzy",
@@ -17492,7 +17568,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -18
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Rootmend",
@@ -17744,7 +17822,9 @@
         "cooldown": 4,
         "mana_cost": 22,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Gravewind",
@@ -18614,7 +18694,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -8
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "blighted_scarecrow": [
@@ -18674,7 +18756,9 @@
         "cooldown": 4,
         "mana_cost": 8,
         "school": "fire",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "scarlet_picket": [
@@ -19680,7 +19764,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "cult_fanatic": [
@@ -21017,7 +21103,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -24
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "pd_infected_retainer": [
@@ -21068,7 +21156,9 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Fawning Curse",
@@ -21126,7 +21216,9 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Wither",
@@ -22300,7 +22392,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -16
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "berard_the_forgotten": [
@@ -22743,7 +22837,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -22895,7 +22989,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -20
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "animated_spellblade": [
@@ -22937,7 +23033,9 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "magister_hawren": [
@@ -23024,7 +23122,7 @@
         "mana_cost": 14,
         "school": "nature",
         "duration": 4,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -23222,7 +23320,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -16
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "shadowfang_darksoul": [
@@ -23241,7 +23341,9 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "arugal_voidwalker": [
@@ -23625,7 +23727,9 @@
         "cooldown": 3,
         "mana_cost": 12,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "curse_beast": [
@@ -23923,7 +24027,9 @@
         "duration": 3,
         "stat_mods": {
           "intellect": -18
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "altar_bonewalker": [
@@ -24501,7 +24607,9 @@
         "stat_mods": {
           "intellect": -18,
           "attack_power": -14
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Tidewash",
@@ -24848,7 +24956,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -25261,7 +25369,9 @@
         "duration": 3,
         "stat_mods": {
           "armor": -28
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Pack Mending",
@@ -25415,7 +25525,9 @@
         "cooldown": 4,
         "mana_cost": 20,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "gavin_the_fence": [
@@ -27016,7 +27128,9 @@
         "stat_mods": {
           "intellect": -26,
           "mp5": -8
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "hoarfang": [
@@ -27462,7 +27576,9 @@
         "stat_mods": {
           "intellect": -30,
           "mp5": -10
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Prismatic Ward",
@@ -27602,7 +27718,9 @@
         "cooldown": 5,
         "mana_cost": 16,
         "school": "arcane",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "syndicate_interloper": [
@@ -27783,7 +27901,7 @@
         "school": "nature",
         "duration": 5,
         "is_aoe": true,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -28603,7 +28721,9 @@
         "cooldown": 4,
         "mana_cost": 16,
         "school": "nature",
-        "duration": 5
+        "duration": 5,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Read to the Colony",
@@ -28634,7 +28754,9 @@
         "stat_mods": {
           "agility": -34,
           "dodge_rating": -16
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Thicken the Weave",
@@ -28716,7 +28838,7 @@
         "school": "nature",
         "duration": 5,
         "is_aoe": true,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -29179,7 +29301,9 @@
         "duration": 4,
         "stat_mods": {
           "stamina": -18
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "quilboar_highrunner": [
@@ -29232,7 +29356,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -24
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Warmth of the Thorn",
@@ -30131,7 +30257,9 @@
         "duration": 4,
         "stat_mods": {
           "intellect": -26
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "saltbound_shambler": [
@@ -31867,7 +31995,9 @@
         "stat_mods": {
           "agility": -32,
           "spirit": -28
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Voice Under the Fall",
@@ -31898,7 +32028,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -38
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Gather the Fall",
@@ -32108,7 +32240,9 @@
         "cooldown": 6,
         "mana_cost": 22,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "terrace_reefclaw": [
@@ -32569,7 +32703,9 @@
         "cooldown": 5,
         "mana_cost": 20,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "bloatspawn_toad": [
@@ -33322,7 +33458,9 @@
         "cooldown": 5,
         "mana_cost": 24,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "bloodsail_swab": [
@@ -34084,7 +34222,9 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Seal the Mouth",
@@ -34255,7 +34395,9 @@
         "stat_mods": {
           "armor": -38
         },
-        "self_only": true
+        "self_only": true,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "dustwheel_wheelman": [
@@ -34691,7 +34833,9 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Hex of Weakness",
@@ -34922,7 +35066,9 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "drownbell_cutthroat": [
@@ -35001,7 +35147,9 @@
         "duration": 3,
         "stat_mods": {
           "agility": -42
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Rising Water",
@@ -35641,7 +35789,9 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "deepwater_horror": [
@@ -36659,7 +36809,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 3,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -36926,7 +37076,9 @@
         "duration": 3,
         "stat_mods": {
           "spell_power": -62
-        }
+        },
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "cistern_lurker": [
@@ -38009,7 +38161,9 @@
         "cooldown": 3,
         "mana_cost": 20,
         "school": "shadow",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "syndicate_prowler": [
@@ -38270,7 +38424,9 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Mojo Ward",
@@ -38301,7 +38457,9 @@
         "cooldown": 3,
         "mana_cost": 26,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Numbing Toxin",
@@ -38385,7 +38543,9 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "nature",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "trash_curse"
       },
       {
         "name": "Candle Light",
@@ -38443,7 +38603,9 @@
         "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "wrackline_cutter": [
@@ -40765,7 +40927,9 @@
         "cooldown": 3,
         "mana_cost": 24,
         "school": "shadow",
-        "duration": 4
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "satyr_warrior": [
@@ -40810,7 +40974,9 @@
         "duration": 3,
         "stat_mods": {
           "attack_power": -14
-        }
+        },
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "forsaken_traitor": [
@@ -41844,7 +42010,9 @@
         "cooldown": 3,
         "mana_cost": 14,
         "school": "fire",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "shadow_corruption": [
@@ -41902,7 +42070,9 @@
         "mana_cost": 38,
         "school": "arcane",
         "duration": 3,
-        "is_aoe": true
+        "is_aoe": true,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "forsaken_mage": [
@@ -41922,7 +42092,9 @@
         "mana_cost": 20,
         "school": "shadow",
         "duration": 3,
-        "is_aoe": true
+        "is_aoe": true,
+        "dispel_type": "curse",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "troll_axe_thrower": [
@@ -42109,7 +42281,7 @@
         "mana_cost": 0,
         "school": "nature",
         "duration": 4,
-        "dispel_type": "poison",
+        "dispel_type": "magic",
         "authored_mechanic": "curse"
       },
       {
@@ -43322,7 +43494,9 @@
         "cooldown": 3,
         "mana_cost": 0,
         "school": "nature",
-        "duration": 3
+        "duration": 3,
+        "dispel_type": "magic",
+        "authored_mechanic": "trash_curse"
       }
     ],
     "ridge_wind_harpy": [
