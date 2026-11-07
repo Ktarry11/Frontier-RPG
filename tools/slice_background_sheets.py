@@ -42,6 +42,11 @@ COLS = ROWS = 2
 #: The description is the record of WHY a cell landed where it did; it is
 #: the only thing that makes a wrong call reviewable later.
 MANIFEST = {
+    # RETIRED 7 Nov. These four came back as PHOTOGRAPHS - the only ones in a
+    # game of paintings - and sheet 5d5b8924 redraws the same four subjects in
+    # the house style. The entry stays so the framed-sheet handling below has
+    # a worked example if another captioned sheet ever turns up; the files are
+    # gone from assets/backgrounds/coast.
     "3e8f539f": ("framed", [
         (0, 0, "coast", "c_tropical_cove", "palms and a wrecked hull on turquoise shallows"),
         (0, 1, "coast", "c_basalt_cliffs", "grey northern shore, sea stacks, cold surf"),
@@ -92,6 +97,23 @@ MANIFEST = {
         (0, 1, "coast", "c_harbor_town", "timbered harbour town, dock, moored ships"),
         (1, 0, "keep", "s_keep_breached", "breached curtain wall, banners, autumn peaks"),
         (1, 1, "keep", "s_keep_gatehouse", "stone gatehouse and portcullis under storm"),
+    ]),
+    # Fourth batch, 7 Nov. The coast four here are PAINTERLY REPLACEMENTS for
+    # the photoreal coast sheet (3e8f539f): same four subjects - storm cliffs,
+    # a wreck cove, a working dock, a tropical shallows - redrawn in the house
+    # style. The photoreal originals are retired in the same commit; they were
+    # the only photographs in a game of paintings.
+    "15a0003e": ("plain", [
+        (0, 0, "hive", "s_hive_amber_vault", "amber honeycomb vault, glowing cells"),
+        (0, 1, "hive", "s_hive_deep_chitin", "violet chitin columns over a molten-veined floor"),
+        (1, 0, "savanna_oasis", "s_oasis_sunset", "palms and acacia around a turquoise pool at sunset"),
+        (1, 1, "savanna_oasis", "s_oasis_night", "lantern-lit pool under acacias, red mesas, night"),
+    ]),
+    "5d5b8924": ("plain", [
+        (0, 0, "coast", "c_storm_stacks", "black sea stacks and heavy surf under storm"),
+        (0, 1, "coast", "c_wreck_cove", "grassy bluffs over a blue bay, broken hull on sand"),
+        (1, 0, "coast", "c_fog_dock", "weathered jetties and boats in cold fog"),
+        (1, 1, "coast", "c_palm_shallows", "palms and coral in bright turquoise shallows"),
     ]),
     "304798a9": ("plain", [
         (0, 0, "mountain", "s_canyon_bridges", "red canyon spanned by rope bridges"),
