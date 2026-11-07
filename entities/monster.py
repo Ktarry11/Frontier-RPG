@@ -122,7 +122,7 @@ class MonsterAbility:
                  mana_cost=0, school="physical", duration=0,
                  stat_mods=None, self_only=False, is_aoe=False,
                  rider=None, hp_below=None, lifesteal=0.0,
-                 dispel_type=None):
+                 dispel_type=None, is_stun=False, absorb=0):
         if kind not in self.KINDS:
             raise ValueError(f"{name}: unknown ability kind '{kind}'")
         self.name = name
@@ -164,6 +164,28 @@ class MonsterAbility:
         self.hp_below = hp_below
         # Fraction of damage dealt returned to the caster as healing.
         self.lifesteal = lifesteal
+
+        # STUN AND ABSORB: the two mechanics StatusEffect has supported all
+        # along and the monster layer could not reach.
+        #
+        # Kyle, 7 Nov: "i just auto attack every boss to death without gear
+        # on and survive" / "everything is tank and spank with forgetable
+        # skills" / "We have such a varied magic system / skill system. Why
+        # not have more boss variety."
+        #
+        # tools/audit_boss_threat.py put a number on it. Of 358 bosses, each
+        # with its OWN unique kit: 0 could stun, 0 carried a shield, 1
+        # applied anything dispellable. The variety was entirely in the
+        # ability NAMES - mechanically the whole bestiary had two tools, AoE
+        # and an hp_below phase. MonsterAbility.KINDS is a strict subset of
+        # the StatusEffect system underneath it, so the player's dispels,
+        # stun-breaks and shield-burning had nothing in PvE to act on and
+        # auto-attacking was not an exploit, it was the correct play.
+        #
+        # Both default to the old behaviour, so every kit authored before
+        # this is untouched.
+        self.is_stun = bool(is_stun)
+        self.absorb = int(absorb or 0)
 
         # Stable id so re-applying refreshes rather than stacks, matching
         # how player DoTs behave.
@@ -227,7 +249,14 @@ class MonsterAbility:
                 # Magic is purgeable; absent from the data it is None, which
                 # is what it already was.
                 dispel_type=rider.get("dispel_type"),
-                source_name=caster.name, real_time_seconds=None)
+                source_name=caster.name, real_time_seconds=None,
+                # A rider is how a boss lands a mechanic WITHOUT spending a
+                # turn on it, which is exactly what a stun or a shield wants
+                # to be - "it hits you and you lose your next turn" is a
+                # fight; "it spends its turn stunning you" is a free turn for
+                # the party. Absorb only ever goes on the caster's own buff.
+                is_stun=bool(rider.get("is_stun")) and not is_buff,
+                absorb=int(rider.get("absorb", 0) or 0) if is_buff else 0)
             out.append(r.apply_status_effect(effect))
         return out
 
@@ -366,7 +395,16 @@ class MonsterAbility:
                 # clock (correct for the player's Fortitude), which would leave
                 # a monster's self-buff running for the rest of the session and
                 # bleeding into unrelated fights.
-                real_time_seconds=None)
+                real_time_seconds=None,
+                # The two that could not be expressed until now. A DEBUFF
+                # carrying is_stun is a real stun - TurnMeter already
+                # refuses to accumulate for a stunned combatant, so the
+                # player genuinely loses the turn and has a reason to carry
+                # Every Man for Himself or Will of the Forsaken. A BUFF
+                # carrying absorb is a shield that has to be burned through
+                # before the boss takes damage at all.
+                is_stun=self.is_stun and not self.self_only,
+                absorb=self.absorb if self.self_only else 0)
             msgs.append(recipient.apply_status_effect(effect))
         # apply_status_effect() already names the recipient and describes
         # the stat_mods (e.g. "Cave Skitterer gains Skitter (+8 Agility)."),
@@ -554,6 +592,8 @@ class Monster(StatusEffectMixin):
                 hp_below=entry.get("hp_below"),
                 lifesteal=entry.get("lifesteal", 0.0),
                 dispel_type=entry.get("dispel_type"),
+                is_stun=entry.get("is_stun", False),
+                absorb=entry.get("absorb", 0),
             ))
 
         # Combat state
