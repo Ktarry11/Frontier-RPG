@@ -111,6 +111,28 @@ MANIFEST = {
     # barn, so it was reading as Hillsbrad everywhere including deep Ashenvale.
     # The two glowing cells go to fantasy_forest instead - that pack is the
     # sparkle read by definition.
+    # Seventh batch, 7 Nov, generated straight off the repetition ranking:
+    # savanna 13.0, mossy_dungeon 13.0, mountain 12.0. The last cell of the
+    # mountain sheet is an ice field rather than rock, so it goes to
+    # frozen_ruins - which was the one pack still on a single image.
+    "7788ff43": ("plain", [
+        (0, 0, "savanna", "v_open_grass", "golden grass to a flat horizon, acacia, mesas"),
+        (0, 1, "savanna", "v_waterhole", "muddy red waterhole at sunset, reeds, baobabs"),
+        (1, 0, "savanna", "v_thorn_gully", "rocky gully through red rock, dead thorn, scrub"),
+        (1, 1, "savanna", "v_baobab_night", "lone baobab under the milky way, fireflies"),
+    ]),
+    "e8cab511": ("plain", [
+        (0, 0, "mossy_dungeon", "v_vine_corridor", "torchlit corridor hung with vines and moss"),
+        (0, 1, "mossy_dungeon", "v_green_catacomb", "mossed pillars and tombs over glowing green pools"),
+        (1, 0, "mossy_dungeon", "v_root_arch", "great root through a broken vault, shaft of daylight"),
+        (1, 1, "mossy_dungeon", "v_mossy_cells", "barred cell doors, torches, moss across the flags"),
+    ]),
+    "27262ea5": ("plain", [
+        (0, 0, "mountain", "v_alpine_pass", "flagged pass above a valley, snowy peaks, pines"),
+        (0, 1, "mountain", "v_cloud_ledge", "cliff ledge over a sunset cloud sea, rock spires"),
+        (1, 0, "mountain", "v_cairn_ridge", "grey ridge with cairns and carved standing idols"),
+        (1, 1, "frozen_ruins", "v_aurora_icefield", "blue ice peaks and crevasse under an aurora"),
+    ]),
     "7261833d": ("plain", [
         (0, 0, "mossy_forest", "f_old_growth", "mossed old-growth trunks, ferns, dirt path"),
         (0, 1, "fantasy_forest", "f_teal_mushrooms", "night wood, glowing teal mushrooms, mossed boulders"),
