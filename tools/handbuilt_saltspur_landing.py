@@ -61,6 +61,16 @@ PLAZA = (28, 28, 7.0, 5.0)           # the landing yard, where the track meets t
 #: The jetty: deck laid over water out to the boat.
 DECKS = [(36.0, 54.0, 26.6, 29.4)]
 
+#: THE BOAT. Kyle, 7 Nov: "Boat is just a portal tile next to a boat" - so the
+#: sprite is scenery and the tile beside it is an ordinary portal, exactly as
+#: Grom'gol and Booty Bay do it. It is deliberately UNREGISTERED for now:
+#: Tempest Isle sails from this jetty and does not exist yet, and an
+#: unregistered portal tile fails safe - the same property that let Thoradin's
+#: Wall ship shut for weeks without anyone hitting a bug standing on it. The
+#: dock a route leaves from should exist before the route does.
+BOAT_BERTH = (52, 28)        # the portal tile, on the jetty deck
+BOAT_SPRITE = (55, 28)       # the hull itself, moored off the head
+
 _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
 
@@ -169,8 +179,14 @@ FOREST = dict(seed=63, count=8, rim=2, thorn=9, names=[
 
 def dress(L):
     p, b = L.prop, L.bld
+    CO = "assets/tiles/coastal_props/"
 
-    # ---- the jetty, and the boat at the end of it
+    # ---- the jetty, and the boat moored off the end of it.
+    # deco(), not prop(): prop() checks the ground under a sprite and refuses
+    # when it is not placeable, which is correct for a building and wrong for a
+    # hull - the whole point of a moored boat is that it is standing on water.
+    # deco() is the no-checks over-water helper and exists for exactly this.
+    L.deco("boat_orc", BOAT_SPRITE[0], BOAT_SPRITE[1], 7, path_dir=CO)
     for x in (38, 44, 50):
         p("ek_scarlet_crates", x, 26, 3)
     b("orc_watch_tower", 36, 32, 11)
