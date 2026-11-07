@@ -43,6 +43,11 @@ TOWN_REGION = {
     "crossroads": "Northern Barrens",
     "camp_taurajo": "Southern Barrens",
     "tarren_mill": "Eastern Hillsbrad",
+    # Added 7 Nov when Hammerfall became its own zone. Its gate opens onto the
+    # basin, so it is priced for Arathi Central exactly as Tarren Mill is priced
+    # for the Hillsbrad it opens onto - a town outfits people heading into the
+    # country around it, not people farming its own yard.
+    "hammerfall": "Arathi Central",
     "kaels_bastion": "The Crystalline Underdark",
     "freewind_post": "Southern Thousand Needles",
     "undercity": "Undercity",
