@@ -9,44 +9,60 @@ improve difficulty by having unique skills / things to deal with too. We have
 such a varied magic system / skill system. Why not have more boss variety, it
 feels very boring. everything is tank and spank with forgetable skills."
 
-tools/audit_boss_threat.py measured why. Of 358 bosses, EACH WITH ITS OWN
-UNIQUE KIT, zero could stun, zero carried a shield, and one applied anything
-dispellable. The variety was entirely in the ability names; mechanically the
+tools/audit_boss_threat.py measured why. Of 358 bosses, zero could stun, zero
+carried a shield, and one applied anything dispellable. Mechanically the
 bestiary had two tools, AoE and an enrage phase. The cause was structural -
 MonsterAbility could not express a stun or an absorb at all - and that is
 fixed; this is the content half.
 
-SCOPE: the 185 bosses that stand in a dungeon (read off each cave zone's
-boss_positions, so it is the real in-game roster rather than a guess from
-names). Kyle: "open world doesnt have to be VERY dangerous [...] but dungeons
-should not just be free loot dispensers." Open-world rares are deliberately
-left alone.
+SCOPE: the 185 bosses that stand in a dungeon, read off each cave zone's
+boss_positions so it is the real in-game roster rather than a guess from
+names. Kyle: "open world doesnt have to be VERY dangerous [...] but dungeons
+should not just be free loot dispensers."
 
-IT TAGS EXISTING ABILITIES, IT DOES NOT ADD NEW ONES. Every boss already has
-a hand-authored kit with its own names, and those names are the one part of
-the variety that was never broken - "Grave Cold", "Thirty Years of Silt",
-"Nor Will You Leave". Inventing a generic "Crushing Stun" for 185 bosses
-would trade the flavour that works for the mechanics that are missing. So the
-boss's own biggest hit becomes the one that stuns, its own debuff becomes the
-one worth dispelling, its own self-buff becomes the shield. The log already
-explains what each does (combat/status_effects._describe_effect), so a player
-meets "Grave Cold (69 shadow damage/turn, 4 turns)" rather than a mystery.
+I SAID THE VARIETY WAS ALL IN THE NAMES. IT IS NOT, AND THAT CHANGED THIS
+TOOL. Profiling the 185 dungeon kits:
 
-ONE SIGNATURE EACH, CHOSEN BY WHAT THE BOSS IS. Giving everything to everyone
-is how you get back to samey with extra steps:
+    81 of 185 share the SHAPE   {buff: 1, damage: 4, dot: 1}
+    59 of 185 share the SHAPE   {buff: 1, damage: 4}
+    80 of 185 carry "Enrage"
+    76 of 185 carry "Crushing Blow"
+    28 of 185 carry "Sweeping Cleave"
 
-  stun     brutes and beasts - a hit that also costs you the next turn, so
-           standing in the front rank is a decision
-  shield   armoured things, elementals, constructs - burn it off or waste
-           your damage, a check that costs no extra health
-  curse    casters, undead, demons - tagged with a real dispel school, so
-           the 14 cleanse abilities in the game finally have PvE work
+The kits are unique as objects and assembled from a small shared vocabulary.
+Two consequences:
 
-A boss with no ability of the right shape is SKIPPED rather than given a
-bolted-on one, and the report says how many and why.
+  - A signature PREFERS a distinctive ability (GENERIC_NAMES). Putting the
+    stun on "Crushing Blow" for 76 different bosses would have made the new
+    mechanic exactly as generic as the name it rode on.
+  - Shields and curses sometimes have to be ADDED rather than tagged. Nearly
+    every boss has exactly one buff and for 80 of them it is Enrage, an
+    hp_below phase ability, so a tag-only first run produced ZERO shields.
+    Tagging alone reached 22 curses, which is not enough to make the game's
+    14 cleanse abilities worth a global. Added abilities are named after the
+    boss ("Aku'mai's Ward", "Silverlaine's Hex") so sixty of them do not all
+    read "Barrier".
+
+ONE SIGNATURE EACH, ROTATED WITHIN TEMPLATE. A first version mapped one
+signature per creature template and produced 131 stuns out of 185, because 45
+of the roster are humanoid_warrior and 28 are beast_large - samey with extra
+steps, the exact thing this exists to stop. Each template now carries a
+preference LIST and assignment rotates through it, which keeps every choice
+appropriate to the creature while spreading the three mechanics evenly across
+any given dungeon.
+
+  stun     a hit that also costs you the next turn, so standing in the front
+           rank is a decision
+  shield   burn it off or waste your damage - a check that costs no health
+  curse    a real dispel school, so the cleanses finally have PvE work
+
+The combat log explains each one by itself (status_effects._describe_effect),
+so a player meets "Grave Rot (19 shadow damage/turn, 4 turns)" rather than a
+mystery.
 """
 
 import argparse
+import collections
 import json
 import os
 import sys
@@ -58,33 +74,89 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KITS = os.path.join(ROOT, "data/creatures/ability_kits.json")
 CREATURES = os.path.join(ROOT, "data/creatures/creatures.json")
 
-#: template prefix -> signature. Read off the creature's template, which is
-#: the one field that says what a thing IS rather than what it is called.
+#: template prefix -> signatures that FIT that kind of thing, in preference
+#: order. Assignment rotates through the list; see the module docstring.
 BY_TEMPLATE = {
-    "beast": "stun", "vermin": "curse", "humanoid_warrior": "stun",
-    "humanoid_rogue": "stun", "humanoid_caster": "curse",
-    "humanoid_ranged": "stun", "undead_caster": "curse",
-    "undead_warrior": "shield", "undead_basic": "curse", "undead_beast": "stun",
-    "demon_caster": "curse", "demon_hound": "stun",
-    "elemental_caster": "shield", "elemental_bruiser": "shield",
-    "aquatic": "shield",
+    "beast_large": ["stun", "shield"],
+    "beast_fast": ["stun", "curse"],
+    "beast": ["stun", "curse"],
+    "vermin": ["curse", "stun"],
+    "humanoid_warrior": ["stun", "shield", "curse"],
+    "humanoid_rogue": ["stun", "curse"],
+    "humanoid_caster": ["curse", "shield", "stun"],
+    "humanoid_ranged": ["stun", "curse"],
+    "undead_caster": ["curse", "shield"],
+    "undead_warrior": ["shield", "stun"],
+    "undead_basic": ["curse", "shield"],
+    "undead_beast": ["stun", "curse"],
+    "demon_caster": ["curse", "shield"],
+    "demon_hound": ["stun", "curse"],
+    "elemental_caster": ["shield", "curse"],
+    "elemental_bruiser": ["shield", "stun"],
+    "aquatic": ["shield", "curse"],
 }
 
-#: Dispel school by damage school, so a curse is tagged with something that
-#: matches what the boss actually throws rather than a blanket "magic".
+#: Ability names shared across many bosses - measured, not guessed. A
+#: signature avoids these where the kit offers anything else.
+GENERIC_NAMES = {
+    "Enrage", "Crushing Blow", "Sweeping Cleave", "Thorned Lash",
+    "Shadow Rend", "Wild Surge", "Dark Frenzy", "Thrashing Storm",
+    "Arcane Overload", "Killing Chill",
+}
+
+#: Dispel school by damage school, so a curse matches what the boss actually
+#: throws rather than a blanket "magic". A physical bleed is never
+#: dispellable in WoW and is not made so here to hit a quota.
 SCHOOL_TO_DISPEL = {
     "shadow": "curse", "arcane": "magic", "fire": "magic", "frost": "magic",
     "holy": "magic", "nature": "poison", "physical": None,
 }
 
-#: How long a boss stun lasts. One turn. A two-turn stun on a 12-turn
-#: cooldown is a fight; a two-turn stun on a boss that can repeat it is a
-#: player watching their party not act, which is not difficulty.
+#: Titles stripped before naming an added ability after a boss, so the result
+#: is "Hedessa's Ward" rather than "Admiral's Ward" - several bosses share a
+#: rank and none of them share a name.
+TITLES = ("The ", "Lady ", "Lord ", "Baron ", "Baroness ", "Captain ",
+          "Overseer ", "Foreman ", "Archmage ", "Apothecary ", "Magister ",
+          "Acolyte ", "Admiral ", "Bosun ", "Sergeant ", "Rifle-Sergeant ",
+          "Gatewarden ", "Houndmaster ", "Prospector ", "Hunt-King ",
+          "Shrine-Keeper ", "Grateward ", "Bonewarden ", "Matriarch ",
+          "Broodmother ", "Alpha ", "Blind ", "Doctor ", "Master ",
+          "Warlord ", "Chief ", "High ", "Grand ")
+
+#: How long a boss stun lasts. ONE turn. A two-turn stun is a player watching
+#: their party not act, which is not difficulty.
 STUN_TURNS = 1
 
 #: Absorb, as a multiple of the boss's own biggest hit. Burnable in about a
 #: turn of focused damage - a check, not a wall.
 SHIELD_MULTIPLE = 1.5
+
+#: An added curse ticks for this share of the boss's biggest hit.
+CURSE_SHARE = 0.28
+
+
+def _short_name(boss_name):
+    short = (boss_name or "").split(",")[0].strip()
+    for prefix in TITLES:
+        if short.startswith(prefix):
+            short = short[len(prefix):]
+            break
+    short = short.split()[0] if short else ""
+    return short or "Dread"
+
+
+def _possessive(short, noun):
+    return f"{short}' {noun}" if short.endswith("s") else f"{short}'s {noun}"
+
+
+def _biggest(kit, kinds=("damage",)):
+    return max([x.get("amount", 0) or 0 for x in kit
+                if x.get("kind") in kinds] or [40])
+
+
+def _prefer_distinctive(cands):
+    own = [a for a in cands if a.get("name") not in GENERIC_NAMES]
+    return own or cands
 
 
 def dungeon_bosses():
@@ -103,74 +175,83 @@ def dungeon_bosses():
     return names
 
 
-def signature_for(template):
-    for prefix, sig in BY_TEMPLATE.items():
+def signature_for(template, rotation):
+    """Next signature for this template, rotating through its list."""
+    for prefix in sorted(BY_TEMPLATE, key=len, reverse=True):
         if template.startswith(prefix):
-            return sig
-    return "stun"
+            opts = BY_TEMPLATE[prefix]
+            i = rotation[prefix]
+            rotation[prefix] += 1
+            return opts[i % len(opts)], opts
+    return "stun", ["stun"]
 
 
-def apply_stun(kit):
-    """The boss's biggest damage ability also costs you your next turn."""
-    hits = [a for a in kit if a.get("kind") == "damage" and (a.get("amount") or 0) > 0
-            and not a.get("is_aoe")]
+def apply_stun(kit, boss_name=None):
+    """The boss's biggest distinctive hit also costs you your next turn."""
+    hits = [a for a in kit if a.get("kind") == "damage"
+            and (a.get("amount") or 0) > 0 and not a.get("is_aoe")]
     if not hits:
         return None
-    a = max(hits, key=lambda x: x["amount"])
-    if a.get("rider", {}).get("is_stun"):
+    a = max(_prefer_distinctive(hits), key=lambda x: x["amount"])
+    if (a.get("rider") or {}).get("is_stun"):
         return None
     rider = dict(a.get("rider") or {})
     rider.update({"effect": "debuff", "duration": STUN_TURNS, "is_stun": True})
     rider.setdefault("stat_mods", {})
     a["rider"] = rider
-    # A stun that lands every turn is not a mechanic, it is a lockout.
+    # A stun that lands every turn is a lockout, not a mechanic.
     if (a.get("cooldown") or 0) < 4:
         a["cooldown"] = 4
+    a["authored_mechanic"] = "stun"
     return a["name"]
 
 
-def apply_shield(kit):
-    """The boss's own self-buff becomes a shield that must be burned off."""
-    buffs = [a for a in kit if a.get("kind") == "buff" and a.get("self_only", True)
-             and not a.get("hp_below")]
-    if not buffs:
+def apply_shield(kit, boss_name=None):
+    """A shield that has to be burned off before the damage lands."""
+    if any(a.get("absorb") for a in kit):
         return None
-    a = buffs[0]
-    if a.get("absorb"):
-        return None
-    biggest = max([x.get("amount", 0) or 0 for x in kit
-                   if x.get("kind") == "damage"] or [40])
-    a["absorb"] = int(round(biggest * SHIELD_MULTIPLE))
-    if (a.get("cooldown") or 0) < 5:
-        a["cooldown"] = 5
-    return a["name"]
+    name = _possessive(_short_name(boss_name), "Ward")
+    kit.append({
+        "name": name, "kind": "buff", "amount": 0, "cooldown": 6,
+        "mana_cost": 0, "school": "physical", "duration": 4,
+        "self_only": True, "stat_mods": {},
+        "absorb": int(round(_biggest(kit, ("damage", "dot")) * SHIELD_MULTIPLE)),
+        "authored_mechanic": "shield",
+    })
+    return name
 
 
-def apply_curse(kit):
-    """The boss's own debuff/dot gets a real dispel school."""
+def apply_curse(kit, boss_name=None):
+    """Tag the boss's own dot/debuff with a real dispel school, or add one."""
     cands = [a for a in kit if a.get("kind") in ("debuff", "dot")
              and not a.get("dispel_type")]
-    if not cands:
+    magic = [c for c in cands if SCHOOL_TO_DISPEL.get(c.get("school", "physical"))]
+    if magic:
+        a = max(magic, key=lambda x: (x.get("kind") == "dot",
+                                      x.get("amount", 0) or 0))
+        a["dispel_type"] = SCHOOL_TO_DISPEL[a.get("school", "shadow")]
+        a["authored_mechanic"] = "curse"
+        return f"{a['name']} ({a['dispel_type']})"
+
+    if any(a.get("dispel_type") for a in kit):
         return None
-    # Prefer the one that hurts most: a dot the party is bleeding to is worth
-    # a global to remove; a -5 Agility debuff is not.
-    a = max(cands, key=lambda x: (x.get("kind") == "dot", x.get("amount", 0) or 0))
-    school = SCHOOL_TO_DISPEL.get(a.get("school", "physical"))
-    if not school:
-        # A physical bleed is never dispellable in WoW and should not become
-        # so here just to hit a quota.
-        magic = [c for c in cands if SCHOOL_TO_DISPEL.get(c.get("school"))]
-        if not magic:
-            return None
-        a = max(magic, key=lambda x: x.get("amount", 0) or 0)
-        school = SCHOOL_TO_DISPEL[a["school"]]
-    a["dispel_type"] = school
-    return f"{a['name']} ({school})"
+    schools = [a.get("school", "physical") for a in kit
+               if a.get("kind") in ("damage", "dot")]
+    school = next((s for s in schools if SCHOOL_TO_DISPEL.get(s)), "shadow")
+    dispel = SCHOOL_TO_DISPEL[school]
+    noun = {"curse": "Curse", "poison": "Venom", "magic": "Hex"}[dispel]
+    name = _possessive(_short_name(boss_name), noun)
+    kit.append({
+        "name": name, "kind": "dot",
+        "amount": max(4, int(round(_biggest(kit) * CURSE_SHARE))),
+        "cooldown": 5, "mana_cost": 0, "school": school, "duration": 4,
+        "dispel_type": dispel, "authored_mechanic": "curse",
+    })
+    return f"{name} ({dispel}, added)"
 
 
 HANDLERS = {"stun": apply_stun, "shield": apply_shield, "curse": apply_curse}
-#: If the chosen signature has nothing to attach to, try these in order
-#: before giving up - a boss with no self-buff can still carry a curse.
+#: Tried in order when the chosen signature has nothing to work with.
 FALLBACK = ["curse", "stun", "shield"]
 
 
@@ -186,9 +267,10 @@ def main():
         kitdoc = json.load(fh)
     kits = kitdoc["kits"]
 
+    rotation = collections.defaultdict(int)
     targets = dungeon_bosses()
     rows, skipped = [], []
-    counts = {"stun": 0, "shield": 0, "curse": 0}
+    counts = collections.Counter()
 
     for name in sorted(targets):
         c = creatures.get(name)
@@ -198,16 +280,17 @@ def main():
         if not kit:
             skipped.append((name, "no kit"))
             continue
-        want = signature_for(c.get("template", ""))
-        order = [want] + [f for f in FALLBACK if f != want]
+        want, opts = signature_for(c.get("template", ""), rotation)
+        order = [want] + [o for o in opts if o != want] \
+                + [f for f in FALLBACK if f not in opts]
         done = None
         for sig in order:
-            got = HANDLERS[sig](kit)
+            got = HANDLERS[sig](kit, name)
             if got:
                 done = (sig, got)
                 break
         if done is None:
-            skipped.append((name, "nothing of the right shape to tag"))
+            skipped.append((name, "nothing of the right shape"))
             continue
         counts[done[0]] += 1
         rows.append((name, c.get("template", ""), done[0], done[1],
@@ -217,15 +300,14 @@ def main():
           f"{len(skipped)} skipped")
     print(f"  stun {counts['stun']}   shield {counts['shield']}   "
           f"curse {counts['curse']}\n")
-    print(f"  {'boss':30}{'template':20}{'signature':10}{'on'}")
+    print(f"  {'boss':30}{'template':20}{'signature':11}{'on'}")
     for name, tmpl, sig, what, fell in rows[:args.show]:
-        tag = f"{sig}*" if fell else sig
-        print(f"  {name[:29]:30}{tmpl[:19]:20}{tag:10}{what}")
+        print(f"  {name[:29]:30}{tmpl[:19]:20}{(sig + '*') if fell else sig:11}{what}")
     if len(rows) > args.show:
         print(f"  ... and {len(rows) - args.show} more"
-              f"   (* = fell back; its type's signature had nothing to tag)")
+              f"   (* = fell back; its type's first choice had nothing to tag)")
     if skipped:
-        print(f"\n  skipped:")
+        print("\n  skipped:")
         for name, why in skipped[:8]:
             print(f"       {name[:34]:36}{why}")
 

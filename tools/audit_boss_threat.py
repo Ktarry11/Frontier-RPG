@@ -84,11 +84,18 @@ def classify(kit, level_hint=30):
         if kind in PRESSURE_KINDS:
             pressure += amount * (ab.get("duration", 1) or 1 if kind == "dot" else 1)
             biggest = max(biggest, amount)
-        if ab.get("is_stun") or kind == "stun":
+        # A STUN USUALLY RIDES AN ATTACK rather than being its own ability,
+        # which is the whole point of putting it there - a stun that costs
+        # the boss its turn is a free turn for the party. Reading only the
+        # top-level flag made this tool report 0 stuns across the roster
+        # while live fights showed 19 of 60 bosses stunning the player. An
+        # audit that disagrees with the game is wrong until proven otherwise.
+        rider = ab.get("rider") or {}
+        if ab.get("is_stun") or kind == "stun" or rider.get("is_stun"):
             demands.add("stun")
-        if ab.get("dispel_type"):
+        if ab.get("dispel_type") or rider.get("dispel_type"):
             demands.add("dispel")
-        if ab.get("absorb"):
+        if ab.get("absorb") or rider.get("absorb"):
             demands.add("absorb")
         if kind == "heal" and ab.get("self_only", True):
             demands.add("heal_self")
@@ -100,9 +107,12 @@ def classify(kit, level_hint=30):
             demands.add("enrage")
             notes.append(f"{ab.get('name')} below {int(ab['hp_below']*100)}%")
     # A single hit worth a big slice of a player's health is its own demand -
-    # it is the thing a tank exists for. Measured against a rough level-30
-    # player health of ~900, which is what audit_time_to_kill reports.
-    if biggest >= 180:
+    # it is the thing a tank exists for. SCALED BY LEVEL, because a flat 180
+    # was written before the creature damage rescale and afterwards reported
+    # 236 of 358 bosses as hitting hard, including level-5 ones: the number
+    # it was measuring moved and the threshold did not, which is the bug
+    # this repo keeps shipping. Player health runs roughly 100 + 30/level.
+    if biggest >= (100 + 30 * max(1, level_hint)) * 0.18:
         demands.add("big_hit")
     return pressure, demands, notes
 
@@ -121,7 +131,9 @@ def main():
         key = c.get("ability_kit")
         kit = kits.get(key)
         kit_use[key] += 1
-        pressure, demands, notes = classify(kit)
+        lr = c.get("level_range") or [1, 1]
+        lvl = int(((lr[0] or 1) + (lr[1] or 1)) / 2)
+        pressure, demands, notes = classify(kit, lvl)
         rows.append((len(demands), pressure, name, key, demands,
                      len(kit or []), notes))
 
