@@ -197,6 +197,36 @@ def icon_exists(icon_id):
     return bool(icon_id) and icon_id in set(_all_gear_files())
 
 
+def resolve_icon(slot=None, armor_type=None, weapon_type=None,
+                 rarity=None, seed=None, explicit=None):
+    """THE one place that decides a hand-authored item's icon.
+
+    boss_loot and quest.py both had to make this call and were drifting
+    apart on it within an hour of each other, which in this codebase is the
+    oldest bug shape there is - two implementations of one rule.
+
+    The order:
+
+    1. An explicit icon_id, IF the file exists and it is not an ordinary-pool
+       id on an epic. That second clause matters: 35 of the 36 authored epics
+       carry a stamped gear_inv_* id from before the epic family existed, so
+       honouring it blindly meant the epic art never appeared on the exact
+       items it was drawn for. A gear_inv_ id cannot express authored intent
+       about art that did not exist when it was written; a gear_epic_ one can,
+       and still wins.
+    2. The epic pool, for epic and legendary.
+    3. The ordinary pool.
+
+    Seeded throughout, so a fixed item keeps one icon across drops.
+    """
+    is_epic = rarity in ("epic", "legendary")
+    if icon_exists(explicit) and not (is_epic and not explicit.startswith(EPIC_PREFIX)):
+        return explicit
+    if weapon_type:
+        return pick_weapon_icon(weapon_type, seed=seed, rarity=rarity)
+    return pick_armor_icon(slot, armor_type, seed=seed, rarity=rarity)
+
+
 def pick_armor_icon(slot, armor_type, seed=None, rarity=None):
     """Random icon_id for an armor slot, or None if nothing matches
     (caller falls back to the existing rarity-colored-box rendering -

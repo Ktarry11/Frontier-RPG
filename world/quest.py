@@ -540,20 +540,14 @@ def _reward_icon(item_def):
     wrong picture.
     """
     try:
-        from gear_icons import icon_exists, pick_armor_icon, pick_weapon_icon
+        from gear_icons import resolve_icon
     except ImportError:
         return None
-    # An explicit icon_id wins, but only if it names a real file - see
-    # gear_icons.icon_exists for why that guard is not paranoia.
-    if icon_exists(item_def.get("icon_id")):
-        return item_def["icon_id"]
-    seed = f"questreward:{item_def.get('name', '')}"
-    weapon_type = item_def.get("weapon_type")
-    rarity = item_def.get("rarity")
-    if weapon_type:
-        return pick_weapon_icon(weapon_type, seed=seed, rarity=rarity)
-    return pick_armor_icon(item_def.get("slot"), item_def.get("armor_type"),
-                           seed=seed, rarity=rarity)
+    return resolve_icon(
+        slot=item_def.get("slot"), armor_type=item_def.get("armor_type"),
+        weapon_type=item_def.get("weapon_type"), rarity=item_def.get("rarity"),
+        seed=f"questreward:{item_def.get('name', '')}",
+        explicit=item_def.get("icon_id"))
 
 
 def build_reward_gear_set(loot_generator, item_level, slot="chest", rarity="uncommon", choices_plan=None):
