@@ -338,8 +338,23 @@ class CharacterCreationScreen(BaseScreen):
         # world block, which then loaded you into the default spawn.
         self.state_manager.player = char
         self.state_manager.party = None      # force a fresh Party for this character
-        self.state_manager.save_game()
-        self.state_manager.transition_to(GameState.OVERWORLD)
+
+        # THIS LINE USED TO BE `save_game()`, AND IT ATE PEOPLE'S CHARACTERS.
+        # With no filename it wrote to state_manager.current_save_file, which
+        # still pointed at whatever slot the PREVIOUS character had loaded -
+        # so finishing creation silently overwrote a live save before the
+        # player ever saw the world. Kyle's tester, 7 Nov: "I just made a
+        # shaman and used the +5 level thing and saved it but it over wrote
+        # my level 13 druid."
+        #
+        # A new character owns no slot (begin_new_character cleared it), so
+        # there is nothing to write to yet and nothing is written. The player
+        # picks the slot first, in the picker the menu already has, which is
+        # also the "select WHICH slot to save in" Kyle asked for. The game is
+        # only entered once a slot is chosen, so a new character cannot be
+        # played unsaved and cannot land anywhere by accident.
+        self.state_manager.pending_new_character = True
+        self.state_manager.transition_to(GameState.MENU)
     
     def update(self, dt):
         """No updates needed."""

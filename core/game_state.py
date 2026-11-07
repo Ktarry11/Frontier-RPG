@@ -41,7 +41,30 @@ class GameStateManager:
         self.player = None
         # Which save file this session is playing; set by load_game/save_game.
         # The guild bank commits against it - see _remember_slot.
-        self.current_save_file = "character.json"
+        #
+        # NONE, NOT "character.json". A character that has never been saved
+        # OWNS NO SLOT, and the difference is the whole of the save-clobber
+        # bug Kyle's tester hit on 7 Nov: "I just made a shaman and used the
+        # +5 level thing and saved it but it over wrote my level 13 druid."
+        #
+        # Defaulting to a filename meant a brand-new character was born
+        # already pointing at a real save file - either slot 1 (which
+        # config.save_slot_filename maps "character.json" to) or, worse,
+        # whatever slot the PREVIOUS character had loaded, because this
+        # field survives character creation. Character creation then calls
+        # save_game() with no filename, and the new level-1 shaman landed
+        # on top of the level-13 druid before the player saw the world.
+        #
+        # The same root cause is the tester's second report, "I saved to
+        # slot 3 and it saved it on slot 8": the character was written to
+        # slot 8 at creation (the slot still current from the druid) and to
+        # slot 3 when they asked for it, so it appeared in two places and
+        # read as random.
+        self.current_save_file = None
+        #: Set by character creation; read once by MenuScreen, which opens
+        #: the slot picker so the new character is given a home before the
+        #: world is entered.
+        self.pending_new_character = False
         self.current_enemy = None
         self.current_enemies = []
         self.current_vendor = None  # Phase 6: current vendor NPC for vendor screen
@@ -151,6 +174,29 @@ class GameStateManager:
     def describe_save(self, filename="character.json"):
         return self._save_system().describe_save(filename)
 
+    @property
+    def needs_save_slot(self):
+        """True when there is a character to save and nowhere to put it.
+
+        The state a newly created character is in until the player chooses
+        a slot. Screens check this to send the player to the picker instead
+        of reporting "Save failed", which would be both wrong and alarming -
+        nothing failed, the game simply refuses to guess which of 15 slots
+        the player meant.
+        """
+        return self.player is not None and not self.current_save_file
+
+    def begin_new_character(self):
+        """Forget which slot we were playing. Called before character creation.
+
+        Without this the new character inherits the previous one's slot and
+        the first autosave destroys it - see current_save_file's note in
+        __init__. Clearing it on the way IN to creation rather than on the
+        way out means an abandoned creation (player backs out) also cannot
+        write anywhere.
+        """
+        self.current_save_file = None
+
     def _remember_slot(self, filename):
         """Which save file this session is playing.
 
@@ -188,7 +234,17 @@ class GameStateManager:
         if self.player is None:
             return False
         if filename is None:
-            filename = self.current_save_file or "character.json"
+            filename = self.current_save_file
+        # NO SLOT, NO WRITE. This used to fall back to "character.json",
+        # which is slot 1 - so an unslotted character (one just created, or
+        # one whose slot was cleared) autosaved itself over whatever lived
+        # in slot 1. Refusing is the only safe answer: the player picks a
+        # slot, and until they do nothing on disk is touched.
+        #
+        # Callers distinguish this from a real failure with needs_save_slot
+        # rather than by comparing the return value, because both are False.
+        if not filename:
+            return False
         from world.recruit_manager import get_recruit_manager
         from world.quest_manager import get_quest_manager
         from world.travel_manager import get_travel_manager
@@ -207,7 +263,12 @@ class GameStateManager:
         except Exception as exc:
             print(f"Save failed: {exc}")
             return False
-        self.current_save_file = filename
+        # _remember_slot, not a bare assignment: a first save is also the
+        # moment the guild bank learns which file to commit against. Before
+        # this, only load_game rebound it, so a character created this
+        # session had the PREVIOUS character's saver still installed and a
+        # deposit committed into their file.
+        self._remember_slot(filename)
         return True
 
     def load_game(self, filename="character.json"):

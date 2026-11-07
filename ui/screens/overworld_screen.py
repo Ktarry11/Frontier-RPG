@@ -248,6 +248,12 @@ class OverworldScreen(BaseScreen):
             if event.key == pygame.K_F5:
                 if self.state_manager.save_game():
                     self._notify("Game saved.", (140, 240, 160))
+                elif self.state_manager.needs_save_slot:
+                    # Not a failure - the game is refusing to guess which of
+                    # 15 slots this character belongs in. Saying "Save
+                    # failed" here would be both wrong and alarming.
+                    self._notify("No save slot chosen - pick one from the menu (ESC).",
+                                 (240, 210, 140))
                 else:
                     self._notify("Save failed.", (240, 140, 140))
                 return

@@ -68,6 +68,24 @@ class MenuScreen(BaseScreen):
         self.slot_rects = []
         self.slot_close_button = pygame.Rect(SCREEN_WIDTH - 140, 20, 110, 40)
 
+        #: Overwrite confirmation. Kyle, 7 Nov: "If the player is trying to
+        #: override a current save there needs to be a notice and
+        #: conformation." Clicking an OCCUPIED slot in save mode arms this
+        #: with (slot_number, summary) and writes nothing until the player
+        #: confirms; an empty slot is still a single click, because there is
+        #: nothing to lose and a confirm on every save is just friction.
+        self.pending_overwrite = None
+        self.confirm_yes_button = pygame.Rect(
+            SCREEN_WIDTH // 2 - 160, SCREEN_HEIGHT // 2 + 40, 140, 46)
+        self.confirm_no_button = pygame.Rect(
+            SCREEN_WIDTH // 2 + 20, SCREEN_HEIGHT // 2 + 40, 140, 46)
+
+        #: True while the picker is open for a character that has never been
+        #: saved. Close is hidden in this mode - backing out would leave a
+        #: character alive with nowhere to save, which is how progress gets
+        #: lost quietly rather than loudly.
+        self.slot_required = False
+
         #: Parallax Valley of Trials vista behind the menu, and the New Game
         #: push-in (ui/parallax.py). Built here rather than as a replacement
         #: TitleScreen deliberately: all the save-slot handling above is real,
@@ -122,7 +140,18 @@ class MenuScreen(BaseScreen):
         # picking a slot, same modal convention every other overlay
         # screen in this game uses (quest dialog, journal, etc).
         if self.slot_mode is not None:
-            if self.slot_close_button.collidepoint(mouse_pos):
+            # The confirmation is modal on top of the picker: while it is up
+            # the slots underneath must not be clickable, or a stray click
+            # lands on a different slot than the one being confirmed.
+            if self.pending_overwrite is not None:
+                if self.confirm_yes_button.collidepoint(mouse_pos):
+                    slot_number = self.pending_overwrite[0]
+                    self.pending_overwrite = None
+                    self._write_slot(slot_number)
+                elif self.confirm_no_button.collidepoint(mouse_pos):
+                    self.pending_overwrite = None
+                return
+            if not self.slot_required and self.slot_close_button.collidepoint(mouse_pos):
                 self.slot_mode = None
                 return
             for i, rect in enumerate(self.slot_rects):
@@ -137,6 +166,10 @@ class MenuScreen(BaseScreen):
             return
 
         if self.buttons["new_game"].collidepoint(mouse_pos):
+            # Forget the slot we were playing BEFORE creation starts, so the
+            # new character cannot inherit it and cannot write to it. See
+            # GameStateManager.begin_new_character.
+            self.state_manager.begin_new_character()
             # Straight through. Kyle, 5 Nov: "no zoom in with white flash on
             # new game either" - the dolly came apart in motion, so it is gone
             # along with the bloom that handed off from it.
@@ -187,14 +220,43 @@ class MenuScreen(BaseScreen):
             else:
                 self._notify(f"Slot {slot_number} could not be loaded.", (230, 140, 140))
         elif self.slot_mode == "save":
-            if self.state_manager.save_game(filename):
-                self._notify(f"Saved to slot {slot_number}.", (140, 230, 160))
-                self.slot_mode = None
-            else:
-                self._notify("Save failed.", (230, 140, 140))
+            # An occupied slot asks first. Reading the summary here rather
+            # than trusting has_save means the prompt can NAME what is about
+            # to be destroyed - "Slot 8 already has Stone Hoof - Level 13
+            # Druid" is a warning; "Overwrite?" is a dialog box.
+            summary = self.state_manager.describe_save(filename)
+            if summary:
+                self.pending_overwrite = (slot_number, summary)
+                return
+            self._write_slot(slot_number)
+
+    def _write_slot(self, slot_number):
+        """Actually commit to a slot. Only reached past any confirmation."""
+        filename = save_slot_filename(slot_number)
+        if self.state_manager.save_game(filename):
+            self._notify(f"Saved to slot {slot_number}.", (140, 230, 160))
+            self.slot_mode = None
+            # A brand-new character has just been given a home, so the world
+            # can be entered. This is the only path into OVERWORLD from
+            # creation now - see character_screen's note.
+            if self.slot_required:
+                self.slot_required = False
+                self.state_manager.pending_new_character = False
+                self.state_manager.transition_to(GameState.OVERWORLD)
+        else:
+            self._notify("Save failed.", (230, 140, 140))
     
     def update(self, dt):
         """Tick down the transient save/load message, and drive the vista."""
+        # A character that has just been created arrives here with no slot.
+        # Open the picker on its behalf and keep it open until they choose.
+        if getattr(self.state_manager, "pending_new_character", False) \
+                and self.slot_mode is None:
+            self.slot_mode = "save"
+            self.slot_required = True
+            self.slot_rects = self._build_slot_rects()
+            self._notify("Choose a slot for your new character.", (230, 220, 150))
+
         if self.message_timer > 0:
             self.message_timer -= dt
             if self.message_timer <= 0:
@@ -261,10 +323,13 @@ class MenuScreen(BaseScreen):
             screen, title, (SCREEN_WIDTH // 2 - 80, 40),
             color=COLOR_WHITE, size="large")
 
-        pygame.draw.rect(screen, (70, 60, 40), self.slot_close_button)
-        pygame.draw.rect(screen, (200, 180, 120), self.slot_close_button, 2)
-        close_text = self.renderer.font_normal.render("Close", True, (255, 240, 200))
-        screen.blit(close_text, close_text.get_rect(center=self.slot_close_button.center))
+        # No way out while a new character still needs a home - backing out
+        # would leave them alive with nowhere to save.
+        if not self.slot_required:
+            pygame.draw.rect(screen, (70, 60, 40), self.slot_close_button)
+            pygame.draw.rect(screen, (200, 180, 120), self.slot_close_button, 2)
+            close_text = self.renderer.font_normal.render("Close", True, (255, 240, 200))
+            screen.blit(close_text, close_text.get_rect(center=self.slot_close_button.center))
 
         for i, rect in enumerate(self.slot_rects):
             slot_number = i + 1
@@ -287,6 +352,48 @@ class MenuScreen(BaseScreen):
             self.renderer.draw_text(
                 screen, body, (rect.x + 14, rect.y + 30),
                 color=body_color, font_size=14)
+
+        if self.pending_overwrite is not None:
+            self._render_overwrite_confirm(screen)
+
+    def _render_overwrite_confirm(self, screen):
+        """Name what is about to be destroyed, and make them say yes.
+
+        Kyle, 7 Nov: "If the player is trying to override a current save
+        there needs to be a notice and conformation."
+
+        The panel NAMES the save rather than asking a generic "Overwrite?",
+        because the whole failure this fixes was a character disappearing
+        without anybody being told which one.
+        """
+        slot_number, summary = self.pending_overwrite
+        panel = pygame.Rect(SCREEN_WIDTH // 2 - 300, SCREEN_HEIGHT // 2 - 110, 600, 190)
+        scrim = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        scrim.fill((4, 3, 6, 215))
+        screen.blit(scrim, (0, 0))
+        pygame.draw.rect(screen, (26, 22, 28), panel)
+        pygame.draw.rect(screen, (210, 150, 90), panel, 3)
+
+        self.renderer.draw_text(
+            screen, f"Overwrite slot {slot_number}?",
+            (SCREEN_WIDTH // 2, panel.y + 26),
+            color=(255, 210, 150), center=True, size="large")
+        self.renderer.draw_text(
+            screen, f"This slot already holds  {summary}",
+            (SCREEN_WIDTH // 2, panel.y + 78),
+            color=(235, 225, 230), center=True, font_size=16)
+        self.renderer.draw_text(
+            screen, "This cannot be undone.",
+            (SCREEN_WIDTH // 2, panel.y + 104),
+            color=(220, 130, 130), center=True, font_size=14)
+
+        for rect, label, fill, edge in (
+                (self.confirm_yes_button, "Overwrite", (90, 40, 40), (220, 120, 110)),
+                (self.confirm_no_button, "Cancel", (40, 44, 52), (170, 180, 200))):
+            pygame.draw.rect(screen, fill, rect)
+            pygame.draw.rect(screen, edge, rect, 2)
+            text = self.renderer.font_normal.render(label, True, (248, 240, 240))
+            screen.blit(text, text.get_rect(center=rect.center))
 
         if self.message:
             self.renderer.draw_text(

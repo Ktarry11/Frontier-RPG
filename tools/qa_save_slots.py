@@ -84,6 +84,50 @@ def main():
             lvl = json.loads(after[3]).get("character", {}).get("level")
             if lvl != 13:
                 fails.append(f"slot 3 level is {lvl}, expected 13")
+
+        # ------------------------------------------------------------------
+        # A NEW CHARACTER MUST NOT INHERIT THE LAST ONE'S SLOT.
+        #
+        # Kyle's tester, 7 Nov: "I just made a shaman and used the +5 level
+        # thing and saved it but it over wrote my level 13 druid." Same class
+        # of bug as the one above and a worse version of it: current_save_file
+        # survived character creation, and the save_game() call at the end of
+        # creation wrote the brand-new level-1 character straight over the
+        # loaded character's file before the player saw the world.
+        #
+        # Behaviour, not implementation: play a slot, start a new character,
+        # and assert that every slot on disk is untouched until a slot is
+        # explicitly chosen.
+        # ------------------------------------------------------------------
+        snapshot = {s: (SAVES / save_slot_filename(s)).read_text() for s in range(1, 6)}
+
+        gsm3 = GameStateManager(screen)
+        gsm3.load_game(save_slot_filename(2))
+        gsm3.begin_new_character()          # what the New Game button does
+        gsm3.player = Character(name="FreshShaman", char_class="Shaman", level=1)
+
+        if not gsm3.needs_save_slot:
+            fails.append("a newly created character reports a save slot it should not have")
+        if gsm3.save_game():
+            fails.append("an unslotted new character was allowed to save")
+
+        touched = [s for s in range(1, 6)
+                   if (SAVES / save_slot_filename(s)).read_text() != snapshot[s]]
+        if touched:
+            who = json.loads((SAVES / save_slot_filename(touched[0])).read_text())
+            fails.append(f"creating a character WROTE slots {touched} "
+                         f"(slot {touched[0]} now holds "
+                         f"{who.get('character', {}).get('name')!r})")
+
+        # And once a slot IS chosen, exactly that slot takes it.
+        if not gsm3.save_game(save_slot_filename(5)):
+            fails.append("could not save the new character to a chosen slot")
+        moved = [s for s in (1, 2, 3, 4)
+                 if (SAVES / save_slot_filename(s)).read_text() != snapshot[s]]
+        if moved:
+            fails.append(f"saving the new character to slot 5 also wrote {moved}")
+        if "FreshShaman" not in (SAVES / save_slot_filename(5)).read_text():
+            fails.append("slot 5 did not receive the new character")
     finally:
         shutil.rmtree(SAVES)
         shutil.copytree(backup, SAVES)
