@@ -33,7 +33,9 @@
     "",
     "COOLDOWNS ARE TRUMP-CARD LENGTH. Kyle, 6 Nov: 'a lot of these are strong as fuck and will need shit like 10 turn + cooldowns... a lot of them will register as instant to not consume a turn. They will be trump cards and anywhere between 10-15 turn cooldowns. And if they have cooldowns that long, they can work in boss fights.' So: 10-15 turns on anything that swings a fight, is_instant so using one does not cost the turn, and NO boss_immune anywhere - a 12-turn cooldown is what buys it a place in a boss fight. A handful sit at 0 because they are passive triggers rather than buttons (One Door Closes, He Catalogues, Committed Middle, He Has the Names).",
     "",
-    "NO CONFUSION MECHANICS. Kyle: 'we wont do confusion stuff like this, scrap it.' Silas's The Man Standing Next To Him turned two enemies on each other and is gone, replaced by Sharper Rules Than Antwerp, an execute. Nothing else in the file charms, confuses or turns an enemy."
+    "NO CONFUSION MECHANICS. Kyle: 'we wont do confusion stuff like this, scrap it.' Silas's The Man Standing Next To Him turned two enemies on each other and is gone, replaced by Sharper Rules Than Antwerp, an execute. Nothing else in the file charms, confuses or turns an enemy.",
+    "",
+    "NO FIGHT-LONG OR PERMANENT EFFECTS. Kyle, 6 Nov: 'we will not being doing full fight-based abilities.' Everything now has a stated duration and a cooldown. Five were caught: Pasang's He Has the Names (was permanent on trigger), Bakyt's A Sky Other People Call Clear (duration 99), Kesten's He Catalogues (accrued permanently and ACROSS fights), Haruto's A Single Stroke (once per fight) and Pasang's Day Four (scaled off total fight length). A long cooldown does the same job as a once-per-fight limit without needing fight-scoped state."
   ],
   "dan_warrior": {
     "name": "Dan Okafor",
@@ -1197,14 +1199,14 @@
         "ability_id": "personal_pasang_day_four",
         "name": "Day Four",
         "from": "'he judges strangers by how they behave on day four'",
-        "engine": "needs: stacking mitigation per turn survived",
+        "engine": "needs: mitigation that grows each turn the buff is active",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 10,
+        "cooldown": 12,
         "duration": 6,
         "stat_mods": {},
-        "description": "Pasang takes 4% less damage for each turn this fight has lasted, up to 32%.",
+        "description": "For 6 turns Pasang takes 4% less damage for each turn the buff has been up, up to 24%.",
         "ranks": [
           {
             "rank": 1,
@@ -1241,15 +1243,15 @@
         "ability_id": "personal_pasang_he_has_the_names",
         "name": "He Has the Names",
         "from": "'Four of his cousins did the same work. Two of them died on it. He has the names and he keeps them to himself.'",
-        "engine": "needs: permanent on-ally-death trigger",
+        "engine": "needs: on-ally-death trigger with a duration",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 0,
-        "duration": 0,
+        "cooldown": 12,
+        "duration": 5,
         "is_instant": true,
         "stat_mods": {},
-        "description": "When an ally falls, Pasang takes 25% less damage and deals 25% more for the rest of the fight. Does not stack.",
+        "description": "For 5 turns after an ally falls, Pasang takes 25% less damage and deals 25% more.",
         "ranks": [
           {
             "rank": 1,
@@ -1280,7 +1282,7 @@
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Once per fight. One attack that cannot miss and always critically strikes.",
+        "description": "One attack that cannot miss and always critically strikes.",
         "ranks": [
           {
             "rank": 1,
@@ -1581,10 +1583,10 @@
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "focus",
-        "cooldown": 15,
-        "duration": 99,
+        "cooldown": 12,
+        "duration": 4,
         "stat_mods": {},
-        "description": "For the rest of the fight the party sees each enemy's next action.",
+        "description": "For 4 turns the party sees each enemy's next action.",
         "ranks": [
           {
             "rank": 1,
@@ -1882,14 +1884,14 @@
         "ability_id": "personal_kesten_he_catalogues",
         "name": "He Catalogues",
         "from": "'He catalogues. It is the only continuity he has and he defends it the way other people defend a family.'",
-        "engine": "needs: permanent per-enemy-type damage bonus that accrues across fights",
+        "engine": "needs: damage bonus scoped to a creature type for a window",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
-        "cooldown": 0,
-        "duration": 0,
+        "cooldown": 12,
+        "duration": 5,
         "stat_mods": {},
-        "description": "Each enemy type Kesten kills is recorded. He deals 2% more damage to that type from then on, up to 20%.",
+        "description": "Kesten names the target's kind. For 5 turns the party deals 20% more damage to every enemy of that type.",
         "ranks": [
           {
             "rank": 1,
