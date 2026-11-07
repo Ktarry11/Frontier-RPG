@@ -525,7 +525,7 @@ def build_unique_reward_set(item_defs):
             # flat rarity-coloured box with the name written on it. Seeded on
             # the name so the reward shown in the quest dialog, the one in the
             # bag and the one on the character sheet are the same picture.
-            icon_id=item_def.get("icon_id") or _reward_icon(item_def),
+            icon_id=_reward_icon(item_def),
         )
         label = item_def.get("label", item.name)
         choices.append(QuestRewardGearChoice(label, item))
@@ -540,14 +540,20 @@ def _reward_icon(item_def):
     wrong picture.
     """
     try:
-        from gear_icons import pick_armor_icon, pick_weapon_icon
+        from gear_icons import icon_exists, pick_armor_icon, pick_weapon_icon
     except ImportError:
         return None
+    # An explicit icon_id wins, but only if it names a real file - see
+    # gear_icons.icon_exists for why that guard is not paranoia.
+    if icon_exists(item_def.get("icon_id")):
+        return item_def["icon_id"]
     seed = f"questreward:{item_def.get('name', '')}"
     weapon_type = item_def.get("weapon_type")
+    rarity = item_def.get("rarity")
     if weapon_type:
-        return pick_weapon_icon(weapon_type, seed=seed)
-    return pick_armor_icon(item_def.get("slot"), item_def.get("armor_type"), seed=seed)
+        return pick_weapon_icon(weapon_type, seed=seed, rarity=rarity)
+    return pick_armor_icon(item_def.get("slot"), item_def.get("armor_type"),
+                           seed=seed, rarity=rarity)
 
 
 def build_reward_gear_set(loot_generator, item_level, slot="chest", rarity="uncommon", choices_plan=None):

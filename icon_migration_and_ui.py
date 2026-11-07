@@ -288,18 +288,15 @@ class IconUIHelper:
         icon_id = item_data.get("icon_id")
         if icon_id:
             return self.renderer.get_icon_surface(icon_id, size)
-        else:
-            # Fallback based on rarity
-            rarity = item_data.get("rarity", "common")
-            rarity_icons = {
-                "common": "rarity_common",
-                "uncommon": "rarity_uncommon",
-                "rare": "rarity_rare",
-                "epic": "rarity_epic",
-                "legendary": "rarity_legendary",
-            }
-            fallback_id = rarity_icons.get(rarity, "rarity_common")
-            return self.renderer.get_icon_surface(fallback_id, size)
+        # NO rarity_* FALLBACK. This used to map rarity -> "rarity_common",
+        # "rarity_epic" and so on, which reads like a deliberate tier of
+        # placeholder art. None of those five files has ever existed in any
+        # searched directory, so every lookup fell straight through to
+        # _make_fallback_surface - the coloured block - while the code
+        # claimed otherwise. Asking for the block directly is the same
+        # picture and an honest description of what happens.
+        return self.renderer.get_icon_surface(
+            f"__missing_{item_data.get('rarity', 'common')}", size)
 
     def get_class_icon_surface(self, class_name: str, size: int = 64):
         """

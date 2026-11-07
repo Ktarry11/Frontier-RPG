@@ -370,7 +370,7 @@ class LootGenerator:
             # this slot/armor_type has no matching art (shouldn't happen
             # for any real slot - gear_icons.py has full coverage - but
             # never crash generation over missing icon art either way).
-            icon_id=pick_armor_icon(slot, effective_armor_type),
+            icon_id=pick_armor_icon(slot, effective_armor_type, rarity=rarity),
         )
 
     def generate_weapon(self, slot, weapon_type, stat_template, item_level, rarity,
@@ -522,7 +522,7 @@ class LootGenerator:
             required_level=max(1, item_level - 2),
             sell_price=max(1, int(item_level * rarity_data["stat_budget_multiplier"] * 1.5)),
             flavor_text="",
-            icon_id=pick_weapon_icon(weapon_type),
+            icon_id=pick_weapon_icon(weapon_type, rarity=rarity),
         )
 
     def generate_loot_for_creature(self, creature_level, char_class=None, drop_chance=0.35, player_level=None):

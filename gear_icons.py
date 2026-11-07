@@ -132,7 +132,55 @@ def _icons_for_prefixes(prefixes):
     return matches
 
 
-def pick_armor_icon(slot, armor_type, seed=None):
+# EPICS GET THEIR OWN ART. Kyle, 7 Nov: "for unique purples I can start to
+# use prompts to get about 48 x 2 icons for epic items. They should be unique
+# looking compared to current gear."
+#
+# An epic drew from the same pool as a quest green, so the only thing marking
+# it out was the border tint. These prefixes name a parallel family -
+# gear_epic_<key>_N.png, dropped into the same assets/icons/gear directory so
+# the existing resolver finds them with no new search path. They are invisible
+# to the ordinary pools because every ordinary prefix starts "gear_inv_", so a
+# rare can never roll an epic icon by accident.
+#
+# Empty is safe: pick_* falls back to the ordinary pool for any family with no
+# epic art yet, so this can be filled in one sheet at a time.
+EPIC_PREFIX = "gear_epic_"
+
+
+def _epic_key(slot, armor_type=None, weapon_type=None):
+    """The gear_epic_ family key for an item, or None.
+
+    Weapons key on weapon_type. Armour keys on slot+armor_type where the
+    ordinary table splits by type (chest, legs and so on) and on slot alone
+    where it does not - matching the source pack's own structure rather than
+    inventing a split the art does not have.
+    """
+    if weapon_type:
+        return weapon_type
+    if (slot, armor_type) in ARMOR_ICON_PREFIXES and armor_type:
+        return f"{slot}_{armor_type}"
+    return slot
+
+
+def _epic_candidates(key):
+    return _icons_for_prefixes([f"{EPIC_PREFIX}{key}_"]) if key else []
+
+
+def icon_exists(icon_id):
+    """True if this icon_id actually has a file in the gear pack.
+
+    A stamped-but-dangling icon_id is WORSE than none: a caller that honours
+    an explicit icon_id will prefer the dead string over a perfectly good
+    seeded pick, and the item renders as a coloured box anyway. data/items/
+    weapon_types.json and armor_types.json carry "rarity_common" on 26
+    entries as a placeholder, and no rarity_*.png has ever existed, so that
+    is not hypothetical.
+    """
+    return bool(icon_id) and icon_id in set(_all_gear_files())
+
+
+def pick_armor_icon(slot, armor_type, seed=None, rarity=None):
     """Random icon_id for an armor slot, or None if nothing matches
     (caller falls back to the existing rarity-colored-box rendering -
     see icon_migration_and_ui.py's get_item_icon_surface).
@@ -145,11 +193,15 @@ def pick_armor_icon(slot, armor_type, seed=None):
     equally fixed, not re-rolled"); the armour simply never got the same treatment. Seeded off a
     local Random so it cannot disturb the global stream every other roll in the game shares.
     """
-    prefixes = (ARMOR_ICON_PREFIXES.get((slot, armor_type))
-               or ARMOR_ICON_PREFIXES.get((slot, None)))
-    if not prefixes:
-        return None
-    candidates = _icons_for_prefixes(prefixes)
+    candidates = []
+    if rarity in ("epic", "legendary"):
+        candidates = _epic_candidates(_epic_key(slot, armor_type=armor_type))
+    if not candidates:
+        prefixes = (ARMOR_ICON_PREFIXES.get((slot, armor_type))
+                   or ARMOR_ICON_PREFIXES.get((slot, None)))
+        if not prefixes:
+            return None
+        candidates = _icons_for_prefixes(prefixes)
     if not candidates:
         return None
     if seed is not None:
@@ -160,7 +212,7 @@ def pick_armor_icon(slot, armor_type, seed=None):
     return random.choice(candidates)
 
 
-def pick_weapon_icon(weapon_type, seed=None):
+def pick_weapon_icon(weapon_type, seed=None, rarity=None):
     """Random icon_id for a weapon_type, or None if nothing matches.
 
     `seed` does the same job it does in pick_armor_icon above: pass a stable
@@ -175,10 +227,14 @@ def pick_weapon_icon(weapon_type, seed=None):
     seeding a pick over it would be deterministic within one process and
     nothing more.
     """
-    prefixes = WEAPON_ICON_PREFIXES.get(weapon_type)
-    if not prefixes:
-        return None
-    candidates = _icons_for_prefixes(prefixes)
+    candidates = []
+    if rarity in ("epic", "legendary"):
+        candidates = _epic_candidates(_epic_key(None, weapon_type=weapon_type))
+    if not candidates:
+        prefixes = WEAPON_ICON_PREFIXES.get(weapon_type)
+        if not prefixes:
+            return None
+        candidates = _icons_for_prefixes(prefixes)
     if not candidates:
         return None
     if seed is not None:

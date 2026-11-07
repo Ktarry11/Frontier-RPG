@@ -28,7 +28,7 @@ import uuid
 from pathlib import Path
 
 from entities.item import Item
-from gear_icons import pick_armor_icon, pick_weapon_icon
+from gear_icons import icon_exists, pick_armor_icon, pick_weapon_icon
 
 
 _LOOT_DIR = Path(__file__).parent.parent / "data" / "loot"
@@ -89,12 +89,14 @@ def _item_from_def(item_def):
     # An explicit icon_id in the JSON wins over both, so a drop that wants a
     # specific picture can simply say so.
     icon_seed = f"fixedboss:{item_def['name']}"
-    if item_def.get("icon_id"):
+    if icon_exists(item_def.get("icon_id")):
         icon_id = item_def["icon_id"]
     elif weapon_type:
-        icon_id = pick_weapon_icon(weapon_type, seed=icon_seed)
+        icon_id = pick_weapon_icon(weapon_type, seed=icon_seed,
+                                   rarity=item_def.get("rarity"))
     else:
-        icon_id = pick_armor_icon(item_def["slot"], armor_type, seed=icon_seed)
+        icon_id = pick_armor_icon(item_def["slot"], armor_type, seed=icon_seed,
+                                  rarity=item_def.get("rarity"))
 
     return Item(
         item_id=item_id,
