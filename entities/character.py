@@ -1307,7 +1307,14 @@ class Character(StatusEffectMixin):
         # barely moves it. Real growth comes from gear (spell_power /
         # healing_power secondary stat rolls). Spirit is intentionally not
         # the ONLY path to Healing Power - not every healer build leans on it.
-        self.spell_power = int(eff_intellect * 0.2) + int(bonuses.get("spell_power", 0))
+        # spell_power_pct completes the set. attack_power_pct and
+        # healing_power_pct both had a final multiplier and Spell Power did
+        # not, so a "+15% spell power" effect silently did nothing - the
+        # same dead-key shape as pushback_reduction_pct. Found authoring
+        # Orc's Blood Fury, which boosts attack power AND spell power in
+        # WoW and could only have done half the job.
+        self.spell_power = int((int(eff_intellect * 0.2) + int(bonuses.get("spell_power", 0)))
+                               * (1.0 + bonuses.get("spell_power_pct", 0) / 100.0))
         # healing_power_pct (Starcaller's Aspect of the Goddess: "+15%
         # Healing Power") - same final-multiplier shape as attack_power_pct.
         self.healing_power = int((int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0)))

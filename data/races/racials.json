@@ -1,0 +1,320 @@
+{
+  "_doc": [
+    "RACIALS - what a character has because of what they ARE, before any class or spec.",
+    "",
+    "Kyle, 6 Nov, asked for these at WoW-authentic power: 'reroll-worthy', real throughput",
+    "and real utility, not flavour. Shape matches the personal kits in",
+    "data/npcs/personal_kits.json: 1-2 scalar passives + 2-3 abilities, INNATE - no ranks,",
+    "no talent gate, no level requirement. They live in the spellbook's CORE tab, which is",
+    "universals only: the basic attack, Shoot, Wand, and these.",
+    "",
+    "SCOPE: the five races world/race_registry.py marks available=True. Goblin, Night Elf,",
+    "Troll, Dwarf and Gnome carry art but are available=False, so they are deliberately",
+    "absent rather than authored and unreachable. Turning one on later means adding its",
+    "entry here.",
+    "",
+    "RECRUITS GET NOTHING FROM THIS FILE. All 68 are hard-coded human in",
+    "world/recruit_manager.py - Kyle's standing rule that they are real people from Earth,",
+    "not natives. Their uniqueness is their personal kit, which is the better answer anyway:",
+    "68 companions sharing one Human racial would have been 68 identical Core tabs.",
+    "",
+    "EVERY RACIAL IS THE REAL WOW ONE, translated to turn-based. The 'wow' field names the",
+    "original. Where a mechanic does not survive the translation it is said so rather than",
+    "faked - WoW's Cannibalize needs a corpse to stand on and there are no corpses on a turn",
+    "meter, so Forsaken's version keys off a kill instead.",
+    "",
+    "RESISTANCE VALUES ARE SMALL ON PURPOSE. The resistance rework (85fe92a) moved the cap",
+    "from 30% to 75% without rescaling anything that grants resistance, and",
+    "tools/audit_resistance_sources.py shows four of six schools already pinned at the 75%",
+    "cap by persistent party buffs alone. A racial handing out WoW's flat 10 is 12.5%",
+    "mitigation on a bar that is often already full. Kept at 10 to match WoW, flagged here",
+    "because it is the pending rescale that decides whether it matters.",
+    "",
+    "BOSS IMMUNITY: 'boss_immune': true means the CONTROL portion is ignored by anything",
+    "flagged is_boss - Kyle, 6 Nov: 'for the really strong skills make it so they dont work",
+    "on bosses.' War Stomp's stun and Arcane Torrent's silence are exactly the effects that",
+    "would otherwise trivialise a boss. The damage, heal or resource half still applies.",
+    "",
+    "DEAD-KEY CHECK, run before committing: every stat key here was checked against the engine. arcane_damage_pct is live (combat/abilities.py reads <school>_damage_pct through an f-string, which a naive grep misses). expertise, pet_damage, stun_duration_reduction_pct, crit_damage_physical and cc_immune are all live. spell_power_pct was DEAD and is now live - entities/character.py had a final multiplier for attack_power_pct and healing_power_pct but none for spell power, so Orc's Blood Fury would have done half its job. reputation_gain_pct is still dead and is marked as such on the Human entry rather than left to be discovered."
+  ],
+  "human": {
+    "label": "Human",
+    "note": "Azerothian human. Earth-born transplants are a different thing entirely and carry a personal kit instead - see data/npcs/personal_kits.json.",
+    "passives": {
+      "_wow": "The Human Spirit (+spirit) and Diplomacy (+reputation gain)",
+      "spirit_pct": 3,
+      "reputation_gain_pct": 10,
+      "_needs_engine": "reputation_gain_pct is not read by anything yet - the faction manager has no hook for a multiplier on rep gain. Authored because it is Diplomacy and Diplomacy is half of what Human IS; it does nothing until that hook exists, and this line is here so nobody has to discover that the hard way."
+    },
+    "abilities": [
+      {
+        "ability_id": "racial_human_every_man_for_himself",
+        "name": "Every Man for Himself",
+        "wow": "Every Man for Himself - removes all movement-impairing and loss-of-control effects",
+        "engine": "needs: clear all control effects on self",
+        "effect_type": "dispel",
+        "target_type": "self",
+        "cooldown": 10,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "Removes every stun, fear and snare on you.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
+      },
+      {
+        "ability_id": "racial_human_perception",
+        "name": "Perception",
+        "wow": "Perception - heightened stealth detection",
+        "engine": "needs: reveal stealthed enemies",
+        "effect_type": "buff",
+        "target_type": "party",
+        "cooldown": 6,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {
+          "hit_rating": 3
+        },
+        "description": "Reveals stealthed enemies for 3 turns and grants the party 3 hit rating.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "orc": {
+    "label": "Orc",
+    "passives": {
+      "_wow": "Hardiness (stun duration reduction) and Command (pet damage)",
+      "stun_duration_reduction_pct": 15,
+      "pet_damage": 5
+    },
+    "abilities": [
+      {
+        "ability_id": "racial_orc_blood_fury",
+        "name": "Blood Fury",
+        "wow": "Blood Fury - a large attack power and spell power burst on a long cooldown",
+        "engine": "existing (self buff with stat_mods)",
+        "effect_type": "buff",
+        "target_type": "self",
+        "cooldown": 10,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {
+          "attack_power_pct": 15,
+          "spell_power_pct": 15
+        },
+        "description": "Increases your attack power and spell power by 15% for 3 turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 15
+          }
+        ]
+      },
+      {
+        "ability_id": "racial_orc_axe_specialization",
+        "name": "Axe Specialization",
+        "wow": "Axe Specialization - expertise with axes",
+        "engine": "needs: weapon-type-conditional expertise",
+        "effect_type": "buff",
+        "target_type": "self",
+        "cooldown": 0,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {
+          "expertise": 5
+        },
+        "description": "While wielding an axe, your attacks are 5 expertise harder to dodge or parry.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 5
+          }
+        ]
+      }
+    ]
+  },
+  "blood_elf": {
+    "label": "Blood Elf",
+    "passives": {
+      "_wow": "Magic Resistance - reduced damage from all magical schools",
+      "fire_resistance": 10,
+      "frost_resistance": 10,
+      "nature_resistance": 10,
+      "shadow_resistance": 10,
+      "arcane_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "racial_blood_elf_arcane_torrent",
+        "name": "Arcane Torrent",
+        "wow": "Arcane Torrent - silences nearby enemies and restores the caster's resource",
+        "engine": "needs: silence; resource restore keyed to the caster's own resource type",
+        "effect_type": "debuff",
+        "target_type": "all_enemies",
+        "cooldown": 8,
+        "duration": 2,
+        "is_instant": true,
+        "boss_immune": true,
+        "stat_mods": {},
+        "description": "Silences all enemies for 2 turns and restores 6% of your maximum resource. The silence does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 6
+          }
+        ]
+      },
+      {
+        "ability_id": "racial_blood_elf_arcane_affinity",
+        "name": "Arcane Affinity",
+        "wow": "Arcane Affinity - an affinity for arcane magic",
+        "engine": "needs: school-scoped damage bonus as a passive ability",
+        "effect_type": "buff",
+        "target_type": "self",
+        "cooldown": 0,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {
+          "arcane_damage_pct": 5
+        },
+        "description": "Your arcane damage is increased by 5%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 5
+          }
+        ]
+      }
+    ]
+  },
+  "forsaken": {
+    "label": "Forsaken",
+    "passives": {
+      "_wow": "Shadow Resistance",
+      "shadow_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "racial_forsaken_will_of_the_forsaken",
+        "name": "Will of the Forsaken",
+        "wow": "Will of the Forsaken - immunity to fear, charm and sleep",
+        "engine": "needs: timed immunity to a category of control",
+        "effect_type": "buff",
+        "target_type": "self",
+        "cooldown": 10,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {
+          "cc_immune": 1
+        },
+        "description": "Removes any fear, charm or sleep on you and makes you immune to them for 3 turns.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
+      },
+      {
+        "ability_id": "racial_forsaken_cannibalize",
+        "name": "Cannibalize",
+        "wow": "Cannibalize - feed on a nearby corpse to regain health over time. There are no corpses to stand on in a turn-based fight, so it keys off a kill instead.",
+        "engine": "needs: ability usable only after an enemy died this fight",
+        "effect_type": "heal",
+        "target_type": "self",
+        "cooldown": 5,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "Usable after an enemy dies. Restores 20% of your maximum health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 20
+          }
+        ]
+      }
+    ]
+  },
+  "tauren": {
+    "label": "Tauren",
+    "passives": {
+      "_wow": "Endurance (+health) and Nature Resistance",
+      "max_health_pct": 5,
+      "nature_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "racial_tauren_war_stomp",
+        "name": "War Stomp",
+        "wow": "War Stomp - stuns nearby enemies",
+        "engine": "existing (is_stun + all_enemies)",
+        "effect_type": "debuff",
+        "target_type": "all_enemies",
+        "cooldown": 10,
+        "duration": 1,
+        "is_instant": true,
+        "is_stun": true,
+        "boss_immune": true,
+        "stat_mods": {},
+        "description": "Stuns all enemies for 1 turn. Does not work on bosses.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 0
+          }
+        ]
+      },
+      {
+        "ability_id": "racial_tauren_brawn",
+        "name": "Brawn",
+        "wow": "Tauren critical strikes deal more damage than other races'",
+        "engine": "existing (crit_damage_physical)",
+        "effect_type": "buff",
+        "target_type": "self",
+        "cooldown": 0,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {
+          "crit_damage_physical": 0.04
+        },
+        "description": "Your critical strikes deal 4% more damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 0,
+            "effect_value": 4
+          }
+        ]
+      }
+    ]
+  }
+}
