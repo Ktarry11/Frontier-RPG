@@ -192,6 +192,62 @@ ZONE_BACKGROUND = {
     "The Weeping Ice": "ice_dungeon",             # "a dying glacier's plumbing"
 }
 
+# ---------------------------------------------------------------------------
+# SUBZONES THAT ARE NOT THEIR PARENT.
+#
+# Kyle, 7 Nov: "subzones should not always look identical to overworld, some
+# can. But they don't HAVE to be identical to overworld."
+#
+# They default to the parent, and for most of the 726 that is right - a named
+# clearing in Ashenvale is still Ashenvale. These twenty-four are the ones
+# where the subzone's own name states terrain the parent pack cannot show, so
+# the default was actively lying: The Drownbell SHORE drew Tanaris dunes, the
+# CRYSTAL Cavern drew a lava hall, and the Kelp Garden drew an ice cave.
+#
+# This is the same seam as the zone table above - a subzone listed here needs
+# no SUBZONE_BIOME entry, so none of its floor or wall tiles move. The names
+# were checked unique across the subzone set first; two subzones in different
+# zones share a name ("The Cistern", "The Hollow Mouth") and neither is here,
+# because one flat key cannot tell them apart.
+ZONE_BACKGROUND.update({
+    # Shorelines inside inland zones. Six more of the same bug the coast pack
+    # was built for - they were fighting in desert, savanna, jungle, forest.
+    "The Drownbell Shore": "coast",       # Northern Tanaris
+    "Merchant Coast": "coast",            # Northern Barrens
+    "The Drowned Coast": "coast",         # Southern Stranglethorn
+    "The Western Strand": "coast",        # Western Hillsbrad
+    "Purgation Shore": "coast",           # Western Hillsbrad
+    "Whispering Shore": "coast",          # Western Tirisfal
+
+    # Standing water in dry country. Lushwater and the Forgotten Pools already
+    # had their own biome; these two never did.
+    "Stagnant Oasis": "savanna_oasis",    # Northern Barrens
+    "Trailwater Spring": "savanna_oasis", # Valley of Trials
+    "Sludge Fen": "jungle",               # Northern Barrens; matches Slug Fens
+    "Sagewood Grove": "savanna",          # Valley of Trials - green pocket in red rock
+
+    # Rock standing out of grassland and desert.
+    "Boulder'gor Crags": "mountain",      # Arathi West
+    "Kolkar Crag": "mountain",            # Durotar
+    "Thunder Ridge Approach": "mountain", # Durotar
+    "Dreadmist Peak": "mountain",         # Central Barrens
+    "Blackthorn Ridge": "mountain",       # Southern Barrens
+
+    # Cut stone and buried stone.
+    "Ruins of Lordaeron": "keep",         # Eastern Tirisfal - a city wall, not woodland
+    "Twilight Barrow": "dark_dungeon",    # Ashenvale East - a burial mound is roofed
+    "Deep Elem Mine": "dark_dungeon",     # Silverpine South
+    "Agamand Family Crypt": "dark_dungeon",   # Western Tirisfal
+    "The Crypt of Dun Garok": "dark_dungeon", # Dun Garok
+    "The Crystal Cavern": "crystal",      # Burning Blade Coven - said so in the name
+
+    # Underwater, which the game has art for and was not using.
+    "Naga Ruins": ("nautical", "Flooded"),      # Echo Isles
+    "Shipwreck Cove": ("nautical", "Flooded"),  # Sunken Grotto of the Deep
+    "The Kelp Garden": ("nautical", "Flooded"), # Sunken Grotto of the Deep
+    "The Drowned Crypt": ("nautical", "Flooded"),  # Sunken Temple Grotto
+})
+
 ZONE_BACKGROUND.update({
     # --- at sea and on deck, variant pinned (see VARIANT_FOLDERS["nautical"]) -------------
     "Ratchet": ("nautical", "Deck"),                     # crescent harbour, the only waterfront

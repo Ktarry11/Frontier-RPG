@@ -54,8 +54,56 @@ def main():
         print()
 
     _subzones(zones)
+    _pack_load(zones)
     _empty_packs(by_pack)
     return 0
+
+
+def _pack_load(zones):
+    """How many PLACES each pack has to serve, per image it owns.
+
+    Kyle, 7 Nov: "please ensure that our game has a diverse set of
+    backgrounds." Counting images per pack does not answer that, and the
+    thin-pack warning below actively misleads: coast has eleven images for
+    thirteen places and is never flagged, while dark_dungeon has five for a
+    hundred and forty-three and is never flagged either, because five is not
+    thin. The number that matters is the ratio - how often a player sees the
+    same picture - and the art is pooled in exactly the wrong packs.
+
+    This does not fail either. It RANKS, so the next sheet of prompts goes
+    where the repetition actually is instead of wherever art was last added.
+    """
+    import os
+    from world.tile_textures import CAVE_BIOME
+    from world.combat_backgrounds import resolve_place, VARIANT_FOLDERS
+
+    load = collections.Counter()
+    for zname, z in zones.items():
+        cave = zname in CAVE_BIOME
+        load[resolve_place(zname, None, cave)[0]] += 1
+        for sz in getattr(z, "subzones", []) or []:
+            name = sz["name"] if isinstance(sz, dict) else getattr(sz, "name", None)
+            if name:
+                load[resolve_place(zname, name, cave)[0]] += 1
+
+    root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "assets", "backgrounds")
+    rows = []
+    for pack, places in load.items():
+        d = os.path.join(root, pack)
+        if pack in VARIANT_FOLDERS:
+            imgs = sum(len([f for f in os.listdir(os.path.join(d, v)) if f.endswith(".png")])
+                       for v in VARIANT_FOLDERS[pack] if os.path.isdir(os.path.join(d, v)))
+        else:
+            imgs = len([f for f in os.listdir(d) if f.endswith(".png")]) if os.path.isdir(d) else 0
+        rows.append((places / max(imgs, 1), pack, imgs, places))
+
+    print(f"  -- repetition ------------------------------------------------")
+    print(f"  {'pack':16}{'images':>7}{'places':>8}{'places/image':>14}")
+    for ratio, pack, imgs, places in sorted(rows, reverse=True):
+        mark = "   <- next prompts go here" if ratio >= 10 else ""
+        print(f"  {pack:16}{imgs:>7}{places:>8}{ratio:>14.1f}{mark}")
+    print()
 
 
 def _subzones(zones):

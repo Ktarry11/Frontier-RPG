@@ -219,3 +219,94 @@ snowbound arches and blue crystal under an aurora.
 >    winter sun low on the horizon
 > 3. A high stair of weathered stone climbing out of deep snow toward a ridge,
 >    ice-glazed carvings, aurora over the peaks
+
+---
+
+## The repetition list (7 Nov) — generate these in this order
+
+`tools/qa_combat_backgrounds.py` now prints a **places/image** ratio per pack.
+That is the number worth chasing, not the image count: `coast` has eleven
+images for thirteen places and `dark_dungeon` has five for **one hundred and
+forty-three**. A third of the game is drawing from five pictures.
+
+Six packs are over 10. Four prompts each, one sheet per pack, in this order:
+
+Same house style throughout: painterly fantasy matte, no text, no characters,
+no UI, lower third mostly empty ground so a fight can stand on it.
+
+### 1. dark_dungeon — 5 images, 143 places (28.6)
+The single worst number in the game. It serves crypts, barrows, mines,
+spider caves, worked dwarven stone and flooded undercrofts all at once, so
+the four should be visibly different ROOMS, not four angles on one.
+
+> 1. A square-cut dwarven hall of dressed grey stone, iron sconces, a
+>    collapsed section of ceiling letting dust-light in
+> 2. A burial barrow of damp earth and fieldstone, low lintels, root threads
+>    through the roof, green-grey gloom
+> 3. A worked mine gallery with timber shoring and rail, spoil heaps, a
+>    lantern-lit working face receding into dark
+> 4. A web-choked cavern, pale silk sheeting the walls and floor, husks and
+>    bundles, sickly light from a crack above
+
+### 2. savanna — 3 images, 39 places (13.0)
+The whole Barrens. Dry open grassland; keep oases out, that is its own pack.
+
+> 1. Open golden grass to a flat horizon, scattered thorn scrub, heavy noon
+>    light, a few vultures high up
+> 2. A dry wash cut through red earth, cracked banks, pale grass on the rim,
+>    acacia shade on one side
+> 3. Burnt grassland after fire, black stubble and new green, smoke haze on
+>    the horizon, bleached bone
+> 4. Tall seed-head grass at dusk under a huge orange sky, distant mesas
+>    flattened to silhouette
+
+### 3. mossy_forest — 8 images, 101 places (12.6)
+Hillsbrad farm country and temperate woodland. It already holds a cottage and
+a barn; these should widen it, not repeat the buildings.
+
+> 1. A stone-walled sheep pasture on a green hillside, drystone dyke, oaks,
+>    bright broken cloud
+> 2. A mossy beech wood with a stream running over flat rock, dappled green
+>    light, ferns
+> 3. A rutted cart track through hedgerow in late afternoon, wildflowers,
+>    rolling fields beyond
+> 4. A mill pond and sluice under willows, weed on the water, grey soft light
+
+### 4. mountain — 6 images, 72 places (12.0)
+Real elevation. It is currently doing red canyon AND alpine, which is two
+different mountains; weight these alpine.
+
+> 1. A boulder field on a high shoulder above the treeline, scree, cloud
+>    shadow moving over bare rock
+> 2. A glacial bench with a milky meltwater tarn, moraine, snow in the
+>    gullies, grey peaks behind
+> 3. A narrow switchback ledge cut into a cliff face, drop on one side,
+>    thin cold light
+> 4. A wind-scoured saddle between two summits, stunted pines bent one way,
+>    broken cloud below
+
+### 5. ice_dungeon — 3 images, 34 places (11.3)
+Cold water and cold stone, roofed. Blackfathom and the Weeping Ice both pull
+from here, so one of the four should read sunken rather than frozen.
+
+> 1. A blue ice gallery with meltwater running down the walls, frozen
+>    columns, light filtering from deep above
+> 2. A flooded stone chamber of dark water to knee height, icicles, carved
+>    pillars half submerged
+> 3. A glacier crevasse floor, walls of layered blue ice closing overhead,
+>    snow dust falling
+> 4. A frozen cave mouth from inside, white daylight at the far end, rimed
+>    rock, frozen cascade to one side
+
+### 6. blighted — 7 images, 73 places (10.4)
+The whole undead belt: Silverpine, Tirisfal, Undercity. Dead country, not
+dungeon.
+
+> 1. A dead pine forest in standing fog, bare grey trunks, no undergrowth,
+>    light with no source
+> 2. A sunken graveyard, leaning stones, wet black earth, a bare thorn
+>    hedge, sick green sky
+> 3. An abandoned farmstead gone to rot, collapsed roof, dead orchard rows,
+>    crows
+> 4. A plagued stream through grey reeds, oily surface, dead rushes, the
+>    far bank lost in haze
