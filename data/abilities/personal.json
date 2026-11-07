@@ -1,0 +1,417 @@
+{
+  "_doc": [
+    "PERSONAL KITS - what a companion has because of WHO THEY ARE, not what class they picked.",
+    "",
+    "Kyle, 6 Nov: 'Give each human about 4 UNIQUE abilities that are based on who they are",
+    "as people. So that way even if they are a specific class/spec they still are unique from",
+    "each other. it'll let me build more people of same class/spec.'",
+    "",
+    "Shape per recruit: 1-2 scalar passives + 2-3 real abilities. INNATE - no ranks, no talent",
+    "gate, no level requirement. You have them because you are you.",
+    "",
+    "These live in the spellbook's CORE tab. Core is universals - the basic attack, Shoot, Wand -",
+    "and a personal kit is exactly that for the person who has it: independent of class and spec.",
+    "",
+    "WHY THIS FILE AND NOT recruits.json: Asher Coleman's name, greeting and backstory are",
+    "hash-locked by tools/qa_asher_locked.py because he is a future raid boss whose text must",
+    "hint at nothing. Keying personal kits by recruit_id in a separate file means authoring one",
+    "for him later cannot disturb a byte of his frozen text. Asher deliberately has no entry",
+    "here yet - his kit is a reveal-sensitive design question for Kyle, not a content gap.",
+    "",
+    "EVERY LINE IS DRAWN FROM AUTHORED TEXT. Each ability carries a 'from' field quoting the",
+    "backstory or background_section it came from. If an ability cannot cite a line, it does not",
+    "belong to that person and should not exist.",
+    "",
+    "The 'engine' field is honest about cost: 'existing' means the effect_type already works,",
+    "anything else names the hook that has to be built before that ability does what it says."
+  ],
+
+  "dan_warrior": {
+    "name": "Dan Okafor",
+    "passives": {
+      "_from": "'Twenty-two years on a Sheffield steel floor.' / 'He's a shield. That's the whole arrangement.'",
+      "max_health_pct": 10,
+      "armor_pct": 12
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_dan_stand_in_front",
+        "name": "Stand In Front",
+        "from": "'He stands in front and the rest of you get on with it.'",
+        "engine": "needs: redirect a queued attack to another character",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "rage",
+        "cooldown": 3,
+        "duration": 2,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "The next attack aimed at any ally is aimed at Dan instead, and he takes half of it.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 50}]
+      },
+      {
+        "ability_id": "personal_dan_four_men_long_shifts",
+        "name": "Four Men, Long Shifts",
+        "from": "'A crew. Four men, long shifts, a Friday.' / 'a four-man crew and the kind of trust you can't talk about without sounding daft'",
+        "engine": "needs: stat_mod scaled by count of living party members",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "rage",
+        "cooldown": 6,
+        "duration": 4,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "For 4 turns Dan takes 6% less damage for every ally still standing. With a full crew behind him, enemies strike at him and nobody else.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 10, "effect_value": 6}]
+      },
+      {
+        "ability_id": "personal_dan_shift_change",
+        "name": "Shift Change",
+        "from": "'He takes the front of whatever goes out and he's never once asked to be paid differently for it.'",
+        "engine": "needs: swap row position mid-combat",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 5,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "Dan trades places with an ally. Anything already swinging at them hits him, and he does not flinch.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+      }
+    ]
+  },
+
+  "ama_priest": {
+    "name": "Ama Boateng",
+    "passives": {
+      "_from": "'a ward sister who taught her to keep her voice level while her hands did something frightening'",
+      "pushback_reduction_pct": 100,
+      "spirit": 8
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_ama_the_arithmetic",
+        "name": "The Arithmetic",
+        "from": "'what she carried over wasn't the healing. It was the arithmetic. She still runs it, every time.'",
+        "engine": "needs: heal magnitude scaled by target's missing health",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 0,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A heal that is worth more the closer the patient is to dying. On someone who is fine, it is barely worth casting.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 18, "effect_value": 40}]
+      },
+      {
+        "ability_id": "personal_ama_four_cots_to_a_bay",
+        "name": "Four Cots to a Bay",
+        "from": "'a children's nurse somewhere with four cots to a bay and an arithmetic nobody said out loud'",
+        "engine": "existing (heal + party target)",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 4,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "She works four at once, in the order they need it rather than the order they asked.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 35, "effect_value": 55}]
+      },
+      {
+        "ability_id": "personal_ama_no_limit_at_all",
+        "name": "No Limit At All",
+        "from": "'Here there's light in her hands and no limit at all, and for a year nothing in the world told her to stop.'",
+        "engine": "needs: free-cast window that bills the caster's own health",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "For 3 turns her heals cost no mana and land for half again. Each one takes 6% of her own health instead. Nothing in the world tells her to stop.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 6}]
+      }
+    ]
+  },
+
+  "silas_rogue": {
+    "name": "Silas Vance",
+    "passives": {
+      "_from": "'he reads a dock the way other people read a face' / 'He sells that at a fair price'",
+      "crit_chance_physical": 4,
+      "gold_find_pct": 15
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_silas_which_crate_is_light",
+        "name": "Which Crate's Light",
+        "from": "'Which crate's light, which captain's lying, who's about to be robbed by the man standing next to him.'",
+        "engine": "needs: read target resistances and route damage to the lowest",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 3,
+        "duration": 4,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "One look tells him where it is thin. For 4 turns the party's damage against this target is dealt as whatever it resists least.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 0}]
+      },
+      {
+        "ability_id": "personal_silas_the_man_standing_next_to_him",
+        "name": "The Man Standing Next To Him",
+        "from": "'who's about to be robbed by the man standing next to him'",
+        "engine": "needs: force an enemy to attack another enemy",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 6,
+        "duration": 2,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He points out, quietly and to the wrong person, who has been taking more than their share. They settle it themselves.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 35, "effect_value": 0}]
+      },
+      {
+        "ability_id": "personal_silas_the_retainer",
+        "name": "The Retainer",
+        "from": "'a goblin on the middle pier paying him a retainer not to tell anyone else what he notices'",
+        "engine": "needs: single-source damage immunity flag",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 8,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "An arrangement is reached. For 3 turns that enemy will not touch him, and he will not say why.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 0}]
+      }
+    ]
+  },
+
+  "emre_rogue": {
+    "name": "Emre Kaya",
+    "passives": {
+      "_from": "'Thirty doors a week for most of his life.' - a lifetime of opening what was meant to stay shut",
+      "armor_penetration_pct": 15
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_emre_a_short_conversation",
+        "name": "A Short Conversation",
+        "from": "'every lock is a short conversation with somebody who isn't in the room'",
+        "engine": "needs: guaranteed-hit flag that also bypasses dodge/parry/block",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 4,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He does not force it. He asks it something. This cannot miss, and cannot be dodged, parried or blocked.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 85}]
+      },
+      {
+        "ability_id": "personal_emre_the_thing_behind_the_door",
+        "name": "The Thing Behind the Door",
+        "from": "'once, with his picks still in the mechanism, the thing behind the door asked him a question. He got the door open. He's never said whether he answered.'",
+        "engine": "needs: damage scaled UP by target's current health fraction",
+        "effect_type": "spell_damage",
+        "damage_school": "shadow",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 7,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Whatever was on the other side that night has been answering ever since. It hits hardest on things that are still whole.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 120}]
+      },
+      {
+        "ability_id": "personal_emre_one_door_closes",
+        "name": "One Door Closes",
+        "from": "'Bir kapi kapanir, bir kapi acilir. One door closes, another opens. He thought it was a proverb about God until he was about thirty and decided it was a proverb about him.'",
+        "engine": "needs: grant an extra action on killing blow",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "energy",
+        "cooldown": 0,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "When Emre lands a killing blow he acts again immediately. His mother said it constantly. He decided it was about him.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+      }
+    ]
+  },
+
+  "kiet_rogue": {
+    "name": "Kiet Somsak",
+    "passives": {
+      "_from": "'eleven years of being invisible in traffic and arriving before anyone expected'",
+      "threat_pct": -30,
+      "haste": 8
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_kiet_nobody_looks_twice",
+        "name": "Nobody Looks Twice",
+        "from": "'He went into offices, kitchens, and back rooms all day long and nobody ever looked at him twice.'",
+        "engine": "needs: threat wipe + guaranteed crit on next strike",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "energy",
+        "cooldown": 5,
+        "duration": 2,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He stops being worth watching. Every enemy forgets him, and the next thing he does lands as a critical.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 20, "effect_value": 0}]
+      },
+      {
+        "ability_id": "personal_kiet_the_fastest_route",
+        "name": "The Fastest Route",
+        "from": "'a city where the fastest route changed hourly' / 'he has mapped the whole city by how long each route takes at each hour'",
+        "engine": "needs: move to any row, then strike",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 3,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He is already there. Reaches any enemy in any row, ignoring whatever is in front of them.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 70}]
+      },
+      {
+        "ability_id": "personal_kiet_two_rooms_away",
+        "name": "Two Rooms Away",
+        "from": "'the hard part was the quiet. Eleven years of engine noise and then a world where he can hear people breathing two rooms away.'",
+        "engine": "needs: reveal enemy intent for N turns",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "energy",
+        "cooldown": 8,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {"dodge": 10},
+        "description": "He hears them breathing. For 3 turns the party knows what each enemy is about to do, and is harder to land a hit on.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 0}]
+      }
+    ]
+  },
+
+  "marco_paladin": {
+    "name": "Marco Rossi",
+    "passives": {
+      "_from": "'he was the only one everybody owed a favour' - thirty years of credit, and the neighbourhood pays it back",
+      "healing_taken_pct": 25,
+      "max_health_pct": 8
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_marco_somebody_had_to",
+        "name": "Somebody Had To",
+        "from": "'He settled disputes because somebody had to and because he was the only one everybody owed a favour.'",
+        "engine": "needs: damage transfer from a chosen ally to self",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 6,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "For 3 turns, whatever is meant for them arrives at him instead, reduced by a third. Nobody asked him to.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 33}]
+      },
+      {
+        "ability_id": "personal_marco_he_fixes_other_things",
+        "name": "He Fixes Other Things",
+        "from": "'He fixes locks. He also fixes other things and nobody has ever asked him to.'",
+        "engine": "existing (dispel + party target)",
+        "effect_type": "dispel",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 4,
+        "duration": 0,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "Clears one affliction from everyone and mends what it left behind. He does not mention having done it.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 30}]
+      },
+      {
+        "ability_id": "personal_marco_a_formality_arrived_late",
+        "name": "A Formality, Arrived Late",
+        "from": "'The Light found him already doing the work and he regards the whole business as a formality that arrived late.'",
+        "engine": "needs: zero-cost window for a school of abilities",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 3,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He was doing this before anything blessed him for it. For 3 turns his Holy abilities cost nothing.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 0, "effect_value": 0}]
+      }
+    ]
+  },
+
+  "marcus_stormbringer": {
+    "name": "Marcus Okafor",
+    "passives": {
+      "_from": "'He spent a career being right early and watching it change nothing.' / 'Here the storm answers him.'",
+      "nature_damage_pct": 10,
+      "crit_chance_spell": 3
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_marcus_right_early",
+        "name": "Right Early",
+        "from": "'He spent a career being right early and watching it change nothing.'",
+        "engine": "needs: reveal the enemy's next action and pre-mitigate it",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 5,
+        "duration": 2,
+        "is_instant": true,
+        "stat_mods": {},
+        "description": "He calls it before it happens, the way he always did. The enemy's next ability is named aloud and lands for 40% less. Here, for once, saying so changes something.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 25, "effect_value": 40}]
+      },
+      {
+        "ability_id": "personal_marcus_where_the_strikes_land",
+        "name": "Where the Strikes Land",
+        "from": "'His notes on where the strikes land have already told him something about this coast the orcs didn't know.'",
+        "engine": "needs: persistent row hazard that ticks on occupants",
+        "effect_type": "spell_dot",
+        "damage_school": "nature",
+        "target_type": "enemy_row",
+        "resource_type": "mana",
+        "cooldown": 6,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "He does not aim it. He works out where it was always going to go, and says so first.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 45}]
+      },
+      {
+        "ability_id": "personal_marcus_the_biggest_one_there_is",
+        "name": "The Biggest One There Is",
+        "from": "'he'd like to stand in the middle of the biggest one there is. He's a meteorologist. He knows how that ends.'",
+        "engine": "needs: self-damaging AoE",
+        "effect_type": "spell_damage",
+        "damage_school": "nature",
+        "target_type": "all_enemies",
+        "resource_type": "mana",
+        "cooldown": 9,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Fifteen years behind a window. He walks into the middle of it and takes a quarter of his own health doing so. He has never once looked happier.",
+        "ranks": [{"rank": 1, "level_req": 1, "cost": 55, "effect_value": 190}]
+      }
+    ]
+  }
+}
