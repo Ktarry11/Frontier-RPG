@@ -50,6 +50,16 @@ sys.path.insert(0, str(ROOT))
 
 BASE_MULT = 0.36  # LootGenerator.STAT_BUDGET_BASE_MULT
 
+# Imported, not restated. This file used to carry its own copies of the shield
+# constants, so a change to the generator left the audit validating the old
+# numbers and reporting every shield as correct.
+try:
+    from entities.loot_generator import LootGenerator as _LG
+    _SHIELD_ARMOR_K = _LG.SHIELD_ARMOR_K
+    _SHIELD_BLOCK_K = _LG.SHIELD_BLOCK_K
+except Exception:  # pragma: no cover - audit must still run headless
+    _SHIELD_ARMOR_K, _SHIELD_BLOCK_K = 6.0, 0.7
+
 _SLOTS = json.loads((ROOT / "data/items/slots.json").read_text())
 _RARITY = json.loads((ROOT / "data/items/rarity.json").read_text())["rarity_tiers"]
 _WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text())
@@ -87,7 +97,7 @@ def budget_for(item):
             # pool. Measured against the full budget, all 75 authored shields read as 0.42-0.80 of
             # target - a dead giveaway that the audit was wrong rather than the data, since real
             # scatter does not stop neatly below 1.0 on every single item.
-            return budget * 0.6, int(ilvl * 1.2 * rm), None
+            return budget * 0.6, int(ilvl * _SHIELD_ARMOR_K * rm), None
         dmg = None
         if wd.get("base_attack_speed"):
             tm = _WEAPONS["damage_tiers"].get(

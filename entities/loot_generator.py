@@ -105,6 +105,14 @@ class LootGenerator:
     # numbers drifting apart later.
     STAT_BUDGET_BASE_MULT = 0.36
 
+    #: Shield armour and block, per item level per point of rarity multiplier.
+    #: Named rather than inline so tools/audit_item_budgets.py can import the
+    #: real numbers instead of restating them - it mirrored "1.2" and "1.5" by
+    #: hand, which is how a constant and its audit drift apart. See the shield
+    #: branch in generate_weapon for how both were derived.
+    SHIELD_ARMOR_K = 6.0
+    SHIELD_BLOCK_K = 0.7
+
     def __init__(self):
         self._load_data()
 
@@ -433,9 +441,45 @@ class LootGenerator:
         attack_speed = weapon_data.get("base_attack_speed", 0.0)
 
         if weapon_type == "shield":
-            armor_value = int(item_level * 1.2 * rarity_data["stat_budget_multiplier"])
-            # Block value scales similarly to armor - higher ilvl/rarity = better block
-            block_value = int(item_level * 1.5 * rarity_data["stat_budget_multiplier"])
+            # SHIELD_ARMOR_K AND SHIELD_BLOCK_K, not 1.2 and 1.5. Both were
+            # wrong and in opposite directions, open since 2 Nov.
+            #
+            # ARMOUR, 1.2 -> 6.0. A shield is meant to be the single biggest
+            # armour source a character can equip; at 1.2 an item-level 60
+            # shield carried 122 armour, less than a cloth chest, and added
+            # ONE percentage point of mitigation to a plate tank. Calibrated
+            # against our own plate curve rather than copied from WoW,
+            # because WoW's absolute armour numbers have been rescaled
+            # between versions and its own wiki disagrees with itself (an
+            # item-level 27 shield listed at 40 armour, an item-level 55 one
+            # at 1625). What survives that is the RELATIVE rule the wiki
+            # states: a shield is worth about 60% of a full plate set.
+            #
+            # Applied literally that means k=17.9, which lands a tank at 68%
+            # mitigation against 57% bare - eleven points, enough to undo the
+            # difficulty pass from 6 Nov on its own. 6.0 makes the shield 1.3x
+            # the heaviest single plate piece - unambiguously the best armour
+            # in the game, which was the actual complaint - for +4.4 points of
+            # mitigation. Measured, not guessed:
+            #
+            #     ilvl 60 plate tank   no shield 57.0%
+            #       k=1.2 (before)     58.0%   shield worth 122
+            #       k=6.0 (now)        61.4%   shield worth 613
+            #       k=17.9 (WoW rule)  68.0%   shield worth 1828
+            #
+            # BLOCK, 1.5 -> 0.7. Block is subtracted from every blocked hit,
+            # so it has to be read against what things actually hit for.
+            # Measured through the combat engine, not from attack_power
+            # arithmetic, which underreports by a factor of three and already
+            # fooled me once this session: trash at level 30-39 hits for ~140
+            # and a boss for ~299. At 1.5 an item-level 35 shield blocked 89 -
+            # 64% of a trash hit. At 0.7 it blocks 42, which is ~30% of a
+            # trash hit and ~14% of a boss hit. Kyle, 6 Nov: block "is not a
+            # very high value, should be better for trash, worse for bosses."
+            armor_value = int(item_level * self.SHIELD_ARMOR_K
+                              * rarity_data["stat_budget_multiplier"])
+            block_value = int(item_level * self.SHIELD_BLOCK_K
+                              * rarity_data["stat_budget_multiplier"])
         elif weapon_data.get("relic") or weapon_data.get("non_weapon"):
             # Relics (Totem/Libram/Idol) and held-in-off-hand items (Tome) are
             # passive stat sticks - no auto-attack damage.

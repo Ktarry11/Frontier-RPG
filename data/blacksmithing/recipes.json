@@ -1400,7 +1400,9 @@
         "stat_template": "str_physical",
         "item_level": 3,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "armor_value": 23,
+        "block_value": 2
       }
     },
     "bs_bronze_longsword": {
@@ -1492,7 +1494,9 @@
         "stat_template": "str_physical",
         "item_level": 22,
         "rarity": "uncommon",
-        "material_tier": "bronze"
+        "material_tier": "bronze",
+        "armor_value": 171,
+        "block_value": 20
       }
     },
     "bs_bronze_2h_sword": {
@@ -1630,7 +1634,9 @@
         "stat_template": "str_physical",
         "item_level": 35,
         "rarity": "rare",
-        "material_tier": "bronze"
+        "material_tier": "bronze",
+        "armor_value": 357,
+        "block_value": 41
       }
     },
     "bs_iron_2h_sword": {
@@ -1933,7 +1939,9 @@
         "stat_template": "str_int_hybrid",
         "item_level": 42,
         "rarity": "rare",
-        "material_tier": "iron"
+        "material_tier": "iron",
+        "armor_value": 428,
+        "block_value": 49
       },
       "drop_zone": "Plague Depths"
     },
@@ -2125,7 +2133,9 @@
         "stat_template": "spi_healer",
         "item_level": 34,
         "rarity": "rare",
-        "material_tier": "bronze"
+        "material_tier": "bronze",
+        "armor_value": 346,
+        "block_value": 40
       },
       "drop_zone": "Blackfathom Deeps"
     },
@@ -2605,7 +2615,9 @@
         "stat_template": "spi_healer",
         "item_level": 33,
         "rarity": "rare",
-        "material_tier": "bronze"
+        "material_tier": "bronze",
+        "armor_value": 336,
+        "block_value": 39
       },
       "vendor_location": "Zoram Strand (hidden)"
     },
@@ -2759,7 +2771,9 @@
         "stat_template": "str_physical",
         "item_level": 48,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "armor_value": 374,
+        "block_value": 43
       },
       "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
     },
