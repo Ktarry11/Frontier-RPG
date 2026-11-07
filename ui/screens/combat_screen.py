@@ -631,7 +631,21 @@ class CombatScreen(BaseScreen):
             valid = self.combat_engine.living_allies()
         else:  # "enemy"
             valid = self.combat_engine.living_enemies()
-        
+            # ROWS APPLY TO THE PLAYER TOO. Kyle's spec: "melee in front,
+            # ranged in back. Melee cant target ranged/back row until ALL
+            # front is wiped out. Ranged and casters can target anyone."
+            #
+            # Only the ENEMY half of that was ever wired up -
+            # CombatEngine.threat_weighted_target gates a monster by reach,
+            # but combat/rows.reachable was never called on a player cast,
+            # so a melee character could click straight past the front line
+            # onto the caster behind it. The rule existed and applied to one
+            # side of the fight.
+            from combat import rows as rowrules
+            reachable = rowrules.reachable(actor, ability, valid)
+            if reachable:
+                valid = reachable
+
         if not valid:
             self.message_log.append("No valid targets!")
             return
