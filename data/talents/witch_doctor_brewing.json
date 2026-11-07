@@ -589,6 +589,24 @@
       },
       "connected_to": [],
       "_source": "CoA: 'For 10 sec, the effectiveness of all Cauldron effects and Ingredients is increased by 100% and you can cast Spirit in a Bottle while moving.' Frontier HAS Master Mixologist as a castable self ability, so this talent is its passive half. Casting while moving is positional. CoA's 100% in a 10-second window on a 2-minute cooldown is priced at a permanent 40% plus crit - roughly the same throughput averaged out, and reachable every turn rather than once a fight. The three Mojo talents that would also have lived at this tier (Mojo: Fish Bones, Frog Shrooms, Jungle Thistle) are NOT built: each resets a cooldown and then swaps the loaded Ingredient pair, and there is no loadout state to swap. Tiki Splash is dropped for the same reason - it transforms one ability into another while a Base is active, and there is no 'while active' gate."
+    },
+    {
+      "talent_id": "witch_doctor_brewing_potent_brew",
+      "name": "Potent Brew",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "witch_doctor_brewing_doctor_of_the_jungle"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

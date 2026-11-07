@@ -644,6 +644,24 @@
         }
       },
       "_source": "CoA verbatim: 'Direct healing done now has a 5% chance to grant you 5 sec of Serpent Lord's Amulet. If already active, triggering this will instead extend its duration by 5 seconds. This cannot extend it past its maximum duration. Serpent Lord's Amulet increases your spell haste by 20% and reduces your mana costs by -50%.' CoA's 20% haste ports exactly. The mana-cost half is NOT built as part of the buff: there is no all-spell cost reduction key readable from a status effect, and halving every cost from a proc would be the strongest node in the class - so the capstone pays flat Mending Mist healing instead. No payload extends a live effect, so re-triggering refreshes rather than extends. The chance is raised from CoA's 5% to 20% because a 5% proc on a 3-turn buff would almost never be up in a turn-based fight."
+    },
+    {
+      "talent_id": "venomancer_vizier_virulent_insight",
+      "name": "Virulent Insight",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "venomancer_vizier_widows_watch"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

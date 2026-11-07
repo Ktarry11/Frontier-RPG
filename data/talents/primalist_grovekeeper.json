@@ -651,6 +651,24 @@
         }
       },
       "_source": "The capstone, and the only node in the game that fires both splash payloads off one trigger. on_damage_or_heal_cast catches either half, so a heal splashes healing to five allies and a hit splashes Nature damage to five enemies, from the same point. That is Grovekeeper's whole thesis - damage and healing are the same action - made literal, and it is the right shape for the capstone because it is the one place CoA's Hammer of Life ('heal up to 3 nearby allies AND damage up to 3 nearby enemies') can actually be built in full: at tier 0 that talent has to pick one side, because leech_pct sizes from damage and splash_heal sizes from a heal. Here both are available because the trigger fires on both. Replaces a proc node of the same name whose payload was a single flat damage roll."
+    },
+    {
+      "talent_id": "primalist_grovekeeper_verdant_fury",
+      "name": "Verdant Fury",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "primalist_grovekeeper_douse"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

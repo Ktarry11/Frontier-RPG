@@ -593,6 +593,24 @@
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: pyromancer_death_from_above carries requires_talent, so without this node it is unobtainable forever. Kept at tier 6, completing Pyromancer's 4/5/6 gated-ability pattern across all three trees. The damage on the two Aspect nukes is added because a capstone that only grants an ability is thin, and it pays off Aspect of Time at tier 1 - the bigger the nuke, the bigger its echo, since bonus_pct is a share of the hit. Same shape as Incineration's Pyroclasm capstone."
+    },
+    {
+      "talent_id": "pyromancer_draconic_draconic_fury",
+      "name": "Draconic Fury",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "pyromancer_draconic_expediting_power"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

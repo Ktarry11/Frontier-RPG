@@ -486,6 +486,24 @@
       },
       "connected_to": [],
       "_source": "CoA: 'Increases your maximum Life Force by 1.' CoA'S LIFE FORCE IS A RESERVATION POOL - its summons 'occupy' 1 to 3 of it, so raising the maximum means fielding one more minion - AND THAT MODEL DOES NOT EXIST HERE. Our summons cost their resource once and the pet then persists with nothing reserved, and there is no key that raises a secondary pool's ceiling anyway (max_energy_bonus and character max_energy are both authored somewhere in this project and read by nothing). So the capstone delivers the same outcome - more and stronger minions - through the keys that work: pet scaling stacking with Scourge Disciple, Ghoul Mastery and Sepulchral Might to +85% pet damage and +90% pet health, plus cost reductions stacking with Graverobber to 60% off every summon, which is as close to 'field another minion' as the engine gets. All FRACTIONS; the cost keys are reductions."
+    },
+    {
+      "talent_id": "necromancer_animation_grave_harvest",
+      "name": "Grave Harvest",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "necromancer_animation_army_of_the_dead"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

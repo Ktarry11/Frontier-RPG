@@ -562,6 +562,24 @@
       },
       "connected_to": [],
       "_source": "CoA verbatim: 'Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 70% nature SP additional damage as Nature damage when they deal direct damage. Applies Exhaustion, preventing you from benefiting from similar effects for 1 minute.' A talent cannot make allies deal extra damage. But ALL FOUR of this spec's party auras are real target_type 'party' abilities, so a turn added to each is four party-wide buffs held a third longer - hit chance from Clear Skies, haste from Tailwind, attack and spell power from Aerodynamics, and the absorb from Kiss of the Clouds. That is a genuine support capstone, and the one this spec could already support without any ability conversion, unlike Guardian Inspiration's. Exhaustion has no mechanism and is dropped."
+    },
+    {
+      "talent_id": "stormbringer_wind_gale_force",
+      "name": "Gale Force",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "stormbringer_wind_hurricanes"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }

@@ -527,6 +527,24 @@
         "smart_heal_pct": 35
       },
       "_source": "CoA: 'All party and raid members become one, equally sharing 25% of all damage dealt to them for 10 sec, up to a maximum of 100% of their total health. At the end of the duration, all affected allies are healed equal to the total damage shared split evenly amongst all allies.' NOT BUILDABLE, and for a reason this project has hit three times now: there is no accumulator or deferred-damage pool anywhere in the engine - the same gap that killed Puppeteer's Threads, Oathkeeper and Base: Beast Blood - and no trigger fires on an effect expiring. The ABILITY of the same name exists in our data, is ungated, and is left exactly as authored; this node is the capstone the tree has actually been building toward. hot_duration_pct here takes a Chronomancer who also has Patient Mending and Chronicler to +80% HoT duration, which on a 7-turn Accelerated Recovery is 13 turns at full per-tick value - the healer mirror of Infinite's long dots, and only honest at all since the HoT branch was fixed on 6 Nov 2026. The smart heal is the one payload that genuinely reaches an ally and picks the worst-off one, which is the nearest thing in the engine to 'all party members become one'."
+    },
+    {
+      "talent_id": "chronomancer_time_compounded_moment",
+      "name": "Compounded Moment",
+      "description": "Increases the critical strike damage of your spells by 20% per rank.",
+      "node_type": "passive",
+      "tier": 4,
+      "max_points": 5,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 2,
+      "effects": {
+        "crit_damage_spell": 0.2
+      },
+      "connected_to": [
+        "chronomancer_time_aeon_of_oblivion"
+      ],
+      "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
     }
   ]
 }
