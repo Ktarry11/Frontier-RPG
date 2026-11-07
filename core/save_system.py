@@ -155,6 +155,29 @@ class SaveSystem:
             summary += f" (+{companions})"
         return summary
 
+    def delete_save(self, filename="character.json"):
+        """Delete a save file. Returns True if a file was removed.
+
+        Kyle, 7 Nov: "ability to delete a character. Obviously delete will
+        require confirmation." The confirmation lives in the menu, not here -
+        this is the plumbing and it is deliberately dumb.
+
+        A missing file returns False rather than raising, so a double-click
+        on the confirm button cannot take the game down; and only the
+        filename is accepted, never a path, so this can never be pointed
+        outside the save directory.
+        """
+        name = Path(filename).name
+        save_path = self.save_dir / name
+        if not save_path.exists():
+            return False
+        try:
+            save_path.unlink()
+        except OSError as exc:
+            print(f"Could not delete save '{name}': {exc}")
+            return False
+        return True
+
     def get_save_files(self):
         """Return list of available save files."""
         if not self.save_dir.exists():

@@ -75,6 +75,16 @@ class MenuScreen(BaseScreen):
         #: confirms; an empty slot is still a single click, because there is
         #: nothing to lose and a confirm on every save is just friction.
         self.pending_overwrite = None
+
+        #: Delete confirmation, armed by the small X on an occupied slot.
+        #: Kyle, 7 Nov: "ability to delete a character. Obviously delete will
+        #: require confirmation." Held separately from pending_overwrite so
+        #: the two prompts can never be confused for one another - they ask
+        #: different questions and one of them is not undoable.
+        self.pending_delete = None
+        #: Per-slot delete hitboxes, rebuilt with the grid.
+        self.slot_delete_rects = {}
+
         self.confirm_yes_button = pygame.Rect(
             SCREEN_WIDTH // 2 - 160, SCREEN_HEIGHT // 2 + 40, 140, 46)
         self.confirm_no_button = pygame.Rect(
@@ -103,7 +113,7 @@ class MenuScreen(BaseScreen):
         ever changes."""
         cols = max(1, SAVE_SLOT_COLUMNS)
         rows = -(-SAVE_SLOT_COUNT // cols)          # ceil, so a partial last row still fits
-        slot_height = 56
+        slot_height = 60
         gap = 12
         # Width comes from the column count rather than a fixed number, so the
         # picker stays on screen if the slot count or the columns ever change.
@@ -151,9 +161,31 @@ class MenuScreen(BaseScreen):
                 elif self.confirm_no_button.collidepoint(mouse_pos):
                     self.pending_overwrite = None
                 return
+            if self.pending_delete is not None:
+                if self.confirm_yes_button.collidepoint(mouse_pos):
+                    slot_number, _summary = self.pending_delete
+                    self.pending_delete = None
+                    if self.state_manager.delete_save(save_slot_filename(slot_number)):
+                        self._notify(f"Slot {slot_number} deleted.", (230, 180, 150))
+                    else:
+                        self._notify(f"Slot {slot_number} could not be deleted.",
+                                     (230, 140, 140))
+                elif self.confirm_no_button.collidepoint(mouse_pos):
+                    self.pending_delete = None
+                return
             if not self.slot_required and self.slot_close_button.collidepoint(mouse_pos):
                 self.slot_mode = None
                 return
+            # The delete X is checked BEFORE the slot body it sits inside,
+            # or the slot's own click would always win and the X would be
+            # dead - and in load mode it would load the save instead.
+            for slot_number, del_rect in self.slot_delete_rects.items():
+                if del_rect.collidepoint(mouse_pos):
+                    summary = self.state_manager.describe_save(
+                        save_slot_filename(slot_number))
+                    if summary:
+                        self.pending_delete = (slot_number, summary)
+                    return
             for i, rect in enumerate(self.slot_rects):
                 if rect.collidepoint(mouse_pos):
                     self._handle_slot_click(i + 1)
@@ -331,6 +363,12 @@ class MenuScreen(BaseScreen):
             close_text = self.renderer.font_normal.render("Close", True, (255, 240, 200))
             screen.blit(close_text, close_text.get_rect(center=self.slot_close_button.center))
 
+        # Rebuilt every frame from what is actually on disk. Keeping the old
+        # map would leave a clickable X floating over a slot that has just
+        # been emptied, and deleting an already-deleted save reads as the
+        # button being broken.
+        self.slot_delete_rects = {}
+
         for i, rect in enumerate(self.slot_rects):
             slot_number = i + 1
             filename = save_slot_filename(slot_number)
@@ -344,29 +382,66 @@ class MenuScreen(BaseScreen):
 
             label = f"Slot {slot_number}"
             self.renderer.draw_text(
-                screen, label, (rect.x + 14, rect.y + 8),
-                color=(220, 200, 140), font_size=16)
+                screen, label, (rect.x + 12, rect.y + 7),
+                color=(220, 200, 140), font_size=15)
+
+            # DELETE, on occupied slots only. Top-right of the slot, well
+            # clear of the row's centre so a click meant for "load this" does
+            # not erase it - and it only ARMS a confirmation, never deletes.
+            if occupied:
+                del_rect = pygame.Rect(rect.right - 26, rect.y + 6, 20, 20)
+                self.slot_delete_rects[slot_number] = del_rect
+                pygame.draw.rect(screen, (60, 30, 32), del_rect)
+                pygame.draw.rect(screen, (190, 110, 105), del_rect, 1)
+                x_text = self.renderer._get_font(font_size=13).render(
+                    "X", True, (240, 190, 185))
+                screen.blit(x_text, x_text.get_rect(center=del_rect.center))
 
             body = summary if occupied else "Empty"
             body_color = (210, 210, 215) if occupied else (120, 120, 128)
+            # Five columns puts a slot at 226px, so a long summary has to be
+            # cut rather than allowed to run into the slot beside it.
             self.renderer.draw_text(
-                screen, body, (rect.x + 14, rect.y + 30),
-                color=body_color, font_size=14)
+                screen, self._fit(body, rect.width - 24, 13),
+                (rect.x + 12, rect.y + 32),
+                color=body_color, font_size=13)
 
+        # Drawn last so it sits on top of the grid it is asking about.
         if self.pending_overwrite is not None:
-            self._render_overwrite_confirm(screen)
+            self._render_confirm(
+                screen, self.pending_overwrite,
+                f"Overwrite slot {self.pending_overwrite[0]}?",
+                "This slot already holds", "Overwrite")
+        elif self.pending_delete is not None:
+            self._render_confirm(
+                screen, self.pending_delete,
+                f"Delete slot {self.pending_delete[0]}?",
+                "This will permanently erase", "Delete")
 
-    def _render_overwrite_confirm(self, screen):
+    def _fit(self, text, max_px, font_size):
+        """Trim `text` with an ellipsis until it fits `max_px`."""
+        font = self.renderer._get_font(font_size=font_size)
+        if font.size(text)[0] <= max_px:
+            return text
+        cut = text
+        while cut and font.size(cut + "...")[0] > max_px:
+            cut = cut[:-1]
+        return (cut.rstrip() + "...") if cut else ""
+
+    def _render_confirm(self, screen, pending, heading, lead, verb):
         """Name what is about to be destroyed, and make them say yes.
 
         Kyle, 7 Nov: "If the player is trying to override a current save
-        there needs to be a notice and conformation."
+        there needs to be a notice and conformation." And: "ability to
+        delete a character. Obviously delete will require confirmation."
 
-        The panel NAMES the save rather than asking a generic "Overwrite?",
-        because the whole failure this fixes was a character disappearing
-        without anybody being told which one.
+        One panel serves both, because they ask the same shape of question
+        and the dangerous part is identical: the panel NAMES the save
+        rather than asking a generic "Are you sure?". The whole failure
+        being fixed here was a character disappearing without anybody being
+        told which one.
         """
-        slot_number, summary = self.pending_overwrite
+        slot_number, summary = pending
         panel = pygame.Rect(SCREEN_WIDTH // 2 - 300, SCREEN_HEIGHT // 2 - 110, 600, 190)
         scrim = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
         scrim.fill((4, 3, 6, 215))
@@ -375,11 +450,11 @@ class MenuScreen(BaseScreen):
         pygame.draw.rect(screen, (210, 150, 90), panel, 3)
 
         self.renderer.draw_text(
-            screen, f"Overwrite slot {slot_number}?",
+            screen, heading,
             (SCREEN_WIDTH // 2, panel.y + 26),
             color=(255, 210, 150), center=True, size="large")
         self.renderer.draw_text(
-            screen, f"This slot already holds  {summary}",
+            screen, f"{lead}  {summary}",
             (SCREEN_WIDTH // 2, panel.y + 78),
             color=(235, 225, 230), center=True, font_size=16)
         self.renderer.draw_text(
@@ -388,7 +463,7 @@ class MenuScreen(BaseScreen):
             color=(220, 130, 130), center=True, font_size=14)
 
         for rect, label, fill, edge in (
-                (self.confirm_yes_button, "Overwrite", (90, 40, 40), (220, 120, 110)),
+                (self.confirm_yes_button, verb, (90, 40, 40), (220, 120, 110)),
                 (self.confirm_no_button, "Cancel", (40, 44, 52), (170, 180, 200))):
             pygame.draw.rect(screen, fill, rect)
             pygame.draw.rect(screen, edge, rect, 2)

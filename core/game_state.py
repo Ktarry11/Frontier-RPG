@@ -168,6 +168,19 @@ class GameStateManager:
         overworld = self.states.get(GameState.OVERWORLD)
         return getattr(overworld, "zone_manager", None)
 
+    def delete_save(self, filename):
+        """Erase a save slot. Returns True if a file was removed.
+
+        If the deleted slot is the one being played, current_save_file is
+        cleared so the session stops pointing at a file that no longer
+        exists - otherwise the next autosave would quietly RECREATE it,
+        which is the opposite of what the player just asked for.
+        """
+        removed = self._save_system().delete_save(filename)
+        if removed and self.current_save_file == filename:
+            self.current_save_file = None
+        return removed
+
     def has_save(self, filename="character.json"):
         return self._save_system().has_save(filename)
 
