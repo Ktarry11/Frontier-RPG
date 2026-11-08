@@ -296,6 +296,22 @@ class RecruitNPC:
         # Built, not blank - see _catch_up for why. A recruit hired at their authored level 38
         # had the same empty tree a caught-up one did; this is the same fix at the other door.
         char.auto_spend_talents()
+
+        # THE PERSONAL KIT. data/npcs/personal_kits.json was authored, committed
+        # and complete - 67 recruits, 201 abilities, 67 named passives - and
+        # nothing in the codebase read it, so every companion played exactly
+        # like a stock character of their class and spec. That is the one thing
+        # the kits exist to prevent. Kyle, 6 Nov: "Give each human about 4
+        # UNIQUE abilities that are based on who they are as people... it'll
+        # let me build more people of same class/spec."
+        #
+        # After auto_spend_talents, not before: talent spending re-syncs the
+        # ability book, and a kit granted first would be rebuilt away.
+        #
+        # Asher never reaches here - he returns above with his own two-ability
+        # book - and world/personal_kits.py also excludes him by id.
+        from world.personal_kits import grant
+        grant(char)
         return char
 
     @staticmethod

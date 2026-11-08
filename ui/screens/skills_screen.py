@@ -147,9 +147,16 @@ class SkillsScreen(BaseScreen):
     #: the only things Core holds. Racial skills join them when they exist.
     UNIVERSAL_SUFFIXES = ("_attack", "_shoot", "_wand")
 
+    #: Personal kits and racials belong in Core and need no tab of their own.
+    #: Core is "things you have regardless of class or spec" - the basic
+    #: attack, Shoot, Wand - and a personal kit is exactly that for the person
+    #: who has it. data/npcs/personal_kits.json says so itself: "These live in
+    #: the spellbook's CORE tab... independent of class and spec."
+    UNIVERSAL_PREFIXES = ("universal_", "personal_", "racial_")
+
     def _is_universal(self, ability):
         ability_id = getattr(ability, "ability_id", "") or ""
-        return (ability_id.startswith("universal_")
+        return (ability_id.startswith(self.UNIVERSAL_PREFIXES)
                 or ability_id.endswith(self.UNIVERSAL_SUFFIXES)
                 or bool(getattr(ability, "is_racial", False)))
 

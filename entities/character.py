@@ -1230,6 +1230,21 @@ class Character(StatusEffectMixin):
         # keys the recalc below actually reads matter here; unrecognised keys
         # (per-ability multipliers etc.) are simply ignored at this layer and
         # get consumed by combat/abilities.py instead.
+        # PERSONAL KIT + RACIAL PASSIVES, through the same pool as everything
+        # else. data/npcs/personal_kits.json and data/races/racials.json were
+        # both authored, committed and read by nothing, so a recruit's "because
+        # of who they are" passives and every race's passives did nothing at
+        # all. Scalars only - the _from/_name/_wow keys in those files are
+        # documentation. Read fresh each recalc rather than accumulated, so
+        # this can never double.
+        try:
+            from world.personal_kits import passives_for
+            for _key, _value in passives_for(self).items():
+                for _t in BONUS_KEY_ALIASES.get(_key, (_key,)):
+                    bonuses[_t] = bonuses.get(_t, 0) + _value
+        except Exception:
+            pass  # a broken data file must not stop a character existing
+
         talent_effects = self.get_talent_effects() if self.talent_trees else {}
         for _key, _value in talent_effects.items():
             if isinstance(_value, (int, float)):
