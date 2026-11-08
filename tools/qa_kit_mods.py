@@ -160,6 +160,22 @@ def main():
                                         f"taunt generated no threat")
                     continue
                 got = holder.get_status_stat_mod(key)
+                # A RATE-SCALED mod does not arrive at its authored size and
+                # must not: stat_mods are authored PER UNIT and multiplied by
+                # a live count (StatusEffect.scaling_multiplier). Pasang's -4
+                # per turn correctly reads 0 on the turn it lands, and Owen's
+                # 1 per 2% missing health reads 16.7 on a half-health probe.
+                # Comparing against the authored number alone accused four
+                # correct abilities the moment scaling shipped - the
+                # instrument lagging the engine, which is the failure this
+                # file's own docstring is about. The authored value is still
+                # checked, just against the multiplier the engine is using.
+                applied = next((e for e in holder._effects()
+                                if e.effect_id == aid), None)
+                mult = 1.0
+                if applied is not None and getattr(applied, "scaling", None):
+                    mult = applied.scaling_multiplier(holder)
+                want = want * mult
                 measured.append((kit.get("name"), a.get("name"), key, want, got))
                 if abs(got - want) > 0.001:
                     findings.append(f"{kit.get('name')} / {a.get('name')}: "

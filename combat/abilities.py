@@ -331,6 +331,7 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
+                 scaling=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
@@ -525,6 +526,12 @@ class Ability:
         # mechanical distinction (a double-dispel) from every other
         # single-removal cleanse in the game, not just a bigger number.
         self.dispel_count = max(1, int(dispel_count))
+        #: Dynamic scaling spec passed straight to the StatusEffect this
+        #: ability applies - see StatusEffect.scaling_multiplier. Lets an
+        #: ability author "6% less damage for each ally still alive" as a
+        #: per-unit stat_mod plus a count, instead of a flat value that
+        #: delivers a fraction of what the tooltip promises.
+        self.scaling = dict(scaling) if scaling else None
 
         # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
         # ("Clear your Exposed Flesh stacks to poison nearby enemies for
@@ -3184,7 +3191,14 @@ class Ability:
                     # a proc's bonus damage (weapon imbues) resolves through this school's resistance
                     damage_school=(self.damage_school if isinstance(self.damage_school, str)
                                    and self.damage_school in DamageSchool.ALL_SCHOOLS else "physical"),
+                    scaling=self.scaling,
                 )
+                # A living_allies-scaled effect needs the party, and a
+                # Character has no back-reference to one - it lives on
+                # CombatEngine, which is not reachable from inside a stat
+                # read. use() is handed the party, so the effect carries it.
+                if self.scaling and (self.scaling.get("source") == "living_allies"):
+                    effect.scaling_party = list(party or [caster])
                 recipient.apply_status_effect(effect)
 
             # THROUGH _stat_mod_text, same as the tooltip at line 1056. This
@@ -3235,7 +3249,10 @@ class Ability:
                         exclusive_group=self.exclusive_group,
                         proc=self.active_proc,
                         is_stun=self.is_stun,
+                        scaling=self.scaling,
                     )
+                    if self.scaling and (self.scaling.get("source") == "living_allies"):
+                        effect.scaling_party = list(party or [caster])
                     t.apply_status_effect(effect)
                     # force_proc_group (Barbed Stinger): find whichever
                     # active effect on the CASTER shares this
@@ -3813,6 +3830,7 @@ def _ability_from_data(entry):
         consumable_hot_ids=entry.get("consumable_hot_ids"),
         dispel_type=entry.get("dispel_type"),
         dispel_count=entry.get("dispel_count", 1),
+        scaling=entry.get("scaling"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),

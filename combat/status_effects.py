@@ -231,7 +231,7 @@ class StatusEffect:
                  potency=0, damage_school="physical", stat_mods=None,
                  source_name="", real_time_seconds=_UNSET, dispel_type=None,
                  exclusive_group=None, proc=None, is_stun=False,
-                 max_stacks=1, absorb=0):
+                 max_stacks=1, absorb=0, scaling=None):
         """
         effect_id: stable id used for refresh-vs-stack decisions
                    (e.g. "warrior_rend"). Same id = refresh.
@@ -329,6 +329,19 @@ class StatusEffect:
         self.name = name
         self.effect_type = effect_type
         self.duration = duration
+        #: Starting duration, kept so `turns_active` scaling can tell how
+        #: long this effect has been up: duration counts DOWN as it ticks.
+        self.initial_duration = duration
+        #: Optional dynamic scaling - see effective_stat_mods().
+        self.scaling = dict(scaling) if scaling else None
+        #: The caster's party, captured when a `living_allies`-scaled effect
+        #: is applied. A Character has no back-reference to its party (that
+        #: lives on CombatEngine) but Ability.use is handed one, so the
+        #: effect carries it rather than the engine having to be reachable
+        #: from inside a stat read. Plain list, not a weakref: it lives only
+        #: as long as the effect does.
+        self.scaling_party = None
+
         self.max_duration = duration
         self.potency = potency
         self.damage_school = damage_school
@@ -364,6 +377,59 @@ class StatusEffect:
                 self.real_time_seconds = real_time_seconds
         else:
             self.real_time_seconds = None
+
+    #: Scaling sources that `scaling["source"]` may name. Each resolves to a
+    #: COUNT, which is divided by `divisor` and clamped to `cap` to give the
+    #: multiplier applied to every numeric entry in stat_mods.
+    SCALING_SOURCES = ("living_allies", "missing_health_pct", "turns_active")
+
+    def scaling_multiplier(self, holder):
+        """How many times over this effect's stat_mods currently apply.
+
+        Several personal-kit abilities are written as a rate rather than a
+        flat value, and had no way to be expressed at all:
+
+            Dan,      "takes 6% less damage FOR EACH ALLY still alive"
+            Owen,     "deals 1% more damage FOR EVERY 2% of health missing"
+            Pasang,   "takes 4% less FOR EACH TURN the buff has been up"
+            Nicolas,  "1% more dealt and 1% less taken per 3% missing"
+
+        Authoring the per-unit number flat is what an earlier automated pass
+        did, and it delivers a quarter of what the text promises while
+        looking repaired - so the magnitude stays per-unit in stat_mods and
+        the count lives here.
+
+        stat_mods are authored PER UNIT, exactly like the per-stack and
+        per-rank conventions already in this codebase, so `cap` is a cap on
+        the MULTIPLIER, not on the final percentage: Pasang's "up to 24%"
+        at -4 per turn is cap 6, not cap 24.
+
+        Returns 1.0 for an effect with no scaling, so an unscaled effect is
+        completely unaffected. Never returns a negative: a dead party or a
+        corrupt count must not flip a mitigation buff into an amplifier.
+        """
+        spec = self.scaling or {}
+        source = spec.get("source")
+        if source not in self.SCALING_SOURCES:
+            return 1.0
+        if source == "living_allies":
+            party = self.scaling_party or []
+            count = sum(1 for m in party
+                        if m is not None and getattr(m, "is_alive", lambda: True)())
+        elif source == "missing_health_pct":
+            mx = (getattr(holder, "max_health", None)
+                  or getattr(holder, "health", None) or 0)
+            cur = getattr(holder, "current_health", mx)
+            count = ((mx - cur) / mx * 100.0) if mx > 0 else 0.0
+        else:  # turns_active - duration counts DOWN, so this is what elapsed
+            started = getattr(self, "initial_duration", self.duration) or 0
+            count = max(0, started - (self.duration or 0))
+        divisor = spec.get("divisor") or 1
+        mult = count / divisor if divisor else count
+        cap = spec.get("cap")
+        if cap is not None:
+            mult = min(mult, cap)
+        return max(0.0, mult)
 
     def is_expired(self):
         if self.real_time_seconds is not None:
@@ -945,6 +1011,29 @@ class StatusEffectMixin:
                 return effect
         return None
 
+    # NOTE: scaling_multiplier lives on StatusEffect (see that class); this
+    # mixin only consumes it.
+
+    def _status_mods_for(self, effect):
+        """One effect's real stat_mods right now - stacks AND scaling applied.
+
+        THE SINGLE PLACE either is applied. There are two readers of a
+        status effect's stat_mods - get_status_stat_mod below, and the
+        derived-stat pool loop in Character._recalculate_derived_stats -
+        and they have already disagreed once: the pool did not multiply by
+        `stacks` while this one always did, so every stacking buff whose
+        payload was a plain stat was silently capped at one stack. Both now
+        come here instead of each doing the arithmetic themselves.
+        """
+        stacks = max(1, getattr(effect, "stacks", 1) or 1)
+        mult = stacks
+        if getattr(effect, "scaling", None):
+            mult = stacks * effect.scaling_multiplier(self)
+        out = {}
+        for key, value in effect.stat_mods.items():
+            out[key] = value * mult if isinstance(value, (int, float)) else value
+        return out
+
     def get_status_stat_mod(self, stat_name):
         """Sum all active buff/debuff modifiers for a given stat.
 
@@ -959,8 +1048,9 @@ class StatusEffectMixin:
         total = 0
         for e in self._effects():
             if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
-                stack_mult = getattr(e, "stacks", 1)
-                total += e.stat_mods.get(stat_name, 0) * stack_mult
+                value = self._status_mods_for(e).get(stat_name, 0)
+                if isinstance(value, (int, float)):
+                    total += value
         return total
 
     def tick_status_effects(self):

@@ -74,24 +74,31 @@
         "ability_id": "personal_dan_four_men_long_shifts",
         "name": "Four Men, Long Shifts",
         "from": "'A crew. Four men, long shifts, a Friday.' / 'a four-man crew and the kind of trust you can't talk about without sounding daft'",
-        "engine": "needs: stat_mod scaled by living party members; cooldown that starts on expiry",
+        "engine": "needs: forcing all enemies onto him at full party; a cooldown that starts on expiry",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
         "cooldown": 10,
         "duration": 4,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": -6,
+          "magic_damage_taken_pct": -6
+        },
         "description": "For 4 turns Dan takes 6% less damage for each ally still alive. At full party he also forces all enemies to target him. The cooldown begins when it ends.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 10,
-            "effect_value": 6
+            "effect_value": 100
           }
         ],
-        "cooldown_starts_after_expiry": true
+        "cooldown_starts_after_expiry": true,
+        "scaling": {
+          "source": "living_allies",
+          "cap": 4
+        }
       },
       {
         "ability_id": "personal_dan_shift_change",
@@ -1111,16 +1118,23 @@
         "cooldown": 15,
         "duration": 4,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 1
+        },
         "description": "For 4 turns Owen deals 1% more damage for every 2% of health he is missing.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 1
+            "effect_value": 100
           }
-        ]
+        ],
+        "scaling": {
+          "source": "missing_health_pct",
+          "divisor": 2,
+          "cap": 50
+        }
       },
       {
         "ability_id": "personal_owen_a_record_of_the_route",
@@ -1243,17 +1257,24 @@
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 6,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": -4,
+          "magic_damage_taken_pct": -4
+        },
         "description": "For 6 turns Pasang takes 4% less damage for each turn the buff has been up, up to 24%.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 15,
-            "effect_value": 4
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "scaling": {
+          "source": "turns_active",
+          "cap": 6
+        }
       },
       {
         "ability_id": "personal_pasang_he_carried_loads",
@@ -1978,20 +1999,27 @@
         "ability_id": "personal_kesten_if_you_know_the_hand",
         "name": "If You Know the Hand",
         "from": "'the ledgers are still legible if you know the hand. He knows the hand.'",
-        "engine": "needs: read a target's full resistance and ability set",
+        "engine": "needs: SHOWING the target's resistances and ability set (a UI reveal)",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "fire_resistance": -20,
+          "frost_resistance": -20,
+          "nature_resistance": -20,
+          "shadow_resistance": -20,
+          "arcane_resistance": -20,
+          "holy_resistance": -20
+        },
         "description": "For 5 turns the target's resistances and abilities are shown, and its resistances are reduced by 20.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3275,14 +3303,16 @@
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "arcane_resistance": -40
+        },
         "description": "For 5 turns the target's arcane resistance is reduced by 40.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 40
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4302,17 +4332,26 @@
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 1,
+          "physical_damage_taken_pct": -1,
+          "magic_damage_taken_pct": -1
+        },
         "description": "For 5 turns Nicolás deals 1% more damage and takes 1% less for every 3% of health he is missing.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 1
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "scaling": {
+          "source": "missing_health_pct",
+          "divisor": 3,
+          "cap": 33
+        }
       }
     ]
   },

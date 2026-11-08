@@ -81,8 +81,46 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 KITS = ROOT / "data" / "npcs" / "personal_kits.json"
 
+#: ability_id -> StatusEffect scaling spec, for abilities written as a RATE
+#: rather than a flat value. stat_mods below stay PER UNIT and this supplies
+#: the count - see StatusEffect.scaling_multiplier. `cap` caps the
+#: MULTIPLIER, not the final percentage, so Pasang's "up to 24%" at -4 per
+#: turn is cap 6.
+#:
+#: Authoring the per-unit number as a flat value instead is what the
+#: abandoned regex pass did, and it delivers a quarter of what the tooltip
+#: promises while looking repaired.
+SCALING = {
+    "personal_dan_four_men_long_shifts": {"source": "living_allies", "cap": 4},
+    "personal_owen_something_answered": {"source": "missing_health_pct",
+                                         "divisor": 2, "cap": 50},
+    "personal_pasang_day_four": {"source": "turns_active", "cap": 6},
+    "personal_nicolas_toward_what_everyone_goes_away_from": {
+        "source": "missing_health_pct", "divisor": 3, "cap": 33},
+}
+
 #: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
 TABLE = {
+    # --- written as a RATE; the count comes from SCALING above -------------
+    "personal_dan_four_men_long_shifts": (
+        {"physical_damage_taken_pct": -6, "magic_damage_taken_pct": -6},
+        "takes 6% less damage per living ally, to -24% at full party",
+        "forcing all enemies onto him at full party; a cooldown that starts "
+        "on expiry"),
+
+    "personal_owen_something_answered": (
+        {"damage_dealt_pct": 1},
+        "deals 1% more damage per 2% of health missing, to +50%", None),
+
+    "personal_pasang_day_four": (
+        {"physical_damage_taken_pct": -4, "magic_damage_taken_pct": -4},
+        "takes 4% less damage per turn the buff has been up, to -24%", None),
+
+    "personal_nicolas_toward_what_everyone_goes_away_from": (
+        {"damage_dealt_pct": 1, "physical_damage_taken_pct": -1,
+         "magic_damage_taken_pct": -1},
+        "1% more dealt and 1% less taken per 3% of health missing", None),
+
     # --- fully expressible: every clause of the description lands ------------
     "personal_pasang_he_has_the_names": (
         {"physical_damage_taken_pct": -25, "magic_damage_taken_pct": -25,
@@ -217,6 +255,28 @@ TABLE = {
         {"expertise": 50},
         "attacks cannot be dodged or parried", None),
 
+    # --- resistance debuffs, which needed no engine work at all -------------
+    # Monster.get_resistance already folds status stat_mods in - its own
+    # docstring says the value holds "however the number arrived - template
+    # baseline, cast affinity, A STATUS EFFECT, or a hand-authored value" -
+    # and Character.get_resistance does the same. Measured: a level-60
+    # creature at 60 fire resistance drops to 20 under a -40 debuff.
+    #
+    # Only the two abilities naming a FIXED school and amount are here. The
+    # two that pick a school at runtime - Marta's "the target's LOWEST
+    # resistance" and Ryan's "the target's HIGHEST resistance" - need the
+    # dynamic scaling work and stay inert rather than being flattened into
+    # an all-schools debuff, which would be strictly stronger than written.
+    "personal_kourosh_characterising_it": (
+        {"arcane_resistance": -40},
+        "target's arcane resistance reduced by 40", None),
+
+    "personal_kesten_if_you_know_the_hand": (
+        {"fire_resistance": -20, "frost_resistance": -20, "nature_resistance": -20,
+         "shadow_resistance": -20, "arcane_resistance": -20, "holy_resistance": -20},
+        "all six of the target's resistances reduced by 20",
+        "SHOWING the target's resistances and ability set (a UI reveal)"),
+
     # --- effect delivered, COST UNPAID. Flagged in the output. --------------
     "personal_kesten_reading_his_own_entry": (
         {"damage_dealt_pct": 25},
@@ -293,12 +353,15 @@ def main():
             # apply and the re-run silently kept the old two-key version.
             # Only an exact match is a skip, so the tool stays idempotent
             # while a table edit still takes effect.
-            if a.get("stat_mods") == mods:
+            want_scaling = SCALING.get(aid)
+            if a.get("stat_mods") == mods and a.get("scaling") == want_scaling:
                 skipped.append((kit.get("name"), a.get("name")))
                 continue
             done.append((kit.get("name"), a.get("name"), mods, delivers, gap))
             if args.apply:
                 a["stat_mods"] = dict(mods)
+                if want_scaling:
+                    a["scaling"] = dict(want_scaling)
                 # EVERY rank is forced to 100, not just the zero ones.
                 #
                 # _stat_mod_scalar multiplies the authored mods by

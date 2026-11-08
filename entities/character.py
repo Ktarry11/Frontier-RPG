@@ -1265,10 +1265,13 @@ class Character(StatusEffectMixin):
             # buff whose payload is a plain stat was therefore silently capped
             # at rank one, which is why authors kept reaching for the handful
             # of keys that happened to route through get_status_stat_mod.
-            _stacks = max(1, getattr(_eff, "stacks", 1) or 1)
-            for _key, _value in _eff.stat_mods.items():
+            # Through _status_mods_for, the one place stacks AND dynamic
+            # scaling are applied. Doing the stack multiply inline here is
+            # what let this reader drift from get_status_stat_mod in the
+            # first place; a scaled effect would have drifted the same way.
+            for _key, _value in self._status_mods_for(_eff).items():
                 if isinstance(_value, (int, float)):
-                    bonuses[_key] = bonuses.get(_key, 0) + _value * _stacks
+                    bonuses[_key] = bonuses.get(_key, 0) + _value
                 else:
                     bonuses[_key] = _value
 
