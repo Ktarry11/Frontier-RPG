@@ -462,7 +462,7 @@
         "ability_id": "personal_marco_he_fixes_other_things",
         "name": "He Fixes Other Things",
         "from": "'He fixes locks. He also fixes other things and nobody has ever asked him to.'",
-        "engine": "existing (dispel + party target)",
+        "engine": "needs: the small heal that accompanies it",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -478,7 +478,14 @@
             "cost": 30,
             "effect_value": 30
           }
-        ]
+        ],
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       },
       {
         "ability_id": "personal_marco_a_formality_arrived_late",
@@ -799,7 +806,7 @@
         "ability_id": "personal_ryan_pays_on_time",
         "name": "Pays On Time",
         "from": "'He pays on time, exactly on time. That's not virtue, it's the only thing stopping the arrangement running the other direction.'",
-        "engine": "needs: convert health to resource",
+        "engine": "needs: spending 15% of his maximum health to pay for it",
         "effect_type": "restore_resource",
         "target_type": "self",
         "resource_type": "mana",
@@ -813,9 +820,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 15
+            "effect_value": 15,
+            "mana_restore_pct": 15
           }
-        ]
+        ],
+        "mana_restore_pct": 15
       }
     ]
   },
@@ -955,7 +964,7 @@
         "ability_id": "personal_amber_she_works_the_rot",
         "name": "She Works the Rot",
         "from": "'She works the rot where the corruption has reached in. Slowly.'",
-        "engine": "needs: dispel that also damages the source",
+        "engine": "needs: the nature damage dealt back to whoever applied it",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -971,7 +980,14 @@
             "cost": 35,
             "effect_value": 60
           }
-        ]
+        ],
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       }
     ]
   },
@@ -1379,7 +1395,7 @@
         "ability_id": "personal_liam_a_calm_voice",
         "name": "A Calm Voice",
         "from": "'The most useful thing in a burning room is a calm voice. The second most useful is a hand on the person about to run.'",
-        "engine": "needs: dispel fear category plus heal",
+        "engine": "needs: fear and panic specifically (CC is not a dispel school), and the heal",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -1395,7 +1411,9 @@
             "effect_value": 40
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": "magic",
+        "dispel_count": 1
       },
       {
         "ability_id": "personal_liam_when_called_and_all_at_once",
@@ -1439,7 +1457,14 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       }
     ]
   },
@@ -1634,7 +1659,7 @@
         "ability_id": "personal_bakyt_water_where_there_is_none",
         "name": "Water Where There Is None",
         "from": "'finds water where there is apparently none'",
-        "engine": "needs: restore each ally's own resource type",
+        "engine": "needs: reaching EACH ALLY - restore_resource is self-only by construction",
         "effect_type": "restore_resource",
         "target_type": "party",
         "resource_type": "focus",
@@ -1647,16 +1672,18 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 20
+            "effect_value": 20,
+            "mana_restore_pct": 20
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "mana_restore_pct": 20
       },
       {
         "ability_id": "personal_bakyt_six_generations",
         "name": "Six Generations",
         "from": "'a route his family has walked for six generations' / 'he grieved the first one properly'",
-        "engine": "needs: resummon a dead pet at full health",
+        "engine": "needs: the +40% damage branch for when it is already alive",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "focus",
@@ -1672,7 +1699,8 @@
             "effect_value": 40
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "summon_pet_template": "war_falcon"
       }
     ]
   },
@@ -1811,7 +1839,7 @@
         "ability_id": "personal_anjali_sick_in_a_patterned_way",
         "name": "Sick in a Patterned Way",
         "from": "'the forest is sick in a patterned way and the night elves know it in their bones without having ever written it down'",
-        "engine": "needs: identify and strip the strongest debuff across the party",
+        "engine": "needs: choosing the STRONGEST effect rather than the first match",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -1827,7 +1855,14 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       }
     ]
   },
@@ -2016,7 +2051,12 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": [
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 2
       },
       {
         "ability_id": "personal_tarek_a_visible_enemy",
@@ -2099,7 +2139,7 @@
         "ability_id": "personal_fiona_too_neat",
         "name": "Too Neat, and Neat Where Nobody Looks",
         "from": "'leaves a trail of the same shape as a cooked ledger: too neat, and neat in the places nobody looks'",
-        "engine": "needs: strip enemy buffs and deal damage per buff removed",
+        "engine": "needs: dealing damage for each buff taken",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -2115,7 +2155,9 @@
             "effect_value": 45
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": "magic",
+        "dispel_count": 10
       },
       {
         "ability_id": "personal_fiona_unbearable_until_somebody_checks",
@@ -2665,7 +2707,7 @@
         "ability_id": "personal_tomas_tie_off_badly",
         "name": "They Tie Off Badly",
         "from": "'people here build fast and tie off badly and he physically can't walk past it'",
-        "engine": "needs: remove an enemy's defensive buffs",
+        "engine": "needs: restricting it to DEFENSIVE buffs, and the 25% armour reduction",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -2681,7 +2723,9 @@
             "effect_value": 25
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": "magic",
+        "dispel_count": 10
       }
     ]
   },
@@ -2980,7 +3024,7 @@
         "ability_id": "personal_esteban_he_asks_every_time",
         "name": "He Asks. Every Time.",
         "from": "'He asks. Every time, on the record, and then treats them anyway.'",
-        "engine": "needs: remove a harmful effect and convert it to damage",
+        "engine": "needs: dealing the effect's remaining damage to whoever applied it",
         "effect_type": "dispel",
         "target_type": "ally",
         "resource_type": "rage",
@@ -2996,7 +3040,14 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       }
     ]
   },
@@ -3038,7 +3089,7 @@
         "ability_id": "personal_stelios_who_a_body_was",
         "name": "Who a Body Was",
         "from": "'he has used it four times now to find out who a body was before it stopped being anyone'",
-        "engine": "needs: raise a slain enemy as a temporary ally",
+        "engine": "needs: raising the ACTUAL slain enemy, at half its own strength",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "mana",
@@ -3054,7 +3105,8 @@
             "effect_value": 50
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "summon_pet_template": "ghoul"
       },
       {
         "ability_id": "personal_stelios_one_hundred_and_forty",
@@ -3296,7 +3348,7 @@
         "ability_id": "personal_driss_the_water_allowance",
         "name": "The Water Allowance",
         "from": "'He has refused two contracts over the water allowance and both parties came back with a better one.'",
-        "engine": "needs: resource restore with a refusal condition",
+        "engine": "needs: reaching each ally, and excluding those above half resource",
         "effect_type": "restore_resource",
         "target_type": "party",
         "resource_type": "mana",
@@ -3309,10 +3361,12 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 25
+            "effect_value": 25,
+            "mana_restore_pct": 25
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "mana_restore_pct": 25
       }
     ]
   },
@@ -3434,7 +3488,7 @@
         "ability_id": "personal_diego_take_a_thing_apart",
         "name": "Take a Thing Apart",
         "from": "'He can take a thing apart faster than he can explain why.'",
-        "engine": "needs: strip buffs and reduce armour",
+        "engine": "needs: the 30% armour reduction",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -3450,7 +3504,9 @@
             "effect_value": 30
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": "magic",
+        "dispel_count": 2
       },
       {
         "ability_id": "personal_diego_the_clockwork_beetle",
@@ -3472,7 +3528,8 @@
             "effect_value": 60
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "summon_pet_template": "clockwork_assistant"
       }
     ]
   },
@@ -4427,7 +4484,7 @@
         "ability_id": "personal_skye_she_found_a_fire_and_put_it_out",
         "name": "She Found a Fire and Put It Out",
         "from": "'She found a fire in her first week and put it out, and says that sorted her head out for a year.'",
-        "engine": "needs: remove all fire effects and convert them",
+        "engine": "needs: dealing their remaining damage to one enemy",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -4443,7 +4500,9 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": "magic",
+        "dispel_count": 10
       },
       {
         "ability_id": "personal_skye_discovering_she_could_start_one",
@@ -4630,7 +4689,7 @@
         "ability_id": "personal_khalid_took_food_from_his_hand",
         "name": "Twice Taken Food From His Hand",
         "from": "'it has twice taken food from his hand and twice tried to remove it'",
-        "engine": "needs: temporary wild ally with a chance to turn",
+        "engine": "needs: its attacking a RANDOM enemy rather than the chosen one",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "focus",
@@ -4646,7 +4705,8 @@
             "effect_value": 90
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "summon_pet_template": "raptor"
       }
     ]
   },
@@ -5217,7 +5277,7 @@
         "ability_id": "personal_yusuf_he_knows_doses",
         "name": "He Knows Doses, He Knows Poisons",
         "from": "'He knows doses, he knows poisons.'",
-        "engine": "needs: convert a poison on an ally into a heal",
+        "engine": "needs: healing them for what it would have dealt",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -5233,7 +5293,12 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dispel_type": [
+          "poison",
+          "disease"
+        ],
+        "dispel_count": 1
       },
       {
         "ability_id": "personal_yusuf_how_much_of_the_truth",
