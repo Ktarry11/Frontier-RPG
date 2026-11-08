@@ -1116,7 +1116,33 @@ class Monster(StatusEffectMixin):
         taken_mult = max(0.0, taken_mult)
 
         actual = max(1, int(amount * (1.0 - reduction) * level_mult * taken_mult))
+
+        # THE SAME FIVE INTERCEPTION HOOKS THE PLAYER SIDE USES, in the same
+        # order, from the shared StatusEffectMixin. Kyle, 8 Nov 2026: "I see
+        # no reason bosses can't do some of them too. It'll allow for more
+        # dungeon/raid boss variety."
+        #
+        # What this unlocks for encounter design, with no new mechanics:
+        #   damage sharing      a boss soaking damage aimed at its adds, so
+        #                       the adds have to die first
+        #   death prevention    a boss held at 1 health once, so the kill
+        #                       needs a second commitment
+        #   reflect             a boss that punishes melee into a ranged phase
+        #   low-health trigger  a boss that shields itself the first time it
+        #                       drops below a threshold
+        #   damage->shield      a boss that turns incoming magic into armour,
+        #                       so the casters have to stop
+        #
+        # Every one is inert unless a status effect on this monster carries
+        # the matching field, so the whole existing bestiary is untouched.
+        actual = self._share_damage_out(actual, damage_type, attacker)
+        actual = self._prevent_death(actual)
+        self._convert_damage_to_shield(actual, damage_type)
+
         self.current_health = max(0, self.current_health - actual)
+
+        self._reflect_damage(actual, damage_type, attacker)
+        self._check_low_health_trigger()
         return actual
 
     def heal(self, amount):

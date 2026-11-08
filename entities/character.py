@@ -3450,8 +3450,29 @@ class Character(StatusEffectMixin):
             # wants the latter; several specs have both.
             self._fire_avoidance_procs(("on_block",), attacker)
 
+        # DAMAGE SHARING - a guardian soaking hits aimed at someone else.
+        # Resolved here, after every mitigation and block above, so the
+        # share is taken off what genuinely landed rather than the raw
+        # incoming amount. Seven kit abilities are written this way:
+        # Pasang's and Nicolas's "absorbs 30%/35% of all damage dealt to
+        # the party", Elias's with a heal attached, Marco's and Saoirse's
+        # full redirect at a discount, and Dan's one-shot interception.
+        actual = self._share_damage_out(actual, damage_type, attacker)
+
+        # DEATH PREVENTION, last - after sharing, so a guardian soaking part
+        # of the blow is what keeps someone above their floor rather than
+        # the floor doing work the guardian already did.
+        actual = self._prevent_death(actual)
+
         self.current_health -= actual
-        
+
+        self._convert_damage_to_shield(actual, damage_type)
+
+        # Both read the health this character actually ended on, so they
+        # run after the subtraction rather than before it.
+        self._reflect_damage(actual, damage_type, attacker)
+        self._check_low_health_trigger()
+
         # Warriors - and anyone shapeshifted into a Rage form (Bear, Dire Bear,
         # Beetle) - generate rage from taking damage (reduced from 0.5 to 0.2)
         if self.generates_rage_from_combat():

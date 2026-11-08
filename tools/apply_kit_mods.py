@@ -99,8 +99,185 @@ SCALING = {
         "source": "missing_health_pct", "divisor": 3, "cap": 33},
 }
 
+#: ability_id -> damage-sharing spec. The buff lands on each RECIPIENT and
+#: points back at the caster, so the victim's take_damage knows where to send
+#: a share - see Character._share_damage_out.
+#:
+#: `pct` is the share of each landed hit that moves. `reduction_pct` is a
+#: discount on what the GUARDIAN pays, not on what the victim saves: Marco's
+#: "redirected to Marco, reduced by 33%" means the ally loses the whole blow
+#: and Marco takes two thirds of it. `uses` limits how many hits move, for
+#: the ones written as "the NEXT attack".
+DAMAGE_SHARE = {
+    "personal_pasang_he_carried_loads": {"pct": 30},
+    "personal_nicolas_soaking_what_is_aimed": {"pct": 35},
+    "personal_elias_an_air_of_mild_apology": {"pct": 30, "heal_pct": 10},
+    "personal_marco_somebody_had_to": {"pct": 100, "reduction_pct": 33},
+    "personal_saoirse_expecting_to_be_run_at": {"pct": 100, "reduction_pct": 40},
+    "personal_dan_stand_in_front": {"pct": 100, "reduction_pct": 50, "uses": 1},
+    "personal_dan_shift_change": {"pct": 100, "uses": 1},
+}
+
+#: ability_id -> death-prevention spec. `pct` or `hp` is the health level the
+#: blow is clamped to. `lethal_only` false catches any blow that crosses the
+#: line rather than only a killing one, which is Henrik's wording.
+DEATH_PREVENT = {
+    # "the next hit that would reduce Henrik BELOW 20% instead leaves him at
+    # 20%" - a threshold, not a killing blow, which is the one of the four
+    # that is not lethal_only.
+    "personal_henrik_he_does_not_approach_them": {"pct": 20,
+                                                  "lethal_only": False},
+    "personal_minh_the_one_in_which_nobody_dies": {"hp": 1},
+    "personal_pieter_nine_men_in_three_years": {"pct": 15},
+    "personal_saoirse_teach_them_to_fall_properly": {"pct": 20},
+}
+
+#: ability_id -> reflect spec. Callum's is returned as NATURE regardless of
+#: what hit him, and only off melee, which is why school and melee_only are
+#: separate from the percentage.
+REFLECT = {
+    "personal_callum_the_thing_that_bites_back": {
+        "pct": 40, "school": "nature", "melee_only": True},
+    "personal_matias_standing_still_in_a_crowd": {"pct": 30},
+}
+
+#: ability_id -> low-health trigger. `pct` arms it, and the payout is either
+#: a heal or a shield, both as a percent of the holder's MAXIMUM health.
+ON_LOW_HEALTH = {
+    "personal_amber_a_mistake_corrects_itself": {"pct": 35, "heal_pct": 30},
+    "personal_ileana_first_on_her_feet": {"pct": 30, "shield_pct": 25},
+    "personal_vuk_a_second_bowl": {"pct": 25, "heal_pct": 50},
+}
+
+#: ability_id -> immediate turn-meter grant, as a FRACTION of TURN_THRESHOLD.
+#: 1.0 fills the meter, which means "acts next" in this engine's meter-based
+#: order and - because consume_turn carries the overflow forward - is also
+#: how an extra action is expressed.
+TURN_METER_BOOST = {
+    "personal_rosa_four_seconds": 1.0,
+    "personal_sondre_first_awake_every_morning": 1.0,
+    "personal_camille_twenty_two_minutes": 1.0,
+    "personal_nizar_holding_the_order_of_things": 1.0,
+    "personal_emre_one_door_closes": 1.0,
+    "personal_sophia_simultaneous": 1.0,
+}
+
+#: ability_id -> flat absorb shield. `absorb` is an EXISTING, fully wired
+#: Ability field consumed by the shield branch at the top of take_damage, so
+#: these three needed no engine work at all - only the number, which was
+#: already sitting in each one's effect_value.
+ABSORB = {
+    "personal_henrik_certain_it_will_hold": 220,
+    "personal_tarek_he_calls_it_building": 70,
+    "personal_alonso_made_a_cup_badly": 180,
+}
+
+#: ability_id -> incoming damage converted into a shield.
+DAMAGE_TO_SHIELD = {
+    "personal_owen_he_gets_sentences": {"pct": 40, "school": "magic"},
+}
+
 #: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
 TABLE = {
+    # --- absorb shields, all three data-only -------------------------------
+    # "cannot be broken early" is already true of an absorb shield here -
+    # nothing in the engine strips one - so Henrik's is complete.
+    "personal_henrik_certain_it_will_hold": (
+        {}, "a 220-point shield on an ally for 4 turns", None),
+    "personal_tarek_he_calls_it_building": (
+        {}, "a 70-point shield on the party", None),
+    "personal_alonso_made_a_cup_badly": (
+        {}, "a 180-point shield on an ally for 5 turns",
+        "what remains of the shield surviving past the buff's expiry"),
+
+    "personal_owen_he_gets_sentences": (
+        {}, "40% of the magic damage Owen takes comes back as a shield",
+        None),
+
+    # --- turn order and extra actions --------------------------------------
+    "personal_rosa_four_seconds": (
+        {}, "Rosa acts next, before every enemy", None),
+    "personal_sondre_first_awake_every_morning": (
+        {}, "the whole party acts before every enemy", None),
+    # The -40% is the price of the second action and lasts as long as the
+    # buff, which is what the text describes.
+    "personal_camille_twenty_two_minutes": (
+        {"damage_dealt_pct": -40},
+        "acts again immediately, at 40% less damage for the duration", None),
+    "personal_nizar_holding_the_order_of_things": (
+        {}, "the party acts first",
+        "LOCKING the turn order against other effects"),
+    "personal_emre_one_door_closes": (
+        {}, "Emre takes another action",
+        "triggering automatically on a killing blow rather than on cast"),
+    # "a second spell this turn at 60% damage" - the extra action is real;
+    # the penalty applying to only that one cast is not expressible, so it
+    # rides the buff's duration instead and is flagged.
+    "personal_sophia_simultaneous": (
+        {"damage_dealt_pct": -40},
+        "casts again immediately, at reduced damage",
+        "confining the reduction to the extra cast alone"),
+
+    # --- damage returned to whoever dealt it -------------------------------
+    "personal_callum_the_thing_that_bites_back": (
+        {}, "returns 40% of melee damage taken as nature damage", None),
+    "personal_matias_standing_still_in_a_crowd": (
+        {}, "every attacker takes 30% of the damage back", None),
+
+    # --- armed on dropping below a health threshold ------------------------
+    "personal_amber_a_mistake_corrects_itself": (
+        {}, "first drop below 35% heals that ally for 30% of their maximum",
+        None),
+    "personal_ileana_first_on_her_feet": (
+        {}, "first drop below 30% shields each ally for 25% of their maximum",
+        None),
+    # Party-scoped, so each ally carries their own one-use copy. The text is
+    # "sets aside a heal" for whoever drops first - ONE heal across the
+    # party - which a per-ally effect cannot express without a shared
+    # counter, so this is more generous than written.
+    "personal_vuk_a_second_bowl": (
+        {}, "first drop below 25% heals that ally for 50% of their maximum",
+        "reserving a SINGLE heal for the party rather than one per ally"),
+
+    # --- a blow that would kill is held at a floor instead -----------------
+    # No stat_mods: the whole effect is the floor. Minh's and Saoirse's are
+    # party-scoped, so each ally carries their own one-use floor, which is
+    # exactly Minh's "Once per ally".
+    "personal_henrik_he_does_not_approach_them": (
+        {}, "the next blow that would take him below 20% leaves him at 20%",
+        None),
+    "personal_minh_the_one_in_which_nobody_dies": (
+        {}, "the first killing blow on each ally leaves them at 1 health",
+        None),
+    "personal_pieter_nine_men_in_three_years": (
+        {}, "the first killing blow on that ally leaves them at 15%", None),
+    "personal_saoirse_teach_them_to_fall_properly": (
+        {}, "the first killing blow on each ally leaves them at 20%", None),
+
+    # --- a guardian soaking hits aimed at other people ---------------------
+    # These carry NO stat_mods: the whole effect is the share, which lives in
+    # DAMAGE_SHARE above. An empty stat_mods on a buff normally means inert,
+    # so is_active_kit_ability() in this file is what decides, not the
+    # emptiness of the dict.
+    "personal_pasang_he_carried_loads": (
+        {}, "absorbs 30% of all damage dealt to the party", None),
+    "personal_nicolas_soaking_what_is_aimed": (
+        {}, "takes 35% of all damage dealt to the party", None),
+    "personal_elias_an_air_of_mild_apology": (
+        {}, "takes 30% of the party's damage and heals for a tenth of it",
+        None),
+    "personal_marco_somebody_had_to": (
+        {}, "the chosen ally's damage comes to Marco at a 33% discount",
+        None),
+    "personal_saoirse_expecting_to_be_run_at": (
+        {}, "takes every blow aimed at the chosen ally, reduced by 40%",
+        None),
+    "personal_dan_stand_in_front": (
+        {}, "the next attack on any ally comes to Dan, halved", None),
+    "personal_dan_shift_change": (
+        {}, "the attack already aimed at that ally hits Dan instead",
+        "swapping row position with the ally"),
+
     # --- written as a RATE; the count comes from SCALING above -------------
     "personal_dan_four_men_long_shifts": (
         {"physical_damage_taken_pct": -6, "magic_damage_taken_pct": -6},
@@ -354,7 +531,18 @@ def main():
             # Only an exact match is a skip, so the tool stays idempotent
             # while a table edit still takes effect.
             want_scaling = SCALING.get(aid)
-            if a.get("stat_mods") == mods and a.get("scaling") == want_scaling:
+            want_share = DAMAGE_SHARE.get(aid)
+            want_floor = DEATH_PREVENT.get(aid)
+            if (a.get("stat_mods") == mods
+                    and a.get("scaling") == want_scaling
+                    and a.get("damage_share") == want_share
+                    and a.get("death_prevent") == want_floor
+                    and a.get("reflect") == REFLECT.get(aid)
+                    and a.get("on_low_health") == ON_LOW_HEALTH.get(aid)
+                    and (a.get("turn_meter_boost") or 0)
+                        == TURN_METER_BOOST.get(aid, 0)
+                    and (a.get("absorb") or 0) == ABSORB.get(aid, 0)
+                    and a.get("damage_to_shield") == DAMAGE_TO_SHIELD.get(aid)):
                 skipped.append((kit.get("name"), a.get("name")))
                 continue
             done.append((kit.get("name"), a.get("name"), mods, delivers, gap))
@@ -362,6 +550,20 @@ def main():
                 a["stat_mods"] = dict(mods)
                 if want_scaling:
                     a["scaling"] = dict(want_scaling)
+                if want_share:
+                    a["damage_share"] = dict(want_share)
+                if want_floor:
+                    a["death_prevent"] = dict(want_floor)
+                if REFLECT.get(aid):
+                    a["reflect"] = dict(REFLECT[aid])
+                if ON_LOW_HEALTH.get(aid):
+                    a["on_low_health"] = dict(ON_LOW_HEALTH[aid])
+                if TURN_METER_BOOST.get(aid):
+                    a["turn_meter_boost"] = TURN_METER_BOOST[aid]
+                if ABSORB.get(aid):
+                    a["absorb"] = ABSORB[aid]
+                if DAMAGE_TO_SHIELD.get(aid):
+                    a["damage_to_shield"] = dict(DAMAGE_TO_SHIELD[aid])
                 # EVERY rank is forced to 100, not just the zero ones.
                 #
                 # _stat_mod_scalar multiplies the authored mods by

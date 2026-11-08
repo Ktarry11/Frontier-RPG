@@ -66,9 +66,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 50
+            "effect_value": 100
           }
-        ]
+        ],
+        "damage_share": {
+          "pct": 100,
+          "reduction_pct": 50,
+          "uses": 1
+        }
       },
       {
         "ability_id": "personal_dan_four_men_long_shifts",
@@ -104,7 +109,7 @@
         "ability_id": "personal_dan_shift_change",
         "name": "Shift Change",
         "from": "'He takes the front of whatever goes out and he's never once asked to be paid differently for it.'",
-        "engine": "needs: swap row position mid-combat",
+        "engine": "needs: swapping row position with the ally",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "rage",
@@ -118,9 +123,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
-        ]
+        ],
+        "damage_share": {
+          "pct": 100,
+          "uses": 1
+        }
       }
     ]
   },
@@ -335,7 +344,7 @@
         "ability_id": "personal_emre_one_door_closes",
         "name": "One Door Closes",
         "from": "'Bir kapi kapanir, bir kapi acilir. One door closes, another opens. He thought it was a proverb about God until he was about thirty and decided it was a proverb about him.'",
-        "engine": "needs: grant an extra action on killing blow",
+        "engine": "needs: triggering automatically on a killing blow rather than on cast",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
@@ -349,9 +358,10 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
-        ]
+        ],
+        "turn_meter_boost": 1.0
       }
     ]
   },
@@ -461,9 +471,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 33
+            "effect_value": 100
           }
-        ]
+        ],
+        "damage_share": {
+          "pct": 100,
+          "reduction_pct": 33
+        }
       },
       {
         "ability_id": "personal_marco_he_fixes_other_things",
@@ -624,9 +638,10 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
-        ]
+        ],
+        "turn_meter_boost": 1.0
       },
       {
         "ability_id": "personal_rosa_stop_tracking_start_anticipating",
@@ -687,23 +702,26 @@
         "ability_id": "personal_sophia_simultaneous",
         "name": "Simultaneous",
         "from": "'Simultaneous, four languages: you hold a sentence in one tongue while it finishes in another.'",
-        "engine": "needs: cast a second spell in the same turn",
+        "engine": "needs: confining the reduction to the extra cast alone",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 1,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": -40
+        },
         "description": "Sophia casts a second spell this turn at 60% damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 60
+            "effect_value": 100
           }
-        ]
+        ],
+        "turn_meter_boost": 1.0
       },
       {
         "ability_id": "personal_sophia_a_grammar_of_this_world",
@@ -963,9 +981,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 30
+            "effect_value": 100
           }
-        ]
+        ],
+        "on_low_health": {
+          "pct": 35,
+          "heal_pct": 30
+        }
       },
       {
         "ability_id": "personal_amber_she_works_the_rot",
@@ -1103,9 +1125,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 40
+            "effect_value": 100
           }
-        ]
+        ],
+        "damage_to_shield": {
+          "pct": 40,
+          "school": "magic"
+        }
       },
       {
         "ability_id": "personal_owen_something_answered",
@@ -1293,10 +1319,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_share": {
+          "pct": 30
+        }
       },
       {
         "ability_id": "personal_pasang_he_has_the_names",
@@ -1638,10 +1667,15 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 40
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reflect": {
+          "pct": 40,
+          "school": "nature",
+          "melee_only": true
+        }
       }
     ]
   },
@@ -1751,10 +1785,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 220
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "absorb": 220
       },
       {
         "ability_id": "personal_henrik_four_significant_figures",
@@ -1795,10 +1830,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "death_prevent": {
+          "pct": 20,
+          "lethal_only": false
+        }
       }
     ]
   },
@@ -2125,10 +2164,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 40,
-            "effect_value": 70
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "absorb": 70
       }
     ]
   },
@@ -2441,9 +2481,12 @@
             "rank": 1,
             "level_req": 1,
             "cost": 50,
-            "effect_value": 1
+            "effect_value": 100
           }
-        ]
+        ],
+        "death_prevent": {
+          "hp": 1
+        }
       }
     ]
   },
@@ -2504,7 +2547,7 @@
         "ability_id": "personal_alonso_made_a_cup_badly",
         "name": "Made a Cup, Badly",
         "from": "'the first thing he did with that was make a cup, badly, and he keeps it on a shelf'",
-        "engine": "needs: absorb shield that persists after the buff ends",
+        "engine": "needs: what remains of the shield surviving past the buff's expiry",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
@@ -2517,10 +2560,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 180
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "absorb": 180
       }
     ]
   },
@@ -2962,10 +3006,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 15
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "death_prevent": {
+          "pct": 15
+        }
       },
       {
         "ability_id": "personal_pieter_shouted_at_by_thousands",
@@ -3715,10 +3762,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "turn_meter_boost": 1.0
       }
     ]
   },
@@ -3872,10 +3920,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reflect": {
+          "pct": 30
+        }
       }
     ]
   },
@@ -4002,17 +4053,20 @@
         "resource_type": "archery_points",
         "cooldown": 12,
         "duration": 2,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": -40
+        },
         "description": "For 2 turns Camille acts twice per round, each action dealing 40% less.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 40
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "turn_meter_boost": 1.0
       },
       {
         "ability_id": "personal_camille_she_has_not_read",
@@ -4218,10 +4272,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 40
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_share": {
+          "pct": 100,
+          "reduction_pct": 40
+        }
       },
       {
         "ability_id": "personal_saoirse_the_sliotar",
@@ -4262,10 +4320,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 45,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "death_prevent": {
+          "pct": 20
+        }
       }
     ]
   },
@@ -4295,10 +4356,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 35
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_share": {
+          "pct": 35
+        }
       },
       {
         "ability_id": "personal_nicolas_leave_somebody_behind",
@@ -4426,10 +4490,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 40,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "on_low_health": {
+          "pct": 30,
+          "shield_pct": 25
+        }
       }
     ]
   },
@@ -4651,7 +4719,7 @@
         "ability_id": "personal_vuk_a_second_bowl",
         "name": "A Second Bowl",
         "from": "'he has started keeping a second bowl ready at every meal without being able to say who he thinks it is for'",
-        "engine": "needs: reserve a heal for whoever next drops low",
+        "engine": "needs: reserving a SINGLE heal for the party rather than one per ally",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -4664,10 +4732,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 50
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "on_low_health": {
+          "pct": 25,
+          "heal_pct": 50
+        }
       }
     ]
   },
@@ -5092,10 +5164,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_share": {
+          "pct": 30,
+          "heal_pct": 10
+        }
       },
       {
         "ability_id": "personal_elias_check_on_people_behind_him",
@@ -5261,7 +5337,7 @@
         "ability_id": "personal_nizar_holding_the_order_of_things",
         "name": "Holding the Order of Things Together",
         "from": "'At the back, holding the order of things together while the front rank does its work.'",
-        "engine": "needs: lock turn order for a window",
+        "engine": "needs: LOCKING the turn order against other effects",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -5274,10 +5350,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 40,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "turn_meter_boost": 1.0
       },
       {
         "ability_id": "personal_nizar_runs_backwards_on_its_chain",

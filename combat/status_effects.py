@@ -342,6 +342,82 @@ class StatusEffect:
         #: as long as the effect does.
         self.scaling_party = None
 
+        # ---- DAMAGE SHARING (a guardian soaking hits aimed at others) ----
+        # take_damage runs on the VICTIM, and a victim has no way to reach
+        # whoever is protecting them. But a party- or ally-scoped buff is
+        # already applied to each recipient separately, so every copy can
+        # carry a reference back to the caster - which is what these are.
+        # Set by Ability._apply_effect at application time.
+        #
+        #: Who soaks the share. None means this effect does no sharing, so
+        #: every effect authored before this existed is unaffected.
+        self.damage_share_to = None
+        #: PERCENT of each incoming hit moved to damage_share_to. 100 is a
+        #: full redirect ("takes every blow aimed at the chosen ally").
+        self.damage_share_pct = 0
+        #: PERCENT the shared portion is reduced by on the way across -
+        #: Marco's "redirected to Marco, reduced by 33%". The victim's
+        #: saving is the full share; the guardian pays the remainder.
+        self.damage_share_reduction_pct = 0
+        #: PERCENT of what the guardian absorbs that heals them back -
+        #: Elias "heals for a tenth of what he absorbs".
+        self.damage_share_heal_pct = 0
+        #: How many hits this can still move. None = every hit for the
+        #: duration; 1 = Dan's "the NEXT attack aimed at any ally".
+        self.damage_share_uses = None
+
+        # ---- DEATH PREVENTION --------------------------------------------
+        # "The first blow that would kill any ally leaves them at 15%
+        # health instead." Four kit abilities are written this way and had
+        # no hook: Henrik's, Minh's, Pieter's and Saoirse's.
+        #
+        #: Health level to clamp to, as a PERCENT of maximum. 0 means this
+        #: effect prevents nothing, so every effect authored before this
+        #: existed is unaffected.
+        self.death_prevent_pct = 0
+        #: Clamp to an absolute health value instead - Minh's "leaves them
+        #: at 1 health". Takes precedence over death_prevent_pct.
+        self.death_prevent_hp = 0
+        #: True  - only a LETHAL blow is caught (Minh, Pieter, Saoirse).
+        #: False - any blow that would cross the clamp level is caught,
+        #:         which is Henrik's "the next hit that would reduce him
+        #:         BELOW 20% instead leaves him at 20%".
+        self.death_prevent_lethal_only = True
+        #: How many blows this can still catch. These are all written as
+        #: "the FIRST blow", so 1.
+        self.death_prevent_uses = 1
+
+        # ---- REFLECT (damage returned to whoever dealt it) ---------------
+        #: PERCENT of each landed hit sent back to the attacker. 0 means no
+        #: reflect, so every effect authored before this is unaffected.
+        self.reflect_pct = 0
+        #: School the returned damage is dealt as - Callum's is returned as
+        #: nature, not as whatever hit him.
+        self.reflect_school = "physical"
+        #: True for Callum's "40% of the MELEE damage Callum takes".
+        self.reflect_melee_only = False
+
+        # ---- LOW-HEALTH TRIGGER ------------------------------------------
+        # "The first time that ally drops below 35% health they are healed
+        # for 30% of their maximum." Amber's, Ileana's and Vuk's.
+        #
+        #: Health PERCENT that arms this. 0 means no trigger.
+        self.on_low_health_pct = 0
+        #: Paid out as a heal, as a PERCENT of the holder's maximum health.
+        self.on_low_health_heal_pct = 0
+        #: Paid out as an absorb shield instead, same units.
+        self.on_low_health_shield_pct = 0
+        #: "The FIRST time", so 1.
+        self.on_low_health_uses = 1
+
+        # ---- INCOMING DAMAGE CONVERTED TO A SHIELD -----------------------
+        #: PERCENT of each landed hit turned into an absorb shield on the
+        #: holder instead of being merely taken - Owen's "40% of the magic
+        #: damage Owen takes is converted into a shield on him instead".
+        self.damage_to_shield_pct = 0
+        #: Which damage counts: "magic", "physical", or "" for all.
+        self.damage_to_shield_school = ""
+
         self.max_duration = duration
         self.potency = potency
         self.damage_school = damage_school
@@ -1010,6 +1086,263 @@ class StatusEffectMixin:
                 self._on_status_effects_changed()
                 return effect
         return None
+
+    # ---- SHARED DAMAGE-INTERCEPTION HOOKS --------------------------------
+    # These five live on the MIXIN, not on Character, so a Monster gets them
+    # too. Kyle, 8 Nov 2026: "I see no reason bosses can't do some of them
+    # too. It'll allow for more dungeon/raid boss variety."
+    #
+    # They were written on Character first and that was the wrong home:
+    # Character and Monster have entirely separate take_damage
+    # implementations, so anything defensive added to one is invisible to
+    # the other - which is how 358 bosses ended up with two mechanics
+    # between them while the player side grew a dozen. Putting them here
+    # rather than copying them into monster.py is deliberate: two copies of
+    # one rule is exactly what produced the stacks-vs-pool drift recorded in
+    # value_conventions_and_dead_data_2026_10_29.md.
+    #
+    # TWO NAMING DIFFERENCES the mixin has to paper over, both recorded in
+    # that doc's "third combatant kind" section:
+    #   - maximum health is Character.health but Monster.max_health
+    #   - Monster builds _pending_proc_messages lazily; Character always has it
+
+    def _max_hp(self):
+        """Maximum health, whichever attribute this class keeps it in."""
+        for attr in ("max_health", "health"):
+            value = getattr(self, attr, None)
+            if isinstance(value, (int, float)) and value > 0:
+                return value
+        return 0
+
+    def _note_proc(self, message):
+        """Queue a combat-log line. take_damage has no log handle of its own."""
+        pending = getattr(self, "_pending_proc_messages", None)
+        if pending is None:
+            pending = []
+            self._pending_proc_messages = pending
+        pending.append(message)
+
+    #: Guard against a sharing loop. Two guardians protecting each other, or
+    #: a guardian who is also covered by their own party-scoped buff, would
+    #: otherwise bounce a hit between them forever. Module-level rather than
+    #: per-instance because the loop runs across two different characters.
+    _sharing_damage = False
+
+    def _share_damage_out(self, actual, damage_type, attacker):
+        """Move part of this hit onto whoever is guarding this character.
+
+        Returns what is left for this character to actually take.
+
+        WHY THE GUARDIAN IS NOT HIT WITH take_damage. The share has already
+        been through this character's armour, resistances, level difference,
+        block and every damage_taken_pct on them. Routing it through the
+        guardian's take_damage would mitigate it a SECOND time, so a tank
+        soaking 30% of a hit would feel far less than 30%, and a shared hit
+        would also re-enter this method and recurse. The share is applied
+        to the guardian's health directly, and _sharing_damage keeps a
+        mutual pair - or a guardian covered by their own party buff - from
+        bouncing one hit between them.
+
+        A dead or missing guardian shares nothing: the hit stays where it
+        landed rather than vanishing.
+        """
+        if type(self)._sharing_damage:
+            return actual
+        moved_total = 0
+        for effect in list(self._effects()):
+            guardian = getattr(effect, "damage_share_to", None)
+            pct = getattr(effect, "damage_share_pct", 0) or 0
+            if guardian is None or pct <= 0 or guardian is self:
+                continue
+            if not getattr(guardian, "is_alive", lambda: True)():
+                continue
+            uses = getattr(effect, "damage_share_uses", None)
+            if uses is not None and uses <= 0:
+                continue
+            moved = actual * min(100.0, pct) / 100.0
+            if moved <= 0:
+                continue
+            # The victim's saving is the FULL share. The discount applies
+            # only to what the guardian pays, which is what "redirected to
+            # Marco, reduced by 33%" means - the ally loses the whole blow,
+            # Marco takes two thirds of it.
+            reduction = getattr(effect, "damage_share_reduction_pct", 0) or 0
+            paid = moved * max(0.0, 1.0 - min(100.0, reduction) / 100.0)
+            type(self)._sharing_damage = True
+            try:
+                guardian.current_health = max(0, guardian.current_health - int(paid))
+                heal_pct = getattr(effect, "damage_share_heal_pct", 0) or 0
+                if heal_pct > 0 and paid > 0:
+                    back = int(paid * min(100.0, heal_pct) / 100.0)
+                    if back > 0 and hasattr(guardian, "heal"):
+                        guardian.heal(back)
+            finally:
+                type(self)._sharing_damage = False
+            moved_total += moved
+            if uses is not None:
+                effect.damage_share_uses = uses - 1
+            if moved_total >= actual:
+                break
+        return max(0, int(actual - moved_total))
+
+    def _reflect_damage(self, actual, damage_type, attacker):
+        """Send a share of what just landed back to whoever dealt it.
+
+        Callum's "40% of the melee damage Callum takes is returned as nature
+        damage" and Matias's "every enemy that attacks Matias takes 30% of
+        the damage back".
+
+        The return is applied to the attacker's health DIRECTLY rather than
+        through their take_damage, for the same two reasons sharing does:
+        the amount has already been mitigated once on the way in, and
+        routing it back through take_damage would re-enter this method on an
+        attacker who also reflects, so two reflecting characters would
+        bounce one hit between them until the stack ran out.
+
+        Reflect does not need the _sharing_damage guard for that reason -
+        it never calls take_damage at all.
+        """
+        if actual <= 0 or attacker is None:
+            return
+        for effect in list(self._effects()):
+            pct = getattr(effect, "reflect_pct", 0) or 0
+            if pct <= 0:
+                continue
+            if getattr(effect, "reflect_melee_only", False) and damage_type != "physical":
+                continue
+            back = int(actual * min(100.0, pct) / 100.0)
+            if back <= 0:
+                continue
+            if hasattr(attacker, "current_health"):
+                attacker.current_health = max(0, attacker.current_health - back)
+                school = getattr(effect, "reflect_school", "physical")
+                self._note_proc(
+                    f"{effect.name} returns {back} {school} damage to "
+                    f"{getattr(attacker, 'name', 'the attacker')}")
+
+    def _check_low_health_trigger(self):
+        """Pay out an effect armed on dropping below a health threshold.
+
+        Amber's "the first time that ally drops below 35% health they are
+        healed for 30% of their maximum", Ileana's shield version, and
+        Vuk's reserved heal.
+
+        Called after health has been applied, so it reads the health the
+        holder actually ended on. Fires only while a use remains, which is
+        what makes "the FIRST time" mean that rather than every hit taken
+        while low.
+        """
+        if self._max_hp() <= 0:
+            return
+        if self.current_health <= 0:
+            return  # dead - a low-health payout is not a resurrection
+        for effect in list(self._effects()):
+            threshold = getattr(effect, "on_low_health_pct", 0) or 0
+            if threshold <= 0:
+                continue
+            if (getattr(effect, "on_low_health_uses", 0) or 0) <= 0:
+                continue
+            if (self.current_health / self._max_hp()) * 100.0 >= threshold:
+                continue
+            heal_pct = getattr(effect, "on_low_health_heal_pct", 0) or 0
+            shield_pct = getattr(effect, "on_low_health_shield_pct", 0) or 0
+            effect.on_low_health_uses -= 1
+            if heal_pct > 0:
+                amount = int(self._max_hp() * heal_pct / 100.0)
+                self.heal(amount)
+                self._note_proc(
+                    f"{effect.name} heals {self.name} for {amount}")
+            elif shield_pct > 0:
+                amount = int(self._max_hp() * shield_pct / 100.0)
+                # A fresh absorb effect rather than loading the shield onto
+                # the trigger effect itself: the trigger may still have uses
+                # left for a party-scoped copy, and absorb is consumed by a
+                # different code path that would clear it.
+                from combat.status_effects import StatusEffect as _SE, EffectType as _ET
+                self.apply_status_effect(_SE(
+                    f"{effect.effect_id}_shield", f"{effect.name} (shield)",
+                    _ET.BUFF, max(1, effect.duration or 1), stat_mods={},
+                    absorb=amount, source_name=effect.source_name))
+                self._note_proc(
+                    f"{effect.name} shields {self.name} for {amount}")
+
+    def _convert_damage_to_shield(self, actual, damage_type):
+        """Turn a share of what just landed into an absorb shield.
+
+        Owen's "40% of the magic damage Owen takes is converted into a
+        shield on him instead". The damage is still taken - the shield is
+        what he gets BACK from having taken it, which is what makes the
+        ability a sustain tool rather than a mitigation one.
+
+        The shield goes on a separate effect rather than onto the
+        converting effect's own absorb: absorb is consumed by the shield
+        branch at the top of take_damage, which would eat the converter
+        itself and stop any further conversion after the first hit.
+        """
+        if actual <= 0:
+            return
+        for effect in list(self._effects()):
+            pct = getattr(effect, "damage_to_shield_pct", 0) or 0
+            if pct <= 0:
+                continue
+            school = getattr(effect, "damage_to_shield_school", "") or ""
+            if school == "magic" and damage_type == "physical":
+                continue
+            if school == "physical" and damage_type != "physical":
+                continue
+            gained = int(actual * min(100.0, pct) / 100.0)
+            if gained <= 0:
+                continue
+            from combat.status_effects import StatusEffect as _SE, EffectType as _ET
+            self.apply_status_effect(_SE(
+                f"{effect.effect_id}_conv", f"{effect.name} (shield)",
+                _ET.BUFF, max(1, effect.duration or 1), stat_mods={},
+                absorb=gained, source_name=effect.source_name))
+            self._note_proc(
+                f"{effect.name} turns {gained} into a shield on {self.name}")
+
+    def _prevent_death(self, actual):
+        """Clamp a blow that would drop this character past a floor.
+
+        Returns what the blow is allowed to be.
+
+        Four kit abilities are written as "the first blow that would kill
+        them leaves them at N% instead". Three catch only a LETHAL blow;
+        Henrik's catches any blow that would take him below 20%, which is a
+        different trigger and the reason death_prevent_lethal_only exists
+        rather than this being hardcoded to death.
+
+        Applied AFTER damage sharing, so a guardian soaking part of the hit
+        can be what keeps the victim above the floor in the first place -
+        the floor is a last resort, not a replacement for mitigation.
+
+        A character already at or below the floor is NOT rescued: the
+        effect catches the blow that CROSSES the line, so it cannot become
+        an open-ended immunity for someone sitting at 1 health.
+        """
+        if actual <= 0 or self._max_hp() <= 0:
+            return actual
+        for effect in list(self._effects()):
+            hp = getattr(effect, "death_prevent_hp", 0) or 0
+            pct = getattr(effect, "death_prevent_pct", 0) or 0
+            if hp <= 0 and pct <= 0:
+                continue
+            if (getattr(effect, "death_prevent_uses", 0) or 0) <= 0:
+                continue
+            floor = hp if hp > 0 else int(self._max_hp() * pct / 100.0)
+            floor = max(1, min(floor, self._max_hp()))
+            if self.current_health <= floor:
+                continue  # already past it - this is not an immunity
+            remaining = self.current_health - actual
+            lethal_only = getattr(effect, "death_prevent_lethal_only", True)
+            triggers = remaining <= 0 if lethal_only else remaining < floor
+            if not triggers:
+                continue
+            effect.death_prevent_uses -= 1
+            self._note_proc(
+                f"{self.name} is held at {floor} health by {effect.name}")
+            return max(0, self.current_health - floor)
+        return actual
 
     # NOTE: scaling_multiplier lives on StatusEffect (see that class); this
     # mixin only consumes it.

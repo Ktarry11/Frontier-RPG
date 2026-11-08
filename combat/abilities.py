@@ -331,7 +331,10 @@ class Ability:
                  execute_threshold_pct=None, damage_school=None,
                  requires_ranged_weapon=None, is_stun=False, icon_id=None,
                  dispel_count=1, consumes_stacks_of=None, duration_per_stack=0,
-                 scaling=None,
+                 scaling=None, damage_share=None, death_prevent=None,
+                 reflect=None, on_low_health=None,
+                 turn_meter_boost=0,
+                 damage_to_shield=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
@@ -532,6 +535,32 @@ class Ability:
         #: per-unit stat_mod plus a count, instead of a flat value that
         #: delivers a fraction of what the tooltip promises.
         self.scaling = dict(scaling) if scaling else None
+        #: Damage-sharing spec: {"pct": 30, "reduction_pct": 0,
+        #: "heal_pct": 0, "uses": None}. The buff is applied to each
+        #: RECIPIENT and points back at the caster, because take_damage runs
+        #: on the victim and a victim cannot reach their guardian.
+        self.damage_share = dict(damage_share) if damage_share else None
+        #: Death-prevention spec: {"pct": 15} or {"hp": 1}, optionally
+        #: {"lethal_only": false} for a floor that catches any crossing
+        #: blow rather than only a killing one, and {"uses": 1}.
+        self.death_prevent = dict(death_prevent) if death_prevent else None
+        #: Reflect spec: {"pct": 40, "school": "nature", "melee_only": true}
+        self.reflect = dict(reflect) if reflect else None
+        #: Low-health trigger: {"pct": 35, "heal_pct": 30} or
+        #: {"pct": 30, "shield_pct": 25}, optionally {"uses": 1}.
+        self.on_low_health = dict(on_low_health) if on_low_health else None
+        #: Immediate turn-meter grant, as a FRACTION of TURN_THRESHOLD, given
+        #: to every recipient on cast. 1.0 fills the meter, which in this
+        #: engine's meter-based order means "acts next" - and because
+        #: TurnMeter.consume_turn carries the overflow past the threshold
+        #: forward rather than resetting to zero, the same grant is also how
+        #: an EXTRA ACTION is expressed. That is not an interpretation: the
+        #: consume_turn docstring says carrying the remainder is "the real
+        #: translation of 'extra actions' into this meter-based turn system".
+        self.turn_meter_boost = float(turn_meter_boost or 0)
+        #: {"pct": 40, "school": "magic"} - see
+        #: Character._convert_damage_to_shield.
+        self.damage_to_shield = dict(damage_to_shield) if damage_to_shield else None
 
         # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
         # ("Clear your Exposed Flesh stacks to poison nearby enemies for
@@ -3199,7 +3228,44 @@ class Ability:
                 # read. use() is handed the party, so the effect carries it.
                 if self.scaling and (self.scaling.get("source") == "living_allies"):
                     effect.scaling_party = list(party or [caster])
+                if self.damage_share:
+                    # Points at the CASTER: this copy of the buff sits on an
+                    # ally and tells their take_damage where to send a share.
+                    # The caster's own copy (a party-scoped buff reaches them
+                    # too) is skipped inside _share_damage_out, since a
+                    # guardian cannot soak for themselves.
+                    effect.damage_share_to = caster
+                    effect.damage_share_pct = self.damage_share.get("pct", 0)
+                    effect.damage_share_reduction_pct = self.damage_share.get(
+                        "reduction_pct", 0)
+                    effect.damage_share_heal_pct = self.damage_share.get(
+                        "heal_pct", 0)
+                    effect.damage_share_uses = self.damage_share.get("uses")
+                if self.death_prevent:
+                    effect.death_prevent_pct = self.death_prevent.get("pct", 0)
+                    effect.death_prevent_hp = self.death_prevent.get("hp", 0)
+                    effect.death_prevent_lethal_only = self.death_prevent.get(
+                        "lethal_only", True)
+                    effect.death_prevent_uses = self.death_prevent.get("uses", 1)
+                if self.reflect:
+                    effect.reflect_pct = self.reflect.get("pct", 0)
+                    effect.reflect_school = self.reflect.get("school", "physical")
+                    effect.reflect_melee_only = self.reflect.get("melee_only", False)
+                if self.on_low_health:
+                    effect.on_low_health_pct = self.on_low_health.get("pct", 0)
+                    effect.on_low_health_heal_pct = self.on_low_health.get("heal_pct", 0)
+                    effect.on_low_health_shield_pct = self.on_low_health.get("shield_pct", 0)
+                    effect.on_low_health_uses = self.on_low_health.get("uses", 1)
+                if self.damage_to_shield:
+                    effect.damage_to_shield_pct = self.damage_to_shield.get("pct", 0)
+                    effect.damage_to_shield_school = self.damage_to_shield.get("school", "")
                 recipient.apply_status_effect(effect)
+                if self.turn_meter_boost:
+                    # Added, not assigned, so a recipient already most of the
+                    # way to their turn is not pushed BACKWARDS by a boost.
+                    from config import TURN_THRESHOLD as _TT
+                    recipient.turn_meter = (getattr(recipient, "turn_meter", 0.0)
+                                            + _TT * self.turn_meter_boost)
 
             # THROUGH _stat_mod_text, same as the tooltip at line 1056. This
             # was its own hand-rolled formatter with an unconditional "+",
@@ -3831,6 +3897,12 @@ def _ability_from_data(entry):
         dispel_type=entry.get("dispel_type"),
         dispel_count=entry.get("dispel_count", 1),
         scaling=entry.get("scaling"),
+        damage_share=entry.get("damage_share"),
+        death_prevent=entry.get("death_prevent"),
+        reflect=entry.get("reflect"),
+        on_low_health=entry.get("on_low_health"),
+        turn_meter_boost=entry.get("turn_meter_boost", 0),
+        damage_to_shield=entry.get("damage_to_shield"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),
