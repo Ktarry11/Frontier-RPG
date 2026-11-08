@@ -1194,7 +1194,7 @@
         300,
         310
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_duskfang_boots": {
       "name": "Duskfang Leather Boots",
@@ -3661,6 +3661,1351 @@
         223
       ],
       "source": "trainer"
+    },
+    "p300_le_heavy_head": {
+      "name": "Heavy Helm",
+      "skill_required": 150,
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 6,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 31,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      }
+    },
+    "p300_le_heavy_shoulder": {
+      "name": "Heavy Spaulders",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 5,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 32,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      }
+    },
+    "p300_le_heavy_chest": {
+      "name": "Heavy Vest",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 8,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      }
+    },
+    "p300_le_heavy_wrist": {
+      "name": "Heavy Bracers",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_heavy": 3,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      }
+    },
+    "p300_le_dredged_hands": {
+      "name": "Dredged Gloves",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "dredged"
+      }
+    },
+    "p300_le_dredged_waist": {
+      "name": "Dredged Belt",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 35,
+        "rarity": "rare",
+        "material_tier": "dredged"
+      }
+    },
+    "p300_le_dredged_legs": {
+      "name": "Dredged Pants",
+      "skill_required": 175,
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_dredged": 7,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 36,
+        "rarity": "rare",
+        "material_tier": "dredged"
+      }
+    },
+    "p300_le_dredged_feet": {
+      "name": "Dredged Boots",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "dredged"
+      }
+    },
+    "p300_le_fiendish_back": {
+      "name": "Fiendish Cloak",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_fiendish": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "fiendish"
+      }
+    },
+    "p300_le_fiendish_head": {
+      "name": "Fiendish Helm",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_fiendish": 6,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 38,
+        "rarity": "rare",
+        "material_tier": "fiendish"
+      }
+    },
+    "p300_le_fiendish_shoulder": {
+      "name": "Fiendish Spaulders",
+      "skill_required": 190,
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_fiendish": 5,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 39,
+        "rarity": "rare",
+        "material_tier": "fiendish"
+      }
+    },
+    "p300_le_fiendish_chest": {
+      "name": "Fiendish Vest",
+      "skill_required": 195,
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_fiendish": 8,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "fiendish"
+      }
+    },
+    "p300_le_thick_wrist": {
+      "name": "Thick Bracers",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 41,
+        "rarity": "rare",
+        "material_tier": "thick"
+      }
+    },
+    "p300_le_thick_hands": {
+      "name": "Thick Gloves",
+      "skill_required": 205,
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 42,
+        "rarity": "rare",
+        "material_tier": "thick"
+      }
+    },
+    "p300_le_thick_waist": {
+      "name": "Thick Belt",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "thick"
+      }
+    },
+    "p300_le_thick_legs": {
+      "name": "Thick Pants",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_thick": 7,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 44,
+        "rarity": "rare",
+        "material_tier": "thick"
+      }
+    },
+    "p300_le_hydra_feet": {
+      "name": "Hydra Boots",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_hydra": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 44,
+        "rarity": "rare",
+        "material_tier": "hydra"
+      }
+    },
+    "p300_le_hydra_back": {
+      "name": "Hydra Cloak",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_hydra": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 45,
+        "rarity": "rare",
+        "material_tier": "hydra"
+      }
+    },
+    "p300_le_hydra_head": {
+      "name": "Hydra Helm",
+      "skill_required": 225,
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_hydra": 6,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 46,
+        "rarity": "rare",
+        "material_tier": "hydra"
+      }
+    },
+    "p300_le_hydra_shoulder": {
+      "name": "Hydra Spaulders",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_hydra": 5,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "hydra"
+      }
+    },
+    "p300_le_pristine_chest": {
+      "name": "Pristine Vest",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_pristine": 8,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "pristine"
+      }
+    },
+    "p300_le_pristine_wrist": {
+      "name": "Pristine Bracers",
+      "skill_required": 235,
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_pristine": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 48,
+        "rarity": "rare",
+        "material_tier": "pristine"
+      }
+    },
+    "p300_le_pristine_hands": {
+      "name": "Pristine Gloves",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_pristine": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "pristine"
+      }
+    },
+    "p300_le_pristine_waist": {
+      "name": "Pristine Belt",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_pristine": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "pristine"
+      }
+    },
+    "p300_le_savage_legs": {
+      "name": "Savage Pants",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_savage": 7,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "savage"
+      }
+    },
+    "p300_le_savage_feet": {
+      "name": "Savage Boots",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_savage": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 51,
+        "rarity": "rare",
+        "material_tier": "savage"
+      }
+    },
+    "p300_le_savage_back": {
+      "name": "Savage Cloak",
+      "skill_required": 255,
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_savage": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "savage"
+      }
+    },
+    "p300_le_savage_head": {
+      "name": "Savage Helm",
+      "skill_required": 260,
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_savage": 6,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 53,
+        "rarity": "rare",
+        "material_tier": "savage"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "p300_le_rugged_shoulder": {
+      "name": "Rugged Spaulders",
+      "skill_required": 260,
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_rugged": 5,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 53,
+        "rarity": "rare",
+        "material_tier": "rugged"
+      }
+    },
+    "p300_le_rugged_chest": {
+      "name": "Rugged Vest",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_rugged": 8,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 54,
+        "rarity": "epic",
+        "material_tier": "rugged"
+      }
+    },
+    "p300_le_rugged_wrist": {
+      "name": "Rugged Bracers",
+      "skill_required": 270,
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "quest",
+      "inputs": {
+        "leather_rugged": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 55,
+        "rarity": "epic",
+        "material_tier": "rugged"
+      }
+    },
+    "p300_le_rugged_hands": {
+      "name": "Rugged Gloves",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "quest",
+      "inputs": {
+        "leather_rugged": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 56,
+        "rarity": "epic",
+        "material_tier": "rugged"
+      }
+    },
+    "p300_le_netherdrake_waist": {
+      "name": "Netherdrake Belt",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "drop",
+      "inputs": {
+        "leather_netherdrake": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 56,
+        "rarity": "epic",
+        "material_tier": "netherdrake"
+      }
+    },
+    "p300_le_netherdrake_legs": {
+      "name": "Netherdrake Pants",
+      "skill_required": 280,
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_netherdrake": 7,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "netherdrake"
+      }
+    },
+    "p300_le_netherdrake_feet": {
+      "name": "Netherdrake Boots",
+      "skill_required": 285,
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_netherdrake": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 58,
+        "rarity": "epic",
+        "material_tier": "netherdrake"
+      }
+    },
+    "p300_le_netherdrake_back": {
+      "name": "Netherdrake Cloak",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_netherdrake": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 59,
+        "rarity": "epic",
+        "material_tier": "netherdrake"
+      }
+    },
+    "p300_le_emberscale_head": {
+      "name": "Emberscale Helm",
+      "skill_required": 285,
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_emberscale": 6,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 58,
+        "rarity": "epic",
+        "material_tier": "emberscale"
+      }
+    },
+    "p300_le_emberscale_shoulder": {
+      "name": "Emberscale Spaulders",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_emberscale": 5,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 59,
+        "rarity": "epic",
+        "material_tier": "emberscale"
+      }
+    },
+    "p300_le_emberscale_chest": {
+      "name": "Emberscale Vest",
+      "skill_required": 295,
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_emberscale": 8,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 60,
+        "rarity": "epic",
+        "material_tier": "emberscale"
+      }
+    },
+    "p300_le_emberscale_wrist": {
+      "name": "Emberscale Bracers",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_emberscale": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "emberscale"
+      }
+    },
+    "p300_le_mossback_hands": {
+      "name": "Mossback Gloves",
+      "skill_required": 295,
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_mossback": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 60,
+        "rarity": "epic",
+        "material_tier": "mossback"
+      }
+    },
+    "p300_le_mossback_waist": {
+      "name": "Mossback Belt",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_mossback": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "mossback"
+      }
+    },
+    "p300_le_mossback_legs": {
+      "name": "Mossback Pants",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_mossback": 7,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "mossback"
+      }
+    },
+    "p300_le_mossback_feet": {
+      "name": "Mossback Boots",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_mossback": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "mossback"
+      }
+    },
+    "p300_le_bloodtanned_back": {
+      "name": "Bloodtanned Cloak",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "quest",
+      "inputs": {
+        "leather_bloodtanned": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "bloodtanned"
+      }
+    },
+    "p300_le_bloodtanned_head": {
+      "name": "Bloodtanned Helm",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_bloodtanned": 6,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "bloodtanned"
+      }
+    },
+    "p300_le_bloodtanned_shoulder": {
+      "name": "Bloodtanned Spaulders",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_bloodtanned": 5,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "bloodtanned"
+      }
+    },
+    "p300_le_bloodtanned_chest": {
+      "name": "Bloodtanned Vest",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_bloodtanned": 8,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "bloodtanned"
+      }
+    },
+    "p300_le_duskfang_wrist": {
+      "name": "Duskfang Bracers",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_duskfang": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "duskfang"
+      }
+    },
+    "p300_le_duskfang_hands": {
+      "name": "Duskfang Gloves",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_duskfang": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "duskfang"
+      }
+    },
+    "p300_le_duskfang_waist": {
+      "name": "Duskfang Belt",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_duskfang": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "duskfang"
+      }
+    },
+    "p300_le_duskfang_legs": {
+      "name": "Duskfang Pants",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_duskfang": 7,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "duskfang"
+      }
+    },
+    "p300_le_frostscale_feet": {
+      "name": "Frostscale Boots",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_frostscale": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "frostscale"
+      }
+    },
+    "p300_le_frostscale_back": {
+      "name": "Frostscale Cloak",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_frostscale": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "frostscale"
+      }
+    },
+    "p300_le_frostscale_head": {
+      "name": "Frostscale Helm",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_frostscale": 6,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "int_caster",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "frostscale"
+      }
+    },
+    "p300_le_frostscale_shoulder": {
+      "name": "Frostscale Spaulders",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "leather_frostscale": 5,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "frostscale"
+      }
     }
   }
 }

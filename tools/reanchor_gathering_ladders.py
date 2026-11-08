@@ -107,6 +107,16 @@ ANCHORS = {
     "herb_purple_lotus": 210, "herb_sungrass": 230, "herb_blindweed": 235,
     "herb_golden_sansam": 260, "herb_dreamfoil": 270, "herb_icecap": 290,
     "herb_black_lotus": 300,
+    # ---- tailoring. Verified from wowisclassic.com and wow-professions.com
+    # (7 Nov 2026), which agree: the bolt recipes sit at 1 / 75 / 125 / 175 /
+    # 250, and those brackets land exactly on Frontier's own trainer tiers
+    # (75/150/225/300 at levels 1/10/25/40).
+    "cloth_linen": 1, "cloth_wool": 75, "cloth_silk": 125,
+    "cloth_mageweave": 175, "cloth_runecloth": 250, "cloth_felcloth": 285,
+    # ---- skinning. Verified from wow-professions.com's Classic leatherworking
+    # guide (7 Nov 2026): the skill bands each leather is used in.
+    "leather_light": 1, "leather_medium": 125, "leather_heavy": 150,
+    "leather_thick": 200, "leather_rugged": 260,
 }
 
 #: Bars whose skill is NOT their ore's - WoW's two smelt-combines.
@@ -131,12 +141,51 @@ FILLERS = {
     "ore_ashen_steel": 260,        # Thorium 245 -> Arcane Crystal 275
     # Dewgrass is Frontier's own; it slots between Earthroot and Mageroyal.
     "herb_dewgrass": 30,
+    # ---- wood respaced after parking three; the top three move up to keep
+    # the ladder even rather than leaving a hole where they were.
+    "wood_starleaf_tree": 260, "plank_starleaf": 260,
+    "wood_stormoak_tree": 280, "plank_stormoak": 280,
+    "wood_sunheart_stump": 300, "plank_sunheart": 300,
+    # ---- cloth, between the bolt anchors (Linen 1, Wool 75, Silk 125,
+    # Mageweave 175, Runecloth 250, Felcloth 285)
+    "cloth_cotton": 30, "cloth_hempen": 50, "cloth_spidersilk": 95,
+    "cloth_netherweave": 110, "cloth_gossamer": 145, "cloth_frostweave": 160,
+    "cloth_dusk_velvet": 195, "cloth_thistledown": 210,
+    "cloth_emberweave": 220, "cloth_moonsilk": 235,
+    "cloth_shadowsilk": 265, "cloth_starweave": 275,
+    "cloth_bloodsilk": 295, "cloth_soulcloth": 300,
+    "cloth_voidweave": 290, "cloth_sunthread": 300,
+    # ---- leather, between the skinning anchors (Light 1, Medium 125,
+    # Heavy 150, Thick 200, Rugged 260)
+    "leather_scrap": 1,
+    "leather_cragscale": 40, "leather_stormscale": 70,
+    "leather_stonebound": 95, "leather_wyvern": 110,
+    "leather_basilisk": 135, "leather_dredged": 165,
+    "leather_fiendish": 180, "leather_hydra": 215,
+    "leather_pristine": 230, "leather_savage": 245,
+    "leather_netherdrake": 275, "leather_emberscale": 285,
+    "leather_mossback": 295, "leather_duskfang": 300,
+    "leather_frostscale": 300, "leather_bloodtanned": 300,
 }
 
 #: Lifted above the ceiling into the forward-authored endgame set rather than
 #: squeezed into the reachable ladder. These are the ones whose names already
 #: read as endgame, so they belong to the expansion.
 PARK_ABOVE = {
+    # Cloth whose names belong to WoW expansions after Classic (Netherweave is
+    # TBC, Frostweave WotLK, Windwool MoP, Imperial Silk MoP). Kyle: "keep only
+    # wow terminal stuff" means CLASSIC's terminal, so these wait with the
+    # expansion rather than sitting in the Classic-era ladder.
+    "cloth_windwool": 330, "cloth_imperial_silk": 340,
+    # Leather named for creatures the game does not have yet.
+    "leather_frostwyrm": 350, "leather_behemoth": 360,
+    # Three woods out of the reachable ladder - Kyle: "Use up to 21 wood into
+    # planks." Twenty-five were crowding six of them into the top fifty skill.
+    # Their PLANKS go with them, or the sawmill would still turn a wood nobody
+    # can cut into a plank nobody can reach.
+    "wood_emberwood_stump": 310, "plank_emberwood": 310,
+    "wood_frostheart_tree": 320, "plank_frostheart": 320,
+    "wood_ebonthorn_stump": 330, "plank_ebonthorn": 330,
     "ore_frostforged_silver": 310,
     "ore_sunforged_gold": 320,
     "ore_nightshard": 330,

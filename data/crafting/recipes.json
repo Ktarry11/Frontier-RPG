@@ -5107,7 +5107,7 @@
             280,
             290
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "tail_shadowsilk_bag": {
           "name": "Tideworn Bosun's Chest",
@@ -5143,7 +5143,8 @@
             295,
             305
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_starweave_bag": {
           "name": "Duskwoven Carryall",
@@ -5198,7 +5199,8 @@
             310,
             320
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_bloodsilk_box": {
           "name": "Stormglass Strongbox",
@@ -5253,7 +5255,1360 @@
             325,
             335
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
+        },
+        "p300_bolt_netherweave": {
+          "name": "Bolt of Netherweave",
+          "skill_required": 110,
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_netherweave": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_netherweave"
+          }
+        },
+        "p300_bolt_frostweave": {
+          "name": "Bolt of Frostweave",
+          "skill_required": 160,
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_frostweave": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_frostweave"
+          }
+        },
+        "p300_bolt_emberweave": {
+          "name": "Bolt of Emberweave",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_emberweave": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_emberweave"
+          }
+        },
+        "p300_bolt_moonsilk": {
+          "name": "Bolt of Moonsilk",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_moonsilk": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_moonsilk"
+          }
+        },
+        "p300_bolt_shadowsilk": {
+          "name": "Bolt of Shadowsilk",
+          "skill_required": 265,
+          "skill_range": [
+            270,
+            280,
+            290,
+            300
+          ],
+          "source": "drop",
+          "inputs": {
+            "cloth_shadowsilk": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_shadowsilk"
+          }
+        },
+        "p300_bolt_starweave": {
+          "name": "Bolt of Starweave",
+          "skill_required": 275,
+          "skill_range": [
+            280,
+            290,
+            300,
+            310
+          ],
+          "source": "vendor",
+          "inputs": {
+            "cloth_starweave": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_starweave"
+          },
+          "vendor_location": "Any pattern vendor"
+        },
+        "p300_bolt_felcloth": {
+          "name": "Bolt of Felcloth",
+          "skill_required": 285,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "vendor",
+          "inputs": {
+            "cloth_felcloth": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_felcloth"
+          },
+          "vendor_location": "Any pattern vendor"
+        },
+        "p300_bolt_voidweave": {
+          "name": "Bolt of Voidweave",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "source": "quest",
+          "inputs": {
+            "cloth_voidweave": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_voidweave"
+          }
+        },
+        "p300_bolt_bloodsilk": {
+          "name": "Bolt of Bloodsilk",
+          "skill_required": 295,
+          "skill_range": [
+            300,
+            310,
+            320,
+            330
+          ],
+          "source": "quest",
+          "inputs": {
+            "cloth_bloodsilk": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_bloodsilk"
+          }
+        },
+        "p300_bolt_soulcloth": {
+          "name": "Bolt of Soulcloth",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_soulcloth": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_soulcloth"
+          }
+        },
+        "p300_bolt_sunthread": {
+          "name": "Bolt of Sunthread",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "cloth_sunthread": 3
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_sunthread"
+          }
+        },
+        "p300_ta_netherweave_head": {
+          "name": "Netherweave Hood",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_netherweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 31,
+            "rarity": "rare",
+            "material_tier": "netherweave"
+          }
+        },
+        "p300_ta_netherweave_shoulder": {
+          "name": "Netherweave Mantle",
+          "skill_required": 155,
+          "skill_range": [
+            160,
+            170,
+            180,
+            190
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_netherweave": 5,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 32,
+            "rarity": "rare",
+            "material_tier": "netherweave"
+          }
+        },
+        "p300_ta_netherweave_chest": {
+          "name": "Netherweave Robe",
+          "skill_required": 160,
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_netherweave": 8,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 33,
+            "rarity": "rare",
+            "material_tier": "netherweave"
+          }
+        },
+        "p300_ta_netherweave_wrist": {
+          "name": "Netherweave Cuffs",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_netherweave": 3,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 34,
+            "rarity": "rare",
+            "material_tier": "netherweave"
+          }
+        },
+        "p300_ta_frostweave_hands": {
+          "name": "Frostweave Gloves",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_frostweave": 4,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 34,
+            "rarity": "rare",
+            "material_tier": "frostweave"
+          }
+        },
+        "p300_ta_frostweave_waist": {
+          "name": "Frostweave Sash",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_frostweave": 4,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 35,
+            "rarity": "rare",
+            "material_tier": "frostweave"
+          }
+        },
+        "p300_ta_frostweave_legs": {
+          "name": "Frostweave Leggings",
+          "skill_required": 175,
+          "skill_range": [
+            180,
+            190,
+            200,
+            210
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_frostweave": 7,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 36,
+            "rarity": "rare",
+            "material_tier": "frostweave"
+          }
+        },
+        "p300_ta_frostweave_feet": {
+          "name": "Frostweave Slippers",
+          "skill_required": 180,
+          "skill_range": [
+            185,
+            195,
+            205,
+            215
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_frostweave": 4,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "frostweave"
+          }
+        },
+        "p300_ta_emberweave_back": {
+          "name": "Emberweave Cloak",
+          "skill_required": 180,
+          "skill_range": [
+            185,
+            195,
+            205,
+            215
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_emberweave": 4,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "emberweave"
+          }
+        },
+        "p300_ta_emberweave_head": {
+          "name": "Emberweave Hood",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_emberweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 38,
+            "rarity": "rare",
+            "material_tier": "emberweave"
+          }
+        },
+        "p300_ta_emberweave_shoulder": {
+          "name": "Emberweave Mantle",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_emberweave": 5,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "emberweave"
+          }
+        },
+        "p300_ta_emberweave_chest": {
+          "name": "Emberweave Robe",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_emberweave": 8,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "emberweave"
+          }
+        },
+        "p300_ta_moonsilk_wrist": {
+          "name": "Moonsilk Cuffs",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_moonsilk": 3,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "moonsilk"
+          }
+        },
+        "p300_ta_moonsilk_hands": {
+          "name": "Moonsilk Gloves",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 41,
+            "rarity": "rare",
+            "material_tier": "moonsilk"
+          }
+        },
+        "p300_ta_moonsilk_waist": {
+          "name": "Moonsilk Sash",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 42,
+            "rarity": "rare",
+            "material_tier": "moonsilk"
+          }
+        },
+        "p300_ta_moonsilk_legs": {
+          "name": "Moonsilk Leggings",
+          "skill_required": 210,
+          "skill_range": [
+            215,
+            225,
+            235,
+            245
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_moonsilk": 7,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 43,
+            "rarity": "rare",
+            "material_tier": "moonsilk"
+          }
+        },
+        "p300_ta_shadowsilk_feet": {
+          "name": "Shadowsilk Slippers",
+          "skill_required": 210,
+          "skill_range": [
+            215,
+            225,
+            235,
+            245
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_shadowsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 43,
+            "rarity": "rare",
+            "material_tier": "shadowsilk"
+          }
+        },
+        "p300_ta_shadowsilk_back": {
+          "name": "Shadowsilk Cloak",
+          "skill_required": 215,
+          "skill_range": [
+            220,
+            230,
+            240,
+            250
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_shadowsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 44,
+            "rarity": "rare",
+            "material_tier": "shadowsilk"
+          }
+        },
+        "p300_ta_shadowsilk_head": {
+          "name": "Shadowsilk Hood",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_shadowsilk": 6,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 45,
+            "rarity": "rare",
+            "material_tier": "shadowsilk"
+          }
+        },
+        "p300_ta_shadowsilk_shoulder": {
+          "name": "Shadowsilk Mantle",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_shadowsilk": 5,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 46,
+            "rarity": "rare",
+            "material_tier": "shadowsilk"
+          }
+        },
+        "p300_ta_starweave_chest": {
+          "name": "Starweave Robe",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_starweave": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 46,
+            "rarity": "rare",
+            "material_tier": "starweave"
+          }
+        },
+        "p300_ta_starweave_wrist": {
+          "name": "Starweave Cuffs",
+          "skill_required": 230,
+          "skill_range": [
+            235,
+            245,
+            255,
+            265
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_starweave": 3,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 47,
+            "rarity": "rare",
+            "material_tier": "starweave"
+          }
+        },
+        "p300_ta_starweave_hands": {
+          "name": "Starweave Gloves",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_starweave": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 48,
+            "rarity": "rare",
+            "material_tier": "starweave"
+          }
+        },
+        "p300_ta_starweave_waist": {
+          "name": "Starweave Sash",
+          "skill_required": 240,
+          "skill_range": [
+            245,
+            255,
+            265,
+            275
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_starweave": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 49,
+            "rarity": "rare",
+            "material_tier": "starweave"
+          }
+        },
+        "p300_ta_bloodsilk_legs": {
+          "name": "Bloodsilk Leggings",
+          "skill_required": 240,
+          "skill_range": [
+            245,
+            255,
+            265,
+            275
+          ],
+          "source": "quest",
+          "inputs": {
+            "bolt_bloodsilk": 7,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 49,
+            "rarity": "rare",
+            "material_tier": "bloodsilk"
+          }
+        },
+        "p300_ta_bloodsilk_feet": {
+          "name": "Bloodsilk Slippers",
+          "skill_required": 245,
+          "skill_range": [
+            250,
+            260,
+            270,
+            280
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_bloodsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 50,
+            "rarity": "rare",
+            "material_tier": "bloodsilk"
+          }
+        },
+        "p300_ta_bloodsilk_back": {
+          "name": "Bloodsilk Cloak",
+          "skill_required": 250,
+          "skill_range": [
+            255,
+            265,
+            275,
+            285
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_bloodsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 51,
+            "rarity": "rare",
+            "material_tier": "bloodsilk"
+          }
+        },
+        "p300_ta_bloodsilk_head": {
+          "name": "Bloodsilk Hood",
+          "skill_required": 255,
+          "skill_range": [
+            260,
+            270,
+            280,
+            290
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_bloodsilk": 6,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 52,
+            "rarity": "rare",
+            "material_tier": "bloodsilk"
+          }
+        },
+        "p300_ta_felcloth_shoulder": {
+          "name": "Felcloth Mantle",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_felcloth": 5,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 53,
+            "rarity": "rare",
+            "material_tier": "felcloth"
+          }
+        },
+        "p300_ta_felcloth_chest": {
+          "name": "Felcloth Robe",
+          "skill_required": 265,
+          "skill_range": [
+            270,
+            280,
+            290,
+            300
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_felcloth": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 54,
+            "rarity": "epic",
+            "material_tier": "felcloth"
+          }
+        },
+        "p300_ta_felcloth_wrist": {
+          "name": "Felcloth Cuffs",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "quest",
+          "inputs": {
+            "bolt_felcloth": 3,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 55,
+            "rarity": "epic",
+            "material_tier": "felcloth"
+          }
+        },
+        "p300_ta_felcloth_hands": {
+          "name": "Felcloth Gloves",
+          "skill_required": 275,
+          "skill_range": [
+            280,
+            290,
+            300,
+            310
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_felcloth": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 56,
+            "rarity": "epic",
+            "material_tier": "felcloth"
+          }
+        },
+        "p300_ta_soulcloth_waist": {
+          "name": "Soulcloth Sash",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "quest",
+          "inputs": {
+            "bolt_soulcloth": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 55,
+            "rarity": "epic",
+            "material_tier": "soulcloth"
+          }
+        },
+        "p300_ta_soulcloth_legs": {
+          "name": "Soulcloth Leggings",
+          "skill_required": 275,
+          "skill_range": [
+            280,
+            290,
+            300,
+            310
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_soulcloth": 7,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 56,
+            "rarity": "epic",
+            "material_tier": "soulcloth"
+          }
+        },
+        "p300_ta_soulcloth_feet": {
+          "name": "Soulcloth Slippers",
+          "skill_required": 280,
+          "skill_range": [
+            285,
+            295,
+            305,
+            315
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_soulcloth": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 57,
+            "rarity": "epic",
+            "material_tier": "soulcloth"
+          }
+        },
+        "p300_ta_soulcloth_back": {
+          "name": "Soulcloth Cloak",
+          "skill_required": 285,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_soulcloth": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 58,
+            "rarity": "epic",
+            "material_tier": "soulcloth"
+          }
+        },
+        "p300_ta_windwool_head": {
+          "name": "Windwool Hood",
+          "skill_required": 280,
+          "skill_range": [
+            285,
+            295,
+            305,
+            315
+          ],
+          "source": "drop",
+          "inputs": {
+            "bolt_windwool": 6,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 57,
+            "rarity": "epic",
+            "material_tier": "windwool"
+          }
+        },
+        "p300_ta_windwool_shoulder": {
+          "name": "Windwool Mantle",
+          "skill_required": 285,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_windwool": 5,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 58,
+            "rarity": "epic",
+            "material_tier": "windwool"
+          }
+        },
+        "p300_ta_windwool_chest": {
+          "name": "Windwool Robe",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "source": "quest",
+          "inputs": {
+            "bolt_windwool": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 59,
+            "rarity": "epic",
+            "material_tier": "windwool"
+          }
+        },
+        "p300_ta_windwool_wrist": {
+          "name": "Windwool Cuffs",
+          "skill_required": 295,
+          "skill_range": [
+            300,
+            310,
+            320,
+            330
+          ],
+          "source": "quest",
+          "inputs": {
+            "bolt_windwool": 3,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 60,
+            "rarity": "epic",
+            "material_tier": "windwool"
+          }
+        },
+        "p300_ta_imperial_silk_hands": {
+          "name": "Imperial Silk Gloves",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_imperial_silk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 59,
+            "rarity": "epic",
+            "material_tier": "imperial_silk"
+          }
+        },
+        "p300_ta_imperial_silk_waist": {
+          "name": "Imperial Silk Sash",
+          "skill_required": 295,
+          "skill_range": [
+            300,
+            310,
+            320,
+            330
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_imperial_silk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 60,
+            "rarity": "epic",
+            "material_tier": "imperial_silk"
+          }
+        },
+        "p300_ta_imperial_silk_legs": {
+          "name": "Imperial Silk Leggings",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_imperial_silk": 7,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "imperial_silk"
+          }
+        },
+        "p300_ta_imperial_silk_feet": {
+          "name": "Imperial Silk Slippers",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_imperial_silk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "imperial_silk"
+          }
+        },
+        "p300_ta_voidweave_back": {
+          "name": "Voidweave Cloak",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_voidweave": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "voidweave"
+          }
+        },
+        "p300_ta_voidweave_head": {
+          "name": "Voidweave Hood",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_voidweave": 6,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "voidweave"
+          }
+        },
+        "p300_ta_voidweave_shoulder": {
+          "name": "Voidweave Mantle",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_voidweave": 5,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "voidweave"
+          }
+        },
+        "p300_ta_voidweave_chest": {
+          "name": "Voidweave Robe",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bolt_voidweave": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "voidweave"
+          }
         }
       }
     },
@@ -9206,7 +10561,7 @@
             250,
             260
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_felbark": 1
           },
@@ -9261,7 +10616,7 @@
             265,
             275
           ],
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "plank_moonpetal": 1
           },
@@ -9279,7 +10634,7 @@
             275,
             285
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_moonpetal": 1
           },
@@ -9297,7 +10652,7 @@
             290,
             300
           ],
-          "source": "trainer",
+          "source": "quest",
           "station": "sawmill",
           "inputs": {
             "plank_emberwood": 2
@@ -9427,7 +10782,7 @@
             305,
             315
           ],
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "plank_ebonthorn": 1
           },
@@ -9562,6 +10917,682 @@
           "output": {
             "kind": "material",
             "material_id": "pages_gilded"
+          }
+        },
+        "p300_wo_duskwood_wand": {
+          "name": "Duskwood Wand",
+          "skill_required": 150,
+          "skill_range": [
+            155,
+            165,
+            175,
+            185
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_duskwood": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 31,
+            "rarity": "rare",
+            "material_tier": "duskwood"
+          }
+        },
+        "p300_wo_duskwood_staff": {
+          "name": "Duskwood Staff",
+          "skill_required": 155,
+          "skill_range": [
+            160,
+            170,
+            180,
+            190
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_duskwood": 8,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 32,
+            "rarity": "rare",
+            "material_tier": "duskwood"
+          }
+        },
+        "p300_wo_duskwood_bow": {
+          "name": "Duskwood Longbow",
+          "skill_required": 160,
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_duskwood": 7,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 33,
+            "rarity": "rare",
+            "material_tier": "duskwood"
+          }
+        },
+        "p300_wo_nightshade_polearm": {
+          "name": "Nightshade Spear",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_nightshade": 8,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 34,
+            "rarity": "rare",
+            "material_tier": "nightshade"
+          }
+        },
+        "p300_wo_nightshade_crossbow": {
+          "name": "Nightshade Crossbow",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_nightshade": 7,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "crossbow",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 35,
+            "rarity": "rare",
+            "material_tier": "nightshade"
+          }
+        },
+        "p300_wo_nightshade_tome": {
+          "name": "Nightshade Codex",
+          "skill_required": 175,
+          "skill_range": [
+            180,
+            190,
+            200,
+            210
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_nightshade": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 36,
+            "rarity": "rare",
+            "material_tier": "nightshade"
+          }
+        },
+        "p300_wo_thornveil_wand": {
+          "name": "Thornveil Wand",
+          "skill_required": 180,
+          "skill_range": [
+            185,
+            195,
+            205,
+            215
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_thornveil": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "thornveil"
+          }
+        },
+        "p300_wo_thornveil_staff": {
+          "name": "Thornveil Staff",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_thornveil": 8,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 38,
+            "rarity": "rare",
+            "material_tier": "thornveil"
+          }
+        },
+        "p300_wo_thornveil_bow": {
+          "name": "Thornveil Longbow",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_thornveil": 7,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "thornveil"
+          }
+        },
+        "p300_wo_bloodroot_polearm": {
+          "name": "Bloodroot Spear",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_bloodroot": 8,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "bloodroot"
+          }
+        },
+        "p300_wo_bloodroot_crossbow": {
+          "name": "Bloodroot Crossbow",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_bloodroot": 7,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "crossbow",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 41,
+            "rarity": "rare",
+            "material_tier": "bloodroot"
+          }
+        },
+        "p300_wo_bloodroot_tome": {
+          "name": "Bloodroot Codex",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_bloodroot": 5,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 42,
+            "rarity": "rare",
+            "material_tier": "bloodroot"
+          }
+        },
+        "p300_wo_bloodwood_wand": {
+          "name": "Bloodwood Wand",
+          "skill_required": 210,
+          "skill_range": [
+            215,
+            225,
+            235,
+            245
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_bloodwood": 5,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 43,
+            "rarity": "rare",
+            "material_tier": "bloodwood"
+          }
+        },
+        "p300_wo_bloodwood_staff": {
+          "name": "Bloodwood Staff",
+          "skill_required": 215,
+          "skill_range": [
+            220,
+            230,
+            240,
+            250
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_bloodwood": 8,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 44,
+            "rarity": "rare",
+            "material_tier": "bloodwood"
+          }
+        },
+        "p300_wo_bloodwood_bow": {
+          "name": "Bloodwood Longbow",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "quest",
+          "inputs": {
+            "plank_bloodwood": 7,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 45,
+            "rarity": "rare",
+            "material_tier": "bloodwood"
+          }
+        },
+        "p300_wo_felbark_polearm": {
+          "name": "Felbark Spear",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_felbark": 8,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 46,
+            "rarity": "rare",
+            "material_tier": "felbark"
+          }
+        },
+        "p300_wo_felbark_crossbow": {
+          "name": "Felbark Crossbow",
+          "skill_required": 230,
+          "skill_range": [
+            235,
+            245,
+            255,
+            265
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_felbark": 7,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "crossbow",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 47,
+            "rarity": "rare",
+            "material_tier": "felbark"
+          }
+        },
+        "p300_wo_felbark_tome": {
+          "name": "Felbark Codex",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_felbark": 5,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 48,
+            "rarity": "rare",
+            "material_tier": "felbark"
+          },
+          "vendor_location": "Any pattern vendor"
+        },
+        "p300_wo_moonpetal_wand": {
+          "name": "Moonpetal Wand",
+          "skill_required": 240,
+          "skill_range": [
+            245,
+            255,
+            265,
+            275
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_moonpetal": 5,
+            "resin": 1,
+            "stick_lacquered": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 49,
+            "rarity": "rare",
+            "material_tier": "moonpetal"
+          }
+        },
+        "p300_wo_moonpetal_staff": {
+          "name": "Moonpetal Staff",
+          "skill_required": 245,
+          "skill_range": [
+            250,
+            260,
+            270,
+            280
+          ],
+          "source": "drop",
+          "inputs": {
+            "plank_moonpetal": 8,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 50,
+            "rarity": "rare",
+            "material_tier": "moonpetal"
+          }
+        },
+        "p300_wo_moonpetal_bow": {
+          "name": "Moonpetal Longbow",
+          "skill_required": 250,
+          "skill_range": [
+            255,
+            265,
+            275,
+            285
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_moonpetal": 7,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 51,
+            "rarity": "rare",
+            "material_tier": "moonpetal"
+          }
+        },
+        "p300_wo_starleaf_polearm": {
+          "name": "Starleaf Spear",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "quest",
+          "inputs": {
+            "plank_starleaf": 8,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 53,
+            "rarity": "rare",
+            "material_tier": "starleaf"
+          }
+        },
+        "p300_wo_starleaf_crossbow": {
+          "name": "Starleaf Crossbow",
+          "skill_required": 265,
+          "skill_range": [
+            270,
+            280,
+            290,
+            300
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_starleaf": 7,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "crossbow",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 54,
+            "rarity": "epic",
+            "material_tier": "starleaf"
+          }
+        },
+        "p300_wo_starleaf_tome": {
+          "name": "Starleaf Codex",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "quest",
+          "inputs": {
+            "plank_starleaf": 5,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 55,
+            "rarity": "epic",
+            "material_tier": "starleaf"
+          }
+        },
+        "p300_wo_stormoak_wand": {
+          "name": "Stormoak Wand",
+          "skill_required": 280,
+          "skill_range": [
+            285,
+            295,
+            305,
+            315
+          ],
+          "source": "trainer",
+          "inputs": {
+            "plank_stormoak": 5,
+            "resin": 1,
+            "stick_banded": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "wand",
+            "stat_template": "int_caster",
+            "item_level": 57,
+            "rarity": "epic",
+            "material_tier": "stormoak"
+          }
+        },
+        "p300_wo_stormoak_staff": {
+          "name": "Stormoak Staff",
+          "skill_required": 285,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "quest",
+          "inputs": {
+            "plank_stormoak": 8,
+            "resin": 1,
+            "stick_ironbound": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "two_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 58,
+            "rarity": "epic",
+            "material_tier": "stormoak"
+          }
+        },
+        "p300_wo_stormoak_bow": {
+          "name": "Stormoak Longbow",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "source": "quest",
+          "inputs": {
+            "plank_stormoak": 7,
+            "resin": 1,
+            "stick_ironbound": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "bow",
+            "stat_template": "agi_physical",
+            "item_level": 59,
+            "rarity": "epic",
+            "material_tier": "stormoak"
           }
         }
       }

@@ -746,10 +746,10 @@
       "sell_price": 4,
       "icon_id": "cloth_linen",
       "skill_range": [
-        5,
-        20,
-        35,
-        50
+        1,
+        21,
+        36,
+        51
       ]
     },
     "cloth_wool": {
@@ -762,10 +762,10 @@
       "sell_price": 5,
       "icon_id": "cloth_wool",
       "skill_range": [
-        15,
-        30,
-        45,
-        60
+        75,
+        95,
+        110,
+        125
       ]
     },
     "cloth_silk": {
@@ -778,10 +778,10 @@
       "sell_price": 10,
       "icon_id": "cloth_silk",
       "skill_range": [
-        50,
-        70,
-        90,
-        110
+        125,
+        145,
+        160,
+        175
       ]
     },
     "bolt_linen": {
@@ -892,10 +892,10 @@
       "material_type": "cloth",
       "tier": "early",
       "skill_range": [
-        20,
-        35,
+        30,
         50,
-        65
+        65,
+        80
       ],
       "sell_price": 6,
       "stack_limit": 20,
@@ -908,10 +908,10 @@
       "material_type": "cloth",
       "tier": "early",
       "skill_range": [
-        25,
-        40,
-        55,
-        70
+        50,
+        70,
+        85,
+        100
       ],
       "sell_price": 7,
       "stack_limit": 20,
@@ -922,12 +922,12 @@
     "cloth_mageweave": {
       "name": "Mageweave Cloth",
       "material_type": "cloth",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        60,
-        80,
-        100,
-        120
+        175,
+        195,
+        210,
+        225
       ],
       "sell_price": 12,
       "stack_limit": 20,
@@ -940,10 +940,10 @@
       "material_type": "cloth",
       "tier": "mid",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        95,
+        115,
+        130,
+        145
       ],
       "sell_price": 14,
       "stack_limit": 20,
@@ -954,12 +954,12 @@
     "cloth_dusk_velvet": {
       "name": "Dusk Velvet",
       "material_type": "cloth",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        195,
+        215,
+        230,
+        245
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -972,10 +972,10 @@
       "material_type": "cloth",
       "tier": "mid",
       "skill_range": [
-        90,
-        110,
-        130,
-        150
+        145,
+        165,
+        180,
+        195
       ],
       "sell_price": 18,
       "stack_limit": 20,
@@ -986,12 +986,12 @@
     "cloth_thistledown": {
       "name": "Thistledown Cloth",
       "material_type": "cloth",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        100,
-        120,
-        140,
-        160
+        210,
+        230,
+        245,
+        260
       ],
       "sell_price": 20,
       "stack_limit": 20,
@@ -1002,12 +1002,12 @@
     "cloth_runecloth": {
       "name": "Runecloth",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        125,
-        150,
-        170,
-        200
+        250,
+        270,
+        285,
+        300
       ],
       "sell_price": 24,
       "stack_limit": 20,
@@ -1018,12 +1018,12 @@
     "cloth_netherweave": {
       "name": "Netherweave Cloth",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "mid",
       "skill_range": [
-        140,
-        165,
-        185,
-        215
+        110,
+        130,
+        145,
+        160
       ],
       "sell_price": 26,
       "stack_limit": 20,
@@ -1036,10 +1036,10 @@
       "material_type": "cloth",
       "tier": "late",
       "skill_range": [
-        155,
+        160,
         180,
-        200,
-        230
+        195,
+        210
       ],
       "sell_price": 28,
       "stack_limit": 20,
@@ -1052,10 +1052,10 @@
       "material_type": "cloth",
       "tier": "late",
       "skill_range": [
-        170,
-        195,
-        215,
-        245
+        220,
+        240,
+        255,
+        270
       ],
       "sell_price": 30,
       "stack_limit": 20,
@@ -1066,12 +1066,12 @@
     "cloth_moonsilk": {
       "name": "Moonsilk",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        185,
-        210,
-        230,
-        260
+        235,
+        255,
+        270,
+        285
       ],
       "sell_price": 32,
       "stack_limit": 20,
@@ -1082,12 +1082,12 @@
     "cloth_shadowsilk": {
       "name": "Shadowsilk",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        200,
-        225,
-        245,
-        275
+        265,
+        285,
+        300,
+        315
       ],
       "sell_price": 34,
       "stack_limit": 20,
@@ -1098,12 +1098,12 @@
     "cloth_starweave": {
       "name": "Starweave Cloth",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        215,
-        240,
-        260,
-        290
+        275,
+        295,
+        310,
+        325
       ],
       "sell_price": 36,
       "stack_limit": 20,
@@ -1114,12 +1114,12 @@
     "cloth_bloodsilk": {
       "name": "Bloodsilk",
       "material_type": "cloth",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        230,
-        255,
-        275,
-        305
+        295,
+        315,
+        330,
+        345
       ],
       "sell_price": 38,
       "stack_limit": 20,
@@ -1132,10 +1132,10 @@
       "material_type": "cloth",
       "tier": "endgame",
       "skill_range": [
-        250,
-        275,
-        295,
-        325
+        285,
+        305,
+        320,
+        335
       ],
       "sell_price": 45,
       "stack_limit": 20,
@@ -1148,10 +1148,10 @@
       "material_type": "cloth",
       "tier": "endgame",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        300,
+        320,
+        335,
+        350
       ],
       "sell_price": 48,
       "stack_limit": 20,
@@ -1164,10 +1164,10 @@
       "material_type": "cloth",
       "tier": "endgame",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        330,
+        350,
+        365,
+        380
       ],
       "sell_price": 50,
       "stack_limit": 20,
@@ -1180,10 +1180,10 @@
       "material_type": "cloth",
       "tier": "endgame",
       "skill_range": [
-        280,
-        305,
-        325,
-        355
+        340,
+        360,
+        375,
+        390
       ],
       "sell_price": 55,
       "stack_limit": 20,
@@ -1484,10 +1484,10 @@
       "material_type": "leather",
       "tier": "early",
       "skill_range": [
-        5,
-        20,
-        35,
-        50
+        1,
+        21,
+        36,
+        51
       ],
       "sell_price": 4,
       "stack_limit": 20,
@@ -1500,10 +1500,10 @@
       "material_type": "leather",
       "tier": "early",
       "skill_range": [
-        15,
-        30,
-        45,
-        60
+        1,
+        21,
+        36,
+        51
       ],
       "sell_price": 5,
       "stack_limit": 20,
@@ -1514,12 +1514,12 @@
     "leather_medium": {
       "name": "Medium Leather",
       "material_type": "leather",
-      "tier": "early",
+      "tier": "mid",
       "skill_range": [
-        20,
-        35,
-        50,
-        65
+        125,
+        145,
+        160,
+        175
       ],
       "sell_price": 6,
       "stack_limit": 20,
@@ -1530,12 +1530,12 @@
     "leather_heavy": {
       "name": "Heavy Leather",
       "material_type": "leather",
-      "tier": "early",
+      "tier": "mid",
       "skill_range": [
-        25,
-        40,
-        55,
-        70
+        150,
+        170,
+        185,
+        200
       ],
       "sell_price": 7,
       "stack_limit": 20,
@@ -1546,12 +1546,12 @@
     "leather_thick": {
       "name": "Thick Leather",
       "material_type": "leather",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        50,
-        70,
-        90,
-        110
+        200,
+        220,
+        235,
+        250
       ],
       "sell_price": 10,
       "stack_limit": 20,
@@ -1562,12 +1562,12 @@
     "leather_rugged": {
       "name": "Rugged Leather",
       "material_type": "leather",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        60,
-        80,
-        100,
-        120
+        260,
+        280,
+        295,
+        310
       ],
       "sell_price": 12,
       "stack_limit": 20,
@@ -1578,12 +1578,12 @@
     "leather_cragscale": {
       "name": "Cragscale Leather",
       "material_type": "leather",
-      "tier": "mid",
+      "tier": "early",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        40,
+        60,
+        75,
+        90
       ],
       "sell_price": 14,
       "stack_limit": 20,
@@ -1594,12 +1594,12 @@
     "leather_stormscale": {
       "name": "Stormscale Leather",
       "material_type": "leather",
-      "tier": "mid",
+      "tier": "early",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        70,
+        90,
+        105,
+        120
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -1612,10 +1612,10 @@
       "material_type": "leather",
       "tier": "mid",
       "skill_range": [
-        90,
-        110,
+        95,
+        115,
         130,
-        150
+        145
       ],
       "sell_price": 18,
       "stack_limit": 20,
@@ -1626,12 +1626,12 @@
     "leather_dredged": {
       "name": "Dredged Leather",
       "material_type": "leather",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        100,
-        120,
-        140,
-        160
+        165,
+        185,
+        200,
+        215
       ],
       "sell_price": 20,
       "stack_limit": 20,
@@ -1644,10 +1644,10 @@
       "material_type": "leather",
       "tier": "late",
       "skill_range": [
-        125,
-        150,
-        170,
-        200
+        180,
+        200,
+        215,
+        230
       ],
       "sell_price": 24,
       "stack_limit": 20,
@@ -1658,12 +1658,12 @@
     "leather_pristine": {
       "name": "Pristine Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        140,
-        165,
-        185,
-        215
+        230,
+        250,
+        265,
+        280
       ],
       "sell_price": 26,
       "stack_limit": 20,
@@ -1674,12 +1674,12 @@
     "leather_savage": {
       "name": "Savage Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        155,
-        180,
-        200,
-        230
+        245,
+        265,
+        280,
+        295
       ],
       "sell_price": 28,
       "stack_limit": 20,
@@ -1690,12 +1690,12 @@
     "leather_frostscale": {
       "name": "Frostscale Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        170,
-        195,
-        215,
-        245
+        300,
+        320,
+        335,
+        350
       ],
       "sell_price": 30,
       "stack_limit": 20,
@@ -1706,12 +1706,12 @@
     "leather_emberscale": {
       "name": "Emberscale Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        185,
-        210,
-        230,
-        260
+        285,
+        305,
+        320,
+        335
       ],
       "sell_price": 32,
       "stack_limit": 20,
@@ -1722,12 +1722,12 @@
     "leather_mossback": {
       "name": "Mossback Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        200,
-        225,
-        245,
-        275
+        295,
+        315,
+        330,
+        345
       ],
       "sell_price": 34,
       "stack_limit": 20,
@@ -1738,12 +1738,12 @@
     "leather_duskfang": {
       "name": "Duskfang Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        215,
-        240,
-        260,
-        290
+        300,
+        320,
+        335,
+        350
       ],
       "sell_price": 36,
       "stack_limit": 20,
@@ -1754,12 +1754,12 @@
     "leather_bloodtanned": {
       "name": "Bloodtanned Leather",
       "material_type": "leather",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        230,
-        255,
-        275,
-        305
+        300,
+        320,
+        335,
+        350
       ],
       "sell_price": 38,
       "stack_limit": 20,
@@ -1770,12 +1770,12 @@
     "leather_wyvern": {
       "name": "Wyvern Leather",
       "material_type": "leather",
-      "tier": "endgame",
+      "tier": "mid",
       "skill_range": [
-        250,
-        275,
-        295,
-        325
+        110,
+        130,
+        145,
+        160
       ],
       "sell_price": 45,
       "stack_limit": 20,
@@ -1786,12 +1786,12 @@
     "leather_basilisk": {
       "name": "Basilisk Leather",
       "material_type": "leather",
-      "tier": "endgame",
+      "tier": "mid",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        135,
+        155,
+        170,
+        185
       ],
       "sell_price": 48,
       "stack_limit": 20,
@@ -1802,12 +1802,12 @@
     "leather_hydra": {
       "name": "Hydra Leather",
       "material_type": "leather",
-      "tier": "endgame",
+      "tier": "late",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        215,
+        235,
+        250,
+        265
       ],
       "sell_price": 50,
       "stack_limit": 20,
@@ -1820,10 +1820,10 @@
       "material_type": "leather",
       "tier": "endgame",
       "skill_range": [
-        280,
-        305,
-        325,
-        355
+        275,
+        295,
+        310,
+        325
       ],
       "sell_price": 55,
       "stack_limit": 20,
@@ -1836,10 +1836,10 @@
       "material_type": "leather",
       "tier": "endgame",
       "skill_range": [
-        290,
-        315,
-        335,
-        365
+        350,
+        370,
+        385,
+        400
       ],
       "sell_price": 58,
       "stack_limit": 20,
@@ -1852,10 +1852,10 @@
       "material_type": "leather",
       "tier": "endgame",
       "skill_range": [
-        300,
-        325,
-        345,
-        375
+        360,
+        380,
+        395,
+        410
       ],
       "sell_price": 60,
       "stack_limit": 20,
@@ -5171,10 +5171,10 @@
       "material_type": "wood",
       "tier": "endgame",
       "skill_range": [
-        250,
-        275,
-        295,
-        325
+        310,
+        330,
+        345,
+        360
       ],
       "sell_price": 45,
       "stack_limit": 20,
@@ -5187,10 +5187,10 @@
       "material_type": "plank",
       "tier": "endgame",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        310,
+        330,
+        345,
+        360
       ],
       "sell_price": 62,
       "stack_limit": 20,
@@ -5203,10 +5203,10 @@
       "material_type": "wood",
       "tier": "endgame",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        320,
+        340,
+        355,
+        370
       ],
       "sell_price": 48,
       "stack_limit": 20,
@@ -5219,10 +5219,10 @@
       "material_type": "plank",
       "tier": "endgame",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        320,
+        340,
+        355,
+        370
       ],
       "sell_price": 67,
       "stack_limit": 20,
@@ -5235,10 +5235,10 @@
       "material_type": "wood",
       "tier": "endgame",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        330,
+        350,
+        365,
+        380
       ],
       "sell_price": 50,
       "stack_limit": 20,
@@ -5251,10 +5251,10 @@
       "material_type": "plank",
       "tier": "endgame",
       "skill_range": [
-        280,
-        305,
-        325,
-        355
+        330,
+        350,
+        365,
+        380
       ],
       "sell_price": 70,
       "stack_limit": 20,
@@ -5267,10 +5267,10 @@
       "material_type": "wood",
       "tier": "endgame",
       "skill_range": [
+        260,
         280,
-        305,
-        325,
-        355
+        295,
+        310
       ],
       "sell_price": 55,
       "stack_limit": 20,
@@ -5283,10 +5283,10 @@
       "material_type": "plank",
       "tier": "endgame",
       "skill_range": [
-        290,
-        315,
-        335,
-        365
+        260,
+        280,
+        295,
+        310
       ],
       "sell_price": 77,
       "stack_limit": 20,
@@ -5299,10 +5299,10 @@
       "material_type": "wood",
       "tier": "endgame",
       "skill_range": [
-        290,
+        280,
+        300,
         315,
-        335,
-        365
+        330
       ],
       "sell_price": 58,
       "stack_limit": 20,
@@ -5315,10 +5315,10 @@
       "material_type": "plank",
       "tier": "endgame",
       "skill_range": [
+        280,
         300,
-        325,
-        345,
-        375
+        315,
+        330
       ],
       "sell_price": 81,
       "stack_limit": 20,
