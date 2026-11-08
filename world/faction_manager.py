@@ -328,3 +328,18 @@ def get_faction_manager():
     if _faction_manager is None:
         _faction_manager = FactionManager()
     return _faction_manager
+
+
+def reset_faction_manager():
+    """Fresh reputation for a new character / before applying a loaded save.
+
+    Same process-lifetime singleton hazard as the recruit manager, and it
+    reaches the same place: `rewards.recruit` in factions.json reserves
+    companions behind a standing, and `RecruitNPC._faction_gate_met` asks
+    this manager. One character's reputation deciding another character's
+    gates is wrong on its own; silently unlocking or hiding a companion is
+    how it would actually be noticed.
+    """
+    global _faction_manager
+    _faction_manager = FactionManager()
+    return _faction_manager

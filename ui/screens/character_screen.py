@@ -331,6 +331,17 @@ class CharacterCreationScreen(BaseScreen):
         from world.travel_manager import reset_travel_manager
         # Bind the hearth to the start they picked, not to the Valley - see TravelManager.__init__.
         reset_travel_manager(self._current_start().start_id)
+        # Recruit and faction state are singletons with exactly the same
+        # lifetime hazard as the quest manager above, and they were the two
+        # that got missed. An un-reset recruit manager hands the new
+        # character the PREVIOUS character's hires, and an IN_PARTY recruit
+        # has no world location - so a brand new level 1 walked into a world
+        # with the companions already deleted from it. See
+        # reset_recruit_manager's docstring.
+        from world.recruit_manager import reset_recruit_manager
+        from world.faction_manager import reset_faction_manager
+        reset_recruit_manager()
+        reset_faction_manager()
         
         # Set the player FIRST, then save through the state manager so the
         # (empty) party, recruit state and starting position are all written

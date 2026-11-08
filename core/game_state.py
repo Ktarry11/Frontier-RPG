@@ -332,9 +332,35 @@ class GameStateManager:
         else:
             self.party = Party(player)
 
+        # ALWAYS from a fresh manager, never `if recruit_data:`. A save with
+        # no recruit block (an early file, or one written while the bug
+        # below was live) used to leave the PREVIOUS character's hires in
+        # place, which deletes those companions out of the world for this
+        # one - see reset_recruit_manager's docstring.
+        from world.recruit_manager import reset_recruit_manager
+        from world.faction_manager import reset_faction_manager
+        reset_recruit_manager()
+        reset_faction_manager()
         recruit_data = data.get("recruits")
         if recruit_data:
             get_recruit_manager().load_state(recruit_data)
+
+        # SELF-REPAIR for saves already written with a poisoned recruit
+        # block. A recruit flagged IN_PARTY who is not actually in the
+        # loaded party is a ghost: the flag deletes them from the world and
+        # there is no companion to show for it. That combination cannot
+        # arise from legitimate play - hiring adds to both, dismissing
+        # removes from both - so it is safe to read as damage and clear it.
+        # Without this, the people who already made a character during the
+        # bug would have to delete the save to get their world back.
+        manager = get_recruit_manager()
+        if manager.recruited_ids:
+            in_party = {getattr(m, "recruit_id", None) for m in self.get_party().members}
+            ghosts = {rid for rid in manager.recruited_ids if rid not in in_party}
+            if ghosts:
+                manager.recruited_ids -= ghosts
+                print(f"Recruit state repaired: {len(ghosts)} companion(s) were "
+                      f"flagged as hired but are not in the party; returned to the world.")
 
         # Quest state always starts from a genuinely fresh QuestManager
         # before applying anything saved - same reasoning as

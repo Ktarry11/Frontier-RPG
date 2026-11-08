@@ -841,3 +841,28 @@ def get_recruit_manager():
     if _recruit_manager is None:
         _recruit_manager = RecruitManager()
     return _recruit_manager
+
+
+def reset_recruit_manager():
+    """Fresh recruit state for a new character / before applying a loaded save.
+
+    THIS MANAGER IS A PROCESS-LIFETIME SINGLETON AND ITS STATE IS A DELETION
+    LIST. `recruited_ids` makes a companion IN_PARTY, and an IN_PARTY recruit
+    has no world location at all - `current_location` returns None, so they
+    are not drawn, not interactable and not in `get_recruits_in_zone`. Carry
+    one character's hires into another character and those companions are
+    simply missing from the world, with nothing logged and nothing to see.
+
+    That is exactly what happened: creating a new character reset the zone,
+    quest and travel managers and never this one, so a new level 1 started in
+    a world emptied of every companion the PREVIOUS character had hired, and
+    the empty state was then written into the new save. Reported live as "all
+    recruits are gone with new character creation".
+
+    `dismissed_characters` is the same failure wearing a different coat -
+    a dismissed recruit stands in their home town instead of where they were
+    authored, so they do not vanish, they MOVE, which is worse to diagnose.
+    """
+    global _recruit_manager
+    _recruit_manager = RecruitManager()
+    return _recruit_manager
