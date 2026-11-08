@@ -2632,6 +2632,142 @@
         "spirit": 7,
         "spell_power": 5
       }
+    },
+    {
+      "consumable_id": "meal_cooked_marbled_steak",
+      "name": "Marbled Steak",
+      "consumable_type": "meal",
+      "description": "Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+14 Stamina, +8 Strength) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 37,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 86,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 14,
+        "strength": 8
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_hunters_board",
+      "name": "Hunter's Board",
+      "consumable_type": "meal",
+      "description": "Restores 1250 health over 30 seconds while you rest, and leaves you well fed (+14 Agility, +8 Stamina) for 30 minutes.",
+      "effect_value": 1250,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 41,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 91,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "agility": 14,
+        "stamina": 8
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_aged_roast",
+      "name": "Aged Roast",
+      "consumable_type": "meal",
+      "description": "Restores 1400 health over 30 seconds while you rest, and leaves you well fed (+15 Intellect, +9 Spirit) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 45,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 96,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "intellect": 15,
+        "spirit": 9
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_feast_platter",
+      "name": "Feast Platter",
+      "consumable_type": "meal",
+      "description": "Restores 1600 health over 30 seconds while you rest, and leaves you well fed (+20 Stamina, +10 Spirit) for 30 minutes.",
+      "effect_value": 1600,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 49,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 101,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 20,
+        "spirit": 10
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_select_cut_dinner",
+      "name": "Select Cut Dinner",
+      "consumable_type": "meal",
+      "description": "Restores 1800 health over 30 seconds while you rest, and leaves you well fed (+16 Strength, +12 Stamina) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 53,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 106,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "strength": 16,
+        "stamina": 12
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_banquet_service",
+      "name": "Banquet Service",
+      "consumable_type": "meal",
+      "description": "Restores 2000 health over 30 seconds while you rest, and leaves you well fed (+16 Agility, +16 Intellect) for 30 minutes.",
+      "effect_value": 2000,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 56,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 110,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "agility": 16,
+        "intellect": 16
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_cooks_own_table",
+      "name": "Cook's Own Table",
+      "consumable_type": "meal",
+      "description": "Restores 2400 health over 30 seconds while you rest, and leaves you well fed (+18 Strength, +18 Agility, +18 Intellect, +18 Spirit, +18 Stamina) for 30 minutes.",
+      "effect_value": 2400,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 60,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 115,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "strength": 18,
+        "agility": 18,
+        "intellect": 18,
+        "spirit": 18,
+        "stamina": 18
+      }
     }
   ]
 }

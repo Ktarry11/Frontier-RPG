@@ -18,7 +18,7 @@ real rather than cosmetic:
   * IT DOES NOT ALWAYS DROP. Leather is a guaranteed 1 per beast. Meat is a chance, because otherwise
     every single beast kill in the game adds an inventory line and the bags fill with pork.
 
-FIVE TIERS, matching the five cooked-meal tiers in data/consumables (and the five vendor meals they
+EIGHT TIERS now, matching the cooked-meal tiers in data/consumables (and the five vendor meals they
 improve on). More tiers than there are recipes to use them is exactly the dead-material problem this
 pass exists to fix.
 """
@@ -38,6 +38,9 @@ BANDS = [
     (24, 38, {"meat_lean": 1, "meat_thick": 3, "meat_rich": 1}),
     (32, 46, {"meat_thick": 2, "meat_rich": 3, "meat_prime": 1}),
     (40, 99, {"meat_rich": 2, "meat_prime": 3}),
+    (38, 48, {"meat_prime": 3, "meat_marbled": 2}),
+    (44, 52, {"meat_prime": 1, "meat_marbled": 3, "meat_aged": 2}),
+    (48, 99, {"meat_marbled": 1, "meat_aged": 3, "meat_select": 2}),
 ]
 
 #: Chance a normal beast yields meat at all. Low enough that bags do not fill, high enough that a

@@ -11803,7 +11803,7 @@
             97
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "part_glass_lens": 2,
             "bar_bronze": 1
@@ -12071,7 +12071,7 @@
             81,
             91
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_bronze": 3,
             "part_bronze_tube": 1,
@@ -12086,7 +12086,8 @@
             "item_level": 12,
             "rarity": "uncommon",
             "material_tier": "bronze"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_gun_ratchet_scattergun": {
           "name": "Ratchet Scattergun",
@@ -12537,7 +12538,7 @@
             85,
             95
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_bronze": 3,
             "part_gear_assembly": 1,
@@ -13069,7 +13070,7 @@
             91
           ],
           "count": 2,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_bronze": 1,
             "part_copper_bolts": 1
@@ -13439,6 +13440,255 @@
             "material_tier": "gold"
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+        },
+        "eng300_mithril_blunderbuss": {
+          "name": "Mithril Blunderbuss",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_mithril": 6,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 39,
+            "rarity": "rare",
+            "material_tier": "mithril"
+          }
+        },
+        "eng300_mithril_field_goggles": {
+          "name": "Mithril Field Goggles",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_mithril": 4,
+            "part_glass_lens": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 42,
+            "rarity": "rare",
+            "material_tier": "mithril"
+          }
+        },
+        "eng300_voidglass_targeting_scope": {
+          "name": "Voidglass Targeting Scope",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "trainer",
+          "inputs": {
+            "crystal_voidglass": 2,
+            "bar_mithril": 2,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 45,
+            "rarity": "rare",
+            "material_tier": "voidglass"
+          }
+        },
+        "eng300_truesilver_repeater": {
+          "name": "Truesilver Repeater",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_truesilver": 6,
+            "part_steel_barrel": 1,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 48,
+            "rarity": "rare",
+            "material_tier": "truesilver"
+          }
+        },
+        "eng300_dark_iron_bombard": {
+          "name": "Dark Iron Bombard",
+          "skill_required": 250,
+          "skill_range": [
+            255,
+            265,
+            275,
+            285
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_dark_iron": 8,
+            "part_steel_barrel": 2,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 51,
+            "rarity": "rare",
+            "material_tier": "dark"
+          }
+        },
+        "eng300_thorium_shellguard": {
+          "name": "Thorium Shellguard",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_thorium": 6,
+            "part_iron_casing": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 53,
+            "rarity": "rare",
+            "material_tier": "thorium"
+          }
+        },
+        "eng300_thorium_gyro_visor": {
+          "name": "Thorium Gyro-Visor",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_thorium": 5,
+            "part_glass_lens": 2,
+            "part_gear_assembly": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 55,
+            "rarity": "epic",
+            "material_tier": "thorium"
+          }
+        },
+        "eng300_arcanite_dragonling_core": {
+          "name": "Arcanite Dragonling Core",
+          "skill_required": 285,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_arcanite": 3,
+            "crystal_arcane": 1,
+            "part_resonant_core": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 58,
+            "rarity": "epic",
+            "material_tier": "arcanite"
+          }
+        },
+        "eng300_arcanite_longrifle": {
+          "name": "Arcanite Longrifle",
+          "skill_required": 295,
+          "skill_range": [
+            300,
+            310,
+            320,
+            330
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_arcanite": 4,
+            "crystal_arcane": 1,
+            "part_precision_sight": 1,
+            "part_wooden_stock": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 60,
+            "rarity": "epic",
+            "material_tier": "arcanite"
+          }
+        },
+        "eng300_elementium_siege_harness": {
+          "name": "Elementium Siege Harness",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "bar_elementium": 5,
+            "bar_arcanite": 2,
+            "part_gear_assembly": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 61,
+            "rarity": "epic",
+            "material_tier": "elementium"
+          }
         }
       }
     },
@@ -13692,7 +13942,151 @@
             280,
             300
           ],
-          "source": "trainer"
+          "source": "drop"
+        },
+        "cook300_marbled_steak": {
+          "name": "Marbled Steak",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_marbled": 2
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_marbled_steak",
+            "count": 1
+          }
+        },
+        "cook300_hunters_board": {
+          "name": "Hunter's Board",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "quest",
+          "inputs": {
+            "meat_marbled": 2,
+            "meat_prime": 1,
+            "salt": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_hunters_board",
+            "count": 1
+          }
+        },
+        "cook300_aged_roast": {
+          "name": "Aged Roast",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_aged": 2,
+            "salt": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_aged_roast",
+            "count": 1
+          }
+        },
+        "cook300_feast_platter": {
+          "name": "Feast Platter",
+          "skill_required": 245,
+          "skill_range": [
+            250,
+            260,
+            270,
+            280
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_aged": 2,
+            "meat_marbled": 2,
+            "salt": 2
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_feast_platter",
+            "count": 1
+          }
+        },
+        "cook300_select_cut_dinner": {
+          "name": "Select Cut Dinner",
+          "skill_required": 265,
+          "skill_range": [
+            270,
+            280,
+            290,
+            300
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_select": 2,
+            "salt": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_select_cut_dinner",
+            "count": 1
+          }
+        },
+        "cook300_banquet_service": {
+          "name": "Banquet Service",
+          "skill_required": 280,
+          "skill_range": [
+            285,
+            295,
+            305,
+            315
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_select": 2,
+            "meat_aged": 2,
+            "salt": 2
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_banquet_service",
+            "count": 1
+          }
+        },
+        "cook300_cooks_own_table": {
+          "name": "Cook's Own Table",
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ],
+          "source": "trainer",
+          "inputs": {
+            "meat_select": 3,
+            "meat_aged": 2,
+            "meat_marbled": 2,
+            "salt": 3
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_cooks_own_table",
+            "count": 1
+          }
         }
       }
     }

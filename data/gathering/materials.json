@@ -6411,6 +6411,54 @@
       "stack_limit": 20,
       "sell_price": 118,
       "description": "Edged in gold leaf. Mostly for show, but the show matters."
+    },
+    "meat_marbled": {
+      "name": "Marbled Cut",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "late",
+      "icon_id": "meat_marbled",
+      "stack_limit": 20,
+      "sell_price": 215,
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "description": "Fat laced right through it. It bastes itself."
+    },
+    "meat_aged": {
+      "name": "Aged Cut",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "endgame",
+      "icon_id": "meat_aged",
+      "stack_limit": 20,
+      "sell_price": 255,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "description": "Hung in the cold until it turned dark and sweet."
+    },
+    "meat_select": {
+      "name": "Select Cut",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "endgame",
+      "icon_id": "meat_select",
+      "stack_limit": 20,
+      "sell_price": 275,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "description": "The one piece a butcher keeps back and does not put on the board."
     }
   }
 }
