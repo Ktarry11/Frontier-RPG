@@ -566,7 +566,8 @@
           "name": "Minor Healing Potion",
           "inputs": {
             "herb_peacebloom": 1,
-            "herb_silverleaf": 1
+            "herb_silverleaf": 1,
+            "vial_empty": 1
           },
           "skill_required": 0,
           "output": {
@@ -585,7 +586,8 @@
           "name": "Minor Mana Potion",
           "inputs": {
             "herb_mageroyal": 1,
-            "herb_dewgrass": 1
+            "herb_dewgrass": 1,
+            "vial_empty": 1
           },
           "skill_required": 10,
           "output": {
@@ -604,7 +606,8 @@
           "name": "Minor Guardian Elixir",
           "inputs": {
             "herb_silverleaf": 2,
-            "herb_earthroot": 1
+            "herb_earthroot": 1,
+            "vial_empty": 1
           },
           "skill_required": 15,
           "output": {
@@ -623,7 +626,8 @@
           "name": "Minor Battle Elixir",
           "inputs": {
             "herb_earthroot": 2,
-            "herb_peacebloom": 1
+            "herb_peacebloom": 1,
+            "vial_empty": 1
           },
           "skill_required": 15,
           "output": {
@@ -642,7 +646,8 @@
           "name": "Elixir of Agility",
           "inputs": {
             "herb_fadeleaf": 2,
-            "herb_dewgrass": 1
+            "herb_dewgrass": 1,
+            "vial_empty": 1
           },
           "skill_required": 40,
           "output": {
@@ -661,7 +666,8 @@
           "name": "Healing Potion",
           "inputs": {
             "herb_bruiseweed": 1,
-            "herb_briarthorn": 1
+            "herb_briarthorn": 1,
+            "vial_empty": 1
           },
           "skill_required": 45,
           "output": {
@@ -680,7 +686,8 @@
           "name": "Arcane Elixir",
           "inputs": {
             "herb_mageroyal": 2,
-            "herb_fadeleaf": 1
+            "herb_fadeleaf": 1,
+            "vial_empty": 1
           },
           "skill_required": 45,
           "output": {
@@ -699,7 +706,8 @@
           "name": "Mana Potion",
           "inputs": {
             "herb_mageroyal": 2,
-            "herb_briarthorn": 1
+            "herb_briarthorn": 1,
+            "vial_empty": 1
           },
           "skill_required": 55,
           "output": {
@@ -718,7 +726,8 @@
           "name": "Elixir of Warding",
           "inputs": {
             "herb_liferoot": 2,
-            "herb_earthroot": 1
+            "herb_earthroot": 1,
+            "vial_empty": 1
           },
           "skill_required": 65,
           "output": {
@@ -737,7 +746,8 @@
           "name": "Guardian Elixir",
           "inputs": {
             "herb_liferoot": 1,
-            "herb_kingsblood": 1
+            "herb_kingsblood": 1,
+            "vial_empty": 1
           },
           "skill_required": 75,
           "output": {
@@ -756,7 +766,8 @@
           "name": "Battle Elixir",
           "inputs": {
             "herb_kingsblood": 1,
-            "herb_bruiseweed": 1
+            "herb_bruiseweed": 1,
+            "vial_empty": 1
           },
           "skill_required": 80,
           "output": {
@@ -775,7 +786,8 @@
           "name": "Elixir of Firepower",
           "inputs": {
             "herb_goldthorn": 1,
-            "herb_briarthorn": 1
+            "herb_briarthorn": 1,
+            "vial_leaded": 1
           },
           "skill_required": 100,
           "output": {
@@ -794,7 +806,8 @@
           "name": "Superior Healing Potion",
           "inputs": {
             "herb_kingsblood": 2,
-            "herb_liferoot": 2
+            "herb_liferoot": 2,
+            "vial_leaded": 1
           },
           "skill_required": 110,
           "output": {
@@ -813,7 +826,8 @@
           "name": "Superior Mana Potion",
           "inputs": {
             "herb_goldthorn": 2,
-            "herb_kingsblood": 1
+            "herb_kingsblood": 1,
+            "vial_leaded": 1
           },
           "skill_required": 115,
           "output": {
@@ -832,7 +846,8 @@
           "name": "Superior Battle Elixir",
           "inputs": {
             "herb_goldthorn": 2,
-            "herb_bruiseweed": 1
+            "herb_bruiseweed": 1,
+            "vial_leaded": 1
           },
           "skill_required": 125,
           "output": {
@@ -851,7 +866,8 @@
           "name": "Superior Guardian Elixir",
           "inputs": {
             "herb_goldthorn": 2,
-            "herb_liferoot": 2
+            "herb_liferoot": 2,
+            "vial_leaded": 1
           },
           "skill_required": 125,
           "output": {
@@ -870,7 +886,8 @@
           "name": "Greater Arcane Elixir",
           "inputs": {
             "herb_goldthorn": 2,
-            "herb_mageroyal": 2
+            "herb_mageroyal": 2,
+            "vial_leaded": 1
           },
           "skill_required": 135,
           "output": {
@@ -889,7 +906,8 @@
           "name": "Elixir of Greater Agility",
           "inputs": {
             "herb_goldthorn": 2,
-            "herb_fadeleaf": 2
+            "herb_fadeleaf": 2,
+            "vial_leaded": 1
           },
           "skill_required": 135,
           "output": {
@@ -939,7 +957,7 @@
           "inputs": {
             "herb_stranglekelp": 2,
             "herb_liferoot": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -960,7 +978,7 @@
           "source": "drop",
           "inputs": {
             "herb_fadeleaf": 2,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -982,7 +1000,7 @@
           "inputs": {
             "herb_goldthorn": 3,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -1003,7 +1021,7 @@
           "source": "drop",
           "inputs": {
             "herb_sungrass": 2,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1024,7 +1042,8 @@
           "source": "vendor",
           "inputs": {
             "bar_iron": 4,
-            "herb_goldthorn": 2
+            "herb_goldthorn": 2,
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -1046,7 +1065,7 @@
           "inputs": {
             "herb_blindweed": 3,
             "herb_firebloom": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1088,7 +1107,7 @@
           "inputs": {
             "herb_kingsblood": 2,
             "herb_goldthorn": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1171,7 +1190,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_khadgar": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1234,7 +1253,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_sungrass": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1297,7 +1316,7 @@
           "inputs": {
             "herb_sungrass": 2,
             "herb_firebloom": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1361,7 +1380,7 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1424,7 +1443,7 @@
           "inputs": {
             "herb_sungrass": 2,
             "herb_khadgar": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1488,7 +1507,7 @@
           "inputs": {
             "herb_goldthorn": 1,
             "herb_khadgar": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1551,7 +1570,7 @@
           "inputs": {
             "herb_fadeleaf": 2,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1593,7 +1612,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1636,7 +1655,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_liferoot": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1698,7 +1717,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_firebloom": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1762,7 +1781,7 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_goldthorn": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1825,7 +1844,7 @@
           "inputs": {
             "herb_sungrass": 2,
             "herb_stranglekelp": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1867,7 +1886,7 @@
           "inputs": {
             "herb_firebloom": 3,
             "herb_goldthorn": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1909,7 +1928,7 @@
           "inputs": {
             "herb_stranglekelp": 3,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1951,7 +1970,7 @@
           "inputs": {
             "herb_briarthorn": 3,
             "herb_liferoot": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -1993,7 +2012,7 @@
           "inputs": {
             "herb_fadeleaf": 3,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -2035,7 +2054,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_sungrass": 1,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -2049,7 +2068,7 @@
           "source": "trainer",
           "inputs": {
             "herb_wild_steelbloom": 2,
-            "vial_empty": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -2069,7 +2088,7 @@
           "inputs": {
             "herb_purple_lotus": 2,
             "herb_khadgar": 1,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -2089,7 +2108,7 @@
           "inputs": {
             "herb_golden_sansam": 2,
             "herb_sungrass": 1,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -2109,7 +2128,7 @@
           "inputs": {
             "herb_dreamfoil": 2,
             "herb_blindweed": 1,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -2129,7 +2148,7 @@
           "inputs": {
             "herb_icecap": 2,
             "herb_dreamfoil": 1,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -2151,7 +2170,7 @@
             "herb_black_lotus": 1,
             "herb_icecap": 2,
             "herb_dreamfoil": 2,
-            "vial_empty": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
