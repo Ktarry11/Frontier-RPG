@@ -216,8 +216,17 @@ def main():
         folder = {"herb": "herbs", "crystal": "crystals"}.get(kind, kind)
         sprite = ROOT / "assets" / "gathering_nodes" / folder / f"{spec['icon_id']}.png"
         if not sprite.exists():
+            # A material WITHOUT a world node is still created - it just has no
+            # art yet. ui/screens/inventory_screen.py:_draw_material_icon
+            # returns False when the file is missing and the caller falls back
+            # to a text box, so a missing icon degrades legibly rather than
+            # rendering blank. Verified in the source, not assumed.
+            #
+            # Kyle, 7 Nov, on Arcane Crystal: "the crystal has a chance from
+            # thorium. So you only need the icon." It is a bonus roll out of a
+            # Thorium vein (world.gathering_manager.CRYSTAL_FROM_MATERIAL), not
+            # a node, so it never needs node art at all.
             pending_art.append((mid, spec["name"], sprite.relative_to(ROOT)))
-            continue
         created.append(mid)
         if args.apply:
             mats[mid] = dict(NEW_DEFAULTS[kind], tier=tier_for(skill),
@@ -280,9 +289,9 @@ def main():
         print(f"  {mid:30}{name[:24]:26}{f'{old} -> {new}':>13}{t:>20}   {tag}")
 
     if pending_art:
-        print("  BLOCKED ON ART - defined here, created as soon as the sprite lands:")
+        print("  CREATED, ICON PENDING - the bag shows a text box until the file lands:")
         for mid, name, rel in pending_art:
-            print(f"    {name} ({mid})  needs  {rel}")
+            print(f"    {name} ({mid})  wants  {rel}")
         print()
     ok = True
     for t in ("herb", "ore", "wood", "cloth", "leather"):

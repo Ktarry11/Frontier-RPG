@@ -2042,6 +2042,147 @@
             "consumable_id": "elixir_of_greater_fortitude"
           },
           "drop_zone": "Shadowfang Keep"
+        },
+        "alch_elixir_steelbloom": {
+          "name": "Elixir of Steelbloom",
+          "skill_required": 120,
+          "source": "trainer",
+          "inputs": {
+            "herb_wild_steelbloom": 2,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_steelbloom"
+          },
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ]
+        },
+        "alch_elixir_purple_lotus": {
+          "name": "Elixir of the Purple Lotus",
+          "skill_required": 215,
+          "source": "trainer",
+          "inputs": {
+            "herb_purple_lotus": 2,
+            "herb_khadgar": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_purple_lotus"
+          },
+          "skill_range": [
+            220,
+            230,
+            240,
+            250
+          ]
+        },
+        "alch_major_healing": {
+          "name": "Major Healing Potion",
+          "skill_required": 260,
+          "source": "trainer",
+          "inputs": {
+            "herb_golden_sansam": 2,
+            "herb_sungrass": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "healing_potion_sansam"
+          },
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ]
+        },
+        "alch_major_mana": {
+          "name": "Major Mana Potion",
+          "skill_required": 270,
+          "source": "trainer",
+          "inputs": {
+            "herb_dreamfoil": 2,
+            "herb_blindweed": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "mana_potion_dreamfoil"
+          },
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ]
+        },
+        "alch_elixir_icecap": {
+          "name": "Elixir of Icecap",
+          "skill_required": 290,
+          "source": "trainer",
+          "inputs": {
+            "herb_icecap": 2,
+            "herb_dreamfoil": 1,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_icecap"
+          },
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ]
+        },
+        "alch_flask_black_lotus": {
+          "name": "Flask of the Black Lotus",
+          "skill_required": 300,
+          "source": "vendor",
+          "vendor_location": "Gadgetzan",
+          "inputs": {
+            "herb_black_lotus": 1,
+            "herb_icecap": 2,
+            "herb_dreamfoil": 2,
+            "vial_empty": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "flask_black_lotus"
+          },
+          "skill_range": [
+            305,
+            315,
+            325,
+            335
+          ]
+        },
+        "alch_transmute_arcanite": {
+          "name": "Transmute: Arcanite",
+          "skill_required": 275,
+          "source": "vendor",
+          "vendor_location": "Gadgetzan",
+          "inputs": {
+            "crystal_arcane": 1,
+            "bar_thorium": 1
+          },
+          "output": {
+            "kind": "material",
+            "material_id": "bar_arcanite"
+          },
+          "skill_range": [
+            280,
+            290,
+            300,
+            310
+          ]
         }
       }
     },

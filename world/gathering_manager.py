@@ -313,6 +313,39 @@ class GatheringNodeManager:
     }
     CRYSTAL_FROM_VEIN_CHANCE = 0.18
 
+    #: Crystals that come from ONE specific ore rather than from a whole tier,
+    #: checked before CRYSTAL_FROM_VEIN and at their own rate.
+    #:
+    #: Kyle, 7 Nov 2026, on Arcane Crystal: "the crystal has a chance from
+    #: thorium." Not from any endgame vein - from Thorium, which is how Classic
+    #: does it (Arcane Crystal is a rare extra out of Rich Thorium) and why
+    #: Arcanite is worth what it is. A tier entry would have handed it out of
+    #: Elementium too.
+    #:
+    #: The rate is deliberately far below CRYSTAL_FROM_VEIN_CHANCE. Arcane
+    #: Crystal is the gate on Arcanite Bar, which is the gate on the terminal
+    #: blacksmithing plans, so it is the scarcest link in the traditional
+    #: crafting chain and it should feel like it.
+    CRYSTAL_FROM_MATERIAL = {
+        "ore_thorium": ("crystal_arcane", 0.07),
+    }
+
+    def roll_material_crystal(self, material_id, rng=None):
+        """-> a crystal this SPECIFIC ore sometimes yields, or None.
+
+        Separate from roll_vein_crystal's tier table because the two answer
+        different questions, and rolled first: a Thorium vein that produces an
+        Arcane Crystal has already produced its crystal and does not also roll
+        the endgame tier pool.
+        """
+        import random as _r
+        rng = rng or _r
+        entry = self.CRYSTAL_FROM_MATERIAL.get(material_id)
+        if not entry:
+            return None
+        crystal, chance = entry
+        return crystal if rng.random() < chance else None
+
     def roll_vein_crystal(self, material_id, rng=None):
         """-> a crystal material_id this ore vein also yielded, or None.
 
@@ -326,6 +359,14 @@ class GatheringNodeManager:
         data = self.materials.get(material_id) or {}
         if data.get("material_type") != "ore":
             return None
+        # A per-material crystal wins and ends the roll - see
+        # roll_material_crystal. Called from in here rather than beside it so
+        # that every existing caller of roll_vein_crystal picks this up without
+        # being changed: one rule, one implementation, which is the thing this
+        # codebase keeps getting wrong.
+        specific = self.roll_material_crystal(material_id, rng=rng)
+        if specific:
+            return specific
         pool = self.CRYSTAL_FROM_VEIN.get(data.get("tier"))
         if not pool:
             return None

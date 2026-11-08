@@ -6003,6 +6003,38 @@
       "icon_id": "black_lotus",
       "sell_price": 400,
       "description": "Petals that drink the light. Perhaps a dozen are picked in a season, and every alchemist in the world wants one."
+    },
+    "crystal_arcane": {
+      "material_type": "crystal",
+      "profession": "mining",
+      "stack_limit": 20,
+      "tier": "endgame",
+      "skill_range": [
+        275,
+        295,
+        310,
+        325
+      ],
+      "name": "Arcane Crystal",
+      "icon_id": "arcane",
+      "sell_price": 320,
+      "description": "A shard of raw magic found packed in the richest thorium. It hums against the pick."
+    },
+    "bar_arcanite": {
+      "name": "Arcanite Bar",
+      "material_type": "bar",
+      "profession": "mining",
+      "tier": "endgame",
+      "icon_id": "arcanite",
+      "stack_limit": 20,
+      "sell_price": 900,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "description": "Thorium and raw magic, argued into one metal. It is never quite still."
     }
   }
 }

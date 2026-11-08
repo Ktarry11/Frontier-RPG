@@ -119,6 +119,21 @@
       "vendor_price": 825,
       "sell_price": 206,
       "buff_category": null
+    },
+    {
+      "consumable_id": "healing_potion_sansam",
+      "name": "Major Healing Potion",
+      "consumable_type": "health_potion",
+      "description": "Restores a large amount of health.",
+      "effect_value": 1400,
+      "effect_duration": 0,
+      "level_multiplier": 2.4,
+      "required_level": 42,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 2600,
+      "sell_price": 650,
+      "buff_category": null
     }
   ],
   "mana_potions": [
@@ -240,6 +255,21 @@
       "stack_limit": 20,
       "vendor_price": 825,
       "sell_price": 206,
+      "buff_category": null
+    },
+    {
+      "consumable_id": "mana_potion_dreamfoil",
+      "name": "Major Mana Potion",
+      "consumable_type": "mana_potion",
+      "description": "Restores a large amount of mana.",
+      "effect_value": 1200,
+      "effect_duration": 0,
+      "level_multiplier": 2.2,
+      "required_level": 44,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 2800,
+      "sell_price": 700,
       "buff_category": null
     }
   ],
@@ -1333,6 +1363,83 @@
       "stat_bonuses": {
         "stamina": 14,
         "spirit": 8
+      }
+    },
+    {
+      "consumable_id": "elixir_steelbloom",
+      "name": "Elixir of Steelbloom",
+      "consumable_type": "elixir",
+      "description": "Grants +18 Armor for 30 minutes. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 22,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 900,
+      "sell_price": 225,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "armor": 18
+      }
+    },
+    {
+      "consumable_id": "elixir_purple_lotus",
+      "name": "Elixir of the Purple Lotus",
+      "consumable_type": "elixir",
+      "description": "Grants +14 Intellect for 30 minutes. Battle buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 40,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 2200,
+      "sell_price": 550,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "intellect": 14
+      }
+    },
+    {
+      "consumable_id": "elixir_icecap",
+      "name": "Elixir of Icecap",
+      "consumable_type": "elixir",
+      "description": "Grants +22 Stamina and +10 Armor for 30 minutes. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 4200,
+      "sell_price": 1050,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "stamina": 22,
+        "armor": 10
+      }
+    },
+    {
+      "consumable_id": "flask_black_lotus",
+      "name": "Flask of the Black Lotus",
+      "consumable_type": "elixir",
+      "description": "Grants +25 to all primary stats for 1 hour. Guardian buff, and the best an alchemist can make.",
+      "effect_value": 0,
+      "effect_duration": 3600,
+      "level_multiplier": 0.0,
+      "required_level": 50,
+      "cooldown_seconds": 5,
+      "stack_limit": 5,
+      "vendor_price": 20000,
+      "sell_price": 5000,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "strength": 25,
+        "agility": 25,
+        "intellect": 25,
+        "spirit": 25,
+        "stamina": 25
       }
     }
   ],
