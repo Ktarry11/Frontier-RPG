@@ -1015,7 +1015,7 @@
         205,
         215
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_bronze": 12,
         "flux_medium": 1
@@ -1039,7 +1039,7 @@
         210,
         220
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "bar_bronze": 16,
         "flux_medium": 1
@@ -1052,7 +1052,8 @@
         "item_level": 38,
         "rarity": "rare",
         "material_tier": "bronze"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "bs_iron_plate_bracers": {
       "name": "Iron Plate Bracers",
@@ -1111,7 +1112,7 @@
         215,
         225
       ],
-      "source": "trainer",
+      "source": "quest",
       "inputs": {
         "bar_bronze": 16,
         "flux_medium": 1
@@ -1135,7 +1136,7 @@
         220,
         230
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_bronze": 12,
         "flux_medium": 1
@@ -1303,7 +1304,7 @@
         213,
         223
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "bar_bronze": 14,
         "flux_medium": 1
@@ -1316,7 +1317,8 @@
         "item_level": 38,
         "rarity": "rare",
         "material_tier": "bronze"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "bs_iron_runic_leggings": {
       "name": "Iron Runic Leggings",
@@ -1351,7 +1353,7 @@
         207,
         217
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_bronze": 14,
         "flux_medium": 1
@@ -1756,7 +1758,7 @@
         208,
         218
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "bar_bronze": 14,
         "flux_medium": 1,
@@ -1770,7 +1772,8 @@
         "item_level": 37,
         "rarity": "rare",
         "material_tier": "bronze"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "bs_upgrade_kit_iron": {
       "name": "Iron Upgrade Kit",
@@ -2804,7 +2807,7 @@
         250,
         280
       ],
-      "source": "trainer",
+      "source": "quest",
       "output": {
         "kind": "material",
         "material_id": "upgrade_kit_steel",
@@ -2820,7 +2823,7 @@
         240,
         250
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_mithril": 6,
         "flux_strong": 1
@@ -2845,7 +2848,7 @@
         247,
         257
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "bar_mithril": 10,
         "flux_strong": 1
@@ -2859,7 +2862,8 @@
         "rarity": "uncommon",
         "material_tier": "mithril"
       },
-      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+      "vendor_location": "Any pattern vendor"
     },
     "bs_mithril_gauntlets": {
       "name": "Mithril Gauntlets",
@@ -2870,7 +2874,7 @@
         253,
         263
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_mithril": 6,
         "flux_strong": 1
@@ -2895,7 +2899,7 @@
         259,
         269
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "bar_mithril": 8,
         "plank_ironbark": 2,
@@ -2913,7 +2917,8 @@
         "armor_value": 374,
         "block_value": 43
       },
-      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+      "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+      "vendor_location": "Any pattern vendor"
     },
     "bs_mithril_warhammer": {
       "name": "Mithril Warhammer",
@@ -2924,7 +2929,7 @@
         265,
         275
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_mithril": 12,
         "plank_ironbark": 2,
@@ -2951,7 +2956,7 @@
         270,
         280
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "bar_mithril": 12,
         "flux_strong": 1
@@ -2966,6 +2971,2440 @@
         "material_tier": "mithril"
       },
       "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+    },
+    "bs300_weakstone_head": {
+      "name": "Weakstone Coif",
+      "skill_required": 1,
+      "skill_range": [
+        6,
+        16,
+        26,
+        36
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 1,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_weakstone_shoulder": {
+      "name": "Weakstone Spaulders",
+      "skill_required": 6,
+      "skill_range": [
+        11,
+        21,
+        31,
+        41
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 2,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_weakstone_chest": {
+      "name": "Weakstone Hauberk",
+      "skill_required": 11,
+      "skill_range": [
+        16,
+        26,
+        36,
+        46
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 3,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_weakstone_wrist": {
+      "name": "Weakstone Wristguards",
+      "skill_required": 16,
+      "skill_range": [
+        21,
+        31,
+        41,
+        51
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 4,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_weakstone_sword_1h": {
+      "name": "Weakstone Blade",
+      "skill_required": 21,
+      "skill_range": [
+        26,
+        36,
+        46,
+        56
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "agi_physical",
+        "item_level": 5,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_weakstone_dagger": {
+      "name": "Weakstone Dirk",
+      "skill_required": 26,
+      "skill_range": [
+        31,
+        41,
+        51,
+        61
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 6,
+        "rarity": "uncommon",
+        "material_tier": "weakstone"
+      }
+    },
+    "bs300_kit_weakstone": {
+      "name": "Weakstone Upgrade Kit",
+      "skill_required": 21,
+      "skill_range": [
+        26,
+        36,
+        46,
+        56
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_weakstone": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_weakstone"
+      }
+    },
+    "bs300_tin_hands": {
+      "name": "Tin Gauntlets",
+      "skill_required": 65,
+      "skill_range": [
+        70,
+        80,
+        90,
+        100
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_tin_waist": {
+      "name": "Tin Girdle",
+      "skill_required": 70,
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 15,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_tin_legs": {
+      "name": "Tin Legplates",
+      "skill_required": 75,
+      "skill_range": [
+        80,
+        90,
+        100,
+        110
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 16,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_tin_feet": {
+      "name": "Tin Sabatons",
+      "skill_required": 80,
+      "skill_range": [
+        85,
+        95,
+        105,
+        115
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 17,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_tin_axe_1h": {
+      "name": "Tin Hatchet",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_1h",
+        "stat_template": "str_physical",
+        "item_level": 18,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_tin_sword_2h": {
+      "name": "Tin Greatsword",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "sword_2h",
+        "stat_template": "str_int_hybrid",
+        "item_level": 19,
+        "rarity": "uncommon",
+        "material_tier": "tin"
+      }
+    },
+    "bs300_kit_tin": {
+      "name": "Tin Upgrade Kit",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_tin": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_tin"
+      }
+    },
+    "bs300_bronze_vein_head": {
+      "name": "Bronze Vein Coif",
+      "skill_required": 95,
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 20,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_bronze_vein_shoulder": {
+      "name": "Bronze Vein Spaulders",
+      "skill_required": 100,
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 21,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_bronze_vein_chest": {
+      "name": "Bronze Vein Hauberk",
+      "skill_required": 105,
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 22,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_bronze_vein_wrist": {
+      "name": "Bronze Vein Wristguards",
+      "skill_required": 110,
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 23,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_bronze_vein_sword_1h": {
+      "name": "Bronze Vein Blade",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "agi_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_bronze_vein_dagger": {
+      "name": "Bronze Vein Dirk",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_kit_bronze_vein": {
+      "name": "Bronze Vein Upgrade Kit",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_bronze_vein"
+      }
+    },
+    "bs300_living_copper_hands": {
+      "name": "Living Copper Grips",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_living_copper_waist": {
+      "name": "Living Copper Belt",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_living_copper_legs": {
+      "name": "Living Copper Leggings",
+      "skill_required": 125,
+      "skill_range": [
+        130,
+        140,
+        150,
+        160
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_living_copper_feet": {
+      "name": "Living Copper Boots",
+      "skill_required": 130,
+      "skill_range": [
+        135,
+        145,
+        155,
+        165
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_living_copper_mace_1h": {
+      "name": "Living Copper Mace",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace_1h",
+        "stat_template": "int_caster",
+        "item_level": 28,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_living_copper_dagger": {
+      "name": "Living Copper Dirk",
+      "skill_required": 140,
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "spi_healer",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "living_copper"
+      }
+    },
+    "bs300_kit_living_copper": {
+      "name": "Living Copper Upgrade Kit",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_living_copper": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_living_copper"
+      }
+    },
+    "bs300_frostveined_tin_head": {
+      "name": "Frostveined Tin Helm",
+      "skill_required": 140,
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 29,
+        "rarity": "uncommon",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_frostveined_tin_shoulder": {
+      "name": "Frostveined Tin Pauldrons",
+      "skill_required": 145,
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 30,
+        "rarity": "uncommon",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_frostveined_tin_chest": {
+      "name": "Frostveined Tin Breastplate",
+      "skill_required": 150,
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 31,
+        "rarity": "rare",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_frostveined_tin_wrist": {
+      "name": "Frostveined Tin Bracers",
+      "skill_required": 155,
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 32,
+        "rarity": "rare",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_frostveined_tin_shield": {
+      "name": "Frostveined Tin Bulwark",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "int_caster",
+        "item_level": 33,
+        "rarity": "rare",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_frostveined_tin_mace_1h": {
+      "name": "Frostveined Tin Mace",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace_1h",
+        "stat_template": "spi_healer",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "frostveined_tin"
+      }
+    },
+    "bs300_kit_frostveined_tin": {
+      "name": "Frostveined Tin Upgrade Kit",
+      "skill_required": 160,
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_frostveined_tin": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_frostveined_tin"
+      }
+    },
+    "bs300_verdant_iron_hands": {
+      "name": "Verdant Iron Grips",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_verdant_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 34,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_verdant_iron_waist": {
+      "name": "Verdant Iron Belt",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_verdant_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 35,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_verdant_iron_legs": {
+      "name": "Verdant Iron Leggings",
+      "skill_required": 175,
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_verdant_iron": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 36,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_verdant_iron_feet": {
+      "name": "Verdant Iron Boots",
+      "skill_required": 180,
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_verdant_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_verdant_iron_dagger": {
+      "name": "Verdant Iron Dirk",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_verdant_iron": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "int_caster",
+        "item_level": 38,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_verdant_iron_shield": {
+      "name": "Verdant Iron Bulwark",
+      "skill_required": 190,
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_verdant_iron": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "spi_healer",
+        "item_level": 39,
+        "rarity": "rare",
+        "material_tier": "verdant_iron"
+      }
+    },
+    "bs300_kit_verdant_iron": {
+      "name": "Verdant Iron Upgrade Kit",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_verdant_iron": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_verdant_iron"
+      }
+    },
+    "bs300_felslag_head": {
+      "name": "Felslag Helm",
+      "skill_required": 190,
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_felslag": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 39,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      }
+    },
+    "bs300_felslag_shoulder": {
+      "name": "Felslag Pauldrons",
+      "skill_required": 195,
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_felslag": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      }
+    },
+    "bs300_felslag_chest": {
+      "name": "Felslag Breastplate",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_felslag": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 41,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      }
+    },
+    "bs300_felslag_wrist": {
+      "name": "Felslag Bracers",
+      "skill_required": 205,
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_felslag": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 42,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_felslag_sword_1h": {
+      "name": "Felslag Blade",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_felslag": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "str_physical",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      }
+    },
+    "bs300_felslag_axe_2h": {
+      "name": "Felslag Great Axe",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_felslag": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_int_hybrid",
+        "item_level": 44,
+        "rarity": "rare",
+        "material_tier": "felslag"
+      }
+    },
+    "bs300_kit_felslag": {
+      "name": "Felslag Upgrade Kit",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_felslag": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_felslag"
+      }
+    },
+    "bs300_bloodiron_hands": {
+      "name": "Bloodiron Gauntlets",
+      "skill_required": 205,
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bloodiron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 42,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      }
+    },
+    "bs300_bloodiron_waist": {
+      "name": "Bloodiron Girdle",
+      "skill_required": 210,
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bloodiron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      }
+    },
+    "bs300_bloodiron_legs": {
+      "name": "Bloodiron Legplates",
+      "skill_required": 215,
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bloodiron": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 44,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_bloodiron_feet": {
+      "name": "Bloodiron Sabatons",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bloodiron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 45,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_bloodiron_axe_1h": {
+      "name": "Bloodiron Hatchet",
+      "skill_required": 225,
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bloodiron": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_1h",
+        "stat_template": "str_physical",
+        "item_level": 46,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      }
+    },
+    "bs300_bloodiron_sword_2h": {
+      "name": "Bloodiron Greatsword",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bloodiron": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "sword_2h",
+        "stat_template": "str_int_hybrid",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "bloodiron"
+      }
+    },
+    "bs300_kit_bloodiron": {
+      "name": "Bloodiron Upgrade Kit",
+      "skill_required": 225,
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_bloodiron": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_bloodiron"
+      }
+    },
+    "bs300_deepearth_head": {
+      "name": "Deepearth Coif",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_deepearth": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 45,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_deepearth_shoulder": {
+      "name": "Deepearth Spaulders",
+      "skill_required": 225,
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_deepearth": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 46,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_deepearth_chest": {
+      "name": "Deepearth Hauberk",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_deepearth": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_deepearth_wrist": {
+      "name": "Deepearth Wristguards",
+      "skill_required": 235,
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_deepearth": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 48,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_deepearth_sword_1h": {
+      "name": "Deepearth Blade",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_deepearth": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "agi_physical",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_deepearth_dagger": {
+      "name": "Deepearth Dirk",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_deepearth": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_kit_deepearth": {
+      "name": "Deepearth Upgrade Kit",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_deepearth": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_deepearth"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_dark_iron_hands": {
+      "name": "Dark Iron Gauntlets",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_dark_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_dark_iron_waist": {
+      "name": "Dark Iron Girdle",
+      "skill_required": 235,
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_dark_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 48,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_dark_iron_legs": {
+      "name": "Dark Iron Legplates",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_dark_iron": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_dark_iron_feet": {
+      "name": "Dark Iron Sabatons",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_dark_iron": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_dark_iron_sword_1h": {
+      "name": "Dark Iron Blade",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_dark_iron": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "str_physical",
+        "item_level": 51,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_dark_iron_axe_2h": {
+      "name": "Dark Iron Great Axe",
+      "skill_required": 255,
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_dark_iron": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_int_hybrid",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "dark_iron"
+      }
+    },
+    "bs300_kit_dark_iron": {
+      "name": "Dark Iron Upgrade Kit",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_dark_iron": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_dark_iron"
+      }
+    },
+    "bs300_truesilver_head": {
+      "name": "Truesilver Helm",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_truesilver": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      }
+    },
+    "bs300_truesilver_shoulder": {
+      "name": "Truesilver Pauldrons",
+      "skill_required": 235,
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_truesilver": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 48,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      }
+    },
+    "bs300_truesilver_chest": {
+      "name": "Truesilver Breastplate",
+      "skill_required": 240,
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_truesilver": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      }
+    },
+    "bs300_truesilver_wrist": {
+      "name": "Truesilver Bracers",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_truesilver": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_truesilver_shield": {
+      "name": "Truesilver Bulwark",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_truesilver": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "int_caster",
+        "item_level": 51,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      }
+    },
+    "bs300_truesilver_mace_1h": {
+      "name": "Truesilver Mace",
+      "skill_required": 255,
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_truesilver": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace_1h",
+        "stat_template": "spi_healer",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      }
+    },
+    "bs300_kit_truesilver": {
+      "name": "Truesilver Upgrade Kit",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_truesilver": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_truesilver"
+      }
+    },
+    "bs300_thorium_hands": {
+      "name": "Thorium Gauntlets",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_thorium": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_thorium_waist": {
+      "name": "Thorium Girdle",
+      "skill_required": 250,
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_thorium": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 51,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_thorium_legs": {
+      "name": "Thorium Legplates",
+      "skill_required": 255,
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_thorium": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_thorium_feet": {
+      "name": "Thorium Sabatons",
+      "skill_required": 260,
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_thorium": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 53,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_thorium_polearm": {
+      "name": "Thorium Halberd",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_thorium": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "polearm",
+        "stat_template": "str_physical",
+        "item_level": 54,
+        "rarity": "epic",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_thorium_shield": {
+      "name": "Thorium Bulwark",
+      "skill_required": 270,
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_thorium": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_int_hybrid",
+        "item_level": 55,
+        "rarity": "epic",
+        "material_tier": "thorium"
+      }
+    },
+    "bs300_kit_thorium": {
+      "name": "Thorium Upgrade Kit",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_thorium": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_thorium"
+      }
+    },
+    "bs300_ashen_steel_head": {
+      "name": "Ashen Steel Coif",
+      "skill_required": 260,
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_ashen_steel": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 53,
+        "rarity": "rare",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_ashen_steel_shoulder": {
+      "name": "Ashen Steel Spaulders",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_ashen_steel": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 54,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_ashen_steel_chest": {
+      "name": "Ashen Steel Hauberk",
+      "skill_required": 270,
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_ashen_steel": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 55,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_ashen_steel_wrist": {
+      "name": "Ashen Steel Wristguards",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_ashen_steel": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 56,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_ashen_steel_sword_1h": {
+      "name": "Ashen Steel Blade",
+      "skill_required": 280,
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "drop",
+      "inputs": {
+        "bar_ashen_steel": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "sword_1h",
+        "stat_template": "agi_physical",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_ashen_steel_dagger": {
+      "name": "Ashen Steel Dirk",
+      "skill_required": 285,
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_ashen_steel": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "dagger",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 58,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
+    },
+    "bs300_kit_ashen_steel": {
+      "name": "Ashen Steel Upgrade Kit",
+      "skill_required": 280,
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_ashen_steel": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_ashen_steel"
+      },
+      "vendor_location": "Any pattern vendor"
+    },
+    "bs300_arcanite_hands": {
+      "name": "Arcanite Gauntlets",
+      "skill_required": 280,
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_arcanite": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_arcanite_waist": {
+      "name": "Arcanite Girdle",
+      "skill_required": 285,
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_arcanite": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 58,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_arcanite_legs": {
+      "name": "Arcanite Legplates",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_arcanite": 7
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 59,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_arcanite_feet": {
+      "name": "Arcanite Sabatons",
+      "skill_required": 295,
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_arcanite": 4
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "armor_type": "plate",
+        "stat_template": "spi_healer",
+        "item_level": 60,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_arcanite_shield": {
+      "name": "Arcanite Bulwark",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_arcanite": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "int_caster",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_arcanite_mace_1h": {
+      "name": "Arcanite Mace",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_arcanite": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "mace_1h",
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "arcanite"
+      }
+    },
+    "bs300_kit_arcanite": {
+      "name": "Arcanite Upgrade Kit",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_arcanite": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_arcanite"
+      }
+    },
+    "bs300_elementium_head": {
+      "name": "Elementium Helm",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_elementium": 6
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 59,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_elementium_shoulder": {
+      "name": "Elementium Pauldrons",
+      "skill_required": 295,
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_elementium": 5
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 60,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_elementium_chest": {
+      "name": "Elementium Breastplate",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_elementium": 8
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_elementium_wrist": {
+      "name": "Elementium Bracers",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_elementium": 3
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_elementium_polearm": {
+      "name": "Elementium Halberd",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "quest",
+      "inputs": {
+        "bar_elementium": 10
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "polearm",
+        "stat_template": "str_physical",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_elementium_shield": {
+      "name": "Elementium Bulwark",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_elementium": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_int_hybrid",
+        "item_level": 61,
+        "rarity": "epic",
+        "material_tier": "elementium"
+      }
+    },
+    "bs300_kit_elementium": {
+      "name": "Elementium Upgrade Kit",
+      "skill_required": 300,
+      "skill_range": [
+        305,
+        315,
+        325,
+        335
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_elementium": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_elementium"
+      }
+    },
+    "bs300_kit_mithril": {
+      "name": "Mithril Upgrade Kit",
+      "skill_required": 195,
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_mithril": 6
+      },
+      "output": {
+        "kind": "material",
+        "material_id": "upgrade_kit_mithril"
+      }
+    },
+    "bs300_bronze_vein_shield": {
+      "name": "Bronze Vein Bulwark",
+      "skill_required": 115,
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_bronze_vein": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "bronze_vein"
+      }
+    },
+    "bs300_deepearth_axe_1h": {
+      "name": "Deepearth Hatchet",
+      "skill_required": 245,
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_deepearth": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_1h",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 50,
+        "rarity": "rare",
+        "material_tier": "deepearth"
+      }
+    },
+    "bs300_ashen_steel_shield": {
+      "name": "Ashen Steel Bulwark",
+      "skill_required": 280,
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "trainer",
+      "inputs": {
+        "bar_ashen_steel": 6
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "ashen_steel"
+      }
     }
   }
 }

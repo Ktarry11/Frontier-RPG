@@ -1,5 +1,5 @@
 {
-  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) — it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
+  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) \u2014 it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
   "recipes": {
     "lw_light_armor_kit": {
       "name": "Light Armor Kit",
@@ -555,7 +555,8 @@
         153,
         163
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_leather_gloves": {
       "name": "Heavy Leather Gloves",
@@ -578,7 +579,8 @@
         157,
         167
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_leather_pants": {
       "name": "Heavy Leather Pants",
@@ -601,7 +603,7 @@
         163,
         173
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_heavy_leather_vest": {
       "name": "Heavy Leather Vest",
@@ -624,7 +626,7 @@
         168,
         178
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_kit_medium": {
       "name": "Medium Leather Upgrade Kit",
@@ -660,7 +662,7 @@
         175,
         185
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_thick_leather_boots": {
       "name": "Thick Leather Boots",
@@ -683,7 +685,7 @@
         180,
         190
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_thick_leather_belt": {
       "name": "Thick Leather Belt",
@@ -706,7 +708,7 @@
         183,
         193
       ],
-      "source": "trainer"
+      "source": "quest"
     },
     "lw_thick_leather_gloves": {
       "name": "Thick Leather Gloves",
@@ -730,7 +732,8 @@
         187,
         197
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_cragscale_bracers": {
       "name": "Cragscale Bracers",
@@ -753,7 +756,7 @@
         190,
         200
       ],
-      "source": "trainer"
+      "source": "quest"
     },
     "lw_thick_leather_pants": {
       "name": "Thick Leather Pants",
@@ -777,7 +780,8 @@
         195,
         205
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_stormscale_vest": {
       "name": "Stormscale Vest",
@@ -801,7 +805,7 @@
         205,
         215
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_stormscale_helm": {
       "name": "Stormscale Helm",
@@ -824,7 +828,7 @@
         210,
         220
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_rugged_leather_boots": {
       "name": "Rugged Leather Boots",
@@ -847,7 +851,8 @@
         215,
         225
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_rugged_leather_gloves": {
       "name": "Rugged Leather Gloves",
@@ -871,7 +876,8 @@
         220,
         230
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_rugged_leather_pants": {
       "name": "Rugged Leather Pants",
@@ -895,7 +901,7 @@
         230,
         240
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_stonebound_vest": {
       "name": "Stonebound Vest",
@@ -937,7 +943,7 @@
         180,
         190
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_kit_thick": {
       "name": "Thick Leather Upgrade Kit",
@@ -979,7 +985,7 @@
         250,
         260
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_fiendish_gloves": {
       "name": "Fiendish Leather Gloves",
@@ -1025,7 +1031,8 @@
         260,
         270
       ],
-      "source": "trainer"
+      "source": "vendor",
+      "vendor_location": "Any pattern vendor"
     },
     "lw_pristine_bracers": {
       "name": "Pristine Leather Bracers",
@@ -1048,7 +1055,7 @@
         265,
         275
       ],
-      "source": "trainer"
+      "source": "quest"
     },
     "lw_savage_pants": {
       "name": "Savage Leather Pants",
@@ -1120,7 +1127,7 @@
         293,
         303
       ],
-      "source": "trainer"
+      "source": "quest"
     },
     "lw_mossback_shoulders": {
       "name": "Mossback Spaulders",
@@ -1252,7 +1259,7 @@
         305,
         315
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_light_leather_warband_belt": {
       "name": "Warband Leather Belt",
@@ -2163,7 +2170,7 @@
         153,
         163
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_medium": 5
       },
@@ -2175,7 +2182,8 @@
         "item_level": 26,
         "rarity": "uncommon",
         "material_tier": "medium"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_int_mail_belt": {
       "name": "Ironweave Mail Belt",
@@ -2209,7 +2217,7 @@
         162,
         172
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_medium": 5
       },
@@ -2232,7 +2240,7 @@
         170,
         180
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_medium": 7
       },
@@ -2278,7 +2286,7 @@
         151,
         161
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_cragscale": 5
       },
@@ -2290,7 +2298,8 @@
         "item_level": 26,
         "rarity": "uncommon",
         "material_tier": "cragscale"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_stint_mail_helm": {
       "name": "Earthbound Mail Helm",
@@ -2301,7 +2310,7 @@
         167,
         177
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_cragscale": 7
       },
@@ -2324,7 +2333,7 @@
         171,
         181
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_stormscale": 9
       },
@@ -2336,7 +2345,8 @@
         "item_level": 30,
         "rarity": "uncommon",
         "material_tier": "stormscale"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_agint_mail_gloves": {
       "name": "Predator Mail Gloves",
@@ -2347,7 +2357,7 @@
         155,
         165
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_cragscale": 5
       },
@@ -2359,7 +2369,8 @@
         "item_level": 27,
         "rarity": "uncommon",
         "material_tier": "cragscale"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_heavy_agint_mail_vest": {
       "name": "Predator Mail Vest",
@@ -2370,7 +2381,7 @@
         169,
         179
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_cragscale": 9
       },
@@ -2393,7 +2404,7 @@
         183,
         193
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_stormscale": 8
       },
@@ -2405,7 +2416,8 @@
         "item_level": 32,
         "rarity": "rare",
         "material_tier": "stormscale"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_thick_str_vest": {
       "name": "Warbear Vest",
@@ -2416,7 +2428,7 @@
         190,
         200
       ],
-      "source": "trainer",
+      "source": "quest",
       "inputs": {
         "leather_thick": 12
       },
@@ -2439,7 +2451,7 @@
         185,
         195
       ],
-      "source": "trainer",
+      "source": "quest",
       "inputs": {
         "leather_stormscale": 8
       },
@@ -2462,7 +2474,7 @@
         193,
         203
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_thick": 12
       },
@@ -2508,7 +2520,7 @@
         195,
         205
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_thick": 12
       },
@@ -2520,7 +2532,8 @@
         "item_level": 35,
         "rarity": "rare",
         "material_tier": "thick"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_thick_int_mail_vest": {
       "name": "Mistscale Mail Vest",
@@ -2554,7 +2567,7 @@
         245,
         255
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_rugged": 14
       },
@@ -2577,7 +2590,7 @@
         250,
         260
       ],
-      "source": "trainer",
+      "source": "vendor",
       "inputs": {
         "leather_rugged": 14
       },
@@ -2589,7 +2602,8 @@
         "item_level": 46,
         "rarity": "rare",
         "material_tier": "rugged"
-      }
+      },
+      "vendor_location": "Any pattern vendor"
     },
     "lw_rugged_agint_vest": {
       "name": "Hexbinder Vest",
@@ -2600,7 +2614,7 @@
         253,
         263
       ],
-      "source": "trainer",
+      "source": "quest",
       "inputs": {
         "leather_rugged": 14
       },
@@ -2623,7 +2637,7 @@
         257,
         267
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_rugged": 12
       },
@@ -3488,7 +3502,7 @@
         171,
         181
       ],
-      "source": "trainer"
+      "source": "quest"
     },
     "lw_kit_stonebound": {
       "name": "Stonebound Upgrade Kit",

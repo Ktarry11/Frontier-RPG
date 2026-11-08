@@ -83,6 +83,28 @@ MATERIAL_KITS = {
     "upgrade_kit_rough_iron":"rough_iron",
     "upgrade_kit_iron":     "iron",
     "upgrade_kit_steel":     "steel",
+    # The rest of the metal ladder, added when blacksmithing was carried to
+    # skill 300 (tools/build_blacksmithing_300.py). Gear made from a metal with
+    # no kit here is second-class against Copper - it can never be upgraded -
+    # so every bar a recipe builds from needs an entry.
+    # Silver and Gold are absent on purpose: they are precious, soft metals
+    # that make no armour, so nothing exists to upgrade.
+    "upgrade_kit_mithril":   "mithril",
+    "upgrade_kit_weakstone": "weakstone",
+    "upgrade_kit_tin":       "tin",
+    "upgrade_kit_bronze_vein": "bronze_vein",
+    "upgrade_kit_living_copper": "living_copper",
+    "upgrade_kit_frostveined_tin": "frostveined_tin",
+    "upgrade_kit_verdant_iron": "verdant_iron",
+    "upgrade_kit_felslag":   "felslag",
+    "upgrade_kit_bloodiron": "bloodiron",
+    "upgrade_kit_deepearth": "deepearth",
+    "upgrade_kit_dark_iron": "dark_iron",
+    "upgrade_kit_truesilver": "truesilver",
+    "upgrade_kit_thorium":   "thorium",
+    "upgrade_kit_ashen_steel": "ashen_steel",
+    "upgrade_kit_arcanite":  "arcanite",
+    "upgrade_kit_elementium": "elementium",
     # Tailoring — cloth tiers (WoW anchors + Frontier tiers woven in)
     "upgrade_kit_linen":     "linen",
     "upgrade_kit_cotton":    "cotton",    # Frontier T4 — spi_healer leaning

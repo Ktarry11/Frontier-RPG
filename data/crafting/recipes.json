@@ -39,7 +39,8 @@
             25,
             35
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "plank_oakheart": {
           "name": "Oakheart Plank",
@@ -134,7 +135,8 @@
             95,
             105
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "plank_silverbark": {
           "name": "Silverbark Plank",
@@ -740,7 +742,7 @@
             90,
             100
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "alch_guardian_standard": {
           "name": "Guardian Elixir",
@@ -760,7 +762,7 @@
             100,
             110
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "alch_battle_standard": {
           "name": "Battle Elixir",
@@ -820,7 +822,7 @@
             135,
             145
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "alch_mana_superior": {
           "name": "Superior Mana Potion",
@@ -860,7 +862,7 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "alch_guardian_superior": {
           "name": "Superior Guardian Elixir",
@@ -900,7 +902,7 @@
             160,
             170
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "alch_greater_agility": {
           "name": "Elixir of Greater Agility",
@@ -1291,7 +1293,7 @@
             95
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "herb_bruiseweed": 1,
             "herb_stranglekelp": 1,
@@ -1355,7 +1357,7 @@
             95
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "herb_mageroyal": 1,
             "herb_liferoot": 1,
@@ -1482,7 +1484,7 @@
             100
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "herb_bruiseweed": 1,
             "herb_liferoot": 1,
@@ -1546,7 +1548,7 @@
             100
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "herb_fadeleaf": 2,
             "vial_empty": 1
@@ -1554,7 +1556,8 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "elixir_of_the_trickster"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "alch_elixir_of_shadow_cunning": {
           "name": "Elixir of Shadow Cunning",
@@ -1693,7 +1696,7 @@
             90
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "herb_bruiseweed": 2,
             "vial_empty": 1
@@ -1820,7 +1823,7 @@
             100
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "herb_stranglekelp": 2,
             "vial_empty": 1
@@ -2065,7 +2068,7 @@
         "alch_elixir_steelbloom": {
           "name": "Elixir of Steelbloom",
           "skill_required": 120,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "herb_wild_steelbloom": 2,
             "vial_leaded": 1
@@ -2079,7 +2082,8 @@
             135,
             145,
             155
-          ]
+          ],
+          "vendor_location": "Any pattern vendor"
         },
         "alch_elixir_purple_lotus": {
           "name": "Elixir of the Purple Lotus",
@@ -2655,7 +2659,7 @@
             115,
             125
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "tail_silk_boots": {
           "name": "Silk Boots",
@@ -2678,7 +2682,8 @@
             125,
             135
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_silk_cloak": {
           "name": "Silk Cloak",
@@ -2702,7 +2707,8 @@
             130,
             140
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_silk_belt": {
           "name": "Silk Belt",
@@ -2725,7 +2731,8 @@
             135,
             145
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_silk_bag": {
           "name": "Locked Drawstring Pack",
@@ -2743,7 +2750,7 @@
             135,
             145
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "tail_silk_bracers": {
           "name": "Silk Bracers",
@@ -2766,7 +2773,7 @@
             140,
             150
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_silk_gloves": {
           "name": "Silk Gloves",
@@ -2789,7 +2796,8 @@
             145,
             155
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_kit_silk": {
           "name": "Silk Upgrade Kit",
@@ -2830,7 +2838,7 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_silk_hood": {
           "name": "Silk Hood",
@@ -2853,7 +2861,8 @@
             155,
             165
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_bolt_cotton": {
           "name": "Bolt of Cotton Cloth",
@@ -3319,7 +3328,7 @@
             110,
             120
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_wool_cotton_vestments": {
           "name": "Spiritweave Cotton Vestments",
@@ -3562,7 +3571,7 @@
             137,
             147
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bolt_wool": 5
           },
@@ -3574,7 +3583,8 @@
             "item_level": 23,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "tai_wool_agint_vest": {
           "name": "Darkweave Robe",
@@ -3585,7 +3595,7 @@
             143,
             153
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bolt_wool": 5
           },
@@ -3597,7 +3607,8 @@
             "item_level": 24,
             "rarity": "uncommon",
             "material_tier": "wool"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "tai_silk_agint_spaulders": {
           "name": "Soulthread Spaulders",
@@ -3608,7 +3619,7 @@
             207,
             217
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_dusk_velvet": 9
           },
@@ -3631,7 +3642,7 @@
             213,
             223
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_gossamer": 9
           },
@@ -3654,7 +3665,7 @@
             220,
             230
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bolt_gossamer": 9
           },
@@ -3666,7 +3677,8 @@
             "item_level": 40,
             "rarity": "rare",
             "material_tier": "gossamer"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "tai_linen_stint_gloves": {
           "name": "Pilgrim's Gloves",
@@ -3723,7 +3735,7 @@
             125,
             135
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bolt_silk": 5
           },
@@ -3735,7 +3747,8 @@
             "item_level": 21,
             "rarity": "uncommon",
             "material_tier": "silk"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "tai_silk_stint_vest": {
           "name": "Radiant Robe",
@@ -3746,7 +3759,7 @@
             200,
             210
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_dusk_velvet": 8
           },
@@ -4744,7 +4757,7 @@
             235
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bolt_mageweave": 5
           },
@@ -4836,7 +4849,7 @@
             147,
             157
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_kit_dusk_velvet": {
           "name": "Dusk Velvet Upgrade Kit",
@@ -4854,7 +4867,7 @@
             190,
             200
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_kit_gossamer": {
           "name": "Gossamer Upgrade Kit",
@@ -4872,7 +4885,7 @@
             213,
             223
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "tail_kit_thistledown": {
           "name": "Thistledown Upgrade Kit",
@@ -4890,7 +4903,7 @@
             230,
             240
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_cotton_bag": {
           "name": "Rose-Clasped Bag",
@@ -4962,7 +4975,7 @@
             200,
             210
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_gossamer_bag": {
           "name": "Flameward Coffer",
@@ -5016,7 +5029,7 @@
             290,
             300
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_shadowsilk_case": {
           "name": "Ironbound Prospector's Case",
@@ -5052,7 +5065,7 @@
             300,
             310
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "tail_starweave_pack": {
           "name": "Brass-Fitted Haversack",
@@ -5070,7 +5083,8 @@
             305,
             315
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_bloodsilk_bag": {
           "name": "Warden's Reliquary",
@@ -5124,7 +5138,8 @@
             320,
             330
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "tail_bloodsilk_trunk": {
           "name": "Sunsteel Quartermaster's Trunk",
@@ -6032,7 +6047,7 @@
             110,
             120
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_ironbark_crossbow": {
           "name": "Ironbark Crossbow",
@@ -6057,7 +6072,7 @@
             110,
             120
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_ironbark_helm": {
           "name": "Ironbark Helm",
@@ -6082,7 +6097,8 @@
             110,
             120
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_kit_ironbark": {
           "name": "Ironbark Upgrade Kit",
@@ -6101,7 +6117,8 @@
             110,
             120
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_ironbark_codex": {
           "name": "Ironbark Codex",
@@ -6126,7 +6143,7 @@
             115,
             125
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_heavy_arrows": {
           "name": "Heavy Arrows (5)",
@@ -6146,7 +6163,8 @@
             115,
             125
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_heavy_bolts": {
           "name": "Heavy Bolts (5)",
@@ -6167,7 +6185,7 @@
             120,
             130
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "ww_frostpine_staff": {
           "name": "Frostpine Staff",
@@ -6191,7 +6209,8 @@
             125,
             135
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_frostpine_bow": {
           "name": "Frostpine Longbow",
@@ -6215,7 +6234,8 @@
             130,
             140
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_frostpine_shield": {
           "name": "Frostpine Shield",
@@ -6241,7 +6261,7 @@
             130,
             140
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_frostpine_crossbow": {
           "name": "Frostpine Crossbow",
@@ -6266,7 +6286,8 @@
             135,
             145
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_frostpine_grimoire": {
           "name": "Frostpine Grimoire",
@@ -6315,7 +6336,7 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_bramblewood_bow": {
           "name": "Bramblewood War Bow",
@@ -6339,7 +6360,8 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_bramblewood_bulwark": {
           "name": "Bramblewood Bulwark",
@@ -6365,7 +6387,7 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_bramblewood_crown": {
           "name": "Bramblewood Crown",
@@ -6415,7 +6437,7 @@
             155,
             165
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "ww_heartwood_idol": {
           "name": "Heartwood Idol",
@@ -6474,7 +6496,7 @@
             105,
             115
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_ashwood": 3
           },
@@ -6486,7 +6508,8 @@
             "item_level": 17,
             "rarity": "uncommon",
             "material_tier": "ashwood"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "ww_staff_agint_heavy": {
           "name": "Felwood Staff",
@@ -6497,7 +6520,7 @@
             185,
             195
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_ironbark": 5
           },
@@ -6566,7 +6589,7 @@
             195,
             205
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_ironbark": 5
           },
@@ -6578,7 +6601,8 @@
             "item_level": 35,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "ww_staff_stint_light": {
           "name": "Pilgrim's Staff",
@@ -6612,7 +6636,7 @@
             120,
             130
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_ashwood": 3
           },
@@ -6624,7 +6648,8 @@
             "item_level": 20,
             "rarity": "uncommon",
             "material_tier": "ashwood"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "ww_staff_stint_heavy": {
           "name": "Crusader's Staff",
@@ -6635,7 +6660,7 @@
             200,
             210
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_ironbark": 5
           },
@@ -6647,7 +6672,8 @@
             "item_level": 36,
             "rarity": "rare",
             "material_tier": "ironbark"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "ww_wand_int_light": {
           "name": "Thornwood Wand",
@@ -6819,7 +6845,7 @@
             123,
             133
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_ashwood": 3
           },
@@ -6831,7 +6857,8 @@
             "item_level": 20,
             "rarity": "uncommon",
             "material_tier": "ashwood"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "ww_bow_wailing_caverns": {
           "name": "Serpentwood Bow",
@@ -7660,7 +7687,7 @@
             139
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_ironbark": 1,
             "bar_bronze": 1,
@@ -7726,7 +7753,7 @@
             181,
             191
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_silverbark": 3
           },
@@ -7774,7 +7801,7 @@
             196,
             206
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_goldenleaf": 3
           },
@@ -7787,7 +7814,8 @@
             "item_level": 32,
             "material_tier": "goldenleaf"
           },
-          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_sapglow_staff": {
           "name": "Sapglow Stave",
@@ -7798,7 +7826,7 @@
             197,
             207
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_sapglow": 4
           },
@@ -7811,7 +7839,8 @@
             "item_level": 34,
             "material_tier": "sapglow"
           },
-          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_sapglow_bow": {
           "name": "Sapglow Shortbow",
@@ -7822,7 +7851,7 @@
             203,
             213
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_sapglow": 3
           },
@@ -7835,7 +7864,8 @@
             "item_level": 34,
             "material_tier": "sapglow"
           },
-          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_redbark_staff": {
           "name": "Redbark Stave",
@@ -7894,7 +7924,7 @@
             221,
             231
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "plank_duskwood": 4
           },
@@ -7918,7 +7948,7 @@
             227,
             237
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "plank_duskwood": 3
           },
@@ -7931,7 +7961,8 @@
             "item_level": 40,
             "material_tier": "duskwood"
           },
-          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "vendor_location": "Any pattern vendor"
         },
         "ww_marshwillow_staff": {
           "name": "Marshwillow Stave",
@@ -8209,7 +8240,7 @@
             103
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "crystal_azure": 2,
             "bar_bronze": 1
@@ -8229,14 +8260,15 @@
             117
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_iron": 3
           },
           "output": {
             "kind": "material",
             "material_id": "part_iron_casing"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_part_steel_barrel": {
           "name": "Steel Barrel",
@@ -8248,7 +8280,7 @@
             127
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_iron": 3,
             "part_bronze_tube": 1
@@ -8289,7 +8321,7 @@
             143
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "part_sight_glass": 1,
             "bar_iron": 2,
@@ -8310,7 +8342,7 @@
             153
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "part_azure_coil": 1,
             "crystal_emberglass": 3
@@ -8370,7 +8402,7 @@
             107
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "part_sight_glass": 1,
             "bar_bronze": 2
@@ -8509,7 +8541,7 @@
             113,
             123
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_iron": 3,
             "part_bronze_tube": 1,
@@ -8535,7 +8567,7 @@
             129,
             139
           ],
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bar_iron": 4,
             "part_steel_barrel": 1,
@@ -8588,7 +8620,7 @@
             159,
             169
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_steel": 5,
             "part_steel_barrel": 1,
@@ -8739,7 +8771,7 @@
             89,
             99
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_bronze": 2,
             "part_sight_glass": 2,
@@ -8764,7 +8796,7 @@
             103,
             113
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_bronze": 3,
             "part_sight_glass": 2,
@@ -8778,7 +8810,8 @@
             "item_level": 16,
             "rarity": "uncommon",
             "material_tier": "bronze"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_goggles_rangefinder_goggles": {
           "name": "Rangefinder Goggles",
@@ -8789,7 +8822,7 @@
             119,
             129
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_iron": 3,
             "part_sight_glass": 2,
@@ -8803,7 +8836,8 @@
             "item_level": 19,
             "rarity": "uncommon",
             "material_tier": "iron"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_goggles_seamfinder_goggles": {
           "name": "Seamfinder Goggles",
@@ -8971,7 +9005,7 @@
             131,
             141
           ],
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bar_iron": 3,
             "part_gear_assembly": 1,
@@ -9076,7 +9110,7 @@
             101,
             111
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_bronze": 3,
             "part_copper_bolts": 2,
@@ -9238,7 +9272,7 @@
             101
           ],
           "count": 3,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_bronze": 1,
             "part_copper_bolts": 1,
@@ -9248,7 +9282,8 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "bomb_static"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_bomb_concussion": {
           "name": "Concussion Charge",
@@ -9304,7 +9339,7 @@
             151
           ],
           "count": 2,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_iron": 1,
             "part_copper_bolts": 1,
@@ -9313,7 +9348,8 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "bomb_sapper"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_bomb_emberglass": {
           "name": "Emberglass Charge",
@@ -9347,7 +9383,7 @@
             175
           ],
           "count": 2,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bar_steel": 1,
             "part_copper_bolts": 1,
@@ -9470,7 +9506,7 @@
             109
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_bronze": 1,
             "part_gear_assembly": 1
@@ -9478,7 +9514,8 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "device_target_dummy"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_dev_compass": {
           "name": "Resonant Compass",
@@ -9490,7 +9527,7 @@
             125
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_iron": 1,
             "part_gear_assembly": 1,
@@ -9534,7 +9571,7 @@
             153
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bar_iron": 1,
             "part_gear_assembly": 1,
@@ -9555,7 +9592,7 @@
             165
           ],
           "count": 2,
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "bar_steel": 1,
             "part_gear_assembly": 1,
@@ -9564,7 +9601,8 @@
           "output": {
             "kind": "consumable",
             "consumable_id": "device_repair_hv"
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "eng_dev_repair_bot": {
           "name": "Repair Bot",
@@ -9637,7 +9675,7 @@
             99
           ],
           "count": 20,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bar_bronze": 2,
             "bar_weakstone": 2
@@ -9657,7 +9695,7 @@
             131
           ],
           "count": 20,
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "bar_iron": 2,
             "bar_silver": 1,
@@ -9719,7 +9757,7 @@
             115
           ],
           "count": 1,
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "part_azure_coil": 2,
             "bar_bronze": 2,

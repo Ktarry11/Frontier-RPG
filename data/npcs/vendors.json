@@ -200,7 +200,7 @@
       "sells_gear": false,
       "race": "goblin",
       "appearance_variant": 9,
-      "greeting": "Vials, reagents, and the potions you can't brew yet — that's my trade."
+      "greeting": "Vials, reagents, and the potions you can't brew yet \u2014 that's my trade."
     },
     {
       "vendor_id": "southern_durotar_trader",
@@ -327,7 +327,8 @@
         "bs_plains_scale_vest",
         "healing_potion_superior",
         "mana_potion_superior",
-        "spiced_stew"
+        "spiced_stew",
+        "alch_elixir_of_the_trickster"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -555,7 +556,7 @@
       "race": "goblin",
       "appearance_variant": 4,
       "gender": "male",
-      "greeting": "String, feathers, resin — everything that turns a plank into a bow."
+      "greeting": "String, feathers, resin \u2014 everything that turns a plank into a bow."
     },
     {
       "vendor_id": "taurajo_hide_trader",
@@ -583,7 +584,11 @@
         "lw_ratchet_goblin_gloves",
         "lw_ratchet_tinker_vest",
         "mana_potion_standard",
-        "mushroom_broth"
+        "mushroom_broth",
+        "tai_wool_agint_helm",
+        "tai_wool_stint_vest",
+        "tail_silk_belt",
+        "tail_silk_gloves"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -639,7 +644,12 @@
         "healing_potion_standard",
         "mana_potion_standard",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "plank_bramblewood",
+        "ww_bramblewood_bow",
+        "ww_heavy_arrows",
+        "ww_ironbark_helm",
+        "ww_staff_agint_medium"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -667,7 +677,8 @@
         "salt",
         "sinew",
         "ww_bow_crossroads_vendor",
-        "mana_potion_standard"
+        "mana_potion_standard",
+        "ww_frostpine_crossbow"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -790,7 +801,8 @@
         "tai_undercity_darkrobe",
         "healing_potion_standard",
         "mana_potion_standard",
-        "mushroom_broth"
+        "mushroom_broth",
+        "plank_ashwood"
       ],
       "buys_from_player": false,
       "faction": "forsaken",
@@ -983,7 +995,10 @@
         "mana_potion_standard",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "eng_bomb_sapper",
+        "eng_bomb_static",
+        "eng_goggles_prism_goggles"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -992,7 +1007,7 @@
       "race": "goblin",
       "appearance_variant": 6,
       "gender": "male",
-      "greeting": "Explosives, elixirs — close enough business."
+      "greeting": "Explosives, elixirs \u2014 close enough business."
     },
     {
       "vendor_id": "ratchet_black_market_fence",
@@ -1043,7 +1058,9 @@
         "healing_potion_standard",
         "mana_potion_standard",
         "ww_polearm_ratchet_vendor",
-        "ww_ratchet_blunderbuss"
+        "ww_ratchet_blunderbuss",
+        "ww_frostpine_staff",
+        "ww_polearm_stint_medium"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1200,7 +1217,7 @@
       "race": "blood_elf",
       "appearance_variant": 3,
       "gender": "female",
-      "greeting": "The Burning Blade has its needs. I supply them — no questions."
+      "greeting": "The Burning Blade has its needs. I supply them \u2014 no questions."
     },
     {
       "vendor_id": "org_engineer",
@@ -1232,7 +1249,10 @@
         "mana_potion_standard",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "eng_dev_target_dummy",
+        "eng_goggles_rangefinder_goggles",
+        "eng_part_iron_casing"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1327,7 +1347,8 @@
         "mana_potion_standard",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "tail_silk_boots"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -1364,7 +1385,8 @@
         "lw_razorfen_tusk_bracers",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "lw_heavy_leather_gloves"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1411,7 +1433,7 @@
       "race": "orc",
       "appearance_variant": 8,
       "gender": "male",
-      "greeting": "Northern Barrens basecamp. Moving fast — grab what you need.",
+      "greeting": "Northern Barrens basecamp. Moving fast \u2014 grab what you need.",
       "x": 150,
       "y": 66
     },
@@ -1433,7 +1455,12 @@
         "resin",
         "ww_astranaar_elven_bow",
         "tai_astranaar_moonrobe",
-        "mana_potion_standard"
+        "mana_potion_standard",
+        "tail_bloodsilk_bearer",
+        "tail_silk_cloak",
+        "tail_silk_hood",
+        "tail_starweave_pack",
+        "ww_kit_ironbark"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1809,7 +1836,8 @@
         "tai_silverpine_mournerobe",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "alch_elixir_steelbloom"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1839,7 +1867,9 @@
         "lw_fenris_mail_spaulders",
         "mushroom_broth",
         "healing_potion_greater",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "lw_heavy_int_mail_boots",
+        "lw_heavy_leather_belt"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1978,7 +2008,9 @@
         "ww_wand_undercity_vendor",
         "healing_potion_superior",
         "mana_potion_superior",
-        "spiced_stew"
+        "spiced_stew",
+        "ww_frostpine_bow",
+        "ww_staff_stint_medium"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -2130,7 +2162,8 @@
         "drink_waterskin",
         "drink_barley_beer",
         "tai_hillsbrad_rustic_robe",
-        "mushroom_broth"
+        "mushroom_broth",
+        "tai_wool_agint_vest"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -2269,7 +2302,12 @@
         "mana_potion_major",
         "tideworn_bosun_chest",
         "duskwoven_carryall",
-        "brass_fitted_haversack"
+        "brass_fitted_haversack",
+        "bs300_felslag_wrist",
+        "bs300_kit_ashen_steel",
+        "bs_iron_2h_polearm",
+        "ww_duskwood_bow",
+        "ww_sapglow_staff"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2372,7 +2410,10 @@
         "healing_potion_major",
         "mana_potion_major",
         "tideworn_bosun_chest",
-        "ironbound_prospector_case"
+        "ironbound_prospector_case",
+        "alch_flask_black_lotus",
+        "alch_transmute_arcanite",
+        "ww_goldenleaf_bow"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2660,7 +2701,16 @@
         "mana_potion_superior",
         "spiced_stew",
         "healing_potion_major",
-        "mana_potion_major"
+        "mana_potion_major",
+        "lw_heavy_agint_mail_gloves",
+        "lw_heavy_stint_mail_boots",
+        "lw_heavy_stint_mail_vest",
+        "lw_rugged_leather_boots",
+        "lw_rugged_leather_gloves",
+        "lw_thick_agint_vest",
+        "lw_thick_leather_gloves",
+        "lw_thick_leather_pants",
+        "lw_thick_str_helm"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2758,7 +2808,13 @@
         "mana_potion_superior",
         "spiced_stew",
         "healing_potion_major",
-        "mana_potion_major"
+        "mana_potion_major",
+        "bs_iron_mail_cuirass",
+        "bs_iron_plate_cuirass",
+        "eng_dev_repair_hv",
+        "ww_sapglow_bow",
+        "ww_staff_spi_heavy",
+        "ww_staff_stint_heavy"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -3502,7 +3558,10 @@
         "mana_potion_major",
         "ironbound_prospector_case",
         "duskwoven_carryall",
-        "brass_fitted_haversack"
+        "brass_fitted_haversack",
+        "bs300_deepearth_head",
+        "bs_mithril_breastplate",
+        "tai_silk_agint_vest"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3843,7 +3902,17 @@
         "hunters_brace_platter",
         "duskwoven_carryall",
         "warden_reliquary",
-        "stormglass_strongbox"
+        "stormglass_strongbox",
+        "bs300_bloodiron_feet",
+        "bs300_bloodiron_legs",
+        "bs300_kit_deepearth",
+        "bs300_truesilver_wrist",
+        "bs_mithril_shield",
+        "lw_fiendish_boots",
+        "lw_rugged_int_vest",
+        "plank_abysswood",
+        "plank_genesis_bough",
+        "plank_sylvanheart"
       ],
       "buys_from_player": true,
       "faction": "neutral",
