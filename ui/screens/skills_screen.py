@@ -79,10 +79,16 @@ class SkillsScreen(BaseScreen):
         # Now: a taller, narrower list down the left; a tightened hotbar block
         # top right; and the reclaimed space underneath it given to a detail
         # panel for whatever is selected.
+        #: Explicit vertical bands down the left, because the old layout
+        #: placed the tab row and the header at ABILITY_LIST_Y - 60 and - 25
+        #: and nothing checked that a LARGE font at -25 clears the first row.
+        #: It did not: "Available (26)" was drawn through "Attack".
+        self.TAB_ROW_Y = 20          # 20..48
+        self.LIST_HEADER_Y = 56      # 56..78
         self.ABILITY_LIST_X = 20
-        self.ABILITY_LIST_Y = 80
+        self.ABILITY_LIST_Y = 88     # first row top, clear of the header
         self.ABILITY_LIST_WIDTH = 380
-        self.ABILITY_LIST_HEIGHT = 560
+        self.ABILITY_LIST_HEIGHT = 552   # ends at 640, above the instructions
 
         self.HOTBAR_PANEL_X = 420
         self.HOTBAR_PANEL_Y = 80
@@ -604,7 +610,7 @@ class SkillsScreen(BaseScreen):
         # left-aligned to it so the tab row reads as owning that panel.
         self._tab_rects = []
         tab_x = self.ABILITY_LIST_X
-        tab_y = self.ABILITY_LIST_Y - 60
+        tab_y = self.TAB_ROW_Y
         for tab_key, label in tab_order:
             tab_w = max(70, self.renderer.font_normal.size(label)[0] + 24)
             rect = pygame.Rect(tab_x, tab_y, tab_w, 28)
@@ -636,8 +642,8 @@ class SkillsScreen(BaseScreen):
                       f"{min(self.scroll_offset + self.VISIBLE_ABILITIES, len(abilities))}]"
         self.renderer.draw_text(
             screen, header,
-            (self.ABILITY_LIST_X + 10, self.ABILITY_LIST_Y - 25),
-            color=(200, 200, 100), size="large")
+            (self.ABILITY_LIST_X + 10, self.LIST_HEADER_Y),
+            color=(200, 200, 100))
 
         visible = abilities[self.scroll_offset:self.scroll_offset + self.VISIBLE_ABILITIES]
         row = 0

@@ -62,6 +62,19 @@ def main():
     player, party = build(cls, lvl)
     sm = StubSM(player, party)
 
+    # REAL icons, built the way main.py builds them. Without this every
+    # screenshot shows empty slots and text-only rows, which is a picture of
+    # the tool rather than of the game - it very nearly had me "fix" missing
+    # icons on the skills screen that were never missing.
+    try:
+        from pathlib import Path as _P
+        from icon_migration_and_ui import IconUIHelper, IconRegistry, IconRenderer
+        _reg = IconRegistry(data_dir=_P("data"))
+        sm.icon_ui_helper = IconUIHelper(_reg, IconRenderer(_reg, cache_dir=_P("assets/icons")))
+    except Exception as _e:
+        sm.icon_ui_helper = None
+        print(f"(no icons: {type(_e).__name__}: {_e})")
+
     if which == "quest_offer":
         # The quest OFFER screen, rendered with a REAL Quest built from
         # data/quests so the text length is the real one. Added 6 Nov 2026
@@ -217,7 +230,7 @@ def main():
         # The spellbook. Defaults high so the tabs and a full kit are on
         # screen - at level 1 there is almost nothing to look at.
         from ui.screens.skills_screen import SkillsScreen
-        scr = SkillsScreen(sm)
+        scr = SkillsScreen(sm, icon_ui_helper=getattr(sm, 'icon_ui_helper', None))
         if hasattr(scr, "player"):
             scr.player = player
         if hasattr(scr, "set_subject"):
