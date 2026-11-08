@@ -466,6 +466,12 @@ MATERIAL_TYPE_FOLDERS = {
     "plank": "planks",
     "fiber": "fibers",
     "pages": "pages",
+    # Shafts - the third branch off a plank, beside fiber and pages. Kyle,
+    # 7 Nov 2026: "Planks can turn into sticks, fiber, or pages." Listed
+    # explicitly because the .get() fallback below uses the bare material_type
+    # as the folder name, which would look in sticks/ for "stick" and find
+    # nothing - the same silent miss that left part/meat/kit unresolved.
+    "stick": "sticks",
     "cloth": "cloth",
     "leather": "leather",  # 40-tier ladder art staged (Skinning not built yet)
     # BOLTS LIVE IN THE CLOTH FOLDER. All 40 bolt icons were drawn and staged alongside the cloth

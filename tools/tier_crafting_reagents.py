@@ -77,10 +77,6 @@ LADDERS = {
         # A blade needs an edge put on it; a breastplate does not.
         "stone": dict(qty=1, kinds={"weapon"}, tiers=[(None, "whetstone")]),
     },
-    "leatherworking": {
-        "cure": dict(qty=1, kinds=None, tiers=[
-            (150, "tanning_reagent"), (None, "curing_salt")]),
-    },
     "tailoring": {
         "thread": dict(qty=1, kinds=None, tiers=[
             (100, "thread_coarse"), (200, "thread_fine"), (None, "thread_silken")]),
@@ -88,6 +84,21 @@ LADDERS = {
     "woodworking": {
         "bond": dict(qty=1, kinds=None, tiers=[
             (150, "glue"), (None, "resin")]),
+        # The shaft branch. Woodworking makes 33 staves, 21 bows, 13 wands, 7
+        # polearms and 4 crossbows - every one of them a shaft with something
+        # on the end - so this is what tools/build_woodworking_300.py's sticks
+        # are for. Armour and tomes take none; a shield is not a shaft.
+        "shaft": dict(qty=1, kinds={"weapon"}, tiers=[
+            (55, "stick_green"), (115, "stick_seasoned"),
+            (185, "stick_hardened"), (245, "stick_lacquered"),
+            (285, "stick_runed"), (None, "stick_heartwood")]),
+    },
+    # Leatherworking stitches rather than tans. Kyle, 7 Nov: "we need thread,
+    # we removed hides and tanning" - so the tanning_reagent/curing_salt ladder
+    # that was defined here is gone, and leather takes thread like cloth does.
+    "leatherworking": {
+        "thread": dict(qty=1, kinds=None, tiers=[
+            (100, "thread_coarse"), (200, "thread_fine"), (None, "thread_silken")]),
     },
 }
 
