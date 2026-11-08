@@ -312,7 +312,19 @@ class Ability:
     #:                against a pack - matches the standard MMO convention
     #:                rather than dealing full single-target damage to
     #:                every enemy in the fight for the same resource cost.
-    TARGET_TYPES = ("self", "ally", "party", "enemy", "enemy_aoe")
+    #:   all_enemies - every living enemy, with NO max_targets cap. That
+    #:                uncapped-ness is the whole difference from enemy_aoe,
+    #:                which is a limited cleave.
+    #:
+    #: all_enemies was MISSING from this tuple while eleven abilities in
+    #: data/ authored it, and an unrecognised value falls back to
+    #: DEFAULT_TARGET_TYPE - plain "enemy" - a few lines below. So every one
+    #: of them silently hit a single target: nine personal-kit abilities and
+    #: the two racials that are AoE by definition in the game they come
+    #: from, War Stomp and Arcane Torrent. Nothing disagreed anywhere; the
+    #: ability fired, named itself and landed on one enemy.
+    TARGET_TYPES = ("self", "ally", "party", "enemy", "enemy_aoe",
+                    "all_enemies")
 
     #: Fraction of an ability's normal single-target damage/DoT tick each
     #: target takes when the ability is enemy_aoe. Tunable in one place
@@ -337,6 +349,7 @@ class Ability:
                  damage_to_shield=None,
                  damage_to_heal=None, dot_immune=False, on_damage_hot=None,
                  max_stacks=1, stack_on=None,
+                 dynamic_resist=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
@@ -577,6 +590,17 @@ class Ability:
         #: What earns a stack: "repeat" (the holder casts the same ability
         #: twice running) or "attack" (the holder lands a damaging one).
         self.stack_on = stack_on or None
+        #: Resolve a resistance debuff against the TARGET'S OWN resistances
+        #: at cast time, rather than naming a school up front. Three kit
+        #: abilities pick their school at runtime and had no way to say so:
+        #:   "highest_to_zero"   Ryan,  "the target's highest resistance is
+        #:                              reduced to zero"
+        #:   "lowest_by"         Marta, "the target's lowest resistance is
+        #:                              reduced by 30"
+        #:   "flatten_to_lowest" Silas, "damage against this target is dealt
+        #:                              as whichever school it resists least"
+        #: Spec: {"mode": "...", "amount": 30}
+        self.dynamic_resist = dict(dynamic_resist) if dynamic_resist else None
 
         # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
         # ("Clear your Exposed Flesh stacks to poison nearby enemies for
@@ -1588,6 +1612,59 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
+    def _resolve_dynamic_resist(self, target):
+        """Resistance stat_mods chosen from THIS target's own resistances.
+
+        Returns a dict to merge into the debuff's stat_mods.
+
+        Reads get_resistance per school, which is the single place a real
+        resistance value lives for both Characters and Monsters - including
+        anything already debuffed onto the target, so two casts of Marta's
+        do not both pick the same school if the first one changed which is
+        lowest.
+
+        Modes:
+          highest_to_zero   strip the target's best defence entirely
+          lowest_by         widen the hole it already has, by `amount`
+          flatten_to_lowest bring every school DOWN to its weakest, which
+                            is what "damage dealt as whichever school it
+                            resists least" amounts to arithmetically - the
+                            attacker stops caring which school they use.
+
+        Never RAISES a resistance: every value produced is zero or negative,
+        so a dynamic debuff cannot accidentally armour the thing it is cast
+        on if a target's resistances are already negative (a vulnerability).
+        """
+        spec = self.dynamic_resist or {}
+        mode = spec.get("mode")
+        amount = spec.get("amount", 0)
+        getter = getattr(target, "get_resistance", None)
+        if getter is None or not mode:
+            return {}
+        current = {}
+        for school in DamageSchool.ALL_SCHOOLS:
+            try:
+                current[school] = getter(school)
+            except Exception:
+                continue
+        if not current:
+            return {}
+        if mode == "highest_to_zero":
+            school = max(current, key=lambda s: current[s])
+            value = current[school]
+            return {f"{school}_resistance": -value} if value > 0 else {}
+        if mode == "lowest_by":
+            school = min(current, key=lambda s: current[s])
+            return {f"{school}_resistance": -abs(amount)}
+        if mode == "flatten_to_lowest":
+            floor = min(current.values())
+            out = {}
+            for school, value in current.items():
+                if value > floor:
+                    out[f"{school}_resistance"] = -(value - floor)
+            return out
+        return {}
+
     def _stat_mod_scalar(self):
         """How much of this ability's authored stat_mods to actually apply.
 
@@ -1753,7 +1830,7 @@ class Ability:
                                 "low_health_threshold_pct", 0.35) or 0.35
                         if cur_hp / max_hp <= threshold:
                             global_key += bonus
-            if self.target_type == "enemy_aoe":
+            if self.target_type in ("enemy_aoe", "all_enemies"):
                 global_key += self._talent(caster, "aoe_damage")
             if self.effect_type in ("dot", "spell_dot"):
                 global_key += self._talent(caster, "dot_damage")
@@ -2349,11 +2426,23 @@ class Ability:
         so callers can loop over the result uniformly instead of branching
         on single-vs-list.
         """
-        if self.target_type == "enemy_aoe":
+        # all_enemies means ALL of them, with no max_targets cap - that is
+        # the whole difference from enemy_aoe, which is a limited cleave.
+        #
+        # This fell through to the single-target branch below and hit only
+        # target[0], so eleven abilities silently affected exactly one
+        # enemy: nine personal-kit abilities and, worse, the two RACIALS
+        # that are AoE by definition in the game they come from - War Stomp
+        # stunned one target and Arcane Torrent silenced one. Nothing in a
+        # log or a tooltip disagreed; the ability fired, named itself, and
+        # landed on the first enemy in the list.
+        if self.target_type in ("enemy_aoe", "all_enemies"):
             if isinstance(target, (list, tuple)):
                 living = [t for t in target if t is not None and t.is_alive()]
             else:
                 living = [target] if target is not None else []
+            if self.target_type == "all_enemies":
+                return living
             # max_targets (see Ability.__init__) caps a limited-cleave
             # ability to its real target count instead of hitting every
             # living enemy - the explicitly-targeted unit (whichever
@@ -2714,7 +2803,13 @@ class Ability:
         # Starsweep would eat the stacks five times and pay the bonus only
         # on the first enemy.
         self._stack_bonus = self._consume_target_stacks(caster, target)
-        is_aoe = self.target_type == "enemy_aoe"
+        # all_enemies is an AoE for every purpose this flag serves: the
+        # per-target damage split, and the plural phrasing in the combat
+        # log. Leaving it out meant War Stomp reported "incapacitates A"
+        # while actually stunning the whole pack - the message naming one
+        # target is exactly what made the single-target bug invisible for
+        # so long.
+        is_aoe = self.target_type in ("enemy_aoe", "all_enemies")
         aoe_mult = self.AOE_DAMAGE_MULTIPLIER if is_aoe else 1.0
 
         # Form-reactive dispatch (Venomancer's Serpent's Fang): a small set
@@ -3380,11 +3475,31 @@ class Ability:
                     mods[k] = scaled if k.endswith("_pct") else int(scaled)
                 real_time = None if self.buff_scope == "combat" else _UNSET
                 for t in recipients:
+                    # DYNAMIC RESISTANCE SELECTION, resolved per TARGET from
+                    # that target's own resistances. Three kit abilities
+                    # name their school at runtime rather than up front -
+                    # "the target's HIGHEST resistance is reduced to zero",
+                    # "its LOWEST reduced by 30", "dealt as whichever school
+                    # it resists LEAST".
+                    #
+                    # Computed here, inside the per-target loop, because two
+                    # enemies in an AoE will not have the same weakest
+                    # school; hoisting it out would apply the first target's
+                    # answer to all of them.
+                    #
+                    # Needs no new engine mechanic: resistance debuffs
+                    # already land on both Characters and Monsters through
+                    # get_resistance, so once the school is CHOSEN this is
+                    # an ordinary debuff.
+                    effect_mods = dict(mods)
+                    if self.dynamic_resist:
+                        effect_mods.update(
+                            self._resolve_dynamic_resist(t))
                     effect = StatusEffect(
                         effect_id=self.ability_id, name=self.name,
                         effect_type=EffectType.DEBUFF,
                         duration=self.talented_duration(caster),
-                        stat_mods=mods, source_name=caster.name,
+                        stat_mods=effect_mods, source_name=caster.name,
                         real_time_seconds=real_time,
                         dispel_type=self.dispel_type,
                         exclusive_group=self.exclusive_group,
@@ -3486,6 +3601,17 @@ class Ability:
                         return (f"{caster.name} taunts every enemy with "
                                 f"{self.name}!")
                     return (f"{caster.name} taunts {recipients[0].name} with "
+                            f"{self.name}!")
+                # NO MODS TO NAME. A debuff whose whole effect lives
+                # somewhere other than stat_mods - Arcane Torrent's silence,
+                # for one - printed the parenthesis empty regardless:
+                # "Hero weakens A with Arcane Torrent ()!". The taunt and
+                # force_proc_group branches above each dodge this for their
+                # own shape; this is the general case behind them.
+                if not mod_text:
+                    if is_aoe and len(recipients) > 1:
+                        return f"{caster.name} hits all enemies with {self.name}!"
+                    return (f"{caster.name} hits {recipients[0].name} with "
                             f"{self.name}!")
                 if is_aoe and len(recipients) > 1:
                     return f"{caster.name} weakens all enemies with {self.name} ({mod_text})!"
@@ -3990,6 +4116,7 @@ def _ability_from_data(entry):
         on_damage_hot=entry.get("on_damage_hot"),
         max_stacks=entry.get("max_stacks", 1),
         stack_on=entry.get("stack_on"),
+        dynamic_resist=entry.get("dynamic_resist"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),

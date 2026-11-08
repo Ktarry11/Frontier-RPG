@@ -236,9 +236,12 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 0
+            "effect_value": 100
           }
-        ]
+        ],
+        "dynamic_resist": {
+          "mode": "flatten_to_lowest"
+        }
       },
       {
         "ability_id": "personal_silas_the_retainer",
@@ -512,21 +515,23 @@
         "ability_id": "personal_marco_a_formality_arrived_late",
         "name": "A Formality, Arrived Late",
         "from": "'The Light found him already doing the work and he regards the whole business as a formality that arrived late.'",
-        "engine": "needs: zero-cost window for a school of abilities",
+        "engine": "needs: restricting it to HOLY abilities - the cost key has no school",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "all_ability_cost_pct": 1.0
+        },
         "description": "For 3 turns Marco's Holy abilities cost no mana.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
         ]
       }
@@ -798,9 +803,12 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 0
+            "effect_value": 100
           }
-        ]
+        ],
+        "dynamic_resist": {
+          "mode": "highest_to_zero"
+        }
       },
       {
         "ability_id": "personal_ryan_clause_by_clause",
@@ -1531,7 +1539,7 @@
         "ability_id": "personal_marta_from_the_doorway",
         "name": "From the Doorway",
         "from": "'a plant floor she could diagnose from the doorway'",
-        "engine": "needs: reveal and exploit target's lowest resistance",
+        "engine": "needs: SHOWING the player which school that was",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -1544,10 +1552,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dynamic_resist": {
+          "mode": "lowest_by",
+          "amount": 30
+        }
       },
       {
         "ability_id": "personal_marta_forty_machines_one_toolkit",
@@ -3278,20 +3290,22 @@
         "ability_id": "personal_ratih_signed_none_of_the_reports",
         "name": "Signed None of the Reports",
         "from": "'She has reported every find to the Sentinels and signed none of the reports.'",
-        "engine": "needs: threat transfer away from self",
+        "engine": "needs: passing her existing threat to the ally who has the most",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "archery_points",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "threat_generation_pct": -100
+        },
         "description": "For 4 turns Ratih generates no threat, and her threat so far passes to the ally with the most.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4205,14 +4219,16 @@
         "resource_type": "combo",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "taunt": 1
+        },
         "description": "For 4 turns every enemy holds Adrián at the top of its threat.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
         "is_instant": true

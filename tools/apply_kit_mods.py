@@ -214,8 +214,59 @@ STACKING = {
     "personal_nizar_the_same_proof_for_the_ninth_time": (5, "repeat"),
 }
 
+#: ability_id -> resistance debuff resolved from the TARGET'S OWN
+#: resistances at cast time. See Ability._resolve_dynamic_resist. Needed no
+#: new engine mechanic: resistance debuffs already land on Characters and
+#: Monsters alike, so once the school is chosen it is an ordinary debuff.
+DYNAMIC_RESIST = {
+    "personal_ryan_read_what_it_wants": {"mode": "highest_to_zero"},
+    "personal_marta_from_the_doorway": {"mode": "lowest_by", "amount": 30},
+    "personal_silas_which_crate_is_light": {"mode": "flatten_to_lowest"},
+}
+
 #: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
 TABLE = {
+    # --- three that needed no engine work, only the right key --------------
+    # taunt on all_enemies - the flag has been live since the first
+    # interception pass and this ability simply never carried it.
+    "personal_adrian_the_least_popular_person": (
+        {"taunt": 1}, "every enemy holds Adrian at the top of its threat",
+        None),
+
+    # threat_generation_pct is read at combat_engine.py:598. -100 is "no
+    # threat at all", which is the headline of the ability.
+    "personal_ratih_signed_none_of_the_reports": (
+        {"threat_generation_pct": -100}, "Ratih generates no threat",
+        "passing her existing threat to the ally who has the most"),
+
+    # all_ability_cost_pct is a FRACTION and positive REDUCES, so 1.0 is
+    # free casting. It is school-agnostic, which is the gap: this makes
+    # everything free for the duration rather than only his Holy abilities.
+    # The engine CLAMPS cost reduction at 90% on purpose - "so a stack of
+    # reductions discounts rather than inverts" (abilities.py:1347) - so
+    # "cost no mana" cannot be fully expressed through this key. Measured:
+    # a 32-cost ability drops to 3, not 0. Stated honestly rather than
+    # claiming free casting.
+    "personal_marco_a_formality_arrived_late": (
+        {"all_ability_cost_pct": 1.0},
+        "Marco's abilities cost 90% less",
+        "costing NOTHING (the engine clamps reduction at 90%), and "
+        "restricting it to HOLY abilities - the cost key has no school"),
+
+    # --- the school is chosen from the target, at cast time ----------------
+    "personal_ryan_read_what_it_wants": (
+        {}, "the target's highest resistance is stripped to zero", None),
+    "personal_marta_from_the_doorway": (
+        {}, "the target's lowest resistance drops a further 30",
+        "SHOWING the player which school that was"),
+    # "the party's damage is dealt as whichever school it resists least" and
+    # "every school is brought down to its weakest" are the same arithmetic
+    # from the attacker's side, and this one is party-wide, so there is no
+    # meaningful difference in outcome.
+    "personal_silas_which_crate_is_light": (
+        {}, "every resistance on the target drops to its weakest school",
+        None),
+
     # --- stacks earned from events -----------------------------------------
     "personal_imelda_ten_fights_a_year": (
         {"healing_done_pct": 8},
@@ -609,6 +660,7 @@ def main():
                     and a.get("on_damage_hot") == ON_DAMAGE_HOT.get(aid)
                     and (EFFECT_TYPE.get(aid) is None
                          or a.get("effect_type") == EFFECT_TYPE[aid])
+                    and a.get("dynamic_resist") == DYNAMIC_RESIST.get(aid)
                     and ((a.get("max_stacks") or 1), a.get("stack_on"))
                         == STACKING.get(aid, ((a.get("max_stacks") or 1),
                                               a.get("stack_on")))):
@@ -643,6 +695,8 @@ def main():
                     a["effect_type"] = EFFECT_TYPE[aid]
                 if STACKING.get(aid):
                     a["max_stacks"], a["stack_on"] = STACKING[aid]
+                if DYNAMIC_RESIST.get(aid):
+                    a["dynamic_resist"] = dict(DYNAMIC_RESIST[aid])
                 # EVERY rank is forced to 100, not just the zero ones.
                 #
                 # _stat_mod_scalar multiplies the authored mods by
