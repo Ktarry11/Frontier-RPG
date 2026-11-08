@@ -2516,10 +2516,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_to_heal": {
+          "pct": 30,
+          "school": "fire"
+        }
       },
       {
         "ability_id": "personal_alonso_exactly_right",
@@ -2616,10 +2620,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 40,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "on_damage_hot": {
+          "potency": 30,
+          "duration": 3
+        }
       },
       {
         "ability_id": "personal_delroy_an_order_going_out_at_dawn",
@@ -2686,17 +2694,21 @@
         "resource_type": "rage",
         "cooldown": 10,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "healing_done_pct": 8
+        },
         "description": "For 5 turns each of Imelda's attacks that lands gives her 8% more healing done, stacking to 40%.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 15,
-            "effect_value": 8
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "max_stacks": 5,
+        "stack_on": "attack"
       },
       {
         "ability_id": "personal_imelda_rules_a_count",
@@ -3385,17 +3397,22 @@
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": 15,
+          "magic_damage_taken_pct": 15
+        },
         "description": "For 5 turns the target takes 15% more damage each time it repeats an ability, stacking to 45%.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 15
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "max_stacks": 3,
+        "stack_on": "repeat"
       },
       {
         "ability_id": "personal_driss_asked_permission",
@@ -4559,7 +4576,7 @@
         "name": "Without Making It Worse",
         "from": "'teaching four people how to move an injured body without making it worse'",
         "engine": "needs: suppress damage-over-time while healing",
-        "effect_type": "buff",
+        "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
@@ -4571,10 +4588,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "dot_immune": true
       }
     ]
   },
@@ -4959,8 +4977,8 @@
         "ability_id": "personal_osvaldo_just_sitting_there",
         "name": "Just Sitting There",
         "from": "'he has twice stayed up all night with people who were in a bad way, saying almost nothing, just sitting there'",
-        "engine": "needs: passive ally regeneration while caster is idle",
-        "effect_type": "buff",
+        "engine": "needs: Osvaldo healing them MORE on a turn he does not attack",
+        "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
@@ -4972,7 +4990,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -5321,17 +5339,21 @@
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 15
+        },
         "description": "For 5 turns each repeat of the same spell deals 15% more, stacking to 75%.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 15
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "max_stacks": 5,
+        "stack_on": "repeat"
       },
       {
         "ability_id": "personal_nizar_holding_the_order_of_things",

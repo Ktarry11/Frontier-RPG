@@ -335,6 +335,8 @@ class Ability:
                  reflect=None, on_low_health=None,
                  turn_meter_boost=0,
                  damage_to_shield=None,
+                 damage_to_heal=None, dot_immune=False, on_damage_hot=None,
+                 max_stacks=1, stack_on=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
@@ -561,6 +563,20 @@ class Ability:
         #: {"pct": 40, "school": "magic"} - see
         #: Character._convert_damage_to_shield.
         self.damage_to_shield = dict(damage_to_shield) if damage_to_shield else None
+        #: {"pct": 30, "school": "fire"} - heals back a share of a landed hit.
+        self.damage_to_heal = dict(damage_to_heal) if damage_to_heal else None
+        #: True suppresses DOT ticks on the recipient for the duration.
+        self.dot_immune = bool(dot_immune)
+        #: {"potency": 30, "duration": 3} - a HoT armed on taking any damage.
+        self.on_damage_hot = dict(on_damage_hot) if on_damage_hot else None
+        #: How many times the buff/debuff this ability applies may stack.
+        #: StatusEffect has supported stacking all along and Ability had no
+        #: way to ask for it, so a kit ability saying "stacking to 40%" had
+        #: no route to express the cap.
+        self.max_stacks = max(1, int(max_stacks or 1))
+        #: What earns a stack: "repeat" (the holder casts the same ability
+        #: twice running) or "attack" (the holder lands a damaging one).
+        self.stack_on = stack_on or None
 
         # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
         # ("Clear your Exposed Flesh stacks to poison nearby enemies for
@@ -1895,6 +1911,37 @@ class Ability:
         result_msg = self._apply_effect(caster, target, cost=cost, party=party,
                                         engine=engine)
 
+        # EVENT STACKING. Feeds any effect on the caster that gains a stack
+        # from repeating an ability or from landing an attack - and, for a
+        # debuff sitting on an enemy, from that enemy doing the same. See
+        # StatusEffectMixin.note_ability_used.
+        # ONLY THE ABILITY THE ACTOR CHOSE. A proc fires its own ability
+        # through this same path, and letting it record itself breaks the
+        # repeat chain: Nizar cast Attack six times running and a
+        # proc-fired Anomaly Spike in the middle made casts five and six
+        # look like two DIFFERENT abilities, so his stacks stalled - and
+        # differently on every run, because procs are random. The guard is
+        # re-entrancy rather than a proc flag, so any nested cast behaves.
+        # ONLY A DELIBERATE CAST COUNTS, and `free` is what distinguishes
+        # one. A proc fires its own ability through this same method with
+        # free=True (status_effects.py:2157), so without this a random proc
+        # lands between two casts of the same spell and breaks the repeat
+        # chain - Nizar's stacks came out differently on every single run.
+        #
+        # A re-entrancy guard was tried first and did not work: the proc
+        # fires from inside _apply_effect, and moving the guard around that
+        # call still left the proc's own note landing first. `free` is the
+        # real signal rather than an ordering trick.
+        if not free:
+            try:
+                caster.note_ability_used(
+                    self.ability_id,
+                    self.effect_type in ("damage", "spell_damage", "dot",
+                                         "spell_dot", "damage_and_heal",
+                                         "ranged_damage"))
+            except Exception:
+                pass
+
         # cooldown_per_stack: the OTHER payout a target-side stack consume
         # can buy. Starcaller's Starsweep is the real case - CoA's tooltip
         # is "Consumes Scattered Stars ... Every Scattered Star consumed
@@ -3150,6 +3197,16 @@ class Ability:
                     effect_type=EffectType.HOT, duration=duration,
                     potency=per_turn, source_name=caster.name,
                 )
+                # A HoT can carry DOT IMMUNITY too. Thiago's "takes no
+                # damage-over-time and is healed each turn" is one ability
+                # doing both, and re-categorising it from buff to hot moved
+                # it out of the buff branch where this flag was attached -
+                # so the immunity silently stopped being set and his ally
+                # kept taking poison ticks while the healing worked. The
+                # flag belongs wherever an effect is built, not on one
+                # branch.
+                if self.dot_immune:
+                    effect.dot_immune = True
                 recipient.apply_status_effect(effect)
 
             if len(recipients) > 1:
@@ -3259,6 +3316,24 @@ class Ability:
                 if self.damage_to_shield:
                     effect.damage_to_shield_pct = self.damage_to_shield.get("pct", 0)
                     effect.damage_to_shield_school = self.damage_to_shield.get("school", "")
+                if self.max_stacks > 1:
+                    effect.max_stacks = self.max_stacks
+                if self.stack_on == "repeat":
+                    effect.stack_on_repeat = True
+                elif self.stack_on == "attack":
+                    effect.stack_on_attack = True
+                if self.stack_on:
+                    # earned from zero - see _status_mods_for
+                    effect.stacks = 0
+                if self.damage_to_heal:
+                    effect.damage_to_heal_pct = self.damage_to_heal.get("pct", 0)
+                    effect.damage_to_heal_school = self.damage_to_heal.get("school", "")
+                if self.dot_immune:
+                    effect.dot_immune = True
+                if self.on_damage_hot:
+                    effect.on_damage_hot_potency = self.on_damage_hot.get("potency", 0)
+                    effect.on_damage_hot_duration = self.on_damage_hot.get("duration", 3)
+                    effect.on_damage_hot_uses = self.on_damage_hot.get("uses", 1)
                 recipient.apply_status_effect(effect)
                 if self.turn_meter_boost:
                     # Added, not assigned, so a recipient already most of the
@@ -3316,7 +3391,14 @@ class Ability:
                         proc=self.active_proc,
                         is_stun=self.is_stun,
                         scaling=self.scaling,
+                        max_stacks=self.max_stacks,
                     )
+                    if self.stack_on == "repeat":
+                        effect.stack_on_repeat = True
+                    elif self.stack_on == "attack":
+                        effect.stack_on_attack = True
+                    if self.stack_on:
+                        effect.stacks = 0
                     if self.scaling and (self.scaling.get("source") == "living_allies"):
                         effect.scaling_party = list(party or [caster])
                     t.apply_status_effect(effect)
@@ -3903,6 +3985,11 @@ def _ability_from_data(entry):
         on_low_health=entry.get("on_low_health"),
         turn_meter_boost=entry.get("turn_meter_boost", 0),
         damage_to_shield=entry.get("damage_to_shield"),
+        damage_to_heal=entry.get("damage_to_heal"),
+        dot_immune=entry.get("dot_immune", False),
+        on_damage_hot=entry.get("on_damage_hot"),
+        max_stacks=entry.get("max_stacks", 1),
+        stack_on=entry.get("stack_on"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),

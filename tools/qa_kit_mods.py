@@ -175,6 +175,18 @@ def main():
                 mult = 1.0
                 if applied is not None and getattr(applied, "scaling", None):
                     mult = applied.scaling_multiplier(holder)
+                # AN EARNED STACK COUNT IS ZERO ON CAST, and must be: the
+                # stacks are what the player works for, so Imelda's 8% per
+                # landed attack correctly reads 0 before she has attacked.
+                # Comparing against the authored number alone accused all
+                # three event-stacking abilities the moment they shipped -
+                # the same way it accused the rate-scaled ones. Same cause,
+                # same fix: compare against the multiplier the engine is
+                # actually using.
+                if applied is not None and (
+                        getattr(applied, "stack_on_repeat", False)
+                        or getattr(applied, "stack_on_attack", False)):
+                    mult *= getattr(applied, "stacks", 0)
                 want = want * mult
                 measured.append((kit.get("name"), a.get("name"), key, want, got))
                 if abs(got - want) > 0.001:

@@ -418,6 +418,51 @@ class StatusEffect:
         #: Which damage counts: "magic", "physical", or "" for all.
         self.damage_to_shield_school = ""
 
+        # ---- INCOMING DAMAGE CONVERTED TO HEALING ------------------------
+        #: PERCENT of each landed hit healed back instead of merely taken -
+        #: Alonso's "fire damage taken by the party heals them for 30% of
+        #: the amount instead". Same hook as damage_to_shield; a different
+        #: payout, so it is a sibling field rather than a mode flag.
+        self.damage_to_heal_pct = 0
+        #: Which damage counts: a school name, "magic", "physical", or "".
+        self.damage_to_heal_school = ""
+
+        # ---- DAMAGE-OVER-TIME IMMUNITY -----------------------------------
+        #: True suppresses DOT ticks on the holder entirely - Thiago's
+        #: "takes no damage-over-time". Not a dispel: the DoT stays on and
+        #: resumes when this expires.
+        self.dot_immune = False
+
+        # ---- A HEAL-OVER-TIME ARMED ON TAKING DAMAGE ---------------------
+        # Delroy's "the next time each ally takes damage they begin healing
+        # over the following 3 turns". Distinct from on_low_health, which
+        # waits for a THRESHOLD; this fires on any damage at all.
+        #: Healing per turn of the HoT this applies. 0 means no trigger.
+        self.on_damage_hot_potency = 0
+        #: How many turns that HoT runs for.
+        self.on_damage_hot_duration = 3
+        #: "The NEXT time", so 1.
+        self.on_damage_hot_uses = 1
+
+        # ---- STACKS GAINED FROM EVENTS -----------------------------------
+        # The engine has had max_stacks and per-stack stat_mods all along;
+        # what was missing is anything that ADDS a stack when something
+        # happens. Four kit abilities are written that way:
+        #   Imelda, "each attack that lands gives her 8% more healing done,
+        #            stacking to 40%"
+        #   Nizar,  "each repeat of the same spell deals 15% more, to 75%"
+        #   Driss,  "the target takes 15% more damage each time it REPEATS
+        #            an ability, stacking to 45%"
+        #   Pavlo,  "each time an enemy repeats an ability it has already
+        #            used this fight, it lands for 25% less"
+        #
+        #: True gains a stack when the HOLDER casts the same ability twice
+        #: in a row. Driss's and Pavlo's sit on the enemy, so the enemy
+        #: repeating is what feeds them - one trigger, both directions.
+        self.stack_on_repeat = False
+        #: True gains a stack when the HOLDER lands a damaging ability.
+        self.stack_on_attack = False
+
         self.max_duration = duration
         self.potency = potency
         self.damage_school = damage_school
@@ -1301,6 +1346,86 @@ class StatusEffectMixin:
             self._note_proc(
                 f"{effect.name} turns {gained} into a shield on {self.name}")
 
+    def note_ability_used(self, ability_id, was_damage):
+        """Record a cast and feed any event-stacking effects on this actor.
+
+        Called from both Ability.use and MonsterAbility.use, so a boss
+        repeating itself feeds a debuff exactly as a player does.
+
+        A REPEAT is the same ability_id twice in a row, which is what the
+        four abilities describe ("each repeat of the same spell", "each time
+        it repeats an ability it has already used"). Tracked here rather
+        than in the combat engine because the engine is not in scope for
+        every cast path - cast_panel and the out-of-combat path both call
+        use() without one.
+        """
+        previous = getattr(self, "_last_ability_id", None)
+        repeated = previous is not None and previous == ability_id
+        self._last_ability_id = ability_id
+        for effect in list(self._effects()):
+            gain = ((repeated and getattr(effect, "stack_on_repeat", False))
+                    or (was_damage and getattr(effect, "stack_on_attack", False)))
+            if not gain:
+                continue
+            cap = max(1, getattr(effect, "max_stacks", 1) or 1)
+            if getattr(effect, "stacks", 1) < cap:
+                effect.stacks = getattr(effect, "stacks", 1) + 1
+                # Stat mods are PER STACK, so the recalc has to re-read them
+                # or the new stack shows in the UI and does nothing.
+                if hasattr(self, "_on_status_effects_changed"):
+                    self._on_status_effects_changed()
+
+    def _convert_damage_to_heal(self, actual, damage_type):
+        """Heal back a share of what just landed.
+
+        Alonso's "fire damage taken by the party heals them for 30% of the
+        amount instead". Sibling to _convert_damage_to_shield - same hook,
+        same school filter, a different payout.
+
+        The damage is still taken. "Instead" in the ability text means
+        instead of being wasted, not instead of landing; healing for a
+        share of a hit that never happened would make the party immune to
+        the school rather than resistant to it.
+        """
+        if actual <= 0:
+            return
+        for effect in list(self._effects()):
+            pct = getattr(effect, "damage_to_heal_pct", 0) or 0
+            if pct <= 0:
+                continue
+            school = getattr(effect, "damage_to_heal_school", "") or ""
+            if school and school != damage_type:
+                if not (school == "magic" and damage_type != "physical"):
+                    continue
+            back = int(actual * min(100.0, pct) / 100.0)
+            if back > 0 and hasattr(self, "heal"):
+                self.heal(back)
+                self._note_proc(f"{effect.name} heals {self.name} for {back}")
+
+    def _arm_damage_hot(self, actual):
+        """Start a heal-over-time the first time this character is damaged.
+
+        Delroy's "the next time each ally takes damage they begin healing
+        over the following 3 turns". Distinct from the low-health trigger,
+        which waits for a threshold - this fires on any damage at all, which
+        is what makes it a pre-cast rather than an emergency button.
+        """
+        if actual <= 0:
+            return
+        for effect in list(self._effects()):
+            potency = getattr(effect, "on_damage_hot_potency", 0) or 0
+            if potency <= 0:
+                continue
+            if (getattr(effect, "on_damage_hot_uses", 0) or 0) <= 0:
+                continue
+            effect.on_damage_hot_uses -= 1
+            turns = max(1, getattr(effect, "on_damage_hot_duration", 3) or 3)
+            self.apply_status_effect(StatusEffect(
+                f"{effect.effect_id}_hot", f"{effect.name} (mending)",
+                EffectType.HOT, turns, potency=potency,
+                source_name=effect.source_name))
+            self._note_proc(f"{effect.name} begins mending {self.name}")
+
     def _prevent_death(self, actual):
         """Clamp a blow that would drop this character past a floor.
 
@@ -1358,7 +1483,18 @@ class StatusEffectMixin:
         payload was a plain stat was silently capped at one stack. Both now
         come here instead of each doing the arithmetic themselves.
         """
-        stacks = max(1, getattr(effect, "stacks", 1) or 1)
+        # AN EARNED STACK COUNT STARTS AT ZERO. The ordinary convention is
+        # that an effect exists at 1 stack, but for one whose stacks are
+        # EARNED by events the first stack is the thing the player has to
+        # work for: Imelda's "each attack that lands gives her 8% more
+        # healing" should give 8% after one attack, not 16%. Forcing a
+        # minimum of 1 here handed out the first stack for free on cast and
+        # put every one of these abilities permanently one stack ahead of
+        # its own tooltip.
+        earned = (getattr(effect, "stack_on_repeat", False)
+                  or getattr(effect, "stack_on_attack", False))
+        raw = getattr(effect, "stacks", 1)
+        stacks = raw if earned else max(1, raw or 1)
         mult = stacks
         if getattr(effect, "scaling", None):
             mult = stacks * effect.scaling_multiplier(self)
@@ -1422,6 +1558,17 @@ class StatusEffectMixin:
             if effect.proc_icd_remaining > 0:
                 effect.proc_icd_remaining -= 1
             if effect.effect_type == EffectType.DOT:
+                # DOT IMMUNITY suppresses the tick without removing the
+                # effect: Thiago's ally "takes no damage-over-time" for a
+                # window, and anything still running resumes afterwards.
+                # Duration keeps counting down, so a DoT does not get
+                # longer by being suppressed.
+                if any(getattr(e, "dot_immune", False) for e in self._effects()):
+                    effect.duration -= 1
+                    if effect.is_expired():
+                        self._discard_effect(effect)
+                        messages.append(f"{effect.name} fades from {self.name}.")
+                    continue
                 dealt = self.take_damage(effect.tick_potency(), effect.damage_school)
                 messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
                 effect.duration -= 1

@@ -3467,6 +3467,8 @@ class Character(StatusEffectMixin):
         self.current_health -= actual
 
         self._convert_damage_to_shield(actual, damage_type)
+        self._convert_damage_to_heal(actual, damage_type)
+        self._arm_damage_hot(actual)
 
         # Both read the health this character actually ended on, so they
         # run after the subtraction rather than before it.

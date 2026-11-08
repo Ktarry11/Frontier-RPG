@@ -373,6 +373,15 @@ class MonsterAbility:
 
         power = getattr(caster, "ability_power_bonus", 0)
 
+        # EVENT STACKING, same call as the player path, so a boss that
+        # repeats itself feeds a debuff the party put on it - which is
+        # exactly what Driss's and Pavlo's abilities are written to punish.
+        try:
+            caster.note_ability_used(self.name,
+                                     self.kind in ("damage", "dot"))
+        except Exception:
+            pass
+
         if self.kind == "summon":
             return self._summon(caster, engine)
 
@@ -1138,6 +1147,8 @@ class Monster(StatusEffectMixin):
         actual = self._share_damage_out(actual, damage_type, attacker)
         actual = self._prevent_death(actual)
         self._convert_damage_to_shield(actual, damage_type)
+        self._convert_damage_to_heal(actual, damage_type)
+        self._arm_damage_hot(actual)
 
         self.current_health = max(0, self.current_health - actual)
 

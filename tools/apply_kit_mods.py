@@ -177,8 +177,69 @@ DAMAGE_TO_SHIELD = {
     "personal_owen_he_gets_sentences": {"pct": 40, "school": "magic"},
 }
 
+#: ability_id -> incoming damage healed back. Sibling to DAMAGE_TO_SHIELD.
+DAMAGE_TO_HEAL = {
+    "personal_alonso_feels_a_draught": {"pct": 30, "school": "fire"},
+}
+
+#: ability_id -> True suppresses DOT ticks on the recipient for the duration.
+DOT_IMMUNE = {
+    "personal_thiago_without_making_it_worse": True,
+}
+
+#: ability_id -> a heal-over-time armed on taking any damage, as distinct
+#: from ON_LOW_HEALTH, which waits for a threshold.
+ON_DAMAGE_HOT = {
+    "personal_delroy_the_weather_in_the_dough": {"potency": 30, "duration": 3},
+}
+
+#: ability_id -> effect_type override. Two of these were authored as `buff`
+#: with an empty stat_mods when the text describes a plain heal-over-time,
+#: and `hot` is a full effect_type the engine has supported all along - the
+#: tick path, the tooltip and the stacking scale are already written and
+#: tested. Re-categorising them uses that rather than adding a second
+#: per-turn-healing mechanism beside it.
+EFFECT_TYPE = {
+    "personal_thiago_without_making_it_worse": "hot",
+    "personal_osvaldo_just_sitting_there": "hot",
+}
+
+#: ability_id -> (max_stacks, what earns a stack). stat_mods below are PER
+#: STACK, the convention stacking effects and talent ranks already use, so
+#: the cap is the number of STACKS and not the final percentage: Nizar's
+#: "15% more, stacking to 75%" is 15 per stack with max_stacks 5.
+STACKING = {
+    "personal_imelda_ten_fights_a_year": (5, "attack"),
+    "personal_driss_a_wrong_turn": (3, "repeat"),
+    "personal_nizar_the_same_proof_for_the_ninth_time": (5, "repeat"),
+}
+
 #: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
 TABLE = {
+    # --- stacks earned from events -----------------------------------------
+    "personal_imelda_ten_fights_a_year": (
+        {"healing_done_pct": 8},
+        "+8% healing done per landed attack, stacking to 40%", None),
+    "personal_driss_a_wrong_turn": (
+        {"physical_damage_taken_pct": 15, "magic_damage_taken_pct": 15},
+        "the target takes 15% more damage per ability it repeats, to 45%",
+        None),
+    "personal_nizar_the_same_proof_for_the_ninth_time": (
+        {"damage_dealt_pct": 15},
+        "+15% damage per repeat of the same spell, stacking to 75%", None),
+
+    # --- the healing family -------------------------------------------------
+    "personal_alonso_feels_a_draught": (
+        {}, "fire damage taken by the party heals them for 30% of it", None),
+    "personal_thiago_without_making_it_worse": (
+        {}, "that ally takes no damage over time and is healed each turn",
+        None),
+    "personal_osvaldo_just_sitting_there": (
+        {}, "the chosen ally heals each turn",
+        "Osvaldo healing them MORE on a turn he does not attack"),
+    "personal_delroy_the_weather_in_the_dough": (
+        {}, "the next damage each ally takes starts a 3-turn heal", None),
+
     # --- absorb shields, all three data-only -------------------------------
     # "cannot be broken early" is already true of an absorb shield here -
     # nothing in the engine strips one - so Henrik's is complete.
@@ -542,7 +603,15 @@ def main():
                     and (a.get("turn_meter_boost") or 0)
                         == TURN_METER_BOOST.get(aid, 0)
                     and (a.get("absorb") or 0) == ABSORB.get(aid, 0)
-                    and a.get("damage_to_shield") == DAMAGE_TO_SHIELD.get(aid)):
+                    and a.get("damage_to_shield") == DAMAGE_TO_SHIELD.get(aid)
+                    and a.get("damage_to_heal") == DAMAGE_TO_HEAL.get(aid)
+                    and bool(a.get("dot_immune")) == DOT_IMMUNE.get(aid, False)
+                    and a.get("on_damage_hot") == ON_DAMAGE_HOT.get(aid)
+                    and (EFFECT_TYPE.get(aid) is None
+                         or a.get("effect_type") == EFFECT_TYPE[aid])
+                    and ((a.get("max_stacks") or 1), a.get("stack_on"))
+                        == STACKING.get(aid, ((a.get("max_stacks") or 1),
+                                              a.get("stack_on")))):
                 skipped.append((kit.get("name"), a.get("name")))
                 continue
             done.append((kit.get("name"), a.get("name"), mods, delivers, gap))
@@ -564,6 +633,16 @@ def main():
                     a["absorb"] = ABSORB[aid]
                 if DAMAGE_TO_SHIELD.get(aid):
                     a["damage_to_shield"] = dict(DAMAGE_TO_SHIELD[aid])
+                if DAMAGE_TO_HEAL.get(aid):
+                    a["damage_to_heal"] = dict(DAMAGE_TO_HEAL[aid])
+                if DOT_IMMUNE.get(aid):
+                    a["dot_immune"] = True
+                if ON_DAMAGE_HOT.get(aid):
+                    a["on_damage_hot"] = dict(ON_DAMAGE_HOT[aid])
+                if EFFECT_TYPE.get(aid):
+                    a["effect_type"] = EFFECT_TYPE[aid]
+                if STACKING.get(aid):
+                    a["max_stacks"], a["stack_on"] = STACKING[aid]
                 # EVERY rank is forced to 100, not just the zero ones.
                 #
                 # _stat_mod_scalar multiplies the authored mods by
