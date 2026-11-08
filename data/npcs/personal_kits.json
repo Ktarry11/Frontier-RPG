@@ -702,14 +702,16 @@
         "cooldown": 15,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "spell_penetration": 30
+        },
         "description": "For 3 turns Sophia's spells ignore enemy resistance entirely.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 0
+            "effect_value": 100
           }
         ]
       },
@@ -837,14 +839,16 @@
         "cooldown": 10,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "expertise": 50
+        },
         "description": "For 3 turns Carolina's attacks cannot be dodged or parried.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 0
+            "effect_value": 100
           }
         ]
       },
@@ -1551,20 +1555,22 @@
         "ability_id": "personal_callum_youre_enormous",
         "name": "You're Enormous",
         "from": "'the animal isn't malicious, it's frightened and you're enormous'",
-        "engine": "needs: forced targeting",
+        "engine": "needs: the boss exemption its text promises",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "energy",
         "cooldown": 12,
         "duration": 3,
-        "stat_mods": {},
+        "stat_mods": {
+          "taunt": 1
+        },
         "description": "For 3 turns every enemy attacks Callum and nobody else. Does not work on bosses.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -2122,7 +2128,8 @@
         "cooldown": 10,
         "duration": 4,
         "stat_mods": {
-          "taunt": 1
+          "taunt": 1,
+          "damage_dealt_pct": -20
         },
         "description": "For 4 turns the target attacks only Fiona and deals 20% less damage. Does not work on bosses.",
         "ranks": [
@@ -2846,20 +2853,22 @@
         "ability_id": "personal_pieter_exclusion_zone",
         "name": "Exclusion Zone",
         "from": "'Harnesses, exclusion zones, and the deeply unglamorous business of nobody dying today.'",
-        "engine": "needs: deny one enemy row for a window",
+        "engine": "needs: limiting it to a single enemy ROW (needs row-scoped targeting)",
         "effect_type": "debuff",
         "target_type": "enemy_aoe",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 3,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": -30
+        },
         "description": "For 3 turns enemies in one row deal 30% less damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3588,7 +3597,8 @@
         "duration": 4,
         "stat_mods": {
           "damage_dealt_pct": -20,
-          "hit_rating": 100
+          "hit_rating": 100,
+          "spell_penetration": 30
         },
         "description": "For 4 turns Sondre's spells deal 20% less damage and cannot miss, be resisted or go astray.",
         "ranks": [
@@ -4894,14 +4904,16 @@
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 3,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": -25
+        },
         "description": "For 3 turns every enemy deals 25% less damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
         "is_instant": true

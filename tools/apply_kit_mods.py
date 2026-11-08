@@ -117,10 +117,31 @@ TABLE = {
     # taunt generates level*500 threat and tops the table. What cannot be
     # expressed is the percentage riding along with it, because it applies to
     # a MONSTER's output and monsters have no outgoing-damage multiplier.
+    # Both clauses now. The second needed a percentage on MONSTER output,
+    # which did not exist until Monster.damage_output_multiplier was added -
+    # see that property for Kyle's "enemies are different that players".
     "personal_fiona_unbearable_until_somebody_checks": (
+        {"taunt": 1, "damage_dealt_pct": -20},
+        "the target attacks only Fiona and deals 20% less damage", None),
+
+    # --- unlocked by the monster-side output multiplier --------------------
+    "personal_gianluca_defused_with_a_joke": (
+        {"damage_dealt_pct": -25},
+        "every enemy deals 25% less damage", None),
+
+    "personal_pieter_exclusion_zone": (
+        # enemy_aoe reaches the pack rather than one row; the row-scoping
+        # half still wants real row targeting, so it stays flagged.
+        {"damage_dealt_pct": -30},
+        "enemies deal 30% less damage",
+        "limiting it to a single enemy ROW (needs row-scoped targeting)"),
+
+    # taunt on all_enemies - the flag was already live, this ability just
+    # never carried it.
+    "personal_callum_youre_enormous": (
         {"taunt": 1},
-        "the target attacks only Fiona",
-        "the target dealing 20% less damage (no % on monster output)"),
+        "every enemy attacks Callum and nobody else",
+        "the boss exemption its text promises"),
 
     "personal_vuk_too_irritated_to_leave_it_alone": (
         # The +25% belongs to Vuk, but this ability lands on the enemy, so a
@@ -163,10 +184,38 @@ TABLE = {
     # and physical lines, so a saturating 100 is a real "cannot miss" with no
     # new engine code. Shipping only the drawback would have been worse than
     # inert - an ability that actively harms the caster.
+    # Fully expressible, all three clauses. spell_penetration 30 is not a
+    # magic number: Kyle, 7 Nov - "a creature at end game could have 60
+    # resistance, which allowed for 75% resistance to a school... 1 spell pen
+    # = 2 resistance override, so getting 30 spell pen means a fire mage
+    # could do 100% damage to something with 60 fire res". The engine already
+    # names it, SPELL_PEN_USEFUL_MAX = RESIST_MAX // SPELL_PEN_PER_RESIST
+    # (character.py:2860), so 30 IS "cannot be resisted".
     "personal_sondre_control_not_power": (
-        {"damage_dealt_pct": -20, "hit_rating": 100},
-        "deals 20% less damage, cannot miss",
-        "cannot be resisted (spell_penetration is stored but never read)"),
+        {"damage_dealt_pct": -20, "hit_rating": 100, "spell_penetration": 30},
+        "deals 20% less damage, cannot miss, cannot be resisted", None),
+
+    # --- the two I wrongly parked as needing engine work -------------------
+    # Both keys were ALREADY wired, at Kyle's own instruction, and I reported
+    # them dead this morning because I grepped combat/ for the consumption
+    # while both live in entities/. apply_spell_penetration is
+    # character.py:2926 (used at :3244 and :3259, and monster.py:942);
+    # expertise is monster.py:1028-1034, which computes
+    # dodge = max(0.0, self.dodge - expertise) and the same for parry - the
+    # exact dodge/parry roll. Checking only one directory is the same
+    # instrument failure the conventions doc keeps a tally of.
+    "personal_sophia_a_grammar_of_this_world": (
+        {"spell_penetration": 30},
+        "spells ignore enemy resistance entirely", None),
+
+    # Expertise is percent points subtracted from the target's dodge and
+    # parry and floored at 0. The highest base_dodge and base_parry anywhere
+    # in creature data are 10 and 8, so 50 clears any reachable total with
+    # room for a creature buff on top - "cannot be dodged or parried" as
+    # written, without inventing a flag the engine does not have.
+    "personal_carolina_feel_the_bottom": (
+        {"expertise": 50},
+        "attacks cannot be dodged or parried", None),
 
     # --- effect delivered, COST UNPAID. Flagged in the output. --------------
     "personal_kesten_reading_his_own_entry": (
@@ -238,7 +287,13 @@ def main():
                 continue
             unseen.discard(aid)
             mods, delivers, gap = TABLE[aid]
-            if a.get("stat_mods"):
+            # TABLE IS AUTHORITATIVE FOR ITS OWN ROWS. Skipping anything that
+            # already has mods meant a corrected or extended row could never
+            # land: Sondre gained a spell_penetration clause after his first
+            # apply and the re-run silently kept the old two-key version.
+            # Only an exact match is a skip, so the tool stays idempotent
+            # while a table edit still takes effect.
+            if a.get("stat_mods") == mods:
                 skipped.append((kit.get("name"), a.get("name")))
                 continue
             done.append((kit.get("name"), a.get("name"), mods, delivers, gap))

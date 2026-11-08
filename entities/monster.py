@@ -385,7 +385,12 @@ class MonsterAbility:
             targets = self._resolve_targets(target)
             if not targets:
                 return True, f"{caster.name} uses {self.name}, but there's no one there!"
+            # The caster's own outgoing-damage multiplier, after the flat
+            # power swing and before the AoE penalty - the same order the
+            # player side uses (flat bonus folded in, then percentages).
             amount = self.amount + power
+            amount = max(0, int(amount * getattr(
+                caster, "damage_output_multiplier", 1.0)))
             if self.is_aoe and len(targets) > 1:
                 amount = int(amount * self.AOE_DAMAGE_MULTIPLIER)
             lines = []
@@ -420,7 +425,12 @@ class MonsterAbility:
             targets = self._resolve_targets(target)
             if not targets:
                 return True, f"{caster.name} uses {self.name}, but there's no one there!"
-            amount = self.amount
+            # Baked in at APPLICATION time, not at tick time: the debuff on
+            # the caster when it cast is what sizes the DoT, and the tick
+            # path (StatusEffect.tick) has no reference back to the caster
+            # to re-read it later anyway.
+            amount = max(0, int(self.amount * getattr(
+                caster, "damage_output_multiplier", 1.0)))
             if self.is_aoe and len(targets) > 1:
                 amount = max(1, int(amount * self.AOE_DAMAGE_MULTIPLIER))
             msgs = []
@@ -863,6 +873,38 @@ class Monster(StatusEffectMixin):
     def ability_power_bonus(self):
         """Flat damage/healing swing from active buffs and debuffs."""
         return int(self.get_status_stat_mod("attack_power"))
+
+    @property
+    def damage_output_multiplier(self):
+        """Multiplier on this monster's outgoing damage from buffs/debuffs.
+
+        A monster had NO percentage on its own output - only the flat
+        attack_power swing above - so a debuff reading "every enemy deals
+        25% less damage" could not be expressed at all. Half a dozen
+        personal-kit abilities are written that way (Gianluca's "Defused
+        More Fights With a Joke", Fiona's "Unbearable Until Somebody
+        Checks", Pieter's "Exclusion Zone"), and the player-side
+        equivalent, damage_dealt_pct, is read in Ability._damage_multiplier
+        for a Character and reached a Monster nowhere.
+
+        Kyle, 7 Nov, on why that gap is not a reason to redesign the
+        abilities: "enemies are different that players". The monster side is
+        its own implementation, so the absence of a multiplier was simply
+        something nobody had added rather than a constraint to design
+        around. The alternative on the table - flipping those abilities to
+        target the party instead - would have moved where the status icon
+        sits and what can dispel it, to express the same arithmetic.
+
+        SAME KEY AND SAME UNIT as the player side: damage_dealt_pct in
+        PERCENT POINTS, so -25 is 25% less. One vocabulary, so an ability
+        author does not have to know whether the recipient is a Character
+        or a Monster.
+
+        Floored at zero: a debuff can reduce a monster's damage to nothing
+        but never invert it into healing the target.
+        """
+        pct = self.get_status_stat_mod("damage_dealt_pct") or 0.0
+        return max(0.0, 1.0 + pct / 100.0)
 
     def is_alive(self):
         return self.current_health > 0
