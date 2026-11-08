@@ -21,6 +21,21 @@ from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 
 
+#: THREE-COLUMN LAYOUT, defined once. __init__ places buttons against these
+#: and render() draws against these; when the two worked it out separately the
+#: prestige button ended up on top of the middle column.
+COL_W = 280
+COL_LEFT_X = 20
+COL_MID_X = COL_LEFT_X + COL_W + 30      # 330
+COL_RIGHT_X = COL_MID_X + COL_W + 30     # 640
+
+#: Prestige sits under the right column's identity block, with a gap. Not
+#: bottom-anchored: the sheet's bottom edge belongs to the middle column's
+#: stat list, which already runs the full height.
+PRESTIGE_LABEL_Y = 196
+PRESTIGE_Y = 222
+
+
 class CharacterSheetScreen(BaseScreen):
     """Character sheet: stats, leveling, prestige. Equipment lives in
     InventoryScreen (GameState.INVENTORY) - see module docstring."""
@@ -33,7 +48,19 @@ class CharacterSheetScreen(BaseScreen):
         self.skills_button = pygame.Rect(SCREEN_WIDTH - 240, 20, 110, 50)
         self.talents_button = pygame.Rect(SCREEN_WIDTH - 370, 20, 110, 50)
         self.gear_button = pygame.Rect(SCREEN_WIDTH - 500, 20, 110, 50)
-        self.prestige_button = pygame.Rect(SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT - 80, 200, 50)
+        # In the RIGHT column, not at screen centre.
+        #
+        # This was pygame.Rect(SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT - 80, ...),
+        # which is 540..740 on a 1280 screen - straight through the middle
+        # column (330..610), so the button and its label were drawn over
+        # "Hit (Off Hand)" and "Hit (Ranged)" while the whole right-hand side
+        # sat empty (Kyle's screenshot). Centre-of-screen is not a position in
+        # a three-column layout; it is whatever column happens to be there.
+        #
+        # The column maths now lives in COL_* at module scope so this and
+        # render() read the SAME numbers. They were computed independently
+        # before, which is how they disagreed.
+        self.prestige_button = pygame.Rect(COL_RIGHT_X, PRESTIGE_Y, 200, 50)
 
         self.core_stat_rects = []      # (stat_name, rect), for the hover tooltip
 
@@ -93,10 +120,8 @@ class CharacterSheetScreen(BaseScreen):
         # RESISTANCES was added (Kyle's screenshot) - a real content-growth
         # problem, not a one-off bug, so this splits into columns instead
         # of just shaving pixels off row spacing.
-        col_w = 280
-        left_x = 20
-        mid_x = left_x + col_w + 30
-        right_x = mid_x + col_w + 30
+        col_w, left_x = COL_W, COL_LEFT_X
+        mid_x, right_x = COL_MID_X, COL_RIGHT_X
 
         self._draw_panel_bg(screen, left_x, 20, col_w, SCREEN_HEIGHT - 40)
         self._draw_panel_bg(screen, mid_x, 20, col_w, SCREEN_HEIGHT - 40)
@@ -148,6 +173,9 @@ class CharacterSheetScreen(BaseScreen):
         y_pos += 28
 
         def_stats = stats['defense']
+        # Hoisted: the left column's avoidance rows need it, and it used to be
+        # bound further down in the middle-column section.
+        derived = stats['derived_stats']
         self.renderer.draw_text(screen, f"Health: {def_stats['health']}/{def_stats['health_max']}", (left_x, y_pos))
         y_pos += 22
         self.renderer.draw_health_bar(screen, (left_x, y_pos), def_stats['health'], def_stats['health_max'], width=200)
@@ -188,6 +216,19 @@ class CharacterSheetScreen(BaseScreen):
             screen,
             f"Magic Resistance: {def_stats['magic_resistance']}  ({player.get_magic_reduction_percent():.1f}% magic)",
             (left_x, y_pos))
+        y_pos += 22
+
+        # AVOIDANCE LIVES WITH DEFENSE, which is where a player looks for it.
+        # These three were the tail of the middle column, below PROCS, and on a
+        # 720px screen they ran past the panel: Dodge sat outside its own
+        # border, Block on the very last pixel row, and Parry was off-screen
+        # entirely (Kyle's screenshot). The left column's DEFENSE block had
+        # ~160px of empty space under it the whole time.
+        self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (left_x, y_pos))
+        y_pos += 22
+        self.renderer.draw_text(screen, f"Block: {derived['block']}", (left_x, y_pos))
+        y_pos += 22
+        self.renderer.draw_text(screen, f"Parry: {derived['parry']}", (left_x, y_pos))
         y_pos += 32
 
         # Real per-school resistances (Fire/Frost/Nature/Shadow/Arcane/
@@ -247,7 +288,6 @@ class CharacterSheetScreen(BaseScreen):
         self.renderer.draw_text(screen, "OFFENSIVE", (mid_x, mid_y), color=COLOR_GOLD)
         mid_y += 28
 
-        derived = stats['derived_stats']
         self.renderer.draw_text(screen, f"Attack Power: {derived['attack_power']}", (mid_x, mid_y))
         mid_y += 22
         self.renderer.draw_text(screen, f"Spell Power: {derived['spell_power']}", (mid_x, mid_y))
@@ -300,12 +340,8 @@ class CharacterSheetScreen(BaseScreen):
         self.renderer.draw_text(
             screen, f"Armor Penetration: {derived['armor_penetration']}",
             (mid_x, mid_y))
-        mid_y += 28
-        self.renderer.draw_text(screen, f"Dodge: {derived['dodge']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(screen, f"Block: {derived['block']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(screen, f"Parry: {derived['parry']}", (mid_x, mid_y))
+        # Dodge / Block / Parry used to follow here and overflowed the panel;
+        # they are now in the left column's DEFENSE block. See the note there.
 
         # ===== RIGHT COLUMN: identity =====
         # There was an empty 220x260 frame here labelled "Portrait WIP"
@@ -335,8 +371,11 @@ class CharacterSheetScreen(BaseScreen):
         # Level 100" line was both wrong (the cap is PRESTIGE_LEVEL, 60) and
         # unwanted clutter on the sheet at every level below the cap.
         if player.level >= PRESTIGE_LEVEL:
-            self.renderer.draw_button(screen, self.prestige_button, "PRESTIGE!", color=(100, 150, 100))
-            self.renderer.draw_text(screen, "Gain +1 Prestige Level & talent point!", (SCREEN_WIDTH // 2 - 180, SCREEN_HEIGHT - 120))
+            self.renderer.draw_text(
+                screen, "Gain +1 Prestige Level & talent point!",
+                (right_x, PRESTIGE_LABEL_Y), font_size=16, color=COLOR_LIGHT_GRAY)
+            self.renderer.draw_button(
+                screen, self.prestige_button, "PRESTIGE!", color=(100, 150, 100))
 
         # Top-right buttons
         self.renderer.draw_button(screen, self.gear_button, "Gear")

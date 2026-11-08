@@ -7,6 +7,9 @@ GameStateManager, since the screens reach into it for the party and player and
 nothing else during a render.
 
     python3 tools/shot_screen.py cast  /tmp/cast.png  [--class Primalist] [--level 1]
+
+Screens: cast, party[_tab], inventory[_discard|_confirm|_companion], journal,
+combat, quest_offer, quest_menu, character_sheet.
 """
 import os
 import sys
@@ -210,6 +213,20 @@ def main():
         sm.current_zone = None
         scr = CombatScreen(sm)
         scr._init_combat()
+    elif which == "character_sheet":
+        # Added 7 Nov 2026 after Kyle's screenshot of the PRESTIGE button drawn
+        # through the COMBAT STATS column. Defaults to the prestige cap so the
+        # button is actually on screen - at level 1 it is hidden and the shot
+        # shows nothing of the thing being checked.
+        from config import PRESTIGE_LEVEL
+        from ui.screens.character_sheet_screen import CharacterSheetScreen
+        if lvl < PRESTIGE_LEVEL:
+            player.level = PRESTIGE_LEVEL
+            try:
+                player.recalculate_stats()
+            except Exception:
+                pass
+        scr = CharacterSheetScreen(sm)
     else:
         raise SystemExit(f"unknown screen {which!r}")
 
