@@ -21,7 +21,7 @@ THE BLOCK KEYS, and they do not agree:
                    0-100 (character.py:1355). block_chance is DEAD.
   block_value_pct  FRACTION - a raw multiplier on the value blocked
                    (character.py:1348)
-  parry, dodge     PERCENT, rolled; dodge passes through _diminish()
+  parry, dodge     PERCENT, rolled; face value - no DR since 7 Nov 2026
                    (character.py:1332). parry_chance and dodge_chance are
                    both DEAD.
 So a node raising both the chance and the value carries a percent and a
@@ -139,7 +139,7 @@ N.append(node(
            "all armour - the Guardian wears plate anyway. THE LIVE KEYS ARE "
            "`parry` AND `dodge`, both PERCENT; parry_chance and dodge_chance "
            "read plausibly and are read by nothing. Dodge passes through "
-           "_diminish() (character.py:1332), so 4% dodge is worth slightly "
+           "face value since 7 Nov 2026, so 4% dodge is exactly 4% "
            "less than 4% parry."))
 
 N.append(node(

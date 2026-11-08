@@ -34,6 +34,31 @@ STAT_CONVERSION_TARGETS = {
     "crit_chance_spell": "crit_chance_spell",
 }
 
+#: Talent/stance/form effect keys that name a stat under a DIFFERENT name than
+#: the one _recalculate_derived_stats reads back out of the bonus pool.
+#:
+#: A talent effect is folded into `bonuses` under its own key, and the recalc
+#: then asks for the keys IT knows. When those two disagree the talent is
+#: silently inert - no error, no warning, the points are just spent on nothing.
+#:
+#: Kyle, 7 Nov 2026: "druid sharpened claws (2/4/6% bonus crit) isnt showing up
+#: under melee or spell crit... even leader of the pack". Both wrote
+#: `crit_chance`; the recalc reads `crit_chance_physical` and
+#: `crit_chance_spell`. Measured: three ranks of Sharpened Claws put
+#: crit_chance 6.0 in the effect dict and moved physical crit by 0.00.
+#:
+#: Bare `crit_chance` feeds BOTH schools, because the convention in the data is
+#: already explicit where a talent means one of them - 41 talents say
+#: crit_chance_physical and 40 say crit_chance_spell. A talent that writes the
+#: unqualified key means crit generally.
+#:
+#: tools/qa_talent_effects.py fails the build if a stat-shaped effect key is
+#: not read by anything, so the next one of these cannot ship silently.
+BONUS_KEY_ALIASES = {
+    "crit_chance": ("crit_chance_physical", "crit_chance_spell"),
+    "crit": ("crit_chance_physical", "crit_chance_spell"),
+}
+
 #: Source names accepted by those same keys. Values are computed per
 #: character in _recalculate_derived_stats; only the NAMES matter here.
 STAT_CONVERSION_SOURCES = frozenset({
@@ -1208,7 +1233,8 @@ class Character(StatusEffectMixin):
         talent_effects = self.get_talent_effects() if self.talent_trees else {}
         for _key, _value in talent_effects.items():
             if isinstance(_value, (int, float)):
-                bonuses[_key] = bonuses.get(_key, 0) + _value
+                for _target in BONUS_KEY_ALIASES.get(_key, (_key,)):
+                    bonuses[_target] = bonuses.get(_target, 0) + _value
 
         # Temporary combat buffs/debuffs (Battle Shout, Demoralizing Shout,
         # Blessing of Kings, etc.) fold in through the exact same pool, so a
@@ -1409,13 +1435,26 @@ class Character(StatusEffectMixin):
         # was missing was the floor, so a low-agility plate wearer with no dodge talent sat near
         # zero. Added before the agility term so it is a floor every class shares rather than
         # something only a talent or a gear suffix can buy.
-        # Base-stat dodge is NOT diminished (see AVOIDANCE_DR_K); only what
-        # talents, gear suffixes and defense rating add on top of it.
+        # NO DIMINISHING RETURNS. Kyle, 7 Nov 2026: "So if a talent says a
+        # certain %, it should deliver that. no diminishing."
+        #
+        # This ran every talent, gear suffix and point of defense rating
+        # through _diminish() first, so a talent reading "+2% dodge" delivered
+        # 1.90 and the next two points only 1.74 - measured on a level 60
+        # Druid. A tooltip that states a number and hands you a smaller one is
+        # a lying tooltip, and the player cannot tell whether the talent is
+        # weak, broken, or working.
+        #
+        # The runaway that DR existed to prevent is still prevented, by the
+        # joint AVOIDANCE_COMBINED_CAP below. That is the better guardrail of
+        # the two: it is a number a player can be told ("dodge and parry
+        # together cap at 60%") rather than a curve that quietly shaves every
+        # point by a different amount.
         self.dodge = (self.BASE_DODGE
                       + self._from_stat(self.AGI_PER_DODGE, eff_agility)
-                      + self._diminish(bonuses.get("dodge", 0)
-                                       + bonuses.get("dodge_rating", 0)
-                                       + defense_bonus))
+                      + bonuses.get("dodge", 0)
+                      + bonuses.get("dodge_rating", 0)
+                      + defense_bonus)
         # spirit_guard_block_from_agility (Spirit Guard, Shaman Tank: "gain
         # Block Rating equal to 33%/66%/100% of your Agility per rank") -
         # an ADDITIONAL block source layered on top of the existing
@@ -1452,9 +1491,9 @@ class Character(StatusEffectMixin):
         # parry, which is how a Rogue ended up out-avoiding a Warrior.
         self.parry = (self.BASE_PARRY
                       + self._from_stat(self.STR_PER_PARRY, eff_strength)
-                      + self._diminish(bonuses.get("parry", 0)
-                                       + bonuses.get("parry_rating", 0)
-                                       + defense_bonus))
+                      + bonuses.get("parry", 0)
+                      + bonuses.get("parry_rating", 0)
+                      + defense_bonus)
 
         # Joint ceiling on outright avoidance. Scaled proportionally rather
         # than clipped one stat at a time, so a build that leaned on parry
@@ -2672,6 +2711,16 @@ class Character(StatusEffectMixin):
     @classmethod
     def _diminish(cls, bonus):
         """Hyperbolic DR for an avoidance bonus. See AVOIDANCE_DR_K.
+
+        UNUSED SINCE 7 Nov 2026 and deliberately kept. Kyle: "if a talent says
+        a certain %, it should deliver that. no diminishing." Dodge and parry
+        now take their bonuses at face value and are held in check by
+        AVOIDANCE_COMBINED_CAP instead.
+
+        Left in place because the curve itself is sound and may be wanted for
+        a stat where a stated number is NOT promised to the player. Do not
+        re-attach it to dodge or parry without asking - that is the exact
+        behaviour that was removed.
 
         Negative bonuses (a debuff) pass through untouched - diminishing a
         penalty would turn a dodge-reduction debuff into a weaker debuff the

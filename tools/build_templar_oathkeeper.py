@@ -136,7 +136,7 @@ N.append(node(
            "and intellect are both in STAT_CONVERSION_SOURCES, so CoA's "
            "cross-pairing works exactly as written. A tank that gears "
            "Intellect for dodge is a real build here. Both are FRACTIONS. "
-           "Note dodge then passes through _diminish() while parry does not, "
+           "Note dodge and parry are both face value since 7 Nov 2026 (no DR), "
            "so the Intellect half is worth slightly less per point."))
 
 N.append(node(

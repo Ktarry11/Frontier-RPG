@@ -181,7 +181,7 @@ N.append(node(
            "AS A TALENT EFFECT max_health_pct is a FRACTION, so 6% is 0.06 - "
            "authoring 6.0 would be 600%, which is what shipped briefly on "
            "Bloodmage Eternal - while `dodge` is a PERCENT rolled against "
-           "0-100. Dodge also passes through _diminish()."))
+           "0-100. Dodge is face value - no DR since 7 Nov 2026."))
 
 N.append(node(
     "hardened_carapace", "Hardened Carapace",
