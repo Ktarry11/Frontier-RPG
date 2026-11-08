@@ -454,16 +454,30 @@ MATERIAL_TYPE_FOLDERS = {
     "kit": "kits",
 }
 
-#: Skill cap per profession TIER, not an absolute profession cap - "early"
-#: is the only tier that exists right now (see materials.json), so this
-#: is effectively the current hard cap on herbalism/mining until Mid tier
-#: materials and their own skill_range values are authored. Matches
-#: WoW's real 1-75 bracket for a profession's first tier. When Mid tier
-#: is added later, a character's cap becomes early_cap + mid_cap, same
-#: incremental-tier-cap pattern WoW itself uses (75 -> 150 -> 225 -> 300).
+#: CUMULATIVE skill cap for a material of each tier - the skill a character
+#: may reach by working that tier, not an increment to be added to the others.
+#: These deliberately mirror Character.PROFESSION_TIER_CAPS (the trainer
+#: ladder: Apprentice 75, Journeyman 150, Expert 225, Artisan 300) because
+#: they answer the same question, and when the two disagreed the answer
+#: depended on which bar you happened to smelt.
+#:
+#: ALL FOUR TIERS ARE LISTED, which matters more than it looks. A tier missing
+#: from this dict reads back as None, and smelting_manager treated None as
+#: "no cap", so a character smelting a `late` bar ran to the trainer cap while
+#: one smelting a `mid` bar stopped at 225. Keep every tier that appears in
+#: materials.json here, or the cap silently depends on the material.
+#:
+#: Kyle, 7 Nov 2026, re-anchoring the ore ladder to WoW's real values
+#: ("Mithril shouldn't be skill 80"): Thorium sits at 245 and Elementium at
+#: 300, both above the old 225, so an `endgame` entry is required for them to
+#: be reachable at all.
 TIER_SKILL_CAPS = {
     "early": 75,
     "mid": 150,
+    "late": 225,
+    "endgame": 300,
+    "kit": 300,
+    "starter": 75,
 }
 
 #: cave_name -> parent overworld zone name, for the caves that should get

@@ -11,10 +11,10 @@
       "sell_price": 5,
       "icon_id": "peacebloom",
       "skill_range": [
-        10,
-        25,
-        40,
-        50
+        1,
+        21,
+        36,
+        51
       ]
     },
     "herb_silverleaf": {
@@ -27,10 +27,10 @@
       "sell_price": 5,
       "icon_id": "silverleaf",
       "skill_range": [
-        10,
-        25,
-        40,
-        50
+        1,
+        21,
+        36,
+        51
       ]
     },
     "herb_earthroot": {
@@ -59,26 +59,26 @@
       "sell_price": 8,
       "icon_id": "mageroyal",
       "skill_range": [
-        30,
         50,
-        65,
-        75
+        70,
+        85,
+        100
       ]
     },
     "herb_fadeleaf": {
       "name": "Fadeleaf",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "early",
+      "tier": "late",
       "description": "Broad green leaves with a faint shimmer.",
       "stack_limit": 20,
       "sell_price": 7,
       "icon_id": "fadeleaf",
       "skill_range": [
-        20,
-        40,
-        55,
-        65
+        160,
+        180,
+        195,
+        210
       ]
     },
     "herb_dewgrass": {
@@ -91,10 +91,10 @@
       "sell_price": 6,
       "icon_id": "dewgrass",
       "skill_range": [
-        15,
         30,
-        45,
-        55
+        50,
+        65,
+        80
       ]
     },
     "ore_copper": {
@@ -107,10 +107,10 @@
       "sell_price": 5,
       "icon_id": "copper",
       "skill_range": [
-        10,
-        25,
-        40,
-        50
+        1,
+        21,
+        36,
+        51
       ]
     },
     "ore_tin": {
@@ -123,10 +123,10 @@
       "sell_price": 5,
       "icon_id": "tin",
       "skill_range": [
-        20,
-        35,
-        50,
-        60
+        65,
+        85,
+        100,
+        115
       ]
     },
     "ore_rough_iron": {
@@ -139,10 +139,10 @@
       "sell_price": 7,
       "icon_id": "rough_iron",
       "skill_range": [
-        30,
-        50,
-        65,
-        75
+        40,
+        60,
+        75,
+        90
       ]
     },
     "ore_weakstone": {
@@ -155,10 +155,10 @@
       "sell_price": 3,
       "icon_id": "weakstone",
       "skill_range": [
-        5,
-        15,
-        25,
-        35
+        1,
+        21,
+        36,
+        51
       ]
     },
     "wood_ashwood": {
@@ -233,32 +233,32 @@
       "name": "Briarthorn",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "mid",
+      "tier": "early",
       "description": "A thorny shrub with small purple blossoms, tougher to find than the common early herbs.",
       "stack_limit": 20,
       "sell_price": 12,
       "icon_id": "briarthorn",
       "skill_range": [
-        40,
-        60,
-        75,
-        90
+        70,
+        90,
+        105,
+        120
       ]
     },
     "ore_silver": {
       "name": "Silver Ore",
       "material_type": "ore",
       "profession": "mining",
-      "tier": "mid",
+      "tier": "early",
       "description": "A gleaming, valuable ore prized by jewelers and blacksmiths alike.",
       "stack_limit": 20,
       "sell_price": 14,
       "icon_id": "silver",
       "skill_range": [
-        50,
-        70,
-        85,
-        100
+        75,
+        95,
+        110,
+        125
       ]
     },
     "ore_iron": {
@@ -271,10 +271,10 @@
       "sell_price": 10,
       "icon_id": "iron",
       "skill_range": [
-        40,
-        60,
-        75,
-        90
+        125,
+        145,
+        160,
+        175
       ]
     },
     "ore_coal": {
@@ -287,10 +287,10 @@
       "sell_price": 4,
       "icon_id": "coal",
       "skill_range": [
-        35,
-        55,
-        70,
-        85
+        105,
+        125,
+        140,
+        155
       ]
     },
     "bar_copper": {
@@ -303,10 +303,10 @@
       "sell_price": 8,
       "icon_id": "copper",
       "skill_range": [
-        10,
-        25,
-        40,
-        50
+        1,
+        21,
+        36,
+        51
       ]
     },
     "bar_tin": {
@@ -319,10 +319,10 @@
       "sell_price": 8,
       "icon_id": "tin",
       "skill_range": [
-        10,
-        25,
-        40,
-        50
+        65,
+        85,
+        100,
+        115
       ]
     },
     "bar_rough_iron": {
@@ -335,10 +335,10 @@
       "sell_price": 10,
       "icon_id": "rough_iron",
       "skill_range": [
-        15,
-        30,
-        45,
-        55
+        40,
+        60,
+        75,
+        90
       ]
     },
     "bar_weakstone": {
@@ -351,26 +351,26 @@
       "sell_price": 5,
       "icon_id": "weakstone",
       "skill_range": [
-        5,
-        15,
-        25,
-        35
+        1,
+        21,
+        36,
+        51
       ]
     },
     "bar_silver": {
       "name": "Silver Bar",
       "material_type": "bar",
       "profession": "mining",
-      "tier": "mid",
+      "tier": "early",
       "description": "A gleaming refined bar, valuable to jewelers.",
       "stack_limit": 20,
       "sell_price": 18,
       "icon_id": "silver",
       "skill_range": [
-        55,
         75,
-        90,
-        105
+        95,
+        110,
+        125
       ]
     },
     "bar_iron": {
@@ -383,43 +383,43 @@
       "sell_price": 14,
       "icon_id": "iron",
       "skill_range": [
-        45,
-        65,
-        80,
-        95
+        125,
+        145,
+        160,
+        175
       ]
     },
     "bar_bronze": {
       "name": "Bronze Bar",
       "material_type": "bar",
       "profession": "mining",
-      "tier": "mid",
+      "tier": "early",
       "description": "An alloy of copper and tin, prized for its durability.",
       "stack_limit": 20,
       "sell_price": 20,
       "icon_id": "bronze",
       "skill_range": [
-        30,
-        50,
-        65,
-        80
+        75,
+        95,
+        110,
+        125
       ]
     },
     "bar_steel": {
       "name": "Steel Bar",
       "material_type": "bar",
       "profession": "mining",
-      "tier": "mid",
+      "tier": "late",
       "description": "Iron tempered with coal, far stronger than raw iron alone.",
       "stack_limit": 20,
       "sell_price": 24,
       "icon_id": "iron",
       "_icon_note": "No dedicated 'Steel Bar' sprite exists in the cropped bars set (only tier-variant names like Ashen Steel/Dreamsteel/Titansteel/Sunderedsteel were on the source sheet) - reusing Iron Bar's icon as a placeholder. Flag this for a real icon whenever a plain Steel Bar sprite gets added.",
       "skill_range": [
-        50,
-        70,
-        85,
-        100
+        165,
+        185,
+        200,
+        215
       ]
     },
     "upgrade_kit_copper": {
@@ -456,10 +456,10 @@
       "sell_price": 10,
       "icon_id": "bruiseweed",
       "skill_range": [
-        45,
-        65,
-        80,
-        95
+        100,
+        120,
+        135,
+        150
       ]
     },
     "herb_liferoot": {
@@ -472,10 +472,10 @@
       "sell_price": 12,
       "icon_id": "liferoot",
       "skill_range": [
-        55,
-        75,
-        90,
-        105
+        150,
+        170,
+        185,
+        200
       ]
     },
     "herb_kingsblood": {
@@ -488,26 +488,26 @@
       "sell_price": 14,
       "icon_id": "kingsblood",
       "skill_range": [
-        60,
-        80,
-        95,
-        110
+        125,
+        145,
+        160,
+        175
       ]
     },
     "herb_goldthorn": {
       "name": "Goldthorn",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "mid",
+      "tier": "late",
       "description": "A bramble tipped with golden thorns. Rare, and well worth the scratches.",
       "stack_limit": 20,
       "sell_price": 16,
       "icon_id": "goldthorn",
       "skill_range": [
-        70,
-        90,
-        105,
-        120
+        170,
+        190,
+        205,
+        220
       ]
     },
     "wood_ironbark_stump": {
@@ -3145,17 +3145,17 @@
       "name": "Khadgar's Whisker",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "mid",
+      "tier": "late",
       "description": "Fine silver filaments that tremble without any wind. Named for the archmage, though nobody agrees why.",
       "stack_limit": 20,
       "vendor_price": 0,
       "sell_price": 8,
       "icon_id": "khadgar",
       "skill_range": [
-        160,
-        210,
-        250,
-        290
+        185,
+        205,
+        220,
+        235
       ]
     },
     "herb_firebloom": {
@@ -3179,7 +3179,7 @@
       "name": "Sungrass",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "late",
+      "tier": "endgame",
       "description": "Pale blades that store the day's light and give it back at dusk. A steadying reagent in guardian elixirs.",
       "stack_limit": 20,
       "vendor_price": 0,
@@ -3187,16 +3187,16 @@
       "icon_id": "sungrass",
       "skill_range": [
         230,
-        280,
-        320,
-        360
+        250,
+        265,
+        280
       ]
     },
     "herb_blindweed": {
       "name": "Blindweed",
       "material_type": "herb",
       "profession": "herbalism",
-      "tier": "late",
+      "tier": "endgame",
       "description": "A marsh creeper whose sap clouds the eyes on contact. Diluted properly, it sharpens them instead.",
       "stack_limit": 20,
       "vendor_price": 0,
@@ -3204,9 +3204,9 @@
       "icon_id": "blindweed",
       "skill_range": [
         235,
-        285,
-        325,
-        365
+        255,
+        270,
+        285
       ]
     },
     "upgrade_kit_iron": {
@@ -3729,12 +3729,12 @@
     "ore_gold": {
       "name": "Gold Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        60,
-        80,
-        100,
-        120
+        155,
+        175,
+        190,
+        205
       ],
       "sell_price": 12,
       "stack_limit": 20,
@@ -3745,12 +3745,12 @@
     "bar_gold": {
       "name": "Gold Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        155,
+        175,
+        190,
+        205
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -3761,12 +3761,12 @@
     "ore_mithril": {
       "name": "Mithril Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        175,
+        195,
+        210,
+        225
       ],
       "sell_price": 14,
       "stack_limit": 20,
@@ -3777,12 +3777,12 @@
     "bar_mithril": {
       "name": "Mithril Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        175,
+        195,
+        210,
+        225
       ],
       "sell_price": 19,
       "stack_limit": 20,
@@ -3793,12 +3793,12 @@
     "ore_truesilver": {
       "name": "Truesilver Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        230,
+        250,
+        265,
+        280
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -3809,12 +3809,12 @@
     "bar_truesilver": {
       "name": "Truesilver Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        90,
-        110,
-        130,
-        150
+        230,
+        250,
+        265,
+        280
       ],
       "sell_price": 22,
       "stack_limit": 20,
@@ -3825,12 +3825,12 @@
     "ore_thorium": {
       "name": "Thorium Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        90,
-        110,
-        130,
-        150
+        245,
+        265,
+        280,
+        295
       ],
       "sell_price": 18,
       "stack_limit": 20,
@@ -3841,12 +3841,12 @@
     "bar_thorium": {
       "name": "Thorium Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        100,
-        120,
-        140,
-        160
+        245,
+        265,
+        280,
+        295
       ],
       "sell_price": 25,
       "stack_limit": 20,
@@ -3857,12 +3857,12 @@
     "ore_dark_iron": {
       "name": "Dark Iron Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        100,
-        120,
-        140,
-        160
+        230,
+        250,
+        265,
+        280
       ],
       "sell_price": 20,
       "stack_limit": 20,
@@ -3873,12 +3873,12 @@
     "bar_dark_iron": {
       "name": "Dark Iron Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "endgame",
       "skill_range": [
-        110,
-        130,
-        150,
-        170
+        230,
+        250,
+        265,
+        280
       ],
       "sell_price": 28,
       "stack_limit": 20,
@@ -3889,12 +3889,12 @@
     "ore_elementium": {
       "name": "Elementium Ore",
       "material_type": "ore",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        230,
-        255,
-        275,
-        305
+        290,
+        310,
+        325,
+        340
       ],
       "sell_price": 38,
       "stack_limit": 20,
@@ -3905,12 +3905,12 @@
     "bar_elementium": {
       "name": "Elementium Bar",
       "material_type": "bar",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        240,
-        265,
-        285,
-        315
+        290,
+        310,
+        325,
+        340
       ],
       "sell_price": 53,
       "stack_limit": 20,
@@ -3955,10 +3955,10 @@
       "material_type": "ore",
       "tier": "mid",
       "skill_range": [
-        60,
-        80,
-        100,
-        120
+        95,
+        115,
+        130,
+        145
       ],
       "sell_price": 12,
       "stack_limit": 20,
@@ -3971,10 +3971,10 @@
       "material_type": "bar",
       "tier": "mid",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        95,
+        115,
+        130,
+        145
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -3987,10 +3987,10 @@
       "material_type": "ore",
       "tier": "mid",
       "skill_range": [
-        70,
-        90,
-        110,
-        130
+        115,
+        135,
+        150,
+        165
       ],
       "sell_price": 14,
       "stack_limit": 20,
@@ -4003,10 +4003,10 @@
       "material_type": "bar",
       "tier": "mid",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        115,
+        135,
+        150,
+        165
       ],
       "sell_price": 19,
       "stack_limit": 20,
@@ -4017,12 +4017,12 @@
     "ore_verdant_iron": {
       "name": "Verdant Iron Ore",
       "material_type": "ore",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        80,
-        100,
-        120,
-        140
+        165,
+        185,
+        200,
+        215
       ],
       "sell_price": 16,
       "stack_limit": 20,
@@ -4033,12 +4033,12 @@
     "bar_verdant_iron": {
       "name": "Verdant Iron Bar",
       "material_type": "bar",
-      "tier": "mid",
+      "tier": "late",
       "skill_range": [
-        90,
-        110,
-        130,
-        150
+        165,
+        185,
+        200,
+        215
       ],
       "sell_price": 22,
       "stack_limit": 20,
@@ -4051,10 +4051,10 @@
       "material_type": "ore",
       "tier": "mid",
       "skill_range": [
-        90,
-        110,
-        130,
-        150
+        140,
+        160,
+        175,
+        190
       ],
       "sell_price": 18,
       "stack_limit": 20,
@@ -4067,10 +4067,10 @@
       "material_type": "bar",
       "tier": "mid",
       "skill_range": [
-        100,
-        120,
         140,
-        160
+        160,
+        175,
+        190
       ],
       "sell_price": 25,
       "stack_limit": 20,
@@ -4083,10 +4083,10 @@
       "material_type": "ore",
       "tier": "late",
       "skill_range": [
-        185,
+        190,
         210,
-        230,
-        260
+        225,
+        240
       ],
       "sell_price": 32,
       "stack_limit": 20,
@@ -4099,10 +4099,10 @@
       "material_type": "bar",
       "tier": "late",
       "skill_range": [
-        195,
-        220,
-        240,
-        270
+        190,
+        210,
+        225,
+        240
       ],
       "sell_price": 44,
       "stack_limit": 20,
@@ -4115,10 +4115,10 @@
       "material_type": "ore",
       "tier": "late",
       "skill_range": [
-        200,
+        205,
         225,
-        245,
-        275
+        240,
+        255
       ],
       "sell_price": 34,
       "stack_limit": 20,
@@ -4131,10 +4131,10 @@
       "material_type": "bar",
       "tier": "late",
       "skill_range": [
-        210,
-        235,
-        255,
-        285
+        205,
+        225,
+        240,
+        255
       ],
       "sell_price": 47,
       "stack_limit": 20,
@@ -4147,10 +4147,10 @@
       "material_type": "ore",
       "tier": "late",
       "skill_range": [
-        215,
+        220,
         240,
-        260,
-        290
+        255,
+        270
       ],
       "sell_price": 36,
       "stack_limit": 20,
@@ -4163,10 +4163,10 @@
       "material_type": "bar",
       "tier": "late",
       "skill_range": [
-        225,
-        250,
-        270,
-        300
+        220,
+        240,
+        255,
+        270
       ],
       "sell_price": 50,
       "stack_limit": 20,
@@ -4177,12 +4177,12 @@
     "ore_ashen_steel": {
       "name": "Ashen Steel Ore",
       "material_type": "ore",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        230,
-        255,
-        275,
-        305
+        260,
+        280,
+        295,
+        310
       ],
       "sell_price": 38,
       "stack_limit": 20,
@@ -4193,12 +4193,12 @@
     "bar_ashen_steel": {
       "name": "Ashen Steel Bar",
       "material_type": "bar",
-      "tier": "late",
+      "tier": "endgame",
       "skill_range": [
-        240,
-        265,
-        285,
-        315
+        260,
+        280,
+        295,
+        310
       ],
       "sell_price": 53,
       "stack_limit": 20,
@@ -4211,10 +4211,10 @@
       "material_type": "ore",
       "tier": "endgame",
       "skill_range": [
-        250,
-        275,
-        295,
-        325
+        310,
+        330,
+        345,
+        360
       ],
       "sell_price": 45,
       "stack_limit": 20,
@@ -4227,10 +4227,10 @@
       "material_type": "bar",
       "tier": "endgame",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        310,
+        330,
+        345,
+        360
       ],
       "sell_price": 62,
       "stack_limit": 20,
@@ -4243,10 +4243,10 @@
       "material_type": "ore",
       "tier": "endgame",
       "skill_range": [
-        260,
-        285,
-        305,
-        335
+        320,
+        340,
+        355,
+        370
       ],
       "sell_price": 48,
       "stack_limit": 20,
@@ -4259,10 +4259,10 @@
       "material_type": "bar",
       "tier": "endgame",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        320,
+        340,
+        355,
+        370
       ],
       "sell_price": 67,
       "stack_limit": 20,
@@ -4275,10 +4275,10 @@
       "material_type": "ore",
       "tier": "endgame",
       "skill_range": [
-        270,
-        295,
-        315,
-        345
+        330,
+        350,
+        365,
+        380
       ],
       "sell_price": 50,
       "stack_limit": 20,
@@ -4291,10 +4291,10 @@
       "material_type": "bar",
       "tier": "endgame",
       "skill_range": [
-        280,
-        305,
-        325,
-        355
+        330,
+        350,
+        365,
+        380
       ],
       "sell_price": 70,
       "stack_limit": 20,
@@ -4307,10 +4307,10 @@
       "material_type": "ore",
       "tier": "endgame",
       "skill_range": [
-        290,
-        315,
-        335,
-        365
+        340,
+        360,
+        375,
+        390
       ],
       "sell_price": 58,
       "stack_limit": 20,
@@ -4323,10 +4323,10 @@
       "material_type": "bar",
       "tier": "endgame",
       "skill_range": [
-        300,
-        325,
-        345,
-        375
+        340,
+        360,
+        375,
+        390
       ],
       "sell_price": 81,
       "stack_limit": 20,
@@ -4339,10 +4339,10 @@
       "material_type": "ore",
       "tier": "endgame",
       "skill_range": [
-        300,
-        325,
         345,
-        375
+        365,
+        380,
+        395
       ],
       "sell_price": 60,
       "stack_limit": 20,
@@ -4355,10 +4355,10 @@
       "material_type": "bar",
       "tier": "endgame",
       "skill_range": [
-        310,
-        335,
-        355,
-        385
+        345,
+        365,
+        380,
+        395
       ],
       "sell_price": 84,
       "stack_limit": 20,
@@ -5907,6 +5907,102 @@
       "description": "Reinforced tools for Thistledown-tier crafted gear.",
       "sell_price": 75,
       "skill_range": null
+    },
+    "herb_wild_steelbloom": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "mid",
+      "skill_range": [
+        115,
+        135,
+        150,
+        165
+      ],
+      "name": "Wild Steelbloom",
+      "icon_id": "wild_steelbloom",
+      "sell_price": 22,
+      "description": "A grey-petalled bloom that grows through cracked stone, hard as the rock it splits."
+    },
+    "herb_purple_lotus": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "late",
+      "skill_range": [
+        210,
+        230,
+        245,
+        260
+      ],
+      "name": "Purple Lotus",
+      "icon_id": "purple_lotus",
+      "sell_price": 55,
+      "description": "Deep violet petals, cool to the touch. Alchemists pay well and ask no questions."
+    },
+    "herb_golden_sansam": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "endgame",
+      "skill_range": [
+        260,
+        280,
+        295,
+        310
+      ],
+      "name": "Golden Sansam",
+      "icon_id": "golden_sansam",
+      "sell_price": 85,
+      "description": "A pale root under a crown of gold leaf. It tastes of nothing and mends almost anything."
+    },
+    "herb_dreamfoil": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "endgame",
+      "skill_range": [
+        270,
+        290,
+        305,
+        320
+      ],
+      "name": "Dreamfoil",
+      "icon_id": "dreamfoil",
+      "sell_price": 95,
+      "description": "The leaves blur at the edges when you look straight at them."
+    },
+    "herb_icecap": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "endgame",
+      "skill_range": [
+        290,
+        310,
+        325,
+        340
+      ],
+      "name": "Icecap",
+      "icon_id": "icecap",
+      "sell_price": 105,
+      "description": "A white bloom that keeps its own frost in high summer."
+    },
+    "herb_black_lotus": {
+      "material_type": "herb",
+      "profession": "herbalism",
+      "stack_limit": 20,
+      "tier": "endgame",
+      "skill_range": [
+        300,
+        320,
+        335,
+        350
+      ],
+      "name": "Black Lotus",
+      "icon_id": "black_lotus",
+      "sell_price": 400,
+      "description": "Petals that drink the light. Perhaps a dozen are picked in a season, and every alchemist in the world wants one."
     }
   }
 }

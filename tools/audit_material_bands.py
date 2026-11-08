@@ -142,14 +142,27 @@ def all_recipes():
 
 
 def role_map():
-    """material id -> set of stat_templates it can ultimately reach."""
-    direct = collections.defaultdict(set)
+    """(roles, used) where
+         roles[mid] = stat_templates mid can ultimately reach, and
+         used      = every material that is an input to ANY recipe.
+
+    BOTH, because roles alone gave me a badly wrong answer. Counting only
+    recipes whose output carries a stat_template treats a POTION as nothing, so
+    alchemy's 72 recipes vanished and the audit reported 14 of 16 herbs as
+    feeding nothing. Every herb is used. A material can be perfectly alive and
+    reach no stat_template at all - that is what a consumable profession looks
+    like - so "unused" and "reaches no gear" are two different findings and get
+    reported separately.
+    """
+    roles = collections.defaultdict(set)
     feeds = collections.defaultdict(set)
+    used = set()
     for r in all_recipes().values():
         inputs = r.get("inputs")
         out = r.get("output")
         if not isinstance(inputs, dict):
             continue
+        used |= set(inputs)
         if isinstance(out, str):                       # smelting's bare-string form
             for inp in inputs:
                 feeds[inp].add(out)
@@ -161,12 +174,12 @@ def role_map():
             if out.get("kind") == "material":
                 feeds[inp].add(out.get("material_id"))
             elif tmpl:
-                direct[inp].add(tmpl)
+                roles[inp].add(tmpl)
     for _ in range(4):                                 # ore -> bar -> gear, cloth -> bolt -> gear
         for m, outs in list(feeds.items()):
             for o in outs:
-                direct[m] |= direct.get(o, set())
-    return direct
+                roles[m] |= roles.get(o, set())
+    return roles, used
 
 
 def main():
@@ -179,10 +192,19 @@ def main():
     pools = load("data/gathering/node_pools.json")["zones"]
     bands = load("data/zones/zone_levels.json")["zones"]
     ladder = tiers()
-    roles = role_map()
+    roles, used = role_map()
 
-    slug = lambda n: str(n).lower().replace(" ", "_").replace("'", "")
-    band_by_slug = {slug(k): v for k, v in bands.items()}
+    # node_pools.json keys drop a leading "The" that zone_levels.json keeps, so
+    # "The Abyssal Sands" vs "abyssal_sands". Without stripping it, that zone
+    # reported as having no level band at all - a phantom finding that sent me
+    # looking for a missing band instead of a slug mismatch.
+    def slug(n):
+        s = str(n).lower().replace(" ", "_").replace("'", "")
+        return s[4:] if s.startswith("the_") else s
+    band_by_slug = {}
+    for k, v in bands.items():
+        band_by_slug.setdefault(slug(k), v)
+        band_by_slug.setdefault(str(k).lower().replace(" ", "_").replace("'", ""), v)
 
     print("  gate = trainer ladder, data/professions/professions.json: "
           + ", ".join(f"{c}@lv{l}" for c, _, l in ladder))
@@ -225,21 +247,26 @@ def main():
                   f"{t:8}{str(s):>6}{f'{lo}-{hi}':>9}   {v}")
 
     # ------------------------------------------------------------------- chains
-    print(f"\n  CHAINS     does each gatherable reach any gear?  "
-          f"(above skill {ladder[-1][0]} = forward-authored endgame, not counted)")
-    print(f"\n  {'type':9}{'total':>7}{'reachable':>11}{'dead':>6}{'forward':>9}   dead ones")
-    dead_detail = {}
+    print(f"\n  CHAINS     UNUSED = input to no recipe at all, the real defect.")
+    print(f"             NO GEAR = used, but reaches no stat_template - normal for a")
+    print(f"             consumable line (every herb is here; alchemy makes potions).")
+    print(f"             above skill {ladder[-1][0]} = forward-authored endgame, not counted.")
+    print(f"\n  {'type':9}{'total':>7}{'<={0}'.format(ladder[-1][0]):>7}"
+          f"{'unused':>8}{'no gear':>9}{'forward':>9}   unused ones")
     for t in GATHERED:
         every = [(m.get("skill_range") or [9999])[0] for m in mats.values()
                  if m["material_type"] == t]
         live = [(s, mid, m["name"]) for mid, m in mats.items()
-                if m["material_type"] == t and (m.get("skill_range") or [9999])[0] <= ladder[-1][0]
-                for s in [(m.get("skill_range") or [9999])[0]]]
-        dead = sorted((s, n) for s, mid, n in live if not roles.get(mid))
-        dead_detail[t] = dead
+                if m["material_type"] == t
+                for s in [(m.get("skill_range") or [9999])[0]] if s <= ladder[-1][0]]
+        unused = sorted((s, n) for s, mid, n in live if mid not in used)
+        nogear = [1 for s, mid, n in live if mid in used and not roles.get(mid)]
         fwd = sum(1 for s in every if s > ladder[-1][0])
-        first = f"from skill {dead[0][0]} up" if dead else "-"
-        print(f"  {t:9}{len(every):>7}{len(live):>11}{len(dead):>6}{fwd:>9}   {first}")
+        names = ", ".join(f"{n} ({s})" for s, n in unused) if unused else "none"
+        if len(names) > 58:
+            names = f"{len(unused)} from skill {unused[0][0]} up"
+        print(f"  {t:9}{len(every):>7}{len(live):>7}{len(unused):>8}"
+              f"{len(nogear):>9}{fwd:>9}   {names}")
 
     # ----------------------------------------------- interchangeable in a band
     print(f"\n  SPECIALIZATION  materials in one tier reaching the IDENTICAL roles are")
