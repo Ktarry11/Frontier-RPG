@@ -1187,15 +1187,36 @@ class Ability:
         """
         label = {
             "cc_immune": "Immune to crowd control",
+            "taunt": "Forces the target to attack you",
             "damage_taken_pct": "Damage taken",
             "physical_damage_taken_pct": "Physical damage taken",
             "magic_damage_taken_pct": "Magic damage taken",
             "damage_dealt_pct": "Damage dealt",
+            "healing_done_pct": "Healing done",
+            "healing_taken_pct": "Healing received",
             "max_health_pct": "Maximum health",
             "max_mana_pct": "Maximum mana",
+            # Three that the .title() fallback mangled into internal names
+            # the moment the personal kits started using them: "Threat
+            # Generation Pct +200%", "All Ability Cost Pct +30%" (which also
+            # reads as a COST INCREASE when the key means a reduction), and
+            # "Haste -50" with no unit on a percent-point value.
+            "threat_generation_pct": "Threat",
+            "all_ability_cost_pct": "Ability costs",
+            "haste": "Haste",
         }.get(key, key.replace("_", " ").title())
-        if key == "cc_immune":
+        # Flags, not magnitudes - the number is always 1 and printing it says
+        # nothing.
+        if key in ("cc_immune", "taunt"):
             return label
+        # all_ability_cost_pct is the one key whose POSITIVE value is a
+        # REDUCTION (abilities.py:1257 subtracts it), so the sign has to be
+        # flipped for the reader or a 30% discount reads as a 30% surcharge.
+        if key == "all_ability_cost_pct":
+            pct = abs(value) * 100 if abs(value) < 1 else abs(value)
+            return f"{label} {'-' if value >= 0 else '+'}{pct:g}%"
+        if key == "haste":
+            return f"{label} {'+' if value >= 0 else '-'}{abs(value):g}%"
         if key.endswith("_pct"):
             pct = abs(value) * 100 if abs(value) < 1 else abs(value)
             return f"{label} {'+' if value >= 0 else '-'}{pct:g}%"
@@ -3166,7 +3187,16 @@ class Ability:
                 )
                 recipient.apply_status_effect(effect)
 
-            mod_text = ", ".join(f"{k.replace('_', ' ')} +{v}"
+            # THROUGH _stat_mod_text, same as the tooltip at line 1056. This
+            # was its own hand-rolled formatter with an unconditional "+",
+            # so the combat log read "damage dealt pct +-20.0, hit rating
+            # +100" for the same buff the tooltip rendered as "Damage dealt
+            # -20%, Hit Rating +100". One rule, two implementations, and the
+            # log was the wrong one - it printed raw key names, lost the %
+            # on every percentage, and sign-mangled every negative value a
+            # buff carries. Negatives only started appearing here when the
+            # personal kits began authoring real trade-off buffs.
+            mod_text = ", ".join(self._stat_mod_text(k, v)
                                  for k, v in mods.items() if v)
             if len(recipients) > 1:
                 return (f"{caster.name} uses {self.name} on the party "
@@ -3249,8 +3279,12 @@ class Ability:
                             active.proc = dict(active.proc)
                             active.proc["chance"] = 100
                             active.proc["icd"] = 0
-                mod_text = ", ".join(f"{k.replace('_', ' ')} {v}"
-                                     for k, v in mods.items() if v and k != "taunt")
+                # Same single formatter as the buff branch and the tooltip.
+                # taunt stays filtered out here on purpose - the message
+                # branches below have their own taunt-flavoured phrasing.
+                mod_text = ", ".join(self._stat_mod_text(k, v)
+                                     for k, v in mods.items()
+                                     if v and k != "taunt")
                 # Stun/incapacitate/fear/sleep debuffs (is_stun=True) carry
                 # no stat_mods at all - mod_text is empty for these, so the
                 # old "(...)" suffix rendered as a bare, empty "()" in the
@@ -3274,6 +3308,20 @@ class Ability:
                     return f"{caster.name} incapacitates {recipients[0].name} with {self.name}!"
                 if self.force_proc_group:
                     return f"{caster.name} taunts {recipients[0].name} with {self.name}!"
+                # ANY taunt-only debuff, not just a force_proc_group one.
+                # The branch above covered Barbed Stinger's shape and nothing
+                # else, so a debuff whose only mod is taunt fell through to
+                # the generic line and printed the same contentless
+                # "weakens X with Y ()" that branch exists to prevent -
+                # which is exactly what Fiona's "Unbearable Until Somebody
+                # Checks" and Vuk's "Too Irritated to Leave It Alone" did
+                # the moment they were given a real taunt flag.
+                if not mod_text and (mods or {}).get("taunt"):
+                    if is_aoe and len(recipients) > 1:
+                        return (f"{caster.name} taunts every enemy with "
+                                f"{self.name}!")
+                    return (f"{caster.name} taunts {recipients[0].name} with "
+                            f"{self.name}!")
                 if is_aoe and len(recipients) > 1:
                     return f"{caster.name} weakens all enemies with {self.name} ({mod_text})!"
                 return f"{caster.name} weakens {recipients[0].name} with {self.name} ({mod_text})!"

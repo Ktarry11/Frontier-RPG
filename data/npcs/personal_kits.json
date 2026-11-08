@@ -789,7 +789,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 30
+            "effect_value": 100
           }
         ]
       },
@@ -1043,7 +1043,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 15
+            "effect_value": 100
           }
         ]
       }
@@ -1268,14 +1268,18 @@
         "cooldown": 12,
         "duration": 5,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": -25,
+          "magic_damage_taken_pct": -25,
+          "damage_dealt_pct": 25
+        },
         "description": "For 5 turns after an ally falls, Pasang takes 25% less damage and deals 25% more.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 25
+            "effect_value": 100
           }
         ]
       }
@@ -1955,20 +1959,22 @@
         "ability_id": "personal_kesten_reading_his_own_entry",
         "name": "Reading His Own Entry",
         "from": "'He has been reading his own entry for two years and has never told anyone what it says.'",
-        "engine": "needs: self-damage converted to spell power",
+        "engine": "needs: COST UNPAID: spends 15% of his health",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 25
+        },
         "description": "Kesten spends 15% of his health. For 4 turns his spell damage is increased by 25%.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -2109,20 +2115,22 @@
         "ability_id": "personal_fiona_unbearable_until_somebody_checks",
         "name": "Unbearable Until Somebody Checks",
         "from": "'being unbearable about it until somebody checks'",
-        "engine": "needs: stacking taunt that also lowers the target's damage",
+        "engine": "needs: the target dealing 20% less damage (no % on monster output)",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "rage",
         "cooldown": 10,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "taunt": 1
+        },
         "description": "For 4 turns the target attacks only Fiona and deals 20% less damage. Does not work on bosses.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -2726,20 +2734,22 @@
         "ability_id": "personal_eino_six_months_of_dark",
         "name": "Six Months of Dark",
         "from": "'Six months of dark a year, machinery, and nobody to talk to for days at a stretch.'",
-        "engine": "needs: self-buff with no party component",
+        "engine": "needs: COST UNPAID: gains nothing from any ally's buffs",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 25
+        },
         "description": "For 5 turns Eino deals 25% more damage and gains nothing from any ally's buffs.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -2886,14 +2896,18 @@
         "resource_type": "rage",
         "cooldown": 10,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "threat_generation_pct": 200,
+          "physical_damage_taken_pct": -20,
+          "magic_damage_taken_pct": -20
+        },
         "description": "For 4 turns Pieter generates triple threat and takes 20% less damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3006,7 +3020,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 15
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3085,7 +3099,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 8
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3264,7 +3278,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3345,7 +3359,7 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3393,14 +3407,16 @@
         "resource_type": "energy",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "all_ability_cost_pct": 0.3
+        },
         "description": "For 4 turns Diego cannot be blinded, silenced or interrupted, and his abilities cost 30% less.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3564,20 +3580,23 @@
         "ability_id": "personal_sondre_control_not_power",
         "name": "Control, Not Power",
         "from": "'Control. Not power. He has plenty of power and it is the whole problem.'",
-        "engine": "needs: trade damage for accuracy",
+        "engine": "needs: cannot be resisted (spell_penetration is stored but never read)",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": -20,
+          "hit_rating": 100
+        },
         "description": "For 4 turns Sondre's spells deal 20% less damage and cannot miss, be resisted or go astray.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3723,14 +3742,18 @@
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 3,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 25,
+          "physical_damage_taken_pct": -15,
+          "magic_damage_taken_pct": -15
+        },
         "description": "For 3 turns Matías deals 25% more damage and takes 15% less. Best used before the first blow.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -3800,14 +3823,19 @@
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 40,
+          "physical_damage_taken_pct": -35,
+          "magic_damage_taken_pct": -35,
+          "haste": -50
+        },
         "description": "For 5 turns Giorgi acts at half speed, takes 35% less damage and deals 40% more.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 40
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4434,20 +4462,22 @@
         "ability_id": "personal_skye_a_rule_she_tells_nobody",
         "name": "A Rule She Tells Nobody",
         "from": "'she has a rule she tells nobody, and she has never broken it'",
-        "engine": "needs: self-imposed cap that grants a bonus",
+        "engine": "needs: never striking an ally (no friendly-fire logic); not fire-specific",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "damage_dealt_pct": 45
+        },
         "description": "For 5 turns Skye's fire deals 45% more damage but cannot strike an ally under any circumstance.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 45
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4489,20 +4519,22 @@
         "ability_id": "personal_vuk_too_irritated_to_leave_it_alone",
         "name": "Too Irritated to Leave It Alone",
         "from": "'being too irritated by how badly it was being used to leave it alone'",
-        "engine": "needs: taunt plus damage bonus against the taunted target",
+        "engine": "needs: Vuk's own +25% against it (lands on the wrong actor from here)",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "rage",
         "cooldown": 10,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "taunt": 1
+        },
         "description": "For 4 turns the target attacks only Vuk, and Vuk deals 25% more damage to it.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 20,
-            "effect_value": 25
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4643,20 +4675,23 @@
         "ability_id": "personal_karim_the_fastest_route_to_useful",
         "name": "The Fastest Route to Being Useful",
         "from": "'He took the fel deliberately, after consideration, as the fastest route to being useful in a fight.'",
-        "engine": "needs: burn health for immediate threat and damage",
+        "engine": "needs: COST UNPAID: spends 20% of his health",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "threat_generation_pct": 200,
+          "damage_dealt_pct": 30
+        },
         "description": "Karim spends 20% of his health. For 4 turns he generates triple threat and deals 30% more damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4875,20 +4910,23 @@
         "ability_id": "personal_gianluca_a_running_commentary",
         "name": "A Running Commentary",
         "from": "'he keeps up a running commentary that the enemy finds as unsettling as everyone else does'",
-        "engine": "needs: forced targeting on self plus party mitigation",
+        "engine": "needs: enemies targeting Gianluca first (taunt needs a self/enemy target)",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": -20,
+          "magic_damage_taken_pct": -20
+        },
         "description": "For 4 turns enemies target Gianluca first and the party takes 20% less damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -4974,20 +5012,23 @@
         "ability_id": "personal_elias_four_walls_and_a_roof",
         "name": "Four Walls and a Roof",
         "from": "'Four walls and a roof and a stove. He has shown the drawing to nobody.'",
-        "engine": "needs: persistent party shelter that refreshes",
+        "engine": "needs: immunity to weather and terrain effects",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 5,
-        "stat_mods": {},
+        "stat_mods": {
+          "physical_damage_taken_pct": -20,
+          "magic_damage_taken_pct": -20
+        },
         "description": "For 5 turns the party takes 20% less damage and is immune to weather and terrain effects.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 45,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true

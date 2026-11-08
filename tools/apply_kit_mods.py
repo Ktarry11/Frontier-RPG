@@ -1,0 +1,307 @@
+#!/usr/bin/env python3
+"""Give inert personal-kit abilities real stat_mods, from a HAND-WRITTEN table.
+
+    PYTHONPATH=. python3 tools/apply_kit_mods.py [--apply]
+
+Idempotent: an ability that already has stat_mods is skipped, so a re-run
+after hand-editing the data changes nothing.
+
+=============================================================================
+WHY THIS TABLE IS WRITTEN OUT BY HAND
+=============================================================================
+
+tools/repair_personal_kits.py tried to derive these from each ability's
+description with regex. Of the 28 it proposed, a third were wrong, because the
+descriptions make distinctions a pattern cannot see:
+
+    "Sondre's spells DEAL 20% less damage"   -> his own output, a drawback
+    "Pasang TAKES 25% less damage"           -> his own mitigation, a benefit
+    "every ENEMY DEALS 25% less damage"      -> the enemies' output
+
+All three are "20-25% less damage". The regex read the second reading into the
+first, which turned Sondre's deliberate drawback into a defensive buff.
+
+So that tool is analysis-only now and this one holds the decisions. Every row
+below was read against its own description and its target_type.
+
+=============================================================================
+THE KEYS, AND WHAT THEY REALLY DO
+=============================================================================
+
+Verified by reading the code, not from the convention doc, because several of
+these are wider or narrower than the doc implies:
+
+    damage_dealt_pct        PERCENT POINTS. The caster's whole outgoing
+                            damage. combat/abilities.py:1710 - and it is
+                            SCHOOL-AGNOSTIC on purpose: the school-specific
+                            names (fire_damage_pct, shadow_damage_pct, ...)
+                            were folded into this one key during the
+                            stat-vocabulary cleanup, so there is no
+                            fire-only channel to put Skye's rule in.
+    healing_done_pct        PERCENT POINTS. Same path, healing school.
+    physical_/magic_damage_taken_pct
+                            PERCENT POINTS, and read by Monster as well as
+                            Character (entities/monster.py:1067).
+    damage_taken_pct        FRACTION. Not used below - the two per-school
+                            keys cover "damage of any kind" and keep one
+                            unit across the table.
+    threat_generation_pct   PERCENT POINTS, via combat_engine. "Triple
+                            threat" is +200, not 300.
+    all_ability_cost_pct    FRACTION, positive REDUCES. abilities.py:1257.
+    taunt                   A real flag, not a stat: abilities.py:1931 turns
+                            it into level*500 threat, enough to top the
+                            table outright. This is why several abilities
+                            below get their "attacks only X" half for free.
+    haste                   PERCENT POINTS. Negative is a real slow.
+
+=============================================================================
+WHAT IS DELIBERATELY LEFT UNDONE, AND WHY THAT IS NOT THE SAME AS BROKEN
+=============================================================================
+
+Three rows deliver their effect while their COST goes unpaid - Kesten's and
+Karim's health price, Eino's "gains nothing from any ally's buffs". The
+headline effect is the ability; the price is a mechanic the engine has no hook
+for. Shipping the effect makes them strong rather than inert, which is a
+balance note Kyle can see and tune, not a silent no-op. Each is flagged in the
+output so the number is visible.
+
+One row is NOT here and should be looked at: Gianluca's "Defused More Fights
+With a Joke", target_type all_enemies, "every enemy deals 25% less damage".
+Monsters take only a FLAT attack_power swing from buffs and debuffs
+(entities/monster.py:865) - there is no percentage on their output anywhere.
+The identical outcome is "the party takes 25% less damage", but that means
+changing the ability's target_type to party, which moves where the icon sits
+and what can dispel it. That is a design call, not a repair.
+"""
+import argparse
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+KITS = ROOT / "data" / "npcs" / "personal_kits.json"
+
+#: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
+TABLE = {
+    # --- fully expressible: every clause of the description lands ------------
+    "personal_pasang_he_has_the_names": (
+        {"physical_damage_taken_pct": -25, "magic_damage_taken_pct": -25,
+         "damage_dealt_pct": 25},
+        "takes 25% less damage of either kind, deals 25% more", None),
+
+    "personal_pieter_shouted_at_by_thousands": (
+        {"threat_generation_pct": 200, "physical_damage_taken_pct": -20,
+         "magic_damage_taken_pct": -20},
+        "triple threat, takes 20% less damage", None),
+
+    "personal_matias_clicks_it_twice": (
+        {"damage_dealt_pct": 25, "physical_damage_taken_pct": -15,
+         "magic_damage_taken_pct": -15},
+        "deals 25% more, takes 15% less", None),
+
+    "personal_giorgi_completely_unhurried": (
+        # "acts at half speed" is the drawback and haste expresses it, so
+        # this is the one trade-off row where both sides are real.
+        {"damage_dealt_pct": 40, "physical_damage_taken_pct": -35,
+         "magic_damage_taken_pct": -35, "haste": -50},
+        "deals 40% more, takes 35% less, acts at half speed", None),
+
+    "personal_elias_four_walls_and_a_roof": (
+        # target_type party already scopes it; no party loop needed here.
+        {"physical_damage_taken_pct": -20, "magic_damage_taken_pct": -20},
+        "party takes 20% less damage",
+        "immunity to weather and terrain effects"),
+
+    # --- the taunt half is real, the percentage half is not -----------------
+    # Both of these read "the target attacks only X". That IS implemented -
+    # taunt generates level*500 threat and tops the table. What cannot be
+    # expressed is the percentage riding along with it, because it applies to
+    # a MONSTER's output and monsters have no outgoing-damage multiplier.
+    "personal_fiona_unbearable_until_somebody_checks": (
+        {"taunt": 1},
+        "the target attacks only Fiona",
+        "the target dealing 20% less damage (no % on monster output)"),
+
+    "personal_vuk_too_irritated_to_leave_it_alone": (
+        # The +25% belongs to Vuk, but this ability lands on the enemy, so a
+        # damage_dealt_pct here would buff the target instead of him. Wrong
+        # actor, so it stays off.
+        {"taunt": 1},
+        "the target attacks only Vuk",
+        "Vuk's own +25% against it (lands on the wrong actor from here)"),
+
+    "personal_gianluca_a_running_commentary": (
+        # target_type party, so a taunt would land on his allies.
+        {"physical_damage_taken_pct": -20, "magic_damage_taken_pct": -20},
+        "party takes 20% less damage",
+        "enemies targeting Gianluca first (taunt needs a self/enemy target)"),
+
+    # --- one clause real, the rest needs engine work ------------------------
+    "personal_diego_working_in_the_dark": (
+        {"all_ability_cost_pct": 0.30},
+        "abilities cost 30% less",
+        "immunity to blind, silence and interrupt"),
+
+    "personal_skye_a_rule_she_tells_nobody": (
+        # Generic rather than fire-only because the engine has no per-school
+        # dealt channel at all. Skye casts fire and little else, so in her
+        # hands the generic key is what the text describes.
+        {"damage_dealt_pct": 45},
+        "deals 45% more damage",
+        "never striking an ally (no friendly-fire logic); not fire-specific"),
+
+    # --- the row the regex got exactly backwards ----------------------------
+    # "Sondre's spells DEAL 20% less damage and cannot miss" is a trade: a
+    # real drawback bought with reliability. The regex read "20% less damage"
+    # as mitigation and gave him magic_damage_taken_pct -20, turning the
+    # drawback into a defensive buff.
+    #
+    # Both halves are expressible, which is why this is here rather than in
+    # the left-alone pile: damage_dealt_pct carries the cost, and hit_rating
+    # is a live stat that drives base_miss_chance down via
+    # max(0.0, BASE_MISS - hit_rating) (character.py:1410) for BOTH the spell
+    # and physical lines, so a saturating 100 is a real "cannot miss" with no
+    # new engine code. Shipping only the drawback would have been worse than
+    # inert - an ability that actively harms the caster.
+    "personal_sondre_control_not_power": (
+        {"damage_dealt_pct": -20, "hit_rating": 100},
+        "deals 20% less damage, cannot miss",
+        "cannot be resisted (spell_penetration is stored but never read)"),
+
+    # --- effect delivered, COST UNPAID. Flagged in the output. --------------
+    "personal_kesten_reading_his_own_entry": (
+        {"damage_dealt_pct": 25},
+        "deals 25% more damage",
+        "COST UNPAID: spends 15% of his health"),
+
+    "personal_eino_six_months_of_dark": (
+        {"damage_dealt_pct": 25},
+        "deals 25% more damage",
+        "COST UNPAID: gains nothing from any ally's buffs"),
+
+    "personal_karim_the_fastest_route_to_useful": (
+        {"threat_generation_pct": 200, "damage_dealt_pct": 30},
+        "triple threat, deals 30% more damage",
+        "COST UNPAID: spends 20% of his health"),
+}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--apply", action="store_true")
+    args = ap.parse_args()
+
+    doc = json.loads(KITS.read_text())
+    done, skipped, unseen = [], [], set(TABLE)
+    rescaled = []
+
+    # PASS 0 - the same double-scaling bug on abilities this table never
+    # touches. tools/qa_kit_mods.py found nine kit abilities that shipped
+    # WITH stat_mods and an effect_value between 1 and 99, so they have been
+    # delivering a fraction of their own tooltip since they were authored:
+    #
+    #   Ryan Murphy, "Clause by Clause"        30% -> 9%, -40% taken -> -12%
+    #   Stelios Dukas, "The Steadiest Person"  15 shadow resist -> 2, and
+    #                                          cc_immune 1 -> 0, so the
+    #                                          immunity flag was erased
+    #   Driss Alaoui, "He Asked the Land"      20 dodge -> 4
+    #   Marisol Quintero, "The Habit of..."    -20% taken -> -4%
+    #   Ivan Petrov, "Directing Traffic"       15 haste -> 2
+    #   Ratih Pranoto, "A Silence Where..."    everything x0.08
+    #
+    # Nothing on screen disagreed with anything: the tooltip builds from
+    # stat_mods and showed the full number throughout.
+    #
+    # effect_value 0 is LEFT ALONE - abilities.py:1548 reads that as "apply
+    # the mods as written" on purpose, so it is already correct.
+    for kid, kit in doc.items():
+        if kid.startswith("_") or not isinstance(kit, dict):
+            continue
+        for a in (kit.get("abilities") or []):
+            if a.get("effect_type") not in ("buff", "debuff"):
+                continue
+            if not a.get("stat_mods") or a.get("ability_id") in TABLE:
+                continue
+            for r in (a.get("ranks") or []):
+                ev = r.get("effect_value") or 0
+                if ev not in (0, 100):
+                    rescaled.append((kit.get("name"), a.get("name"), ev))
+                    if args.apply:
+                        r["effect_value"] = 100
+
+    for kid, kit in doc.items():
+        if kid.startswith("_") or not isinstance(kit, dict):
+            continue
+        for a in (kit.get("abilities") or []):
+            aid = a.get("ability_id")
+            if aid not in TABLE:
+                continue
+            unseen.discard(aid)
+            mods, delivers, gap = TABLE[aid]
+            if a.get("stat_mods"):
+                skipped.append((kit.get("name"), a.get("name")))
+                continue
+            done.append((kit.get("name"), a.get("name"), mods, delivers, gap))
+            if args.apply:
+                a["stat_mods"] = dict(mods)
+                # EVERY rank is forced to 100, not just the zero ones.
+                #
+                # _stat_mod_scalar multiplies the authored mods by
+                # effect_value/100, and these ranks already carried the
+                # description's own number there - Skye's rank said 45, so a
+                # 45 in stat_mods came out as 20.25, and Karim's 200 threat
+                # became 60. The magnitude was being applied twice.
+                #
+                # It read as 100 before only because the mods were EMPTY and
+                # abilities.py:1548 falls back to 1.0 in that case. Filling
+                # the mods in is exactly what takes that fallback away, so
+                # the two changes have to land together.
+                #
+                # 100 is the dominant convention (74 of the nine original
+                # classes' buff ranks are exactly 100) and effect_value is
+                # not read anywhere else for a buff - the tooltip builds from
+                # stat_mods (abilities.py:1055), not from the scalar.
+                for r in (a.get("ranks") or []):
+                    r["effect_value"] = 100
+                # Only ever REPLACE an engine note, never delete one. These
+                # notes are authored design intent - Pasang's says "needs:
+                # on-ally-death trigger with a duration", which is still true
+                # after the mods land, because the mods make the ability work
+                # when cast, not when an ally actually falls.
+                if gap:
+                    a["engine"] = f"needs: {gap}"
+
+    print(f"  {len(done)} abilities given real stat_mods"
+          + (f", {len(skipped)} already had some" if skipped else ""))
+    if rescaled:
+        print(f"  {len(rescaled)} already-live ability rank(s) were scaling "
+              f"their own mods down; effect_value -> 100:")
+        for who, name, ev in rescaled:
+            print(f"    {str(who)[:15]:17}{str(name)[:34]:36}was {ev} "
+                  f"(x{ev / 100:.2f})")
+    if unseen:
+        print(f"  !! {len(unseen)} table row(s) matched no ability: {sorted(unseen)}")
+
+    print()
+    for who, name, mods, delivers, gap in done:
+        print(f"  {str(who)[:15]:17}{str(name)[:30]:32}{delivers}")
+        print(f"  {'':17}{json.dumps(mods)}")
+        if gap:
+            print(f"  {'':17}still missing: {gap}")
+    costs = [d for d in done if d[4] and d[4].startswith("COST UNPAID")]
+    if costs:
+        print(f"\n  {len(costs)} deliver their effect while the price goes unpaid - "
+              f"a balance note, not a no-op:")
+        for who, name, _m, _d, gap in costs:
+            print(f"    {str(who)[:15]:17}{str(name)[:30]:32}{gap[13:]}")
+
+    if args.apply:
+        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        print(f"\n  wrote {KITS.relative_to(ROOT)}")
+    else:
+        print("\n  dry run - pass --apply to write")
+    return 1 if unseen else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
