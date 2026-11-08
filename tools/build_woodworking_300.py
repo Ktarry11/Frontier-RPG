@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """Give every plank its three branches - sticks, fiber, pages - the whole way up.
 
+NAMING LEAVES HEADROOM. Kyle, 7 Nov 2026: "I wouldnt give fancy final names
+like eternal as we will have another 16 trees out there bro." The top tier
+here is NOT the top of the tree ladder - sixteen woods sit parked above skill
+300 for the endgame expansion - so these run out at craft terms (Ironbound,
+Warded, Gilded) and the superlatives stay unspent for the trees that deserve
+them.
+
     PYTHONPATH=. python3 tools/build_woodworking_300.py [--apply]
 
 Idempotent. Prints the plan by default; --apply writes it.
@@ -66,24 +73,24 @@ BRANCHES = {
         ("stick_seasoned",   "Seasoned Shaft",   "Dried slowly in the dark until it stopped arguing."),
         ("stick_hardened",   "Hardened Shaft",   "Fire-cured and planed true. It will not warp again."),
         ("stick_lacquered",  "Lacquered Shaft",  "Sealed against damp and rot, and it rings when struck."),
-        ("stick_runed",      "Runed Shaft",      "Cut with channels a enchanter can follow."),
-        ("stick_heartwood",  "Heartwood Shaft",  "From the centre of a tree older than the road to it."),
+        ("stick_banded",     "Banded Shaft",     "Ringed with metal at the stress points so it does not split."),
+        ("stick_ironbound",  "Ironbound Shaft",  "Wrapped end to end. Heavy in the hand, and it will outlast you."),
     ]),
     "fiber": ("fibers", [
         ("fiber_coarse",     "Coarse Fiber",     None),
         ("fiber_supple",     "Supple Fiber",     None),
         ("fiber_tough",      "Tough Fiber",      None),
         ("fiber_braided",    "Braided Fiber",    "Three strands worked together; it takes a load without creaking."),
+        ("fiber_corded",     "Corded Fiber",     "Twisted tight and tarred. Rope-makers would recognise the work."),
         ("fiber_warded",     "Warded Fiber",     "Steeped in something that keeps the rot and the rats off."),
-        ("fiber_everbloom",  "Everbloom Fiber",  "Pale green and still faintly growing, which is the unsettling part."),
     ]),
     "pages": ("pages", [
         ("pages_rough",      "Rough Pages",      None),
         ("pages_pressed",    "Pressed Pages",    None),
         ("pages_fine",       "Fine Pages",       None),
         ("pages_vellum",     "Vellum Pages",     "Thin enough to read through, strong enough to argue with."),
+        ("pages_leafed",     "Leafed Pages",     "Pressed between boards until every sheet lies flat."),
         ("pages_gilded",     "Gilded Pages",     "Edged in gold leaf. Mostly for show, but the show matters."),
-        ("pages_eternal",    "Eternal Pages",    "Ink does not fade on these, and neither does anything else."),
     ]),
 }
 

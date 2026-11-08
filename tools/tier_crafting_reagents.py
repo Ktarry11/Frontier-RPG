@@ -91,7 +91,7 @@ LADDERS = {
         "shaft": dict(qty=1, kinds={"weapon"}, tiers=[
             (55, "stick_green"), (115, "stick_seasoned"),
             (185, "stick_hardened"), (245, "stick_lacquered"),
-            (285, "stick_runed"), (None, "stick_heartwood")]),
+            (285, "stick_banded"), (None, "stick_ironbound")]),
     },
     # Leatherworking stitches rather than tans. Kyle, 7 Nov: "we need thread,
     # we removed hides and tanning" - so the tanning_reagent/curing_salt ladder

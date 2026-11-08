@@ -6332,25 +6332,25 @@
       "sell_price": 74,
       "description": "Sealed against damp and rot, and it rings when struck."
     },
-    "stick_runed": {
-      "name": "Runed Shaft",
+    "stick_banded": {
+      "name": "Banded Shaft",
       "material_type": "stick",
       "profession": "woodworking",
       "tier": "endgame",
-      "icon_id": "stick_runed",
+      "icon_id": "stick_banded",
       "stack_limit": 20,
       "sell_price": 96,
-      "description": "Cut with channels a enchanter can follow."
+      "description": "Ringed with metal at the stress points so it does not split."
     },
-    "stick_heartwood": {
-      "name": "Heartwood Shaft",
+    "stick_ironbound": {
+      "name": "Ironbound Shaft",
       "material_type": "stick",
       "profession": "woodworking",
       "tier": "endgame",
-      "icon_id": "stick_heartwood",
+      "icon_id": "stick_ironbound",
       "stack_limit": 20,
       "sell_price": 118,
-      "description": "From the centre of a tree older than the road to it."
+      "description": "Wrapped end to end. Heavy in the hand, and it will outlast you."
     },
     "fiber_braided": {
       "name": "Braided Fiber",
@@ -6362,6 +6362,16 @@
       "sell_price": 74,
       "description": "Three strands worked together; it takes a load without creaking."
     },
+    "fiber_corded": {
+      "name": "Corded Fiber",
+      "material_type": "fiber",
+      "profession": "woodworking",
+      "tier": "endgame",
+      "icon_id": "fiber_corded",
+      "stack_limit": 20,
+      "sell_price": 96,
+      "description": "Twisted tight and tarred. Rope-makers would recognise the work."
+    },
     "fiber_warded": {
       "name": "Warded Fiber",
       "material_type": "fiber",
@@ -6369,18 +6379,8 @@
       "tier": "endgame",
       "icon_id": "fiber_warded",
       "stack_limit": 20,
-      "sell_price": 96,
-      "description": "Steeped in something that keeps the rot and the rats off."
-    },
-    "fiber_everbloom": {
-      "name": "Everbloom Fiber",
-      "material_type": "fiber",
-      "profession": "woodworking",
-      "tier": "endgame",
-      "icon_id": "fiber_everbloom",
-      "stack_limit": 20,
       "sell_price": 118,
-      "description": "Pale green and still faintly growing, which is the unsettling part."
+      "description": "Steeped in something that keeps the rot and the rats off."
     },
     "pages_vellum": {
       "name": "Vellum Pages",
@@ -6392,6 +6392,16 @@
       "sell_price": 74,
       "description": "Thin enough to read through, strong enough to argue with."
     },
+    "pages_leafed": {
+      "name": "Leafed Pages",
+      "material_type": "pages",
+      "profession": "woodworking",
+      "tier": "endgame",
+      "icon_id": "pages_leafed",
+      "stack_limit": 20,
+      "sell_price": 96,
+      "description": "Pressed between boards until every sheet lies flat."
+    },
     "pages_gilded": {
       "name": "Gilded Pages",
       "material_type": "pages",
@@ -6399,18 +6409,8 @@
       "tier": "endgame",
       "icon_id": "pages_gilded",
       "stack_limit": 20,
-      "sell_price": 96,
-      "description": "Edged in gold leaf. Mostly for show, but the show matters."
-    },
-    "pages_eternal": {
-      "name": "Eternal Pages",
-      "material_type": "pages",
-      "profession": "woodworking",
-      "tier": "endgame",
-      "icon_id": "pages_eternal",
-      "stack_limit": 20,
       "sell_price": 118,
-      "description": "Ink does not fade on these, and neither does anything else."
+      "description": "Edged in gold leaf. Mostly for show, but the show matters."
     }
   }
 }
