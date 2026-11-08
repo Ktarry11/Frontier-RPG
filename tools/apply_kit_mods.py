@@ -224,8 +224,61 @@ DYNAMIC_RESIST = {
     "personal_silas_which_crate_is_light": {"mode": "flatten_to_lowest"},
 }
 
+#: ability_id -> an action on state that ALREADY EXISTS, rather than an
+#: effect applied. See Ability._run_immediate. All three of the underlying
+#: operations live on StatusEffectMixin, so a boss can use them too - one
+#: that extends its own buffs, or copies one off a player, is as good an
+#: encounter tool as a player using it on a pack.
+IMMEDIATE = {
+    "personal_mateo_a_sky_is_a_clock": {"action": "extend_buffs", "turns": 2},
+    "personal_haruto_copying_them_before_they_degrade": {
+        "action": "steal_buff", "turns": 4},
+    "personal_minh_the_handover": {"action": "swap_state"},
+    "personal_haruto_eleven_years_before_praise": {"action": "repeat_last"},
+    "personal_ileana_corrected_in_public": {"action": "repeat_last"},
+}
+
+#: ability_id -> variance control. Only meaningful because spells and heals
+#: now HAVE a range (Ability.SPELL_VARIANCE, +/-12%, WoW-style). Kyle,
+#: 8 Nov 2026: "Wow style has spell variance....." - before that they were
+#: deterministic and all three of these abilities had nothing to act on.
+VARIANCE_MODE = {
+    "personal_henrik_four_significant_figures": "max",
+    "personal_yusuf_whose_numbers_are_always_right": "max",
+    "personal_kourosh_how_likely_a_thing_is": "average",
+}
+
 #: ability_id -> (stat_mods, what the row delivers, what it still cannot do)
 TABLE = {
+    # --- variance control --------------------------------------------------
+    "personal_henrik_four_significant_figures": (
+        {}, "Henrik's spells roll the top of their range", None),
+    "personal_yusuf_whose_numbers_are_always_right": (
+        {}, "the party's healing rolls the top of its range",
+        "being immune to healing REDUCTION (healing_taken_pct debuffs)"),
+    # hit_rating saturates the miss chance to zero, and "average" removes
+    # the roll. The no-crit half still needs a lower clamp on
+    # crit_chance_spell, which is not being added under a standing "no crit
+    # cap ever" rule without a say-so.
+    "personal_kourosh_how_likely_a_thing_is": (
+        {"hit_rating": 100},
+        "cannot miss, and spells deal exactly their listed value",
+        "being unable to CRIT (crit_chance_spell has no lower clamp)"),
+
+    # --- abilities that rearrange rather than apply ------------------------
+    "personal_mateo_a_sky_is_a_clock": (
+        {}, "extends every effect running on the party by 2 turns", None),
+    "personal_haruto_copying_them_before_they_degrade": (
+        {}, "copies a buff off the target onto Haruto for 4 turns", None),
+    "personal_minh_the_handover": (
+        {}, "trades Minh's buffs to an ally and takes their cooldowns",
+        None),
+    "personal_haruto_eleven_years_before_praise": (
+        {}, "repeats Haruto's last deliberate ability for free", None),
+    "personal_ileana_corrected_in_public": (
+        {}, "recasts Ileana's previous ability for free",
+        "restricting it to SPELLS specifically"),
+
     # --- three that needed no engine work, only the right key --------------
     # taunt on all_enemies - the flag has been live since the first
     # interception pass and this ability simply never carried it.
@@ -661,6 +714,8 @@ def main():
                     and (EFFECT_TYPE.get(aid) is None
                          or a.get("effect_type") == EFFECT_TYPE[aid])
                     and a.get("dynamic_resist") == DYNAMIC_RESIST.get(aid)
+                    and a.get("immediate") == IMMEDIATE.get(aid)
+                    and a.get("variance_mode") == VARIANCE_MODE.get(aid)
                     and ((a.get("max_stacks") or 1), a.get("stack_on"))
                         == STACKING.get(aid, ((a.get("max_stacks") or 1),
                                               a.get("stack_on")))):
@@ -697,6 +752,10 @@ def main():
                     a["max_stacks"], a["stack_on"] = STACKING[aid]
                 if DYNAMIC_RESIST.get(aid):
                     a["dynamic_resist"] = dict(DYNAMIC_RESIST[aid])
+                if IMMEDIATE.get(aid):
+                    a["immediate"] = dict(IMMEDIATE[aid])
+                if VARIANCE_MODE.get(aid):
+                    a["variance_mode"] = VARIANCE_MODE[aid]
                 # EVERY rank is forced to 100, not just the zero ones.
                 #
                 # _stat_mod_scalar multiplies the authored mods by

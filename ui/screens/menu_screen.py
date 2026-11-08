@@ -238,6 +238,58 @@ class MenuScreen(BaseScreen):
         layer.set_alpha(max(0, min(255, int(alpha))))
         screen.blit(layer, (SCREEN_WIDTH // 2 - layer.get_width() // 2, 86))
 
+    def _render_build_stamp(self, screen):
+        """Which build this is, bottom-right, with an update verdict.
+
+        Kyle, 8 Nov 2026: "on the title page we have a box in the bottom
+        right ... so we can quickly start up the game and see if we have the
+        latest version." Two of us run this from separate clones, so the
+        useful thing is not only what you have but whether it is current.
+
+        The stamp draws immediately from local git; the verdict appears a
+        second or two later if the network answers, and simply never
+        appears if it does not. "I could not check" must not look like "you
+        are behind" - that is why there is no third state drawn here.
+
+        Wrapped in its own try: a title screen that fails to draw because a
+        version box could not resolve would be a far worse bug than not
+        knowing the version.
+        """
+        try:
+            from world.build_info import version_lines, start_remote_check
+            start_remote_check()
+            headline, status = version_lines()
+        except Exception:
+            return
+
+        font = self.renderer.font_small
+        lines = [(headline, (196, 180, 150))]
+        if status:
+            lines.append((status,
+                          (255, 196, 120) if status == "Update available"
+                          else (150, 190, 150)))
+
+        pad = 10
+        widths = [font.size(t)[0] for t, _c in lines]
+        line_h = font.get_height()
+        box_w = max(widths) + pad * 2
+        box_h = line_h * len(lines) + pad * 2
+        x = SCREEN_WIDTH - box_w - 16
+        y = SCREEN_HEIGHT - box_h - 16
+
+        # Its own translucent panel: the backdrop behind this is a moving,
+        # brightening sunset, so plain text on it is legible at some times
+        # of day and not others.
+        panel = pygame.Surface((box_w, box_h), pygame.SRCALPHA)
+        panel.fill((10, 8, 14, 170))
+        pygame.draw.rect(panel, (70, 60, 50, 200),
+                         panel.get_rect(), width=1)
+        screen.blit(panel, (x, y))
+
+        for i, (text, colour) in enumerate(lines):
+            screen.blit(font.render(text, True, colour),
+                        (x + pad, y + pad + i * line_h))
+
     def _handle_slot_click(self, slot_number):
         """Save into or load from the clicked slot number (1-indexed),
         per whichever mode (self.slot_mode) opened the picker."""
@@ -313,6 +365,7 @@ class MenuScreen(BaseScreen):
             return
 
         self._render_title_text(screen, 255)
+        self._render_build_stamp(screen)
         
         # Back button - only show if there's an active character to return to
         if self.state_manager.player:

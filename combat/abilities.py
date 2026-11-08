@@ -350,6 +350,9 @@ class Ability:
                  damage_to_heal=None, dot_immune=False, on_damage_hot=None,
                  max_stacks=1, stack_on=None,
                  dynamic_resist=None,
+                 immediate=None,
+                 variance_mode=None,
+                 variance=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
                  restore_resource_type=None, absorb=0, absorb_pct_max_health=0.0,
@@ -601,6 +604,25 @@ class Ability:
         #:                              as whichever school it resists least"
         #: Spec: {"mode": "...", "amount": 30}
         self.dynamic_resist = dict(dynamic_resist) if dynamic_resist else None
+        #: An action taken on state that ALREADY EXISTS, rather than an
+        #: effect applied. Five kit abilities rearrange rather than add:
+        #:   {"action": "extend_buffs", "turns": 2}
+        #:   {"action": "steal_buff", "turns": 4}
+        #:   {"action": "swap_state"}
+        #:   {"action": "repeat_last"}
+        #: See Ability._run_immediate.
+        self.immediate = dict(immediate) if immediate else None
+        #: "max" or "average" - see StatusEffect.variance_mode.
+        self.variance_mode = variance_mode or None
+        #: PER-ABILITY damage/heal spread, as a fraction, overriding
+        #: SPELL_VARIANCE. Kyle, 8 Nov 2026: "So you can just....fix up each
+        #: spell by adding +/-12% to what it does?" - a fair challenge, and
+        #: no: real Classic spells each carry their OWN range and the widths
+        #: differ a lot. Fireball 596-757 is about +/-12%, Frostbolt 515-555
+        #: only +/-3.7%. A single global number is a simplification, so any
+        #: ability can state its own and the global is just the default for
+        #: the ones nobody has tuned.
+        self.variance = variance
 
         # consumes_stacks_of / duration_per_stack: Venomancer's Expulsion
         # ("Clear your Exposed Flesh stacks to poison nearby enemies for
@@ -1612,6 +1634,121 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
+    def _run_immediate(self, caster, target, party):
+        """Act on state that already exists. Returns a log line, or None.
+
+        These five abilities apply nothing - they rearrange. Run INSTEAD of
+        building a StatusEffect, so an ability that is purely an action
+        does not also leave an empty buff sitting on the caster.
+
+        repeat_last re-runs the caster's previous DELIBERATE ability for
+        free. It reads _last_ability_id, which note_ability_used already
+        maintains for the event-stacking triggers and which deliberately
+        ignores proc-fired casts - so "repeats Haruto's LAST ability" means
+        the last one he chose, not whatever a proc happened to fire.
+
+        The recursion guard matters: a repeat that re-ran itself would loop
+        forever, and both of these are abilities the caster can use twice.
+        """
+        spec = self.immediate or {}
+        action = spec.get("action")
+        if action == "extend_buffs":
+            turns = spec.get("turns", 2)
+            recipients = self._recipients(caster, target if target is not None
+                                          else party)
+            total = sum(r.extend_buffs(turns) for r in recipients
+                        if hasattr(r, "extend_buffs"))
+            if not total:
+                return f"{caster.name} uses {self.name}, but nothing is running."
+            return (f"{caster.name} uses {self.name}, extending {total} effect"
+                    f"{'s' if total != 1 else ''} by {turns} turns!")
+        if action == "steal_buff":
+            victims = self._hostile_recipients(target)
+            for v in victims:
+                name = caster.steal_buff_from(v, spec.get("turns"))
+                if name:
+                    return (f"{caster.name} copies {name} from {v.name} "
+                            f"with {self.name}!")
+            return f"{caster.name} finds nothing worth copying."
+        if action == "swap_state":
+            allies = self._recipients(caster, target)
+            other = next((a for a in allies if a is not caster), None)
+            if other is None:
+                return f"{caster.name} has nobody to trade with."
+            buffs, cds = caster.swap_state_with(other)
+            return (f"{caster.name} trades places with {other.name}: "
+                    f"{buffs} effect(s) across, {cds} cooldown(s) taken on!")
+        if action == "repeat_last":
+            last_id = getattr(caster, "_last_ability_id", None)
+            book = getattr(caster, "ability_book", None)
+            if not last_id or book is None:
+                return f"{caster.name} has nothing to repeat."
+            if last_id == self.ability_id:
+                return f"{caster.name} cannot repeat {self.name} with itself."
+            twin = next((a for a in book.get_all_abilities()
+                         if a.ability_id == last_id), None)
+            if twin is None:
+                return f"{caster.name} has nothing to repeat."
+            was = twin.turns_remaining
+            twin.turns_remaining = 0
+            try:
+                ok, msg = twin.use(caster, target, party=party,
+                                   in_combat=True, free=True)
+            finally:
+                # The repeat is free, but it must not CLEAR a cooldown the
+                # ability was already on - that would make this a reset as
+                # well as a recast.
+                twin.turns_remaining = max(twin.turns_remaining, was)
+            return f"{caster.name} repeats it: {msg}" if ok else \
+                   f"{caster.name} cannot repeat {twin.name}."
+        return None
+
+    #: Spread either side of a spell's or heal's listed value, WoW-style.
+    #: Kyle, 8 Nov 2026: "Wow style has spell variance....."
+    #:
+    #: He is right and this engine had none. Measured before adding it:
+    #: Fireball dealt exactly 154 ten casts running, Heal exactly 200, and
+    #: the ONLY spread on either was a crit. Weapon damage has always
+    #: rolled (character.py:1757, randint(weapon_damage_min, max)), so
+    #: physical attacks varied and nothing else did.
+    #:
+    #: Kyle's call, 8 Nov 2026: "Do a default +/- 9% for heals and damage
+    #: spells". Real Classic ranges vary per spell - Fireball 596-757 is
+    #: about +/-12%, Frostbolt 515-555 only +/-3.7% - so this is the house
+    #: default and any ability can override it with its own `variance`.
+    #: Applied to SPELLS AND HEALS ONLY: a physical hit already
+    #: gets its spread from the weapon roll, and rolling again on top would
+    #: compound two ranges into one much wider than either.
+    SPELL_VARIANCE = 0.09
+
+    def _roll_variance(self, amount, caster):
+        """Spread a spell or heal around its listed value.
+
+        Honours two caster-side flags, which is what makes
+        "always deals its maximum" and "deals exactly their average"
+        expressible at all - before this there was no variance for either
+        to act on:
+
+            variance_mode "max"      roll the top of the range
+            variance_mode "average"  no roll, the midpoint exactly
+        """
+        if amount <= 0:
+            return amount
+        mode = ""
+        if hasattr(caster, "_effects"):
+            for effect in caster._effects():
+                mode = getattr(effect, "variance_mode", "") or mode
+        if mode == "average":
+            return int(amount)
+        if mode == "max":
+            top = (self.variance if isinstance(self.variance, (int, float))
+                   else self.SPELL_VARIANCE)
+            return int(amount * (1.0 + top))
+        import random as _random
+        spread = (self.variance if isinstance(self.variance, (int, float))
+                  else self.SPELL_VARIANCE)
+        return max(1, int(amount * _random.uniform(1.0 - spread, 1.0 + spread)))
+
     def _resolve_dynamic_resist(self, target):
         """Resistance stat_mods chosen from THIS target's own resistances.
 
@@ -2494,7 +2631,8 @@ class Ability:
         Cryobolt/Cryolance talent is spent) so every path computes healing
         power scaling identically instead of copies drifting apart.
         """
-        heal_amt = int(heal_value + caster.healing_power * 1.2)
+        heal_amt = self._roll_variance(
+            int(heal_value + caster.healing_power * 1.2), caster)
         # recipient stays None here: _apply_smart_heal has not chosen its
         # target yet (it picks the most wounded ally below), so a
         # recipient-conditional healing talent cannot apply to a smart heal.
@@ -2609,7 +2747,8 @@ class Ability:
         # Healing now scales with Healing Power (derived stat) instead
         # of raw Spirit directly - same principle as spell_damage
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
-        heal_amt = int(self.effect_value + caster.healing_power * 1.2)
+        heal_amt = self._roll_variance(
+            int(self.effect_value + caster.healing_power * 1.2), caster)
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
 
         # HEALS CRIT. Kyle, 5 Nov 2026: "spells should be able to crit!"
@@ -2747,7 +2886,9 @@ class Ability:
 
         on_judgement = seal.proc["on_judgement"]
         judge_school = self._resolve_damage_school(caster) or "magic"
-        base_damage = int(self.effect_value + caster.get_effective_spell_power(judge_school) * 1.0)
+        base_damage = self._roll_variance(
+            int(self.effect_value + caster.get_effective_spell_power(judge_school) * 1.0),
+            caster)
         seal_bonus = on_judgement.get("damage", 0)
         total_damage = int((base_damage + seal_bonus)
                            * self._damage_multiplier(caster, "spell", recipient=t))
@@ -2934,7 +3075,9 @@ class Ability:
                 # Wand equipped in the Ranged slot.
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 spell_damage_school = self._resolve_damage_school(caster) or "magic"
-                base_damage = int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * 1.5) + wand_dmg
+                base_damage = self._roll_variance(
+                    int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * 1.5),
+                    caster) + wand_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
 
@@ -3026,7 +3169,9 @@ class Ability:
                 hit_chance = getattr(caster, "hit_chance_spell", 100.0)
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 cryo_school = self._resolve_damage_school(caster) or "magic"
-                base_damage = int(self.effect_value + caster.get_effective_spell_power(cryo_school) * 1.5) + wand_dmg
+                base_damage = self._roll_variance(
+                    int(self.effect_value + caster.get_effective_spell_power(cryo_school) * 1.5),
+                    caster) + wand_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
 
@@ -3080,7 +3225,9 @@ class Ability:
                 import random
                 hit_chance = getattr(caster, "hit_chance_spell", 100.0)
                 discharge_school = self._resolve_damage_school(caster) or "magic"
-                base_damage = int(self.effect_value + caster.get_effective_spell_power(discharge_school) * 1.5)
+                base_damage = self._roll_variance(
+                    int(self.effect_value + caster.get_effective_spell_power(discharge_school) * 1.5),
+                    caster)
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
 
@@ -3312,6 +3459,13 @@ class Ability:
                     f"(healing {per_turn} per turn for {duration} turns)!")
 
         elif self.effect_type == "buff":
+            # An IMMEDIATE action runs instead of applying anything, so an
+            # ability that is purely a rearrangement does not also leave an
+            # empty buff on the caster.
+            if self.immediate:
+                done = self._run_immediate(caster, target, party)
+                if done is not None:
+                    return done
             # stat_mods scale with rank via effect_value acting as a
             # multiplier on the ability's declared base mods. Recipients come
             # from target_type: a personal cooldown lands on the caster, a
@@ -3411,6 +3565,8 @@ class Ability:
                 if self.damage_to_shield:
                     effect.damage_to_shield_pct = self.damage_to_shield.get("pct", 0)
                     effect.damage_to_shield_school = self.damage_to_shield.get("school", "")
+                if self.variance_mode:
+                    effect.variance_mode = self.variance_mode
                 if self.max_stacks > 1:
                     effect.max_stacks = self.max_stacks
                 if self.stack_on == "repeat":
@@ -4117,6 +4273,9 @@ def _ability_from_data(entry):
         max_stacks=entry.get("max_stacks", 1),
         stack_on=entry.get("stack_on"),
         dynamic_resist=entry.get("dynamic_resist"),
+        immediate=entry.get("immediate"),
+        variance_mode=entry.get("variance_mode"),
+        variance=entry.get("variance"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
         damage_per_stack_pct=entry.get("damage_per_stack_pct", 0.0),

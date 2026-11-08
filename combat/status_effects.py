@@ -427,6 +427,15 @@ class StatusEffect:
         #: Which damage counts: a school name, "magic", "physical", or "".
         self.damage_to_heal_school = ""
 
+        # ---- VARIANCE CONTROL --------------------------------------------
+        #: "max"     - spells and heals roll the TOP of their range
+        #: "average" - no roll at all, the listed midpoint exactly
+        #: ""        - normal, Ability.SPELL_VARIANCE either side
+        #: Only meaningful because spells and heals HAVE a range now; before
+        #: that they were deterministic and these abilities had nothing to
+        #: act on.
+        self.variance_mode = ""
+
         # ---- DAMAGE-OVER-TIME IMMUNITY -----------------------------------
         #: True suppresses DOT ticks on the holder entirely - Thiago's
         #: "takes no damage-over-time". Not a dispel: the DoT stays on and
@@ -1374,6 +1383,104 @@ class StatusEffectMixin:
                 # or the new stack shows in the UI and does nothing.
                 if hasattr(self, "_on_status_effects_changed"):
                     self._on_status_effects_changed()
+
+    # ---- IMMEDIATE ACTIONS ON EXISTING STATE -------------------------
+    # Five kit abilities do not apply anything - they REARRANGE what is
+    # already there. On the mixin, so a boss can use them too: a boss that
+    # extends its own buffs, or steals one off a player, is as good an
+    # encounter tool as a player using it on a pack.
+
+    #: Anything at or beyond this many turns is a permanent passive, not a
+    #: timed buff. Nothing decrements these.
+    _PERMANENT_DURATION = 10000
+
+    def extend_buffs(self, turns):
+        """Add `turns` to every BUFF on this character. Returns how many."""
+        from combat.status_effects import EffectType as _ET
+        count = 0
+        for effect in list(self._effects()):
+            if effect.effect_type not in (_ET.BUFF, _ET.HOT):
+                continue
+            # RAID-SCOPE BUFFS RUN ON A CLOCK, not on turns: they carry a
+            # real_time_seconds and a turn duration of ~999999 that nothing
+            # decrements. Adding 2 turns to that is meaningless, and it
+            # inflated the count so "extending 3 effects" included a
+            # Fortitude the ability did nothing to.
+            # A real NUMBER, not "is not None": the constructor default is
+            # a _UNSET sentinel rather than None, so an `is not None` test
+            # matched every ordinary combat buff and this extended nothing
+            # at all while cheerfully reporting success.
+            if isinstance(getattr(effect, "real_time_seconds", None),
+                          (int, float)):
+                continue
+            # PERMANENT PASSIVES carry an absurd turn duration (999999) and
+            # no real_time marker - a personal-kit passive like Moon Gazing
+            # is one. Extending something already effectively infinite is
+            # meaningless, and it made the ability report a bigger number
+            # than it had earned.
+            if (effect.duration or 0) > self._PERMANENT_DURATION:
+                continue
+            effect.duration = (effect.duration or 0) + max(0, int(turns))
+            count += 1
+        return count
+
+    def steal_buff_from(self, other, turns=None):
+        """Copy one BUFF off `other` onto self. Returns its name, or None.
+
+        A COPY, not a theft: the description is "copies one buff", and
+        removing it from the target as well would make this strictly
+        better than the dispel abilities that exist to do exactly that.
+        """
+        from combat.status_effects import EffectType as _ET
+        if other is None:
+            return None
+        import copy as _copy
+        for effect in list(other._effects()):
+            if effect.effect_type is not _ET.BUFF:
+                continue
+            if not (effect.stat_mods or getattr(effect, "absorb", 0)):
+                continue  # nothing worth copying
+            clone = _copy.copy(effect)
+            clone.effect_id = f"{effect.effect_id}_copied"
+            clone.name = f"{effect.name} (copied)"
+            clone.stat_mods = dict(effect.stat_mods or {})
+            if turns:
+                clone.duration = int(turns)
+            self.apply_status_effect(clone)
+            return effect.name
+        return None
+
+    def swap_state_with(self, other):
+        """Move this character's buffs to `other` and their cooldowns here.
+
+        Minh's "moves every cooldown on one ally to Minh, and every buff on
+        Minh to that ally" - the whole point is that it is a TRADE, so both
+        halves move or neither does.
+        """
+        from combat.status_effects import EffectType as _ET
+        if other is None:
+            return (0, 0)
+        moved_buffs = 0
+        for effect in list(self._effects()):
+            if effect.effect_type in (_ET.BUFF, _ET.HOT):
+                self._discard_effect(effect)
+                other.apply_status_effect(effect)
+                moved_buffs += 1
+        moved_cds = 0
+        book = getattr(other, "ability_book", None)
+        mine = getattr(self, "ability_book", None)
+        if book is not None and mine is not None:
+            my_by_id = {a.ability_id: a for a in mine.get_all_abilities()}
+            for ability in book.get_all_abilities():
+                remaining = getattr(ability, "turns_remaining", 0) or 0
+                if remaining <= 0:
+                    continue
+                ability.turns_remaining = 0
+                twin = my_by_id.get(ability.ability_id)
+                if twin is not None:
+                    twin.turns_remaining = remaining
+                moved_cds += 1
+        return (moved_buffs, moved_cds)
 
     def _convert_damage_to_heal(self, actual, damage_type):
         """Heal back a share of what just landed.

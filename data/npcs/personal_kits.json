@@ -1220,10 +1220,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 2
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "extend_buffs",
+          "turns": 2
+        }
       },
       {
         "ability_id": "personal_mateo_learning_them_from_scratch",
@@ -1411,10 +1415,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "repeat_last"
+        }
       },
       {
         "ability_id": "personal_haruto_copying_them_before_they_degrade",
@@ -1433,10 +1440,14 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "steal_buff",
+          "turns": 4
+        }
       }
     ]
   },
@@ -1820,10 +1831,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "variance_mode": "max"
       },
       {
         "ability_id": "personal_henrik_he_does_not_approach_them",
@@ -2448,10 +2460,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "swap_state"
+        }
       },
       {
         "ability_id": "personal_minh_never_letting_your_voice_carry",
@@ -3325,23 +3340,26 @@
         "ability_id": "personal_kourosh_how_likely_a_thing_is",
         "name": "How Likely a Thing Is",
         "from": "'The work of establishing, very carefully, how likely a thing is.'",
-        "engine": "needs: remove randomness from a window of casts",
+        "engine": "needs: being unable to CRIT (crit_chance_spell has no lower clamp)",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 3,
-        "stat_mods": {},
+        "stat_mods": {
+          "hit_rating": 100
+        },
         "description": "For 3 turns Kourosh's spells cannot miss and cannot critically strike. They deal exactly their average.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "variance_mode": "average"
       },
       {
         "ability_id": "personal_kourosh_finish_the_sum",
@@ -4465,7 +4483,7 @@
         "ability_id": "personal_ileana_corrected_in_public",
         "name": "Corrected in Public",
         "from": "'The job is being corrected in public by a man with a stick and then doing it exactly right forever after.'",
-        "engine": "needs: repeat the last spell at full effect for no cost",
+        "engine": "needs: restricting it to SPELLS specifically",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "life_force",
@@ -4478,10 +4496,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "repeat_last"
+        }
       },
       {
         "ability_id": "personal_ileana_the_cold_comes_off_her",
@@ -5480,7 +5501,7 @@
         "ability_id": "personal_yusuf_whose_numbers_are_always_right",
         "name": "Whose Numbers Are Always Right",
         "from": "'He is the only person in the party whose numbers are always right.'",
-        "engine": "needs: remove variance from party healing",
+        "engine": "needs: being immune to healing REDUCTION (healing_taken_pct debuffs)",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -5493,10 +5514,11 @@
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "variance_mode": "max"
       }
     ]
   }
