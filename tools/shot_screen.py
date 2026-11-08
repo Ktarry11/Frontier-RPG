@@ -213,6 +213,18 @@ def main():
         sm.current_zone = None
         scr = CombatScreen(sm)
         scr._init_combat()
+    elif which == "skills":
+        # The spellbook. Defaults high so the tabs and a full kit are on
+        # screen - at level 1 there is almost nothing to look at.
+        from ui.screens.skills_screen import SkillsScreen
+        scr = SkillsScreen(sm)
+        if hasattr(scr, "player"):
+            scr.player = player
+        if hasattr(scr, "set_subject"):
+            try:
+                scr.set_subject(player)
+            except Exception:
+                pass
     elif which == "character_sheet":
         # Added 7 Nov 2026 after Kyle's screenshot of the PRESTIGE button drawn
         # through the COMBAT STATS column. Defaults to the prestige cap so the

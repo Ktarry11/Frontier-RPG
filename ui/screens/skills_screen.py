@@ -59,22 +59,44 @@ class SkillsScreen(BaseScreen):
         # ability<->tree link talent data already carries (each tree
         # node's "unlock_ability" key - see _build_tabs). active_tab is a
         # tree_id string, or the literal "core".
-        self.active_tab = "core"
+        # Opens on All, not Core. Core is two entries for most characters;
+        # opening a spellbook onto its emptiest page is the clunkiness.
+        self.active_tab = "all"
         self._tab_rects = []
         
         # Layout
+        # LAYOUT, retuned 7 Nov 2026. Kyle: "our skill tab needs a massive
+        # overhaul", and on what was worst about it: "Wasted space / poor
+        # layout", "Its clunky and poor layout".
+        #
+        # The screen was two panels with a hole in it. The ability list was
+        # 500px tall to show as few as two rows, the hotbar panel claimed 560
+        # but its content stopped at ~440, and the bottom third of the screen
+        # held nothing at all. Meanwhile NOTHING anywhere told you what an
+        # ability does - no cost, no cooldown, no description - so the
+        # spellbook could not answer the one question a spellbook is for.
+        #
+        # Now: a taller, narrower list down the left; a tightened hotbar block
+        # top right; and the reclaimed space underneath it given to a detail
+        # panel for whatever is selected.
         self.ABILITY_LIST_X = 20
         self.ABILITY_LIST_Y = 80
-        self.ABILITY_LIST_WIDTH = 420  # Wider to accommodate icons
-        self.ABILITY_LIST_HEIGHT = 500
-        
-        self.HOTBAR_PANEL_X = 470
+        self.ABILITY_LIST_WIDTH = 380
+        self.ABILITY_LIST_HEIGHT = 560
+
+        self.HOTBAR_PANEL_X = 420
         self.HOTBAR_PANEL_Y = 80
-        self.HOTBAR_PANEL_WIDTH = 750
-        self.HOTBAR_PANEL_HEIGHT = 560  # grown to fit the extra-slots block below the main 20-slot grid
+        self.HOTBAR_PANEL_WIDTH = 840
+        self.HOTBAR_PANEL_HEIGHT = 400
+
+        #: The reclaimed dead space. Shows the selected ability in full.
+        self.DETAIL_PANEL_X = 420
+        self.DETAIL_PANEL_Y = 496
+        self.DETAIL_PANEL_WIDTH = 840
+        self.DETAIL_PANEL_HEIGHT = 144
         
         self.SLOT_HEIGHT = 50  # Taller to show icons
-        self.VISIBLE_ABILITIES = 10
+        self.VISIBLE_ABILITIES = 11
         self.ABILITY_ICON_SIZE = 36
         self.HOTBAR_ICON_SIZE = 64
 
@@ -84,7 +106,9 @@ class SkillsScreen(BaseScreen):
         self.selected_ability = None
         self.selected_slot = None
         self.scroll_offset = 0
-        self.active_tab = "core"
+        # Opens on All, not Core. Core is two entries for most characters;
+        # opening a spellbook onto its emptiest page is the clunkiness.
+        self.active_tab = "all"
         if return_state is not None:
             self.return_state = return_state
 
@@ -196,8 +220,12 @@ class SkillsScreen(BaseScreen):
         # "Fire" - and the rule is right: the spellbook already belongs to
         # one character, so the class name on a tab is noise. "Class" is
         # also what CoA itself calls that tree.
-        groups = {"core": [], self.CLASS_TAB: []}
-        tab_order = [("core", "Core"), (self.CLASS_TAB, "Class")]
+        # ALL comes first. With four or five tabs, finding one ability meant
+        # clicking through every tab guessing which tree owns it, and a Core
+        # tab holding two entries while the kit is thirty reads as a bug. One
+        # list that holds everything is what a player actually wants to open.
+        groups = {"all": [], "core": [], self.CLASS_TAB: []}
+        tab_order = [("all", "All"), ("core", "Core"), (self.CLASS_TAB, "Class")]
         seen_trees = set()
 
         for ability in self._learned_abilities(player):
@@ -217,6 +245,7 @@ class SkillsScreen(BaseScreen):
                 tab_order.append((tab_key, label))
                 seen_trees.add(tab_key)
             groups[tab_key].append(ability)
+            groups["all"].append(ability)
 
         # A tab with nothing in it is noise - a level-1 character may
         # have no class abilities yet. Core always shows (it has the basic
@@ -280,9 +309,13 @@ class SkillsScreen(BaseScreen):
 
     SLOT_PX = 64
     COL_PITCH = 70
-    ROW_PITCH = 95
-    ROW0_TOP = 50          # first slot row, relative to HOTBAR_PANEL_Y
-    LABEL_GAP = 24         # label sits this far above its row of slots
+    #: Tightened from 95. At 95 the two hotbar rows and the extra-slots block
+    #: spanned 440px to hold 256px of slots, which is most of where the wasted
+    #: space came from.
+    ROW_PITCH = 86
+    ROW0_TOP = 46          # first slot row, relative to HOTBAR_PANEL_Y
+    LABEL_GAP = 18         # label sits this far above its row of slots
+    EXTRA_GAP = 26         # between the keybound grid and the extra slots
 
     def _hotbar_slot_rect(self, index):
         """Rect for hotbar slot `index` (0-19). The single source of truth
@@ -305,7 +338,7 @@ class SkillsScreen(BaseScreen):
         no keybind (see Character.extra_slots)."""
         rects = []
         base_y = (self.HOTBAR_PANEL_Y + self.ROW0_TOP
-                  + 2 * self.ROW_PITCH + 40)  # below both hotbar rows + gap
+                  + 2 * self.ROW_PITCH + self.EXTRA_GAP)
         for i in range(8):
             row = i // 4
             col = i % 4
@@ -455,6 +488,93 @@ class SkillsScreen(BaseScreen):
                         player.extra_slots[i] = None
                     return
     
+    def _draw_detail_panel(self, screen, player):
+        """Full detail for the selected ability, in the panel under the hotbar."""
+        x, y = self.DETAIL_PANEL_X, self.DETAIL_PANEL_Y
+        w, h = self.DETAIL_PANEL_WIDTH, self.DETAIL_PANEL_HEIGHT
+        pygame.draw.rect(screen, (28, 28, 38), (x, y, w, h))
+        pygame.draw.rect(screen, (70, 70, 85), (x, y, w, h), 1)
+
+        ability = self.selected_ability
+        if ability is None or isinstance(ability, str):
+            self.renderer.draw_text(
+                screen, "Select an ability to see what it does",
+                (x + 16, y + 14), font_size=15, color=(110, 110, 125))
+            return
+
+        # icon, if the helper and the art are both there
+        text_x = x + 16
+        if self.icon_ui_helper:
+            try:
+                surf = self.icon_ui_helper.get_ability_icon_surface(
+                    {"ability_id": ability.ability_id, "name": ability.name,
+                     "icon_id": getattr(ability, "icon_id", None),
+                     "effect_type": getattr(ability, "effect_type", "damage")},
+                    size=56)
+                if surf:
+                    screen.blit(surf, (x + 14, y + 14))
+                    text_x = x + 84
+            except Exception:
+                pass
+
+        # Rank goes in the heading, not on a line of its own - the tooltip's
+        # first line is "Name (Rank N)" and printing both reads as a stutter.
+        rank = ""
+        try:
+            cr = ability.current_rank
+            if isinstance(cr, dict) and cr.get("rank"):
+                rank = f"  Rank {cr['rank']}"
+        except Exception:
+            pass
+        self.renderer.draw_text(screen, ability.name + rank, (text_x, y + 12),
+                                color=(235, 225, 170), size="large")
+
+        # One line of hard numbers, from the shared tooltip source.
+        try:
+            lines = [str(l) for l in ability.get_tooltip_lines(player) if l]
+        except Exception:
+            lines = [getattr(ability, "description", "") or ""]
+
+        # The name is usually line 0 of the tooltip and is already drawn above.
+        if lines and lines[0].strip().lower().startswith(ability.name.strip().lower()):
+            lines = lines[1:]
+
+        row_y = y + 46
+        for line in lines:
+            if row_y > y + h - 18:
+                break
+            colour = (190, 190, 205)
+            low = line.lower()
+            if "cost" in low or "cooldown" in low or "range" in low or "cast" in low:
+                colour = (150, 185, 235)
+            for chunk in self._wrap(line, w - (text_x - x) - 24):
+                if row_y > y + h - 18:
+                    break
+                self.renderer.draw_text(screen, chunk, (text_x, row_y),
+                                        font_size=15, color=colour)
+                row_y += 19
+
+    def _wrap(self, text, px_width):
+        """Break a line to fit px_width, by word. The descriptions are real
+        prose and the panel is not wide enough to assume one line."""
+        words = str(text).split()
+        if not words:
+            return [""]
+        out, line = [], words[0]
+        for word in words[1:]:
+            trial = f"{line} {word}"
+            try:
+                fits = self.renderer.font_normal.size(trial)[0] <= px_width
+            except Exception:
+                fits = len(trial) < 70
+            if fits:
+                line = trial
+            else:
+                out.append(line)
+                line = word
+        out.append(line)
+        return out
+
     def update(self, dt):
         """Update logic."""
         pass
@@ -470,9 +590,12 @@ class SkillsScreen(BaseScreen):
         # Title
         title = "Skills & Abilities" if player is real_player \
             else f"{player.name}'s Skills & Abilities"
+        # Over the RIGHT half, not screen centre: the tab row owns the left
+        # and the old centred title ran straight through it.
         self.renderer.draw_text(
             screen, title,
-            self._centered(title, 640, 24, size="large"),
+            self._centered(title, self.HOTBAR_PANEL_X + self.HOTBAR_PANEL_WIDTH // 2,
+                           22, size="large"),
             color=(200, 200, 100), size="large")
 
         # Real spellbook tabs (Kyle's ask: every real spell belongs to its
@@ -625,9 +748,9 @@ class SkillsScreen(BaseScreen):
                          (self.HOTBAR_PANEL_X, self.HOTBAR_PANEL_Y,
                           self.HOTBAR_PANEL_WIDTH, self.HOTBAR_PANEL_HEIGHT), 2)
         self.renderer.draw_text(
-            screen, "Hotbar (1-9,0 / Shift+1-9,0)",
-            (self.HOTBAR_PANEL_X + 10, self.HOTBAR_PANEL_Y - 25),
-            color=(200, 200, 100), size="large")
+            screen, "Hotbar  -  keys 1-0, Shift+1-0",
+            (self.HOTBAR_PANEL_X + 10, self.HOTBAR_PANEL_Y - 24),
+            color=(200, 200, 100))
         self.renderer.draw_text(
             screen, "Row 1 (Press 1-0):",
             (self.HOTBAR_PANEL_X + 20, self._hotbar_label_y(0)),
@@ -767,6 +890,20 @@ class SkillsScreen(BaseScreen):
                 # no keybind fallback".
                 pygame.draw.rect(screen, (40, 40, 50), slot_rect)
                 pygame.draw.rect(screen, (90, 80, 60), slot_rect, 1)
+
+        # ---- Detail panel: what the selected ability actually does.
+        #
+        # The screen had a hover tooltip and nothing else, so the moment the
+        # mouse moved the information was gone and there was no way to compare
+        # two abilities or read a long description. This pins the SELECTED one
+        # in the space the old layout wasted.
+        #
+        # It reuses Ability.get_tooltip_lines() - the same source cast_screen
+        # and combat_screen read - rather than formatting costs and cooldowns
+        # a second time here. A second copy would drift, and the talented-cost
+        # rule that method implements is exactly the sort of thing that would
+        # drift silently.
+        self._draw_detail_panel(screen, player)
 
         # Instructions
         line1 = "Click ability/consumable on left, then a hotbar or extra slot to assign. Click a slot again to clear."
