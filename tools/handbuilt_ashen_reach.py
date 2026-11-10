@@ -174,15 +174,31 @@ SUBZONES = [
 # ROCK CARRIES THIS ZONE, NOT ORANGE. At dry 0.36 the hardpan painted a desert across the middle
 # of a volcanic island - the material is a Tanaris texture and it behaves like one at volume. It is
 # scorch now: small, weak, and near the mountain. Cooled lava and scree do the heavy lifting.
-BASE = {"rocky": 0.32, "grass": 0.22, "forest": 0.16, "shore": 0.16, "dry": 0.14}
+# UN'GORO CRATER, not a cinder field. Kyle, 10 Nov: "Part of the reach should be jungle. THINK
+# UNGORO CRATER - like jungle + volcano". That is the whole look: lush green everywhere, and a
+# burnt ridge sitting in the middle of it. The ash is a RING at the volcano's foot, not the
+# zone's ground cover - the contrast is the point, and ash everywhere destroys it.
+#
+# (The first pass went the other way and read as jungle with no volcano at all, because "rocky"
+# pairs mossy stone with basalt and the painter mixes them - the moss wins. `ash` and `cinder`
+# are unmixed basalt and scoria, which is why the ring can be black against green.)
+BASE = {"grass": 0.30, "forest": 0.22, "rocky": 0.16, "shore": 0.14, "dry": 0.06}
 PAINT = {
-    "dry":    [(112, 118, 24, 9, 0.55), (82, 126, 16, 8, 0.45), (146, 124, 18, 8, 0.45),
-               (128, 94, 14, 8, 0.35)],
+    # The volcano sits at (115,160) with a 36-tile skirt, so the ash ring is drawn around that
+    # and fades outward. Strongest at the foot, gone by the time the coast is in sight.
+    # A TIGHT RING at the volcano's foot (it sits at (115,160), skirt 36). Strong where the rock
+    # meets the ground and gone within a dozen tiles, so the jungle runs right up to the burn.
+    "ash":    [(115, 142, 46, 14, 1.0), (84, 140, 18, 10, 0.8), (146, 140, 18, 10, 0.8),
+               (115, 124, 30, 8, 0.55)],
+    "cinder": [(115, 132, 26, 8, 0.7), (94, 134, 14, 7, 0.5), (136, 134, 14, 7, 0.5)],
+    "dry":    [(115, 116, 22, 8, 0.35), (88, 122, 14, 7, 0.3), (142, 122, 14, 7, 0.3)],
     "rocky":  [(115, 146, 42, 18, 1.0), (76, 146, 26, 13, 0.9), (156, 146, 26, 13, 0.9),
                (44, 104, 22, 14, 0.8), (184, 96, 12, 9, 0.7), (100, 110, 32, 16, 0.7),
                (140, 112, 26, 14, 0.7)],
-    "grass":  [(50, 84, 22, 16, 0.85), (164, 100, 20, 14, 0.8), (84, 50, 18, 14, 0.75)],
-    "forest": [(52, 82, 14, 10, 0.8), (164, 102, 12, 9, 0.7), (86, 46, 12, 9, 0.7)],
+    "grass":  [(60, 90, 32, 24, 1.0), (164, 102, 28, 20, 0.95), (86, 46, 26, 20, 0.95),
+               (128, 70, 30, 20, 0.9), (44, 120, 20, 14, 0.8), (182, 78, 18, 12, 0.8)],
+    "forest": [(58, 88, 22, 15, 0.95), (160, 100, 20, 14, 0.9), (88, 44, 20, 14, 0.9),
+               (126, 66, 22, 14, 0.85), (46, 118, 14, 10, 0.75)],
     "shore":  [(38, 92, 10, 14, 0.6), (80, 22, 14, 7, 0.6), (196, 110, 10, 12, 0.55),
                (62, 46, 12, 7, 0.55), (186, 78, 10, 7, 0.5)],
     "earth":  [(80, 122, 8, 6, 0.9), (115, 130, 8, 6, 0.9), (184, 96, 7, 5, 0.8)],

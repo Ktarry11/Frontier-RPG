@@ -590,9 +590,14 @@ class PortalManager:
             "The Ashen Reach": {
                 (58, 156): ("Tempest Shallows", 58, 6),
                 (176, 156): ("Tempest Shallows", 176, 6),
-                # Cinderwharf and the Emberdeep are deliberately NOT here yet - neither is built,
-                # and a link to a zone that does not exist is how you walk in and never walk out.
-                # An unregistered portal tile fails safe.
+                (186, 96): ("Cinderwharf", 5, 44),
+                # The Emberdeep is deliberately NOT here yet - it is not built, and a link to a
+                # zone that does not exist is how you walk in and never walk out. An
+                # unregistered portal tile fails safe.
+            },
+
+            "Cinderwharf": {
+                (2, 42): ("The Ashen Reach", 184, 96),
             },
 
             "Boulderfist Hall": {(32, 50): ("Arathi Central", 38, 37)},

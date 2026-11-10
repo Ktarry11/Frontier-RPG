@@ -56,7 +56,9 @@ MATERIALS = {
     "rocky":   ("tmp_rocky", "tmp_basalt", 1.0),
     "earth":   ("tmp_earth", None, 1.0),
     "field":   ("tmp_meadow", None, 1.0),
-    "cobble":  ("tmp_cobble", "tmp_flagstone", 1.0),
+    "cobble":  ("tmp_darkstone", None, 1.0),
+    "darkstone": ("tmp_darkstone", None, 1.0),
+    "slag":    ("tmp_ironslag", None, 1.0),
     "gravel":  ("tmp_gravel", None, 1.0),
     "road":    ("tmp_road", None, 1.0),
     "verge":   ("tmp_verge", None, 1.0),
@@ -69,9 +71,11 @@ MATERIALS = {
     "sea_d":   ("tmp_sea_deep", None, 1.0),
     "cliff_a": ("tmp_cliff_a", "tmp_cliff_b", 1.0),
     "cliff_d": ("tmp_basalt", None, 1.0),
+    "ash":     ("tmp_basalt", None, 1.0),
+    "cinder":  ("tmp_gravel", None, 1.0),
 }
 LAND = ("grass", "meadow", "forest", "fern", "dry", "rocky", "earth", "field", "cobble", "gravel",
-        "road", "verge", "planks", "shore", "marsh")
+        "road", "verge", "planks", "shore", "marsh", "ash", "cinder", "darkstone", "slag")
 
 
 def build_scores(P, M):
@@ -128,9 +132,11 @@ def build_scores(P, M):
     for (cx, cy, rx, ry, st) in getattr(M, "COBBLE", []):
         S["cobble"] = np.maximum(np.maximum(S["cobble"], 0.05), 0.12 + 1.35 * P.blob(cx, cy, rx, ry, 0.6, wp) * st)
 
-    # roads
+    # roads. A module may declare ROAD_MAT to pave its streets with something other than the
+    # default dirt track - a Dark Iron hold's streets are cut stone, and a jungle road is not.
     core, verge, _ = P.road_field(list(M.ROADS.values()))
-    S["road"] = (0.05 + 1.3 * core).astype(np.float32)
+    road_mat = getattr(M, "ROAD_MAT", "road")
+    S[road_mat] = np.maximum(S.get(road_mat, 0.05), 0.05 + 1.3 * core).astype(np.float32)
     S["verge"] = np.maximum(0.05, 0.25 + 0.9 * verge * (1 - core)).astype(np.float32)
 
     # water: driven by the same field as the tile grid. Sand at the sea, a

@@ -5626,6 +5626,7 @@ def create_all_zones():
     # ===== TEMPEST ISLE - the last content hole, 52-58, reached by boat from Saltspur =====
     from tools import handbuilt_tempest_shallows as dtsh
     from tools import handbuilt_ashen_reach as dare2
+    from tools import handbuilt_cinderwharf as dcw
     from tools import handbuilt_frostward_descent as dfwd
     from tools import handbuilt_underdark as dud
     from tools import handbuilt_kaels_bastion as dkb
@@ -5744,7 +5745,8 @@ def create_all_zones():
         "Saltspur Landing": dssl.generate_saltspur_landing(),
         # ===== TEMPEST ISLE - by boat from Saltspur. 52-55 here, 55-58 in the Ashen Reach.
         "Tempest Shallows": dtsh.generate_tempest_shallows(),   # 52-55, the landfall
-        "The Ashen Reach": dare2.generate_ashen_reach(),        # 55-58, the working side  # tools/handbuilt_saltspur_landing.py
+        "The Ashen Reach": dare2.generate_ashen_reach(),        # 55-58, the working side
+        "Cinderwharf": dcw.generate_cinderwharf(),              # the Ashclaim's town  # tools/handbuilt_saltspur_landing.py
 
         # ===== THE CRYSTALLINE UNDERDARK CLUSTER - the first home-brew zone =====
         "The Frostward Descent": dfwd.generate_frostward_descent(),  # (tools/handbuilt_frostward_descent.py)
