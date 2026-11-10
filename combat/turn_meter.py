@@ -98,9 +98,30 @@ class TurnMeter:
     
     def update(self, dt):
         """Advance turn meters. Returns character who should act next (or None)."""
-        # Increment turn meters based on turn speed
+        # A STUNNED COMBATANT STILL FILLS THEIR METER. They lose the turn
+        # when it arrives (CombatEngine.update consumes it), rather than
+        # never being given one.
+        #
+        # Freezing the meter here instead was a DEADLOCK, and it made every
+        # stun in the game permanent:
+        #
+        #     no meter  ->  never takes a turn
+        #     never takes a turn  ->  tick_status_effects never runs on them
+        #       (CombatEngine._end_turn ticks the actor who just acted, and
+        #        only them, which is correct and must stay that way)
+        #     never ticks  ->  the stun's duration never decrements
+        #     duration never decrements  ->  no meter, forever
+        #
+        # Measured: a ONE-turn stun was still at duration 1 after the other
+        # side had taken 285 turns. Reported from a live Sunken Grotto run -
+        # a druid tank held by Riptide Hex, which is a 1-turn stun riding a
+        # 4-cooldown hit, with no message to say why the turn kept being
+        # skipped. In a party of two that is unwinnable.
+        #
+        # The duration is a number of TURNS, so the turn has to actually
+        # happen for the stun to mean anything at all.
         for char in self.combatants:
-            if char.is_alive() and not getattr(char, "is_stunned", False):
+            if char.is_alive():
                 self._refresh_turn_speed(char)
                 char.turn_meter += (char.turn_speed * AGI_TO_TURN_SPEED * 100.0 * dt)
         

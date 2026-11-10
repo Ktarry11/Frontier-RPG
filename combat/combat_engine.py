@@ -372,6 +372,30 @@ class CombatEngine:
                 self.current_actor = actor
                 self.combat_phase = "action"
 
+                # A STUNNED COMBATANT SPENDS THE TURN BEING STUNNED. This is
+                # the only place a stun is paid for, and it has to be a real
+                # turn: _end_turn is what ticks their status effects, which
+                # is what counts the stun's duration down. See the deadlock
+                # note in TurnMeter.update.
+                #
+                # It runs for the player and the monsters alike, so a stun
+                # cannot behave differently depending on which side ate it.
+                #
+                # SAY SO IN THE LOG. The live report was "it kept forcing
+                # turn skip on his druid" with nothing explaining why - the
+                # stun was visible only as an icon in the stat panel, and a
+                # turn that silently disappears reads as a broken game
+                # rather than as a mechanic working.
+                if getattr(actor, "is_stunned", False):
+                    self.combat_log.append(
+                        f"{actor.name} is stunned and loses the turn!")
+                    actor.turn_meter = 0.0
+                    self._end_turn(actor)
+                    # Leave combat_phase alone: clearing current_actor is
+                    # what hands the turn on, and the next update picks the
+                    # following actor normally.
+                    self.current_actor = None
+
         # A combatant who died to a DoT between turns must not keep the turn.
         if self.current_actor is not None and not self.current_actor.is_alive():
             self.current_actor = None

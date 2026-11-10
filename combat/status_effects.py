@@ -885,7 +885,26 @@ class StatusEffectMixin:
         # killing. Set here rather than in StatusEffect.__init__ because
         # landing on a combatant is the moment that matters - an effect
         # built and held for later should not carry the grace turn.
-        effect.applied_this_turn = True
+        #
+        # ONLY WHEN IT CAME FROM THE HOLDER THEMSELF. The grace turn exists
+        # because _end_turn ticks THE CASTER right after their own cast - so
+        # it is the right call for a self-buff and wrong for anything an
+        # enemy put on you. When a boss stuns the tank, the tick that follows
+        # is the BOSS's, not the tank's; the tank's own tick does not come
+        # round until their next turn, which is precisely the turn the stun
+        # is supposed to cost. Granting the grace turn there made every
+        # enemy-applied debuff last ONE TURN LONGER THAN IT SAYS - measured
+        # as a 1-turn stun costing 2 turns, a 2-turn costing 3, a 3-turn
+        # costing 4.
+        #
+        # Deliberately conservative: an effect with no source_name still gets
+        # the grace turn, because the thing being avoided (an 18-ability
+        # regression where self-buffs expired before anything could read
+        # them) is far worse than a debuff lasting a turn long. The grace
+        # turn is dropped only when we positively know somebody else cast it.
+        source = getattr(effect, "source_name", "") or ""
+        from_someone_else = bool(source) and source != getattr(self, "name", "")
+        effect.applied_this_turn = not from_someone_else
 
         # BECOMING IMMUNE TO CONTROL BREAKS CURRENT CONTROL. cc_immune only
         # blocked INCOMING stuns (see the check below), so a buff granting it
