@@ -585,15 +585,22 @@ class PortalManager:
                 # the border, so these are the only two ways between the halves of the isle.
                 (58, 4): ("The Ashen Reach", 58, 154),
                 (176, 4): ("The Ashen Reach", 176, 154),
+                (102, 76): ("Khaz Varun, the Black Hollow", 95, 192),
             },
 
             "The Ashen Reach": {
                 (58, 156): ("Tempest Shallows", 58, 6),
                 (176, 156): ("Tempest Shallows", 176, 6),
                 (186, 96): ("Cinderwharf", 5, 44),
-                # The Emberdeep is deliberately NOT here yet - it is not built, and a link to a
-                # zone that does not exist is how you walk in and never walk out. An
-                # unregistered portal tile fails safe.
+                (115, 132): ("The Emberdeep", 85, 172),
+            },
+
+            "The Emberdeep": {
+                (85, 174): ("The Ashen Reach", 115, 134),
+            },
+
+            "Khaz Varun, the Black Hollow": {
+                (95, 194): ("Tempest Shallows", 102, 78),
             },
 
             "Cinderwharf": {
