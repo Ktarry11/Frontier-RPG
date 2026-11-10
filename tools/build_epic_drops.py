@@ -144,6 +144,24 @@ DUNGEON = [
      "The ship did not. This did, three weeks later, on the same tide."),
     ("The Admiral's Last Order", "main_hand", "weapon", "sword_1h", 50, "str_int_hybrid",
      "Given in a cabin, to nobody who outlived the giving of it."),
+
+    # ---- TEMPEST ISLE, 51-58. Two from each dungeon, and every one of them fills a slot that
+    # had NO epic at all. Checked rather than asserted: across the 36 existing epics, the slots
+    # neck, finger, trinket and ranged were empty, and the weapon types axe_1h, bow, crossbow,
+    # gun and wand had never been used. Thirteen of the 36 are main_hand, which is exactly the
+    # lopsidedness Kyle's standing rule is about, so not one of these four is a main-hand.
+    ("Ashhold's Writ", "neck", "armor", "accessory", 54, "str_int_hybrid",
+     "The deed to a hall four hundred feet down, carried from hall to rented room to a bunk on a "
+     "goblin barge, and never once sold."),
+    ("The Unbanked Fire", "trinket", "armor", "accessory", 55, "int_caster",
+     "They walked out of Khaz Varun in a hurry and nobody damped the forge. It has been burning "
+     "ever since, on nothing."),
+    ("The Mountain's Signet", "ring", "armor", "accessory", 57, "spi_healer",
+     "Found in the crack in its chest, which is the only part of a mountain that can be reached "
+     "into."),
+    ("Ashfall", "ranged", "weapon", "gun", 58, "agi_physical",
+     "Dark Iron barrel, goblin firing mechanism, and an argument about the trigger that is still "
+     "going on in Cinderwharf."),
 ]
 
 #: An item named for a stat has to carry it. See coherent().

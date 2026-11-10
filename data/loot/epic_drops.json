@@ -11,14 +11,12 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 10,
-        "stamina": 13
+        "intellect": 29
       },
       "secondary_stats": {
-        "hit_rating": 0.6,
+        "spell_power": 1.2,
         "crit_chance_spell": 0.1,
-        "spell_power": 1,
-        "healing_power": 1
+        "healing_power": 1.2
       },
       "armor_value": 61,
       "weapon_damage_min": 0,
@@ -26,7 +24,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_helmet_45",
+      "icon_id": "gear_epic_head_cloth_1",
       "required_level": 32,
       "sell_price": 74,
       "flavor_text": "Light as nothing. The smith who made it left no other work behind.",
@@ -51,21 +49,22 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 21
+        "strength": 14,
+        "stamina": 17
       },
       "secondary_stats": {
-        "block_rating": 4.1,
-        "crit_chance_physical": 0.3,
-        "attack_power": 4,
-        "armor": 10
+        "hit_rating": 0.8,
+        "attack_power": 3.9,
+        "haste": 0.2,
+        "crit_chance_physical": 0.2
       },
-      "armor_value": 300,
+      "armor_value": 387,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_pants_14",
+      "icon_id": "gear_epic_legs_plate_1",
       "required_level": 36,
       "sell_price": 83,
       "flavor_text": "Somebody stood in these for a very long time, in one place, on purpose.",
@@ -86,17 +85,18 @@
       "slot": "back",
       "item_level": 32,
       "rarity": "epic",
-      "armor_type": "accessory",
+      "armor_type": "cloth",
       "weapon_type": null,
       "stat_template": "spi_healer",
       "primary_stats": {
-        "intellect": 10,
-        "stamina": 10
+        "intellect": 6
       },
       "secondary_stats": {
-        "armor": 5,
-        "crit_chance_spell": 0.2,
-        "hit_rating": 0.2
+        "spell_power": 8.0,
+        "crit_chance_spell": 0.4,
+        "armor": 5.0,
+        "hit_rating": 0.1,
+        "haste": 0.1
       },
       "armor_value": 41,
       "weapon_damage_min": 0,
@@ -104,7 +104,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_misc_cape_05",
+      "icon_id": "gear_epic_back_cloth_1",
       "required_level": 30,
       "sell_price": 70,
       "flavor_text": "Still damp at the hem. It has been dry storage for three years.",
@@ -129,13 +129,14 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 14,
-        "spirit": 14
+        "agility": 8,
+        "stamina": 10
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.2,
-        "hit_rating": 0.2,
-        "dodge_rating": 0.2
+        "hit_rating": 0.5,
+        "dodge_rating": 0.2,
+        "armor": 5.8,
+        "haste": 0.1
       },
       "armor_value": 97,
       "weapon_damage_min": 0,
@@ -143,7 +144,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_gauntlets_20",
+      "icon_id": "gear_epic_hands_leather_1",
       "required_level": 31,
       "sell_price": 72,
       "flavor_text": "Worn through at the fingertips and nowhere else, which says what the work was.",
@@ -168,14 +169,14 @@
       "weapon_type": "dagger",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 10,
-        "stamina": 10
+        "agility": 9
       },
       "secondary_stats": {
-        "attack_power": 18,
+        "armor_penetration_pct": 1.7,
+        "attack_power": 12.8,
         "dodge_rating": 0.2,
-        "hit_rating": 0.2,
-        "crit_chance_physical": 0.2
+        "crit_chance_physical": 0.1,
+        "haste": 0.1
       },
       "armor_value": 0,
       "weapon_damage_min": 83,
@@ -183,7 +184,7 @@
       "attack_speed": 1.7,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_weapon_shortblade_18",
+      "icon_id": "gear_epic_dagger_2",
       "required_level": 33,
       "sell_price": 115,
       "flavor_text": "Named for what it does to a hand that holds it wrong.",
@@ -208,14 +209,14 @@
       "weapon_type": "sword_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 8,
-        "agility": 7,
-        "stamina": 7
+        "strength": 12,
+        "stamina": 16
       },
       "secondary_stats": {
-        "attack_power": 2,
-        "hit_rating": 1,
-        "armor": 6
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.2,
+        "dodge_rating": 0.2,
+        "armor": 8.6
       },
       "armor_value": 0,
       "weapon_damage_min": 127,
@@ -223,7 +224,7 @@
       "attack_speed": 3.4,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_sword_46",
+      "icon_id": "gear_epic_sword_2h_2",
       "required_level": 38,
       "sell_price": 132,
       "flavor_text": "No maker's mark, no inscription, nothing promised to anybody. Unusual for a blade this good.",
@@ -248,13 +249,14 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 16,
-        "stamina": 16
+        "stamina": 14,
+        "agility": 8
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.1,
-        "attack_power": 3,
-        "armor": 8
+        "dodge_rating": 1.1,
+        "crit_chance_physical": 0.2,
+        "hit_rating": 0.2,
+        "armor": 7.8
       },
       "armor_value": 206,
       "weapon_damage_min": 0,
@@ -262,7 +264,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shoulder_24",
+      "icon_id": "gear_epic_shoulder_mail_1",
       "required_level": 34,
       "sell_price": 79,
       "flavor_text": "The frost pattern is in the metal, not on it.",
@@ -287,14 +289,12 @@
       "weapon_type": "mace_1h",
       "stat_template": "spi_healer",
       "primary_stats": {
-        "spirit": 17,
-        "intellect": 7
+        "spirit": 32
       },
       "secondary_stats": {
-        "healing_power": 11,
         "hit_rating": 0.2,
-        "armor": 9,
-        "crit_chance_spell": 0.2
+        "spell_power": 1.3,
+        "armor": 8.0
       },
       "armor_value": 0,
       "weapon_damage_min": 88,
@@ -302,7 +302,7 @@
       "attack_speed": 2.6,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_mace_15",
+      "icon_id": "gear_epic_mace_1h_3",
       "required_level": 35,
       "sell_price": 122,
       "flavor_text": "Carried by someone who preferred to be reasonable and came prepared not to be.",
@@ -327,14 +327,12 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "stamina": 9,
-        "intellect": 9
+        "agility": 28
       },
       "secondary_stats": {
-        "healing_power": 7,
-        "attack_power": 3,
-        "crit_chance_physical": 0.2,
-        "armor": 7
+        "spell_power": 1.1,
+        "armor": 6.9,
+        "crit_chance_physical": 0.1
       },
       "armor_value": 114,
       "weapon_damage_min": 0,
@@ -342,7 +340,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_belt_13",
+      "icon_id": "gear_epic_waist_leather_1",
       "required_level": 37,
       "sell_price": 85,
       "flavor_text": "Nine layers, nine different hides. Eight of them are from animals anybody can name.",
@@ -367,13 +365,14 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 22,
-        "stamina": 22
+        "spirit": 19,
+        "intellect": 8
       },
       "secondary_stats": {
-        "spell_power": 2,
-        "hit_rating": 0.3,
-        "crit_chance_spell": 0.3
+        "healing_power": 11.7,
+        "haste": 0.2,
+        "hit_rating": 0.2,
+        "crit_chance_spell": 0.2
       },
       "armor_value": 87,
       "weapon_damage_min": 0,
@@ -381,7 +380,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shirt_12",
+      "icon_id": "gear_epic_chest_cloth_1",
       "required_level": 39,
       "sell_price": 90,
       "flavor_text": "Scorched in a ring around the cuffs, from reaching into places that were already lit.",
@@ -406,14 +405,14 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 11,
-        "agility": 9,
-        "stamina": 9
+        "strength": 12
       },
       "secondary_stats": {
-        "attack_power": 3,
-        "armor": 8,
-        "dodge_rating": 0.2
+        "hit_rating": 0.9,
+        "crit_chance_physical": 0.9,
+        "armor": 7.4,
+        "dodge_rating": 0.2,
+        "attack_power": 3.0
       },
       "armor_value": 296,
       "weapon_damage_min": 0,
@@ -421,7 +420,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_boots_plate_03",
+      "icon_id": "gear_epic_feet_plate_1",
       "required_level": 40,
       "sell_price": 92,
       "flavor_text": "Heavy enough that the wearer's route can be followed a week later.",
@@ -446,14 +445,14 @@
       "weapon_type": "staff",
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 18
+        "intellect": 20
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "spell_power": 22,
-        "crit_chance_spell": 0.2,
-        "healing_power": 2,
-        "armor": 15
+        "spell_power": 26.1,
+        "hit_rating": 1.3,
+        "crit_chance_spell": 0.3,
+        "haste": 0.3,
+        "armor": 16.3
       },
       "armor_value": 0,
       "weapon_damage_min": 54,
@@ -461,7 +460,7 @@
       "attack_speed": 3.2,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_staff_13",
+      "icon_id": "gear_epic_staff_2",
       "required_level": 40,
       "sell_price": 138,
       "flavor_text": "Found alongside a first opinion, which had not worked.",
@@ -486,14 +485,13 @@
       "weapon_type": null,
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "strength": 13,
-        "stamina": 18
+        "strength": 19,
+        "intellect": 19
       },
       "secondary_stats": {
-        "hit_rating": 0.7,
-        "crit_chance_spell": 0.1,
-        "crit_chance_physical": 0.1,
-        "healing_power": 1
+        "hit_rating": 0.2,
+        "dodge_rating": 0.3,
+        "crit_chance_physical": 0.2
       },
       "armor_value": 379,
       "weapon_damage_min": 0,
@@ -501,7 +499,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shoulder_28",
+      "icon_id": "gear_epic_shoulder_plate_1",
       "required_level": 42,
       "sell_price": 96,
       "flavor_text": "Built to the measurements of somebody more famous, and never collected.",
@@ -526,14 +524,13 @@
       "weapon_type": "polearm",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "strength": 7,
-        "agility": 6,
-        "stamina": 6
+        "agility": 19,
+        "spirit": 19
       },
       "secondary_stats": {
+        "hit_rating": 0.2,
         "crit_chance_physical": 0.2,
-        "hit_rating": 1,
-        "dodge_rating": 1
+        "attack_power": 3.9
       },
       "armor_value": 0,
       "weapon_damage_min": 141,
@@ -541,7 +538,7 @@
       "attack_speed": 3.3,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_spear_01",
+      "icon_id": "gear_epic_polearm_3",
       "required_level": 43,
       "sell_price": 148,
       "flavor_text": "Nobody has rescinded it. Nobody remembers issuing it either.",
@@ -566,14 +563,14 @@
       "weapon_type": "mace_2h",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "strength": 8,
-        "agility": 8,
-        "stamina": 9
+        "strength": 13,
+        "agility": 13,
+        "stamina": 13
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "armor": 6,
-        "crit_chance_physical": 0.2
+        "crit_chance_physical": 0.2,
+        "dodge_rating": 0.3,
+        "armor": 9.9
       },
       "armor_value": 0,
       "weapon_damage_min": 143,
@@ -581,7 +578,7 @@
       "attack_speed": 3.6,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_hammer_25",
+      "icon_id": "gear_epic_mace_2h_1",
       "required_level": 44,
       "sell_price": 151,
       "flavor_text": "A farm tool that got good at something else and never went back.",
@@ -606,13 +603,14 @@
       "weapon_type": "sword_2h",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 17,
-        "stamina": 17
+        "strength": 13,
+        "agility": 13,
+        "stamina": 14
       },
       "secondary_stats": {
-        "attack_power": 3,
-        "crit_chance_physical": 0.2,
-        "armor": 9
+        "armor": 10.1,
+        "dodge_rating": 0.3,
+        "attack_power": 4.1
       },
       "armor_value": 0,
       "weapon_damage_min": 146,
@@ -620,7 +618,7 @@
       "attack_speed": 3.4,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_sword_17",
+      "icon_id": "gear_epic_sword_2h_3",
       "required_level": 45,
       "sell_price": 155,
       "flavor_text": "The argument it ended is not recorded. The ending is well attested.",
@@ -641,17 +639,18 @@
       "slot": "back",
       "item_level": 48,
       "rarity": "epic",
-      "armor_type": "accessory",
+      "armor_type": "cloth",
       "weapon_type": null,
       "stat_template": "spi_healer",
       "primary_stats": {
-        "intellect": 17,
-        "stamina": 17
+        "intellect": 11,
+        "stamina": 14
       },
       "secondary_stats": {
-        "armor": 8,
-        "crit_chance_spell": 0.2,
-        "hit_rating": 0.2
+        "mp5": 2.4,
+        "haste": 0.1,
+        "healing_power": 1.2,
+        "spell_power": 1.2
       },
       "armor_value": 62,
       "weapon_damage_min": 0,
@@ -659,7 +658,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_misc_cape_17",
+      "icon_id": "gear_epic_back_cloth_1",
       "required_level": 46,
       "sell_price": 105,
       "flavor_text": "Knitted by somebody who had buried enough people to know what the living need.",
@@ -684,13 +683,13 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 13,
-        "stamina": 16
+        "agility": 12,
+        "stamina": 12
       },
       "secondary_stats": {
-        "hit_rating": 0.7,
-        "attack_power": 3,
-        "armor": 9,
+        "attack_power": 20.7,
+        "dodge_rating": 0.2,
+        "hit_rating": 0.2,
         "crit_chance_physical": 0.2
       },
       "armor_value": 230,
@@ -699,7 +698,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_boots_02",
+      "icon_id": "gear_epic_feet_mail_1",
       "required_level": 47,
       "sell_price": 107,
       "flavor_text": "Resoled twice, by two different hands, neither of them a cobbler's.",
@@ -724,13 +723,13 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 19
+        "strength": 18,
+        "stamina": 18
       },
       "secondary_stats": {
-        "block_rating": 3.8,
-        "dodge_rating": 0.2,
-        "attack_power": 4,
-        "hit_rating": 0.2
+        "armor": 8.8,
+        "haste": 0.1,
+        "crit_chance_physical": 0.2
       },
       "armor_value": 352,
       "weapon_damage_min": 0,
@@ -738,7 +737,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_belt_03",
+      "icon_id": "gear_epic_waist_plate_1",
       "required_level": 48,
       "sell_price": 110,
       "flavor_text": "Every pouch labelled, in a hand that expected somebody else to read it.",
@@ -763,13 +762,14 @@
       "weapon_type": "tome",
       "stat_template": "spi_healer",
       "primary_stats": {
-        "intellect": 19,
-        "stamina": 19
+        "intellect": 16
       },
       "secondary_stats": {
-        "armor": 10,
-        "crit_chance_spell": 0.2,
-        "hit_rating": 0.2
+        "hit_rating": 1.2,
+        "crit_chance_spell": 1.2,
+        "spell_power": 1.6,
+        "healing_power": 1.6,
+        "armor": 9.8
       },
       "armor_value": 0,
       "weapon_damage_min": 0,
@@ -777,7 +777,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": null,
+      "icon_id": "gear_epic_tome_2",
       "required_level": 48,
       "sell_price": 165,
       "flavor_text": "Half the pages are blank. The other half are names, and the list is still going.",
@@ -804,12 +804,14 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 27
+        "intellect": 8
       },
       "secondary_stats": {
-        "crit_chance_spell": 0.2,
-        "healing_power": 1,
-        "hit_rating": 0.2
+        "spell_power": 10.7,
+        "crit_chance_spell": 0.5,
+        "healing_power": 1.1,
+        "haste": 0.1,
+        "hit_rating": 0.1
       },
       "armor_value": 55,
       "weapon_damage_min": 0,
@@ -817,7 +819,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_bracer_04",
+      "icon_id": "gear_epic_wrist_cloth_1",
       "required_level": 36,
       "sell_price": 83,
       "flavor_text": "Somebody wrote on the inside of the cuff, in a hand too small to read without light.",
@@ -842,21 +844,22 @@
       "weapon_type": null,
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "strength": 22,
-        "spirit": 22
+        "strength": 16
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.3,
-        "crit_chance_spell": 0.3,
+        "hit_rating": 1.2,
+        "crit_chance_physical": 1.2,
+        "spell_power": 1.6,
+        "armor": 10.2,
         "dodge_rating": 0.3
       },
-      "armor_value": 316,
+      "armor_value": 407,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_chest_plate15",
+      "icon_id": "gear_epic_chest_plate_1",
       "required_level": 38,
       "sell_price": 88,
       "flavor_text": "An earlier version of this exists. It is not clear what was wrong with it.",
@@ -881,13 +884,13 @@
       "weapon_type": "fist_weapon",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 15,
-        "stamina": 15
+        "agility": 14,
+        "stamina": 14
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.2,
-        "armor": 8,
-        "dodge_rating": 0.2
+        "armor": 6.8,
+        "attack_power": 2.7,
+        "crit_chance_physical": 0.1
       },
       "armor_value": 0,
       "weapon_damage_min": 88,
@@ -895,7 +898,7 @@
       "attack_speed": 1.8,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_weapon_shortblade_20",
+      "icon_id": "gear_epic_fist_weapon_1",
       "required_level": 35,
       "sell_price": 122,
       "flavor_text": "Set into a grip by somebody who had to pry it loose first.",
@@ -920,13 +923,12 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "agility": 18,
-        "spirit": 18
+        "agility": 34
       },
       "secondary_stats": {
-        "spell_power": 1,
-        "armor": 9,
-        "dodge_rating": 0.3
+        "crit_chance_physical": 0.2,
+        "crit_chance_spell": 0.2,
+        "dodge_rating": 0.2
       },
       "armor_value": 140,
       "weapon_damage_min": 0,
@@ -934,7 +936,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_helmet_10",
+      "icon_id": "gear_epic_head_leather_1",
       "required_level": 37,
       "sell_price": 85,
       "flavor_text": "Every piece down there is catalogued. This one is not, and the gap has been tidied.",
@@ -959,14 +961,14 @@
       "weapon_type": "dagger",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 10,
-        "stamina": 10
+        "agility": 9,
+        "stamina": 12
       },
       "secondary_stats": {
-        "attack_power": 18,
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.1,
         "dodge_rating": 0.2,
-        "crit_chance_physical": 0.2,
-        "armor": 8
+        "haste": 0.1
       },
       "armor_value": 0,
       "weapon_damage_min": 86,
@@ -974,7 +976,7 @@
       "attack_speed": 1.7,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_weapon_shortblade_21",
+      "icon_id": "gear_epic_dagger_1",
       "required_level": 34,
       "sell_price": 118,
       "flavor_text": "Small, late in the argument, and the part people remember.",
@@ -999,12 +1001,14 @@
       "weapon_type": "staff",
       "stat_template": "spi_healer",
       "primary_stats": {
-        "spirit": 52
+        "stamina": 23,
+        "spirit": 23
       },
       "secondary_stats": {
-        "healing_power": 2,
-        "hit_rating": 1,
-        "armor": 13
+        "healing_power": 16.0,
+        "spell_power": 2.7,
+        "armor": 16.7,
+        "hit_rating": 0.3
       },
       "armor_value": 0,
       "weapon_damage_min": 55,
@@ -1012,7 +1016,7 @@
       "attack_speed": 3.2,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_staff_31",
+      "icon_id": "gear_epic_staff_1",
       "required_level": 41,
       "sell_price": 141,
       "flavor_text": "Cut, and still putting out pale shoots along its length.",
@@ -1037,22 +1041,22 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 14,
-        "stamina": 18
+        "agility": 15
       },
       "secondary_stats": {
-        "hit_rating": 0.8,
-        "attack_power": 4,
-        "crit_chance_physical": 0.1,
-        "dodge_rating": 0.3
+        "hit_rating": 1.1,
+        "crit_chance_physical": 1.1,
+        "haste": 0.2,
+        "attack_power": 3.7,
+        "armor": 9.2
       },
-      "armor_value": 190,
+      "armor_value": 244,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_chest_chain_15",
+      "icon_id": "gear_epic_chest_mail_1",
       "required_level": 34,
       "sell_price": 79,
       "flavor_text": "Punched through and beaten flat again from the inside. Whoever did the repair survived.",
@@ -1077,7 +1081,7 @@
       "weapon_type": "shield",
       "stat_template": null,
       "primary_stats": {
-        "stamina": 17
+        "stamina": 14
       },
       "secondary_stats": {},
       "armor_value": 462,
@@ -1086,7 +1090,7 @@
       "attack_speed": 0.0,
       "block_value": 53,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shield_18",
+      "icon_id": "gear_epic_shield_2",
       "required_level": 33,
       "sell_price": 115,
       "flavor_text": "Salt has got into every seam and made it heavier than it was built to be.",
@@ -1111,14 +1115,14 @@
       "weapon_type": "axe_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 7,
-        "agility": 6,
-        "stamina": 6
+        "strength": 11
       },
       "secondary_stats": {
+        "attack_power": 22.9,
+        "hit_rating": 1.0,
         "crit_chance_physical": 0.2,
-        "armor": 5,
-        "hit_rating": 1
+        "dodge_rating": 0.2,
+        "armor": 8.2
       },
       "armor_value": 0,
       "weapon_damage_min": 121,
@@ -1126,7 +1130,7 @@
       "attack_speed": 3.6,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_axe_06",
+      "icon_id": "gear_epic_axe_2h_2",
       "required_level": 36,
       "sell_price": 125,
       "flavor_text": "Carried by the first person who declined to pay, and recovered from where they fell.",
@@ -1151,22 +1155,22 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "intellect": 12
+        "intellect": 11
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "spell_power": 14,
-        "attack_power": 4,
-        "dodge_rating": 0.3,
-        "armor": 10
+        "spell_power": 14.7,
+        "hit_rating": 0.7,
+        "haste": 0.2,
+        "crit_chance_spell": 0.2,
+        "dodge_rating": 0.2
       },
-      "armor_value": 190,
+      "armor_value": 244,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_pants_wolf",
+      "icon_id": "gear_epic_legs_mail_1",
       "required_level": 34,
       "sell_price": 79,
       "flavor_text": "Updraft off a mesa top will hold a feather for an hour. These were found at the bottom.",
@@ -1191,14 +1195,13 @@
       "weapon_type": "fist_weapon",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "strength": 14,
-        "agility": 12,
-        "stamina": 12
+        "agility": 16,
+        "stamina": 16
       },
       "secondary_stats": {
-        "hit_rating": 0.2,
-        "attack_power": 4,
-        "armor": 10
+        "attack_power": 3.2,
+        "crit_chance_physical": 0.2,
+        "hit_rating": 0.2
       },
       "armor_value": 0,
       "weapon_damage_min": 102,
@@ -1206,7 +1209,7 @@
       "attack_speed": 1.8,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_weapon_shortblade_23",
+      "icon_id": "gear_epic_fist_weapon_3",
       "required_level": 42,
       "sell_price": 145,
       "flavor_text": "He kept the hand. He just found the hook more use in a boarding action.",
@@ -1231,22 +1234,22 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 15
+        "intellect": 16,
+        "stamina": 21
       },
       "secondary_stats": {
-        "spell_power": 20,
-        "hit_rating": 1,
-        "armor": 12,
-        "crit_chance_spell": 0.3,
-        "healing_power": 2
+        "hit_rating": 0.9,
+        "crit_chance_spell": 0.2,
+        "armor": 11.7,
+        "healing_power": 1.9
       },
-      "armor_value": 75,
+      "armor_value": 97,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_chest_cloth_01",
+      "icon_id": "gear_epic_chest_cloth_1",
       "required_level": 44,
       "sell_price": 101,
       "flavor_text": "Every name crossed out, and the crossings-out are in a different ink to the names.",
@@ -1271,22 +1274,22 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "intellect": 18,
-        "stamina": 23
+        "intellect": 19
       },
       "secondary_stats": {
-        "mp5": 4,
-        "armor": 13,
-        "healing_power": 2,
-        "crit_chance_spell": 0.3
+        "hit_rating": 1.4,
+        "crit_chance_spell": 1.4,
+        "healing_power": 1.9,
+        "attack_power": 4.8,
+        "spell_power": 1.9
       },
-      "armor_value": 155,
+      "armor_value": 199,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_pants_wolf",
+      "icon_id": "gear_epic_legs_leather_1",
       "required_level": 45,
       "sell_price": 103,
       "flavor_text": "Tally marks down both thighs, in groups of five, running out of room.",
@@ -1311,7 +1314,7 @@
       "weapon_type": "shield",
       "stat_template": null,
       "primary_stats": {
-        "stamina": 23
+        "stamina": 20
       },
       "secondary_stats": {},
       "armor_value": 633,
@@ -1320,7 +1323,7 @@
       "attack_speed": 0.0,
       "block_value": 73,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shield_09",
+      "icon_id": "gear_epic_shield_2",
       "required_level": 46,
       "sell_price": 158,
       "flavor_text": "Took the whole sea at Booty Bay for a season and gave none of it back.",
@@ -1345,14 +1348,14 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 18
+        "stamina": 19,
+        "agility": 11
       },
       "secondary_stats": {
-        "hit_rating": 1.3,
-        "crit_chance_physical": 1.3,
-        "armor": 11,
-        "dodge_rating": 0.3,
-        "attack_power": 4
+        "dodge_rating": 1.5,
+        "crit_chance_physical": 0.2,
+        "haste": 0.2,
+        "armor": 10.6
       },
       "armor_value": 281,
       "weapon_damage_min": 0,
@@ -1360,7 +1363,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_helmet_07",
+      "icon_id": "gear_epic_head_mail_1",
       "required_level": 47,
       "sell_price": 107,
       "flavor_text": "The ship did not. This did, three weeks later, on the same tide.",
@@ -1385,13 +1388,14 @@
       "weapon_type": "sword_1h",
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "intellect": 25,
-        "stamina": 25
+        "strength": 15,
+        "stamina": 19
       },
       "secondary_stats": {
+        "hit_rating": 0.9,
         "crit_chance_spell": 0.2,
-        "attack_power": 5,
-        "armor": 13
+        "haste": 0.2,
+        "crit_chance_physical": 0.2
       },
       "armor_value": 0,
       "weapon_damage_min": 114,
@@ -1399,10 +1403,168 @@
       "attack_speed": 2.4,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_sword_36",
+      "icon_id": "gear_epic_sword_1h_1",
       "required_level": 48,
       "sell_price": 165,
       "flavor_text": "Given in a cabin, to nobody who outlived the giving of it.",
+      "set_id": null,
+      "sockets": [],
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null
+    },
+    {
+      "item_id": "epic_ashholds_writ",
+      "name": "Ashhold's Writ",
+      "slot": "neck",
+      "item_level": 54,
+      "rarity": "epic",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.8,
+        "spell_power": 12.2,
+        "crit_chance_physical": 0.2,
+        "healing_power": 1.4,
+        "haste": 0.1
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_epic_neck_4",
+      "required_level": 52,
+      "sell_price": 118,
+      "flavor_text": "The deed to a hall four hundred feet down, carried from hall to rented room to a bunk on a goblin barge, and never once sold.",
+      "set_id": null,
+      "sockets": [],
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null
+    },
+    {
+      "item_id": "epic_the_unbanked_fire",
+      "name": "The Unbanked Fire",
+      "slot": "trinket",
+      "item_level": 55,
+      "rarity": "epic",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "healing_power": 1.4,
+        "armor": 8.6,
+        "hit_rating": 0.2
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_epic_trinket_3",
+      "required_level": 53,
+      "sell_price": 121,
+      "flavor_text": "They walked out of Khaz Varun in a hurry and nobody damped the forge. It has been burning ever since, on nothing.",
+      "set_id": null,
+      "sockets": [],
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null
+    },
+    {
+      "item_id": "epic_the_mountains_signet",
+      "name": "The Mountain's Signet",
+      "slot": "ring",
+      "item_level": 57,
+      "rarity": "epic",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 8.6,
+        "armor": 8.9,
+        "crit_chance_spell": 0.2,
+        "haste": 0.1
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_epic_ring_2",
+      "required_level": 55,
+      "sell_price": 125,
+      "flavor_text": "Found in the crack in its chest, which is the only part of a mountain that can be reached into.",
+      "set_id": null,
+      "sockets": [],
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null
+    },
+    {
+      "item_id": "epic_ashfall",
+      "name": "Ashfall",
+      "slot": "ranged",
+      "item_level": 58,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 18,
+        "agility": 18
+      },
+      "secondary_stats": {
+        "haste": 0.2,
+        "armor": 9.1,
+        "crit_chance_physical": 0.2
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 111,
+      "weapon_damage_max": 150,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_epic_gun_3",
+      "required_level": 56,
+      "sell_price": 191,
+      "flavor_text": "Dark Iron barrel, goblin firing mechanism, and an argument about the trigger that is still going on in Cinderwharf.",
       "set_id": null,
       "sockets": [],
       "enchant_id": null,
