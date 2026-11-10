@@ -238,8 +238,17 @@ def check_fire(items):
         c.current_mana = c.mana
         before = c.spell_power
         spell = c.ability_book.get_ability("mage_frostbolt")
-        spell.turns_remaining = 0
-        spell.use(c, foe, in_combat=True, engine=engine)
+        # A spell can MISS, and a miss is no damage event, so the proc rightly does not fire.
+        # Cast until one lands - the claim under test is "a landed damaging spell procs it".
+        for _ in range(40):
+            c.current_mana = c.mana
+            spell.turns_remaining = 0
+            hp = foe.current_health
+            spell.use(c, foe, in_combat=True, engine=engine)
+            if foe.current_health < hp:
+                break
+        else:
+            fail("The Unbanked Fire: 40 Frostbolts and not one landed - the rig, not the trinket")
         blaze = [e for e in c.active_effects if e.effect_id == "unbanked_fire_blaze"]
         if not blaze:
             fail("The Unbanked Fire: a damaging spell landed and Uninsured Blaze never appeared")
@@ -258,7 +267,14 @@ def check_fire(items):
         wear(c, certain(items["Running-Dry Charm"]))
         foe, engine = fight(c)
         c.current_health = c.health
-        c.take_damage(50, "physical", attacker=foe)
+        # A hit can be dodged, parried or blocked to nothing - no damage taken, no proc, which is
+        # correct. Swing until one connects.
+        for _ in range(40):
+            c.current_health = c.health
+            if c.take_damage(50, "physical", attacker=foe):
+                break
+        else:
+            fail("Running-Dry Charm: 40 hits and none connected - the rig, not the trinket")
         shield = [e for e in c.active_effects if e.effect_id == "running_dry_reserve"]
         want = max(1, int(c.health * 0.08))
         if not shield:
