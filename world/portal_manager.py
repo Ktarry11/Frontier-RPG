@@ -580,7 +580,19 @@ class PortalManager:
             # Reach and Khaz Varun do not exist, and a link to a zone that is not built is
             # how you walk in and never walk out. They fail safe until those land.
             "Tempest Shallows": {
-                (28, 104): ("Saltspur Landing", 50, 28),
+                (74, 66): ("Saltspur Landing", 50, 28),
+                # The two passes, round the volcano's west and east flanks. The volcano sits ON
+                # the border, so these are the only two ways between the halves of the isle.
+                (58, 4): ("The Ashen Reach", 58, 154),
+                (176, 4): ("The Ashen Reach", 176, 154),
+            },
+
+            "The Ashen Reach": {
+                (58, 156): ("Tempest Shallows", 58, 6),
+                (176, 156): ("Tempest Shallows", 176, 6),
+                # Cinderwharf and the Emberdeep are deliberately NOT here yet - neither is built,
+                # and a link to a zone that does not exist is how you walk in and never walk out.
+                # An unregistered portal tile fails safe.
             },
 
             "Boulderfist Hall": {(32, 50): ("Arathi Central", 38, 37)},
@@ -637,7 +649,7 @@ class PortalManager:
                 (52, 85): ("Arathi Central", 138, 62),           # arrive (138,64), on the basin road
             },
             "Saltspur Landing": {
-                (52, 28): ("Tempest Shallows", 31, 104),
+                (52, 28): ("Tempest Shallows", 77, 68),
                 # The bluff cut - the one hole in the rim, carved after it is forced.
                 (2, 28): ("Arathi East", 50, 96),               # arrive (50,98), on the coast road
             },
