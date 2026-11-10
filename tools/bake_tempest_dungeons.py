@@ -68,7 +68,11 @@ def spec_khaz_varun():
 
 
 def spec_emberdeep():
-    isl = [(cx, cy, rx + 3, ry + 3) for (cx, cy, rx, ry, _n, _r) in ED.ISLANDS]
+    # Every lobe of every island, plus the stepping stones: basalt crust on top of the ash
+    # floor, so the ground the player fights on reads as cooled rock rather than cinder.
+    isl = [(cx, cy, rx + 2, ry + 2)
+           for lobes in ED.ISLANDS.values() for (cx, cy, rx, ry) in lobes]
+    isl += [(cx, cy, rx + 1, ry + 1) for (cx, cy, rx, ry) in ED.STEPPING]
     return dict(
         build="build_emberdeep_baked", seed=557, slug="emberdeep",
         materials={"floor": M(ASH_F), "basalt_f": M(BASALT_F),
@@ -78,7 +82,9 @@ def spec_emberdeep():
         # The islands are cooled crust - basalt - standing on an ash floor.
         floors={"basalt_f": isl},
         # Magma seams in the caldera wall behind the last island, so the far end glows hottest.
-        walls={"magma": [(88, 20, 40, 18)]},
+        # Magma seams in the caldera wall behind the arena, so the south end - the end you
+        # finish at - glows hottest.
+        walls={"magma": [(85, 168, 46, 16)]},
         pools=[], lava=True,
         # A HOT grade and a strong lava glow: the lake is the only light in here.
         cfg=dict(ao=0.50, depth=0.90, lip=30, lip_col=(1.0, 0.52, 0.30), deep_dark=0.50,

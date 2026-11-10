@@ -592,11 +592,13 @@ class PortalManager:
                 (58, 156): ("Tempest Shallows", 58, 6),
                 (176, 156): ("Tempest Shallows", 176, 6),
                 (186, 96): ("Cinderwharf", 5, 44),
-                (115, 132): ("The Emberdeep", 85, 172),
+                (115, 132): ("The Emberdeep", 85, 8),
             },
 
             "The Emberdeep": {
-                (85, 174): ("The Ashen Reach", 115, 134),
+                # The door is on the volcano's NORTH face, so the dungeon's own exit is at the
+                # TOP of its map and the run descends south from it.
+                (85, 6): ("The Ashen Reach", 115, 134),
             },
 
             "Khaz Varun, the Black Hollow": {
