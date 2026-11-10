@@ -113,6 +113,9 @@ def _item_from_def(item_def):
         attack_speed=item_def.get("attack_speed", 0.0),
         block_value=item_def.get("block_value", 0),
         icon_id=icon_id,
+        # A trinket that does something (see Item.proc). Dropping this here would be the
+        # project's oldest bug again: authored in the JSON, read by nothing.
+        proc=item_def.get("proc"),
     )
 
 

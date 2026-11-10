@@ -1222,6 +1222,11 @@ class Character(StatusEffectMixin):
     
     def _recalculate_derived_stats(self):
         """Recalculate all derived stats from base stats + equipped gear bonuses."""
+        # Gear that DOES something rides along with gear that adds stats. Here rather than in
+        # equip_item/unequip_item because this already runs on every path that changes what is
+        # worn - equip, unequip, load, creation, and the death wipe (clear_status_effects
+        # recalculates), which would otherwise strip a trinket's proc until the next swap.
+        self._sync_equipment_procs()
         bonuses = self.equipment.get_total_stat_bonuses()
 
         # Fold talent stat effects into the same bonus pool as gear, so any
@@ -2082,6 +2087,65 @@ class Character(StatusEffectMixin):
                     self.active_effects = [
                         e for e in self._effects() if e.effect_id != synthetic_id
                     ]
+
+    def _sync_equipment_procs(self):
+        """Hang one synthetic StatusEffect on the wearer for every equipped item carrying a
+        `proc` (see Item.proc), and remove it when the item comes off.
+
+        The proc engine is the one talents already use - fire_proc_trigger walks
+        active_effects for a `proc` dict - so a trinket only needs somewhere to live. That
+        is the same trick _sync_talent_procs plays: an effect with no stat_mods whose only
+        job is to carry the proc. Its stats keep flowing through get_total_stat_bonuses as
+        before; this never doubles them.
+
+        Keyed by SLOT, not item: item_proc_trinket1. Two copies of one trinket in both slots
+        each keep their own proc and their own internal cooldown, and swapping a different
+        trinket into a slot replaces its proc rather than leaving the old one behind.
+
+        Writes active_effects directly rather than through apply_status_effect, and that is
+        not a shortcut. Character.apply_status_effect recalculates stats, and this runs FROM
+        the recalc - going through it would recurse forever. Nothing is lost by skipping it:
+        the effect carries no stats to recalculate.
+
+        An unchanged proc on an unchanged slot is left exactly as it is, so a recalc in the
+        middle of a fight never resets a trinket's internal cooldown.
+        """
+        from combat.status_effects import StatusEffect, EffectType, ITEM_PROC_PREFIX
+
+        equipment = getattr(self, "equipment", None)
+        slots = getattr(equipment, "slots", None)
+        if not slots:
+            return
+
+        wanted = {}
+        for slot, item in slots.items():
+            proc = getattr(item, "proc", None) if item is not None else None
+            if proc:
+                wanted[f"{ITEM_PROC_PREFIX}{slot}"] = (item, proc)
+
+        effects = self._effects()
+        current = {e.effect_id: e for e in effects
+                   if str(getattr(e, "effect_id", "")).startswith(ITEM_PROC_PREFIX)}
+
+        stale = [eid for eid, e in current.items()
+                 if eid not in wanted
+                 or getattr(e, "proc", None) != wanted[eid][1]
+                 or getattr(e, "name", None) != wanted[eid][0].name]
+        if stale:
+            self.active_effects = [e for e in effects if e.effect_id not in stale]
+            for eid in stale:
+                current.pop(eid, None)
+
+        for eid, (item, proc) in wanted.items():
+            if eid in current:
+                continue
+            self.active_effects.append(StatusEffect(
+                effect_id=eid, name=item.name,
+                effect_type=EffectType.BUFF, duration=999999,
+                stat_mods={}, source_name=item.name,
+                real_time_seconds=None,
+                proc=dict(proc),
+            ))
 
     def _refresh_ability_ranks(self):
         """Unlock the correct rank of every ability for self.level. Called on

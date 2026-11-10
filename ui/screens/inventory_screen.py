@@ -1264,6 +1264,15 @@ class InventoryScreen(BaseScreen):
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
         for stat, value in item.secondary_stats.items():
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
+        # WHAT THE ITEM DOES, in WoW's green "Equip:" line. A trinket that procs and does not
+        # say so is indistinguishable from one that is broken - Kyle, 10 Nov: trinkets "do
+        # stuff". Wrapped against the box's real inner width so a sentence cannot run off.
+        green_lines = set()
+        proc = getattr(item, "proc", None)
+        if proc and proc.get("describe"):
+            for wrapped in self.renderer.wrap_text(f"Equip: {proc['describe']}", 300 - 20):
+                green_lines.add(len(lines))
+                lines.append(wrapped)
         if item.required_level > 1:
             lines.append(f"Requires Level {item.required_level}")
 
@@ -1297,6 +1306,8 @@ class InventoryScreen(BaseScreen):
         for i, line in enumerate(lines):
             if i == 0:
                 color = item.get_rarity_color()
+            elif i in green_lines:
+                color = (30, 255, 0)
             elif i >= first_warning:
                 kind = warning_lines[i - first_warning][0]
                 color = (220, 70, 70) if kind == "blocked" else (220, 180, 70)

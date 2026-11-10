@@ -164,6 +164,31 @@ DUNGEON = [
      "going on in Cinderwharf."),
 ]
 
+#: Trinkets that DO something. Kyle, 10 Nov: "trinkets over 50+ WILL AND MUST start to
+#: actually do stuff." The payload is a StatusEffect proc dict - the same engine talents use
+#: (combat/status_effects.py, fire_proc_trigger) - carried by the item and hung on the wearer
+#: by Character._sync_equipment_procs while it is equipped.
+#:
+#: The Unbanked Fire is Wrath of Cenarius: damaging spells sometimes flood the caster with
+#: spell power for a few turns. Sized against a level 55 caster's gear, a spike of roughly a
+#: third of their spell power, which is where Wrath of Cenarius sat in its own tier.
+PROCS = {
+    "The Unbanked Fire": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 5,
+        "apply_effect": {
+            "effect_id": "unbanked_fire_blaze",
+            "name": "Uninsured Blaze",
+            "effect_type": "buff",
+            "duration": 3,
+            "stat_mods": {"spell_power": 40},
+            "on_target": False,
+        },
+        "describe": "Your damaging spells have a chance to grant 40 spell power for 3 turns.",
+    },
+}
+
 #: An item named for a stat has to carry it. See coherent().
 LEAD_SHARE = 0.25
 MAX_REROLLS = 200
@@ -290,29 +315,53 @@ def main():
                       "as the rest of the game's loot, and each was rerolled until it carried "
                       "the stat it is named for. Rolled by entities/epic_drops.py.")}
 
+    # KEEP WHAT IS ALREADY THERE. The stats come from LootGenerator, which is random, so this
+    # script used to re-roll EVERY epic in the game each time it ran. Adding four new epics on
+    # 10 Nov silently re-rolled the other 36 - stats that had been checked against the rares in
+    # 280a61e - and it went out in the push before anyone noticed. An epic is now rolled once,
+    # when it first appears in the table, and kept by item_id from then on. To deliberately
+    # re-roll one, delete its entry from the JSON and run this again.
+    p = ROOT / "data/loot/epic_drops.json"
+    try:
+        existing = json.loads(p.read_text())
+    except (OSError, json.JSONDecodeError):
+        existing = {}
+
     rerolled = 0
+    kept = 0
     for key, table in (("world", WORLD), ("dungeon", DUNGEON)):
+        have = {d.get("item_id"): d for d in existing.get(key, [])}
         items = []
         for name, slot, kind, atype, ilvl, template, flavour in table:
-            item, err = build_one(gen, name, slot, kind, atype, ilvl, template)
-            if err:
-                print(f"FAILED: {err}")
-                return 1
-            d = item.to_dict() if hasattr(item, "to_dict") else {}
+            item_id = "epic_" + name.lower().replace("'", "").replace(" ", "_")
+            if item_id in have:
+                d = dict(have[item_id])
+                kept += 1
+            else:
+                item, err = build_one(gen, name, slot, kind, atype, ilvl, template)
+                if err:
+                    print(f"FAILED: {err}")
+                    return 1
+                d = item.to_dict() if hasattr(item, "to_dict") else {}
+                if not coherent(item, gen, template, kind, atype):
+                    rerolled += 1
             d["name"] = name
             d["flavor_text"] = flavour
             # The generated item_id carries a uuid, which would make this file churn on every run.
-            d["item_id"] = "epic_" + name.lower().replace("'", "").replace(" ", "_")
+            d["item_id"] = item_id
+            # Procs are authored here, never rolled, so they are applied every run.
+            if name in PROCS:
+                d["proc"] = PROCS[name]
+            else:
+                d.pop("proc", None)
             items.append(d)
-            if not coherent(item, gen, template, kind, atype):
-                rerolled += 1
         out[key] = items
         print(f"\n  {key}: {len(items)} items, item level "
               f"{min(i['item_level'] for i in items)}-{max(i['item_level'] for i in items)}")
 
-    p = ROOT / "data/loot/epic_drops.json"
     p.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
-    print(f"\nwrote {p.relative_to(ROOT)}")
+    print(f"\nkept {kept} existing epics unchanged, rolled {len(rows) - kept} new")
+    print(f"wrote {p.relative_to(ROOT)}")
     return 0
 
 

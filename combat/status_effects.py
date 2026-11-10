@@ -646,6 +646,12 @@ class StatusEffect:
 #: long as the points are spent (duration=999999, real_time_seconds=None).
 TALENT_PROC_PREFIX = "talent_proc_"
 
+#: The same idea for equipment: Character._sync_equipment_procs gives every equipped item
+#: that carries a `proc` (a trinket that DOES something) a permanent synthetic effect named
+#: item_proc_<slot>. Hidden from buff panels for the same reason talents are - it is the item,
+#: shown on the item's tooltip, not a buff that started recently and will end.
+ITEM_PROC_PREFIX = "item_proc_"
+
 
 def is_displayable_buff(effect):
     """True if this effect belongs in a player-facing buff/debuff LIST.
@@ -672,7 +678,7 @@ def is_displayable_buff(effect):
     from combat.status_effects import EffectType  # local: module self-reference
     if effect.effect_type not in (EffectType.BUFF, EffectType.DEBUFF):
         return False
-    if str(getattr(effect, "effect_id", "")).startswith(TALENT_PROC_PREFIX):
+    if str(getattr(effect, "effect_id", "")).startswith((TALENT_PROC_PREFIX, ITEM_PROC_PREFIX)):
         return False
     return True
 

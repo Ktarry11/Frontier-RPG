@@ -304,7 +304,18 @@
         "intellect": 12,
         "stamina": 12
       },
-      "secondary_stats": {}
+      "secondary_stats": {},
+      "proc": {
+        "trigger": "on_damage_or_heal_cast",
+        "chance": 8,
+        "icd": 4,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 90
+        },
+        "describe": "Your damaging and healing spells have a chance to restore 90 mana."
+      },
+      "flavor_text": "Signed by every hand aboard. Article the first: everyone gets a share. Article the second: the captain decides what a share is."
     }
   ]
 }

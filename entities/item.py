@@ -18,7 +18,8 @@ class Item:
                  block_value=0, bag_capacity=0, icon_id=None,
                  is_crafted=False, crafting_material=None,
                  upgrade_count=0, upgrade_deltas=None, attachment=None,
-                 recipe_id=None, recipe_profession=None, vendor_price=None):
+                 recipe_id=None, recipe_profession=None, vendor_price=None,
+                 proc=None):
         self.item_id = item_id
         self.name = name
         self.slot = slot  # e.g. "chest", "main_hand", "ring1", "bag1"-"bag4"
@@ -79,6 +80,13 @@ class Item:
         self.flavor_text = flavor_text
 
         # Scaffolding for later phases (Section 9/10 of design doc) - unused in Phase 5
+        # A StatusEffect proc dict (combat/status_effects.py, fire_proc_trigger) - what makes a
+        # trinket DO something rather than sit there as a stat stick. Kyle, 10 Nov: "trinkets
+        # over 50+ WILL AND MUST start to actually do stuff." Character._sync_equipment_procs
+        # hangs it on the wearer as a synthetic effect while the item is equipped. None for
+        # every ordinary item. Copied, so two drops of the same item never share one dict.
+        self.proc = dict(proc) if proc else None
+
         self.set_id = set_id
         self.sockets = sockets or []
         self.enchant_id = enchant_id
@@ -230,6 +238,7 @@ class Item:
             "attachment": self.attachment,
             "recipe_id": self.recipe_id,
             "recipe_profession": self.recipe_profession,
+            "proc": self.proc,
         }
 
     @classmethod
@@ -266,6 +275,7 @@ class Item:
             attachment=data.get("attachment"),
             recipe_id=data.get("recipe_id"),
             recipe_profession=data.get("recipe_profession"),
+            proc=data.get("proc"),
         )
 
     def __repr__(self):
