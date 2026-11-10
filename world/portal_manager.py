@@ -572,6 +572,17 @@ class PortalManager:
             # Leaving a cave arrives at the destination tile +3, which is why each of these sits three
             # tiles north of the overworld mouth it came out of.
             "Boulder'gor": {(30, 46): ("Arathi West", 44, 31)},
+            # ===== TEMPEST ISLE =====
+            # The boat. Saltspur's berth tile (52,28) shipped UNREGISTERED on 7 Nov precisely
+            # until there was somewhere to sail to - an unregistered portal tile fails safe,
+            # the same property that let Thoradin's Wall stay shut for weeks.
+            # The two passes and the dungeon door are deliberately NOT here yet: the Ashen
+            # Reach and Khaz Varun do not exist, and a link to a zone that is not built is
+            # how you walk in and never walk out. They fail safe until those land.
+            "Tempest Shallows": {
+                (28, 104): ("Saltspur Landing", 50, 28),
+            },
+
             "Boulderfist Hall": {(32, 50): ("Arathi Central", 38, 37)},
             "The Drowned Barrow": {(30, 52): ("Arathi East", 34, 35)},
             "Wrackline Hold": {(28, 48): ("Arathi East", 150, 57)},
@@ -626,6 +637,7 @@ class PortalManager:
                 (52, 85): ("Arathi Central", 138, 62),           # arrive (138,64), on the basin road
             },
             "Saltspur Landing": {
+                (52, 28): ("Tempest Shallows", 31, 104),
                 # The bluff cut - the one hole in the rim, carved after it is forced.
                 (2, 28): ("Arathi East", 50, 96),               # arrive (50,98), on the coast road
             },

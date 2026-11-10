@@ -5623,6 +5623,8 @@ def create_all_zones():
     from tools import handbuilt_tarren_mill as dtm
     from tools import handbuilt_hammerfall as dhf
     from tools import handbuilt_saltspur_landing as dssl
+    # ===== TEMPEST ISLE - the last content hole, 52-58, reached by boat from Saltspur =====
+    from tools import handbuilt_tempest_shallows as dtsh
     from tools import handbuilt_frostward_descent as dfwd
     from tools import handbuilt_underdark as dud
     from tools import handbuilt_kaels_bastion as dkb
@@ -5738,7 +5740,9 @@ def create_all_zones():
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)
         # Ratchet-sized on purpose (Kyle, 7 Nov: "keep saltspur small"): a beachhead,
         # not a port - one jetty and a camp still unpacking.
-        "Saltspur Landing": dssl.generate_saltspur_landing(),  # tools/handbuilt_saltspur_landing.py
+        "Saltspur Landing": dssl.generate_saltspur_landing(),
+        # ===== TEMPEST ISLE - by boat from Saltspur. 52-55 here, 55-58 in the Ashen Reach.
+        "Tempest Shallows": dtsh.generate_tempest_shallows(),   # 52-55, the landfall  # tools/handbuilt_saltspur_landing.py
 
         # ===== THE CRYSTALLINE UNDERDARK CLUSTER - the first home-brew zone =====
         "The Frostward Descent": dfwd.generate_frostward_descent(),  # (tools/handbuilt_frostward_descent.py)

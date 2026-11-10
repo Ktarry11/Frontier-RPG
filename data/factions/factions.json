@@ -550,6 +550,58 @@
           "Gurbashi Arena"
         ]
       }
+    },
+    "the_ashclaim": {
+      "name": "The Ashclaim",
+      "description": "Dark Iron dwarves and goblins reclaiming a city that is legally one dwarf's and practically nobody's.",
+      "home_zone": "cinderwharf",
+      "home_name": "Cinderwharf, Tempest Isle",
+      "leader": {
+        "title": "Thane of Khaz Varun",
+        "name": "Durgan Ashhold",
+        "npc_id": "cw_thane_ashhold",
+        "location": "The Thane's Hall, Cinderwharf",
+        "line": "My great-grandfather's hall is four hundred feet down and full of things that used to be my cousins. The goblins have given me a figure for clearing it. I have signed it. Do not ask me what it was."
+      },
+      "_lore_note": "Written as the Ashclaim would have it written - a prospectus, not a history. The thane supplies the claim and the goblins supply everything else, and both of them describe that arrangement as generous of themselves.",
+      "lore": [
+        "Khaz Varun went dark long before the Integration, and the Ashholds have carried the deed from hall to rented room to a bunk on a goblin barge for as long as anyone has bothered to count.",
+        "What changed is that the sea route opened. A deed nobody could reach is a story; a deed four days from Saltspur is an asset, and the goblins can read an asset at a distance.",
+        "So the thane holds the claim and the underwriters hold the paper on the claim, and a wharf went up on the north-east shore inside a season. The hold behind it is built from the old city's own salvaged stone, which the dwarves consider a homecoming and the goblins consider freight they did not have to buy.",
+        "Neither half of the Ashclaim agrees on what the isle is for. The thane wants his ancestors' hall emptied of whatever is living in it now. The underwriters want the foundry lit and earning, and have observed in writing that those two things are not the same dig."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Matches the Crimson Codex rates so nothing new needs tuning.",
+        "default": 225,
+        "boss": 250,
+        "capstones": {}
+      },
+      "kill_rep": {
+        "_comment": [
+          "Only enemies the Ashclaim has a stake in: the mad dwarves squatting in Khaz Varun hold the prize,",
+          "rival salvagers are after the same wrecks, and these elementals are actively breaking the works.",
+          "Island wildlife and the deep-volcano elementals pay nothing - farming a corridor must never beat",
+          "running a dungeon."
+        ],
+        "creatures": {}
+      },
+      "dungeon_rep": {
+        "_comment": "A dungeon boss kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss.",
+        "per_boss": 75,
+        "dungeons": [
+          "Khaz Varun, the Black Hollow",
+          "The Emberdeep"
+        ]
+      },
+      "rewards": {
+        "_comment": [
+          "Gates, not a displayed ladder - the faction panel stays information only.",
+          "The deep claim at exalted opens the Emberdeep's shortcut permanently, so later runs skip the",
+          "first two islands."
+        ],
+        "vendor_stock": {},
+        "quests": {}
+      }
     }
   }
 }
