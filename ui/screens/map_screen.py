@@ -360,10 +360,25 @@ class MapScreen(BaseScreen):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 self._draw_service_icon(screen, kind, fx, fy)
 
-        # Player marker, drawn last so it is never hidden
+        # Player marker. It used to be drawn last, as a solid disc, "so it is never hidden" -
+        # and so it hid whatever was under it. Open the map while talking to the flight
+        # master, which is exactly when anyone looks for the flight master, and the disc sat
+        # on his icon: Kyle, 10 Nov, "some flight masters not showing on map (like zoram
+        # strand)". The icon was drawn; it was underneath.
+        #
+        # The disc still goes down, and then any service icon it would cover is drawn again
+        # ON TOP of it. The player is never where an NPC is (they stand beside them), so the
+        # disc stays readable next to the icon instead of over it.
         px, py = self._tile_to_screen(tilemap, rect, zm.player_x, zm.player_y)
         pygame.draw.circle(screen, (255, 255, 255), (px, py), 7)
         pygame.draw.circle(screen, (220, 40, 40), (px, py), 5)
+        self._icons_over_player = 0
+        for kind in ("shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
+            for tx, ty in sorted(markers[kind]):
+                fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
+                if abs(fx - px) < 18 and abs(fy - py) < 18:
+                    self._draw_service_icon(screen, kind, fx, fy)
+                    self._icons_over_player += 1
 
         # Legend
         lx = SCREEN_WIDTH - 290
@@ -399,6 +414,7 @@ class MapScreen(BaseScreen):
         else:
             pygame.draw.circle(screen, (255, 0, 0), (lx + 7, ly + 7), 6)
         self.renderer.draw_text(screen, "Boss", (lx + 22, ly), color=(200, 200, 210))
+        ly += 26        # the Boss row's own height - without it "Size:" printed on top of it
 
         # These three were UNREACHABLE: at some point a method got spliced into the middle of
         # this one and they ended up below `return icon` inside _get_boss_icon, where they also

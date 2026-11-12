@@ -286,9 +286,13 @@ class TravelServiceScreen(BaseScreen):
         cost = travel.flight_cost(here, node_id) if here else 0
         if self._copper() < cost:
             return self._say("Not enough gold.", RED)
-        from world.ambient_npc_manager import get_ambient_npc_manager
-        master = get_ambient_npc_manager().npcs.get(node["master"])
         zm = self.state_manager._live_zone_manager()
+        # ONE lookup for "where is this node's flight master", shared with the map and the
+        # QA. This used to look among ambient NPCs only, and two flight masters are vendors
+        # (Hammerfall, Saltspur Landing) - so flying to either failed with "The windrider
+        # can't find the landing."
+        from world.travel_manager import find_flight_master
+        master = find_flight_master(node, getattr(zm, "vendor_manager", None))
         if master is None or zm is None:
             return self._say("The windrider can't find the landing.", RED)
         self._party().remove_currency(cost)

@@ -274,6 +274,29 @@ def services_for_npc(npc):
     return services
 
 
+def find_flight_master(node, vendor_manager=None):
+    """The NPC who runs this flight node, wherever they are defined.
+
+    A flight master can be an ambient NPC or a vendor (one who also sells you jerky). Anything
+    that needs to know where a flight lands - the flight screen, the map, the QA - asks here,
+    so they cannot disagree about who the master is.
+    """
+    master_id = (node or {}).get("master")
+    if not master_id:
+        return None
+    from world.ambient_npc_manager import get_ambient_npc_manager
+    npc = get_ambient_npc_manager().npcs.get(master_id)
+    if npc is not None:
+        return npc
+    if vendor_manager is None:
+        try:
+            from world.vendor_manager import get_vendor_manager
+            vendor_manager = get_vendor_manager()
+        except Exception:
+            return None
+    return getattr(vendor_manager, "vendors", {}).get(master_id)
+
+
 def format_copper(copper):
     """Prices in the travel/mount shops. Was its own copy of the split and padded every value to
     all three parts, so "200g 0s 0c" at the riding trainer sat next to "3g" at the vendor."""
