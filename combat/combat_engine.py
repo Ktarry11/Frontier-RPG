@@ -565,6 +565,13 @@ class CombatEngine:
             # zero the instant they died; this just makes that explicit in
             # the table itself rather than leaving a stale, since-dead
             # entry sitting there to be revived into).
+            # wipes_threat (Kiet Somsak's "Nobody Looks Twice"): the caster stops existing as
+            # far as every ordinary enemy is concerned. A boss does not forget.
+            if getattr(ability, "wipes_threat", False):
+                for enemy, table in self.threat_tables.items():
+                    if not getattr(enemy, "is_boss", False):
+                        table.pop(actor, None)
+
             if getattr(target, "_reviving_this_cast", False):
                 target._reviving_this_cast = False
                 retention = target.get_talent_effect("death_threat_retention_pct", 0.0) if hasattr(target, "get_talent_effect") else 0.0

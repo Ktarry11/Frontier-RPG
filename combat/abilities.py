@@ -351,6 +351,7 @@ class Ability:
                  max_stacks=1, stack_on=None,
                  dynamic_resist=None,
                  same_kind_only=False,
+                 wipes_threat=False,
                  immediate=None,
                  variance_mode=None,
                  variance=None,
@@ -609,6 +610,9 @@ class Ability:
         #: (world/creature_types.py) - Kesten's "He Catalogues": name a kind, and everything
         #: of that kind is easier to hurt.
         self.same_kind_only = bool(same_kind_only)
+        #: The caster drops off every enemy's threat table - except a boss's. Applied by the
+        #: engine after the cast (CombatEngine.execute_ability), which is where the tables live.
+        self.wipes_threat = bool(wipes_threat)
         #: An action taken on state that ALREADY EXISTS, rather than an
         #: effect applied. Five kit abilities rearrange rather than add:
         #:   {"action": "extend_buffs", "turns": 2}
@@ -4388,6 +4392,7 @@ def _ability_from_data(entry):
         stack_on=entry.get("stack_on"),
         dynamic_resist=entry.get("dynamic_resist"),
         same_kind_only=entry.get("same_kind_only", False),
+        wipes_threat=entry.get("wipes_threat", False),
         immediate=entry.get("immediate"),
         variance_mode=entry.get("variance_mode"),
         variance=entry.get("variance"),

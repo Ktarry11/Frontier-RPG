@@ -381,15 +381,17 @@
         "ability_id": "personal_kiet_nobody_looks_twice",
         "name": "Nobody Looks Twice",
         "from": "'He went into offices, kitchens, and back rooms all day long and nobody ever looked at him twice.'",
-        "engine": "needs: threat wipe + guaranteed crit on next strike",
+        "engine": "live: wipes_threat + crit window",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
         "cooldown": 10,
         "duration": 2,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "Wipes Kiet's threat entirely and makes his next attack a guaranteed critical. The threat wipe does not work on bosses.",
+        "stat_mods": {
+          "crit_chance_physical": 100
+        },
+        "description": "Every enemy but a boss forgets Kiet entirely, and for 2 turns his attacks are guaranteed critical hits.",
         "ranks": [
           {
             "rank": 1,
@@ -397,7 +399,8 @@
             "cost": 20,
             "effect_value": 0
           }
-        ]
+        ],
+        "wipes_threat": true
       },
       {
         "ability_id": "personal_kiet_the_fastest_route",

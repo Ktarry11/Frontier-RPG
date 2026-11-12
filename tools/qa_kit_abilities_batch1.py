@@ -1,5 +1,5 @@
 """
-Six recruit signature abilities that did nothing now do what they say.
+Seven recruit signature abilities that did nothing now do what they say.
 
 From the list of 34 inert personal-kit abilities (backlog group N). These four needed either
 nothing new or one small mechanic:
@@ -151,12 +151,29 @@ def main():
             eff = next((e for e in foe._effects() if (e.stat_mods or {}).get("silenced")), None)
             check(eff is not None and eff.duration == 2, f"{ab.name}: on an ordinary enemy the silence should last 2 turns, got {getattr(eff, 'duration', None)}")
 
+    # Kiet: threat wipe + crit -------------------------------------------------------------
+    c, ab = kit("Kiet Somsak", "personal_kiet_nobody_looks_twice")
+    if ab:
+        from combat.combat_engine import CombatEngine
+        from entities.party import Party
+        grunt, boss = kit_mob("Mottled Boar"), kit_mob("Mottled Boar", boss=True)
+        eng = CombatEngine(c, grunt, party=Party(c), enemies=[grunt, boss])
+        eng.gain_threat(c, grunt, 5000)
+        eng.gain_threat(c, boss, 5000)
+        eng.current_actor = c
+        ok, msg = eng.execute_ability(c, "personal_kiet_nobody_looks_twice", c)
+        check(ok, f"Nobody Looks Twice would not cast ({msg})")
+        check(eng.get_threat(grunt, c) == 0, f"Kiet still has {eng.get_threat(grunt, c)} threat on an ordinary enemy")
+        check(eng.get_threat(boss, c) >= 5000, f"a boss forgot Kiet (threat {eng.get_threat(boss, c)})")
+        c._recalculate_derived_stats()
+        check(c.crit_chance_physical >= 100, f"Kiet's crit is {c.crit_chance_physical:.0f}% - not guaranteed")
+
     # none of the four still says it needs something
     import json
     kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text())
     for k in kits.values():
         for a in (k.get("abilities") or []) if isinstance(k, dict) else []:
-            if a.get("ability_id") in ("personal_adrian_he_still_has_the_whistle", "personal_saoirse_the_sliotar", "personal_carolina_deep_in_march", "personal_rosa_stop_tracking_start_anticipating",
+            if a.get("ability_id") in ("personal_kiet_nobody_looks_twice", "personal_adrian_he_still_has_the_whistle", "personal_saoirse_the_sliotar", "personal_carolina_deep_in_march", "personal_rosa_stop_tracking_start_anticipating",
                                        "personal_sophia_get_the_register_right", "personal_kesten_he_catalogues"):
                 check(not str(a.get("engine", "")).startswith("needs"), f"{a['ability_id']} is still marked {a.get('engine')!r}")
                 check(a.get("stat_mods"), f"{a['ability_id']} has no effect")
