@@ -2295,6 +2295,8 @@ class Ability:
                 taunt_amount = max(500, getattr(t, "level", 1) * TAUNT_THREAT_PER_LEVEL)
                 self._last_threat_events.append((t, taunt_amount, True))
 
+        self._apply_stat_rider(caster, target)
+
         # Proc triggers - fired off the SAME _last_threat_events data
         # _apply_effect just populated (real damage/heal amounts per
         # recipient, already distinguishing damage from healing), so a
@@ -2412,6 +2414,60 @@ class Ability:
 
         return True, result_msg
     
+    #: Effect types whose stat_mods are a RIDER on something else the ability does.
+    _RIDER_DAMAGE_TYPES = ("damage", "ranged_damage", "spell_damage", "dot", "spell_dot")
+    #: Rider keys that describe the CASTER, whatever the ability hits.
+    _RIDER_CASTER_KEYS = ("threat_generation_pct",)
+    RIDER_MIN_TURNS = 2
+
+    def _apply_stat_rider(self, caster, target):
+        """A damage or healing ability's stat_mods, applied as a short buff or debuff.
+
+        Only "buff" and "debuff" abilities ever applied their stat_mods. Thirteen abilities
+        that hit or heal AND carry mods - Widowmaker ("healing received -50%"), Terrasurge
+        ("armor -50%"), Volt ("haste -40%"), Moonwater Blessing ("+30 armor") - did the damage
+        or the heal and silently dropped the rest. Found 12 Nov by the dead-stat audit.
+
+        Lands only on what the ability actually connected with (a miss carries no rider), for
+        the ability's own duration and never less than RIDER_MIN_TURNS.
+        """
+        mods = {k: v for k, v in (self.stat_mods or {}).items() if k != "taunt"}
+        if not mods:
+            return
+        is_damage = self.effect_type in self._RIDER_DAMAGE_TYPES
+        if not is_damage and self.effect_type != "heal":
+            return
+        from combat.status_effects import StatusEffect, EffectType
+        turns = max(self.RIDER_MIN_TURNS, int(self.duration or 0))
+
+        def give(holder, kind, which):
+            if holder is None or not which or not hasattr(holder, "apply_status_effect"):
+                return
+            if hasattr(holder, "is_alive") and not holder.is_alive():
+                return
+            holder.apply_status_effect(StatusEffect(
+                f"{self.ability_id}_rider", self.name, kind, turns, stat_mods=dict(which),
+                source_name=getattr(caster, "name", ""), real_time_seconds=None))
+
+        own = {k: v for k, v in mods.items() if k in self._RIDER_CASTER_KEYS}
+        rest = {k: v for k, v in mods.items() if k not in self._RIDER_CASTER_KEYS}
+        give(caster, EffectType.BUFF, own)
+        hit = [ev[0] for ev in (getattr(self, "_last_threat_events", None) or [])
+               if len(ev) >= 2 and ev[0] is not None and ev[1] and ev[0] is not caster
+               and (len(ev) < 3 or ev[2])]
+        if self.effect_type in ("dot", "spell_dot") and not hit:
+            # A pure DoT deals nothing on the cast itself, so there is no hit to read: it
+            # rides on whoever is now carrying the DoT.
+            hit = [t for t in self._hostile_recipients(target)
+                   if any(e.effect_id == self.ability_id for e in t._effects())]
+        if is_damage:
+            for victim in dict.fromkeys(hit):
+                give(victim, EffectType.DEBUFF, rest)
+        else:
+            recipients = [target] if target is not None and not isinstance(target, (list, tuple)) else list(target or [caster])
+            for ally in recipients:
+                give(ally, EffectType.BUFF, rest)
+
     def _effective_resource_type(self, caster):
         """The resource_type this cast should actually spend/check,
         resolving dynamically when the ability is gated to multiple

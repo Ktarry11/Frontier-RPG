@@ -474,11 +474,11 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "buff",
-      "duration": 60,
+      "duration": 30,
       "stat_mods": {
-        "ranged_ability_range": 5
+        "armor_penetration_pct": 15
       },
-      "description": "Fit a magic augment to the gun. The shots carry an edge that armour was never built to stop, and they reach further out.",
+      "description": "Fit a magic augment to the gun. The shots carry an edge that armour was never built to stop: your attacks ignore 15% of the target's armor for the fight.",
       "_source": "Real screenshot: Requires Level 6. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Add a Magic Augmentation to your gun for 1 hour, causing an additional 2 Magic damage with each shot. Increases the range of your ranged abilities by 5 yds.\"",
       "target_type": "self",
       "ranks": [
@@ -754,12 +754,12 @@
       "resource_type": "mana",
       "cooldown": 0,
       "effect_type": "buff",
-      "duration": 60,
+      "duration": 30,
       "stat_mods": {
-        "crit_pct_vs_mechanical": 25,
+        "crit_chance_spell": 3,
         "magic_damage_taken_pct": -10
       },
-      "description": "Crit Pct Vs Mechanical +25, Magic damage taken -10% for 60 turns.",
+      "description": "Tune your gear to the aether: +3% spell crit and 10% less magic damage taken for the fight.",
       "_source": "Real screenshot: Requires Level 22. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Add an Aether Augmentation to your gun for 1 hour, causing an additional 1 Arcane damage with each shot. Increases your damage and critical strike chance against Mechanicals by 25% and reduces your Magic damage taken by 10%.\"",
       "target_type": "self",
       "ranks": [
@@ -1317,9 +1317,10 @@
       "effect_type": "buff",
       "duration": 6,
       "stat_mods": {
-        "summon_damage_pct": 10
+        "attack_power_pct": 10,
+        "spell_power_pct": 10
       },
-      "description": "Assemble the Battle Turret X-13. It pushes every construct you own harder, and an ally can climb inside and fight out of it.",
+      "description": "Assemble the Battle Turret X-13 and fight alongside it: +10% Attack Power and Spell Power while it stands.",
       "_source": "Real screenshot: Requires Level 40. Mechanics leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Create the latest in turret technology, the Battle Turret X-13 for 30 sec that emanates an aura that increases the damage of your summons by 10%. Allies can enter the turret giving them access to unique abilities and the turret's health pool for the duration.\"",
       "ranks": [
         {

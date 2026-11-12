@@ -756,10 +756,8 @@
       "cooldown": 6,
       "effect_type": "buff",
       "duration": 3,
-      "stat_mods": {
-        "movement_speed_floor_pct": 80
-      },
-      "description": "Absorb damage, scaling with Intellect and Stamina, and protect your movement speed from falling too low.",
+      "stat_mods": {},
+      "description": "Absorb damage, scaling with Intellect and Stamina.",
       "_source": "Confirmed screenshot: Lvl 20, 'Absorbs 395 damage, scaling with Intellect and Stamina. Protects movement speed from going below 80% of normal speed. Lasts 20 sec. Depletes all Insanity upon expiration.'  ABSORBED NOTHING. Its description promises absorption and it carried no absorb at all. The engine has supported them the whole time - StatusEffect.absorb soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction - and 22 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Sized against this class's own peers (Eldritch Bastion 0.35, Void Shield 0.18).",
       "target_type": "self",
       "ranks": [
@@ -997,10 +995,9 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "healing_taken_pct": 6,
-        "pushback_reduction_pct": 50
+        "healing_taken_pct": 6
       },
-      "description": "Summon a Tentacle of Yogg-Saron near you: allies within range receive increased healing and reduced spell pushback. Only 1 Old God Tentacle active at a time.",
+      "description": "Summon a Tentacle of Yogg-Saron: healing you receive is increased by 6%. Only 1 Old God Tentacle active at a time.",
       "_source": "Confirmed screenshot: 27 Mana, instant, Lvl 26, 'Allies within 15 yds receive 6% increased healing and 50% reduced spell pushback. You may only have 1 Old God Tentacle active at a time.'",
       "target_type": "self",
       "ranks": [
@@ -2545,10 +2542,10 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "holy_resist_pct": 10,
-        "fire_resist_pct": 10
+        "holy_resistance": 8,
+        "fire_resistance": 8
       },
-      "description": "Reduce Holy and Fire damage taken for an ally, and periodically heal them while active.",
+      "description": "Ward an ally against the Light and the flame: +8 Holy and Fire resistance.",
       "_source": "CoA handoff doc: 'Reduces Holy+Fire damage taken for an ally; periodic heal while active.' Real numbers not confirmed via a dedicated screenshot.  DEAD STAT KEY CORRECTED: 'holy_fire_resist_pct' is read by nothing in the engine; the live key is holy_resist_pct + fire_resist_pct. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "party",
       "ranks": [

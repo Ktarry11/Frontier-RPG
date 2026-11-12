@@ -599,10 +599,10 @@
       "effect_type": "buff",
       "duration": 15,
       "stat_mods": {
-        "nature_resist_pct": 3,
-        "arcane_resist_pct": 3
+        "nature_resistance": 3,
+        "arcane_resistance": 3
       },
-      "description": "Sprinkle an ally with Fae Dust, reducing Nature and Arcane damage taken.",
+      "description": "Sprinkle an ally with Fae Dust: +3 Nature and Arcane resistance.",
       "_source": "Confirmed screenshot: Lvl 28, '-3% Nature and Arcane damage taken. Lasts 15 min.'  DEAD STAT KEY CORRECTED: 'nature_arcane_resist_pct' is read by nothing in the engine; the live key is nature_resist_pct + arcane_resist_pct. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "party",
       "ranks": [

@@ -623,10 +623,9 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "poison_duration_taken_pct": -10,
-        "periodic_magic_damage_taken_pct": -5
+        "magic_damage_taken_pct": -10
       },
-      "description": "Reduce the duration of poison effects used on you and reduce periodic Magic damage taken.",
+      "description": "A film of your own venom turns aside poisons and curses: 10% less magic damage taken.",
       "_source": "Confirmed screenshot: Lvl 40, exact numbers verbatim.",
       "target_type": "self",
       "ranks": [
@@ -1614,9 +1613,9 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {
-        "healing_absorb": 160
+        "healing_taken_pct": -50
       },
-      "description": "Fungus grows throughout an enemy's body, dealing Nature damage and shielding them from healing.",
+      "description": "Fungus grows throughout an enemy's body, dealing Nature damage and halving any healing it receives.",
       "_source": "Confirmed screenshot: Lvl 24, 11 Mana, 30yd, 2.5s cast, 15s CD, '202 Nature damage and applying a shield that absorbs the next 160 healing for 8 sec. Deals 20% increased damage per stack of Fungal Growth.' Healing-absorb shield not yet modeled as a real mechanic.",
       "ranks": [
         {

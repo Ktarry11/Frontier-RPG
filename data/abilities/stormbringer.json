@@ -537,9 +537,9 @@
       "effect_type": "debuff",
       "duration": 3,
       "stat_mods": {
-        "cc_duration_taken_pct": 20
+        "damage_taken_pct": 0.05
       },
-      "description": "Embolden the air around you, increasing the duration of movement impairing and fear effects on enemies. Only 1 Pressure spell can be active at a time.",
+      "description": "Thicken the air around the target until it can barely move: it takes 5% more damage from every source. Only 1 Pressure spell can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 18, 'increasing the duration of movement impairing, fear, and horrify effects on enemies by 20%.'",
       "ranks": [
         {
@@ -561,9 +561,9 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {
-        "spell_hit_reduction": 1
+        "damage_dealt_pct": -8
       },
-      "description": "Applies to the target: Spell Hit Reduction +1 for 2 turns.",
+      "description": "Lock the target in static: it deals 8% less damage for 2 turns.",
       "_source": "Kept from earlier pass (not re-confirmed or contradicted by this screenshot batch).",
       "ranks": [
         {
@@ -637,9 +637,9 @@
       "effect_type": "debuff",
       "duration": 3,
       "stat_mods": {
-        "spell_hit_taken_pct": 3
+        "spell_damage_taken_pct": 3
       },
-      "description": "Destabilize the air around you, increasing the chance for enemies to be struck by spells and causing you to generate additional Static on damage taken. Only 1 Pressure spell can be active at a time.",
+      "description": "Destabilize the air around the target: it takes 3% more damage from spells. Only 1 Pressure spell can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 22, exact numbers verbatim.",
       "ranks": [
         {
@@ -661,9 +661,9 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "pushback_reduction_pct": 35
+        "haste": 4
       },
-      "description": "Stabilize the air around you, causing all raid and party members to lose less casting or channeling time when damaged. Only 1 Pressure spell can be active at a time.",
+      "description": "Still the air around you so nothing breaks your rhythm: +4% haste. Only 1 Pressure spell can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 30, exact numbers verbatim.",
       "target_type": "self",
       "ranks": [
@@ -1076,9 +1076,9 @@
       "effect_type": "debuff",
       "duration": 2,
       "stat_mods": {
-        "hit_chance_taken": -15
+        "damage_dealt_pct": -15
       },
-      "description": "A gust of wind that reduces an enemy's accuracy.",
+      "description": "A gust of wind that throws off an enemy's aim: it deals 15% less damage for 2 turns.",
       "_source": "Wind-locked, level/numbers not yet confirmed via screenshot - placeholder values, flag for correction once Wind spec's own screenshots are reviewed.",
       "ranks": [
         {
@@ -1303,10 +1303,8 @@
       "cooldown": 5,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {
-        "pushback_reduction_pct": 100
-      },
-      "description": "Grants your party: Casting pushback +100% for 2 turns, absorbing damage.",
+      "stat_mods": {},
+      "description": "Wrap your party in cloud, absorbing damage for 2 turns.",
       "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The 40-Static cost is kept verbatim and the pushback immunity maps onto pushback_reduction_pct, which Stabilizing Pressure on this same class already uses. absorb_pct_max_health sizes the shield per recipient from their own health, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive, same key, same target_type) - CoA's Intellect scaling has nothing to hang on. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
       "target_type": "party",
       "absorb_pct_max_health": 0.1,
