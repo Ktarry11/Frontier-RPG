@@ -241,6 +241,12 @@ class OverworldScreen(BaseScreen):
             if event.key == pygame.K_h:
                 self._use_hearth()
                 return
+            if event.key == pygame.K_f:
+                self._rest("meal")
+                return
+            if event.key == pygame.K_q:
+                self._rest("drink")
+                return
 
             # F5 quicksave. Until now the game saved exactly once, at
             # character creation, and never again - so a recruited party,
@@ -347,6 +353,12 @@ class OverworldScreen(BaseScreen):
             if getattr(self, "hearth_button_rect", None) and self.hearth_button_rect.collidepoint(mouse_pos):
                 self._use_hearth()
                 return
+            if getattr(self, "eat_button_rect", None) and self.eat_button_rect.collidepoint(mouse_pos):
+                self._rest("meal")
+                return
+            if getattr(self, "drink_button_rect", None) and self.drink_button_rect.collidepoint(mouse_pos):
+                self._rest("drink")
+                return
             self._handle_tab_click(mouse_pos)
     
     def _release_movement_keys(self):
@@ -374,6 +386,71 @@ class OverworldScreen(BaseScreen):
             return
         self._notify(f"You return to {bind['name']}.", (140, 220, 160))
 
+    # ---------------------------------------------------------------- eat / drink
+    #
+    # Kyle, 12 Nov: food and water on the combat hotbar "isnt useable in combat (correct) but
+    # clicking it removes it... can we bind food/drink to another use tab somehow?"
+    #
+    # So: two buttons beside Mount and Hearth. One press sits the WHOLE party down - everyone
+    # who is hurt eats, everyone short of mana drinks - each taking the best thing in the bags
+    # they are high enough level for. With five companions, feeding them one at a time through
+    # the inventory is the chore this replaces.
+
+    def _rest_party(self):
+        party = self.state_manager.get_party()
+        seen, out = set(), []
+        for m in [self.state_manager.player] + list(getattr(party, "members", []) or []):
+            if m is not None and id(m) not in seen and getattr(m, "current_health", 1) > 0:
+                seen.add(id(m))
+                out.append(m)
+        return out
+
+    def _rest_stock(self, kind):
+        """Meals or drinks in the bags, best first. Consumables all live in the player's list."""
+        pool = getattr(self.state_manager.player, "consumables", None) or []
+        stock = [c for c in pool if c.consumable_type == kind and c.quantity > 0]
+        return sorted(stock, key=lambda c: -c.effect_value)
+
+    @staticmethod
+    def _rest_needs(member, kind):
+        if any(k == kind for k, _n, _left in member.consumable_regen_active()):
+            return False                                   # already eating / drinking
+        if kind == "meal":
+            return member.current_health < member.health
+        return getattr(member, "mana", 0) > 0 and member.current_mana < member.mana
+
+    def _rest(self, kind):
+        """Everyone who needs it eats (kind='meal') or drinks (kind='drink')."""
+        verb, noun, bar = (("eat", "food", "health") if kind == "meal" else ("drink", "water", "mana"))
+        red, green = (240, 140, 140), (140, 220, 160)
+        stock = self._rest_stock(kind)
+        if not stock:
+            self._notify(f"You have no {noun}.", red)
+            return 0
+        pool = self.state_manager.player.consumables
+        fed, used = 0, {}
+        needy = [m for m in self._rest_party() if self._rest_needs(m, kind)]
+        if not needy:
+            self._notify(f"Everyone is at full {bar}.", green)
+            return 0
+        for member in needy:
+            choice = next((c for c in stock if c.quantity > 0 and c.can_use(member)), None)
+            if choice is None:
+                continue
+            if choice.use(member):
+                fed += 1
+                used[choice.name] = used.get(choice.name, 0) + 1
+                if choice.quantity <= 0 and choice in pool:
+                    pool.remove(choice)
+        if not fed:
+            self._notify(f"Nothing in your bags that anyone can {verb} yet.", red)
+            return 0
+        what = ", ".join(f"{n} x{q}" if q > 1 else n for n, q in used.items())
+        short = len(needy) - fed
+        who = "You sit down" if len(self._rest_party()) == 1 else f"{fed} of you sit down"
+        self._notify(f"{who} to {verb}: {what}." + (f" Not enough for {short} more." if short else ""), green)
+        return fed
+
     def _render_travel_hud(self, screen):
         """Small ride/hearth strip under the viewport (click or press R / H)."""
         from world.travel_manager import get_travel_manager
@@ -394,6 +471,18 @@ class OverworldScreen(BaseScreen):
             hlabel, hcolor = f"Hearth (H): {travel.hearth_steps_left} steps", (50, 50, 56)
         self.hearth_button_rect = pygame.Rect(265, 630, 235, 28)
         self.renderer.draw_button(screen, self.hearth_button_rect, hlabel, color=hcolor)
+
+        # Eat / Drink: how many are in the bags, lit when someone needs it.
+        party = self._rest_party()
+        for kind, label, key, x, attr in (("meal", "Eat", "F", 510, "eat_button_rect"),
+                                          ("drink", "Drink", "Q", 668, "drink_button_rect")):
+            count = sum(c.quantity for c in self._rest_stock(kind))
+            wanted = any(self._rest_needs(m, kind) for m in party)
+            busy = any(k == kind for m in party for k, _n, _l in m.consumable_regen_active())
+            color = (50, 50, 56) if not count else (60, 120, 70) if busy else (30, 90, 110) if wanted else (40, 60, 70)
+            rect = pygame.Rect(x, 630, 150, 28)
+            setattr(self, attr, rect)
+            self.renderer.draw_button(screen, rect, f"{label} ({key}): {count}", color=color)
 
     def _handle_tab_click(self, mouse_pos):
         """Dispatch a click against the right-edge tab column built in
