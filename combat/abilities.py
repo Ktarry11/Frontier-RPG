@@ -1139,11 +1139,16 @@ class Ability:
             # (the basic Attack, and anything else that just swings). "Base damage: 0" is a
             # lie about that, so it says nothing and _shape_line says "with your weapon".
             if self.effect_value:
-                lines.append(f"Base damage: {self.effect_value}")
+                # A spell is rolled around its listed value, so it shows the range it rolls in
+                # ("91 to 109"), the way the real tooltip does. Weapon strikes show the flat
+                # amount: their spread is the weapon's.
+                shown = (self._range_text(self.effect_value)
+                         if self.effect_type in self.ROLLED_EFFECT_TYPES else self.effect_value)
+                lines.append(f"Base damage: {shown}")
         elif self.effect_type in ("dot", "spell_dot"):
             lines.append(f"Base damage: {self.effect_value} over {self.duration} turns")
         elif self.effect_type == "heal":
-            lines.append(f"Base healing: {self.effect_value}")
+            lines.append(f"Base healing: {self._range_text(self.effect_value)}")
         elif self.effect_type == "hot":
             lines.append(f"Base healing: {self.effect_value} over {self.duration} turns")
         elif self.effect_type == "damage_and_heal":
@@ -1720,6 +1725,26 @@ class Ability:
     #: gets its spread from the weapon roll, and rolling again on top would
     #: compound two ranges into one much wider than either.
     SPELL_VARIANCE = 0.09
+
+    #: The ability types whose amount is rolled by _roll_variance. Physical "damage" rolls on
+    #: the weapon's own min-max instead, and a DoT/HoT ticks for a fixed amount.
+    ROLLED_EFFECT_TYPES = ("spell_damage", "heal")
+
+    def roll_range(self, amount):
+        """(low, high) that _roll_variance can return for `amount` - for the tooltip.
+
+        Kyle, 10 Nov: "range for spells (+/- 9% of base) can we show this?" From the same
+        spread the roll uses, an ability's own `variance` included, so the two cannot disagree.
+        """
+        spread = (self.variance if isinstance(self.variance, (int, float))
+                  else self.SPELL_VARIANCE)
+        if amount <= 0 or not spread:
+            return int(amount), int(amount)
+        return max(1, int(amount * (1.0 - spread))), max(1, int(amount * (1.0 + spread)))
+
+    def _range_text(self, amount):
+        low, high = self.roll_range(amount)
+        return f"{low} to {high}" if low != high else f"{low}"
 
     def _roll_variance(self, amount, caster):
         """Spread a spell or heal around its listed value.
