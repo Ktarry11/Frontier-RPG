@@ -596,6 +596,9 @@ class ZoneManager:
             # pockets get ONLY their boss chamber(s) placed here and rely
             # on the random per-tile roll (trigger_encounter_group) for
             # trash instead - see has_fixed_spawns()/OverworldScreen.
+            # Opened chests here get their chance to have come back (world/chest_manager.py).
+            self.chest_manager.on_enter_zone(new_zone, is_dungeon=self.is_in_cave())
+
             if self.is_in_cave():
                 self.cave_spawns.populate(
                     new_zone,

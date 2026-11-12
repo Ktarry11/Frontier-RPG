@@ -63,8 +63,18 @@ class ChestManager:
     #: generate_boss_loot()'s own no-drop-chance-roll guarantee).
     REGULAR_CHEST_DROP_CHANCE = 0.55
 
+    #: CHESTS COME BACK. Kyle, 10 Nov: "chests respawn - very low chance overworld, much higher
+    #: in dungeons." Each looted chest gets one roll when you ENTER its zone:
+    RESPAWN_CHANCE_OVERWORLD = 0.05
+    RESPAWN_CHANCE_DUNGEON = 0.40
+    #: ...and not again for this long (real seconds), whatever the roll said. Without it,
+    #: stepping in and out of a dungeon door would re-roll every chest inside on each pass and
+    #: 40% would turn into "always" for the price of a short walk.
+    RESPAWN_RETRY_SECONDS = 600
+
     def __init__(self):
         self._looted = set()   # {(zone_name, x, y), ...}
+        self._next_roll = {}   # {(zone_name, x, y): earliest time.time() it may roll again}
         self._loot_generator = None   # lazy - see _get_loot_generator
         self._creatures_data = None   # lazy - see _dungeon_level_for_zone
 
@@ -196,6 +206,7 @@ class ChestManager:
         if (tilemap.name, x, y) in self._looted:
             return None
         self._looted.add((tilemap.name, x, y))
+        self._next_roll[(tilemap.name, x, y)] = self._now() + self.RESPAWN_RETRY_SECONDS
         tilemap.set_tile(x, y, None, "interaction")
 
         effective_level = self.chest_level(tilemap.name, player_level)
@@ -228,11 +239,60 @@ class ChestManager:
     # nodes once they stop re-rolling, etc).
     # ------------------------------------------------------------------
 
+    @staticmethod
+    def _now():
+        import time
+        return time.time()
+
+    def on_enter_zone(self, tilemap, is_dungeon=False):
+        """Called when the player arrives in `tilemap`. Rolls each looted chest there for a
+        respawn and puts the ones that pass back on the map. Returns how many came back.
+
+        A chest that fails its roll, or was just looted, is not rolled again until
+        RESPAWN_RETRY_SECONDS have passed.
+        """
+        if tilemap is None:
+            return 0
+        chance = self.RESPAWN_CHANCE_DUNGEON if is_dungeon else self.RESPAWN_CHANCE_OVERWORLD
+        now = self._now()
+        back = 0
+        for key in [k for k in self._looted if k[0] == tilemap.name]:
+            if now < self._next_roll.get(key, 0):
+                continue
+            if random.random() < chance:
+                _zone, x, y = key
+                self._looted.discard(key)
+                self._next_roll.pop(key, None)
+                tilemap.set_tile(x, y, "chest", "interaction")
+                back += 1
+            else:
+                self._next_roll[key] = now + self.RESPAWN_RETRY_SECONDS
+        return back
+
+    def apply_to_world(self, zones):
+        """Take every looted chest off its map. `zones` is {zone_name: tilemap}.
+
+        The world is rebuilt from scratch on startup with every chest in place, and looted
+        chests were never written to the save - so loading a game put all of them back.
+        """
+        for zone_name, x, y in self._looted:
+            tilemap = zones.get(zone_name)
+            if tilemap is not None and tilemap.get_tile(x, y, "interaction") == "chest":
+                tilemap.set_tile(x, y, None, "interaction")
+
     def to_dict(self):
-        return {"looted": [list(t) for t in self._looted]}
+        now = self._now()
+        return {"looted": [list(t) for t in sorted(self._looted)],
+                # Stored as seconds REMAINING, not a clock time, so the wait is play time across
+                # a save and load rather than something that expires while the game is closed.
+                "wait": [[z, x, y, int(max(0, t - now))] for (z, x, y), t in sorted(self._next_roll.items())
+                         if (z, x, y) in self._looted and t > now]}
 
     def load_dict(self, data):
+        data = data or {}
         self._looted = set(tuple(t) for t in data.get("looted", []))
+        now = self._now()
+        self._next_roll = {(z, x, y): now + left for z, x, y, left in data.get("wait", [])}
 
 
 _chest_manager = None

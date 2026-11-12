@@ -84,11 +84,17 @@ class SaveSystem:
         zone = getattr(zone_manager, "current_zone", None)
         if zone is None:
             return None
-        return {
+        state = {
             "zone": zone.name,
             "x": zone_manager.player_x,
             "y": zone_manager.player_y,
         }
+        # Which chests have been opened. Not the tilemap - just the handful of tiles that are no
+        # longer what the generator would put there.
+        chests = getattr(zone_manager, "chest_manager", None)
+        if chests is not None:
+            state["chests"] = chests.to_dict()
+        return state
 
     # ------------------------------------------------------------------
     # Reading

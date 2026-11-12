@@ -394,6 +394,18 @@ class GameStateManager:
 
         world = data.get("world")
         zone_manager = self._live_zone_manager()
+        if zone_manager:
+            # Opened chests, BEFORE arriving anywhere: an old save has none recorded, and a
+            # different character's opened chests must not carry over from the last load.
+            chests = zone_manager.chest_manager
+            for _name, _entry in zone_manager.zones.items():
+                _map = _entry["tilemap"] if isinstance(_entry, dict) else _entry
+                for (_z, _x, _y) in [k for k in chests._looted if k[0] == _name]:
+                    if _map.get_tile(_x, _y, "interaction") is None:
+                        _map.set_tile(_x, _y, "chest", "interaction")    # put back what the last game took
+            chests.load_dict((world or {}).get("chests"))
+            chests.apply_to_world({n: (e["tilemap"] if isinstance(e, dict) else e)
+                                   for n, e in zone_manager.zones.items()})
         if world and zone_manager:
             if not zone_manager.transition_to_zone(
                     world.get("zone"), world.get("x"), world.get("y")):
