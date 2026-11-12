@@ -118,7 +118,22 @@ class Item:
         self.icon_id = icon_id
 
         self.required_level = required_level
-        self.sell_price = sell_price
+        # ONE PRICE CURVE for all gear (entities/pricing.py). Whatever built this item used to
+        # hand in its own guess - the generator item_level x 1, boss loot x 1.7, quest rewards
+        # nothing at all - which is how a level 58 blue came to sell for 1s 2c.
+        #   None      "price me" - quest rewards and anything else with no opinion
+        #   0 or 1    deliberately worthless (starting gear, a recruit's own kit) - left alone,
+        #             so nobody funds a mount by stripping new recruits
+        #   more      at least the curve; a higher figure is kept, which is how an upgraded or
+        #             socketed item keeps its premium through a save and load
+        # Bags are hand-priced in data/items/bags.json and recipe scrolls by skill; neither is
+        # gear in this sense.
+        if slot != "recipe" and not recipe_id and armor_type != "bag" and not bag_capacity:
+            if sell_price is None or sell_price > 1:
+                from entities.pricing import gear_sell_price
+                sell_price = max(int(sell_price or 0),
+                                 gear_sell_price(item_level, rarity, slot, weapon_type))
+        self.sell_price = int(sell_price or 0)
         self.flavor_text = flavor_text
 
         # Scaffolding for later phases (Section 9/10 of design doc) - unused in Phase 5

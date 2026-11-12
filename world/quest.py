@@ -511,7 +511,7 @@ def build_unique_reward_set(item_defs):
             secondary_stats=item_def.get("secondary_stats"),
             armor_value=item_def.get("armor_value", 0),
             required_level=item_def.get("required_level", 1),
-            sell_price=item_def.get("sell_price", 0),
+            sell_price=item_def.get("sell_price"),      # None = priced by entities/pricing.py
             flavor_text=item_def.get("flavor_text") or (
                 get_weapon_flavor_text(item_def["weapon_type"]) if item_def.get("weapon_type") else ""
             ) or "",
