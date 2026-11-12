@@ -265,6 +265,9 @@ class MapScreen(BaseScreen):
         # Points of interest from the interaction layer
         poi_colors = {
             "portal": (170, 90, 230),
+            # A boat crossing is a way out of the zone like any portal, and was missing from
+            # the map entirely - only tiles typed "portal" were marked.
+            "boat": (170, 90, 230),
             "npc": (230, 200, 90),
             "chest": (230, 150, 60),
             "quest_marker": (110, 210, 230),

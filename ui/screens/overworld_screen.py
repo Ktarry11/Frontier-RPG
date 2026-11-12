@@ -877,18 +877,14 @@ class OverworldScreen(BaseScreen):
                 info_y += 26
                 break
 
-        # Compact two-column legend, sitting just under the resource bars.
-        info_y += 14
-        self.tilemap_renderer.render_legend(screen, self.renderer.font_normal, x=info_x, y=info_y)
+        # NO TILE-COLOUR LEGEND HERE ANY MORE. Grass/Water/Stone/NPC/Portal/Boss swatches were a
+        # key to the placeholder colours from before the world had art. Kyle, 10 Nov: "I think
+        # its time to remove THESE blocks from the UI screen." The map screen keeps its own
+        # legend, which is where one belongs.
         
-        # Instructions - shrunk to just the keys with no tab-column
-        # equivalent (movement/interact/encounters). Everything else now
-        # has its own labeled tab in the right-edge column, so repeating
-        # the full keybind list here was redundant and was also the thing
-        # running off the window edge.
-        self.renderer.draw_text(
-            screen, "WSAD: Move | Space: Interact | E: Encounters | R: Ride | H: Hearth",
-            (20, SCREEN_HEIGHT - 30), size="small")
+        # NO CONTROLS LINE EITHER. "WSAD: Move | Space: Interact | ... R: Ride | H: Hearth" sat
+        # directly under the Mount (R) and Hearth (H) buttons, which already say their keys.
+        # Kyle, 10 Nov: "we don't need BOTH of these here. people know how to move...."
 
         if self.recruit_message:
             self.renderer.draw_text(screen, self.recruit_message,

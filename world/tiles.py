@@ -255,7 +255,11 @@ TILES = {
     "boat": {
         "id": "boat",
         "layer": "interaction",
-        "color": (220, 20, 60),  # Crimson
+        # THE SAME PURPLE AS A PORTAL. It was crimson, which read as a boss marker and then as
+        # "a red boat square". Kyle, 10 Nov: "just make every portal (even a boat) as a purple
+        # warp portal! drop the red boat portals." A boat is still its own interaction type -
+        # only what the player sees is unified.
+        "color": (138, 43, 226),
         "walkable": True,
         "resource_node": None,
         "interaction_type": "boat",
