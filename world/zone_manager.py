@@ -48,7 +48,12 @@ class ZoneManager:
         """Create all zones with tilemaps."""
         all_zones = create_all_zones()
         
+        # No prop over a door, on any map, whichever generator built it - see
+        # world/portal_art.clear_exits. The total is kept so the QA can report it.
+        from world.portal_art import clear_exits
+        self.exit_props_cleared = 0
         for zone_name, tilemap in all_zones.items():
+            self.exit_props_cleared += clear_exits(tilemap)
             self.zones[zone_name] = {
                 "tilemap": tilemap,
             }

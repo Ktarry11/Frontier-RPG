@@ -248,7 +248,11 @@ def dress(L):
     # ---- the boat to Ratchet, at the head of the middle pier -------------------------------------
     z.collision_layer[BOAT[1]][BOAT[0]] = None
     z.set_tile(BOAT[0], BOAT[1], "boat", "interaction")
-    L.deco("boat_orc", 67, 37, 8)
+    # OFF THE DOCK AND INTO THE WATER. The boat was drawn across the head of the pier, on
+    # top of the boarding tile it is supposed to mark. Kyle, 10 Nov: "boat portal from BB to
+    # ratchet is blocked by a boat, move that prop off the dock and into the water." It now
+    # rides just south of the pier, where the boarding tile reads as the way onto it.
+    L.deco("boat_orc", 65, 46, 8)
     L.deco("boat_troll", 61, 29, 7)
 
     # ---- the headland: the gate, the bone arch, the only soil in the zone ------------------------

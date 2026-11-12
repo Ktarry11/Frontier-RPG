@@ -720,6 +720,25 @@ class TilemapRenderer:
             if sprite is not None:
                 screen.blit(sprite, (lm_screen_x, lm_screen_y))
         
+        # WAY-OUT MARKERS, ON TOP OF THE ART. A portal or boat tile is drawn as a purple square in
+        # the per-tile pass above - and then the landmark pass just above this draws the
+        # gatehouse, the cave mouth, the tree or the moored boat straight over it. 70 of the
+        # game's 246 exits were under a sprite, so the player was left to guess which tile of
+        # an archway was the door. Kyle, 12 Nov: "Undecity portal is hidden and cant be seen",
+        # "Portals in brill are hidden". The marker is drawn again here, after the art, as a
+        # warp glow sized to the tile - so entrance art FRAMES the door instead of hiding it,
+        # and no prop can ever cover one again whatever is placed there later.
+        self.portal_markers_drawn = 0
+        glow = self._portal_glow()
+        for y in range(tile_top, tile_bottom):
+            row = tilemap.interaction_layer[y]
+            for x in range(tile_left, tile_right):
+                if row[x] not in ("portal", "boat"):
+                    continue
+                gx, gy = camera.world_to_screen(x, y, self.tile_size)
+                screen.blit(glow, (gx + viewport_rect.x, gy + viewport_rect.y))
+                self.portal_markers_drawn += 1
+
         # Draw chests (unlooted chest tiles keep "chest" on the interaction layer; looting clears it)
         for y in range(tile_top, tile_bottom):
             for x in range(tile_left, tile_right):
@@ -1015,6 +1034,21 @@ class TilemapRenderer:
         # Draw viewport border
         pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
     
+    def _portal_glow(self):
+        """The warp marker for one tile, built once: a soft purple disc with a bright rim and
+        a pale core. Translucent, so the ground or the entrance art under it still reads."""
+        cached = getattr(self, "_portal_glow_surface", None)
+        if cached is not None and cached.get_width() == self.tile_size:
+            return cached
+        ts = self.tile_size
+        surf = pygame.Surface((ts, ts), pygame.SRCALPHA)
+        c = ts // 2
+        pygame.draw.circle(surf, (138, 43, 226, 120), (c, c), max(2, ts // 2 - 1))
+        pygame.draw.circle(surf, (214, 170, 255, 235), (c, c), max(2, ts // 2 - 1), max(2, ts // 12))
+        pygame.draw.circle(surf, (240, 225, 255, 200), (c, c), max(1, ts // 6))
+        self._portal_glow_surface = surf
+        return surf
+
     def render_legend(self, screen, font, x=20, y=20, max_width=200):
         """Render a compact tile-color legend, wrapped into two columns so
         it reads as a small reference block instead of an 8-row list eating

@@ -256,7 +256,9 @@ def dress(L):
     # ---- Cinderwharf's gate, north-east ---------------------------------------------------------------
     b("orc_great_gatehouse", 190, 96, 12, solid=False, road_ok=True, nudge=0)
     b("orc_watch_tower", 184, 88, 11, nudge=2)
-    b("orc_watch_tower", 184, 104, 11, nudge=2)
+    # base_y 110, not 104: the tower is 11 tall, so from 104 it reached up over the gate's
+    # own portal tile at (186,96). The pair still flank the gatehouse.
+    b("orc_watch_tower", 184, 110, 11, nudge=2)
     p("ek_signpost", 172, 96, 4)
 
     # ---- the scoured coast, north-west ----------------------------------------------------------------

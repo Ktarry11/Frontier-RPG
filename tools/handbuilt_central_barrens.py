@@ -413,6 +413,15 @@ class Layout:
                 if solid is True or (solid == "core" and y >= ay + height - rows
                                      and ax + int(wt * 0.2) <= x < max(ax + int(wt * 0.8), ax + int(wt * 0.2) + 1)):
                     core.append((x, y))
+        # NOT OVER A DOOR. The checks below only look at the sprite's solid CORE - its trunk,
+        # its base - so a tall tree could stand three tiles from an exit and still hang its
+        # canopy across it: the door was walkable and invisible. The whole drawn rectangle is
+        # tested against every exit tile, and only entrance art may cover one.
+        from world.portal_art import is_entrance_art
+        if not is_entrance_art(path):
+            for (px, py) in self.portal_tiles:
+                if ax <= px < ax + wt and ay <= py < ay + height:
+                    return "covers portal", core, ax, ay
         probe = core or [(cx, base_y)]
         for (x, y) in probe:
             if not (0 <= x < self.W and 0 <= y < self.H):

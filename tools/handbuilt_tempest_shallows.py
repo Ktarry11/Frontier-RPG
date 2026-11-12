@@ -247,7 +247,8 @@ def dress(L):
     # deco(), not prop(): prop() checks the ground under a sprite and refuses when it is not
     # placeable, which is right for a building and wrong for a hull - the whole point of a moored
     # boat is that it is standing on water.
-    L.deco("boat_orc", 68, 66, 7, path_dir=CO)
+    # In the water south of the pier, not on its planks (it sat across the pier at y=66).
+    L.deco("boat_orc", 68, 74, 7, path_dir=CO)
     # The portal tile (12,104) and the column beside it stay clear of solid props, or the player
     # arrives inside one. Durnholde shipped that wrong once.
     for (x, y) in ((82, 62), (82, 70)):
@@ -263,7 +264,9 @@ def dress(L):
     p(RU + "ruin_archway.png", 102, 76, 10, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in ((94, 78), (112, 78), (96, 86), (112, 86)):
         p(RU + "ruin_wall_arch.png", x, y, 7)
-    p(RU + "ruin_tower_skulls.png", 98, 84, 9)
+    # x=90, not 98: this sprite is 11 tiles wide, and at 98 its left half was drawn straight
+    # across the dungeon door at (102,76). It flanks the arch now.
+    p(RU + "ruin_tower_skulls.png", 90, 84, 9)
     p(RU + "ruin_tower_skulls.png", 112, 84, 8)
     p("ek_signpost", 96, 68, 4)
     p("ek_dead_oak", 88, 80, 6)

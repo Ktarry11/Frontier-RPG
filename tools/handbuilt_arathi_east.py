@@ -392,7 +392,10 @@ def dress(L):
     p(CO + "fish_drying_rack.png", 48, 104, 4)
     p(CO + "fish_crates_traps.png", 40, 106, 4)
     p(CO + "dock_lantern_post.png", 84, 100, 5)
-    p(CO + "boat_orc.png", 92, 102, 5, solid=False)
+    # MOORED BESIDE the jetty, not parked on top of it: the jetty is the strip of ground at
+    # y=99-100 and the boat's keel was on it. Four tiles south puts it in the water alongside.
+    # deco, not prop: prop() refuses deep water and silently drops the sprite.
+    L.deco("boat_orc", 92, 106, 5, path_dir=CO)
 
     # ---- THE DROWNED BARROW: a hill barrow with the sea coming into its mouth -----------------------
     p(ENT + "ent_burial_barrow.png", 34, 36, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)

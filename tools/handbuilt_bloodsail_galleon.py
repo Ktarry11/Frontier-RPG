@@ -527,7 +527,9 @@ def dress_cabin(zone, L):
     P("bs_armchair", 24, 38, 4, **S)
     P("bs_captains_bunk", 36, 42, 4, **S)
     P("bs_treasure_open", 18, 40, 3, **S)
-    P("bs_sword_plaque", 30, 14, 3, near_ok=True, **S)
+    # On the wall ABOVE the door, not across it: at base_y 14 its rect ran down over the
+    # cabin's own exit tile at (30,12).
+    P("bs_sword_plaque", 30, 11, 3, near_ok=True, **S)
     P("bs_candelabra", 26, 20, 4, **S)
     P("bs_hanging_lantern", 38, 20, 3, **S)
     P("bs_bloodsail_flag", 14, 34, 6, **S)

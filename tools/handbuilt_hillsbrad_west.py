@@ -333,7 +333,12 @@ def dress(L):
     p(CO + "mooring_posts.png", 92, 136, 3, shore_ok=True)
     p(CO + "fish_crates_traps.png", 96, 135, 3)
     p(CO + "dock_lantern_post.png", 89, 135, 4)
-    p(CO + "boat_human.png", 98, 138, 5, shore_ok=True)
+    # IN THE WATER. It was at y=138, four tiles up the beach from the first wet tile, a
+    # full-rigged ship standing on the sand beside the dock. Kyle, 10 Nov: "can we stop
+    # putting boats on dry land (this is in 'south shore')."
+    # deco, not prop: prop() refuses deep water and DROPS the sprite without a word (it is
+    # only appended to L.skipped), which is why a ship could only ever be placed on the beach.
+    L.deco("boat_human", 98, 147, 5, path_dir=CO)
     p("ek_farm_fence", 76, 118, 3, solid=True)
     p("ek_farm_fence", 108, 126, 3, solid=True)
     p("ek_signpost", 94, 114, 4)
