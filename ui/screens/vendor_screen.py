@@ -65,6 +65,8 @@ class VendorScreen(BaseScreen):
 
         self.selected_vendor_item = None
         self.selected_player_item = None
+        #: How many of the selected vendor item one press of Buy takes. Always 1 for gear.
+        self.buy_qty = 1
         self.scroll_vendor = 0
         self.scroll_player = 0
         self.sell_filter = "all"
@@ -200,21 +202,71 @@ class VendorScreen(BaseScreen):
 
     # ------------------------------------------------------------------ actions
 
+    #: The most one purchase can take. A full stack of anything in the game is 20 or 200;
+    #: this is a ceiling on a typo, not a design limit.
+    MAX_BUY_QTY = 200
+
+    def _stackable(self, item):
+        """Reagents, food, drink - anything that is not a single piece of gear."""
+        return item is not None and not self._is_gear(item)
+
+    def _unit_price(self, item):
+        price = getattr(item, "vendor_price", None)
+        if price is None:
+            price = max(1, int(item.sell_price * 4))
+        return price
+
+    def _set_buy_qty(self, qty):
+        item = self.selected_vendor_item
+        if not self._stackable(item):
+            self.buy_qty = 1
+            return
+        self.buy_qty = max(1, min(self.MAX_BUY_QTY, int(qty)))
+
+    def _qty_rects(self):
+        """The quantity controls, left of the Buy button: [-] [N] [+] [+5] [+20]."""
+        buy = self._get_buy_button_rect()
+        x, y, h = self.VENDOR_PANEL_X, buy.y, buy.height
+        out, widths = {}, (("minus", 36), ("count", 56), ("plus", 36), ("plus5", 50), ("plus20", 56))
+        for key, w in widths:
+            out[key] = pygame.Rect(x, y, w, h)
+            x += w + 6
+        out["total_x"] = x + 4
+        return out
+
     def _buy_item(self):
+        """Buy buy_qty of the selected item, all or nothing.
+
+        Kyle, 12 Nov: "When buying stuff from shop (like crafting reagents/food/drink) -
+        should be able to buy more than one at a time." It was one per click, and the
+        selection was cleared after each, so twenty of anything was forty clicks.
+
+        The whole purchase is priced and paid for first, then delivered; if the gold is not
+        there nothing is bought, and the message says how many WOULD fit the purse. The
+        selection and the quantity are kept afterwards so the same order can be repeated.
+        """
         item = self.selected_vendor_item
         if item is None:
             self._show_message("Select something to buy first.", COLOR_RED)
             return
 
-        price = getattr(item, "vendor_price", None)
-        if price is None:
-            price = max(1, int(item.sell_price * 4))
+        qty = self.buy_qty if self._stackable(item) else 1
+        unit = self._unit_price(item)
+        price = unit * qty
 
         player = self.state_manager.player
         party = self.state_manager.get_party()
         if not party.remove_currency(price):
-            self._show_message(f"Not enough copper! Need {format_coins(price)}.", COLOR_RED)
+            can = party.copper // unit if unit else 0
+            if qty > 1 and can >= 1:
+                self._show_message(
+                    f"Not enough copper for {qty} - need {format_coins(price)}. "
+                    f"You can afford {can}.", COLOR_RED)
+            else:
+                self._show_message(f"Not enough copper! Need {format_coins(price)}.", COLOR_RED)
             return
+
+        label = f"{qty} x {item.name}" if qty > 1 else item.name
 
         if self._is_gear(item):
             if not player.add_to_inventory(item):
@@ -223,27 +275,29 @@ class VendorScreen(BaseScreen):
                 self.selected_vendor_item = None
                 return
             self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
+            self.selected_vendor_item = None
+            return
 
-        elif self._is_material(item):
-            # Create a fresh instance from the gathering manager so we don't
-            # mutate the vendor's display copy.
+        if self._is_material(item):
+            # A fresh instance each, from the gathering manager, so the vendor's display copy
+            # is never mutated - and one at a time through add_material, which is what knows
+            # how to fill a stack and start the next.
             from world.gathering_manager import GatheringNodeManager
-            mat = GatheringNodeManager().make_material_instance(item.material_id)
-            if mat is None:
+            maker = GatheringNodeManager()
+            if maker.make_material_instance(item.material_id) is None:
                 party.add_currency(price)
                 self._show_message("Couldn't resolve that item — refunded.", COLOR_RED)
                 self.selected_vendor_item = None
                 return
-            player.add_material(mat)
-            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
-
+            for _ in range(qty):
+                player.add_material(maker.make_material_instance(item.material_id))
         else:
-            # Consumable — stack onto existing entry with the same id
-            new_c = self.consumable_manager.get_consumable(item.consumable_id, quantity=1)
-            player.add_consumable(new_c)
-            self._show_message(f"Bought {item.name} for {format_coins(price)}.", COLOR_GOLD)
+            # Consumable - stacks onto an existing entry with the same id.
+            for _ in range(qty):
+                player.add_consumable(
+                    self.consumable_manager.get_consumable(item.consumable_id, quantity=1))
 
-        self.selected_vendor_item = None
+        self._show_message(f"Bought {label} for {format_coins(price)}.", COLOR_GOLD)
 
     def _sell_item(self):
         item = self.selected_player_item
@@ -340,6 +394,13 @@ class VendorScreen(BaseScreen):
             if event.key == pygame.K_s:
                 self._sell_item()
                 return
+            # Quantity from the keyboard: + and - (main row or numpad).
+            if event.key in (pygame.K_PLUS, pygame.K_EQUALS, pygame.K_KP_PLUS):
+                self._set_buy_qty(self.buy_qty + 1)
+                return
+            if event.key in (pygame.K_MINUS, pygame.K_KP_MINUS):
+                self._set_buy_qty(self.buy_qty - 1)
+                return
             # Keyboard scrolling for the sell list, which is the one that grows.
             if event.key in (pygame.K_PAGEUP, pygame.K_PAGEDOWN):
                 step = self.VISIBLE_ROWS if event.key == pygame.K_PAGEDOWN else -self.VISIBLE_ROWS
@@ -379,6 +440,8 @@ class VendorScreen(BaseScreen):
             # Vendor item list
             for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
                 if self._row_rect(self.VENDOR_PANEL_X, i).collidepoint(pos):
+                    if item is not self.selected_vendor_item:
+                        self.buy_qty = 1          # a new item starts at one
                     self.selected_vendor_item = item
                     self.selected_player_item = None
                     return
@@ -399,6 +462,18 @@ class VendorScreen(BaseScreen):
                 else:
                     self._show_message("Auto-sell junk off.", COLOR_WHITE)
                 return
+
+            if self._stackable(self.selected_vendor_item):
+                q = self._qty_rects()
+                for key, delta in (("minus", -1), ("plus", 1), ("plus5", 5), ("plus20", 20)):
+                    if q[key].collidepoint(pos):
+                        # +5 and +20 from a fresh 1 give 5 and 20, not 6 and 21: the first
+                        # press of a "stack" button means "that many".
+                        if delta > 1 and self.buy_qty == 1:
+                            self._set_buy_qty(delta)
+                        else:
+                            self._set_buy_qty(self.buy_qty + delta)
+                        return
 
             if self._get_junk_button_rect().collidepoint(pos):
                 self._sell_all_junk()
@@ -458,8 +533,31 @@ class VendorScreen(BaseScreen):
 
         pygame.draw.rect(screen, (40, 70, 40) if buy_enabled else (30, 30, 30), buy_rect)
         pygame.draw.rect(screen, COLOR_GREEN if buy_enabled else COLOR_DARK_GRAY, buy_rect, 2)
-        self.renderer.draw_text(screen, "Buy", (buy_rect.x + 20, buy_rect.y + 10),
+        stackable = self._stackable(self.selected_vendor_item)
+        buy_label = f"Buy x{self.buy_qty}" if (stackable and self.buy_qty > 1) else "Buy"
+        self.renderer.draw_text(screen, buy_label, (buy_rect.x + 20, buy_rect.y + 10),
                                 color=COLOR_GREEN if buy_enabled else COLOR_DARK_GRAY)
+
+        # Quantity controls - only for something that stacks. Gear is always one.
+        if stackable:
+            q = self._qty_rects()
+            for key, text in (("minus", "-"), ("plus", "+"), ("plus5", "+5"), ("plus20", "+20")):
+                r = q[key]
+                pygame.draw.rect(screen, (40, 50, 60), r)
+                pygame.draw.rect(screen, (120, 140, 160), r, 2)
+                tw = self.renderer.font_normal.size(text)[0]
+                self.renderer.draw_text(screen, text, (r.centerx - tw // 2, r.y + 12),
+                                        color=(210, 220, 230))
+            r = q["count"]
+            pygame.draw.rect(screen, (20, 20, 26), r)
+            pygame.draw.rect(screen, COLOR_GOLD, r, 1)
+            count = str(self.buy_qty)
+            tw = self.renderer.font_normal.size(count)[0]
+            self.renderer.draw_text(screen, count, (r.centerx - tw // 2, r.y + 12), color=COLOR_GOLD)
+            total = self._unit_price(self.selected_vendor_item) * self.buy_qty
+            afford = self.state_manager.get_party().copper >= total
+            self.renderer.draw_text(screen, format_coins(total), (q["total_x"], r.y + 12),
+                                    size="small", color=COLOR_GOLD if afford else COLOR_RED)
 
         pygame.draw.rect(screen, (70, 40, 40) if sell_enabled else (30, 30, 30), sell_rect)
         pygame.draw.rect(screen, COLOR_RED if sell_enabled else COLOR_DARK_GRAY, sell_rect, 2)
