@@ -1569,7 +1569,12 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "immune_creature_types": [
+        "undead",
+        "mechanical",
+        "elemental"
+      ]
     },
     {
       "ability_id": "starcaller_cosmic_shift",

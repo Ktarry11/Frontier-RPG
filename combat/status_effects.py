@@ -949,6 +949,15 @@ class StatusEffectMixin:
             if self.get_status_stat_mod("cc_immune") > 0:
                 return f"{self.name} is immune to {effect.name}!"
 
+            # WRONG KIND OF CREATURE for this crowd control (Banish on a naga, Polymorph on an
+            # elemental, Fear on something mechanical). A single-target cast is refused before
+            # it is paid for, in Ability.use; this is the same rule for everything that gets
+            # here some other way - an area effect, a proc.
+            from world.creature_types import blocked_reason
+            reason = blocked_reason(effect.effect_id, effect.name, self)
+            if reason:
+                return reason
+
             # stun_duration_reduction_pct (Primalist's Unmovable Object,
             # Venomancer's Stubborn Exoskeleton: "reduces the duration of
             # stun effects against you by 5%/rank") - a real, talent-tree-

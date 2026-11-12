@@ -2369,7 +2369,11 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "humanoid",
+        "beast"
+      ]
     },
     {
       "ability_id": "cultist_summon_faceless_servant",

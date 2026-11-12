@@ -505,7 +505,11 @@
       "_source": "CoA: Death's weakness list names \"Ghoulify's fear\" among the tools that need you free to act. Fear is a loss of control, so is_stun.",
       "target_type": "enemy",
       "is_stun": true,
-      "is_instant": true
+      "is_instant": true,
+      "creature_types": [
+        "humanoid",
+        "beast"
+      ]
     },
     {
       "ability_id": "necromancer_mass_grave",

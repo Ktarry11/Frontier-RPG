@@ -470,7 +470,12 @@
       "icon_id": null,
       "_source": "CoA class kit: 'putting them to sleep for 40 seconds (8 sec vs players). Direct damage dealt may interrupt this effect.' Flameweaving: 'Gaze of Ysera sleeps an extra mob'. The damage-breaks clause has no hook.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "immune_creature_types": [
+        "undead",
+        "mechanical",
+        "elemental"
+      ]
     },
     {
       "ability_id": "pyromancer_dragon_leap",

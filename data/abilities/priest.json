@@ -680,7 +680,11 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "immune_creature_types": [
+        "undead",
+        "mechanical"
+      ]
     },
     {
       "ability_id": "priest_dispel_magic",

@@ -1294,7 +1294,11 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "humanoid",
+        "beast"
+      ]
     },
     {
       "ability_id": "shaman_earthbind_totem",

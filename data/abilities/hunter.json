@@ -444,7 +444,12 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "immune_creature_types": [
+        "undead",
+        "mechanical",
+        "elemental"
+      ]
     },
     {
       "ability_id": "hunter_tame_beast",
@@ -711,7 +716,10 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "beast"
+      ]
     },
     {
       "ability_id": "hunter_aspect_of_the_wild",

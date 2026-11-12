@@ -760,7 +760,12 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "humanoid",
+        "beast",
+        "critter"
+      ]
     },
     {
       "ability_id": "mage_ice_lance",

@@ -1885,7 +1885,11 @@
       "_source": "CoA: Domination's 'hard CC stops at Mark of Terror's fear and Soulstone Lure's horrify'. A fear is is_stun here; capped at 3 targets so it is a peel and not a full-pull lockdown.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "is_stun": true
+      "is_stun": true,
+      "immune_creature_types": [
+        "undead",
+        "mechanical"
+      ]
     }
   ]
 }

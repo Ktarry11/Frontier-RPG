@@ -1183,6 +1183,12 @@ class Ability:
         if shape and not self._shape_is_obvious():
             lines.append(shape)
 
+        # Who it works on, for crowd control that cares what the target IS.
+        from world.creature_types import rule_text
+        works_on = rule_text(self.ability_id)
+        if works_on:
+            lines.append(works_on)
+
         # EVERY description is kept. A first version of this dropped any description with no
         # digit and no rule-word in it, and measuring that showed it throwing away 683 of 881 -
         # including "Hurls a bolt of lightning at the target" and "A wave of restorative energy
@@ -2074,6 +2080,17 @@ class Ability:
         # clock just because this specific cast didn't start it).
         if not free and not self.is_available():
             return False, f"{self.name} is on cooldown ({self.turns_remaining} turns remaining)"
+
+        # WRONG KIND OF CREATURE. Kyle, 10 Nov: "why can i BANISH a naga?" Refused here, before
+        # the cost and the cooldown, so pointing Banish at a naga costs nothing and says why.
+        # (An area effect is not refused as a whole; each target it cannot affect shrugs it off
+        # in apply_status_effect.)
+        if (target is not None and target is not caster
+                and not isinstance(target, (list, tuple)) and (self.max_targets or 1) <= 1):
+            from world.creature_types import blocked_reason
+            reason = blocked_reason(self.ability_id, self.name, target)
+            if reason:
+                return False, reason
 
         # Execute-style HP gate (Warrior Execute's real 20%, Stormbringer
         # Electrocute's real 35%, ...). Checked BEFORE resource consumption
@@ -4256,6 +4273,11 @@ def _normalize_requires_form(raw):
 
 def _ability_from_data(entry):
     """Build an Ability instance from one JSON entry."""
+    # Which creature types this crowd control works on - see world/creature_types.py.
+    if entry.get("creature_types") or entry.get("immune_creature_types"):
+        from world.creature_types import register_rule
+        register_rule(entry["ability_id"], entry.get("creature_types"),
+                      entry.get("immune_creature_types"))
     resource = _RESOURCE_BY_NAME.get(
         entry.get("resource_type", "mana"), ResourceType.MANA)
     return Ability(

@@ -500,7 +500,11 @@
       "icon_id": null,
       "_source": "CoA: 'Transform enemies at target location into a frog, making them unable to attack or cast spells, and slowing their movement speed'. is_stun is the engine's real skip-their-turn flag (TurnMeter refuses to fill for a stunned combatant).",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "creature_types": [
+        "humanoid",
+        "beast"
+      ]
     },
     {
       "ability_id": "witch_doctor_allcure_elixir",

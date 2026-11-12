@@ -446,6 +446,15 @@ class CombatEngine:
         if hasattr(ability, "is_ranged_weapon_ready") and not ability.is_ranged_weapon_ready(actor):
             return False, f"{ability.name} requires the right weapon equipped."
 
+        # Wrong kind of creature for this crowd control. Ability.use refuses it too; asked here
+        # as well so the refusal comes before a shapeshifter is dropped out of form to cast it.
+        if target is not None and not isinstance(target, (list, tuple)) and target is not actor:
+            from world.creature_types import blocked_reason
+            if (getattr(ability, "max_targets", None) or 1) <= 1:
+                reason = blocked_reason(ability.ability_id, ability.name, target)
+                if reason:
+                    return False, reason
+
         # CASTING BREAKS A NON-MANA FORM. Kyle, 3 Nov 2026: "in classic wow,
         # when a druid goes to cast it pulls them out of bear form (so we can
         # have it that if someone casts in bear form they will cast, but will

@@ -554,7 +554,11 @@
       "_source": "CoA class tree: 'Instantly transform all enemies into a baby, preventing them from acting ... damage dealt will interrupt this effect.' is_stun is the engine's incapacitate; the break-on-damage half has no hook, so it runs the full two turns.",
       "target_type": "enemy",
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "humanoid",
+        "beast"
+      ]
     },
     {
       "ability_id": "chronomancer_fortify_timeline",

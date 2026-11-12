@@ -489,7 +489,14 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "humanoid",
+        "demon",
+        "dragonkin",
+        "giant",
+        "undead"
+      ]
     },
     {
       "ability_id": "paladin_flash_of_light",
@@ -825,7 +832,11 @@
       "is_instant": true,
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "creature_types": [
+        "undead",
+        "demon"
+      ]
     },
     {
       "ability_id": "paladin_redemption",
