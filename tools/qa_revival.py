@@ -96,6 +96,12 @@ def main():
                 bad.append(f"{cid} can heal an ally and has no res spell")
         elif has and not any(a.get("effect_type") == "revive" for a in raw):
             bad.append(f"{cid} was given a res spell and cannot heal an ally")
+    # each res spell has art of its own, not its class's heal icon
+    for cid, entry in json.load(open("data/resurrection_spells.json"))["spells"].items():
+        if not os.path.exists(f"assets/icons/abilities/{entry['ability_id']}.png"):
+            bad.append(f"{entry['name']} has no icon (assets/icons/abilities/{entry['ability_id']}.png)")
+        if entry.get("icon_id"):
+            bad.append(f"{entry['name']} still borrows {entry['icon_id']} though it has its own icon")
     for cid in ("warrior", "rogue", "mage"):
         if cid in with_res:
             bad.append(f"{cid} has a res spell")
