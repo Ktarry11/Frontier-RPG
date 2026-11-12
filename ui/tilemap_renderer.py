@@ -627,7 +627,17 @@ class TilemapRenderer:
                     # the whole ocean read as a gray graph-paper grid
                     # (Kyle: "still fallback tiles"). Skipped like
                     # "landmark" so the base-layer water shows through.
-                    if layer_tile == "water":
+                    #
+                    # THE SAME BUG, AGAIN, ON THE SHIPS. The boat dungeons (The Crossing, the
+                    # Bloodsail Raider, the Anchorage) use "tropical_water" as their WALL - "the
+                    # sea is the wall" - stamped on the collision layer so the player cannot
+                    # walk off the deck. It has no sprite either, so the whole sea round every
+                    # ship drew as flat teal squares with a grey grid over the baked water.
+                    # Kyle, 10 Nov: "the crossing (and all the boat dungeons) has a water
+                    # glitch." Any water id on these layers is a marker; the water itself is
+                    # the base layer, already drawn.
+                    if layer_tile in ("water", "tropical_water", "tropical_shallow",
+                                      "deep_water", "shallow_water"):
                         continue
                     # Kyle: "mountain tiles should also be in the third
                     # layer... since they're still read as movement=false,
