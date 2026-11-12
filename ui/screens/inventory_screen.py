@@ -806,8 +806,10 @@ class InventoryScreen(BaseScreen):
         # ---- Stat comparison / detail panel (hover-based, simple version) ----
         mouse_pos = pygame.mouse.get_pos()
         hovered_item = self._get_hovered_item(mouse_pos, subject, bag)
-        if hovered_item:
-            self._draw_item_tooltip(screen, hovered_item, mouse_pos)
+        # Drawn at the END of this method, not here. It used to be drawn at this point, and
+        # everything after it - the EFFECTIVE STATS block, the equip error, the Close button -
+        # was then painted over the top, so hovering a piece of equipped gear gave a card with
+        # the character's stats written through it. Kyle, 10 Nov: item cards must be opaque.
 
         # ---- Current effective stats summary ----
         # Below the bag row now (SLOT_START_Y + 6*SLOT_ROW_SPACING +
@@ -827,6 +829,10 @@ class InventoryScreen(BaseScreen):
                                     (20, summary_y + 30), color=(230, 110, 110))
 
         self.renderer.draw_button(screen, self.close_button, "Close")
+
+        if hovered_item and self.pending_destroy_item is None:
+            in_bag = any(hovered_item is it for it in bag.inventory)
+            self._draw_item_tooltip(screen, hovered_item, mouse_pos, show_sell_price=in_bag)
 
         if self.pending_destroy_item is not None:
             self._render_destroy_confirmation(screen)
@@ -1220,7 +1226,7 @@ class InventoryScreen(BaseScreen):
             pass
         return str(mat_id).replace("_", " ").title()
 
-    def _draw_item_tooltip(self, screen, item, mouse_pos):
+    def _draw_item_tooltip(self, screen, item, mouse_pos, show_sell_price=False):
         if not getattr(item, "is_gear", True):
             # Recipe scrolls get a richer tooltip showing profession, skill gate, and state.
             if getattr(item, "recipe_id", None):
@@ -1331,8 +1337,17 @@ class InventoryScreen(BaseScreen):
                     ("warn", f"Below your armor class ({item.armor_type.capitalize()})"))
         lines.extend(text for _kind, text in warning_lines)
 
+        # WHAT A VENDOR GIVES FOR IT, at the foot of the card, as coins. Kyle confirmed this
+        # one on 10 Nov. Only on things in the bags: not on what you are wearing, and no line at
+        # all for something that cannot be sold.
+        sell_line = ""
+        price = int(getattr(item, "sell_price", 0) or 0)
+        if show_sell_price and price > 0 and getattr(item, "is_sellable", True):
+            from ui.coin_format import format_coins
+            sell_line = f"Sell Price: {format_coins(price)}"
+
         box_w = 300
-        box_h = 20 * len(lines) + 16
+        box_h = 20 * (len(lines) + (1 if sell_line else 0)) + 16
         x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
         y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
         rect = pygame.Rect(x, y, box_w, box_h)
@@ -1354,3 +1369,6 @@ class InventoryScreen(BaseScreen):
                 color = COLOR_WHITE
             self.renderer.draw_text(screen, line, (x + 10, ty), color=color)
             ty += 20
+        if sell_line:
+            self.renderer.draw_text(screen, sell_line, (x + 10, ty), color=COLOR_GOLD)
+        self.last_tooltip_rect = rect
