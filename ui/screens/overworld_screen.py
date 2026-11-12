@@ -898,7 +898,16 @@ class OverworldScreen(BaseScreen):
         if self.zone_manager.is_in_cave():
             cave_spawn_positions = self.zone_manager.cave_spawns.active_positions()
         gathering_node_positions = self.zone_manager.gathering_manager.active_nodes_render_data()
-        self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators)
+# THE WORLD IS DRAWN INSIDE ITS FRAME AND NOWHERE ELSE. Nothing clipped it, so a tall
+        # building or an NPC near the edge of the view was painted across the player frame, the
+        # buttons under the map and the black margin - visible in every screenshot as a figure
+        # standing on the health bar. Seen 12 Nov while checking NPC placement.
+        _old_clip = screen.get_clip()
+        screen.set_clip(self.viewport_rect)
+        try:
+                    self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators)
+        finally:
+            screen.set_clip(_old_clip)
         
         # Draw large zone indicator at top center, with the zone's level band.
         #
