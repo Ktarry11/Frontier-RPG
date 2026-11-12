@@ -999,6 +999,13 @@ class Monster(StatusEffectMixin):
             # rule, and flooring at zero here would cancel every negative
             # resistance the moment one is authored.
             resist = self.get_resistance(damage_type)
+            # "weakest_school" on the ATTACKER (Sophia Dias, Get the Register Right): the spell
+            # is dealt as whichever school this target resists least - so a fire spell into a
+            # fire elemental lands as if it were its weakest school, vulnerability included.
+            if (attacker is not None and hasattr(attacker, "get_status_stat_mod")
+                    and attacker.get_status_stat_mod("weakest_school") > 0):
+                resist = min([resist] + [self.get_resistance(s) for s in DamageSchool.ALL_SCHOOLS
+                                         if s != "physical"])
             if resist > 0:
                 resist = max(0, int(resist - _pen_flat("spell_penetration")
                                     * Character.SPELL_PEN_PER_RESIST))

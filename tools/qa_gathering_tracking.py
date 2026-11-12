@@ -9,7 +9,8 @@ With the real map screen in a real zone:
      herbs; a woodcutter the trees; all three, all of them
   3. gathering a node takes it off the map
   4. each tracked node is drawn where it is (its colour is at its tile's map position)
-  5. the legend names exactly the tracked kinds
+  5. the legend names exactly the tracked kinds - and never "Crystal": there are no crystal
+     nodes in the game, so there is nothing to track
 """
 import os
 import sys
@@ -81,7 +82,7 @@ def main():
     check(nodes == [], f"with no gathering trade the map tracks {len(nodes)} nodes")
     check(not any("Mining" in t or "Herbalism" in t or "Woodcutting" in t for t in text), "legend shows node rows with no trade learned")
 
-    for prof, want, word in (("mining", ("ore", "crystal"), "Mining"), ("herbalism", ("herb",), "Herbalism"),
+    for prof, want, word in (("mining", ("ore",), "Mining"), ("herbalism", ("herb",), "Herbalism"),
                              ("woodcutting", ("wood",), "Woodcutting")):
         nodes, text = show([prof])
         expect = sum(len(here.get(k, [])) for k in want)
@@ -91,8 +92,9 @@ def main():
         others = {"Mining", "Herbalism", "Woodcutting"} - {word}
         check(not any(o in t for t in text for o in others), f"{prof}: the legend lists trades not learned")
 
+    check(not any("Crystal" in t for t in show(["mining"])[1]), "the legend offers crystal tracking; there are no crystal nodes")
     nodes, _ = show(["mining", "herbalism", "woodcutting", "tailoring"])
-    total = sum(len(here.get(k, [])) for k in ("ore", "crystal", "herb", "wood"))
+    total = sum(len(here.get(k, [])) for k in ("ore", "herb", "wood"))
     check(len(nodes) == total, f"all three trades: {len(nodes)} tracked of {total}")
 
     # 4. drawn where it is

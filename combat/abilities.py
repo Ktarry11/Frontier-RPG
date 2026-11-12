@@ -352,6 +352,7 @@ class Ability:
                  dynamic_resist=None,
                  same_kind_only=False,
                  wipes_threat=False,
+                 reach=None,
                  immediate=None,
                  variance_mode=None,
                  variance=None,
@@ -613,6 +614,9 @@ class Ability:
         #: The caster drops off every enemy's threat table - except a boss's. Applied by the
         #: engine after the cast (CombatEngine.execute_ability), which is where the tables live.
         self.wipes_threat = bool(wipes_threat)
+        #: "melee" or "ranged", when the effect type alone gives the wrong answer (combat/rows.py
+        #: reads it): a strike that reaches the back row past whatever stands in front.
+        self.reach = reach
         #: An action taken on state that ALREADY EXISTS, rather than an
         #: effect applied. Five kit abilities rearrange rather than add:
         #:   {"action": "extend_buffs", "turns": 2}
@@ -4393,6 +4397,7 @@ def _ability_from_data(entry):
         dynamic_resist=entry.get("dynamic_resist"),
         same_kind_only=entry.get("same_kind_only", False),
         wipes_threat=entry.get("wipes_threat", False),
+        reach=entry.get("reach"),
         immediate=entry.get("immediate"),
         variance_mode=entry.get("variance_mode"),
         variance=entry.get("variance"),

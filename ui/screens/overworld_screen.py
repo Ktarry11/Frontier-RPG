@@ -681,6 +681,14 @@ class OverworldScreen(BaseScreen):
             if crystal is not None and player.add_material(crystal):
                 self._notify(f"The vein also held {crystal.name}.", (170, 200, 240))
 
+        # ...and, more rarely, a gemstone (world/gathering_manager.roll_vein_gem). Same rules
+        # as the crystal: a bonus, no skill-up, skipped quietly if the bags are full.
+        gem_id = gathering_manager.roll_vein_gem(material_id)
+        if gem_id:
+            gem = gathering_manager.make_material_instance(gem_id)
+            if gem is not None and player.add_material(gem):
+                self._notify(f"You prise a {gem.name} out of the vein!", (230, 200, 120))
+
         # Award a small amount of character XP for gathering.
         # Calibration: ~1% of the XP needed to level at the material's
         # effective level (half the skill cap of this material tier, mapped

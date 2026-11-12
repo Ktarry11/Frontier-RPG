@@ -56,6 +56,7 @@ _PCT_HINTS = ("_pct", "crit", "dodge", "parry", "block", "haste", "hit")
 #: Stats that read better as a sentence than as "+1 Silenced".
 _PLAIN_WORDS = {
     "silenced": "Silenced - basic attacks only",
+    "weakest_school": "Spells strike as the school the target resists least",
     "miss_chance_pct": "{value}% chance to miss",
     "cc_immune": "Immune to crowd control",
 }

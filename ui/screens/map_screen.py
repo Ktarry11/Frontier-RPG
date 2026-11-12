@@ -420,7 +420,9 @@ class MapScreen(BaseScreen):
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
         # Tracked gathering nodes - only the kinds this player can actually see.
-        for kind, text in (("ore", "Ore vein (Mining)"), ("crystal", "Crystal (Mining)"),
+        # No crystal row: there are no crystal nodes to mine (Kyle, 12 Nov: "there is no crystal
+        # mining. Delete crystals."). Crystals only ever come out of an ore vein as a bonus.
+        for kind, text in (("ore", "Ore vein (Mining)"),
                            ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)")):
             if self.TRACK_PROFESSION[kind] in known:
                 self._draw_track_dot(screen, kind, lx + 7, ly + 7)
@@ -466,9 +468,8 @@ class MapScreen(BaseScreen):
 
     #: Tracked node colours: a small diamond, so it cannot be mistaken for the round NPC and
     #: portal dots.
-    TRACK_COLORS = {"ore": (235, 150, 60), "crystal": (110, 220, 235),
-                    "herb": (110, 220, 90), "wood": (170, 120, 70)}
-    TRACK_PROFESSION = {"ore": "mining", "crystal": "mining", "herb": "herbalism", "wood": "woodcutting"}
+    TRACK_COLORS = {"ore": (235, 150, 60), "herb": (110, 220, 90), "wood": (170, 120, 70)}
+    TRACK_PROFESSION = {"ore": "mining", "herb": "herbalism", "wood": "woodcutting"}
 
     def _tracked_professions(self):
         """The gathering trades the player has learned."""

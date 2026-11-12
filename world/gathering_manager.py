@@ -435,6 +435,35 @@ class GatheringNodeManager:
             return None
         return rng.choice(pool)
 
+    def gem_table(self):
+        """{ore id: [(gem id, chance), ...]} from data/gathering/gem_drops.json, read once."""
+        table = getattr(self, "_gem_table", None)
+        if table is None:
+            import json as _json
+            path = Path(__file__).parent.parent / "data" / "gathering" / "gem_drops.json"
+            try:
+                raw = _json.loads(path.read_text()).get("drops", {})
+            except (OSError, ValueError):
+                raw = {}
+            table = {ore: [(g, float(c)) for g, c in rows] for ore, rows in raw.items()}
+            self._gem_table = table
+        return table
+
+    def roll_vein_gem(self, material_id, rng=None):
+        """-> a gemstone this ore vein also gave up, or None.
+
+        Kyle, 12 Nov: "Start adding gemstones and crystals to ore (think of wow!)". Every ore
+        has gems of its own - Malachite and Tigerseye in copper, Star Ruby in mithril - each at
+        a few percent a swing. Rolled separately from the crafting crystals (roll_vein_crystal),
+        so a vein can give both; but one gem at most, the first that comes up.
+        """
+        import random as _r
+        rng = rng or _r
+        for gem_id, chance in self.gem_table().get(material_id, ()):
+            if gem_id in self.materials and rng.random() < chance:
+                return gem_id
+        return None
+
     def roll_skill_up(self, material_id, current_skill):
         """Roll whether gathering this material grants a skill-up, using
         the material's skill_range (see materials.json's _comment for the
@@ -549,6 +578,9 @@ MATERIAL_TYPE_FOLDERS = {
     # spawning their own node type - see CRYSTAL_FROM_VEIN below. No art yet;
     # the UI falls back to its text box until there is.
     "crystal": "crystals",
+    # Gemstones, out of ore veins (tools/build_gems.py). Art goes in
+    # assets/gathering_nodes/gems/<icon_id>.png; until it lands the UI uses its text box.
+    "gem": "gems",
     # Crafting reagents bought from vendors rather than gathered (thread,
     # vials, flux, ...). They never appear as a world node, but they do show
     # in the bag and on vendor rows, both of which route through here.

@@ -7,7 +7,7 @@ nothing new or one small mechanic:
   Carolina Santos   Deep in March, Aground in September   every enemy 25% to miss, 2 turns
                     (new: an attacker's own miss chance, from a debuff on it)
   Rosa Delgado      Stop Tracking, Start Anticipating     cannot miss for 4 turns
-  Sophia Dias       Get the Register Right                spells ignore the target's resistance
+  Sophia Dias       Get the Register Right                spells land as the target's weakest school
   Kesten Ambrose    He Catalogues                         the commonest KIND of enemy takes
                     +20% damage (uses the creature types built for crowd control)
 
@@ -95,10 +95,20 @@ def main():
     # Sophia ------------------------------------------------------------------------------
     c, ab = kit("Sophia Dias", "personal_sophia_get_the_register_right")
     if ab:
+        def burn(caster):
+            imp = Monster("Mottled Boar", "beast_basic", level=60)
+            imp.fire_resistance, imp.frost_resistance = 60, 0
+            tot = 0
+            for _ in range(300):
+                imp.current_health = imp.max_health
+                tot += imp.take_damage(1000, "fire", attacker=caster, attacker_level=60) or 0
+            return tot
+        plain = burn(c)
         ok, msg = ab.use(c, c, free=True)
-        c._recalculate_derived_stats()
-        check(ok and c.spell_penetration >= c.SPELL_PEN_USEFUL_MAX,
-              f"Get the Register Right: spell penetration is {c.spell_penetration} ({msg})")
+        check(ok and c.get_status_stat_mod("weakest_school") > 0, f"Get the Register Right did not take ({msg})")
+        tuned = burn(c)
+        check(plain and tuned > plain * 1.5,
+              f"fire into a fire-resistant target: {plain} before, {tuned} with the register right - it should land as the weakest school")
 
     # Kesten ------------------------------------------------------------------------------
     c, ab = kit("Kesten Ambrose", "personal_kesten_he_catalogues")
@@ -167,6 +177,47 @@ def main():
         check(eng.get_threat(boss, c) >= 5000, f"a boss forgot Kiet (threat {eng.get_threat(boss, c)})")
         c._recalculate_derived_stats()
         check(c.crit_chance_physical >= 100, f"Kiet's crit is {c.crit_chance_physical:.0f}% - not guaranteed")
+
+    # Marcus: an area effect lands on the ROW you aim at, all of it and only it ---------------
+    # Kyle, 12 Nov: "stormbringer attack says it targets a row - it only applies dot to one
+    # enemy." Its target type was "enemy_row", which nothing in the engine knew, so it fell
+    # through to a single target.
+    c, ab = kit("Marcus Okafor", "personal_marcus_where_the_strikes_land")
+    if ab:
+        from combat.combat_engine import CombatEngine
+        from entities.party import Party
+        landed_all = False
+        for _try in range(8):                                 # a spell can be resisted
+            front = [kit_mob("Mottled Boar"), kit_mob("Mottled Boar")]
+            back = [kit_mob("Mottled Boar"), kit_mob("Mottled Boar")]
+            for m in front:
+                m.row = "front"
+            for m in back:
+                m.row = "back"
+            eng = CombatEngine(c, front[0], party=Party(c), enemies=front + back)
+            eng.current_actor = c
+            c.current_mana = 10 ** 5
+            ab.turns_remaining = 0
+            ok, msg = eng.execute_ability(c, ab.ability_id, back[0])
+            hit = lambda m: any(e.effect_id == ab.ability_id for e in m._effects())
+            check(ok, f"Where the Strikes Land would not cast ({msg})")
+            check(not any(hit(m) for m in front), "Where the Strikes Land, aimed at the back row, also hit the front row")
+            if all(hit(m) for m in back):
+                landed_all = True
+                break
+        check(landed_all, "Where the Strikes Land did not put its lightning on every enemy in the aimed row")
+
+    # ...and no ability anywhere has a target type the engine does not know
+    import glob as _g
+    import json as _j
+    KNOWN = {None, "self", "ally", "party", "enemy", "enemy_aoe", "all_enemies", "pet"}
+    for f in sorted(_g.glob("data/abilities/*.json")) + ["data/npcs/personal_kits.json"]:
+        blob = _j.loads(open(f).read())
+        entries = blob.get("abilities") if "abilities" in blob else [
+            a for k in blob.values() if isinstance(k, dict) for a in (k.get("abilities") or [])]
+        for a in entries:
+            check(a.get("target_type") in KNOWN,
+                  f"{a.get('ability_id')}: target_type {a.get('target_type')!r} is not one the engine handles")
 
     # none of the four still says it needs something
     import json

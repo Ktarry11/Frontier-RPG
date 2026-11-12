@@ -406,7 +406,7 @@
         "ability_id": "personal_kiet_the_fastest_route",
         "name": "The Fastest Route",
         "from": "'a city where the fastest route changed hourly' / 'he has mapped the whole city by how long each route takes at each hour'",
-        "engine": "needs: move to any row, then strike",
+        "engine": "live: reach=ranged lets a melee strike pick the back row",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -422,7 +422,8 @@
             "cost": 25,
             "effect_value": 70
           }
-        ]
+        ],
+        "reach": "ranged"
       },
       {
         "ability_id": "personal_kiet_two_rooms_away",
@@ -575,10 +576,10 @@
         "ability_id": "personal_marcus_where_the_strikes_land",
         "name": "Where the Strikes Land",
         "from": "'His notes on where the strikes land have already told him something about this coast the orcs didn't know.'",
-        "engine": "needs: persistent row hazard that ticks on occupants",
+        "engine": "live: an area effect lands on the one row you aim it at",
         "effect_type": "spell_dot",
         "damage_school": "nature",
-        "target_type": "enemy_row",
+        "target_type": "enemy_aoe",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 4,
@@ -761,7 +762,7 @@
         "ability_id": "personal_sophia_get_the_register_right",
         "name": "Get the Register Right",
         "from": "'you get the register right as well as the words'",
-        "engine": "live: spell_penetration cancels the target's resistance outright",
+        "engine": "live: weakest_school - Monster.take_damage uses the target's lowest resistance",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -769,9 +770,9 @@
         "duration": 2,
         "is_instant": true,
         "stat_mods": {
-          "spell_penetration": 30
+          "weakest_school": 1
         },
-        "description": "For 2 turns Sophia's spells go through whatever resistance the target has, as if it had none.",
+        "description": "For 2 turns Sophia's spells are dealt as whichever school the target resists least.",
         "ranks": [
           {
             "rank": 1,
@@ -2237,7 +2238,8 @@
             "effect_value": 75
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reach": "ranged"
       },
       {
         "ability_id": "personal_fiona_too_neat",

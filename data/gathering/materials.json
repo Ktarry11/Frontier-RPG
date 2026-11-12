@@ -6459,6 +6459,806 @@
         285
       ],
       "description": "The one piece a butcher keeps back and does not put on the board."
+    },
+    "gem_malachite": {
+      "name": "Malachite",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A soft green stone with darker bands running through it. The first gem most miners ever find. Found in Copper veins.",
+      "stack_limit": 20,
+      "sell_price": 30,
+      "icon_id": "malachite",
+      "skill_range": [
+        1,
+        21,
+        36,
+        51
+      ]
+    },
+    "gem_tigerseye": {
+      "name": "Tigerseye",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "Brown and gold, with a line of light that slides across it as you turn it. Found in Copper veins.",
+      "stack_limit": 20,
+      "sell_price": 30,
+      "icon_id": "tigerseye",
+      "skill_range": [
+        1,
+        21,
+        36,
+        51
+      ]
+    },
+    "gem_rock_crystal": {
+      "name": "Rock Crystal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A clear six-sided point, worth little, but it takes a clean edge. Found in Weakstone veins.",
+      "stack_limit": 20,
+      "sell_price": 30,
+      "icon_id": "rock_crystal",
+      "skill_range": [
+        1,
+        21,
+        36,
+        51
+      ]
+    },
+    "gem_bloodstone": {
+      "name": "Bloodstone",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "Dark green, spotted red as if something bled on it and it never washed off. Found in Rough Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 84,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "gem_moss_agate": {
+      "name": "Moss Agate",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "A cloudy stone with what looks like moss growing inside it. It is not moss. Found in Tin veins.",
+      "stack_limit": 20,
+      "sell_price": 168,
+      "icon_id": "moss_agate",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "gem_shadowgem": {
+      "name": "Shadowgem",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "Smoke-dark and faintly violet. Jewellers like it; lamps do not seem to light it. Found in Tin veins.",
+      "stack_limit": 20,
+      "sell_price": 168,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "gem_lesser_moonstone": {
+      "name": "Lesser Moonstone",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "early",
+      "description": "Pale as milk with a blue light somewhere inside it that is never quite where you look. Found in Silver veins.",
+      "stack_limit": 20,
+      "sell_price": 216,
+      "icon_id": "lesser_moonstone",
+      "skill_range": [
+        75,
+        95,
+        110,
+        125
+      ]
+    },
+    "gem_carnelian": {
+      "name": "Carnelian",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "A warm orange-red stone, smooth as wax. Found in Bronze Vein veins.",
+      "stack_limit": 20,
+      "sell_price": 330,
+      "icon_id": "carnelian",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "gem_jet": {
+      "name": "Jet",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Black, light in the hand, and warm to the touch. Coal that took its time. Found in Coal veins.",
+      "stack_limit": 20,
+      "sell_price": 396,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "gem_honey_amber": {
+      "name": "Honey Amber",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Gold and clear, with something small and green caught in it. Found in Living Copper veins.",
+      "stack_limit": 20,
+      "sell_price": 468,
+      "icon_id": "honey_amber",
+      "skill_range": [
+        115,
+        135,
+        150,
+        165
+      ]
+    },
+    "gem_jade": {
+      "name": "Jade",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Even green all the way through, cool, and heavier than it looks. Found in Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 546,
+      "icon_id": "jade",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "gem_citrine": {
+      "name": "Citrine",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Clear yellow, the colour of weak tea held up to a window. Found in Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 546,
+      "icon_id": "citrine",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "gem_rime_opal": {
+      "name": "Rime Opal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "White, with frost-blue cracks that never spread and never close. Found in Frostveined Tin veins.",
+      "stack_limit": 20,
+      "sell_price": 678,
+      "icon_id": "rime_opal",
+      "skill_range": [
+        140,
+        160,
+        175,
+        190
+      ]
+    },
+    "gem_topaz": {
+      "name": "Topaz",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Golden, hard, and cut by nature into something close to a jewel already. Found in Gold veins.",
+      "stack_limit": 20,
+      "sell_price": 822,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "gem_peridot": {
+      "name": "Verdant Peridot",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Bright olive green. Found where iron has been lying under old forest. Found in Verdant Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 930,
+      "icon_id": "peridot",
+      "skill_range": [
+        165,
+        185,
+        200,
+        215
+      ]
+    },
+    "gem_aquamarine": {
+      "name": "Aquamarine",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Pale sea-blue and long in the crystal. Sailors pay over the odds for it. Found in Mithril veins.",
+      "stack_limit": 20,
+      "sell_price": 1038,
+      "icon_id": "aquamarine",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "gem_star_ruby": {
+      "name": "Star Ruby",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Deep red, with a six-pointed star that sits on its surface under any light. Found in Mithril veins.",
+      "stack_limit": 20,
+      "sell_price": 1038,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "gem_blue_sapphire": {
+      "name": "Blue Sapphire",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A blue so deep it looks black until the light gets behind it. Found in Thorium veins.",
+      "stack_limit": 20,
+      "sell_price": 2010,
+      "icon_id": "blue_sapphire",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "gem_large_opal": {
+      "name": "Large Opal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "White, and full of small fires in every colour that move when you do. Found in Thorium veins.",
+      "stack_limit": 20,
+      "sell_price": 2010,
+      "icon_id": "large_opal",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "gem_huge_emerald": {
+      "name": "Huge Emerald",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Too big to be real, and real. Vivid green and flawed in the way all true ones are. Found in Truesilver veins.",
+      "stack_limit": 20,
+      "sell_price": 1776,
+      "icon_id": "huge_emerald",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "gem_felfire_shard": {
+      "name": "Felfire Shard",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "A splinter of green fire that set hard. It is warm, and it should not be. Found in Felslag veins.",
+      "stack_limit": 20,
+      "sell_price": 1224,
+      "icon_id": "felfire_shard",
+      "skill_range": [
+        190,
+        210,
+        225,
+        240
+      ]
+    },
+    "gem_heartsblood_garnet": {
+      "name": "Heartsblood Garnet",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Dark red and round as a drop. Miners will not put one in a pocket over the heart. Found in Bloodiron veins.",
+      "stack_limit": 20,
+      "sell_price": 1416,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "gem_deepearth_geode": {
+      "name": "Deepearth Geode",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "A dull grey lump that splits to show a hollow lined with violet teeth. Found in Deepearth veins.",
+      "stack_limit": 20,
+      "sell_price": 1626,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "gem_black_diamond": {
+      "name": "Black Diamond",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A diamond that swallowed the forge it grew beside. Black, with a red spark deep in. Found in Dark Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 1776,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "gem_truesilver_zircon": {
+      "name": "Moonsilver Zircon",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Colourless and brighter than glass has any right to be. Found in Truesilver veins.",
+      "stack_limit": 20,
+      "sell_price": 1776,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "gem_cinder_agate": {
+      "name": "Cinder Agate",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Grey bands and orange bands, and the orange ones are still faintly alight. Found in Ashen Steel veins.",
+      "stack_limit": 20,
+      "sell_price": 2262,
+      "icon_id": "cinder_agate",
+      "skill_range": [
+        260,
+        280,
+        295,
+        310
+      ]
+    },
+    "gem_elementium_prism": {
+      "name": "Elementium Prism",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A prism in four colours that will not mix: flame, water, leaf and cloud. Found in Elementium veins.",
+      "stack_limit": 20,
+      "sell_price": 2808,
+      "icon_id": "elementium_prism",
+      "skill_range": [
+        290,
+        310,
+        325,
+        340
+      ]
+    },
+    "gem_glacier_sapphire": {
+      "name": "Glacier Sapphire",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Ice blue. It fogs when you breathe on it and takes a long time to clear. Found in Frostforged Silver veins.",
+      "stack_limit": 20,
+      "sell_price": 3204,
+      "icon_id": "glacier_sapphire",
+      "skill_range": [
+        310,
+        330,
+        345,
+        360
+      ]
+    },
+    "gem_sylvan_emerald": {
+      "name": "Sylvan Emerald",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Green shot through with fine gold, like a leaf with the sun behind it. Found in Sylvanite veins.",
+      "stack_limit": 20,
+      "sell_price": 3204,
+      "icon_id": "sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "gem_magma_ruby": {
+      "name": "Magma Ruby",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Red going to orange, and something moves in it as slow as cooling rock. Found in Molten Coreite veins.",
+      "stack_limit": 20,
+      "sell_price": 3408,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "gem_sunstone": {
+      "name": "Sunstone",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Gold and orange, with rays in it. It casts a shadow of its own at noon. Found in Sunforged Gold veins.",
+      "stack_limit": 20,
+      "sell_price": 3408,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "gem_nightshard_onyx": {
+      "name": "Nightshard Onyx",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A black splinter edged in violet. It is always the last thing in the room you see. Found in Nightshard veins.",
+      "stack_limit": 20,
+      "sell_price": 3624,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "gem_abyssal_pearlstone": {
+      "name": "Abyssal Pearlstone",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A dark teal bead with a pearl's sheen, grown where no oyster ever was. Found in Abyssal Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 3846,
+      "icon_id": "abyssal_pearlstone",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ]
+    },
+    "gem_void_amethyst": {
+      "name": "Void Amethyst",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Deep purple round a centre that is not a colour at all. Found in Voidstone veins.",
+      "stack_limit": 20,
+      "sell_price": 3846,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "gem_stormglass": {
+      "name": "Stormglass",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Clear, with a fork of lightning caught in the middle of striking. Found in Stormveined veins.",
+      "stack_limit": 20,
+      "sell_price": 3960,
+      "icon_id": "stormglass",
+      "skill_range": [
+        345,
+        365,
+        380,
+        395
+      ]
+    },
+    "gem_ebon_spinel": {
+      "name": "Ebon Spinel",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A black eight-sided stone that throws back crimson from any light. Found in Ebonrend veins.",
+      "stack_limit": 20,
+      "sell_price": 4074,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "gem_sundered_tourmaline": {
+      "name": "Sundered Tourmaline",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Half pink, half green, and cracked clean along the line between. Found in Sunderedsteel veins.",
+      "stack_limit": 20,
+      "sell_price": 4188,
+      "icon_id": "sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "gem_starfall_diamond": {
+      "name": "Starfall Diamond",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A white diamond with points of light in it that are in the right places for the sky. Found in Starforged Iron veins.",
+      "stack_limit": 20,
+      "sell_price": 4308,
+      "icon_id": "starfall_diamond",
+      "skill_range": [
+        360,
+        385,
+        405,
+        435
+      ]
+    },
+    "gem_astral_moonstone": {
+      "name": "Astral Moonstone",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Silver-blue, with a crescent of light that waxes and wanes with the month. Found in Astral Platinum veins.",
+      "stack_limit": 20,
+      "sell_price": 4428,
+      "icon_id": "astral_moonstone",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ]
+    },
+    "gem_hourglass_topaz": {
+      "name": "Hourglass Topaz",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Amber, with a shape like an hourglass in it. The sand in it runs upward. Found in Chronium veins.",
+      "stack_limit": 20,
+      "sell_price": 4500,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "gem_titans_eye": {
+      "name": "Titan's Eye",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Steel blue with a ring of gold round a dark centre. It does not blink first. Found in Titansteel veins.",
+      "stack_limit": 20,
+      "sell_price": 4548,
+      "icon_id": "titans_eye",
+      "skill_range": [
+        370,
+        395,
+        415,
+        445
+      ]
+    },
+    "gem_wyrmheart_ruby": {
+      "name": "Wyrmheart Ruby",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Crimson, faceted like scales, and warm enough to keep a hand from stiffening. Found in Wyrmscale veins.",
+      "stack_limit": 20,
+      "sell_price": 4596,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "gem_cataclysm_opal": {
+      "name": "Cataclysm Opal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Black, split by fissures of red and orange that are wider than they were yesterday. Found in Cataclysmic veins.",
+      "stack_limit": 20,
+      "sell_price": 4644,
+      "icon_id": "cataclysm_opal",
+      "skill_range": [
+        374,
+        399,
+        419,
+        449
+      ]
+    },
+    "gem_dreamers_jade": {
+      "name": "Dreamer's Jade",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Misty green. People who carry one report sleeping well and remembering nothing. Found in Dreamsteel veins.",
+      "stack_limit": 20,
+      "sell_price": 4698,
+      "icon_id": "dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "gem_primordial_amber": {
+      "name": "Primordial Amber",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Old amber with a coiled thing in it that has no living relatives. Found in Primordium veins.",
+      "stack_limit": 20,
+      "sell_price": 4698,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "gem_worldheart_crystal": {
+      "name": "Worldheart Crystal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Green and gold, and it beats. Slowly. About once for every twenty of yours. Found in Worldheart veins.",
+      "stack_limit": 20,
+      "sell_price": 4746,
+      "icon_id": "worldheart_crystal",
+      "skill_range": [
+        378,
+        403,
+        423,
+        453
+      ]
+    },
+    "gem_fire_opal": {
+      "name": "Fire Opal",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "Orange and red, lit from inside like a coal seen through a curtain. Found in Bloodiron veins.",
+      "stack_limit": 20,
+      "sell_price": 1416,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "gem_azure_diamond": {
+      "name": "Skyglass Diamond",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "Flawless and faintly blue. The stone every apprentice is told they will never cut. Found in Thorium veins.",
+      "stack_limit": 20,
+      "sell_price": 2010,
+      "icon_id": "azure_diamond",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "gem_pyrite_star": {
+      "name": "Fool's Star",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "late",
+      "description": "A cluster of brassy cubes. Not gold. Jewellers buy it anyway, for the shapes. Found in Gold veins.",
+      "stack_limit": 20,
+      "sell_price": 822,
+      "icon_id": "pyrite_star",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "gem_prismatic_shard": {
+      "name": "Prismatic Shard",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A long shard that breaks any light into every colour and hands them back in order. Found in Elementium veins.",
+      "stack_limit": 20,
+      "sell_price": 2808,
+      "icon_id": "prismatic_shard",
+      "skill_range": [
+        290,
+        310,
+        325,
+        340
+      ]
     }
   }
 }
