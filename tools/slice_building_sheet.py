@@ -189,6 +189,34 @@ def _despill_plume(cut, frac):
     return out
 
 
+def _settles(name):
+    """Entrance art that is a MASS - a cave mouth, a mound, a hull, a stair cut out of its wall -
+    rather than something standing on posts. Kyle, 12 Nov, of the kobold dig on a riverbank and
+    a ship's stair on a deck: "try to blend these better". A mass cut out with a hard edge reads
+    as a sticker; a gate on two posts does not, and softening it would only eat the posts."""
+    if not name.startswith("ent_"):
+        return False
+    return not name.startswith(("ent_gate_", "ent_town_", "ent_dock_"))
+
+
+def _settle_into_ground(cut):
+    """Fade a sprite's silhouette edge to nothing, a little at the top and a lot at the foot.
+
+    The foot is where a prop meets the ground it was not painted on, so that is where the hard
+    cut-out line shows; the top is sky-side and only needs the stair-step taken off. The fade is
+    by distance from the silhouette's own edge, so holes in the art (the gap in a railing) fade
+    too and nothing is blurred - colour is untouched, only alpha.
+    """
+    from scipy import ndimage
+    out = cut.copy()
+    a = out[..., 3]
+    h = a.shape[0]
+    dist = ndimage.distance_transform_edt(a > 40)
+    width = 3.0 + 13.0 * (np.arange(h) / max(1, h - 1)) ** 1.5         # px: 3 at the top, 16 at the foot
+    out[..., 3] = a * np.clip(dist / width[:, None], 0.0, 1.0) ** 0.8
+    return out
+
+
 #: A blob this big ANCHORS a cell - it is the building body. Buildings are far larger than icons, so the icon
 #: slicer's 60px floor would let keying dirt anchor a cell on its own.
 MIN_BLOB = 1500
@@ -246,6 +274,8 @@ def slice_sheet(which, sheet_path, out_dir=None, preview=None):
         cut[..., 3] *= mask[y0:y1, x0:x1]         # drop a neighbour bleeding into this bounding box
         if name in DESPILL_TOP:
             cut = _despill_plume(cut, DESPILL_TOP[name])
+        if _settles(name):
+            cut = _settle_into_ground(cut)
         img = Image.fromarray(cut.astype(np.uint8), "RGBA")
         img.save(out_dir / f"{name}.png")
         written.append((name, img.size))

@@ -727,6 +727,10 @@ class TilemapRenderer:
                     sprite = pygame.transform.rotate(sprite, -rotation)
             else:
                 sprite = get_landmark_sprite(lm["sprite_key"], lm_w, lm_h)
+            if sprite is not None and lm.get("match_ground"):
+                sprite = self._matched_to_ground(screen, lm, sprite,
+                                                 pygame.Rect(lm_screen_x, lm_screen_y, lm_w, lm_h),
+                                                 viewport_rect)
             if sprite is not None:
                 screen.blit(sprite, (lm_screen_x, lm_screen_y))
         
@@ -1044,6 +1048,57 @@ class TilemapRenderer:
         # Draw viewport border
         pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
     
+    #: How far a ground-matched sprite is pulled toward the colour of what it stands on. Not all
+    #: the way: it should look like it belongs to the place, not like it is made of the floor.
+    GROUND_MATCH = 0.6
+    #: ...and no channel moves further than this, so a lantern stays lit and a shadow stays dark.
+    GROUND_MATCH_MAX_SHIFT = 70
+
+    def _matched_to_ground(self, screen, lm, sprite, rect, viewport_rect):
+        """`sprite` recoloured toward the ground it is about to be drawn on.
+
+        Kyle, 12 Nov 2026, of a warm orange stair standing on a grey ship's deck: "try to match
+        the boat colour with the stairs." Entrance art is painted once and stood in forty
+        places, so its timber is never the timber of the room it is in.
+
+        The ground is read off the SCREEN, from the patch the sprite is about to cover - it has
+        just been drawn, so this is the real floor, textures and all, with no second copy of
+        the map's colours to keep in step. Done once per landmark and remembered. Until enough
+        of the footprint is on screen to judge by, the sprite is drawn as it is.
+        """
+        cached = lm.get("_ground_matched")
+        if cached is not None and cached[0] == sprite.get_size():
+            return cached[1]
+        patch = rect.clip(viewport_rect).clip(screen.get_rect())
+        if patch.width * patch.height < 0.5 * rect.width * rect.height:
+            return sprite
+        ground = pygame.transform.average_color(screen, patch)
+        own = pygame.transform.average_color(sprite, sprite.get_rect(), True)
+
+        def sat(c):
+            return (max(c[:3]) - min(c[:3])) / max(1, max(c[:3]))
+
+        out = sprite.copy()
+        # 1. Saturation. A grey deck under orange timber is mostly a saturation mismatch, and
+        #    no amount of adding colour fixes that - so wash the sprite toward its own grey first.
+        wash = self.GROUND_MATCH * max(0.0, 1.0 - sat(ground) / max(0.01, sat(own)))
+        if wash > 0.03:
+            grey = pygame.transform.grayscale(sprite)
+            grey.fill((255, 255, 255, int(255 * wash)), special_flags=pygame.BLEND_RGBA_MULT)
+            out.blit(grey, (0, 0))
+        # 2. Colour. Slide the whole sprite by a share of the gap between the two averages.
+        after = pygame.transform.average_color(out, out.get_rect(), True)
+        lim = self.GROUND_MATCH_MAX_SHIFT
+        delta = [max(-lim, min(lim, int(self.GROUND_MATCH * (ground[i] - after[i])))) for i in range(3)]
+        add = tuple(max(0, d) for d in delta) + (0,)
+        sub = tuple(max(0, -d) for d in delta) + (0,)
+        if any(add):
+            out.fill(add, special_flags=pygame.BLEND_RGB_ADD)
+        if any(sub):
+            out.fill(sub, special_flags=pygame.BLEND_RGB_SUB)
+        lm["_ground_matched"] = (sprite.get_size(), out)
+        return out
+
     def _portal_glow(self):
         """The warp marker for one tile, built once: a soft purple disc with a bright rim and
         a pale core. Translucent, so the ground or the entrance art under it still reads."""

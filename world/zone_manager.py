@@ -65,6 +65,12 @@ class ZoneManager:
             name for name, tm in all_zones.items() if getattr(tm, "is_cave", False)
         }
         
+        # ...and every exit is framed by something that looks like a way out. Hand-placed
+        # entrance art is left alone; this fills in the links nobody drew. See
+        # world/exit_frames.py.
+        from world.exit_frames import frame_exits
+        self.exit_frames = frame_exits(all_zones, self.portal_manager, self.cave_names)
+
         # Carve every tile a recruit could ever stand on, in any zone, from
         # recruits.json - both their wild spawn AND their home town. Zones
         # are generated once at launch but a dismissal can happen at any
