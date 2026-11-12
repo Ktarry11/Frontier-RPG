@@ -1037,7 +1037,9 @@ class InventoryScreen(BaseScreen):
         BODY_W = 300
         lines = [
             material.name,
-            f"{material.profession.title()} - {material.tier.title()} tier",
+            # What it is FOR, and nothing about "tiers". Kyle, 10 Nov: the card "dont need to
+            # advertise its 'mid-tier'".
+            material.profession.replace("_", " ").title(),
         ]
         if material.description:
             lines.extend(self.renderer.wrap_text(material.description, BODY_W, size="small"))
