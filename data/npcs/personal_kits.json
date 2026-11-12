@@ -4264,14 +4264,16 @@
         "ability_id": "personal_adrian_he_still_has_the_whistle",
         "name": "He Still Has the Whistle",
         "from": "'He still has the whistle. He has never blown it here.'",
-        "engine": "needs: interrupt every enemy cast in progress",
+        "engine": "live: silenced - a monster can only make its basic attack",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "combo",
         "cooldown": 15,
         "duration": 2,
-        "stat_mods": {},
-        "description": "Stops every enemy ability in progress and silences them for 2 turns.",
+        "stat_mods": {
+          "silenced": 1
+        },
+        "description": "One blast and everything stops. Every enemy is silenced for 2 turns: it can make its basic attack and nothing else. A boss shakes it off after 1.",
         "ranks": [
           {
             "rank": 1,
@@ -4345,14 +4347,16 @@
         "ability_id": "personal_saoirse_the_sliotar",
         "name": "The Sliotar",
         "from": "'She throws it at people who are getting above themselves, underarm and accurately.'",
-        "engine": "needs: ranged interrupt at any row",
+        "engine": "live: silenced - a monster can only make its basic attack",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 2,
-        "stat_mods": {},
-        "description": "Interrupts an enemy in any row and silences it for 2 turns.",
+        "stat_mods": {
+          "silenced": 1
+        },
+        "description": "Underarm and accurate, at an enemy in any row. It is silenced for 2 turns: it can make its basic attack and nothing else. A boss shakes it off after 1.",
         "ranks": [
           {
             "rank": 1,

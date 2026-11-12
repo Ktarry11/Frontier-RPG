@@ -53,6 +53,13 @@ KIND_NAMES = {
 #: Stats where the number is a percentage, so "+5 Crit" reads "+5% Crit".
 _PCT_HINTS = ("_pct", "crit", "dodge", "parry", "block", "haste", "hit")
 
+#: Stats that read better as a sentence than as "+1 Silenced".
+_PLAIN_WORDS = {
+    "silenced": "Silenced - basic attacks only",
+    "miss_chance_pct": "{value}% chance to miss",
+    "cc_immune": "Immune to crowd control",
+}
+
 _ICON_DIRS = [Path("assets/icons") / d for d in ("abilities", "talents", "consumables", "coa")]
 _icon_cache = {}
 
@@ -95,6 +102,9 @@ def _stat_lines(effect, holder):
     out = []
     for stat, value in mods.items():
         if not isinstance(value, (int, float)) or not value:
+            continue
+        if stat in _PLAIN_WORDS:                     # a state, not a number
+            out.append(_PLAIN_WORDS[stat].format(value=_fmt(round(value, 1))))
             continue
         label = StatusEffectMixin.STAT_LABELS.get(stat, stat.replace("_", " ").title())
         pct = "%" if (any(h in stat for h in _PCT_HINTS) and "%" not in label) else ""

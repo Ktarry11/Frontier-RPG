@@ -1202,6 +1202,13 @@ class Monster(StatusEffectMixin):
         options = [a for a in self.abilities[1:] if a.is_available(self)]
         boss = getattr(self, "is_boss", False)
 
+        # SILENCED: nothing but the basic attack. There was no silence in the engine at all
+        # (only stun), so the two recruit abilities that interrupt and silence had nothing to
+        # set. A silenced monster keeps swinging; it just cannot reach for anything in its
+        # kit. (If the basic attack itself is unavailable the engine logs a hesitation.)
+        if self.get_status_stat_mod("silenced") > 0:
+            return basic
+
         hurt = self.current_health < self.max_health * 0.45
         for a in options:
             if a.kind == "heal" and hurt:

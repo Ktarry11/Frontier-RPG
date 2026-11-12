@@ -1,5 +1,5 @@
 """
-Four recruit signature abilities that did nothing now do what they say.
+Six recruit signature abilities that did nothing now do what they say.
 
 From the list of 34 inert personal-kit abilities (backlog group N). These four needed either
 nothing new or one small mechanic:
@@ -10,6 +10,10 @@ nothing new or one small mechanic:
   Sophia Dias       Get the Register Right                spells ignore the target's resistance
   Kesten Ambrose    He Catalogues                         the commonest KIND of enemy takes
                     +20% damage (uses the creature types built for crowd control)
+
+  Adrián Mendoza    He Still Has the Whistle              silences every enemy 2 turns
+  Saoirse Ní B.     The Sliotar                           silences one enemy 2 turns
+                    (new: silence - a monster can only make its basic attack; 1 turn on a boss)
 
 Each is cast for real, on the recruit the game builds, and the outcome is measured.
 """
@@ -115,12 +119,44 @@ def main():
             b += plain.take_damage(1000, "fire", attacker=hitter, attacker_level=60) or 0
         check(b and 1.15 <= a / b <= 1.25, f"a catalogued boar took {a / max(1, b):.2f}x the damage of an ordinary one (want 1.20)")
 
+    # Adrián and Saoirse: silence ---------------------------------------------------------
+    def kit_mob(name, boss=False):
+        import json as _j
+        cr = _j.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+        m = Monster(name, cr[name]["template"], level=60)
+        m.is_boss = boss
+        return m
+    caster_mob = next((n for n in ("Naga Siren", "Forsaken Mage", "Defias Pillager") if True), None)
+    for who, aid, multi in (("Adrián Mendoza", "personal_adrian_he_still_has_the_whistle", True),
+                            ("Saoirse Ni Bhraonain", "personal_saoirse_the_sliotar", False)):
+        c, ab = kit(who, aid)
+        if not ab:
+            continue
+        foe, boss = kit_mob(caster_mob), kit_mob(caster_mob, boss=True)
+        if not check(len(foe.abilities) > 1, f"rig: {caster_mob} has only a basic attack"):
+            continue
+        victim = Character("V", "Mage", 60)
+        free_picks = {foe.choose_action(victim).name for _ in range(60) if not foe.abilities[0].__setattr__("turns_remaining", 0)}
+        check(len(free_picks) > 1 or foe.abilities[0].name not in free_picks,
+              f"rig: an unsilenced {caster_mob} only ever uses {free_picks}")
+        ok, msg = ab.use(c, [foe, boss] if multi else foe, free=True)
+        check(ok and foe.get_status_stat_mod("silenced") > 0, f"{ab.name}: the target is not silenced ({msg})")
+        for a2 in foe.abilities:
+            a2.turns_remaining = 0
+        picks = {getattr(foe.choose_action(victim), "name", None) for _ in range(60)}
+        check(picks == {foe.abilities[0].name}, f"{ab.name}: a silenced {caster_mob} still used {picks}")
+        if multi:
+            eff = next((e for e in boss._effects() if (e.stat_mods or {}).get("silenced")), None)
+            check(eff is not None and eff.duration == 1, f"{ab.name}: on a boss the silence should last 1 turn, got {getattr(eff, 'duration', None)}")
+            eff = next((e for e in foe._effects() if (e.stat_mods or {}).get("silenced")), None)
+            check(eff is not None and eff.duration == 2, f"{ab.name}: on an ordinary enemy the silence should last 2 turns, got {getattr(eff, 'duration', None)}")
+
     # none of the four still says it needs something
     import json
     kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text())
     for k in kits.values():
         for a in (k.get("abilities") or []) if isinstance(k, dict) else []:
-            if a.get("ability_id") in ("personal_carolina_deep_in_march", "personal_rosa_stop_tracking_start_anticipating",
+            if a.get("ability_id") in ("personal_adrian_he_still_has_the_whistle", "personal_saoirse_the_sliotar", "personal_carolina_deep_in_march", "personal_rosa_stop_tracking_start_anticipating",
                                        "personal_sophia_get_the_register_right", "personal_kesten_he_catalogues"):
                 check(not str(a.get("engine", "")).startswith("needs"), f"{a['ability_id']} is still marked {a.get('engine')!r}")
                 check(a.get("stat_mods"), f"{a['ability_id']} has no effect")

@@ -945,6 +945,13 @@ class StatusEffectMixin:
         # and relying on is_stunned to ignore it, so the immunity is visible
         # in the combat log as a real resisted effect instead of a silent
         # no-op stun that still occupies a status-effect slot.
+        # A boss can be silenced, but only for a turn - the same "bosses resist hard control"
+        # rule that keeps type-specific crowd control off them, without making an interrupt
+        # worthless in the fights it matters most.
+        if (effect.effect_type == EffectType.DEBUFF and (effect.stat_mods or {}).get("silenced")
+                and getattr(self, "is_boss", False)):
+            effect.duration = min(effect.duration, 1)
+
         if effect.effect_type == EffectType.DEBUFF and effect.is_stun:
             if self.get_status_stat_mod("cc_immune") > 0:
                 return f"{self.name} is immune to {effect.name}!"
