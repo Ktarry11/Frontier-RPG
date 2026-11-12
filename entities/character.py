@@ -3317,6 +3317,23 @@ class Character(StatusEffectMixin):
                 self._on_status_effects_changed()
                 return 0
 
+        # THE ATTACKER'S OWN CHANCE TO MISS, from a debuff on it ("miss_chance_pct"). Every kind of
+        # attack, not only physical: something that cannot find its footing fumbles a spell as
+        # readily as a swing. There was no such thing as an enemy missing - an attack was
+        # dodged, parried, blocked or it landed - so Carolina Santos's "every enemy has a 25%
+        # chance to miss" had nothing to act on.
+        if attacker is not None and hasattr(attacker, "get_status_stat_mod"):
+            fumble = attacker.get_status_stat_mod("miss_chance_pct") or 0.0
+            if fumble > 0:
+                import random
+                if random.uniform(0, 100) < fumble:
+                    pending = getattr(self, "_pending_proc_messages", None)
+                    if pending is None:
+                        pending = []
+                        self._pending_proc_messages = pending
+                    pending.append(f"{getattr(attacker, 'name', 'The attack')} misses {self.name}!")
+                    return 0
+
         if damage_type == "physical":
             import random
             roll = random.uniform(0, 100)

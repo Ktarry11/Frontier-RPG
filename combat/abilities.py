@@ -350,6 +350,7 @@ class Ability:
                  damage_to_heal=None, dot_immune=False, on_damage_hot=None,
                  max_stacks=1, stack_on=None,
                  dynamic_resist=None,
+                 same_kind_only=False,
                  immediate=None,
                  variance_mode=None,
                  variance=None,
@@ -604,6 +605,10 @@ class Ability:
         #:                              as whichever school it resists least"
         #: Spec: {"mode": "...", "amount": 30}
         self.dynamic_resist = dict(dynamic_resist) if dynamic_resist else None
+        #: An all-enemies effect that lands only on the commonest KIND of creature among them
+        #: (world/creature_types.py) - Kesten's "He Catalogues": name a kind, and everything
+        #: of that kind is easier to hurt.
+        self.same_kind_only = bool(same_kind_only)
         #: An action taken on state that ALREADY EXISTS, rather than an
         #: effect applied. Five kit abilities rearrange rather than add:
         #:   {"action": "extend_buffs", "turns": 2}
@@ -2677,6 +2682,12 @@ class Ability:
             else:
                 living = [target] if target is not None else []
             if self.target_type == "all_enemies":
+                if self.same_kind_only and living:
+                    from world.creature_types import creature_type_of
+                    kinds = [creature_type_of(t) for t in living]
+                    named = max(dict.fromkeys(kinds), key=kinds.count)   # ties: first seen
+                    living = [t for t, k in zip(living, kinds) if k == named]
+                    self.last_named_kind = named
                 return living
             # max_targets (see Ability.__init__) caps a limited-cleave
             # ability to its real target count instead of hitting every
@@ -4376,6 +4387,7 @@ def _ability_from_data(entry):
         max_stacks=entry.get("max_stacks", 1),
         stack_on=entry.get("stack_on"),
         dynamic_resist=entry.get("dynamic_resist"),
+        same_kind_only=entry.get("same_kind_only", False),
         immediate=entry.get("immediate"),
         variance_mode=entry.get("variance_mode"),
         variance=entry.get("variance"),

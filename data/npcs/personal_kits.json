@@ -652,15 +652,17 @@
         "ability_id": "personal_rosa_stop_tracking_start_anticipating",
         "name": "Stop Tracking, Start Anticipating",
         "from": "'she had to stop tracking and start anticipating. She was bad at it for a year.'",
-        "engine": "needs: per-target guaranteed hit flag",
-        "effect_type": "debuff",
-        "target_type": "enemy",
+        "engine": "live: hit_rating to the cap for the window",
+        "effect_type": "buff",
+        "target_type": "self",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 4,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "For 4 turns Rosa's attacks against this target cannot miss.",
+        "stat_mods": {
+          "hit_rating": 27
+        },
+        "description": "For 4 turns Rosa's attacks cannot miss.",
         "ranks": [
           {
             "rank": 1,
@@ -756,15 +758,17 @@
         "ability_id": "personal_sophia_get_the_register_right",
         "name": "Get the Register Right",
         "from": "'you get the register right as well as the words'",
-        "engine": "needs: retarget a spell's school to the target's weakest",
+        "engine": "live: spell_penetration cancels the target's resistance outright",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 2,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "For 2 turns Sophia's spells are dealt as whichever school the target resists least.",
+        "stat_mods": {
+          "spell_penetration": 30
+        },
+        "description": "For 2 turns Sophia's spells go through whatever resistance the target has, as if it had none.",
         "ranks": [
           {
             "rank": 1,
@@ -898,21 +902,23 @@
         "ability_id": "personal_carolina_deep_in_march",
         "name": "Deep in March, Aground in September",
         "from": "'A channel that was deep in March will ground you in September.'",
-        "engine": "needs: applied miss chance on all enemies",
+        "engine": "live: miss_chance_pct on every enemy (Character.take_damage)",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 2,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "The footing shifts. For 2 turns every enemy has a 25% chance to miss.",
+        "stat_mods": {
+          "miss_chance_pct": 25
+        },
+        "description": "The footing shifts. For 2 turns every enemy has a 25% chance to miss with anything it does.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 35,
-            "effect_value": 25
+            "effect_value": 0
           }
         ]
       },
@@ -2040,23 +2046,26 @@
         "ability_id": "personal_kesten_he_catalogues",
         "name": "He Catalogues",
         "from": "'He catalogues. It is the only continuity he has and he defends it the way other people defend a family.'",
-        "engine": "needs: damage bonus scoped to a creature type for a window",
-        "effect_type": "buff",
-        "target_type": "self",
+        "engine": "live: same_kind_only debuff on the commonest creature type in the fight",
+        "effect_type": "debuff",
+        "target_type": "all_enemies",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
-        "stat_mods": {},
-        "description": "Kesten names the target's kind. For 5 turns the party deals 20% more damage to every enemy of that type.",
+        "stat_mods": {
+          "damage_taken_pct": 0.2
+        },
+        "description": "Kesten names the commonest kind of creature in the fight. For 5 turns every enemy of that kind takes 20% more damage from the whole party.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 2
+            "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "same_kind_only": true
       },
       {
         "ability_id": "personal_kesten_if_you_know_the_hand",
