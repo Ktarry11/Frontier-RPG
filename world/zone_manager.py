@@ -65,12 +65,6 @@ class ZoneManager:
             name for name, tm in all_zones.items() if getattr(tm, "is_cave", False)
         }
         
-        # ...and every exit is framed by something that looks like a way out. Hand-placed
-        # entrance art is left alone; this fills in the links nobody drew. See
-        # world/exit_frames.py.
-        from world.exit_frames import frame_exits
-        self.exit_frames = frame_exits(all_zones, self.portal_manager, self.cave_names)
-
         # Carve every tile a recruit could ever stand on, in any zone, from
         # recruits.json - both their wild spawn AND their home town. Zones
         # are generated once at launch but a dismissal can happen at any
@@ -89,6 +83,18 @@ class ZoneManager:
         # coordinates at once - exactly the scenario that bit vendors
         # before this pattern existed for them.
         self._place_ambient_npc_tiles()
+
+        # Every exit is framed by something that looks like a way out. Hand-placed entrance
+        # art is left alone; this fills in the links nobody drew (world/exit_frames.py). Done
+        # AFTER the NPC tiles above so a frame can step round somebody standing by the gate.
+        from world.exit_frames import frame_exits
+        self.exit_frames = frame_exits(all_zones, self.portal_manager, self.cave_names)
+
+        # ...and now that everybody is standing where they will stand, no tree, banner or
+        # crate is drawn over any of them. See world/npc_clearance.py.
+        from world.npc_clearance import clear_props_over_npcs
+        self.props_cleared_off_npcs = sum(
+            clear_props_over_npcs(entry["tilemap"]) for entry in self.zones.values())
 
         # Start player in the default start zone (world/start_zones.py). ZoneManager is built once per
         # process, before any character exists, so there is nothing to ask here - the real choice is

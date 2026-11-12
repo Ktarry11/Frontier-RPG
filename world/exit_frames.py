@@ -23,6 +23,7 @@ better art arrives, a line changes here and nothing else does.
 import os
 import re
 
+from world.npc_clearance import covered
 from world.portal_art import is_entrance_art
 
 ART = "assets/tiles/cave_entrances/"
@@ -216,6 +217,12 @@ def _place(tilemap, tiles, others, sprite, sizes):
         ay = min(max(0, y - (h - 1)), max(0, tilemap.height - h))
         if any(ax <= ox < ax + w and ay <= oy < ay + h for (ox, oy) in others):
             continue                                   # would sit on somebody else's door
+        probe = {"sprite_key": f"{ART}{sprite}.png", "anchor_x": ax, "anchor_y": ay,
+                 "width_tiles": w, "height_tiles": h}
+        if any(tilemap.interaction_layer[ty][tx] == "npc" and covered(probe, tx, ty) > 0.5
+               for ty in range(max(0, ay), min(tilemap.height, ay + h))
+               for tx in range(max(0, ax), min(tilemap.width, ax + w))):
+            continue                                   # the art would be drawn over somebody
         hits = [lm for lm in landmarks if _rect_hits(ax, ay, w, h, lm)]
         if any(is_entrance_art(lm["sprite_key"]) for lm in hits):
             continue                                   # would overlap another frame
@@ -286,10 +293,18 @@ def frame_exits(zones, portal_manager, cave_names):
             if sprite is None:
                 skipped.append((src, dest, "no art on disk for any look"))
                 continue
-            got = _place(tilemap, tiles, all_tiles - set(tiles), sprite,
-                         SIZES_CAVE if src_cave else SIZES_OPEN)
+            sizes = SIZES_CAVE if src_cave else SIZES_OPEN
+            got = _place(tilemap, tiles, all_tiles - set(tiles), sprite, sizes)
+            if got is None and not src_cave and dest not in cave_names:
+                # The piece that belongs here does not fit - usually a guard standing where a
+                # gatepost would go. A plainer gate from the same country often does.
+                for other in _first(REGION, f"{src} {src_region}"):
+                    if other != sprite and os.path.exists(f"{ART}{other}.png"):
+                        got = _place(tilemap, tiles, all_tiles - set(tiles), other, sizes)
+                        if got is not None:
+                            break
             if got is None:
-                skipped.append((src, dest, "no room without covering another door or frame"))
+                skipped.append((src, dest, "no room without covering another door, frame or NPC"))
             else:
                 placed += 1
     return {"placed": placed, "skipped": skipped}
