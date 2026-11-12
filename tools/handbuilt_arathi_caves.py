@@ -353,7 +353,13 @@ BARROW = dict(
 
 def _dress_barrow(zone, L):
     P = lambda *a, **k: _place(L, *a, **k)   # noqa: E731 - snaps onto real floor
-    P("gothic_gate", 30, 49, 6, solid="core", avoid=1)
+    # THE DOOR IS BEHIND YOU. The gate stood solid at y=49, three tiles in front of where the
+    # barrow sets you down, so the way in began with walking round its own front door. Kyle,
+    # 12 Nov: "Entering Drowned Barrow and I just immediately hit a wall prop." It is the door
+    # you came through now: against the south wall, round the arrival tile, not solid.
+    # Placed directly rather than through _place: _place snaps a prop AWAY from the arrival
+    # tile, which is the one place this has to be.
+    zone.add_landmark("assets/tiles/dungeon_props/gothic_gate.png", 27, 49, 6, 6, solid=False)
     P("broken_column", 25, 51, 5, solid="core")
     # the ribs: a sarcophagus in each, getting worse as you go in
     # NOT solid: each niche already has a stone plinth carved as a PILLAR at its centre, so a solid
@@ -409,7 +415,10 @@ WRACKLINE = dict(
     ALCOVES=[(18, 8, 3.2, 2.6, 0, 0.4), (28, 7, 3.2, 2.6, 0, 1.5), (40, 7, 3.2, 2.6, 0, 2.6),
              (34, 21, 3.4, 2.6, 0, 0.9), (52, 21, 3.4, 2.6, 0, 2.0), (16, 46, 3.4, 2.8, 0, 3.1)],
     #: rock islands standing in the boat floor, and a crate-row spine down the cargo shelf
-    PILLARS=[(28, 43, 2.6, 2.0, 15), (40, 44, 2.2, 1.8, -20), (17, 40, 2.0, 1.6, 0),
+    # NO ISLAND AT (28,43) ANY MORE. It stood three tiles north of the arrival at (28,48), dead
+    # centre in the mouth of the entry nook - Kyle, 10 Nov: "Wrackline hold....zone in and hit
+    # that wall again, not a good design." The boat floor keeps its other two.
+    PILLARS=[(40, 44, 2.2, 1.8, -20), (17, 40, 2.0, 1.6, 0),
              (34, 29, 4.5, 1.5, 0), (48, 29, 3.0, 1.5, 0), (30, 15, 1.8, 3.0, 0)],
     BOSSES=[(44, 12, "Captain Mory Vane"), (58, 30, "Ledger-Keeper Ashkin")],
     CHESTS=[(16, 46), (34, 21), (52, 21), (18, 8), (40, 7)],

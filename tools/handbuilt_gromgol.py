@@ -176,7 +176,13 @@ def dress(L):
     # ---- the north gate: the stair head up to the mooring tower ----------------------------------
     # The tower itself is a zone of its own now and stands outside the wall; what is left in here is
     # the foot of its stair and the traffic that comes down it.
-    B("gg_watchtower", 32, 16, 12, road_ok=True, nudge=0)
+    # AT THE STAIR HEAD, NOT ACROSS THE ROAD BELOW IT. With its base at y=16 the tower's
+    # solid foot sat on the road three tiles south of where the zeppelin stair sets you down,
+    # so the first thing anyone did in Grom'gol was walk round a watchtower. Kyle, 10 Nov:
+    # "imagine opening a door and the wall is RIGHT there. this also happens when you get off
+    # the zepplin in Grom'gol." It now stands over the stair itself (base y=6), not solid -
+    # you come down through its foot - and the road south is clear to the parade yard.
+    B("gg_watchtower", 32, 6, 12, road_ok=True, nudge=0, solid=False, allow_overlap=True)
 
     D("vot_war_banner", 26, 14, 5)
     D("vot_war_banner", 38, 14, 5)
@@ -210,7 +216,8 @@ def dress(L):
 
     # ---- the parade yard: fire, totem, the drillmaster's ground -----------------------------------
     D("vot_fire_pit", 32, 24, 3, solid=False, road_ok=True)
-    D("vot_totem_pole", 32, 20, 9, road_ok=True)
+    # Beside the road, not planted in the middle of it (it was at x=32, dead ahead of the stair).
+    D("vot_totem_pole", 21, 20, 9)
     D("vot_war_banner", 28, 26, 5)
     D("vot_war_banner", 36, 26, 5)
 

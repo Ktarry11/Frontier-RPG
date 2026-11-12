@@ -18,7 +18,9 @@ _ENTRANCE = re.compile(
     r"vot_rock_arch|gob_mine_frame|ruin_wall_arch|ruin_archway|"
     r"stv_liana_arch|stv_bone_arch|tiragarde_drawbridge|sf_start_gantry|bridge_plank|"
     # a boat is the entrance art for a boat crossing
-    r"boat_|ash_orc_skiff|bloodsail_galleon)"
+    r"boat_|ash_orc_skiff|bloodsail_galleon|"
+    # doors and towers that ARE the way in
+    r"gothic_gate|gg_watchtower)"
 )
 
 
