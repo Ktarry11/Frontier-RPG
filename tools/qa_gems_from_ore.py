@@ -13,6 +13,7 @@ Kyle, 12 Nov: "we get crystals from ore! ... Start adding gemstones and crystals
   6. a gem is worth more than the ore it came out of
   7. mining a vein for real puts the gem in the bag
   8. the crafting crystals still drop as before
+  9. all 50 have their own icon on disk (Kyle's two sheets, sliced by tools/slice_gem_sheets.py)
 """
 import json
 import os
@@ -93,6 +94,26 @@ def main():
           "the Malachite is not in the bag afterwards")
     src = (ROOT / "ui/screens/overworld_screen.py").read_text()
     check("roll_vein_gem(material_id)" in src, "gathering a vein does not roll for a gem")
+
+    # 9. every gem has its picture, where the game looks for it, and it is a real cut-out
+    from world.gathering_manager import MATERIAL_TYPE_FOLDERS
+    from PIL import Image
+    folder = ROOT / "assets" / "gathering_nodes" / MATERIAL_TYPE_FOLDERS["gem"]
+    seen = {}
+    for gid, g in gems.items():
+        path = folder / f"{g['icon_id']}.png"
+        if not check(path.exists(), f"{g['name']}: no icon at {path.relative_to(ROOT)}"):
+            continue
+        im = Image.open(path).convert("RGBA")
+        alpha = im.getchannel("A")
+        solid = sum(1 for v in alpha.getdata() if v > 200) / (im.width * im.height)
+        corner = alpha.getpixel((0, 0))
+        check(corner == 0 and 0.25 <= solid <= 0.95, f"{g['name']}: icon is not a clean cut-out (corner alpha {corner}, {solid:.0%} solid)")
+        r, gg, b, _a = im.resize((1, 1)).getpixel((0, 0))
+        check(not (r > 150 and b > 150 and gg < 80), f"{g['name']}: icon is still magenta")
+        key = im.tobytes()
+        check(key not in seen, f"{g['name']} and {seen.get(key)} have the same picture")
+        seen[key] = g["name"]
 
     # 8. crystals untouched
     hits = sum(1 for _ in range(4000) if gm.roll_vein_crystal("ore_copper", rng=rng))
