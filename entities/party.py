@@ -230,14 +230,19 @@ class Party:
 
     def restore_after_combat(self):
         """
-        Clear DoTs/HoTs on everyone once a fight ends. Buffs (Fortitude,
-        Might, Battle Shout, ...) are deliberately left running - they last
-        30 real-world minutes, WoW-style, and shouldn't vanish just because
-        the fight that was running when you cast them finished.
+        Strip everything that belonged to the fight off everyone once it ends - see
+        StatusEffectMixin.clear_combat_effects for what goes and what stays. Long buffs on a
+        real-time clock (Fortitude, Might, Mark of the Wild) are deliberately left running.
+
+        Bench included: a member swapped out mid-dungeon must not carry a boss's debuff on the
+        bench. And stats are recalculated, because the effects removed here now include ones
+        with stat_mods - without it a cleared debuff's penalty would stay baked into the sheet.
         """
-        for member in self.members:
+        for member in list(self.members) + list(getattr(self, "bench", []) or []):
             if hasattr(member, "clear_combat_effects"):
                 member.clear_combat_effects()
+                if hasattr(member, "_recalculate_derived_stats"):
+                    member._recalculate_derived_stats()
 
     # ------------------------------------------------------------------
     # Progression

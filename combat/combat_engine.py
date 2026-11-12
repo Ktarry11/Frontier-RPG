@@ -828,6 +828,9 @@ class CombatEngine:
         self.combat_log.append(f"{name} flees from combat!")
         self.is_active = False
         self.fled = True
+        # Running away ends the fight as surely as winning it: nothing an enemy put on the
+        # party follows it out. (Victory already did this; fleeing and wiping did not.)
+        self.party.restore_after_combat()
         self.combat_phase = "fled"
         self.current_actor = None
         return True, f"{name} flees from combat!"
@@ -869,6 +872,7 @@ class CombatEngine:
             self.is_active = False
             self.victory = False
             self.combat_log.append("Defeat! The party has been wiped out!")
+            self.party.restore_after_combat()
 
     _loot_item_drop_table = None  # class-level cache, loaded once across all CombatEngine instances
 

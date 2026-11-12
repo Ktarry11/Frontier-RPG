@@ -2504,15 +2504,35 @@ class StatusEffectMixin:
         self.active_effects = []
 
     def clear_combat_effects(self):
+        """What a fight leaves behind when it ends: NOTHING that belonged to the fight.
+
+        Kyle, 10 Nov, out of combat with "Swallow the Swimmer (1t)" and "Thrash the Hall (4t)"
+        still on him: "we should ensure they dont really last out of combat... i could likely
+        collect them like bad STDs."
+
+        This used to clear only DoTs and HoTs, on the reasoning that buffs and debuffs "expire
+        on their own real-time clock". Half of them have no clock. A combat-scope effect is
+        counted in TURNS, turns only pass in combat, and so a boss's debuff left on someone at
+        the end of a fight stayed at "4t" forever and the next boss added another.
+
+        KEPT - the three things that are meant to outlive a fight:
+          - a talent's or an item's proc carrier (permanent by design)
+          - a permanent passive (a turn duration past _PERMANENT_DURATION)
+          - a BUFF on a real-time clock: Fortitude, Mark of the Wild, Thorns - cast before the
+            fight, still running after it
+
+        REMOVED - everything else: DoTs, HoTs, every turn-counted buff, and EVERY debuff,
+        clock or no clock. Nothing an enemy put on you follows you out of the room.
         """
-        Clear only DOT/HOT effects when combat ends. BUFF/DEBUFF effects
-        are left alone - they expire on their own real-time clock via
-        tick_seconds(), independent of whether a fight is happening.
-        """
-        self.active_effects = [
-            e for e in self._effects()
-            if e.effect_type not in (EffectType.DOT, EffectType.HOT)
-        ]
+        def outlives_the_fight(e):
+            if str(getattr(e, "effect_id", "")).startswith((TALENT_PROC_PREFIX, ITEM_PROC_PREFIX)):
+                return True
+            if (getattr(e, "duration", 0) or 0) > self._PERMANENT_DURATION:
+                return True
+            return (e.effect_type == EffectType.BUFF
+                    and isinstance(getattr(e, "real_time_seconds", None), (int, float)))
+
+        self.active_effects = [e for e in self._effects() if outlives_the_fight(e)]
 
     def get_effects_summary(self):
         """Compact list for UI display: [(name, label, type), ...]
