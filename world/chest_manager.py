@@ -93,6 +93,28 @@ class ChestManager:
     # Dungeon level lookup
     # ------------------------------------------------------------------
 
+    def chest_level(self, zone_name, player_level):
+        """The level a chest in this zone rolls its loot at. THE ZONE DECIDES, NOT THE PARTY.
+
+        Kyle, 10 Nov: "chest items should be based on zone not on party level! i opened a
+        chest in STV and got a lvl 58 item."
+
+        A dungeon's chest already used the dungeon's level. An OPEN-WORLD chest had no level
+        of its own, so it fell back to whoever opened it - a level 60 walking through a
+        level 30 zone was handed level 58 gear from every chest. It now rolls inside the
+        zone's own level band (world/zone_levels.py, derived from what actually spawns
+        there). The opener's level is used only where a zone has no band at all, and even
+        then it can only lower the result, never raise it.
+        """
+        dungeon_level = self._dungeon_level_for_zone(zone_name)
+        if dungeon_level is not None:
+            return dungeon_level
+        from world.zone_levels import band
+        b = band(zone_name)
+        if b:
+            return random.randint(int(b[0]), int(b[1]))
+        return player_level
+
     def _dungeon_level_for_zone(self, zone_name):
         """The dungeon's own level, sourced from its highest-level
         is_boss creature in creatures.json (e.g. Skull Rock -> Gazz'uz,
@@ -176,8 +198,7 @@ class ChestManager:
         self._looted.add((tilemap.name, x, y))
         tilemap.set_tile(x, y, None, "interaction")
 
-        dungeon_level = self._dungeon_level_for_zone(tilemap.name)
-        effective_level = dungeon_level if dungeon_level is not None else player_level
+        effective_level = self.chest_level(tilemap.name, player_level)
 
         loot_gen = self._get_loot_generator()
 
