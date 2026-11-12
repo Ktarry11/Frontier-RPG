@@ -61,7 +61,7 @@ SEED = 4912
 
 TAU = 2.0 * np.pi
 
-#: THREE DOORS ON THIS MAP. (6,96) is the gate west to the Sands. (86,100) is the dig mouth on the
+#: TWO DOORS ON THIS MAP, AND ONE ARRIVAL. (6,96) is the gate west to the Sands. (86,100) is the dig mouth on the
 #: isle, which is the way INTO the dungeon. (78,101) is THE OUTFLOW, which is the way out of the
 #: far end of it - a party that fights all the way down to the heart follows the water back up and
 #: surfaces beside the camp it started from. Kyle: "at the very end (after the last boss) brings
@@ -69,7 +69,8 @@ TAU = 2.0 * np.pi
 PORTALS = {
     (6, 96): "The Abyssal Sands",
     (86, 100): "The Mother Vein",
-    (82, 101): "The Cistern",
+    # (82,101) is where the Cistern's outflow SURFACES. It is an arrival, not a door: the exit
+    # is one-way (Kyle, 10 Nov), so there is no portal tile here to walk back down.
 }
 ARRIVALS = [(12, 96)]
 START = (12, 96)

@@ -406,7 +406,12 @@ class PortalManager:
             "Glittervein": {
                 (6, 96): ("The Abyssal Sands", 176, 96),
                 (86, 100): ("The Mother Vein", 60, 104),
-                (82, 101): ("The Cistern", 60, 7),
+                # NO WAY IN AT THE OUTFLOW. The Cistern's far door (60,7) surfaces here at
+                # (82,101), and for a while this map linked straight back down it - so a
+                # party could walk in at the END of the dungeon, past every boss. Kyle,
+                # 10 Nov: "i didnt mean that you can ALSO enter at the END of the dungeon
+                # ....the portal outside is one way." The exit is one-way: the Cistern keeps
+                # its link out; there is no tile here that leads back.
             },
             "The Mother Vein": {
                 (60, 104): ("Glittervein", 86, 100),

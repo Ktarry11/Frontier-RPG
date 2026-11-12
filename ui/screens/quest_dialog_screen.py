@@ -49,9 +49,14 @@ def _quest_item_name(item_id):
         import json as _json
         from pathlib import Path as _Path
         root = _Path(__file__).resolve().parents[2]
-        for rel in ("data/creatures/quest_drops.json",):
+        # The drop tables FIRST (setdefault keeps the first name found), then every quest file:
+        # an item a quest HANDS you (grant_items) is named there and nowhere else, so every
+        # "Deliver" objective was printing its id - "Deliver ab collapse log."
+        sources = [root / "data/creatures/quest_drops.json"]
+        sources += sorted((root / "data/quests").glob("*.json"))
+        for path in sources:
             try:
-                blob = _json.loads((root / rel).read_text())
+                blob = _json.loads(path.read_text())
             except Exception:
                 continue
             stack = [blob]
@@ -63,7 +68,21 @@ def _quest_item_name(item_id):
                     stack.extend(node.values())
                 elif isinstance(node, list):
                     stack.extend(node)
-    return _QUEST_ITEM_NAMES.get(item_id)
+    name = _QUEST_ITEM_NAMES.get(item_id)
+    if name:
+        return name
+    # A GATHER objective can name a gathered MATERIAL ("herb_bruiseweed") rather than a quest
+    # drop, and that id lives in the materials table, not beside the drop tables. Without this
+    # the objective printed the id with its underscores swapped for spaces: "herb bruiseweed".
+    try:
+        from world.gathering_manager import get_gathering_node_manager
+        material = get_gathering_node_manager().make_material_instance(item_id)
+        if material is not None and getattr(material, "name", None):
+            _QUEST_ITEM_NAMES[item_id] = material.name
+            return material.name
+    except Exception:
+        pass
+    return None
 
 
 class QuestDialogScreen(BaseScreen):
@@ -1110,6 +1129,12 @@ class QuestDialogScreen(BaseScreen):
         out = []
         for obj in (quest.objectives or []):
             kind = field(obj, "objective_type", "type")
+            # IN THE LIVE GAME THIS IS AN ENUM, NOT A STRING. Every branch below compares
+            # against "kill", "fetch" and so on, so with a real QuestObjective none of them
+            # ever matched and every objective in the game fell through to the generic line -
+            # which printed the enum itself: "Objectivetype.Kill Boss: Void Handmaiden."
+            # (Kyle's screenshots, 10 Nov). The branches were only ever exercised with dicts.
+            kind = getattr(kind, "value", kind)
             target = field(obj, "target")
             count = field(obj, "count", default=1) or 1
             alts = list(field(obj, "alt_targets", default=[]) or [])
@@ -1155,6 +1180,9 @@ class QuestDialogScreen(BaseScreen):
                     who = (getattr(getattr(self, "npc", None), "name", None)
                            or "the quest giver")
                 out.append(f"Speak with {who}.")
+            elif kind == "story":
+                # No condition to state - it completes on accept or by a scripted event.
+                continue
             else:
                 out.append(f"{str(kind).replace('_', ' ').title()}: {name}.")
         return out
