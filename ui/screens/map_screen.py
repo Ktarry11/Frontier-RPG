@@ -360,6 +360,28 @@ class MapScreen(BaseScreen):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 self._draw_service_icon(screen, kind, fx, fy)
 
+        # GATHERING TRACKING. Kyle, 10 Nov: WoW-style Find Minerals / Find Herbs on the map.
+        # Every node in this zone that has not been gathered, for a gathering trade the player
+        # has LEARNED - a miner sees veins, a herbalist sees herbs, someone with neither sees
+        # nothing new. Drawn under the player marker and the service icons, so a node never
+        # hides a flight master.
+        self._tracked_nodes = []
+        known = self._tracked_professions()
+        if known:
+            gm = zm.gathering_manager
+            for node in getattr(gm, "active_nodes", []) or []:
+                if node.gathered:
+                    continue
+                data = gm.materials.get(node.material_id) or {}
+                if data.get("profession") not in known:
+                    continue
+                kind = data.get("material_type")
+                if kind not in self.TRACK_COLORS:
+                    continue
+                nx, ny = self._tile_to_screen(tilemap, rect, node.x, node.y)
+                self._draw_track_dot(screen, kind, nx, ny)
+                self._tracked_nodes.append((kind, node.x, node.y))
+
         # Player marker. It used to be drawn last, as a solid disc, "so it is never hidden" -
         # and so it hid whatever was under it. Open the map while talking to the flight
         # master, which is exactly when anyone looks for the flight master, and the disc sat
@@ -397,6 +419,13 @@ class MapScreen(BaseScreen):
             pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
+        # Tracked gathering nodes - only the kinds this player can actually see.
+        for kind, text in (("ore", "Ore vein (Mining)"), ("crystal", "Crystal (Mining)"),
+                           ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)")):
+            if self.TRACK_PROFESSION[kind] in known:
+                self._draw_track_dot(screen, kind, lx + 7, ly + 7)
+                self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
+                ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
         for kind, text in (("shop", "Vendor (buy / sell)"),
                            ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
@@ -434,6 +463,27 @@ class MapScreen(BaseScreen):
         self.renderer.draw_text(screen, footer,
                                 (SCREEN_WIDTH // 2 - fw // 2, SCREEN_HEIGHT - 34),
                                 color=(150, 150, 150))
+
+    #: Tracked node colours: a small diamond, so it cannot be mistaken for the round NPC and
+    #: portal dots.
+    TRACK_COLORS = {"ore": (235, 150, 60), "crystal": (110, 220, 235),
+                    "herb": (110, 220, 90), "wood": (170, 120, 70)}
+    TRACK_PROFESSION = {"ore": "mining", "crystal": "mining", "herb": "herbalism", "wood": "woodcutting"}
+
+    def _tracked_professions(self):
+        """The gathering trades the player has learned."""
+        player = getattr(self.state_manager, "player", None)
+        if player is None:
+            return set()
+        known = set(getattr(player, "known_professions", []) or [])
+        return known & set(self.TRACK_PROFESSION.values())
+
+    def _draw_track_dot(self, screen, kind, cx, cy):
+        color = self.TRACK_COLORS[kind]
+        pts = [(cx, cy - 5), (cx + 5, cy), (cx, cy + 5), (cx - 5, cy)]
+        pygame.draw.polygon(screen, (10, 10, 12), [(x + (1 if x > cx else -1 if x < cx else 0),
+                                                    y + (1 if y > cy else -1 if y < cy else 0)) for x, y in pts])
+        pygame.draw.polygon(screen, color, pts)
 
     def _draw_service_icon(self, screen, kind, cx, cy, scale=1.0):
         """Small procedural map glyphs: flight '!' / inn house / horseshoe / hearth star."""
