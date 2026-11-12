@@ -1303,8 +1303,10 @@
       "cooldown": 5,
       "effect_type": "buff",
       "duration": 2,
-      "stat_mods": {},
-      "description": "Wrap your party in cloud, absorbing damage for 2 turns.",
+      "stat_mods": {
+        "damage_taken_pct": -0.05
+      },
+      "description": "Wrap your party in cloud for 2 turns: it absorbs damage, and softens what gets through by 5%.",
       "_source": "CoA Wind, 'Requires 8 TE in this tree': \"Depletes 40 Static. Grant all party and raid members a shield that absorbs Intellect damage, scaling with Intellect, for 10 seconds. While active, the target suffers no spell pushback from taking damage.\" The 40-Static cost is kept verbatim and the pushback immunity maps onto pushback_reduction_pct, which Stabilizing Pressure on this same class already uses. absorb_pct_max_health sizes the shield per recipient from their own health, which is the only party-absorb shape the engine has (Pyromancer's Phoenix Dive, same key, same target_type) - CoA's Intellect scaling has nothing to hang on. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
       "target_type": "party",
       "absorb_pct_max_health": 0.1,
