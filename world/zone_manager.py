@@ -42,6 +42,7 @@ class ZoneManager:
         self.forge_manager = get_forge_manager()
         self.sawmill_manager = get_sawmill_manager()
         self.chest_manager = get_chest_manager()
+        self.dungeon_entry = None   # (zone, x, y) the party walked into the current dungeon by
         self._initialize_zones()
     
     def _initialize_zones(self):
@@ -547,6 +548,17 @@ class ZoneManager:
             self.player_x = target_x
             self.player_y = target_y
 
+            # WHERE A WIPE SENDS YOU BACK TO. Walking in from the open world marks the start of
+            # the dungeon; going deeper (deck to hold, Cistern to Mother Vein) keeps the mark on
+            # the first door, because "the start of the dungeon" is where you came in, not the
+            # top of whichever level you died on. See respawn_point().
+            came_from_cave = leaving is not None and getattr(leaving, "name", None) in self.cave_names
+            if new_zone.name in self.cave_names:
+                if not came_from_cave or getattr(self, "dungeon_entry", None) is None:
+                    self.dungeon_entry = (new_zone.name, target_x, target_y)
+            else:
+                self.dungeon_entry = None
+
             # Advance any active EXPLORE quest objective targeting this
             # zone. zone_slug, NOT zone_key: the quest system keys explore
             # objectives on the unstripped slug, so ten Underdark
@@ -631,6 +643,109 @@ class ZoneManager:
             self.pending_spawn = None
             return True
         return False
+
+    # ------------------------------------------------------------------
+    # Where the party wakes after a wipe
+    # ------------------------------------------------------------------
+
+    def respawn_point(self):
+        """(zone_name, x, y, plain-words label) for where a wiped party is put back.
+
+        Kyle, 12 Nov 2026: "they go back to either the start of the dungeon, start of the
+        cave, or if theyre in open world then they go back to the nearest town entrance."
+
+          * In a cave or dungeon: the tile the party first walked in on (dungeon_entry). A save
+            loaded mid-dungeon has no such mark, so it falls back to any door into this map.
+          * In the open world: the nearest town entrance. A town is either its own map reached
+            by a gate on this one (you wake just inside the gate) or a settlement inside this
+            map (you wake at its nearest edge). No town on this map: the closest one by road.
+        """
+        zone = self.current_zone
+        name = zone.name
+        px, py = self.player_x, self.player_y
+
+        if name in self.cave_names:
+            entry = getattr(self, "dungeon_entry", None)
+            if entry is None or entry[0] not in self.zones:
+                entry = self._any_door_into(name) or (name, px, py)
+            return (entry[0], entry[1], entry[2], f"the entrance of {entry[0]}")
+
+        if getattr(zone, "is_town", False):
+            door = self._any_door_into(name, near=(px, py))
+            if door:
+                return (name, door[1], door[2], f"the gates of {name}")
+            return (name, px, py, name)
+
+        best = None   # (distance, zone, x, y, label)
+        for (x, y) in self.portal_manager.get_portal_positions(name):
+            dest = self.portal_manager.get_destination(name, x, y)
+            if not dest or dest[0] not in self.zones:
+                continue
+            if getattr(self.zones[dest[0]]["tilemap"], "is_town", False):
+                d = abs(x - px) + abs(y - py)
+                if best is None or d < best[0]:
+                    best = (d, dest[0], dest[1], dest[2], f"the gates of {dest[0]}")
+        for sz in getattr(zone, "subzones", []) or []:
+            if not self.creature_manager.is_safe_subzone(name, sz.get("table_key")):
+                continue
+            ex = min(max(px, sz["x"]), sz["x"] + sz["w"] - 1)
+            ey = min(max(py, sz["y"]), sz["y"] + sz["h"] - 1)
+            d = abs(ex - px) + abs(ey - py)
+            if best is None or d < best[0]:
+                best = (d, name, ex, ey, f"the edge of {sz.get('name') or 'town'}")
+        if best:
+            return best[1:]
+
+        # No town on this map: walk the roads outward and take the first town reached.
+        seen, frontier = {name}, [name]
+        while frontier:
+            nxt = []
+            for z in frontier:
+                for (x, y) in self.portal_manager.get_portal_positions(z):
+                    dest = self.portal_manager.get_destination(z, x, y)
+                    if not dest or dest[0] in seen or dest[0] not in self.zones:
+                        continue
+                    seen.add(dest[0])
+                    if dest[0] in self.cave_names:
+                        continue
+                    if getattr(self.zones[dest[0]]["tilemap"], "is_town", False):
+                        return (dest[0], dest[1], dest[2], f"the gates of {dest[0]}")
+                    nxt.append(dest[0])
+            frontier = nxt
+        return (name, px, py, name)
+
+    def _any_door_into(self, zone_name, near=None):
+        """(zone, x, y) of an arrival point into zone_name, preferring one from outside a cave
+        and, if `near` is given, the closest to that tile. None if nothing leads here."""
+        found = []
+        for (src, _x, _y), (dest, dx, dy) in self.portal_manager._lookup.items():
+            if dest == zone_name:
+                found.append((src in self.cave_names,
+                              abs(dx - near[0]) + abs(dy - near[1]) if near else 0, dx, dy))
+        if not found:
+            return None
+        found.sort()
+        return (zone_name, found[0][2], found[0][3])
+
+    def send_to_respawn(self):
+        """Put the party at respawn_point(). Returns the label, for the message.
+
+        Inside the same map this is a plain move, NOT a transition: a transition lays the
+        dungeon's spawns out again, and a wipe must not bring back what the party already
+        killed on the way in.
+        """
+        zone_name, x, y, label = self.respawn_point()
+        if zone_name == self.current_zone.name:
+            if not self.current_zone.is_walkable(x, y):
+                x, y = self._find_nearest_walkable(self.current_zone, x, y) or (x, y)
+            self.player_x, self.player_y = x, y
+            self.pending_spawn = None
+        else:
+            keep = getattr(self, "dungeon_entry", None)
+            self.transition_to_zone(zone_name, x, y, via_portal=False)
+            if zone_name in self.cave_names and keep and keep[0] == zone_name:
+                self.dungeon_entry = keep
+        return label
 
     @staticmethod
     def _find_nearest_walkable(zone, x, y, max_radius=15):

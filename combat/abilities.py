@@ -4351,8 +4351,33 @@ def _load_class_ability_data(char_class):
         print(f"ERROR: failed to load abilities for {char_class}: {e}")
         abilities = []
 
+    # THE RES SPELL. Every class that can heal an ally owns one (Kyle, 12 Nov 2026), and it is
+    # kept in its own file rather than in the class JSON - see data/resurrection_spells.json.
+    # Folded in HERE, at the one loader, so the trainer, the spellbook and the ability book all
+    # see the same list. A class that already has a revive of its own is left alone.
+    res = _resurrection_spells().get(prefix)
+    if res and not any(a.get("effect_type") == "revive" for a in abilities):
+        abilities = list(abilities) + [res]
+
     _ABILITY_CACHE[prefix] = abilities
     return abilities
+
+
+_RES_SPELLS = None
+
+
+def _resurrection_spells():
+    """{class file prefix: ability entry} from data/resurrection_spells.json. {} if unreadable."""
+    global _RES_SPELLS
+    if _RES_SPELLS is None:
+        import json
+        from pathlib import Path
+        try:
+            with open(Path(__file__).parent.parent / "data" / "resurrection_spells.json") as f:
+                _RES_SPELLS = json.load(f).get("spells", {})
+        except (OSError, json.JSONDecodeError):
+            _RES_SPELLS = {}
+    return _RES_SPELLS
 
 
 def _normalize_requires_form(raw):

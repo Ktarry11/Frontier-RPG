@@ -65,6 +65,8 @@ class Consumable:
         """Check if character can use this consumable."""
         if character.level < self.required_level:
             return False
+        if getattr(character, "current_health", 1) <= 0:
+            return False   # no potion, bandage or meal raises the dead - only a res does
         # FOOD AND DRINK ARE NOT ON THE POTION COOLDOWN, and they do not set it. They fill different
         # bars and you are meant to be able to do both at once - the first build shared the cooldown,
         # so drinking while eating silently did nothing: no log line, no mana, no error. Their cost is

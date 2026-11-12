@@ -223,7 +223,14 @@ class CastPanel:
             return
 
         party = self.state_manager.get_party()
-        self.target_candidates = party.living_members()
+        if getattr(ability, "effect_type", None) == "revive":
+            # A res is aimed at the fallen, and is the only thing out here that can be.
+            self.target_candidates = party.fallen_members()
+            if not self.target_candidates:
+                self._show_message("Nobody has fallen.", COLOR_RED)
+                return
+        else:
+            self.target_candidates = party.living_members()
         if len(self.target_candidates) == 1:
             self._cast(actor, ability, self.target_candidates[0])
             return

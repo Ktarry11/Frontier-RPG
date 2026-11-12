@@ -121,6 +121,35 @@ _set("tauren", 6, 5, "assets/buildings", """
     tau_storehouse tau_food_cache tau_kodo_pen tau_stable tau_water_trough tau_watchtower
     tau_gate_arch tau_palisade tau_totem_pole tau_footbridge tau_tent_burned tau_lodge_collapsed""")
 
+#: ENTRANCE ART, sheet 2 (claude/entrance_art_prompts_2.md): the way OUT seen from inside, road
+#: gates by region, and entrances for the newer zones' dungeons. The ent_ prefix is what lets a
+#: sprite stand over a portal tile (world/portal_art.py).
+_set("entrances_2", 6, 4, "assets/tiles/cave_entrances", """
+    ent_exit_cave_daylight ent_exit_stone_stairs ent_exit_mine_adit ent_exit_ice_tunnel ent_exit_crystal ent_exit_flooded_stairs
+    ent_exit_ship_hatch ent_exit_gangplank ent_gate_kodo_tusks ent_gate_lychgate ent_gate_tollgate ent_gate_standing_stones
+    ent_gate_sand_pylons ent_gate_rope_bridge ent_gate_snow_logs ent_gate_basalt_storm ent_gate_goblin_port ent_gate_crystal_arch
+    ent_ogre_mound ent_kobold_dig ent_shipwreck_hull ent_dwarven_vault ent_salt_sinkhole ent_sunken_belltower""")
+
+#: ENTRANCE ART, sheet 3 (claude/entrance_art_prompts_3_4.md): town gates, boat landings, and
+#: six more road gates. Row 4 was ASKED for side-on and came back facing the camera, so those
+#: six are filed as plain front-facing gates; the side-on piece is still missing.
+_set("entrances_3", 6, 4, "assets/tiles/cave_entrances", """
+    ent_town_tauren_totems ent_town_nightelf_bridge ent_town_forsaken_gate ent_town_troll_gate ent_town_wheel_arch ent_town_highelf_gate
+    ent_town_headframe_gate ent_town_charred_gate ent_town_whalerib_gate ent_town_pirate_gate ent_gate_wall_breach ent_gate_pass_cairns
+    ent_dock_pier ent_dock_troll ent_dock_goblin ent_dock_forsaken ent_dock_nightelf ent_dock_slipway
+    ent_gate_logs ent_gate_stone_pillars ent_gate_tusk_banners ent_gate_sandstone ent_gate_bamboo ent_gate_snowpine""")
+
+#: Sheet 4: the way OUT by dungeon flavour, and doors that lead deeper. Kyle generated it twice
+#: and kept both ("i downloaded both"), so the second take is the same list with _b - a second
+#: look for each, which matters where one dungeon has several exits.
+_set("entrances_4a", 6, 4, "assets/tiles/cave_entrances", """
+    ent_exit_crypt_stairs ent_exit_spider_web ent_exit_troll_temple ent_exit_lava_fissure ent_exit_ogre_hall ent_exit_kobold_tunnel
+    ent_exit_dwarven_vault ent_exit_keep_gate ent_exit_tower_door ent_exit_root_hollow ent_exit_sewer_grate ent_exit_salt_shaft
+    ent_exit_bramble ent_exit_wreck_hull ent_exit_bell_window ent_exit_slot_canyon ent_exit_fern_cavern ent_exit_coral_arch
+    ent_door_ship_cabin ent_door_ship_hatch_down ent_door_stairs_down ent_door_bronze_pipe ent_door_ice_steps ent_door_crystal_rift""")
+_set("entrances_4b", 6, 4, "assets/tiles/cave_entrances", """
+    ent_exit_crypt_stairs_b ent_exit_spider_web_b ent_exit_troll_temple_b ent_exit_lava_fissure_b ent_exit_ogre_hall_b ent_exit_kobold_tunnel_b ent_exit_dwarven_vault_b ent_exit_keep_gate_b ent_exit_tower_door_b ent_exit_root_hollow_b ent_exit_sewer_grate_b ent_exit_salt_shaft_b ent_exit_bramble_b ent_exit_wreck_hull_b ent_exit_bell_window_b ent_exit_slot_canyon_b ent_exit_fern_cavern_b ent_exit_coral_arch_b ent_door_ship_cabin_b ent_door_ship_hatch_down_b ent_door_stairs_down_b ent_door_bronze_pipe_b ent_door_ice_steps_b ent_door_crystal_rift_b""")
+
 #: SMOKE DRAWN OVER A MAGENTA KEY COMES BACK PURPLE. A generator asked for a lodge with a smoke hole
 #: draws the plume semi-transparent, and whatever is behind it - the key - bleeds through. Keying then
 #: gives a correctly-shaped wisp in the wrong colour, which is invisible against dark ground and obvious

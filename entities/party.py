@@ -228,6 +228,34 @@ class Party:
     def back_line(self):
         return [m for m in self.members if getattr(m, "row", FRONT_ROW) == BACK_ROW]
 
+    #: What a wipe costs: this share of each member's progress through their current level.
+    WIPE_XP_LOSS = 0.15
+
+    def fallen_members(self):
+        return [m for m in self.members if not m.is_alive()]
+
+    def wipe_penalty(self):
+        """The whole group is down. Everyone loses WIPE_XP_LOSS of their experience and gets
+        back up. Returns [(member, xp_lost), ...].
+
+        Kyle, 12 Nov 2026: "When people all die the entire group loses 15% of their EXP."
+        `experience` is progress through the CURRENT level, so nobody loses a level over it -
+        the bar slides back and that is all.
+        """
+        out = []
+        for member in self.members:
+            lost = int(round(max(0, getattr(member, "experience", 0)) * self.WIPE_XP_LOSS))
+            member.experience = max(0, getattr(member, "experience", 0) - lost)
+            member.current_health = member.health
+            if hasattr(member, "current_mana"):
+                member.current_mana = getattr(member, "mana", 0)
+            if hasattr(member, "current_rage"):
+                member.current_rage = 0
+            if hasattr(member, "current_energy"):
+                member.current_energy = 100
+            out.append((member, lost))
+        return out
+
     def restore_after_combat(self):
         """
         Strip everything that belonged to the fight off everyone once it ends - see
@@ -258,6 +286,11 @@ class Party:
         """
         levelled = []
         for member in self.members:
+            # THE DEAD LEARN NOTHING. Kyle, 12 Nov 2026: "IF one character is alive after a
+            # win, only that character gets exp for the kill." It also keeps a level-up's
+            # full heal from being a free resurrection.
+            if not member.is_alive():
+                continue
             gained = member.gain_experience(amount)
             if gained:
                 levelled.append((member, gained))
@@ -265,6 +298,8 @@ class Party:
         bench_amount = int(amount * BENCH_XP_RATIO)
         if bench_amount > 0:
             for member in self.bench:
+                if not member.is_alive():
+                    continue
                 gained = member.gain_experience(bench_amount)
                 if gained:
                     levelled.append((member, gained))

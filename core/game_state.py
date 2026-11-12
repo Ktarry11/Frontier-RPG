@@ -163,6 +163,29 @@ class GameStateManager:
             self._save_system_instance = SaveSystem()
         return self._save_system_instance
 
+    def resolve_wipe(self):
+        """The whole party is dead. Charge the price, stand everyone up, and put them back at
+        the start of the dungeon or the nearest town entrance. Returns the lines to show.
+
+        Kyle, 12 Nov 2026: "When people all die the entire group loses 15% of their EXP and
+        they go back to either the start of the dungeon, start of the cave, or if theyre in
+        open world then they go back to the nearest town entrance."
+        """
+        party = self.get_party()
+        lost = party.wipe_penalty()
+        zm = self._live_zone_manager()
+        where = zm.send_to_respawn() if zm else "safety"
+        total = sum(n for _m, n in lost)
+        self.last_wipe = {"where": where, "xp_lost": total,
+                          "lines": [f"The party was wiped out and wakes at {where}.",
+                                    f"Everyone lost {int(party.WIPE_XP_LOSS * 100)}% of their "
+                                    f"experience ({total} in all)."]}
+        overworld = self.states.get(GameState.OVERWORLD)
+        if overworld is not None and hasattr(overworld, "_notify"):
+            overworld._notify(f"Wiped out. -{int(party.WIPE_XP_LOSS * 100)}% experience. "
+                              f"You wake at {where}.", (240, 140, 140), duration=7.0)
+        return self.last_wipe["lines"]
+
     def _live_zone_manager(self):
         """The ZoneManager actually driving play (owned by OverworldScreen)."""
         overworld = self.states.get(GameState.OVERWORLD)

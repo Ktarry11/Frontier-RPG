@@ -3688,6 +3688,11 @@ class Character(StatusEffectMixin):
         is a healing-received buff, negative is the much more common
         anti-heal debuff (most of this engine's uses are the latter).
         """
+        # THE DEAD DO NOT MEND. A heal, a potion, a HoT tick and a bandage all arrive here, and
+        # none of them is a resurrection - only a `revive` ability raises the fallen (Kyle, 12
+        # Nov 2026: "they better hope to hell they have a res").
+        if self.current_health <= 0:
+            return
         mult = 1.0 + (self.get_status_stat_mod("healing_taken_pct") if hasattr(self, "get_status_stat_mod") else 0.0) / 100.0
         landed = amount * max(0.0, mult)
         spare = self.current_health + landed - self.health

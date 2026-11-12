@@ -2411,6 +2411,9 @@ class StatusEffectMixin:
         still gets the full value of their bread, which is the entire point of selling it to them.
         """
         hp = mana = 0.0
+        if getattr(self, "current_health", 1) <= 0:      # the dead neither eat nor drink
+            self._meal_regen = self._drink_regen = None
+            return hp, mana
         meal = getattr(self, "_meal_regen", None)
         if meal and meal["left"] > 0:
             step = min(dt, meal["left"])
@@ -2453,6 +2456,8 @@ class StatusEffectMixin:
         """
         spirit = getattr(self, "effective_spirit", 0)
         if spirit <= 0:
+            return
+        if getattr(self, "current_health", 1) <= 0:      # nor do they recover on their own
             return
 
         mult = 1.0 if is_moving else self.STANDING_STILL_MULT

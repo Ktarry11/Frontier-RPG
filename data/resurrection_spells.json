@@ -1,0 +1,453 @@
+{
+  "_about": "The res spell every class that can heal an ally owns (Kyle, 12 Nov 2026: 'any class that can heal gets a revival skill'). Kept OUT of data/abilities/ on purpose: several class files are owned by a generator and would drop a hand edit, and every tool that globs that folder treats each file as a class. combat/abilities._load_class_ability_data folds the entry in. Bloodmage, Necromancer and Tinker already own a revive of their own and are not listed. Barbarian (two war-cry party heals), Hunter and Warlock (pet-only heals) cannot heal a fallen friend and get none.",
+  "spells": {
+    "priest": {
+      "ability_id": "priest_resurrection",
+      "name": "Resurrection",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Calls a fallen ally's spirit back into their body.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "priest_heal"
+    },
+    "paladin": {
+      "ability_id": "paladin_redemption",
+      "name": "Redemption",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Lays hands on a fallen ally and bids them rise.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "paladin_holy_light"
+    },
+    "shaman": {
+      "ability_id": "shaman_ancestral_spirit",
+      "name": "Ancestral Spirit",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Asks the ancestors to send a fallen ally back.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "shaman_healing_wave"
+    },
+    "druid": {
+      "ability_id": "druid_rebirth",
+      "name": "Rebirth",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Pours life back into a fallen ally.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "druid_healing_touch"
+    },
+    "chronomancer": {
+      "ability_id": "chronomancer_undo_the_hour",
+      "name": "Undo the Hour",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Turns a fallen ally's last moments back to before the blow landed.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "chronomancer_reverse_wound"
+    },
+    "cultist": {
+      "ability_id": "cultist_called_back",
+      "name": "Called Back",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Something below is asked to return a fallen ally. It does, this time.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "cultist_eldritch_mending"
+    },
+    "primalist": {
+      "ability_id": "primalist_breath_of_the_wild",
+      "name": "Breath of the Wild",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Breathes the living wild back into a fallen ally.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "primalist_hand_of_the_earthmother"
+    },
+    "pyromancer": {
+      "ability_id": "pyromancer_rekindle",
+      "name": "Rekindle",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Finds the last ember in a fallen ally and blows on it.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "pyromancer_ember_touch"
+    },
+    "starcaller": {
+      "ability_id": "starcaller_moonrise",
+      "name": "Moonrise",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Raises a fallen ally as the moon is raised.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 14,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "starcaller_moonwell_splash"
+    },
+    "sun_cleric": {
+      "ability_id": "sun_cleric_second_dawn",
+      "name": "Second Dawn",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A fallen ally is given a second morning.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "sun_cleric_illumination"
+    },
+    "templar": {
+      "ability_id": "templar_rite_of_rising",
+      "name": "Rite of Rising",
+      "resource_type": "combo",
+      "cooldown": 14,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Speaks the rite over a fallen ally, who stands.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 0,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "templar_benediction"
+    },
+    "venomancer": {
+      "ability_id": "venomancer_shadras_thread",
+      "name": "Shadra's Thread",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Stitches a fallen ally's life back to their body with a single strand.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "venomancer_emerald_veil"
+    },
+    "witch_doctor": {
+      "ability_id": "witch_doctor_loas_bargain",
+      "name": "Loa's Bargain",
+      "resource_type": "mana",
+      "cooldown": 12,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Strikes a bargain with the Loa for a fallen ally's return.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 12,
+          "cost": 140,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 250,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 350,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "witch_doctor_loas_brew"
+    },
+    "stormbringer": {
+      "ability_id": "stormbringer_restart_the_heart",
+      "name": "Restart the Heart",
+      "resource_type": "static",
+      "cooldown": 14,
+      "effect_type": "revive",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "One sharp jolt, and a fallen ally's heart remembers its work.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 18,
+          "cost": 0,
+          "effect_value": 35
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 0,
+          "effect_value": 50
+        },
+        {
+          "rank": 3,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 65
+        }
+      ],
+      "target_type": "ally",
+      "icon_id": "stormbringer_invigorating_surge"
+    }
+  }
+}

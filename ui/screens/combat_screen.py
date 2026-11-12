@@ -353,15 +353,17 @@ class CombatScreen(BaseScreen):
             if event.type == pygame.MOUSEBUTTONDOWN or (
                 event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE
             ):
-                # Respawn logic: revive the WHOLE party, not just the
-                # player - a downed companion must not stay dead forever.
+                # WHO GETS UP. Nobody, unless the whole group went down.
+                #
+                # This used to stand every fallen member back up at full health on the way
+                # out of any fight, won or lost, which made death cost nothing. Kyle, 12 Nov
+                # 2026: a win leaves the dead dead ("they better hope to hell they have a
+                # res"), and a wipe costs the group 15% of its experience and sends it back
+                # to the start of the dungeon or the nearest town entrance.
+                engine = self.combat_engine
                 party = self.state_manager.get_party()
-                for member in party.members:
-                    if not member.is_alive():
-                        member.current_health = member.health
-                        member.current_mana = member.mana
-                        member.current_rage = 0
-                        member.current_energy = 100
+                if not engine.victory and not getattr(engine, "fled", False) and party.is_wiped():
+                    self.state_manager.resolve_wipe()
                 # Clear combat engine so next combat reinitializes
                 self.combat_engine = None
 
@@ -651,7 +653,15 @@ class CombatScreen(BaseScreen):
             return
 
         # Manually targetable: pick between allies or enemies
-        if target_type == "ally":
+        if target_type == "ally" and getattr(ability, "effect_type", None) == "revive":
+            # A res is the one ally spell aimed at somebody who is NOT standing. This branch
+            # did not exist, so the three revives in the game could only ever be offered the
+            # living and answered "is not dead!" every time.
+            valid = [m for m in self.state_manager.get_party().members if not m.is_alive()]
+            if not valid:
+                self.message_log.append("Nobody has fallen.")
+                return
+        elif target_type == "ally":
             valid = self.combat_engine.living_allies()
         else:  # "enemy"
             valid = self.combat_engine.living_enemies()
@@ -1681,7 +1691,7 @@ class CombatScreen(BaseScreen):
             # that is still standing behind you.
             if getattr(self.combat_engine, "fled", False):
                 result, color = "Fled!", COLOR_YELLOW
-            elif player.is_alive():
+            elif self.combat_engine.victory:
                 result, color = "Victory!", COLOR_GREEN
             else:
                 result, color = "Defeat!", COLOR_RED
@@ -1717,7 +1727,7 @@ class CombatScreen(BaseScreen):
             # no EXP and usually no loot, so reserving a box's worth of
             # height there left a visible hole between "Defeat!" and the
             # prompt.
-            boxes_shown = int(bool(player.is_alive())) + int(bool(loots))
+            boxes_shown = int(bool(self.combat_engine.victory)) + int(bool(loots))
             content_h = max(box_h, loot_h) if boxes_shown else 0
             # The warning sits under both boxes, so it adds to the panel height
             # rather than competing with them - otherwise it would render on top
@@ -1746,7 +1756,7 @@ class CombatScreen(BaseScreen):
                 exp_box = pygame.Rect(SCREEN_WIDTH // 2 - box_w // 2, box_y, box_w, box_h)
                 loot_box = exp_box
 
-            if player.is_alive():
+            if self.combat_engine.victory:
                 self.renderer.draw_rect(screen, exp_box, (30, 30, 40))
                 self.renderer.draw_rect(screen, exp_box, COLOR_GOLD, fill=False)
                 exp_text = f"+{exp_earned} EXP"
@@ -1805,7 +1815,7 @@ class CombatScreen(BaseScreen):
                                             (warn.centerx - ew // 2, wy),
                                             color=(190, 160, 140))
 
-            if player.is_alive():
+            if self.combat_engine.victory:
                 bits = []
                 coin = getattr(self.combat_engine, "copper_earned", 0)
                 if coin:
@@ -1819,11 +1829,44 @@ class CombatScreen(BaseScreen):
                     self.renderer.draw_text(screen, line, (SCREEN_WIDTH // 2 - lw // 2, box_y + content_h + 18),
                                             color=(190, 190, 150))
 
+            # WHAT DEATH COST. Said here, on the screen where it happened, rather than left
+            # for the player to work out from a party frame an hour later.
+            note = self._death_note()
+            if note:
+                nw = self.renderer.font_normal.size(note)[0]
+                self.renderer.draw_text(screen, note,
+                                        (SCREEN_WIDTH // 2 - nw // 2, box_y + content_h + 37),
+                                        color=(225, 120, 110))
+
             prompt = "Click to return to overworld"
             prompt_width = self.renderer.font_normal.size(prompt)[0]
             self.renderer.draw_text(
                 screen, prompt,
                 (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + content_h + 56))
+
+    def _death_note(self):
+        """One line for the result screen about who is down and what it cost, or ''."""
+        engine = self.combat_engine
+        cached = getattr(self, "_death_note_for", None)
+        if cached and cached[0] is engine:
+            return cached[1]
+        note = self._build_death_note(engine)
+        self._death_note_for = (engine, note)
+        return note
+
+    def _build_death_note(self, engine):
+        party = self.state_manager.get_party()
+        fallen = [m.name for m in party.members if not m.is_alive()]
+        if not fallen:
+            return ""
+        if not engine.victory and not getattr(engine, "fled", False) and party.is_wiped():
+            zm = self.state_manager._live_zone_manager()
+            where = zm.respawn_point()[3] if zm else "safety"
+            return (f"The party loses {int(party.WIPE_XP_LOSS * 100)}% of its experience "
+                    f"and wakes at {where}.")
+        names = fallen[0] if len(fallen) == 1 else ", ".join(fallen[:-1]) + " and " + fallen[-1]
+        verb = "is" if len(fallen) == 1 else "are"
+        return f"{names} {verb} dead, earned nothing, and will stay down until revived."
 
     def _draw_buff_icons_mini(self, screen, combatant, pos):
         """
