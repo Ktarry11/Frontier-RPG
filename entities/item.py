@@ -205,6 +205,18 @@ class Item:
     def is_bag(self):
         return self.armor_type == "bag"
 
+    @property
+    def is_gear(self):
+        """False for a recipe scroll - an Item in the bag that is not something you wear.
+
+        The inventory screen routes every click and tooltip on
+        getattr(item, "is_gear", True). Item had no such attribute, so a scroll read as gear,
+        went down the equip path, and was DELETED: equip_item took it out of the bag and
+        Equipment.equip had no "recipe" slot to put it in. Kyle, 10 Nov: "i can click on it...
+        and it vanishes." Every pattern, plan, recipe and schematic in the game.
+        """
+        return self.slot != "recipe" and not self.recipe_id
+
     def to_dict(self):
         """Serialize for save system."""
         return {

@@ -4063,6 +4063,14 @@ class Character(StatusEffectMixin):
         if not allowed:
             return False
 
+        # NOTHING LEAVES THE BAG UNLESS IT HAS SOMEWHERE TO GO. Equipment.equip returns None
+        # for an item whose slot is not an equipment slot, and this used to carry on and
+        # remove it from the inventory anyway - the item was simply destroyed. That is how
+        # every recipe scroll in the game was eaten on click (slot "recipe"). Refuse here, at
+        # the point every path funnels through, so no future non-gear item can go the same way.
+        if not getattr(item, "is_gear", True) or not self.equipment.has_slot_for(item):
+            return False
+
         result = self.equipment.equip(item)
         previous, displaced_offhand = result if isinstance(result, tuple) else (result, None)
 

@@ -784,7 +784,7 @@ class InventoryScreen(BaseScreen):
                 # QuestItem has no item_level - shows its stack quantity
                 # in that corner instead, which is the more useful readout
                 # for a stackable non-gear item anyway.
-                corner_text = (f"x{item.quantity}" if not getattr(item, "is_gear", True)
+                corner_text = (f"x{getattr(item, 'quantity', 1)}" if not getattr(item, "is_gear", True)
                                else f"ilvl {item.item_level}")
                 if not icon_drawn:
                     # Text fallback for anything without real icon art yet
@@ -797,7 +797,7 @@ class InventoryScreen(BaseScreen):
                     # Icon art shown - ilvl (or quantity) still worth a
                     # small corner readout so browsing doesn't require
                     # hovering every single item.
-                    corner_short = (f"x{item.quantity}" if not getattr(item, "is_gear", True)
+                    corner_short = (f"x{getattr(item, 'quantity', 1)}" if not getattr(item, "is_gear", True)
                                     else str(item.item_level))
                     self.renderer.draw_text(screen, corner_short,
                                             (rect.x + 3, rect.bottom - 16),
@@ -1128,50 +1128,77 @@ class InventoryScreen(BaseScreen):
         return f"  ({gain:+.1f}% phys reduction)"
 
     def _draw_recipe_scroll_tooltip(self, screen, item, mouse_pos):
-        """WoW-style recipe scroll tooltip: name (rarity-coloured), profession + skill requirement,
-        known/learnable/locked state, and flavor text."""
+        """WoW-style recipe scroll tooltip. Kyle, 10 Nov: "patterns should show what they
+        craft, what is needed to learn them... what level they are."
+
+        Name, then the profession and skill it needs and where this character stands against
+        that, then WHAT IT MAKES (slot, type, rarity, item level - the stats are rolled when it
+        is crafted, so they cannot be promised here) and the materials one craft takes. No
+        "Item Level" for the scroll itself: that number was a proxy derived from the skill.
+        """
         subject = self._get_subject()
         recipe_id = item.recipe_id
         profession = item.recipe_profession or ""
-
-        # Pull skill_required from the recipe data
         try:
             from world.recipe_manager import get_recipe_info
             _, recipe_data = get_recipe_info(recipe_id)
-            skill_req = recipe_data.get("skill_required", 0) if recipe_data else 0
         except Exception:
-            skill_req = 0
+            recipe_data = None
+        recipe_data = recipe_data or {}
+        skill_req = recipe_data.get("skill_required", 0)
 
         rarity_color = getattr(item, "get_rarity_color", lambda: COLOR_WHITE)()
+        GREY, RED, GREEN, BLUE, GOLD = (170, 170, 170), (220, 70, 70), (120, 220, 140), (130, 180, 220), (200, 200, 140)
+        box_w = 320
+        body_w = box_w - 16
+        lines = [(t, rarity_color) for t in self.renderer.wrap_text(item.name, body_w)]
 
-        lines = [(item.name, rarity_color)]
         if profession:
-            lines.append((f"{profession.title()}", (170, 170, 170)))
-
-        # State line: already known / skill too low / click to learn
-        if subject:
-            if subject.knows_recipe(recipe_id):
-                lines.append(("Already known.", (170, 170, 170)))
-            else:
-                current_skill = subject.profession_skills.get(profession, 0)
+            need = f"Requires {profession.title()} ({skill_req})" if skill_req else f"Requires {profession.title()}"
+            met = True
+            if subject is not None:
+                met = (subject.knows_profession(profession)
+                       and subject.profession_skills.get(profession, 0) >= skill_req)
+            lines.append((need, GREY if met else RED))
+            if subject is not None and not subject.knows_recipe(recipe_id):
                 if not subject.knows_profession(profession):
-                    lines.append((f"Requires {profession.title()} (not learned)", (220, 70, 70)))
-                elif current_skill < skill_req:
-                    lines.append((f"Requires {profession.title()} ({skill_req})", (220, 70, 70)))
-                    lines.append((f"Your skill: {current_skill}", (170, 120, 120)))
-                else:
-                    lines.append(("Click to learn this recipe.", (120, 220, 140)))
+                    lines.append((f"You have not learned {profession.title()}.", RED))
+                elif not met:
+                    lines.append((f"Your skill: {subject.profession_skills.get(profession, 0)}", (170, 120, 120)))
 
-        if skill_req > 0:
-            lines.append((f"Skill Required: {skill_req}", (200, 200, 140)))
+        out = recipe_data.get("output") or {}
+        if recipe_data.get("name"):
+            lines.append(("", GREY))
+            count = recipe_data.get("count", 1)
+            made = recipe_data["name"] + (f" x{count}" if count and count > 1 else "")
+            for t in self.renderer.wrap_text(f"Teaches you to make: {made}", body_w):
+                lines.append((t, BLUE))
+            kind = out.get("kind")
+            if kind in ("armor", "weapon"):
+                what = [str(out.get("rarity", "")).title()]
+                if kind == "armor" and out.get("armor_type") not in (None, "", "accessory"):
+                    what.append(str(out["armor_type"]).title())
+                if kind == "weapon" and out.get("weapon_type"):
+                    what.append(str(out["weapon_type"]).replace("_", " ").title())
+                what.append(str(out.get("slot", "")).replace("_", " ").title())
+                lines.append((" ".join(w for w in what if w), GOLD))
+                if out.get("item_level"):
+                    lines.append((f"Item Level {out['item_level']}", GOLD))
 
-        flavor = getattr(item, "flavor_text", "") or ""
-        # Don't repeat the auto-generated flavor — just show a short version
-        short_flavor = f"Teaches: {recipe_data.get('name', recipe_id)}" if recipe_data else ""
-        if short_flavor:
-            lines.append((short_flavor, (130, 180, 220)))
+        inputs = recipe_data.get("inputs") or {}
+        if inputs:
+            lines.append(("Materials:", GREY))
+            for mat_id, n in inputs.items():
+                lines.append((f"  {n} x {self._material_name(mat_id)}", GREY))
 
-        box_w = 280
+        if subject is not None:
+            lines.append(("", GREY))
+            if subject.knows_recipe(recipe_id):
+                lines.append(("Already known.", GREY))
+            elif profession and subject.knows_profession(profession) \
+                    and subject.profession_skills.get(profession, 0) >= skill_req:
+                lines.append(("Click to learn.", GREEN))
+
         box_h = 20 * len(lines) + 16
         x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
         y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
@@ -1180,6 +1207,18 @@ class InventoryScreen(BaseScreen):
         pygame.draw.rect(screen, rarity_color, box_rect, 1)
         for i, (text, color) in enumerate(lines):
             self.renderer.draw_text(screen, text, (x + 8, y + 8 + i * 20), color=color)
+
+    @staticmethod
+    def _material_name(mat_id):
+        """A material's display name, never its id - 'Bronze Bar', not 'bar_bronze'."""
+        try:
+            from world.gathering_manager import get_gathering_node_manager
+            m = get_gathering_node_manager().make_material_instance(mat_id)
+            if m is not None and getattr(m, "name", None):
+                return m.name
+        except Exception:
+            pass
+        return str(mat_id).replace("_", " ").title()
 
     def _draw_item_tooltip(self, screen, item, mouse_pos):
         if not getattr(item, "is_gear", True):

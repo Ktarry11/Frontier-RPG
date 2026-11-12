@@ -94,6 +94,14 @@ class Equipment:
                 return slot
         return pair[0]
 
+    def has_slot_for(self, item):
+        """True if this item resolves to a real equipment slot. Character.equip_item asks
+        BEFORE taking the item out of the bag - see the note there."""
+        try:
+            return self._resolve_slot(item) in self.slots
+        except Exception:
+            return False
+
     def equip(self, item):
         """
         Equip an item into its slot. Returns (previous_item_in_slot,
