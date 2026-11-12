@@ -118,6 +118,26 @@ class SkillsScreen(BaseScreen):
         if return_state is not None:
             self.return_state = return_state
 
+    def _place_title(self, screen, title, is_player, name, tabs_right):
+        """Draw the screen title clear of the tab row. Returns its rect (None if nothing
+        fits, which the QA treats as a failure rather than a pass)."""
+        panel_right = self.HOTBAR_PANEL_X + self.HOTBAR_PANEL_WIDTH
+        floor_x = tabs_right + 24
+        candidates = ((title, "large", self.renderer.font_large),
+                      (title, "normal", self.renderer.font_normal),
+                      ("Skills" if is_player else name, "normal", self.renderer.font_normal))
+        for text, size, font in candidates:
+            w, h = font.size(text)
+            x = self.HOTBAR_PANEL_X + self.HOTBAR_PANEL_WIDTH // 2 - w // 2
+            if x < floor_x:
+                x = panel_right - w
+            if x < floor_x:
+                continue
+            y = 22 if size == "large" else 26
+            self.renderer.draw_text(screen, text, (x, y), color=(200, 200, 100), size=size)
+            return pygame.Rect(x, y, w, h)
+        return None
+
     def _get_subject(self):
         """The character whose abilities/hotbar are being edited - the
         player unless PartyScreen pointed this at a companion."""
@@ -593,17 +613,6 @@ class SkillsScreen(BaseScreen):
         abilities = groups.get(self.active_tab, [])
         real_player = self.game_state_manager.player
 
-        # Title
-        title = "Skills & Abilities" if player is real_player \
-            else f"{player.name}'s Skills & Abilities"
-        # Over the RIGHT half, not screen centre: the tab row owns the left
-        # and the old centred title ran straight through it.
-        self.renderer.draw_text(
-            screen, title,
-            self._centered(title, self.HOTBAR_PANEL_X + self.HOTBAR_PANEL_WIDTH // 2,
-                           22, size="large"),
-            color=(200, 200, 100), size="large")
-
         # Real spellbook tabs (Kyle's ask: every real spell belongs to its
         # real school/tree, never a generic bucket - see spellbook_tree_map.
         # py and _build_tabs' docstring). Drawn above the ability list,
@@ -624,6 +633,19 @@ class SkillsScreen(BaseScreen):
                                     font_size=14, color=text_color)
             self._tab_rects.append((tab_key, rect))
             tab_x += tab_w + 4
+        tabs_right = tab_x - 4 if self._tab_rects else self.ABILITY_LIST_X
+
+
+        # THE TITLE IS PLACED AFTER THE TABS, around them. It used to be centred over the right
+        # panel at a fixed spot, which cleared the tab row for a class with two trees and ran
+        # straight through it for one with four: "Inquisition" sat on top of "Bashir Khalidi's
+        # Skills & Abilities" (Kyle, 10 Nov). The tab row's real right edge is known by now, so
+        # the title takes whatever is left: centred if it clears, else pushed to the right
+        # edge, else a smaller font, else shortened - measured each time, never assumed.
+        title = "Skills & Abilities" if player is real_player \
+            else f"{player.name}'s Skills & Abilities"
+        self._title_rect = self._place_title(screen, title, player is real_player,
+                                             player.name, tabs_right)
 
         # Left panel: available abilities & consumables
         pygame.draw.rect(screen, (50, 50, 60),
