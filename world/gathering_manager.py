@@ -210,7 +210,8 @@ class GatheringNodeManager:
         # slots first (not just num_active) means the "phantom" unused
         # slots still cost a walkability check, matching how a real WoW
         # zone has more possible node spots than are ever active at once.
-        candidates = self._roll_candidate_tiles(tilemap, slots)
+        candidates = self._roll_candidate_tiles(tilemap, slots,
+                                                avoid=self._settlement_test(tilemap, zone_name))
         chosen = candidates[:num_active]
 
         material_ids = list(table.keys())
@@ -221,7 +222,65 @@ class GatheringNodeManager:
             self.active_nodes.append(GatheringNode(x, y, material_id))
             tilemap.set_tile(x, y, "gathering_node", "interaction")
 
-    def _roll_candidate_tiles(self, tilemap, count, max_attempts=500):
+    #: A node keeps this far from any single NPC, and this far from a cluster of them.
+    NPC_CLEARANCE = 3
+    SETTLEMENT_RADIUS = 9
+    SETTLEMENT_NPCS = 3
+
+    def _settlement_test(self, tilemap, zone_name):
+        """Returns avoid(x, y): True where a gathering node must NOT spawn.
+
+        Kyle, 10 Nov: "gatherables shouldn't spawn in towns."
+
+        A town that is its own map is already covered (tilemap.is_town, above). But most
+        settlements are not their own map - Camp Taurajo, the Crossroads, a quest camp - they
+        are a cluster of NPCs inside an open zone, and nothing told the node roller they were
+        there, so ore and herbs came up between the vendors.
+
+        No list of settlement rectangles exists and one would rot, so this reads the
+        settlement off the thing that makes it one: PEOPLE. A tile is off-limits if it is
+          - within NPC_CLEARANCE of any NPC (nobody stands on a copper vein), or
+          - within SETTLEMENT_RADIUS of SETTLEMENT_NPCS or more (that is a camp), or
+          - inside a subzone flagged "safe" in encounters.json (a declared settlement).
+        A lone quest giver in the wilderness therefore only clears the ground at their feet.
+        """
+        npcs = []
+        layer = getattr(tilemap, "interaction_layer", None) or []
+        for y, row in enumerate(layer):
+            for x, kind in enumerate(row):
+                if kind == "npc":
+                    npcs.append((x, y))
+
+        safe_keys = set()
+        try:
+            path = Path(__file__).parent.parent / "data" / "creatures" / "encounters.json"
+            declared = json.loads(path.read_text()).get("zones", {}).get(zone_name, {})
+            safe_keys = {key for key, sz in declared.get("subzones", {}).items()
+                         if isinstance(sz, dict) and sz.get("safe")}
+        except (OSError, ValueError):
+            pass
+
+        near, wide, need = self.NPC_CLEARANCE, self.SETTLEMENT_RADIUS, self.SETTLEMENT_NPCS
+
+        def avoid(x, y):
+            crowd = 0
+            for (nx, ny) in npcs:
+                d = max(abs(nx - x), abs(ny - y))
+                if d <= near:
+                    return True
+                if d <= wide:
+                    crowd += 1
+                    if crowd >= need:
+                        return True
+            if safe_keys:
+                sz = tilemap.get_subzone_at(x, y)
+                if sz and sz.get("table_key") in safe_keys:
+                    return True
+            return False
+
+        return avoid
+
+    def _roll_candidate_tiles(self, tilemap, count, max_attempts=500, avoid=None):
         """Pick up to `count` distinct random walkable tiles. Avoids
         collision tiles (via is_walkable) and avoids the exact tile the
         player is not necessarily known to be on here - ZoneManager
@@ -243,6 +302,8 @@ class GatheringNodeManager:
             if (x, y) in seen:
                 continue
             seen.add((x, y))
+            if avoid is not None and avoid(x, y):
+                continue
             if tilemap.is_walkable(x, y) and tilemap.get_tile(x, y, "interaction") is None:
                 found.append((x, y))
         return found
