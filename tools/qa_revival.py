@@ -12,7 +12,7 @@ they better hope to hell they have a res lol."
 Before this, leaving ANY fight - won or lost - stood every fallen member back up at full
 health, so a death was a thing that happened on one screen and was gone by the next.
 
-EIGHT CLAIMS:
+NINE CLAIMS:
 
   1. EVERY CLASS THAT CAN HEAL A FRIEND CAN RAISE ONE, and a class that cannot heal has no res.
   2. A RES CAN ACTUALLY BE AIMED AT THE DEAD, in a fight and out of one. The three revives the
@@ -23,6 +23,8 @@ EIGHT CLAIMS:
   6. A WIPE IN A DUNGEON PUTS THE PARTY AT THE DOOR THEY CAME IN BY - the first door, even when
      they died two levels down - without bringing back what they had already killed.
   7. A WIPE IN THE OPEN WORLD PUTS THEM AT A TOWN ENTRANCE, from every open zone in the game.
+  9. AN INNKEEPER RAISES THE FALLEN, free, and only offers to while somebody is down (Kyle:
+     "if the only healer is dead ... people can res at an inn keeper").
   8. THE OLD BLANKET REVIVE IS GONE from the combat screen, and a win reads as a win even when
      the player's own character is the one on the floor.
 """
@@ -181,6 +183,18 @@ def main():
         bad.append("a wipe cost somebody a level")
     if not (a.is_alive() and b.is_alive() and a.current_health == a.health):
         bad.append("a wipe did not stand the whole group back up at full health")
+
+    # ---- 9. the innkeeper
+    kill(b)
+    raised = party.revive_at_inn()
+    if raised != [b] or not b.is_alive() or b.current_health != b.health:
+        bad.append("an innkeeper did not raise the one fallen member to full health")
+    if party.revive_at_inn():
+        bad.append("an innkeeper 'raised' somebody with nobody down")
+    qd = Path("ui/screens/quest_dialog_screen.py").read_text()
+    if 'out.insert(out.index("inn"), "revive")' not in qd or '"revive": "Revive the Fallen"' not in qd \
+            or "revive_at_inn()" not in qd:
+        bad.append("the innkeeper's dialog does not offer Revive the Fallen")
 
     # ---- 6 & 7. where they wake
     with contextlib.redirect_stdout(io.StringIO()):

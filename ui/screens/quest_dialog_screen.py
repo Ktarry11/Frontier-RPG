@@ -420,8 +420,20 @@ class QuestDialogScreen(BaseScreen):
             return
 
     # ------------------------------------------------------------------ greeting action row
-    SERVICE_LABELS = {"inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts",
+    SERVICE_LABELS = {"revive": "Revive the Fallen", "inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts",
                       "train_class": "Train Skills", "train_prof": "Train Profession"}
+
+    def _offered(self):
+        """The services on offer right now. An innkeeper also raises the dead - but only shows
+        the button while somebody in the party is actually down.
+
+        Kyle, 12 Nov 2026: "if the only healer is dead lets have it so people can res at an inn
+        keeper. This will be more useful in starting game" - where nobody has a res spell yet.
+        """
+        out = list(self.services)
+        if "inn" in out and self.state_manager.get_party().fallen_members():
+            out.insert(out.index("inn"), "revive")
+        return out
 
     def _has_action_row(self):
         """Vendors (Shop/Leave) and travel-service NPCs get a row of action buttons instead of a lone Close."""
@@ -449,7 +461,7 @@ class QuestDialogScreen(BaseScreen):
         """
         if self.mode == "greeting":
             return []           # greeting already lays these out across the bottom
-        entries = [(self.SERVICE_LABELS[s], s) for s in self.services
+        entries = [(self.SERVICE_LABELS[s], s) for s in self._offered()
                    if s in self.SERVICE_LABELS]
         if self.is_vendor:
             entries.insert(0, ("Shop", "shop"))
@@ -475,7 +487,7 @@ class QuestDialogScreen(BaseScreen):
 
     def _greeting_buttons(self):
         """[(label, action, rect)] - service buttons, then Shop for vendors, then Leave; centred in one row."""
-        entries = [(self.SERVICE_LABELS[s], s) for s in self.services if s in self.SERVICE_LABELS]
+        entries = [(self.SERVICE_LABELS[s], s) for s in self._offered() if s in self.SERVICE_LABELS]
         if self.is_vendor:
             entries.append(("Shop", "shop"))
         if self.is_banker:
@@ -501,6 +513,12 @@ class QuestDialogScreen(BaseScreen):
         elif action == "shop":
             # Vendor with nothing quest-related right now: talk, then choose to shop or walk away.
             sm.transition_to(GameState.VENDOR, current_vendor=self.npc)
+        elif action == "revive":
+            raised = sm.get_party().revive_at_inn()
+            names = [m.name for m in raised]
+            who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+            self.result_message = (f"{who} {'is' if len(names) == 1 else 'are'} back on "
+                                   f"their feet, rested and whole.")
         elif action == "inn":
             zm = sm._live_zone_manager()
             zone = zm.current_zone

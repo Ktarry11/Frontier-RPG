@@ -256,6 +256,20 @@ class Party:
             out.append((member, lost))
         return out
 
+    def revive_at_inn(self):
+        """An innkeeper raises everyone who is down, at full health and mana, for nothing.
+        Returns the members raised. The way back for a party whose only healer is the one on
+        the floor - and for any party too low level to own a res at all."""
+        raised = []
+        for member in list(self.members) + list(getattr(self, "bench", []) or []):
+            if member.is_alive():
+                continue
+            member.current_health = member.health
+            if hasattr(member, "current_mana"):
+                member.current_mana = getattr(member, "mana", 0)
+            raised.append(member)
+        return raised
+
     def restore_after_combat(self):
         """
         Strip everything that belonged to the fight off everyone once it ends - see
