@@ -38,6 +38,8 @@ class CombatScreen(BaseScreen):
         self.targeting_mode = None  # (ability_id, slot_index, ability, actor) while active
         self.targeting_valid_targets = []  # all valid recipients for this ability
         self.targeting_hovered = None  # which recipient is under the mouse now
+        self._effect_hits = []         # (rect, effect, holder) for everything drawn this frame
+        self.hovered_effect = None
 
         # Real hover-tooltip state for hotbar abilities (Kyle's ask: hover
         # a hotbar slot mid-combat to see its real pre-modifier info, same
@@ -310,6 +312,7 @@ class CombatScreen(BaseScreen):
                 return
             # Track which target is hovered
             if event.type == pygame.MOUSEMOTION:
+                self.mouse_pos = event.pos      # effect tooltips work while choosing a target too
                 self.targeting_hovered = self._get_hovered_target(event.pos)
             return
         
@@ -962,7 +965,11 @@ class CombatScreen(BaseScreen):
         the caller can advance its layout cursor."""
         if not hasattr(combatant, "get_effects_summary"):
             return 0
-        effects = combatant.get_effects_summary()
+        # Hidden carriers (a talent's or trinket's proc rider) stay hidden; everything else is
+        # shown, and each chip is registered so hovering it says what it does.
+        live = [e for e in combatant._effects()
+                if is_displayable_buff(e) or e.effect_type in (EffectType.DOT, EffectType.HOT)]
+        effects = [(e.name, (getattr(e, "absorb", 0) or e.duration), e.effect_type, e) for e in live]
         if not effects:
             return 0
 
@@ -971,7 +978,7 @@ class CombatScreen(BaseScreen):
         chip_h = 20
         row_count = 1
 
-        for name, turns, effect_type in effects:
+        for name, turns, effect_type, effect in effects:
             color = self.EFFECT_COLORS.get(effect_type, (170, 170, 170))
 
             # Abbreviate long names so chips stay readable - the turn counter
@@ -992,6 +999,7 @@ class CombatScreen(BaseScreen):
             pygame.draw.rect(screen, (color[0] // 4, color[1] // 4, color[2] // 4), rect)
             pygame.draw.rect(screen, color, rect, 1)
             self.renderer.draw_text(screen, label, (x + 5, y + 2), color=color)
+            self._effect_hits.append((rect, effect, combatant))
 
             x += chip_w + 4
 
@@ -1398,6 +1406,7 @@ class CombatScreen(BaseScreen):
 
     def render(self, screen):
         """Draw combat screen with redesigned layout."""
+        self._effect_hits = []
         if not self.combat_engine:
             return
 
@@ -1407,6 +1416,7 @@ class CombatScreen(BaseScreen):
         # click lands on dead space instead of a target.
         if self.targeting_mode:
             self._render_targeting(screen)
+            self._draw_effect_hover(screen)
             return
 
         # `player` here means "whoever is acting" - kept for the combat log
@@ -1645,6 +1655,8 @@ class CombatScreen(BaseScreen):
         # UI already owns the screen at that point).
         if self.hovered_ability is not None and not self.targeting_mode:
             self._render_ability_tooltip(screen, self.hovered_ability, self.mouse_pos)
+        elif self.combat_engine.is_active:
+            self._draw_effect_hover(screen)
         
         # Combat over overlay. Result text is now measured and truly
         # centered (the old fixed "-80" offset only centered "Victory!" by
@@ -1827,21 +1839,20 @@ class CombatScreen(BaseScreen):
         if not effects:
             return
 
-        icon_size = 12
-        gap = 2
+        from ui.effect_tooltip import draw_effect_icon
+        icon_size = self.MINI_EFFECT_ICON
+        gap = 3
         x, y = pos
-        for i, effect in enumerate(effects[:8]):
+        for i, effect in enumerate(effects[:self.MINI_EFFECT_MAX]):
             rect = pygame.Rect(x + i * (icon_size + gap), y, icon_size, icon_size)
-            if effect.effect_type == EffectType.BUFF:
-                border = COLOR_GOLD
-            elif effect.effect_type == EffectType.DEBUFF:
-                border = (170, 100, 220)
-            elif effect.effect_type == EffectType.DOT:
-                border = COLOR_RED
-            else:
-                border = COLOR_GREEN
-            pygame.draw.rect(screen, (30, 30, 30), rect)
-            pygame.draw.rect(screen, border, rect, 1)
+            draw_effect_icon(self.renderer, screen, effect, rect)
+            self._effect_hits.append((rect, effect, combatant))
+
+    #: Party-roster effect squares. They were 12px blanks - a border colour and nothing else,
+    #: so you could see THAT someone had a debuff and never which. 20px is the smallest that
+    #: holds the ability's icon and a turn count you can read.
+    MINI_EFFECT_ICON = 20
+    MINI_EFFECT_MAX = 8
 
     def _draw_buff_icons(self, screen, combatant, top_right_pos):
         """
@@ -1858,28 +1869,25 @@ class CombatScreen(BaseScreen):
         if not effects:
             return
 
+        from ui.effect_tooltip import draw_effect_icon
         icon_size = 22
         gap = 4
         x, y = top_right_pos
         for i, effect in enumerate(effects[:6]):  # cap at 6 so it can't overflow the row
-            icon_x = x + (i % 3) * (icon_size + gap)
-            icon_y = y + (i // 3) * (icon_size + gap)
-            rect = pygame.Rect(icon_x, icon_y, icon_size, icon_size)
+            rect = pygame.Rect(x + (i % 3) * (icon_size + gap),
+                               y + (i // 3) * (icon_size + gap), icon_size, icon_size)
+            draw_effect_icon(self.renderer, screen, effect, rect)
+            self._effect_hits.append((rect, effect, combatant))
 
-            if effect.effect_type == EffectType.BUFF:
-                fill, border = (50, 45, 20), COLOR_GOLD
-            elif effect.effect_type == EffectType.DEBUFF:
-                fill, border = (45, 20, 50), (170, 100, 220)
-            elif effect.effect_type == EffectType.DOT:
-                fill, border = (50, 20, 20), COLOR_RED
-            else:  # HOT
-                fill, border = (20, 45, 25), COLOR_GREEN
-
-            pygame.draw.rect(screen, fill, rect)
-            pygame.draw.rect(screen, border, rect, 2)
-            letter = effect.name[0].upper() if effect.name else "?"
-            self.renderer.draw_text(screen, letter, (rect.x + 6, rect.y + 3),
-                                    size="small", color=COLOR_WHITE)
+    def _draw_effect_hover(self, screen):
+        """The tooltip for whichever effect is under the mouse. Called last, so it is on top."""
+        for rect, effect, holder in reversed(self._effect_hits):
+            if rect.collidepoint(self.mouse_pos):
+                from ui.effect_tooltip import draw_effect_tooltip
+                self.hovered_effect = effect
+                return draw_effect_tooltip(self.renderer, screen, effect, self.mouse_pos, holder)
+        self.hovered_effect = None
+        return None
 
     #: Shortest a targeting row may be compressed to and still be comfortably clickable.
     TARGET_ROW_MIN_H = 46

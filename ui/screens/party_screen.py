@@ -345,6 +345,7 @@ class PartyScreen(BaseScreen):
             self.renderer.draw_text(screen, "No party.", (ROSTER_X, ROSTER_Y))
             return
 
+        self._effect_hits = []          # filled by the Buffs tab, if that is what is showing
         self._render_roster(screen, party)
         self._render_detail(screen, party)
 
@@ -368,6 +369,14 @@ class PartyScreen(BaseScreen):
                                DETAIL_X, SCREEN_HEIGHT - 110,
                                max_width=SCREEN_WIDTH - DETAIL_X - 40,
                                color=(210, 190, 140))
+
+        # Hover a buff to see what it does. Last, so it is on top of everything.
+        mouse = getattr(self, "_mouse_override", None) or pygame.mouse.get_pos()
+        for rect, effect, holder in self._effect_hits:
+            if rect.collidepoint(mouse):
+                from ui.effect_tooltip import draw_effect_tooltip
+                draw_effect_tooltip(self.renderer, screen, effect, mouse, holder)
+                break
 
     def _render_roster(self, screen, party):
         self.member_rects = []
@@ -834,7 +843,14 @@ class PartyScreen(BaseScreen):
                                  else f"{max(0, int(secs))}s")
                 else:
                     remaining = f"{max(0, int(getattr(effect, 'duration', 0)))}t"
-                self.renderer.draw_text(screen, "  " + label, (x + 10, y),
+                # The effect's own icon, then its name. The whole row is hoverable: the tooltip
+                # (ui/effect_tooltip.py, the same one combat uses) says what it actually does.
+                from ui.effect_tooltip import draw_effect_icon
+                draw_effect_icon(self.renderer, screen, effect,
+                                 pygame.Rect(x + 12, y, 16, 16), show_count=False)
+                self._effect_hits.append(
+                    (pygame.Rect(x + 8, y - 1, panel.right - 20 - (x + 8), 19), effect, member))
+                self.renderer.draw_text(screen, label, (x + 36, y),
                                         font_size=13,
                                         color=self._BUFF_COLOR if is_buff
                                         else self._DEBUFF_COLOR)
