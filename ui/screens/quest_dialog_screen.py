@@ -898,6 +898,41 @@ class QuestDialogScreen(BaseScreen):
         self.renderer.draw_button(screen, self.decline_button, "Not Now")
         return info_y
 
+    @staticmethod
+    def _kind_line(choice):
+        """The line under a reward's name: what KIND of thing it is.
+
+        A hand-authored reward's label defaults to its own name, so the card read
+        "Longwalk Greaves / Longwalk Greaves" - Kyle, 10 Nov: "reward cards show name twice."
+        When the label is just the name again, say what the item is instead.
+        """
+        item = choice.item
+        label = getattr(choice, "armor_type_label", "") or ""
+        if label and label != item.name:
+            return label
+        slot = (item.slot or "").rstrip("0123456789").replace("_", " ").title()
+        if item.weapon_type:
+            return item.weapon_type.replace("_2h", " (Two-Hand)").replace("_1h", " (One-Hand)").replace("_", " ").title()
+        if item.armor_type and item.armor_type not in ("none", "bag"):
+            return f"{item.armor_type.title()} {slot}"
+        return slot
+
+    @staticmethod
+    def _stat_lines(item, short=False):
+        """Every stat on the item - secondary ones too, which the cards used to leave out, so a
+        healer's reward showed its Stamina and not the Healing Power that made it a healer's."""
+        from combat.status_effects import StatusEffectMixin
+        out = []
+        for group in (item.primary_stats, item.secondary_stats):
+            for stat, value in group.items():
+                if not isinstance(value, (int, float)) or not value:
+                    continue
+                name = StatusEffectMixin.STAT_LABELS.get(stat, stat.replace("_", " ").title())
+                if short and stat in item.primary_stats:
+                    name = name[:3]
+                out.append(f"+{value} {name}")
+        return out
+
     def _render_reward_preview_row(self, screen, choices, y):
         """Compact single-row preview of a quest's gear reward options -
         smaller and less detailed than the real turn-in gear-choice cards
@@ -930,7 +965,7 @@ class QuestDialogScreen(BaseScreen):
             # is the Dagger (Agi) box i was talking about that looks
             # weird"). Demoted below the name, smaller and dimmer, same
             # subtitle treatment a tooltip gives an item's type line.
-            self.renderer.draw_text(screen, choice.armor_type_label, (rect.x + 6, rect.y + 46),
+            self.renderer.draw_text(screen, self._kind_line(choice), (rect.x + 6, rect.y + 46),
                                     color=(120, 120, 130), font_size=12)
             stat_y = rect.y + 70
             if item.armor_value:
@@ -941,10 +976,24 @@ class QuestDialogScreen(BaseScreen):
                     screen, f"Dmg {item.weapon_damage_min}-{item.weapon_damage_max}",
                     (rect.x + 6, stat_y), font_size=14)
                 stat_y += 18
-            for stat, value in list(item.primary_stats.items())[:2]:  # first 2 fit the compact card
-                self.renderer.draw_text(screen, f"+{value} {stat[:3].title()}",
-                                        (rect.x + 6, stat_y), font_size=14)
-                stat_y += 18
+            # Every stat, packed two to a line where they fit, down to the foot of the card.
+            font = self.renderer._get_font(font_size=13)
+            line = ""
+            packed = []
+            for text in self._stat_lines(item, short=True):
+                cand = f"{line}  {text}" if line else text
+                if line and font.size(cand)[0] > card_w - 12:
+                    packed.append(line)
+                    line = text
+                else:
+                    line = cand
+            if line:
+                packed.append(line)
+            for text in packed:
+                if stat_y + 15 > rect.bottom - 2:
+                    break
+                self.renderer.draw_text(screen, text, (rect.x + 6, stat_y), font_size=13)
+                stat_y += 16
 
     def _render_dialogue(self, screen):
         """DIALOGUE-quest topic picker + response view (Kyle, 2026-09-10:
@@ -1052,7 +1101,7 @@ class QuestDialogScreen(BaseScreen):
             # title - see the identical fix + rationale in
             # _render_reward_preview_row just above. Same demotion here:
             # moved below the item name, smaller and dimmer.
-            self.renderer.draw_text(screen, choice.armor_type_label, (rect.x + 10, rect.y + 58),
+            self.renderer.draw_text(screen, self._kind_line(choice), (rect.x + 10, rect.y + 58),
                                     color=(130, 130, 140), font_size=13)
             y = rect.y + 90
             if item.armor_value:
@@ -1063,9 +1112,8 @@ class QuestDialogScreen(BaseScreen):
                     screen, f"Damage: {item.weapon_damage_min}-{item.weapon_damage_max}",
                     (rect.x + 10, y), font_size=16)
                 y += 22
-            for stat, value in item.primary_stats.items():
-                self.renderer.draw_text(screen, f"+{value} {stat.replace('_', ' ').title()}",
-                                        (rect.x + 10, y), font_size=16)
+            for text in self._stat_lines(item):
+                self.renderer.draw_text(screen, text, (rect.x + 10, y), font_size=16)
                 y += 22
 
             # Real flavor text (Kyle's weapon one-liners + any
