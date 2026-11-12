@@ -466,7 +466,11 @@ class SkillsScreen(BaseScreen):
             # should repeat) - see the matching render-side rule in
             # render().
             if self.active_tab == "core":
-                consumables_start_y = self.ABILITY_LIST_Y + len(self._visible_abilities(player)) * self.SLOT_HEIGHT
+                # Passives sit between the abilities and the consumables on this tab (see render),
+                # so the consumables start that many rows further down.
+                from world.personal_kits import passive_entries_for
+                consumables_start_y = self.ABILITY_LIST_Y + (
+                    len(self._visible_abilities(player)) + len(passive_entries_for(player))) * self.SLOT_HEIGHT
                 for i, consumable in enumerate(player.consumables):
                     slot_y = consumables_start_y + i * self.SLOT_HEIGHT
                     if slot_y > self.ABILITY_LIST_Y + self.ABILITY_LIST_HEIGHT - self.SLOT_HEIGHT:
@@ -720,6 +724,36 @@ class SkillsScreen(BaseScreen):
                 color=(140, 140, 160))
             
             row += 1
+
+        # PASSIVES, under Core, after the abilities. Kyle, 10 Nov: "show passives under Core."
+        # Always-on things the character has from who they are (a recruit's own trait, a race's
+        # heritage). Not clickable and not draggable - there is nothing to cast - so they are
+        # drawn dimmer, tagged "Passive", and take no part in selection.
+        self._passive_rows = []
+        if self.active_tab == "core":
+            from world.personal_kits import passive_entries_for
+            for name, source, lines in passive_entries_for(player):
+                slot_y = self.ABILITY_LIST_Y + row * self.SLOT_HEIGHT
+                if slot_y > self.ABILITY_LIST_Y + self.ABILITY_LIST_HEIGHT - self.SLOT_HEIGHT:
+                    break
+                slot_rect = pygame.Rect(self.ABILITY_LIST_X, slot_y,
+                                        self.ABILITY_LIST_WIDTH, self.SLOT_HEIGHT)
+                pygame.draw.rect(screen, (26, 30, 38), slot_rect)
+                pygame.draw.rect(screen, (70, 80, 60), slot_rect, 1)
+                self.renderer.draw_text(screen, name, (self.ABILITY_LIST_X + 10, slot_y + 5),
+                                        color=(215, 200, 140))
+                tag = f"Passive - {source}"
+                tw = self.renderer.font_normal.size(tag)[0]
+                self.renderer.draw_text(screen, tag, (slot_rect.right - tw - 10, slot_y + 5),
+                                        color=(120, 130, 110))
+                detail = ",  ".join(lines)
+                font = self.renderer._get_font(font_size=13)
+                while font.size(detail)[0] > self.ABILITY_LIST_WIDTH - 20 and len(detail) > 8:
+                    detail = detail[:-4].rstrip(" ,") + "..."
+                self.renderer.draw_text(screen, detail, (self.ABILITY_LIST_X + 10, slot_y + 25),
+                                        color=(170, 175, 185), font_size=13)
+                self._passive_rows.append((name, source, lines, slot_rect))
+                row += 1
 
         # List consumables below the abilities. Per-character now - the
         # subject's own consumables, same as their abilities/hotbar.

@@ -152,6 +152,36 @@ def _scalars(block):
     return out
 
 
+def passive_entries_for(character):
+    """[(name, source, [text line, ...]), ...] - the character's passives, for display.
+
+    Kyle, 10 Nov: "show passives under Core." A recruit's kit passive and a race's passive
+    are always on and were listed nowhere: the only trace of Kiet's "-30% threat, +8% haste"
+    was the numbers on his sheet being different.
+    """
+    from combat.status_effects import StatusEffectMixin
+    out = []
+    for source, block, fallback in (
+            ("Personal", (get_kit(getattr(character, "recruit_id", None)) or {}).get("passives"), "Personal Trait"),
+            ("Racial", (get_racial(getattr(character, "race", None)) or {}).get("passives"),
+             f"{str(getattr(character, 'race', '') or '').replace('_', ' ').title()} Heritage")):
+        if not isinstance(block, dict):
+            continue
+        lines = []
+        for key, value in block.items():
+            if key.startswith("_") or not isinstance(value, (int, float)) or not value:
+                continue
+            label = StatusEffectMixin.STAT_LABELS.get(key)
+            pct = key.endswith("_pct") or key in ("haste", "dodge", "parry", "crit_chance_physical", "crit_chance_spell", "pet_damage")
+            if label is None:
+                label = key[:-4].replace("_", " ").title() if key.endswith("_pct") else key.replace("_", " ").title()
+            label = label.replace(" %", "").replace(" Pct", "").strip()     # "+10% Max Health", not "+10% Max Health %"
+            lines.append(f"{'+' if value > 0 else ''}{value:g}{'%' if pct else ''} {label}")
+        if lines:
+            out.append((block.get("_name") or fallback, source, lines))
+    return out
+
+
 def passives_for(character):
     """Summed scalar passives this character has from their kit and race.
 
