@@ -341,6 +341,20 @@ class CombatEngine:
         where it shows up in a turn-order preview.
         """
         current = self._owned_pets()
+
+        # A REPLACED PET LEAVES. Summoning a Voidwalker over an Imp swaps the owner's
+        # active_pet, and this used to only ever ADD - so the dismissed Imp stayed in the
+        # fight, still taking turns, with no owner. (And see update(): the swap was not even
+        # noticed, because one pet for one pet does not change the count.) Kyle, 10 Nov: "if i
+        # summon 1 demon - i CANT USE SUMMON TO REPLACE IT WITH ANOTHER."
+        gone = [p for p in self.pets if not any(p is c for c in current)]
+        for pet in gone:
+            self.pets.remove(pet)
+            if pet in self.combatants:
+                self.combatants.remove(pet)
+            if self.current_actor is pet:
+                self.current_actor = None
+
         for pet in current:
             if pet in self.pets:
                 continue
@@ -357,7 +371,10 @@ class CombatEngine:
         # Cheap length check first - this runs every tick, and building the
         # pet list on each one would be wasteful for the overwhelming
         # majority of fights where nothing is summoned.
-        if len(self._owned_pets()) != len(self.pets):
+        # WHO, not how many: replacing one demon with another leaves the count at one, and a
+        # count comparison never saw the swap.
+        owned = self._owned_pets()
+        if {id(p) for p in owned} != {id(p) for p in self.pets}:
             self.sync_pets()
 
         # Only look for a new actor if nobody is currently mid-turn. Without
