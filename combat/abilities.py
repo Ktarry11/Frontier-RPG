@@ -353,6 +353,7 @@ class Ability:
                  same_kind_only=False,
                  wipes_threat=False,
                  reach=None,
+                 health_cost_pct=0, spares_bosses=False, taunts_all=False,
                  immediate=None,
                  variance_mode=None,
                  variance=None,
@@ -617,6 +618,16 @@ class Ability:
         #: "melee" or "ranged", when the effect type alone gives the wrong answer (combat/rows.py
         #: reads it): a strike that reaches the back row past whatever stands in front.
         self.reach = reach
+        #: Extra price paid in the caster's own health, as a percentage of maximum, on top of
+        #: the normal resource. Never fatal: it stops at 1. ("Kesten spends 15% of his health.")
+        self.health_cost_pct = float(health_cost_pct or 0)
+        #: "Does not work on bosses." A boss is not affected at all - no debuff, no taunt -
+        #: and a cast aimed only at a boss is refused before it is paid for.
+        self.spares_bosses = bool(spares_bosses)
+        #: Every enemy is pulled onto the caster, whatever the ability's own target is (a party
+        #: buff that also makes enemies "target him first"). Applied by the engine after the
+        #: cast, which is where the threat tables live.
+        self.taunts_all = bool(taunts_all)
         #: An action taken on state that ALREADY EXISTS, rather than an
         #: effect applied. Five kit abilities rearrange rather than add:
         #:   {"action": "extend_buffs", "turns": 2}
@@ -2146,6 +2157,12 @@ class Ability:
         # mana pool, so a charge here would trap a Bear-form Druid in Bear Form.
         if self.effect_type == "shapeshift" and getattr(caster, "current_form", None):
             free = True
+        # "Does not work on bosses": refused, free, when a boss is all it was aimed at.
+        if self.spares_bosses and target is not None and target is not caster:
+            aimed = list(target) if isinstance(target, (list, tuple)) else [target]
+            if aimed and all(getattr(t, "is_boss", False) for t in aimed):
+                return False, f"{self.name} does not work on {aimed[0].name}."
+
         if free:
             cost = 0
         else:
@@ -2155,6 +2172,12 @@ class Ability:
 
             # Consume resource
             self._consume_resource(caster, cost)
+
+        # The price in blood, if the ability has one. Charged even on a `free` cast: it is
+        # the point of the ability, not a resource a proc can waive.
+        if self.health_cost_pct > 0 and hasattr(caster, "current_health"):
+            price = int(getattr(caster, "health", 0) * self.health_cost_pct / 100.0)
+            caster.current_health = max(1, caster.current_health - price)
 
         # Apply cooldown (in turns, not seconds; talent-reduced).
         #
@@ -2659,6 +2682,14 @@ class Ability:
         return [target if target is not None else caster]
 
     def _hostile_recipients(self, target):
+        """Who a hostile effect lands on - see _hostile_recipients_raw - minus bosses, for an
+        ability that says it does not work on them."""
+        out = self._hostile_recipients_raw(target)
+        if self.spares_bosses:
+            out = [t for t in out if not getattr(t, "is_boss", False)]
+        return out
+
+    def _hostile_recipients_raw(self, target):
         """
         Resolve who a HOSTILE effect (damage/dot/debuff) actually lands on.
 
@@ -4398,6 +4429,9 @@ def _ability_from_data(entry):
         same_kind_only=entry.get("same_kind_only", False),
         wipes_threat=entry.get("wipes_threat", False),
         reach=entry.get("reach"),
+        health_cost_pct=entry.get("health_cost_pct", 0),
+        spares_bosses=entry.get("spares_bosses", False),
+        taunts_all=entry.get("taunts_all", False),
         immediate=entry.get("immediate"),
         variance_mode=entry.get("variance_mode"),
         variance=entry.get("variance"),

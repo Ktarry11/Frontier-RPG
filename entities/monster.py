@@ -1088,6 +1088,11 @@ class Monster(StatusEffectMixin):
                 if hasattr(attacker, "get_talent_effect"):
                     expertise += attacker.get_talent_effect("expertise", 0.0) or 0.0
                 expertise += getattr(attacker, "expertise", 0) or 0
+                # ...and from a BUFF on the attacker. A talent's expertise was read and a
+                # buff's was not, so Carolina Santos's "attacks cannot be dodged or parried"
+                # (expertise 50 for 3 turns) removed nothing.
+                if hasattr(attacker, "get_status_stat_mod"):
+                    expertise += attacker.get_status_stat_mod("expertise") or 0.0
             dodge = max(0.0, self.dodge - expertise)
             parry = max(0.0, self.parry - expertise)
 

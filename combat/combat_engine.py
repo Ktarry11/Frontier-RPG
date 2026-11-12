@@ -567,6 +567,13 @@ class CombatEngine:
             # entry sitting there to be revived into).
             # wipes_threat (Kiet Somsak's "Nobody Looks Twice"): the caster stops existing as
             # far as every ordinary enemy is concerned. A boss does not forget.
+            # taunts_all (Gianluca Ferri's "A Running Commentary"): every enemy is pulled onto
+            # the caster, even though the ability itself is aimed at the party.
+            if getattr(ability, "taunts_all", False):
+                for enemy in self.living_enemies():
+                    top = max(self.threat_tables.get(enemy, {}).values(), default=0)
+                    self.gain_threat(actor, enemy, max(500, getattr(enemy, "level", 1) * 500) + top)
+
             if getattr(ability, "wipes_threat", False):
                 for enemy, table in self.threat_tables.items():
                     if not getattr(enemy, "is_boss", False):

@@ -882,7 +882,7 @@
         "ability_id": "personal_carolina_feel_the_bottom",
         "name": "Feel the Bottom",
         "from": "'She learned to feel the bottom through the hull.'",
-        "engine": "needs: attacks ignore dodge and parry for a window",
+        "engine": "live: expertise removes the target's dodge and parry",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1663,7 +1663,7 @@
         "ability_id": "personal_callum_youre_enormous",
         "name": "You're Enormous",
         "from": "'the animal isn't malicious, it's frightened and you're enormous'",
-        "engine": "needs: the boss exemption its text promises",
+        "engine": "live: taunt on every enemy; spares_bosses",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "energy",
@@ -1681,7 +1681,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "spares_bosses": true
       },
       {
         "ability_id": "personal_callum_the_thing_that_bites_back",
@@ -2104,7 +2105,7 @@
         "ability_id": "personal_kesten_reading_his_own_entry",
         "name": "Reading His Own Entry",
         "from": "'He has been reading his own entry for two years and has never told anyone what it says.'",
-        "engine": "needs: COST UNPAID: spends 15% of his health",
+        "engine": "live: health_cost_pct",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -2122,7 +2123,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "health_cost_pct": 15
       }
     ]
   },
@@ -2269,7 +2271,7 @@
         "ability_id": "personal_fiona_unbearable_until_somebody_checks",
         "name": "Unbearable Until Somebody Checks",
         "from": "'being unbearable about it until somebody checks'",
-        "engine": "needs: the target dealing 20% less damage (no % on monster output)",
+        "engine": "live: taunt + damage_dealt_pct on the target; spares_bosses",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "focus",
@@ -2288,7 +2290,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "spares_bosses": true
       }
     ]
   },
@@ -3022,7 +3025,7 @@
         "ability_id": "personal_pieter_exclusion_zone",
         "name": "Exclusion Zone",
         "from": "'Harnesses, exclusion zones, and the deeply unglamorous business of nobody dying today.'",
-        "engine": "needs: limiting it to a single enemy ROW (needs row-scoped targeting)",
+        "engine": "live: an area debuff lands on the one row you aim at; damage_dealt_pct is read on monsters",
         "effect_type": "debuff",
         "target_type": "enemy_aoe",
         "resource_type": "energy",
@@ -3071,7 +3074,7 @@
         "ability_id": "personal_pieter_shouted_at_by_thousands",
         "name": "Shouted At By Thousands",
         "from": "'He's been shouted at by thousands of men in a hurry and outlasted all of them.'",
-        "engine": "needs: threat generation with damage reduction",
+        "engine": "live: threat_generation_pct + damage taken reductions",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
@@ -3786,7 +3789,7 @@
         "ability_id": "personal_sondre_control_not_power",
         "name": "Control, Not Power",
         "from": "'Control. Not power. He has plenty of power and it is the whole problem.'",
-        "engine": "needs: cannot be resisted (spell_penetration is stored but never read)",
+        "engine": "live: hit_rating to the cap, spell_penetration cancels resistance",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -4245,7 +4248,7 @@
         "ability_id": "personal_adrian_the_least_popular_person",
         "name": "The Least Popular Person on the Field",
         "from": "'Two careers of being the least popular person on a field full of people.'",
-        "engine": "needs: threat spike on all enemies",
+        "engine": "live: taunt on every enemy",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "combo",
@@ -4929,7 +4932,7 @@
         "ability_id": "personal_karim_the_fastest_route_to_useful",
         "name": "The Fastest Route to Being Useful",
         "from": "'He took the fel deliberately, after consideration, as the fastest route to being useful in a fight.'",
-        "engine": "needs: COST UNPAID: spends 20% of his health",
+        "engine": "live: health_cost_pct",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "felfury",
@@ -4948,7 +4951,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "health_cost_pct": 20
       },
       {
         "ability_id": "personal_karim_he_has_stopped_apologising",
@@ -5142,7 +5146,7 @@
         "ability_id": "personal_gianluca_defused_with_a_joke",
         "name": "Defused More Fights With a Joke",
         "from": "'he has defused more fights with a joke than most soldiers have with a weapon'",
-        "engine": "needs: reduce enemy damage without stopping them",
+        "engine": "live: damage_dealt_pct is read on monsters",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "energy",
@@ -5166,7 +5170,7 @@
         "ability_id": "personal_gianluca_a_running_commentary",
         "name": "A Running Commentary",
         "from": "'he keeps up a running commentary that the enemy finds as unsettling as everyone else does'",
-        "engine": "needs: enemies targeting Gianluca first (taunt needs a self/enemy target)",
+        "engine": "live: party damage reduction + taunts_all",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "energy",
@@ -5185,7 +5189,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "taunts_all": true
       },
       {
         "ability_id": "personal_gianluca_already_knew",
