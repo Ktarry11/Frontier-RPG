@@ -1700,6 +1700,13 @@ class Character(StatusEffectMixin):
                 continue  # unknown pairing - left to the dead-key audit
             current = getattr(self, attr, 0) or 0
             gained = src * pct
+            # A PERCENTAGE target gets RATING, not percentage points. "5% of your Intellect
+            # as spell crit" was being read as: 180 Intellect x 5% = 9 -> +9% crit, per rank,
+            # so three ranks of a first-tier Tinker talent were worth +27% crit on their own
+            # (measured, 12 Nov: Berat Yilmaz, 72% spell crit in blues, 27 of it from this).
+            # The share of the stat is the same; it now buys percentage at the rating rate.
+            if attr in self.PERCENT_ATTRS:
+                gained = self._from_stat(self.RATING_PER_PERCENT, gained)
             # Integer stats stay integers; the percentage ones (crit, haste,
             # parry, dodge) are floats and keep their precision.
             setattr(self, attr, int(current + gained)
@@ -2623,9 +2630,21 @@ class Character(StatusEffectMixin):
 
     #: Agility -> physical crit. Was a flat 2.0 (0.5% per point) at every
     #: level, which is where the 97% came from.
-    AGI_PER_CRIT = (3.0, 6.0)
+    #:
+    #: RAISED AGAIN, 12 Nov. (3, 6) was still far too cheap: Kyle's level 56 Tinker in blues
+    #: showed 67% spell crit, and 32 of those points were 180 Intellect at 5.6 a point. "A
+    #: person in blues should not reach almost 70% crit." These are now Classic's own rates
+    #: at 60 - 20 Agility per 1%, and Intellect dearer than Agility as it is there - which
+    #: lands a geared 60 in the 10-25% range with the stat, the 5% base, talents and gear
+    #: together. Still no cap.
+    AGI_PER_CRIT = (4.0, 20.0)
     #: Intellect -> spell crit. Same flat 2.0 before, same runaway.
-    INT_PER_CRIT = (3.0, 6.0)
+    INT_PER_CRIT = (6.0, 30.0)
+    #: "N% of <stat> as crit / dodge / parry / haste" talents buy percentage at this rate:
+    #: points of the converted stat per 1%, at level 1 and at level 60.
+    RATING_PER_PERCENT = (3.0, 14.0)
+    #: The derived stats that are percentages, for the rule above.
+    PERCENT_ATTRS = frozenset({"crit_chance_physical", "crit_chance_spell", "dodge", "parry", "haste"})
     #: Agility -> dodge. Kept the most generous of the three conversions on
     #: purpose: Kyle wants stacking Agility to still buy real dodge, and
     #: dodge is the one avoidance stat he said should reward it.
