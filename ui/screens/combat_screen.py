@@ -866,6 +866,77 @@ class CombatScreen(BaseScreen):
         "vitality": "Vitality",
     }
 
+    #: Text keeps this far inside a button's border on each side.
+    SLOT_TEXT_PAD = 4
+
+    def _fit_slot_label(self, rect, name, sub=None, hotkey=None):
+        """Lay out a hotbar button's text so that EVERY line fits inside it.
+
+        Returns [(text, (x, y), size)] - the name on up to two lines, then the cost/cooldown
+        line under it, then the hotkey in the bottom-right corner.
+
+        Kyle has flagged this more than once; 10 Nov: "we need to fix wrap around text for
+        skills as they STILL go off the side of the box." Three things were wrong, and
+        wrapping alone fixed none of them:
+          - a wrap cannot break a single word, so "Decomposition" in an 80px button simply
+            ran out through the border. A line that is still too wide is now drawn smaller,
+            and truncated if even that does not fit.
+          - "Cost: 35 Mana" is wider than the button on its own. The label is dropped - the
+            gold number under an ability's name is plainly its cost - leaving "35 Mana".
+          - the cost was drawn at a fixed y that a two-line name ran straight into. It now
+            sits under however many name lines there are.
+        Measured with the fonts it is drawn in, against the button's real inner width.
+        """
+        pad = self.SLOT_TEXT_PAD
+        inner = rect.width - pad * 2
+        font_n, font_s = self.renderer.font_normal, self.renderer.font_small
+        out = []
+        y = rect.y + pad
+
+        lines = self.renderer.wrap_text(name, inner, size="normal")
+        size = "normal"
+        if len(lines) > 2 or any(font_n.size(l)[0] > inner for l in lines):
+            lines = self.renderer.wrap_text(name, inner, size="small")
+            size = "small"
+        if len(lines) > 2:
+            lines = [lines[0], " ".join(lines[1:])]
+        # ONE WORD TOO LONG FOR THE BUTTON EVEN SMALL ("Decomposition"): break it across the
+        # two lines with a hyphen rather than cutting it to "Decomposi..". Only when it is the
+        # whole name, so there is a second line free to take the rest.
+        if len(lines) == 1 and font_s.size(lines[0])[0] > inner and " " not in lines[0]:
+            word = lines[0]
+            cut = len(word) - 1
+            while cut > 1 and font_s.size(word[:cut] + "-")[0] > inner:
+                cut -= 1
+            lines = [word[:cut] + "-", word[cut:]]
+        # Step by the glyphs' real height (ascent + descent), not a guessed 16 or 18: two name
+        # lines, a cost line and the hotkey have to stack inside 80px with nothing to spare,
+        # and a guess that is 2px short puts the second line into the first.
+        def glyph_h(font):
+            return font.get_ascent() - font.get_descent()
+
+        step = glyph_h(font_n if size == "normal" else font_s)
+        for line in lines:
+            out.append((self.renderer.truncate(line, inner, size=size), (rect.x + pad, y), size))
+            y += step
+
+        if sub:
+            out.append((self.renderer.truncate(sub, inner, size="small"),
+                        (rect.x + pad, y), "small"))
+
+        if hotkey:
+            w = font_s.size(hotkey)[0]
+            out.append((hotkey, (rect.right - pad - w, rect.bottom - pad - glyph_h(font_s)), "small"))
+        return out
+
+    def _draw_slot_label(self, screen, rect, name, sub=None, sub_color=None, hotkey=None):
+        placed = self._fit_slot_label(rect, name, sub, hotkey)
+        for i, (text, pos, size) in enumerate(placed):
+            is_hotkey = hotkey is not None and i == len(placed) - 1
+            is_sub = sub is not None and i == len(placed) - (2 if hotkey else 1)
+            color = COLOR_BLUE if is_hotkey else (sub_color if is_sub else COLOR_WHITE)
+            self.renderer.draw_text(screen, text, pos, size=size, color=color)
+
     def _draw_secondary_resource(self, screen, player, pos):
         """Draw the class's secondary resource bar. Returns height consumed."""
         from combat.abilities import get_class_secondary_resource
@@ -1465,20 +1536,9 @@ class CombatScreen(BaseScreen):
                     pygame.draw.rect(screen, btn_color, rect)
                     pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
                     
-                    # Consumable name - wrapped
-                    name_lines = self.renderer.wrap_text(consumable.name, rect.width - 10)
-                    name_y = rect.y + 5
-                    for line in name_lines[:2]:
-                        self.renderer.draw_text(screen, line, (rect.x + 5, name_y), size="normal")
-                        name_y += 18
-                    
-                    # Show quantity
-                    qty_text = f"x{consumable.quantity}"
-                    self.renderer.draw_text(screen, qty_text, (rect.x + 8, rect.y + 35), color=COLOR_GOLD, size="normal")
-                    
-                    # Hotkey label
-                    hotkey = self._hotbar_slot_to_key_label(i)
-                    self.renderer.draw_text(screen, hotkey, (rect.x + rect.width - 40, rect.y + rect.height - 25), size="normal", color=COLOR_BLUE)
+                    self._draw_slot_label(screen, rect, consumable.name,
+                                          sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD,
+                                          hotkey=self._hotbar_slot_to_key_label(i))
                 else:
                     # It's an ability
                     ability_id = hotbar_content
@@ -1503,37 +1563,21 @@ class CombatScreen(BaseScreen):
                     pygame.draw.rect(screen, btn_color, rect)
                     pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
                     
-                    # Ability name - wrapped to fit inside the button (80px wide),
-                    # since names like "Lightning Bolt" overflow a single line
-                    name_lines = self.renderer.wrap_text(ability.name, rect.width - 10)
-                    name_y = rect.y + 5
-                    for line in name_lines[:2]:  # cap at 2 lines to avoid overflowing into cost/cooldown text
-                        self.renderer.draw_text(screen, line, (rect.x + 5, name_y), size="normal")
-                        name_y += 18
-                    
-                    # Show cost or cooldown
+                    # What goes under the name: the cooldown, the reason it cannot be cast,
+                    # or its cost.
                     if not ability.is_available():
-                        cooldown_text = f"{ability.turns_remaining} turns"
-                        self.renderer.draw_text(screen, cooldown_text, (rect.x + 8, rect.y + 35), color=COLOR_RED, size="normal")
+                        sub, sub_color = f"{ability.turns_remaining} turns", COLOR_RED
                     elif not ability.is_form_ready(player):
-                        self.renderer.draw_text(screen, "Wrong form", (rect.x + 8, rect.y + 35), color=COLOR_RED, size="normal")
+                        sub, sub_color = "Wrong form", COLOR_RED
                     else:
-                        # Resource name shown alongside the number (was just
-                        # "Cost: 20" with no indication of which pool -
-                        # ambiguous for every dual-resource class, e.g.
-                        # Cultist's Wrath of the Black Empire costs Insanity
-                        # while Blade of the Empire costs Mana, and both used
-                        # to render identically here).
+                        # Resource name shown alongside the number (a bare "20" is
+                        # ambiguous for every dual-resource class, e.g. Cultist's Wrath of
+                        # the Black Empire costs Insanity while Blade of the Empire costs
+                        # Mana).
                         #
                         # Uses _effective_resource_type (not the raw static
-                        # ability.resource_type) so a multi-form ability like
-                        # Druid Swipe correctly shows "Rage" while the caster
-                        # is in Bear Form and "Energy" while in Cat Form,
-                        # instead of always showing whatever the JSON's
-                        # single hardcoded resource_type happens to be - the
-                        # same static-label bug that made Swipe uncastable
-                        # in Bear Form in the first place (see
-                        # combat/abilities.py's _effective_resource_type).
+                        # ability.resource_type) so a multi-form ability like Druid Swipe
+                        # shows "Rage" in Bear Form and "Energy" in Cat Form.
                         effective_rt = ability._effective_resource_type(player)
                         resource_label = self.RESOURCE_DISPLAY_NAMES.get(
                             getattr(effective_rt, "value", effective_rt),
@@ -1543,13 +1587,11 @@ class CombatScreen(BaseScreen):
                         # visible here or it looks like it does nothing.
                         _caster = getattr(self.state_manager, "player", None)
                         _cost = ability.talented_cost(_caster) if _caster is not None else ability.cost
-                        cost_text = f"Cost: {_cost} {resource_label}"
-                        self.renderer.draw_text(screen, cost_text, (rect.x + 8, rect.y + 35), color=COLOR_GOLD, size="normal")
-                    
-                    # Hotkey label (large in corner) - shows the actual keybind:
-                    # 1-9,0 for the bottom row, Shift+1-9,0 for the top row
-                    hotkey = self._hotbar_slot_to_key_label(i)
-                    self.renderer.draw_text(screen, hotkey, (rect.x + rect.width - 40, rect.y + rect.height - 25), size="normal", color=COLOR_BLUE)
+                        # A free ability says nothing rather than "0 Mana".
+                        sub, sub_color = (f"{_cost} {resource_label}" if _cost else None), COLOR_GOLD
+
+                    self._draw_slot_label(screen, rect, ability.name, sub=sub, sub_color=sub_color,
+                                          hotkey=self._hotbar_slot_to_key_label(i))
             else:
                 # Empty slot
                 pygame.draw.rect(screen, (30, 30, 30), rect)
@@ -1571,13 +1613,8 @@ class CombatScreen(BaseScreen):
                     btn_color = (60, 40, 40) if player.consumable_cooldown > 0 else (40, 60, 40)
                     pygame.draw.rect(screen, btn_color, rect)
                     pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
-                    name_lines = self.renderer.wrap_text(consumable.name, rect.width - 10)
-                    name_y = rect.y + 5
-                    for line in name_lines[:2]:
-                        self.renderer.draw_text(screen, line, (rect.x + 5, name_y), size="normal")
-                        name_y += 18
-                    self.renderer.draw_text(screen, f"x{consumable.quantity}",
-                                            (rect.x + 8, rect.y + 35), color=COLOR_GOLD, size="normal")
+                    self._draw_slot_label(screen, rect, consumable.name,
+                                          sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD)
                 else:
                     ability_id = slot_content
                     ability = player.ability_book.get_ability(ability_id)
@@ -1585,17 +1622,12 @@ class CombatScreen(BaseScreen):
                         btn_color = (40, 60, 40) if ability.is_usable_by(player) else (60, 40, 40)
                         pygame.draw.rect(screen, btn_color, rect)
                         pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
-                        name_lines = self.renderer.wrap_text(ability.name, rect.width - 10)
-                        name_y = rect.y + 5
-                        for line in name_lines[:2]:
-                            self.renderer.draw_text(screen, line, (rect.x + 5, name_y), size="normal")
-                            name_y += 18
+                        sub = None
                         if not ability.is_available():
-                            self.renderer.draw_text(screen, f"{ability.turns_remaining} turns",
-                                                    (rect.x + 8, rect.y + 35), color=COLOR_RED, size="normal")
+                            sub = f"{ability.turns_remaining} turns"
                         elif not ability.is_form_ready(player):
-                            self.renderer.draw_text(screen, "Wrong form",
-                                                    (rect.x + 8, rect.y + 35), color=COLOR_RED, size="normal")
+                            sub = "Wrong form"
+                        self._draw_slot_label(screen, rect, ability.name, sub=sub, sub_color=COLOR_RED)
             else:
                 # Empty extra slot - slightly different border tint than an
                 # empty hotbar slot so it's visually clear this one has no
