@@ -41,7 +41,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 5.02
+            "healing_power": 5
           },
           "armor_type": "mail",
           "armor_value": 73,
@@ -57,8 +57,8 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "block_rating": 0.9,
-            "block_value": 9.86
+            "block_rating": 1,
+            "block_value": 10
           },
           "armor_type": "plate",
           "armor_value": 109,
@@ -74,8 +74,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.46
+            "spell_power": 6
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -115,8 +114,8 @@
             "stamina": 14
           },
           "secondary_stats": {
-            "dodge_rating": 1.1,
-            "parry_rating": 0.82
+            "dodge_rating": 1,
+            "parry_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 146,
@@ -133,7 +132,7 @@
             "stamina": 14
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.55
+            "crit_chance_physical": 1
           },
           "armor_type": "plate",
           "armor_value": 219,
@@ -150,9 +149,7 @@
             "agility": 5,
             "stamina": 7
           },
-          "secondary_stats": {
-            "hit_rating": 0.34
-          },
+          "secondary_stats": {},
           "weapon_damage_min": 54,
           "weapon_damage_max": 73,
           "attack_speed": 2.8,
@@ -199,8 +196,8 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "spell_power": 7.5,
-            "mp5": 1.46
+            "spell_power": 8,
+            "mp5": 1
           },
           "armor_type": "cloth",
           "armor_value": 18,
@@ -231,8 +228,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.46
+            "spell_power": 6
           },
           "label": "Necklace (Int/Hit/SP)"
         }
@@ -281,7 +277,7 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "healing_power": 4.84
+            "healing_power": 5
           },
           "armor_type": "cloth",
           "armor_value": 23,
@@ -297,9 +293,7 @@
             "strength": 9,
             "stamina": 12
           },
-          "secondary_stats": {
-            "crit_chance_physical": 0.44
-          },
+          "secondary_stats": {},
           "armor_type": "plate",
           "armor_value": 168,
           "label": "Plate Shoulders (Str/Sta/Crit)"
@@ -314,9 +308,7 @@
             "strength": 6,
             "stamina": 8
           },
-          "secondary_stats": {
-            "crit_chance_physical": 0.4
-          },
+          "secondary_stats": {},
           "label": "Necklace (Str/Sta/Crit)"
         }
       ],
@@ -361,7 +353,7 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.59
+            "defense_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 168,
@@ -378,7 +370,7 @@
             "spirit": 9
           },
           "secondary_stats": {
-            "healing_power": 5.91
+            "healing_power": 6
           },
           "armor_type": "mail",
           "armor_value": 112,
@@ -396,7 +388,7 @@
             "stamina": 11
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.5
+            "crit_chance_physical": 1
           },
           "weapon_damage_min": 88,
           "weapon_damage_max": 119,
@@ -448,8 +440,8 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "hit_rating": 0.82,
-            "spell_power": 11.13
+            "hit_rating": 1,
+            "spell_power": 11
           },
           "armor_type": "mail",
           "armor_value": 149,
@@ -465,8 +457,8 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "spell_power": 12.29,
-            "mp5": 2.46
+            "spell_power": 12,
+            "mp5": 2
           },
           "armor_type": "cloth",
           "armor_value": 46,
@@ -481,8 +473,8 @@
           "weapon_type": "mace_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 1.87,
-            "parry_rating": 1.36
+            "dodge_rating": 2,
+            "parry_rating": 1
           },
           "weapon_damage_min": 65,
           "weapon_damage_max": 88,
@@ -531,7 +523,7 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "mp5": 1.71
+            "mp5": 2
           },
           "armor_type": "cloth",
           "armor_value": 23,
@@ -547,8 +539,8 @@
             "stamina": 11
           },
           "secondary_stats": {
-            "block_rating": 1.14,
-            "block_value": 10.82
+            "block_rating": 1,
+            "block_value": 11
           },
           "armor_type": "plate",
           "armor_value": 114,
@@ -565,13 +557,13 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "armor": 36.5,
-            "parry_rating": 0.68
+            "parry_rating": 1
           },
           "weapon_damage_min": 66,
           "weapon_damage_max": 90,
           "attack_speed": 2.6,
-          "label": "Mace (Sta/Armor/Parry)"
+          "label": "Mace (Sta/Armor/Parry)",
+          "armor_value": 37
         }
       ],
       "gear_reward_gear_level": 49,
@@ -614,8 +606,8 @@
           "required_level": 48,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 2.05,
-            "parry_rating": 1.5
+            "dodge_rating": 2,
+            "parry_rating": 2
           },
           "armor_type": "leather",
           "armor_value": 95,
@@ -631,8 +623,7 @@
             "intellect": 5
           },
           "secondary_stats": {
-            "spell_power": 8.25,
-            "crit_chance_spell": 0.36
+            "spell_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 23,
@@ -700,8 +691,8 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "block_rating": 1.16,
-            "block_value": 11.01
+            "block_rating": 1,
+            "block_value": 11
           },
           "armor_type": "plate",
           "armor_value": 114,
@@ -718,7 +709,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 5.32
+            "healing_power": 5
           },
           "armor_type": "mail",
           "armor_value": 76,
@@ -734,8 +725,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.67
+            "spell_power": 7
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -780,8 +770,8 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "hit_rating": 0.82,
-            "spell_power": 11.47
+            "hit_rating": 1,
+            "spell_power": 11
           },
           "armor_type": "mail",
           "armor_value": 156,
@@ -798,7 +788,7 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 13.52
+            "attack_power": 14
           },
           "armor_type": "leather",
           "armor_value": 48,
@@ -816,7 +806,7 @@
             "stamina": 8
           },
           "secondary_stats": {
-            "attack_power": 15.28
+            "attack_power": 15
           },
           "weapon_damage_min": 67,
           "weapon_damage_max": 91,
@@ -865,8 +855,8 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 0.71,
-            "dodge_rating": 0.71
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 114,
@@ -882,8 +872,7 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "spell_power": 10.26,
-            "crit_chance_spell": 0.45
+            "spell_power": 10
           },
           "armor_type": "cloth",
           "armor_value": 35,
@@ -901,7 +890,7 @@
             "stamina": 7
           },
           "secondary_stats": {
-            "mp5": 1.19
+            "mp5": 1
           },
           "weapon_damage_min": 56,
           "weapon_damage_max": 76,
@@ -967,7 +956,7 @@
             "spirit": 9
           },
           "secondary_stats": {
-            "healing_power": 6.21
+            "healing_power": 6
           },
           "armor_type": "mail",
           "armor_value": 117,
@@ -984,13 +973,13 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "armor": 37.18,
-            "parry_rating": 0.68
+            "parry_rating": 1
           },
           "weapon_damage_min": 67,
           "weapon_damage_max": 91,
           "attack_speed": 2.6,
-          "label": "Axe (Sta/Armor/Parry)"
+          "label": "Axe (Sta/Armor/Parry)",
+          "armor_value": 37
         }
       ],
       "gear_reward_gear_level": 50,
@@ -1040,8 +1029,8 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "block_rating": 1.16,
-            "block_value": 11.39
+            "block_rating": 1,
+            "block_value": 11
           },
           "armor_type": "plate",
           "armor_value": 117,
@@ -1058,7 +1047,7 @@
             "stamina": 8
           },
           "secondary_stats": {
-            "attack_power": 13.52
+            "attack_power": 14
           },
           "armor_type": "leather",
           "armor_value": 48,
@@ -1075,7 +1064,7 @@
             "spirit": 6
           },
           "secondary_stats": {
-            "healing_power": 6.06
+            "healing_power": 6
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -1132,8 +1121,8 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "spell_power": 10.41,
-            "mp5": 2.08
+            "spell_power": 10,
+            "mp5": 2
           },
           "armor_type": "cloth",
           "armor_value": 36,
@@ -1149,8 +1138,8 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 0.72,
-            "dodge_rating": 0.72
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 78,
@@ -1166,8 +1155,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.87
+            "spell_power": 7
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -1213,8 +1201,7 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "spell_power": 9.27,
-            "hit_rating": 0.39
+            "spell_power": 9
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -1230,8 +1217,8 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.89,
-            "dodge_rating": 0.89
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 179,
@@ -1247,8 +1234,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.87
+            "spell_power": 7
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -1301,7 +1287,7 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.68
+            "crit_chance_physical": 1
           },
           "armor_type": "mail",
           "armor_value": 159,
@@ -1315,8 +1301,8 @@
           "required_level": 50,
           "primary_stats": {},
           "secondary_stats": {
-            "healing_power": 12.01,
-            "mp5": 2.51
+            "healing_power": 12,
+            "mp5": 3
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -1382,8 +1368,8 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 1.24,
-            "dodge_rating": 1.24
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 159,
@@ -1399,8 +1385,8 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "spell_power": 12.97,
-            "crit_chance_spell": 0.68
+            "spell_power": 13,
+            "crit_chance_spell": 1
           },
           "armor_type": "cloth",
           "armor_value": 49,
@@ -1417,7 +1403,7 @@
             "spirit": 6
           },
           "secondary_stats": {
-            "healing_power": 6.26
+            "healing_power": 6
           },
           "label": "Ring (Int/Spi/HP)"
         }
@@ -1467,8 +1453,8 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "hit_rating": 0.57,
-            "spell_power": 8.54
+            "hit_rating": 1,
+            "spell_power": 9
           },
           "armor_type": "mail",
           "armor_value": 82,
@@ -1485,7 +1471,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 7.73
+            "healing_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 25,
@@ -1503,7 +1489,7 @@
             "stamina": 14
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.68
+            "crit_chance_physical": 1
           },
           "weapon_damage_min": 71,
           "weapon_damage_max": 96,
@@ -1552,8 +1538,8 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "hit_rating": 0.59,
-            "spell_power": 9.22
+            "hit_rating": 1,
+            "spell_power": 9
           },
           "armor_type": "mail",
           "armor_value": 114,
@@ -1569,8 +1555,8 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 0.76,
-            "dodge_rating": 0.76
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 114,
@@ -1587,13 +1573,13 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "armor": 36.5,
-            "parry_rating": 0.68
+            "parry_rating": 1
           },
           "weapon_damage_min": 66,
           "weapon_damage_max": 90,
           "attack_speed": 2.6,
-          "label": "Axe (Sta/Armor/Parry)"
+          "label": "Axe (Sta/Armor/Parry)",
+          "armor_value": 37
         }
       ],
       "gear_reward_gear_level": 49,
@@ -1637,8 +1623,8 @@
             "stamina": 11
           },
           "secondary_stats": {
-            "block_rating": 1.06,
-            "block_value": 10.1
+            "block_rating": 1,
+            "block_value": 10
           },
           "armor_type": "plate",
           "armor_value": 114,
@@ -1654,8 +1640,8 @@
             "agility": 10
           },
           "secondary_stats": {
-            "hit_rating": 0.74,
-            "crit_chance_physical": 0.74
+            "hit_rating": 1,
+            "crit_chance_physical": 1
           },
           "armor_type": "leather",
           "armor_value": 71,
@@ -1672,7 +1658,7 @@
             "spirit": 6
           },
           "secondary_stats": {
-            "healing_power": 5.86
+            "healing_power": 6
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -1719,7 +1705,7 @@
             "stamina": 11
           },
           "secondary_stats": {
-            "spell_power": 7.7
+            "spell_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 48,
@@ -1736,7 +1722,7 @@
             "stamina": 8
           },
           "secondary_stats": {
-            "attack_power": 13.29
+            "attack_power": 13
           },
           "armor_type": "leather",
           "armor_value": 48,
@@ -1752,8 +1738,7 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "hit_rating": 0.4,
-            "spell_power": 6.87
+            "spell_power": 7
           },
           "label": "Ring (Int/Hit/SP)"
         }
@@ -1800,7 +1785,7 @@
             "stamina": 7
           },
           "secondary_stats": {
-            "spell_power": 5.2
+            "spell_power": 5
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -1817,7 +1802,7 @@
             "stamina": 8
           },
           "secondary_stats": {
-            "attack_power": 13.67
+            "attack_power": 14
           },
           "armor_type": "leather",
           "armor_value": 49,
@@ -1833,9 +1818,7 @@
             "strength": 6,
             "stamina": 8
           },
-          "secondary_stats": {
-            "crit_chance_physical": 0.4
-          },
+          "secondary_stats": {},
           "label": "Necklace (Str/Sta/Crit)"
         }
       ],
@@ -1892,8 +1875,7 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "spell_power": 8.43,
-            "hit_rating": 0.36
+            "spell_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 24,
@@ -1909,8 +1891,8 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "dodge_rating": 1.09,
-            "parry_rating": 0.82
+            "dodge_rating": 1,
+            "parry_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 156,
@@ -1926,9 +1908,7 @@
             "strength": 6,
             "stamina": 8
           },
-          "secondary_stats": {
-            "crit_chance_physical": 0.4
-          },
+          "secondary_stats": {},
           "label": "Necklace (Str/Sta/Crit)"
         }
       ],
@@ -1975,7 +1955,7 @@
             "spirit": 11
           },
           "secondary_stats": {
-            "healing_power": 7.83
+            "healing_power": 8
           },
           "armor_type": "mail",
           "armor_value": 159,
@@ -1991,8 +1971,8 @@
             "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 0.71,
-            "dodge_rating": 0.71
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 119,
@@ -2010,7 +1990,7 @@
             "stamina": 14
           },
           "secondary_stats": {
-            "defense_rating": 0.85
+            "defense_rating": 1
           },
           "weapon_damage_min": 69,
           "weapon_damage_max": 93,
@@ -2060,7 +2040,7 @@
             "intellect": 12
           },
           "secondary_stats": {
-            "healing_power": 7.92
+            "healing_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 50,
@@ -2076,8 +2056,8 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 1.23,
-            "dodge_rating": 1.23
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 162,
@@ -2094,7 +2074,7 @@
             "spirit": 6
           },
           "secondary_stats": {
-            "healing_power": 4.65
+            "healing_power": 5
           },
           "label": "Ring (Sta/Spi/HP)"
         }
@@ -2135,8 +2115,8 @@
             "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 1.34,
-            "dodge_rating": 1.34
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 162,
@@ -2153,7 +2133,7 @@
             "intellect": 13
           },
           "secondary_stats": {
-            "healing_power": 8.58
+            "healing_power": 9
           },
           "armor_type": "cloth",
           "armor_value": 50,
@@ -2170,7 +2150,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 8.48
+            "healing_power": 8
           },
           "label": "Necklace (Int/Spi/HP)"
         },
@@ -2185,7 +2165,7 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "attack_power": 26.8
+            "attack_power": 27
           },
           "armor_type": "leather",
           "armor_value": 135,
@@ -2229,7 +2209,7 @@
             "stamina": 11
           },
           "secondary_stats": {
-            "attack_power": 17.19
+            "attack_power": 17
           },
           "armor_type": "leather",
           "armor_value": 67,
@@ -2246,7 +2226,7 @@
             "stamina": 13
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.54
+            "crit_chance_physical": 1
           },
           "armor_type": "plate",
           "armor_value": 162,
@@ -2263,7 +2243,7 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "mp5": 2.02
+            "mp5": 2
           },
           "label": "Necklace (Int/Sta/MP5)"
         },
@@ -2278,7 +2258,7 @@
             "spirit": 15
           },
           "secondary_stats": {
-            "healing_power": 10.65
+            "healing_power": 11
           },
           "armor_type": "mail",
           "armor_value": 216,
@@ -2326,8 +2306,8 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 1.16,
-            "dodge_rating": 1.16
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 165,
@@ -2344,7 +2324,7 @@
             "stamina": 10
           },
           "secondary_stats": {
-            "attack_power": 16.46
+            "attack_power": 16
           },
           "armor_type": "leather",
           "armor_value": 55,
@@ -2361,7 +2341,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 8.48
+            "healing_power": 8
           },
           "label": "Ring (Int/Spi/HP)"
         },
@@ -2376,7 +2356,7 @@
             "spirit": 11
           },
           "secondary_stats": {
-            "healing_power": 7.17
+            "healing_power": 7
           },
           "armor_type": "mail",
           "armor_value": 110,
@@ -2426,8 +2406,8 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.77,
-            "dodge_rating": 0.77
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 82,
@@ -2444,7 +2424,7 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.68
+            "crit_chance_physical": 1
           },
           "armor_type": "plate",
           "armor_value": 248,
@@ -2460,9 +2440,7 @@
             "strength": 6,
             "stamina": 8
           },
-          "secondary_stats": {
-            "crit_chance_physical": 0.4
-          },
+          "secondary_stats": {},
           "label": "Ring (Str/Sta/Crit)"
         }
       ],
@@ -2508,7 +2486,7 @@
             "intellect": 11
           },
           "secondary_stats": {
-            "healing_power": 7.17
+            "healing_power": 7
           },
           "armor_type": "cloth",
           "armor_value": 34,
@@ -2525,7 +2503,7 @@
             "stamina": 21
           },
           "secondary_stats": {
-            "defense_rating": 1.24
+            "defense_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 330,
@@ -2558,8 +2536,8 @@
             "agility": 12
           },
           "secondary_stats": {
-            "hit_rating": 0.89,
-            "crit_chance_physical": 0.89
+            "hit_rating": 1,
+            "crit_chance_physical": 1
           },
           "armor_type": "leather",
           "armor_value": 68,
@@ -2602,8 +2580,8 @@
             "intellect": 9
           },
           "secondary_stats": {
-            "spell_power": 12.53,
-            "hit_rating": 0.57
+            "spell_power": 13,
+            "hit_rating": 1
           },
           "armor_type": "cloth",
           "armor_value": 34,
@@ -2633,8 +2611,8 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 2.38,
-            "parry_rating": 1.87
+            "dodge_rating": 2,
+            "parry_rating": 2
           },
           "weapon_damage_min": 95,
           "weapon_damage_max": 128,
@@ -2652,7 +2630,7 @@
             "stamina": 16
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.74
+            "crit_chance_physical": 1
           },
           "armor_type": "plate",
           "armor_value": 247,
@@ -2702,7 +2680,7 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.71
+            "defense_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 165,
@@ -2718,8 +2696,8 @@
             "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 1.33,
-            "dodge_rating": 1.33
+            "defense_rating": 1,
+            "dodge_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 165,
@@ -2736,7 +2714,7 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "crit_chance_physical": 0.61
+            "crit_chance_physical": 1
           },
           "label": "Necklace (Str/Sta/Crit)"
         },
@@ -2748,8 +2726,8 @@
           "required_level": 52,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 2.12,
-            "parry_rating": 1.55
+            "dodge_rating": 2,
+            "parry_rating": 2
           },
           "armor_type": "leather",
           "armor_value": 68,
@@ -2798,8 +2776,8 @@
             "stamina": 15
           },
           "secondary_stats": {
-            "dodge_rating": 1.14,
-            "parry_rating": 0.76
+            "dodge_rating": 1,
+            "parry_rating": 1
           },
           "armor_type": "mail",
           "armor_value": 110,
@@ -2813,9 +2791,9 @@
           "required_level": 52,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 1.16,
-            "block_rating": 2.12,
-            "dodge_rating": 1.35
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 165,
@@ -2832,8 +2810,7 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "spell_power": 8.49,
-            "crit_chance_spell": 0.34
+            "spell_power": 8
           },
           "weapon_damage_min": 80,
           "weapon_damage_max": 109,
@@ -2850,8 +2827,8 @@
             "intellect": 14
           },
           "secondary_stats": {
-            "spell_power": 18.03,
-            "mp5": 3.55
+            "spell_power": 18,
+            "mp5": 4
           },
           "armor_type": "cloth",
           "armor_value": 68,
@@ -2900,8 +2877,8 @@
             "stamina": 16
           },
           "secondary_stats": {
-            "block_rating": 1.64,
-            "block_value": 16.93
+            "block_rating": 2,
+            "block_value": 17
           },
           "armor_type": "plate",
           "armor_value": 248,
@@ -2918,7 +2895,7 @@
             "spirit": 8
           },
           "secondary_stats": {
-            "healing_power": 7.73
+            "healing_power": 8
           },
           "armor_type": "cloth",
           "armor_value": 25,
@@ -2935,7 +2912,7 @@
             "stamina": 8
           },
           "secondary_stats": {
-            "mp5": 1.62
+            "mp5": 2
           },
           "label": "Necklace (Int/Sta/MP5)"
         }
@@ -2993,7 +2970,7 @@
             "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 0.74
+            "defense_rating": 1
           },
           "armor_type": "plate",
           "armor_value": 186,
@@ -3009,8 +2986,8 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "spell_power": 13.6,
-            "crit_chance_spell": 0.69
+            "spell_power": 14,
+            "crit_chance_spell": 1
           },
           "armor_type": "cloth",
           "armor_value": 51,
@@ -3027,7 +3004,7 @@
             "spirit": 6
           },
           "secondary_stats": {
-            "healing_power": 4.85
+            "healing_power": 5
           },
           "label": "Necklace (Sta/Spi/HP)"
         }

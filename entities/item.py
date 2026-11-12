@@ -6,6 +6,46 @@ armor types, weapon types, stat templates, rarity tiers, and slot weights
 """
 
 
+def whole(value):
+    """Round half up to a whole number. Python's round() sends 0.5 to 0 and 2.5 to 2."""
+    import math
+    return int(math.floor(float(value) + 0.5))
+
+
+def whole_stats(primary_stats, secondary_stats, armor_value=0):
+    """(primary, secondary, armor) with every stat a whole number and bonus armour folded in.
+
+    Kyle, 10 Nov, for the second time: "i asked you to remove these partial values from
+    gear....still havent." and "when an item gets +armor - it should not appear as a bonus
+    stat but it should just go into the armor."
+
+    - A stat is a whole number. "+0.3% Crit" is not a thing an item says; a stat that rounds
+      to nothing is not on the item.
+    - "armor" as a stat is added to the item's armour value and removed from the stat list, so
+      the card reads one line - "207 Armor" - the way the real one does. Character armour is
+      the sum of both either way, so nothing about how hard anyone is to hit changes.
+
+    Non-numbers are passed through untouched (nothing stores one today; it would be a bug
+    elsewhere and not this function's to hide).
+    """
+    armor = armor_value or 0
+    out = []
+    for group in (primary_stats, secondary_stats):
+        clean = {}
+        for stat, value in (group or {}).items():
+            if isinstance(value, bool) or not isinstance(value, (int, float)):
+                clean[stat] = value
+                continue
+            if stat == "armor":
+                armor += value
+                continue
+            value = whole(value)
+            if value != 0:
+                clean[stat] = value
+        out.append(clean)
+    return out[0], out[1], whole(armor)
+
+
 class Item:
     """A single equippable item instance."""
 
@@ -38,9 +78,11 @@ class Item:
         # (e.g. "str_physical", "int_caster") - independent of armor_type/weapon_type
         self.stat_template = stat_template
 
-        self.primary_stats = primary_stats or {}      # {"strength": 4, "stamina": 3}
-        self.secondary_stats = secondary_stats or {}   # {"crit_chance_physical": 1.5}
-        self.armor_value = armor_value
+        # WHOLE NUMBERS, AND ARMOUR IS ARMOUR. Every item in the game is built through here -
+        # generated, hand-authored, crafted, loaded from a save - so this is the one place the
+        # two rules can be enforced for all of them. See whole_stats below.
+        self.primary_stats, self.secondary_stats, self.armor_value = whole_stats(
+            primary_stats, secondary_stats, armor_value)
 
         # Weapon combat stats (0 for non-weapons and shields).
         # weapon_damage_min/max is the per-hit damage roll range at 1.0x speed;

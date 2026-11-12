@@ -12,9 +12,7 @@
         "strength": 5,
         "stamina": 7
       },
-      "secondary_stats": {
-        "defense_rating": 0.3
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 41,
       "weapon_damage_max": 55,
       "attack_speed": 2.6
@@ -29,8 +27,8 @@
         "stamina": 6
       },
       "secondary_stats": {
-        "defense_rating": 0.5,
-        "dodge_rating": 0.5
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 91
@@ -138,9 +136,7 @@
         "agility": 5,
         "stamina": 5
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 38,
       "weapon_damage_max": 52,
       "attack_speed": 2.8
@@ -229,9 +225,7 @@
         "strength": 4,
         "stamina": 4
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      }
+      "secondary_stats": {}
     }
   ],
   "Engineer Whirleygig": [
@@ -246,9 +240,7 @@
         "agility": 5,
         "stamina": 5
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 37,
       "weapon_damage_max": 50,
       "attack_speed": 2.6
@@ -296,8 +288,8 @@
       "weapon_type": "sword_1h",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 1.2,
-        "parry_rating": 0.8
+        "dodge_rating": 1,
+        "parry_rating": 1
       },
       "weapon_damage_min": 44,
       "weapon_damage_max": 59,
@@ -445,10 +437,7 @@
       "primary_stats": {
         "agility": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.4,
-        "crit_chance_physical": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "leather",
       "armor_value": 26
     },
@@ -531,9 +520,7 @@
         "agility": 5,
         "stamina": 5
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 34,
       "weapon_damage_max": 47,
       "attack_speed": 2.8
@@ -576,12 +563,11 @@
       "primary_stats": {
         "stamina": 9
       },
-      "secondary_stats": {
-        "armor": 22
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 55,
       "weapon_damage_max": 74,
-      "attack_speed": 3.6
+      "attack_speed": 3.6,
+      "armor_value": 22
     },
     {
       "name": "Siege-Plate Vambraces",
@@ -592,10 +578,7 @@
       "primary_stats": {
         "stamina": 5
       },
-      "secondary_stats": {
-        "defense_rating": 0.3,
-        "dodge_rating": 0.3
-      },
+      "secondary_stats": {},
       "armor_type": "plate",
       "armor_value": 61
     },
@@ -624,8 +607,8 @@
         "strength": 5
       },
       "secondary_stats": {
-        "hit_rating": 0.5,
-        "crit_chance_physical": 0.5
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "weapon_damage_min": 39,
       "weapon_damage_max": 53,
@@ -641,9 +624,7 @@
         "strength": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.3
-      },
+      "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 58
     },
@@ -657,9 +638,7 @@
         "agility": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "armor_type": "leather",
       "armor_value": 24
     }

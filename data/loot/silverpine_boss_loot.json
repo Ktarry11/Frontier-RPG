@@ -40,10 +40,7 @@
       "primary_stats": {
         "agility": 5
       },
-      "secondary_stats": {
-        "hit_rating": 0.3,
-        "crit_chance_physical": 0.3
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 36,
       "weapon_damage_max": 49,
       "attack_speed": 1.7
@@ -74,9 +71,7 @@
         "intellect": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.3
-      },
+      "secondary_stats": {},
       "armor_type": "cloth",
       "armor_value": 17
     },
@@ -90,12 +85,11 @@
       "primary_stats": {
         "stamina": 8
       },
-      "secondary_stats": {
-        "armor": 20
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 51,
       "weapon_damage_max": 69,
-      "attack_speed": 3.6
+      "attack_speed": 3.6,
+      "armor_value": 20
     },
     {
       "name": "Crow-Feather Cloak",
@@ -139,7 +133,7 @@
       },
       "secondary_stats": {
         "spell_power": 9,
-        "crit_chance_spell": 0.5
+        "crit_chance_spell": 1
       },
       "weapon_damage_min": 21,
       "weapon_damage_max": 29,
@@ -274,8 +268,8 @@
         "stamina": 7
       },
       "secondary_stats": {
-        "defense_rating": 0.6,
-        "dodge_rating": 0.6
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 116
@@ -289,10 +283,7 @@
       "primary_stats": {
         "stamina": 6
       },
-      "secondary_stats": {
-        "dodge_rating": 0.4,
-        "parry_rating": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 38
     },
@@ -304,9 +295,7 @@
       "required_level": 16,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 0.4,
-        "block_rating": 0.6,
-        "dodge_rating": 0.4
+        "block_rating": 1
       }
     }
   ],
@@ -380,10 +369,7 @@
       "primary_stats": {
         "agility": 3
       },
-      "secondary_stats": {
-        "hit_rating": 0.4,
-        "crit_chance_physical": 0.4
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 30,
       "weapon_damage_max": 41,
       "attack_speed": 1.8,
@@ -401,12 +387,11 @@
       "primary_stats": {
         "stamina": 9
       },
-      "secondary_stats": {
-        "armor": 22
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 55,
       "weapon_damage_max": 74,
-      "attack_speed": 3.6
+      "attack_speed": 3.6,
+      "armor_value": 22
     },
     {
       "name": "Boarhide Greaves",
@@ -463,9 +448,7 @@
         "strength": 5,
         "stamina": 7
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.3
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 42,
       "weapon_damage_max": 57,
       "attack_speed": 2.6
@@ -528,7 +511,7 @@
         "agility": 5
       },
       "secondary_stats": {
-        "defense_rating": 0.5
+        "defense_rating": 1
       },
       "weapon_damage_min": 42,
       "weapon_damage_max": 57,
@@ -544,8 +527,8 @@
         "stamina": 6
       },
       "secondary_stats": {
-        "defense_rating": 0.5,
-        "dodge_rating": 0.5
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "mail",
       "armor_value": 64
@@ -560,7 +543,6 @@
         "intellect": 4
       },
       "secondary_stats": {
-        "hit_rating": 0.2,
         "spell_power": 4
       }
     },
@@ -594,7 +576,7 @@
         "stamina": 7
       },
       "secondary_stats": {
-        "defense_rating": 0.5
+        "defense_rating": 1
       },
       "weapon_damage_min": 42,
       "weapon_damage_max": 57,
@@ -610,7 +592,6 @@
         "intellect": 4
       },
       "secondary_stats": {
-        "hit_rating": 0.2,
         "spell_power": 4
       }
     },
@@ -624,8 +605,8 @@
         "stamina": 8
       },
       "secondary_stats": {
-        "defense_rating": 0.7,
-        "dodge_rating": 0.7
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 128
@@ -638,9 +619,7 @@
       "required_level": 18,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 0.4,
-        "block_rating": 0.6,
-        "dodge_rating": 0.4
+        "block_rating": 1
       }
     }
   ],
@@ -718,9 +697,7 @@
         "agility": 5,
         "stamina": 5
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 37,
       "weapon_damage_max": 50,
       "attack_speed": 2.6
@@ -733,7 +710,7 @@
       "required_level": 19,
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 1.2,
+        "dodge_rating": 1,
         "parry_rating": 1
       },
       "armor_type": "leather",
@@ -815,8 +792,8 @@
         "stamina": 8
       },
       "secondary_stats": {
-        "dodge_rating": 0.7,
-        "parry_rating": 0.6
+        "dodge_rating": 1,
+        "parry_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 134
@@ -935,9 +912,9 @@
       "required_level": 20,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 0.6,
+        "parry_rating": 1,
         "block_rating": 1,
-        "dodge_rating": 0.7
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 105
@@ -952,9 +929,7 @@
         "strength": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "defense_rating": 0.4
-      }
+      "secondary_stats": {}
     }
   ],
   "Magister Quillfire": [
@@ -986,8 +961,7 @@
         "intellect": 5
       },
       "secondary_stats": {
-        "spell_power": 8,
-        "crit_chance_spell": 0.4
+        "spell_power": 8
       },
       "armor_type": "cloth",
       "armor_value": 29

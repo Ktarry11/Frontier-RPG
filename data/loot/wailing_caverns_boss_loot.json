@@ -72,8 +72,8 @@
         "agility": 6
       },
       "secondary_stats": {
-        "hit_rating": 0.5,
-        "crit_chance_physical": 0.5
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "weapon_damage_min": 42,
       "weapon_damage_max": 58,
@@ -93,8 +93,8 @@
         "agility": 7
       },
       "secondary_stats": {
-        "hit_rating": 0.5,
-        "crit_chance_physical": 0.5
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "weapon_damage_min": 45,
       "weapon_damage_max": 61,
@@ -110,9 +110,7 @@
         "strength": 7,
         "stamina": 8
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 93
     },
@@ -139,10 +137,7 @@
       "primary_stats": {
         "agility": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.4,
-        "crit_chance_physical": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "leather",
       "armor_value": 29
     }
@@ -158,8 +153,8 @@
         "stamina": 7
       },
       "secondary_stats": {
-        "defense_rating": 0.6,
-        "dodge_rating": 0.6
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 105
@@ -250,8 +245,8 @@
         "agility": 7
       },
       "secondary_stats": {
-        "hit_rating": 0.5,
-        "crit_chance_physical": 0.5
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "weapon_damage_min": 47,
       "weapon_damage_max": 64,
@@ -297,12 +292,11 @@
       "primary_stats": {
         "stamina": 11
       },
-      "secondary_stats": {
-        "armor": 27
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 63,
       "weapon_damage_max": 86,
-      "attack_speed": 3.6
+      "attack_speed": 3.6,
+      "armor_value": 27
     },
     {
       "name": "Thunder-Tooth Pendant",
@@ -326,9 +320,7 @@
         "strength": 6,
         "stamina": 6
       },
-      "secondary_stats": {
-        "defense_rating": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 48
     }
@@ -377,7 +369,7 @@
         "agility": 7
       },
       "secondary_stats": {
-        "defense_rating": 0.5
+        "defense_rating": 1
       },
       "weapon_damage_min": 47,
       "weapon_damage_max": 64,
@@ -408,8 +400,8 @@
       "required_level": 22,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 0.7,
-        "block_rating": 1.4,
+        "parry_rating": 1,
+        "block_rating": 1,
         "dodge_rating": 1
       },
       "armor_type": "plate",
@@ -425,12 +417,11 @@
       "primary_stats": {
         "stamina": 11
       },
-      "secondary_stats": {
-        "armor": 27
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 66,
       "weapon_damage_max": 89,
-      "attack_speed": 3.3
+      "attack_speed": 3.3,
+      "armor_value": 27
     },
     {
       "name": "Bark-Wrapped Vambraces",
@@ -442,8 +433,8 @@
         "stamina": 7
       },
       "secondary_stats": {
-        "defense_rating": 0.5,
-        "dodge_rating": 0.5
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 76
@@ -476,8 +467,8 @@
         "strength": 7
       },
       "secondary_stats": {
-        "hit_rating": 0.6,
-        "crit_chance_physical": 0.6
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "armor_type": "plate",
       "armor_value": 123
@@ -527,9 +518,7 @@
         "agility": 5,
         "stamina": 7
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 44,
       "weapon_damage_max": 59,
       "attack_speed": 2.4
@@ -666,9 +655,7 @@
         "strength": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.2
-      }
+      "secondary_stats": {}
     }
   ]
 }

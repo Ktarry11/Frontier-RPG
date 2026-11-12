@@ -1211,6 +1211,8 @@ class LootGenerator:
         # come from the exact same suffix roll here.
         PRIMARY_STAT_NAMES = {"strength", "agility", "intellect", "stamina", "spirit"}
 
+        from entities.item import whole
+        rounding_loss = 0.0     # budget that whole-number rounding took off secondary stats
         for stat_name, weight in suffix_stats.items():
             cost = self.stat_budget_costs.get(stat_name, 1.0)
             raw_value = (total_budget * weight) / cost
@@ -1220,14 +1222,17 @@ class LootGenerator:
             # items are SUPPOSED to show "+0.3% Block Rating" per the
             # doc's own examples, rounding those to whole numbers would
             # zero out nearly every early-game secondary stat roll.
-            if stat_name in PRIMARY_STAT_NAMES:
-                value = round(raw_value)
-                if value > 0:
-                    primary_stats[stat_name] = value
-            else:
-                value = round(raw_value, 1)
-                if value > 0:
-                    secondary_stats[stat_name] = value
+            #
+            # THAT WAS REVERSED. Kyle, 10 Nov: "i asked you to remove these partial values from
+            # gear." Every stat is a whole number now. What rounding takes away is not thrown
+            # out: the budget it was worth is handed to the item's main stat below, so a
+            # low-level "of Accuracy" piece whose 0.3% Hit rounds to nothing is a slightly
+            # better strength piece, not a worse item.
+            value = whole(raw_value)
+            if stat_name not in PRIMARY_STAT_NAMES:
+                rounding_loss += (raw_value - value) * cost
+            if value > 0:
+                (primary_stats if stat_name in PRIMARY_STAT_NAMES else secondary_stats)[stat_name] = value
 
         # Bonus secondary rolls (Rare+ items) still pull from the older
         # generic secondary_stat_pool (crit/haste/dodge/spell_power/AP/
@@ -1245,9 +1250,19 @@ class LootGenerator:
             bonus_budget = total_budget * 0.15
             for stat_name in chosen:
                 cost = self.stat_budget_costs.get(stat_name, 1.0)
-                value = round((bonus_budget / len(chosen)) / cost, 1)
+                raw = (bonus_budget / len(chosen)) / cost
+                value = whole(raw)
+                rounding_loss += (raw - value) * cost
                 if value > 0:
                     secondary_stats[stat_name] = secondary_stats.get(stat_name, 0) + value
+
+        # Hand the rounded-away budget to the main stat (the item's biggest primary, or Stamina
+        # on a piece with none). Whole points only, and only when rounding cost the item
+        # something - rounding UP is a small gift and is left alone.
+        extra = whole(rounding_loss) if rounding_loss >= 0.5 else 0
+        if extra > 0:
+            main = max(primary_stats, key=primary_stats.get) if primary_stats else "stamina"
+            primary_stats[main] = primary_stats.get(main, 0) + extra
 
         return primary_stats, secondary_stats, suffix_name
 

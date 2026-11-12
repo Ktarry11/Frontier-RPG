@@ -41,9 +41,7 @@
         "strength": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.2
-      }
+      "secondary_stats": {}
     },
     {
       "name": "Cursed Fang Greaves",
@@ -55,8 +53,8 @@
         "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 0.7,
-        "dodge_rating": 0.7
+        "defense_rating": 1,
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 146
@@ -86,7 +84,7 @@
       "weapon_type": "sword_1h",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 1.4,
+        "dodge_rating": 1,
         "parry_rating": 1
       },
       "weapon_damage_min": 48,
@@ -119,9 +117,7 @@
         "strength": 7,
         "stamina": 10
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "mail",
       "armor_value": 102
     }
@@ -169,8 +165,7 @@
         "intellect": 4
       },
       "secondary_stats": {
-        "spell_power": 5,
-        "hit_rating": 0.2
+        "spell_power": 5
       }
     },
     {
@@ -183,9 +178,7 @@
         "agility": 6,
         "stamina": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "leather",
       "armor_value": 31
     }
@@ -203,7 +196,7 @@
         "stamina": 8
       },
       "secondary_stats": {
-        "defense_rating": 0.5
+        "defense_rating": 1
       },
       "weapon_damage_min": 48,
       "weapon_damage_max": 66,
@@ -246,8 +239,7 @@
         "stamina": 7
       },
       "secondary_stats": {
-        "dodge_rating": 0.6,
-        "parry_rating": 0.4
+        "dodge_rating": 1
       },
       "armor_type": "mail",
       "armor_value": 76
@@ -264,12 +256,11 @@
       "primary_stats": {
         "stamina": 11
       },
-      "secondary_stats": {
-        "armor": 27
-      },
+      "secondary_stats": {},
       "weapon_damage_min": 63,
       "weapon_damage_max": 86,
-      "attack_speed": 3.6
+      "attack_speed": 3.6,
+      "armor_value": 27
     },
     {
       "name": "Bone-Ward Pauldrons",
@@ -279,9 +270,9 @@
       "required_level": 21,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 0.6,
+        "parry_rating": 1,
         "block_rating": 1,
-        "dodge_rating": 0.7
+        "dodge_rating": 1
       },
       "armor_type": "plate",
       "armor_value": 110
@@ -296,9 +287,7 @@
         "intellect": 4,
         "stamina": 6
       },
-      "secondary_stats": {
-        "hit_rating": 0.2
-      }
+      "secondary_stats": {}
     },
     {
       "name": "Wardens' Shroud Belt",
@@ -330,7 +319,7 @@
       },
       "secondary_stats": {
         "spell_power": 13,
-        "crit_chance_spell": 0.5
+        "crit_chance_spell": 1
       },
       "weapon_damage_min": 26,
       "weapon_damage_max": 36,
@@ -439,9 +428,7 @@
         "strength": 5,
         "stamina": 7
       },
-      "secondary_stats": {
-        "defense_rating": 0.4
-      },
+      "secondary_stats": {},
       "armor_type": "plate",
       "armor_value": 82
     },

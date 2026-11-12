@@ -15,10 +15,7 @@
         "agility": 8,
         "stamina": 8
       },
-      "secondary_stats": {
-        "haste": 0.2,
-        "dodge_rating": 0.2
-      },
+      "secondary_stats": {},
       "armor_value": 53,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
@@ -53,10 +50,7 @@
         "strength": 12,
         "stamina": 12
       },
-      "secondary_stats": {
-        "dodge_rating": 0.2,
-        "haste": 0.2
-      },
+      "secondary_stats": {},
       "armor_value": 85,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
@@ -89,12 +83,10 @@
       "stat_template": "agi_physical",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 2.3,
-        "parry_rating": 1.8,
-        "haste": 0.3,
-        "armor": 13
+        "dodge_rating": 2,
+        "parry_rating": 2
       },
-      "armor_value": 171,
+      "armor_value": 184,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -127,11 +119,9 @@
       "primary_stats": {},
       "secondary_stats": {
         "arcane_spell_power": 11,
-        "fire_spell_power": 11,
-        "crit_chance_spell": 0.2,
-        "armor": 8
+        "fire_spell_power": 11
       },
-      "armor_value": 26,
+      "armor_value": 34,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -167,12 +157,10 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "armor": 29,
-        "parry_rating": 0.5,
-        "dodge_rating": 0.2,
+        "parry_rating": 1,
         "attack_power": 4
       },
-      "armor_value": 54,
+      "armor_value": 83,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -207,9 +195,7 @@
         "stamina": 10
       },
       "secondary_stats": {
-        "attack_power": 17,
-        "crit_chance_physical": 0.2,
-        "haste": 0.2
+        "attack_power": 17
       },
       "armor_value": 0,
       "weapon_damage_min": 77,
@@ -244,11 +230,8 @@
       "primary_stats": {
         "intellect": 30
       },
-      "secondary_stats": {
-        "crit_chance_spell": 0.1,
-        "armor": 11
-      },
-      "armor_value": 41,
+      "secondary_stats": {},
+      "armor_value": 52,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -283,9 +266,8 @@
       },
       "secondary_stats": {
         "spell_power": 10,
-        "crit_chance_spell": 0.6,
-        "attack_power": 4,
-        "crit_chance_physical": 0.2
+        "crit_chance_spell": 1,
+        "attack_power": 4
       },
       "armor_value": 54,
       "weapon_damage_min": 0,
@@ -323,10 +305,7 @@
         "strength": 17,
         "spirit": 17
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.2,
-        "dodge_rating": 0.3
-      },
+      "secondary_stats": {},
       "armor_value": 0,
       "weapon_damage_min": 77,
       "weapon_damage_max": 104,
@@ -396,8 +375,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "crit_chance_physical": 0.6,
-        "haste": 0.1,
+        "crit_chance_physical": 1,
         "attack_power": 4
       },
       "armor_value": 197,
@@ -434,7 +412,6 @@
       "secondary_stats": {
         "arcane_spell_power": 18,
         "nature_spell_power": 18,
-        "haste": 0.3,
         "spell_power": 2
       },
       "armor_value": 54,
@@ -471,10 +448,8 @@
       "stat_template": "str_physical",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 2.2,
-        "parry_rating": 1.7,
-        "crit_chance_physical": 0.3,
-        "hit_rating": 0.3
+        "dodge_rating": 2,
+        "parry_rating": 2
       },
       "armor_value": 0,
       "weapon_damage_min": 79,
@@ -510,12 +485,11 @@
         "agility": 15
       },
       "secondary_stats": {
-        "hit_rating": 1.1,
-        "crit_chance_physical": 1.1,
-        "armor": 14,
+        "hit_rating": 1,
+        "crit_chance_physical": 1,
         "attack_power": 5
       },
-      "armor_value": 112,
+      "armor_value": 126,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -549,10 +523,7 @@
         "intellect": 13,
         "stamina": 13
       },
-      "secondary_stats": {
-        "crit_chance_spell": 0.2,
-        "haste": 0.2
-      },
+      "secondary_stats": {},
       "armor_value": 134,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
@@ -588,8 +559,7 @@
       },
       "secondary_stats": {
         "spell_power": 11,
-        "crit_chance_spell": 0.5,
-        "hit_rating": 0.2,
+        "crit_chance_spell": 1,
         "healing_power": 2
       },
       "armor_value": 0,
@@ -629,11 +599,9 @@
       },
       "secondary_stats": {
         "block_rating": 1,
-        "block_value": 15,
-        "armor": 11,
-        "haste": 0.2
+        "block_value": 15
       },
-      "armor_value": 0,
+      "armor_value": 11,
       "weapon_damage_min": 119,
       "weapon_damage_max": 162,
       "attack_speed": 3.6,
@@ -667,12 +635,10 @@
         "stamina": 19
       },
       "secondary_stats": {
-        "defense_rating": 1.5,
-        "dodge_rating": 1.5,
-        "crit_chance_physical": 0.3,
-        "armor": 16
+        "defense_rating": 2,
+        "dodge_rating": 2
       },
-      "armor_value": 306,
+      "armor_value": 322,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -707,10 +673,7 @@
         "agility": 9,
         "stamina": 9
       },
-      "secondary_stats": {
-        "haste": 0.2,
-        "hit_rating": 0.2
-      },
+      "secondary_stats": {},
       "armor_value": 102,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
@@ -746,9 +709,7 @@
       },
       "secondary_stats": {
         "spell_power": 14,
-        "hit_rating": 0.7,
-        "haste": 0.1,
-        "crit_chance_spell": 0.3
+        "hit_rating": 1
       },
       "armor_value": 47,
       "weapon_damage_min": 0,
@@ -786,10 +747,8 @@
         "agility": 12
       },
       "secondary_stats": {
-        "hit_rating": 0.7,
-        "crit_chance_physical": 0.7,
-        "dodge_rating": 0.2,
-        "haste": 0.2
+        "hit_rating": 1,
+        "crit_chance_physical": 1
       },
       "armor_value": 0,
       "weapon_damage_min": 75,
@@ -826,11 +785,9 @@
         "stamina": 12
       },
       "secondary_stats": {
-        "mp5": 2,
-        "armor": 10,
-        "hit_rating": 0.2
+        "mp5": 2
       },
-      "armor_value": 50,
+      "armor_value": 60,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -862,9 +819,7 @@
       "stat_template": "agi_int_hybrid",
       "primary_stats": {},
       "secondary_stats": {
-        "shadow_spell_power": 30,
-        "hit_rating": 0.2,
-        "haste": 0.2
+        "shadow_spell_power": 30
       },
       "armor_value": 102,
       "weapon_damage_min": 0,
@@ -901,8 +856,7 @@
         "stamina": 15
       },
       "secondary_stats": {
-        "defense_rating": 0.9,
-        "hit_rating": 0.3,
+        "defense_rating": 1,
         "attack_power": 5
       },
       "armor_value": 229,
@@ -942,11 +896,8 @@
         "agility": 12,
         "stamina": 12
       },
-      "secondary_stats": {
-        "armor": 13,
-        "crit_chance_physical": 0.2
-      },
-      "armor_value": 0,
+      "secondary_stats": {},
+      "armor_value": 13,
       "weapon_damage_min": 90,
       "weapon_damage_max": 122,
       "attack_speed": 1.7,
@@ -981,10 +932,7 @@
         "agility": 14,
         "stamina": 15
       },
-      "secondary_stats": {
-        "crit_chance_physical": 0.3,
-        "dodge_rating": 0.4
-      },
+      "secondary_stats": {},
       "armor_value": 130,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
@@ -1020,8 +968,7 @@
         "stamina": 14
       },
       "secondary_stats": {
-        "attack_power": 4,
-        "haste": 0.2
+        "attack_power": 4
       },
       "armor_value": 104,
       "weapon_damage_min": 0,
@@ -1057,7 +1004,6 @@
       "secondary_stats": {
         "arcane_spell_power": 20,
         "nature_spell_power": 20,
-        "haste": 0.2,
         "healing_power": 2
       },
       "armor_value": 0,
@@ -1097,8 +1043,7 @@
         "stamina": 27
       },
       "secondary_stats": {
-        "crit_chance_spell": 0.5,
-        "haste": 0.2
+        "crit_chance_spell": 1
       },
       "armor_value": 0,
       "weapon_damage_min": 50,
@@ -1135,9 +1080,7 @@
         "intellect": 12
       },
       "secondary_stats": {
-        "healing_power": 7,
-        "crit_chance_spell": 0.2,
-        "haste": 0.2
+        "healing_power": 7
       },
       "armor_value": 33,
       "weapon_damage_min": 0,
@@ -1174,8 +1117,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "defense_rating": 0.8,
-        "hit_rating": 0.2,
+        "defense_rating": 1,
         "attack_power": 5
       },
       "armor_value": 106,
@@ -1212,11 +1154,8 @@
         "strength": 14,
         "stamina": 14
       },
-      "secondary_stats": {
-        "armor": 11,
-        "hit_rating": 0.2
-      },
-      "armor_value": 159,
+      "secondary_stats": {},
+      "armor_value": 170,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -1324,8 +1263,7 @@
         "stamina": 44
       },
       "secondary_stats": {
-        "attack_power": 7,
-        "dodge_rating": 0.4
+        "attack_power": 7
       },
       "armor_value": 324,
       "weapon_damage_min": 0,
@@ -1361,8 +1299,7 @@
       "secondary_stats": {
         "arcane_spell_power": 22,
         "fire_spell_power": 22,
-        "spell_power": 3,
-        "crit_chance_spell": 0.3
+        "spell_power": 3
       },
       "armor_value": 67,
       "weapon_damage_min": 0,
@@ -1399,10 +1336,9 @@
       "primary_stats": {},
       "secondary_stats": {
         "shadow_spell_power": 37,
-        "armor": 14,
         "spell_power": 2
       },
-      "armor_value": 51,
+      "armor_value": 65,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -1436,8 +1372,7 @@
       "secondary_stats": {
         "holy_spell_power": 18,
         "frost_spell_power": 18,
-        "attack_power": 5,
-        "crit_chance_spell": 0.3
+        "attack_power": 5
       },
       "armor_value": 165,
       "weapon_damage_min": 0,
@@ -1474,9 +1409,7 @@
         "stamina": 14
       },
       "secondary_stats": {
-        "mp5": 3,
-        "haste": 0.2,
-        "hit_rating": 0.2
+        "mp5": 3
       },
       "armor_value": 0,
       "weapon_damage_min": 0,
@@ -1513,7 +1446,6 @@
       },
       "secondary_stats": {
         "arcane_resistance": 15,
-        "haste": 0.2,
         "attack_power": 5
       },
       "armor_value": 0,
@@ -1551,9 +1483,7 @@
         "stamina": 19
       },
       "secondary_stats": {
-        "hit_rating": 0.8,
-        "crit_chance_physical": 0.3,
-        "haste": 0.3
+        "hit_rating": 1
       },
       "armor_value": 0,
       "weapon_damage_min": 95,
@@ -1591,8 +1521,7 @@
       },
       "secondary_stats": {
         "healing_power": 13,
-        "spell_power": 3,
-        "haste": 0.3
+        "spell_power": 3
       },
       "armor_value": 330,
       "weapon_damage_min": 0,
@@ -1627,8 +1556,7 @@
       "primary_stats": {},
       "secondary_stats": {
         "fire_spell_power": 30,
-        "spell_power": 2,
-        "hit_rating": 0.2
+        "spell_power": 2
       },
       "armor_value": 34,
       "weapon_damage_min": 0,
@@ -1663,11 +1591,8 @@
       "primary_stats": {
         "spirit": 33
       },
-      "secondary_stats": {
-        "dodge_rating": 0.4,
-        "armor": 12
-      },
-      "armor_value": 68,
+      "secondary_stats": {},
+      "armor_value": 80,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
@@ -1702,8 +1627,7 @@
         "intellect": 23
       },
       "secondary_stats": {
-        "spell_power": 3,
-        "dodge_rating": 0.4
+        "spell_power": 3
       },
       "armor_value": 137,
       "weapon_damage_min": 0,
@@ -1739,11 +1663,8 @@
         "agility": 19,
         "spirit": 19
       },
-      "secondary_stats": {
-        "armor": 13,
-        "hit_rating": 0.3
-      },
-      "armor_value": 0,
+      "secondary_stats": {},
+      "armor_value": 13,
       "weapon_damage_min": 95,
       "weapon_damage_max": 128,
       "attack_speed": 1.7,
