@@ -457,18 +457,21 @@ class QuestDialogScreen(BaseScreen):
             entries.append(("Bank", "bank"))
         if not entries:
             return []
-        # Stacked UPWARD from above the bottom row. Sitting at SCREEN_HEIGHT-90
-        # put the first button exactly on top of dialogue mode's Back button,
-        # which lives at (40, SCREEN_HEIGHT-90, 160, 44) - two buttons on the
-        # same pixels, with whichever drew last winning the click.
+        # A ROW ACROSS THE TOP RIGHT, beside the NPC's name. They used to be a column on the
+        # left above the bottom row, which is exactly where a quest's Rewards line and its
+        # reward cards are drawn - Kyle's screenshot of Quartermaster Horg had Shop sitting on
+        # "Rewards". (Before that they sat on dialogue mode's Back button.) The header band is
+        # the one strip of this screen no quest text is ever laid out in.
         w, h, gap = 150, 36, 8
-        x = 40
-        y = SCREEN_HEIGHT - 150 - (len(entries) - 1) * (h + gap)
+        x = SCREEN_WIDTH - 40 - len(entries) * w - (len(entries) - 1) * gap
+        y = self.SERVICE_ROW_Y
         out = []
         for label, action in entries:
             out.append((label, action, pygame.Rect(x, y, w, h)))
-            y += h + gap
+            x += w + gap
         return out
+
+    SERVICE_ROW_Y = 28
 
     def _greeting_buttons(self):
         """[(label, action, rect)] - service buttons, then Shop for vendors, then Leave; centred in one row."""
