@@ -6,7 +6,7 @@
 Kyle: "Currently trash mobs are red boxes and dungeon and cave bosses are generic things. We can
 afford up to 5 sprite prompts. So about 36 sprites per sheet."
 
-FIVE CLAIMS:
+SIX CLAIMS:
 
   1. NOTHING IS DRAWN TWICE AND NO SHEET IS TOO BIG TO GENERATE. Art is the scarce thing here, and
      a sheet quietly growing past what one image can lay out is a prompt that will not slice.
@@ -18,6 +18,9 @@ FIVE CLAIMS:
      process. Python's hash() is randomised per run, so a variant picked with it would change the
      monster's appearance every time the game restarted; this is the check that would have caught
      that.
+  6. NOBODY STANDS AMONG OGRES DRAWN AS A HUMAN. A named boss does not carry the race word, so
+     the race rules miss him; and a tribe name (Drywhisker, Witherbark) is not a race word either.
+     See race_mismatches().
   5. NO SPRITE IS DEAD WEIGHT. Every one of the 180 is reachable by some real creature. A sprite
      nothing can select is a cell of a sheet spent on nothing, and with only 5 prompts that is the
      expensive mistake.
@@ -141,6 +144,10 @@ def main():
     except Exception as exc:
         bad.append(f"could not build a Monster to check the combat path agrees: {exc!r}")
 
+    wrong_race = race_mismatches()
+    for line in wrong_race:
+        bad.append(line)
+
     named = sum(1 for n in cave if any(rx.search(n) for rx, _s, _o in CS.RULES))
     print(f"{len(flat)} sprites over {len(CS.SHEETS)} sheets "
           f"{ {k: len(v) for k, v in CS.SHEETS.items()} }")
@@ -163,6 +170,58 @@ def main():
           "is stable across processes, no sprite is dead weight, and combat draws each creature "
           "the same as the dungeon floor does.")
     return 0
+
+
+def race_mismatches():
+    """Claim 6: nobody stands in a roster of ogres (kobolds, trolls...) drawn as a human.
+
+    Kyle, 10 Nov: "Boulder'gor boss should be an ogre." A named boss does not carry the race
+    word, so the race rules missed him and his humanoid stat template drew a human bandit.
+    For every encounter table where at least half the other creatures share one race's art,
+    a humanoid drawn with GENERIC human art is reported - unless it is listed below as a
+    person who really is a human among them.
+    """
+    import re
+    import creature_sprites as cs
+    root = Path(__file__).resolve().parent.parent
+    creatures = json.loads((root / "data/creatures/creatures.json").read_text())["creatures"]
+    enc = json.loads((root / "data/creatures/encounters.json").read_text())
+    race = re.compile(r"^(ogre|kobold|troll|gnoll|murloc|naga|quilboar|harpy|centaur|furbolg|satyr|worgen|yeti|goblin)")
+    generic = re.compile(r"^(bandit_human|cultist|champion|syndicate|executioner|hunter_ranger|cult_overseer|archmage|houndmaster)")
+    #: Humans who belong where they are: cultists in a worgen village, a Syndicate man in a
+    #: kobold mine, and three whose race the name does not settle.
+    really_human = {"Pyrewood Cultist", "Peril Packmaster", "Syndicate Prospector",
+                    "Kundaraz Terrace-Watch", "Skinwalker Garn", "Oldcrest"}
+    found = {}
+
+    def walk(node, path=""):
+        if not isinstance(node, dict):
+            return
+        for key, value in node.items():
+            here = f"{path}/{key}"
+            if path.endswith("/caves") or path.endswith("/subzones"):
+                names = sorted(n for n in set(re.findall(r'"([^"]{3,45})"', json.dumps(value))) if n in creatures)
+                art = {n: cs.sprite_file(n, creatures[n]["template"]) for n in names}
+                tally = Counter(race.match(a).group(1) for a in art.values() if race.match(a))
+                if tally:
+                    top, count = tally.most_common(1)[0]
+                    for n, a in art.items():
+                        if (generic.match(a) and creatures[n]["template"].startswith("humanoid")
+                                and count >= max(2, (len(names) - 1) * 0.5) and n not in really_human):
+                            found[n] = f"{n} is drawn as {a} among {count} {top}s ({key})"
+            walk(value, here)
+    walk(enc)
+
+    # ...and the tribes: a creature named for a tribe draws as that tribe's race.
+    tribes = {"drywhisker": "kobold", "witherbark": "troll", "sandfury": "troll", "boulderfist": "ogre",
+              "death's head": "quilboar", "mudsnout": "gnoll", "witchwing": "harpy", "kolkar": "centaur"}
+    for n, e in creatures.items():
+        for tribe, want in tribes.items():
+            if tribe in n.lower() and e["template"].startswith(("humanoid", "vermin")):
+                a = cs.sprite_file(n, e["template"])
+                if not a.startswith(want) and "pack runner" not in n.lower():
+                    found[n] = f"{n} is a {tribe.title()} ({want}) and is drawn as {a}"
+    return sorted(found.values())
 
 
 if __name__ == "__main__":

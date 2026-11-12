@@ -206,6 +206,39 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # ===== WHAT IT IS BEATS WHAT IT IS CALLED (12 Nov 2026) =====
+    # Kyle, 10 Nov: "Boulder'gor boss should be an ogre" - and the Boulderfist Hall boss too.
+    # Both drew as HUMAN bandits. The race rules further down match on the race WORD ("ogre",
+    # "kobold", "troll"), and a named boss does not carry it: "Gor'mok the Pit Chief" says
+    # nothing about being an ogre, so he fell through to his stat template, humanoid_warrior,
+    # which draws a human. tools/qa_creature_sprites.py found 21 named bosses standing in a
+    # roster of another race and drawn as a human, and seven whole tribes (Drywhisker kobolds
+    # drawn as rats and bandits, Witherbark and Sandfury trolls as bandits and cultists) whose
+    # TRIBE name the rules did not know.
+    #
+    # Named individuals first, by name, then tribes. First match wins, so these sit at the top.
+    (r"^(gor'mok the pit chief|mauler krakk|gorbuk the shelf-king|gorbash the thick)$", "ogre"),
+    (r"^(warlord krellian|bloodhoof the lamed|verog the dervish|kragg the wall-breaker|"
+     r"warbringer gorrak|khan saltmane)$", "centaur"),
+    (r"^(wardchief thulg|hagg taurenbane)$", "quilboar"),
+    (r"^bramblequeen durga$", "quilboar_geomancer"),
+    (r"^skyshriek matron$", "harpy_matriarch"),
+    (r"^ka'tesh the last stairkeeper$", "troll_witchdoctor"),
+    (r"^(isle headhunter|thaka the unburied)$", "troll_axe"),
+    (r"^harbinger veska$", "troll_witchdoctor"),
+    (r"^chief grik$", "gnoll"),
+    (r"^ssaren the salvage-taker$", "naga_warrior"),
+    (r"^gearjaw$", "goblin_overseer"),
+    # Tribes. A caster of the tribe gets the tribe's caster where one is drawn.
+    (r"drywhisker", "kobold"),
+    (r"(witherbark|sandfury|bloodscalp|skullsplitter|vilebranch).*(shadowcaster|venomweaver|"
+     r"witch ?doctor|hex\w*|shaman|mystic|shadow ?hunter|priest)", "troll_witchdoctor"),
+    (r"witherbark|sandfury|bloodscalp|skullsplitter|vilebranch", "troll_axe"),
+    (r"death's head", "quilboar_geomancer"),
+    (r"mudsnout|mosshide (?!the)|riverpaw|shadowhide|rothide", "gnoll"),
+    (r"saltscale (salvager|reaver)", "murloc"),
+    (r"witchwing", "harpy"),
+    (r"siren", "sea_witch"),
     # ===== added with sheets 6 and 7 =====
     (r"scarlet.*(crusader|knight|defender|myrmidon|champion|commander|centurion)", "scarlet_crusader"),
     (r"scarlet.*(priest|preacher|chaplain|confessor|zealot|evangel)", "scarlet_priest"),
@@ -495,6 +528,9 @@ SPARE = {
     # Scarlet Bowman). The creatures went; the ART is fine and stays, per Kyle on the first
     # sprite sheets: "don't toss the other stuff... Useful later don't lose them just rename
     # them!" Each of these had exactly one customer and now has none.
+    "executioner_hooded": "its only customer was Witchwing Slayer, matched on the word 'slayer' - "
+                          "and a Witchwing is a harpy, so she draws as one now (12 Nov 2026). "
+                          "Hold for a human headsman.",
     "skeleton_archer": "its only customer was the creature Skeleton Archer, a deleted draft. "
                        "The game still has skeletons - wire up when one is a ranged type.",
     "kobold_2": "second kobold look; its users were Rotting Kobold and Savage Rotting Kobold, "
