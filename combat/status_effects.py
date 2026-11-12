@@ -2441,9 +2441,11 @@ class StatusEffectMixin:
 
         mult = 1.0 if is_moving else self.STANDING_STILL_MULT
 
-        from combat.abilities import get_class_resource, ResourceType
-        resource = get_class_resource(getattr(self, "char_class", None), self)
-        if resource == ResourceType.MANA and hasattr(self, "current_mana"):
+        # "HAS A MANA POOL", not "is currently using mana". get_class_resource follows the
+        # character's FORM, so a druid in Bear Form reads as a rage user and regenerated no
+        # mana at all for as long as they stayed shifted. Kyle, 12 Nov: "mana doesnt regen
+        # while in shapeshift forms." In WoW the blue bar keeps filling behind the form.
+        if getattr(self, "mana", 0) > 0 and hasattr(self, "current_mana"):
             gain = spirit * self.OUT_OF_COMBAT_MANA_REGEN_PER_SPIRIT * mult * dt
             # mp5 (real gear suffix stat, "Mana Per 5 Seconds" - see
             # data/items/gear_suffixes.json's "of the Restorer"/"of the

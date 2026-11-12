@@ -3625,7 +3625,11 @@ class Character(StatusEffectMixin):
         # Mana regen tied to Spirit (0.5 mana per point of effective Spirit,
         # so 10 Spirit = 5 mana/turn). Only Mana-resource classes have a
         # nonzero self.mana pool to regen into (see _recalculate_derived_stats).
-        if resource == ResourceType.MANA:
+        #
+        # "HAS A MANA POOL", not "is currently using mana": `resource` follows the form, so a
+        # druid in Bear or Cat Form read as a rage/energy user and got no mana back at the end
+        # of the turn. Kyle, 12 Nov: "mana doesnt regen while in shapeshift forms."
+        if self.mana > 0:
             self.current_mana = min(self.mana, self.current_mana + (self.effective_spirit * 0.5))
 
     def restore_resources_out_of_combat_step(self):
