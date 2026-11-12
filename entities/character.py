@@ -3264,6 +3264,15 @@ class Character(StatusEffectMixin):
         block stats regardless of class, same as every other avoidance
         stat already being class-agnostic here.
         """
+        # harmless_to_source (Silas Vance, The Retainer: "that enemy cannot damage Silas at
+        # all, including with area attacks"): a debuff ON THE ATTACKER that names who put it
+        # there. Checked first, so nothing - shields, avoidance, procs - is spent on a hit
+        # that is not going to happen.
+        if attacker is not None and hasattr(attacker, "_effects"):
+            for _eff in attacker._effects():
+                if (_eff.stat_mods or {}).get("harmless_to_source") and _eff.source_name == self.name:
+                    return 0
+
 
         # Absorb shields (StatusEffect.absorb - see its docstring; Tinker's
         # Reactive Plating is the first real user) soak the RAW incoming
@@ -3544,6 +3553,26 @@ class Character(StatusEffectMixin):
             if (self.current_health / self.health) < threshold:
                 taken_mult -= low_hp_reduction
 
+        # --- three recruit-kit clauses that had nothing to act on (12 Nov) ---
+        #
+        # next_hit_taken_pct (Hana Tamihana, Read the Break: "the first attack on each ally
+        # lands for 40% less"): applies to THIS hit and then the effect is gone.
+        for _eff in list(self._effects()):
+            _first = (_eff.stat_mods or {}).get("next_hit_taken_pct")
+            if _first:
+                taken_mult += _first / 100.0
+                self._effects().remove(_eff)
+                self._on_status_effects_changed()
+                break
+        # repeat_school_taken_pct (Callum Reid, Professional Development: "50% less damage
+        # from whichever school last hit him"): applies when this hit is the same school as
+        # the one before it.
+        _school = damage_type if isinstance(damage_type, str) else "mixed"
+        _repeat = self.get_status_stat_mod("repeat_school_taken_pct")
+        if _repeat and getattr(self, "_last_hit_school", None) == _school:
+            taken_mult += _repeat / 100.0
+        self._last_hit_school = _school
+
         taken_mult = max(0.0, taken_mult)
 
         actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
@@ -3660,7 +3689,24 @@ class Character(StatusEffectMixin):
         anti-heal debuff (most of this engine's uses are the latter).
         """
         mult = 1.0 + (self.get_status_stat_mod("healing_taken_pct") if hasattr(self, "get_status_stat_mod") else 0.0) / 100.0
-        self.current_health = min(self.health, self.current_health + amount * max(0.0, mult))
+        landed = amount * max(0.0, mult)
+        spare = self.current_health + landed - self.health
+        self.current_health = min(self.health, self.current_health + landed)
+        # overheal_to_shield (Hana Tamihana, Never Turn Your Back On It: "any healing beyond
+        # full health becomes a shield instead of being wasted"). The shield tops up rather
+        # than stacks, and cannot grow past OVERHEAL_SHIELD_CAP of maximum health.
+        if spare >= 1 and hasattr(self, "get_status_stat_mod") and self.get_status_stat_mod("overheal_to_shield") > 0:
+            from combat.status_effects import StatusEffect, EffectType
+            cap = int(self.health * self.OVERHEAL_SHIELD_CAP)
+            old = next((e for e in self._effects() if e.effect_id == "overheal_shield"), None)
+            total = min(cap, int(spare) + (old.absorb if old else 0))
+            if old:
+                self._effects().remove(old)
+            self.apply_status_effect(StatusEffect("overheal_shield", "Held Breath", EffectType.BUFF, 4,
+                                                  absorb=total, source_name=self.name, real_time_seconds=None))
+
+    #: The most an overheal shield can hold, as a share of maximum health.
+    OVERHEAL_SHIELD_CAP = 0.30
     
     def restore_mana(self, amount):
         """Restore mana."""

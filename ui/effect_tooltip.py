@@ -56,6 +56,10 @@ _PCT_HINTS = ("_pct", "crit", "dodge", "parry", "block", "haste", "hit")
 #: Stats that read better as a sentence than as "+1 Silenced".
 _PLAIN_WORDS = {
     "silenced": "Silenced - basic attacks only",
+    "next_hit_taken_pct": "{value}% damage from the next hit, then this is spent",
+    "repeat_school_taken_pct": "{value}% damage from a hit of the same school as the last",
+    "overheal_to_shield": "Healing past full health becomes a shield",
+    "harmless_to_source": "Cannot damage whoever placed this",
     "weakest_school": "Spells strike as the school the target resists least",
     "miss_chance_pct": "{value}% chance to miss",
     "cc_immune": "Immune to crowd control",

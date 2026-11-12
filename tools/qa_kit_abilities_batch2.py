@@ -1,5 +1,5 @@
 """
-Eleven more recruit signature abilities, each held to its own text.
+Sixteen more recruit signature abilities, each held to its own text.
 
 Kyle, 12 Nov: "For dead keys (character recruit abilities) we should ensure they do what they
 say."
@@ -10,6 +10,13 @@ Three needed something new:
   Callum Reid      You're Enormous                  "Does not work on bosses" - it did
   Fiona Strachan   Unbearable Until Somebody Checks "Does not work on bosses" - it did
   Gianluca Ferri   A Running Commentary             "enemies target Gianluca first" - they did not
+
+Five did nothing at all and now have the mechanic they describe:
+  Hana Tamihana    Read the Break                   first hit on each ally lands 40% lighter
+  Hana Tamihana    Never Turn Your Back On It       overhealing becomes a shield (cap 30%)
+  Silas Vance      The Retainer                     that enemy cannot damage Silas
+  Callum Reid      Professional Development         half damage from a repeat of the same school
+  Ivan Petrov      He Never Hit One                 +15% (its friendly-fire half is gone: there is none)
 
 Six were marked as broken in the data and are checked here to be working, because the engine
 caught up with them (monsters read a damage-dealt percentage; an area effect is aimed at a
@@ -203,8 +210,90 @@ def main():
         check(c.spell_penetration >= c.SPELL_PEN_USEFUL_MAX, f"Control, Not Power: spell penetration {c.spell_penetration}")
         check(c.get_status_stat_mod("damage_dealt_pct") == -20, "Control, Not Power: the 20% damage cost is missing")
 
+    # ====================== five more that did nothing at all ==============================
+    def hits(victim, attacker, n, school="physical", amount=1000):
+        """Total damage of n identical hits, avoidance off, health topped up between."""
+        victim.dodge = victim.parry = victim.block_chance = 0.0
+        out = []
+        for _ in range(n):
+            victim.current_health = victim.health
+            out.append(victim.take_damage(amount, school, attacker_level=60, attacker=attacker) or 0)
+        return out
+
+    # Hana - Read the Break: the FIRST hit on each ally is 40% lighter, the second is not
+    c, ab = kit("Hana Tamihana", "Read the Break")
+    if ab:
+        ally = Character("Ally", "Warrior", 60)
+        party = Party(c)
+        party.add_member(ally) if hasattr(party, "add_member") else party.members.append(ally)
+        base = hits(ally, mob(), 1)[0]
+        ok, msg = ab.use(c, [c, ally], party=party, free=True)
+        check(ok and ally.get_status_stat_mod("next_hit_taken_pct") == -40 and c.get_status_stat_mod("next_hit_taken_pct") == -40,
+              f"Read the Break did not cover the whole party ({msg})")
+        first, second = hits(ally, mob(), 2)
+        check(base and abs(first / base - 0.6) < 0.03, f"Read the Break: the first hit was {first / max(1, base):.2f}x a normal one, want 0.60x")
+        check(abs(second - base) <= 2, f"Read the Break: the second hit was {second}, a normal hit is {base} - it should not be reduced")
+
+    # Silas - The Retainer: that enemy cannot hurt Silas; it can hurt anyone else; others can hurt Silas
+    c, ab = kit("Silas Vance", "The Retainer")
+    if ab:
+        held, other = mob(), mob()
+        ok, msg = ab.use(c, held, free=True)
+        check(ok, f"The Retainer would not cast ({msg})")
+        check(sum(hits(c, held, 30)) == 0 and sum(hits(c, held, 30, school="fire")) == 0, "the retained enemy still damaged Silas")
+        check(sum(hits(c, other, 5)) > 0, "The Retainer made Silas immune to a different enemy")
+        bystander = Character("B", "Warrior", 60)
+        check(sum(hits(bystander, held, 5)) > 0, "The Retainer stopped the enemy hurting someone else")
+
+    # Callum - Professional Development: half damage from a repeat of the same school
+    c, ab = kit("Callum Reid", "Professional Development")
+    if ab:
+        foe = mob()
+        plain = hits(c, foe, 1, school="fire")[0]
+        ok, msg = ab.use(c, c, free=True)
+        c._last_hit_school = None
+        fire1, fire2, frost, fire3 = (hits(c, foe, 1, school=s)[0] for s in ("fire", "fire", "frost", "fire"))
+        check(ok and abs(fire1 - plain) <= 2, f"Professional Development: the first fire hit was {fire1}, a normal one is {plain}")
+        check(abs(fire2 / plain - 0.5) < 0.03, f"Professional Development: a repeated fire hit was {fire2 / plain:.2f}x, want 0.50x")
+        check(abs(fire3 - plain) <= 2, f"Professional Development: fire after frost was {fire3}; the school changed, so no reduction")
+
+    # Hana - Never Turn Your Back On It: overheal becomes a shield, capped
+    c, ab = kit("Hana Tamihana", "Never Turn Your Back On It")
+    if ab:
+        ally = Character("Ally", "Warrior", 60)
+        party = Party(c)
+        party.add_member(ally) if hasattr(party, "add_member") else party.members.append(ally)
+        ally.current_health = ally.health - 100
+        ally.heal(300)
+        check(not any(getattr(e, "absorb", 0) for e in ally._effects()), "overheal made a shield with no buff up")
+        ok, msg = ab.use(c, [c, ally], party=party, free=True)
+        ally.current_health = 1
+        ally.heal(300)
+        worth = ally.current_health - 1            # what a 300 heal is really worth to this ally
+        for e in [e for e in ally._effects() if e.effect_id == "overheal_shield"]:
+            ally._effects().remove(e)
+        ally.current_health = ally.health - 250          # 300 into a 250 gap: 50 over, well under the cap
+        ally.heal(300)
+        shield = sum(getattr(e, "absorb", 0) or 0 for e in ally._effects())
+        check(ok and ally.current_health == ally.health and abs(shield - (worth - 250)) <= 1,
+              f"a heal worth {worth} into a 250 gap should leave a {worth - 250} shield; got {shield} ({msg})")
+        ally.heal(10 ** 6)
+        shield = sum(getattr(e, "absorb", 0) or 0 for e in ally._effects())
+        check(shield == int(ally.health * ally.OVERHEAL_SHIELD_CAP), f"the overheal shield is {shield}, cap is {int(ally.health * ally.OVERHEAL_SHIELD_CAP)}")
+        before = ally.current_health
+        ally.dodge = ally.parry = ally.block_chance = 0.0
+        ally.take_damage(50, "fire", attacker_level=60, attacker=mob())
+        check(ally.current_health == before, "the overheal shield did not absorb a small hit")
+
+    # Ivan - He Never Hit One: +15%, and no promise about friendly fire
+    c, ab = kit("Ivan Petrov", "He Never Hit One")
+    if ab:
+        ok, msg = ab.use(c, c, free=True)
+        check(ok and c.get_status_stat_mod("damage_dealt_pct") == 15, f"He Never Hit One: damage bonus is {c.get_status_stat_mod('damage_dealt_pct')} ({msg})")
+        check("ally" not in by_name["He Never Hit One"]["description"].lower(), "He Never Hit One still talks about not hitting allies - there is no friendly fire")
+
     left = sum(1 for a in by_name.values() if str(a.get("engine", "")).startswith("needs"))
-    print(f"11 abilities checked. Kit abilities still marked as needing engine work: {left}")
+    print(f"16 abilities checked. Kit abilities still marked as needing engine work: {left}")
     if fails:
         print(f"FAIL {len(fails)}:")
         for f in fails[:25]:

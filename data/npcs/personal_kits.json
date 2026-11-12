@@ -247,14 +247,16 @@
         "ability_id": "personal_silas_the_retainer",
         "name": "The Retainer",
         "from": "'a goblin on the middle pier paying him a retainer not to tell anyone else what he notices'",
-        "engine": "needs: single-source damage immunity that also suppresses area damage",
+        "engine": "live: harmless_to_source on the enemy",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "energy",
         "cooldown": 12,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {},
+        "stat_mods": {
+          "harmless_to_source": 1
+        },
         "description": "For 3 turns that enemy cannot damage Silas at all, including with area attacks.",
         "ranks": [
           {
@@ -1072,21 +1074,23 @@
         "ability_id": "personal_ivan_he_never_hit_one",
         "name": "He Never Hit One",
         "from": "'Eleven years of a heavy thing on rails with other people's children stepping off kerbs. He never hit one.'",
-        "engine": "needs: suppress friendly-fire and splash on allies",
+        "engine": "live: damage_dealt_pct. The friendly-fire half was removed - there is no friendly fire in this game.",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
         "cooldown": 0,
-        "duration": 0,
+        "duration": 4,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "Ivan's area attacks never strike an ally, and enemies he cleaves take 15% more damage.",
+        "stat_mods": {
+          "damage_dealt_pct": 15
+        },
+        "description": "Ivan picks his ground. For 4 turns everything he hits takes 15% more damage from him.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 15
+            "effect_value": 0
           }
         ]
       },
@@ -1641,20 +1645,22 @@
         "ability_id": "personal_callum_professional_development",
         "name": "Professional Development",
         "from": "'He's been envenomated more often than any person should be and files all of it under professional development.'",
-        "engine": "needs: gain resistance to the last school that damaged him",
+        "engine": "live: repeat_school_taken_pct",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
         "cooldown": 10,
         "duration": 4,
-        "stat_mods": {},
-        "description": "For 4 turns Callum takes 50% less damage from whichever school last hit him.",
+        "stat_mods": {
+          "repeat_school_taken_pct": -50
+        },
+        "description": "For 4 turns Callum takes 50% less damage from any hit of the same school as the one before it.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 15,
-            "effect_value": 50
+            "effect_value": 0
           }
         ],
         "is_instant": true
@@ -1996,20 +2002,22 @@
         "ability_id": "personal_hana_read_the_break",
         "name": "Read the Break",
         "from": "'The tide spirits read her the way she reads a break.'",
-        "engine": "needs: pre-mitigate the next incoming attack on the party",
+        "engine": "live: next_hit_taken_pct - spent by the first hit",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 2,
-        "stat_mods": {},
+        "stat_mods": {
+          "next_hit_taken_pct": -40
+        },
         "description": "For 2 turns the first attack on each ally lands for 40% less.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 40
+            "effect_value": 0
           }
         ],
         "is_instant": true
@@ -2018,14 +2026,16 @@
         "ability_id": "personal_hana_never_turn_your_back_on_it",
         "name": "Never Turn Your Back On It",
         "from": "'Take what's offered, give back, never turn your back on it.'",
-        "engine": "needs: convert overhealing into a shield",
+        "engine": "live: overheal_to_shield, capped at 30% of maximum health",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
-        "description": "For 4 turns any healing beyond full health becomes a shield instead of being wasted.",
+        "stat_mods": {
+          "overheal_to_shield": 1
+        },
+        "description": "For 4 turns any healing beyond full health becomes a shield instead of being wasted, up to 30% of maximum health.",
         "ranks": [
           {
             "rank": 1,
