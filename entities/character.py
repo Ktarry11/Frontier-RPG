@@ -2869,6 +2869,25 @@ class Character(StatusEffectMixin):
     MITIGATION_BASE = 200
     MITIGATION_PER_LEVEL = 35
 
+    #: THE PLAYER SIDE'S OWN ARMOUR CURVE. Measured 12 Nov on every recruit at 56-60 in the gear
+    #: the game gives them, on the shared curve above: cloth 31%, leather 41%, mail 51%, plate
+    #: 60%, plate and shield 65%. Kyle: "DPS or healer shouldn't go over 40%" and then, on
+    #: seeing the table: "in actual wow, most tanks get DR from abilities and avoidance (block,
+    #: dodge, parry). The only things that should have high armor (even reaching cap) would be
+    #: druid bears, venomancer beetles, and bloodmage eternal form (as none of these forms can
+    #: block OR parry) ... Having dps take more damage from physical attacks isn't a problem."
+    #:
+    #: Every armour class was high by the same factor, so it is the curve that moves, not
+    #: 2,700 items: the same gear now reads cloth ~19%, leather ~27%, mail ~36%, plate ~45%,
+    #: plate and shield ~52%. The three form tanks get there by multiplying their gear's
+    #: armour (combat/forms.py and the Bloodmage's Eternal Curse), up to the cap below.
+    #:
+    #: Monsters and pets stay on MITIGATION_PER_LEVEL: their armour was tuned against it and
+    #: nothing about how hard THEY are to hit was the complaint.
+    PLAYER_MITIGATION_PER_LEVEL = 68
+    #: Classic's own ceiling on armour. Only a form tank gets near it.
+    ARMOR_REDUCTION_CAP = 0.75
+
     #: Kept because saves, tooltips and tests referenced it. Not used by the curve any more.
     MITIGATION_CONSTANT = 100
 
@@ -3047,9 +3066,21 @@ class Character(StatusEffectMixin):
         denom = cls.MITIGATION_BASE + cls.MITIGATION_PER_LEVEL * max(1, int(attacker_level or 1))
         return rating / (rating + denom)
 
+    @classmethod
+    def armor_mitigation_from(cls, armor, attacker_level=None):
+        """Fraction of PHYSICAL damage a player-side character's armour stops.
+
+        Same shape as mitigation_from, on PLAYER_MITIGATION_PER_LEVEL, capped at
+        ARMOR_REDUCTION_CAP. The one place a character's armour becomes a percentage - damage
+        taken, the stat sheet and the item card all ask here.
+        """
+        armor = max(0, armor)
+        denom = cls.MITIGATION_BASE + cls.PLAYER_MITIGATION_PER_LEVEL * max(1, int(attacker_level or 1))
+        return min(cls.ARMOR_REDUCTION_CAP, armor / (armor + denom))
+
     def get_physical_reduction_percent(self):
         """Current physical damage reduction from Armor, as a percentage."""
-        return self.mitigation_from(self.armor, self.level) * 100.0
+        return self.armor_mitigation_from(self.armor, self.level) * 100.0
 
     def get_magic_reduction_percent(self):
         """Current magic damage reduction from Magic Resistance, as a percentage."""
@@ -3323,7 +3354,7 @@ class Character(StatusEffectMixin):
                 # defender cannot be pushed into negative Armor and start
                 # taking bonus damage from penetration alone.
                 effective_armor = max(0, int(effective_armor * (1.0 - min(1.0, pct)) - flat))
-            reduction = self.mitigation_from(effective_armor, attacker_level)
+            reduction = self.armor_mitigation_from(effective_armor, attacker_level)
         elif damage_type == "magic":
             # spell_penetration is the magic-side counterpart, and was equally
             # inert. Same ordering and same floor.

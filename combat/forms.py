@@ -32,15 +32,21 @@ from combat.abilities import ResourceType
 #: adding to it - which is why these are armor_pct and not a larger flat bonus: a flat number that
 #: works at 60 is enormous at 15 and irrelevant at 60 once gear moves on.
 #:
-#: Fitted so a shieldless form tank lands level with a plate tank carrying one:
+#: REFITTED 12 Nov 2026, on the player armour curve (Character.PLAYER_MITIGATION_PER_LEVEL).
+#: Kyle: "most tanks get DR from abilities and avoidance (block, dodge, parry). The only things
+#: that should have high armor (even reaching cap) would be druid bears, venomancer beetles, and
+#: bloodmage eternal form (as none of these forms can block OR parry) so they need high armor."
 #:
-#:     warrior_protection   52.5%   (plus 37 block+dodge from its shield, which armour does not show)
-#:     venomancer_fortitude 54.4%   beetle, mail, no shield
-#:     druid_feral          55.3%   dire bear, leather, no shield
-#:     paladin_protection   55.7%
+#: So these no longer aim to MATCH a plate tank's armour - they aim well past it, because armour
+#: is the only layer they have. Measured on recruits at 56-60 in the gear the game gives them:
 #:
-#: Dire Bear carries nearly twice Bear's multiplier because it is the level-40 form and leather has
-#: fallen further behind plate by then; Beetle needs least because mail starts closest.
+#:     plate + shield tank        52%   and blocks, parries and dodges on top
+#:     beetle (mail)              66%
+#:     eternal curse (Bloodmage)  65%   armor_pct lives on the ability, data/abilities/bloodmage.json
+#:     dire bear (leather)        68%   before any Feral armour talents; the cap is 75%
+#:
+#: Dire Bear's multiplier is the largest because leather starts lowest; Beetle's the smallest
+#: because mail starts closest and Fortitude's own talents already add to it.
 FORMS = {
     "bear": {
         "name": "Bear Form",
@@ -51,7 +57,7 @@ FORMS = {
             "Shifts into a bear, trading your normal Mana pool for Rage. "
             "Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 70},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 250},
     },
     "dire_bear": {
         "name": "Dire Bear Form",
@@ -62,7 +68,7 @@ FORMS = {
             "An improved Bear Form - more Armor, Stamina, and Attack "
             "Power than the base form."
         ),
-        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60, "armor_pct": 115},
+        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60, "armor_pct": 400},
     },
     "cat": {
         "name": "Cat Form",
@@ -153,7 +159,7 @@ FORMS = {
             "Shifts into an armored beetle, trading your normal Mana pool "
             "for Rage. Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 22},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 140},
     },
     "weaver": {
         "name": "Weaver Form",

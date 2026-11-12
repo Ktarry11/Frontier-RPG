@@ -1131,8 +1131,10 @@ class InventoryScreen(BaseScreen):
         equipped = player.equipment.get_equipped(item.slot)
         # Compare like for like: swapping, not stacking.
         base = current - (equipped.armor_value if equipped else 0)
-        gain = (Character.mitigation_from(base + item.armor_value)
-                - Character.mitigation_from(base)) * 100.0
+        # Against something the character's own level - the same question the stat sheet's
+        # reduction figure answers - on the player armour curve.
+        gain = (Character.armor_mitigation_from(base + item.armor_value, player.level)
+                - Character.armor_mitigation_from(base, player.level)) * 100.0
         return f"  ({gain:+.1f}% phys reduction)"
 
     def _draw_recipe_scroll_tooltip(self, screen, item, mouse_pos):
