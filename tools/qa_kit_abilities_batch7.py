@@ -94,12 +94,16 @@ def main():
     slash = next(a for a in mobs[0].abilities if a.kind == "damage")
     slash.turns_remaining = 0
     _, msg = slash.use(mobs[0], ch, engine=eng)
-    check(mobs[0].current_health < hp, f"Without Deciding To: a dodged attack was not answered ({msg!r})")
+    # Answered, not necessarily landed: the counter is a real attack and can itself miss.
+    check("Without Deciding To:" in msg, f"Without Deciding To: a dodged attack was not answered ({msg!r})")
     ch.dodge = 0.0; ch.parry = 0.0
     hp = mobs[0].current_health
     slash.turns_remaining = 0
     slash.use(mobs[0], ch, engine=eng)
-    check(mobs[0].current_health == hp, "Without Deciding To: an attack that LANDED was answered too")
+    _, msg = "", ""
+    slash.turns_remaining = 0
+    _, msg = slash.use(mobs[0], ch, engine=eng)
+    check("Without Deciding To:" not in msg, "Without Deciding To: an attack that LANDED was answered too")
 
     # ---- Bashir: his damage to the marked row, nobody else's ----
     ch, ab, mobs, eng = setup("He Snaps the Chalk Line")
