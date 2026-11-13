@@ -410,6 +410,12 @@ class PortalManager:
                 (22, 55): ("The Abyssal Sands", 36, 92),      # up The Throat
                 (50, 67): ("The Abyssal Sands", 84, 112),      # up The Long Collapse
                 (89, 70): ("The Abyssal Sands", 148, 116),      # up Underlight
+                # "at the end of the descent" (Kyle): the last room, and the stair in it
+                (98, 40): ("The Black Strand", 20, 14),
+            },
+            # Under the Dry Deep. The Onyxhollow gate at (84, 52) is registered with the town.
+            "The Black Strand": {
+                (20, 11): ("The Dry Deep", 95, 40),
             },
             # Zone 3, the cenote, and the end of the five-zone water chain. Three doors on the
             # surface map: the gate west back to the Sands, the dig mouth on the isle that is the

@@ -5651,6 +5651,7 @@ def create_all_zones():
     from tools import handbuilt_drownbell as ddrow   # NOT ddb - that is handbuilt_deep_bloom
     from tools import handbuilt_abyssal_sands as dabs
     from tools import handbuilt_dry_deep as dunder   # NOT ddry - that is handbuilt_drywhisker_deeps
+    from tools import handbuilt_black_strand as dstrand
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
     from tools import handbuilt_cistern as dcis   # NOT dc - that is a dungeon alias
@@ -5793,6 +5794,9 @@ def create_all_zones():
         # The void under the Abyssal Sands, reached down six of its sinkholes (Kyle, 13 Nov 2026).
         # A CAVE, not a dungeon: fixed_spawns False, boss and rare pinned.
         "The Dry Deep": dunder.generate_dry_deep(),
+        # The layer under the Dry Deep (Kyle, 13 Nov 2026): black sand, fungi and silithid, 50-53.
+        # An OPEN ZONE that happens to have a roof - subzone tables and rares, not a pinned boss.
+        "The Black Strand": dstrand.generate_black_strand(),
         "Glittervein": dgv.generate_glittervein(),
         "The Mother Vein": dmv.generate_mother_vein(),
         "The Cistern": dcis.generate_cistern(),

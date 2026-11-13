@@ -281,6 +281,15 @@ ZONE_BACKGROUND.update({
     "Azurelode Mine": ("nautical", "Flooded"),           # "one great SUMP of standing water"
     "Rotvine Hollow": ("nautical", "Flooded"),           # flooded root cavern
     "The Cistern": ("nautical", "Flooded"),              # the outflow, pulled down and pushed up
+    # --- under the Abyssal Sands (Kyle, 13 Nov 2026) ----------------------------------------
+    # The Dry Deep is rock and dark. The Black Strand under it is three places and each fights
+    # in its own light: the fungi, the hive, and bare cave everywhere else.
+    "The Dry Deep": "dark_dungeon",
+    "The Black Strand": "dark_dungeon",
+    "The Lantern Wood": "fungal",
+    "The Last Water": "fungal",
+    "The Chitin Reach": "hive",
+    "The Royal Cell": "hive",
     "The Drownbell": ("nautical", "Flooded"),            # pirate cove under the Tanaris range
     "The Drowned Shrine": ("nautical", "Flooded"),       # flooded colonnade
     "The Drowning Floor": ("nautical", "Flooded"),       # "where the year's flood goes"

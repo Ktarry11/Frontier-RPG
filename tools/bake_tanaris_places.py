@@ -25,12 +25,13 @@ from tools import bake_durotar_caves as BD
 from tools import handbuilt_steamwheedle_port as STW
 from tools import handbuilt_drownbell as DB
 from tools import handbuilt_dry_deep as DD
+from tools import handbuilt_black_strand as BS
 from tools.bake_durotar_caves import M, dim
 
 #: bake_spec() resolves its build function off BD.C, which is bound to the Durotar caves module.
 #: Each zone here lives in its own module, so C is swapped per bake - the same thing
 #: tools/bake_return_voyage.py does for the seven ship zones.
-MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD}
+MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD, "black_strand": BS}
 
 SF = "shimmering_flats/materials/"
 
@@ -107,6 +108,74 @@ SPECS["dry_deep"] = lambda: dict(
     pools=[],
     cfg=dict(ao=0.42, depth=0.78, lip=22, lip_col=(1.0, 0.90, 0.70), deep_dark=0.40,
              foam_col=(170, 210, 215), glows=[]),
+)
+
+
+def _dots(pts, r=1.8, step=2.0):
+    """A polyline as a chain of small ellipses - the only region shape the cave baker has."""
+    import numpy as _np
+    out = []
+    for (p, q) in zip(pts, pts[1:]):
+        n = max(1, int(_np.hypot(q[0] - p[0], q[1] - p[1]) / step))
+        for i in range(n + 1):
+            t = i / n
+            out.append((p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t, r, r))
+    return out
+
+
+def _room(name, k=1.0):
+    _n, cx, cy, rx, ry = BS.CHAMBERS[BS.IDX[name]]
+    return (cx, cy, rx * k, ry * k)
+
+
+UD = "underdark/materials/"
+BR = "broodspiral/materials/"
+TM = "tempest/materials/"
+
+# THE BLACK STRAND. Kyle, 13 Nov 2026: "a gorgeous mix of dark sand, fungi, and silithid".
+# BLACK SAND IS THE GROUND EVERYWHERE and it is one quiet texture, so that the two things growing
+# on it can be loud: the fungi light it teal, the hive lights it amber, and the only other colour
+# is the red of the Dark Iron road. Each of those is ONE floor, placed, not blended - the mix is
+# in where they are, and the light each throws is what joins them up.
+SPECS["black_strand"] = lambda: dict(
+    build="build_black_strand_baked", seed=5053, slug="black_strand",
+    materials={
+        "sand":    M("black_strand/materials/bs_black_sand", None, 1.5),
+        "myc":     M(dim(UD + "ud_myc_threads", 0.62), None, 1.5),     # the wood's floor
+        "glow":    M(UD + "ud_spore_moss", None, 1.5),                 # where the fungi are thickest
+        "hive":    M(dim(SF + "sf_hive_floor", 0.80), None, 1.5),
+        "resin":   M(dim(BR + "resin_floor", 0.85), None, 1.5),        # the hive's own light
+        "slag":    M(dim(TM + "tmp_basalt", 0.70), None, 1.5),         # the Diggings' spoil
+        "road":    M(dim(TM + "kv_flagstone", 1.25), None, 1.0),
+        "water_s": M(dim(UD + "ud_lumen_shallow", 0.62)),
+        "water_d": M(dim(UD + "ud_pool_deep", 0.60)),
+        "wall":    M(dim(UD + "ud_rock_wall", 0.80), None, 2.0),
+    },
+    floor_keys=["sand", "myc", "glow", "hive", "resin", "slag", "road"],
+    wall_keys=["wall"],
+    floors={
+        "myc":   [_room("The Lantern Wood", 0.95), _room("The Last Water", 1.05)],
+        "glow":  [(27, 84, 6, 5), (41, 80, 5, 4), (33, 95, 5, 4), (22, 72, 4, 3), (46, 92, 4, 3),
+                  (64, 98, 4, 3), (90, 100, 4, 3), (76, 92, 5, 2.5),
+                  # and a few caps' worth out on the open sand, so the dunes are not unlit
+                  (40, 28, 2.5, 2), (62, 44, 2.5, 2), (70, 30, 2, 2), (24, 26, 2, 2),
+                  (52, 58, 2.5, 2), (46, 62, 2, 2), (66, 74, 2.5, 2), (58, 96, 2.5, 2),
+                  (92, 44, 2, 2), (74, 54, 2, 1.6), (30, 44, 2.5, 2), (112, 50, 2, 2)],
+        "hive":  [_room("The Chitin Reach", 1.0), _room("The Royal Cell", 1.2), (104, 67, 8, 4),
+                  (100, 85, 8, 4)],
+        "resin": [(121, 80, 6, 6), (136, 108, 5, 4), (112, 70, 3, 2.5), (128, 92, 3, 3),
+                  (105, 67, 2.5, 2), (99, 85, 2.5, 2), (92, 88, 2, 1.6)],
+        "slag":  [_room("The Castout Diggings", 0.9)],
+        "road":  [d for (pts, _hw) in BS.ROADS for d in _dots(pts)] + [(84, 60, 7, 5)],
+    },
+    walls={},
+    pools=[],
+    tile_water=True,
+    glow_floors=("glow", "resin"),
+    # NO SKY AT ALL. Deep shading and a cold lip, and then the two lights do the rest.
+    cfg=dict(ao=0.46, depth=0.80, lip=20, lip_col=(0.62, 0.78, 1.0), deep_dark=0.45,
+             foam_col=(120, 220, 215),
+             glows=[("d_glow", (20, 120, 118), 3.4, 0.85), ("d_resin", (150, 84, 14), 3.0, 0.80)]),
 )
 
 

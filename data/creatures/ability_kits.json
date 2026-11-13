@@ -45482,6 +45482,786 @@
           "attack_power": 112
         }
       }
+    ],
+    "ashdune_basilisk": [
+      {
+        "name": "Stone Bite",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tail Sweep",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Glassy Stare",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -40
+        }
+      }
+    ],
+    "blacksand_scorpion": [
+      {
+        "name": "Pincer",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Black Sting",
+        "kind": "dot",
+        "amount": 52,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Grit in the Joints",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": -36
+        }
+      }
+    ],
+    "strand_bat": [
+      {
+        "name": "Needle Teeth",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Dark",
+        "kind": "damage",
+        "amount": 160,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shriek",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -30
+        }
+      }
+    ],
+    "lantern_sporeling": [
+      {
+        "name": "Spore Burst",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Lit From Inside",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Soft Light",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "spell_power": -44,
+          "attack_power": -44
+        }
+      }
+    ],
+    "blindwater_lurker": [
+      {
+        "name": "Cold Grab",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Pull Under",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Numb",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -44
+        }
+      }
+    ],
+    "castout_digger": [
+      {
+        "name": "Pick Swing",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bring the Shoring Down",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Nothing Left to Lose",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "castout_slagcaller": [
+      {
+        "name": "Slag Bolt",
+        "kind": "damage",
+        "amount": 192,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Cinders in the Seams",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Brand of the Unnamed",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -84
+        }
+      }
+    ],
+    "castout_cutthroat": [
+      {
+        "name": "Shiv",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Opened Up",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -40
+        }
+      }
+    ],
+    "hive_swarmer": [
+      {
+        "name": "Scything Limb",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Over",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Formic Burn",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "hive_reaver": [
+      {
+        "name": "Reaving Claw",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Open the Shell",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Plate",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -92
+        }
+      }
+    ],
+    "hive_sandburrower": [
+      {
+        "name": "Up Through the Sand",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Collapse the Tunnel",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Dug In",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 96
+        },
+        "self_only": true
+      }
+    ],
+    "hive_resinspitter": [
+      {
+        "name": "Resin Spit",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Setting Amber",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Stuck Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "agility": -48,
+          "dodge_rating": -36
+        }
+      }
+    ],
+    "the_gloomcap_elder": [
+      {
+        "name": "The Elder's Weight",
+        "kind": "damage",
+        "amount": 448,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Light the Whole Wood",
+        "kind": "damage",
+        "amount": 376,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Spores in the Lungs",
+        "kind": "dot",
+        "amount": 148,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "Layer on Layer",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 820,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "The Lights Go Red",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 142
+        }
+      }
+    ],
+    "the_last_lurker": [
+      {
+        "name": "The Lurker's Reach",
+        "kind": "damage",
+        "amount": 444,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Held Under",
+        "kind": "damage",
+        "amount": 574,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Water Stands Up",
+        "kind": "damage",
+        "amount": 372,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Cold That Stayed",
+        "kind": "damage",
+        "amount": 392,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "agility": -60
+          }
+        }
+      },
+      {
+        "name": "Nowhere Else to Go",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "foreman_durn_the_castout": [
+      {
+        "name": "Foreman's Maul",
+        "kind": "damage",
+        "amount": 452,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Knock Them Down the Shaft",
+        "kind": "damage",
+        "amount": 584,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Slag Tip",
+        "kind": "damage",
+        "amount": 380,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Old Company Plate",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 840,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "They Took My Name",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 146
+        }
+      }
+    ],
+    "hive_champion_khixar": [
+      {
+        "name": "Khix'ar's Scythes",
+        "kind": "damage",
+        "amount": 462,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Through the Line",
+        "kind": "damage",
+        "amount": 392,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -120
+          }
+        }
+      },
+      {
+        "name": "Call the Raid",
+        "kind": "damage",
+        "amount": 384,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Formic Flood",
+        "kind": "dot",
+        "amount": 152,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "For the Queen",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 150
+        }
+      }
+    ],
+    "hive_queen_zilkesh": [
+      {
+        "name": "The Queen's Reach",
+        "kind": "damage",
+        "amount": 478,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Birthing Shriek",
+        "kind": "damage",
+        "amount": 612,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Whole Hive Answers",
+        "kind": "damage",
+        "amount": 400,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Clutch in the Wound",
+        "kind": "dot",
+        "amount": 158,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "Sealed in Amber",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 900,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "The Cell Wakes",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 156
+        }
+      }
+    ],
+    "gloomcap_trampler": [
+      {
+        "name": "Heavy Cap",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trample the Ring",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      }
+    ],
+    "old_ashback_the_basilisk": [
+      {
+        "name": "Ashback's Jaws",
+        "kind": "damage",
+        "amount": 436,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Long Stare",
+        "kind": "damage",
+        "amount": 566,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Shed the Ash",
+        "kind": "damage",
+        "amount": 366,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Turning to Stone",
+        "kind": "dot",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "curse",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "Older Than the Sand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 138
+        }
+      }
     ]
   }
 }

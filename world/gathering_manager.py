@@ -336,6 +336,13 @@ class GatheringNodeManager:
             if any(abs(x - fx) < self.NODE_SPACING and abs(y - fy) < self.NODE_SPACING
                    for (fx, fy) in found):
                 continue
+            # ...AND NOT BESIDE A FISHING SPOT. Those are placed first, by _populate_fishing, and
+            # this roll only knew about its own picks - so an ore vein could land diagonal to a
+            # pool on the shore, which is the same overlap by another door. Found 13 Nov when a
+            # new zone shifted the random stream and Southern Stranglethorn rolled one.
+            if any(abs(x - n.x) < self.NODE_SPACING and abs(y - n.y) < self.NODE_SPACING
+                   for n in self.active_nodes):
+                continue
             if tilemap.is_walkable(x, y) and tilemap.get_tile(x, y, "interaction") is None:
                 found.append((x, y))
         return found

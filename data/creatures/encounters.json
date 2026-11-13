@@ -3841,6 +3841,91 @@
           }
         }
       }
+    },
+    "The Black Strand": {
+      "open_zone": {
+        "name": "The Black Strand",
+        "creatures": {
+          "Ashdune Basilisk": 5,
+          "Blacksand Scorpion": 5,
+          "Strand Bat": 4,
+          "Lantern Sporeling": 2,
+          "Hive Swarmer": 2
+        }
+      },
+      "subzones": {
+        "The Bottom Step": {
+          "name": "The Bottom Step",
+          "creatures": {
+            "Strand Bat": 5,
+            "Blacksand Scorpion": 5,
+            "Ashdune Basilisk": 3
+          }
+        },
+        "The Ash Dunes": {
+          "name": "The Ash Dunes",
+          "creatures": {
+            "Ashdune Basilisk": 5,
+            "Blacksand Scorpion": 5,
+            "Strand Bat": 3,
+            "Castout Cutthroat": 2,
+            "Old Ashback the Basilisk": 0
+          }
+        },
+        "The Lantern Wood": {
+          "name": "The Lantern Wood",
+          "creatures": {
+            "Lantern Sporeling": 6,
+            "Gloomcap Trampler": 5,
+            "Strand Bat": 2,
+            "Hive Swarmer": 2,
+            "The Gloomcap Elder": 0
+          }
+        },
+        "The Last Water": {
+          "name": "The Last Water",
+          "creatures": {
+            "Blindwater Lurker": 6,
+            "Lantern Sporeling": 4,
+            "Gloomcap Trampler": 2,
+            "Hive Resinspitter": 2,
+            "The Last Lurker": 0
+          }
+        },
+        "Onyxhollow Gate": {
+          "name": "Onyxhollow Gate",
+          "safe": true,
+          "creatures": {}
+        },
+        "The Castout Diggings": {
+          "name": "The Castout Diggings",
+          "creatures": {
+            "Castout Digger": 6,
+            "Castout Slagcaller": 4,
+            "Castout Cutthroat": 4,
+            "Foreman Durn the Castout": 0
+          }
+        },
+        "The Chitin Reach": {
+          "name": "The Chitin Reach",
+          "creatures": {
+            "Hive Reaver": 5,
+            "Hive Swarmer": 5,
+            "Hive Sandburrower": 4,
+            "Hive Resinspitter": 3,
+            "Hive Champion Khix'ar": 0
+          }
+        },
+        "The Royal Cell": {
+          "name": "The Royal Cell",
+          "creatures": {
+            "Hive Reaver": 6,
+            "Hive Resinspitter": 4,
+            "Hive Sandburrower": 4,
+            "Hive Queen Zil'kesh": 0
+          }
+        }
+      }
     }
   }
 }

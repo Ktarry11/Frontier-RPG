@@ -58,7 +58,14 @@ CHAMBERS = [(n, _under(c)[0], _under(c)[1], 8, 7) for (n, _p, c) in SHAFTS] + [
     ("The Drained Sea",   60, 48, 13, 10),      # the middle of it, and the biggest room in Tanaris
     ("The Glass Roots",   78, 54, 8, 7),        # under the Glasswall: what the glass grew down into
     ("The Old Shoreline", 38, 78, 9, 6),        # a beach, at the bottom of a desert
+    # Kyle, 13 Nov 2026, of the way down to the layer below: "I want it at the end of the descent."
+    # The furthest room from every shaft: east of the Drained Sea, a dead end with a stair in it.
+    ("The Last Descent",  95, 40, 7, 6),
 ]
+
+#: Down to The Black Strand (tools/handbuilt_black_strand.py), and where you arrive coming up.
+DOWN = (98, 40)
+DOWN_ARRIVAL = (95, 40)
 
 #: (chamber a, chamber b, width). A ring round the outside, spokes into the Drained Sea, so every
 #: shaft reaches every other at least two ways.
@@ -97,10 +104,18 @@ def build_dry_deep():
         mx, my = (ax + bx) // 2 + (by - ay) // 6, (ay + by) // 2 - (bx - ax) // 6
         b.corridor([(ax, ay), (mx, my), (bx, by)], width=wdt)
 
+    # THE LAST DESCENT opens off the east side of the Drained Sea. It is NOT sealed behind the
+    # boss - the Sea's rim is where every spoke of this cave meets, and a passage that left it
+    # anywhere joined a neighbour (tried twice). You pass the Weight's room to get here; you do
+    # not have to kill it.
+    b.corridor([(70, 44), (82, 40), (95, 40)], width=3)
+
     for (px, py) in PORTALS:
         zone.collision_layer[py][px] = None
         zone.set_tile(px, py, "portal", "interaction")
         L.mark("portal", px, py)
+    zone.collision_layer[DOWN[1]][DOWN[0]] = None
+    L.mark("portal", *DOWN)
     for n, (x, y) in BOSSES.items():
         L.mark("boss_marker", x, y)        # the tile the other caves use; "boss" is not a tile at all
     for c in CHESTS:
@@ -108,7 +123,7 @@ def build_dry_deep():
 
     for (name, cx, cy, rx, ry) in CHAMBERS:
         zone.add_subzone(name, max(0, cx - rx), max(0, cy - ry), rx * 2, ry * 2)
-    zone.arrivals = [(px, py + 2) for (px, py) in PORTALS]
+    zone.arrivals = [(px, py + 2) for (px, py) in PORTALS] + [DOWN_ARRIVAL]
     return zone, L
 
 
@@ -161,7 +176,7 @@ def verify(zone):
 
 
 def finish(zone, L):
-    return L.finish(list(PORTALS) + list(BOSSES.values()) + list(CHESTS))
+    return L.finish(list(PORTALS) + list(BOSSES.values()) + list(CHESTS) + [DOWN])
 
 
 def build_dry_deep_baked():

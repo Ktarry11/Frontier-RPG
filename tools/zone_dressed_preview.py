@@ -44,12 +44,16 @@ ZONES = {
     "galleon_deck": "tools.handbuilt_bloodsail_galleon",
     "galleon_hold": "tools.handbuilt_bloodsail_galleon",
     "cabin": "tools.handbuilt_bloodsail_galleon",
+    "black_strand": "tools.handbuilt_black_strand",
+    "dry_deep": "tools.handbuilt_dry_deep",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
 #: (zone, layout) instead of a layout object. Both shapes are handled in build().
 BUILDERS = {
     "weeping_ice": "build_weeping_ice_baked",
+    "black_strand": "build_black_strand_baked",
+    "dry_deep": "build_dry_deep_baked",
     "freewind": "build_freewind_baked",
     "drowning_floor": "build_drowning_floor_baked",
     "rocky_pass": "build_rocky_pass_baked",
