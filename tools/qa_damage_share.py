@@ -251,7 +251,13 @@ def main():
             paid = gb - g.current_health
             want_left = AMOUNT * (100 - pct) / 100.0
             want_paid = AMOUNT * pct / 100.0 * (100 - red) / 100.0
-            want_paid *= (100 - spec.get("heal_pct", 0)) / 100.0
+            # The guardian's own "healing received" trait applies to what they heal back. Elias
+            # has +20% as a passive, and until 13 Nov that passive did nothing - so this check
+            # was written against a guardian who healed for less than his sheet says.
+            taken = 1.0
+            if hasattr(g, "get_talent_effect"):
+                taken += g.get_talent_effect("healing_received_pct", 0.0) or 0.0
+            want_paid *= (100 - spec.get("heal_pct", 0) * taken) / 100.0
             rows.append((kit.get("name"), a.get("name"), paid, left,
                          f"want guardian {want_paid:.0f}, victim keeps "
                          f"{want_left:.0f}"))

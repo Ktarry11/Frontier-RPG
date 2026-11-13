@@ -44,49 +44,35 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX         # noqa: E
 TEX_DIR = ROOT / "assets/tiles/shimmering_flats/materials"
 ZONES = {"shimmering_flats": "tools.handbuilt_shimmering_flats"}
 
+# LESS IS MORE. Kyle, 13 Nov, looking at the map: "Its just TOO many tiles. thats the problem. There
+# are too many blended tiles which looks gross. Sometimes less is more."
+#
+# This table used to hold twenty-seven materials, most of them a pair of textures cross-faded by
+# noise, and a great deal of care had gone into making sure every one of them appeared somewhere
+# (see band(), which exists to stop any of them losing). That was the mistake: the measure of
+# success was "all the tiles got used", and the result was a pan made of forty-odd textures all
+# visible at once. A salt flat is ONE surface. Seven things now, one texture each, no pairs:
+#
+#     salt      the pan. All of it.
+#     sink      the low basin where the crust is thin - one soft grey region, not a mosaic
+#     sand      the western shore
+#     hive      the dark ground a mound stands on, and the mound
+#     rock      the rim mountains and the stacks' sides
+#     road      a road, and the Raceway ring
+#     alpine    the north-west corner Kyle asked for ("very very small alpine bleeding through")
+#
+# The other forty textures stay on disk. Unused art is cheaper than a zone that looks like a
+# sample book.
 MATERIALS = {
-    # the pan
-    "salt":      ("sf_salt_white", "sf_salt_polygon", 1.0),
-    "salt_plate": ("sf_salt_plates", "sf_salt_ripple", 1.0),
-    "salt_glaze": ("sf_salt_glazed", "sf_salt_white", 1.0),
-    "salt_thin": ("sf_salt_clay", "sf_salt_thin_mud", 1.0),
-    "salt_dark": ("sf_salt_dark", "sf_stones_salt", 1.0),
-    # the Sink, where the crust gives out
-    "mud":       ("sf_mud_curled", "sf_clay_saltrim", 1.0),
-    "alkali":    ("sf_alkali_yellow", "sf_hardpan_swept", 1.0),
-    "dust":      ("sf_dust_hardpan", "sf_hardpan_swept", 1.0),
-    "gravel":    ("sf_salt_gravel", "sf_stones_salt", 1.0),
-    # hive country
-    "chitin":    ("sf_chitin_plate", "sf_carapace_shards", 1.0),
-    "resin":     ("sf_resin_poured", "sf_resin_grit", 1.0),
-    "spoil":     ("sf_tunnel_spoil", "sf_crust_shattered", 1.0),
-    "hive":      ("sf_hive_floor", "sf_hive_film", 1.0),
-    # the shore, which is Tanaris arriving early
-    "sand":      ("tan_sand_gold", "tan_dust_drift", 1.0),
-    "sand_rip":  ("tan_dune_ripple", "tan_sand_pebble", 1.0),
-    "scrub":     ("tan_scrub_sand", "tan_wadi_gravel", 1.0),
-    "hardpan":   ("tan_hardpan_orange", "tan_sand_pebble", 1.0),
-    # roads and the track
-    "road":      ("sf_track_rut", None, 1.0),
-    "track":     ("sf_salt_glazed", "sf_salt_plates", 1.0),
-    # THE ALPINE BLEED, north-west only. Kyle: "The north western should have very very small alpine
-    # bleeding through." Geographically that is exactly where it belongs - the Aspen Wilderness gate
-    # is at (6, 40) and the range comes in over that corner, so this is the tail of the same overlay
-    # Southern Needles carries in its top fifth, two zones further along and nearly gone.
-    #
-    # Borrowed straight from the aspen set by relative path rather than copied: Painter resolves
-    # tex_dir / name, so a name can walk out of its own directory. Copying four textures to get four
-    # textures would leave two sets to keep in step.
-    "alp_duff":  ("../../aspen/materials/asp_duff_gold", "../../aspen/materials/asp_needle_mat", 1.0),
-    "alp_scree": ("../../aspen/materials/asp_scree", "../../aspen/materials/asp_granite", 1.0),
-    "alp_snow":  ("../../aspen/materials/asp_snow_patch", None, 1.0),
-    # rock
-    "cliff_a":   ("tan_rubble_sandstone", "tan_sandstone_floor", 1.0),
-    "cliff_h":   ("sf_chitin_plate", "sf_resin_poured", 1.0),     # a hive flank is not sandstone
+    "salt":     ("sf_salt_white", None, 2.0),
+    "sink":     ("sf_salt_dark", None, 2.0),
+    "sand":     ("tan_sand_gold", None, 2.0),
+    "hive":     ("sf_hive_floor", None, 1.5),
+    "rock":     ("tan_sandstone_floor", None, 2.5),
+    "road":     ("sf_dust_hardpan", None, 1.0),
+    "alpine":   ("../../aspen/materials/asp_scree", None, 1.0),
 }
-LAND = ("salt", "salt_plate", "salt_glaze", "salt_thin", "salt_dark", "mud", "alkali", "dust",
-        "gravel", "chitin", "resin", "spoil", "hive", "sand", "sand_rip", "scrub", "hardpan",
-        "road", "track", "alp_duff", "alp_scree", "alp_snow")
+LAND = ("salt", "sink", "sand", "road", "alpine")
 
 #: VERY VERY SMALL, and a number rather than an adjective. The share of walkable land the alpine
 #: bleed is allowed to take; bake() prints what it actually came out at. The aspen baker does the
@@ -113,99 +99,78 @@ def build_scores(P, M):
     S = {}
     gx, gy = P.gx, P.gy
     n_big = P.noise(9.0, "big", octaves=3)
-    n_mid = P.noise(4.0, "mid", octaves=3)
     n_fine = P.noise(1.9, "fine", octaves=2)
 
     f = M.fields(gx, gy)
     cliff = f["cliff"].astype(np.float32)
     elev = M.elevation(gx, gy).astype(np.float32)
-    slope = M._slope(gx, gy).astype(np.float32)
 
-    # THE ONE AXIS THIS ZONE HAS.
-    east = smoothstep(56.0, 170.0, gx).astype(np.float32)
-    # A WIDE OVERLAP, because a desert does not stop at a line. At 30-98 the sand and the salt
-    # crossed over inside about ten tiles and the preview had a hard vertical edge down the map.
-    shore = (1.0 - smoothstep(20.0, 92.0, gx + 7.0 * n_big)).astype(np.float32)
-    # how far below the pan: the Sink, where the crust is thin and dirty
-    # TIGHT. At smoothstep(1.2, -1.4) this was about half-on across the ENTIRE pan, because the
-    # pan sits at elevation zero - so the Sink's mud spread everywhere and the salt flat stopped
-    # being mostly salt. The Sink is the basin floor, not "anywhere low-ish".
-    low = smoothstep(-0.15, -1.7, elev).astype(np.float32)
-    steep = smoothstep(0.22, 0.55, slope).astype(np.float32)
+    # Where the desert stops. Wide, and wandering, because a desert does not stop at a line.
+    shore = (1.0 - smoothstep(34.0, 78.0, gx + 9.0 * n_big)).astype(np.float32)
+    # The basin floor - the Sink - and nowhere else.
+    low = smoothstep(-0.55, -1.6, elev + 0.25 * n_big).astype(np.float32)
 
-    # proximity to any hive, which is what brings chitin and spoil to the surface
+    # a mound and the apron of dark ground it stands on
     hive_near = np.zeros_like(elev)
     for (_n, cx, cy, r, _h, _t) in M.HIVES:
-        d = np.hypot(gx - cx, gy - cy) / (r * 2.6)
-        hive_near = np.maximum(hive_near, smoothstep(1.0, 0.12, d).astype(np.float32))
+        d = np.hypot(gx - cx, gy - cy) / (r * 1.3)
+        hive_near = np.maximum(hive_near, smoothstep(1.0, 0.55, d + 0.10 * n_big).astype(np.float32))
 
-    road = (M.road_dist(gx, gy) > 0.0).astype(np.float32)
-    track = (M.track_dist(gx, gy) > 0.0).astype(np.float32)
-
-    # ---- the shore: Tanaris arriving early. Banded, so all four appear - see band().
-    S["sand"] = -0.15 + 2.0 * shore * band(n_big, -1.0, 0.42)
-    S["sand_rip"] = -0.15 + 2.0 * shore * band(n_big, 0.42, 0.66)
-    S["hardpan"] = -0.15 + 2.0 * shore * band(n_big, 0.66, 2.0)
-    S["scrub"] = -0.15 + 1.9 * shore * band(n_mid + 0.25 * n_fine, 0.58, 2.0)
-
-    # ---- the pan. A MOSAIC, NOT A FIELD.
-    #
-    # The first bake gave salt a baseline of 0.55 plus 2.4, and nothing else on the pan could ever
-    # beat it: the whole middle of the map came out one flat white with the polygon texture visibly
-    # repeating across it. A salt flat is not uniform - it is plates, ripples, glaze, stained
-    # patches and thin spots, and the variation IS the texture.
-    pan = (1.0 - shore)
-    dry = (1.0 - low)
-    S["salt"] = 0.10 + 1.9 * pan * dry * band(n_mid, -1.0, 0.40)
-    S["salt_plate"] = 0.10 + 1.9 * pan * dry * band(n_mid, 0.40, 0.66)
-    S["salt_glaze"] = 0.05 + 1.8 * pan * dry * band(n_fine + 0.2 * n_big, 0.62, 2.0)
-    S["salt_dark"] = -0.10 + 1.8 * pan * band(n_mid, 0.66, 2.0) * (0.5 + 0.8 * east)
-
-    # ---- the Sink. Thin crust over grey mud, and the yellow alkali staining that says
-    # "this is where it evaporated last".
-    S["salt_thin"] = -0.10 + 2.3 * low * band(n_big, -1.0, 0.34)
-    S["mud"] = -0.10 + 2.4 * low * band(n_big, 0.34, 0.58)
-    S["alkali"] = -0.10 + 2.4 * low * band(n_big, 0.58, 2.0)
-    S["dust"] = -0.20 + 1.7 * pan * dry * band(n_fine, 0.30, 0.52)
-    S["gravel"] = -0.25 + 1.7 * pan * band(n_big + 0.25 * n_fine, 0.70, 2.0)
-
-    # ---- hive country. The only dark ground on the map, which is what makes a mound read.
-    S["spoil"] = -0.30 + 3.0 * hive_near * band(n_mid, -1.0, 0.40)
-    S["chitin"] = -0.30 + 3.0 * hive_near * band(n_mid, 0.40, 0.62)
-    S["resin"] = -0.30 + 3.0 * hive_near * band(n_mid, 0.60, 0.74)
-    S["hive"] = -0.30 + 3.0 * hive_near * band(n_mid, 0.74, 2.0)
-
-    # ---- the alpine bleed. AIMED AT WALKABLE GROUND, not at the corner. The first version keyed
-    # off low gx AND low gy, which is the map corner - and the map corner is rim, where every land
-    # material is suppressed anyway. It measured 0.01%: not "very very small", just absent.
-    nw = smoothstep(1.0, 0.10, np.hypot((gx - 46.0) / 54.0, (gy - 46.0) / 48.0)).astype(np.float32)
-    S["alp_duff"] = -1.05 + 2.4 * nw * band(n_mid, -1.0, 0.50)
-    S["alp_scree"] = -1.05 + 2.4 * nw * band(n_mid, 0.50, 0.72)
-    S["alp_snow"] = -1.10 + 2.4 * nw * band(n_mid, 0.72, 2.0)
-
-    # ---- made surfaces
-    S["road"] = -3.0 + 7.0 * road
-    S["track"] = -3.0 + 6.4 * track
-
-    # ---- rock. Sandstone on the shore stacks, chitin on the hive flanks - a mound's side is not
-    # sandstone, and painting it as rock was the first thing that looked wrong in the preview.
+    # the mountains: everything that stands above the pan near the map edge and is not a stack
+    de = np.minimum(np.minimum(gx, M.W - gx), np.minimum(gy, M.H - gy))
+    in_stack = np.zeros_like(elev)
+    for (_n, cx, cy, rx, ry, _h) in M.STACKS:
+        in_stack = np.maximum(in_stack, (M._stack_r(gx, gy, cx, cy, rx, ry) < 1.15).astype(np.float32))
+    mount = (smoothstep(1.2, 3.0, elev + 0.6 * n_big) * smoothstep(64.0, 44.0, de)
+             * (1.0 - in_stack) * (1.0 - hive_near)).astype(np.float32)
     wall = smoothstep(0.0, 0.6, cliff).astype(np.float32)
-    S["cliff_a"] = -2.0 + 6.0 * wall * (1.0 - hive_near)
-    S["cliff_h"] = -2.0 + 6.4 * wall * hive_near
+
+    S["salt"] = 1.0 + 0.0 * elev
+    S["sand"] = -0.2 + 2.6 * shore
+    S["sink"] = -0.2 + 2.4 * low * (1.0 - shore)
+    S["hive"] = -1.0 + 5.0 * hive_near
+    S["rock"] = -1.0 + 6.0 * np.maximum(mount, wall * (1.0 - hive_near))
+
+    # "very very small" (Kyle), in the north-west corner where the Aspen range comes over
+    nw = smoothstep(1.0, 0.10, np.hypot((gx - 46.0) / 54.0, (gy - 46.0) / 48.0)).astype(np.float32)
+    S["alpine"] = -1.2 + 2.6 * nw * smoothstep(0.55, 0.80, n_big) - 6.0 * mount
+
+    # a road and the Raceway ring: the same swept ground, with no kerb
+    rd = np.maximum(M.road_dist(gx, gy), M.track_dist(gx, gy) - 1.2).astype(np.float32)
+    S["road"] = -3.0 + 7.5 * smoothstep(-0.8, 0.4, rd + 0.4 * n_fine) - 8.0 * mount - 8.0 * wall
 
     for k in LAND:
-        S[k] = np.where(wall > 0.5, -3.0, S[k]).astype(np.float32)
-    for k in ("salt", "salt_plate", "salt_glaze", "salt_thin", "salt_dark", "mud", "alkali",
-              "dust", "gravel", "sand", "sand_rip", "scrub", "hardpan"):
-        S[k] = (S[k] - 2.2 * steep).astype(np.float32)
-    S["road"] = np.where(road > 0.5, 7.0, S["road"]).astype(np.float32)
-    S["track"] = np.where(track > 0.5, 6.4, S["track"]).astype(np.float32)
-    return {k: v.astype(np.float32) for k, v in S.items()}
+        S[k] = (S[k] - 6.0 * np.maximum(mount, wall)).astype(np.float32)
+
+    # for post(): the TILE-grid gradient, the same way Southern Needles lights its mesas
+    # PER TILE, not per sample: the grid is four samples to a tile, and a gradient taken across
+    # samples is a quarter of the slope - which is why the first hillshade here lit nothing.
+    per_tile = 1.0 / float(gx[0, 1] - gx[0, 0])
+    P.fields = {"dzdx": (np.gradient(elev, axis=1) * per_tile).astype(np.float32),
+                "dzdy": (np.gradient(elev, axis=0) * per_tile).astype(np.float32),
+                "mount": mount, "elev": elev}
+    return {k: np.asarray(v, np.float32) for k, v in S.items()}
 
 
 def post(rgb, X, Y, P):
     """Lift the pan rather than flattening it. The zone is called shimmering."""
     out = rgb.astype(np.float32)
+    f = getattr(P, "fields", None) or {}
+    if f:
+        sf = lambda a: P.sample_field(a.astype(np.float32), X, Y)          # noqa: E731
+        # HILLSHADE, sun from the north-west. There was none, so a mountain range, a hive and a
+        # stack were all flat discs of a different colour: the rim read as a frame, the stacks as
+        # rings. With it the rim is ground going up and a mound is a cone.
+        # one slow drift of light across everything, so a single texture over a hundred tiles
+        # does not read as wallpaper
+        lum = P.sample_field(P.noise(17.0, "lum", octaves=2), X, Y)
+        out = out * (0.94 + 0.10 * lum)[..., None]
+        gxs, gys = sf(f["dzdx"]), sf(f["dzdy"])
+        shade = np.clip(1.0 + 0.30 * (-gxs * 0.70 - gys * 0.70), 0.55, 1.35)
+        out = out * shade[..., None]
+        # the range sits back: a little darker and cooler than the pan it holds
+        m = sf(f["mount"])[..., None]
+        out = out * (1.0 - 0.10 * m) * (1.0 - m + m * np.array([0.97, 0.98, 1.03], np.float32))
     lum = out.mean(axis=2, keepdims=True)
     bright = np.clip((lum - 150.0) / 80.0, 0.0, 1.0)
     out = out + bright * 16.0
@@ -227,7 +192,7 @@ def bake(key, preview=None, sc=4):
     keys = list(MATERIALS)
     win = np.stack([scores[k] for k in keys]).argmax(axis=0)
     share = {k: float((win == i).mean()) for i, k in enumerate(keys)}
-    alp = sum(share[k] for k in ("alp_duff", "alp_scree", "alp_snow"))
+    alp = share["alpine"]
     flag = "  <-- over ALPINE_BUDGET" if alp > ALPINE_BUDGET else ""
     print(f"{key}: alpine bleed {alp:.2%} of the map (budget {ALPINE_BUDGET:.1%}){flag}")
     dead = [k for k in keys if share[k] < 0.0005]

@@ -33,6 +33,7 @@ ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
     "weeping_ice": "tools.handbuilt_weeping_ice",
     "southern_needles": "tools.handbuilt_southern_needles",
+    "shimmering_flats": "tools.handbuilt_shimmering_flats",
     "freewind": "tools.handbuilt_freewind_post",
     "drowning_floor": "tools.handbuilt_drowning_floor",
     "rocky_pass": "tools.handbuilt_rocky_pass",
