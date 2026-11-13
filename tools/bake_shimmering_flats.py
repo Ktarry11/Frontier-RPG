@@ -166,7 +166,8 @@ def post(rgb, X, Y, P):
         lum = P.sample_field(P.noise(17.0, "lum", octaves=2), X, Y)
         out = out * (0.94 + 0.10 * lum)[..., None]
         gxs, gys = sf(f["dzdx"]), sf(f["dzdy"])
-        shade = np.clip(1.0 + 0.30 * (-gxs * 0.70 - gys * 0.70), 0.55, 1.35)
+        # + not -: a slope that FACES the north-west is the lit one (see bake_southern_needles.post)
+        shade = np.clip(1.0 + 0.30 * (gxs * 0.70 + gys * 0.70), 0.55, 1.35)
         out = out * shade[..., None]
         # the range sits back: a little darker and cooler than the pan it holds
         m = sf(f["mount"])[..., None]

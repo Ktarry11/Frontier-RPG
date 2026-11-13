@@ -50,46 +50,49 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX         # noqa: E
 TEX_DIR = ROOT / "assets/tiles/southern_needles/materials"
 ZONES = {"southern_needles": "tools.handbuilt_southern_needles"}
 
+# LESS IS MORE - the same lesson as the Shimmering Flats, the same day. Kyle, 13 Nov: "Its just TOO
+# many tiles ... too many blended tiles which looks gross. Sometimes less is more." And of this zone:
+# "very boring with little to see".
+#
+# Both were the same fault. Twenty-seven materials, most a cross-faded pair, spread over the floor and
+# the tops alike - so the floor and a mesa top were the SAME red mottle, and the only thing that told
+# them apart was a thin ring. From above a mesa read as a crater. Nine things now, one texture each:
+#
+#     floor     red sand. All of the canyon floor.
+#     top       pale capstone. Every mesa top, and nothing else - the colour IS the height.
+#     wall      layered stone, the rim
+#     wash      the dry channels
+#     aspen     the Rockies coming down from the north (see ASPEN BLEEDS below)
+#     road, pool_s, pool_d, spring
 MATERIALS = {
-    # --- mesa tops
-    "hardpan":   ("sn_hardpan", "sn_dust_pebbles", 1.0),
-    "pale":      ("sn_sandstone_pale", "sn_polished_shelf", 1.0),
-    "lichen":    ("sn_lichen_orange", "sn_gravel_scatter", 1.0),
-    "topgrass":  ("sn_dry_grass", "sn_cracked_clay", 1.0),
-    # --- the rim
-    "layered":   ("sn_layered_stone", "sn_iron_banded", 1.0),
-    "crumble":   ("sn_crumbling_rim", "sn_stone_cracks", 1.0),
-    "scree":     ("sn_scree", "sn_rubble_base", 1.0),
-    "undercut":  ("sn_undercut", None, 1.0),
-    # --- the floor
-    "redsand":   ("sn_red_sand", "sn_rippled_sand", 1.0),
-    "drymud":    ("sn_dry_mud", "sn_cracked_clay", 1.0),
-    "drift":     ("sn_dust_drift", "sn_hoof_churned", 1.0),
-    "scrub":     ("sn_desert_scrub", "sn_dry_grass", 1.0),
-    # --- the dry channels
-    "washgrav":  ("sn_wash_gravel", "sn_gravel_scatter", 1.0),
-    "salt":      ("sn_salt_crust", "sn_salt_rime", 1.0),
-    # --- the aspen tail and the seam
-    "duff":      ("sn_duff_on_red", "sn_leaves_sandstone", 1.0),
-    "needle":    ("sn_needle_sand", "sn_pine_duff", 1.0),
-    "mixgrass":  ("sn_grass_dirt_mix", "sn_root_cracked", 1.0),
-    "shaded":    ("sn_shaded_red", None, 1.0),
-    "seam":      ("sn_seam_line", None, 1.0),
-    # --- roads
-    "road":      ("sn_packed_path", None, 1.0),
-    "verge":     ("sn_hoof_churned", None, 1.0),
-    # --- water
-    "pool_s":    ("sn_pool_shallow", "sn_wet_sand", 1.0),
-    "pool_d":    ("sn_pool_deep", None, 1.0),
-    "reeds":     ("sn_reed_bed", "sn_damp_soil", 1.0),
-    "spring":    ("sn_spring_grass", "sn_mossy_stone", 1.0),
-    # --- cliff faces
-    "cliff_a":   ("sn_iron_banded", "sn_layered_stone", 1.0),
-    "cliff_d":   ("sn_crumbling_rim", "sn_stone_cracks", 1.0),
+    "floor":   ("sn_red_sand", None, 2.0),
+    "top":     ("sn_sandstone_pale", None, 2.0),
+    "wall":    ("sn_layered_stone", None, 1.5),
+    "wash":    ("sn_wash_gravel", None, 1.5),
+    "aspen":   ("sn_duff_on_red", None, 1.5),
+    "road":    ("sn_packed_path", None, 1.0),
+    "pool_s":  ("sn_pool_shallow", None, 1.0),
+    "pool_d":  ("sn_pool_deep", None, 1.0),
+    "spring":  ("sn_spring_grass", None, 1.0),
 }
-LAND = ("hardpan", "pale", "lichen", "topgrass", "layered", "crumble", "scree", "undercut",
-        "redsand", "drymud", "drift", "scrub", "washgrav", "salt",
-        "duff", "needle", "mixgrass", "shaded", "seam", "road", "verge")
+LAND = ("floor", "top", "wash", "aspen", "road", "spring")
+
+#: How far a mesa throws its shadow, in tiles per unit of height. The sun is in the north-west.
+SHADOW_RUN = 0.75
+SHADOW_MAX = 11
+
+
+def aspen_edge(M, gx, n_big):
+    """The row where the aspen stops, at each column. NOT A LINE.
+
+    ASPEN BLEEDS. This used to be a ruled seam one tile wide at ASPEN_Y - "The Integration did not
+    blend" - and from above it was a horizontal line drawn across the map with forest above it and
+    desert below. Kyle, 13 Nov: "Aspen is basically the rockies (my home) bleeding into 1000 needles."
+    A range does not end at a latitude. It comes down in tongues along the high ground and gives out
+    in the low, so the edge wanders by a dozen tiles either way and the last of it is patches.
+    """
+    return (M.ASPEN_Y + 13.0 * np.sin(gx * 0.045 + 0.7) + 7.0 * np.sin(gx * 0.117 + 2.1)
+            + 16.0 * (n_big - 0.5)).astype(np.float32)
 
 
 def build_scores(P, M):
@@ -97,7 +100,6 @@ def build_scores(P, M):
     gx, gy = P.gx, P.gy
     n_big = P.noise(11.0, "big", octaves=3)
     n_mid = P.noise(4.5, "mid", octaves=3)
-    n_fine = P.noise(1.9, "fine", octaves=2)
 
     f = M.fields(gx, gy)
     cliff = f["cliff"].astype(np.float32)
@@ -108,121 +110,83 @@ def build_scores(P, M):
     slope = M._slope(gx, gy).astype(np.float32)
     wash = np.clip(M._wash(gx, gy), 0, None).astype(np.float32)
 
-    # The three bands. A mesa's drop happens inside 0.14 of its radius, so `rim` is narrow by construction
-    # and does not need a tuned threshold - it is wherever the ground is doing anything at all.
     top = smoothstep(5.0, 9.0, elev)
     rim = smoothstep(0.9, 2.4, slope)
-    floor = (1.0 - top) * (1.0 - rim)
-    aspen = smoothstep(M.ASPEN_Y + 8.0, M.ASPEN_Y - 10.0, gy)      # 1 in the aspen tail, 0 south of it
+    edge = aspen_edge(M, gx, n_big)
+    aspen = smoothstep(edge + 5.0, edge - 5.0, gy)
+    # ...and the last of it, a little further south than the edge: patches, not a fade
+    aspen = np.maximum(aspen, smoothstep(edge + 22.0, edge + 4.0, gy) * smoothstep(0.66, 0.74, n_mid))
 
     cliff_f = np.clip(cliff * 0.5, -0.4, 0.6).astype(np.float32)
     dzdx = (M.elevation(gx + 1.0, gy) - M.elevation(gx - 1.0, gy)).astype(np.float32) * 0.5
     dzdy = (M.elevation(gx, gy + 1.0) - M.elevation(gx, gy - 1.0)).astype(np.float32) * 0.5
+
+    # THE SHADOW A MESA THROWS. Walk toward the sun; if the ground there stands higher than the
+    # light could clear, this spot is in shade. It is the strongest height cue there is from above,
+    # and the zone had none: a 17-high tower and the floor beside it were lit the same.
+    shadow = np.zeros_like(elev)
+    for k in range(1, SHADOW_MAX + 1):
+        ahead = M.elevation(gx - k * 0.75, gy - k * 0.75).astype(np.float32)
+        shadow = np.maximum(shadow, smoothstep(0.4, 2.4, ahead - elev - k / SHADOW_RUN * 0.75))
+
     P.fields = dict(cliff=cliff, cf=cliff_f, water=water, deep=deep, elev=elev, slope=slope,
-                    top=top, rim=rim, dzdx=dzdx, dzdy=dzdy)
+                    top=top, rim=rim, dzdx=dzdx, dzdy=dzdy, shadow=shadow.astype(np.float32))
 
-    # ---- THE TOPS: thin, dry and bare. Nothing holds soil up there and the palette should say so.
-    S["hardpan"] = 0.30 + 1.25 * top * (0.55 + 0.45 * n_big)
-    S["pale"] = 0.10 + 1.38 * top * smoothstep(0.40, 0.70, n_mid)
-    S["lichen"] = 0.05 + 1.30 * top * smoothstep(0.54, 0.80, n_fine)
-    S["topgrass"] = 0.05 + 1.20 * top * smoothstep(0.50, 0.78, n_big)
+    S["floor"] = 0.50 + 0.0 * elev
+    S["top"] = -0.5 + 3.0 * top
+    S["wash"] = -0.3 + 1.6 * smoothstep(1.30, 2.05, wash) * (1 - top)
+    S["aspen"] = -0.5 + 2.6 * aspen * (1 - top)
 
-    # ---- THE RIM: the only band with vertical information in it, and it does all the work of saying
-    # "this is a cliff" to a player looking straight down.
-    S["layered"] = 0.10 + 1.60 * rim * (0.6 + 0.4 * n_mid)
-    S["crumble"] = 0.05 + 1.35 * rim * smoothstep(0.45, 0.78, n_fine)
-    S["scree"] = 0.05 + 1.30 * smoothstep(0.55, 0.95, slope) * (1 - top) * (0.5 + 0.5 * n_mid)
-    # sn_undercut is a SCENE, not a field - see the module docstring. It only wins in a thin band right
-    # under a rim, where a shadowed overhang is exactly what is there.
-    S["undercut"] = -0.6 + 2.2 * rim * (1 - top) * smoothstep(0.86, 0.97, n_fine)
-
-    # ---- THE FLOOR
-    S["redsand"] = 0.25 + 1.05 * floor * (0.5 + 0.5 * n_big)
-    S["drymud"] = 0.08 + 1.32 * floor * smoothstep(0.40, 0.70, n_mid)
-    S["drift"] = 0.05 + 1.28 * floor * smoothstep(0.44, 0.74, n_fine)
-    S["scrub"] = 0.05 + 1.22 * floor * smoothstep(0.48, 0.78, n_big)
-
-    # ---- THE DRY CHANNELS. Thousand Needles floods once, hard, then is dry for a year; the washes are
-    # what the water left and they are the only lines on the floor with any shape.
-    # MEASURED, not guessed: at smoothstep(0.6, 1.5) the gravel won 14.9% of all dry land and the bake
-    # came out as broad grey bands that read like rivers. The wash field peaks around 2.2, so the
-    # channel BOTTOM is the top quarter of it and nothing else is.
-    S["washgrav"] = 0.05 + 1.10 * smoothstep(1.30, 2.05, wash) * (1 - top)
-    S["salt"] = 0.02 + 1.20 * smoothstep(1.70, 2.15, wash) * smoothstep(0.50, 0.80, n_mid) * (1 - top)
-
-    # ---- THE ASPEN TAIL. Row 5 of the sheet is aspen litter lying ON red soil, which is the whole idea
-    # of the band: the overlay is thinning out and the ground underneath is already Azeroth's.
-    S["duff"] = -0.3 + 2.30 * aspen * (0.55 + 0.45 * n_big)
-    S["needle"] = -0.3 + 2.00 * aspen * smoothstep(0.48, 0.80, n_mid)
-    S["mixgrass"] = -0.3 + 1.85 * aspen * smoothstep(0.55, 0.84, n_fine)
-    S["shaded"] = -0.3 + 1.70 * aspen * smoothstep(0.70, 0.92, n_mid)
-    for k in ("redsand", "drymud", "drift", "scrub"):
-        S[k] = S[k] - 2.6 * aspen
-
-    # ---- THE SEAM: a one-tile band, not a gradient. The Integration did not blend.
-    band = smoothstep(2.6, 0.0, np.abs(gy - M.ASPEN_Y))
-    S["seam"] = -0.5 + 3.0 * band
-
-    for k in LAND:
-        S.setdefault(k, np.full_like(n_big, -9.0))
-
-    core, verge, _ = P.road_field(list(M.ROADS.values()))
+    core, _verge, _ = P.road_field(list(M.ROADS.values()))
     S["road"] = (0.05 + 1.5 * core).astype(np.float32)
-    S["verge"] = np.maximum(0.05, 0.25 + 0.9 * verge * (1 - core)).astype(np.float32)
 
     wetmask = (water > 0.0).astype(np.float32)
     S["pool_s"] = np.clip(1.6 * water, -9.0, 9.0).astype(np.float32)
     S["pool_d"] = np.clip(1.8 * deep, -9.0, 9.0).astype(np.float32) - 0.4
-    S["reeds"] = (1.5 * water - 0.3 + 0.9 * smoothstep(0.55, 0.85, n_mid)
-                  - 14.0 * (1 - wetmask)).astype(np.float32)
     # the spring margin: the only green on the floor, and it is three tiles wide
     S["spring"] = (1.2 * smoothstep(-2.5, 0.2, water) - 0.45 - 9.0 * wetmask).astype(np.float32)
     for k in LAND:
         S[k] = (S[k] - 12.0 * wetmask).astype(np.float32)
 
-    depth_dark = smoothstep(2.0, 9.0, np.maximum(cliff, 0))
-    cs = 1.6 + 12 * cliff_f
-    S["cliff_a"] = (cs - 1.0 * depth_dark).astype(np.float32)
-    S["cliff_d"] = (cs - 2.2 + 2.6 * depth_dark).astype(np.float32)
+    S["wall"] = (1.6 + 12 * cliff_f).astype(np.float32)
     cl_k = smoothstep(0.0, 0.30, cliff_f)
     for k in list(S):
-        if not k.startswith("cliff_"):
+        if k != "wall":
             S[k] = (S[k] - 14.0 * cl_k).astype(np.float32)
-    for k in MATERIALS:
-        S.setdefault(k, np.full_like(S["hardpan"], -9.0))
     P.scores = S
-    return S
+    return {k: np.asarray(v, np.float32) for k, v in S.items()}
 
 
 def post(rgb, X, Y, P):
-    """Light the mesas. In a zone that is two flat heights, the shading IS the elevation cue."""
+    """Light the mesas. In a zone that is two flat heights, the light IS the elevation."""
     f = P.fields
     sf = lambda a: P.sample_field(a.astype(np.float32), X, Y)          # noqa: E731
-    elev, top = sf(f["elev"]), sf(f["top"])
-    lum = P.sample_field(P.noise(13.0, "lum", octaves=2), X, Y)
+    top = sf(f["top"])
+    lum = P.sample_field(P.noise(15.0, "lum", octaves=2), X, Y)
 
-    out = rgb * (0.93 + 0.07 * lum)[..., None]
+    out = rgb * (0.92 + 0.12 * lum)[..., None]
 
-    # HILLSHADE from the TILE-grid gradient (see the module docstring on the pixel-vs-tile bug). On a mesa
-    # this is nearly everything: top and floor are both flat, so without it the only thing separating a
-    # plateau from the ground beside it is a slight hue change.
+    # HILLSHADE, sun in the NORTH-WEST - and for the first time actually from there. The term was
+    # 1 + k * (-dzdx - dzdy), which lights the slopes that face south-east: every mesa had its bright
+    # edge at the bottom right and its dark edge at the top left. The eye assumes light from the top
+    # left, so that reads as a hole. It is the whole reason the mesas looked like craters.
     gxs, gys = sf(f["dzdx"]), sf(f["dzdy"])
-    shade = np.clip(1.0 + 0.55 * (-gxs * 0.70 - gys * 0.70), 0.55, 1.55)
+    shade = np.clip(1.0 + 0.50 * (gxs * 0.70 + gys * 0.70), 0.50, 1.40)
     out = out * shade[..., None]
 
-    # The tops catch more sun and more wind. Lifting them a little is what makes the skyline read.
-    out = out * (0.97 + 0.16 * top)[..., None]
+    # the shadow a mesa throws across the floor (and across a lower mesa)
+    sh = sf(f["shadow"])[..., None]
+    out = out * (1.0 - 0.42 * sh) * (1.0 - sh + sh * np.array([0.92, 0.95, 1.06], np.float32))
 
-    # Warm the whole zone - this is red rock country and the sheet is already warm, so this is a nudge.
+    # The tops catch the sun. Lifting them is what makes the skyline read.
+    out = out * (1.0 + 0.14 * top)[..., None]
+
+    # Warm the whole zone - this is red rock country.
     out = out * np.array([1.04, 0.99, 0.94], np.float32)
 
     wd = sf(f["water"])
     depth = smoothstep(0.4, 4.0, wd)
     out = out * (1 - 0.28 * depth[..., None]) + np.array([40, 92, 96], np.float32) * 0.34 * depth[..., None]
-
-    cf = sf(f["cf"])
-    lip = smoothstep(0.0, 0.03, cf) * (1 - smoothstep(0.03, 0.14, cf))
-    out = out + 16 * lip[..., None] * np.array([0.98, 0.88, 0.74], np.float32)
     return np.clip(out, 0, 255)
 
 

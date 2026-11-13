@@ -389,8 +389,144 @@ def _vegetate(L):
     return n
 
 
+def _landmarks(L):
+    """THINGS TO LOOK AT. Kyle, 13 Nov: "very boring with little to see."
+
+    He was right and the design note above is why: "the tops are bare. That IS the design", a floor
+    of small scatter, and nothing anywhere taller than a cactus. Thirteen mesas and not one of them
+    had anything on it; a zone called Thousand Needles had a dozen needles, each the size of a bush.
+
+    This is a SECOND pass with its own dice, run after _vegetate, so nothing that was already placed
+    moves. Everything goes through L.prop, which will not put a thing on a road, in the water or on
+    top of something else, and anything near a ramp is skipped outright - a ramp is the only way up a
+    mesa and a spire standing in it would close the mesa.
+
+        the needle fields   stands of real spires, taller than the mesas are wide in places
+        arches              six, each on a line you walk
+        every top has one thing on it, and no two the same - a lookout, a camp, a ring of cairns
+        the sheer mesas have a hoist at the foot: somebody got up there once
+        camps on the floor, a boneyard in each wash
+        the aspen comes down past its old line in tongues (see bake_southern_needles.aspen_edge)
+    """
+    z = L.z
+    rng = np.random.default_rng(SEED + 4411)
+    ASP = "assets/tiles/aspen/props/"
+    SN = "assets/tiles/southern_needles/props/"
+    n = 0
+
+    def near_ramp(x, y):
+        return float(np.asarray(_ramp_cut(np.array([[float(x)]]), np.array([[float(y)]]))).ravel()[0]) > -3.0
+
+    def put(name, x, y, h, d=SN):
+        nonlocal n
+        x, y = int(round(x)), int(round(y))
+        if not (4 <= x < W - 4 and 4 <= y < H - 4) or near_ramp(x, y):
+            return False
+        if any(abs(x - ax) + abs(y - ay) < 8 for (ax, ay) in list(ARRIVALS) + list(PORTALS)):
+            return False
+        ok = L.prop(d + name + ".png", x, y, h)
+        n += bool(ok)
+        return ok
+
+    def stand(cx, cy, radius, count, tall=(7, 12)):
+        """A field of needles: tall spires in the middle, split stone and stacks round the edge."""
+        for i in range(count):
+            a, r = rng.random() * TAU, radius * np.sqrt(rng.random())
+            x, y = cx + np.cos(a) * r, cy + np.sin(a) * r * 0.8
+            if r < radius * 0.6:
+                put("sn_rock_spire", x, y, int(rng.integers(tall[0], tall[1] + 1)))
+            else:
+                put(str(rng.choice(["sn_split_stone", "sn_layered_stack", "sn_rock_spire"])), x, y,
+                    int(rng.integers(4, 7)))
+
+    # ---- the needle fields
+    for (cx, cy, radius, count) in [(108, 108, 9, 12), (86, 96, 8, 9), (176, 66, 9, 11),
+                                    (62, 182, 10, 11), (12, 96, 6, 7), (130, 152, 7, 8),
+                                    (208, 132, 6, 7), (84, 40, 7, 7), (34, 44, 6, 6), (150, 96, 6, 7)]:
+        stand(cx, cy, radius, count)
+    # one alone and very tall, where the two roads meet - the thing you steer by
+    put("sn_rock_spire", 124, 96, 15)
+
+    # ---- arches, on lines you walk
+    for (x, y) in [(88, 64), (30, 102), (152, 114), (118, 190), (200, 74), (70, 120)]:
+        put("sn_rock_arch", x, y, 8)
+
+    # ---- every top has one thing on it
+    by_name = {m[0]: m for m in MESAS}
+
+    def top(name, items):
+        _, cx, cy, rx, ry, _h = by_name[name]
+        for (prop, fx, fy, h) in items:
+            put(prop, cx + fx * rx * 0.6, cy + fy * ry * 0.6, h)
+
+    top("Redhoof Mesa", [("sn_lookout_platform", -0.6, -0.5, 7), ("sn_hide_tent", 0.1, 0.0, 5),
+                         ("sn_hide_tent", 0.5, 0.3, 5), ("sn_cook_fire", 0.3, 0.5, 2),
+                         ("sn_streamers", -0.2, 0.6, 4), ("sn_drying_rack", 0.7, -0.2, 3)])
+    top("The Anvil", [("sn_totem_aspen", 0.0, -0.1, 6)] + [
+        ("sn_cairn", 0.55 * np.cos(a), 0.55 * np.sin(a), 3) for a in np.linspace(0, TAU, 7)[:-1]])
+    top("Lowshelf", [("sn_hide_frame", -0.4, 0.0, 4), ("sn_drying_rack", 0.0, 0.2, 3),
+                     ("sn_drying_rack", 0.4, 0.0, 3), ("sn_clay_vessel", 0.2, 0.5, 2),
+                     ("sn_water_trough", -0.2, 0.5, 2)])
+    top("Needle's Eye", [("sn_windsock", 0.0, -0.2, 6), ("sn_cairn", 0.3, 0.3, 3)])
+    top("Broadback", [("sn_hide_tent", -0.3, -0.2, 5), ("sn_hide_tent", 0.1, -0.3, 5),
+                      ("sn_hide_tent", 0.4, 0.0, 5), ("sn_cook_fire", 0.05, 0.2, 2),
+                      ("sn_hide_banner", -0.5, 0.3, 5), ("sn_scaffold", 0.7, 0.4, 5),
+                      ("sn_spear_bundle", 0.25, 0.45, 3), ("sn_totem_aspen", -0.7, -0.4, 6)])
+    top("The Sisters", [("sn_toppled_column", -0.3, 0.0, 3), ("sn_toppled_column", 0.1, 0.4, 3),
+                        ("sn_bridge_upright", 0.8, -0.4, 5), ("sn_anchor_post", 0.7, -0.2, 3)])
+    top("Lesser Sister", [("sn_bridge_upright", -0.8, 0.4, 5), ("sn_rope_coil", -0.4, 0.4, 2),
+                          ("sn_cairn", 0.2, -0.2, 3)])
+    top("Saltwatch", [("sn_lookout_platform", 0.6, 0.2, 7), ("sn_windsock", 0.3, -0.4, 6),
+                      ("sn_plank_stack", -0.2, 0.3, 2)])
+    top("The Thumb", [("sn_kodo_skull", 0.0, 0.0, 3), ("sn_streamers", 0.2, 0.4, 4)])
+    top("Dryhollow", [("sn_water_trough", 0.0, 0.0, 2), ("sn_scaffold", -0.5, -0.3, 5),
+                      ("sn_plank_stack", 0.4, 0.3, 2), ("sn_hide_frame", 0.5, -0.3, 4)])
+    for nm in ("Freewind North", "Freewind South", "Freewind East"):
+        top(nm, [("sn_hide_banner", -0.4, -0.3, 5), ("sn_totem_aspen", 0.3, 0.0, 6),
+                 ("sn_windsock", 0.0, 0.5, 6)])
+
+    # ---- the sheer ones: a hoist at the foot, and what was left beside it
+    for nm in ("Needle's Eye", "The Thumb", "The Sisters", "Lesser Sister"):
+        _, cx, cy, rx, ry, _h = by_name[nm]
+        put("sn_pulley_hoist", cx - 2, cy + ry + 3, 6)
+        put("sn_rope_coil", cx + 2, cy + ry + 4, 2)
+        put("sn_plank_stack", cx + 4, cy + ry + 3, 2)
+
+    # ---- camps on the floor
+    for (cx, cy) in [(84, 112), (30, 166), (204, 172), (134, 44), (14, 62)]:
+        put("sn_hide_tent", cx, cy, 5)
+        put("sn_hide_tent", cx + 5, cy + 1, 5)
+        put("sn_cook_fire", cx + 2, cy + 3, 2)
+        put("sn_drying_rack", cx - 4, cy + 2, 3)
+        put("sn_hide_banner", cx + 8, cy - 1, 5)
+        put("sn_clay_vessel", cx + 4, cy + 4, 2)
+
+    # ---- a boneyard in each wash: the flood leaves what it drowned
+    for (cx, cy) in [(112, 68), (172, 108), (56, 112)]:
+        put("sn_kodo_skull", cx, cy, 4)
+        for _ in range(6):
+            put(str(rng.choice(["sn_rib_bones", "sn_driftwood_salt", "sn_rib_bones"])),
+                cx + rng.integers(-7, 8), cy + rng.integers(-3, 4), 3)
+
+    # ---- the aspen comes down past its old line, in the same tongues the ground is painted in
+    for _ in range(900):
+        x = int(rng.integers(4, W - 4))
+        edge = ASPEN_Y + 13.0 * np.sin(x * 0.045 + 0.7) + 7.0 * np.sin(x * 0.117 + 2.1)
+        y = int(rng.integers(int(ASPEN_Y - 8), int(ASPEN_Y + 30)))
+        if y > edge + 6:
+            continue
+        far = (y - (ASPEN_Y - 8)) / max(1.0, edge + 6 - (ASPEN_Y - 8))
+        if float(np.asarray(elevation(np.array([[float(x)]]), np.array([[float(y)]]))).ravel()[0]) > 6.0:
+            continue                                         # not on a mesa top: the ground up there is bare rock
+        if rng.random() < 0.55 - 0.40 * far:
+            nm = (rng.choice(["asp_aspen_tall", "asp_aspen_clump", "asp_pine_tall", "asp_aspen_young"])
+                  if far < 0.6 else rng.choice(["asp_aspen_young", "asp_snag_standing", "asp_dead_scrub"]))
+            put(str(nm), x, y, 6 if far < 0.6 else 4, d=ASP)
+    return n
+
+
 def dress(L):
-    return _vegetate(L)
+    return _vegetate(L) + _landmarks(L)
 
 
 def build_layout():
