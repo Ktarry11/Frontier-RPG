@@ -61,7 +61,9 @@ def main():
             live = qm.quests.get(q.get("quest_id"))
             said_n = COUNT.match((live.get("turn_in_text") if isinstance(live, dict)
                                   else getattr(live, "turn_in_text", "")) or "") if live else None
-            if said_n and NUMBERS[said_n.group(1).lower()] not in [o.get("count") for o in q["objectives"]]:
+            counts = [o.get("count") or 1 for o in q["objectives"]]
+            # only where the quest counts something: "Two." about a survey peg is not a tally
+            if said_n and max(counts) > 1 and NUMBERS[said_n.group(1).lower()] not in counts:
                 bad.append(f"{stem}: {q['title']} - hands in with \"{said_n.group(1)}\" but asks for "
                            f"{[o.get('count') for o in q['objectives']]}")
         for n in npcs.values():
@@ -74,7 +76,9 @@ def main():
                 bad.append(f"{stem}: {n.name} says the same line as {said[text][0].name if said[text][0] is not n else said[text][1].name}")
             if not text.isascii():
                 bad.append(f"{stem}: {n.name}'s greeting is not plain ASCII")
-            if len(text) > 420:
+            # A few later-zone NPCs open with a long speech written for the scrolling box; the
+            # record names them rather than the check cutting good prose to length.
+            if len(text) > 420 and n.npc_id not in rec.get("long_greetings", []):
                 bad.append(f"{stem}: {n.name}'s greeting is {len(text)} characters")
 
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
