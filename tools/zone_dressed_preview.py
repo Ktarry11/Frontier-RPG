@@ -46,6 +46,7 @@ ZONES = {
     "cabin": "tools.handbuilt_bloodsail_galleon",
     "black_strand": "tools.handbuilt_black_strand",
     "glittervein": "tools.handbuilt_glittervein",
+    "abyssal_sands": "tools.handbuilt_abyssal_sands",
     "onyxhollow": "tools.handbuilt_onyxhollow",
     "dry_deep": "tools.handbuilt_dry_deep",
 }

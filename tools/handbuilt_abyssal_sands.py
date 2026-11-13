@@ -340,6 +340,8 @@ def dress(L):
         y = int(rng.integers(3, H - 3))
         if not z.is_walkable(x, y):
             continue
+        if 124 <= x <= 156 and 14 <= y <= 40:
+            continue        # Fourth Peg is dressed by hand (_landmarks); no boulders among the tents
         r = rng.random()
         on_rim = lip[y, x] > 0.25
         if on_rim:
@@ -354,6 +356,92 @@ def dress(L):
             if L.prop(A(SF if nm.startswith("tan_") else SN, nm), x, y, 3):
                 n += 1
     return n
+
+
+def _landmarks(L):
+    """Somebody lives here and somebody has been here. Kyle, 10 Nov 2026: "Abyssal Sands is empty".
+
+    Seen whole, the zone was 13,000 tiles of sand with sixty scattered rocks on it, and two things
+    the quests talk about were not on the map at all: Fourth Peg was eight people standing on
+    bare ground, and nothing told a player which six of the eleven holes can be climbed down.
+
+    LESS IS MORE, so this is four things and each of them is somewhere a player goes:
+
+      FOURTH PEG     a camp you can see is a camp: two tents, the carts they would strike it onto,
+                     the cook's fire, the surveyor's tripod and the peg itself.
+      THE WAYS DOWN  a hoist and a coil of rope at the head of each of the six ramps. Vizzi has
+                     been lowering lamps down these for two years; her gear is what marks them.
+      THE OLD ROAD   mile-posts from the north gate toward Nineteen Mile Pit, stopping at its rim.
+                     "There was a road. It is in a hole."
+      WHAT FELL IN   carts on the lip of Cartfall, and the Second Peg still standing on the edge
+                     of the Wide Sink.
+    """
+    from tools.recruit_sites import recruit_tiles
+    SF = "assets/tiles/shimmering_flats/props/"
+    SN = "assets/tiles/southern_needles/props/"
+    UD = "assets/tiles/underdark/props/"
+    EK = "assets/tiles/eastern_kingdoms/props/"
+    people = list(NPC_POSITIONS.values()) + recruit_tiles(NAME)
+    keep_off = list(PORTALS) + list(ARRIVALS) + list(CHESTS)
+    n = 0
+
+    def put(d, name, x, y, h, **kw):
+        nonlocal n
+        x, y = int(round(x)), int(round(y))
+        if any(abs(x - px) <= 3 and -1 <= y - py <= h for (px, py) in people):
+            return False                      # never over a person
+        if any(abs(x - ax) + abs(y - ay) < 5 for (ax, ay) in keep_off):
+            return False
+        ok = L.prop(d + name + ".png", x, y, h, **kw)
+        n += bool(ok)
+        return ok
+
+    # ---- FOURTH PEG. The people stand between x 132-147, y 23-30; the camp goes round them.
+    put(UD, "ud_codex_tent", 129, 22, 5)
+    put(UD, "ud_codex_tent", 151, 24, 5)
+    put(EK, "ek_farm_cart", 127, 31, 4)
+    put(EK, "ek_farm_cart", 152, 31, 4)
+    put(SF, "sf_crate_stack", 131, 33, 3)
+    put(SN, "sn_cook_fire", 140, 34, 2)
+    put(UD, "ud_survey_tripod", 143, 21, 4)
+    put(SN, "sn_anchor_post", 139, 21, 3)          # the fourth peg
+    put(SF, "sf_hand_winch", 151, 29, 3)           # Vizzi's
+    put(SF, "sf_signboard", 126, 25, 4)
+
+    # ---- THE SIX WAYS DOWN. At the head of each ramp, off to one side of it.
+    turns = dict(DESCENTS)
+    for (name, cx, cy, rx, ry, _rim) in PITS:
+        if name not in turns:
+            continue
+        a = turns[name] * TAU
+        hx, hy = cx + np.cos(a) * (rx + 9), cy + np.sin(a) * (ry + 9)
+        sx, sy = -np.sin(a), np.cos(a)             # across the ramp
+        put(SN, "sn_pulley_hoist", hx + sx * 6, hy + sy * 6, 5)
+        put(SN, "sn_rope_coil", hx - sx * 6, hy - sy * 6, 2)
+
+    # ---- THE OLD ROAD: mile-posts from the north gate, ending at the pit that took it.
+    gx0, gy0 = 60, 14
+    _n, px, py, prx, pry, _r = next(p for p in PITS if p[0] == "Nineteen Mile Pit")
+    ex, ey = px - prx - 5, py - pry + 1
+    for i in range(5):
+        t = i / 4.0
+        put(SF, "tan_obelisk", gx0 + (ex - gx0) * t, gy0 + (ey - gy0) * t + (2 if i % 2 else -2), 5)
+
+    # ---- WHAT FELL IN
+    _n, cx, cy, rx, ry, _r = next(p for p in PITS if p[0] == "Cartfall")
+    put(EK, "ek_farm_cart", cx - rx - 5, cy + 2, 4)
+    put(SF, "sf_wheel_stack", cx + 2, cy + ry + 6, 3)
+    put(SF, "sf_crate_stack", cx + rx + 5, cy - 2, 3)
+    _n, cx, cy, rx, ry, _r = next(p for p in PITS if p[0] == "The Wide Sink")
+    put(SN, "sn_anchor_post", cx + rx + 3, cy - ry + 2, 3)          # the Second Peg, on the lip
+    return n
+
+
+_dress_scatter = dress
+
+
+def dress(L):          # noqa: F811 - the scatter, then the landmarks
+    return _dress_scatter(L) + _landmarks(L)
 
 
 def verify(zone):
