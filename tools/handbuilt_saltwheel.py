@@ -70,9 +70,9 @@ NPC_POSITIONS = {
     "sw_quartermaster": (92, 38),
 
     # ===== THE PIT ROW - the south side, which is what the town was for =====
-    "sw_race_marshal": (30, 62),
-    "sw_pit_boss": (44, 62),
-    "sw_mechanic": (52, 62),
+    "sw_race_marshal": (29, 61),
+    "sw_pit_boss": (44, 61),
+    "sw_mechanic": (53, 62),
     "sw_salvager": (64, 62),
     "sw_fuel_trader": (72, 62),
     "sw_repair": (84, 62),

@@ -175,7 +175,7 @@ NPC_POSITIONS = {
     "tarren_mill_trader": (30, 47),
     "tarren_mill_smith": (24, 52),
     "tarren_mill_reagent_seller": (37, 45),
-    "tarren_mill_bowyer": (28, 41),
+    "tarren_mill_bowyer": (27, 40),
     # --- the north cottages and the weir (west bank, north)
     "tarren_mill_chaplain": (30, 26),
     "tarren_mill_sluice_keeper": (40, 18),

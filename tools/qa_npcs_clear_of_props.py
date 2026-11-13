@@ -29,7 +29,7 @@ os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 #: NPCs still drawn on a building. Lower it as towns are fixed; never raise it.
-ON_BUILDINGS_CEILING = 39
+ON_BUILDINGS_CEILING = 0
 
 
 def main():

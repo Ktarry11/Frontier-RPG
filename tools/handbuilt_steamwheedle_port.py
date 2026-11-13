@@ -66,7 +66,7 @@ NPC_POSITIONS = {
     "stw_chandler": (28, 42),
     # Right on the waterfront, clear of the counting house's footprint - the first two spots I
     # picked for these two were inside building cores, which L.finish() caught as unreachable.
-    "stw_flight_master": (46, 24),
+    "stw_flight_master": (41, 26),
 
     # ===== THE UPPER YARD - Gadgetzan, rebuilt in a hurry on a goat field =====
     "stw_yard_boss": (66, 46),

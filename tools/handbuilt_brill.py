@@ -106,7 +106,7 @@ NPC_POSITIONS = {
     "brill_deathguard": (46, 44),            # Deathguard Rennick, at the square (quest giver)
     "brill_town_crier": (52, 43),
     "brill_guard": (10, 46),                 # west gate
-    "brill_innkeeper": (38, 45),             # Gallows' End Tavern
+    "brill_innkeeper": (39, 46),             # Gallows' End Tavern
     "brill_general_goods": (71, 47),         # east market
     "brill_beltelf_trader": (75, 47),
     "brill_butcher": (74, 54),

@@ -96,7 +96,7 @@ NPC_POSITIONS = {
     "crossroads_caravan_guard": (21, 26),        # guard post
     "crossroads_quartermaster": (53, 21),        # supply depot
     "crossroads_runner": (40, 32),               # plaza
-    "crossroads_bounty_reader": (30, 33),        # plaza notice-post
+    "crossroads_bounty_reader": (30, 34),        # plaza notice-post
     "crossroads_retired_warrior": (24, 51),      # outside the inn
     "crossroads_goblin_peddler": (56, 32),       # bazaar
     "crossroads_beltelf_envoy": (47, 40),

@@ -144,7 +144,7 @@ NPC_POSITIONS = {
     "gromgol_scout": (24, 16),                # Scout Hanzo
     "gromgol_quartermaster": (28, 28),        # Quartermaster Ghal
     # the parade yard and the wall
-    "gromgol_drillmaster": (36, 28),          # Drillmaster Ukko
+    "gromgol_drillmaster": (34, 30),          # Drillmaster Ukko
     "gromgol_south_sentry": (30, 48),         # Sentry Vrak, south gate
     "gromgol_wounded_runner": (26, 33),       # Runner Teza
     "gromgol_field_medic": (22, 36),          # Field-Medic Sulaa
@@ -153,7 +153,7 @@ NPC_POSITIONS = {
     "gromgol_beast_handler": (41, 47),        # Beast-Handler Kozza, the pens
     "gromgol_storesman": (24, 44),            # Storesman Pell
     "gromgol_cartographer": (16, 20),         # Mapmaker Ashi
-    "gromgol_troll_attache": (44, 26),        # Attaché Zul'jana - Darkspear, and from here
+    "gromgol_troll_attache": (41, 24),        # Attaché Zul'jana - Darkspear, and from here
     # vendors
     "gromgol_trader": (34, 32),               # Trader Burg
     "gromgol_provisioner": (20, 41),          # Provisioner Nakka

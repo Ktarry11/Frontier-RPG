@@ -157,28 +157,28 @@ NPC_POSITIONS = {
     # roster proved it by refusing half the buildings.
     # the headland and the ramp: you pay before your boots touch planking
     "bootybay_gate_guard": (36, 8),            # Bruiser Kolk, clifftop gate
-    "bootybay_lookout": (31, 7),               # Lookout Minzi, the cape watch
-    "bootybay_toll_collector": (45, 19),       # Tollkeeper Nizzik, head of the ramp
-    "bootybay_harbourmaster": (49, 22),        # Harbourmaster Sprocket, tower door
+    "bootybay_lookout": (30, 6),               # Lookout Minzi, the cape watch
+    "bootybay_toll_collector": (45, 18),       # Tollkeeper Nizzik, head of the ramp
+    "bootybay_harbourmaster": (50, 22),        # Harbourmaster Sprocket, tower door
     "bootybay_banker": (26, 26),               # MerchantTusk - the Baron's vault, on the market row
-    "bootybay_flight_master": (40, 24),        # Wind-Rider Zekki, the roost over the north pier
+    "bootybay_flight_master": (41, 25),        # Wind-Rider Zekki, the roost over the north pier
     # the upper gallery - the market row, sellers along the rail
     "bootybay_trader": (30, 22),               # Trader Nixxle
     "bootybay_shipping_clerk": (36, 22),       # Clerk Bexx
     "bootybay_cartel_factor": (25, 22),        # Factor Weezel - still signs for Ratchet, and says so
     "bootybay_street_kid": (33, 22),           # Scrip
-    "bootybay_crane_hand": (44, 22),           # Crane-Hand Durgo
+    "bootybay_crane_hand": (42, 23),           # Crane-Hand Durgo
     # the back walk, against the cliff
     "bootybay_weapon_dealer": (23, 31),        # Dealer Sark
     "bootybay_fence": (23, 36),                # The Quiet Man
     "bootybay_shipwright": (23, 41),           # Shipwright Vella
     # the cross bridge and the east walk
     "bootybay_tavern_keeper": (28, 34),        # Keeper Marla
-    "bootybay_dockmaster": (45, 30),           # Dockmaster Brek
+    "bootybay_dockmaster": (45, 31),           # Dockmaster Brek
     "bootybay_troll_pilot": (45, 38),          # Pilot Zan'rek, knows the reef
     "bootybay_fishmonger": (47, 46),           # Gurgle, the south pier
     # the lower gallery
-    "bootybay_baron": (34, 44),                # Baron Revilgaz, outside his own door
+    "bootybay_baron": (38, 40),                # Baron Revilgaz, outside his own door
     "bootybay_baron_aide": (29, 44),           # Aide Fipple
     "bootybay_bloodsail_captive": (24, 44),    # a Bloodsail nobody has decided what to do with
 }

@@ -161,7 +161,7 @@ NPC_POSITIONS = {
     # the spine, north to south
     "hammerfall_commander":        (52, 29),   # Overlord Gath'rok, outside the war hall
     "hammerfall_tauren_envoy":     (45, 24),   # High Envoy Tamka Stillwater, at the totem court
-    "hammerfall_tauren_herbalist": (59, 24),   # Herbalist Nahto Greenhoof, the other side of it
+    "hammerfall_tauren_herbalist": (58, 25),   # Herbalist Nahto Greenhoof, the other side of it
     "ct_hammerfall":               (46, 50),   # Trainer Naruk - class trainer, on the muster yard
     "hammerfall_sergeant":         (57, 59),   # Sergeant Mok Blackstone, drilling on the yard
     # the Forsaken quarter, north-west
@@ -175,7 +175,7 @@ NPC_POSITIONS = {
     # market row, east
     "hammerfall_quartermaster":    (72, 54),   # Quartermaster Urga Ironhand
     "hammerfall_general_goods":    (82, 58),   # Trader Molg
-    "hammerfall_reagent_vendor":   (90, 54),   # Reagent-Keeper Shelna
+    "hammerfall_reagent_vendor":   (89, 54),   # Reagent-Keeper Shelna
     # stables and roost, north-east
     "hammerfall_stablemaster":     (80, 34),   # Stablemaster Rukka
     "hammerfall_windrider_master": (89, 28),   # Wind Rider Master Dreka, at the roost

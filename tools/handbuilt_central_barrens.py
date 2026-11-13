@@ -361,7 +361,7 @@ NPC_POSITIONS = {
     "cb_waterkeeper": (88, 207),         # Waterkeeper Sanu, Lushwater
     "cb_pools_warden": (96, 95),         # Pilgrim-Warden Torga, Forgotten Pools
     "cb_caravan_master": (203, 218),     # Caravan-Master Dogan, Raider's Rest
-    "cb_shrine_keeper": (52, 144),       # Keeper Ahnmar, Shrine of the Fallen Warrior
+    "cb_shrine_keeper": (52, 146),       # Keeper Ahnmar, Shrine of the Fallen Warrior
     "cb_dreadmist_scout": (66, 61),      # Scout Zarla, Dreadmist road
     "cb_quilboar_ranger": (146, 234),    # Ranger Kishi, between the quilboar camps
     "cb_bridgewarden": (262, 34),        # Bridgewarden Karga, Durotar landing

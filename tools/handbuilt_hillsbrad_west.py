@@ -209,7 +209,7 @@ NPC_POSITIONS = {
     "hbw_southpoint_commander": (44, 22),
     "hbw_southpoint_quartermaster": (48, 26),   # vendor
     "hbw_southpoint_apothecary": (42, 27),
-    "hbw_southpoint_deathguard": (50, 21),
+    "hbw_southpoint_deathguard": (49, 21),
     "hbw_pass_scout": (42, 11),
     # the road on to Eastern Hillsbrad
     "hbw_road_outrider": (146, 85),

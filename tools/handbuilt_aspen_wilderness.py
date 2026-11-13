@@ -509,7 +509,7 @@ NPC_POSITIONS = {
     "asp_seam_watcher": (110, 21),
     # the rim: the people whose whole trade is the drop
     "asp_rope_master": (100, 38),
-    "asp_rim_runner": (105, 45),
+    "asp_rim_runner": (104, 46),
     "asp_cave_watch": (144, 54),          # near the cave mouth at (145, 48)  # moved off shallow water 7 Nov
     # Longstand Camp, in the Gold Stands
     "asp_camp_elder": (91, 78),  # moved off shallow water 7 Nov

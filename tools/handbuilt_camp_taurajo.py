@@ -123,7 +123,7 @@ NPC_POSITIONS = {
     "taurajo_guard": (30, 6),                 # Camp Sentry, north gate
     "taurajo_elder": (20, 19),                # Elder Longtread, roundhouse door
     "taurajo_hunter_1": (49, 18),             # Windrunner Kala
-    "taurajo_totem_carver": (14, 21),         # Carver Ahonen
+    "taurajo_totem_carver": (14, 23),         # Carver Ahonen
     "taurajo_hide_tanner": (11, 31),          # Tanner Mosswalker
     "taurajo_drum_keeper": (36, 31),          # Drum-Keeper Rohan, by the fire
     "taurajo_kodo_wrangler": (50, 28),        # Wrangler Tull, corral gate

@@ -106,7 +106,7 @@ NPC_POSITIONS = {
     "razorhill_beltelf_scribe": (35, 25),
     "razorhill_human_defector": (34, 39),
     "razorhill_orc_farmer": (11, 36),
-    "razorhill_child": (26, 37),
+    "razorhill_child": (30, 38),
     "razorhill_elder_orc": (10, 30),
     "razorhill_goblin_engineer": (46, 25),
     "razorhill_troll_refugee": (47, 45),
