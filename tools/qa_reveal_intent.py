@@ -69,8 +69,8 @@ def main():
                 if did != name:
                     bad.append(f"{kit['name']} / {a['name']}: foresaw {name!r}, {foe.name} does {did!r}")
     print(f"{n} foresight abilities")
-    if n != 6:
-        bad.append(f"expected 6 abilities carrying reveals_intent, found {n}")
+    if n != 7:
+        bad.append(f"expected 7 abilities carrying reveals_intent, found {n}")
     if bad:
         print("FAIL:")
         for b in bad:

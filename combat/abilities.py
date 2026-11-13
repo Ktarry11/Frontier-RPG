@@ -2241,6 +2241,13 @@ class Ability:
         # normal restriction" talents) - checked via the same _effects()
         # a real proc reads, not a special-cased talent lookup, so any
         # future ability/talent can grant this bypass the same way.
+        if self.requires_fallen_ally and in_combat and engine is not None:
+            if not any(not m.is_alive() for m in (getattr(caster, "_fight_party", None) or [])):
+                return False, f"{self.name} is for when somebody has fallen. Nobody has."
+        if self.auto_weakest_enemy and engine is not None and hasattr(engine, "living_enemies"):
+            foes = engine.living_enemies()
+            if foes:
+                target = min(foes, key=lambda m: m.current_health / max(1, m.health))
         # Three things a recruit's heal can say about WHO it lands on.
         if self.auto_lowest_ally and party:
             living = [m for m in getattr(party, "members", party) if m is not None and m.is_alive()]
@@ -2665,6 +2672,14 @@ class Ability:
     #: Carried onto the debuff / buff it applies.
     sure_target = False
     second_try_lands = False
+    refuses_ally_buffs = False
+    turn_on_kill = False
+    absorb_refreshes = False           # the shield is renewed each turn
+    auto_weakest_enemy = False         # lands on whichever enemy is closest to dying
+    requires_fallen_ally = False       # usable only once an ally is down
+    restore_max_frac = 0.0             # a party restore skips anyone above this share
+    heals_dispelled_damage = False     # a removed poison heals for what it would have dealt
+    damage_per_dispel = False          # each buff stripped from an enemy hurts it
     #: After the cast, every living ally is healed for this share of their own maximum health
     #: (Marco Rossi, "He Fixes Other Things": the small heal that comes with the cleanse).
     heals_party_pct_max = 0.0
@@ -2942,6 +2957,11 @@ class Ability:
                 getattr(e, "second_try_lands", False) for e in (getattr(caster, "active_effects", None) or [])):
             caster._next_cast_sure = True
             message = f"{message} The next one will not be refused."
+        if any(len(ev) >= 3 and ev[2] and ev[0] is not None and not ev[0].is_alive() for ev in events) and any(
+                getattr(e, "turn_on_kill", False) for e in (getattr(caster, "active_effects", None) or [])):
+            from config import TURN_THRESHOLD as _TT
+            caster.turn_meter = max(getattr(caster, "turn_meter", 0.0), _TT)
+            message = f"{message} {caster.name} is already moving again."
         if self.self_damage_pct_of_heal and healed > 0:
             price = int(healed * self.self_damage_pct_of_heal / 100.0)
             if price > 0:
@@ -4333,6 +4353,16 @@ class Ability:
                     effect.counter_on_miss = True
                 if self.second_try_lands:
                     effect.second_try_lands = True
+                if self.refuses_ally_buffs:
+                    effect.refuses_ally_buffs = True
+                if self.turn_on_kill:
+                    effect.turn_on_kill = True
+                if self.absorb_refreshes and shield_amt:
+                    effect.absorb_refresh = shield_amt
+                if self.on_low_health and self.on_low_health.get("shared"):
+                    if getattr(self, "_shared_pool_cast", None) is not recipients:
+                        self._shared_pool_cast, self._shared_pool = recipients, {"left": 1}
+                    effect.on_low_health_pool = self._shared_pool
                 if self.crit_then_miss:
                     effect.sure_crits = int(self.crit_then_miss.get("crits", 0))
                     effect.forced_misses = int(self.crit_then_miss.get("misses", 0))
@@ -4609,6 +4639,18 @@ class Ability:
                         break
                     removed_names.append(removed.name)
                     sent_back += self._send_back(removed, engine, caster)
+                    if self.heals_dispelled_damage and hasattr(recipient, "heal"):
+                        recipient.heal(int((getattr(removed, "potency", 0) or 0)
+                                           * max(0, getattr(removed, "duration", 0) or 0)))
+            if self.damage_per_dispel and removed_names:
+                power = max(getattr(caster, "attack_power", 0) or 0, getattr(caster, "spell_power", 0) or 0)
+                each = int((self.effect_value + power * 0.5) * self._damage_multiplier(caster, "spell"))
+                for recipient in recipients:
+                    if getattr(recipient, "is_monster", False) and recipient.is_alive():
+                        dealt = recipient.take_damage(each * len(removed_names), "arcane",
+                                                      attacker_level=getattr(caster, "level", None), attacker=caster)
+                        self._last_threat_events.append((recipient, dealt, True))
+                        sent_back += dealt
             target_label = getattr(target, "name", None) or ", ".join(
                 getattr(r, "name", "?") for r in recipients)
             if not removed_names:
@@ -4769,6 +4811,25 @@ class Ability:
             # Mana, and reading caster.resource_type would have silently
             # refilled the wrong bar. Absent (the default, and every use
             # before this) keeps the primary-pool behaviour exactly.
+            if self.target_type == "party":
+                # EACH ALLY, their own pool. This branch was self-only by construction, so the
+                # two recruit abilities that say "each ally's maximum resource" refilled the
+                # caster and nobody else.
+                got = []
+                for ally in self._recipients(caster, target if target is not None else party):
+                    if not hasattr(ally, "gain_resource") or not ally.is_alive():
+                        continue
+                    pool = getattr(ally, "resource_type", "mana")
+                    top = ally.get_resource_max(pool) or 0
+                    if not top:
+                        continue
+                    if self.restore_max_frac and ally.get_resource(pool) > top * self.restore_max_frac:
+                        continue
+                    if ally.gain_resource(pool, int(top * self.mana_restore_pct / 100.0)) > 0:
+                        got.append(ally.name)
+                if not got:
+                    return f"{caster.name} uses {self.name}, but nobody needed it."
+                return f"{caster.name} uses {self.name}: {', '.join(got)} restored."
             resource_type = (self.restore_resource_type
                              or getattr(caster, "resource_type", "mana"))
             max_resource = caster.get_resource_max(resource_type)
@@ -5163,8 +5224,12 @@ def _ability_from_data(entry):
                 "tick_growth_pct", "final_burst_mult", "idle_bonus_pct"):
         if entry.get(key):
             setattr(ability, key, float(entry[key]))
+    if entry.get("restore_max_frac"):
+        ability.restore_max_frac = float(entry["restore_max_frac"])
     for key in ("overheal_shared", "restore_buff_each", "auto_lowest_ally", "cleanses_each_tick",
-                "sure_target", "second_try_lands"):
+                "sure_target", "second_try_lands", "refuses_ally_buffs", "turn_on_kill",
+                "absorb_refreshes", "auto_weakest_enemy", "requires_fallen_ally",
+                "heals_dispelled_damage", "damage_per_dispel"):
         if entry.get(key):
             setattr(ability, key, True)
     if entry.get("max_recipients"):

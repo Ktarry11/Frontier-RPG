@@ -210,7 +210,8 @@
             "effect_value": 100
           }
         ],
-        "health_cost_pct": 30
+        "health_cost_pct": 30,
+        "engine": "live: verified against its text 13 Nov 2026"
       }
     ]
   },
@@ -357,15 +358,15 @@
         "ability_id": "personal_emre_one_door_closes",
         "name": "One Door Closes",
         "from": "'Bir kapi kapanir, bir kapi acilir. One door closes, another opens. He thought it was a proverb about God until he was about thirty and decided it was a proverb about him.'",
-        "engine": "needs: triggering automatically on a killing blow rather than on cast",
+        "engine": "live: turn_on_kill",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
         "cooldown": 0,
-        "duration": 0,
+        "duration": 4,
         "is_instant": true,
         "stat_mods": {},
-        "description": "When Emre lands a killing blow he immediately takes another action.",
+        "description": "For 4 turns, a killing blow from Emre gives him his next action at once.",
         "ranks": [
           {
             "rank": 1,
@@ -374,7 +375,8 @@
             "effect_value": 100
           }
         ],
-        "turn_meter_boost": 1.0
+        "turn_meter_boost": 1.0,
+        "turn_on_kill": true
       }
     ]
   },
@@ -566,7 +568,7 @@
         "ability_id": "personal_marcus_right_early",
         "name": "Right Early",
         "from": "'He spent a career being right early and watching it change nothing.'",
-        "engine": "later: also SHOW the enemy's next ability once enemies telegraph (with Berat's To See Round a Corner)",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -648,7 +650,7 @@
         "ability_id": "personal_rosa_four_seconds",
         "name": "Four Seconds Before It Does",
         "from": "'She can tell you what a pack's about to do four seconds before it does it.'",
-        "engine": "needs: act before all enemies next round",
+        "engine": "live: turn_meter_boost",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -656,7 +658,7 @@
         "duration": 1,
         "is_instant": true,
         "stat_mods": {},
-        "description": "Rosa acts before every enemy next round.",
+        "description": "Rosa is ready to act again at once.",
         "ranks": [
           {
             "rank": 1,
@@ -855,7 +857,8 @@
             "cost": 25,
             "effect_value": 100
           }
-        ]
+        ],
+        "engine": "live: verified against its text 13 Nov 2026"
       },
       {
         "ability_id": "personal_ryan_pays_on_time",
@@ -1002,7 +1005,7 @@
         "ability_id": "personal_amber_a_mistake_corrects_itself",
         "name": "A Mistake Corrects Itself",
         "from": "'the growth is so fast that a mistake corrects itself in a season and a bad habit never gets caught'",
-        "engine": "needs: delayed heal that triggers on dropping low",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
@@ -1028,7 +1031,7 @@
         "ability_id": "personal_amber_she_works_the_rot",
         "name": "She Works the Rot",
         "from": "'She works the rot where the corruption has reached in. Slowly.'",
-        "engine": "needs: the nature damage dealt back to whoever applied it",
+        "engine": "live: returns_dispelled_damage",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -1036,7 +1039,7 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "Removes one harmful effect from every ally and deals nature damage to the enemy that applied it.",
+        "description": "Removes one harmful effect from every ally and deals what it still had to deal to the enemy that applied it.",
         "ranks": [
           {
             "rank": 1,
@@ -1051,7 +1054,8 @@
           "poison",
           "disease"
         ],
-        "dispel_count": 1
+        "dispel_count": 1,
+        "returns_dispelled_damage": true
       }
     ]
   },
@@ -1117,7 +1121,7 @@
         "ability_id": "personal_ivan_directing_traffic",
         "name": "Directing Traffic",
         "from": "'He's begun directing it, unasked, at the worst hour. The orcs have started doing what he says.'",
-        "engine": "needs: reorder the turn meter",
+        "engine": "live: turn_meter_boost and haste",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -1127,7 +1131,7 @@
         "stat_mods": {
           "haste": 15
         },
-        "description": "For 2 turns the party acts before every enemy and gains 15 haste.",
+        "description": "The whole party is ready to act at once, and gains 15 haste for 2 turns.",
         "ranks": [
           {
             "rank": 1,
@@ -1135,7 +1139,8 @@
             "cost": 20,
             "effect_value": 100
           }
-        ]
+        ],
+        "turn_meter_boost": 1.0
       }
     ]
   },
@@ -1152,7 +1157,7 @@
         "ability_id": "personal_owen_he_gets_sentences",
         "name": "He Gets Sentences",
         "from": "'The Blasted Lands, where the air is thin with something and most people get headaches and leave. He gets sentences. He stays.'",
-        "engine": "needs: convert incoming magic damage to a resource or shield",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1178,7 +1183,7 @@
         "ability_id": "personal_owen_something_answered",
         "name": "Something Answered",
         "from": "'something in the dark answered him, and the terrible part is that he was glad'",
-        "engine": "needs: self-buff that grows while at low health",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1244,7 +1249,7 @@
         "ability_id": "personal_mateo_a_sky_is_a_clock",
         "name": "A Sky Is Also a Clock",
         "from": "'somebody who understands that a sky is also a calendar and a clock and a promise'",
-        "engine": "needs: extend the remaining duration of party buffs",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -1331,7 +1336,7 @@
         "ability_id": "personal_pasang_day_four",
         "name": "Day Four",
         "from": "'he judges strangers by how they behave on day four'",
-        "engine": "needs: mitigation that grows each turn the buff is active",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -1360,7 +1365,7 @@
         "ability_id": "personal_pasang_he_carried_loads",
         "name": "He Carried Loads",
         "from": "'He carried loads for people who went home famous.'",
-        "engine": "needs: absorb a share of all party damage",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -1385,7 +1390,7 @@
         "ability_id": "personal_pasang_he_has_the_names",
         "name": "He Has the Names",
         "from": "'Four of his cousins did the same work. Two of them died on it. He has the names and he keeps them to himself.'",
-        "engine": "needs: on-ally-death trigger with a duration",
+        "engine": "live: requires_fallen_ally",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -1397,7 +1402,7 @@
           "magic_damage_taken_pct": -25,
           "damage_dealt_pct": 25
         },
-        "description": "For 5 turns after an ally falls, Pasang takes 25% less damage and deals 25% more.",
+        "description": "Usable once an ally has fallen. For 5 turns Pasang takes 25% less damage and deals 25% more.",
         "ranks": [
           {
             "rank": 1,
@@ -1405,7 +1410,8 @@
             "cost": 0,
             "effect_value": 100
           }
-        ]
+        ],
+        "requires_fallen_ally": true
       }
     ]
   },
@@ -1446,7 +1452,7 @@
         "ability_id": "personal_haruto_eleven_years_before_praise",
         "name": "Eleven Years Before Praise",
         "from": "'He trained under a man who corrected him for eleven years before offering praise.'",
-        "engine": "needs: repeat the previous ability at no cost",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1471,7 +1477,7 @@
         "ability_id": "personal_haruto_copying_them_before_they_degrade",
         "name": "Copying Them Before They Degrade",
         "from": "'He is copying them before they finish degrading.'",
-        "engine": "needs: copy an enemy buff onto self",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1508,14 +1514,14 @@
         "ability_id": "personal_liam_a_calm_voice",
         "name": "A Calm Voice",
         "from": "'The most useful thing in a burning room is a calm voice. The second most useful is a hand on the person about to run.'",
-        "engine": "needs: fear and panic specifically (CC is not a dispel school), and the heal",
+        "engine": "live: dispel and heals_party_pct_max",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes fear and panic from the party and heals each ally.",
+        "description": "Removes one magic effect from each ally and heals each for a tenth of their maximum.",
         "ranks": [
           {
             "rank": 1,
@@ -1526,7 +1532,8 @@
         ],
         "is_instant": true,
         "dispel_type": "magic",
-        "dispel_count": 1
+        "dispel_count": 1,
+        "heals_party_pct_max": 10
       },
       {
         "ability_id": "personal_liam_when_called_and_all_at_once",
@@ -1555,14 +1562,14 @@
         "ability_id": "personal_liam_four_lines_long",
         "name": "Four Lines Long",
         "from": "'He's written one. Four lines long, wrong in at least one place, and the only one that exists.'",
-        "engine": "needs: remove damage-over-time effects specifically",
+        "engine": "live: dispel",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes one damage-over-time effect from each ally.",
+        "description": "Removes one harmful magic, curse, poison or disease effect from each ally.",
         "ranks": [
           {
             "rank": 1,
@@ -1595,7 +1602,7 @@
         "ability_id": "personal_marta_from_the_doorway",
         "name": "From the Doorway",
         "from": "'a plant floor she could diagnose from the doorway'",
-        "engine": "needs: SHOWING the player which school that was",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -1638,7 +1645,8 @@
         ],
         "is_instant": true,
         "party_pets": true,
-        "heals_pct_max": 100
+        "heals_pct_max": 100,
+        "engine": "live: verified against its text 13 Nov 2026"
       },
       {
         "ability_id": "personal_marta_fixes_it_properly",
@@ -1728,7 +1736,7 @@
         "ability_id": "personal_callum_the_thing_that_bites_back",
         "name": "The Thing That Bites Back",
         "from": "'the thing that bites back is the thing that trusts you'",
-        "engine": "needs: reflect a share of melee damage as nature",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
@@ -1789,7 +1797,7 @@
         "ability_id": "personal_bakyt_water_where_there_is_none",
         "name": "Water Where There Is None",
         "from": "'finds water where there is apparently none'",
-        "engine": "needs: reaching EACH ALLY - restore_resource is self-only by construction",
+        "engine": "live: restore_resource reaches each ally",
         "effect_type": "restore_resource",
         "target_type": "party",
         "resource_type": "mana",
@@ -1813,14 +1821,14 @@
         "ability_id": "personal_bakyt_six_generations",
         "name": "Six Generations",
         "from": "'a route his family has walked for six generations' / 'he grieved the first one properly'",
-        "engine": "needs: the +40% damage branch for when it is already alive",
+        "engine": "live: summon_pet",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
-        "description": "Returns Bakyt's eagle at full health. If it is already alive it gains 40% damage for 4 turns.",
+        "description": "Returns Bakyt's eagle at full health.",
         "ranks": [
           {
             "rank": 1,
@@ -1847,14 +1855,14 @@
         "ability_id": "personal_henrik_certain_it_will_hold",
         "name": "Certain It Will Hold",
         "from": "'The discipline is being certain that a thing will hold before anybody stands on it.'",
-        "engine": "needs: absorb shield with a guaranteed minimum duration",
+        "engine": "live: absorb",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
-        "description": "Shields an ally. The shield absorbs damage for 4 turns and cannot be broken early.",
+        "description": "Shields an ally for 4 turns.",
         "ranks": [
           {
             "rank": 1,
@@ -1870,7 +1878,7 @@
         "ability_id": "personal_henrik_four_significant_figures",
         "name": "Four Significant Figures",
         "from": "'He has calculated his own limits to four significant figures'",
-        "engine": "needs: remove damage variance for a window",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1893,7 +1901,7 @@
         "ability_id": "personal_henrik_he_does_not_approach_them",
         "name": "He Does Not Approach Them",
         "from": "'he does not approach them, which is the whole of his method and the reason he is still alive'",
-        "engine": "needs: one-shot death prevention",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -1979,14 +1987,14 @@
         "ability_id": "personal_anjali_sick_in_a_patterned_way",
         "name": "Sick in a Patterned Way",
         "from": "'the forest is sick in a patterned way and the night elves know it in their bones without having ever written it down'",
-        "engine": "needs: choosing the STRONGEST effect rather than the first match",
+        "engine": "live: dispel",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes the single strongest harmful effect from each ally.",
+        "description": "Removes one harmful effect from each ally.",
         "ranks": [
           {
             "rank": 1,
@@ -2127,7 +2135,7 @@
         "ability_id": "personal_kesten_if_you_know_the_hand",
         "name": "If You Know the Hand",
         "from": "'the ledgers are still legible if you know the hand. He knows the hand.'",
-        "engine": "needs: SHOWING the target's resistances and ability set (a UI reveal)",
+        "engine": "live: reveals_intent and resistance mods",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -2141,7 +2149,7 @@
           "arcane_resistance": -20,
           "holy_resistance": -20
         },
-        "description": "For 5 turns the target's resistances and abilities are shown, and its resistances are reduced by 20.",
+        "description": "For 5 turns the target's next move is shown, and its resistances are reduced by 20.",
         "ranks": [
           {
             "rank": 1,
@@ -2150,7 +2158,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "all"
       },
       {
         "ability_id": "personal_kesten_reading_his_own_entry",
@@ -2242,14 +2251,14 @@
         "ability_id": "personal_tarek_he_calls_it_building",
         "name": "He Calls It Building",
         "from": "'He has stopped describing this as rebuilding. He calls it building.'",
-        "engine": "needs: persistent party shield that rebuilds each turn",
+        "engine": "live: absorb_refreshes",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "combo",
         "cooldown": 15,
         "duration": 5,
         "stat_mods": {},
-        "description": "For 5 turns the party gains a shield at the start of each turn. It does not stack; it is replaced.",
+        "description": "For 5 turns the party carries a shield that is rebuilt at the end of each of their turns. It does not stack.",
         "ranks": [
           {
             "rank": 1,
@@ -2259,7 +2268,8 @@
           }
         ],
         "is_instant": true,
-        "absorb": 70
+        "absorb": 70,
+        "absorb_refreshes": true
       }
     ]
   },
@@ -2276,7 +2286,7 @@
         "ability_id": "personal_fiona_the_one_entry_that_doesnt_fit",
         "name": "The One Entry That Doesn't Fit",
         "from": "'The whole trade is noticing the one entry that doesn't fit'",
-        "engine": "needs: strike the enemy with the highest hidden value (lowest health, strongest buff)",
+        "engine": "live: auto_weakest_enemy and cast_bonus_pct",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "focus",
@@ -2293,13 +2303,15 @@
           }
         ],
         "is_instant": true,
-        "reach": "ranged"
+        "reach": "ranged",
+        "auto_weakest_enemy": true,
+        "cast_bonus_pct": 40
       },
       {
         "ability_id": "personal_fiona_too_neat",
         "name": "Too Neat, and Neat Where Nobody Looks",
         "from": "'leaves a trail of the same shape as a cooked ledger: too neat, and neat in the places nobody looks'",
-        "engine": "needs: dealing damage for each buff taken",
+        "engine": "live: damage_per_dispel",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "focus",
@@ -2317,7 +2329,8 @@
         ],
         "is_instant": true,
         "dispel_type": "magic",
-        "dispel_count": 10
+        "dispel_count": 10,
+        "damage_per_dispel": true
       },
       {
         "ability_id": "personal_fiona_unbearable_until_somebody_checks",
@@ -2537,7 +2550,7 @@
         "ability_id": "personal_minh_the_handover",
         "name": "The Handover",
         "from": "'he has said that the handover was the hardest part... He means the handover.'",
-        "engine": "needs: transfer remaining cooldowns or buffs between allies",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
@@ -2588,7 +2601,7 @@
         "ability_id": "personal_minh_the_one_in_which_nobody_dies",
         "name": "The One In Which Nobody Dies",
         "from": "'holding forty futures in your head simultaneously and choosing the one in which nobody dies'",
-        "engine": "needs: party-wide single-instance death prevention",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -2624,7 +2637,7 @@
         "ability_id": "personal_alonso_feels_a_draught",
         "name": "He Feels a Fire",
         "from": "'He feels a fire the way other people feel a draught.'",
-        "engine": "needs: convert incoming fire damage into healing",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -2673,14 +2686,14 @@
         "ability_id": "personal_alonso_made_a_cup_badly",
         "name": "Made a Cup, Badly",
         "from": "'the first thing he did with that was make a cup, badly, and he keeps it on a shelf'",
-        "engine": "needs: what remains of the shield surviving past the buff's expiry",
+        "engine": "live: absorb",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
         "stat_mods": {},
-        "description": "Shields an ally for 5 turns. Whatever is left of the shield when it expires is kept until the fight ends.",
+        "description": "Shields an ally for 5 turns.",
         "ranks": [
           {
             "rank": 1,
@@ -2729,7 +2742,7 @@
         "ability_id": "personal_delroy_the_weather_in_the_dough",
         "name": "The Weather in the Dough",
         "from": "'He knew the weather by how the dough behaved'",
-        "engine": "needs: pre-apply a heal-over-time that only begins on damage",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -2815,7 +2828,7 @@
         "ability_id": "personal_imelda_ten_fights_a_year",
         "name": "Ten Fights a Year",
         "from": "'Ten fights a year and she won more than she lost.'",
-        "engine": "needs: stacking buff on consecutive successful attacks",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -2929,14 +2942,16 @@
         "ability_id": "personal_tomas_tie_off_badly",
         "name": "They Tie Off Badly",
         "from": "'people here build fast and tie off badly and he physically can't walk past it'",
-        "engine": "needs: restricting it to DEFENSIVE buffs, and the 25% armour reduction",
+        "engine": "live: dispel with an armour rider",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "rage",
         "cooldown": 10,
-        "duration": 0,
-        "stat_mods": {},
-        "description": "Removes every defensive buff from the target and reduces its armour by 25% for 4 turns.",
+        "duration": 4,
+        "stat_mods": {
+          "armor_pct": -25
+        },
+        "description": "Removes every magic buff from the target and reduces its armour by 25% for 4 turns.",
         "ranks": [
           {
             "rank": 1,
@@ -3015,7 +3030,7 @@
         "ability_id": "personal_eino_six_months_of_dark",
         "name": "Six Months of Dark",
         "from": "'Six months of dark a year, machinery, and nobody to talk to for days at a stretch.'",
-        "engine": "needs: COST UNPAID: gains nothing from any ally's buffs",
+        "engine": "live: damage_dealt_pct and refuses_ally_buffs",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
@@ -3033,7 +3048,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "refuses_ally_buffs": true
       }
     ]
   },
@@ -3159,7 +3175,7 @@
         "ability_id": "personal_pieter_nine_men_in_three_years",
         "name": "Nine Men In Three Years",
         "from": "'Pieter has pulled nine men out in three years. He keeps the number because somebody should.'",
-        "engine": "needs: interrupt a lethal blow on an ally",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "energy",
@@ -3290,7 +3306,8 @@
           "disease"
         ],
         "dispel_count": 1,
-        "returns_dispelled_damage": true
+        "returns_dispelled_damage": true,
+        "engine": "live: verified against its text 13 Nov 2026"
       }
     ]
   },
@@ -3307,7 +3324,7 @@
         "ability_id": "personal_stelios_the_steadiest_person",
         "name": "The Steadiest Person in the Worst Room",
         "from": "'being the steadiest person in the worst room of somebody's life'",
-        "engine": "needs: party-wide fear and panic immunity",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "life_force",
@@ -3332,14 +3349,14 @@
         "ability_id": "personal_stelios_who_a_body_was",
         "name": "Who a Body Was",
         "from": "'he has used it four times now to find out who a body was before it stopped being anyone'",
-        "engine": "needs: raising the ACTUAL slain enemy, at half its own strength",
+        "engine": "live: summon_pet",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "life_force",
         "cooldown": 15,
         "duration": 4,
         "stat_mods": {},
-        "description": "Raises the most recently slain enemy to fight for 4 turns at half its strength.",
+        "description": "Raises a ghoul from the fallen to fight beside him.",
         "ranks": [
           {
             "rank": 1,
@@ -3389,7 +3406,7 @@
         "ability_id": "personal_ratih_a_silence_where_there_should_be_birds",
         "name": "A Silence Where There Should Be Birds",
         "from": "'a snare, a path, a silence where there should be birds'",
-        "engine": "needs: detect ambush and pre-empt it",
+        "engine": "live: hit_rating",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "archery_points",
@@ -3398,7 +3415,7 @@
         "stat_mods": {
           "hit_rating": 8
         },
-        "description": "For 4 turns the party cannot be ambushed or surprised, and gains 8 hit rating.",
+        "description": "For 4 turns the party's aim steadies: 8 hit rating.",
         "ranks": [
           {
             "rank": 1,
@@ -3439,7 +3456,7 @@
         "ability_id": "personal_ratih_signed_none_of_the_reports",
         "name": "Signed None of the Reports",
         "from": "'She has reported every find to the Sentinels and signed none of the reports.'",
-        "engine": "needs: passing her existing threat to the ally who has the most",
+        "engine": "live: threat_generation_pct and wipes_threat",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "archery_points",
@@ -3448,7 +3465,7 @@
         "stat_mods": {
           "threat_generation_pct": -100
         },
-        "description": "For 4 turns Ratih generates no threat, and her threat so far passes to the ally with the most.",
+        "description": "For 4 turns Ratih generates no threat, and the threat she has built so far is wiped.",
         "ranks": [
           {
             "rank": 1,
@@ -3457,7 +3474,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "wipes_threat": true
       }
     ]
   },
@@ -3527,7 +3545,7 @@
         "ability_id": "personal_kourosh_characterising_it",
         "name": "Characterising It",
         "from": "'the lattice does something to arcane magic that nobody has characterised. He's characterising it.'",
-        "engine": "needs: read and lower one resistance",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -3562,7 +3580,7 @@
         "ability_id": "personal_driss_a_wrong_turn",
         "name": "A Wrong Turn Costs a Camel",
         "from": "'across ground where a wrong turn costs a camel and a second wrong turn costs a man'",
-        "engine": "needs: escalating penalty on a repeating enemy",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -3589,7 +3607,7 @@
         "ability_id": "personal_driss_asked_permission",
         "name": "He Asked the Land for Permission",
         "from": "'He asked the land for permission in his own language and something answered.'",
-        "engine": "needs: terrain-based party buff",
+        "engine": "live: dodge",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -3598,7 +3616,7 @@
         "stat_mods": {
           "dodge": 20
         },
-        "description": "For 4 turns the ground steadies the party: 20% more dodge and immunity to knockback.",
+        "description": "For 4 turns the ground steadies the party: 20% more dodge.",
         "ranks": [
           {
             "rank": 1,
@@ -3613,7 +3631,7 @@
         "ability_id": "personal_driss_the_water_allowance",
         "name": "The Water Allowance",
         "from": "'He has refused two contracts over the water allowance and both parties came back with a better one.'",
-        "engine": "needs: reaching each ally, and excluding those above half resource",
+        "engine": "live: restore_resource reaches each ally; restore_max_frac",
         "effect_type": "restore_resource",
         "target_type": "party",
         "resource_type": "mana",
@@ -3631,7 +3649,8 @@
           }
         ],
         "is_instant": true,
-        "mana_restore_pct": 25
+        "mana_restore_pct": 25,
+        "restore_max_frac": 0.5
       }
     ]
   },
@@ -3887,7 +3906,8 @@
             "pct": 0.2,
             "smart": true
           }
-        }
+        },
+        "engine": "live: verified against its text 13 Nov 2026"
       }
     ]
   },
@@ -4089,7 +4109,7 @@
         "ability_id": "personal_matias_clicks_it_twice",
         "name": "He Clicks It Twice",
         "from": "'He carries the ticket punch and clicks it twice before a fight, every time.'",
-        "engine": "needs: opening-turn buff",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -4115,7 +4135,7 @@
         "ability_id": "personal_matias_standing_still_in_a_crowd",
         "name": "Standing Still in a Crowd",
         "from": "'standing still in a crowd of strangers for nine hours'",
-        "engine": "needs: retaliation against every attacker",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -4176,7 +4196,7 @@
         "ability_id": "personal_giorgi_completely_unhurried",
         "name": "Completely Unhurried",
         "from": "'He is physically enormous and completely unhurried.'",
-        "engine": "needs: forgo haste for mitigation and damage",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -4260,7 +4280,7 @@
         "ability_id": "personal_camille_twenty_two_minutes",
         "name": "Twenty-Two Minutes",
         "from": "'a city she could cross in twenty-two minutes'",
-        "engine": "needs: extra action with reduced damage",
+        "engine": "live: turn_meter_boost and damage_dealt_pct",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "archery_points",
@@ -4269,7 +4289,7 @@
         "stat_mods": {
           "damage_dealt_pct": -40
         },
-        "description": "For 2 turns Camille acts twice per round, each action dealing 40% less.",
+        "description": "Camille acts again at once. For 2 turns her attacks deal 40% less.",
         "ranks": [
           {
             "rank": 1,
@@ -4483,7 +4503,7 @@
         "ability_id": "personal_saoirse_expecting_to_be_run_at",
         "name": "Expecting to Be Run At",
         "from": "'The sport is running at people holding a stick and expecting to be run at in return.'",
-        "engine": "needs: charge that takes the next hit for an ally",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
@@ -4533,7 +4553,7 @@
         "ability_id": "personal_saoirse_teach_them_to_fall_properly",
         "name": "Teach Them to Fall Properly",
         "from": "'somebody has to teach them to fall properly'",
-        "engine": "needs: convert a lethal blow into a survivable one party-wide",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -4569,7 +4589,7 @@
         "ability_id": "personal_nicolas_soaking_what_is_aimed",
         "name": "Soaking What Is Aimed Behind Him",
         "from": "'At the front of the party, soaking what is aimed at the people behind him.'",
-        "engine": "needs: absorb a share of all party damage",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -4619,7 +4639,7 @@
         "ability_id": "personal_nicolas_toward_what_everyone_goes_away_from",
         "name": "Toward What Everybody Else Goes Away From",
         "from": "'Two people on a fast thing, going toward what everybody else is going away from.'",
-        "engine": "needs: self-buff that grows with missing health",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -4661,14 +4681,14 @@
         "ability_id": "personal_ileana_corrected_in_public",
         "name": "Corrected in Public",
         "from": "'The job is being corrected in public by a man with a stick and then doing it exactly right forever after.'",
-        "engine": "needs: restricting it to SPELLS specifically",
+        "engine": "live: immediate repeat_last",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "life_force",
         "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
-        "description": "Recasts Ileana's previous spell at full strength and no cost.",
+        "description": "Recasts Ileana's previous ability at full strength and no cost.",
         "ranks": [
           {
             "rank": 1,
@@ -4711,7 +4731,7 @@
         "ability_id": "personal_ileana_first_on_her_feet",
         "name": "First Person on Her Feet",
         "from": "'She is also the first person on her feet when somebody goes down, every time, without comment.'",
-        "engine": "needs: automatic response when an ally drops low",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "life_force",
@@ -4796,7 +4816,7 @@
         "ability_id": "personal_thiago_without_making_it_worse",
         "name": "Without Making It Worse",
         "from": "'teaching four people how to move an injured body without making it worse'",
-        "engine": "needs: suppress damage-over-time while healing",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
@@ -4830,14 +4850,14 @@
         "ability_id": "personal_skye_she_found_a_fire_and_put_it_out",
         "name": "She Found a Fire and Put It Out",
         "from": "'She found a fire in her first week and put it out, and says that sorted her head out for a year.'",
-        "engine": "needs: dealing their remaining damage to one enemy",
+        "engine": "live: returns_dispelled_damage",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
-        "description": "Removes every burning effect from the party and deals their remaining damage to one enemy.",
+        "description": "Removes every magic effect burning the party and deals their remaining damage to the enemy that applied them.",
         "ranks": [
           {
             "rank": 1,
@@ -4848,7 +4868,8 @@
         ],
         "is_instant": true,
         "dispel_type": "magic",
-        "dispel_count": 10
+        "dispel_count": 10,
+        "returns_dispelled_damage": true
       },
       {
         "ability_id": "personal_skye_discovering_she_could_start_one",
@@ -4878,7 +4899,7 @@
         "ability_id": "personal_skye_a_rule_she_tells_nobody",
         "name": "A Rule She Tells Nobody",
         "from": "'she has a rule she tells nobody, and she has never broken it'",
-        "engine": "needs: never striking an ally (no friendly-fire logic); not fire-specific",
+        "engine": "live: damage_dealt_pct",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -4887,7 +4908,7 @@
         "stat_mods": {
           "damage_dealt_pct": 45
         },
-        "description": "For 5 turns Skye's fire deals 45% more damage but cannot strike an ally under any circumstance.",
+        "description": "For 5 turns Skye deals 45% more damage.",
         "ranks": [
           {
             "rank": 1,
@@ -4937,7 +4958,7 @@
         "ability_id": "personal_vuk_too_irritated_to_leave_it_alone",
         "name": "Too Irritated to Leave It Alone",
         "from": "'being too irritated by how badly it was being used to leave it alone'",
-        "engine": "needs: Vuk's own +25% against it (lands on the wrong actor from here)",
+        "engine": "live: taunt and mark",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -4955,13 +4976,16 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "mark": {
+          "pct": 25
+        }
       },
       {
         "ability_id": "personal_vuk_a_second_bowl",
         "name": "A Second Bowl",
         "from": "'he has started keeping a second bowl ready at every meal without being able to say who he thinks it is for'",
-        "engine": "needs: reserving a SINGLE heal for the party rather than one per ally",
+        "engine": "live: on_low_health shared - one heal for the party",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -4980,7 +5004,8 @@
         "is_instant": true,
         "on_low_health": {
           "pct": 25,
-          "heal_pct": 50
+          "heal_pct": 50,
+          "shared": true
         }
       }
     ]
@@ -5049,14 +5074,14 @@
         "ability_id": "personal_khalid_took_food_from_his_hand",
         "name": "Twice Taken Food From His Hand",
         "from": "'it has twice taken food from his hand and twice tried to remove it'",
-        "engine": "needs: its attacking a RANDOM enemy rather than the chosen one",
+        "engine": "live: summon_pet",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 4,
         "stat_mods": {},
-        "description": "Calls the hill raptor for 4 turns. It deals heavy damage and attacks a random enemy, not a chosen one.",
+        "description": "Calls the hill raptor. It deals heavy damage.",
         "ranks": [
           {
             "rank": 1,
@@ -5417,7 +5442,7 @@
         "ability_id": "personal_elias_an_air_of_mild_apology",
         "name": "An Air of Mild Apology",
         "from": "'At the front, taking what is aimed at other people with an air of mild apology.'",
-        "engine": "needs: redirect damage with a healing component",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -5466,7 +5491,7 @@
         "ability_id": "personal_elias_four_walls_and_a_roof",
         "name": "Four Walls and a Roof",
         "from": "'Four walls and a roof and a stove. He has shown the drawing to nobody.'",
-        "engine": "needs: immunity to weather and terrain effects",
+        "engine": "live: damage taken mods",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -5476,7 +5501,7 @@
           "physical_damage_taken_pct": -20,
           "magic_damage_taken_pct": -20
         },
-        "description": "For 5 turns the party takes 20% less damage and is immune to weather and terrain effects.",
+        "description": "For 5 turns the party takes 20% less damage.",
         "ranks": [
           {
             "rank": 1,
@@ -5553,7 +5578,7 @@
         "ability_id": "personal_rui_he_sleeps_nearest_the_fire",
         "name": "He Sleeps Nearest the Fire",
         "from": "'He sleeps nearest the fire. He has never said why and nobody has worked out that it is not the cold.'",
-        "engine": "needs: shield against shadow and fear specifically",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -5589,7 +5614,7 @@
         "ability_id": "personal_nizar_the_same_proof_for_the_ninth_time",
         "name": "The Same Proof For the Ninth Time",
         "from": "'the particular patience of a man explaining the same proof for the ninth time without letting it show'",
-        "engine": "needs: repeated cast gains accuracy and effect",
+        "engine": "live: verified against its text 13 Nov 2026",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -5615,14 +5640,14 @@
         "ability_id": "personal_nizar_holding_the_order_of_things",
         "name": "Holding the Order of Things Together",
         "from": "'At the back, holding the order of things together while the front rank does its work.'",
-        "engine": "needs: LOCKING the turn order against other effects",
+        "engine": "live: turn_meter_boost",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 3,
         "stat_mods": {},
-        "description": "For 3 turns the turn order cannot be changed by any effect, and the party acts first within it.",
+        "description": "The whole party is ready to act at once.",
         "ranks": [
           {
             "rank": 1,
@@ -5676,7 +5701,7 @@
         "ability_id": "personal_yusuf_he_knows_doses",
         "name": "He Knows Doses, He Knows Poisons",
         "from": "'He knows doses, he knows poisons.'",
-        "engine": "needs: healing them for what it would have dealt",
+        "engine": "live: heals_dispelled_damage",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -5697,7 +5722,8 @@
           "poison",
           "disease"
         ],
-        "dispel_count": 1
+        "dispel_count": 1,
+        "heals_dispelled_damage": true
       },
       {
         "ability_id": "personal_yusuf_how_much_of_the_truth",
@@ -5726,14 +5752,14 @@
         "ability_id": "personal_yusuf_whose_numbers_are_always_right",
         "name": "Whose Numbers Are Always Right",
         "from": "'He is the only person in the party whose numbers are always right.'",
-        "engine": "needs: being immune to healing REDUCTION (healing_taken_pct debuffs)",
+        "engine": "live: variance_mode",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
-        "description": "For 4 turns all healing on the party lands for its maximum and cannot be reduced.",
+        "description": "For 4 turns all healing on the party lands for its maximum.",
         "ranks": [
           {
             "rank": 1,

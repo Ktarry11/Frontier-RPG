@@ -471,6 +471,15 @@ class StatusEffect:
         self.idle_bonus_pct = 0
         #: Each tick also removes one harmful effect from the holder (Orlando).
         self.cleanses_each_tick = False
+        #: A buff: the holder refuses buffs and heals-over-time from anyone else (Eino).
+        self.refuses_ally_buffs = False
+        #: A buff: a killing blow gives the holder their next turn at once (Emre).
+        self.turn_on_kill = False
+        #: A shield that is put back to this size at the end of each of the holder's turns.
+        self.absorb_refresh = 0
+        #: Shared between every copy of one cast: {"left": 1} - a payout armed for the PARTY,
+        #: spent by whoever needs it first (Vuk, A Second Bowl).
+        self.on_low_health_pool = None
         #: A debuff: the named caster's attacks on the holder cannot miss (Camille).
         self.sure_hit_by = ""
         #: A buff: after one of the holder's spells misses, the next cannot (Orlando).
@@ -1001,6 +1010,12 @@ class StatusEffectMixin:
                 and getattr(self, "is_boss", False)):
             effect.duration = min(effect.duration, 1)
 
+        # "Gains nothing from any ally's buffs" (Eino, Six Months of Dark): the price of his own.
+        if (effect.effect_type in (EffectType.BUFF, EffectType.HOT) and effect.source_name
+                and effect.source_name != getattr(self, "name", None)
+                and any(getattr(e, "refuses_ally_buffs", False) for e in self._effects())):
+            return f"{self.name} takes nothing from {effect.name}."
+
         if effect.effect_type == EffectType.DEBUFF and effect.is_stun:
             if self.get_status_stat_mod("cc_immune") > 0:
                 return f"{self.name} is immune to {effect.name}!"
@@ -1386,8 +1401,13 @@ class StatusEffectMixin:
                 continue
             if (getattr(effect, "on_low_health_uses", 0) or 0) <= 0:
                 continue
+            pool = getattr(effect, "on_low_health_pool", None)
+            if pool is not None and pool.get("left", 0) <= 0:
+                continue
             if (self.current_health / self._max_hp()) * 100.0 >= threshold:
                 continue
+            if pool is not None:
+                pool["left"] -= 1
             heal_pct = getattr(effect, "on_low_health_heal_pct", 0) or 0
             shield_pct = getattr(effect, "on_low_health_shield_pct", 0) or 0
             effect.on_low_health_uses -= 1
@@ -1512,6 +1532,9 @@ class StatusEffectMixin:
         attacked = bool(getattr(self, "_attacked_this_turn", False))
         self._attacked_this_turn = False
         self._attacked_last_turn = attacked      # read by "punish what just attacked" abilities
+        for effect in self._effects():
+            if getattr(effect, "absorb_refresh", 0):
+                effect.absorb = effect.absorb_refresh
         out = []
         for effect in list(self._effects()):
             if getattr(effect, "breaks_on_attack", False) and attacked:
