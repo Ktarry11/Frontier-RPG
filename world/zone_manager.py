@@ -101,6 +101,12 @@ class ZoneManager:
         self.props_cleared_off_npcs = sum(
             clear_props_over_npcs(entry["tilemap"]) for entry in self.zones.values())
 
+        # ...and no two props stand on the same ground - the pillar dropped on a tent, the
+        # lantern post inside a well. See world/prop_clearance.py.
+        from world.prop_clearance import clear_props_through_props
+        self.props_cleared_off_props = sum(
+            clear_props_through_props(entry["tilemap"]) for entry in self.zones.values())
+
         # Start player in the default start zone (world/start_zones.py). ZoneManager is built once per
         # process, before any character exists, so there is nothing to ask here - the real choice is
         # applied by reset_to_start() when a character is created.
