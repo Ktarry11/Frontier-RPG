@@ -169,6 +169,9 @@ def build_dry_deep_baked():
 
 def generate_dry_deep():
     zone, L = build_dry_deep_baked()
+    # The painted ground. Without this the cave draws in the fallback tiles - plain dirt and a grey
+    # grid for rock - which is what the first screenshot of this zone showed.
+    register_baked(zone, BAKED)
     return zone
 
 

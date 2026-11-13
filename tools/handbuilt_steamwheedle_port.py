@@ -223,4 +223,8 @@ def build_steamwheedle_baked():
 
 def generate_steamwheedle_port():
     zone, L = build_steamwheedle_baked()
+    # THE PAINTED GROUND, WHICH WAS BAKED AND NEVER ATTACHED. Found 13 Nov 2026: this zone drew in
+    # the fallback tiles - plain dirt and a grey grid for rock - while a full set of baked chunks
+    # sat in its folder. It is what Kyle's backlog called "has no tiles".
+    register_baked(zone, BAKED)
     return zone

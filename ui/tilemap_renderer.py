@@ -58,6 +58,19 @@ class TilemapRenderer:
         # in-memory image cache is cheap and avoids coupling them.
         self._boss_icon_cache = {}
 
+    _ICON_SIZES = {}
+
+    def _icon_size(self, path):
+        """(width, height) of an icon file, read once."""
+        size = self._ICON_SIZES.get(path)
+        if size is None:
+            try:
+                size = pygame.image.load(path).get_size()
+            except (pygame.error, FileNotFoundError, OSError):
+                size = (32, 32)
+            self._ICON_SIZES[path] = size
+        return size
+
     def _biome_for(self, tilemap, x=None, y=None):
         """Resolve the biome for a tile. Checks a per-tile subzone override
         first (e.g. Field of Giants inside The Barrens) when x/y are given,
@@ -979,7 +992,11 @@ class TilemapRenderer:
                 if icon_id:
                     folder = MATERIAL_TYPE_FOLDERS.get(material_type, material_type)
                     sheet_path = f"assets/gathering_nodes/{folder}/{icon_id}.png"
-                    sprite = get_tile_sprite(sheet_path, (0, 0, 32, 32), max(node_w, node_h))
+                    # THE WHOLE ICON, whatever size it is. This cropped a fixed 32x32 from the
+                    # top-left, and the gem and fish icons are 64x64 - so a fishing spot drew the
+                    # top-left quarter of a fish.
+                    sprite = get_tile_sprite(sheet_path, (0, 0) + self._icon_size(sheet_path),
+                                             max(node_w, node_h))
                     if sprite is not None:
                         scaled = pygame.transform.smoothscale(sprite, (node_w, node_h))
                         screen.blit(scaled, rect)

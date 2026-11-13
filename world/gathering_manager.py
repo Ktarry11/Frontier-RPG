@@ -244,6 +244,9 @@ class GatheringNodeManager:
             self.active_nodes.append(GatheringNode(x, y, random.choices(ids, weights=weights, k=1)[0]))
             tilemap.set_tile(x, y, "gathering_node", "interaction")
 
+    #: Two nodes are never closer than this many tiles on either axis.
+    NODE_SPACING = 3
+
     #: A node keeps this far from any single NPC, and this far from a cluster of them.
     NPC_CLEARANCE = 3
     SETTLEMENT_RADIUS = 9
@@ -325,6 +328,13 @@ class GatheringNodeManager:
                 continue
             seen.add((x, y))
             if avoid is not None and avoid(x, y):
+                continue
+            # NOT SHOULDER TO SHOULDER. A node is drawn a tile and a half wide, so two on
+            # neighbouring tiles overlap and the one drawn second leaves a sliver of the first
+            # showing beside it. Kyle, 13 Nov 2026, twice: "why are we having so many issues
+            # cropping gatherables?" / "there it is again bro! why!?!?!" - it was never the crop.
+            if any(abs(x - fx) < self.NODE_SPACING and abs(y - fy) < self.NODE_SPACING
+                   for (fx, fy) in found):
                 continue
             if tilemap.is_walkable(x, y) and tilemap.get_tile(x, y, "interaction") is None:
                 found.append((x, y))

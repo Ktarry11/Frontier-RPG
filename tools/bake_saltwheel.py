@@ -77,7 +77,7 @@ TEX_DIR = ROOT / "assets/tiles/shimmering_flats/materials"
 MATERIALS = {
     # --- 63-98: the straight
     "tar":      ("tan_quay_tarred", None, 1.0),
-    "oiled":    ("tan_deck_oiled", None, 1.0),
+    "oiled":    ("sf_dust_hardpan", None, 1.5),
     "rut":      ("sf_hardpan_swept", None, 1.0),
     # --- 98-156: the town
     "clay":     ("sf_dust_hardpan", None, 1.5),
