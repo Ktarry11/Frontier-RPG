@@ -413,9 +413,13 @@ class PortalManager:
                 # "at the end of the descent" (Kyle): the last room, and the stair in it
                 (98, 40): ("The Black Strand", 20, 14),
             },
-            # Under the Dry Deep. The Onyxhollow gate at (84, 52) is registered with the town.
+            # Under the Dry Deep, and the town behind its gate.
             "The Black Strand": {
                 (20, 11): ("The Dry Deep", 95, 40),
+                (84, 52): ("Onyxhollow", 50, 76),
+            },
+            "Onyxhollow": {
+                (50, 80): ("The Black Strand", 84, 55),
             },
             # Zone 3, the cenote, and the end of the five-zone water chain. Three doors on the
             # surface map: the gate west back to the Sands, the dig mouth on the isle that is the

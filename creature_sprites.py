@@ -123,6 +123,11 @@ SHEETS = {
         'scarecrow_golem', 'dragon_whelp', 'dragon_whelp_bronze', 'mountain_giant_granite',
         'mountain_giant_sandstone', 'sprite_darter', 'ghoul_gaunt', 'wraith_pale',
     ],
+    # ---- the Dark Iron dwarves sheet (tools/slice_dark_iron_dwarves.py). Four of its thirty
+    #    figures are creatures - the Castouts of The Black Strand; the rest are Onyxhollow's people.
+    'dark_iron': [
+        'dark_iron_digger', 'dark_iron_cutthroat', 'dark_iron_slagcaller', 'dark_iron_warlord',
+    ],
 }
 
 #: sprite id -> how many different looks of it the sheets draw, as <id>_1 .. <id>_n.
@@ -206,6 +211,15 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # THE CASTOUTS (The Black Strand). Dark Iron dwarves put out of Onyxhollow's gate. First in
+    # the list because every word in their names belongs to a weaker rule below: a "Digger" is a
+    # human bandit, a "Slagcaller" a robed cultist and a "Foreman" an overseer.
+    # One picture each and no variants: three creatures cannot reach four hashed looks, and a
+    # sprite nothing can select is art nobody sees (tools/qa_creature_sprites.py).
+    (r"castout slagcaller", "dark_iron_slagcaller"),
+    (r"castout cutthroat", "dark_iron_cutthroat"),
+    (r"foreman durn", "dark_iron_warlord"),
+    (r"\bcastout\b", "dark_iron_digger"),
     # ===== WHAT IT IS BEATS WHAT IT IS CALLED (12 Nov 2026) =====
     # Kyle, 10 Nov: "Boulder'gor boss should be an ogre" - and the Boulderfist Hall boss too.
     # Both drew as HUMAN bandits. The race rules further down match on the race WORD ("ogre",

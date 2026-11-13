@@ -848,7 +848,14 @@ class TilemapRenderer:
                 base_path = sprite_base_path(
                     getattr(vendor, "race", None), getattr(vendor, "gender", "male"),
                     getattr(vendor, "appearance_variant", 0))
-                if base_path:
+                # A vendor with a picture of their own (assets/npcs/leaders/<vendor_id>/) draws it,
+                # the same override ambient NPCs have below. Onyxhollow's shopkeepers are Dark Iron
+                # dwarves with their own figures; without this only the people who do NOT sell
+                # anything would have looked like themselves.
+                own = f"assets/npcs/leaders/{getattr(vendor, 'vendor_id', '')}"
+                if os.path.exists(f"{own}/down.png"):
+                    sprite = get_npc_sprite(own, "down", tile_height=int(self.tile_size * self.npc_sprite_scale))
+                if sprite is None and base_path:
                     sprite = get_npc_sprite(base_path, getattr(vendor, "facing", "down"), tile_height=int(self.tile_size * self.npc_sprite_scale))
                 if sprite is not None:
                     sx = screen_x + (self.tile_size - sprite.get_width()) // 2

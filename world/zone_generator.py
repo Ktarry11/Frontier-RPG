@@ -5652,6 +5652,7 @@ def create_all_zones():
     from tools import handbuilt_abyssal_sands as dabs
     from tools import handbuilt_dry_deep as dunder   # NOT ddry - that is handbuilt_drywhisker_deeps
     from tools import handbuilt_black_strand as dstrand
+    from tools import handbuilt_onyxhollow as donyx
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
     from tools import handbuilt_cistern as dcis   # NOT dc - that is a dungeon alias
@@ -5797,6 +5798,8 @@ def create_all_zones():
         # The layer under the Dry Deep (Kyle, 13 Nov 2026): black sand, fungi and silithid, 50-53.
         # An OPEN ZONE that happens to have a roof - subzone tables and rares, not a pinned boss.
         "The Black Strand": dstrand.generate_black_strand(),
+        # The Dark Iron town behind the Strand's gate. An inn and no flight master (Kyle).
+        "Onyxhollow": donyx.generate_onyxhollow(),
         "Glittervein": dgv.generate_glittervein(),
         "The Mother Vein": dmv.generate_mother_vein(),
         "The Cistern": dcis.generate_cistern(),

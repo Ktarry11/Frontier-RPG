@@ -161,6 +161,17 @@ _set("dark_iron", 6, 5, "assets/buildings", """
     di_forge_anvil di_bellows di_crucible di_ore_cart di_steam_pipes di_slag_heap
     di_brazier di_crane_hook di_cage di_rune_obelisk di_dwarf_statue di_rubble""")
 
+#: DARK IRON DWARVES (assets/creatures/_src/tempest_dark_iron_dwarves_sheet_30.png). People, not
+#: buildings, but the same magenta sheet and the same need to keep relative scale. Cut to a staging
+#: folder; tools/slice_dark_iron_dwarves.py files each one as an Onyxhollow NPC or a creature.
+#: Rows: the guard, the trades, the casters, the castouts, the lords.
+_set("dark_iron_dwarves", 6, 5, "assets/creatures/_src/dark_iron_dwarves", """
+    did_guard_axe did_guard_spear did_crossbow did_captain did_cleaver did_sapper
+    did_smith did_stoker did_miner did_engineer did_cooper did_scholar
+    did_pyromancer did_censer did_runesmith did_shadowcaller did_geomancer did_alchemist
+    did_chained did_ragged did_iron_mask did_crawler did_ash_cultist did_molten_brute
+    did_thane did_warlord did_dark_seer did_gilded_engineer did_flame_lord did_elder""")
+
 #: SMOKE DRAWN OVER A MAGENTA KEY COMES BACK PURPLE. A generator asked for a lodge with a smoke hole
 #: draws the plume semi-transparent, and whatever is behind it - the key - bleeds through. Keying then
 #: gives a correctly-shaped wisp in the wrong colour, which is invisible against dark ground and obvious

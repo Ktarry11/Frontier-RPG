@@ -245,7 +245,12 @@ def main():
         "sawmills": sawmills}, indent=2) + "\n")
     tpath = ROOT / "data" / "training" / "trainers.json"
     cur = json.loads(tpath.read_text()) if tpath.exists() else {}
-    cur["profession_trainers"] = prof_trainers
+    # Keep trainers this script does not own. A town with one themed trainer of its own
+    # (Onyxhollow's forgemaster, written by its sync script) is not in TOWNS, and replacing the
+    # whole table used to drop him on the next run.
+    kept = {k: v for k, v in cur.get("profession_trainers", {}).items() if not k.startswith("pt_")}
+    kept.update(prof_trainers)
+    cur["profession_trainers"] = kept
     tpath.write_text(json.dumps(cur, indent=2) + "\n")
     print("wrote", len(new_npcs), "profession trainers,", len(sawmills), "sawmills")
 

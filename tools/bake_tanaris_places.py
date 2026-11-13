@@ -26,12 +26,13 @@ from tools import handbuilt_steamwheedle_port as STW
 from tools import handbuilt_drownbell as DB
 from tools import handbuilt_dry_deep as DD
 from tools import handbuilt_black_strand as BS
+from tools import handbuilt_onyxhollow as OH
 from tools.bake_durotar_caves import M, dim
 
 #: bake_spec() resolves its build function off BD.C, which is bound to the Durotar caves module.
 #: Each zone here lives in its own module, so C is swapped per bake - the same thing
 #: tools/bake_return_voyage.py does for the seven ship zones.
-MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD, "black_strand": BS}
+MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD, "black_strand": BS, "onyxhollow": OH}
 
 SF = "shimmering_flats/materials/"
 
@@ -176,6 +177,39 @@ SPECS["black_strand"] = lambda: dict(
     cfg=dict(ao=0.46, depth=0.80, lip=20, lip_col=(0.62, 0.78, 1.0), deep_dark=0.45,
              foam_col=(120, 220, 215),
              glows=[("d_glow", (20, 120, 118), 3.4, 0.85), ("d_resin", (150, 84, 14), 3.0, 0.80)]),
+)
+
+
+def _rect_dots(x0, y0, x1, y1, r):
+    """A street rect as overlapping ellipses along its long axis."""
+    if (x1 - x0) >= (y1 - y0):
+        return _dots([(x0, (y0 + y1) / 2), (x1, (y0 + y1) / 2)], r=r)
+    return _dots([((x0 + x1) / 2, y0), ((x0 + x1) / 2, y1)], r=r)
+
+
+# ONYXHOLLOW. A town cut into rock, lit by its own forges. Three grounds and no more: the swept
+# stone of the two streets, the trodden grit everywhere else, and slag where the fires are. The
+# only light is the forge glow, which is warm, and it falls where the work is.
+SPECS["onyxhollow"] = lambda: dict(
+    build="build_onyxhollow_baked", seed=5054, slug="onyxhollow",
+    materials={
+        "yard":    M(dim(TM + "tmp_basalt", 0.62), None, 1.5),
+        "street":  M(dim(TM + "kv_flagstone", 1.35), None, 1.0),
+        "ember":   M(dim(TM + "tmp_ironslag", 0.70), None, 1.5),
+        "wall":    M(dim(UD + "ud_rock_wall", 0.80), None, 2.0),
+    },
+    floor_keys=["yard", "street", "ember"],
+    wall_keys=["wall"],
+    floors={
+        "street": _rect_dots(*OH.ANVIL_ROAD, r=3.6) + _rect_dots(*OH.FORGE_ROW, r=2.8)
+                  + [(50, 30, 12, 6), (50, 77, 5, 5)],
+        "ember":  [(77, 69, 7, 3.5), (22, 69, 6, 3), (86, 46, 4, 3), (32, 60, 3, 2.5)],
+    },
+    walls={},
+    pools=[],
+    glow_floors=("ember",),
+    cfg=dict(ao=0.44, depth=0.70, lip=18, lip_col=(1.0, 0.70, 0.45), deep_dark=0.40,
+             foam_col=(170, 210, 215), glows=[("d_ember", (170, 70, 16), 3.2, 0.80)]),
 )
 
 

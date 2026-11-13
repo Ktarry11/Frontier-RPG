@@ -286,6 +286,7 @@ ZONE_BACKGROUND.update({
     # in its own light: the fungi, the hive, and bare cave everywhere else.
     "The Dry Deep": "dark_dungeon",
     "The Black Strand": "dark_dungeon",
+    "Onyxhollow": "dark_dungeon",
     "The Lantern Wood": "fungal",
     "The Last Water": "fungal",
     "The Chitin Reach": "hive",

@@ -32,7 +32,7 @@ cave tools, but it is somewhere you quest across, not a hole with a boss at the 
 
 HARD CONTRACT (world/portal_manager.py):
     (20, 11)  <-> The Dry Deep (97, 40)   - up the last descent
-    (84, 52)  <-> Onyxhollow              - the town gate. NOT YET A DOOR: see PORTALS.
+    (84, 52)  <-> Onyxhollow              - the town gate, between the two watchtowers
 """
 import numpy as np
 
@@ -58,9 +58,7 @@ UP = (20, 11)                 # to the Dry Deep
 START = (20, 14)
 TOWN_GATE = (84, 52)          # to Onyxhollow
 TOWN_ARRIVAL = (84, 55)
-#: The town gate becomes a door when Onyxhollow's map exists; until then it is NOT a portal tile,
-#: because a portal that leads nowhere is a bug (tools/qa_portals.py) and not a placeholder.
-PORTALS = {UP: "The Dry Deep"}
+PORTALS = {UP: "The Dry Deep", TOWN_GATE: "Onyxhollow"}
 ARRIVALS = [START, TOWN_ARRIVAL]
 
 #: (name, cx, cy, rx, ry). West is the way in; fungi south-west, hive south-east, the dwarves'

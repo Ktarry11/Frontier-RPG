@@ -45,6 +45,7 @@ ZONES = {
     "galleon_hold": "tools.handbuilt_bloodsail_galleon",
     "cabin": "tools.handbuilt_bloodsail_galleon",
     "black_strand": "tools.handbuilt_black_strand",
+    "onyxhollow": "tools.handbuilt_onyxhollow",
     "dry_deep": "tools.handbuilt_dry_deep",
 }
 
@@ -53,6 +54,7 @@ ZONES = {
 BUILDERS = {
     "weeping_ice": "build_weeping_ice_baked",
     "black_strand": "build_black_strand_baked",
+    "onyxhollow": "build_onyxhollow_baked",
     "dry_deep": "build_dry_deep_baked",
     "freewind": "build_freewind_baked",
     "drowning_floor": "build_drowning_floor_baked",
